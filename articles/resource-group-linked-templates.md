@@ -1,29 +1,27 @@
-<properties
-   pageTitle="Plantillas vinculadas con Azure Resource Manager | Microsoft Azure"
-   description="Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor="tysonn"/>
+---
+title: Plantillas vinculadas con Azure Resource Manager | Microsoft Docs
+description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: tysonn
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/02/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/02/2016
+ms.author: tomfitz
 
+---
 # Uso de plantillas vinculadas con el Administrador de recursos de Azure
-
 Desde dentro de una plantilla de Azure Resource Manager, puede realizar la vinculación con otra plantilla que le permita descomponer la implementación en un conjunto de plantillas con fines específicos y dirigidas. Como ocurre con la descomposición de una aplicación en varias clases de código, la descomposición proporciona ventajas en cuanto a las pruebas, la reutilización y la legibilidad.
 
 Puede pasar parámetros de una plantilla principal a una plantilla vinculada de nuevo, y esos parámetros pueden asignarse directamente a parámetros o variables expuestas por la plantilla de llamada. La plantilla vinculada también puede pasar una variable de salida de nuevo a la plantilla de origen, lo que permite un intercambio de datos bidireccional entre las plantillas.
 
 ## Vinculación con una plantilla
-
 Cree un vínculo entre dos plantillas mediante la adición de un recurso de implementación dentro de la plantilla principal que apunta a la plantilla vinculada. Para ello, debe establecer la propiedad **templateLink** en el URI de la plantilla vinculada. Puede proporcionar valores de parámetro para la plantilla vinculada especificando los valores directamente en la plantilla o mediante la vinculación a un archivo de parámetros. El siguiente ejemplo usa la propiedad **parameters** para especificar un valor de parámetro directamente.
 
     "resources": [ 
@@ -76,7 +74,6 @@ En el ejemplo siguiente se muestra una plantilla principal que se vincula a otra
 Aunque el token se pasa como una cadena segura, el URI de la plantilla vinculada, incluido el token de SAS, se registra en las operaciones de implementación para ese grupo de recursos. Para limitar la exposición, establezca una caducidad para el token.
 
 ## Vinculación con un archivo de parámetros
-
 El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un archivo de parámetros.
 
     "resources": [ 
@@ -101,7 +98,6 @@ El siguiente ejemplo utiliza la propiedad **parametersLink** para vincular a un 
 El valor del URI para el archivo del parámetro vinculado no puede ser un archivo local y debe incluir **http** o **https**. También se puede limitar el acceso al archivo de parámetros a través de un token de SAS.
 
 ## Uso de variables para vincular plantillas
-
 Los ejemplos anteriores mostraron valores de dirección URL codificadas de forma rígida para los vínculos de la plantilla. Este enfoque puede funcionar en una plantilla sencilla pero no funciona bien cuando se trabaja con un gran conjunto de plantillas modulares. En su lugar, puede crear una variable estática que almacene una dirección URL base para la plantilla principal y, luego, crear dinámicamente direcciones URL para las plantillas vinculadas desde esa dirección URL base. La ventaja de este enfoque es que puede mover fácilmente o bifurcar la plantilla porque solo tendrá que cambiar la variable estática en la plantilla principal. La plantilla principal pasa los URI correctos por toda la plantilla descompuesta.
 
 En el ejemplo siguiente se muestra cómo usar una dirección URL base para crear dos direcciones URL para las plantillas vinculadas (**sharedTemplateUrl** y **vmTemplate**).
@@ -132,7 +128,6 @@ También puede usar la función [deployment()](resource-group-template-functions
     }
 
 ## Vinculación condicional a plantillas
-
 Puede vincular diferentes plantillas pasando un valor de parámetro que se utiliza para construir el URI de la plantilla vinculada. Este enfoque funciona bien cuando tiene que especificar durante la implementación qué plantilla vinculada desea usar. Por ejemplo, puede especificar una plantilla para una cuenta de almacenamiento existente y otra plantilla para una cuenta de almacenamiento nueva.
 
 En el ejemplo siguiente se muestra un parámetro para un nombre de cuenta de almacenamiento y otro parámetro que especifica si la cuenta de almacenamiento ya existe o es nueva.
@@ -233,7 +228,6 @@ En el ejemplo siguiente se muestra la plantilla **newStorageAccount.json**. Obse
     }
 
 ## Ejemplo completo
-
 Las plantillas de ejemplo siguientes muestran una organización simplificada de plantillas vinculadas para ilustrar algunos de los conceptos de este artículo. Se supone que las plantillas se agregaron en el mismo contenedor en una cuenta de almacenamiento con el acceso público desactivado. La plantilla vinculada pasa un valor de vuelta a la plantilla principal en la sección **salidas**.
 
 El archivo **parent.json** consta de lo siguiente:
@@ -269,19 +263,19 @@ El archivo **parent.json** consta de lo siguiente:
 El archivo **helloworld.json** consta de lo siguiente:
 
     {
-	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {},
-	  "variables": {},
-	  "resources": [],
-	  "outputs": {
-		"result": {
-			"value": "Hello World",
-			"type" : "string"
-		}
-	  }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {},
+      "variables": {},
+      "resources": [],
+      "outputs": {
+        "result": {
+            "value": "Hello World",
+            "type" : "string"
+        }
+      }
     }
-    
+
 En PowerShell, se obtiene un token para el contenedor y se implementan las plantillas con lo siguiente:
 
     Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -297,7 +291,7 @@ En la CLI de Azure, se obtiene un token para el contenedor y se implementan las 
 Se le pide que proporcione el token de SAS como parámetro. Tiene que anteponer **?** al token.
 
 ## Pasos siguientes
-- Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
-- Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
+* Para obtener información sobre cómo definir el orden de implementación de los recursos, consulte [Definición de dependencias en plantillas de Azure Resource Manager](resource-group-define-dependencies.md)
+* Para obtener información sobre cómo definir un recurso y crear numerosas instancias de este, consulte [Creación de varias instancias de recursos en Azure Resource Manager](resource-group-create-multiple.md)
 
 <!---HONumber=AcomDC_0907_2016-->

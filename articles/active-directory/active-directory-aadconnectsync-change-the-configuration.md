@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada | Microsoft Azure"
-	description="Tutorial cómo realizar un cambio en la configuración de la sincronización de Azure AD Connect."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada | Microsoft Docs'
+description: Tutorial cómo realizar un cambio en la configuración de la sincronización de Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/31/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: andkjell
 
-
+---
 # Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada
 El objetivo de este tema es guiarle para realizar cambios en la configuración predeterminada en la sincronización de Azure AD Connect. Proporciona las instrucciones para algunos escenarios comunes. Con este conocimiento, podrá realizar algunos cambios sencillos en su propia configuración en función de sus propias reglas de negocio.
 
@@ -43,16 +42,15 @@ De forma predeterminada, el [programador](active-directory-aadconnectsync-featur
 ![Deshabilitación del programador](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)
 
 ### Creación de la regla
-
 1. Haga clic en **Agregar nueva regla**.
 2. En la página **Descripción**, escriba lo siguiente: ![Regla de filtrado de entrada](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)
-	- Name (Nombre): asigne un nombre descriptivo a la regla.
-	- Description (Descripción): alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
-	- Connected system (Sistema conectado): el sistema donde se puede encontrar el objeto. En este caso, se selecciona Conector Active Directory.
-	- Connected System/Metaverse Object Type (Sistema conectado/Tipo de objeto de metaverso): seleccione **User** y **Person**, respectivamente.
-	- Link Type (Tipo de vínculo): cambie este valor a **Join**.
-	- Precedence (Prioridad): proporcione un valor que sea único en el sistema. Un valor numérico inferior indica una mayor prioridad.
-	- Tag (Etiqueta): deje este campo en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
+   * Name (Nombre): asigne un nombre descriptivo a la regla.
+   * Description (Descripción): alguna aclaración para que cualquier otro usuario entienda para qué sirve la regla.
+   * Connected system (Sistema conectado): el sistema donde se puede encontrar el objeto. En este caso, se selecciona Conector Active Directory.
+   * Connected System/Metaverse Object Type (Sistema conectado/Tipo de objeto de metaverso): seleccione **User** y **Person**, respectivamente.
+   * Link Type (Tipo de vínculo): cambie este valor a **Join**.
+   * Precedence (Prioridad): proporcione un valor que sea único en el sistema. Un valor numérico inferior indica una mayor prioridad.
+   * Tag (Etiqueta): deje este campo en blanco. Solo las reglas de serie de Microsoft tienen esta casilla rellena con un valor.
 3. En la página **Scoping filter** (Filtro de ámbito), escriba **givenName ISNOTNULL**. ![Filtro del ámbito de la regla entrada](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png) Esta sección se utiliza para definir los objetos a los que debería aplicarse la regla. Si se deja vacía, la regla se aplica a todos los objetos de usuario. Pero también incluiría a salas de conferencias, cuentas de servicio y otros objetos de usuario que no son personas.
 4. En el campo **Join rules** (Reglas de unión), déjelo vacío.
 5. En la página **Transformations** (Transformations), cambie FlowType por **Expression**. Seleccione el atributo de destino **givenName** y, en el origen, escriba `PCase([givenName])`. ![Transformaciones de la regla de entrada](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png) El motor de sincronización distingue mayúsculas de minúsculas tanto en el nombre de función como en el nombre del atributo. Si escribe algo incorrecto, verá una advertencia al agregar la regla. El editor permite guardar y continuar, por lo que deberá volver a abrir la regla y corregir la regla.
@@ -69,10 +67,10 @@ Con este nuevo cambio, quiere asegurarse de que funciona según lo previsto y no
 Inicie el **Servicio de sincronización** desde el menú Inicio. Los pasos de esta sección se encuentran en esta herramienta.
 
 1. **Sincronización completa en todos los objetos** Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Ejecutar** en Acciones y seleccione **Sincronización completa** y **Aceptar**. ![Sincronización completa](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png) Los objetos se actualizan ahora en el metaverso. Ahora desea ver el objeto en el metaverso.
-
 2. **Vista previa y sincronización completa en un solo objeto** Seleccione **Conectores** en la parte superior. Identifique el conector en el que ha realizado un cambio en la sección anterior, en este caso Servicios de dominio de Active Directory, y selecciónelo. Seleccione **Search Connector Space** (Buscar espacio de conector). Use el ámbito para encontrar un objeto que se vaya a utilizar para probar el cambio. Seleccione el objeto y haga clic en **Vista previa**. En la nueva pantalla, seleccione **Vista previa de confirmación**. ![Vista previa de confirmación](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png) Ahora, el cambio se confirma en el metaverso.
 
 **Visualización del objeto en el metaverso** Ahora quiere seleccionar algunos objetos de ejemplo para asegurarse de que el valor es el previsto y que se aplica la regla. Seleccione **Metaverse Search** (Búsqueda de metaverso) en la parte superior. Agregue cualquier filtro que necesite para buscar los objetos pertinentes. En los resultados de la búsqueda, abra un objeto. Consulte los valores de atributo y compruebe también que en la columna **Sync Rules** (Reglas de sincronización) se aplica la regla de la forma prevista. ![Búsqueda de metaverso](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)
+
 ### Habilitación del programador
 Si todo es como se esperaba, vuelva a habilitar el programador. En PowerShell, ejecute `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
@@ -86,14 +84,14 @@ Con una configuración predeterminada, un objeto del bosque local tiene el sigui
 
 Para crear una regla con otros flujos de atributo, haga lo siguiente:
 
-- Inicie el **Editor de reglas de sincronización** en el menú Inicio.
-- Con **Entrante** aún seleccionado a la izquierda, haga clic en el botón **Agregar nueva regla**.
-- Asigne a la regla un nombre y una descripción. Seleccione Active Directory local y los tipos de objeto correspondientes. En **Tipo de vínculo**, seleccione **Unir**. Para establecer la precedencia, seleccione un número que no se use en otra regla. Las reglas listas para usar comienzan con 100, así que en este ejemplo se puede usar el valor 50. ![Flujo de atributos 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
-- Deje el ámbito vacío (es decir, se debe aplicar a todos los objetos de usuario del bosque).
-- Deje las reglas de unión vacías (es decir, permita que la regla lista para usar controle las uniones).
-- En Transformaciones, cree los siguientes flujos. ![Flujo de atributos 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
-- Haga clic en **Agregar** para guardar la regla.
-- Vaya a **Synchronization Service Manager**. En **Conectores**, seleccione el conector donde agregamos la regla. Seleccione **Ejecutar** y **Sincronización completa**. Una sincronización completa vuelve a calcular todos los objetos con las reglas actuales.
+* Inicie el **Editor de reglas de sincronización** en el menú Inicio.
+* Con **Entrante** aún seleccionado a la izquierda, haga clic en el botón **Agregar nueva regla**.
+* Asigne a la regla un nombre y una descripción. Seleccione Active Directory local y los tipos de objeto correspondientes. En **Tipo de vínculo**, seleccione **Unir**. Para establecer la precedencia, seleccione un número que no se use en otra regla. Las reglas listas para usar comienzan con 100, así que en este ejemplo se puede usar el valor 50. ![Flujo de atributos 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
+* Deje el ámbito vacío (es decir, se debe aplicar a todos los objetos de usuario del bosque).
+* Deje las reglas de unión vacías (es decir, permita que la regla lista para usar controle las uniones).
+* En Transformaciones, cree los siguientes flujos. ![Flujo de atributos 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
+* Haga clic en **Agregar** para guardar la regla.
+* Vaya a **Synchronization Service Manager**. En **Conectores**, seleccione el conector donde agregamos la regla. Seleccione **Ejecutar** y **Sincronización completa**. Una sincronización completa vuelve a calcular todos los objetos con las reglas actuales.
 
 Este es el resultado para el mismo objeto con esta regla personalizada: ![Flujo de atributos 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
@@ -119,19 +117,18 @@ Si quiere quitar el valor de un atributo y asegurarse de no pasarlo en el futuro
 
 En Fabrikam no hemos dado cuenta de que algunos de los atributos sincronizamos con la nube no deberían estar allí. Queremos asegurarse de que estos atributos se quitan de Azure AD. ![Atributos de extensión incorrecta](./media/active-directory-aadconnectsync-change-the-configuration/badextensionattribute.png)
 
-- Cree una nueva regla de sincronización de entrada y rellene la descripción ![Descripciones](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
-- Cree flujos de atributos de tipo **Expression** y con el origen **AuthoritativeNull**. El literal **AuthoritativeNull** indica que el valor debe estar vacío en la máquina virtual incluso si una regla de sincronización de prioridad inferior intenta rellenar el valor. ![Transformación de atributos de extensión](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
-- Guarde la regla de sincronización. Inicie el **Servicio de sincronización**, busque el conector y seleccione **Ejecutar** y **Sincronización completa**. Este paso vuelve a calcular todos los flujos de atributo.
-- Compruebe que los cambios deseados están a punto de exportarse; para ello, busque en el espacio de conector. ![Eliminación por fases](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
+* Cree una nueva regla de sincronización de entrada y rellene la descripción ![Descripciones](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
+* Cree flujos de atributos de tipo **Expression** y con el origen **AuthoritativeNull**. El literal **AuthoritativeNull** indica que el valor debe estar vacío en la máquina virtual incluso si una regla de sincronización de prioridad inferior intenta rellenar el valor. ![Transformación de atributos de extensión](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
+* Guarde la regla de sincronización. Inicie el **Servicio de sincronización**, busque el conector y seleccione **Ejecutar** y **Sincronización completa**. Este paso vuelve a calcular todos los flujos de atributo.
+* Compruebe que los cambios deseados están a punto de exportarse; para ello, busque en el espacio de conector. ![Eliminación por fases](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
 ## Pasos siguientes
-
-- Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
 **Temas de introducción**
 
-- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0914_2016-->

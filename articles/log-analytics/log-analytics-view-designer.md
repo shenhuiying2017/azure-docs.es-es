@@ -1,39 +1,37 @@
-<properties
-    pageTitle="Diseñador de vistas de Log Analytics | Microsoft Azure"
-    description="El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Diseñador de vistas de Log Analytics | Microsoft Docs
+description: El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: bwren
 
-
+---
 # <a name="log-analytics-view-designer"></a>Diseñador de vistas de Log Analytics
 El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
 
 Estos son otros de los artículos disponibles sobre el Diseñador de vistas:
 
-- [Referencia de los iconos](log-analytics-view-designer-tiles.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
-- [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
-
+* [Referencia de los iconos](log-analytics-view-designer-tiles.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
+* [Referencia de los elementos de visualización](log-analytics-view-designer-parts.md): referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas. 
 
 ## <a name="concepts"></a>Conceptos
 Las vistas creadas con el Diseñador de vistas contienen los elementos de la siguiente tabla.
 
 | Elemento | Descripción |
-|:--|:--|
-| Icono | Se muestra en el panel principal de información general de Log Analytics.  Incluye un resumen visual de los datos que contiene la vista personalizada.  Los distintos tipos de iconos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en el icono para abrir la vista personalizada. |
-| Vista personalizada | Se muestra cuando el usuario hace clic en el icono.  Contiene uno o varios elementos de visualización. |
-| Elementos de visualización | La visualización de los datos del repositorio de OMS se basa en una o varias [búsquedas de registros](log-analytics-log-searches.md).  Muchos de los elementos incluirán un encabezado que proporciona una visualización general y una lista de los principales resultados.  Los distintos tipos de elementos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en los elementos para realizar una búsqueda de registro que proporcione registros detallados. |
+|:--- |:--- |
+| Icono |Se muestra en el panel principal de información general de Log Analytics.  Incluye un resumen visual de los datos que contiene la vista personalizada.  Los distintos tipos de iconos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en el icono para abrir la vista personalizada. |
+| Vista personalizada |Se muestra cuando el usuario hace clic en el icono.  Contiene uno o varios elementos de visualización. |
+| Elementos de visualización |La visualización de los datos del repositorio de OMS se basa en una o varias [búsquedas de registros](log-analytics-log-searches.md).  Muchos de los elementos incluirán un encabezado que proporciona una visualización general y una lista de los principales resultados.  Los distintos tipos de elementos proporcionan diferentes visualizaciones de los registros del repositorio de OMS.  Haga clic en los elementos para realizar una búsqueda de registro que proporcione registros detallados. |
 
 ![Información general del Diseñador de vistas](media/log-analytics-view-designer/overview.png)
 
@@ -43,7 +41,6 @@ Mientras la versión del Diseñador de vistas siga siendo la preliminar, debe ag
 ![Habilitación de la versión preliminar](media/log-analytics-view-designer/preview.png)
 
 ## <a name="creating-and-editing-views"></a>Creación y edición de vistas
-
 ### <a name="create-a-new-view"></a>Creación de vistas
 Abra una nueva vista en el **Diseñador de vistas** haciendo clic en el icono del Diseñador de vistas del panel principal de OMS.
 
@@ -91,13 +88,9 @@ Puede quitar un elemento de visualización de la vista haciendo clic en el botó
 ### <a name="rearrange-visualization-parts"></a>Reorganización de elementos de visualización
 Las vistas solo tienen una fila de elementos de visualización.  Los elementos de una vista pueden reorganizarse haciendo clic en ellos y arrastrándolos a una nueva ubicación.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
-- Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
-
-
+* Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
+* Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
 
 <!--HONumber=Oct16_HO2-->
 

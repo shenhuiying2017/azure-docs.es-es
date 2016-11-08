@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Personalización de la definición de Swagger para PowerApps y flujos de lógica| Microsoft Azure"
-	description="Consulte las extensiones de esquema que Swagger requiere para trabajar con PowerApps y flujos de lógica"
-	services=""
-    suite="powerapps"
-	documentationCenter="" 
-	authors="sunaysv"
-	manager="erikre"
-	editor=""/>
+---
+title: Personalización de la definición de Swagger para PowerApps y flujos de lógica| Microsoft Docs
+description: Consulte las extensiones de esquema que Swagger requiere para trabajar con PowerApps y flujos de lógica
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: sunaysv
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na" 
-   ms.date="07/12/2016"
-   ms.author="mandia"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/12/2016
+ms.author: mandia
 
-
+---
 # Personalización de la definición de Swagger para PowerApps y flujos de lógica
-
->[AZURE.IMPORTANT] Este tema se ha movido a powerapps.microsoft.com en [Customize your Swagger definition for PowerApps and Flows](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) (Personalización de la definición de Swagger para PowerApps y flujos). Vaya a PowerApps para ver la versión más reciente. Este vínculo de Azure está en proceso de archivo.
-
+> [!IMPORTANT]
+> Este tema se ha movido a powerapps.microsoft.com en [Customize your Swagger definition for PowerApps and Flows](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/) (Personalización de la definición de Swagger para PowerApps y flujos). Vaya a PowerApps para ver la versión más reciente. Este vínculo de Azure está en proceso de archivo.
+> 
+> 
 
 ## Definición de la API de Swagger 2.0 de autor para la API
-
 Para más información sobre cómo agregar Swagger a WebAPI, consulte [Swashbuckle][1].
 
 ## Extensiones de esquema
@@ -36,31 +35,29 @@ Cadena que describe los nombres para mostrar de las entidades que no tienen un c
 ##### x-ms-visibility
 Este valor describe si la entidad se muestra en el diseñador de flujo de lógica. Están disponibles los siguientes valores:
 
-- "none" (valor predeterminado)
-- "advanced"
-- "internal": el diseñador de flujo de lógica no muestra estas operaciones
+* "none" (valor predeterminado)
+* "advanced"
+* "internal": el diseñador de flujo de lógica no muestra estas operaciones
 
 Si una operación está marcada como "importante", se espera que el cliente de flujo de lógica resalte estas operaciones.
 
 ##### x-ms-trigger
 Define si esta operación se puede usar como un desencadenador en el flujo de lógica. Las opciones incluyen:
-	
-- ninguno (predeterminado): la operación no se puede usar como desencadenador.
-- single: esta operación también puede usarse como un desencadenador.
-- por lotes: esta operación puede usarse como un desencadenador. Además, esta operación responde con una "matriz" de objetos JSON y el flujo de lógica activa un desencadenador para cada elemento de la matriz.
 
+* ninguno (predeterminado): la operación no se puede usar como desencadenador.
+* single: esta operación también puede usarse como un desencadenador.
+* por lotes: esta operación puede usarse como un desencadenador. Además, esta operación responde con una "matriz" de objetos JSON y el flujo de lógica activa un desencadenador para cada elemento de la matriz.
 
 ##### x-ms-dynamic-values
 Esta es un indicio para el diseñador del flujo de lógica de que la API proporciona una lista de valores permitidos de forma dinámica para este parámetro. El diseñador del flujo de lógica puede invocar una operación definida por el valor de este campo y extraer los valores posibles del resultado. El diseñador del flujo de lógica puede mostrar estos valores como opciones al usuario final.
 
 El valor es un objeto que contiene las siguientes propiedades:
-	
-- `operationId`: cadena que coincide con el valor operationId de la operación que se invoca.
-- `parameters`: objeto cuyas propiedades definen los parámetros necesarios para la operación.
-- `value-collection`: cadena de ruta de acceso que se evalúa en una matriz de objetos en la carga útil de respuesta.
-- `value-path`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia al valor del parámetro.
-- `value-title`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia a una descripción del valor.
 
+* `operationId`: cadena que coincide con el valor operationId de la operación que se invoca.
+* `parameters`: objeto cuyas propiedades definen los parámetros necesarios para la operación.
+* `value-collection`: cadena de ruta de acceso que se evalúa en una matriz de objetos en la carga útil de respuesta.
+* `value-path`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia al valor del parámetro.
+* `value-title`: cadena de ruta de acceso en el objeto dentro de "value-collection" que hace referencia a una descripción del valor.
 
 Ejemplo:
 
@@ -113,7 +110,6 @@ Ejemplo:
 ```
 
 Esto es útil en escenarios en los que las entradas para una operación son dinámicas. Por ejemplo, considere el caso de SQL. El esquema de cada tabla es diferente. Por tanto, cuando un usuario selecciona una tabla determinada, el diseñador de flujo de lógica debe comprender la estructura de la tabla para que pueda mostrar los nombres de las columnas. En este contexto, si la definición de Swagger tiene `x-ms-dynamic-schema`, llama a la operación correspondiente para capturar el esquema.
-
 
 <!--Reference links in article-->
 [1]: https://github.com/domaindrivendev/Swashbuckle/blob/master/README.md

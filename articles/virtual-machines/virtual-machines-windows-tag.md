@@ -1,32 +1,29 @@
-<properties
-   pageTitle="Cómo etiquetar una máquina virtual | Microsoft Azure"
-   description="Infórmese acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación de Resource Manager."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="mmccrory"
-   manager="timlt"
-   editor="tysonn"
-   tags="azure-resource-manager"/>
+---
+title: Cómo etiquetar una máquina virtual | Microsoft Docs
+description: Infórmese acerca del etiquetado de una máquina virtual Azure creada con el modelo de implementación de Resource Manager.
+services: virtual-machines-windows
+documentationcenter: ''
+author: mmccrory
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="07/05/2016"
-   ms.author="memccror"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 07/05/2016
+ms.author: memccror
 
+---
 # Etiquetado de una máquina virtual en Azure
-
-
 En este artículo se describen diferentes maneras de etiquetar una máquina virtual Windows en Azure por medio del modelo de implementación de Resource Manager. Las etiquetas son pares clave-valor definidos por el usuario que se pueden colocar directamente en un recurso o un grupo de recursos. Actualmente, Azure admite un máximo de 15 etiquetas por recurso y grupo de recursos. Las etiquetas se pueden colocar en un recurso en el momento de su creación, o bien se pueden agregar a un recurso existente. Tenga en cuenta que las etiquetas solo son compatibles con los recursos creados mediante el modelo de implementación de Resource Manager. Si desea etiquetar una máquina virtual Linux, consulte [How to tag a Linux virtual machine in Azure](virtual-machines-linux-tag.md) (Etiquetado de una máquina virtual Linux en Azure).
 
-[AZURE.INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
+[!INCLUDE [virtual-machines-common-tag](../../includes/virtual-machines-common-tag.md)]
 
 ## Etiquetado con PowerShell
-
-Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Administrador de recursos de Azure][]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
+Para crear, agregar y eliminar etiquetas a través de PowerShell, primero es preciso configurar el [entorno de PowerShell con Administrador de recursos de Azure][entorno de PowerShell con Administrador de recursos de Azure]. Una vez completada la configuración, puede colocar etiquetas en los recursos de proceso, red y almacenamiento tanto al crear el recurso a través de PowerShell como después de haberlo creado. En este artículo se centrará en la visualización y edición de etiquetas en máquinas virtuales.
 
 En primer lugar, navegue a una máquina virtual a través del cmdlet `Get-AzureRmVM`.
 
@@ -51,16 +48,16 @@ El segundo comando muestra las etiquetas de la variable especificada.
 
         PS C:\> $tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
+        Value        MyDepartment
+        Name        Department
+        Value        MyApp1
+        Name        Application
+        Value        MyName
+        Name        Created By
+        Value        Production
+        Name        Environment
 
 El tercer comando agrega una etiqueta adicional a la variable *tags*. Observe el uso de **+=** para anexar el nuevo par de clave-valor a la lista de *tags*.
 
@@ -74,27 +71,26 @@ El quinto comando muestra todas las etiquetas en el recurso. Como puede ver, *Lo
 
         PS C:\> (Get-AzureRmResource -ResourceGroupName MyResourceGroup -Name MyTestVM).Tags
 
-        Name		Value
+        Name        Value
         ----                           -----
-        Value		MyDepartment
-        Name		Department
-        Value		MyApp1
-        Name		Application
-        Value		MyName
-        Name		Created By
-        Value		Production
-        Name		Environment
-        Value		MyLocation
-        Name		Location
+        Value        MyDepartment
+        Name        Department
+        Value        MyApp1
+        Name        Application
+        Value        MyName
+        Name        Created By
+        Value        Production
+        Name        Environment
+        Value        MyLocation
+        Name        Location
 
-Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][].
+Para más información sobre el etiquetado a través de PowerShell, consulte los [cmdlets de recursos de Azure][cmdlets de recursos de Azure].
 
-[AZURE.INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
+[!INCLUDE [virtual-machines-common-tag-usage](../../includes/virtual-machines-common-tag-usage.md)]
 
 ## Pasos siguientes
-
-* Para obtener más información sobre el etiquetado de los recursos de Azure, consulte [Información general de Azure Resource Manager][] y [Uso de etiquetas para organizar los recursos de Azure][].
-* Para ver cómo las etiquetas pueden ayudarle a administrar el uso de recursos de Azure, consulte [Comprender la factura de Microsoft Azure][] y [Obtención de información sobre el consumo de recursos de Microsoft Azure][].
+* Para obtener más información sobre el etiquetado de los recursos de Azure, consulte [Información general de Azure Resource Manager][Información general de Azure Resource Manager] y [Uso de etiquetas para organizar los recursos de Azure][Uso de etiquetas para organizar los recursos de Azure].
+* Para ver cómo las etiquetas pueden ayudarle a administrar el uso de recursos de Azure, consulte [Comprender la factura de Microsoft Azure][Comprender la factura de Microsoft Azure] y [Obtención de información sobre el consumo de recursos de Microsoft Azure][Obtención de información sobre el consumo de recursos de Microsoft Azure].
 
 [entorno de PowerShell con Administrador de recursos de Azure]: ../powershell-azure-resource-manager.md
 [cmdlets de recursos de Azure]: https://msdn.microsoft.com/library/azure/dn757692.aspx

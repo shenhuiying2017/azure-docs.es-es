@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Procedimientos almacenados en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para implementar procedimientos almacenados en el Almacenamiento de datos SQL Azure para el desarrollo de soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Procedimientos almacenados en el Almacenamiento de datos SQL | Microsoft Docs
+description: Sugerencias para implementar procedimientos almacenados en el Almacenamiento de datos SQL Azure para el desarrollo de soluciones.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/30/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/30/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Procedimientos almacenados en el Almacenamiento de datos SQL
-
 El Almacenamiento de datos SQL admite muchas de las características de Transact-SQL que se encuentran en SQL Server. Más importante aún, hay características específicas de escalado horizontal que deseamos utilizar para maximizar el rendimiento de la solución.
 
 Sin embargo, para mantener la escala y el rendimiento del Almacenamiento de datos SQL también hay algunas características y funcionalidades que tienen diferencias de comportamiento y otras que no son compatibles.
@@ -42,6 +41,7 @@ La llamada al procedimiento almacenado de nivel superior es igual al nivel de an
 EXEC prc_nesting
 ```
 Si el procedimiento almacenado también realiza otra llamada EXEC, aumentará el nivel de anidación a 2.
+
 ```sql
 CREATE PROCEDURE prc_nesting
 AS
@@ -50,6 +50,7 @@ GO
 EXEC prc_nesting
 ```
 Si el segundo procedimiento ejecuta luego SQL dinámico, aumentará el nivel de anidación a 3.
+
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
@@ -66,25 +67,24 @@ El Almacenamiento de datos SQL no permite utilizar el conjunto de resultados de 
 Consulte el siguiente artículo sobre las [tablas temporales] para obtener un ejemplo sobre cómo hacerlo.
 
 ## Limitaciones
-
 Existen algunos aspectos de los procedimientos almacenados de Transact-SQL que no se implementan en el Almacenamiento de datos SQL.
 
 Son las siguientes:
 
-- Procedimientos almacenados temporales
-- Procedimientos almacenados numerados
-- Procedimientos almacenados extendidos
-- Procedimientos almacenados CLR
-- Opción de cifrado
-- Opción de replicación
-- Parámetros con valores de tabla
-- Parámetros de solo lectura
-- Parámetros predeterminados
-- Contextos de ejecución
-- Instrucción de devolución
+* Procedimientos almacenados temporales
+* Procedimientos almacenados numerados
+* Procedimientos almacenados extendidos
+* Procedimientos almacenados CLR
+* Opción de cifrado
+* Opción de replicación
+* Parámetros con valores de tabla
+* Parámetros de solo lectura
+* Parámetros predeterminados
+* Contextos de ejecución
+* Instrucción de devolución
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
 
 <!--Image references-->
 

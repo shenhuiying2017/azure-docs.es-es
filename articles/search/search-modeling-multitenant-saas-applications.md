@@ -1,81 +1,78 @@
-<properties
-	pageTitle="Modelado de indexadores en Azure Search | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-	description="Aprenda sobre patrones de diseño comunes para aplicaciones SaaS multiinquilino mientras usa Azure Search."
-	services="search"
-	authors="ashmaka"
-	documentationCenter=""/>
+---
+title: Modelado de indexadores en Azure Search | Microsoft Docs
+description: Aprenda sobre patrones de diseño comunes para aplicaciones SaaS multiinquilino mientras usa Azure Search.
+services: search
+author: ashmaka
+documentationcenter: ''
 
-<tags
-	ms.service="search"
-	ms.devlang="NA"
-	ms.workload="search"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.date="09/20/2016"
-	ms.author="ashmaka"/>
+ms.service: search
+ms.devlang: NA
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 09/20/2016
+ms.author: ashmaka
 
+---
 # Modelos de diseño para aplicaciones SaaS multiinquilino y Azure Search
-
 Una aplicación multiinquilino es una que proporciona los mismos servicios y funcionalidades a cualquier número de inquilinos que no pueden ver o compartir los datos de cualquier otro inquilino. En este documento se describen estrategias de aislamiento de inquilinos para aplicaciones miltiinquilino creadas con Azure Search.
 
 ## Conceptos de Azure Search
 En cuanto una solución de búsqueda como servicio, Azure Search permite a los desarrolladores agregar completas experiencias de búsqueda a las aplicaciones sin necesidad de administrar ninguna infraestructura o de convertirse en un experto en búsquedas. Los datos se cargan en el servicio y luego se almacenan en la nube. Mediante sencillas solicitudes a la API de Azure Search, los datos se pueden modificar y buscar. Se puede encontrar información general del servicio en [este artículo](http://aka.ms/whatisazsearch). Antes de analizar los patrones de diseño, es importante comprender algunos conceptos de Azure Search.
 
 ### Servicios de búsqueda, índices, campos y documentos
-Al usar Azure Search, uno se suscribe a un _servicio de búsqueda_. A medida que se cargan datos en Azure Search, se almacenan en un _índice_ dentro del servicio de búsqueda. Puede haber varios índices dentro de un único servicio. Para usar los conceptos de bases de datos que ya conocemos, el servicio de búsqueda se puede vincular a una base de datos, mientras que los índices de un servicio se pueden vincular a tablas dentro de una base de datos.
+Al usar Azure Search, uno se suscribe a un *servicio de búsqueda*. A medida que se cargan datos en Azure Search, se almacenan en un *índice* dentro del servicio de búsqueda. Puede haber varios índices dentro de un único servicio. Para usar los conceptos de bases de datos que ya conocemos, el servicio de búsqueda se puede vincular a una base de datos, mientras que los índices de un servicio se pueden vincular a tablas dentro de una base de datos.
 
-Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de _campos_ personalizables. Los datos se agregan a un índice de Azure Search en forma de _documentos_ individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado. Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
+Cada índice dentro de un servicio de búsqueda tiene su propio esquema, que viene definido por in número de *campos* personalizables. Los datos se agregan a un índice de Azure Search en forma de *documentos* individuales. Cada documento se debe cargar en un índice determinado y debe encajar en el esquema de ese índice. Al buscar datos mediante Azure Search, las consultas de búsqueda de texto completo se emiten contra un índice determinado. Para comparar estos conceptos con los de una base de datos, se pueden vincular campos a columnas de una tabla y se pueden vincular documentos a filas.
 
 ### Escalabilidad
 Cualquier servicio de Azure Search con el [plan de tarifa](https://azure.microsoft.com/pricing/details/search/) Estándar se puede escalar en dos dimensiones: almacenamiento y disponibilidad.
-* Se pueden agregar _particiones_ para aumentar el almacenamiento de un servicio de búsqueda.
-* Se pueden agregar _réplicas_ a un servicio para aumentar el rendimiento de las solicitudes que puede administrar un servicio de búsqueda.
+
+* Se pueden agregar *particiones* para aumentar el almacenamiento de un servicio de búsqueda.
+* Se pueden agregar *réplicas* a un servicio para aumentar el rendimiento de las solicitudes que puede administrar un servicio de búsqueda.
 
 Agregar y quitar particiones y réplicas permitirá que crezca la capacidad del servicio de búsqueda con la cantidad de datos y el tráfico que demanda la aplicación. Para que un servicio de búsqueda consiga un [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/) de lectura, se requieren dos réplicas. Para que un servicio de búsqueda consiga un [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/) de lectura y escritura, se requieren tres réplicas.
-
 
 ### Límites de servicio e índice en Azure Search
 Hay algunos [planes de tarifas](https://azure.microsoft.com/pricing/details/search/) en Azure Search, y cada nivel tiene diferentes [límites y cuotas](search-limits-quotas-capacity.md). Algunos de estos límites están en el nivel de servicio, otros en el nivel de índice y otros en el nivel de partición.
 
-
-| | Básica | Standard1 | Standard2 | Standard3 | Standard3 HD |
-|----------------------------------|-----------|-------------|-------------|-------------|---------------|
-| Número máximo de réplicas por servicio | 3 | 12 | 12 | 12 | 12 |
-| Número máximo de particiones por servicio | 1 | 12 | 12 | 12 | 1 |
-| Número máximo de unidades de búsqueda (réplicas * particiones) por servicio | 3 | 36 | 36 | 36 | 12 |
-| Número máximo de documentos por servicio | 1 millón | 180 millones | 720 millones | 1,4 mil millones | 200 millones |
-| Almacenamiento máximo por servicio | 2 GB | < 300 GB | 1,2 TB | 2,4 TB | 200 GB |
-| Número máximo de documentos por partición | 1 millón | 15 millones | 60 millones | 120 millones | 200 millones |
-| Almacenamiento máximo por partición | 2 GB | 25 GB | 100 GB* | 200 GB | 200 GB |
-| Número máximo de índices por servicio | 5 | 50 | 200 | 200 | 1000 |
-
+|  | Básica | Standard1 | Standard2 | Standard3 | Standard3 HD |
+| --- | --- | --- | --- | --- | --- |
+| Número máximo de réplicas por servicio |3 |12 |12 |12 |12 |
+| Número máximo de particiones por servicio |1 |12 |12 |12 |1 |
+| Número máximo de unidades de búsqueda (réplicas * particiones) por servicio |3 |36 |36 |36 |12 |
+| Número máximo de documentos por servicio |1 millón |180 millones |720 millones |1,4 mil millones |200 millones |
+| Almacenamiento máximo por servicio |2 GB |< 300 GB |1,2 TB |2,4 TB |200 GB |
+| Número máximo de documentos por partición |1 millón |15 millones |60 millones |120 millones |200 millones |
+| Almacenamiento máximo por partición |2 GB |25 GB |100 GB* |200 GB |200 GB |
+| Número máximo de índices por servicio |5 |50 |200 |200 |1000 |
 
 #### S3 alta densidad
 En el plan de tarifa S3 de Azure Search, hay una opción para el modo de alta densidad (HD) diseñada específicamente para los escenarios de varios inquilinos. En el modo de alta densidad, el SKU S3 presenta algunos límites diferentes que la configuración de S3 estándar:
+
 * Puede haber hasta 1000 índices por servicio, en lugar de 200.
 * Puede haber hasta 200 GB de datos por servicio, en lugar de 2,4 TB.
 * Solo puede haber una 1 partición por servicio, en lugar de 12.
 
 El nivel S3 HD resulta idóneo para las aplicaciones habilitadas para SaaS que implementan el modelo de índice por inquilino que se describe a continuación.
 
-
 ## Consideraciones sobre las aplicaciones multiinquilino
 Las aplicaciones multiinquilino deben distribuir de forma eficaz los recursos entre los inquilinos y conservar al mismo tiempo cierto nivel de privacidad entre los distintos inquilinos. Existen algunas consideraciones que se deben tener en cuenta al diseñar la arquitectura para aplicaciones de este tipo:
 
-* _Aislamiento de inquilinos:_ los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
-* _Costo de los recursos de nube:_ al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
-* _Facilidad de operaciones:_ al desarrollar una arquitectura multiinquilino, es importante tener en cuenta el impacto en las operaciones y la complejidad de la aplicación. Azure Search tiene un [SLA del 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
-* _Superficie global:_ las aplicaciones multiinquilino pueden tener que atender de forma eficaz a inquilinos que se encuentran distribuidos por todo el planeta.
-* _Escalabilidad:_ los desarrolladores de aplicaciones deben tener en cuenta el equilibrio entre mantener un nivel de complejidad de la aplicación lo suficientemente bajo y diseñar la aplicación para escalarse con el número de inquilinos y el tamaño de los datos y la carga de trabajo de los inquilinos.
+* *Aislamiento de inquilinos:* los desarrolladores de aplicaciones necesitan tomar las medidas adecuadas para garantizar que ningún inquilino tenga acceso no autorizado o no deseado a los datos de otros inquilinos. Más allá de la perspectiva de privacidad de los datos, las estrategias de aislamiento de inquilinos requieren la administración eficaz de los recursos compartidos y la protección frente a vecinos ruidosos.
+* *Costo de los recursos de nube:* al igual que sucede con cualquier otra aplicación, las soluciones de software deben tener un costo competitivo en cuanto componente de una aplicación multiinquilino.
+* *Facilidad de operaciones:* al desarrollar una arquitectura multiinquilino, es importante tener en cuenta el impacto en las operaciones y la complejidad de la aplicación. Azure Search tiene un [SLA del 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+* *Superficie global:* las aplicaciones multiinquilino pueden tener que atender de forma eficaz a inquilinos que se encuentran distribuidos por todo el planeta.
+* *Escalabilidad:* los desarrolladores de aplicaciones deben tener en cuenta el equilibrio entre mantener un nivel de complejidad de la aplicación lo suficientemente bajo y diseñar la aplicación para escalarse con el número de inquilinos y el tamaño de los datos y la carga de trabajo de los inquilinos.
 
 Azure Search ofrece algunos límites que se pueden usar para aislar los datos y la carga de trabajo de los inquilinos.
 
 ## Modelado multiinquilino con Azure Search
 En el caso de un escenario de varios inquilinos, el desarrollador de la aplicación consume uno o varios servicios de búsqueda y divide sus inquilinos entre servicios, índices o ambos. Azure Search presenta algunos patrones comunes al modelar un escenario multiinquilino:
 
-1. _Índice por inquilino:_ cada inquilino tiene su propio índice dentro de un servicio de búsqueda que comparte con otros inquilinos.
-1. _Servicio por inquilino:_ cada inquilino tiene su propio servicio de Azure Search dedicado, que ofrece el nivel más alto de separación de datos y carga de trabajo.
-1. _Mezcla de ambos:_ los inquilinos más grandes y activos se asignan a servicios dedicados, mientras que los inquilinos más pequeños se asignan a índices individuales dentro de servicios compartidos.
+1. *Índice por inquilino:* cada inquilino tiene su propio índice dentro de un servicio de búsqueda que comparte con otros inquilinos.
+2. *Servicio por inquilino:* cada inquilino tiene su propio servicio de Azure Search dedicado, que ofrece el nivel más alto de separación de datos y carga de trabajo.
+3. *Mezcla de ambos:* los inquilinos más grandes y activos se asignan a servicios dedicados, mientras que los inquilinos más pequeños se asignan a índices individuales dentro de servicios compartidos.
 
 ## 1\. Índice por inquilino
 ![Una representación del modelo de índice por inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
@@ -93,7 +90,6 @@ Es posible que para las aplicaciones con una superficie global, el modelo de ín
 Azure Search permite escalar tanto los índices individuales como aumentar el número total de índices. Si se elige un plan de tarifa adecuado, se pueden agregar particiones y réplicas al servicio de búsqueda entero cuando un índice individual del servicio crezca demasiado en términos de almacenamiento o tráfico.
 
 Si el número total de índices crece demasiado para un único servicio, se debe aprovisionar otro servicio para acomodar a los nuevos inquilinos. Si se tienen que mover índices entre servicios de búsqueda a medida que se agregan nuevos servicios, los datos del índice se tienen que copiar manualmente de un índice a otro porque Azure Search no permite que se mueva un índice.
-
 
 ## 2\. Servicio por inquilino
 ![Una representación del modelo de servicio por inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)

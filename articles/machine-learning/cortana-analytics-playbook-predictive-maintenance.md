@@ -1,34 +1,34 @@
-<properties
-    pageTitle="Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras | Microsoft Azure"
-    description="Plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte."
-    services="cortana-analytics"
-    documentationCenter=""
-    authors="fboylu"
-    manager="jhubbard"
-    editor="cgronlun"/>
+---
+title: Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras | Microsoft Docs
+description: Plantilla de solución con Microsoft Cortana Intelligence orientada al mantenimiento predictivo en los sectores aeroespacial, de servicios públicos y de transporte.
+services: cortana-analytics
+documentationcenter: ''
+author: fboylu
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="cortana-analytics"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/12/2016"
-    ms.author="fboylu" />
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: fboylu
 
-
+---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y otras
-
-## <a name="executive-summary"></a>Resumen ejecutivo  
+## <a name="executive-summary"></a>Resumen ejecutivo
 El mantenimiento predictivo es una de las aplicaciones más solicitadas del análisis predictivo, ya que sus beneficios, entre los que se incluye un gran ahorro de costos, son indiscutibles. El objetivo de este cuaderno de estrategias es servir de referencia para las soluciones de mantenimiento predictivo y en él se hace énfasis en casos de uso importantes.
 Además, proporciona al lector información exhaustiva sobre los escenarios empresariales de mantenimiento predictivo más comunes, los desafíos de los problemas empresariales en que se pueden usar estas soluciones, los datos necesarios para resolver dichos problemas, las técnicas de modelado predictivo para crear soluciones con dichos datos y procedimientos recomendados con arquitecturas de solución de ejemplo.
 En él también se describen los detalles de los modelos predictivos desarrollados, como la ingeniería de características, el desarrollo de modelos y la evaluación del rendimiento. En definitiva, este cuaderno de estrategias combina las directrices analíticas y empresariales necesarias para desarrollar e implementar correctamente soluciones de mantenimiento predictivo. Estas instrucciones se han elaborado para ayudar a los usuarios a crear una solución inicial con Cortana Intelligence Suite y, específicamente, con Azure Machine Learning como punto de partida en su estrategia de mantenimiento predictivo a largo plazo. La documentación relativa tanto a Cortana Intelligence Suite como a Azure Machine Learning se puede encontrar en las páginas de [Cortana Analytics](http://www.microsoft.com/server-cloud/cortana-analytics-suite/overview.aspx) y [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
->[AZURE.TIP]
-Para obtener instrucciones técnicas sobre la implementación de esta plantilla de solución, consulte [Guía técnica de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos](cortana-analytics-technical-guide-predictive-maintenance.md).
-Para descargar un diagrama que proporcione información general sobre la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para mantenimiento predictivo en empresas aeroespaciales y otras](cortana-analytics-architecture-predictive-maintenance.md).
+> [!TIP]
+> Para obtener instrucciones técnicas sobre la implementación de esta plantilla de solución, consulte [Guía técnica de la plantilla de solución de Cortana Intelligence orientada al mantenimiento predictivo en empresas aeroespaciales y de otros tipos](cortana-analytics-technical-guide-predictive-maintenance.md).
+> Para descargar un diagrama que proporcione información general sobre la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para mantenimiento predictivo en empresas aeroespaciales y otras](cortana-analytics-architecture-predictive-maintenance.md).
+> 
+> 
 
-## <a name="playbook-overview-and-target-audience"></a>Introducción y audiencia de destino del cuaderno de estrategias  
+## <a name="playbook-overview-and-target-audience"></a>Introducción y audiencia de destino del cuaderno de estrategias
 Este cuaderno de estrategias está organizado de modo que se beneficie todo tipo de público, tanto técnico como no técnico, con niveles distintos de experiencia y diferentes intereses en el espacio del mantenimiento predictivo. El cuaderno de estrategias abarca no solo aspectos de alto nivel de los diferentes tipos de soluciones de mantenimiento predictivo, sino también detalles de cómo implementarlos. El contenido está equilibrado, con el fin de satisfacer tanto al público que solo está interesado en conocer el espacio de la solución y el tipo de aplicaciones, como a aquellos cuyo objetivo es implementar estas soluciones y, por tanto, están interesados en los detalles técnicos.
 
 La mayoría del contenido de este cuaderno de estrategias no asume que el lector tenga conocimientos previos de la ciencia de datos. Sin embargo, algunas de las partes requerirán cierta familiaridad con los conceptos de la ciencia de datos para poder seguir los detalles de implementación. Se necesitan conocimientos básicos de la ciencia de datos para sacar el máximo provecho al material de dichas secciones.
@@ -37,7 +37,6 @@ En la primera mitad del cuaderno de estrategias se realiza una introducción a l
 
 En la segunda mitad del cuaderno de estrategias, se trataran los tipos de técnicas de modelado de predicción para aplicaciones de mantenimiento predictivo y cómo implementar dichos modelos a través de ejemplos de los casos de uso que se esbozan en la primera mitad. Para ilustrarlos se recorrerán los distintos pasos del preprocesamiento de datos como el etiquetado de datos y la ingeniería de características, la selección de modelos y los procedimientos recomendados de formación/pruebas y de evaluación del rendimiento. Estas secciones son adecuadas para un público técnico.
 
-
 ## <a name="predictive-maintenance-in-iot"></a>Mantenimiento predictivo en IoT
 El impacto de un tiempo de inactividad no programado del equipamiento puede ser muy perjudicial para las empresas. Es fundamental mantener el equipamiento de campo en funcionamiento para maximizar el rendimiento y minimizar el costoso tiempo de inactividad no programado. El mero hecho de esperar a que se produzca un fallo es algo que no es posible permitirse en el actual marco de operaciones de las empresas. Para no perder competitividad, las compañías buscan nuevas formas de maximizar el rendimiento de los activos mediante el uso de los datos recopilados de distintos canales. Una forma importante de analizar dicha información es utilizar técnicas de análisis predictivo que usen patrones históricos para predecir resultados futuros. Una de las soluciones más populares se denomina Mantenimiento predictivo, que generalmente se puede definir, pero sin limitarse a ello, como la predicción de la posibilidad de que se produzca un fallo en un activo en un futuro próximo, con el fin de que se puedan supervisar los activos para identificar los fallos de forma proactiva y tomar medidas antes de que se produzcan los fallos. Estas soluciones detectan patrones de fallos para determinar los activos que tienen mayor riesgo de fallo. Esta identificación temprana de los problemas le ayuda a implementar recursos de mantenimiento limitado de una forma más rentable y a mejorar la calidad y los procesos de la cadena de suministro.
 
@@ -45,17 +44,17 @@ Con el aumento de las aplicaciones de Internet de las cosas (IoT) el mantenimien
 
 Problemas empresariales en el intervalo del dominio del mantenimiento predictivo de alto riesgo operativo debido a fallos inesperados e información limitada sobre la causa de problemas en entornos empresariales complejos. La mayoría de estos problemas se puede encuadrar en las siguientes preguntas empresariales:
 
--   ¿Cuál es la probabilidad de que un componente del equipo genere un error en un futuro cercano?
--   ¿Cuál es la vida útil restante del equipamiento?
--   ¿Cuáles son las causas de los fallos y qué acciones de mantenimiento deben realizarse para corregir estos problemas?
+* ¿Cuál es la probabilidad de que un componente del equipo genere un error en un futuro cercano?
+* ¿Cuál es la vida útil restante del equipamiento?
+* ¿Cuáles son las causas de los fallos y qué acciones de mantenimiento deben realizarse para corregir estos problemas?
 
 Si implementan un mantenimiento predictivo para dar respuesta a estas preguntas, las empresas podrán lograr estas ventajas:
 
--   Reducir los riesgos operativos y aumentar la tasa de devolución de los recursos mediante la detección de errores antes de que se produzcan
--   Reducir las operaciones de mantenimiento con duración definida innecesarias y controlar los costos de mantenimiento
--   Mejorar la imagen de la marca en su conjunto y eliminar la mala publicidad y la pérdida de ventas derivadas del desgaste de los clientes
--   Disminuir los costos de inventario mediante la reducción de los niveles de este último gracias a la previsión del punto en el que se debe hacer un nuevo pedido
--   Detectar patrones asociados a diversos problemas de mantenimiento
+* Reducir los riesgos operativos y aumentar la tasa de devolución de los recursos mediante la detección de errores antes de que se produzcan
+* Reducir las operaciones de mantenimiento con duración definida innecesarias y controlar los costos de mantenimiento
+* Mejorar la imagen de la marca en su conjunto y eliminar la mala publicidad y la pérdida de ventas derivadas del desgaste de los clientes
+* Disminuir los costos de inventario mediante la reducción de los niveles de este último gracias a la previsión del punto en el que se debe hacer un nuevo pedido
+* Detectar patrones asociados a diversos problemas de mantenimiento
 
 Las soluciones de mantenimiento predictivo pueden proporcionar a las empresas indicadores de rendimiento claves, como puntuaciones del estado para supervisar el estado del activo en tiempo real, una estimación de la vida que queda a los activos, la recomendación de actividades de mantenimiento proactivas y fechas de pedido estimadas para la sustitución de las piezas.
 
@@ -68,9 +67,9 @@ Por ejemplo, si el objetivo es predecir fallos en las ruedas de un tren, los dat
 
 A la hora de determinar si un problema empresarial es adecuado para una solución de mantenimiento predictivo, buscamos tres orígenes de datos esenciales:
 
-1.  Historial de errores: normalmente, en las aplicaciones de mantenimiento predictivo, es muy raro que se produzcan eventos de fallo. Sin embargo, al generar modelos predictivos que predicen fallos, el algoritmo necesita aprender el patrón de funcionamiento normal, así como el patrón de fallo a través del proceso de entrenamiento. Por consiguiente, es esencial que los datos de entrenamiento contengan un número suficiente de ejemplos de ambas categorías para aprender los dos patrones diferentes. Por ese motivo, es necesario que los datos tengan un número suficiente de eventos de fallo. Los eventos de fallo pueden encontrarse en los registros de mantenimiento y en el historial de sustitución de piezas o las anomalías de los datos de entrenamiento también se pueden usar como fallos, tal como identifican los expertos en el dominio.
-2.  Historial de mantenimiento o reparaciones: un origen de datos esencial para las soluciones de mantenimiento predictivo es el historial de mantenimiento detallado del activo que contiene información acerca de los componentes que se reemplazan, las activaciones de mantenimiento preventivo realizadas, etc. Es muy importante capturar estos eventos, ya que afectan a los patrones de degradación y la ausencia de esta información causa resultados engañosos.
-3.  Condiciones de la máquina: para predecir cuántos días (horas, millas, transacciones, etc.) más durará una máquina antes de fallar, asumimos que el estado de mantenimiento de la máquina se degrada con el paso del tiempo durante su funcionamiento. Por lo tanto, esperamos que los datos contengan capturas que varían con el tiempo y que capturan este patrón de vencimiento y todas las anomalías que provocan la degradación. En las aplicaciones de IoT, los datos de telemetría de los diferentes sensores representan un buen ejemplo. Para predecir si una máquina va a fallar dentro de un período de tiempo, lo ideal es que los datos capturen la tendencia de la degradación durante dicho período de tiempo antes del evento de fallo real.
+1. Historial de errores: normalmente, en las aplicaciones de mantenimiento predictivo, es muy raro que se produzcan eventos de fallo. Sin embargo, al generar modelos predictivos que predicen fallos, el algoritmo necesita aprender el patrón de funcionamiento normal, así como el patrón de fallo a través del proceso de entrenamiento. Por consiguiente, es esencial que los datos de entrenamiento contengan un número suficiente de ejemplos de ambas categorías para aprender los dos patrones diferentes. Por ese motivo, es necesario que los datos tengan un número suficiente de eventos de fallo. Los eventos de fallo pueden encontrarse en los registros de mantenimiento y en el historial de sustitución de piezas o las anomalías de los datos de entrenamiento también se pueden usar como fallos, tal como identifican los expertos en el dominio.
+2. Historial de mantenimiento o reparaciones: un origen de datos esencial para las soluciones de mantenimiento predictivo es el historial de mantenimiento detallado del activo que contiene información acerca de los componentes que se reemplazan, las activaciones de mantenimiento preventivo realizadas, etc. Es muy importante capturar estos eventos, ya que afectan a los patrones de degradación y la ausencia de esta información causa resultados engañosos.
+3. Condiciones de la máquina: para predecir cuántos días (horas, millas, transacciones, etc.) más durará una máquina antes de fallar, asumimos que el estado de mantenimiento de la máquina se degrada con el paso del tiempo durante su funcionamiento. Por lo tanto, esperamos que los datos contengan capturas que varían con el tiempo y que capturan este patrón de vencimiento y todas las anomalías que provocan la degradación. En las aplicaciones de IoT, los datos de telemetría de los diferentes sensores representan un buen ejemplo. Para predecir si una máquina va a fallar dentro de un período de tiempo, lo ideal es que los datos capturen la tendencia de la degradación durante dicho período de tiempo antes del evento de fallo real.
 
 Además, se requieren datos que estén directamente relacionada con las condiciones de funcionamiento del activo de destino de la predicción. La decisión de destino se basa tanto en las necesidades empresariales como en la disponibilidad de los datos. Si se usa el ejemplo de predicción de averías en las ruedas del tren, es posible predecir "si se va a producir una avería en la rueda" o "si se va a producir una avería en todo el tren". La primera de las predicciones tiene como destino un componente más específico, mientras que el destino de la segunda tiene como destino un fallo del tren. La segunda predicción es una pregunta más general que requiere muchos elementos de datos más dispersos que la primera, lo que dificulta la generación de un modelo. Por el contrario, intentar predecir los fallos de las ruedas simplemente examinando datos de alto nivel de la condición del tren puede no ser viable, ya que no contienen información a nivel de componente. En general, es más razonable predecir los eventos de fallo específicos que los más generales.
 
@@ -139,12 +138,11 @@ También puede reducir la cantidad de actividades de mantenimiento preventivo in
 Una de las razones principales de los retrasos y problemas de funcionamiento en el metro son los fallos de las puertas de los vagones del metro. Predecir si un vagón puede tener un fallo en una puerta o poder predecir el número de días que falta para que se produzca el siguiente fallo en alguna puerta es una previsión muy importante. Brinda la oportunidad de optimizar el servicio de las puertas de los vagones y reducir el tiempo de inactividad del tren.
 
 #### <a name="data-sources"></a>Orígenes de datos
-
 Los tres orígenes de datos en este caso de uso son: 
 
-- **Datos de eventos de trenes**, que corresponden a los registros históricos de los eventos de tren. 
-- **Datos de mantenimiento** , como tipos de mantenimiento, tipos de órdenes de trabajo y códigos de prioridad.  
-- **Registros de errores**.
+* **Datos de eventos de trenes**, que corresponden a los registros históricos de los eventos de tren. 
+* **Datos de mantenimiento** , como tipos de mantenimiento, tipos de órdenes de trabajo y códigos de prioridad.  
+* **Registros de errores**.
 
 ##### <a name="*business-value-of-the-predictive-model*"></a>*Valor empresarial del modelo predictivo*
 Se crearon dos modelos para predecir la probabilidad de error al día siguiente mediante el uso de una clasificación binaria y los días que faltan para el próximo fallo mediante regresión. De forma similar a los casos anteriores, los modelos crean una gran oportunidad de mejorar la calidad del servicio y aumentar la satisfacción del cliente, ya que complementan los regímenes de mantenimiento regular.
@@ -153,11 +151,11 @@ Se crearon dos modelos para predecir la probabilidad de error al día siguiente 
 ### <a name="data-sources"></a>Orígenes de datos
 Los elementos de datos habituales de los problemas de mantenimiento predictivo se pueden resumir como se especifica a continuación:
 
--   Historial de errores: el registro de errores de una máquina o de algún componente suyo.
--   Historial de mantenimiento: el registro de reparaciones de una máquina (p. ej., los códigos de error, las actividades de mantenimiento anteriores o los reemplazos de componentes).
--   Condiciones y uso de la máquina: las condiciones de funcionamiento de una máquina (p. ej., los datos obtenidos de los sensores).
--   Características de la máquina: los rasgos distintivos de una máquina (p. ej., el tamaño del motor, la marca y el modelo, y la ubicación).
--   Características del operador: los rasgos distintivos del operador (p. ej., sexo y experiencia previa).
+* Historial de errores: el registro de errores de una máquina o de algún componente suyo.
+* Historial de mantenimiento: el registro de reparaciones de una máquina (p. ej., los códigos de error, las actividades de mantenimiento anteriores o los reemplazos de componentes).
+* Condiciones y uso de la máquina: las condiciones de funcionamiento de una máquina (p. ej., los datos obtenidos de los sensores).
+* Características de la máquina: los rasgos distintivos de una máquina (p. ej., el tamaño del motor, la marca y el modelo, y la ubicación).
+* Características del operador: los rasgos distintivos del operador (p. ej., sexo y experiencia previa).
 
 Habitualmente, el historial de fallos se encuentre dentro del historial de mantenimiento, por ejemplo en forma de códigos de error especiales o fechas de pedido de los recambios. En esos casos, los fallos se pueden extraer de los datos de mantenimiento. Además, los diferentes dominios empresariales pueden tener otros orígenes de datos que afectan a los patrones de fallo que no se enumeran aquí de forma exhaustiva. Estos deben identificarse mediante la realización de consultas a expertos del dominio al crear modelos predictivos.
 
@@ -175,7 +173,6 @@ Dados los orígenes de datos anteriores, los dos tipos de datos principales que 
 El historial de fallos, las condiciones de la máquina, el historial de reparaciones y el historial de uso casi siempre incluyen marcas de tiempo que indican la hora de recopilación de cada fragmento de datos. En general, tanto las características de la máquina como las características del operador son estáticas, ya que suelen describir las especificaciones técnicas de las máquinas o las propiedades del operador. Es posible que estas características cambien con el tiempo y, en ese caso, deben tratarse como orígenes de datos con marca de tiempo.
 
 ### <a name="merging-data-sources"></a>Combinación de orígenes de datos
-
 Antes de entrar en cualquier tipo de ingeniería de características o proceso de etiquetado, necesitamos preparar los datos de la forma necesaria para crear características a partir de ellos. El objetivo final es generar un registro de cada unidad de tiempo de cada recurso con sus etiquetas y características que se va a incluir en el algoritmo de aprendizaje automático. Para preparar dicho conjunto de datos finales limpios, es preciso realizar varios pasos previos al procesamiento. El primer paso es dividir la duración de la recolección de datos en unidades de tiempo, en las que cada registro pertenece a una unidad de tiempo de un recurso. La recolección de datos también se puede dividir en otras unidades, como acciones; sin embargo, para simplificar, se usan unidades de tiempo en el resto de las explicaciones.
 
 La unidad de medida del tiempo puede ser segundos, minutos, horas, días, meses, ciclos, millas o transacciones, en función de la eficacia de la preparación de los datos y los cambios observados en las condiciones del recurso de una unidad de tiempo a otra o a otros factores específicos del dominio. En otras palabras, la unidad de tiempo no tiene que ser necesariamente la misma que la frecuencia de recopilación de datos, ya que en muchos casos, puede que los datos no muestren diferencias de una unidad de tiempo a la otra. Por ejemplo, si los valores de temperatura se recopilaban cada 10 segundos, la selección de una unidad de tiempo de 10 segundos para todo el análisis aumenta el número de ejemplos, pero no proporciona información adicional. Una estrategia mejor sería usar más de una hora de media, por ejemplo.
@@ -229,14 +226,14 @@ Durante la generación de características, deben realizarse otros pasos importa
 
 La tabla de características finales, que aparece después de los pasos de ingeniería de características de la sección anterior debería ser similar el siguiente esquema de datos de ejemplo cuando la unidad de tiempo es un día:
 
-|Identificador de recurso|Hora|Columnas de característica|Etiqueta|
-|---|---|---|---|
-|1|Día 1|||
-|1|Día 2|||
-|...|...|||
-|2|Día 1|||
-|2|Día 2|||
-|...|...|||
+| Identificador de recurso | Hora | Columnas de característica | Etiqueta |
+| --- | --- | --- | --- |
+| 1 |Día 1 | | |
+| 1 |Día 2 | | |
+| ... |... | | |
+| 2 |Día 1 | | |
+| 2 |Día 2 | | |
+| ... |... | | |
 
 ## <a name="modeling-techniques"></a>Técnicas de modelado
 El mantenimiento predictivo es un dominio muy amplio que a menudo emplea preguntas empresariales, a las que es posible acercarse desde los distintos ángulos de la perspectivas del modelado predictivo. En las secciones siguientes, se proporcionan las principales técnicas que se usan para modelar las distintas preguntas empresariales que se pueden responder con las soluciones de mantenimiento predictivo. Aunque existen similitudes, cada modelo tiene su propia manera de crear etiquetas y cada una de esas manera se describe más detalladamente. Como recurso adicional, puede consultar la plantilla de mantenimiento predictivo que se incluye en los experimentos de ejemplo que se proporcionan con Aprendizaje automático de Azure. Los vínculos al material en línea de esta plantilla se proporcionan en la sección de recursos. Puede ver que tanto algunas de las técnicas de ingeniería de características que se han descrito como la técnica de modelado que se describe en las secciones siguientes se aplican para predecir los errores de los motores de aviones con Azure Machine Learning.
@@ -335,9 +332,9 @@ En nuestro trabajo descubrimos que los modelos de regresión usados para predeci
 Por regla general, otro procedimiento recomendado importante para dividir los datos para entrenamiento y prueba es usar una división por ID de activo para que ninguno de los activos que se usaron en el entrenamiento se usen en las pruebas. El motivo es que, en las pruebas, la idea es asegurarse de que cuando se use un nuevo activo para hacer predicciones, el modelo proporcione resultados realistas.
 
 ### <a name="handling-imbalanced-data"></a>Control de datos desequilibrados
-En los problemas de clasificación, si hay más ejemplos de una clase que de otra, se dice que los datos están desequilibrados. Lo ideal es tener suficientes representantes de cada clase en los datos de entrenamiento para poder diferenciar entre las distintas clases. Si una clase tiene menos del 10 % de los datos, podemos decir que los datos están desequilibrados y llamamos clase minoritaria al conjunto de datos insuficientemente representado. En muchos casos encontramos conjuntos de datos desequilibrados en los que una clase está mucho menos representada que otras, por ejemplo, que solo constituye el 0,001 % de los puntos de datos. El desequilibrio de clases es un problema en muchos ámbitos, incluidos la detección de fraudes, la intrusión en redes y el mantenimiento predictivo, en los que los errores se dan rara vez en la vida de los activos que componen los ejemplos de la clase minoritaria.
+En los problemas de clasificación, si hay más ejemplos de una clase que de otra, se dice que los datos están desequilibrados. Lo ideal es tener suficientes representantes de cada clase en los datos de entrenamiento para poder diferenciar entre las distintas clases. Si una clase tiene menos del 10 % de los datos, podemos decir que los datos están desequilibrados y llamamos clase minoritaria al conjunto de datos insuficientemente representado. En muchos casos encontramos conjuntos de datos desequilibrados en los que una clase está mucho menos representada que otras, por ejemplo, que solo constituye el 0,001 % de los puntos de datos. El desequilibrio de clases es un problema en muchos ámbitos, incluidos la detección de fraudes, la intrusión en redes y el mantenimiento predictivo, en los que los errores se dan rara vez en la vida de los activos que componen los ejemplos de la clase minoritaria.
 
-En caso de un desequilibrio de clases, el rendimiento de la mayoría de los algoritmos de aprendizaje estándar se ve comprometido, ya que intentan minimizar la tasa general de errores. Por ejemplo, para un conjunto de datos con un 99 % de ejemplos de clase negativos y un 1 % de ejemplos de clase positivos, podemos obtener un 99 % de precisión simplemente etiquetando todas las instancias como negativas. Sin embargo, esto clasifica erróneamente todos los ejemplos positivos, por lo que el algoritmo no es útil aunque la métrica de precisión sea muy alta. Por lo tanto, las métricas de evaluación convencionales tales como la precisión global en la tasa de errores no son suficientes en el caso del aprendizaje desequilibrado. En la sección Métricas de evaluación se describen otras métricas, como la precisión, la recuperación, las puntuaciones F1 y las curvas de ROC con ajuste del costo, que se usan para las evaluaciones de conjuntos de datos desequilibrados.
+En caso de un desequilibrio de clases, el rendimiento de la mayoría de los algoritmos de aprendizaje estándar se ve comprometido, ya que intentan minimizar la tasa general de errores. Por ejemplo, para un conjunto de datos con un 99 % de ejemplos de clase negativos y un 1 % de ejemplos de clase positivos, podemos obtener un 99 % de precisión simplemente etiquetando todas las instancias como negativas. Sin embargo, esto clasifica erróneamente todos los ejemplos positivos, por lo que el algoritmo no es útil aunque la métrica de precisión sea muy alta. Por lo tanto, las métricas de evaluación convencionales tales como la precisión global en la tasa de errores no son suficientes en el caso del aprendizaje desequilibrado. En la sección Métricas de evaluación se describen otras métricas, como la precisión, la recuperación, las puntuaciones F1 y las curvas de ROC con ajuste del costo, que se usan para las evaluaciones de conjuntos de datos desequilibrados.
 
 Sin embargo, hay algunos métodos que ayudan a solucionar el problema de desequilibrio de clases. Las dos más importantes son las técnicas de muestreo y el aprendizaje sensible al costo.
 
@@ -356,7 +353,7 @@ Hay varias maneras de lograrlo. El problema de las pérdidas desiguales se puede
 Como se mencionó anteriormente, el desequilibrio de clases provoca un bajo rendimiento porque los algoritmos tienden a clasificar mejor los ejemplos de la clase mayoritaria a costa de los casos de la clase minoritaria, porque los errores totales clasificación errónea mejoran mucho cuando la clase mayoritaria se etiqueta correctamente. Esto provoca bajas tasas de recuperación y se convierte en un problema mayor cuando el costo de las falsas alarmas para la empresa es muy alto. La precisión es la métrica más popular que se usa para describir el rendimiento de un clasificador. Sin embargo, tal y como se explicó anteriormente, la precisión no resulta eficaz y no refleja el rendimiento real de la funcionalidad de un clasificador porque es muy sensible a las distribuciones de los datos. En su lugar se usan otras métricas de evaluación para valorar los problemas de aprendizaje desequilibrado. En esos casos, la precisión, la recuperación y las puntuaciones F1 deben ser las primeras métricas que se consulten al evaluar el rendimiento de un modelo de mantenimiento predictivo. En el mantenimiento predictivo, las tasas de recuperación indican cuántos errores del conjunto de prueba identificó correctamente el modelo. Las tasas de recuperación mayores indican que el modelo pudo detectar correctamente los errores verdaderos. La métrica de precisión está relacionada con la tasa de falsas alarmas, y las tasas de precisión menores se corresponden con un número mayor de falsas alarmas. La puntuación F1 tiene en cuenta tanto la tasa de precisión y como de recuperación, siendo 1 el mejor valor y 0 el peor.
 
 Además, en la clasificación binaria, las tablas de deciles y los gráficos de elevación proporcionan mucha información a la hora de evaluar el rendimiento. Se centran solo en la clase positiva (errores) y proporcionan una imagen más compleja del rendimiento del algoritmo que la que obtenemos mirando solo un punto operativo fijo en la curva ROC (característica de funcionamiento del receptor).
-Las tablas de deciles se obtienen ordenando los ejemplos de prueba según sus probabilidades de error, calculadas por el modelo antes de aplicar un umbral para decidir la etiqueta final. Los ejemplos ordenados se agrupan en deciles (es decir, el 10 % de ejemplos con mayor probabilidad, después el 20 %, el 30 % y así sucesivamente). Calculando la relación entre la tasa de positivos verdaderos de cada decil y su línea base aleatoria (es decir, 0,1, 0,2...) se puede realizar una estimación de cómo cambia el rendimiento del algoritmo en cada decil. Los gráficos de elevación se usan para trazar valores de deciles; para ello, se trazan pares de tasa de positivos verdaderos y tasa de positivos verdaderos aleatorios para todos los deciles. Normalmente, los primeros deciles son el foco de los resultados porque aquí vemos las mayores ganancias. Los primeros deciles también pueden verse como representativos de "en riesgo" cuando se usan para el mantenimiento predictivo.
+Las tablas de deciles se obtienen ordenando los ejemplos de prueba según sus probabilidades de error, calculadas por el modelo antes de aplicar un umbral para decidir la etiqueta final. Los ejemplos ordenados se agrupan en deciles (es decir, el 10 % de ejemplos con mayor probabilidad, después el 20 %, el 30 % y así sucesivamente). Calculando la relación entre la tasa de positivos verdaderos de cada decil y su línea base aleatoria (es decir, 0,1, 0,2...) se puede realizar una estimación de cómo cambia el rendimiento del algoritmo en cada decil. Los gráficos de elevación se usan para trazar valores de deciles; para ello, se trazan pares de tasa de positivos verdaderos y tasa de positivos verdaderos aleatorios para todos los deciles. Normalmente, los primeros deciles son el foco de los resultados porque aquí vemos las mayores ganancias. Los primeros deciles también pueden verse como representativos de "en riesgo" cuando se usan para el mantenimiento predictivo.
 
 ## <a name="sample-solution-architecture"></a>Ejemplo de arquitectura de solución
 Al implementar una solución de mantenimiento predictivo, nos interesa una solución completa que proporcione un ciclo continuo de entrada de datos, almacenamiento de datos para el entrenamiento del modelo, generación de características, predicción y visualización de los resultados, y un mecanismo de generación de alertas, por ejemplo, un panel de supervisión de activos. Queremos una canalización de datos que proporcione datos detallados futuros al usuario de forma continua y automatizada. La ilustración 8 muestra un ejemplo de arquitectura de mantenimiento predictivo para una canalización de datos de IoT de este tipo. En la arquitectura, se recopila telemetría en tiempo real en un Centro de eventos que almacena los datos de streaming. El análisis de transmisión toma estos datos para realizar un procesamiento en tiempo real de datos tales como la generación de características. Después, las características se usan para llamar al servicio web de modelo predictivo y los resultados se muestran en el panel. Al mismo tiempo, los datos incorporados se almacenan también en una base de datos histórica y se combinan con orígenes de datos externos tales como bases de datos locales para crear ejemplos de entrenamiento para el modelado.
@@ -367,8 +364,6 @@ Se pueden usar los mismos almacenes de datos para la puntuación por lotes de lo
 Figura 8. Ejemplo de arquitectura de solución para mantenimiento predictivo
 
 Para obtener más información acerca de cada uno de los componentes de la arquitectura, consulte la  documentación de [Azure](https://azure.microsoft.com/) .
-
-
 
 <!--HONumber=Oct16_HO2-->
 

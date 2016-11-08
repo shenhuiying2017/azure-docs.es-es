@@ -1,33 +1,30 @@
 
-<properties 
-    pageTitle="Requisitos de Azure AD + Active Directory para Azure RemoteApp | Microsoft Azure" 
-    description="Aprenda a configurar Active Directory para trabajar con RemoteApp de Azure." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Requisitos de Azure AD + Active Directory para Azure RemoteApp | Microsoft Docs
+description: Aprenda a configurar Active Directory para trabajar con RemoteApp de Azure.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Requisitos de Azure AD + Active Directory para Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
-
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 En el caso de la colección de híbrida de Azure RemoteApp o de una colección en la nube que desee federar mediante AD Connect, deberá hacer lo siguiente.
 
 ### Conexión de Azure AD y Active Directory
-
 Si desea conectar el inquilino de Azure AD y los entornos de Active Directory locales, utilice AD Connect. En tan solo [4 clics](https://blogs.technet.microsoft.com/enterprisemobility/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect/) habrá conectado los dos directorios.
 
 Nota: la sincronización de directorios se requiere para las colecciones híbridas.
@@ -42,8 +39,8 @@ Por ejemplo, si configura el sufijo de dominio UPN en AAD como contoso.com, pero
 ### Creación de objetos para Azure RemoteApp
 También debe crear los siguientes objetos de Active Directory locales:
 
-- Una cuenta de servicio para proporcionar acceso a los recursos del dominio para los programas de RemoteApp mediante la combinación de extremos RDSH al dominio local.
-- Una unidad organizativa (OU) que contenga objetos de equipo de RemoteApp. Se recomienda usar la unidad organizativa (aunque no es necesario) para aislar las cuentas y las directivas que se van a utilizar con RemoteApp.
+* Una cuenta de servicio para proporcionar acceso a los recursos del dominio para los programas de RemoteApp mediante la combinación de extremos RDSH al dominio local.
+* Una unidad organizativa (OU) que contenga objetos de equipo de RemoteApp. Se recomienda usar la unidad organizativa (aunque no es necesario) para aislar las cuentas y las directivas que se van a utilizar con RemoteApp.
 
 Se necesitan estos dos objetos cuando se crea la colección de RemoteApp, por lo que debe asegurarse de realizar estos pasos en primer lugar.
 

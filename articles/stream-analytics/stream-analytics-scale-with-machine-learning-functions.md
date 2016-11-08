@@ -1,35 +1,29 @@
-<properties
-    pageTitle="Escalado del trabajo de Análisis de transmisiones con funciones de Aprendizaje automático de Azure | Microsoft Azure"
-    description="Aprenda a escalar correctamente trabajos de Análisis de transmisiones (creación de particiones, cantidad de SU y más) cuando se usan funciones de Aprendizaje automático de Azure."
-    keywords=""
-    documentationCenter=""
-    services="stream-analytics"
-    authors="jeffstokes72"
-    manager="jhubbard"
-    editor="cgronlun"
-/>
+---
+title: Escalado del trabajo de Análisis de transmisiones con funciones de Aprendizaje automático de Azure | Microsoft Docs
+description: Aprenda a escalar correctamente trabajos de Análisis de transmisiones (creación de particiones, cantidad de SU y más) cuando se usan funciones de Aprendizaje automático de Azure.
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="stream-analytics"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="data-services"
-    ms.date="09/26/2016"
-    ms.author="jeffstok"
-/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
+---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Escalado del trabajo de Análisis de transmisiones con funciones de Aprendizaje automático de Azure
-
 A menudo resulta bastante fácil configurar un trabajo de Análisis de transmisiones y ejecutar algunos datos de ejemplo mediante él. ¿Qué debemos hacer cuando tengamos que ejecutar el mismo trabajo con un volumen de datos más alto? Será necesario comprender cómo configurar el trabajo de Análisis de transmisiones para escalarlo. En este documento, nos centraremos en los aspectos especiales de escalar trabajos de Análisis de transmisiones con funciones de Aprendizaje automático. Para más información sobre cómo escalar trabajos de Análisis de transmisiones en general, consulte el artículo [Escalado de trabajos de Análisis de transmisiones de Azure para incrementar el rendimiento de procesamiento de flujo de datos](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics?"></a>¿Qué es una función de Aprendizaje automático de Azure en Análisis de transmisiones?
-
-Una función de Aprendizaje automático en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Aprendizaje automático de Azure. Los servicios web de Aprendizaje automático admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Consulte los siguientes artículos para obtener más detalles: [Funciones de Aprendizaje automático de Azure en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Machine Learning de Azure](machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
+Una función de Aprendizaje automático en Análisis de transmisiones puede utilizarse como una llamada de función normal en el lenguaje de consulta de Análisis de transmisiones. Sin embargo, en segundo plano, las llamadas de función son en realidad solicitudes de servicio web de Aprendizaje automático de Azure. Los servicios web de Aprendizaje automático admiten el "procesamiento por lotes" de varias filas, lo que se conoce como mini lote, en la misma llamada a la API de servicio web, con el fin de mejorar el rendimiento en general. Consulte los siguientes artículos para obtener más detalles: [Funciones de Aprendizaje automático de Azure en Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) y [Servicios web Machine Learning de Azure](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configuración de un trabajo de Análisis de transmisiones con funciones de Aprendizaje automático
-
 Al configurar una función de Aprendizaje automático para el trabajo de Análisis de transmisiones, hay dos parámetros a tener en cuenta: el tamaño de lote de las llamadas de función de Aprendizaje automático y las unidades de streaming (SU) aprovisionadas para el trabajo de Análisis de transmisiones. Para determinar los valores adecuados de estos parámetros, será necesario en primer lugar decidir entre latencia y rendimiento, es decir, entre la latencia del trabajo de Análisis de transmisiones y el rendimiento de cada SU. Siempre se pueden agregar SU a un trabajo para aumentar el rendimiento de una consulta de Análisis de transmisiones bien particionada, aunque las SU adicionales aumentarán el costo de ejecución del trabajo.
 
 Por lo tanto, es importante determinar la *tolerancia* de la latencia en la ejecución de un trabajo de Análisis de transmisiones. La latencia adicional derivada de ejecutar solicitudes de servicio de Aprendizaje automático de Azure aumentará naturalmente con el tamaño del lote, lo que agravará la latencia del trabajo de Análisis de transmisiones. Por otro lado, al aumentar el tamaño del lote, el trabajo de Análisis de transmisiones puede procesar *más eventos con el *mismo número* de solicitudes de servicio web de Aprendizaje automático. Con frecuencia el aumento de la latencia del servicio web de Aprendizaje automático es sublineal con respecto al aumento del tamaño del lote, así que es importante tener en cuenta el tamaño de lote más rentable para un servicio web de Aprendizaje automático en cualquier situación dada. El tamaño de lote predeterminado para las solicitudes de servicio web es de 1000 y se puede modificar mediante la [API de REST de Stream Analytics](https://msdn.microsoft.com/library/mt653706.aspx "API de REST de Stream Analytics") o el [cliente de PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md "cliente de PowerShell para Stream Analytics").
@@ -49,7 +43,6 @@ Un aspecto adicional a tener en cuenta pueden ser las 'llamadas simultáneas má
 Para más información sobre esta configuración, consulte [Escalado del servicio web](../machine-learning/machine-learning-scaling-webservice.md).
 
 ## <a name="example-–-sentiment-analysis"></a>Ejemplo: Análisis de opiniones
-
 En el ejemplo siguiente se incluye un trabajo de Análisis de transmisiones con la función de Aprendizaje automático de análisis de opiniones, como se describe en el [tutorial de integración de Aprendizaje automático de Análisis de transmisiones](stream-analytics-machine-learning-integration-tutorial.md).
 
 La consulta es una consulta sencilla completamente particionada seguida de la función **sentiment** , tal como se muestra a continuación:
@@ -57,7 +50,7 @@ La consulta es una consulta sencilla completamente particionada seguida de la fu
     WITH subquery AS (
         SELECT text, sentiment(text) as result from input
     )
-    
+
     Select text, result.[Score]
     Into output
     From subquery
@@ -66,13 +59,12 @@ Considere el escenario siguiente: se debe crear un trabajo de Análisis de trans
 
 Pero ¿qué sucede si la tasa de eventos de entrada aumenta en 100 x y ahora el trabajo de Análisis de transmisiones necesita procesar 1 000 000 de tweets por segundo? Hay dos opciones:
 
-1.  Aumentar el tamaño de lote
-2.  Particionar el flujo de entrada para procesar los eventos en paralelo.
+1. Aumentar el tamaño de lote
+2. Particionar el flujo de entrada para procesar los eventos en paralelo.
 
 Con la primera opción, la **latencia** del trabajo aumentará.
 
 Con la segunda opción, será necesario aprovisionar más SU y, por lo tanto, generar más solicitudes de servicio web de Aprendizaje automático simultáneas. Esto significa que el **costo** del trabajo aumentará.
-
 
 Suponga que la latencia del servicio web de Aprendizaje automático de análisis de opiniones es de 200 ms para 1000 lotes de eventos o menos, 250 ms para 5000 lotes de eventos, 300 ms para 10 000 lotes de eventos o 500 ms para 25 000 lotes de eventos.
 
@@ -81,25 +73,24 @@ Suponga que la latencia del servicio web de Aprendizaje automático de análisis
 
 A continuación se muestra una tabla del rendimiento del trabajo de Análisis de transmisiones para diferentes SU y tamaños de lote (en número de eventos por segundo).
 
-| SU |   |   |   | Tamaño del lote (latencia de Aprendizaje automático) |   |
-|--------|-------------------------|---------------|---------------|----------------|----------------|
-|   |   |   |   |   |   |
-|   | 500 (200 ms) | 1000 (200 ms) | 5000 (250 ms) | 10 000 (300 ms) | 25 000 (500 ms) |
-| 1 unidad de búsqueda | 2500 | 5.000 | 20.000 | 30 000 | 50.000 |
-| 3 SU | 2500 | 5.000 | 20.000 | 30 000 | 50.000 |
-| 6 SU | 2500 | 5.000 | 20.000 | 30 000 | 50.000 |
-| 12 SU | 5.000 | 10.000 | 40.000 | 60 000 | 100 000 |
-| 18 SU | 7500 | 15 000 | 60 000 | 90 000 | 150 000 |
-| 24 SU | 10.000 | 20.000 | 80 000 | 120 000 | 200 000 |
-| … | … | … | … | … | … |
-| 60 SU | 25 000 | 50.000 | 200 000 | 300 000 | 500.000 |
+| SU |  |  |  | Tamaño del lote (latencia de Aprendizaje automático) |  |
+| --- | --- | --- | --- | --- | --- |
+|  | | | | | |
+| 500 (200 ms) |1000 (200 ms) |5000 (250 ms) |10 000 (300 ms) |25 000 (500 ms) | |
+| 1 unidad de búsqueda |2500 |5.000 |20.000 |30 000 |50.000 |
+| 3 SU |2500 |5.000 |20.000 |30 000 |50.000 |
+| 6 SU |2500 |5.000 |20.000 |30 000 |50.000 |
+| 12 SU |5.000 |10.000 |40.000 |60 000 |100 000 |
+| 18 SU |7500 |15 000 |60 000 |90 000 |150 000 |
+| 24 SU |10.000 |20.000 |80 000 |120 000 |200 000 |
+| … |… |… |… |… |… |
+| 60 SU |25 000 |50.000 |200 000 |300 000 |500.000 |
 
 En este momento, ya debe saber cómo funcionan las funciones de Aprendizaje automático en Análisis de transmisiones. Probablemente también sepa que los trabajos de Análisis de transmisiones "extraen" datos de los orígenes de datos y que cada "extracción" devuelve un lote de eventos que procesa el trabajo de Análisis de transmisiones. ¿Cómo afecta este modelo de extracción a las solicitudes de servicio web de Aprendizaje automático?
 
 Normalmente, el tamaño de lote que establecemos para las funciones de Aprendizaje automático no será divisible exactamente por el número de eventos devueltos por cada "extracción" del trabajo de Análisis de transmisiones. Cuando esto suceda, se llamará al servicio web de Aprendizaje automático con lotes "parciales". Esto se hace para no generar sobrecarga de latencia adicional del trabajo en la fusión de eventos de una extracción a otra.
 
 ## <a name="new-function-related-monitoring-metrics"></a>Nuevas métricas de supervisión relacionadas con la función
-
 En el área de supervisión de un trabajo de Análisis de transmisiones, se han agregado tres métricas adicionales relacionadas con las funciones. Y son: SOLICITUDES DE FUNCIONES, EVENTOS DE FUNCIONES y SOLICITUDES DE FUNCIONES CON ERRORES, como se muestra en el siguiente gráfico.
 
 ![Escalado de Análisis de transmisiones con funciones de Aprendizaje automático: métricas](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "Scale Stream Analytics with Machine Learning Functions Metrics")
@@ -112,26 +103,22 @@ Se definen de la manera siguiente:
 
 **SOLICITUDES DE FUNCIONES CON ERRORES**: Número de solicitudes de funciones con errores.
 
-## <a name="key-takeaways"></a>Puntos clave  
-
+## <a name="key-takeaways"></a>Puntos clave
 Para resumir los puntos principales, para escalar un trabajo de Análisis de transmisiones con funciones de Aprendizaje automático, debe tener en cuenta los siguientes elementos:
 
-1.  La tasa de eventos de entrada.
-2.  La latencia permitida para el trabajo de Análisis de transmisiones en ejecución (y, por tanto, el tamaño de lote de las solicitudes de servicio web de Aprendizaje automático).
-3.  Las SU de Análisis de transmisiones aprovisionadas y el número de solicitudes de servicio web de Aprendizaje automático (los costos relacionados con funciones adicionales).
+1. La tasa de eventos de entrada.
+2. La latencia permitida para el trabajo de Análisis de transmisiones en ejecución (y, por tanto, el tamaño de lote de las solicitudes de servicio web de Aprendizaje automático).
+3. Las SU de Análisis de transmisiones aprovisionadas y el número de solicitudes de servicio web de Aprendizaje automático (los costos relacionados con funciones adicionales).
 
 Como ejemplo se ha utilizado una consulta de Análisis de transmisiones totalmente particionada. Si se necesita una consulta más compleja, el [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) es un excelente recurso para obtener ayuda adicional del equipo de Análisis de transmisiones.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para obtener más información sobre Análisis de transmisiones, vea:
 
-- [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
-- [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-- [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
-
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--HONumber=Oct16_HO2-->
 

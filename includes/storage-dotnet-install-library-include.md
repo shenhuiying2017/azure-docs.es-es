@@ -1,5 +1,4 @@
 ### Creación de la aplicación de consola y obtención del ensamblado
-
 Para crear una nueva aplicación de consola en Visual Studio e instalar el paquete NuGet que contiene la Biblioteca de cliente de Almacenamiento de Azure:
 
 1. En Visual Studio, elija **Archivo > Proyecto nuevo** y, a continuación, elija **Windows > Aplicación de consola** en la lista de plantillas de Visual C#.

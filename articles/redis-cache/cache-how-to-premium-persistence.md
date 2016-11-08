@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium" 
-	description="Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Caché en Redis de Azure de nivel Premium" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+---
+title: Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
+description: Obtener información sobre cómo configurar y administrar la persistencia de datos de sus instancias de Caché en Redis de Azure de nivel Premium
+services: redis-cache
+documentationcenter: ''
+author: steved0x
+manager: douge
+editor: ''
 
-<tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/15/2016" 
-	ms.author="sdanie"/>
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: na
+ms.topic: article
+ms.date: 09/15/2016
+ms.author: sdanie
 
+---
 # Cómo configurar la persistencia de datos para una Caché en Redis de Azure Premium
-
 Caché en Redis de Azure tiene diferentes ofertas de caché que proporcionan flexibilidad en la elección del tamaño y las características de la caché, incluido el nuevo nivel Premium.
 
 El nivel Premium de Azure Redis Cache incluye características como la agrupación en clústeres, la persistencia y la compatibilidad de red virtual. En este artículo se describe cómo configurar la persistencia en una instancia de Caché en Redis de Azure premium.
@@ -32,7 +31,6 @@ Caché en Redis de Azure ofrece persistencia de Redis usando el [modelo RDB](htt
 Se puede configurar la persistencia de la hoja **Nueva caché en Redis** durante la creación de la caché y en la hoja **Configuración** para las memorias caché premium existentes.
 
 ## Crear una caché Premium
-
 Para crear una caché y configurar la persistencia, inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Nuevo**->**Datos y almacenamiento**>**Redis Cache**.
 
 ![Creación de una caché en Redis][redis-cache-new-cache-menu]
@@ -48,7 +46,6 @@ Una vez se selecciona un plan de tarifa premium, haga clic en **Persistencia de 
 En la siguiente sección se describe cómo configurar la persistencia de Redis en su nueva caché premium. Una vez configurada la persistencia de Redis, haga clic en **Crear** para crear su nueva caché premium con persistencia de Redis.
 
 ## Configurar la persistencia de Redis
-
 La persistencia de Redis se configura en la hoja **Persistencia de datos de Redis**. Para nuevas caché, a esta hoja se obtiene acceso durante el proceso de creación de la caché, como se describe en la sección anterior. Para las memorias caché existentes, a la hoja **Persistencia de los datos en Redis** se obtiene acceso en la hoja **Configuración** para la caché.
 
 ![Configuración de Redis][redis-cache-settings]
@@ -59,7 +56,10 @@ Para configurar el intervalo de copia de seguridad, seleccione una **Frecuencia 
 
 Haga clic en **Cuenta de almacenamiento** para seleccionar la cuenta de almacenamiento que se va a usar y elija la **Clave principal** o la **Clave secundaria** que se usará en la lista desplegable **Clave de almacenamiento**. Debe elegir una cuenta de almacenamiento en la misma región que la memoria caché y se recomienda una cuenta de **Almacenamiento Premium** porque el almacenamiento premium tiene un mayor rendimiento.
 
->[AZURE.IMPORTANT] Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento**.
+> [!IMPORTANT]
+> Si se vuelve a generar la clave de almacenamiento para su cuenta de persistencia, debe volver a elegir la clave que quiera en la lista desplegable **Clave de almacenamiento**.
+> 
+> 
 
 ![Persistencia de Redis][redis-cache-persistence-selected]
 
@@ -67,45 +67,37 @@ Haga clic en **Aceptar** para guardar la configuración de persistencia.
 
 La siguiente copia de seguridad (o la primera copia de seguridad para las nuevas cachés) se inicia cuando transcurre el intervalo de frecuencia de copia de seguridad.
 
-
-
 ## P+F de persistencia
-
 La lista siguiente contiene las respuestas a las preguntas más frecuentes sobre la persistencia de Caché en Redis de Azure.
 
--	[¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
--	[¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
--	[¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
--	[¿Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
--	[¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
+* [¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?](#can-i-enable-persistence-on-a-previously-created-cache)
+* [¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?](#can-i-change-the-backup-frequency-after-i-create-the-cache)
+* [¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?](#why-if-i-have-a-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups)
+* [¿Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad?](#what-happens-to-the-old-backups-when-a-new-backup-is-made)
+* [¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?](#what-happens-if-i-have-scaled-to-a-different-size-and-a-backup-is-restored-that-was-made-before-the-scaling-operation)
 
 ### ¿Puedo habilitar la persistencia en una memoria caché creada anteriormente?
-
 Sí, la persistencia de Redis puede configurarse tanto durante la creación de la memoria caché como en las memorias caché premium existente.
 
 ### ¿Puedo cambiar la frecuencia de copia de seguridad después de crear la memoria caché?
-
 Sí, puede cambiar la frecuencia de copia de seguridad en la hoja **Persistencia de los datos en Redis**. Para instrucciones, vea [Configurar la persistencia de Redis](#configure-redis-persistence).
 
 ### ¿Por qué si tengo una frecuencia de copia de seguridad de 60 minutos, hay más de 60 minutos entre las copias de seguridad?
-
 El intervalo de frecuencia de copia de seguridad no se inicia hasta que el proceso de copia de seguridad anterior se ha completado correctamente. Si la frecuencia de copia de seguridad es de 60 minutos y realiza un proceso de copia de seguridad en 15 minutos para completarse correctamente, la siguiente copia de seguridad no se iniciará hasta pasados 75 minutos de la hora de inicio de la copia de seguridad anterior.
 
 ### ¿Qué ocurre con las copias de seguridad antiguas cuando se realiza una nueva copia de seguridad?
-
 Todas las copias de seguridad excepto la más reciente se eliminan automáticamente. Es posible que esta eliminación no se produzca inmediatamente pero las copias de seguridad anteriores no se guardan de manera indefinida.
 
 ### ¿Qué sucede si he escalado a otro tamaño y se restaura una copia de seguridad realizada antes de la operación de escalado?
-
--	Si ha escalado a un tamaño mayor, no hay ningún impacto.
--	Si ha escalado a un tamaño menor y tiene una configuración de [bases de datos](cache-configure.md#databases) personalizada que es mayor que el [límite de bases de datos](cache-configure.md#databases) para el nuevo tamaño, los datos de esas bases de datos no se restauran. Para más información, consulte [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
--	Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración, normalmente mediante el uso de la directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
+* Si ha escalado a un tamaño mayor, no hay ningún impacto.
+* Si ha escalado a un tamaño menor y tiene una configuración de [bases de datos](cache-configure.md#databases) personalizada que es mayor que el [límite de bases de datos](cache-configure.md#databases) para el nuevo tamaño, los datos de esas bases de datos no se restauran. Para más información, consulte [¿Mi configuración de bases de datos personalizada se ve afectada durante el escalado?](#is-my-custom-databases-setting-affected-during-scaling)
+* Si ha escalado a un tamaño menor y no hay suficiente espacio en el tamaño más pequeño para contener todos los datos desde la última copia de seguridad, las claves se expulsarán durante el proceso de restauración, normalmente mediante el uso de la directiva de expulsión [allkeys-lru](http://redis.io/topics/lru-cache).
 
 ## Pasos siguientes
 Obtenga información acerca de cómo usar más características de la memoria caché del nivel Premium.
 
--	[Introducción al nivel Premium de Caché en Redis de Azure](cache-premium-tier-intro.md)
-  
+* [Introducción al nivel Premium de Caché en Redis de Azure](cache-premium-tier-intro.md)
+
 <!-- IMAGES -->
 
 [redis-cache-new-cache-menu]: ./media/cache-how-to-premium-persistence/redis-cache-new-cache-menu.png

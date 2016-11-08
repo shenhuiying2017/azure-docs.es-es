@@ -1,39 +1,35 @@
-<properties
-   pageTitle="Supervisión de un clúster del servicio de contenedores de Azure con Sysdig | Microsoft Azure"
-   description="Supervise un clúster del servicio de contenedores de Azure con Sysdig."
-   services="container-service"
-   documentationCenter=""
-   authors="rbitia"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Contenedores, DC/OS, Azure"/>
+---
+title: Supervisión de un clúster del servicio de contenedores de Azure con Sysdig | Microsoft Docs
+description: Supervise un clúster del servicio de contenedores de Azure con Sysdig.
+services: container-service
+documentationcenter: ''
+author: rbitia
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Contenedores, DC/OS, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/08/2016"
-   ms.author="t-ribhat"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/08/2016
+ms.author: t-ribhat
 
+---
 # Supervisión de un clúster del servicio de contenedores de Azure con Sysdig
-
 En este artículo, implementaremos agentes Sysdig en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Sysdig para esta configuración.
 
-## Requisitos previos 
-
+## Requisitos previos
 [Implemente](container-service-deployment.md) y [conecte](container-service-connect.md) un clúster configurado por el servicio de contenedores de Azure. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://app.sysdigcloud.com](http://app.sysdigcloud.com) para configurar una cuenta en la nube de Sysdig.
 
 ## Sysdig
-
 Sysdig es un servicio de supervisión que le permite supervisar sus contenedores dentro del clúster. Sysdig es conocido por servir para solucionar problemas, pero además incluye métricas de supervisión básicas para la CPU, la red, la memoria y la E/S. Con Sysdig resulta más fácil ver qué contenedores hacen más trabajo o esencialmente cuáles utilizan más memoria y CPU. Esta vista se encuentra en la sección "Overview" (Información general), actualmente en versión beta.
 
 ![Interfaz de usuario de Sysdig](./media/container-service-monitoring-sysdig/sysdig6.png)
 
 ## Configuración de una implementación de Sysdig con Marathon
-
 Estos pasos muestran cómo configurar e implementar aplicaciones de Sysdig en su clúster con Marathon.
 
 Acceda a la interfaz de usuario de DC/OS mediante [http://localhost:80/](http://localhost:80/). Una vez en la interfaz de usuario de DC/OS, vaya a "Universe" (Universo) en la parte inferior izquierda y busque "Sysdig".

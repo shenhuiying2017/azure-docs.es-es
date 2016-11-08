@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Aprovisionamiento de una aplicación web que usa una base de datos SQL" 
-	description="Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que incluye una base de datos SQL." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Aprovisionamiento de una aplicación web que usa una base de datos SQL
+description: Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que incluye una base de datos SQL.
+services: app-service
+documentationcenter: ''
+author: cephalin
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="04/27/2016" 
-	ms.author="cephalin"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 04/27/2016
+ms.author: cephalin
 
+---
 # Aprovisionamiento de una aplicación web con una base de datos SQL
-
 En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa una aplicación web y una base de datos SQL. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
@@ -26,29 +25,26 @@ Para obtener más información acerca de la implementación de aplicaciones, con
 
 Para la plantilla completa, consulte [Aplicación web con plantilla de Base de datos SQL](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-sql-database/azuredeploy.json).
 
-[AZURE.INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
 ## Lo que implementará
-
 En esta plantilla, implementará lo siguiente:
 
-- una aplicación web
-- un servidor de Base de datos SQL
-- Base de datos SQL
-- Configuración de escala automática
-- Las reglas de alertas
-- Detalles de la aplicación
+* una aplicación web
+* un servidor de Base de datos SQL
+* Base de datos SQL
+* Configuración de escala automática
+* Las reglas de alertas
+* Detalles de la aplicación
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
 [![Implementación en Azure](./media/app-service-web-arm-with-sql-database-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-sql-database%2Fazuredeploy.json)
 
 ## Parámetros para especificar
-
-[AZURE.INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
+[!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
 ### administratorLogin
-
 El nombre de cuenta que se va a usar para el administrador del servidor de base de datos.
 
     "administratorLogin": {
@@ -56,7 +52,6 @@ El nombre de cuenta que se va a usar para el administrador del servidor de base 
     }
 
 ### administratorLoginPassword
-
 La contraseña que se va a usar para el administrador del servidor de base de datos.
 
     "administratorLoginPassword": {
@@ -64,7 +59,6 @@ La contraseña que se va a usar para el administrador del servidor de base de da
     }
 
 ### databaseName
-
 El nombre de la nueva base de datos que se va a crear.
 
     "databaseName": {
@@ -73,7 +67,6 @@ El nombre de la nueva base de datos que se va a crear.
     }
 
 ### collation
-
 La intercalación de base de datos que se va a usar para regir el uso correcto de caracteres.
 
     "collation": {
@@ -82,7 +75,6 @@ La intercalación de base de datos que se va a usar para regir el uso correcto d
     }
 
 ### edition
-
 El tipo de base de datos que se va a crear.
 
     "edition": {
@@ -99,7 +91,6 @@ El tipo de base de datos que se va a crear.
     }
 
 ### maxSizeBytes
-
 El tamaño máximo, en bytes, de la base de datos.
 
     "maxSizeBytes": {
@@ -108,7 +99,6 @@ El tamaño máximo, en bytes, de la base de datos.
     }
 
 ### requestedServiceObjectiveName
-
 El nombre correspondiente al nivel de rendimiento para la edición.
 
     "requestedServiceObjectiveName": {
@@ -129,7 +119,6 @@ El nombre correspondiente al nivel de rendimiento para la edición.
     }
 
 ## Variables de nombres
-
 Esta plantilla incluye variables que construyen los nombres que se usan en la plantilla. Los valores de las variables usan la función **uniqueString** para generar un nombre a partir del identificador del grupo de recursos.
 
     "variables": {
@@ -140,9 +129,7 @@ Esta plantilla incluye variables que construyen los nombres que se usan en la pl
 
 
 ## Recursos para implementar
-
 ### Servidor y Base de datos SQL
-
 Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se especifica en el parámetro **serverName** y la ubicación en el parámetro **serverLocation**. Al crear el nuevo servidor, debe proporcionar un nombre de inicio de sesión y una contraseña para el administrador del servidor de base de datos.
 
     {
@@ -192,11 +179,9 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
       ]
     },
 
-[AZURE.INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
-
+[!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
 ### Aplicación web
-
     {
       "apiVersion": "2015-08-01",
       "name": "[variables('webSiteName')]",
@@ -233,7 +218,6 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
 
 
 ### Escalado automático
-
     {
       "apiVersion": "2014-04-01",
       "name": "[concat(variables('hostingPlanName'), '-', resourceGroup().name)]",
@@ -302,8 +286,7 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
     },
 
 
-### Reglas de alerta para los códigos de estado 403 y 500, CPU elevada y longitud de la cola HTTP 
-
+### Reglas de alerta para los códigos de estado 403 y 500, CPU elevada y longitud de la cola HTTP
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('ServerErrors ', variables('webSiteName'))]",
@@ -440,9 +423,8 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
         }
       }
     },
-    
-### Detalles de la aplicación
 
+### Detalles de la aplicación
     {
       "apiVersion": "2014-04-01",
       "name": "[concat('AppInsights', variables('webSiteName'))]",
@@ -461,18 +443,15 @@ Crea un servidor y una base de datos SQL nuevos. El nombre del servidor se espec
     }
 
 ## Comandos para ejecutar la implementación
-
-[AZURE.INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
+[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### PowerShell
-
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 ### Azure CLI
-
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-sql-database/azuredeploy.json
 
 
- 
+
 
 <!---HONumber=AcomDC_0810_2016-->

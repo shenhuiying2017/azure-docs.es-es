@@ -1,26 +1,24 @@
-<properties 
-	pageTitle="Retención de datos y almacenamiento en Application Insights" 
-	description="Declaración de directiva de retención y privacidad" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Retención de datos y almacenamiento en Application Insights
+description: Declaración de directiva de retención y privacidad
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/17/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/17/2016
+ms.author: awills
 
-# Recopilación, retención y almacenamiento de datos en Application Insights 
-
+---
+# Recopilación, retención y almacenamiento de datos en Application Insights
 *Application Insights se encuentra en su versión de vista previa.*
 
 Al instalar el SDK de [Application Insights para Visual Studio][start] en una aplicación, este envía la telemetría de la aplicación a la nube. Naturalmente, los desarrolladores responsables desean saber exactamente qué datos se envían, qué les ocurre a los datos y cómo puede mantener el control de los mismos. En concreto, si se puede enviar información confidencial, dónde se almacena y su nivel de seguridad.
-
 
 En primer lugar, la respuesta corta:
 
@@ -31,9 +29,7 @@ En primer lugar, la respuesta corta:
 
 En el resto de este artículo se describen más detalladamente estas respuestas. El artículo está diseñado para ser independiente, por lo que puede mostrarlo a compañeros que no formen parte de su equipo.
 
-
 ## ¿Qué es Application Insights?
-
 [Visual Studio Application Insights][start] es un servicio que proporciona Microsoft que le ayuda a mejorar el rendimiento y facilidad de uso de la aplicación activa. Supervisa la aplicación durante todo el tiempo que se ejecute, tanto durante las pruebas como después de haberla publicado o implementado. Application Insights crea gráficos y tablas que muestran, por ejemplo, en qué horas del día se obtiene la mayoría de los usuarios, la capacidad de respuesta de la aplicación y lo bien que la atienden los servicios externos de los que depende. Si hay bloqueos, errores o problemas de rendimiento, puede buscar en los datos de la telemetría para diagnosticar la causa. Y el servicio le enviará mensajes de correo electrónico si se produce cualquier tipo de cambio en la disponibilidad y rendimiento de la aplicación.
 
 Para obtener esta funcionalidad, instale un SDK de Application Insights en la aplicación, que se convierte en parte de su código. Cuando se ejecuta la aplicación, el SDK supervisa su funcionamiento y envía la telemetría al servicio Application Insights. Se trata de un servicio en la nube hospedado por [Microsoft Azure](http://azure.com). (No obstante, Application Insights funciona con cualquier aplicación, no solo con las hospedadas en Azure.)
@@ -47,20 +43,17 @@ Los datos exportados del servicio Application Insights se pueden exportar, por e
 Los SDK de Application Insights están disponible para varios tipos de aplicación: servicios web hospedados en sus propios servidores J2EE o ASP.NET, o en Azure; clientes web (es decir, el código se ejecuta en una página web); aplicaciones de escritorio y servicios; aplicaciones para dispositivos como Windows Phone, iOS y Android. Todos ellos envían telemetría al mismo servicio.
 
 ## ¿Qué datos recopila?
-
 ### ¿Cómo se recopilan los datos?
-
 Hay tres orígenes de datos:
 
 * El SDK, que se integra con la aplicación [en la fase de desarrollo](app-insights-asp-net.md) o [en tiempo de ejecución](app-insights-monitor-performance-live-website-now.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](app-insights-javascript.md), que se carga en el explorador del usuario final junto con la página.
-
- * Cada SDK tiene varios [módulos](app-insights-configuration-with-applicationinsights-config.md), que emplean diferentes técnicas para recopilar distintos tipos de datos de telemetría.
- * Si instala el SDK en la fase de desarrollo, puede usar su API para enviar su propia telemetría, además de los módulos estándar. Esta telemetría personalizada puede incluir los datos que desee enviar.
+  
+  * Cada SDK tiene varios [módulos](app-insights-configuration-with-applicationinsights-config.md), que emplean diferentes técnicas para recopilar distintos tipos de datos de telemetría.
+  * Si instala el SDK en la fase de desarrollo, puede usar su API para enviar su propia telemetría, además de los módulos estándar. Esta telemetría personalizada puede incluir los datos que desee enviar.
 * En algunos servidores web, también hay agentes que se ejecutan junto con la aplicación y envían datos de telemetría de la CPU, memoria y ocupación de la red. Por ejemplo, las máquinas virtuales de Azure, los hosts de Docker y los [servidores J2EE](app-insights-java-agent.md) pueden tener dichos agentes.
 * Las [pruebas de disponibilidad](app-insights-monitor-web-app-availability.md) son procesos que ejecuta Microsoft que envían solicitudes a una aplicación web a intervalos regulares. Los resultados se envían al servicio Application Insights.
 
 ### ¿Qué tipos de datos se recopilan?
-
 Las principales categorías son:
 
 * [Telemetría de servidor web](app-insights-asp-net.md): solicitudes HTTP. Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. Identificador de sesión.
@@ -75,7 +68,6 @@ Las principales categorías son:
 [Más detalle](#data-sent-by-application-insights).
 
 ## ¿Cómo se puede comprobar lo que se recopila?
-
 Si desarrolla la aplicación mediante Visual Studio, ejecútela en modo de depuración (F5). Los datos de telemetría aparecen en la ventana de salida. Desde ahí, puede copiarlos y darles formato como JSON para facilitar su inspección.
 
 ![](./media/app-insights-data-retention-privacy/06-vs.png)
@@ -87,45 +79,32 @@ En el caso de las páginas web, abra la ventana de depuración del explorador.
 ![Presione F12 y abra la pestaña Red.](./media/app-insights-data-retention-privacy/08-browser.png)
 
 ### ¿Puedo escribir código para filtrar los datos de telemetría antes de enviarlos?
-
 Sí, es posible, solo es preciso escribir un [complemento de procesador de telemetría](app-insights-api-filtering-sampling.md).
 
-
-
-## ¿Cuánto tiempo se conservan los datos? 
-
+## ¿Cuánto tiempo se conservan los datos?
 Puntos de datos sin procesar (es decir, elementos que se pueden examinar en búsqueda de diagnóstico) durante 7 días. Si necesita mantener los datos más tiempo, puede usar la [exportación continua](app-insights-export-telemetry.md) para copiarlos a una cuenta de almacenamiento.
 
 Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 30 días, y una hora o un día (en función del tipo) durante al menos 90 días.
 
-
 ## ¿Quién puede acceder a los datos?
-
 Usted puede ver los datos y, si tiene una cuenta de organización, también pueden los miembros del equipo.
 
 Los puede exportar tanto usted como los miembros del equipo y pueden copiarse a otras ubicaciones y pasarse a otras personas.
 
 #### ¿Qué hace Microsoft con la información que la aplicación envía a Application Insights?
-
 Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 
-
-## ¿Donde se conservan los datos? 
-
+## ¿Donde se conservan los datos?
 * En Estados Unidos.
 
-#### ¿Pueden almacenarse en otro sitio, por ejemplo, en Europa? 
-
+#### ¿Pueden almacenarse en otro sitio, por ejemplo, en Europa?
 * No en este momento.
 
 #### ¿Significa que la aplicación tiene que estar hospedada en Estados Unidos?
-
 * No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales en la nube.
 
-## ¿Están seguros mis datos?  
-
+## ¿Están seguros mis datos?
 Application Insights es un servicio de Azure en versión de vista previa. Durante la versión de vista previa, trabajamos para conseguir proteger sus datos de acuerdo con las directivas descritas en las [Notas sobre seguridad, privacidad y cumplimiento normativo de Azure](http://go.microsoft.com/fwlink/?linkid=392408).
-
 
 Los datos se almacenan en servidores de Microsoft Azure. En el caso de las cuentas del Portal de Azure, las restricciones se describen en el documento [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://go.microsoft.com/fwlink/?linkid=392408). Para las cuentas del portal de Visual Studio Team Services, se aplica el documento [Protección de datos de Visual Studio Team Services](http://download.microsoft.com/download/8/E/E/8EE6A61C-44C2-4F81-B870-A267F1DF978C/MicrosoftVisualStudioOnlineDataProtection.pdf).
 
@@ -134,25 +113,20 @@ El acceso a los datos por parte del personal de Microsoft está restringido. El 
 Los datos que se agregan en todas las aplicaciones de nuestros clientes (por ejemplo, la velocidad de datos y el tamaño medio de los seguimientos) se usan para mejorar Application Insights.
 
 #### ¿Puede interferir la telemetría de otro usuario con mis datos de Application Insights?
-
 Podría enviarse telemetría adicional a su cuenta mediante el uso de la clave de instrumentación, que se encuentra en el código de las páginas web. Si tienen demasiados datos adicionales, las métricas no representan correctamente el rendimiento y el uso de la aplicación.
 
 Si comparte el código con otros proyectos, no olvide quitar la clave de instrumentación.
 
-## ¿Se cifran los datos? 
-
+## ¿Se cifran los datos?
 No dentro de los servidores en la actualidad.
 
 Todos los datos se cifran al moverse entre centros de datos.
 
 #### ¿Se cifran los datos en tránsito desde mi aplicación a los servidores de Application Insights?
-
 Sí, se usa https para enviar datos al portal desde casi todos los SDK, incluidos dispositivos y servidores web y páginas web HTTPS. La única excepción son los datos enviados desde páginas web HTTP sin formato.
 
 ## Información de identificación personal
-
-#### ¿Puede enviarse información de identificación personal (PII) a Application Insights? 
-
+#### ¿Puede enviarse información de identificación personal (PII) a Application Insights?
 Sí, es posible.
 
 Como regla general:
@@ -161,95 +135,77 @@ Como regla general:
 * Los mensajes de excepción y seguimiento pueden incluir información de identificación personal.
 * Telemetría personalizada: es decir, llamadas como TrackEvent, que se escriben en el código mediante seguimientos de registro o la API. Puede contener cualquier dato que elija.
 
-
 La tabla incluida al final de este documento contiene descripciones más detalladas de los datos recopilados.
 
-
-
 #### ¿Es mi responsabilidad cumplir las leyes y las regulaciones relativas a la información de identificación personal?
-
 Sí. Es su responsabilidad asegurarse de que la recopilación y el uso de los datos cumplan las leyes y regulaciones respectivas, junto con los términos de Microsoft Online Services.
 
 Debe informar bien a sus clientes sobre los datos que la aplicación recopila y sobre cómo se usan.
 
 #### ¿Pueden los usuarios desactivar Application Insights?
-
 No directamente. No se proporciona un conmutador que los usuarios puedan operar para desactivar Application Insights.
 
 Sin embargo, puede implementar esta característica en la aplicación. Todos los SDK incluyen un valor de configuración de la API que desactiva la recopilación de telemetría.
 
 #### Mi aplicación recopila información confidencial de forma involuntaria. ¿Puede Application Insights limpiar estos datos para que no se conserven?
-
 Application Insights no filtra ni elimina los datos. El usuario debe administrar los datos correctamente y evitar el envío de este tipo de datos a Application Insights.
 
-
-
 ## Datos enviados por Application Insights
-
 Los SDK varían entre las distintas plataformas y hay varios componentes que se pueden instalar. (Consulte [Introducción a Application Insights][start]). Cada componente envía datos diferentes.
 
 #### Clases de datos que se envían en distintos escenarios
-
-Acción del usuario | Clases de datos recopilados (ver tabla siguiente)
----|---
-[Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] | ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesiónusuarios<br/>
-[Instalación del Monitor de estado en IIS][redfield]|Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento
-[Agregar el SDK de Application Insights a una aplicación web de Java][java]|ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>usuarios
-[Agregar el SDK de JavaScript a una página web][client]|ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax
-[Definir propiedades predeterminadas][apiproperties]|**Propiedades** en todos los eventos estándar y personalizados
-[Llamar a TrackMetric][api]|Valores numéricos<br/>**Propiedades**
-[Llamar a Track*][api]|Nombre del evento<br/>**Propiedades**
-[Llamar a TrackException][api]|**Excepciones**<br/>Volcado de pila<br/>**Propiedades**
-El SDK no puede recopilar datos. Por ejemplo: <br/> no puede obtener acceso a los contadores de rendimiento<br/> excepción en el inicializador de telemetría | Diagnóstico de SDK
- 
+| Acción del usuario | Clases de datos recopilados (ver tabla siguiente) |
+| --- | --- |
+| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesiónusuarios<br/> |
+| [Instalación del Monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
+| [Agregar el SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>usuarios |
+| [Agregar el SDK de JavaScript a una página web][client] |ClientContext <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Definir propiedades predeterminadas][apiproperties] |**Propiedades** en todos los eventos estándar y personalizados |
+| [Llamar a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
+| [Llamar a Track*][api] |Nombre del evento<br/>**Propiedades** |
+| [Llamar a TrackException][api] |**Excepciones**<br/>Volcado de pila<br/>**Propiedades** |
+| El SDK no puede recopilar datos. Por ejemplo: <br/> no puede obtener acceso a los contadores de rendimiento<br/> excepción en el inicializador de telemetría |Diagnóstico de SDK |
 
 Para los [SDK de otras plataformas][platforms], consulte los documentos correspondientes.
 
-
-
 #### Clases de los datos recopilados
-
-Clase de datos recopilados | Se incluyen (no es una lista exhaustiva) 
----|---
-**Propiedades**|**Cualquier dato - determinado por el código**
-DeviceContext |Identificador, IP, configuración regional, modelo de dispositivo, red, tipo de red, nombre de OEM, resolución de pantalla, instancia de rol, nombre de rol, tipo de dispositivo
-ClientContext |Sistema operativo, configuración regional, idioma, red, resolución de ventana
-Sesión | identificador de sesión
-ServerContext |Nombre del equipo, configuración regional, sistema operativo, dispositivo, sesión de usuario, contexto de usuario, operación 
-Inferidos |ubicación geográfica de dirección IP, marca de tiempo, sistema operativo, explorador
-Métricas | Nombre y valor de la métrica
-Eventos | Nombre y valor del evento
-PageViews | URL y nombre de página o nombre de pantalla
-Rendimiento del cliente | URL o nombre de página, tiempo de carga del explorador
-AJAX | Llamadas HTTP de la página web al servidor
-Solicitudes |URL, duración, código de respuesta
-Dependencias|Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado)
-**Excepciones** | Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso
-Bloqueos | Identificador de proceso, identificador de proceso principal, identificador de subproceso de bloqueo; revisión de aplicación, identificador, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de cpu
-Seguimiento | **Mensaje** y nivel de gravedad
-Contadores de rendimiento | Tiempo de procesador, memoria disponible, velocidad de solicitudes, tasa de excepciones, bytes privados del proceso, velocidad de E/S, duración de la solicitud, longitud de la cola de solicitudes
-Disponibilidad | Código de respuesta de prueba web, duración de cada paso de la prueba, nombre de la prueba, marca de tiempo, éxito, tiempo de respuesta, ubicación de la prueba
-Diagnóstico de SDK | Mensaje de seguimiento o de excepción 
+| Clase de datos recopilados | Se incluyen (no es una lista exhaustiva) |
+| --- | --- |
+| **Propiedades** |**Cualquier dato - determinado por el código** |
+| DeviceContext |Identificador, IP, configuración regional, modelo de dispositivo, red, tipo de red, nombre de OEM, resolución de pantalla, instancia de rol, nombre de rol, tipo de dispositivo |
+| ClientContext |Sistema operativo, configuración regional, idioma, red, resolución de ventana |
+| Sesión |identificador de sesión |
+| ServerContext |Nombre del equipo, configuración regional, sistema operativo, dispositivo, sesión de usuario, contexto de usuario, operación |
+| Inferidos |ubicación geográfica de dirección IP, marca de tiempo, sistema operativo, explorador |
+| Métricas |Nombre y valor de la métrica |
+| Eventos |Nombre y valor del evento |
+| PageViews |URL y nombre de página o nombre de pantalla |
+| Rendimiento del cliente |URL o nombre de página, tiempo de carga del explorador |
+| AJAX |Llamadas HTTP de la página web al servidor |
+| Solicitudes |URL, duración, código de respuesta |
+| Dependencias |Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado) |
+| **Excepciones** |Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso |
+| Bloqueos |Identificador de proceso, identificador de proceso principal, identificador de subproceso de bloqueo; revisión de aplicación, identificador, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de cpu |
+| Seguimiento |**Mensaje** y nivel de gravedad |
+| Contadores de rendimiento |Tiempo de procesador, memoria disponible, velocidad de solicitudes, tasa de excepciones, bytes privados del proceso, velocidad de E/S, duración de la solicitud, longitud de la cola de solicitudes |
+| Disponibilidad |Código de respuesta de prueba web, duración de cada paso de la prueba, nombre de la prueba, marca de tiempo, éxito, tiempo de respuesta, ubicación de la prueba |
+| Diagnóstico de SDK |Mensaje de seguimiento o de excepción |
 
 También puede [desactivar algunos de los datos mediante la edición de ApplicationInsights.config][config]
 
-
 ## Créditos
-
 Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://www.maxmind.com](http://www.maxmind.com).
 
 ## <a name="video"></a>Vídeos
-
 #### Introducción
-
-> [AZURE.VIDEO application-insights-introduction]
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Application-Insights-Introduction/player]
+> 
+> 
 
 #### Primeros pasos
-
-> [AZURE.VIDEO getting-started-with-application-insights]
-
-
-
+> [!VIDEO https://channel9.msdn.com/Series/Application-Insights-on-Azure-Preview-Portal/Getting-Started-with-Application-Insights/player]
+> 
+> 
 
 <!--Link references-->
 
@@ -264,6 +220,6 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [http://
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 
- 
+
 
 <!---HONumber=AcomDC_0907_2016-->

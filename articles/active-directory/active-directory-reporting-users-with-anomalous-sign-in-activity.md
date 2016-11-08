@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Usuarios con actividad de inicio de sesión erróneo."
-	description="Un informe que indica todas las cuentas de usuario respecto a las cuales se ha identificado la actividad de inicio de sesión anómala."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Usuarios con actividad de inicio de sesión erróneo.
+description: Un informe que indica todas las cuentas de usuario respecto a las cuales se ha identificado la actividad de inicio de sesión anómala.
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
+---
 # Usuarios con actividad de inicio de sesión erróneo.
 Se trata de un informe de agregado que combina los inicios de sesión sospechosos de los siguientes informes:
 

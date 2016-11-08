@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Información general de IPv6 para Azure Load Balancer | Microsoft Azure"
-    description="Información sobre la compatibilidad de IPv6 con Azure Load Balancer y máquinas virtuales de carga equilibrada."
-    services="load-balancer"
-    documentationCenter="na"
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-    keywords="IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot"
-/>
-<tags
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    ms.author="sewhee"
-/>
+---
+title: Información general de IPv6 para Azure Load Balancer | Microsoft Docs
+description: Información sobre la compatibilidad de IPv6 con Azure Load Balancer y máquinas virtuales de carga equilibrada.
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+keywords: IPv6, Azure Load Balancer, pila doble, dirección ip pública, ipv6 nativo, móvil, iot
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+ms.author: sewhee
 
+---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Información general de IPv6 para Azure Load Balancer
-
 Los equilibradores de carga con conexión a Internet pueden implementarse con una dirección IPv6. Además de la conectividad de IPv4, esto permite las siguientes capacidades:
 
 * Conectividad IPv6 nativa de un extremo a otro entre los clientes de Internet públicos y Azure Virtual Machines a través del equilibrador de carga.
@@ -33,7 +30,6 @@ En la siguiente imagen se muestra la funcionalidad de IPv6 para Azure Load Balan
 Una vez implementado, un cliente de Internet con IPv4 o IPv6 habilitado puede comunicarse con direcciones IPv4 o IPv6 públicas (o nombres de host) de Azure Load Balancer con conexión a Internet. El equilibrador de carga redirige los paquetes IPv6 a las direcciones IPv6 privadas de las máquinas virtuales mediante la traducción de direcciones de red (NAT). El cliente de Internet IPv6 no se puede comunicar directamente con la dirección IPv6 de las máquinas virtuales.
 
 ## <a name="features"></a>Características
-
 La compatibilidad nativa de IPv6 para máquinas virtuales implementadas a través de Azure Resource Manager ofrece:
 
 1. Servicios IPv6 de carga equilibrada para clientes IPv6 en Internet
@@ -42,14 +38,12 @@ La compatibilidad nativa de IPv6 para máquinas virtuales implementadas a travé
 4. Protocolos compatibles como TCP, UDP y HTTP (S) admiten una amplia gama de arquitecturas de servicio
 
 ## <a name="benefits"></a>Ventajas
-
 Esta funcionalidad ofrece los siguientes beneficios clave:
 
 * Cumplir las normas gubernamentales que exigen que las nuevas aplicaciones sean accesibles solo a los clientes IPv6
 * Habilitar desarrolladores móviles y de Internet de las cosas para usar Azure Virtual Machines con doble pila (IPv4 + IPv6) para satisfacer el crecimiento de los mercados móviles y de IOT
 
 ## <a name="details-and-limitations"></a>Detalles y limitaciones
-
 Detalles
 
 * El servicio DNS de Azure contiene registros de nombre IPv4 A y IPv6 AAAA y responde con ambos registros para el equilibrador de carga. El cliente elige con qué dirección (IPv4 o IPv6) comunicarse.
@@ -71,15 +65,12 @@ Limitaciones
 * El cambio del parámetro IdleTimeout a IPv6 **no se admite actualmente**. El valor predeterminado es de cuatro minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Obtenga información sobre cómo implementar un equilibrador de carga con IPv6.
 
 * [Disponibilidad de IPv6 por región](https://go.microsoft.com/fwlink/?linkid=828357)
 * [Implementación de un equilibrador de carga con IPv6 mediante una plantilla](load-balancer-ipv6-internet-template.md)
 * [Implementación de un equilibrador de carga con IPv6 mediante Azure PowerShell](load-balancer-ipv6-internet-ps.md)
 * [Implementación de un equilibrador de carga con IPv6 mediante la CLI de Azure](load-balancer-ipv6-internet-cli.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

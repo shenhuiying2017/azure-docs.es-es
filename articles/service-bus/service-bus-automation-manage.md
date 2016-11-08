@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Administración de Bus de servicio de Azure con Automatización de Azure | Microsoft Azure"
-	description="Obtenga información sobre cómo usar el servicio de Automatización de Azure para administrar Bus de servicio de Azure."
-	services="service-bus, automation"
-	documentationCenter=""
-	authors="mgoedtel"
-	manager="jwhit"
-	editor=""/>
+---
+title: Administración de Bus de servicio de Azure con Automatización de Azure | Microsoft Docs
+description: Obtenga información sobre cómo usar el servicio de Automatización de Azure para administrar Bus de servicio de Azure.
+services: service-bus, automation
+documentationcenter: ''
+author: mgoedtel
+manager: jwhit
+editor: ''
 
-<tags
-	ms.service="service-bus"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/29/2016"
-	ms.author="magoedte;csand"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/29/2016
+ms.author: magoedte;csand
 
+---
 # Administración de Bus de servicio de Azure con Automatización de Azure
-
 Esta guía presenta el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de Bus de servicio de Azure.
 
 ## ¿Qué es Automatización de Azure?
-
 [Automatización de Azure](../automation/automation-intro.md) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos y la configuración de estado deseado. Mediante Automatización de Azure, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
 
 Automatización de Azure proporciona un motor de ejecución de flujo de trabajo altamente confiable y de alta disponibilidad que realiza la escalación para satisfacer sus necesidades. En Automatización de Azure, los sistemas de terceros pueden interrumpir los procesos manualmente o en intervalos programados para que las tareas se realicen justo cuando sea necesario.
@@ -29,7 +27,6 @@ Automatización de Azure proporciona un motor de ejecución de flujo de trabajo 
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
 ## ¿Cómo puede ayudar Automatización de Azure a administrar Bus de servicio de Azure?
-
 Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/mt639375.aspx). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas del Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
 
 Los siguientes son algunos ejemplos de cómo usar PowerShell para administrar Bus de servicio de Azure:
@@ -40,9 +37,7 @@ Los siguientes son algunos ejemplos de cómo usar PowerShell para administrar Bu
 
 El módulo de PowerShell que se utiliza con el Bus de servicio de Azure en cuadernos de automatización puede descargarse en la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0).
 
-
 ## Pasos siguientes
-
 Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Bus de servicio de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
 * Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md) de Automatización de Azure.

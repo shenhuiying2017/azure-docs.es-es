@@ -1,43 +1,43 @@
-<properties
-	pageTitle="Replicación global de bases de datos de DocumentDB | Microsoft Azure"
-	description="Obtenga información sobre cómo administrar la replicación global de su cuenta de DocumentDB mediante el Portal de Azure."
-	services="documentdb"
-    keywords="base de datos global, replicación"
-	documentationCenter=""
-	authors="mimig1"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Replicación global de bases de datos de DocumentDB | Microsoft Docs
+description: Obtenga información sobre cómo administrar la replicación global de su cuenta de DocumentDB mediante el Portal de Azure.
+services: documentdb
+keywords: base de datos global, replicación
+documentationcenter: ''
+author: mimig1
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="documentdb"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/26/2016"
-	ms.author="mimig"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/26/2016
+ms.author: mimig
 
+---
 # Replicación global de bases de datos de DocumentDB mediante el Portal de Azure
-
 Aprenda a usar el Portal de Azure para replicar datos en varias regiones para la disponibilidad global de los datos en Azure DocumentDB.
 
 Para más información acerca de cómo funciona la replicación global de bases de datos en DocumentDB, consulte [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md). Para más información acerca de cómo realizar la replicación global de bases de datos mediante programación, consulte [Desarrollo con cuentas de DocumentDB de varias regiones](documentdb-developing-with-multiple-regions.md).
 
-> [AZURE.NOTE] La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!NOTE]
+> La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> 
+> 
 
 ## <a id="addregion"></a>Incorporación de regiones a la base de datos global
-
 DocumentDB está disponible en la mayoría de las [regiones de Azure][azureregions]. Tras seleccionar el nivel de coherencia predeterminado para la cuenta de base de datos, puede asociar una o varias regiones (según la elección del nivel de coherencia y las necesidades de distribución global).
 
 1. En la barra de accesos directos del [Portal de Azure](https://portal.azure.com/), haga clic en **Cuentas de DocumentDB**.
 2. En la hoja **Cuenta de DocumentDB**, seleccione la cuenta de base de datos que se va a modificar.
 3. En la hoja Cuenta, haga clic en **Agregar o quitar regiones** en el menú.
 4. En la hoja **Agregar o quitar regiones**, seleccione las regiones para agregar o quitar y, luego, haga clic en **Aceptar**. Agregar regiones conlleva un costo; consulte la [página de precios](https://azure.microsoft.com/pricing/details/documentdb/) o el artículo [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md) para más información.
-
+   
     ![Haga clic en las regiones en el mapa para agregarlas o quitarlas][1]
 
 ### Selección de regiones de la base de datos global
-
 Al configurar dos o más regiones, se recomienda que las regiones se seleccionen en función de los pares de regiones descritos en el artículo [Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure][bcdr].
 
 En concreto, cuando se configuran varias regiones, asegúrese de seleccionar el mismo número de regiones (+/-1 para par o impar) de cada una de las columnas de regiones emparejadas. Por ejemplo, si quiere implementar en 4 regiones de Estados Unidos, seleccione 2 regiones de Estados Unidos en la columna izquierda y 2 en la derecha. Este sería un conjunto adecuado: oeste de EE. UU., este de EE. UU., centro-norte de EE. UU. y centro-sur de EE. UU.
@@ -59,7 +59,6 @@ While all regions associated with your DocumentDB database account can serve rea
 -->
 
 ## <a id="next"></a>Pasos siguientes
-
 Para aprender a administrar la coherencia de la cuenta global replicada, lea [Niveles de coherencia en DocumentDB](documentdb-consistency-levels.md).
 
 Para más información acerca de cómo funciona la replicación global de bases de datos en DocumentDB, consulte [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md). Para más información acerca de cómo realizar la replicación de bases de datos en varias regiones mediante programación, consulte [Desarrollo con cuentas de DocumentDB de varias regiones](documentdb-developing-with-multiple-regions.md).

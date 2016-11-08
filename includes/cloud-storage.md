@@ -1,23 +1,20 @@
-#Administración de datos y análisis de negocios
-
+# Administración de datos y análisis de negocios
 Es tan importante administrar y analizar los datos que están en la nube como los que están en cualquier otro sitio. Para facilitarle estas tareas, Azure proporciona una gama de tecnologías aptas para trabajar con datos relacionales y no relacionales. Este artículo presenta todas estas opciones.
 
-##Tabla de contenido      
-
-- [Almacenamiento de blobs](#blob)
-- [Ejecución de un DBMS en una máquina virtual](#dbinvm)
-- [Base de datos SQL](#sqldb)
-	- [SQL Data Sync](#datasync)
-	- [SQL Data Reporting con máquinas virtuales](#datarpt)
-- [Almacenamiento de tablas](#tblstor)
-- [Hadoop](#hadoop)
+## Tabla de contenido
+* [Almacenamiento de blobs](#blob)
+* [Ejecución de un DBMS en una máquina virtual](#dbinvm)
+* [Base de datos SQL](#sqldb)
+  * [SQL Data Sync](#datasync)
+  * [SQL Data Reporting con máquinas virtuales](#datarpt)
+* [Almacenamiento de tablas](#tblstor)
+* [Hadoop](#hadoop)
 
 ## <a name="blob"></a>Almacenamiento de blobs
-
 La palabra "blob" es la forma abreviada de "Binary Large Object" (objeto binario grande) y describe exactamente lo que es: una colección de información binaria. Si bien son simples, los blobs también son muy útiles. La [ilustración 1](#Fig1) muestra los fundamentos del almacenamiento de blobs de Azure.
 
 <a name="Fig1"></a>![Diagrama de blobs][blobs]
- 
+
 **Ilustración 1: Almacenamiento de blobs de Azure almacena datos binarios (blobs) en contenedores.**
 
 Para usar blobs, en primer lugar debe crear una *cuenta de almacenamiento* de Azure. Como parte de este proceso, debe especificar el centro de datos de Azure que almacenará los objetos que cree con esta cuenta. Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a algún contenedor de su cuenta de almacenamiento. Para tener acceso a un blob, una aplicación proporciona a una URL el formulario:
@@ -28,15 +25,14 @@ http://&lt;*StorageAccount*&gt;.blob.core.windows.net/&lt;*Container*&gt;/&lt;*B
 
 Azure proporciona dos tipos de blobs diferentes. Las opciones son las siguientes:
 
-- Blobs en *bloques*, cada uno de los cuales puede contener hasta 200 gigabytes de datos. Tal y como recomienda su nombre, un blob en bloques está subdividido en un número de bloques indeterminado. Si se produce un error durante la transferencia de un blob en bloques, es posible reanudar la retransmisión con los bloques más recientes en vez de enviar de nuevo todo el blob. Los blobs en bloques constituyen un método de almacenamiento bastante general y son el tipo de blob más utilizado en la actualidad.
-
-- Blobs en *páginas*, que pueden contener hasta un terabyte cada uno. Los blobs en páginas se han diseñado para proporcionar un acceso aleatorio y cada uno está dividido en un número de páginas indeterminado. Las aplicaciones tienen permiso de lectura y escritura de páginas individuales de forma aleatoria en el blob. En el modelo de ejecución Máquinas virtuales de Azure, por ejemplo, las máquinas virtuales creadas usan blobs en páginas a modo de almacenamiento permanente tanto para los discos de sistemas operativos como para los discos de datos.
+* Blobs en *bloques*, cada uno de los cuales puede contener hasta 200 gigabytes de datos. Tal y como recomienda su nombre, un blob en bloques está subdividido en un número de bloques indeterminado. Si se produce un error durante la transferencia de un blob en bloques, es posible reanudar la retransmisión con los bloques más recientes en vez de enviar de nuevo todo el blob. Los blobs en bloques constituyen un método de almacenamiento bastante general y son el tipo de blob más utilizado en la actualidad.
+* Blobs en *páginas*, que pueden contener hasta un terabyte cada uno. Los blobs en páginas se han diseñado para proporcionar un acceso aleatorio y cada uno está dividido en un número de páginas indeterminado. Las aplicaciones tienen permiso de lectura y escritura de páginas individuales de forma aleatoria en el blob. En el modelo de ejecución Máquinas virtuales de Azure, por ejemplo, las máquinas virtuales creadas usan blobs en páginas a modo de almacenamiento permanente tanto para los discos de sistemas operativos como para los discos de datos.
 
 Tanto si elige blobs en bloques como blobs en páginas, las aplicaciones pueden tener acceso a los datos del blob de diversas formas. Están disponibles las siguientes opciones:
 
-- Directamente a través de un protocolo de acceso RESTful (por ejemplo, basado en HTTP). Tanto las aplicaciones de Azure como las aplicaciones externas, incluidas las aplicaciones ejecutadas en el entorno local, pueden usar esta opción.
-- Mediante la biblioteca del Cliente de almacenamiento de Azure, que proporciona una interfaz más intuitiva para los desarrolladores sobre el protocolo de acceso a blobs de tipo RESTful. Una vez más, tanto las aplicaciones de Azure como las aplicaciones externas pueden tener acceso a blobs utilizando esta biblioteca.
-- Mediante las unidades de Azure, opción que permite que una aplicación de Azure trate un blob en páginas como una unidad local con un sistema de archivos NTFS. Para la aplicación, el blob en páginas es similar a un sistema de archivos normal de Windows al que se accede mediante E/S de archivos estándar. De hecho, las lecturas y escrituras se envían al blob en páginas subyacente que implementa la unidad de Azure. 
+* Directamente a través de un protocolo de acceso RESTful (por ejemplo, basado en HTTP). Tanto las aplicaciones de Azure como las aplicaciones externas, incluidas las aplicaciones ejecutadas en el entorno local, pueden usar esta opción.
+* Mediante la biblioteca del Cliente de almacenamiento de Azure, que proporciona una interfaz más intuitiva para los desarrolladores sobre el protocolo de acceso a blobs de tipo RESTful. Una vez más, tanto las aplicaciones de Azure como las aplicaciones externas pueden tener acceso a blobs utilizando esta biblioteca.
+* Mediante las unidades de Azure, opción que permite que una aplicación de Azure trate un blob en páginas como una unidad local con un sistema de archivos NTFS. Para la aplicación, el blob en páginas es similar a un sistema de archivos normal de Windows al que se accede mediante E/S de archivos estándar. De hecho, las lecturas y escrituras se envían al blob en páginas subyacente que implementa la unidad de Azure. 
 
 Para protegerlos de errores de hardware y mejorar su disponibilidad, todos los blobs se replican en tres equipos de un centro de datos de Azure. La escritura en un blob actualiza las tres copias para que las lecturas posteriores no obtengan resultados incoherentes. También puede especificar que los datos de un blob se copien a otro centro de datos de Azure que esté ubicado en la misma región geográfica pero a una distancia mínima de 500 millas. Este proceso de copiado, denominado *replicación geográfica*, se realiza pocos minutos después de una actualización del blob y es útil para la recuperación ante desastres.
 
@@ -44,13 +40,11 @@ También es posible hacer públicos los datos de los blobs a través de la *Red 
 
 Si bien son sencillos, los blobs son la elección adecuada en muchas situaciones. El almacenamiento y la transmisión de vídeo y audio son ejemplos obvios, así como las copias de seguridad y otros tipos de archivado de datos. Los desarrolladores también pueden usar blobs para mantener cualquier clase de datos no estructurados que deseen. Disponer de una forma directa de almacenar y tener acceso a datos binarios puede ser sorprendentemente útil.
 
-
 ## <a name="dbinvm"></a>Ejecución de un DBMS en una máquina virtual
-
 Muchas aplicaciones actuales usan algún tipo de sistema de administración de bases de datos (DBMS). Los sistemas relacionales, como SQL Server, son la opción más utilizada, pero los enfoques no relacionales, comúnmente conocidos como tecnologías *NoSQL*, son cada día más populares. Para que las aplicaciones en la nube usen estas opciones de administración de datos, el modelo de ejecución Máquinas virtuales de Azure le permite ejecutar un sistema DBMS (relacional o NoSQL) en una máquina virtual. La [ilustración 2](#Fig2) muestra su apariencia en SQL Server.
 
 <a name="Fig2"></a>![Diagrama de SQL Server en una máquina virtual][SQLSvr-vm]
- 
+
 **Ilustración 2: el modelo de ejecución de Máquinas virtuales de Azure permite ejecutar un DBMS en una máquina virtual, con persistencia proporcionada por los blobs.**
 
 Tanto para los desarrolladores como para los administradores de las bases de datos, este escenario se asemeja en gran medida a la ejecución del mismo software en su propio centro de datos. En el ejemplo que aquí se muestra, entre otros posibles, se pueden usar casi todas las funciones de SQL Server y se proporciona un acceso total de administrador al sistema. Por supuesto, también tiene la responsabilidad de administrar el servidor de la base de datos, al igual que si se estuviera ejecutando en un entorno local.
@@ -59,13 +53,11 @@ Tal como se muestra en la [ilustración 2](#Fig2), las bases de datos parecen es
 
 Otra forma de usar SQL Server en una máquina virtual consiste en crear una aplicación híbrida, en la que los datos se alojen en Azure mientras que la parte lógica de la aplicación se ejecuta en el entorno local. Por ejemplo, podría ser más lógico usar esta forma con las aplicaciones que se ejecutan en múltiples ubicaciones o en varios dispositivos móviles que deben compartir los mismos datos. Para facilitar la comunicación entre la base de datos en la nube y la parte lógica en el entorno local, una organización puede usar el modelo de ejecución Red virtual de Azure para crear una conexión de red privada virtual (VPN) entre un centro de datos de Azure y su propio centro de datos en el entorno local.
 
-
 ## <a name="sqldb"></a>Base de datos SQL
-
 Para muchas personas, ejecutar un sistema DBMS en una máquina virtual es la primera opción que viene a la mente para administrar datos estructurados en la nube. Si bien no es la única posibilidad, tampoco es siempre la mejor opción. En algunos casos, es más lógico administrar los datos mediante un modelo de plataforma como servicio (PaaS). Azure proporciona una tecnología PaaS denominada Base de datos SQL, que le permite tratar los datos relacionales de este modo. La [ilustración 3](#Fig3) muestra esta opción.
 
 <a name="Fig3"></a>![Diagrama de Base de datos SQL][SQL-db]
- 
+
 **Ilustración 3: Base de datos SQL proporciona un servicio de almacenamiento relacional PaaS compartido.**
 
 El modelo de ejecución Base de datos SQL no proporciona a cada cliente su propia instancia física de SQL Server. En su lugar, ofrece un servicio multiinquilino, con un servidor de Base de datos SQL lógico para cada cliente. Todos los clientes comparten la capacidad de almacenamiento y proceso que proporciona el servicio. Y al igual que con el almacenamiento de blobs, todos los datos de Base de datos SQL se almacenan en tres equipos independientes dentro de un centro de datos de Azure, por lo que proporcionan a sus bases de datos una alta disponibilidad (HA) integrada.
@@ -86,26 +78,22 @@ Una forma sencilla de recordarlo consiste en considerar que el modelo de ejecuci
 
 Finalmente, es importante destacar que el modelo de ejecución Base de datos SQL no es el único servicio de datos PaaS disponible en Azure. Los asociados de Microsoft ofrecen igualmente otras opciones. Por ejemplo, ClearDB ofrece un PaaS MySQL, mientras que Cloudant ofrece una opción NoSQL. Los servicios de datos PaaS son la solución adecuada en muchas situaciones, por lo que este modelo de administración de datos es una parte importante de Azure.
 
-
 ### <a name="datasync"></a>SQL Data Sync
-
 Mientras que el modelo de ejecución Base de datos SQL mantiene tres copias de cada base de datos en un solo centro de datos de Azure, no copia automáticamente los datos entre los centros de datos de Azure. En su lugar, proporciona el servicio SQL Data Sync, que el usuario puede utilizar para ello. La [ilustración 4](#Fig4) muestra su apariencia.
 
 <a name="Fig4"></a>![Diagrama de SQL Data Sync][SQL-datasync]
- 
+
 **Ilustración 4: SQL Data Sync sincroniza los datos en el modelo de ejecución Base de datos SQL con los datos en otros centros de datos de Azure y del entorno local.**
 
 Tal y como muestra el diagrama, SQL Data Sync puede sincronizar datos en diferentes ubicaciones. Se supone que está ejecutando una aplicación en múltiples centros de datos de Azure, por ejemplo, con datos almacenados en Base de datos SQL. Puede usar SQL Data Sync para mantener los datos sincronizados. SQL Data Sync también puede sincronizar datos entre un centro de datos de Azure y una instancia de SQL Server que se esté ejecutando en un centro de datos del entorno local. Esto podría resultar útil para mantener tanto una copia local de los datos utilizados por las aplicaciones del entorno local como una copia en la nube, utilizada por las aplicaciones que se ejecutan en Azure. Y aunque no se muestra en la ilustración, SQL Data Sync también se puede utilizar para sincronizar datos entre los modelo de ejecución Base de datos SQL y SQL Server que se estén ejecutando en una máquina virtual en Azure o en cualquier otro sitio.
 
 La sincronización puede ser bidireccional y permite determinar exactamente los datos sincronizados y la frecuencia de sincronización. (La sincronización entre bases de datos no es instantánea: siempre existe al menos una breve demora). Y aunque utiliza código, el establecimiento de la sincronización con SQL Data Sync está totalmente orientado a la configuración: no es necesario escribir código.
 
-
 ### <a name="datarpt"></a>SQL Data Reporting con máquinas virtuales
-
 Cuando una base de datos contenga datos, es probable que alguien quiera crear informes con esos datos. Azure puede ejecutar SQL Server Reporting Services (SSRS) en el modelo de ejecución Máquinas virtuales de Azure, que equivale funcionalmente a ejecutar SQL Server Reporting Services en el entorno local. A partir de entonces puede usar SSRS para generar informes sobre los datos almacenados en un modelo de ejecución Base de datos SQL de Azure. La [ilustración 5](#Fig5) muestra el funcionamiento del proceso.
 
 <a name="Fig5"></a>![Diagrama de SQL Reporting][SQL-report]
- 
+
 **Ilustración 5: la ejecución de SQL Server Reporting Services en Máquinas virtuales de Azure proporciona servicios de generación de informes de los datos contenidos en Base de datos SQL.**
 
 Antes de que un usuario pueda ver un informe, es necesario que alguien defina la apariencia de ese informe (paso 1). Con SSRS en una máquina virtual, esto se puede hacer con una de dos herramientas: SQL Server Data Tools, que forma parte de SQL Server 2012, o su predecesor, Business Intelligence (BI) Development Studio. Al igual que con SSRS, las definiciones de estos informes se expresan en lenguaje RDL. Una vez creados los archivos RDL para un informe, se tienen que cargar en una máquina virtual en la nube (paso 2). La definición del informe ya está lista para el uso.
@@ -116,16 +104,13 @@ La incrustación de un informe en una aplicación, que es el escenario que se mu
 
 SSRS en una máquina virtual de Azure proporciona toda la funcionalidad de una solución de generación de informes en la nube. Los informes pueden usar cualquier fuente de datos que sea compatible con SSRS. Las aplicaciones y los informes pueden incluir código incrustado o ensamblados para que sean compatibles con comportamientos personalizados. La ejecución y generación de informes es rápida porque el contenido y el motor del servidor de informes se ejecutan juntos en el mismo servidor virtual.
 
-
-
 ## <a name="tblstor"></a>Almacenamiento de tablas
-
 Los datos relacionales son útiles en muchas situaciones, pero no siempre son la elección adecuada. En el caso de que su aplicación necesite tener un acceso rápido y sencillo a cantidades muy grandes de datos poco estructurados, por ejemplo, una base de datos relacionales, podrían no funcionar bien. Es posible que una tecnología NoSQL sea la mejor opción.
 
 El almacenamiento de tablas de Azure es un ejemplo de este tipo de modelo NoSQL. A pesar de su nombre, el almacenamiento de tablas no es compatible con tablas relacionales estándar. En su lugar, proporciona lo que se conoce como *almacén de claves/valores*, para asociar un conjunto de datos a una clave en particular y, a continuación, permitir el acceso de una aplicación a esos datos mediante el uso de la clave. La [ilustración 6](#Fig6) muestra los conceptos básicos.
 
 <a name="Fig6"></a>![Diagrama del almacenamiento de tablas][SQL-tblstor]
- 
+
 **Ilustración 6: el almacenamiento de tablas de Azure es un almacén de claves/valores que proporciona un acceso rápido y sencillo a grandes cantidades de datos.**
 
 Al igual que los blobs, cada tabla se asocia a una cuenta de almacenamiento de Azure. Las tablas también se denominan de un modo muy similar a los blobs, con una URL del formulario.
@@ -142,9 +127,7 @@ Esta estructura permite que las tablas sean grandes (una tabla sencilla puede co
 
 El almacenamiento de tablas de Azure es una buena elección para las aplicaciones que necesitan tener un acceso rápido y económico a grandes cantidades de datos poco estructurados. Por ejemplo, una aplicación en Internet que almacene información de perfiles de muchos usuarios podría usar tablas. En una situación como esta, es importante tener un acceso rápido, y es probable que la aplicación no necesite todo el potencial de SQL. Privarse de esta función para conseguir más velocidad y tamaño puede, a veces, ser lo más lógico, por lo que el almacenamiento de tablas es la solución adecuada para algunos problemas.
 
-
 ## <a name="hadoop"></a>Hadoop
-
 Las organizaciones han estado compilando almacenes de datos durante décadas. Estas recopilaciones de información, que suelen almacenarse en tablas relacionales, permiten a las personas trabajar con esos datos y aprender de ellos de muchas formas diferentes. Para ello, en SQL Server, por ejemplo, es habitual usar herramientas como SQL Server Analysis Services.
 
 Pero supongamos que desea analizar datos no relacionales. Los datos pueden adoptar numerosas formas: información recopilada de sensores o etiquetas RFID, archivos de registro en granjas de servidores, datos procedentes de la secuencia de clics que se produce en aplicaciones web, imágenes de dispositivos de diagnóstico médico, etc. Estos datos también podrían ser demasiado grandes para ser utilizados de forma eficaz en un almacén de datos tradicional. Los problemas relacionados con datos de gran tamaño como estos, escasos tan solo hace unos pocos años, ahora son bastante habituales.

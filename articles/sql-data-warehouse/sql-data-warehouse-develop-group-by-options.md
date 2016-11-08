@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Opciones de Group by en Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Opciones de Group by en Almacenamiento de datos SQL | Microsoft Docs
+description: Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Opciones de Group by en Almacenamiento de datos SQL
-
-La cláusula [GROUP BY][] se usa para agregar datos a un conjunto de filas de resumen. También cuenta con algunas opciones que amplían su funcionalidad y que es necesario solucionar ya que no son directamente compatibles con Almacenamiento de datos SQL de Azure.
+La cláusula [GROUP BY][GROUP BY] se usa para agregar datos a un conjunto de filas de resumen. También cuenta con algunas opciones que amplían su funcionalidad y que es necesario solucionar ya que no son directamente compatibles con Almacenamiento de datos SQL de Azure.
 
 Estas opciones son:
-- GROUP BY con ROLLUP
-- GROUPING SETS
-- GROUP BY con CUBE
+
+* GROUP BY con ROLLUP
+* GROUPING SETS
+* GROUP BY con CUBE
 
 ## Opciones Rollup y Grouping sets
 Aquí, la opción más sencilla consiste en usar `UNION ALL` en su lugar para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo
@@ -44,9 +44,10 @@ GROUP BY ROLLUP (
 ```
 
 Mediante el uso de ROLLUP hemos solicitado las agregaciones siguientes:
-- País y región
-- País
-- Total general
+
+* País y región
+* País
+* Total general
 
 Para reemplazar esta operación, deberá usar `UNION ALL` y especificar las agregaciones necesarias explícitamente para devolver los mismos resultados:
 
@@ -175,9 +176,8 @@ ORDER BY 1,2,3
 
 Al dividir el código en secciones y generar una construcción de bucle, el código resulta más fácil de administrar y mantener.
 
-
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png

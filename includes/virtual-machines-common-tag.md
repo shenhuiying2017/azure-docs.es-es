@@ -2,7 +2,6 @@
 
 
 ## Etiquetado de una máquina virtual mediante plantillas
-
 En primer lugar, veamos el etiquetado a través de plantillas. [Esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) coloca etiquetas en los siguientes recursos: proceso (máquina virtual), almacenamiento (cuenta de almacenamiento) y red (dirección IP pública, red virtual e interfaz de red). Esta plantilla es para una máquina virtual Windows, pero se puede adaptar a máquinas virtuales Linux.
 
 Haga clic en el botón **Implementar en Azure** del [vínculo de la plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags). Esto le remitirá al [Portal de Azure](https://portal.azure.com/), donde puede implementar esta plantilla.
@@ -28,9 +27,7 @@ A continuación, en la sección **Editar parámetros**, puede rellenar los valor
 
 Haga clic en **Crear** para implementar esta plantilla con sus valores de etiqueta.
 
-
 ## Etiquetado a través del portal
-
 Después de crear los recursos con etiquetas, puede ver, agregar y eliminar etiquetas en el portal.
 
 Seleccione el icono de etiquetas para ver las etiquetas:

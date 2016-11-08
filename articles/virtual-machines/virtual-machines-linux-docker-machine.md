@@ -1,28 +1,25 @@
-<properties
-	pageTitle="Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Azure"
-	description="Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Docs
+description: Describe el uso de la máquina de Docker para crear hosts de docker en Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: squillace
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
-	ms.author="rasquill"/>
+ms.service: virtual-machines-linux
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 07/22/2016
+ms.author: rasquill
 
+---
 # Uso de una máquina de Docker con el controlador de Azure
-
 [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa contenedores de Linux en lugar de máquinas virtuales como una forma de aislar datos de aplicación y calcular recursos compartidos. Este tema describe cuándo y cómo usar [máquina de Docker](https://docs.docker.com/machine/) (el comando `docker-machine`) para crear nuevas VM de Linux en Azure habilitadas como un host de docker para los contenedores de Linux.
 
-
 ## Creación de VM con la máquina de Docker
-
 Cree VM de host de docker en Azure con el comando `docker-machine create` mediante el argumento de controlador `azure` para la opción de controlador (`-d`) y cualquier otro argumento.
 
 El siguiente ejemplo se basa en los valores predeterminados, pero abre el puerto 80 de la VM a Internet para probar con un contenedor nginx, hace que `ops` sea el usuario de inicio de sesión para SSH y llama a la nueva VM `machine`.
@@ -71,7 +68,6 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 ```
 
 ## Configuración del shell de docker
-
 Ahora, escriba `docker-machine env <VM name>` para ver lo que necesita hacer para configurar el shell.
 
 ```bash
@@ -92,7 +88,6 @@ export DOCKER_MACHINE_NAME="machine"
 Puede ejecutar el comando de configuración sugerido o establecer las variables de entorno usted mismo.
 
 ## Ejecución de un contenedor
-
 Ahora puede ejecutar un servidor web simple para probar si todo funciona correctamente. Aquí se usa una imagen nginx estándar, se especifica que debe escuchar en el puerto 80 y que si la VM se reinicia, el contenedor también se debe reiniciar (`--restart=always`).
 
 ```bash
@@ -114,7 +109,6 @@ Status: Downloaded newer image for nginx:latest
 ```
 
 ## Prueba del contenedor
-
 Examine los contenedores en ejecución mediante `docker ps`:
 
 ```bash
@@ -127,7 +121,6 @@ Y para comprobar el contenedor en ejecución, escriba `docker-machine ip <VM nam
 ![Ejecución del contenedor ngnix](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Pasos siguientes
-
 Si le interesa, puede probar la [extensión de VM de Docker](virtual-machines-linux-dockerextension.md) de Azure para realizar la misma operación mediante la CLI de Azure o las plantillas de Azure Resource Manager.
 
 Para ver más ejemplos de cómo trabajar con Docker, consulte [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) (Trabajar con Docker) en la [demo](https://github.com/Microsoft/HealthClinic.biz) de Connect 2015 de [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Para ver más guías rápidas de la demo de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).

@@ -1,27 +1,27 @@
-<properties
-   pageTitle="Información general sobre el modelo de programación de Reliable Services de Service Fabric | Microsoft Azure"
-   description="Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios."
-   services="Service-Fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor="vturecek; mani-ramaswamy"/>
+---
+title: Información general sobre el modelo de programación de Reliable Services de Service Fabric | Microsoft Docs
+description: Obtenga información sobre el modelo de programación de un servicio fiable de Service Fabric y comience a escribir sus propios servicios.
+services: Service-Fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: vturecek; mani-ramaswamy
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="03/25/2016"
-   ms.author="masnider;vturecek"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 03/25/2016
+ms.author: masnider;vturecek
 
+---
 # Información general sobre Reliable Services
 Azure Service Fabric simplifica la escritura y administración de los servicios de Reliable Services con y sin estado. En este documento se hablará acerca de:
 
-- El modelo de programación de Reliable Services para los servicios sin estado y con estado.
-- Las opciones que debe elegir al escribir un servicio de Reliable Services.
-- Algunos escenarios y ejemplos de cuándo utilizar Reliable Services y cómo se escriben.
+* El modelo de programación de Reliable Services para los servicios sin estado y con estado.
+* Las opciones que debe elegir al escribir un servicio de Reliable Services.
+* Algunos escenarios y ejemplos de cuándo utilizar Reliable Services y cómo se escriben.
 
 Servicios fiables es uno de los modelos de programación disponibles en Service Fabric. Para más información sobre el modelo de programación de Reliable Actors, consulte [Introducción a Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
@@ -32,54 +32,45 @@ Service Fabric administra la duración de los servicios, desde el aprovisionamie
 ## ¿Qué son los servicios de Reliable Services?
 Los servicios de confianza le ofrecen un modelo de programación de nivel superior, sencillo y eficaz para ayudarle a expresar lo que es importante para su aplicación. Con el modelo de programación de Reliable Services, obtiene lo siguiente:
 
-- En los servicios con estado, el modelo de programación de Reliable Services permite almacenar de forma coherente y confiable su derecho de estado dentro de su servicio mediante Reliable Collections. Se trata de un conjunto sencillo de clases de colecciones de alta disponibilidad que le resultará familiar a cualquiera que haya usado colecciones de C#. Tradicionalmente, los servicios necesitaban sistemas externos para efectuar la administración de estados de confianza. Con Reliable Collections, puede almacenar el estado junto a su proceso con la misma alta disponibilidad y confiabilidad que cabe esperar de los almacenes externos de alta disponibilidad, y con las mejoras de latencia adicional que colocan juntos el proceso y el estado proporcionados.
-
-- Un modelo sencillo para ejecutar su propio código parecido a los modelos de programación que está acostumbrado a utilizar. El código tiene un punto de entrada bien definido y un ciclo de vida de fácil administración.
-
-- Un modelo de comunicación acoplable. Utilice el transporte de su elección, por ejemplo, HTTP con [API web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Reliable Services proporciona excelentes opciones ya integradas, o puede proporcionar las suyas propias.
+* En los servicios con estado, el modelo de programación de Reliable Services permite almacenar de forma coherente y confiable su derecho de estado dentro de su servicio mediante Reliable Collections. Se trata de un conjunto sencillo de clases de colecciones de alta disponibilidad que le resultará familiar a cualquiera que haya usado colecciones de C#. Tradicionalmente, los servicios necesitaban sistemas externos para efectuar la administración de estados de confianza. Con Reliable Collections, puede almacenar el estado junto a su proceso con la misma alta disponibilidad y confiabilidad que cabe esperar de los almacenes externos de alta disponibilidad, y con las mejoras de latencia adicional que colocan juntos el proceso y el estado proporcionados.
+* Un modelo sencillo para ejecutar su propio código parecido a los modelos de programación que está acostumbrado a utilizar. El código tiene un punto de entrada bien definido y un ciclo de vida de fácil administración.
+* Un modelo de comunicación acoplable. Utilice el transporte de su elección, por ejemplo, HTTP con [API web](service-fabric-reliable-services-communication-webapi.md), WebSockets, protocolos TCP personalizados, etc. Reliable Services proporciona excelentes opciones ya integradas, o puede proporcionar las suyas propias.
 
 ## ¿Qué hace que Reliable Services sea diferente?
 Reliable Services de Service Fabric es diferente de los servicios que haya podido escribir anteriormente. Service Fabric proporciona confiabilidad, disponibilidad, coherencia y escalabilidad.
 
-- **Confiabilidad**: su servicio permanecerá activo incluso en entornos poco confiables en los que es posible que las máquinas generen errores o encuentren problemas de red.
-
-- **Disponibilidad**: su servicio estará accesible y responderá. (Esto no significa que no pueda tener servicios que no se pueden encontrar o comunicarse con ellos desde fuera).
-
-- **Escalabilidad**: los servicios se desacoplan de hardware específico y pueden ampliarse o reducirse según sea necesario mediante la adición o eliminación de hardware o recursos virtuales. Los servicios se particionan fácilmente (especialmente en el caso con estado) para asegurarse de que las partes independientes del servicio pueden escalarse y responder a errores de forma independiente. Finalmente, Service Fabric fomenta que los servicios sean ligeros al permitir que se provisionen miles de servicios en un único proceso, en lugar de requerir o dedicar instancias completas de sistema operativo a una única instancia de una carga de trabajo determinada.
-
-- **Coherencia**: se puede garantizar que toda información almacenada en este servicio es coherente (esto solo se aplica a los servicios con estado, de los que hablaremos detenidamente más adelante).
+* **Confiabilidad**: su servicio permanecerá activo incluso en entornos poco confiables en los que es posible que las máquinas generen errores o encuentren problemas de red.
+* **Disponibilidad**: su servicio estará accesible y responderá. (Esto no significa que no pueda tener servicios que no se pueden encontrar o comunicarse con ellos desde fuera).
+* **Escalabilidad**: los servicios se desacoplan de hardware específico y pueden ampliarse o reducirse según sea necesario mediante la adición o eliminación de hardware o recursos virtuales. Los servicios se particionan fácilmente (especialmente en el caso con estado) para asegurarse de que las partes independientes del servicio pueden escalarse y responder a errores de forma independiente. Finalmente, Service Fabric fomenta que los servicios sean ligeros al permitir que se provisionen miles de servicios en un único proceso, en lugar de requerir o dedicar instancias completas de sistema operativo a una única instancia de una carga de trabajo determinada.
+* **Coherencia**: se puede garantizar que toda información almacenada en este servicio es coherente (esto solo se aplica a los servicios con estado, de los que hablaremos detenidamente más adelante).
 
 ## Ciclo de vida del servicio
 Tanto si el servicio está con estado como sin estado, Reliable Services proporciona un ciclo de vida simple que permite conectar rápidamente el código y empezar a trabajar. Solo hay uno o dos métodos que se deben implementar para poner su servicio en funcionamiento.
 
-- **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: aquí es donde el servicio define la pila de comunicación que quiere usar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los puntos de conexión de escucha del servicio (cómo se comunicarán con él los clientes). También define cómo los mensajes que aparecen acaban interactuando con el resto del código de servicio.
-
-- **RunAsync**: aquí es donde el servicio ejecuta su lógica empresarial. El token de cancelación que se proporciona es una señal de cuándo debe detenerse ese trabajo. Por ejemplo, si tiene un servicio que necesita extraer mensajes constantemente de una cola de Reliable Queues y procesarlos, aquí sería donde se produciría ese trabajo.
+* **CreateServiceReplicaListeners/CreateServiceInstanceListeners**: aquí es donde el servicio define la pila de comunicación que quiere usar. La pila de comunicación, como [API web](service-fabric-reliable-services-communication-webapi.md), es lo que define los puntos de conexión de escucha del servicio (cómo se comunicarán con él los clientes). También define cómo los mensajes que aparecen acaban interactuando con el resto del código de servicio.
+* **RunAsync**: aquí es donde el servicio ejecuta su lógica empresarial. El token de cancelación que se proporciona es una señal de cuándo debe detenerse ese trabajo. Por ejemplo, si tiene un servicio que necesita extraer mensajes constantemente de una cola de Reliable Queues y procesarlos, aquí sería donde se produciría ese trabajo.
 
 ### Inicio del servicio
-
 Los eventos principales del ciclo de vida de un servicio de Reliable Services son:
 
 1. Se construye el objeto de servicio (aquello que se deriva del servicio sin estado o del servicio con estado).
-
 2. Se llama al método `CreateServiceReplicaListeners`/`CreateServiceInstanceListeners`, de forma que se le da al servicio la oportunidad de devolver uno o varios agentes de escucha de su elección.
-  - Tenga en cuenta que esto es opcional, aunque la mayoría de los servicios expondrán algún punto de conexión directamente.
-
+   
+   * Tenga en cuenta que esto es opcional, aunque la mayoría de los servicios expondrán algún punto de conexión directamente.
 3. Una vez creados los agentes de escucha de comunicación, se abren.
-  - Los agentes de escucha de comunicación disponen de un método llamado `OpenAsync()`, al que se llama en este punto y que devuelve la dirección de escucha del servicio. Si el servicio de Reliable Services usa uno de los ICommunicationListener integrados, esta operación se controla automáticamente.
-
+   
+   * Los agentes de escucha de comunicación disponen de un método llamado `OpenAsync()`, al que se llama en este punto y que devuelve la dirección de escucha del servicio. Si el servicio de Reliable Services usa uno de los ICommunicationListener integrados, esta operación se controla automáticamente.
 4. Una vez que el agente de escucha de comunicación está abierto, se llama al método `RunAsync()` del servicio principal.
-  - Tenga en cuenta que `RunAsync()` es opcional. Si el servicio realiza todo su trabajo en respuesta solo a las llamadas del usuario, no es necesario que implemente `RunAsync()`.
+   
+   * Tenga en cuenta que `RunAsync()` es opcional. Si el servicio realiza todo su trabajo en respuesta solo a las llamadas del usuario, no es necesario que implemente `RunAsync()`.
 
 ### Cierre del servicio
-
 Cuando el servicio se está cerrando (porque se va a eliminar, actualizar o mover), se refleja el orden de llamada: primero se cancela el token de cancelación que mantiene `RunAsync()`; luego se llama a `CloseAsync()` en los agentes de escucha de comunicación.
 
 Existen algunas cuestiones importantes que se deben tener en cuenta sobre el cierre de los servicios con estado:
 
-- Service Fabric no promoverá otra réplica de su servicio a estado principal hasta que `CloseAsync` y `RunAsync` hayan devuelto los resultados. Si está utilizando un agente de escucha de comunicación integrado, el método `CloseAsync` se controla automáticamente.
-
-- Aunque no hay un límite de tiempo para que se devuelvan resultados de estos métodos, se pierde inmediatamente la posibilidad de escribir en Reliable Collections y, por lo tanto, no se puede realizar ningún trabajo real. Se recomienda que devuelva resultados lo antes posible tras recibir la solicitud de cancelación.
+* Service Fabric no promoverá otra réplica de su servicio a estado principal hasta que `CloseAsync` y `RunAsync` hayan devuelto los resultados. Si está utilizando un agente de escucha de comunicación integrado, el método `CloseAsync` se controla automáticamente.
+* Aunque no hay un límite de tiempo para que se devuelvan resultados de estos métodos, se pierde inmediatamente la posibilidad de escribir en Reliable Collections y, por lo tanto, no se puede realizar ningún trabajo real. Se recomienda que devuelva resultados lo antes posible tras recibir la solicitud de cancelación.
 
 ## Servicios de ejemplo
 Tras conocer este modelo de programación, echemos un vistazo rápido a dos servicios diferentes para ver cómo encajan estas piezas.
@@ -111,32 +102,25 @@ Algo a tener en cuenta con respecto a este servicio es que parece un servicio .N
 ## Cuándo utilizar las API de Reliable Services
 Considere el uso de API de Reliable Services si sus necesidades de servicios de aplicaciones tienen estas características:
 
-- Debe proporcionar el comportamiento de la aplicación en varias unidades de estado (por ejemplo, pedidos y artículos de líneas de pedido)
+* Debe proporcionar el comportamiento de la aplicación en varias unidades de estado (por ejemplo, pedidos y artículos de líneas de pedido)
+* El estado de la aplicación puede modelarse naturalmente como Reliable Dictionaries y Queues.
+* El estado debe ser de alta disponibilidad con acceso de latencia baja.
+* La aplicación debe controlar la simultaneidad o la granularidad de las operaciones de transacción a través de una o más instancias de Reliable Collections.
+* Desea administrar las comunicaciones o controlar el esquema de partición del servicio.
+* El código necesita un entorno de tiempo de ejecución de subproceso libre.
+* La aplicación debe crear o destruir instancias de Reliable Dictionaries o Queues en tiempo de ejecución de forma dinámica.
+* Debe controlar mediante programación la copia de seguridad proporcionada por Service Fabric y restaurar las características del estado de su servicio*.
+* La aplicación necesita mantener el historial de cambios para sus unidades de estado*.
+* Desea desarrollar o consumir proveedores de estado personalizados desarrollados por terceros*.
 
-- El estado de la aplicación puede modelarse naturalmente como Reliable Dictionaries y Queues.
-
-- El estado debe ser de alta disponibilidad con acceso de latencia baja.
-
-- La aplicación debe controlar la simultaneidad o la granularidad de las operaciones de transacción a través de una o más instancias de Reliable Collections.
-
-- Desea administrar las comunicaciones o controlar el esquema de partición del servicio.
-
-- El código necesita un entorno de tiempo de ejecución de subproceso libre.
-
-- La aplicación debe crear o destruir instancias de Reliable Dictionaries o Queues en tiempo de ejecución de forma dinámica.
-
-- Debe controlar mediante programación la copia de seguridad proporcionada por Service Fabric y restaurar las características del estado de su servicio*.
-
-- La aplicación necesita mantener el historial de cambios para sus unidades de estado*.
-
-- Desea desarrollar o consumir proveedores de estado personalizados desarrollados por terceros*.
-
-> [AZURE.NOTE] *Funciones disponibles en SDK con carácter general.
-
+> [!NOTE]
+> *Funciones disponibles en SDK con carácter general.
+> 
+> 
 
 ## Pasos siguientes
-+ [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
-+ [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
-+ [El modelo de programación de Reliable Actors](service-fabric-reliable-actors-introduction.md)
+* [Introducción a Reliable Services de Service Fabric de Microsoft Azure](service-fabric-reliable-services-quick-start.md)
+* [Uso avanzado de Reliable Services](service-fabric-reliable-services-advanced-usage.md)
+* [El modelo de programación de Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 <!---HONumber=AcomDC_0406_2016-->

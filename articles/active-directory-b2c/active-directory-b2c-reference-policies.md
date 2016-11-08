@@ -1,32 +1,30 @@
-<properties
-	pageTitle="Azure Active Directory B2C: marco de directivas extensible | Microsoft Azure"
-	description="Tema sobre el marco de directiva extensible de Azure Active Directory B2C y sobre cómo crear distintos tipos de directiva"
-	services="active-directory-b2c"
-	documentationCenter=""
-	authors="swkrish"
-	manager="msmbaldwin"
-	editor="bryanla"/>
+---
+title: 'Azure Active Directory B2C: marco de directivas extensible | Microsoft Docs'
+description: Tema sobre el marco de directiva extensible de Azure Active Directory B2C y sobre cómo crear distintos tipos de directiva
+services: active-directory-b2c
+documentationcenter: ''
+author: swkrish
+manager: msmbaldwin
+editor: bryanla
 
-<tags
-	ms.service="active-directory-b2c"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/24/2016"
-	ms.author="swkrish"/>
+ms.service: active-directory-b2c
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/24/2016
+ms.author: swkrish
 
+---
 # Azure Active Directory B2C: marco de directivas extensible
-
 ## Conceptos básicos
-
 El marco de directiva extensible de Azure Active Directory (Azure AD) B2C es la fortaleza esencial del servicio. Las directivas describen totalmente las experiencias de identidad del consumidor como el registro, el inicio de sesión y la edición de perfil. Por ejemplo, una directiva de registro le permite controlar comportamientos configurando los siguientes valores:
 
-- Tipos de cuenta (cuentas sociales como Facebook, o cuentas locales como la dirección de correo electrónico) que los consumidores pueden usar para registrarse en la aplicación.
-- Atributos (por ejemplo, nombre, código postal, número de calzado, etc.) que se recopilarán del consumidor durante el registro.
-- Uso de Multi-Factor Authentication.
-- La apariencia de todas las páginas de registro.
-- Información (que se manifiesta como notificaciones en un token) que la aplicación recibe cuando se completa la ejecución de la directiva.
+* Tipos de cuenta (cuentas sociales como Facebook, o cuentas locales como la dirección de correo electrónico) que los consumidores pueden usar para registrarse en la aplicación.
+* Atributos (por ejemplo, nombre, código postal, número de calzado, etc.) que se recopilarán del consumidor durante el registro.
+* Uso de Multi-Factor Authentication.
+* La apariencia de todas las páginas de registro.
+* Información (que se manifiesta como notificaciones en un token) que la aplicación recibe cuando se completa la ejecución de la directiva.
 
 Puede crear varias directivas de diferentes tipos en su inquilino y usarlas en sus aplicaciones según sea necesario. Las directivas se pueden volver a usar en todas las aplicaciones. Esto permite a los desarrolladores definir y modificar experiencias de identidad de consumidor con cambios mínimos o ningún cambio en su código.
 
@@ -63,7 +61,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 Para más información sobre el marco de directivas, consulte esta [entrada de blog](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## Creación de una directiva de registro
-
 Para habilitar el registro en su aplicación, deberá crear una directiva de registro. Esta directiva describe las experiencias que tendrán los consumidores durante el registro y el contenido de los tokens que recibirá la aplicación en inicios de sesión completados correctamente.
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -77,12 +74,13 @@ Para habilitar el registro en su aplicación, deberá crear una directiva de reg
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiUp**".
 10. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 11. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de registro en su aplicación.
-
-    > [AZURE.NOTE]
-    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    
+    > [!NOTE]
+    > Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    > 
+    > 
 
 ## Uso de una directiva de inicio de sesión
-
 Para habilitar el inicio de sesión en la aplicación, deberá crear una directiva de inicio de sesión. Esta directiva describe las experiencias que tendrán los consumidores durante el inicio de sesión y el contenido de los tokens que recibirá la aplicación en inicios de sesión correctos.
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -95,12 +93,13 @@ Para habilitar el inicio de sesión en la aplicación, deberá crear una directi
 8. Para abrir la directiva, haga clic en "**B2C\_1\_SiIn**".
 9. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 10. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de inicio de sesión en su aplicación.
-
-    > [AZURE.NOTE]
-    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    
+    > [!NOTE]
+    > Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    > 
+    > 
 
 ## Creación de una directiva de registro o de inicio de sesión
-
 Esta directiva controla las experiencias de registro y de inicio de sesión del cliente con una sola configuración. A los consumidores se les lleva por la ruta correcta (registro o inicio de sesión) según el contexto. También describe el contenido de los tokens que recibirá la aplicación cuando el registro o el inicio de sesión sean correctos. [Aquí puede encontrar](active-directory-b2c-devquickstarts-web-dotnet-susi.md) código de ejemplo de la directiva de registro o de inicio de sesión.
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -114,12 +113,13 @@ Esta directiva controla las experiencias de registro y de inicio de sesión del 
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiUpIn**".
 10. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 11. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de registro o de inicio de sesión tal como se configuró.
-
-    > [AZURE.NOTE]
-    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    
+    > [!NOTE]
+    > Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    > 
+    > 
 
 ## Creación de una directiva de edición de perfil
-
 Para habilitar la edición de perfiles en su aplicación, deberá crear una directiva de edición de perfiles. Esta directiva describe las experiencias que tendrán los consumidores durante la edición de perfiles y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -133,12 +133,13 @@ Para habilitar la edición de perfiles en su aplicación, deberá crear una dire
 9. Para abrir la directiva, haga clic en "**B2C\_1\_SiPe**".
 10. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 11. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del consumidor de edición de perfiles en su aplicación.
-
-    > [AZURE.NOTE]
-    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
     
-## Crear una directiva de restablecimiento de contraseña
+    > [!NOTE]
+    > Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    > 
+    > 
 
+## Crear una directiva de restablecimiento de contraseña
 Para habilitar en su aplicación el restablecimiento de contraseña específica, debe crear una directiva de restablecimiento de contraseña. Tenga en cuenta que la opción de restablecimiento de contraseña de todos los inquilinos especificada [aquí](active-directory-b2c-reference-sspr.md) sigue siendo aplicable para las directivas de inicio de sesión. Esta directiva describe las experiencias que tendrán los consumidores durante el restablecimiento de contraseña y el contenido de los tokens que recibirá la aplicación al finalizar correctamente.
 
 1. [Siga estos pasos para ir a la hoja de características de B2C en el Portal de Azure](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade).
@@ -151,12 +152,13 @@ Para habilitar en su aplicación el restablecimiento de contraseña específica,
 8. Para abrir la directiva, haga clic en "**B2C\_1\_SSPR**".
 9. Seleccione "Aplicación Contoso B2C" en el menú desplegable **Aplicaciones** y `https://localhost:44321/` en el menú desplegable **Dirección URL de respuesta/URI de redireccionamiento**.
 10. Haga clic en **Ejecutar ahora**. Se abrirá una nueva pestaña del explorador y podrá recorrer la experiencia del usuario de restablecimiento de contraseña en su aplicación.
-
-    > [AZURE.NOTE]
-    Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    
+    > [!NOTE]
+    > Se tarda hasta un minuto en que la creación de directivas y las actualizaciones surtan efecto.
+    > 
+    > 
 
 ## Recursos adicionales
-
-- [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
+* [Configuración de token, sesión e inicio de sesión único](active-directory-b2c-token-session-sso.md).
 
 <!---HONumber=AcomDC_0727_2016-->

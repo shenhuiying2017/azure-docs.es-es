@@ -1,41 +1,36 @@
-<properties
-   pageTitle="Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET | Microsoft Azure"
-   	description="Obtenga información acerca de cómo crear clústeres de HDInsight para HDInsight de Azure con el SDK de .NET."
-   services="hdinsight"
-   documentationCenter=""
-   tags="azure-portal"
-   authors="mumian"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET | Microsoft Docs
+description: Obtenga información acerca de cómo crear clústeres de HDInsight para HDInsight de Azure con el SDK de .NET.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="09/02/2016"
-   ms.author="jgao"/>
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/02/2016
+ms.author: jgao
 
+---
 # Creación de clústeres de Hadoop basados en Windows en HDInsight con el SDK de .NET
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
-
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Aprenda a crear clústeres de HDInsight con el SDK. NET. Para consultar otras herramientas y características de creación de clústeres, haga clic en la selección de pestaña de la parte superior de esta página o consulte los [métodos de creación de clústeres](hdinsight-provision-clusters.md#cluster-creation-methods).
 
-
-##Requisitos previos:
-
-[AZURE.INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+## Requisitos previos:
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
-- Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- Visual Studio 2013 o 2015
+* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Visual Studio 2013 o 2015
 
 ## Creación de clústeres
-
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con HDInsight desde una aplicación .NET Framework. Siga las instrucciones siguientes para crear una aplicación de consola de Visual Studio y pegar el código para crear un clúster.
 
 La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamiento predeterminada. En el [Apéndice A](#appx-a-create-dependent-components) se proporciona un script de PowerShell para crear los componentes dependientes.
@@ -44,14 +39,13 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
 
 1. Cree una aplicación de consola en C# mediante Visual Studio.
 2. Ejecute el siguiente comando Nuget en la Consola del administrador de paquetes NuGet:
-
-		Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
+   
+        Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
         Install-Package Microsoft.Azure.Management.ResourceManager -Pre
         Install-Package Microsoft.Azure.Management.HDInsight
-
-6. En el Explorador de soluciones, haga doble clic en **Program.cs** para abrirlo, pegue el siguiente código y especifique valores para las variables:
-
-		using System;
+3. En el Explorador de soluciones, haga doble clic en **Program.cs** para abrirlo, pegue el siguiente código y especifique valores para las variables:
+   
+        using System;
         using System.Threading;
         using System.Threading.Tasks;
         using Microsoft.Rest;
@@ -62,38 +56,36 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
         using Microsoft.Azure.Management.ResourceManager;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using System.Net.Http;
-		
-		namespace CreateHDInsightCluster
-		{
-			class Program
-			{
+   
+        namespace CreateHDInsightCluster
+        {
+            class Program
+            {
                 // The client for managing HDInsight
-				private static HDInsightManagementClient _hdiManagementClient;
-		        // Replace with your AAD tenant ID if necessary
+                private static HDInsightManagementClient _hdiManagementClient;
+                // Replace with your AAD tenant ID if necessary
                 private const string TenantId = UserTokenProvider.CommonTenantId; 
                 private const string SubscriptionId = "<Your Azure Subscription ID>";
                 // This is the GUID for the PowerShell client. Used for interactive logins in this example.
                 private const string ClientId = "1950a258-227b-4e31-a9cf-717495945fc2";
-				private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
-				private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
-				private const string ExistingStorageKey = "<Default Storage Account Key>";
-				private const string ExistingBlobContainer = "<Default Blob Container Name>";
-				private const string NewClusterName = "<HDInsight Cluster Name>";
-				private const int NewClusterNumWorkerNodes = 2;
-				private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
-				private const OSType NewClusterOsType = OSType.Windows;
-				private const string NewClusterType = "Hadoop";
-				private const string NewClusterVersion = "3.2";
-				private const string NewClusterUsername = "admin";
-				private const string NewClusterPassword = "<HTTP User password>";
-                
+                private const string ExistingResourceGroupName = "<Azure Resource Group Name>";
+                private const string ExistingStorageName = "<Default Storage Account Name>.blob.core.windows.net";
+                private const string ExistingStorageKey = "<Default Storage Account Key>";
+                private const string ExistingBlobContainer = "<Default Blob Container Name>";
+                private const string NewClusterName = "<HDInsight Cluster Name>";
+                private const int NewClusterNumWorkerNodes = 2;
+                private const string NewClusterLocation = "EAST US 2";     // Must be the same as the default Storage account
+                private const OSType NewClusterOsType = OSType.Windows;
+                private const string NewClusterType = "Hadoop";
+                private const string NewClusterVersion = "3.2";
+                private const string NewClusterUsername = "admin";
+                private const string NewClusterPassword = "<HTTP User password>";
 
-		
-				static void Main(string[] args)
-				{
-					System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
-		
-					// Authenticate and get a token
+                static void Main(string[] args)
+                {
+                    System.Console.WriteLine("Creating a cluster.  The process takes 10 to 20 minutes ...");
+
+                    // Authenticate and get a token
                     var authToken = Authenticate(TenantId, ClientId, SubscriptionId);
                     // Flag subscription for HDInsight, if it isn't already.
                     EnableHDInsight(authToken);
@@ -116,9 +108,9 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
                     // Create the cluster
                     _hdiManagementClient.Clusters.Create(ExistingResourceGroupName, NewClusterName, parameters);
 
-					System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
-					System.Console.ReadLine();
-				}
+                    System.Console.WriteLine("The cluster has been created. Press ENTER to continue ...");
+                    System.Console.ReadLine();
+                }
 
                 /// <summary>
                 /// Authenticate to an Azure subscription and retrieve an authentication token
@@ -151,22 +143,20 @@ La aplicación requiere un grupo de recursos de Azure y la cuenta de almacenamie
                     // Register the HDInsight provider
                     var rpResult = resourceManagementClient.Providers.Register("Microsoft.HDInsight");
                 }
-			}
-		}
+            }
+        }
 
-7. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. También se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos.
+1. Presione **F5** para ejecutar la aplicación. Una ventana de consola se abrirá y mostrará el estado de la aplicación. También se le pedirá que escriba las credenciales de la cuenta de Azure. La creación del clúster de HDInsight puede durar varios minutos.
 
-
-
-##Pasos siguientes
+## Pasos siguientes
 En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
-- [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
-- [Run Hive jobs in HDInsight using .NET SDK (Ejecución de trabajos de Hive en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-hive-dotnet-sdk.md)
-- [Run Pig jobs in HDInsight using .NET SDK (Ejecución de trabajos de Pig en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-pig-dotnet-sdk.md)
-- [Run Sqoop jobs in HDInsight using .NET SDK (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
-- [Run Oozie jobs in HDInsightt (Ejecución de trabajos de Oozie en HDInsight)](hdinsight-use-oozie.md)
-- [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]\: descubra el SDK de HDInsight
+* [Introducción a HDInsight de Azure](hdinsight-hadoop-linux-tutorial-get-started.md): aprenda a empezar a trabajar con su clúster de HDInsight
+* [Run Hive jobs in HDInsight using .NET SDK (Ejecución de trabajos de Hive en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-hive-dotnet-sdk.md)
+* [Run Pig jobs in HDInsight using .NET SDK (Ejecución de trabajos de Pig en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-pig-dotnet-sdk.md)
+* [Run Sqoop jobs in HDInsight using .NET SDK (Ejecución de trabajos de Sqoop en HDInsight mediante el SDK de .NET)](hdinsight-hadoop-use-sqoop-dotnet-sdk.md)
+* [Run Oozie jobs in HDInsightt (Ejecución de trabajos de Oozie en HDInsight)](hdinsight-use-oozie.md)
+* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]\: descubra el SDK de HDInsight
 
 [hdinsight-sdk-documentation]: http://msdn.microsoft.com/library/dn479185.aspx
 [azure-preview-portal]: https://manage.windowsazure.com
@@ -176,11 +166,10 @@ En este artículo, ha aprendido varias maneras de crear un clúster de HDInsight
 [ssisclusterdelete]: http://msdn.microsoft.com/library/mt146778(v=sql.120).aspx
 
 
-##Anexo A: creación de componentes dependientes
-
+## Anexo A: creación de componentes dependientes
 Se puede usar el siguiente script de Azure PowerShell para crear los componentes dependientes necesarios para la aplicación de .NET en este tutorial.
 
-[AZURE.INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
+[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
     ####################################
     # Set these variables

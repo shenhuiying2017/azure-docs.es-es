@@ -1,33 +1,29 @@
-<properties 
-	pageTitle="Exploración de los registros de seguimiento de Java en Application Insights" 
-	description="Búsqueda de seguimiento Log4J o Logback en Application Insights" 
-	services="application-insights" 
-    documentationCenter="java"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Exploración de los registros de seguimiento de Java en Application Insights
+description: Búsqueda de seguimiento Log4J o Logback en Application Insights
+services: application-insights
+documentationcenter: java
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/12/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/12/2016
+ms.author: awills
 
+---
 # Exploración de los registros de seguimiento de Java en Application Insights
-
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
 
 Instale el [SDK de Application Insights para Java][java], si no ha hecho ya.
 
-
 ## Incorporación de bibliotecas de registro al proyecto
-
 *Elija la forma adecuada para su proyecto.*
 
 #### Si está usando Maven...
-
 Si su proyecto ya se ha configurado para usar Maven para la compilación, combine uno de los siguientes fragmentos de código en el archivo pom.xml.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
@@ -63,7 +59,6 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     </dependencies>
 
 #### Si está usando Gradle...
-
 Si el proyecto ya se ha configurado para usar Gradle para la compilación, agregue una de las líneas siguientes al grupo `dependencies` en el archivo build.gradle.
 
 A continuación, actualice las dependencias del proyecto, para obtener los archivos binarios descargados.
@@ -81,20 +76,15 @@ A continuación, actualice las dependencias del proyecto, para obtener los archi
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '1.0.+'
 
 #### De lo contrario...
-
 Descargue, extraiga el appender adecuado y agregue después la biblioteca adecuada a su proyecto:
 
-
-Registrador | Descargar | Biblioteca
-----|----|----
-Logback|[SDK con el appender de Logback](https://aka.ms/xt62a4)|applicationinsights-logging-logback
-Log4J v2.0|[SDK con el appender de Log4J v2](https://aka.ms/qypznq)|applicationinsights-logging-log4j2 
-Log4j v1.2|[SDK con el appender de Log4J v1.2](https://aka.ms/ky9cbo)|applicationinsights-logging-log4j1\_2 
-
-
+| Registrador | Descargar | Biblioteca |
+| --- | --- | --- |
+| Logback |[SDK con el appender de Logback](https://aka.ms/xt62a4) |applicationinsights-logging-logback |
+| Log4J v2.0 |[SDK con el appender de Log4J v2](https://aka.ms/qypznq) |applicationinsights-logging-log4j2 |
+| Log4j v1.2 |[SDK con el appender de Log4J v1.2](https://aka.ms/ky9cbo) |applicationinsights-logging-log4j1\_2 |
 
 ## Incorporación del appender el marco de registro
-
 Para empezar a recibir los seguimientos, combine el fragmento de código relevante al archivo de configuración Log4J o Logback:
 
 *Logback*
@@ -108,7 +98,6 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
 
 *Log4J v2.0*
-
 
     <Configuration packages="com.microsoft.applicationinsights.Log4j">
       <Appenders>
@@ -135,13 +124,11 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 Los appenders de Application Insights pueden hacer referencia a cualquier registrador configurado y no necesariamente por el registrador de raíz (como se muestra en los ejemplos de código anteriores).
 
 ## En el portal de Application Insights, explore los seguimientos.
-
 Ahora que ha configurado el proyecto para enviar el seguimiento a Application Insights, puede ver y buscar estos seguimientos en el portal de Application Insights, en la hoja [Búsqueda][diagnostic].
 
 ![En el portal de Application Insights, abra Búsqueda.](./media/app-insights-java-trace-logs/10-diagnostics.png)
 
 ## Pasos siguientes
-
 [Búsqueda de diagnóstico][diagnostic]
 
 <!--Link references-->
@@ -149,6 +136,6 @@ Ahora que ha configurado el proyecto para enviar el seguimiento a Application In
 [diagnostic]: app-insights-diagnostic-search.md
 [java]: app-insights-java-get-started.md
 
- 
+
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,23 +1,22 @@
-<properties 
-    pageTitle="Tutorial de .NET de mensajería asíncrona del Bus de servicio | Microsoft Azure"
-    description="Tutorial de .NET de mensajería asíncrona."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="09/27/2016"
-    ms.author="sethm" />
+---
+title: Tutorial de .NET de mensajería asíncrona del Bus de servicio | Microsoft Docs
+description: Tutorial de .NET de mensajería asíncrona.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/27/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-brokered-messaging-.net-tutorial"></a>Tutorial de .NET de mensajería asíncrona del Bus de servicio
-
 El Bus de servicio de Azure ofrece dos soluciones integrales de mensajería: una, mediante un servicio de "retransmisión" centralizado que se ejecuta en la nube y que admite diferentes protocolos de transporte y servicios web estándar, incluidos SOAP, WS-* y REST. El cliente no necesita una conexión directa al servicio local ni necesita saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
 
 La segunda solución de mensajería permite funcionalidades de mensajería "asincrónica". Estos pueden considerarse como características de mensajería asíncrona o desacoplada que admiten la publicación y suscripción, el desacoplamiento temporal y escenarios de equilibrio de carga que usan la infraestructura de mensajería del Bus de servicio. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
@@ -25,39 +24,34 @@ La segunda solución de mensajería permite funcionalidades de mensajería "asin
 Este tutorial está diseñado para ofrecerle una visión general y experiencia práctica con las colas, uno de los componentes principales de la mensajería asíncrona del Bus de servicio. Una vez completada la secuencia de temas de este tutorial, tendrá una aplicación que rellena una lista de mensajes, crea una cola y envía mensajes a dicha cola. Por último, la aplicación recibe y muestra los mensajes de la cola, limpia sus recursos y se cierra. Para obtener un tutorial correspondiente que describe cómo crear una aplicación que usa Service Bus Relay, consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introducción y requisitos previos
-
 Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. FIFO significa que normalmente se espera que los mensajes sean recibidos y procesados por los receptores en el orden temporal en el que se pusieron en cola, y cada mensaje solo será recibido y procesado solo por el consumidor de un mensaje. La principal ventaja del uso de colas es conseguir el *desacoplamiento temporal* de componentes de la aplicación: en otras palabras, los productores y consumidores no necesitan enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. Una ventaja relacionada es la *nivelación de la carga*, lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades.
 
 Los siguientes son algunos pasos administrativos y requisitos previos que deben seguirse antes de comenzar el tutorial. El primero es crear un espacio de nombres de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial con la que el Bus de servicio autentica el acceso a una aplicación.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Creación de un espacio de nombres de servicio y obtención de una clave de SAS
+El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](../service-bus/service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
 
-El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
-
-[AZURE.INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones auxiliares que cargan una lista delimitada por comas de mensajes en un objeto [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx) .NET [List](https://msdn.microsoft.com/library/6sh2ey19.aspx) fuertemente tipado.
 
 ### <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
-
 1. Abra Visual Studio como administrador haciendo clic en el programa en el menú Inicio y haga clic en **Ejecutar como administrador**.
-
-1. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros idiomas**), haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **QueueSample**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
-
-1. Use el Administrador de paquetes de NuGet para agregar las bibliotecas del Bus de servicio al proyecto:
-    1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **QueueSample** y, luego, haga clic en **Administrar paquetes NuGet**.
-    2. En el cuadro de diálogo **Administrar paquetes Nuget**, haga clic en la pestaña **Examinar** y busque **Azure Service Bus**; luego, haga clic en **Instalar**.
-<br />
-1. En el Explorador de soluciones, haga doble clic en el archivo Program.cs para abrirlo en el editor de Visual Studio. Cambie el nombre del espacio de nombres de su nombre predeterminado de `QueueSample` a `Microsoft.ServiceBus.Samples`.
-
+2. Cree un nuevo proyecto de aplicación de consola. Haga clic en el menú **Archivo** y seleccione **Nuevo**; a continuación, haga clic en **Proyecto**. En el cuadro de diálogo **Nuevo proyecto**, haga clic en **Visual C#** (si **Visual C#** no aparece, mire en **Otros idiomas**), haga clic en la plantilla **Aplicación de consola** y asígnele el nombre **QueueSample**. Use la **Ubicación** predeterminada. Haga clic en **Aceptar** para crear el proyecto.
+3. Use el Administrador de paquetes de NuGet para agregar las bibliotecas del Bus de servicio al proyecto:
+   
+   1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **QueueSample** y, luego, haga clic en **Administrar paquetes NuGet**.
+   2. En el cuadro de diálogo **Administrar paquetes Nuget**, haga clic en la pestaña **Examinar** y busque **Azure Service Bus**; luego, haga clic en **Instalar**.
+      <br />
+4. En el Explorador de soluciones, haga doble clic en el archivo Program.cs para abrirlo en el editor de Visual Studio. Cambie el nombre del espacio de nombres de su nombre predeterminado de `QueueSample` a `Microsoft.ServiceBus.Samples`.
+   
     ```
     Microsoft.ServiceBus.Samples
     {
         ...
     ```
-
-1. Modifique las instrucciones `using` como se muestra en el código siguiente.
-
+5. Modifique las instrucciones `using` como se muestra en el código siguiente.
+   
     ```
     using System;
     using System.Collections.Generic;
@@ -67,9 +61,8 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
     using System.Threading.Tasks;
     using Microsoft.ServiceBus.Messaging;
     ```
-
-1. Cree un archivo de texto denominado Data.csv y copie el siguiente texto delimitado por comas.
-
+6. Cree un archivo de texto denominado Data.csv y copie el siguiente texto delimitado por comas.
+   
     ```
     IssueID,IssueTitle,CustomerID,CategoryID,SupportPackage,Priority,Severity,Resolved
     1,Package lost,1,1,Basic,5,1,FALSE
@@ -88,29 +81,25 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
     14,Package damaged,6,7,Premium,5,5,FALSE
     15,Product defective,6,2,Premium,5,5,FALSE
     ```
-
+   
     Guarde y cierre el archivo Data.csv y recuerde la ubicación donde lo ha guardado.
-
-1. En el Explorador de soluciones, haga clic en el nombre del proyecto (en este ejemplo, **QueueSample**), haga clic en **Agregar**, a continuación, haga clic en **Elemento existente**.
-
-1. Busque el archivo Data.csv que ha creado en el paso 6. Haga clic en el archivo y; a continuación, en **Agregar**. Asegúrese de que *Todos los archivos* (*.*) está seleccionado en la lista de tipos de archivo.
+7. En el Explorador de soluciones, haga clic en el nombre del proyecto (en este ejemplo, **QueueSample**), haga clic en **Agregar**, a continuación, haga clic en **Elemento existente**.
+8. Busque el archivo Data.csv que ha creado en el paso 6. Haga clic en el archivo y; a continuación, en **Agregar**. Asegúrese de que *Todos los archivos* (*.*) está seleccionado en la lista de tipos de archivo.
 
 ### <a name="create-a-method-that-parses-a-list-of-messages"></a>Creación de un método que analiza una lista de mensajes
-
 1. En la clase `Program`, antes del método `Main()`, declare dos variables: la primera de tipo **DataTable**, que contendrá la lista de mensajes en Data.csv. La otra debe ser de tipo objeto List, fuertemente tipado en [BrokeredMessage](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.aspx). Esta última es la lista de mensajes asíncronos que se usará en los pasos siguientes del tutorial.
-
+   
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         class Program
         {
-    
+   
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList;
     ```
-
-1. Fuera de `Main()`, defina un método `ParseCSV()` que analice la lista de mensajes de Data.csv y cargue los mensajes en una tabla [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), como se muestra aquí. El método devuelve un objeto **DataTable**.
-
+2. Fuera de `Main()`, defina un método `ParseCSV()` que analice la lista de mensajes de Data.csv y cargue los mensajes en una tabla [DataTable](https://msdn.microsoft.com/library/azure/system.data.datatable.aspx), como se muestra aquí. El método devuelve un objeto **DataTable**.
+   
     ```
     static DataTable ParseCSVFile()
     {
@@ -122,14 +111,14 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
             {
                 string line;
                 string[] row;
-    
+   
                 // create the columns
                 line = readFile.ReadLine();
                 foreach (string columnTitle in line.Split(','))
                 {
                     tableIssues.Columns.Add(columnTitle);
                 }
-    
+   
                 while ((line = readFile.ReadLine()) != null)
                 {
                     row = line.Split(',');
@@ -141,33 +130,31 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
         {
             Console.WriteLine("Error:" + e.ToString());
         }
-    
+   
         return tableIssues;
     }
     ```
-
-1. En el método `Main()`, agregue una instrucción que llama al método `ParseCSVFile()`:
-
+3. En el método `Main()`, agregue una instrucción que llama al método `ParseCSVFile()`:
+   
     ```
     public static void Main(string[] args)
     {
-    
+   
         // Populate test data
         issues = ParseCSVFile();
-    
+   
     }
     ```
 
 ### <a name="create-a-method-that-loads-the-list-of-messages"></a>Creación de un método que carga la lista de mensajes
-
 1. Fuera de `Main()`, defina un método `GenerateMessages()` que toma el objeto **DataTable** devuelto por `ParseCSVFile()` y carga la tabla en una lista de mensajes asíncronos fuertemente tipados. El método devuelve el objeto **List**, como en el ejemplo siguiente. 
-
+   
     ```
     static List<BrokeredMessage> GenerateMessages(DataTable issues)
     {
         // Instantiate the brokered list object
         List<BrokeredMessage> result = new List<BrokeredMessage>();
-    
+   
         // Iterate through the table and create a brokered message for each row
         foreach (DataRow item in issues.Rows)
         {
@@ -181,13 +168,12 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
         return result;
     }
     ```
-
-1. En `Main()`, directamente después de la llamada a `ParseCSVFile()`, agregue una instrucción que llame al método `GenerateMessages()` con el valor devuelto de `ParseCSVFile()` como argumento:
-
+2. En `Main()`, directamente después de la llamada a `ParseCSVFile()`, agregue una instrucción que llame al método `GenerateMessages()` con el valor devuelto de `ParseCSVFile()` como argumento:
+   
     ```
     public static void Main(string[] args)
     {
-    
+   
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
@@ -195,65 +181,60 @@ El siguiente paso es crear un proyecto de Visual Studio y escribir dos funciones
     ```
 
 ### <a name="obtain-user-credentials"></a>Obtención de las credenciales de usuario
-
 1. En primer lugar, cree tres variables de cadena globales para alojar estos valores. Declare estas variables directamente después de las declaraciones de variables anteriores; por ejemplo:
-
+   
     ```
     namespace Microsoft.ServiceBus.Samples
     {
         public class Program
         {
-    
+   
             private static DataTable issues;
             private static List<BrokeredMessage> MessageList; 
-
+   
             // Add these variables
             private static string ServiceNamespace;
             private static string sasKeyName = "RootManageSharedAccessKey";
             private static string sasKeyValue;
             …
     ```
-
-1. A continuación, cree una función que acepta y almacena el espacio de nombres de servicio y la clave SAS. Agregue este método fuera de `Main()`. Por ejemplo: 
-
+2. A continuación, cree una función que acepta y almacena el espacio de nombres de servicio y la clave SAS. Agregue este método fuera de `Main()`. Por ejemplo: 
+   
     ```
     static void CollectUserInput()
     {
         // User service namespace
         Console.Write("Please enter the namespace to use: ");
         ServiceNamespace = Console.ReadLine();
-    
+   
         // Issuer key
         Console.Write("Enter the SAS key to use: ");
         sasKeyValue = Console.ReadLine();
     }
     ```
-
-1. En `Main()`, directamente después de la llamada a `GenerateMessages()`, agregue una instrucción que llame al método `CollectUserInput()`:
-
+3. En `Main()`, directamente después de la llamada a `GenerateMessages()`, agregue una instrucción que llame al método `CollectUserInput()`:
+   
     ```
     public static void Main(string[] args)
     {
-    
+   
         // Populate test data
         issues = ParseCSVFile();
         MessageList = GenerateMessages(issues);
-        
+   
         // Collect user input
         CollectUserInput();
     }
     ```
 
 ### <a name="build-the-solution"></a>Compile la solución
-
 En el menú **Compilar** de Visual Studio, puede hacer clic en **Compilar solución** o presionar **Ctrl+Mayús+B** para confirmar la exactitud de su trabajo hasta ahora.
 
 ## <a name="create-management-credentials"></a>Creación de credenciales de administración
-
 En este paso, definirá las operaciones de administración que va a usar para crear credenciales de firma de acceso compartido (SAS) con las que se va a autorizar su aplicación.
 
 1. Para mayor claridad, este tutorial coloca todas las operaciones de cola en un método independiente. Cree un método `Queue()` asincrónico en la clase `Program`, después del método `Main()`. Por ejemplo:
- 
+   
     ```
     public static void Main(string[] args)
     {
@@ -263,9 +244,8 @@ En este paso, definirá las operaciones de administración que va a usar para cr
     {
     }
     ```
-
-1. El paso siguiente consiste en crear una credencial SAS con un objeto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). El método de creación toma el nombre de clave de SAS y el valor obtenido en el método `CollectUserInput()`. Agregue el siguiente código al método `Queue()`:
-
+2. El paso siguiente consiste en crear una credencial SAS con un objeto [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx). El método de creación toma el nombre de clave de SAS y el valor obtenido en el método `CollectUserInput()`. Agregue el siguiente código al método `Queue()`:
+   
     ```
     static async Task Queue()
     {
@@ -273,15 +253,13 @@ En este paso, definirá las operaciones de administración que va a usar para cr
         TokenProvider credentials = TokenProvider.CreateSharedAccessSignatureTokenProvider(sasKeyName,sasKeyValue);
     }
     ```
-
-2. Cree un nuevo objeto de administración del espacio de nombres con un URI que contenga el nombre del espacio de nombres y las credenciales de administración que obtuvo en el último paso como argumentos.  Agregue este código directamente después del código agregado en el paso anterior. Asegúrese de reemplazar `<yourNamespace>` por el nombre de su espacio de nombres de servicio:
-    
+3. Cree un nuevo objeto de administración del espacio de nombres con un URI que contenga el nombre del espacio de nombres y las credenciales de administración que obtuvo en el último paso como argumentos.  Agregue este código directamente después del código agregado en el paso anterior. Asegúrese de reemplazar `<yourNamespace>` por el nombre de su espacio de nombres de servicio:
+   
     ```
     NamespaceManager namespaceClient = new NamespaceManager(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
 
 ### <a name="example"></a>Ejemplo
-
 En este punto, el código debe ser similar al siguiente:
 
 ```
@@ -389,38 +367,33 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="send-messages-to-the-queue"></a>Envío de mensajes a la cola
-
 En este paso, cree una cola y envíe los mensajes contenidos en la lista de mensajes asíncronos a dicha cola.
 
 ### <a name="create-queue-and-send-messages-to-the-queue"></a>Creación de la cola y envío de mensajes a la cola
-
 1. En primer lugar, cree la cola. Por ejemplo, llámelo `myQueue` y declárelo directamente después de las operaciones de administración que agregó en el método `Queue()` en el último paso:
-
+   
     ```
     QueueDescription myQueue;
-
+   
     if (namespaceClient.QueueExists("IssueTrackingQueue"))
     {
         namespaceClient.DeleteQueue("IssueTrackingQueue");
     }
-
+   
     myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
     ```
-
-1. En el método `Queue()`, cree un objeto de fábrica de mensajería con un identificador URI de Bus de servicio recién creado como argumento. Agregue el siguiente código directamente después de las operaciones de administración que agregó en el último paso. Asegúrese de reemplazar `<yourNamespace>` por el nombre de su espacio de nombres de servicio:
-
+2. En el método `Queue()`, cree un objeto de fábrica de mensajería con un identificador URI de Bus de servicio recién creado como argumento. Agregue el siguiente código directamente después de las operaciones de administración que agregó en el último paso. Asegúrese de reemplazar `<yourNamespace>` por el nombre de su espacio de nombres de servicio:
+   
     ```
     MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
     ```
-
-1. A continuación, cree el objeto de cola mediante la clase [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Agregue el siguiente código directamente después del código que agregó en el último paso:
-
+3. A continuación, cree el objeto de cola mediante la clase [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx). Agregue el siguiente código directamente después del código que agregó en el último paso:
+   
     ```
     QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
     ```
-
-1. A continuación, agregue código que recorra la lista de mensajes asíncronos que creó anteriormente, y envíe cada uno a la cola. Agregue el código siguiente directamente después de la instrucción `CreateQueueClient()` en el paso anterior:
-    
+4. A continuación, agregue código que recorra la lista de mensajes asíncronos que creó anteriormente, y envíe cada uno a la cola. Agregue el código siguiente directamente después de la instrucción `CreateQueueClient()` en el paso anterior:
+   
     ```
     // Send messages
     Console.WriteLine("Now sending messages to the queue.");
@@ -434,11 +407,9 @@ En este paso, cree una cola y envíe los mensajes contenidos en la lista de mens
     ```
 
 ## <a name="receive-messages-from-the-queue"></a>Recepción de mensajes de la cola
-
 En este paso, obtendrá la lista de mensajes de la cola que creó en el paso anterior.
 
 ### <a name="create-a-receiver-and-receive-messages-from-the-queue"></a>Creación de un receptor y recepción de mensajes de la cola
-
 En el método `Queue()`, itere por la cola y reciba los mensajes con el método [QueueClient.ReceiveAsync](https://msdn.microsoft.com/library/azure/dn130423.aspx), e imprima cada mensaje en la consola. Agregue el código siguiente directamente después del código que agregó en el paso anterior:
 
 ```
@@ -448,7 +419,7 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
     {
         Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
         message.Complete();
-    
+
         Console.WriteLine("Processing message (sleeping...)");
         Thread.Sleep(1000);
     }
@@ -457,7 +428,6 @@ while ((message = await myQueueClient.ReceiveAsync(new TimeSpan(hours: 0, minute
 Tenga en cuenta que `Thread.Sleep` solo se utiliza para simular el procesamiento de mensajes y lo más probable es que no lo necesite en una aplicación de mensajería real.
 
 ### <a name="end-the-queue-method-and-clean-up-resources"></a>Terminación del método Queue y limpieza de los recursos
-
 Directamente después del código anterior, agregue el siguiente código para limpiar la fábrica de mensajes y los recursos de cola:
 
 ```
@@ -467,26 +437,24 @@ namespaceClient.DeleteQueue("IssueTrackingQueue");
 ```
 
 ### <a name="call-the-queue-method"></a>Llamada al método Queue
-
 El último paso es agregar una instrucción que llama al método `Queue()` desde `Main()`. Agregue la siguiente línea de código resaltada al final de Main():
-    
+
 ```
 public static void Main(string[] args)
 {
     // Collect user input
     CollectUserInput();
-    
+
     // Populate test data
     issues = ParseCSVFile();
     MessageList = GenerateMessages(issues);
-    
+
     // Add this call
     Queue();
 }
 ```
 
 ### <a name="example"></a>Ejemplo
-
 El código siguiente contiene la aplicación **QueueSample**.
 
 ```
@@ -536,9 +504,9 @@ namespace Microsoft.ServiceBus.Samples
             {
                 namespaceClient.DeleteQueue("IssueTrackingQueue");
             }
-            
+
             myQueue = namespaceClient.CreateQueue("IssueTrackingQueue");
-            
+
             MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", "<yourNamespace>", string.Empty), credentials);
 
             QueueClient myQueueClient = factory.CreateQueueClient("IssueTrackingQueue");
@@ -637,25 +605,19 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="build-and-run-the-queuesample-application"></a>Compilación y ejecución de la aplicación QueueSample
-
 Ahora que ha completado los pasos anteriores, puede generar y ejecutar la aplicación **QueueSample**.
 
 ### <a name="build-the-queuesample-application"></a>Compilación de la aplicación QueueSample
-
 En Visual Studio, en el menú **Compilar**, haga clic en **Compilar solución** o presione **Ctrl+Mayús+B**. Si se producen errores, compruebe que el código es correcto de acuerdo con el ejemplo completo al final del paso anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Para más información sobre [Service Bus](https://azure.microsoft.com/services/service-bus/), consulte los temas siguientes.
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-- [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
-- [Arquitectura del Bus de servicio](service-bus-architecture.md)
-
-
-
+* [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+* [Elementos fundamentales del Bus de servicio](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Arquitectura del Bus de servicio](../service-bus/service-bus-architecture.md)
 
 <!--HONumber=Oct16_HO2-->
 

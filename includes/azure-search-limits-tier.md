@@ -1,7 +1,7 @@
-Recurso|Gratuito|Básico (vista preliminar)|S1|S2
----|---|---|---|----
-Servicios máximos en cada nivel por suscripción<sup>1</sup>|1 |12 |12 |1
-Escala máxima por nivel<sup>2</sup>|N/D|3 unidades de búsqueda (hasta 3 réplicas y 1 partición)|36 unidades de búsqueda|36 unidades de búsqueda  
+| Recurso | Gratuito | Básico (vista preliminar) | S1 | S2 |
+| --- | --- | --- | --- | --- |
+| Servicios máximos en cada nivel por suscripción<sup>1</sup> |1 |12 |12 |1 |
+| Escala máxima por nivel<sup>2</sup> |N/D |3 unidades de búsqueda (hasta 3 réplicas y 1 partición) |36 unidades de búsqueda |36 unidades de búsqueda |
 
 <sup>1</sup> Cada servicio se aprovisiona con un determinado plan de tarifa y con límites en el número de servicios que pueden aprovisionarse en cada nivel de una sola suscripción de Azure. Durante el periodo de vista previa, los niveles están disponibles con una tarifa inicial del 50 % del precio total.
 

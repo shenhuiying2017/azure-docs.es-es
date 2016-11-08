@@ -1,74 +1,70 @@
-<properties
-    pageTitle="Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Azure"
-    description="Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure."
-    services="log-analytics"
-    documentationCenter=""
-    authors="richrundmsft"
-    manager="jochan"
-    editor=""/>
+---
+title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
+description: Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
+services: log-analytics
+documentationcenter: ''
+author: richrundmsft
+manager: jochan
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="powershell"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="richrund"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: powershell
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: richrund
 
-
+---
 # <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
-
 Puede usar los [cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
 
-+ Crear un área de trabajo
-+ Agregar o quitar una solución
-+ Importar y exportar búsquedas guardadas
-+ Crear un grupo de equipos
-+ Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
-+ Recopilar contadores de rendimiento en equipos Linux y Windows
-+ Recopilar eventos de Syslog en equipos Linux 
-+ Recopilar eventos de registros de eventos de Windows
-+ Recopilar registros de eventos personalizados
-+ Agregar al agente de Log Analytics a una máquina virtual de Azure
-+ Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
-
+* Crear un área de trabajo
+* Agregar o quitar una solución
+* Importar y exportar búsquedas guardadas
+* Crear un grupo de equipos
+* Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
+* Recopilar contadores de rendimiento en equipos Linux y Windows
+* Recopilar eventos de Syslog en equipos Linux 
+* Recopilar eventos de registros de eventos de Windows
+* Recopilar registros de eventos personalizados
+* Agregar al agente de Log Analytics a una máquina virtual de Azure
+* Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
 Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para otras funciones.
 
-> [AZURE.NOTE] Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
+> [!NOTE]
+> Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
+> 
+> 
 
 ## <a name="prerequisites"></a>Requisitos previos
-
 Para usar PowerShell con el área de trabajo de Log Analytics debe tener:
 
-+ Una suscripción de Azure, y 
-+ El área de trabajo de Log Analytics de Azure vinculada a su suscripción de Azure.
+* Una suscripción de Azure, y 
+* El área de trabajo de Log Analytics de Azure vinculada a su suscripción de Azure.
 
 Si ha creado un área de trabajo de OMS, pero aún no está vinculada a una suscripción de Azure, puede crear el vínculo:
 
-+ En el Portal de Azure
-+ En el portal OMS. 
-+ Con los cmdlets Get-AzureRmOperationalInsightsLinkTargets y New-AzureRmOperationalInsightsWorkspace cmdlets.
-
+* En el Portal de Azure
+* En el portal OMS. 
+* Con los cmdlets Get-AzureRmOperationalInsightsLinkTargets y New-AzureRmOperationalInsightsWorkspace cmdlets.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
-
 El siguiente ejemplo de script muestra cómo:
 
-1.  Crear un área de trabajo
-2.  Enumerar las soluciones disponibles
-3.  Agregar soluciones al área de trabajo
-4.  Importar búsquedas guardadas
-5.  Exportar búsquedas guardadas
-6.  Crear un grupo de equipos
-7.  Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
-8.  Recopilar contadores de rendimiento de discos lógicos de equipos Linux (% de inodos usados; megabytes libres; % de espacio usado; transferencias de disco/seg.; lecturas de disco/seg.; escrituras de disco/seg.)
-9.  Recopilar eventos de Syslog de equipos Linux
+1. Crear un área de trabajo
+2. Enumerar las soluciones disponibles
+3. Agregar soluciones al área de trabajo
+4. Importar búsquedas guardadas
+5. Exportar búsquedas guardadas
+6. Crear un grupo de equipos
+7. Habilitar la recopilación de registros de IIS en equipos con el agente de Windows instalado
+8. Recopilar contadores de rendimiento de discos lógicos de equipos Linux (% de inodos usados; megabytes libres; % de espacio usado; transferencias de disco/seg.; lecturas de disco/seg.; escrituras de disco/seg.)
+9. Recopilar eventos de Syslog de equipos Linux
 10. Recopilar eventos de error y advertencia del registro de eventos de aplicación de los equipos de Windows
 11. Recopilar contadores de rendimiento de MB disponibles de equipos Windows
 12. Recopilar registros personalizados 
-
 
 ```
 
@@ -190,24 +186,23 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuración de Log Analytics para indizar Diagnósticos de Azure 
-
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuración de Log Analytics para indizar Diagnósticos de Azure
 Para la supervisión de recursos de Azure, los recursos que necesitan tener los Diagnósticos de Azure habilitados y configurados para escribir en una cuenta de almacenamiento. Log Analytics puede configurarse para recopilar los registros de la cuenta de almacenamiento. Algunos de los recursos que necesita para realizar la configuración anterior son los siguientes:
 
-+ Servicios en la nube clásicos (roles web y de trabajo)
-+ Clústeres de Service Fabric
-+ Grupos de seguridad de red
-+ Almacenes de claves 
-+ Puertas de enlace de aplicaciones
+* Servicios en la nube clásicos (roles web y de trabajo)
+* Clústeres de Service Fabric
+* Grupos de seguridad de red
+* Almacenes de claves 
+* Puertas de enlace de aplicaciones
 
 También puede usar PowerShell para configurar un área de trabajo de Log Analytics en una suscripción de Azure para recopilar registros de distintas suscripciones de Azure.
 
 El ejemplo siguiente muestra cómo:
 
-1.  Enumerar las cuentas de almacenamiento existentes y las ubicaciones desde las que Log Analytics indizará datos
-2.  Crear una configuración para leer desde una cuenta de almacenamiento
-3.  Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
-4.  Eliminar la configuración recién creada
+1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones desde las que Log Analytics indizará datos
+2. Crear una configuración para leer desde una cuenta de almacenamiento
+3. Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
+4. Eliminar la configuración recién creada
 
 ```
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
@@ -232,11 +227,7 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- [Revise los cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
-
-
-
+* [Revise los cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

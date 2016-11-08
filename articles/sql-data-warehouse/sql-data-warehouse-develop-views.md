@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Vistas en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para usar las vistas Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Vistas en el Almacenamiento de datos SQL | Microsoft Docs
+description: Sugerencias para usar las vistas Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="07/01/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 07/01/2016
+ms.author: jrj;barbkess;sonyama
 
-
+---
 # Vistas en el Almacenamiento de datos SQL
-
 Las vistas son especialmente útiles en el Almacenamiento de datos SQL. Se pueden usar de formas diferentes para mejorar la calidad de la solución. Este artículo resalta algunos ejemplos de cómo enriquecer su solución con vistas, así como las limitaciones que se deben tener en cuenta.
 
-> [AZURE.NOTE] En este artículo no se explica la sintaxis de `CREATE VIEW`. Consulte el artículo [CREATE VIEW][] de MSDN para obtener esta información de referencia.
+> [!NOTE]
+> En este artículo no se explica la sintaxis de `CREATE VIEW`. Consulte el artículo [CREATE VIEW][CREATE VIEW] de MSDN para obtener esta información de referencia.
+> 
+> 
 
 ## Abstracción de arquitectura
 Se trata de un patrón de aplicación muy común para volver a crear tablas con la característica CREATE TABLE AS SELECT (CTAS) seguida de un patrón de cambio de nombre de objetos mientras se cargan los datos.
@@ -54,15 +55,14 @@ Las vistas se pueden usar también para aplicar combinaciones de rendimiento opt
 ## Limitaciones
 Las vistas en el almacenamiento de datos SQL son solo metadatos. Por lo tanto, no están disponibles las siguientes opciones:
 
-- 	No hay ninguna opción de enlace de esquema.
-- 	Las tablas base no se puede actualizar a través de la vista.
-- 	No se pueden crear vistas en tablas temporales.
-- 	No hay compatibilidad con las sugerencias EXPAND y NOEXPAND
-- 	No hay ninguna vista indexada en Almacenamiento de datos SQL.
-
+* No hay ninguna opción de enlace de esquema.
+* Las tablas base no se puede actualizar a través de la vista.
+* No se pueden crear vistas en tablas temporales.
+* No hay compatibilidad con las sugerencias EXPAND y NOEXPAND
+* No hay ninguna vista indexada en Almacenamiento de datos SQL.
 
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][]. Para la sintaxis de `CREATE VIEW`, consulte [CREATE VIEW][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL]. Para la sintaxis de `CREATE VIEW`, consulte [CREATE VIEW][CREATE VIEW].
 
 <!--Image references-->
 

@@ -1,34 +1,30 @@
-<properties 
-pageTitle="Implementación de S/4 HANA o BW/4 HANA en una máquina virtual de Azure | Microsoft Azure" 
-description="Implementación de S/4 HANA o BW/4 HANA en una máquina virtual de Azure" 
-services="virtual-machines-linux" 
-documentationCenter="" 
-authors="hermanndms" 
-manager="timlt" 
-editor="" 
-tags="azure-resource-manager" 
-  keywords=""/> 
-<tags 
-  ms.service="virtual-machines-linux" 
-  ms.devlang="na" 
-  ms.topic="article" 
-  ms.tgt_pltfrm="vm-linux" 
-  ms.workload="infrastructure-services" 
-  ms.date="09/15/2016" 
-  ms.author="hermannd"/> 
+---
+title: Implementación de S/4 HANA o BW/4 HANA en una máquina virtual de Azure | Microsoft Docs
+description: Implementación de S/4 HANA o BW/4 HANA en una máquina virtual de Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: hermanndms
+manager: timlt
+editor: ''
+tags: azure-resource-manager
+keywords: ''
 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/15/2016
+ms.author: hermannd
 
-
-# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Implementación de S/4 Hana o BW/4 Hana en Microsoft Azure 
-
+---
+# <a name="deploying-s/4-hana-or-bw/4-hana-on-microsoft-azure"></a>Implementación de S/4 Hana o BW/4 Hana en Microsoft Azure
 En este artículo se describe cómo implementar S/4 Hana en Microsoft Azure por medio de SAP Cloud Appliance Library 3.0.
 Las capturas de pantalla muestran el proceso paso a paso. La implementación de otras soluciones basadas en SAP Hana, como BW/4 Hana, funciona del mismo modo desde la perspectiva del proceso. Solo se tiene que seleccionar una solución diferente.
 
 Para empezar con SAP Cloud Appliance Library (SAP CAL), vaya [aquí](https://cal.sap.com/). Hay un blog de SAP sobre la nueva versión de [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience). 
 
-
 Las capturas de pantalla siguientes muestran paso a paso cómo implementar S/4 Hana en Microsoft Azure. El proceso funciona del mismo modo para otras soluciones como BW/4 Hana.
-
 
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic-1b.jpg)
 
@@ -92,15 +88,6 @@ Ahora es posible conectarse a la solución mediante el botón correspondiente en
 ![](./media/virtual-machines-linux-sap-cal-s4h/s4h-pic15.jpg)
 
 Otra opción consiste en iniciar sesión en la máquina virtual Windows cliente e iniciar, por ejemplo, la instancia de SAP GUI configurada previamente.
-
-
-
-
-
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

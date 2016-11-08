@@ -1,52 +1,52 @@
-<properties
-   pageTitle="P+F de Copia de seguridad de Azure | Microsoft Azure"
-   description="Respuestas a las preguntas más frecuentes sobre el servicio de Copia de seguridad, el agente de Copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la copia de seguridad y recuperación ante desastres."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="copia de seguridad y recuperación ante desastres; servicio de copia de seguridad"/>
+---
+title: P+F de Copia de seguridad de Azure | Microsoft Docs
+description: Respuestas a las preguntas más frecuentes sobre el servicio de Copia de seguridad, el agente de Copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la copia de seguridad y recuperación ante desastres.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: copia de seguridad y recuperación ante desastres; servicio de copia de seguridad
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/29/2016"
-	 ms.author="trinadhk; giridham; arunak; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/29/2016
+ms.author: trinadhk; giridham; arunak; markgal; jimpark;
 
+---
 # P+F de servicio de Copia de seguridad de Azure
-
-> [AZURE.SELECTOR]
-- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
-- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
+> * [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 En este artículo encontrará una lista de las preguntas más frecuentes (y sus correspondientes respuestas) acerca del servicio Copia de seguridad de Azure. Nuestra comunidad responde rápidamente, y si una pregunta se repite a menudo, la agregamos a este artículo. Normalmente, las respuestas proporcionan referencia o información de soporte técnico. Las preguntas acerca de Copia de seguridad de Azure se pueden realizar en la sección Disqus de este artículo o de otros artículos relacionados. También se pueden publicar preguntas sobre el servicio Copia de seguridad de Azure en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
-
 
 ## ¿Cuál es la lista de sistemas operativos compatibles desde los que se pueden realizar copias de seguridad en Azure mediante Copia de seguridad de Azure? <br/>
 Copia de seguridad de Azure es compatible con los sistemas operativos siguientes para la copia de seguridad de la carpeta de archivos, la copia de seguridad de aplicación con el servidor de Copia de seguridad de Azure y SCDPM.
 
 | Sistema operativo | Plataforma | SKU |
-| :------------- |-------------| :-----|
-| Windows 8 y SP más recientes | 64 bits | Enterprise, Pro |
-| Windows 7 y SP más recientes | 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
-| Windows 8.1 y SP más recientes | 64 bits | Enterprise, Pro |
-| Windows 10 | 64 bits | Enterprise, Pro, Home |
-|Windows Server 2012 R2 y SP más recientes|	64 bits|	Standard, Datacenter, Foundation|
-|Windows Server 2012 y SP más recientes|	64 bits|	Datacenter, Foundation, Standard|
-|Windows Storage Server 2012 R2 y SP más recientes |64 bits|	Standard, Workgroup|
-|Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup
-|Windows Server 2012 R2 y SP más recientes |64 bits|	Essential|
-|Windows Server 2008 R2 SP1 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
-|Windows Server 2008 SP2 |64 bits|	Standard, Enterprise, Datacenter, Foundation|
+|:--- | --- |:--- |
+| Windows 8 y SP más recientes |64 bits |Enterprise, Pro |
+| Windows 7 y SP más recientes |64 bits |Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter |
+| Windows 8.1 y SP más recientes |64 bits |Enterprise, Pro |
+| Windows 10 |64 bits |Enterprise, Pro, Home |
+| Windows Server 2012 R2 y SP más recientes |64 bits |Standard, Datacenter, Foundation |
+| Windows Server 2012 y SP más recientes |64 bits |Datacenter, Foundation, Standard |
+| Windows Storage Server 2012 R2 y SP más recientes |64 bits |Standard, Workgroup |
+| Windows Storage Server 2012 y SP más recientes |64 bits |Standard, Workgroup |
+| Windows Server 2012 R2 y SP más recientes |64 bits |Essential |
+| Windows Server 2008 R2 SP1 |64 bits |Standard, Enterprise, Datacenter, Foundation |
+| Windows Server 2008 SP2 |64 bits |Standard, Enterprise, Datacenter, Foundation |
 
 Para la copia de seguridad de máquina virtual de Azure,
 
-- **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), con la excepción de CoreOS Linux. Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
-- **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
+* **Linux**: Copia de seguridad de Azure admite [una lista de distribuciones aprobadas por Azure](../virtual-machines/virtual-machines-linux-endorsed-distros.md), con la excepción de CoreOS Linux. Otras distribuciones con la iniciativa "traiga su propio Linux" también podrían funcionar, siempre que el agente de máquina virtual esté disponible en la máquina virtual y haya compatibilidad con Python.
+* **Windows Server**: no se admiten las versiones anteriores a Windows Server 2008 R2.
 
 ## ¿Dónde puedo descargar el agente de Copia de seguridad de Azure más reciente? <br/>
 El agente más reciente para realizar copias de seguridad de Windows Server, System Center DPM o el cliente de Windows se puede descargar de [aquí](http://aka.ms/azurebackup_agent). Si desea hacer una copia de seguridad de una máquina virtual, utilice el agente de máquina virtual (que instala automáticamente la extensión adecuada). El agente de la máquina virtual ya está presente en las máquinas virtuales que se crean desde la Galería de Azure.
@@ -72,26 +72,26 @@ Al cambiar el nombre de un servidor, se detienen todas las copias de seguridad c
 ## ¿Desde qué tipos de unidades puedo realizar copias de seguridad de archivos y carpetas? <br/>
 La copia de seguridad no se puede realizar del siguiente conjunto de unidades/volúmenes de disco:
 
-- Medios extraíbles: la unidad debe ser fija para poder usarse como origen de copia de seguridad.
-- Volúmenes de solo lectura: el volumen debe ser grabable para que el servicio de copia de instantáneas de volumen (VSS) funcione.
-- Volúmenes sin conexión: el volumen debe estar en línea para que VSS funcione.
-- Recurso compartido de red: el volumen debe ser local en el servidor para que la copia de seguridad se realice en línea.
-- Volúmenes protegidos por BitLocker: el volumen debe desbloquearse antes de que se pueda crear la copia de seguridad.
-- Identificación del sistema de archivos: NTFS es el único sistema de archivos admitido por esta versión del servicio de copia de seguridad en línea.
+* Medios extraíbles: la unidad debe ser fija para poder usarse como origen de copia de seguridad.
+* Volúmenes de solo lectura: el volumen debe ser grabable para que el servicio de copia de instantáneas de volumen (VSS) funcione.
+* Volúmenes sin conexión: el volumen debe estar en línea para que VSS funcione.
+* Recurso compartido de red: el volumen debe ser local en el servidor para que la copia de seguridad se realice en línea.
+* Volúmenes protegidos por BitLocker: el volumen debe desbloquearse antes de que se pueda crear la copia de seguridad.
+* Identificación del sistema de archivos: NTFS es el único sistema de archivos admitido por esta versión del servicio de copia de seguridad en línea.
 
 ## ¿De qué tipos de archivos y carpetas puedo hacer copias de seguridad desde mi servidor?<br/>
 Se admiten los siguientes tipos:
 
-- Cifrados
-- Comprimidos
-- Dispersos
-- Comprimidos + dispersos
-- Vínculos físicos: no compatibles, se omiten
-- Puntos de repetición: no compatibles, se omiten
-- Cifrados + comprimidos: no compatibles, se omiten
-- Cifrados + dispersos: no compatibles, se omiten
-- Secuencias comprimidas: no compatibles, se omiten
-- Secuencias dispersas: no compatibles, se omiten
+* Cifrados
+* Comprimidos
+* Dispersos
+* Comprimidos + dispersos
+* Vínculos físicos: no compatibles, se omiten
+* Puntos de repetición: no compatibles, se omiten
+* Cifrados + comprimidos: no compatibles, se omiten
+* Cifrados + dispersos: no compatibles, se omiten
+* Secuencias comprimidas: no compatibles, se omiten
+* Secuencias dispersas: no compatibles, se omiten
 
 ## ¿Cuál es el requisito de tamaño mínimo para la carpeta de caché? <br/>
 El tamaño de la carpeta de caché determina la cantidad de datos de los que se realiza la copia de seguridad. La carpeta de caché debe tener un 5% del espacio requerido para el almacenamiento de datos.
@@ -116,13 +116,13 @@ Esta advertencia se produce cuando la configuración de programación de la copi
 ## ¿Qué reglas de firewall que hay que configurar para Copia de seguridad de Azure? <br/>
 Para una protección completa tanto de los datos locales que se transfieren a Azure como de los datos de la carga de trabajo que se transfieren a Azure, se recomienda permitir que el firewall se comunique con las direcciones URL siguientes:
 
-- www.msftncsi.com
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.microsoftonline.com
-- *.windows.net
+* www.msftncsi.com
+* *.Microsoft.com
+* *.WindowsAzure.com
+* *.microsoftonline.com
+* *.windows.net
 
-##¿Se puede instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure de la que el servicio Copia de seguridad de Azure ya ha realizado una copia de seguridad mediante la extensión de máquina virtual? <br/>
+## ¿Se puede instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure de la que el servicio Copia de seguridad de Azure ya ha realizado una copia de seguridad mediante la extensión de máquina virtual? <br/>
 Totalmente. Copia de seguridad de Azure proporciona copia de seguridad de nivel de máquina virtual para las máquinas virtuales de Azure que usen la extensión de máquina virtual. El agente de Copia de seguridad de Azure se puede instalar en un SO invitado de Windows para proteger los archivos y carpetas de dicho SO.
 
 ## ¿Puedo instalar el agente de Copia de seguridad de Azure en una máquina virtual de Azure para realizar la copia de seguridad de los archivos y carpetas que hay en un almacenamiento temporal proporcionado por la máquina virtual de Azure? <br/>
@@ -131,10 +131,10 @@ Puede instalar al agente de Copia de seguridad de Azure en el SO invitado de Win
 ## He instalado el agente de Copia de seguridad de Azure para proteger archivos y carpetas. ¿Puedo instalar ahora SCDPM para que funcione con el agente de Copia de seguridad de Azure con el fin de proteger las cargas de trabajo locales de aplicaciones o de máquinas virtuales para Azure? <br/>
 Para usar Copia de seguridad de Azure con SCDPM, se recomienda instalar SCDPM primero y a continuación instalar el agente de Copia de seguridad de Azure. Esto garantiza una integración sin problemas del agente de Copia de seguridad de Azure con SCDPM. Además, permite proteger archivos y carpetas, cargas de trabajo de aplicaciones y máquinas virtuales para Azure, directamente desde la consola de administración de SCDPM. No se recomienda ni admite instalar SCDPM después de instalar el agente de Copia de seguridad de Azure para los fines mencionados antes.
 
-## ¿Qué longitud tiene la ruta de acceso de archivo que se puede especificar como parte de la directiva de Copia de seguridad de Azure mediante el agente de Copia de seguridad de Azure? <br/>  
+## ¿Qué longitud tiene la ruta de acceso de archivo que se puede especificar como parte de la directiva de Copia de seguridad de Azure mediante el agente de Copia de seguridad de Azure? <br/>
 El agente de Copia de seguridad de Azure usa NTFS. La [API de Windows limita la especificación de la longitud de la ruta de acceso de archivo](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). En caso de copia de seguridad de archivos cuyas rutas de acceso tengan una longitud mayor que las especificadas por la API de Windows, los clientes pueden elegir hacer una copia de seguridad de la carpeta primaria o de la unidad de disco de los archivos de la copia de seguridad.
 
-## ¿Qué caracteres se permiten en la ruta de acceso de archivo de la directiva de Copia de seguridad de Azure cuando se usa el agente de Copia de seguridad de Azure? <br>  
+## ¿Qué caracteres se permiten en la ruta de acceso de archivo de la directiva de Copia de seguridad de Azure cuando se usa el agente de Copia de seguridad de Azure? <br>
  El agente de Copia de seguridad de Azure usa NTFS. Permite [caracteres compatibles con NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) como parte de la especificación de los archivos.
 
 ## ¿Puedo usar el servidor de Copia de seguridad de Azure para crear una copia de seguridad de reconstrucción completa (BMR) para un servidor físico? <br/>
@@ -146,23 +146,23 @@ Sí, el servicio de copia de seguridad tiene varias alertas basadas en eventos q
 ## ¿Hay algún límite en el tamaño de cada origen de datos del que se realiza una copia de seguridad? <br/>
 Aunque no hay ningún límite de almacén en relación a la cantidad de datos de los que se puede hacer una copia de seguridad, Copia de seguridad de Azure impone una restricción (en la práctica, estos límites son muy elevados) sobre el tamaño máximo del origen de datos. A partir de agosto de 2015, el origen de datos de tamaño máximo del sistemas operativos compatible es:
 
-|S.No |	Sistema operativos |	Tamaño máximo del origen de datos |
-| :-------------: |:-------------| :-----|
-|1| Windows Server 2012 o superior| 54400 GB|
-|2| Windows 8 o superior| 54400 GB|
-|3| Windows Server 2008, Windows Server 2008 R2 | 1700 GB|
-|4| Windows 7 | 1700 GB|
+| S.No | Sistema operativos | Tamaño máximo del origen de datos |
+|:---:|:--- |:--- |
+| 1 |Windows Server 2012 o superior |54400 GB |
+| 2 |Windows 8 o superior |54400 GB |
+| 3 |Windows Server 2008, Windows Server 2008 R2 |1700 GB |
+| 4 |Windows 7 |1700 GB |
 
 La tabla siguiente explica cómo se determina el tamaño de cada origen de datos.
 
-|	Origen de datos |	Detalles |
-| :-------------: |:-------------|
-|Volumen |La cantidad de datos de los que se realiza copia de seguridad de un volumen individual de un equipo servidor o cliente.|
-|Máquina virtual de Hyper-V | Suma de los datos de todos los discos duros virtuales de la máquina virtual de los que se hace copia de seguridad|
-|Base de datos de Microsoft SQL Server | Tamaño de una sola base de datos SQL de la que se hace copia de seguridad |
-|Microsoft SharePoint |Suma de las bases de datos de contenido y configuración de la granja de SharePoint de las que se hace copia de seguridad|
-|Microsoft Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad|
-|Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad|
+| Origen de datos | Detalles |
+|:---:|:--- |
+| Volumen |La cantidad de datos de los que se realiza copia de seguridad de un volumen individual de un equipo servidor o cliente. |
+| Máquina virtual de Hyper-V |Suma de los datos de todos los discos duros virtuales de la máquina virtual de los que se hace copia de seguridad |
+| Base de datos de Microsoft SQL Server |Tamaño de una sola base de datos SQL de la que se hace copia de seguridad |
+| Microsoft SharePoint |Suma de las bases de datos de contenido y configuración de la granja de SharePoint de las que se hace copia de seguridad |
+| Microsoft Exchange |Suma de todas las bases de datos de un servidor de Exchange de las que se hace copia de seguridad |
+| Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del equipo del que se hace copia de seguridad |
 
 ## ¿Hay algún límite en el número de veces por día que se puede programar un trabajo de copia de seguridad?<br/>
 Sí, en Windows Server o en un cliente Windows los trabajos de copia de seguridad se pueden ejecutar un máximo de tres veces al día. Sin embargo, en System Center DPM, los trabajos de copia de seguridad se pueden ejecutar un máximo de dos veces al día. Por último, en las máquinas virtuales de IaaS solo se puede ejecutar un trabajo de copia de seguridad al día.
@@ -197,7 +197,7 @@ No. Hemos eliminado los límites a los puntos de recuperación. Puede crear tant
  Todos los datos de los que se realiza una copia de seguridad desde el agente de Copia de seguridad de Azure o SCDPM o del servidor de Copia de seguridad de Azure se comprimen y se cifran antes de ser transferidos. Una vez que se aplica la compresión y el cifrado, el tamaño de los datos del almacén de copia de seguridad se reduce entre un 30% y un 40%.
 
 ## ¿Hay alguna forma de ajustar la cantidad de ancho de banda que utiliza el servicio Copia de seguridad?<br/>
- Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Ajuste la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para más información, consulte [Habilitación de la velocidad moderada de la red (opcional)](../backup-configure-vault.md#enable-network-throttling).
+ Sí, use la opción **Cambiar propiedades** del agente de Copia de seguridad para ajustar el ancho de banda. Ajuste la cantidad de ancho de banda y los momentos en que se usa dicho ancho de banda. Para más información, consulte [Habilitación de la velocidad moderada de la red (opcional)](backup-configure-vault.md#enable-network-throttling).
 
 ## El ancho de banda de Internet está limitado por la cantidad de datos de los que tengo que realizar una copia de seguridad. ¿Hay alguna manera para pasar datos a una determinada ubicación con una canalización de red de gran tamaño e insertar dichos datos en Azure? <br/>
 Puede hacer una copia datos en Azure a través del proceso de copia de seguridad en línea estándar o puede usar el servicio de importación y exportación de Azure para transferir los datos al Almacenamiento de blobs en Azure. No hay ninguna otra forma de introducir datos para copia de seguridad en el Almacenamiento de Azure. Para más información acerca de cómo usar el servicio Importación/Exportación de Azure con Copia de seguridad de Azure, consulte el artículo [Flujo de trabajo de copia de seguridad sin conexión en Copia de seguridad de Azure](backup-azure-backup-import-export.md).
@@ -222,39 +222,38 @@ La clave utilizada para cifrar los datos de copia de seguridad está presente en
 
 ## ¿Cómo se cambia la ubicación de la memoria caché especificada para el agente de Copia de seguridad de Azure?<br/>
  Vaya secuencialmente a través de la lista de viñetas siguiente para cambiar la ubicación de la caché.
-- Detenga el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
 
+* Detenga el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
+  
   ```PS C:\> Net stop obengine```
+* No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad con espacio suficiente. El espacio en caché original se puede eliminar después de confirmar que las copias de seguridad funcionan con el espacio en caché nuevo.
+* Actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del espacio en caché.<br/>
 
-- No mueva los archivos. En su lugar, copie la carpeta de espacio en caché en otra unidad con espacio suficiente. El espacio en caché original se puede eliminar después de confirmar que las copias de seguridad funcionan con el espacio en caché nuevo.
+| Ruta de acceso del Registro | Clave del Registro | Valor |
+| --- | --- | --- |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nueva ubicación de la carpeta de la memoria caché* |
 
-- Actualice las siguientes entradas del Registro con la ruta de acceso a la nueva carpeta del espacio en caché.<br/>
-
-|Ruta de acceso del Registro | Clave del Registro | Valor |
-| ------ | ------- | ------|
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` | ScratchLocation | *Nueva ubicación de la carpeta de la memoria caché* |
-| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` | ScratchLocation | *Nueva ubicación de la carpeta de la memoria caché* |
-
-- Reinicie el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
-
+* Reinicie el módulo de copia de seguridad, para lo que debe ejecutar el siguiente comando en un símbolo del sistema con privilegios elevados:
+  
   ```PS C:\> Net start obengine```
-
+  
   Una vez que la creación de la copia de seguridad se haya completado correctamente en la nueva ubicación de la memoria caché, puede quitar la carpeta de la memoria caché original.
 
 ## ¿Dónde se puede colocar la carpeta de caché del agente de Copia de seguridad de Azure para que funcione según lo previsto?<br/>
 No se recomiendan las siguientes ubicaciones para la carpeta de caché:
 
-- Recursos compartidos de red o medios extraíbles: la carpeta de caché debe ser local para el servidor que necesita realizar copias de seguridad mediante la copia de seguridad en línea. No se admiten ubicaciones de red ni medios extraíbles como unidades USB.
-- Volúmenes sin conexión: la carpeta de caché debe estar en línea para la copia de seguridad esperada con el agente de Copia de seguridad de Azure.
+* Recursos compartidos de red o medios extraíbles: la carpeta de caché debe ser local para el servidor que necesita realizar copias de seguridad mediante la copia de seguridad en línea. No se admiten ubicaciones de red ni medios extraíbles como unidades USB.
+* Volúmenes sin conexión: la carpeta de caché debe estar en línea para la copia de seguridad esperada con el agente de Copia de seguridad de Azure.
 
 ## ¿Hay algún atributo de la carpeta de caché que no se admita?<br/>
  No se admiten los siguientes atributos ni sus combinaciones para la carpeta de caché:
 
-- Cifrados
-- Desduplicados
-- Comprimidos
-- Dispersos
-- Punto de reanálisis
+* Cifrados
+* Desduplicados
+* Comprimidos
+* Dispersos
+* Punto de reanálisis
 
 Se recomienda que ni la carpeta de caché ni el disco duro virtual de metadatos tengan los atributos anteriores para que el agente de Copia de seguridad de Azure funcione de la forma esperada.
 

@@ -1,25 +1,28 @@
-<properties
-   pageTitle="Configuración de varias NIC en una máquina virtual Windows | Microsoft Azure"
-   description="Aprenda a crear una máquina virtual con varias NIC conectadas a ella mediante Azure PowerShell o plantillas de Resource Manager."
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Configuración de varias NIC en una máquina virtual Windows | Microsoft Docs
+description: Aprenda a crear una máquina virtual con varias NIC conectadas a ella mediante Azure PowerShell o plantillas de Resource Manager.
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure"
-   ms.date="08/04/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure
+ms.date: 08/04/2016
+ms.author: iainfou
 
+---
 # Creación de una máquina virtual con varias NIC
 Puede crear una máquina virtual (VM) en Azure que tenga asociadas varias interfaces de red virtual (NIC). Un escenario común sería tener distintas subredes para la conectividad front-end y back-end o una red dedicada a una solución de supervisión o copia de seguridad. En este artículo se proporcionan comandos rápidos para crear una máquina virtual que tiene conectadas varias NIC. Para más información, lo que incluye cómo crear varias NIC dentro de sus propios scripts de PowerShell, lea más sobre la [implementación de máquinas virtuales con varias NIC](../virtual-network/virtual-network-deploy-multinic-arm-ps.md). Diferentes [tamaños de máquina virtual](virtual-machines-windows-sizes.md) admiten un número distinto de NIC, así que ajuste el tamaño de su máquina virtual teniendo esto en cuenta.
 
->[AZURE.WARNING] Cuando crea una máquina virtual, debe asociar varias NIC; no es posible agregar NIC a una máquina virtual existente. También puede [crear una nueva máquina virtual en función de los discos virtuales originales](virtual-machines-windows-specialized-image.md) y crear varias NIC mientras implementa la máquina virtual.
+> [!WARNING]
+> Cuando crea una máquina virtual, debe asociar varias NIC; no es posible agregar NIC a una máquina virtual existente. También puede [crear una nueva máquina virtual en función de los discos virtuales originales](virtual-machines-windows-specialized-image.md) y crear varias NIC mientras implementa la máquina virtual.
+> 
+> 
 
 ## Creación de recursos principales
 Asegúrese de que tiene la [ Azure PowerShell más reciente instalada y configurada](../powershell-install-configure.md).
@@ -67,7 +70,6 @@ $NIC2 = New-AzureRmNetworkInterface -Name NIC2 -ResourceGroupName TestRG `
 ```
 
 Normalmente también crearía un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md) o un [equilibrador de carga](../load-balancer/load-balancer-overview.md) para administrar y distribuir el tráfico entre las máquinas virtuales. En el [artículo más detallado sobre máquinas virtuales con varias NIC](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) se proporcionan los pasos para crear un grupo de seguridad de red y asignar NIC.
-
 
 ## Creación de la máquina virtual
 Comience ahora a compilar la configuración de la máquina virtual. El tamaño de cada máquina virtual tiene un límite en cuanto al número total de NIC que se pueden agregar a una máquina virtual. Más información sobre los [tamaños de máquina virtual Windows](virtual-machines-windows-sizes.md). En el ejemplo siguiente se utiliza un tamaño de máquina virtual que admite hasta dos NIC (`Standard_DS2_v2`):

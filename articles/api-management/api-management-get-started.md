@@ -1,29 +1,26 @@
-<properties
-	pageTitle="Administración de su primera API en Administración de API de Azure | Microsoft Azure"
-	description="Obtenga información sobre cómo crear API, agregar operaciones y comenzar a usar Administración de API."
-	services="api-management"
-	documentationCenter=""
-	authors="steved0x"
-	manager="erikre"
-	editor=""/>
+---
+title: Administración de su primera API en Administración de API de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear API, agregar operaciones y comenzar a usar Administración de API.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="hero-article"
-	ms.date="08/24/2016"
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: hero-article
+ms.date: 08/24/2016
+ms.author: sdanie
 
+---
 # Administración de su primera API en Administración de API de Azure
-
 ## <a name="overview"> </a>Información general
-
 En esta guía se muestra cómo empezar a usar rápidamente Administración de API de Azure y hacer la primera llamada API.
 
 ## <a name="concepts"> </a>¿Qué es la Administración de API de Azure?
-
 Puede usar Administración de API de Azure para tomar cualquier back-end e iniciar un programa de API completo basado en él.
 
 Entre los escenarios habituales se incluyen los siguientes:
@@ -32,36 +29,37 @@ Entre los escenarios habituales se incluyen los siguientes:
 * **Habilitación de los ecosistemas de asociados de fabricantes de software independiente** mediante la oferta de una incorporación rápida de asociados a través del portal para desarrolladores y la creación de una fachada de API para desacoplar desde implementaciones internas que no son adecuada para el consumo de los asociados.
 * **Ejecución de un programa de API interno** mediante la oferta de una ubicación centralizada para la organización a fin de comunicar acerca de la disponibilidad y los últimos cambios en las API y el control de acceso en función de cuentas de organizaciones, todo ello basado en un canal seguro entre la puerta de enlace de la API y el back-end.
 
-
 El sistema consta de los siguientes componentes:
 
 * La **puerta de enlace de la API** es el extremo que:
+  
   * Acepta llamadas de API y las enruta a los back-end.
   * Comprueba las claves de API, los tokens JWT, los certificados y otras credenciales.
   * Aplica cuotas de uso y límites de frecuencia.
   * Transforma la API sobre la marcha sin modificaciones de código.
   * Almacena en caché las respuestas de back-end donde se instalaron.
   * Registra los metadatos de llamada para fines de análisis.
-
 * El **portal para editores** es la interfaz administrativa donde se configura el programa de API, con acciones como las siguientes: Utilícelo para:
-	* definir o importar el esquema de API
-	* empaquetar las API en productos
-	* establecer directivas, como cuotas o transformaciones, en las API
-	* obtener información del análisis
-	* administrar usuarios
-
+  
+  * definir o importar el esquema de API
+  * empaquetar las API en productos
+  * establecer directivas, como cuotas o transformaciones, en las API
+  * obtener información del análisis
+  * administrar usuarios
 * El **portal para desarrolladores** actúa como la presencia web principal para desarrolladores, donde estos pueden:
-	* leer documentación de la API
-	* probar una API a través de la consola interactiva
-	* crear una cuenta y suscribirse para obtener claves de API
-	* obtener acceso a análisis sobre su propio uso
-
+  
+  * leer documentación de la API
+  * probar una API a través de la consola interactiva
+  * crear una cuenta y suscribirse para obtener claves de API
+  * obtener acceso a análisis sobre su propio uso
 
 ## <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
+> [!NOTE]
+> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
+> 
+> 
 
->[AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
-
-El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de Azure clásico][] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
+El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de Azure clásico][Portal de Azure clásico] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -73,13 +71,19 @@ Elija la **suscripción** y la **región** deseadas para la instancia de servici
 
 Escriba **Contoso Ltd.** en **Nombre de la organización** y especifique su dirección de correo electrónico en el campo **Correo electrónico del administrador**.
 
->[AZURE.NOTE] Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para más información, consulte [Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure][].
+> [!NOTE]
+> Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para más información, consulte [Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure][Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure].
+> 
+> 
 
 ![New API Management service][api-management-create-instance-step2]
 
 Las instancias de servicio de Administración de API están disponibles en tres niveles: Desarrollador, Estándar y Premium. De forma predeterminada, las nuevas instancias de servicio Administración de API se crean en el nivel de desarrollador. Para seleccionar el nivel Estándar o Premiun, active la casilla **Configuración avanzada** y seleccione el nivel deseado en la pantalla siguiente.
 
->[AZURE.NOTE] El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para obtener más información acerca de los niveles de Administración de API, consulte [Precios de Administración de API][].
+> [!NOTE]
+> El nivel de desarrollador está orientado al desarrollo, las pruebas y los programas de API piloto para los que la disponibilidad no es un problema. En el nivel Estándar y Premium, puede escalar el número de unidades reservadas para administrar más tráfico. Los niveles Estándar y Premium proporcionan al servicio Administración de API la mayor potencia de procesamiento y rendimiento. Puede completar este tutorial mediante cualquier nivel. Para obtener más información acerca de los niveles de Administración de API, consulte [Precios de Administración de API][Precios de Administración de API].
+> 
+> 
 
 Haga clic en la casilla para crear su instancia de servicio.
 
@@ -88,12 +92,14 @@ Haga clic en la casilla para crear su instancia de servicio.
 Una vez creada la instancia de servicio, el paso siguiente es crear o importar una API.
 
 ## <a name="create-api"> </a>Importación de una API
-
 Una API consta de un conjunto de operaciones que se pueden invocar desde una aplicación cliente. Las operaciones API se realizan con proxy en servicios web existentes.
 
 Las API se pueden crear (y las operaciones se pueden agregar) manualmente o se pueden importar. En este tutorial se importará una API para un servicio web de calculadora de ejemplo proporcionado por Microsoft y hospedado en Azure.
 
->[AZURE.NOTE] Para obtener instrucciones sobre la creación de una API y la incorporación manual de operaciones, consulte [Creación de API](api-management-howto-create-apis.md) e [Incorporación de operaciones a una API](api-management-howto-add-operations.md).
+> [!NOTE]
+> Para obtener instrucciones sobre la creación de una API y la incorporación manual de operaciones, consulte [Creación de API](api-management-howto-create-apis.md) e [Incorporación de operaciones a una API](api-management-howto-add-operations.md).
+> 
+> 
 
 Las API se configuran desde el portal para editores, al que se accede mediante el Portal de Azure clásico. Para llegar al portal para editores, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
@@ -112,7 +118,10 @@ Siga los pasos siguientes para configurar la API de la calculadora:
 
 ![Add new API][api-management-import-new-api]
 
->[AZURE.NOTE] El servicio **Administración de API** admite actualmente las versiones 1.2 y 2.0 del documento Swagger para la importación. Aunque la [especificación Swagger 2.0](http://swagger.io/specification) declara que las propiedades `host`, `basePath` y `schemes` son opcionales, el documento Swagger 2.0 **debe** contener esas propiedades; en caso contrario, no se importará.
+> [!NOTE]
+> El servicio **Administración de API** admite actualmente las versiones 1.2 y 2.0 del documento Swagger para la importación. Aunque la [especificación Swagger 2.0](http://swagger.io/specification) declara que las propiedades `host`, `basePath` y `schemes` son opcionales, el documento Swagger 2.0 **debe** contener esas propiedades; en caso contrario, no se importará.
+> 
+> 
 
 Una vez importada la API, se muestra la página de resumen de la API en el portal para editores.
 
@@ -122,15 +131,14 @@ La sección de API tiene varias pestañas. La pestaña **Resumen** muestra infor
 
 De forma predeterminada, cada instancia de Administración de API incluye dos productos de ejemplo:
 
--	**Starter**
--	**Sin límite**
+* **Starter**
+* **Sin límite**
 
 En este tutorial, se agregó la API de Basic Calculator al producto Starter cuando se importó la API.
 
 Para realizar llamadas a una API, los desarrolladores deben suscribirse primero a un producto que les proporcione acceso a ella. Los desarrolladores pueden suscribirse a productos en el portal para desarrolladores; asimismo, los administradores pueden suscribir a los desarrolladores a productos en el portal para editores. Usted es un administrador, ya que creó la instancia de Administración de API en los pasos anteriores del tutorial, por lo que ya está suscrito a todos los productos de manera predeterminada.
 
 ## <a name="call-operation"> </a>Llamada a una operación desde el portal para desarrolladores
-
 Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso del tutorial llamará a la operación **Agregar dos enteros** de la API de Basic Calculator. Haga clic en el **portal para desarrolladores** en el menú que se encuentra en la parte superior derecha del portal para editores.
 
 ![Portal para desarrolladores][api-management-developer-portal-menu]
@@ -154,7 +162,6 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 ![Response][api-management-invoke-get-response]
 
 ## <a name="view-analytics"> </a>Visualización de análisis
-
 Para ver un análisis de Basic Calculator, vuelva al portal para editores seleccionando **Administrar** en el menú situado en la parte superior derecha del portal para desarrolladores.
 
 ![Manage][api-management-manage-menu]
@@ -165,7 +172,10 @@ La vista predeterminada del portal para editores es el **Panel**, que proporcion
 
 Mantenga el puntero encima del gráfico de **Basic Calculator** para ver las métricas específicas de uso de la API durante un período de tiempo determinado.
 
->[AZURE.NOTE] Si no ve ninguna línea en el gráfico, vuelva al portal para desarrolladores y haga algunas llamadas a la API, espere unos instantes y vuelva al panel
+> [!NOTE]
+> Si no ve ninguna línea en el gráfico, vuelva al portal para desarrolladores y haga algunas llamadas a la API, espere unos instantes y vuelva al panel
+> 
+> 
 
 Haga clic en **Ver detalles** para ver la página de resumen de la API, incluida una versión más amplia de las métricas mostradas.
 
@@ -179,14 +189,13 @@ Para obtener información detallada sobre métricas e informes, haga clic en **A
 
 La sección **Análisis** consta de las cuatro pestañas siguientes:
 
--	**De un vistazo** proporciona métricas de uso global y de mantenimiento, así como los principales desarrolladores, productos, API y operaciones.
--	**Uso** proporciona información detallada de las llamadas de API y del ancho de banda, incluida una representación geográfica.
--	**Mantenimiento** se centra en los códigos de estado, las tasas de éxito de caché, los tiempos de respuesta y los tiempos de respuesta de la API y del servicio.
--	**Actividad** proporciona informes que detallan la actividad específica por desarrollador, producto, API y operación.
+* **De un vistazo** proporciona métricas de uso global y de mantenimiento, así como los principales desarrolladores, productos, API y operaciones.
+* **Uso** proporciona información detallada de las llamadas de API y del ancho de banda, incluida una representación geográfica.
+* **Mantenimiento** se centra en los códigos de estado, las tasas de éxito de caché, los tiempos de respuesta y los tiempos de respuesta de la API y del servicio.
+* **Actividad** proporciona informes que detallan la actividad específica por desarrollador, producto, API y operación.
 
 ## <a name="next-steps"> </a>Pasos siguientes
-
-- Aprenda a [Proteger su API con límites de tarifa](api-management-howto-product-with-rules.md).
+* Aprenda a [Proteger su API con límites de tarifa](api-management-howto-product-with-rules.md).
 
 [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
 

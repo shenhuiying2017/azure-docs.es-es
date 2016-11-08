@@ -1,29 +1,27 @@
-<properties 
-    pageTitle="Colas, temas y suscripciones de Service Bus | Microsoft Azure"
-    description="Información general de las entidades de mensajería del Bus de servicio."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/14/2016"
-    ms.author="sethm" />
+---
+title: Colas, temas y suscripciones de Service Bus | Microsoft Docs
+description: Información general de las entidades de mensajería del Bus de servicio.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/14/2016
+ms.author: sethm
 
+---
 # <a name="service-bus-queues,-topics,-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
-
 El Bus de servicio de Microsoft Azure admite un conjunto de tecnologías basadas en la nube, middleware orientado a mensajes, incluidos una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas capacidades de mensajería asíncrona pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante el tejido de la mensajería del Bus de servicio. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
 
 Las entidades de mensajería que forman el núcleo de las funcionalidades de mensajería asincrónica de Service Bus son las colas, los temas o suscripciones y las reglas o acciones.
 
 ## <a name="queues"></a>Colas
-
 Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes. La principal ventaja del uso de colas es conseguir un "desacoplamiento temporal" de los componentes de la aplicación. En otras palabras, los productores (remitentes) y los consumidores (receptores) no tienen que enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes.
 
 Una ventaja relacionada es la "nivelación de la carga", lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora solo necesita ser aprovisionada para administrar una carga promedio en lugar de una carga pico. La profundidad de la cola aumenta y se contrae a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación. A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa únicamente por uno de los procesos de trabajo. Es más, este equilibrio de carga basado en la extracción permite el uso óptimo de los equipos de trabajo aunque estos equipos difieran en términos de capacidad de procesamiento ya que extraerán mensajes a su frecuencia máxima propia. Este patrón con frecuencia se denomina "patrón de consumo de competidor".
@@ -83,7 +81,6 @@ Tenga en cuenta que, en caso de que la aplicación se bloquee después de proces
 Para obtener más información, así como un ejemplo de cómo crear y enviar mensajes a colas como origen y destino, vea [Tutorial de .NET de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-dotnet.md).
 
 ## <a name="topics-and-subscriptions"></a>Temas y suscripciones
-
 A diferencia de las colas, en las que un solo consumidor procesa cada mensaje, los *temas* y las *suscripciones* proporcionan una forma de comunicación de uno a varios mediante un patrón de *publicación o suscripción*. Cada mensaje publicado se pone a disposición de todas las suscripciones registradas en el tema, lo que es útil para escalar a un gran número de destinatarios. Los mensajes se envían a un tema y se entregan a una o varias suscripciones asociadas, según las reglas de filtro que se pueden establecer por suscripción. Las suscripciones pueden usar filtros adicionales para restringir los mensajes que desean recibir. Los mensajes se envían a un tema de la misma manera que se envían a una cola, pero no se reciben del tema directamente. En su lugar, se reciben de las suscripciones. Una suscripción al tema se parece a una cola virtual en que recibe copias de los mensajes que se envían al tema. Los mensajes se reciben de una suscripción exactamente de la misma forma en que se reciben de una cola.
 
 Por medio de la comparación, la funcionalidad de envío de mensajes de una cola los asigna directamente a un tema y su funcionalidad de recepción de mensajes a una suscripción. Entre otras cosas, esto significa que las suscripciones admiten los mismos patrones que se han descrito en esta misma sección con respecto a las colas: consumidor en competencia, desacoplamiento temporal, nivelación de carga y equilibrio de la carga.
@@ -144,7 +141,6 @@ while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 ```
 
 ### <a name="rules-and-actions"></a>Reglas y acciones
-
 En muchos escenarios, los mensajes que tienen características específicas deben procesarse de maneras diferentes. Para permitirlo, puede configurar suscripciones para buscar los mensajes que tengan las propiedades deseadas y, después, realizar determinadas modificaciones en dichas propiedades. Mientras que las suscripciones del Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes en la cola de suscripción virtual. Esto se consigue mediante los filtros de suscripción. Dichas modificaciones se denominan *acciones de filtrado*. Al crear una suscripción, se puede incluir una expresión de filtro que opere en las propiedades del mensaje, tanto en las propiedades del sistema (por ejemplo, **Label**) como en las propiedades de la aplicación personalizada (por ejemplo, **StoreName**). La expresión de filtro SQL es opcional en este caso; sin una expresión de filtro SQL, todas las acciones de filtro definidas en una suscripción se realizarán en todos los mensajes de dicha suscripción.
 
 En el ejemplo anterior, para filtrar los mensajes que procedan solo de **Store1**, sería preciso crear la suscripción Dashboard como sigue:
@@ -158,17 +154,13 @@ Con este filtro de suscripción activado, solo se copiarán en la cola virtual d
 Para más información sobre los valores de filtro posibles, vea la documentación de las clases [SqlFilter](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx) y [SqlRuleAction](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlruleaction.aspx). Vea también los ejemplos de [Brokered Messaging: Advanced Filters](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749) (Mensajería asincrónica: filtros avanzados) y [filtros de temas](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters).
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para más información y ejemplos del uso de las entidades de mensajería asincrónica de Service Bus, consulte los siguientes temas avanzados.
 
-- [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-- [Tutorial de .NET de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-dotnet.md)
-- [Tutorial de REST de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-rest.md)
-- [Ejemplo de filtros de tema](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
-- [Mensajería asincrónica: ejemplo de filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
-
-
-
+* [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
+* [Tutorial de .NET de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-dotnet.md)
+* [Tutorial de REST de mensajería asincrónica de Service Bus](service-bus-brokered-tutorial-rest.md)
+* [Ejemplo de filtros de tema](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
+* [Mensajería asincrónica: ejemplo de filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
 <!--HONumber=Oct16_HO2-->
 

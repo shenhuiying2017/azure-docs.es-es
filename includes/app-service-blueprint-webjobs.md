@@ -1,6 +1,5 @@
 
 ## Recursos
-
 * [Lista completa de recursos de WebJobs](../articles/app-service-web/websites-webjobs-resources.md)
 * [Introducción al SDK de WebJobs de Azure](../articles/app-service-web/websites-dotnet-webjobs-sdk-get-started.md)
 * [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](../articles/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)
@@ -18,7 +17,6 @@
 * [WebJobs de depuración remota](../articles/app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#remotedebugwj)
 
 ## Vídeos
-
 * [WebJobs y SDK de WebJobs](http://channel9.msdn.com/Shows/Cloud+Cover/Episode-153-WebJobs-with-Pranav-Rastogi?utm_source=dlvr.it&utm_medium=twitter)
 * [Serie de vídeos de WebJobs de Azure en Channel 9](http://channel9.msdn.com/Tags/azurefridaywebjobs)
 * [Presentación del conjunto de herramientas de WebJobs de Visual Studio](http://channel9.msdn.com/Shows/Web+Camps+TV/Introducing-WebJobs-Tooling-for-Visual-Studio-with-Brady-Gaster)

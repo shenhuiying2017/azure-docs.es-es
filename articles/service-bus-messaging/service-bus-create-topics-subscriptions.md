@@ -1,27 +1,25 @@
-<properties 
-    pageTitle="Creación de aplicaciones que usan temas y suscripciones de Service Bus | Microsoft Azure"
-    description="Introducción a las funcionalidades de publicación-suscripción que ofrecen los temas y suscripciones de Service Bus."
-    services="service-bus"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="10/04/2016"
-    ms.author="sethm" />
+---
+title: Creación de aplicaciones que usan temas y suscripciones de Service Bus | Microsoft Docs
+description: Introducción a las funcionalidades de publicación-suscripción que ofrecen los temas y suscripciones de Service Bus.
+services: service-bus
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/04/2016
+ms.author: sethm
 
+---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Creación de aplicaciones que usan temas y suscripciones de Service Bus
-
 El Bus de servicio de Azure admite un conjunto de tecnologías middleware orientadas a mensajes basadas en la nube, entre las que se incluyen una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Este artículo se basa en la información que se proporciona en [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) y ofrece una introducción a las funcionalidades de publicación o suscripción que ofrecen los temas de Service Bus.
 
 ## <a name="evolving-retail-scenario"></a>Escenario minorista en evolución
-
 Este artículo se prolonga el escenario minorista que se usó en [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md). Recuerde que los datos de ventas de los terminales de los puntos de venta (PDV) individuales deben enrutarse a un sistema de administración del inventario que usa esos datos para determinar cuándo hay que reponer las existencias. Cada terminal de PDV informa de sus datos de venta mediante el envío de mensajes a la cola **DataCollectionQueue**, donde permanecen hasta que los recibe el sistema de administración del inventario, como se muestra aquí:
 
 ![Service Bus 1](./media/service-bus-create-topics-subscriptions/IC657161.gif)
@@ -47,12 +45,10 @@ Para admitir el panel de administración, se crea una segunda suscripción en el
 Con esta configuración, cada mensaje de los terminales de PDV queda a disposición de las suscripciones **Dashboard** e **Inventory**.
 
 ## <a name="show-me-the-code"></a>Visualización del código
-
 En el artículo [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) se describe cómo registrarse en una cuenta de Azure y crear un espacio de nombres del servicio. Para usar un espacio de nombres de Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. La manera más fácil de hacer referencia a las dependencias de Service Bus es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. El ensamblado también se puede encontrar como parte del SDK de Azure. La descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Creación del tema y de las suscripciones
-
-Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Se requieren credenciales apropiadas para crear una instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
+Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Se requieren credenciales apropiadas para crear una instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](../service-bus/service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
 
 La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. El siguiente código muestra cómo se crea la instancia [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) y se usa para crear el tema **DataCollectionTopic**.
 
@@ -60,10 +56,10 @@ La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.s
 Uri uri = ServiceBusEnvironment.CreateServiceUri("sb", "test-blog", string.Empty);
 string name = "RootManageSharedAccessKey";
 string key = "abcdefghijklmopqrstuvwxyz";
-     
+
 TokenProvider tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(name, key);
 NamespaceManager namespaceManager = new NamespaceManager(uri, tokenProvider);
- 
+
 namespaceManager.CreateTopic("DataCollectionTopic");
 ```
 
@@ -75,7 +71,6 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard");
 ```
 
 ### <a name="send-messages-to-the-topic"></a>Envío de mensajes al tema
-
 En el caso de operaciones en tiempo de ejecución en entidades de Service Bus (por ejemplo, enviar y recibir mensajes), una aplicación debe crear primero un objeto [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx). De forma parecida a la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx), la instancia de [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) se crea a partir de la dirección base del espacio de nombres del servicio y del proveedor de tokens.
 
 ```
@@ -99,7 +94,6 @@ sender.Send(bm);
 ```
 
 ### <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
-
 Al igual que cuando se usan las colas, para recibir mensajes desde una suscripción se puede usar un objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) que se crea directamente desde [MessagingFactory](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingfactory.aspx) con [CreateMessageReceiver](https://msdn.microsoft.com/library/azure/hh322642.aspx). Puede usar uno de los dos modos de recepción (**ReceiveAndDelete** y **PeekLock**), como se describe en [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
 
 Tenga en cuenta que cuando se crea un objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para las suscripciones, el parámetro *entityPath* tiene la forma `topicPath/subscriptions/subscriptionName`. Por lo tanto, para crear un objeto [MessageReceiver](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagereceiver.aspx) para la suscripción **Inventory** del tema **DataCollectionTopic**, *entityPath* debe establecerse en `DataCollectionTopic/subscriptions/Inventory`. El código aparece como sigue:
@@ -119,7 +113,6 @@ catch (Exception e)
 ```
 
 ## <a name="subscription-filters"></a>Filtros de suscripción
-
 Hasta ahora, en este escenario todos los mensajes enviados al tema han estado disponibles para todas las suscripciones registradas. Aquí las palabras clave son "han estado a disposición". Mientras que las suscripciones de Service Bus ven todos los mensajes enviados al tema, solo se puede copiar un subconjunto de dichos mensajes a la cola de suscripción virtual. Esto se realiza mediante los *filtros* de suscripción. Al crear una suscripción, se puede especificar una expresión de filtro que tenga la forma de un predicado de estilo SQL92 que opere a través de las propiedades del mensaje, tanto las propiedades de sistema (por ejemplo, [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx)) como las propiedades de la aplicación, como **StoreName** en el ejemplo anterior.
 
 Al desarrollar el escenario para ilustrarlo, es preciso agregar un segunda almacén al escenario minorista. Los datos de ventas de todos los terminales de los PDV de ambos almacenes deben enrutarse al sistema de gestión centralizada de inventarios, pero un administrador de almacén que use la herramienta Panel solo está interesado en el rendimiento de dicho almacén. Para hacerlo, se puede usar el filtrado de suscripciones. Tenga en cuenta que cuando los terminales de los PDV publican mensajes, establecen la propiedad de la aplicación **StoreName** en el mensaje. Dados dos almacenes, por ejemplo **Redmond** y **Seattle**, los terminales de los PDV de Redmond marcan sus mensajes de datos de ventas con **StoreName** igual a **Redmond**, mientras que los de Seattle usa un **StoreName** igual a **Seattle**. El administrador del almacén de Redmond solo quiere ver los datos de sus terminales de PDV. El sistema aparece como sigue:
@@ -136,21 +129,15 @@ namespaceManager.CreateSubscription("DataCollectionTopic", "Dashboard", dashboar
 Con este filtro de suscripción, solo se copiarán en la cola virtual de la suscripción **Dashboard** los mensajes que tengan la propiedad **StoreName** establecida en **Redmond**. Sin embargo, hay mucha más información sobre al filtrado de suscripciones. Las aplicaciones pueden tener varias reglas de filtro por suscripción, además de la capacidad de modificar las propiedades de un mensaje cuando pasa a la cola virtual de una suscripción.
 
 ## <a name="summary"></a>Resumen
-
 Todas las razones para usar las colas que se describen [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) también se aplican a los temas, en concreto:
 
-- Desacoplamiento temporal: no es preciso que los productores y consumidores de mensajes estén en línea al mismo tiempo.
-
-- Nivelación de carga: los picos de carga se suavizan con el tema, lo que permite aprovisionar las aplicaciones que consumen para que la carga sea media, en lugar de máxima.
-
-- Equilibrio de carga: es similar a una cola, es posible tener varios consumidores en competencia escuchando una sola suscripción y cada mensaje se entrega solo a uno de ellos, con lo que se equilibra la carga.
-
-- Acoplamiento débil: la red de mensajes puede desarrollarse sin que ello afecte a los puntos de conexión existentes; por ejemplo, agregar suscripciones o cambiar filtros a un tema para permitir que haya nuevos consumidores.
+* Desacoplamiento temporal: no es preciso que los productores y consumidores de mensajes estén en línea al mismo tiempo.
+* Nivelación de carga: los picos de carga se suavizan con el tema, lo que permite aprovisionar las aplicaciones que consumen para que la carga sea media, en lugar de máxima.
+* Equilibrio de carga: es similar a una cola, es posible tener varios consumidores en competencia escuchando una sola suscripción y cada mensaje se entrega solo a uno de ellos, con lo que se equilibra la carga.
+* Acoplamiento débil: la red de mensajes puede desarrollarse sin que ello afecte a los puntos de conexión existentes; por ejemplo, agregar suscripciones o cambiar filtros a un tema para permitir que haya nuevos consumidores.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
-
 
 <!--HONumber=Oct16_HO2-->
 

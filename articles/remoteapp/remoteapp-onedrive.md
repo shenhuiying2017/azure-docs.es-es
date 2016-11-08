@@ -1,25 +1,26 @@
-<properties
-   pageTitle="Uso de OneDrive para la Empresa y Azure RemoteApp | Microsoft Azure"
-   description="Uso de OneDrive para la Empresa con Azure RemoteApp."
-   services="remoteapp"
-   documentationCenter=""
-   authors="pavithir"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Uso de OneDrive para la Empresa y Azure RemoteApp | Microsoft Docs
+description: Uso de OneDrive para la Empresa con Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: pavithir
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="remoteapp"
-   ms.devlang="na"
-   ms.topic="hero-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="compute"
-   ms.date="08/15/2016"
-   ms.author="elizapo"/>
+ms.service: remoteapp
+ms.devlang: na
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.workload: compute
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # OneDrive para la Empresa y Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 El agente de sincronización de OneDrive para la Empresa no es compatible con Azure RemoteApp.
 

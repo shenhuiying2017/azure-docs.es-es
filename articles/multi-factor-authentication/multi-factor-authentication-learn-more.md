@@ -1,28 +1,25 @@
-<properties 
-	pageTitle="Más información sobre Azure Multi-Factor Authentication"
-	description="Esta es la página de Azure Multi-Factor Authentication que proporciona vínculos a contenido adicional para Azure Multi-Factor Authentication. Desde aquí puede obtener más información sobre temas adicionales sobre Multi-Factor Authentication."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Más información sobre Azure Multi-Factor Authentication
+description: Esta es la página de Azure Multi-Factor Authentication que proporciona vínculos a contenido adicional para Azure Multi-Factor Authentication. Desde aquí puede obtener más información sobre temas adicionales sobre Multi-Factor Authentication.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Más información sobre Azure Multi-Factor Authentication
-
-
 A continuación se presenta una serie de recursos adicionales que le ayudarán a aprovechar al máximo todas las características disponibles en Azure Multi-Factor Authentication
 
 ## Documentación
-
 [Configurar el Servidor MFA para su uso con la autenticación de IIS.](https://msdn.microsoft.com/library/azure/dn394291.aspx)
 
 [Configurar el Servidor MFA para su uso con la autenticación RADIUS.](https://msdn.microsoft.com/library/azure/dn394299.aspx)

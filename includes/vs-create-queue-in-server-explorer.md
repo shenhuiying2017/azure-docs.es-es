@@ -7,7 +7,6 @@ Puede crear las colas de Azure mediante el **Explorador de servidores** de Visua
 3. Seleccione el nodo **Colas** y elija **Crear coa** en el menú contextual.
 4. Escriba un nombre para la cola y elija **Aceptar**.   
 
-
 [Image1]: ./media/vs-create-queue-in-server-explorer/vs-storage-queues-create-in-server-explorer.png
 
 <!---HONumber=Oct15_HO3-->

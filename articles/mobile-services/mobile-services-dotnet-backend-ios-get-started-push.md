@@ -1,43 +1,41 @@
-<properties
-	pageTitle="Incorporación de notificaciones push a la aplicación (iOS) | Back-end de .NET"
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: Incorporación de notificaciones push a la aplicación (iOS) | Microsoft Docs
+description: Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
-
+---
 # Incorporación de notificaciones push a una aplicación de iOS y un back-end de .NET
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para más información sobre la versión de Mobile Apps equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> 
+> 
 
 En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio rápido](mobile-services-dotnet-backend-ios-get-started.md), de modo que el servicio móvil envíe una notificación push cada vez que se inserte un registro. Debe completar primero [Introducción a Servicios móviles].
 
-[AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
+[!INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>Configuración de Azure para enviar notificaciones push
+[!INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
 
-[AZURE.INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
-
-##<a id="update-server"></a>Actualización del código de back-end para enviar notificaciones push
-
+## <a id="update-server"></a>Actualización del código de back-end para enviar notificaciones push
 * Abra el proyecto de Visual Studio > carpeta **Controladores** > método **TodoItemController.cs** `PostTodoItem`. Reemplace el método por lo siguiente. Cuando se inserta un elemento todo, este código envía una notificación push con el texto del elemento. Si se produce un error, el código agrega una entrada al registro de errores, que se puede ver en la sección de registros del portal.
-
 
 ```
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
@@ -59,13 +57,12 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
         }
 ```
 
-##<a name="publish-the-service"></a>Publicación del servicio móvil en Azure
+## <a name="publish-the-service"></a>Publicación del servicio móvil en Azure
+[!INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../../includes/mobile-services-dotnet-backend-publish-service.md)]
+[!INCLUDE [Agregar notificaciones push a la aplicación](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [Agregar notificaciones push a la aplicación](../../includes/add-push-notifications-to-app.md)]
-
-[AZURE.INCLUDE [Prueba de las notificaciones push en la aplicación](../../includes/test-push-notifications-in-app.md)]
+[!INCLUDE [Prueba de las notificaciones push en la aplicación](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors.  -->
 [Generate the certificate signing request]: #certificates

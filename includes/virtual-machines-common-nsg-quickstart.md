@@ -4,11 +4,11 @@ Vamos a usar un ejemplo común de tráfico web en el puerto 80. Una vez que teng
 
 1. Crear un grupo de seguridad de red.
 2. Crear una regla de entrada que permita el tráfico con la siguiente configuración:
-  - El valor del intervalo de puertos de destino debe ser 80.
-  - El intervalo de puerto de origen tiene que ser "*" (para permitir cualquier puerto de origen).
-  - Un valor de prioridad inferior a 65 500 (para que tenga mayor prioridad que la regla de entrada predeterminada de denegación de comodín).
+   * El valor del intervalo de puertos de destino debe ser 80.
+   * El intervalo de puerto de origen tiene que ser "*" (para permitir cualquier puerto de origen).
+   * Un valor de prioridad inferior a 65 500 (para que tenga mayor prioridad que la regla de entrada predeterminada de denegación de comodín).
 3. Asociar el grupo de seguridad de red con la subred o la interfaz de red de máquina virtual.
-    
+
 Puede crear configuraciones de red complejas para proteger su entorno mediante reglas y grupos de seguridad de red. Nuestro ejemplo solo utiliza una o dos reglas que permiten el tráfico HTTP o la administración remota. Para una información detallada, consulte aquí la sección de [Más información](#more-information-on-network-security-groups) o el artículo [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
 <!---HONumber=AcomDC_0907_2016-->

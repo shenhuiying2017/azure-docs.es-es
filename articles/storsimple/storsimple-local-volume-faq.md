@@ -1,36 +1,34 @@
-<properties 
-   pageTitle="Volúmenes de StorSimple anclados localmente: (P+F)| Microsoft Azure"
-   description="Proporciona respuestas a las preguntas más frecuentes acerca de los volúmenes anclados localmente de StorSimple."
-   services="storsimple"
-   documentationCenter="NA"
-   authors="manuaery"
-   manager="syadav"
-   editor="" />
-<tags 
-   ms.service="storsimple"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/16/2016"
-   ms.author="manuaery" />
+---
+title: 'Volúmenes de StorSimple anclados localmente: (P+F)| Microsoft Docs'
+description: Proporciona respuestas a las preguntas más frecuentes acerca de los volúmenes anclados localmente de StorSimple.
+services: storsimple
+documentationcenter: NA
+author: manuaery
+manager: syadav
+editor: ''
 
+ms.service: storsimple
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/16/2016
+ms.author: manuaery
+
+---
 # Volúmenes de StorSimple anclados localmente: preguntas más frecuentes (P+F)
-
 ## Información general
-
 Las siguientes son preguntas y respuestas que podrían surgirle al crear un volumen de StorSimple anclado localmente, convertir un volumen en capas en un volumen anclado localmente (y viceversa) o crear una copia de seguridad y restaurar uno de dichos volúmenes.
 
 Las preguntas y respuestas se organizan en las siguientes categorías
 
-- Creación de un volumen anclado localmente
-- Copia de seguridad de un volumen anclado localmente
-- Conversión de un volumen en capas en un volumen anclado localmente
-- Restauración de un volumen anclado localmente
-- Conmutación por error de un volumen anclado localmente
+* Creación de un volumen anclado localmente
+* Copia de seguridad de un volumen anclado localmente
+* Conversión de un volumen en capas en un volumen anclado localmente
+* Restauración de un volumen anclado localmente
+* Conmutación por error de un volumen anclado localmente
 
 ## Preguntas sobre la creación de un volumen anclado localmente
-
 **P.** ¿Cuál es el tamaño máximo de un volumen anclado localmente que puedo crear en los dispositivos de la serie 8000?
 
 **R.** Puede aprovisionar volúmenes anclados localmente de hasta 8,5 TB o volúmenes en capas de hasta 200 TB en el dispositivo 8100. En el dispositivo 8600 de mayor tamaño, puede aprovisionar volúmenes anclados localmente de hasta 22,5 TB o volúmenes en capas de hasta 500 TB.
@@ -41,16 +39,15 @@ Las preguntas y respuestas se organizan en las siguientes categorías
 
 Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el espacio de trabajo de los volúmenes en capas, el espacio disponible para crear un volumen anclado localmente se reducirá si el dispositivo tiene volúmenes en capas. Por el contrario, la creación de un volumen anclado localmente reducirá el espacio disponible proporcionalmente para volúmenes en capas. La tabla siguiente resume la capacidad en capas disponible en los dispositivos 8100 y 8600 cuando se crean volúmenes anclados localmente.
 
-|Capacidad aprovisionada de los volúmenes anclados localmente|Capacidad disponible para aprovisionar para volúmenes en capas: 8100|Capacidad disponible para aprovisionar para volúmenes en capas: 8600|
-|-----|------|------|
-|0 | 200 TB | 500 TB |
-|1 TB | 176,5 TB | 477,8 TB|
-|4 TB | 105,9 TB | 411,1 TB |
-|8,5 TB | 0 TB | 311,1 TB|
-|10 TB | N/D | 277,8 TB |
-|15 TB | N/D | 166,7 TB |
-|22,5 TB | N/D | 0 TB |
-
+| Capacidad aprovisionada de los volúmenes anclados localmente | Capacidad disponible para aprovisionar para volúmenes en capas: 8100 | Capacidad disponible para aprovisionar para volúmenes en capas: 8600 |
+| --- | --- | --- |
+| 0 |200 TB |500 TB |
+| 1 TB |176,5 TB |477,8 TB |
+| 4 TB |105,9 TB |411,1 TB |
+| 8,5 TB |0 TB |311,1 TB |
+| 10 TB |N/D |277,8 TB |
+| 15 TB |N/D |166,7 TB |
+| 22,5 TB |N/D |0 TB |
 
 **P.** ¿Por qué la creación de volúmenes anclados localmente es una operación de larga duración?
 
@@ -64,14 +61,11 @@ Puesto que parte del espacio en el dispositivo local se utiliza para hospedar el
 
 **R.** Los volúmenes anclados localmente son adecuados para cargas de trabajo que requieren garantías locales de los datos en todo momento y que son sensibles a las latencias de la nube. Al considerar el uso de los volúmenes locales para cualquiera de las cargas de trabajo, tenga en cuenta lo siguiente:
 
-- Los volúmenes anclados localmente tienen un aprovisionamiento denso, y crear volúmenes locales afectará el espacio disponible para los volúmenes en capas. Por lo tanto, se recomienda comenzar con los volúmenes de menor tamaño y escalar verticalmente a medida que los requisitos de almacenamiento aumentan.
+* Los volúmenes anclados localmente tienen un aprovisionamiento denso, y crear volúmenes locales afectará el espacio disponible para los volúmenes en capas. Por lo tanto, se recomienda comenzar con los volúmenes de menor tamaño y escalar verticalmente a medida que los requisitos de almacenamiento aumentan.
+* El aprovisionamiento de los volúmenes locales es una operación de larga duración que podría implicar la inserción en la nube de datos existentes de volúmenes en capas. Como resultado, puede experimentar un rendimiento reducido en estos volúmenes.
+* El aprovisionamiento de los volúmenes locales es una operación que tarda mucho tiempo. El tiempo real necesario depende de varios factores: el tamaño del volumen que se está aprovisionando, los datos del dispositivo y el ancho de banda disponible. Si no ha realizado ninguna copia de seguridad en la nube de los volúmenes existentes, la creación del volumen será más lenta. Se recomienda tomar instantáneas en la nube de los volúmenes existentes antes de aprovisionar un volumen local.
+* Puede convertir los volúmenes en capas existentes en volúmenes anclados localmente, y esta conversión implica el aprovisionamiento de espacio en el dispositivo para el volumen anclado localmente resultante (además de incorporar datos en capas [si existen] de la nube). De nuevo, se trata de una operación de larga duración que depende de los factores mencionados anteriormente. Se recomienda realizar una copia de seguridad de los volúmenes existentes antes de la conversión, ya que el proceso será aún más lento si no se realiza. El dispositivo también puede experimentar un rendimiento reducido durante este proceso.
 
-- El aprovisionamiento de los volúmenes locales es una operación de larga duración que podría implicar la inserción en la nube de datos existentes de volúmenes en capas. Como resultado, puede experimentar un rendimiento reducido en estos volúmenes.
-
-- El aprovisionamiento de los volúmenes locales es una operación que tarda mucho tiempo. El tiempo real necesario depende de varios factores: el tamaño del volumen que se está aprovisionando, los datos del dispositivo y el ancho de banda disponible. Si no ha realizado ninguna copia de seguridad en la nube de los volúmenes existentes, la creación del volumen será más lenta. Se recomienda tomar instantáneas en la nube de los volúmenes existentes antes de aprovisionar un volumen local.
- 
-- Puede convertir los volúmenes en capas existentes en volúmenes anclados localmente, y esta conversión implica el aprovisionamiento de espacio en el dispositivo para el volumen anclado localmente resultante (además de incorporar datos en capas [si existen] de la nube). De nuevo, se trata de una operación de larga duración que depende de los factores mencionados anteriormente. Se recomienda realizar una copia de seguridad de los volúmenes existentes antes de la conversión, ya que el proceso será aún más lento si no se realiza. El dispositivo también puede experimentar un rendimiento reducido durante este proceso.
-	
 Más información acerca de cómo [crear un volumen anclado localmente](storsimple-manage-volumes-u2.md#add-a-volume)
 
 **P.** ¿Puedo crear varios volúmenes anclados localmente al mismo tiempo?
@@ -97,7 +91,6 @@ Puede ver estos trabajos en la página **Trabajos** del servicio Azure StorSimpl
 **R.** No, no puede crear volúmenes anclados localmente mediante los cmdlets de Azure PowerShell (cualquier volumen creado mediante Azure PowerShell será de tipo en capas). También se recomienda no utilizar los cmdlets de Azure PowerShell para modificar las propiedades de un volumen anclado localmente, ya que tendrá el efecto no deseado de modificar el tipo de volumen a en capas.
 
 ## Preguntas acerca de la copia de seguridad de un volumen anclado localmente
-
 **P.** ¿Son compatibles las instantáneas locales de volúmenes anclados localmente?
 
 **R.** Sí, puede tomar instantáneas locales de sus volúmenes anclados localmente. Sin embargo, se recomienda encarecidamente realizar copias de seguridad periódicas de los volúmenes anclados localmente con instantáneas en la nube para asegurarse de que los datos están protegidos en caso de un desastre.
@@ -115,21 +108,18 @@ La advertencia de alerta es para informarle de que esa situación puede surgir y
 Si se invalidan las instantáneas locales, recibirá una alerta informativa que le notifica que se han invalidado las instantáneas locales para la directiva de copia de seguridad específica, junto con la lista de marcas de tiempo de las instantáneas locales invalidadas. Estas instantáneas se eliminarán automáticamente y ya no podrá verlas en la página **Catálogos de copias de seguridad** del Portal de Azure clásico.
 
 ## Preguntas sobre la conversión de un volumen en capas en un volumen anclado localmente
-
 **P.** Estoy observando cierta lentitud en el dispositivo al convertir un volumen en capas en un volumen anclado localmente. ¿Por qué ocurre esto?
 
 **R.** El proceso de conversión implica dos pasos:
 
-  1. Aprovisionamiento de espacio en el dispositivo para el volumen que se va a convertir en anclado localmente.
-  2. Descarga de los datos en capas de la nube para asegurar garantías locales.
+1. Aprovisionamiento de espacio en el dispositivo para el volumen que se va a convertir en anclado localmente.
+2. Descarga de los datos en capas de la nube para asegurar garantías locales.
 
 Estos pasos son operaciones de larga duración que dependen del tamaño del volumen que se va a convertir, los datos en el dispositivo y el ancho de banda disponible. Puesto que algunos datos de los volúmenes en capas existentes pueden desperdigarse en la nube como parte del proceso de aprovisionamiento, el dispositivo puede experimentar un rendimiento reducido durante este tiempo. Además, el proceso de conversión puede ser más lento si:
 
-- No se ha hecho ninguna copia de seguridad de los volúmenes existentes en la nube; por lo que se recomienda hacer una copia de seguridad de los volúmenes antes de iniciar una conversión.
-
-- Se han aplicado directivas de limitación del ancho de banda, lo que podría restringir el ancho de banda disponible en la nube; por lo tanto, se recomienda tener una conexión a la nube dedicada de 40 Mbps o más.
-
-- El proceso de conversión puede tardar varias horas debido a los diversos factores explicados anteriormente; por lo tanto, se sugiere realizar esta operación fuera de horas punta o en un fin de semana para evitar el impacto en los consumidores finales.
+* No se ha hecho ninguna copia de seguridad de los volúmenes existentes en la nube; por lo que se recomienda hacer una copia de seguridad de los volúmenes antes de iniciar una conversión.
+* Se han aplicado directivas de limitación del ancho de banda, lo que podría restringir el ancho de banda disponible en la nube; por lo tanto, se recomienda tener una conexión a la nube dedicada de 40 Mbps o más.
+* El proceso de conversión puede tardar varias horas debido a los diversos factores explicados anteriormente; por lo tanto, se sugiere realizar esta operación fuera de horas punta o en un fin de semana para evitar el impacto en los consumidores finales.
 
 Más información acerca de la [conversión de un volumen en capas en un volumen anclado localmente](storsimple-manage-volumes-u2.md#change-the-volume-type)
 
@@ -141,14 +131,11 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 
 **R.** La conversión de un volumen puede fallar debido a problemas de conectividad en la nube. El dispositivo puede detener el proceso de conversión tras una serie de intentos fallidos para incorporar los datos en capas de la nube. En ese escenario, el tipo de volumen seguirá siendo el tipo de volumen de origen antes de la conversión, y:
 
-- Se generará una alerta crítica para notificarle el error de conversión del volumen. Más información acerca de las [alertas relacionadas con volúmenes anclados localmente](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
-
-- Si va a convertir un volumen en capas en uno anclado localmente, el volumen continuará mostrando las propiedades de un volumen en capas, ya que los datos todavía pueden residir en la nube. Se sugiere resolver los problemas de conectividad y volver a intentar la operación de conversión.
- 
-- De forma similar, cuando se produce la conversión de un volumen anclado localmente a uno en capas, aunque el volumen se marcará como anclado localmente, funcionará como un volumen en capas (ya que es posible que los datos se hayan desperdigado en la nube). Sin embargo, continuará ocupando espacio en las capas locales del dispositivo. Este espacio no estará disponible para otros volúmenes anclados localmente. Se recomienda volver a intentar esta operación para asegurarse de que la conversión del volumen está completa y se puede reclamar el espacio en el dispositivo local.
+* Se generará una alerta crítica para notificarle el error de conversión del volumen. Más información acerca de las [alertas relacionadas con volúmenes anclados localmente](storsimple-manage-alerts.md#locally-pinned-volume-alerts)
+* Si va a convertir un volumen en capas en uno anclado localmente, el volumen continuará mostrando las propiedades de un volumen en capas, ya que los datos todavía pueden residir en la nube. Se sugiere resolver los problemas de conectividad y volver a intentar la operación de conversión.
+* De forma similar, cuando se produce la conversión de un volumen anclado localmente a uno en capas, aunque el volumen se marcará como anclado localmente, funcionará como un volumen en capas (ya que es posible que los datos se hayan desperdigado en la nube). Sin embargo, continuará ocupando espacio en las capas locales del dispositivo. Este espacio no estará disponible para otros volúmenes anclados localmente. Se recomienda volver a intentar esta operación para asegurarse de que la conversión del volumen está completa y se puede reclamar el espacio en el dispositivo local.
 
 ## Preguntas sobre la restauración de un volumen anclado localmente
-
 **P.** ¿Los volúmenes anclados localmente se restauran instantáneamente?
 
 **R.** Sí, los volúmenes anclados localmente se restauran al instante. En cuanto se extrae la información de metadatos para el volumen de la nube como parte de la operación de restauración, el volumen se pone en línea y el host puede acceder a él. Sin embargo, no estarán presentes las garantías locales para los datos del volumen hasta que todos los datos se hayan descargado de la nube, y es posible que experimente una reducción del rendimiento en estos volúmenes mientras dura la restauración.
@@ -169,10 +156,9 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 
 **A.** No, no se puede cambiar el tipo de volumen durante la restauración.
 
-- Los volúmenes que se han eliminado se restaurarán con el tipo almacenado en la instantánea.
+* Los volúmenes que se han eliminado se restaurarán con el tipo almacenado en la instantánea.
+* Los volúmenes existentes se restauran de acuerdo con el tipo actual, independientemente del tipo almacenado en la instantánea (consulte las dos preguntas anteriores).
 
-- Los volúmenes existentes se restauran de acuerdo con el tipo actual, independientemente del tipo almacenado en la instantánea (consulte las dos preguntas anteriores).
- 
 **P.** Necesito restaurar mi volumen anclado localmente, pero elegí un punto de tiempo en la instantánea incorrecto. ¿Puedo cancelar la operación de restauración actual?
 
 **R.** Sí, puede cancelar una operación de restauración en curso. El estado del volumen se revertirá al estado que tenía al principio de la restauración. Sin embargo, se perderán las escrituras que se realizaron en el volumen mientras la restauración estaba en curso.
@@ -186,14 +172,13 @@ Más información acerca de la [conversión de un volumen en capas en un volumen
 **R.** Sí, puede hacerlo. Sin embargo, un volumen anclado localmente se clonará como un volumen en capas. Más información sobre cómo [clonar un volumen anclado localmente](storsimple-clone-volume-u2.md)
 
 ## Preguntas acerca de la conmutación por error de un volumen anclado localmente
-
 **P.** Necesito conmutar por error mi dispositivo a otro dispositivo físico. ¿Mis volúmenes anclados localmente realizarán la conmutación por error como anclados localmente o en capas?
 
 **R.** En función de la versión del software del dispositivo de destino, los volúmenes anclados localmente se conmutan por error como:
 
-- Anclados localmente si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 2.
-- En capas si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 1.x.
-- En capas si el dispositivo de destino es el dispositivo en la nube (versión del software Update 2 o Update 1.x).
+* Anclados localmente si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 2.
+* En capas si el dispositivo de destino se está ejecutando en la serie StorSimple 8000 Update 1.x.
+* En capas si el dispositivo de destino es el dispositivo en la nube (versión del software Update 2 o Update 1.x).
 
 Más información sobre la [conmutación por error y la recuperación ante desastres de volúmenes anclados localmente en las distintas versiones](storsimple-device-failover-disaster-recovery.md#device-failover-across-software-versions).
 

@@ -1,23 +1,22 @@
-<properties 
-   pageTitle="Administración de alertas de productos de supervisión de Microsoft | Microsoft Azure"
-   description="Una alerta indica un problema que requiere la atención por parte del administrador.  Este artículo describe las diferencias en cómo las alertas se crean y administran en System Center Operations Manager (SCOM) y Log Analytics y proporciona prácticas recomendadas para aprovechar los dos productos para una estrategia de administración de alertas híbrida." 
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/06/2016"
-   ms.author="bwren" />
+---
+title: Administración de alertas de productos de supervisión de Microsoft | Microsoft Docs
+description: Una alerta indica un problema que requiere la atención por parte del administrador.  Este artículo describe las diferencias en cómo las alertas se crean y administran en System Center Operations Manager (SCOM) y Log Analytics y proporciona prácticas recomendadas para aprovechar los dos productos para una estrategia de administración de alertas híbrida.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/06/2016
+ms.author: bwren
 
-# <a name="managing-alerts-with-microsoft-monitoring"></a>Administración de alertas con la supervisión de Microsoft 
-
+---
+# <a name="managing-alerts-with-microsoft-monitoring"></a>Administración de alertas con la supervisión de Microsoft
 Una alerta indica un problema que requiere la atención por parte del administrador.  Hay claras diferencias entre System Center Operations Manager (SCOM) y Log Analytics en Operations Management Suite (OMS) en cuanto a cómo se crean alertas, cómo se administran y analizan, y cómo se notifica que se ha detectado un problema crítico.
 
 ## <a name="alerts-in-operations-manager"></a>Alertas en Operations Manager
@@ -59,7 +58,7 @@ No puede administrar completamente alertas de SCOM en Log Analytics, aunque pued
 
 ## <a name="alert-remediation"></a>Corrección de alerta
 [Corrección](http://technet.microsoft.com/library/mt614775.aspx) hace referencia a un intento de corregir automáticamente el problema identificado mediante una alerta.
-  
+
 SCOM permite ejecutar diagnósticos y recuperaciones en respuesta a un monitor con un estado incorrecto.  Esto sucede de manera simultánea en el monitor que crea la alerta.  Los diagnósticos y las recuperaciones se implementan normalmente como un script que se ejecuta en el agente.  Un diagnóstico intenta recopilar más información sobre el problema detectado mientras que una recuperación intenta corregir el problema.
 
 Log Analytics le permite iniciar un [runbook de Azure Automation](https://azure.microsoft.com/documentation/services/automation/) o una llamada de un webhook en respuesta a una alerta de Log Analytics.  Los runbooks pueden contener una lógica compleja implementada en PowerShell.  El script se ejecuta en Azure y puede tener acceso a los recursos de Azure o los recursos externos disponibles de la nube.  Automatización de Azure tiene la capacidad de ejecutar runbooks en un servidor en su centro de datos local, pero esta característica no está disponible actualmente al iniciar el runbook en respuesta a las alertas de Log Analytics.
@@ -69,9 +68,7 @@ Tanto las recuperaciones de SCOM y runbooks de OMS pueden contener scripts de Po
 Si usa SCOM como un origen de datos para Log Analytics, puede crear una alerta de Log Analytics mediante una consulta de registro para recuperar las alertas de SCOM almacenadas en el repositorio de OMS.  Esto le permitirá ejecutar un runbook de Automatización de Azure en respuesta a una alerta de SCOM.  Por supuesto, dado que el runbook se ejecutará en Azure, no sería una estrategia viable para las recuperaciones de problemas locales.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Obtenga información sobre los detalles de las [alertas de System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
-
+* Obtenga información sobre los detalles de las [alertas de System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
 <!--HONumber=Oct16_HO2-->
 

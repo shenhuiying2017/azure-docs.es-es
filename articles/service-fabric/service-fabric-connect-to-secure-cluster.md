@@ -1,27 +1,25 @@
-<properties
-   pageTitle="Autenticación del acceso de cliente a un clúster | Microsoft Azure"
-   description="Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric mediante certificados y cómo proteger la comunicación entre los clientes y un clúster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Autenticación del acceso de cliente a un clúster | Microsoft Docs
+description: Se describe cómo autenticar el acceso de cliente a un clúster de Service Fabric mediante certificados y cómo proteger la comunicación entre los clientes y un clúster.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/25/2016
+ms.author: ryanwi
 
-
+---
 # <a name="connect-to-a-secure-cluster-without-aad"></a>Conexión a un clúster seguro sin AAD
 Cuando un cliente se conecta a un nodo del clúster de Service Fabric, se puede autenticar al cliente y establecer la comunicación segura mediante la seguridad basada en certificados. Esta autenticación garantiza que solo los usuarios autorizados pueden tener acceso al clúster, y a las aplicaciones implementadas, y realizar tareas de administración.  Con anterioridad se debe haber habilitado la seguridad basada en certificados en el clúster cuando se creó este.  Deben utilizarse, al menos, dos certificados para proteger el clúster, uno para el certificado de servidor y clúster, y otro para el acceso de cliente.  Se recomienda utilizar también certificados secundarios adicionales y certificados de acceso de cliente.  Para más información sobre escenarios de seguridad de clúster, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
 
 Para proteger la comunicación entre un cliente y un nodo del clúster mediante la seguridad basada en certificados, primero debe obtener e instalar el certificado de cliente. El certificado se puede instalar en el almacén personal (Mi) del equipo local o en el almacén personal del usuario actual.  También necesitará la huella digital del certificado de servidor para que el cliente pueda autenticar el clúster.
-
 
 Ejecute el siguiente cmdlet de PowerShell para configurar el certificado de cliente en el equipo que usará para acceder al clúster.
 
@@ -39,10 +37,10 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
 ```
 <a id="connectsecureclustercli"></a> 
-## <a name="connect-to-a-secure-cluster-using-azure-cli-without-aad"></a>Conexión a un clúster seguro mediante la CLI de Azure sin AAD
 
+## <a name="connect-to-a-secure-cluster-using-azure-cli-without-aad"></a>Conexión a un clúster seguro mediante la CLI de Azure sin AAD
 Los siguientes comandos de la CLI de Azure describen cómo conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster. 
- 
+
 Si el certificado tiene entidades de certificación (CA), debe agregar el parámetro `--ca-cert-path` como en el ejemplo siguiente: 
 
 ```
@@ -50,19 +48,18 @@ Si el certificado tiene entidades de certificación (CA), debe agregar el parám
 ```
 Si tiene varias entidades de certificación, use una coma como delimitador. 
 
- 
 Si el nombre común del certificado no coincide con el punto de conexión de la conexión, puede usar el parámetro `--strict-ssl-false` para omitir la comprobación. 
 
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
 ```
- 
+
 Si desea omitir la comprobación de la entidad de certificación, puede agregar el parámetro ``--reject-unauthorized-false`` como se muestra en el siguiente comando:
 
 ```
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
- 
+
 Para conectarse a un clúster protegido con un certificado autofirmado, utilice el siguiente comando de eliminación de la comprobación de la entidad de certificación y la comprobación de nombre común:
 
 ```
@@ -72,8 +69,8 @@ azure servicefabric cluster connect --connection-endpoint https://ip:19080 --cli
 Después de conectarse, debería poder ejecutar otros comandos de la CLI para interactuar con el clúster. 
 
 <a id="connectsecurecluster"></a>
-## <a name="connect-to-a-secure-cluster-using-powershell-without-aad"></a>Conexión a un clúster seguro mediante PowerShell sin AAD
 
+## <a name="connect-to-a-secure-cluster-using-powershell-without-aad"></a>Conexión a un clúster seguro mediante PowerShell sin AAD
 Ejecute el siguiente comando de PowerShell para conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
 
 ```powershell
@@ -99,7 +96,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 
 
 ## <a name="connect-to-a-secure-cluster-using-the-fabricclient-apis"></a>Conexión a un clúster seguro mediante las API de FabricClient
-
 Para más información sobre las API de FabricClient, consulte [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Los nodos del clúster deben tener certificados válidos cuyo nombre común o nombre DNS de SAN aparezca en la [propiedad RemoteCommonNames](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) establecida en [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). La realización de este proceso permite la autenticación mutua entre el cliente y los nodos del clúster.
 
 ```csharp
@@ -148,13 +144,10 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
-- [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
-- [Introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md)
-- [Seguridad de aplicaciones y RunAs](service-fabric-application-runas-security.md)
-
-
+* [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
+* [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Introducción al modelo de estado de Service Fabric](service-fabric-health-introduction.md)
+* [Seguridad de aplicaciones y RunAs](service-fabric-application-runas-security.md)
 
 <!--HONumber=Oct16_HO2-->
 

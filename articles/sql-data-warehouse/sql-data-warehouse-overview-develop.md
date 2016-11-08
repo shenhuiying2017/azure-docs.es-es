@@ -1,52 +1,51 @@
-<properties
-   pageTitle="Diseñar decisiones y técnicas de codificación para el desarrollo del Almacenamiento de datos SQL | Microsoft Azure"
-   description="Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para el Almacenamiento de datos SQL."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Diseñar decisiones y técnicas de codificación para el desarrollo del Almacenamiento de datos SQL | Microsoft Docs
+description: Conceptos de desarrollo, decisiones de diseño, recomendaciones y técnicas de codificación para el Almacenamiento de datos SQL.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/16/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/16/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Decisiones de diseño y técnicas de codificación para el Almacenamiento de datos SQL
-
 Eche un vistazo a estos artículos de desarrollo para comprender mejor las decisiones de diseño clave, las recomendaciones y las técnicas de codificación para el Almacenamiento de datos SQL.
 
 ## Decisiones de diseño clave
 En los artículos siguientes se abordan algunos de los conceptos y las decisiones de diseño clave que es preciso comprender para el desarrollo de un almacenamiento de datos distribuido con Almacenamiento de datos SQL:
 
-- [conexiones][]
-- [simultaneidad][]
-- [transacciones][]
-- [esquemas definidos por el usuario][]
-- [Distribución de tablas][]
-- [índices de tablas][]
-- [particiones de tablas][]
-- [CTAS][]
-- [estadísticas][]
+* [conexiones][conexiones]
+* [simultaneidad][simultaneidad]
+* [transacciones][transacciones]
+* [esquemas definidos por el usuario][esquemas definidos por el usuario]
+* [Distribución de tablas][Distribución de tablas]
+* [índices de tablas][índices de tablas]
+* [particiones de tablas][particiones de tablas]
+* [CTAS][CTAS]
+* [estadísticas][estadísticas]
 
 ## Recomendaciones de desarrollo y técnicas de codificación
 En estos artículos se abordan técnicas de codificación, sugerencias y recomendaciones específicas para el desarrollo de su Almacenamiento de datos SQL:
 
-- [procedimientos almacenados][]
-- [etiquetas][]
-- [vistas][]
-- [tablas temporales][]
-- [SQL dinámico][]
-- [bucle][]
-- [opciones de agrupar por][]
-- [asignación de variables][]
+* [procedimientos almacenados][procedimientos almacenados]
+* [etiquetas][etiquetas]
+* [vistas][vistas]
+* [tablas temporales][tablas temporales]
+* [SQL dinámico][SQL dinámico]
+* [bucle][bucle]
+* [opciones de agrupar por][opciones de agrupar por]
+* [asignación de variables][asignación de variables]
 
 ## Pasos siguientes
-Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [Referencia de Transact-SQL][] para obtener más detalles sobre la sintaxis admitida en Almacenamiento de datos SQL.
+Una vez leídos los artículos sobre desarrollo, eche un vistazo a la página [Referencia de Transact-SQL][Referencia de Transact-SQL] para obtener más detalles sobre la sintaxis admitida en Almacenamiento de datos SQL.
 
 <!--Image references-->
 

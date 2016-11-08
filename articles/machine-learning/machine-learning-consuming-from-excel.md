@@ -1,31 +1,29 @@
-<properties
-	pageTitle="Consumo de un servicio web de Aprendizaje automático de Excel |Microsoft Azure"
-	description="Consumir un servicio web de Aprendizaje automático de Azure de Excel"
-	services="machine-learning"
-	documentationCenter=""
-	authors="tedway"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Consumo de un servicio web de Aprendizaje automático de Excel | Microsoft Docs
+description: Consumir un servicio web de Aprendizaje automático de Azure de Excel
+services: machine-learning
+documentationcenter: ''
+author: tedway
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/06/2016"
-	ms.author="tedway"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/06/2016
+ms.author: tedway
 
+---
 # Consumo de un servicio web de Aprendizaje automático de Azure de Excel
-
  Estudio de aprendizaje automático de Azure facilita la llamada a servicios web directamente desde Excel sin necesidad de escribir ningún código.
 
 Si utiliza Excel 2013 (o posterior) o Excel Online, le recomendamos que use el [complemento de Excel](machine-learning-excel-add-in-for-web-services.md).
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 ## Pasos
-
 Publicar un servicio web. En [esta página](machine-learning-walkthrough-5-publish-web-service.md) se explica cómo hacerlo. Actualmente, la función de libro de Excel solo se admite para los servicios de solicitud/respuesta que tienen una salida única (es decir, una etiqueta de puntuación única).
 
 Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** que se encuentra a la izquierda del estudio y, luego, seleccione el servicio web que se va a usar desde Excel.
@@ -33,9 +31,8 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 **Servicio web clásico**
 
 1. En la pestaña **PANEL** del servicio web se encuentra una fila para el servicio **SOLICITUD/RESPUESTA**. Si este servicio tenía una salida única, deberá consultar el vínculo **Descargar el libro de Excel** de esa fila.
-
-	![][1]
-
+   
+    ![][1]
 2. Haga clic en **Descargar el libro de Excel**.
 
 **Servicio web nuevo**
@@ -46,33 +43,26 @@ Una vez que tenga un servicio web, haga clic en la sección **SERVICIOS WEB** qu
 **Uso del libro**
 
 1. Abra el libro.
-
 2. Aparecerá una advertencia de seguridad; haga clic en el botón **Habilitar edición**.
-
-	![][2]
-
+   
+    ![][2]
 3. Aparecerá una advertencia de seguridad. Haga clic en el botón **Habilitar contenido** para ejecutar macros en la hoja de cálculo.
-
-	![][3]
+   
+    ![][3]
 4. Una vez que las macros están habilitadas, se generará una tabla. Las columnas en azul son necesarias como entrada al servicio web RRS, o como **PARÁMETROS**. Tenga en cuenta la salida del servicio RRS, los **VALORES PREDICHOS** en verde. Cuando se llenan todas las columnas de una fila determinada, el libro llama a la API de puntuación automáticamente y muestra los resultados con puntuación.
-
-	![][4]
-
+   
+    ![][4]
 5. Para puntuar más de una fila, rellene la segunda fila con datos y se generarán los valores predichos. Incluso puede pegar varias filas a la vez.
 
 Puede utilizar cualquiera de las funciones de Excel (gráficos, asignación de energía, formato condicional, etc.) con los valores de predicción como ayuda para visualizar los datos.
 
-
 ## Compartir el libro
-
 Para que las macros funcionen, la clave de API debe formar parte de la hoja de cálculo. Esto significa que debe compartir el libro con las entidades e individuos de su confianza.
 
 ## Actualizaciones automáticas
-
 En las siguientes dos situaciones se realiza una llamada a RRS:
 
 1. La primera vez que una fila tiene contenido en todos sus **PARÁMETROS**
-
 2. Cada vez que cualquiera de los **PARÁMETROS** cambia en una fila en la que se habían especificado todos sus **PARÁMETROS**.
 
 [1]: ./media/machine-learning-consuming-from-excel/excellink.png

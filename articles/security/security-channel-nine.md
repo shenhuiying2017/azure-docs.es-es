@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Azure"
-   description="El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Docs
+description: El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Vídeos sobre seguridad de Azure de Channel 9
-
 [Channel 9](https://channel9.msdn.com/) es una comunidad que reúne a quienes se encuentran detrás de nuestros productos y los conecta con los clientes.
 
 Creen que hay un gran futuro en el software y se sienten emocionados con ello. Channel 9 es una comunidad para participar en la conversación en curso.
@@ -46,9 +45,9 @@ Jack Richins enseña a [Scott](https://channel9.msdn.com/Niners/Glucose) cómo c
 
 En este vídeo se tratan las siguientes áreas:
 
-- Descripción del cifrado y SQL Server
-- Descripción de la API de protección de datos, las claves maestras y los certificados
-- Uso de comandos SQL para crear los certificados y claves maestras y cifrar la base de datos
+* Descripción del cifrado y SQL Server
+* Descripción de la API de protección de datos, las claves maestras y los certificados
+* Uso de comandos SQL para crear los certificados y claves maestras y cifrar la base de datos
 
 [Configuración de la seguridad en los laboratorios de DevTest](https://channel9.msdn.com/Blogs/Windows-Azure/How-to-set-security-in-your-DevTest-Lab)
 
@@ -66,11 +65,11 @@ El administrador jefe de programas, Narayan Annamalai, enseña a Scott a usar lo
 
 Azure Active Directory (AD) Privileged Identity Management es una funcionalidad premium que le permite detectar, restringir y supervisar las identidades con privilegios y su acceso a los recursos. También aplica, a petición, el acceso administrativo justo a tiempo cuando sea necesario. Más información sobre lo siguiente:
 
-- Administración de la protección de los roles administrativos específicos de cargas de trabajo de Office 365.
-- Configuración de Azure Multi-Factor Authentication (MFA) para las actividades de roles con privilegios.
-- Medición y mejoramiento de la posición de seguridad del inquilino.
-- Supervisión y corrección de las conclusiones de seguridad.
-- Revisión de quién debe conservar los roles con privilegios para los flujos de trabajo de una nueva certificación periódica.
+* Administración de la protección de los roles administrativos específicos de cargas de trabajo de Office 365.
+* Configuración de Azure Multi-Factor Authentication (MFA) para las actividades de roles con privilegios.
+* Medición y mejoramiento de la posición de seguridad del inquilino.
+* Supervisión y corrección de las conclusiones de seguridad.
+* Revisión de quién debe conservar los roles con privilegios para los flujos de trabajo de una nueva certificación periódica.
 
 [Almacén de claves con Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 

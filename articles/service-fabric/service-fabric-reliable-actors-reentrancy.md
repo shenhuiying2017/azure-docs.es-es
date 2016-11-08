@@ -1,30 +1,28 @@
-<properties
-   pageTitle="Reentrada de Reliable Actors | Microsoft Azure"
-   description="Introducción a la reentrada de Service Fabric Reliable Actors"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="amanbha"/>
+---
+title: Reentrada de Reliable Actors | Microsoft Docs
+description: Introducción a la reentrada de Service Fabric Reliable Actors
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 07/06/2016
+ms.author: vturecek
 
-
+---
 # Reentrada de Reliable Actors
 El runtime de Reliable Actors permite, de manera predeterminada, la reentrada basada en el contexto de llamadas lógicas. Esto permite que los actores sean reentrantes si están en la misma cadena de contexto de llamada. Por ejemplo, si el actor A envía un mensaje al actor B, quien envía el mensaje al actor C; como parte del procesamiento del mensaje, si el actor C llama al actor A, el mensaje es reentrante y, por los tanto, se permitirá. Los demás mensajes que formen parte de un contexto de llamada distinto se bloquearán en el actor A hasta que complete el procesamiento.
 
-
 Existen dos opciones disponibles para la reentrada de actores definidas en la enumeración `ActorReentrancyMode`:
 
- - `LogicalCallContext` (comportamiento predeterminado)
- - `Disallowed`: deshabilita la reentrada.
+* `LogicalCallContext` (comportamiento predeterminado)
+* `Disallowed`: deshabilita la reentrada.
 
 ```csharp
 public enum ActorReentrancyMode
@@ -70,8 +68,8 @@ static class Program
 ```
 
 ## Pasos siguientes
- - [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
- - [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
+* [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
+* [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
 <!---HONumber=AcomDC_0713_2016-->

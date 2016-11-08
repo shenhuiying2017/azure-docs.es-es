@@ -1,68 +1,65 @@
-<properties 
-    pageTitle="Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS" 
-    description="Aprenda a cifrar el contenido con cifrado de almacenamiento mediante las API de REST de AMS." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS
+description: Aprenda a cifrar el contenido con cifrado de almacenamiento mediante las API de REST de AMS.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS
-
+---
+# <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS
 Es muy recomendable cifrar el contenido de manera local mediante el cifrado AES de 256 bits y luego cargarlo a Almacenamiento de Azure donde se almacena cifrado en reposo.
 
 Este artículo proporciona información general del cifrado de almacenamiento de AMS y muestra cómo cargar el contenido cifrado del almacenamiento:
 
-- Cree una clave de contenido.
-- Cree un recurso. Establezca AssetCreationOption en StorageEncryption cuando cree el recurso.
-
+* Cree una clave de contenido.
+* Cree un recurso. Establezca AssetCreationOption en StorageEncryption cuando cree el recurso.
+  
      Los recursos cifrados tienen que estar asociados con claves de contenido.
-- Vincule la clave de contenido con el recurso.  
-- Establezca los parámetros relacionados con el cifrado en las entidades AssetFile.
- 
->[AZURE.NOTE]Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+* Vincule la clave de contenido con el recurso.  
+* Establezca los parámetros relacionados con el cifrado en las entidades AssetFile.
 
+> [!NOTE]
+> Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+> 
+> [!NOTE]
+> Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+> 
+> Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+> 
+> Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
+> 
+> 
 
->[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
->
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
-
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
-
-##<a name="storage-encryption-overview"></a>Información general del cifrado de almacenamiento 
-
+## <a name="storage-encryption-overview"></a>Información general del cifrado de almacenamiento
 El cifrado de almacenamiento de AMS aplica el cifrado de modo **AES-CTR** a todo el archivo.  El modo AES-CTR es un cifrado de bloques que puede cifrar los datos de longitud arbitraria sin necesidad de relleno. Funciona mediante el cifrado de un bloque de contador con el algoritmo de AES y, a continuación, aplicando XOR al resultado de AES con los datos para el cifrado o el descifrado.  El bloque de contador utilizado se crea copiando el valor de InitializationVector en bytes de 0 a 7 del valor de contador y los bytes de 8 y 15 del valor de contador se establecen en cero. Del bloque de contador de 16 bytes, los bytes de 8 a 15 (es decir, los bytes menos significativos) se utilizan como un entero sin firmar de 64 bits simple que se incrementa en uno por cada bloque siguiente de datos procesados y se mantiene en el orden de bytes de la red. Tenga en cuenta que si este entero alcanza el valor máximo (0xFFFFFFFFFFFFFFFF), incrementarlo restablece el contador de bloque a cero (bytes de 8 a 15) sin que afecte a los otros 64 bits del contador (es decir, bytes de 0 a 7).   Para mantener la seguridad del cifrado del modo AES-CTR, el valor de InitializationVector para un identificador de clave determinado para cada clave de contenido debe ser único para cada archivo y los archivos deben tener una longitud inferior a 2^64 bloques.  Esto es para asegurarse de que un valor de contador nunca se reutiliza con una clave determinada. Para obtener más información sobre el modo CTR, consulte [esta página de la wiki](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (el artículo de la wiki utiliza el término "Nonce" en lugar de "InitializationVector").
 
 Utilice **cifrado de almacenamiento** para cifrar el contenido no cifrado de manera local mediante el cifrado AES de 256 bits y luego cargarlo al almacenamiento de Azure donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
 
 Para entregar a un recurso cifrado de almacenamiento, debe configurar la directiva de entrega del recurso para que Servicios multimedia sepa cómo desea entregar el contenido. Antes de poder transmitir el activo, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada (por ejemplo, AES, cifrado común o sin cifrado).
 
-##<a name="create-contentkeys-used-for-encryption"></a>Creación de ContentKeys para el cifrado
-
+## <a name="create-contentkeys-used-for-encryption"></a>Creación de ContentKeys para el cifrado
 Los recursos cifrados tienen que estar asociados con la clave de cifrado de almacenamiento. Debe crear la clave de contenido que se utilizará para el cifrado antes de crear los archivos de recursos. En esta sección se describe cómo crear una clave de contenido.
 
 A continuación se muestran los pasos generales para generar claves de contenido que asociará a los recursos que desee cifrar. 
 
 1. Para el cifrado de almacenamiento, genere de forma aleatoria una clave AES de 32 bytes. 
-
+   
     Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
-2.  Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
-3.  Cifre la clave de contenido con la clave pública del certificado X.509. 
-
-    El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo de .NET en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4.  Cree un valor de suma de comprobación calculado con el identificador de clave y la clave de contenido. El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
-    
+2. Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
+3. Cifre la clave de contenido con la clave pública del certificado X.509. 
+   
+   El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo de .NET en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Cree un valor de suma de comprobación calculado con el identificador de clave y la clave de contenido. El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
 
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
         {
@@ -91,30 +88,25 @@ A continuación se muestran los pasos generales para generar claves de contenido
         }
 
 
-5. Cree la clave de contenido con los valores **EncryptedContentKey** (convertida en cadena codificada en base 64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** y **Checksum** que recibió en los pasos anteriores.
+1. Cree la clave de contenido con los valores **EncryptedContentKey** (convertida en cadena codificada en base 64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** y **Checksum** que recibió en los pasos anteriores.
 
-    
     Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
-     
+
     Propiedad del cuerpo de la solicitud   | Description
     ---|---
     Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
-    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.
     ProtectionKeyType | Es el tipo de cifrado para la clave de protección que se usó para cifrar la clave de contenido. Este valor es StorageEncryption(1) en nuestro ejemplo.
     Checksum |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación.
-    
 
-###<a name="retrieve-the-protectionkeyid"></a>Recuperación de ProtectionKeyId 
- 
 
+### <a name="retrieve-the-protectionkeyid"></a>Recuperación de ProtectionKeyId
 En el ejemplo siguiente se muestra cómo recuperar ProtectionKeyId, una huella digital de certificado, para el certificado que debe usar al cifrar la clave de contenido. Realice este paso para asegurarse de que ya tiene el certificado apropiado en el equipo.
 
-
 Solicitud:
-    
-    
+
     GET https://media.windows.net/api/GetProtectionKeyId?contentKeyType=0 HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
@@ -123,10 +115,10 @@ Solicitud:
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
     x-ms-version: 2.11
     Host: media.windows.net
-    
+
 
 Respuesta:
-    
+
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 139
@@ -139,15 +131,14 @@ Respuesta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Wed, 04 Feb 2015 02:42:52 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-###<a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperación de ProtectionKey para ProtectionKeyId
-
+### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>Recuperación de ProtectionKey para ProtectionKeyId
 En el ejemplo siguiente se muestra cómo recuperar el certificado X.509 mediante la entidad ProtectionKeyId que recibió en el paso anterior.
 
 Solicitud:
-        
+
     GET https://media.windows.net/api/GetProtectionKey?ProtectionKeyId='7D9BB04D9D0A4A24800CADBFEF232689E048F69C' HTTP/1.1
     MaxDataServiceVersion: 3.0;NetFx
     Accept: application/json
@@ -157,11 +148,11 @@ Solicitud:
     x-ms-version: 2.11
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
-    
+
 
 
 Respuesta:
-    
+
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 1227
@@ -175,18 +166,16 @@ Respuesta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Thu, 05 Feb 2015 07:52:30 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-### <a name="create-the-content-key"></a>Creación de la clave de contenido 
-
+### <a name="create-the-content-key"></a>Creación de la clave de contenido
 Después de recuperar el certificado X.509 y usar su clave pública para cifrar la clave de contenido, cree una entidad **ContentKey** y establezca sus valores de propiedad según corresponda.
 
 Uno de los valores que debe establecer al crear la clave de contenido es el tipo. En el caso de cifrado de almacenamiento, el valor es '1'. 
 
 En el ejemplo siguiente se muestra cómo crear una entidad **ContentKey** con una entidad **ContentKeyType** establecida para el cifrado de almacenamiento("1") y la entidad **ProtectionKeyType** establecida en "0" para indicar que el identificador de clave de protección sea la huella digital del certificado X.509.  
-
 
 Solicitud
 
@@ -211,7 +200,7 @@ Solicitud
 
 
 Respuesta:
-    
+
     HTTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 777
@@ -225,7 +214,7 @@ Respuesta:
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Wed, 04 Feb 2015 02:37:46 GMT
-    
+
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#ContentKeys/@Element",
     "Id":"nb:kid:UUID:9c8ea9c6-52bd-4232-8a43-8e43d8564a99","Created":"2015-02-04T02:37:46.9684379Z",
     "LastModified":"2015-02-04T02:37:46.9684379Z",
@@ -237,7 +226,6 @@ Respuesta:
     "Checksum":"calculated checksum"}
 
 ## <a name="create-an-asset"></a>Creación de un recurso
-
 En el ejemplo siguiente se muestra cómo crear un recurso.
 
 **Solicitud HTTP**
@@ -251,14 +239,14 @@ En el ejemplo siguiente se muestra cómo crear un recurso.
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-6753-2233-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421640053&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=vlG%2fPYdFDMS1zKc36qcFVWnaNh07UCkhYj3B71%2fk1YA%3d
     x-ms-version: 2.11
     Host: media.windows.net
-    
+
     {"Name":"BigBuckBunny" "Options":1}
 
 
 **Respuesta HTTP**
 
 Si se realiza correctamente, se devuelve lo siguiente:
-    
+
     HTP/1.1 201 Created
     Cache-Control: no-cache
     Content-Length: 452
@@ -284,13 +272,12 @@ Si se realiza correctamente, se devuelve lo siguiente:
        "Uri":"https://storagetestaccount001.blob.core.windows.net/asset-9bc8ff20-24fb-4fdb-9d7c-b04c7ee573a1",
        "StorageAccountName":"storagetestaccount001"
     }
-    
-##<a name="associate-the-contentkey-with-an-asset"></a>Asociación de la entidad ContentKey a un recurso
 
+## <a name="associate-the-contentkey-with-an-asset"></a>Asociación de la entidad ContentKey a un recurso
 Después de crear la entidad ContentKey, asóciela a su recurso mediante la operación $links, tal como se muestra en el ejemplo siguiente:
-    
+
 Solicitud:
-    
+
     POST https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3Afbd7ce05-1087-401b-aaae-29f16383c801')/$links/ContentKeys HTTP/1.1
     DataServiceVersion: 1.0;NetFx
     MaxDataServiceVersion: 3.0;NetFx
@@ -301,15 +288,14 @@ Solicitud:
     x-ms-version: 2.11
     Host: media.windows.net
 
-    
+
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
 Respuesta:
 
     HTTP/1.1 204 No Content 
 
-##<a name="create-an-assetfile"></a>Creación de AssetFile
-
+## <a name="create-an-assetfile"></a>Creación de AssetFile
 La entidad [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
 Tenga en cuenta que la instancia de **AssetFile** y el archivo multimedia real son dos objetos distintos. La instancia de AssetFile contiene metadatos sobre el archivo multimedia, mientras que el archivo multimedia contiene el contenido multimedia real.
@@ -328,7 +314,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     x-ms-version: 2.11
     Host: media.windows.net
     Content-Length: 164
-    
+
     {  
        "IsEncrypted":"true",
        "EncryptionScheme" : "StorageEncryption", 
@@ -357,7 +343,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     X-Powered-By: ASP.NET
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Mon, 19 Jan 2015 00:34:07 GMT
-    
+
     {  
        "odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Files/@Element",
        "Id":"nb:cid:UUID:f13a0137-0a62-9d4c-b3b9-ca944b5142c5",

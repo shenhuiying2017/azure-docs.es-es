@@ -1,34 +1,30 @@
-<properties 
-	pageTitle="Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Azure" 
-	description="Preguntas frecuentes" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="bharaths" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: 'Preguntas frecuentes: Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace | Microsoft Docs'
+description: Preguntas frecuentes
+services: machine-learning
+documentationcenter: ''
+author: bharaths
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/11/2016" 
-	ms.author="bharaths"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/11/2016
+ms.author: bharaths
 
-#Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
-
-##Preguntas acerca del consumo en Marketplace
-
-
+---
+# Publicación y uso de aplicaciones de Aprendizaje automático en Azure Marketplace: preguntas frecuentes
+## Preguntas acerca del consumo en Marketplace
 **1. Por qué obtengo el siguiente mensaje de error tras especificar una entrada para el servicio web:**
 
 **La solicitud ha ocasionado un tiempo de espera de back-end o un error de back-end. El equipo está investigando el problema. Lamentamos los inconvenientes. (500)**
 
 Los parámetros de entrada no pueden ajustarse al formato requerido para el servicio web específico. Consulte el vínculo correspondiente de la documentación para encontrar el formato correcto de los parámetros de entrada y las limitaciones de este servicio web.
 
-
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **2. Si copio el vínculo de la API del servicio web que aparece en la página "Explorar este conjunto de datos" y lo pego en otra ventana del explorador, ¿qué credenciales tengo que usar para obtener acceso a los resultados y cómo puedo verlos?**
 
@@ -44,9 +40,7 @@ Uno o varios parámetros de entrada del servicio web pueden haber excedido el l�
 
 Se trata de un problema conocido con el Portal de Azure clásico Marketplace. El equipo está trabajando para resolver este problema.
 
-
-##Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
-
+## Preguntas acerca de la publicación desde Aprendizaje automático de Azure en Marketplace
 **1. ¿Por qué mis transacciones de logotipos o imágenes no se actualizan en mi servicio web?**
 
 Los logotipos y las imágenes se almacenan en caché en el portal de publicación y la actualización del nuevo logotipo o de la nueva imagen en el portal puede tardar hasta 10 días en completarse.
@@ -69,12 +63,6 @@ El modo de entrada por lotes no se admite actualmente en los servicios web de Ma
 
 **6. ¿Con quién debo comunicarme para obtener ayuda si tengo preguntas sobre cómo convertirme en un publicador de datos o si tengo problemas durante la publicación?**
 
-Póngase en contacto con el equipo de Azure Marketplace en <datamarketbd@microsoft.com> para obtener más información.
-
-
-
-
-
- 
+Póngase en contacto con el equipo de Azure Marketplace en <mailto:datamarketbd@microsoft.com> para obtener más información.
 
 <!---HONumber=AcomDC_0914_2016-->

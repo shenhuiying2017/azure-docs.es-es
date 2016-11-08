@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Cluster Resource Manager de Service Fabric: costo de movimiento | Microsoft Azure"
-   description="Información general del costo de movimiento de los servicios de Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 'Cluster Resource Manager de Service Fabric: costo de movimiento | Microsoft Docs'
+description: Información general del costo de movimiento de los servicios de Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Costo del movimiento del servicio para influir en las opciones de Cluster Resource Manager
 Otro factor importante que se debe tener en cuenta al intentar determinar qué cambios realizar en un clúster y la valoración de una solución es el costo general de conseguir esa solución.
 
@@ -40,13 +40,13 @@ El valor MoveCost tiene cuatro niveles: Zero (Cero), Low (Bajo), Medium (Medio) 
 
 MoveCost ayuda a encontrar las soluciones que provocan la menor interrupción posible y que son más sencillas de conseguir a la vez que se llega a un equilibrio equivalente. La noción de costo de un servicio puede ser relativa a muchas cosas. Los factores más comunes para calcular el costo de movimiento son:
 
-- La cantidad de estados o de datos que el servicio tiene que mover.
-- El costo de desconexión de los clientes. El costo de mover una réplica principal es normalmente mayor que el costo de mover una réplica secundaria.
-- El costo de interrumpir una operación en curso. Algunas operaciones en el nivel de almacén de datos o las operaciones realizadas en respuesta a una llamada del cliente son costosas. Llegadas a un cierto punto, no quiere detenerlas si no es necesario. Así que durante la operación, aumenta el costo para reducir la probabilidad de que la réplica o la instancia del servicio se muevan. Luego, cuando finaliza la operación, lo devuelve a la normalidad.
+* La cantidad de estados o de datos que el servicio tiene que mover.
+* El costo de desconexión de los clientes. El costo de mover una réplica principal es normalmente mayor que el costo de mover una réplica secundaria.
+* El costo de interrumpir una operación en curso. Algunas operaciones en el nivel de almacén de datos o las operaciones realizadas en respuesta a una llamada del cliente son costosas. Llegadas a un cierto punto, no quiere detenerlas si no es necesario. Así que durante la operación, aumenta el costo para reducir la probabilidad de que la réplica o la instancia del servicio se muevan. Luego, cuando finaliza la operación, lo devuelve a la normalidad.
 
 ## Pasos siguientes
-- Cluster Resource Manger de Service Fabric usa métricas para administrar el consumo y la capacidad en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
-- Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte [Equilibrio del clúster de Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
+* Cluster Resource Manger de Service Fabric usa métricas para administrar el consumo y la capacidad en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
+* Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte [Equilibrio del clúster de Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 

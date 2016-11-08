@@ -1,30 +1,31 @@
-<properties
-   pageTitle="Administración de las máquinas virtuales con Azure PowerShell | Microsoft Azure"
-   description="Obtenga información acerca de los comandos que puede usar para automatizar las tareas de administración de sus máquinas virtuales."
-   services="virtual-machines-windows"
-   documentationCenter="windows"
-   authors="singhkays"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management"/>
+---
+title: Administración de las máquinas virtuales con Azure PowerShell | Microsoft Docs
+description: Obtenga información acerca de los comandos que puede usar para automatizar las tareas de administración de sus máquinas virtuales.
+services: virtual-machines-windows
+documentationcenter: windows
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-service-management
 
-   <tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="07/01/2016"
-   ms.author="kasing"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 07/01/2016
+ms.author: kasing
 
+---
 # Administración de las máquinas virtuales con Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 Muchas tareas que se realizan a diario para administrar las máquinas virtuales pueden automatizarse mediante cmdlets de Azure PowerShell. En este artículo se proporcionan comandos de ejemplo para las tareas más sencillas, así como vínculos a artículos que muestran los comandos para tareas más complejas.
 
->[AZURE.NOTE] Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones en el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+> [!NOTE]
+> Si no ha instalado y configurado todavía Azure PowerShell, obtenga instrucciones en el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+> 
+> 
 
 ## Uso de los comandos de ejemplo
 Tendrá que reemplazar parte del texto en los comandos con texto que sea adecuado para su entorno. Los símbolos < y > indican texto que se debe reemplazar. Al reemplazar el texto, quite los símbolos pero deje las comillas en su lugar.
@@ -41,27 +42,30 @@ Para almacenar la salida en una variable $vm, ejecute:
     $vm = Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## Inicio de sesión en una máquina virtual Windows
-
 Ejecute estos comandos:
 
->[AZURE.NOTE] Puede obtener el nombre de la máquina virtual y del servicio de nube en la presentación del comando **Get-AzureVM**.
->
-	$svcName = "<cloud service name>"
-	$vmName = "<virtual machine name>"
-	$localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
-	$localFile = $localPath + "" + $vmname + ".rdp"
-	Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> [!NOTE]
+> Puede obtener el nombre de la máquina virtual y del servicio de nube en la presentación del comando **Get-AzureVM**.
+> 
+> $svcName = "<cloud service name>"
+> $vmName = "<virtual machine name>"
+> $localPath = "<drive and folder location to store the downloaded RDP file, example: c:\temp >"
+> $localFile = $localPath + "" + $vmname + ".rdp"
+> Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> 
+> 
 
 ## Detención de una máquina virtual
-
 Ejecute este comando:
 
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
->[AZURE.IMPORTANT] Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
+> [!IMPORTANT]
+> Utilice este parámetro para mantener la IP virtual (VIP) del servicio de nube en caso de que sea la última máquina virtual en ese servicio en la nube. <br><br> Si utiliza el parámetro StayProvisioned, se le facturará por la máquina virtual.
+> 
+> 
 
 ## Inicio de una máquina virtual
-
 Ejecute este comando:
 
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
@@ -87,12 +91,11 @@ Para adjuntar discos de datos desde un archivo .vhd existente en el almacenamien
               Update-AzureVM
 
 ## Creación de una máquina virtual Windows
-
 Para crear una nueva máquina virtual Windows en Azure, siga las instrucciones de [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-windows-classic-create-powershell.md). Este tema le guiará por la creación de un conjunto de comandos de Azure PowerShell que crean una máquina virtual Windows que puede configurarse previamente:
 
-- Con pertenencia al dominio de Active Directory;
-- Con discos adicionales;
-- Como miembro de un conjunto de carga equilibrada;
-- Con una dirección IP estática.
+* Con pertenencia al dominio de Active Directory;
+* Con discos adicionales;
+* Como miembro de un conjunto de carga equilibrada;
+* Con una dirección IP estática.
 
 <!---HONumber=AcomDC_0817_2016-->

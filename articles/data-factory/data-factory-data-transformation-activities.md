@@ -1,41 +1,44 @@
-<properties 
-    pageTitle="Transformación de datos: procesamiento y transformación de datos| Microsoft Azure" 
-    description="Aprenda cómo transformar datos o procesar datos en Azure Data Factory mediante Hadoop, Machine Learning o Azure Data Lake Analytics." 
-    keywords="transformación de datos, procesar datos, transformar datos, actividad de transformación"
-    services="data-factory" 
-    documentationCenter="" 
-    authors="sharonlo101" 
-    manager="jhubbard" 
-    editor="monicar"/>
+---
+title: 'Transformación de datos: procesamiento y transformación de datos| Microsoft Docs'
+description: Aprenda cómo transformar datos o procesar datos en Azure Data Factory mediante Hadoop, Machine Learning o Azure Data Lake Analytics.
+keywords: transformación de datos, procesar datos, transformar datos, actividad de transformación
+services: data-factory
+documentationcenter: ''
+author: sharonlo101
+manager: jhubbard
+editor: monicar
 
-<tags 
-    ms.service="data-factory" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/23/2016" 
-    ms.author="shlo"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/23/2016
+ms.author: shlo
 
-
+---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar datos en Azure Data Factory
-> [AZURE.SELECTOR]
-[Hive](data-factory-hive-activity.md)  
-[Pig](data-factory-pig-activity.md)  
-[MapReduce](data-factory-map-reduce.md)  
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-[Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
-[Procedimiento almacenado](data-factory-stored-proc-activity.md)
-[Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-[.NET personalizado](data-factory-use-custom-activities.md)
-   
+> [!div class="op_single_selector"]
+> [Hive](data-factory-hive-activity.md)  
+> [Pig](data-factory-pig-activity.md)  
+> [MapReduce](data-factory-map-reduce.md)  
+> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> [Procedimiento almacenado](data-factory-stored-proc-activity.md)
+> [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
+> [.NET personalizado](data-factory-use-custom-activities.md)
+> 
+> 
 
-## <a name="overview"></a>Información general 
+## <a name="overview"></a>Información general
 En este artículo se explican las actividades de transformación de datos de Azure Data Factory que puede usar para transformar y procesar los datos sin procesar en predicciones e información. Una actividad de transformación se ejecuta en un entorno informático, como clúster de HDInsight de Azure o un Lote de Azure. Proporciona vínculos a artículos con información detallada sobre cada actividad de transformación.
- 
+
 Data Factory admite las siguientes actividades de transformación de datos que se pueden agregar a las [canalizaciones](data-factory-create-pipelines.md) tanto individualmente como encadenadas a otra actividad.
 
-> [AZURE.NOTE] Para obtener un tutorial con instrucciones paso a paso, consulte el artículo [Crear una canalización con la transformación de Hive](data-factory-build-your-first-pipeline.md) .  
+> [!NOTE]
+> Para obtener un tutorial con instrucciones paso a paso, consulte el artículo [Crear una canalización con la transformación de Hive](data-factory-build-your-first-pipeline.md) .  
+> 
+> 
 
 ## <a name="hdinsight-hive-activity"></a>Actividad de HDInsight Hive
 La actividad de Hive de HDInsight en una canalización de Data Factory ejecuta consultas de Hive en su propio clúster de HDInsight o en uno a petición basado en Windows/Linux. Consulte el artículo [Actividad de Hive](data-factory-hive-activity.md) para obtener más información acerca de esta actividad. 
@@ -61,7 +64,7 @@ Consulte [Usar actividades de Machine Learning](data-factory-azure-ml-batch-exec
 ## <a name="stored-procedure-activity"></a>Actividad de procedimiento almacenado
 Puede usar la actividad de procedimiento almacenado de SQL Server en una canalización de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure SQL Data Warehouse y Base de datos de SQL Server en su empresa o una VM de Azure. Consulte el artículo [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md) para obtener más información.  
 
-## <a name="data-lake-analytics-u-sql-activity"></a>Actividad de U-SQL de Data Lake Analytics 
+## <a name="data-lake-analytics-u-sql-activity"></a>Actividad de U-SQL de Data Lake Analytics
 La actividad de U-SQL de Data Lake Analytics ejecuta un script de U-SQL en un clúster de Azure Data Lake Analytics. Consulte el artículo [Actividad de U-SQL de Data Analytics](data-factory-usql-activity.md) para obtener más información. 
 
 ## <a name=".net-custom-activity"></a>Actividad personalizada de .NET
@@ -77,24 +80,19 @@ Deberá crear un servicio vinculado para el entorno de proceso y después usar e
 
 Vea el artículo [Servicios vinculados de procesos](data-factory-compute-linked-services.md) para obtener información sobre los servicios vinculados de proceso compatibles con Data Factory. 
 
-
 ## <a name="summary"></a>Resumen
 Azure Data Factory admite las siguientes actividades de transformación de datos y los entornos de proceso para las actividades. Las actividades de transformación se pueden agregar a las canalizaciones tanto individualmente como encadenadas a otra actividad.
 
-Actividad de transformación de datos |  Entorno de procesos 
-:----------------------- | :--------------------
-[Hive](data-factory-hive-activity.md) | HDInsight [Hadoop] 
-[Pig](data-factory-pig-activity.md) | HDInsight [Hadoop]  
-[MapReduce](data-factory-map-reduce.md) | HDInsight [Hadoop]  
-[Hadoop Streaming](data-factory-hadoop-streaming-activity.md) | HDInsight [Hadoop]
-[Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) | MV de Azure 
-[Procedimiento almacenado](data-factory-stored-proc-activity.md) | SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server |
-[U-SQL de análisis con Data Lake](data-factory-usql-activity.md) | Análisis con Azure Data Lake 
-[DotNet](data-factory-use-custom-activities.md) | HDInsight [Hadoop] o Lote de Azure
-   
-
-
-
+| Actividad de transformación de datos | Entorno de procesos |
+|:--- |:--- |
+| [Hive](data-factory-hive-activity.md) |HDInsight [Hadoop] |
+| [Pig](data-factory-pig-activity.md) |HDInsight [Hadoop] |
+| [MapReduce](data-factory-map-reduce.md) |HDInsight [Hadoop] |
+| [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |HDInsight [Hadoop] |
+| [Actividades de Machine Learning: ejecución de Batch y recurso de actualización](data-factory-azure-ml-batch-execution-activity.md) |MV de Azure |
+| [Procedimiento almacenado](data-factory-stored-proc-activity.md) |SQL Azure, Almacenamiento de datos SQL de Azure o SQL Server |
+| [U-SQL de análisis con Data Lake](data-factory-usql-activity.md) |Análisis con Azure Data Lake |
+| [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] o Lote de Azure |
 
 <!--HONumber=Oct16_HO2-->
 

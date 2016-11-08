@@ -1,34 +1,31 @@
-<properties
-   pageTitle="Temas de referencia sobre Almacenamiento de datos SQL | Microsoft Azure"
-   description="Vínculos al contenido de referencia de Almacenamiento de datos SQL."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Temas de referencia sobre Almacenamiento de datos SQL | Microsoft Docs
+description: Vínculos al contenido de referencia de Almacenamiento de datos SQL.
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 08/08/2016
+ms.author: barbkess;sonyama
 
+---
 # Temas de referencia de Almacenamiento de datos SQL
-
 Estos artículos contienen información de referencia sobre Almacenamiento de datos SQL.
 
-- [Elementos del lenguaje Transact-SQL][]
-- [Instrucciones de Transact-SQL][]
-- [Vistas del sistema Transact-SQL][]
-- [Cmdlets de PowerShell][]
-
-
+* [Elementos del lenguaje Transact-SQL][Elementos del lenguaje Transact-SQL]
+* [Instrucciones de Transact-SQL][Instrucciones de Transact-SQL]
+* [Vistas del sistema Transact-SQL][Vistas del sistema Transact-SQL]
+* [Cmdlets de PowerShell][Cmdlets de PowerShell]
 
 ## Pasos siguientes
-Para obtener información de desarrollo, consulte [Introducción al desarrollo][].
+Para obtener información de desarrollo, consulte [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 

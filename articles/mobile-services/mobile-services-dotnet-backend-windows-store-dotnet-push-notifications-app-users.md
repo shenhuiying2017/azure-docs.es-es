@@ -1,58 +1,53 @@
-<properties
-	pageTitle="Envío de notificaciones push a usuarios autenticados (Universal Windows 8.1) | Servicios móviles de Azure"
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones push a un usuario autenticado específico que esté ejecutando su aplicación de Universal Windows 8.1."
-	services="mobile-services,notification-hubs"
-	documentationCenter="windows"
-	authors="ggailey777"
-	manager="dwrede"
-	editor=""/>
+---
+title: Envío de notificaciones push a usuarios autenticados (Universal Windows 8.1) | Microsoft Docs
+description: Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones push a un usuario autenticado específico que esté ejecutando su aplicación de Universal Windows 8.1.
+services: mobile-services,notification-hubs
+documentationcenter: windows
+author: ggailey777
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-windows"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="glenga"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: glenga
 
+---
 # Envío de notificaciones de inserción a usuarios autenticados
-[AZURE.INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
+[!INCLUDE [mobile-services-selector-push-users](../../includes/mobile-services-selector-push-users.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para información sobre la versión de aplicaciones móviles equivalente de este tema, consulte la sección sobre [cómo enviar notificaciones push a un usuario autenticado](../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#push-user).
+> 
+> 
 
-##Información general
-
+## Información general
 En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial de [notificaciones de inserción][Get started with push notifications] anterior, este tutorial cambia el dispositivo móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el centro de notificaciones para notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
 
 Este tutorial es válido para aplicaciones de la Tienda Windows y la Tienda de Windows Phone.
 
-##Requisitos previos
-
+## Requisitos previos
 Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
-+ [Introducción a la autenticación] Agregue un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
-
-+ [Introducción a las notificaciones de inserción] Configure la aplicación de ejemplo TodoList para notificaciones de inserción usando los Centros de notificaciones.
+* [Introducción a la autenticación] Agregue un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
+* [Introducción a las notificaciones de inserción] Configure la aplicación de ejemplo TodoList para notificaciones de inserción usando los Centros de notificaciones.
 
 Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autorizados se registren para notificaciones de inserción desde su servicio móvil.
 
-##<a name="register"></a>Actualización del servicio para solicitar autenticación para registro
+## <a name="register"></a>Actualización del servicio para solicitar autenticación para registro
+[!INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
-[AZURE.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
+## <a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
+[!INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
 
-##<a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
-
-[AZURE.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
-
-##<a name="test"></a>Prueba de la aplicación
-
-[AZURE.INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
-
-
+## <a name="test"></a>Prueba de la aplicación
+[!INCLUDE [mobile-services-windows-test-push-users](../../includes/mobile-services-windows-test-push-users.md)]
 
 <!-- Anchors. -->
 [Updating the service to require authentication for registration]: #register

@@ -1,27 +1,25 @@
-<properties
-	pageTitle="Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Azure"
-	description="Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Diseño y selección de características en Aprendizaje automático de Azure | Microsoft Docs
+description: Explica el propósito del diseño de características y de la selección de características, además de proporcionar ejemplos de su rol en el proceso de mejora de los datos del aprendizaje automático.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="zhangya;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: zhangya;bradsev
 
-
+---
 # Diseño y selección de características en Aprendizaje automático de Azure
-
 En este tema se explica el propósito del diseño de funciones y la selección de funciones en el proceso de mejora de los datos del aprendizaje automático. Este tema muestra lo que implican estos procesos con ejemplos que proporciona Estudio de aprendizaje automático de Azure.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 Los datos de entrenamiento que se usan en el aprendizaje automático a menudo pueden mejorarse gracias a la selección o extracción de características desde los datos sin procesar que se han recopilado. Un ejemplo de una función diseñada en el contexto de aprender cómo clasificar las imágenes de caracteres manuscritos es un mapa de densidad de bits construido a partir de los datos de distribución de bits sin procesar. Este mapa puede ayudar a ubicar los bordes de los caracteres de manera más eficiente que la distribución sin procesar.
 
@@ -42,9 +40,7 @@ El diseño y la selección se encuentran en el paso de **mejora de datos** del a
 
 En este tema solo se abarcan los aspectos de diseño y selección de funciones del proceso de mejora de los datos. Para obtener información adicional sobre el paso de procesamiento previo de los datos, vea el vídeo [Procesamiento previo de datos en Estudio de aprendizaje automático de Azure](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
-
 ## Creación de características a partir de sus datos: diseño de características
-
 Los datos de entrenamiento constan de una matriz compuesta de ejemplos (registros u observaciones almacenados en filas), cada uno de los cuales cuenta con un conjunto de características (variables o campos almacenados en columnas). Se espera que las características especificadas en el diseño experimental caractericen los patrones de los datos. A pesar de que muchos de los campos de datos sin procesar se pueden incluir directamente en el conjunto de características seleccionado que se usa para entrenar un modelo, a menudo se da el caso de que se requiere construir características adicionales (diseñadas) a partir de las características existentes en los datos sin procesar para generar un conjunto de datos de entrenamiento mejorado.
 
 ¿Qué tipo de características se deben crear para mejorar el conjunto de datos cuando se entrena un modelo? Las características diseñadas que mejoran el entrenamiento proporcionan información que ayuda a diferenciar de mejor manera los patrones de los datos. Se espera que las características nuevas proporcionen información adicional que no está claramente capturada o no es fácilmente evidente en el conjunto de características original o existente. Pero este proceso es, en cierto modo, un arte. Las decisiones acertadas y productivas a menudo requieren cierto conocimiento especializado.
@@ -54,8 +50,7 @@ Al comenzar con Aprendizaje automático de Azure, es más fácil comprender este
 * Un ejemplo de regresión, [Predicción del número de bicicletas alquiladas](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4), en un experimento supervisado en el que se conocen los valores de destino
 * Un ejemplo de clasificación de minería de texto con [Hash de características][feature-hashing]
 
-### Ejemplo 1: incorporación de características temporales para el modelo de regresión ###
-
+### Ejemplo 1: incorporación de características temporales para el modelo de regresión
 Usemos el experimento "Previsión de demanda de bicicletas" en Azure Machine Learning Studio para mostrar cómo diseñar funciones para una tarea de regresión. El objetivo de este experimento es predecir la demanda de bicicletas, es decir, el número de bicicletas alquiladas dentro de un mes/día/hora específico. El conjunto de datos "Conjunto de datos de UCI de alquiler de bicicletas" se usa como los datos de entrada sin procesar. Este conjunto de datos se basa en datos reales provenientes de la empresa Capital Bikeshare que mantiene una red de alquiler de bicicletas en Washington DC, en Estados Unidos. El conjunto de datos representa el número de bicicletas alquiladas dentro de una hora específica durante un día en el año 2011 a 2012 y contiene 17379 filas y 17 columnas. El conjunto de características sin procesar contiene condiciones climáticas (temperatura/humedad/velocidad del viento) y el tipo de día (festivo/día de semana). El campo para la predicción es "cnt", un contador que representa las bicicletas alquiladas dentro de una hora específica y cuyos intervalos van de 1 a 977.
 
 Con el objetivo de construir características eficaces en los datos de entrenamiento, se crean cuatro modelos de regresión con el mismo algoritmo, pero con cuatro conjuntos de datos de entrenamiento distintos. Los cuatro conjuntos de datos representan los mismos datos de entrada sin procesar, pero con un número creciente del conjunto de características. Estas características se agrupan en cuatro categorías:
@@ -75,8 +70,7 @@ La comparación de los resultados de rendimiento de los cuatro modelos se resume
 
 ![comparación de resultados](./media/machine-learning-feature-selection-and-engineering/result1.png)
 
-### <a name="example2"></a> Ejemplo 2: creación de características en minería de texto  
-
+### <a name="example2"></a> Ejemplo 2: creación de características en minería de texto
 El diseño de características se aplica ampliamente en las tareas relacionadas con la minería de texto, como la clasificación de documentos y el análisis de opiniones. Por ejemplo, cuando deseamos clasificar documentos en varias categorías, una hipótesis típica es que las palabras/frases incluidas que se encuentran en una categoría de documento tienen menos probabilidades de presentarse en otra categoría de documento. Dicho de otro modo, la frecuencia de la distribución de palabras/frases puede caracterizar distintas categorías de documento. En las aplicaciones de minería de texto, debido a que partes individuales de contenidos de texto normalmente sirven como los datos de entrada, es necesario el proceso de diseño de características para crear las características que implican las frecuencias de palabras/frases.
 
 Para llevar a cabo esta tarea, se aplica una técnica llamada **hash de características** para convertir eficazmente las características arbitrarias de texto en índices. En lugar de asociar cada característica de texto (palabras/frases) a un índice determinado, este método funciona mediante la aplicación de una función de hash a las características y el uso de sus valores de hash como índices directamente.
@@ -93,8 +87,7 @@ La figura siguiente muestra cómo se ven estas nuevas funciones.
 
 ![Ejemplo de "Hash de características"](./media/machine-learning-feature-selection-and-engineering/feature-Hashing2.png)
 
-## Filtrado de características desde sus datos: selección de características  ##
-
+## Filtrado de características desde sus datos: selección de características
 La selección de características es un proceso que normalmente se aplica para la construcción de conjuntos de datos de entrenamiento para tareas de modelado predictivo, como las tareas de clasificación o de regresión. El objetivo es seleccionar un subconjunto de las características a partir del conjunto de datos original que reduce sus dimensiones al usar un conjunto de características mínimo para que represente la cantidad máxima de varianza en los datos. Este subconjunto de funciones contiene las únicas funciones que se incluirán para entrenar el modelo. La selección de características tiene dos propósitos principales.
 
 * En primer lugar, la selección de características a menudo aumenta la precisión de la clasificación a través de la eliminación de características irrelevantes, redundantes o altamente correlacionadas.
@@ -107,7 +100,6 @@ Entre otros aspectos, una categoría ampliamente aplicada de los métodos de sel
 En Estudio de aprendizaje automático de Azure, estos son los módulos proporcionados para la selección de características. Tal como aparece en la figura siguiente, estos módulos incluyen [Selección de características basada en filtro][filter-based-feature-selection] y [Análisis discriminante lineal de Fisher][fisher-linear-discriminant-analysis].
 
 ![Ejemplo de selección de características](./media/machine-learning-feature-selection-and-engineering/feature-Selection.png)
-
 
 Por ejemplo, considere el uso del módulo [Selección de características basada en filtro][filter-based-feature-selection]. Para mayor comodidad, seguiremos usando el ejemplo de minería de texto descrito anteriormente. Suponga que deseamos crear un modelo de regresión una vez creado un conjunto de 256 funciones mediante el módulo [Hash de funciones][feature-hashing] y que la variable de respuesta es la "Col1" y representa una clasificación de las reseñas de un libro, que van desde 1 a 5. Defina el "Método de puntuación de características" en "Correlación de Pearson", la "Columna de destino" en "Col1" y el "Número de características deseadas" en 50. A continuación, el módulo [Selección de funciones basada en filtro][filter-based-feature-selection] generará un conjunto de datos con 50 funciones, junto con el atributo de destino "Col1". La figura siguiente muestra el flujo de este experimento y los parámetros de entrada que acabamos de describir.
 

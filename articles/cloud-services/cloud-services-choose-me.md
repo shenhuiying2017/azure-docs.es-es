@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Opciones de proceso de Azure (servicios en la nube) | Microsoft Azure"
-    description="Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales"
-    services="cloud-services"
-    documentationCenter=""
-    authors="Thraka"
-    manager="timlt"/>
+---
+title: Opciones de proceso de Azure (servicios en la nube) | Microsoft Docs
+description: 'Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales'
+services: cloud-services
+documentationcenter: ''
+author: Thraka
+manager: timlt
 
-<tags
-    ms.service="multiple"
-    ms.workload="multiple"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/11/2016"
-    ms.author="adegeo"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/11/2016
+ms.author: adegeo
 
-
+---
 # <a name="should-i-choose-cloud-services-or-something-else?"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
-
 ¿Son los servicios en la nube de Azure la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
 <a name="tellmecs"></a>
-## <a name="tell-me-about-cloud-services"></a>Información sobre los servicios en la nube
 
+## <a name="tell-me-about-cloud-services"></a>Información sobre los servicios en la nube
 Los servicios en la nube son un ejemplo de [plataforma como servicio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Al igual que [Servicio de aplicaciones](../app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y de funcionamiento asequible. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
@@ -37,11 +35,10 @@ Cualquier combinación de estas dos opciones ligeramente diferentes de hospedaje
 
 * **Rol web**  
    se ejecuta Windows Server con la aplicación web que se implementa automáticamente en IIS.
-
 * **Rol de trabajo**  
    se ejecuta Windows Server sin IIS.
 
-Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queues](../storage/storage-introduction.md)).
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queues](../storage/storage-introduction.md)).
 
 Como sugiere la ilustración anterior, todas las máquinas virtuales de una sola aplicación se ejecutan en el mismo servicio en la nube. Debido a esto, los usuarios tienen acceso a la aplicación a través de una dirección IP pública única y se realiza automáticamente el equilibrio de carga de las solicitudes en todas las máquinas virtuales de la aplicación. La plataforma [escalará e implementará](cloud-services-how-to-scale.md) las máquinas virtuales en una aplicación de Servicios en la nube para así evitar un único punto de errores de hardware.
 
@@ -62,8 +59,6 @@ La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones
 [Crear una aplicación de servicio en la nube en Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)  
 [Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

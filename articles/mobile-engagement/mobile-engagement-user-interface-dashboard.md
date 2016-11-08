@@ -1,37 +1,37 @@
-<properties 
-   pageTitle="Interfaz de usuario de Azure Mobile Engagement: panel" 
-   description="Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: 'Interfaz de usuario de Azure Mobile Engagement: panel'
+description: Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Cómo ver y administrar los gráficos de datos de la aplicación
 La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.
 
 ### Otras referencias
--  [Guía de resolución de problemas - Análisis][Link 21]
+* [Guía de resolución de problemas - Análisis][Link 21]
 
 ## Panel
-- Puede agregar gráficos a un panel vacía seleccionando la acción "Enviar al panel" en el menú de engranaje de cualquier gráfico de la sección de análisis de la interfaz de usuario que le gustaría ver en un panel.
- 
+* Puede agregar gráficos a un panel vacía seleccionando la acción "Enviar al panel" en el menú de engranaje de cualquier gráfico de la sección de análisis de la interfaz de usuario que le gustaría ver en un panel.
+
 ## + (Agregar un panel)
-- Puede utilizar el elemento de menú de la cinta de opciones "+" para crear un nuevo panel que se mostrará en el menú de la cinta de opciones.
- 
+* Puede utilizar el elemento de menú de la cinta de opciones "+" para crear un nuevo panel que se mostrará en el menú de la cinta de opciones.
+
 ## Menú de engranaje
-- Puede utilizar el menú de engranaje de un panel para eliminar, cambiar el nombre, compartir o programar (recepción por correo electrónico) de su panel. Puede utilizar la opción de programación para definir la programación en la que le gustaría recibir su panel personalizado por correo electrónico. Puede programar recibirlo diaria, semanal o mensualmente. Puede elegir la hora del día y el día de la semana o el día del mes en el que le gustaría recibir el correo electrónico. Su dirección de correo electrónico y la zona horaria se basan en los valores configurados en la sección Mi cuenta de la interfaz de usuario.
- 
- ![dashboard1][34]
+* Puede utilizar el menú de engranaje de un panel para eliminar, cambiar el nombre, compartir o programar (recepción por correo electrónico) de su panel. Puede utilizar la opción de programación para definir la programación en la que le gustaría recibir su panel personalizado por correo electrónico. Puede programar recibirlo diaria, semanal o mensualmente. Puede elegir la hora del día y el día de la semana o el día del mes en el que le gustaría recibir el correo electrónico. Su dirección de correo electrónico y la zona horaria se basan en los valores configurados en la sección Mi cuenta de la interfaz de usuario.
+  
+  ![dashboard1][34]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -127,6 +127,6 @@ La sección del panel de la interfaz de usuario permite a los clientes crear gr�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

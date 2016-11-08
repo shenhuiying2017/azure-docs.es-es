@@ -1,37 +1,34 @@
-<properties
-   pageTitle="Cifrado de datos transparente en SQL Data Warehouse (T-SQL)| Microsoft Azure"
-   description="Cifrado de datos transparente (TDE) en SQL Data Warehouse (T-SQL)"
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Cifrado de datos transparente en SQL Data Warehouse (T-SQL)| Microsoft Docs
+description: Cifrado de datos transparente (TDE) en SQL Data Warehouse (T-SQL)
+services: sql-data-warehouse
+documentationcenter: ''
+author: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="10/31/2016"
-   ms.author="rortloff;barbkess"/>
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
 
-
+---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
-
-
-> [AZURE.SELECTOR]
-- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
-- [Autenticación](sql-data-warehouse-authentication.md)
-- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> [!div class="op_single_selector"]
+> * [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+> * [Autenticación](sql-data-warehouse-authentication.md)
+> * [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
 ## <a name="required-permssions"></a>Permisos necesarios
-
 Para habilitar el Cifrado de datos transparente (TDE), debe ser un administrador o un miembro del rol dbmanager.
 
 ## <a name="enabling-encryption"></a>Habilitar el cifrado
-
 Para habilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos:
 
 1. Conéctese a la base de datos *maestra* en el servidor que hospeda la base de datos mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
@@ -42,7 +39,6 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Deshabilitar el cifrado
-
 Para deshabilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos:
 
 1. Conéctese a la base de datos *maestra* mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
@@ -52,10 +48,12 @@ Para deshabilitar TDE para una instancia de SQL Data Warehouse, siga estos pasos
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
-> [AZURE.NOTE] Se debe reanudar una instancia de SQL Data Warehouse en pausa antes de realizar cambios en la configuración de TDE.
+> [!NOTE]
+> Se debe reanudar una instancia de SQL Data Warehouse en pausa antes de realizar cambios en la configuración de TDE.
+> 
+> 
 
 ## <a name="verifying-encryption"></a>Comprobación del cifrado
-
 Para comprobar el estado del cifrado para un Almacenamiento de datos SQL, siga estos pasos:
 
 1. Conéctese a la base de datos *maestra* o de instancia mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
@@ -71,11 +69,9 @@ FROM
 
 Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una base de datos no cifrada.
 
-## <a name="encryption-dmvs"></a>DMV de cifrado  
-
-- [Sys.Databases][] 
-- [sys.dm_pdw_nodes_database_encryption_keys][]
-
+## <a name="encryption-dmvs"></a>DMV de cifrado
+* [Sys.Databases][Sys.Databases] 
+* [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->
 [Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

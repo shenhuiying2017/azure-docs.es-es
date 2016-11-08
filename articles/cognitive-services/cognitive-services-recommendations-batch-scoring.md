@@ -1,30 +1,31 @@
 
-<properties
-	pageTitle="Obtención de recomendaciones por lotes: Recommendations API de Aprendizaje automático | Microsoft Azure"
-	description="Recomendaciones de Aprendizaje automático de Azure - Obtención de recomendaciones por lotes"
-	services="cognitive-services"
-	documentationCenter=""
-	authors="luiscabrer"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 'Obtención de recomendaciones por lotes: Recommendations API de Aprendizaje automático | Microsoft Docs'
+description: Recomendaciones de Aprendizaje automático de Azure - Obtención de recomendaciones por lotes
+services: cognitive-services
+documentationcenter: ''
+author: luiscabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="cognitive-services"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="luisca"/>
+ms.service: cognitive-services
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: luisca
 
+---
 # Obtención de recomendaciones por lotes
-
->[AZURE.NOTE] Obtener recomendaciones por lotes resulta más complicado que obtenerlas una a una. Consulte las API para obtener información acerca de cómo obtener recomendaciones para una única solicitud:
-
+> [!NOTE]
+> Obtener recomendaciones por lotes resulta más complicado que obtenerlas una a una. Consulte las API para obtener información acerca de cómo obtener recomendaciones para una única solicitud:
+> 
 > [Item-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3d4) (Recomendaciones de Item-to-Item)<br> [User-to-Item recommendations](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3dd) (Recomendaciones de User-to-Item)
->
+> 
 > La puntuación por lotes solo funciona en las compilaciones creadas a partir del 21 de julio de 2016.
-
+> 
+> 
 
 Hay situaciones en las que es necesario obtener recomendaciones para varios elementos a la vez. Es posible, por ejemplo, que quiera crear una memoria caché de recomendaciones o incluso analizar los tipos de recomendaciones que recibe.
 
@@ -32,16 +33,15 @@ Las operaciones de puntuación por lotes, tal y como las llamamos, son operacion
 
 En concreto, estos son los pasos que debe seguir:
 
-1.	Cree un contenedor de Almacenamiento de Azure, si aún no se ha creado.
-2.	Cargue en Almacenamiento de blobs de Azure un archivo de entrada que describe cada solicitud de recomendación.
-3.	Inicio del trabajo de puntuación por lotes.
-4.	Espere hasta que se termine la operación asincrónica.
-5.	Cuando haya terminado la operación, recopile los resultados del Almacenamiento de blobs.
+1. Cree un contenedor de Almacenamiento de Azure, si aún no se ha creado.
+2. Cargue en Almacenamiento de blobs de Azure un archivo de entrada que describe cada solicitud de recomendación.
+3. Inicio del trabajo de puntuación por lotes.
+4. Espere hasta que se termine la operación asincrónica.
+5. Cuando haya terminado la operación, recopile los resultados del Almacenamiento de blobs.
 
 Vamos a ver en detalle cada uno de estos pasos.
 
 ## Creación de un contenedor de Almacenamiento, si aún no se ha creado
-
 Vaya al [Portal de Azure](https://portal.azure.com) y cree una nueva cuenta de almacenamiento si aún no tiene una. Para ello, vaya a **Nuevo** > **Datos** y **almacenamiento** > **Cuenta de almacenamiento**.
 
 Una vez que tenga la cuenta de almacenamiento, deberá crear los contenedores de blobs en los que almacenará la entrada y salida de la ejecución por lotes.
@@ -68,7 +68,6 @@ En este ejemplo se muestra el aspecto que tendría el archivo input.json:
 Como puede ver, se trata de un archivo JSON en el que cada una de las solicitudes tiene la información necesaria para enviar una solicitud de recomendación. Cree un archivo JSON similar para las solicitudes que necesite realizar y cópielo en el contenedor que acaba de crear en Almacenamiento de blobs.
 
 ## Inicio del trabajo de puntuación por lotes
-
 El siguiente paso consiste en enviar un nuevo trabajo por lotes. Para más información, consulte la [Referencia de API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/).
 
 En el cuerpo de la solicitud de la API, deben estar definidas las ubicaciones en las se van a guardar los archivos de entrada, salida y error. También debe definir las credenciales necesarias para acceder a dichas ubicaciones. Además, debe especificar algunos parámetros que se aplican a todo el lote, como el tipo de recomendación que se va a solicitar, el modelo o compilación que se va a utilizar, el número de resultados por llamada, etc.
@@ -106,18 +105,14 @@ En este ejemplo se muestra cómo quedaría el cuerpo de la solicitud:
 
 Hay varios aspectos importantes que se deben tener en cuenta:
 
--	En la actualidad, **AuthenticationType** siempre debe estar establecido en **PublicOrSas**.
-
--	Necesita un token de Firma de acceso compartido (SAS) para que Recommendations API pueda leer la cuenta de Almacenamiento de blobs y escribir en ella. Para más información acerca de cómo generar tokens de SAS consulte [la página de Recommendations API](../storage/storage-dotnet-shared-access-signature-part-1.md).
-
--	El único valor de **apiName** que se admite en la actualidad es **ItemRecommend**, que es el que se utiliza en las recomendaciones de Item-to-Item. El procesamiento por lotes no admite actualmente las recomendaciones User-to-Item.
+* En la actualidad, **AuthenticationType** siempre debe estar establecido en **PublicOrSas**.
+* Necesita un token de Firma de acceso compartido (SAS) para que Recommendations API pueda leer la cuenta de Almacenamiento de blobs y escribir en ella. Para más información acerca de cómo generar tokens de SAS consulte [la página de Recommendations API](../storage/storage-dotnet-shared-access-signature-part-1.md).
+* El único valor de **apiName** que se admite en la actualidad es **ItemRecommend**, que es el que se utiliza en las recomendaciones de Item-to-Item. El procesamiento por lotes no admite actualmente las recomendaciones User-to-Item.
 
 ## Espere hasta que se termine la operación asincrónica.
-
 Cuando inicie la operación por lotes, esta operación devolverá el encabezado de Operation-Location que le proporcionará la información que necesita para hacer el seguimiento de la operación. Utilice la [Retrieve Operation Status API](https://westus.dev.cognitive.microsoft.com/docs/services/Recommendations.V4.0/operations/56f30d77eda5650db055a3da), tal y como haría para hacer el seguimiento de una operación de compilación.
 
 ## Obtención de los resultados
-
 Una vez que se ha terminado la operación (y suponiendo que no se han producido errores), puede recopilar los resultados del Almacenamiento de blobs de salida.
 
 El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abreviar, en este ejemplo se han incluido los resultados de un lote con solo dos solicitudes.
@@ -194,8 +189,7 @@ El ejemplo siguiente muestra el aspecto que podría tener la salida. Para abrevi
 
 
 ## Obtenga información acerca de las limitaciones
-
--	Solo se puede llamar a un único trabajo por lotes por cada suscripción.
--	El tamaño de los archivos de entrada del trabajo por lotes no puede ser superior a 2 MB.
+* Solo se puede llamar a un único trabajo por lotes por cada suscripción.
+* El tamaño de los archivos de entrada del trabajo por lotes no puede ser superior a 2 MB.
 
 <!---HONumber=AcomDC_0914_2016-->

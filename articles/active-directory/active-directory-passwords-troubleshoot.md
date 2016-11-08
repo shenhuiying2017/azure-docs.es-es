@@ -1,24 +1,26 @@
-<properties
-	pageTitle="Solución de problemas: Administración de contraseñas de Azure AD | Microsoft Azure"
-	description="Pasos comunes de solución de problemas para la administración de contraseñas de Azure AD, entre otros, restablecimiento, cambio, escritura diferida, registro y la información que hay que proporcionar al solicitar ayuda."
-	services="active-directory"
-	documentationCenter=""
-	authors="asteen"
-	manager="femila"
-	editor="curtand"/>
+---
+title: 'Solución de problemas: Administración de contraseñas de Azure AD | Microsoft Docs'
+description: Pasos comunes de solución de problemas para la administración de contraseñas de Azure AD, entre otros, restablecimiento, cambio, escritura diferida, registro y la información que hay que proporcionar al solicitar ayuda.
+services: active-directory
+documentationcenter: ''
+author: asteen
+manager: femila
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/12/2016"
-	ms.author="asteen"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/12/2016
+ms.author: asteen
 
+---
 # Solución de problemas de administración de contraseñas
-
-> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> [!IMPORTANT]
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> 
+> 
 
 Si tiene problemas con la administración de contraseñas, estamos aquí para ayudarlo. Se pueden resolver la mayoría de los problemas que pueden surgir con unos sencillos pasos que puede leer a continuación para solucionar problemas de implementación:
 
@@ -28,29 +30,27 @@ Si tiene problemas con la administración de contraseñas, estamos aquí para ay
 * [**Problemas con el portal de registro de restablecimiento de contraseña**](#troubleshoot-the-password-reset-registration-portal)
 * [**Problemas con el portal de restablecimiento de contraseña**](#troubleshoot-the-password-reset-portal)
 * [**Problemas con la escritura diferida de contraseñas**](#troubleshoot-password-writeback)
-  - [Códigos de error de registro de eventos de escritura diferida de contraseñas](#password-writeback-event-log-error-codes)
-  - [Problemas con la conectividad de la escritura diferida de contraseñas](#troubleshoot-password-writeback-connectivity)
+  * [Códigos de error de registro de eventos de escritura diferida de contraseñas](#password-writeback-event-log-error-codes)
+  * [Problemas con la conectividad de la escritura diferida de contraseñas](#troubleshoot-password-writeback-connectivity)
 
 Si ha probado los pasos de solución de problemas siguientes y continúa teniendo problemas, puede publicar una pregunta en los [foros de Azure AD](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD) o ponerse en contacto con el servicio de soporte técnico y estudiaremos el problema en cuanto nos sea posible.
 
 ## Información para incluir si necesita ayuda
-
 Si no puede resolver el problema con las instrucciones siguientes, póngase en contacto con nuestros ingenieros de soporte técnico. Cuando se comunique con ellos, se recomienda que incluya la información siguiente:
 
- - **Descripción general del error**: qué mensaje de error exacto ha obtenido el usuario. Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado.
- - **Página**: en qué página estaba cuando se generó el error (incluir la dirección URL).
- - **Fecha/hora/marca de tiempo**: en qué fecha y a qué hora exactamente se ha generado el error (incluir la marca de tiempo).
- - **Código de soporte** : qué código de soporte se generó cuando el usuario obtuvo el error (para encontrarlo, reproducir el error, hacer clic en el vínculo Código de soporte en la parte inferior de la pantalla y enviar el GUID resultante al ingeniero de soporte).
-   - Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
-
+* **Descripción general del error**: qué mensaje de error exacto ha obtenido el usuario. Si no hay ningún mensaje de error, describe detalladamente el comportamiento inesperado observado.
+* **Página**: en qué página estaba cuando se generó el error (incluir la dirección URL).
+* **Fecha/hora/marca de tiempo**: en qué fecha y a qué hora exactamente se ha generado el error (incluir la marca de tiempo).
+* **Código de soporte** : qué código de soporte se generó cuando el usuario obtuvo el error (para encontrarlo, reproducir el error, hacer clic en el vínculo Código de soporte en la parte inferior de la pantalla y enviar el GUID resultante al ingeniero de soporte).
+  
+  * Si se encuentra en una página sin código de soporte en la parte inferior, presione F12 y busque el SID y CID y envíe estos dos resultados al ingeniero de soporte.
+    
     ![][001]
-
- - **Id. de usuario**: ¿cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
- - **Información sobre el usuario**: si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube. ¿El usuario tenía asignada una licencia AAD Premium o AAD Basic?
- - **Registro de eventos de la aplicación**: si utiliza la escritura diferida de contraseñas y el error se produce en la infraestructura local, comprima una copia del registro de eventos de la aplicación desde el servidor de Azure AD Connect y envíela junto con su solicitud.
+* **Id. de usuario**: ¿cuál fue el identificador del usuario que ha obtenido el error (por ejemplo, user@contoso.com)?
+* **Información sobre el usuario**: si se trataba de un usuario federado, con sincronización de hash de contraseña o solo de la nube. ¿El usuario tenía asignada una licencia AAD Premium o AAD Basic?
+* **Registro de eventos de la aplicación**: si utiliza la escritura diferida de contraseñas y el error se produce en la infraestructura local, comprima una copia del registro de eventos de la aplicación desde el servidor de Azure AD Connect y envíela junto con su solicitud.
 
 Incluir esta información nos ayudará a solucionar el problema lo antes posible.
-
 
 ## Solución de problemas con la configuración de restablecimiento de contraseñas en el Portal de administración de Azure
 Si se produce un error al configurar el restablecimiento de la contraseña, puede resolverlo con los pasos de solución de problemas siguientes:
@@ -375,11 +375,11 @@ Si se produce un error al restablecer la contraseña de un usuario, puede resolv
               <p>Implementamos un mecanismo de limitación automático para evitar que los usuarios intenten restablecer sus contraseñas demasiadas veces en un breve período de tiempo. Esto ocurre cuando:</p>
               <ol class="ordered">
                 <li>
-										Un usuario intenta validar un número de teléfono 5 veces en una hora.<br\><br\></li>
+                                        Un usuario intenta validar un número de teléfono 5 veces en una hora.<br\><br\></li>
                 <li>
-										Un usuario intenta utilizar la puerta de preguntas de seguridad 5 veces en una hora.<br\><br\></li>
+                                        Un usuario intenta utilizar la puerta de preguntas de seguridad 5 veces en una hora.<br\><br\></li>
                 <li>
-										Un usuario intenta restablecer la contraseña de la misma cuenta de usuario 5 veces en una hora.<br\><br\></li>
+                                        Un usuario intenta restablecer la contraseña de la misma cuenta de usuario 5 veces en una hora.<br\><br\></li>
               </ol>
               <p>Para solucionar este problema, indique al usuario que espere 24 horas después del último intento, y el usuario podrá restablecer su contraseña.</p>
             </td>
@@ -456,21 +456,21 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Durante el reinicio del servicio ADSync, si se configuró la escritura diferida, se iniciará el extremo de WCF. Sin embargo, si se produce un error en el inicio del extremo, simplemente, se registra el evento 6800 y se deja que se inicie el servicio de sincronización. La presencia de este evento significa que el extremo de la escritura diferida de contraseñas no se ha iniciado. Los detalles de registro de eventos para este evento (6800) junto con las entradas de registro de eventos generadas por el componente PasswordResetService indicarán por qué el extremo no se ha podido iniciar. Revise estos errores de registro de eventos e intente volver a iniciar Azure AD Connect si la escritura diferida de contraseñas sigue sin funcionar. Si el problema persiste, intente deshabilitar y volver a habilitar la escritura diferida de contraseñas.</p>
             </td>
           </tr>
-					<tr>
+                    <tr>
             <td>
               <p>Cuando un usuario intenta restablecer una contraseña o desbloquear una cuenta con la escritura diferida de contraseñas habilitada, se produce un error en la operación. Además, verá un evento en el registro de eventos de Azure AD Connect que contiene: “Synchronization Engine returned an error hr=800700CE, message=The filename or extension is too long” (El motor de sincronización devolvió un error hr=800700CE, mensaje=El nombre de archivo o la extensión es demasiado largo) después de la operación de desbloqueo.
-							</p>
+                            </p>
             </td>
             <td>
               <p>Esto puede ocurrir si había realizado la actualización a partir de versiones anteriores de Azure AD Connect o DirSync. La actualización a versiones anteriores de Azure AD Connect establece una contraseña de 254 caracteres para la cuenta del agente de administración de Azure AD (las versiones más recientes establecen una contraseña de 127 caracteres). Dichas contraseñas largas van bien para las operaciones de importación y exportación de AD Connector, pero no son compatibles con la operación de desbloqueo.
-							</p>
+                            </p>
             </td>
             <td>
-              <p>[Busque la cuenta de Active Directory] (active-directory-aadconnect-accounts-permissions.md#active-directory-account) para Azure AD Connect y restablezca la contraseña para que no contenga más de 127 caracteres. Después abra el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores ** y busque el **Conector Active Directory**. Selecciónelo y haga clic en **Propiedades**. Navegue a la página **Credenciales** y escriba la nueva contraseña. Seleccione **Aceptar** para cerrar la página.
-							</p>
+              <p>[Busque la cuenta de Active Directory](active-directory-aadconnect-accounts-permissions.md#active-directory-account) para Azure AD Connect y restablezca la contraseña para que no contenga más de 127 caracteres. Después abra el **Servicio de sincronización** desde el menú Inicio. Vaya a **Conectores ** y busque el **Conector Active Directory**. Selecciónelo y haga clic en **Propiedades**. Navegue a la página **Credenciales** y escriba la nueva contraseña. Seleccione **Aceptar** para cerrar la página.
+                            </p>
             </td>
           </tr>
-					<tr>
+                    <tr>
             <td>
               <p>Error al configurar la escritura diferida durante la instalación de Azure AD Connect.</p>
             </td>
@@ -485,11 +485,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Este error se produce en los dos casos siguientes:</p>
               <ul>
                 <li class="unordered">
-										Ha especificado una contraseña incorrecta para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
+                                        Ha especificado una contraseña incorrecta para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Ha tratado de usar un usuario federado para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
+                                        Ha tratado de usar un usuario federado para la cuenta de administrador global especificada al principio del proceso de instalación de Azure AD Connect.<br\><br\></li>
               </ul>
               <p>Para corregir este error, asegúrese de que no está usando una cuenta federada para el administrador global que especificó al principio del proceso de instalación de Azure AD Connect y que la contraseña especificada es correcta.</p>
             </td>
@@ -516,11 +516,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Asegúrese de que el firewall permite las conexiones salientes para lo siguiente:</p>
               <ul>
                 <li class="unordered">
-										Todo el tráfico a través de TCP 443 (HTTPS)<br\><br\></li>
+                                        Todo el tráfico a través de TCP 443 (HTTPS)<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Conexiones salientes a <br\><br\></li>
+                                        Conexiones salientes a <br\><br\></li>
               </ul>
               <p>
 
@@ -574,11 +574,11 @@ Si se produce un error al habilitar, deshabilitar o usar la escritura diferida d
               <p>Hay un problema conocido en la versión publicada de Azure AD Connect que se manifiesta en la siguiente situación:</p>
               <ol class="ordered">
                 <li>
-										Configura Azure AD Connect para abc.com inquilino (dominio comprobado) mediante credenciales. Esto crea el conector de AAD con el nombre "abc.com – AAD".<br\><br\></li>
+                                        Configura Azure AD Connect para abc.com inquilino (dominio comprobado) mediante credenciales. Esto crea el conector de AAD con el nombre "abc.com – AAD".<br\><br\></li>
                 <li>
-										A continuación, cambie las credenciales de AAD para el conector (mediante la UI de sincronización anterior) (tenga en cuenta que se trata del mismo inquilino, pero con un nombre de dominio distinto). <br\><br\></li>
+                                        A continuación, cambie las credenciales de AAD para el conector (mediante la UI de sincronización anterior) (tenga en cuenta que se trata del mismo inquilino, pero con un nombre de dominio distinto). <br\><br\></li>
                 <li>
-										Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El asistente creará el nombre del conector mediante las credenciales, como "abc.onmicrosoft.com – AAD", y pasará al cmdlet de escritura diferida de contraseñas. Esto generará un error porque no hay ningún conector creado con este nombre.<br\><br\></li>
+                                        Ahora intente habilitar/deshabilitar la escritura diferida de contraseñas. El asistente creará el nombre del conector mediante las credenciales, como "abc.onmicrosoft.com – AAD", y pasará al cmdlet de escritura diferida de contraseñas. Esto generará un error porque no hay ningún conector creado con este nombre.<br\><br\></li>
               </ol>
               <p>Esto se ha solucionado en nuestras compilaciones más recientes. Si tiene una compilación anterior, una solución alternativa es usar el cmdlet de PowerShell para habilitar o deshabilitar la característica. Consulte "Paso 2: Habilitar la escritura diferida de contraseñas en su equipo de sincronización de directorios y configurar reglas de firewall" en <a href="active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords">Cómo habilitar o deshabilitar la escritura diferida de contraseñas</a> para obtener más información acerca de cómo hacerlo.</p>
             </td>
@@ -701,19 +701,19 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio.</p>
               <ul>
                 <li class="unordered">
-										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
+                                        Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
+                                        Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
+                                        Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
+                                        Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -775,15 +775,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento indica que un usuario selecciona una contraseña y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+                                        La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+                                        La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+                                        La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -858,15 +858,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento indica que un usuario selecciona una contraseña y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+                                        La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+                                        La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+                                        La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -913,15 +913,15 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>El administrador ha seleccionado una contraseña en nombre de un usuario y que la contraseña ha llegado correctamente al entorno local, pero al intentar establecer la contraseña en el entorno de AD local, se produjo un error. Esto puede ocurrir por varios motivos:</p>
               <ul>
                 <li class="unordered">
-										La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
+                                        La contraseña el usuario no cumple los requisitos de antigüedad, historial, complejidad o filtro del dominio. Pruebe una contraseña completamente nueva para solucionar el problema.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
+                                        La cuenta de servicio del agente de administración no tiene los permisos adecuados para establecer la nueva contraseña en la cuenta de usuario en cuestión.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
+                                        La cuenta de usuario está en un grupo protegido, como administradores del dominio o de empresa, lo que impide la ejecución de operaciones de conjunto de contraseñas.<br\><br\></li>
               </ul>
               <p>Consulte <a href="#troubleshoot-password-writeback">Solución de problemas con la escritura diferida de contraseñas</a> para obtener más información acerca de qué otras situaciones pueden producir este error.</p>
             </td>
@@ -1360,19 +1360,19 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
               <p>Este evento se produce cuando el servicio de escritura diferida de contraseñas intenta establecer una contraseña en su directorio local que no cumple la duración de la contraseña, el historial, la complejidad o los requisitos de filtrado del dominio.</p>
               <ul>
                 <li class="unordered">
-										Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
+                                        Si tiene una vigencia mínima de contraseña y ha cambiado recientemente la contraseña desde la ventana de tiempo, no podrá volver a cambiarla hasta que alcance la duración especificada en el dominio. Con fines de prueba, la duración mínima debe establecerse en 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
+                                        Si tiene los requisitos del historial de contraseña habilitados, debe seleccionar una contraseña que no se haya utilizado en las últimas N veces, donde N es la configuración de la duración de la contraseña. Si selecciona una contraseña que se ha utilizado en las últimas N veces, a continuación, verá un error en este caso. Con fines de prueba, el historial mínimo debe establecerse en 0.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
+                                        Si tiene requisitos de complejidad de contraseña, todos ellos se aplicarán cuando el usuario intenta cambiar o restablecer una contraseña.<br\><br\></li>
               </ul>
               <ul>
                 <li class="unordered">
-										Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
+                                        Si tiene habilitados filtros de contraseña y un usuario selecciona una contraseña que no cumple los criterios de filtrado, se producirá un error en la operación de restablecimiento o modificación.<br\><br\></li>
               </ul>
             </td>
           </tr>
@@ -1435,45 +1435,43 @@ Una práctica recomendada para solucionar problemas con la escritura diferida de
         </tbody></table>
 
 ## Solución de problemas con la conectividad de la escritura diferida de contraseñas
-
 Si se producen interrupciones del servicio con el componente de escritura diferida de contraseñas de Azure AD Connect, aquí tiene algunos pasos que puede seguir para resolver este problema:
 
- - [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
- - [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
- - [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
- - [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback)
+* [Reinicio del servicio de sincronización de Azure AD Connect](#restart-the-azure-AD-Connect-sync-service)
+* [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
+* [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
+* [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback)
 
 En general, se recomienda que ejecute estos pasos en el orden anterior con el fin de recuperar el servicio de la manera más rápida.
 
 ### Reinicio del servicio de sincronización de Azure AD Connect
 Reiniciar el servicio de sincronización de Azure AD Connect puede ayudar a solucionar problemas de conectividad u otros problemas transitorios con el servicio.
 
- 1.	Como administrador, haga clic en **Iniciar** en el servidor que ejecuta **Azure AD Connect**.
- 2.	Escriba **"services.msc"** en el cuadro de búsqueda y presione **ENTRAR**.
- 3.	Busque la entrada **Microsoft Azure AD Connect**.
- 4.	Haga clic con el botón secundario en la entrada del servicio, haga clic en **Reiniciar** y espere a que se complete la operación.
-
-    ![][002]
+1. Como administrador, haga clic en **Iniciar** en el servidor que ejecuta **Azure AD Connect**.
+2. Escriba **"services.msc"** en el cuadro de búsqueda y presione **ENTRAR**.
+3. Busque la entrada **Microsoft Azure AD Connect**.
+4. Haga clic con el botón secundario en la entrada del servicio, haga clic en **Reiniciar** y espere a que se complete la operación.
+   
+   ![][002]
 
 Estos pasos restablecerán la conexión con el servicio en la nube y resolverán las interrupciones que pueda experimentar. Si reiniciar el servicio de sincronización no resuelve el problema, se recomienda que intente deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas en el siguiente paso.
 
 ### Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña
 Deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas puede ayudar a resolver problemas de conectividad.
 
- 1.	Como administrador, abra el **Asistente de configuración de Azure AD Connect**.
- 2.	En el cuadro de diálogo **Conectarse a Azure AD**, escriba las **credenciales de administrador global de Azure AD**.
- 3.	En el cuadro de diálogo **Conectarse a Azure AD**, escriba las **credenciales de administrador de Servicios de dominio de AD**.
- 4.	En el cuadro de diálogo **Identificación de forma exclusiva de usuarios**, haga clic en el botón **Siguiente**.
- 5.	En el cuadro de diálogo **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
-
-    ![][003]
-
- 6.	Haga clic en **Siguiente** en las páginas de diálogo restantes sin cambiar nada hasta llegar a la página **Listo para configurar**.
- 7.	Asegúrese de que en la página de configuración aparece **Opción de escritura diferida de contraseñas deshabilitada** y, a continuación, haga clic en el botón verde **Configurar** para confirmar los cambios.
- 8.	En el cuadro de diálogo **Finalizado**, anule la selección de la opción **Sincronizar ahora** y, a continuación, haga clic en **Finalizar** para cerrar el asistente.
- 9.	Vuelva a abrir el **Asistente de configuración de Azure AD Connect**.
- 10.	**Repita los pasos 2 a 8**, salvo que debe asegurarse de **volver a marcar la opción de escritura diferida de contraseñas** en la pantalla **Características opcionales** para volver a habilitar el servicio.
-
+1. Como administrador, abra el **Asistente de configuración de Azure AD Connect**.
+2. En el cuadro de diálogo **Conectarse a Azure AD**, escriba las **credenciales de administrador global de Azure AD**.
+3. En el cuadro de diálogo **Conectarse a Azure AD**, escriba las **credenciales de administrador de Servicios de dominio de AD**.
+4. En el cuadro de diálogo **Identificación de forma exclusiva de usuarios**, haga clic en el botón **Siguiente**.
+5. En el cuadro de diálogo **Características opcionales**, desactive la casilla **Escritura diferida de contraseñas**.
+   
+   ![][003]
+6. Haga clic en **Siguiente** en las páginas de diálogo restantes sin cambiar nada hasta llegar a la página **Listo para configurar**.
+7. Asegúrese de que en la página de configuración aparece **Opción de escritura diferida de contraseñas deshabilitada** y, a continuación, haga clic en el botón verde **Configurar** para confirmar los cambios.
+8. En el cuadro de diálogo **Finalizado**, anule la selección de la opción **Sincronizar ahora** y, a continuación, haga clic en **Finalizar** para cerrar el asistente.
+9. Vuelva a abrir el **Asistente de configuración de Azure AD Connect**.
+10. **Repita los pasos 2 a 8**, salvo que debe asegurarse de **volver a marcar la opción de escritura diferida de contraseñas** en la pantalla **Características opcionales** para volver a habilitar el servicio.
+    
     ![][004]
 
 Estos pasos restablecerán la conexión con el servicio en la nube y resolverán las interrupciones que pueda experimentar.
@@ -1483,16 +1481,15 @@ Si el problema no se soluciona después de deshabilitar y volver a habilitar la 
 ### Instalación de la última versión de Azure AD Connect
 Volver a instalar el paquete de Azure AD Connect resolverá cualquier problema de configuración que pueda afectar a su capacidad de conectarse a nuestros servicios en la nube o administrar contraseñas en su entorno de AD local. Se recomienda realizar este paso sólo después de probar los dos primeros pasos descritos anteriormente.
 
- 1.	Descargue la última versión de Azure AD Connect [aquí](active-directory-aadconnect.md#install-azure-ad-connect).
- 2.	Puesto que ya ha instalado Azure AD Connect, sólo necesitará realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
- 3.	Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect. No se necesitan pasos manuales adicionales a menos que haya personalizado reglas de sincronización rápida, en cuyo caso debe **realizar una copia de seguridad antes de continuar con la actualización y volver a implementarla de forma manual cuando haya terminado**.
+1. Descargue la última versión de Azure AD Connect [aquí](active-directory-aadconnect.md#install-azure-ad-connect).
+2. Puesto que ya ha instalado Azure AD Connect, sólo necesitará realizar una actualización in situ para actualizar la instalación de Azure AD Connect a la versión más reciente.
+3. Ejecute el paquete descargado y siga las instrucciones en pantalla para actualizar el equipo de Azure AD Connect. No se necesitan pasos manuales adicionales a menos que haya personalizado reglas de sincronización rápida, en cuyo caso debe **realizar una copia de seguridad antes de continuar con la actualización y volver a implementarla de forma manual cuando haya terminado**.
 
 Estos pasos restablecerán la conexión con el servicio en la nube y resolverán las interrupciones que pueda experimentar.
 
 Si instalar la última versión del servidor de Azure AD Connect no resuelve el problema, le recomendamos que intente deshabilitar y volver a habilitar la escritura diferida de contraseñas como último paso después de instalar la QFE de sincronización más reciente.
 
 Si esto no resuelve el problema, recomendamos que eche un vistazo a [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback) y a las [preguntas más frecuentes sobre la administración de contraseñas de Azure AD](active-directory-passwords-faq.md) para ver si ahí se puede tratar el problema.
-
 
 <br/> <br/> <br/>
 
@@ -1507,8 +1504,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**Obtener perspectivas**](active-directory-passwords-get-insights.md): obtenga información sobre nuestras capacidades integradas de creación de informes.
 * [**Preguntas más frecuentes**](active-directory-passwords-faq.md): obtenga respuestas a las preguntas más frecuentes.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
-
-
 
 [001]: ./media/active-directory-passwords-troubleshoot/001.jpg "Image_001.jpg"
 [002]: ./media/active-directory-passwords-troubleshoot/002.jpg "Image_002.jpg"

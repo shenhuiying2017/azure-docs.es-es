@@ -1,33 +1,33 @@
-<properties
-	pageTitle="Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía | Microsoft Azure"
-	description="Plantilla de solución con Microsoft Cortana Intelligence que ayuda a prever la demanda de una empresa de suministro de energía."
-	services="cortana-analytics"
-	documentationCenter=""
-	authors="ilanr9"
-	manager="ilanr9"
-	editor="yijichen"/>
+---
+title: Cuaderno de estrategias de la plantilla de solución de Cortana Intelligence para la previsión de demanda de energía | Microsoft Docs
+description: Plantilla de solución con Microsoft Cortana Intelligence que ayuda a prever la demanda de una empresa de suministro de energía.
+services: cortana-analytics
+documentationcenter: ''
+author: ilanr9
+manager: ilanr9
+editor: yijichen
 
-<tags
-	ms.service="cortana-analytics"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/24/2016"
-	ms.author="ilanr9;yijichen;garye"/>
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2016
+ms.author: ilanr9;yijichen;garye
 
-# Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía  
-
-## Resumen ejecutivo  
-
+---
+# Cuaderno de estrategias de la plantilla de soluciones de Cortana Intelligence para la previsión de la demanda de energía
+## Resumen ejecutivo
 En los últimos años, Internet de las cosas (IoT), las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en los sectores de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía. De ahí que tanto las compañías de sectores públicos como las de redes de distribución eléctrica inteligentes necesitan imperiosamente innovar y renovarse. Además, muchas de las redes eléctricas y de servicios públicos se han quedado obsoletas y son muy caras de mantener y administrar. Durante el último año, el equipo ha trabajado en varios contratos con el sector energético. Durante ese tiempo, hemos encontrado muchos casos en los que los servicios públicos o los ISV (fabricantes de software independientes) han evaluado las previsiones de demanda energética en el futuro. Estas previsiones desempeñan un rol importante en su negocio actual y futuro, y se han convertido en la base de varios casos de uso. Aquí se incluye la previsión de carga energética a corto y largo plazo, su comercialización, el equilibrio de carga, la optimización de la red. Los macrodatos y los métodos de análisis avanzado (AA), como Aprendizaje automático (ML), son las principales habilitadores de la generación de previsiones precisas y confiables.
 
 En este cuaderno de estrategias se combinan las directrices analíticas y empresariales necesarias para desarrollar e implementar correctamente una solución de predicción de la demanda energética. Estas directrices propuestas pueden ayudar a los servicios públicos, científicos de datos e ingenieros de datos a establecer soluciones en la nube de previsión de demanda totalmente operativas. En el caso de las compañías que acaban de empezar su andadura en el análisis avanzado y en los macrodatos, esta solución puede representar el inicio de su estrategia a largo plazo para las redes de distribución eléctrica inteligentes.
 
->[AZURE.TIP] Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de la demanda de energía](cortana-analytics-architecture-demand-forecasting-energy.md).
+> [!TIP]
+> Para descargar un diagrama que proporcione una introducción a la arquitectura de esta plantilla, consulte [Arquitectura de la plantilla de solución de Cortana Intelligence para la previsión de la demanda de energía](cortana-analytics-architecture-demand-forecasting-energy.md).
+> 
+> 
 
-## Información general  
-
+## Información general
 Este documento trata los negocios, datos y aspectos técnicos del uso de Cortana Intelligence y, en particular, Aprendizaje automático de Azure (AML) para la implementación de soluciones de previsión energética. El documento consta de tres partes principales:
 
 1. Conocimiento del negocio
@@ -44,12 +44,12 @@ Además, el documento incluye material de referencia que permite conocer aún me
 
 Es importante tener en cuenta que en este documento no se pretende tratar el proceso profundo de la ciencia de datos, ni sus aspectos técnicos y matemáticos. Estos detalles se pueden encontrar en la [documentación de Aprendizaje automático de Azure](http://azure.microsoft.com/services/machine-learning/) y estos [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
-### Audiencia de destino   
+### Audiencia de destino
 Este documento va destinado a personal técnico y comercial que desee obtener conocimientos acerca de las soluciones basadas en Aprendizaje automático y de su uso en el entorno de la previsión de la demanda energética.
 
 Los científicos de datos también pueden beneficiarse de la lectura de este documento, ya que conocerán mejor el proceso de alto nivel que controla la implementación de una solución de previsión de la demanda de energía. En este contexto también se puede usar para establecer una buena línea de base y un magnífico punto de partida para obtener información más detallada y avanzada.
 
-### Tendencias del sector  
+### Tendencias del sector
 En los últimos años, IoT, las fuentes de energía alternativas y los macrodatos se han combinado para crear grandes oportunidades en el espacio de los servicios públicos y la energía. Al mismo tiempo, tanto el sector de los servicios públicos como el de la energía han presenciado una reducción del consumo y, al mismo tiempo, la exigencia por parte de los clientes de formas mejores de controlar su uso de la energía.
 
 Muchos servicios públicos y compañías de energía inteligente han liderado el uso de las [redes de distribución eléctrica inteligentes](https://en.wikipedia.org/wiki/Smart_grid) mediante la implementación de varios casos de uso que hacen uso de los datos que generan dichas redes. Muchos casos de uso giran en torno a las características inherentes de la producción de electricidad: no se puede acumular ni almacenar aparte como un inventario. Por lo tanto, se debe usar lo que se produzca. Los servicios públicos que deseen ser más eficientes necesitan prever el consumo eléctrico, simplemente porque eso les proporcionará mayor capacidad de **equilibrar la oferta y la demanda**, lo que evita pérdidas de energía, **reducir las emisiones de gases de efecto invernadero** y controlar los costos.
@@ -61,12 +61,12 @@ Cuando usamos la palabra 'inteligente', en realidad nos referimos a una red de d
 En el resto de este documento, nos centraremos en una familia concreta de casos de uso que cubre la previsión de la demanda de energía futura, a corto y largo plazo. Hemos trabajado en estas áreas durante varios meses y hemos adquirido conocimientos y aptitudes que nos permitirán generar resultados útiles para el sector. En el documento también se tratarán otros casos de uso en un futuro próximo.
 
 ## Conocimiento del negocio
-
 ### Objetivos empresariales
 El objetivo de **Demostración de la energía** es mostrar un análisis predictivo típico y una solución de Aprendizaje automático que se pueden implementar en un período muy breve. En concreto, actualmente nos centramos en habilitar soluciones de previsión de demanda de energía, con el fin de que su valor empresarial se pueda producir y aprovechar rápidamente. La información de este cuaderno de estrategias puede ayudar a lograr los siguientes objetivos:
--   Poco tiempo para valorar la solución basada en Aprendizaje automático.
--   Capacidad para expandir un caso de uso piloto a otros casos de uso o a un ámbito más amplio, según su necesidad de negocio.
--   Obtener rápidamente información de los productos del conjunto de aplicaciones Cortana Intelligence.
+
+* Poco tiempo para valorar la solución basada en Aprendizaje automático.
+* Capacidad para expandir un caso de uso piloto a otros casos de uso o a un ámbito más amplio, según su necesidad de negocio.
+* Obtener rápidamente información de los productos del conjunto de aplicaciones Cortana Intelligence.
 
 Teniendo en cuenta estos objetivos, el fin de este cuaderno de estrategias es proporcionar conocimientos empresariales y técnicos que le ayudarán a lograr dichos objetivos.
 
@@ -75,17 +75,18 @@ En el sector energético, puede haber muchas maneras en que la previsión de la 
 
 #### Previsión de carga a corto plazo
 En el contexto de la demanda de energía, la previsión de carga a corto plazo (STLF) se define como la carga agregada que se prevé en un futuro próximo en distintas partes de la red de distribución de la electricidad (o en la red en conjunto). En este contexto, el corto plazo se define como un horizonte temporal que se encuentra dentro del intervalo entre 1 hora y 24 horas. En algunos casos, también es posible un horizonte de 48 horas. Por lo tanto, STLF es muy común en un caso de uso operativo de la red de distribución de la electricidad. Estos son algunos ejemplos de casos de usos controlador por STLF:
--   Equilibrio de suministro y demanda
--   Soporte de la comercialización de la energía
--   Creación de mercado (establecimiento del precio de la energía)
--   Optimización operativa de la red de distribución de electricidad
--   [Respuesta a la demanda](https://en.wikipedia.org/wiki/Demand_response)
--   Previsión de máxima demanda
--   Administración del lado de la demanda
--   Equilibrio de carga y prevención de sobrecargas
--   Previsión de carga a largo plazo
--   Detección de fallos y anomalías
--   Reducción o redistribución de los picos
+
+* Equilibrio de suministro y demanda
+* Soporte de la comercialización de la energía
+* Creación de mercado (establecimiento del precio de la energía)
+* Optimización operativa de la red de distribución de electricidad
+* [Respuesta a la demanda](https://en.wikipedia.org/wiki/Demand_response)
+* Previsión de máxima demanda
+* Administración del lado de la demanda
+* Equilibrio de carga y prevención de sobrecargas
+* Previsión de carga a largo plazo
+* Detección de fallos y anomalías
+* Reducción o redistribución de los picos
 
 Los modelos STLF se basan principalmente en datos de consumo recientes (último día o semana) y usan la temperatura prevista como indicador importante. En la actualidad, la obtención de una previsión precisa de la temperatura de la próxima hora y hasta un máximo de 24 horas es una tarea cada vez más sencilla. Estos modelos son menos sensibles a los patrones estacionales o a las tendencias de consumo a largo plazo.
 
@@ -103,15 +104,16 @@ Dado que el escenario de consumo de LTLF es principalmente el planeamiento, cabe
 ### Predicción a corto plazo frente a predicción a largo plazo
 En la siguiente tabla se comparan los atributos más importantes de STLF y LTLF:
 
-|Atributo|Previsión de carga a corto plazo|Previsión de carga a largo plazo|
-|---|---|---|
-|Horizonte de pronóstico|De 1 a 48 horas|De 1 a 6 meses o más|
-|Granularidad de datos|Cada hora|Cada hora o a diario|
-|Casos de uso típicos|<ul><li>Equilibrio entre demanda y suministro</li><li>Pronóstico de las horas pico</li><li>Respuesta a la demanda</li></ul>|<ul><li>Planeamiento a largo plazo</li><li>Planeamiento de recursos de redes de distribución eléctrica</li><li>Planeamiento de recursos</li></ul>|
-|Indicadores típicos|<ul><li>Día o semana</li><li>Hora del día</li><li>Temperatura por hora</li></ul>|<ul><li>Mes del año</li><li>Día del mes</li><li>Temperatura y clima a largo plazo</li></ul>|
-|Intervalo de datos históricos|Datos correspondientes a entre dos y tres años|Datos correspondientes entre cinco y diez años|
-|Precisión típica|MAPE* del 5 % o inferior|MAPE* del 25 % o inferior|
-|Frecuencia de pronóstico|Se realiza cada hora o cada 24 horas|Generado una vez al mes, trimestre o año|
+| Atributo | Previsión de carga a corto plazo | Previsión de carga a largo plazo |
+| --- | --- | --- |
+| Horizonte de pronóstico |De 1 a 48 horas |De 1 a 6 meses o más |
+| Granularidad de datos |Cada hora |Cada hora o a diario |
+| Casos de uso típicos |<ul><li>Equilibrio entre demanda y suministro</li><li>Pronóstico de las horas pico</li><li>Respuesta a la demanda</li></ul> |<ul><li>Planeamiento a largo plazo</li><li>Planeamiento de recursos de redes de distribución eléctrica</li><li>Planeamiento de recursos</li></ul> |
+| Indicadores típicos |<ul><li>Día o semana</li><li>Hora del día</li><li>Temperatura por hora</li></ul> |<ul><li>Mes del año</li><li>Día del mes</li><li>Temperatura y clima a largo plazo</li></ul> |
+| Intervalo de datos históricos |Datos correspondientes a entre dos y tres años |Datos correspondientes entre cinco y diez años |
+| Precisión típica |MAPE* del 5 % o inferior |MAPE* del 25 % o inferior |
+| Frecuencia de pronóstico |Se realiza cada hora o cada 24 horas |Generado una vez al mes, trimestre o año |
+
 *[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) (error absoluto porcentual de la media)
 
 Como se puede ver en esta tabla, es muy importante distinguir entre escenarios de pronóstico a corto y largo plazo, ya que representan diferentes necesidades empresariales y pueden tener patrones de implementación y consumo diferentes.
@@ -122,9 +124,10 @@ Un rol importante de una [red de distribución inteligente de electricidad](http
 En este caso de uso, [eSmart](http://www.esmartsystems.com/) deseaba implementar una solución basada en la nube que permitiera predecir la tendencia de una situación de sobrecarga en cualquier subestación dada de la red de distribución de electricidad. En concreto, eSmart deseaba identificar las subestaciones que probablemente se sobrecarguen en la próxima hora, con el fin de poderse tomar una acción inmediata para evitar dicha situación, o resolverla.
 
 Una predicción precisa y rápida del funcionamiento requiere la implementación de tres modelos predictivos:
--   Un modelo a largo plazo que permite el pronóstico del consumo eléctrico de cada estación durante las próximas semanas o meses.
--   Un modelo a corto plazo que permite la predicción de una situación de sobrecarga en una subestación determinada durante la próxima hora.
--   Un modelo de temperatura que permite el pronóstico la temperatura futura en varios escenarios.
+
+* Un modelo a largo plazo que permite el pronóstico del consumo eléctrico de cada estación durante las próximas semanas o meses.
+* Un modelo a corto plazo que permite la predicción de una situación de sobrecarga en una subestación determinada durante la próxima hora.
+* Un modelo de temperatura que permite el pronóstico la temperatura futura en varios escenarios.
 
 El objetivo del modelo a largo plazo es clasificar las subestaciones por su tendencia a la sobrecarga (dada su capacidad de transmisión de energía) durante la próxima semana o mes. Esto permite crear una lista corta de subestaciones que serviría como entrada para la predicción a corto plazo. Dado que la temperatura es un indicador importante del modelo a largo plazo, existe la necesidad de crear pronósticos de la temperatura en varios escenarios y usarlos como entrada en el modelo a largo plazo. Luego se invoca el pronóstico a corto plazo para predecir cuál de las estaciones es probable que se sobrecargue en la próxima hora.
 
@@ -138,16 +141,17 @@ El principal punto fuerte de Cortana Intelligence radica en su eficaz capacidad 
 Por lo tanto, es importante tener en cuenta que no todos los casos de uso y problemas empresariales pueden resolverse de forma eficaz mediante el aprendizaje automático.
 
 Cortana Intelligence y el aprendizaje automático pueden ser muy eficaces para resolver un problema empresarial determinado cuando se cumplen los criterios siguientes:
--   El problema empresarial actual es **predictivo** por naturaleza. Un ejemplo de caso de uso predictivo es una empresa de servicios que desea predecir la carga de energía que tendrá un subestación determinada durante la siguiente hora. Por otro lado, el análisis y la clasificación de los potenciadores de demanda histórico serían **descriptivos** por naturaleza y, por tanto, menos aplicables.
--   Una vez que la predicción está disponible, las **acciones que se deben** realizar son evidentes. Por ejemplo, si se predice que una subestación va a sufrir una sobrecarga en la próxima hora, se puede desencadenar la acción proactiva de reducir la carga asociada a dicha subestación, con lo que se evita potencialmente una sobrecarga.
--   El caso de uso representa una **tipo de problema habitual** que, una vez resuelto, puede preparar el terreno para resolver otros casos de uso similares.
--   El cliente puede establecer **objetivos cuantitativos y cualitativos** para demostrar una implementación correcta de una solución. Por ejemplo, un buen objetivo cuantitativo para la previsión de la demanda de energía sería el umbral de precisión necesario (*por ejemplo,*, se permite un error máximo del 5%) o cuando se predice la sobrecarga de la subestación, la precisión (índice de verdaderos positivos) y recuperación (grado de positivos verdaderos) deben estar por encima de un umbral determinado. Estos objetivos se deben derivar de los objetivos de negocio del cliente.
--   Hay un claro **escenario de integración** con el flujo de trabajo de negocio de la compañía. Por ejemplo, el pronóstico de la carga de la subestación se puede integrar en el centro de control de la red de distribución de electricidad para permitir las actividades de prevención de sobrecarga.
--   El cliente tiene **datos listos para su uso con la calidad suficiente** para dar soporte al caso de uso (en la siguiente sección de este cuaderno de estrategias, **Calidad de los datos**, encontrará más información al respecto).
--   El cliente usa una arquitectura de datos centrada en la nube o un **aprendizaje automático basado en la nube**, que incluye Aprendizaje automático de Azure y otros componentes del conjunto de aplicaciones Cortana Intelligence.
--   El cliente está dispuesto a establecer **un flujo de datos de un extremo al otro** que facilite el envío de datos a la nube de manera continua y a **poner en funcionamiento** la solución.
--   El cliente está listo para **dedicar recursos** que se involucrarán activamente durante la implementación piloto inicial, con el fin de que el conocimiento y la propiedad de la solución pueda transferirse al cliente si dicha implementación se completa de manera correcta.
--   El recurso del cliente debe ser un **profesional de datos cualificado**, preferiblemente un científico de datos.
+
+* El problema empresarial actual es **predictivo** por naturaleza. Un ejemplo de caso de uso predictivo es una empresa de servicios que desea predecir la carga de energía que tendrá un subestación determinada durante la siguiente hora. Por otro lado, el análisis y la clasificación de los potenciadores de demanda histórico serían **descriptivos** por naturaleza y, por tanto, menos aplicables.
+* Una vez que la predicción está disponible, las **acciones que se deben** realizar son evidentes. Por ejemplo, si se predice que una subestación va a sufrir una sobrecarga en la próxima hora, se puede desencadenar la acción proactiva de reducir la carga asociada a dicha subestación, con lo que se evita potencialmente una sobrecarga.
+* El caso de uso representa una **tipo de problema habitual** que, una vez resuelto, puede preparar el terreno para resolver otros casos de uso similares.
+* El cliente puede establecer **objetivos cuantitativos y cualitativos** para demostrar una implementación correcta de una solución. Por ejemplo, un buen objetivo cuantitativo para la previsión de la demanda de energía sería el umbral de precisión necesario (*por ejemplo,*, se permite un error máximo del 5%) o cuando se predice la sobrecarga de la subestación, la precisión (índice de verdaderos positivos) y recuperación (grado de positivos verdaderos) deben estar por encima de un umbral determinado. Estos objetivos se deben derivar de los objetivos de negocio del cliente.
+* Hay un claro **escenario de integración** con el flujo de trabajo de negocio de la compañía. Por ejemplo, el pronóstico de la carga de la subestación se puede integrar en el centro de control de la red de distribución de electricidad para permitir las actividades de prevención de sobrecarga.
+* El cliente tiene **datos listos para su uso con la calidad suficiente** para dar soporte al caso de uso (en la siguiente sección de este cuaderno de estrategias, **Calidad de los datos**, encontrará más información al respecto).
+* El cliente usa una arquitectura de datos centrada en la nube o un **aprendizaje automático basado en la nube**, que incluye Aprendizaje automático de Azure y otros componentes del conjunto de aplicaciones Cortana Intelligence.
+* El cliente está dispuesto a establecer **un flujo de datos de un extremo al otro** que facilite el envío de datos a la nube de manera continua y a **poner en funcionamiento** la solución.
+* El cliente está listo para **dedicar recursos** que se involucrarán activamente durante la implementación piloto inicial, con el fin de que el conocimiento y la propiedad de la solución pueda transferirse al cliente si dicha implementación se completa de manera correcta.
+* El recurso del cliente debe ser un **profesional de datos cualificado**, preferiblemente un científico de datos.
 
 La cualificación de un caso de uso según los criterios anteriores puede mejorar considerablemente su índice de éxito y establecer una buena punta de lanza para la implementación de casos de uso en el futuro.
 
@@ -182,16 +186,14 @@ Esto se ilustra en el diagrama siguiente:
 
 A continuación se describe este proceso de cuatro pasos:
 
-1.  **Recopilación de datos**: todas las soluciones basadas en el análisis avanzado confían en los datos (consulte **Conocimiento de los datos**). En concreto, en lo relativo al análisis predictivo y a la previsión, confiamos en un flujo dinámico continuo de datos. En el caso de la previsión de la demanda energética, estos datos pueden proceder directamente de los medidores inteligentes o estar ya agregados a una base de datos local. También confiamos en otros orígenes externos de datos, como el tiempo y la temperatura. Este flujo continuo de datos debe orquestarse, programarse y almacenarse. [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/) (ADF) es nuestro producto estrella para llevar a cabo esta tarea.
-2.  **Modelado**: para que las previsiones de la demanda de energía sean precisos y confiables, es preciso desarrollar (entrenar) y mantener un modelo excelente que haga uso de los datos históricos y extraiga los patrones significativos y predictivos en los datos. El área de Aprendizaje automático (ML) ha crecido rápidamente y ahora se desarrollan de manera habitual algoritmos más avanzados. Estudio de aprendizaje automático de Azure proporciona al usuario una excelente experiencia que le ayuda a utilizar los algoritmos de Aprendizaje automático más avanzados en un flujo de trabajo completo. Dicho flujo se trabajo se ilustra en un diagrama de flujo intuitivo e incluye la preparación de los datos, la extracción de características, el modelado y la evaluación de modelos. El usuario puede atraer cientos de modelos que se incluyen en este entorno. Al final de esta fase, los científicos de datos tendrán un modelo de trabajo totalmente evaluado y listo para su implementación.
-
-	El siguiente diagrama ilustra un flujo de trabajo típico:
-
-	![Flujo de trabajo de modelado](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-
-3.  **Implementación**: con un modelo de trabajo a mano, el paso siguiente es la implementación. Aquí, el modelo se convierte en un servicio web que expone una API de RESTful que se pueden invocar simultáneamente a través de Internet de distintos clientes de consumo. Aprendizaje automático de Azure proporciona una manera sencilla de implementar un modelo directamente desde Estudio de aprendizaje automático de Azure, con un solo clic de un botón. Todo el proceso de implementación se realiza internamente. Esta solución se puede escalar automáticamente para satisfacer el consumo requerido.
-
-4.  **Consumo**: en esta fase es en la que realmente se utiliza el modelo de previsión para generar las previsiones. El consumo se puede controlar desde una aplicación de usuario (*por ejemplo,*, el panel) o directamente desde un sistema operativo como un sistema de equilibrado de demanda/suministro o una solución de optimización de la red de distribución de electricidad. Desde un modelo individual se pueden controlar varios casos de uso.
+1. **Recopilación de datos**: todas las soluciones basadas en el análisis avanzado confían en los datos (consulte **Conocimiento de los datos**). En concreto, en lo relativo al análisis predictivo y a la previsión, confiamos en un flujo dinámico continuo de datos. En el caso de la previsión de la demanda energética, estos datos pueden proceder directamente de los medidores inteligentes o estar ya agregados a una base de datos local. También confiamos en otros orígenes externos de datos, como el tiempo y la temperatura. Este flujo continuo de datos debe orquestarse, programarse y almacenarse. [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/) (ADF) es nuestro producto estrella para llevar a cabo esta tarea.
+2. **Modelado**: para que las previsiones de la demanda de energía sean precisos y confiables, es preciso desarrollar (entrenar) y mantener un modelo excelente que haga uso de los datos históricos y extraiga los patrones significativos y predictivos en los datos. El área de Aprendizaje automático (ML) ha crecido rápidamente y ahora se desarrollan de manera habitual algoritmos más avanzados. Estudio de aprendizaje automático de Azure proporciona al usuario una excelente experiencia que le ayuda a utilizar los algoritmos de Aprendizaje automático más avanzados en un flujo de trabajo completo. Dicho flujo se trabajo se ilustra en un diagrama de flujo intuitivo e incluye la preparación de los datos, la extracción de características, el modelado y la evaluación de modelos. El usuario puede atraer cientos de modelos que se incluyen en este entorno. Al final de esta fase, los científicos de datos tendrán un modelo de trabajo totalmente evaluado y listo para su implementación.
+   
+   El siguiente diagrama ilustra un flujo de trabajo típico:
+   
+   ![Flujo de trabajo de modelado](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
+3. **Implementación**: con un modelo de trabajo a mano, el paso siguiente es la implementación. Aquí, el modelo se convierte en un servicio web que expone una API de RESTful que se pueden invocar simultáneamente a través de Internet de distintos clientes de consumo. Aprendizaje automático de Azure proporciona una manera sencilla de implementar un modelo directamente desde Estudio de aprendizaje automático de Azure, con un solo clic de un botón. Todo el proceso de implementación se realiza internamente. Esta solución se puede escalar automáticamente para satisfacer el consumo requerido.
+4. **Consumo**: en esta fase es en la que realmente se utiliza el modelo de previsión para generar las previsiones. El consumo se puede controlar desde una aplicación de usuario (*por ejemplo,*, el panel) o directamente desde un sistema operativo como un sistema de equilibrado de demanda/suministro o una solución de optimización de la red de distribución de electricidad. Desde un modelo individual se pueden controlar varios casos de uso.
 
 ## Conocimiento de los datos
 Después de cubrir las consideraciones empresariales (consulte **Conocimiento del negocio**) de una solución de previsión de la demanda de energía estamos listos para explicar la parte de los datos. Todas las soluciones de análisis predictivo se basa en datos confiables. Para la previsión de la demanda energética, nos basamos en los datos históricos de consumo con distintos niveles de granularidad. Dichos datos históricos se utilizan como materia prima. Se someterá a un análisis meticuloso en el que los científicos de datos identificarán los indicadores (también denominados funciones) que se pueden colocar en un modelo que finalmente generará los pronósticos necesarios.
@@ -206,21 +208,23 @@ El siguiente diagrama ilustra cómo se puede dividir el proceso de modelado en v
 ![Ciclo de desarrollo del modelo](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
 Como se puede apreciar, el ciclo consta de seis pasos:
--   Formulación del problema
--   Ingesta y exploración de datos
--   Preparación de los datos e ingeniería de características
--   Modelado
--   Evaluación del modelo
--   Desarrollo
+
+* Formulación del problema
+* Ingesta y exploración de datos
+* Preparación de los datos e ingeniería de características
+* Modelado
+* Evaluación del modelo
+* Desarrollo
 
 En el resto de la sección describiremos los pasos individuales y los elementos que se deben considerar en cada paso.
 
 ### Formulación del problema
 La formulación de problema se puede considerar el paso más crítico que es preciso tomar antes de implementar cualquier solución de análisis predictivo. Aquí transformaremos el problema empresarial y lo descompondremos en elementos concretos que pueden resolverse mediante los datos y técnicas de modelado. Se recomienda formular el problema como un conjunto de preguntas y respuestas. Estas son algunas preguntas posibles que pueden aplicarse al ámbito de la previsión de la demanda de energía:
--   ¿Cuál es la carga que se espera que tenga un subestación individual en la siguiente hora o día?
--   ¿En qué momento del día tendrá una red de distribución de electricidad la máxima demanda?
--   ¿Qué probabilidad hay de que una red de distribución de electricidad soporte la carga máxima esperada?
--   ¿Cuánta energía debe generar la central eléctrica durante cada hora del día?
+
+* ¿Cuál es la carga que se espera que tenga un subestación individual en la siguiente hora o día?
+* ¿En qué momento del día tendrá una red de distribución de electricidad la máxima demanda?
+* ¿Qué probabilidad hay de que una red de distribución de electricidad soporte la carga máxima esperada?
+* ¿Cuánta energía debe generar la central eléctrica durante cada hora del día?
 
 La formulación de estas preguntas nos permite centrarnos en obtener los datos correctos e implementar una solución que se ajusta totalmente al problema empresarial en cuestión. Además, a continuación, podemos establecer algunas métricas clave que nos permitan evaluar el rendimiento del modelo. Por ejemplo, ¿cuál es el grado de precisión que debe tener un pronóstico y cuál es el margen de error que aceptaría la empresa?
 
@@ -236,25 +240,25 @@ Después de identificar los orígenes de datos requeridos, deseamos asegurarnos 
 
 Los datos sin procesar constan de filas y columnas. Cada medida se representa en una sola fila de datos. Cada fila de datos incluye varias columnas (que también se denominan características o campos).
 
-1.  **Marca de tiempo**: el campo de marca de tiempo representa la hora real en que se registró la medida. Debe ajustarse a uno de los formatos de fecha y hora comunes. Se deben incluir las partes de fecha y hora. En la mayoría de los casos, no es preciso registrar el tiempo hasta el segundo nivel de granularidad. Es importante especificar la zona horaria en que se registran los datos.
-2.  **Identificador de medidor**: este campo identifica el medidor o el dispositivo de medición. Es una variable de categoría y puede ser una combinación de caracteres y dígitos.
-3.  **Valor de consumo**: es el consumo real en una fecha y hora dadas. El consumo se puede medir en kWh (kilovatios-hora) o en cualquier otra unidad que se prefiera. Es importante tener en cuenta que la unidad de medida debe ser la misma en todas las medidas de los datos. En algunos casos, el consumo se puede suministrar en tres fases de alimentación. En ese caso, necesitaríamos recopilar todas las fases de consumo independientes.
-4.  **Temperatura**: la temperatura normalmente se recopila de un origen independiente. Sin embargo, debe ser compatible con los datos de consumo. Debe incluir una marca de tiempo, tal como se ha descrito anteriormente, que permitirá que se sincronice con los datos de consumo real. El valor de temperatura puede especificarse en grados Celsius o Fahrenheit, pero debe ser coherente en todas las mediciones.
-5.  **Ubicación:** el campo de ubicación se suele asociar con el lugar en que se han recopilado los datos de temperatura. Se puede representar como un número de código postal o en formato de latitud y longitud (lat. y long.).
+1. **Marca de tiempo**: el campo de marca de tiempo representa la hora real en que se registró la medida. Debe ajustarse a uno de los formatos de fecha y hora comunes. Se deben incluir las partes de fecha y hora. En la mayoría de los casos, no es preciso registrar el tiempo hasta el segundo nivel de granularidad. Es importante especificar la zona horaria en que se registran los datos.
+2. **Identificador de medidor**: este campo identifica el medidor o el dispositivo de medición. Es una variable de categoría y puede ser una combinación de caracteres y dígitos.
+3. **Valor de consumo**: es el consumo real en una fecha y hora dadas. El consumo se puede medir en kWh (kilovatios-hora) o en cualquier otra unidad que se prefiera. Es importante tener en cuenta que la unidad de medida debe ser la misma en todas las medidas de los datos. En algunos casos, el consumo se puede suministrar en tres fases de alimentación. En ese caso, necesitaríamos recopilar todas las fases de consumo independientes.
+4. **Temperatura**: la temperatura normalmente se recopila de un origen independiente. Sin embargo, debe ser compatible con los datos de consumo. Debe incluir una marca de tiempo, tal como se ha descrito anteriormente, que permitirá que se sincronice con los datos de consumo real. El valor de temperatura puede especificarse en grados Celsius o Fahrenheit, pero debe ser coherente en todas las mediciones.
+5. **Ubicación:** el campo de ubicación se suele asociar con el lugar en que se han recopilado los datos de temperatura. Se puede representar como un número de código postal o en formato de latitud y longitud (lat. y long.).
 
 Las tablas siguientes muestran ejemplos de un buen formato de datos de consumo y temperatura:
 
-|**Fecha**|**Hora**|**Id. de medidor**|**Fase 1**|**Fase 2**|**Fase 3**|
-|--------|--------|------------|-----------|-----------|-----------|
-|7/1/2015|10:00:00|ABC1234 |7\.0 |2\.1 |5\.3 |
-|7/1/2015|10:00:01|ABC1234 |7\.1 |2\.2 |4\.3 |
-|7/1/2015|10:00:02|ABC1234 |6\.0 |2\.1 |4\.0 |
+| **Fecha** | **Hora** | **Id. de medidor** | **Fase 1** | **Fase 2** | **Fase 3** |
+| --- | --- | --- | --- | --- | --- |
+| 7/1/2015 |10:00:00 |ABC1234 |7\.0 |2\.1 |5\.3 |
+| 7/1/2015 |10:00:01 |ABC1234 |7\.1 |2\.2 |4\.3 |
+| 7/1/2015 |10:00:02 |ABC1234 |6\.0 |2\.1 |4\.0 |
 
-|**Date**|**Hora**|**Ubicación**|**Temperatura**|
-|--------|--------|-------------|---------------|
-|7/1/2015|10:00:00|11242 |24,4 |
-|7/1/2015|10:00:01|11242 |24,4 |
-|7/1/2015|10:00:02|11242 |24,5 |
+| **Date** | **Hora** | **Ubicación** | **Temperatura** |
+| --- | --- | --- | --- |
+| 7/1/2015 |10:00:00 |11242 |24,4 |
+| 7/1/2015 |10:00:01 |11242 |24,4 |
+| 7/1/2015 |10:00:02 |11242 |24,5 |
 
 Como puede verse, este ejemplo incluye tres valores diferentes de consumo, asociados a tres fases de energía. Además, tenga en cuenta que los campos de fecha y hora son independientes, sin embargo también se pueden combinar en una sola columna. En este caso, la columna de ubicación se representa en formato de código postal de cinco dígitos y la temperatura en formato de grados Celsius.
 
@@ -270,11 +274,12 @@ Para hacerlo, el conjunto de aplicaciones Cortana Intelligence ofrece varias for
 
 ### Calidad de los datos
 El origen de los datos sin procesar necesarios para realizar una previsión de la demanda precisa y confiable debe cumplir varios criterios básicos de calidad de los datos. Aunque se pueden usar métodos estadísticos avanzados para compensar los problemas de calidad de los datos, será preciso que nos aseguremos de que atravesamos un umbral básico de calidad de los datos al introducir datos nuevos. Estas son algunas consideraciones relativas a la calidad de los datos sin procesar:
--   **Valor que falta**: hace referencia a la situación en que no se recopiló una medida concreta. Aquí, el requisito básico es que el índice de valores que faltan no debe ser superior al 10% durante cualquier período. En caso de que falte un solo valor, debe indicarse mediante un valor predefinido (por ejemplo: '9999'), pero no '0', que podría ser una medida válida.
--   **Precisión de la medida**: el valor real del consumo o temperatura debe registrarse con precisión. Unas medidas que no sean exactas generarán previsiones imprecisas. Normalmente, el error de medición debe ser inferior al 1% del valor verdadero.
--   **Hora de medida**: se requiere que la marca de tiempo real de los datos recopilados no se desvíe en más de 10 segundos de la hora verdadera de la medida real.
--   **Sincronización**: cuando se utilizan varios orígenes de datos (*por ejemplo*, consumo y temperatura) debemos asegurarnos de que no hay problemas de sincronización de hora entre ellos. Esto significa que la diferencia de hora entre la marca de hora recopilada de dos orígenes de datos independientes no debe superar los 10 segundos.
--   **Latencia**: como ya se ha explicado, en **Ingesta de datos**, dependemos de un flujo de datos y de un proceso de ingesta confiables. Para controlarlo, debemos asegurarnos de que controlamos la latencia de datos. Dicha latencia se especifica como la diferencia entre la hora en que se tomó la medida real y la hora a la que se cargó en el almacenamiento del conjunto de aplicaciones Cortana Intelligence y está lista para su uso. En el caso de la previsión de carga a corto plazo, la latencia total no debe superar los 30 minutos. En el caso de la previsión de carga a largo plazo, la latencia total no debe ser superior a 1 día.
+
+* **Valor que falta**: hace referencia a la situación en que no se recopiló una medida concreta. Aquí, el requisito básico es que el índice de valores que faltan no debe ser superior al 10% durante cualquier período. En caso de que falte un solo valor, debe indicarse mediante un valor predefinido (por ejemplo: '9999'), pero no '0', que podría ser una medida válida.
+* **Precisión de la medida**: el valor real del consumo o temperatura debe registrarse con precisión. Unas medidas que no sean exactas generarán previsiones imprecisas. Normalmente, el error de medición debe ser inferior al 1% del valor verdadero.
+* **Hora de medida**: se requiere que la marca de tiempo real de los datos recopilados no se desvíe en más de 10 segundos de la hora verdadera de la medida real.
+* **Sincronización**: cuando se utilizan varios orígenes de datos (*por ejemplo*, consumo y temperatura) debemos asegurarnos de que no hay problemas de sincronización de hora entre ellos. Esto significa que la diferencia de hora entre la marca de hora recopilada de dos orígenes de datos independientes no debe superar los 10 segundos.
+* **Latencia**: como ya se ha explicado, en **Ingesta de datos**, dependemos de un flujo de datos y de un proceso de ingesta confiables. Para controlarlo, debemos asegurarnos de que controlamos la latencia de datos. Dicha latencia se especifica como la diferencia entre la hora en que se tomó la medida real y la hora a la que se cargó en el almacenamiento del conjunto de aplicaciones Cortana Intelligence y está lista para su uso. En el caso de la previsión de carga a corto plazo, la latencia total no debe superar los 30 minutos. En el caso de la previsión de carga a largo plazo, la latencia total no debe ser superior a 1 día.
 
 ### Preparación de los datos e ingeniería de características
 Una vez que se han introducido los datos sin procesar (consulte **Ingesta de datos**) y que se han almacenado de forma segura, está listos para ser procesados. Básicamente, la fase de preparación de los datos consiste en tomar los datos sin procesar y convertirlos (transformarlos y volver a darles forma) en un formulario para la fase de modelado. Esta fase puede incluir operaciones sencillas, como el uso de la columna de datos sin procesar tal cual con su valor medido real y valores normalizados, y operaciones más complejas como el [retraso temporal](https://en.wikipedia.org/wiki/Lag_operator), entre otras. Las columnas de datos recién creadas se denominan características de datos y el proceso de generarlas se denomina ingeniería de características. Al final de este proceso, tendríamos un nuevo conjunto de datos derivado de los datos sin procesar que puede utilizarse para el modelado. Además, la fase de preparación de datos debe encargarse de los valores que faltan (consulte **Calidad de los datos**) y compensarlos. En algunos casos, también sería necesario que normalizáramos los datos para asegurarse de que todos los valores se representan en la misma escala.
@@ -283,24 +288,26 @@ En esta sección enumeramos algunas de las características de datos comunes que
 
 **Características controladas por el tiempo:**
 Estas características se derivan de los datos de fecha y marca de fecha. Dichos datos se extraen y se convierten en características de categoría como:
--   Hora del día: es la hora del día y toma los valores 0 a 23
--   Día de la semana: representa el día de la semana y toma los valores 1 (domingo) a 7 (sábado)
--   Día del mes: representa la fecha real y puede tomar los valores 1 a 31
--   Mes del año: representa el mes y toma los valores 1 (enero) a 12 (diciembre)
--   Fin de semana: es una característica de valor binario que toma los valores 0 (en el caso de los días laborables) o 1 (en el caso de los fines de semana)
--   Festivos: es una característica de valor binario que toma los valores 0 (en el caso de los días normales) o 1 (en el caso de los días festivos)
--   Términos de Fourier: los términos de Fourier son ponderaciones que se derivan de la marca de tiempo y que se utilizan para capturar la estacionalidad (ciclos) de los datos. Dado que podemos tener varias estaciones en los datos, es posible que necesitemos varios términos de Fourier. Por ejemplo, los valores de la demanda pueden tener ciclos o estaciones anuales, semanales y diarios, lo que generará tres términos de Fourier.
+
+* Hora del día: es la hora del día y toma los valores 0 a 23
+* Día de la semana: representa el día de la semana y toma los valores 1 (domingo) a 7 (sábado)
+* Día del mes: representa la fecha real y puede tomar los valores 1 a 31
+* Mes del año: representa el mes y toma los valores 1 (enero) a 12 (diciembre)
+* Fin de semana: es una característica de valor binario que toma los valores 0 (en el caso de los días laborables) o 1 (en el caso de los fines de semana)
+* Festivos: es una característica de valor binario que toma los valores 0 (en el caso de los días normales) o 1 (en el caso de los días festivos)
+* Términos de Fourier: los términos de Fourier son ponderaciones que se derivan de la marca de tiempo y que se utilizan para capturar la estacionalidad (ciclos) de los datos. Dado que podemos tener varias estaciones en los datos, es posible que necesitemos varios términos de Fourier. Por ejemplo, los valores de la demanda pueden tener ciclos o estaciones anuales, semanales y diarios, lo que generará tres términos de Fourier.
 
 **Características de medida independientes:**
  las características independientes incluyen todos los elementos de datos que deseamos a usar como indicadores en nuestro modelo. Se excluye la característica dependiente que necesitaríamos predecir.
--   Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc.* La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
--   Tendencias a largo plazo: esta característica representa el crecimiento lineal de la demanda entre años.
+
+* Característica de retardo: son los valores demorados de la demanda real. Por ejemplo, las características de la demora 1 contendrán el valor de la demanda de la hora anterior (asumiendo que son datos de hora) en relación con la marca de tiempo actual. Del mismo modo, podemos agregar la demora 2, la demora 3, *etc.* La combinación real de las características de demora que se usan se determina en la fase de modelado mediante la evaluación de los resultados del modelo.
+* Tendencias a largo plazo: esta característica representa el crecimiento lineal de la demanda entre años.
 
 **Característica dependiente:** 
 la característica dependiente es la columna de datos que deseamos que nuestro modelo prediga. Con el [aprendizaje automático supervisado](https://en.wikipedia.org/wiki/Supervised_learning), primero es preciso que entrenemos el modelo mediante las características dependientes (que también se denominan etiquetas). Esto permite que el modelo aprenda los patrones de los datos asociados con la característica dependiente. En previsión de la demanda de energía normalmente deseamos predecir la demanda real y, por tanto, la usaríamos como característica dependiente.
 
 **Tratamiento de los valores que faltan:** 
-durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_(statistics)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
+durante la fase de preparación de los datos, necesitaríamos determinar la mejor estrategia para tratar los valores que faltan. Esto se realiza principalmente mediante los diversos [métodos de imputación de datos](https://en.wikipedia.org/wiki/Imputation_\(statistics\)) estadísticos. En el caso de una previsión de la demanda de energía, lo habitual es que los valores que faltan se imputen mediante una media móvil de los puntos de datos disponibles anteriores.
 
 **Normalización de datos:**
 la normalización de datos es otro tipo de transformación que se usa para poner todos los datos numéricos, como la previsión de la demanda, en una escala similar. Esto es algo que suele ayudar a mejorar la precisión del modelo. Para realizar dicha normalización, lo habitual es dividir el valor real entre el intervalo de los datos. Esto reducirá verticalmente el valor original a un intervalo menor, normalmente entre -1 y 1.
@@ -315,7 +322,10 @@ En el caso de la previsión de la demanda, hacemos uso de datos históricos, que
 
 En los últimos años han desarrollado algoritmos avanzados para acomodar el pronóstico de las series temporales y mejorar la precisión de la previsión. A continuación explicaremos brevemente algunos de ellos.
 
-> [AZURE.NOTE] Esta sección no pretende utilizarse como una introducción al aprendizaje automático y a la previsión, sino como un breve examen de las técnicas de modelado que se suelen utilizar para la previsión de la demanda. Para más información y material educativo acerca de la predicción de series temporales, se recomienda encarecidamente el Libro en pantalla [Forecasting: principios y prácticas](https://www.otexts.org/book/fpp) (Previsión: principios y práctica).
+> [!NOTE]
+> Esta sección no pretende utilizarse como una introducción al aprendizaje automático y a la previsión, sino como un breve examen de las técnicas de modelado que se suelen utilizar para la previsión de la demanda. Para más información y material educativo acerca de la predicción de series temporales, se recomienda encarecidamente el Libro en pantalla [Forecasting: principios y prácticas](https://www.otexts.org/book/fpp) (Previsión: principios y práctica).
+> 
+> 
 
 #### [**MA (media móvil)**](https://www.otexts.org/fpp/6/2)
 La media móvil fue una de las primeras técnicas de análisis que se utilizó para la previsión de una serie temporal y aún hoy sigue siendo de las más usadas. También es la base de técnicas de previsión más avanzadas. Con la media móvil, la previsión del siguiente punto de datos se realiza mediante la obtención del promedio de los K puntos más recientes, donde K denota el orden de la media móvil.
@@ -371,14 +381,15 @@ Al implementar una solución de previsión de la demanda de energía, nos intere
 ![Flujo de datos de un extremo a otro de previsión de la demanda de energía](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
 Estos son los pasos que se tienen lugar como parte del ciclo de previsión de demanda de energía:
-1.  Los millones de medidores de datos implementados generan constantemente datos de consumo de energía en tiempo real.
-2.  Dichos datos de recopilan y cargan en un repositorio en la nube (*por ejemplo*, Blob de Azure).
-3.  Antes de procesarse, los datos sin procesar se agregan a una estación o al nivel regional que ha definido la empresa.
-4.  Luego, se produce el procesamiento de características (consulte **Preparación de datos y procesamiento de características**) y se generan los datos requeridos para el entrenamiento del modelo entrenamiento o puntuación (los datos del conjunto de características se almacenan en una base de datos; *por ejemplo*, SQL Azure).
-5.  Se invoca el servicio de entrenamiento para que vuelva a entrenar el modelo de pronóstico (la versión actualizada del modelo se conserva para que la puede usar el servicio web de puntuación).
-6.  El servicio web de puntuación se invoca en una programación que se ajuste a la frecuencia de previsión necesaria.
-7.  Los datos de las previsiones se almacenan en una base de datos a la que puede acceder el cliente final que los consume.
-8.  Dicho cliente recupera las previsiones, las vuelve a aplicar a la red de distribución de electricidad y los consume en función del caso de uso requerido.
+
+1. Los millones de medidores de datos implementados generan constantemente datos de consumo de energía en tiempo real.
+2. Dichos datos de recopilan y cargan en un repositorio en la nube (*por ejemplo*, Blob de Azure).
+3. Antes de procesarse, los datos sin procesar se agregan a una estación o al nivel regional que ha definido la empresa.
+4. Luego, se produce el procesamiento de características (consulte **Preparación de datos y procesamiento de características**) y se generan los datos requeridos para el entrenamiento del modelo entrenamiento o puntuación (los datos del conjunto de características se almacenan en una base de datos; *por ejemplo*, SQL Azure).
+5. Se invoca el servicio de entrenamiento para que vuelva a entrenar el modelo de pronóstico (la versión actualizada del modelo se conserva para que la puede usar el servicio web de puntuación).
+6. El servicio web de puntuación se invoca en una programación que se ajuste a la frecuencia de previsión necesaria.
+7. Los datos de las previsiones se almacenan en una base de datos a la que puede acceder el cliente final que los consume.
+8. Dicho cliente recupera las previsiones, las vuelve a aplicar a la red de distribución de electricidad y los consume en función del caso de uso requerido.
 
 Es importante tener en cuenta que todo este ciclo está completamente automatizado y se ejecuta según una programación. Toda la orquestación de este ciclo de datos puede realizarse mediante herramientas como [Data Factory de Azure](http://azure.microsoft.com/services/data-factory/).
 

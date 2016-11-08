@@ -1,30 +1,29 @@
-<properties
-	pageTitle="Procedimientos recomendados para el Servicio de aplicaciones de Azure"
-	description="Información acerca de los procedimientos recomendados y la solución de problemas del Servicio de aplicaciones de Azure."
-	services="app-service"
-	documentationCenter=""
-	authors="dariagrigoriu"
-	manager="wpickett"
-	editor="mollybos"/>
+---
+title: Procedimientos recomendados para el Servicio de aplicaciones de Azure
+description: Información acerca de los procedimientos recomendados y la solución de problemas del Servicio de aplicaciones de Azure.
+services: app-service
+documentationcenter: ''
+author: dariagrigoriu
+manager: wpickett
+editor: mollybos
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/30/2016"
-	ms.author="dariagrigoriu"/>
-    
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/30/2016
+ms.author: dariagrigoriu
+
+---
 # Procedimientos recomendados para el Servicio de aplicaciones de Azure
-
 En este artículo se resumen los procedimientos recomendados para usar el [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
 ## <a name="colocation"></a>Ubicación compartida
 Cuando los recursos de Azure que componen una solución como una aplicación web y una base de datos se encuentran en regiones diferentes los efectos pueden incluir:
 
-*  Mayor latencia en la comunicación entre recursos
-*  Cargos monetarios de transferencia de datos entre regiones como se indica en el [página de precios de Azure](https://azure.microsoft.com/pricing/details/data-transfers)
+* Mayor latencia en la comunicación entre recursos
+* Cargos monetarios de transferencia de datos entre regiones como se indica en el [página de precios de Azure](https://azure.microsoft.com/pricing/details/data-transfers)
 
 Para los recursos de Azure que componen una solución, como una aplicación web y una cuenta de almacenamiento o base de datos usada para mantener el contenido o los datos, se recomienda que la ubicación compartida se encuentre en la misma región. Al crear recursos es preciso asegurarse de que estén de la misma región de Azure, salvo que haya motivos comerciales o de diseño concretos para que no lo estén. Para mover una aplicación del Servicio de aplicaciones a la región de la base de datos, utilice la [característica de clonación del Servicio de aplicaciones](app-service-web-app-cloning-portal.md), que actualmente está disponible para las aplicaciones del servicio de aplicaciones Premium.
 

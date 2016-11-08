@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Configuración del tiempo de espera de inactividad de TCP de Load Balancer | Microsoft Azure"
-   description="Configuración del tiempo de espera de inactividad de TCP de Load Balancer"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="" />
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/03/2016"
-   ms.author="sewhee" />
+---
+title: Configuración del tiempo de espera de inactividad de TCP de Load Balancer | Microsoft Docs
+description: Configuración del tiempo de espera de inactividad de TCP de Load Balancer
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/03/2016
+ms.author: sewhee
+
+---
 # Cambio de la configuración de tiempo de espera de inactividad de TCP para Load Balancer
-
 En su configuración predeterminada, Azure Load Balancer tiene una configuración de tiempo de espera de inactividad de 4 minutos.
 
 Esto significa que si un período de inactividad es mayor que el valor de tiempo de espera, no hay ninguna garantía de que todavía exista la sesión TCP o HTTP entre el cliente y el servicio en la nube.
@@ -35,18 +35,22 @@ Para admitir tales escenarios, hemos agregado compatibilidad con un tiempo de es
 
 Las secciones siguientes describen cómo cambiar la configuración de tiempo de espera de inactividad en máquinas virtuales y servicios en la nube.
 
->[AZURE.NOTE] Para admitir la configuración de estos valores, asegúrese de que ha instalado el paquete más reciente de Azure PowerShell.
+> [!NOTE]
+> Para admitir la configuración de estos valores, asegúrese de que ha instalado el paquete más reciente de Azure PowerShell.
+> 
+> 
 
 ## Configuración del tiempo de espera de TCP para la IP pública a nivel de instancia en 15 minutos
-
     Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
 
 `IdleTimeoutInMinutes` es opcional. Si no se establece, el tiempo de espera predeterminado es de 4 minutos.
 
->[AZURE.NOTE] El intervalo de tiempo de espera aceptable está entre 4 y 30 minutos.
+> [!NOTE]
+> El intervalo de tiempo de espera aceptable está entre 4 y 30 minutos.
+> 
+> 
 
 ## Establecimiento del tiempo de espera de inactividad al crear un punto de conexión de Azure en una máquina virtual
-
 Cambiar la configuración de tiempo de espera de un punto de conexión:
 
     Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
@@ -72,13 +76,11 @@ Recuperar la configuración de tiempo de espera de inactividad:
     IdleTimeoutInMinutes : 15
 
 ## Establecimiento del tiempo de espera de TCP en un conjunto de puntos de conexión de carga equilibrada
-
 Si los puntos de conexión forman parte de un conjunto de puntos de conexión de carga equilibrada, el tiempo de espera de TCP se debe establecer en el conjunto de puntos de conexión de carga equilibrada:
 
     Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
 
 ## Cambio de la configuración de tiempo de espera de los servicios en la nube
-
 Puede aprovechar el SDK de Azure para .NET 2.4 para actualizar el servicio en la nube.
 
 La configuración de punto de conexión para los servicios en la nube se realiza en el archivo .csdef. La actualización del tiempo de espera de TCP para la implementación de un servicio en la nube requiere una actualización de la implementación. Se da una excepción si el tiempo de espera de TCP solo se especifica para una dirección IP pública. La configuración de IP pública se encuentra en el archivo .cscfg y se puede actualizar a través de la actualización de la implementación.
@@ -105,7 +107,6 @@ Los cambios de .cscfg para el valor de tiempo de espera en las direcciones IP p�
     </NetworkConfiguration>
 
 ## Ejemplo de API de REST
-
 Puede configurar el tiempo de espera de inactividad de TCP mediante Service Management API. Asegúrese de agregar el encabezado x-ms-version y que esté establecido en la versión 2014-06-01 o posterior.
 
 Actualice la configuración de los puntos de conexión de entrada de carga equilibrada especificados en todas las máquinas virtuales de una implementación.
@@ -147,7 +148,6 @@ Actualice la configuración de los puntos de conexión de entrada de carga equil
     </LoadBalancedEndpointList>
 
 ## Pasos siguientes
-
 [Información general sobre el equilibrador de carga interno](load-balancer-internal-overview.md)
 
 [Introducción a la creación de un equilibrador de carga orientado a Internet](load-balancer-get-started-internet-arm-ps.md)

@@ -1,25 +1,23 @@
-<properties
-   pageTitle="Uso del conector del codificador JSON de BizTalk en Aplicaciones lógicas | Servicio de aplicaciones de Microsoft Azure "
-   description="Creación y configuración del conector del codificador JSON de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajeshramabathiran"
-   manager="erikre"
-   editor=""/>
+---
+title: Uso del conector del codificador JSON de BizTalk en Aplicaciones lógicas | Microsoft Docs
+description: Creación y configuración del conector del codificador JSON de BizTalk o la aplicación de API y su uso en una aplicación lógica en Servicio de aplicaciones de Azure
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajeshramabathiran
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-# Introducción al codificador JSON de BizTalk y su incorporación a su aplicación lógica 
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
-
+---
+# Introducción al codificador JSON de BizTalk y su incorporación a su aplicación lógica
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 El conector de codificación y descodificación JSON de BizTalk ayuda a la interoperabilidad de las aplicaciones entre datos JSON y XML. Puede convertir una instancia JSON dada a XML y viceversa.
 
@@ -32,34 +30,35 @@ Para usar el codificador JSON de BizTalk, primero debe crear una instancia de la
 Siga los pasos que se indican en [Creación de una aplicación lógica]. El codificador JSON de BizTalk puede usarse como una acción. No tiene ningún desencadenador.
 
 ### Acción
-- Haga clic en el codificador JSON de BizTalk en el panel derecho
+* Haga clic en el codificador JSON de BizTalk en el panel derecho
+  
+    ![Configuración de la acción][3]
+* Haga clic en ->
+  
+    ![Lista de acciones][4]
+* El codificador JSON de BizTalk admite dos acciones. Seleccione *Xml to JSON* (XML a JSON)
+  
+    ![Entrada de XML a JSON][5]
+* Proporcione las entradas para la acción y configúrela.
+  
+    ![Codificar y enviar configurados][6]
 
-	![Configuración de la acción][3]
-- Haga clic en ->
-
-	![Lista de acciones][4]
-- El codificador JSON de BizTalk admite dos acciones. Seleccione *Xml to JSON* (XML a JSON)
-
-	![Entrada de XML a JSON][5]
-- Proporcione las entradas para la acción y configúrela.
-
-	![Codificar y enviar configurados][6]
-
-Parámetro|Tipo|Descripción del parámetro
----|---|---
-XML de entrada|objeto|Contenido de XML de entrada
-Quitar sobre exterior|cadena|Marca establecida para quitar el nodo raíz del contenido XML
+| Parámetro | Tipo | Descripción del parámetro |
+| --- | --- | --- |
+| XML de entrada |objeto |Contenido de XML de entrada |
+| Quitar sobre exterior |cadena |Marca establecida para quitar el nodo raíz del contenido XML |
 
 La acción devuelve una representación json del contenido de entrada.
 
 ## Aplicaciones adicionales del conector
 Una vez creado el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
 
->[AZURE.NOTE] Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [!NOTE]
+> Si desea empezar a trabajar con las aplicaciones lógicas de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba de aplicaciones lógicas](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> 
+> 
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
-
- 
 
 <!--References -->
 [1]: app-service-logic-connector-tpm

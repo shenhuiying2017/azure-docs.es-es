@@ -1,46 +1,47 @@
 
-<properties 
-    pageTitle="Administración de entidades de Media Services con la API de REST| Microsoft Azure" 
-    description="Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST." 
-    authors="juliako" 
-    manager="dwrede" 
-    editor="" 
-    services="media-services" 
-    documentationCenter=""/>
+---
+title: Administración de entidades de Media Services con la API de REST| Microsoft Docs
+description: Obtenga información sobre cómo administrar las entidades de Servicios multimedia con la API de REST.
+author: juliako
+manager: dwrede
+editor: ''
+services: media-services
+documentationcenter: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016" 
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-#<a name="managing-media-services-entities-with-rest-api"></a>Administración de entidades de Servicios multimedia con la API de REST
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-manage-entities.md)
-- [.NET](media-services-dotnet-manage-entities.md)
+---
+# <a name="managing-media-services-entities-with-rest-api"></a>Administración de entidades de Servicios multimedia con la API de REST
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-manage-entities.md)
+> * [.NET](media-services-dotnet-manage-entities.md)
+> 
+> 
 
 Servicios multimedia de Microsoft Azure es un servicio REST basado en OData v3. Por este motivo, puede agregar, consultar, actualizar y eliminar entidades prácticamente del mismo modo como haría con cualquier otro servicio de OData. Se indicarán las excepciones cuando proceda. Para obtener más información sobre OData, consulte la [documentación de Open Data Protocol](http://www.odata.org/documentation/).
 
-- Incorporación de entidades 
-- Consulta de entidades 
-- Enumeración de grandes colecciones de entidades
-- Actualización de entidades 
-- Eliminación de entidades 
+* Incorporación de entidades 
+* Consulta de entidades 
+* Enumeración de grandes colecciones de entidades
+* Actualización de entidades 
+* Eliminación de entidades 
 
->[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
->
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+> [!NOTE]
+> Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
+> 
+> Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
+> 
+> Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
+> 
+> 
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
-
-
-##<a name="adding-entities"></a>Incorporación de entidades
-
+## <a name="adding-entities"></a>Incorporación de entidades
 Todas las entidades de Servicios multimedia se agregan a un conjunto de entidades, como recursos, a través de una solicitud HTTP POST.
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
@@ -55,12 +56,11 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy.
     Host: media.windows.net
     Content-Length: 74
     Expect: 100-continue
-    
+
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
- 
-##<a name="querying-entities"></a>Consulta de entidades
 
+## <a name="querying-entities"></a>Consulta de entidades
 La consulta y enumeración de entidades es sencilla y solo implica una solicitud HTTP GET y operaciones OData opcionales.
 En el ejemplo siguiente se recupera una lista de todas las entidades MediaProcessor.
 
@@ -115,10 +115,12 @@ El ejemplo siguiente devuelve todos los JobTemplates con el nombre "SampleTempla
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
->[AZURE.NOTE]Servicios multimedia no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
+> [!NOTE]
+> Servicios multimedia no admite la operación $expand, ni los métodos no admitidos de LINQ que se describen en las consideraciones sobre LINQ (Servicios de datos de WCF).
+> 
+> 
 
-##<a name="enumerating-through-large-collections-of-entities"></a>Enumeración de grandes colecciones de entidades
-
+## <a name="enumerating-through-large-collections-of-entities"></a>Enumeración de grandes colecciones de entidades
 Al consultar entidades, hay un límite de 1000 entidades devueltas a la vez, porque la REST v2 pública limita los resultados de consulta a 1000. Utilice **skip** y **top** para enumerar la gran colección de entidades. 
 
 En el ejemplo siguiente se muestra cómo usar **skip** y **top** para omitir los 2000 primeros trabajos y obtener los 1000 siguientes.  
@@ -132,8 +134,7 @@ En el ejemplo siguiente se muestra cómo usar **skip** y **top** para omitir los
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
     Host: media.windows.net
 
-##<a name="updating-entities"></a>Actualización de entidades
-
+## <a name="updating-entities"></a>Actualización de entidades
 Según el tipo de entidad y el estado en el que se encuentre, puede actualizar las propiedades de entidad mediante solicitudes HTTP PATCH, PUT o MERGE. Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name en una entidad Asset.
@@ -148,11 +149,10 @@ En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name
     Host: media.windows.net
     Content-Length: 21
     Expect: 100-continue
-    
+
     {"Name" : "NewName" }
 
-##<a name="deleting-entities"></a>Eliminación de entidades
-
+## <a name="deleting-entities"></a>Eliminación de entidades
 Las entidades pueden eliminarse en Servicios multimedia mediante una solicitud HTTP DELETE. Según la entidad, el orden con que se eliminan las entidades puede ser importante. Por ejemplo, entidades como Assets requieren que revoque (o elimine) todos los localizadores que hagan referencia a ese recurso específico antes de eliminar el recurso.
 
 En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó para cargar un archivo en el almacenamiento de blobs.
@@ -169,15 +169,11 @@ En el ejemplo siguiente se muestra cómo eliminar un localizador que se usó par
 
 
 
-##<a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Envío de comentarios
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Envío de comentarios
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

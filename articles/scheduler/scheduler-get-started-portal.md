@@ -1,89 +1,68 @@
-<properties
- pageTitle="Introducción al Programador de Azure en el Portal de Azure | Microsoft Azure"
- description="Introducción al Programador de Azure en el Portal de Azure"
- services="scheduler"
- documentationCenter=".NET"
- authors="derek1ee"
- manager="kevinlam1"
- editor=""/>
-<tags
- ms.service="scheduler"
- ms.workload="infrastructure-services"
- ms.tgt_pltfrm="na"
- ms.devlang="dotnet"
- ms.topic="hero-article"
- ms.date="08/10/2016"
- ms.author="deli"/>
+---
+title: Introducción al Programador de Azure en el Portal de Azure | Microsoft Docs
+description: Introducción al Programador de Azure en el Portal de Azure
+services: scheduler
+documentationcenter: .NET
+author: derek1ee
+manager: kevinlam1
+editor: ''
 
+ms.service: scheduler
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: hero-article
+ms.date: 08/10/2016
+ms.author: deli
+
+---
 # Introducción al Programador de Azure en el Portal de Azure
-
 Es fácil crear trabajos programados en el Programador de Azure. En este tutorial, aprenderá a crear un trabajo: También aprenderá las funcionalidades de supervisión y administración del Programador.
 
 ## Creación de un trabajo
-
-1.  Inicie sesión en el [portal de Azure](https://portal.azure.com/).
-
-2.  Haga clic en **+Nuevo** > escriba _Programador_ en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
-
-     ![][marketplace-create]
-
-3.  Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador**, escriba la siguiente información:
-
-    1.  **Nombre:** `getmicrosoft`
-
-    2.  **Suscripción**: su suscripción a Azure.
-
-    3.  **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** y escriba un nombre.
-
-4.  Después, en **Configuración de la acción**, defina los siguientes valores:
-
-    1.  **Tipo de acción:** ` HTTP`
-
-    2.  **Método:** `GET`
-
-    3.  **URL:** ` http://www.microsoft.com`
-
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+2. Haga clic en **+Nuevo** > escriba *Programador* en el cuadro de búsqueda > seleccione **Programador** en resultados > haga clic en **Crear**.
+   
+    ![][marketplace-create]
+3. Vamos a crear un trabajo que simplemente selecciona http://www.microsoft.com/ con una solicitud GET. En la pantalla **Trabajo del Programador**, escriba la siguiente información:
+   
+   1. **Nombre:** `getmicrosoft`
+   2. **Suscripción**: su suscripción a Azure.
+   3. **Colección de trabajos:** seleccione una colección de trabajos existente o haga clic en **Crear nueva** y escriba un nombre.
+4. Después, en **Configuración de la acción**, defina los siguientes valores:
+   
+   1. **Tipo de acción:** ` HTTP`
+   2. **Método:** `GET`
+   3. **URL:** ` http://www.microsoft.com`
+      
       ![][action-settings]
-
-5.  Por último, vamos a definir una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad:
-
-    1. **Periodicidad**: `Recurring`
-
-    2. **Inicio**: la fecha de hoy
-
-    3. **Repetir cada**: `12 Hours`
-
-    4. **Finalización**: dos días a partir de hoy
-
+5. Por último, vamos a definir una programación. El trabajo se puede definir como un trabajo único, pero vamos a seleccionar una programación de periodicidad:
+   
+   1. **Periodicidad**: `Recurring`
+   2. **Inicio**: la fecha de hoy
+   3. **Repetir cada**: `12 Hours`
+   4. **Finalización**: dos días a partir de hoy
+      
       ![][recurrence-schedule]
-
-6.  Haga clic en **Crear**
+6. Haga clic en **Crear**
 
 ## Administración y supervisión de trabajos
-
 Una vez que se crea un trabajo, aparece en el Panel principal de Azure. Haga clic en el trabajo y se abrirá una nueva ventana con las pestañas siguientes:
 
-1.  Propiedades
-
-2.  Configuración de la acción
-
-3.  Schedule
-
-4.  Historial
-
-5.  Usuarios
-
-    ![][job-overview]
+1. Propiedades
+2. Configuración de la acción
+3. Schedule
+4. Historial
+5. Usuarios
+   
+   ![][job-overview]
 
 ### Propiedades
-
 Estas propiedades de solo lectura describen los metadatos de administración para el trabajo del Programador.
 
    ![][job-properties]
 
-
 ### Configuración de la acción
-
 Al hacer clic en un trabajo en la pantalla **Trabajos** puede configurar ese trabajo. Esto le permitirá configurar opciones avanzadas, si no las ha configurado en el Asistente de creación rápida.
 
 Para todos los tipos de acción, puede cambiar la directiva de reintentos y la acción en caso de error.
@@ -97,7 +76,6 @@ Para los tipos de acción de Service Bus, puede cambiar el espacio de nombres, l
    ![][job-action-settings]
 
 ### Schedule
-
 Esto le permite volver a configurar la programación, si es que desea cambiar la programación que creó en el Asistente de creación rápida.
 
 Esta es una oportunidad para crear [programaciones complejas y periodicidad avanzada en el trabajo](scheduler-advanced-complexity.md).
@@ -106,23 +84,16 @@ Puede cambiar la fecha y hora de inicio, la programación de periodicidad y la f
 
    ![][job-schedule]
 
-
 ### Historial
-
 La pestaña **Historial** muestra métricas seleccionadas para cada ejecución del trabajo en el sistema para el trabajo seleccionado. Estas métricas proporcionan valores en tiempo real relacionados con el estado del Programador:
 
-1.  Estado
-
-2.  Detalles
-
-3.  Número de reintentos
-
-4.  Periodicidad: 1ª, 2ª, 3ª, etc..
-
-5.  Hora de inicio de ejecución
-
-6.  Hora de finalización de ejecución
-
+1. Estado
+2. Detalles
+3. Número de reintentos
+4. Periodicidad: 1ª, 2ª, 3ª, etc..
+5. Hora de inicio de ejecución
+6. Hora de finalización de ejecución
+   
    ![][job-history]
 
 Puede hacer clic en una ejecución para ver su información en **Detalles del historial**, incluida la respuesta completa a cada ejecución. Este cuadro de diálogo también le permite copiar la respuesta en el Portapapeles.
@@ -130,12 +101,9 @@ Puede hacer clic en una ejecución para ver su información en **Detalles del hi
    ![][job-history-details]
 
 ### Usuarios
-
 El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso al Programador de Azure. Para aprender a usar la pestaña Usuarios, consulte [Control de acceso basado en rol de Azure](../active-directory/role-based-access-control-configure.md)
 
-
 ## Otras referencias
-
  [¿Qué es Programador?](scheduler-intro.md)
 
  [Jerarquía de entidades, terminología y conceptos del Programador](scheduler-concepts-terms.md)
@@ -153,7 +121,6 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
  [Límites, valores predeterminados y códigos de error de Programador](scheduler-limits-defaults-errors.md)
 
  [Autenticación de salida del Programador](scheduler-outbound-authentication.md)
-
 
 [marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
 [action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png

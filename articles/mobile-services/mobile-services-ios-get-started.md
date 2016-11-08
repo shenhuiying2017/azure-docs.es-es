@@ -1,55 +1,54 @@
-<properties
-	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de iOS | Back-end de JavaScript"
-	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de iOS."
-	services="mobile-services"
-	documentationCenter="ios"
-	authors="krisragh"
-	manager="dwrede"
-	editor=""/>
+---
+title: Introducción a Servicios móviles de Azure para aplicaciones de iOS | Microsoft Docs
+description: Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de iOS.
+services: mobile-services
+documentationcenter: ios
+author: krisragh
+manager: dwrede
+editor: ''
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="hero-article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: hero-article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # <a name="getting-started"> </a>Introducción a Servicios móviles
-
-[AZURE.INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
+[!INCLUDE [mobile-services-selector-get-started](../../includes/mobile-services-selector-get-started.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para más información sobre la versión equivalente de Aplicaciones móviles de este tema, consulte [Creación de una aplicación iOS en Aplicaciones móviles de Azure](../app-service-mobile/app-service-mobile-ios-get-started.md).
+> 
+> 
 
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación de iOS con los Servicios móviles de Azure.
 
-Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará utiliza JavaScript para la lógica de negocios de servidor. Para crear un servicio móvil con lógica empresarial del lado de servidor en .NET, vea la [versión back-end de .NET] de este tema.
+Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará utiliza JavaScript para la lógica de negocios de servidor. Para crear un servicio móvil con lógica empresarial del lado de servidor en .NET, vea la [versión back-end de .NET] de este tema.
 
-> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](https://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20).
+> [!NOTE]
+> Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y acceder a [servicios móviles gratuitos que puede seguir usando incluso después de que finalice dicha evaluación](https://azure.microsoft.com/pricing/details/mobile-services/). Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-ES%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F%20).
+> 
+> 
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
-
-[AZURE.INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
+[!INCLUDE [mobile-services-create-new-service](../../includes/mobile-services-create-new-service.md)]
 
 ## Creación de una nueva aplicación iOS
-
 Puede seguir un sencillo inicio rápido en el Portal de Azure clásico para crear una aplicación conectada al servicio móvil:
 
 1. En el [Portal de Azure clásico], haga clic en **Servicios móviles** y luego en el servicio móvil que acaba de crear.
-
 2. En la pestaña Inicio rápido, haga clic en **iOS** en **Elija una plataforma ** y expanda **Crear una nueva aplicación iOS**. Con esto se muestran los pasos requeridos para crear una aplicación iOS conectada a su servicio móvil.
-
 3. Haga clic en **Crear tabla TodoItem** para crear una tabla para almacenar los datos de la aplicación.
-
-4. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**. De este modo se descarga el proyecto para la aplicación de _lista de pendientes_ de muestra que está conectada al servicio móvil, además del SDK de iOS para Servicios móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+4. En **Descargar y ejecutar la aplicación**, haga clic en **Descargar**. De este modo se descarga el proyecto para la aplicación de *lista de pendientes* de muestra que está conectada al servicio móvil, además del SDK de iOS para Servicios móviles. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 ## Ejecución de la nueva aplicación de iOS
-
-[AZURE.INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
+[!INCLUDE [mobile-services-ios-run-app](../../includes/mobile-services-ios-run-app.md)]
 
 <ol start="4"> <li><p>De nuevo en el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**. Esto le permite examinar los datos que la aplicación inserta en la tabla.<p></li></ol></p>
 
@@ -57,13 +56,10 @@ Puede seguir un sencillo inicio rápido en el Portal de Azure clásico para crea
 Aprenda a realizar tareas adicionales importantes en Servicios móviles:
 
 * [Introducción a la sincronización de datos sin conexión] <br/>Aprenda a usar la sincronización de datos sin conexión para mejorar la capacidad de respuesta y reforzar la solidez de su aplicación.
-
 * [Incorporación de autenticación a una aplicación existente] <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
-
 * [Incorporación de notificaciones push a una aplicación existente] <br/>Aprenda a enviar una notificación push muy básica a la aplicación.
 
-[AZURE.INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
-
+[!INCLUDE [app-service-disqus-feedback-slug](../../includes/app-service-disqus-feedback-slug.md)]
 
 <!-- Anchors. -->
 [Getting started with Mobile Services]: #getting-started

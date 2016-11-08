@@ -1,29 +1,28 @@
-<properties
-	 pageTitle="Creación de una solicitud de soporte técnico de Azure | Microsoft Azure"
-	 description="Creación de una solicitud de soporte técnico de Azure."
-	 services="Azure Supportability"
-	 documentationCenter=""
-	 authors="ganganarayanan"
-	 manager="scotthit"
-	 editor=""/>
+---
+title: Creación de una solicitud de soporte técnico de Azure | Microsoft Docs
+description: Creación de una solicitud de soporte técnico de Azure.
+services: Azure Supportability
+documentationcenter: ''
+author: ganganarayanan
+manager: scotthit
+editor: ''
 
-<tags
-	 ms.service="azure-supportability"
-	 ms.workload="na"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="article"
-	 ms.date="07/25/2016"
-	 ms.author="gangan"/>
+ms.service: azure-supportability
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/25/2016
+ms.author: gangan
 
+---
 # Creación de una solicitud de soporte técnico de Azure
-
 ## Resumen
 Los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en el Portal de Azure ([https://portal.azure.com](https://portal.azure.com)). En función de los comentarios de los clientes, hemos actualizado la experiencia de solicitud de soporte técnico para centrarnos en tres objetivos principales:
 
-- **Optimizada**: hemos reducido los clics y las hojas para simplificar el proceso de enviar una solicitud de soporte técnico.
-- **Integrada**: cuando se está solucionando un problema de un recurso de Azure, debe ser fácil abrir una solicitud de soporte técnico para dicho recurso sin necesidad de cambiar de contexto.
-- **Eficaz**: recopile la información clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
+* **Optimizada**: hemos reducido los clics y las hojas para simplificar el proceso de enviar una solicitud de soporte técnico.
+* **Integrada**: cuando se está solucionando un problema de un recurso de Azure, debe ser fácil abrir una solicitud de soporte técnico para dicho recurso sin necesidad de cambiar de contexto.
+* **Eficaz**: recopile la información clave que necesita el ingeniero de soporte técnico para resolver el problema de forma eficaz.
 
 ## Introducción
 Puede crear una solicitud de soporte técnico desde el menú de navegación superior o directamente desde una hoja de recursos.
@@ -43,7 +42,10 @@ Veamos un ejemplo. Supongamos que tiene dificultades técnicas relacionadas con 
 
 ![Hoja Básico](./media/how-to-create-azure-support-request/Basics.png)
 
->[AZURE.NOTE] Azure proporciona soporte ilimitado para la administración de suscripciones (por ejemplo, facturación, ajustes de cuota y transferencias de cuenta). Para obtener soporte técnico, necesita un plan de soporte técnico. [Obtenga más información sobre los planes de soporte técnico](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> Azure proporciona soporte ilimitado para la administración de suscripciones (por ejemplo, facturación, ajustes de cuota y transferencias de cuenta). Para obtener soporte técnico, necesita un plan de soporte técnico. [Obtenga más información sobre los planes de soporte técnico](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ## Problema
 El segundo paso del asistente recopila información adicional sobre el problema. Proporcione detalles precisos en este paso, ya que esto nos permite asignar su caso al ingeniero de soporte técnico más adecuado y comenzar a diagnosticar el problema lo antes posible.
@@ -75,7 +77,10 @@ Si quiere cambiar la gravedad de la solicitud, haga clic en el icono **Impacto e
 
 Si hace clic en el icono, se muestra la lista de los niveles de gravedad que puede asignar a una solicitud de soporte técnico abierta.
 
->[AZURE.NOTE] El nivel de gravedad máximo depende de su plan de soporte técnico. [Obtenga más información sobre los planes de soporte técnico](https://azure.microsoft.com/support/plans).
+> [!NOTE]
+> El nivel de gravedad máximo depende de su plan de soporte técnico. [Obtenga más información sobre los planes de soporte técnico](https://azure.microsoft.com/support/plans).
+> 
+> 
 
 ![VID-2](./media/how-to-create-azure-support-request/VID-2.png)
 

@@ -1,60 +1,55 @@
-<properties 
-    pageTitle="Conexión de una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB | Microsoft Azure" 
-    description="Obtenga información acerca de cómo conectarse a una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB, ahora disponible en una versión preliminar. Conéctese mediante la cadena de conexión de MongoDB." 
-    keywords="cadena de conexión de mongodb"
-    services="documentdb" 
-    authors="AndrewHoh" 
-    manager="jhubbard" 
-    editor="" 
-    documentationCenter=""/>
+---
+title: Conexión de una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB | Microsoft Docs
+description: Obtenga información acerca de cómo conectarse a una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB, ahora disponible en una versión preliminar. Conéctese mediante la cadena de conexión de MongoDB.
+keywords: cadena de conexión de mongodb
+services: documentdb
+author: AndrewHoh
+manager: jhubbard
+editor: ''
+documentationcenter: ''
 
-<tags 
-    ms.service="documentdb" 
-    ms.workload="data-services" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/23/2016" 
-    ms.author="anhoh"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/23/2016
+ms.author: anhoh
 
-
+---
 # <a name="how-to-connect-to-a-documentdb-account-with-protocol-support-for-mongodb"></a>Conexión de una cuenta de DocumentDB con compatibilidad de protocolo para MongoDB
-
 Obtenga información acerca de cómo conectar una cuenta de Azure DocumentDB con soporte de protocolo para MongoDB con el formato de identificador URI de cadena de conexión de MongoDB estándar.  
 
 ## <a name="get-the-account's-connection-string-information"></a>Obtención de información de la cadena de conexión de la cuenta
-
 1. En una nueva ventana, inicie sesión en el [Portal de Azure](https://portal.azure.com).
 2. En la barra de **navegación izquierda** de la hoja Cuenta, haga clic en **Cadena de conexión**. Para ir a la hoja **Cuenta**, en la barra de accesos directos, haga clic en **More Services** (Más servicios) y en **DocumentDB (NoSQL)**; por último, seleccione la cuenta con compatibilidad de protocolo para MongoDB.
-
+   
     ![Captura de pantalla de la hoja Toda la configuración](./media/documentdb-connect-mongodb-account/SettingsBlade.png)
-
 3. Se abre la hoja **Información de cadena de conexión** con toda la información necesaria para conectarse a la cuenta con un controlador para MongoDB, incluida una cadena de conexión precreada.
-
+   
     ![Captura de pantalla de la hoja Cadena de conexión](./media/documentdb-connect-mongodb-account/ConnectionStringBlade.png)
 
 ## <a name="connection-string-requirements"></a>Requisitos de la cadena de conexión
-
 Es importante tener en cuenta que DocumentDB admite el formato de identificador URI de cadena de conexión de MongoDB estándar, con un par de requisitos específicos: las cuentas de DocumentDB requieren la autenticación y la comunicación segura mediante SSL.  Por tanto, el formato de la cadena de conexión es:
 
     mongodb://username:password@host:port/[database]?ssl=true
 
 Donde los valores de esta cadena están disponibles en la hoja Cadena de conexión mostrada antes.
 
-- Username (obligatorio)
-    - Nombre de la cuenta de DocumentDB
-- Password (obligatorio)
-    - Contraseña de la cuenta de DocumentDB
-- Host (obligatorio)
-    - FQDN de la cuenta de DocumentDB
-- Port (obligatorio)
-    - 10250
-- Database (opcional)
-    - La base de datos predeterminada usada por la conexión
-- ssl=true (obligatorio)
+* Username (obligatorio)
+  * Nombre de la cuenta de DocumentDB
+* Password (obligatorio)
+  * Contraseña de la cuenta de DocumentDB
+* Host (obligatorio)
+  * FQDN de la cuenta de DocumentDB
+* Port (obligatorio)
+  * 10250
+* Database (opcional)
+  * La base de datos predeterminada usada por la conexión
+* ssl=true (obligatorio)
 
 Por ejemplo, considere la cuenta que aparece en la hoja Información de cadena de conexión mostrada antes.  Una cadena de conexión válida es:
-    
+
     mongodb://contoso123:<password@contoso123.documents.azure.com:10250/mydatabase?ssl=true
 
 ## <a name="connecting-with-the-c#-driver-for-mongodb"></a>Conexión con el controlador C# para MongoDB
@@ -75,17 +70,11 @@ Como ya se mencionó, todas las cuentas de DocumentDB requieren la autenticació
             };
             MongoClient client = new MongoClient(settings);
             var database = client.GetDatabase("Tasks",);
-    
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-
-- Obtenga información acerca de cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
-- Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md)de MongoDB.
-
- 
-
-
+* Obtenga información acerca de cómo [usar MongoChef](documentdb-mongodb-mongochef.md) con una cuenta de DocumentDB con compatibilidad de protocolo con MongoDB.
+* Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md)de MongoDB.
 
 <!--HONumber=Oct16_HO2-->
 

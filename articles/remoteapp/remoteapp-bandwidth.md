@@ -1,25 +1,26 @@
 
-<properties 
-    pageTitle="Calcular el uso del ancho de banda de red de Azure RemoteApp | Microsoft Azure"
-	description="Obtenga información acerca de los requisitos del ancho de banda de red para sus colecciones y aplicaciones de Azure RemoteApp."
-	services="remoteapp"
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" />
+---
+title: Calcular el uso del ancho de banda de red de Azure RemoteApp | Microsoft Docs
+description: Obtenga información acerca de los requisitos del ancho de banda de red para sus colecciones y aplicaciones de Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-# Calcular el uso del ancho de banda de red de Azure RemoteApp 
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+---
+# Calcular el uso del ancho de banda de red de Azure RemoteApp
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Azure RemoteApp usa el Protocolo de escritorio remoto (RDP) para comunicarse entre las aplicaciones que se ejecutan en la nube de Azure y sus usuarios. En este artículo se proporcionan algunas directrices básicas que puede usar para calcular el uso de la red y evaluar potencialmente el uso del ancho de banda de red por cada usuario de Azure RemoteApp.
 
@@ -29,13 +30,11 @@ Antes de seguir avanzando, tenga en cuenta que asumimos que RDP proporciona una 
 
 Ahora consulte los artículos siguientes para obtener más información, incluidos los factores a considerar, las recomendaciones de línea base y lo que no se incluyó en nuestras estimaciones.
 
-- [¿Cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?](remoteapp-bandwidthexperience.md)
-- [Probar su uso de ancho de banda de red con algunos escenarios comunes](remoteapp-bandwidthtests.md)
-- [Directrices rápidas si no tiene el tiempo ni la capacidad de realizar pruebas](remoteapp-bandwidthguidelines.md)
-
+* [¿Cómo funcionan el ancho de banda de red y la calidad de la experiencia conjuntamente?](remoteapp-bandwidthexperience.md)
+* [Probar su uso de ancho de banda de red con algunos escenarios comunes](remoteapp-bandwidthtests.md)
+* [Directrices rápidas si no tiene el tiempo ni la capacidad de realizar pruebas](remoteapp-bandwidthguidelines.md)
 
 ## ¿Qué no incluimos?
-
 Cuando revise las pruebas propuestas y nuestras recomendaciones generales (y hay que reconocer que genéricas), tenga en cuenta que hay varios factores que no tuvimos en cuenta. Por ejemplo, las dificultades de la experiencia de usuario proporcionadas por la naturaleza asimétrica de la carga frente a la descarga del ancho de banda. Además, la naturaleza asimétrica de la mayoría de las redes Wi-Fi afectará el rendimiento y la percepción de la experiencia de usuario. Para escenarios interactivos, puede darse menor prioridad al tráfico de bajada que al de subida, que puede aumentar el número de fotogramas de vídeo o audio perdidos y, por lo tanto, influir en la percepción del usuario de la experiencia de descarga. Puede ejecutar sus propios experimentos para ver qué es adecuado para su red y caso de uso específico.
 
 Aunque trataremos el redireccionamiento de dispositivos, no tendremos en cuenta el impacto del ancho de banda en el tráfico de red provocado por los dispositivos adjuntos, como los de almacenamiento, impresoras, escáneres, cámaras web y otros dispositivos USB. Normalmente, el efecto de dichos dispositivos aumenta las necesidades del ancho de banda de manera temporal, y desaparece cuando se completa la tarea. Pero si se realiza con frecuencia, la demanda de ancho de banda puede ser bastante notable.

@@ -7,9 +7,6 @@ Puede crear la tabla de almacenamiento de Azure mediante el **Explorador de serv
 3. Seleccione el nodo **Tablas** y elija **Crear tabla** en el menú contextual.
 4. Escriba un nombre para la tabla y elija **Aceptar**.   
 
-
-
-
 [Image1]: ./media/vs-storage-getting-started-tables-include/vs-storage-create-tables-in-Server-Explorer.png
 
 <!---HONumber=Oct15_HO3-->

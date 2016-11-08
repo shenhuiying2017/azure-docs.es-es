@@ -1,49 +1,47 @@
-<properties
-	pageTitle="Enlaces HTTP y webhook en funciones de Azure | Microsoft Azure"
-	description="Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en funciones de Azure."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"/>
+---
+title: Enlaces HTTP y webhook en funciones de Azure | Microsoft Docs
+description: Descubra cómo utilizar desencadenadores y enlaces HTTP y webhook en funciones de Azure.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 
-<tags
-	ms.service="functions"
-	ms.devlang="multiple"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="08/22/2016"
-	ms.author="chrande"/>
+ms.service: functions
+ms.devlang: multiple
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 08/22/2016
+ms.author: chrande
 
+---
 # Enlaces HTTP y webhook en funciones de Azure
-
-[AZURE.INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artículo explica cómo configurar y codificar desencadenadores y enlaces HTTP y webhook en funciones de Azure.
 
-[AZURE.INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+[!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## function.json para enlaces HTTP y webhook
-
 El archivo *function.json* proporciona propiedades que pertenecen tanto a la solicitud y como a la respuesta.
 
 Propiedades de la solicitud HTTP:
 
-- `name`: nombre de la variable que se usa en el código de la función para el objeto de solicitud (o en el cuerpo de la solicitud en caso de funciones de Node.js).
-- `type`: debe establecerse en *httpTrigger*.
-- `direction`: debe establecerse en *in*.
-- `webHookType`: para los desencadenadores de webhooks, los valores válidos son *github*, *slack* y *genericJson*. Para un desencadenador de HTTP que no sea un WebHook, establezca esta propiedad en una cadena vacía. Para obtener más información sobre webhooks, consulte la sección siguiente, [Desencadenadores de WebHook](#webhook-triggers).
-- `authLevel`: no se aplica a los desencadenadores de webhooks. Se establece en "function" para que solicite una clave de API, en "anonymous" para que ignore este requisito, o en "admin" para que solicite una clave maestra de API. Consulte las siguientes [claves de API](#apikeys) para obtener más información.
+* `name`: nombre de la variable que se usa en el código de la función para el objeto de solicitud (o en el cuerpo de la solicitud en caso de funciones de Node.js).
+* `type`: debe establecerse en *httpTrigger*.
+* `direction`: debe establecerse en *in*.
+* `webHookType`: para los desencadenadores de webhooks, los valores válidos son *github*, *slack* y *genericJson*. Para un desencadenador de HTTP que no sea un WebHook, establezca esta propiedad en una cadena vacía. Para obtener más información sobre webhooks, consulte la sección siguiente, [Desencadenadores de WebHook](#webhook-triggers).
+* `authLevel`: no se aplica a los desencadenadores de webhooks. Se establece en "function" para que solicite una clave de API, en "anonymous" para que ignore este requisito, o en "admin" para que solicite una clave maestra de API. Consulte las siguientes [claves de API](#apikeys) para obtener más información.
 
 Propiedades de la respuesta HTTP:
 
-- `name`: nombre de la variable utilizada en el código de función para el objeto de respuesta.
-- `type`: debe establecerse en *http*.
-- `direction`: debe establecerse en *out*.
- 
+* `name`: nombre de la variable utilizada en el código de función para el objeto de respuesta.
+* `type`: debe establecerse en *http*.
+* `direction`: debe establecerse en *out*.
+
 Ejemplo de *function.json*:
 
 ```json
@@ -67,7 +65,6 @@ Ejemplo de *function.json*:
 ```
 
 ## Desencadenadores de WebHook
-
 Un desencadenador de WebHook es como un desencadenador de HTTP que tiene las siguientes características diseñadas para WebHooks:
 
 * Para los proveedores específicos de WebHook (actualmente se admiten GitHub y Slack), el sistema en tiempo de ejecución de Funciones permite validar la firma del proveedor.
@@ -77,7 +74,6 @@ Un desencadenador de WebHook es como un desencadenador de HTTP que tiene las sig
 Para obtener más información acerca de cómo configurar un webhook de GitHub, consulte [GitHub Developer - Creating WebHooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) (Desarrolladores de GitHub: Creación de webhooks).
 
 ## Dirección URL para desencadenar la función
-
 Para desencadenar una función, se envía una solicitud HTTP a una URL que es una combinación de la dirección URL de aplicación de función y el nombre de función:
 
 ```
@@ -85,7 +81,6 @@ Para desencadenar una función, se envía una solicitud HTTP a una URL que es un
 ```
 
 ## Claves de API
-
 De forma predeterminada, debe incluir una clave de API con una solicitud HTTP para desencadenar una función de HTTP o WebHook. La clave se puede incluir en una variable de cadena de consulta denominada `code`, o puede estar incluida en un encabezado HTTP `x-functions-key`. Para las funciones que no son de WebHook, puede indicar que no se requiere una clave de API estableciendo la propiedad `authLevel` en "anonymous" en el archivo *function.json*.
 
 Puede encontrar los valores de clave de API en la carpeta *D:\\home\\data\\Functions\\secrets* del sistema de archivos de la aplicación de la función. La clave maestra y la de función se establecen en el archivo *host.json* como se muestra en este ejemplo.
@@ -107,10 +102,12 @@ Si la carpeta *secrets* contiene un archivo JSON con el mismo nombre que una fun
 }
 ```
 
-> [AZURE.NOTE] Cuando configure un desencadenador de WebHook, no comparta la clave maestra con el proveedor de WebHook. Use una clave que solo funcione con la función que procesa el WebHook. La clave maestra se puede usar para desencadenar cualquier función, incluso las que están deshabilitadas.
+> [!NOTE]
+> Cuando configure un desencadenador de WebHook, no comparta la clave maestra con el proveedor de WebHook. Use una clave que solo funcione con la función que procesa el WebHook. La clave maestra se puede usar para desencadenar cualquier función, incluso las que están deshabilitadas.
+> 
+> 
 
-## Código de ejemplo de C# para una función de desencadenador de HTTP 
-
+## Código de ejemplo de C# para una función de desencadenador de HTTP
 El código de ejemplo busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
 ```csharp
@@ -139,7 +136,6 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
 ```
 
 ## Código de ejemplo de F# para una función de desencadenador de HTTP
-
 El código de ejemplo busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
 ```fsharp
@@ -181,8 +177,7 @@ Necesitará un `project.json` archivo que use NuGet para hacer referencia a los 
 
 Se usará NuGet para capturar las dependencias y se hará referencia a ellas en el script.
 
-## Código de ejemplo de Node.js para una función de desencadenador de HTTP 
-
+## Código de ejemplo de Node.js para una función de desencadenador de HTTP
 Este código de ejemplo busca un parámetro `name` en la cadena de consulta o en el cuerpo de la solicitud HTTP.
 
 ```javascript
@@ -205,8 +200,7 @@ module.exports = function(context, req) {
 };
 ```
 
-## Código de ejemplo de C# para una función de WebHook de GitHub 
-
+## Código de ejemplo de C# para una función de WebHook de GitHub
 Este código de ejemplo registra los comentarios de problemas de GitHub.
 
 ```csharp
@@ -231,7 +225,6 @@ public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
 ```
 
 ## Código de ejemplo de F# para una función WebHook de GitHub
-
 Este código de ejemplo registra los comentarios de problemas de GitHub.
 
 ```fsharp
@@ -255,8 +248,7 @@ let Run(req: HttpRequestMessage, log: TraceWriter) =
     } |> Async.StartAsTask
 ```
 
-## Código de ejemplo de Node.js para una función de WebHook de GitHub 
-
+## Código de ejemplo de Node.js para una función de WebHook de GitHub
 Este código de ejemplo registra los comentarios de problemas de GitHub.
 
 ```javascript
@@ -268,7 +260,6 @@ module.exports = function (context, data) {
 ```
 
 ## Pasos siguientes
-
-[AZURE.INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
+[!INCLUDE [pasos siguientes](../../includes/functions-bindings-next-steps.md)]
 
 <!---HONumber=AcomDC_0921_2016-->

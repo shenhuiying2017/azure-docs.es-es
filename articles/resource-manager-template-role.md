@@ -1,30 +1,27 @@
-<properties
-   pageTitle="Plantilla del Administrador de recursos para las asignaciones de roles | Microsoft Azure"
-   description="Muestra el esquema del Administrador de recursos para implementar una asignación de rol mediante una plantilla."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="tfitzmac"
-   manager="timlt"
-   editor=""/>
+---
+title: Plantilla del Administrador de recursos para las asignaciones de roles | Microsoft Docs
+description: Muestra el esquema del Administrador de recursos para implementar una asignación de rol mediante una plantilla.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="10/03/2016"
-   ms.author="tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/03/2016
+ms.author: tomfitz
 
-
+---
 # <a name="role-assignments-template-schema"></a>Asignaciones de roles: esquema de plantilla
-
 Asigna un usuario, grupo o entidad de servicio a un rol en un ámbito especificado.
 
 ## <a name="resource-format"></a>Formato de los recursos
-
 Para crear una asignación de roles, agregue el siguiente esquema a la sección de recursos de la plantilla.
-    
+
     {
         "type": string,
         "apiVersion": "2015-07-01",
@@ -39,34 +36,29 @@ Para crear una asignación de roles, agregue el siguiente esquema a la sección 
     }
 
 ## <a name="values"></a>Valores
-
 Las tablas siguientes describen los valores que debe establecer en el esquema.
 
 | Nombre | Obligatorio | Descripción |
-| ---- | -------- | ----------- |
-| type | Sí    | Tipo de recurso que se creará.<br /><br /> Para el grupo de recursos:<br />**Microsoft.Authorization/roleAssignments**<br /><br />Para el recurso:<br />**{provider-namespace}/{resource-type}/providers/roleAssignments** |
-| apiVersion |yes | Versión de la API que se usará para crear el recurso.<br /><br /> Use **2015-07-01**. | 
-| name | yes | Un identificador único global para la nueva asignación de roles. |
-| dependsOn | No | Una matriz separada por comas de nombres de recursos o identificadores de recursos únicos.<br /><br />La colección de recursos de la que depende esta asignación de roles. Si asigna un rol que se centra en un recurso y ese recurso se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para asegurarse de que el recurso se implementa en primer lugar. |
-| propiedades | Sí | Un objeto de propiedades que identifica la definición de roles, la entidad de seguridad y el ámbito. |
+| --- | --- | --- |
+| type |Sí |Tipo de recurso que se creará.<br /><br /> Para el grupo de recursos:<br />**Microsoft.Authorization/roleAssignments**<br /><br />Para el recurso:<br />**{provider-namespace}/{resource-type}/providers/roleAssignments** |
+| apiVersion |yes |Versión de la API que se usará para crear el recurso.<br /><br /> Use **2015-07-01**. |
+| name |yes |Un identificador único global para la nueva asignación de roles. |
+| dependsOn |No |Una matriz separada por comas de nombres de recursos o identificadores de recursos únicos.<br /><br />La colección de recursos de la que depende esta asignación de roles. Si asigna un rol que se centra en un recurso y ese recurso se implementa en la misma plantilla, incluya el nombre de ese recurso en este elemento para asegurarse de que el recurso se implementa en primer lugar. |
+| propiedades |Sí |Un objeto de propiedades que identifica la definición de roles, la entidad de seguridad y el ámbito. |
 
 ### <a name="properties-object"></a>properties object
-
 | Nombre | Obligatorio | Descripción |
-| ---- | -------- | ----------- |
-| roleDefinitionId | yes |  El identificador de una definición de rol existente que se usará en la asignación de roles.<br /><br /> Utilice el siguiente formato:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
-| principalId | Sí | El identificador único global de una entidad de seguridad existente. Este valor se asigna al identificador dentro del directorio y puede señalar a un usuario, una entidad de servicio o un grupo de seguridad. |
-| ámbito | No | El ámbito en el que se aplica esta asignación de roles.<br /><br />Para los grupos de recursos, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**  <br /><br />Para los recursos, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** |  |
-
+| --- | --- | --- |
+| roleDefinitionId |yes |El identificador de una definición de rol existente que se usará en la asignación de roles.<br /><br /> Utilice el siguiente formato:<br /> **/subscriptions/{subscription-id}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id}** |
+| principalId |Sí |El identificador único global de una entidad de seguridad existente. Este valor se asigna al identificador dentro del directorio y puede señalar a un usuario, una entidad de servicio o un grupo de seguridad. |
+| ámbito |No |El ámbito en el que se aplica esta asignación de roles.<br /><br />Para los grupos de recursos, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}**  <br /><br />Para los recursos, use:<br />**/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{provider-namespace}/{resource-type}/{resource-name}** |
 
 ## <a name="how-to-use-the-role-assignment-resource"></a>Cómo usar el recurso de asignación de rol
-
 Una asignación de roles se agrega a la plantilla cuando se necesita agregar un usuario, un grupo o una entidad de servicio a un rol durante la implementación. Las asignaciones de roles se heredan de los niveles de ámbito más elevados; por tanto, si ya ha agregado una entidad a un rol en el nivel de suscripción, no hace falta reasignarla para el grupo de recursos o el recurso.
 
 Hay muchos valores de identificador que debe dar al trabajar con asignaciones de roles. Puede recuperar los valores a través de PowerShell o CLI de Azure.
 
 ### <a name="powershell"></a>PowerShell
-
 El nombre de la asignación de roles requiere un identificador único global. Puede generar un nuevo identificador para **name** con:
 
     $name = [System.Guid]::NewGuid().toString()
@@ -90,7 +82,6 @@ Para una entidad de servicio denominada **exampleapp**:
     $principal = (Get-AzureRmADServicePrincipal -SearchString exampleapp).id 
 
 ### <a name="azure-cli"></a>Azure CLI
-
 Puede recuperar el identificador para la definición de roles con:
 
     azure role show Reader --json | jq .[].Id -r
@@ -110,7 +101,6 @@ Para una entidad de servicio denominada **exampleapp**:
     azure ad sp show --search exampleapp --json | jq .[].objectId -r
 
 ## <a name="examples"></a>Ejemplos
-
 La siguiente plantilla recibe un identificador para un rol y un identificador para un usuario, un grupo o una entidad de servicio. Asigna el rol en el nivel del grupo de recursos.
 
     {
@@ -201,19 +191,15 @@ La plantilla siguiente crea una cuenta de almacenamiento y le asigna el rol de l
     }
 
 ## <a name="quickstart-templates"></a>Plantillas de inicio rápido
-
 Las plantillas siguientes muestran cómo usar el recurso de asignación de rol:
 
-- [Assign built-in role to resource group (Asignar rol integrado al grupo de recursos)](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
-- [Assign built-in role to existing VM](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
-- [Assign built-in role to multiple existing VMs](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
+* [Assign built-in role to resource group (Asignar rol integrado al grupo de recursos)](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-resourcegroup)
+* [Assign built-in role to existing VM](https://azure.microsoft.com/documentation/templates/101-rbac-builtinrole-virtualmachine)
+* [Assign built-in role to multiple existing VMs](https://azure.microsoft.com/documentation/templates/201-rbac-builtinrole-multipleVMs)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
-- Para obtener más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure Active Directory](./active-directory/role-based-access-control-configure.md).
-
-
+* Para obtener más información sobre la estructura de la plantilla, consulte [Crear plantillas del Administrador de recursos de Azure](resource-group-authoring-templates.md).
+* Para obtener más información sobre el control de acceso basado en roles, consulte [Control de acceso basado en roles de Azure Active Directory](active-directory/role-based-access-control-configure.md).
 
 <!--HONumber=Oct16_HO2-->
 

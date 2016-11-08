@@ -1,25 +1,26 @@
-<properties 
-	pageTitle="¿Qué es Azure RemoteApp? | Microsoft Azure" 
-	description="Obtenga información acerca de cómo compartir aplicaciones y recursos en cualquier dispositivo mediante Azure RemoteApp." 
-	services="remoteapp" 
-	documentationCenter="" 
-	authors="lizap" 
-	manager="mbaldwin" 
-	editor=""/>
+---
+title: ¿Qué es Azure RemoteApp? | Microsoft Docs
+description: Obtenga información acerca de cómo compartir aplicaciones y recursos en cualquier dispositivo mediante Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
+editor: ''
 
-<tags 
-	ms.service="remoteapp" 
-	ms.workload="compute" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="get-started-article" 
-	ms.date="08/15/2016" 
-	ms.author="elizapo"/>
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/15/2016
+ms.author: elizapo
 
+---
 # ¿Qué es Azure RemoteApp?
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Azure RemoteApp ofrece la funcionalidad del programa RemoteApp Microsoft local, respaldado por Servicios de Escritorio remoto, en Azure. Azure RemoteApp ayuda a proporcionar acceso remoto y seguro a aplicaciones desde diferentes dispositivos de usuario. Azure RemoteApp básicamente hospeda en la nube sesiones de Terminal Server no persistentes que usted usará y compartirá con los usuarios.
 
@@ -36,23 +37,20 @@ RemoteApp de Azure es parte de la [Infraestructura de Escritorio virtual de Micr
 ## Colecciones de Azure RemoteApp
 Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
 
-
-- Una **colección en la nube** se hospeda en la nube de Azure y almacena allí todos los datos de los programas. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus cuentas de Microsoft o credenciales corporativas sincronizadas o federadas con Azure Active Directory.
-
-	Elija una colección en la nube cuando la aplicación que desea compartir no requiere una conexión a ningún recurso de la red privada de su empresa (por ejemplo, a través de un dispositivo VPN). Si la aplicación usa recursos en Internet, OneDrive o Azure, una colección en la nube funcionará en su caso. También es la más rápida crear.
-
-- Una **colección híbrida** se hospeda en la nube de Azure y almacena allí los datos, pero también permite a los usuarios acceder a datos y recursos almacenados en la red local. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus credenciales corporativas sincronizadas o federadas con Azure Active Directory.
-
-	Elija una colección híbrida si necesita una conexión a recursos de la red privada de su empresa. Por ejemplo, si la aplicación necesita acceso a uno de los siguientes elementos:
-
-	- Servidores de archivos ubicados en la intranet
-	- Quicken
-	- Bases de datos detrás de un firewall
-
-	Esto generalmente resulta más útil en el caso de grandes organizaciones con muchos recursos en sus redes privadas que no se pueden mover a la nube.
+* Una **colección en la nube** se hospeda en la nube de Azure y almacena allí todos los datos de los programas. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus cuentas de Microsoft o credenciales corporativas sincronizadas o federadas con Azure Active Directory.
+  
+    Elija una colección en la nube cuando la aplicación que desea compartir no requiere una conexión a ningún recurso de la red privada de su empresa (por ejemplo, a través de un dispositivo VPN). Si la aplicación usa recursos en Internet, OneDrive o Azure, una colección en la nube funcionará en su caso. También es la más rápida crear.
+* Una **colección híbrida** se hospeda en la nube de Azure y almacena allí los datos, pero también permite a los usuarios acceder a datos y recursos almacenados en la red local. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus credenciales corporativas sincronizadas o federadas con Azure Active Directory.
+  
+    Elija una colección híbrida si necesita una conexión a recursos de la red privada de su empresa. Por ejemplo, si la aplicación necesita acceso a uno de los siguientes elementos:
+  
+  * Servidores de archivos ubicados en la intranet
+  * Quicken
+  * Bases de datos detrás de un firewall
+    
+    Esto generalmente resulta más útil en el caso de grandes organizaciones con muchos recursos en sus redes privadas que no se pueden mover a la nube.
 
 Las diferentes colecciones tienen diferentes opciones, incluidas las redes, así que descubra [qué colección](remoteapp-collections.md) responde mejor a sus necesidades.
-
 
 ### Actualización de la colección
 Una de las diferencias clave entre las colecciones híbridas y en la nube es cómo se administran las actualizaciones de software. Con una colección en la nube que usa la imagen de Office 365 ProPlus u Office 2013 preinstalada, no tiene que preocuparse por las actualizaciones. El servicio se mantiene a sí mismo e implementa las actualizaciones de manera continua para aplicaciones y el sistema operativo.
@@ -66,21 +64,20 @@ Vea [Actualización de la colección](remoteapp-update.md) para obtener más inf
 ## Clientes compatibles con RemoteApp
 Azure RemoteApp es compatible con las aplicaciones de cliente de RemoteApp para Windows y Windows RT, así como con las aplicaciones de Escritorio remoto de Microsoft para Mac, iOS y Android. Los usuarios pueden usar estas aplicaciones en sus dispositivos móviles o de proceso para acceder a los nuevos programas de Azure RemoteApp.
 
-Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
+Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
 
 ## Pasos siguientes
 Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar Azure RemoteApp:
 
-- [¿Qué tipo de colección necesita para Azure RemoteApp?](remoteapp-collections.md)
-- [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
-- [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-- [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
-- [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
-- [Prácticas recomendadas para usar RemoteApp de Azure](remoteapp-bestpractices.md)
-- [Preguntas más frecuentes sobre RemoteApp de Azure](remoteapp-faq.md)
- 
+* [¿Qué tipo de colección necesita para Azure RemoteApp?](remoteapp-collections.md)
+* [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
+* [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
+* [Prácticas recomendadas para usar RemoteApp de Azure](remoteapp-bestpractices.md)
+* [Preguntas más frecuentes sobre RemoteApp de Azure](remoteapp-faq.md)
 
-### Permítanos ayudarle 
+### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** o en **Editar** para realizar cambios que nos llegarán para su revisión; una vez que los aprobemos, verá los cambios y mejoras aquí.
 
 <!---HONumber=AcomDC_0817_2016-->

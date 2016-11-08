@@ -1,28 +1,26 @@
-<properties 
-   pageTitle="Comparación de productos de supervisión de Microsoft | Microsoft Azure"
-   description="Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local.  Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado."
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags 
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/27/2016"
-   ms.author="bwren" />
+---
+title: Comparación de productos de supervisión de Microsoft | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local.  Este artículo identifica los distintos servicios que se incluyen en OMS y proporciona vínculos a contenido detallado.
+services: operations-management-suite
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/27/2016
+ms.author: bwren
 
+---
 # <a name="microsoft-monitoring-product-comparison"></a>Comparación de productos de supervisión de Microsoft
-
 Este artículo proporciona una comparación entre System Center Operations Manager (SCOM) y Log Analytics en Operations Management Suite (OMS) en cuanto a su arquitectura, la lógica de cómo supervisan los recursos y la forma en la que realizan un análisis de los datos recopilados.  En él se proporciona información fundamental sobre sus diferencias y sus fuerzas relativas.  
 
 ## <a name="basic-architecture"></a>Arquitectura básica
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-
 Todos los componentes de SCOM están instalados en su centro de datos.  [Los agentes están instalados](http://technet.microsoft.com/library/hh551142.aspx) en equipos Windows y Linux administrados por SCOM.  Los agentes se conectan a [servidores de administración de](https://technet.microsoft.com/library/hh301922.aspx) , que se comunican con el almacén de datos y la base de datos de SCOM.  Los agentes se basan en la autenticación de dominio para conectarse a servidores de administración.  Los que están fuera de un dominio de confianza pueden realizar la autenticación de certificado o conectarse a un [servidor de puerta de enlace](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM requiere dos bases de datos SQL, una para datos operativos y otro almacén de datos para admitir informes y análisis de datos.  Un [servidor de informes](https://technet.microsoft.com/library/hh298611.aspx) ejecuta SQL Reporting Services para informar sobre los datos del almacén de datos. 
@@ -34,27 +32,25 @@ La consola del operador es una aplicación de Windows que se conecta a uno de lo
 ![Arquitectura de SCOM](media/operations-management-suite-monitoring-product-comparison/scom-architecture.png)
 
 ### <a name="log-analytics"></a>Log Analytics
-
 La mayoría de los componentes de OMS se encuentran en la nube de Azure, por lo que puede implementarla y administrarla con el mínimo costo y esfuerzo administrativo.  Todos los datos que recopila Log Analytics se almacenan en el repositorio de OMS.
 
 Log Analytics puede recopilar datos desde uno de estos tres orígenes:
 
-- Máquinas físicas y virtuales con Windows y [Microsoft Monitoring Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) o Linux y [Operations Management Suite Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).  Estos equipos pueden ser locales o máquinas virtuales en Azure u otra nube.
-- Una cuenta de Almacenamiento de Azure con datos de [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) que recopila datos de un rol de trabajo de Azure, rol web o máquina virtual.
-- [Conexión a un grupo de administración de SCOM](https://technet.microsoft.com/library/mt484104.aspx).  En esta configuración, los agentes se comunican con los servidores de administración de SCOM que entregan los datos a la base de datos de SCOM, y desde allí pasan al almacén de datos de OMS.
-Los administradores analizan los datos recopilados y configuran Log Analytics con el portal de OMS que se hospeda en Azure y al que puede obtenerse acceso desde cualquier explorador.  Las aplicaciones móviles para obtener acceso a estos datos están disponibles para las plataformas estándares.
+* Máquinas físicas y virtuales con Windows y [Microsoft Monitoring Agent (MMA)](https://technet.microsoft.com/library/mt484108.aspx) o Linux y [Operations Management Suite Agent para Linux](https://technet.microsoft.com/library/mt622052.aspx).  Estos equipos pueden ser locales o máquinas virtuales en Azure u otra nube.
+* Una cuenta de Almacenamiento de Azure con datos de [Diagnósticos de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) que recopila datos de un rol de trabajo de Azure, rol web o máquina virtual.
+* [Conexión a un grupo de administración de SCOM](https://technet.microsoft.com/library/mt484104.aspx).  En esta configuración, los agentes se comunican con los servidores de administración de SCOM que entregan los datos a la base de datos de SCOM, y desde allí pasan al almacén de datos de OMS.
+  Los administradores analizan los datos recopilados y configuran Log Analytics con el portal de OMS que se hospeda en Azure y al que puede obtenerse acceso desde cualquier explorador.  Las aplicaciones móviles para obtener acceso a estos datos están disponibles para las plataformas estándares.
 
 ![Arquitectura de Log Analytics](media/operations-management-suite-monitoring-product-comparison/log-analytics-architecture.png)
 
 ### <a name="integrating-scom-and-log-analytics"></a>Integración de SCOM y Log Analytics
-
 Cuando SCOM se utiliza como origen de datos para Log Analytics, puede aprovechar las características de ambos productos en un entorno de supervisión de híbrido.  Puede configurar los agentes de SCOM existentes a través de la consola del operaciones para que la administre OMS, además de continuar ejecutando módulos de administración de SCOM.  
 Los datos de un grupo de administración de SCOM conectado se entregan a Log Analytics mediante uno de estos cuatro métodos:
 
-- El agente recopila los datos de rendimiento y eventos y los entrega a SCOM.  Servidores de administración de SCOM, después entrega de los datos a Log Analytics.
-- Algunos eventos, como los eventos de seguridad y los registros de IIS seguirán enviándose directamente a Log Analytics desde el agente.
-- Algunas soluciones proporcionarán software adicional al agente o requerirán que el software se instale para recopilar datos adicionales.  Normalmente, estos datos se enviarán directamente a Log Analytics.
-- Algunas soluciones recopilarán datos directamente desde los servidores de administración de SCOM que no se originan desde el agente.  Por ejemplo, la [solución de administración de alertas](https://technet.microsoft.com/library/mt484092.aspx) recopila alertas de SCOM después de que se hayan creado.
+* El agente recopila los datos de rendimiento y eventos y los entrega a SCOM.  Servidores de administración de SCOM, después entrega de los datos a Log Analytics.
+* Algunos eventos, como los eventos de seguridad y los registros de IIS seguirán enviándose directamente a Log Analytics desde el agente.
+* Algunas soluciones proporcionarán software adicional al agente o requerirán que el software se instale para recopilar datos adicionales.  Normalmente, estos datos se enviarán directamente a Log Analytics.
+* Algunas soluciones recopilarán datos directamente desde los servidores de administración de SCOM que no se originan desde el agente.  Por ejemplo, la [solución de administración de alertas](https://technet.microsoft.com/library/mt484092.aspx) recopila alertas de SCOM después de que se hayan creado.
 
 ## <a name="monitoring-logic"></a>Lógica de supervisión
 SCOM y Log Analytics funcionan con datos similares recopilados a partir de los agentes, pero tienen diferencias fundamentales en cómo definen e implementan su lógica de recopilación de datos y cómo analizan los datos que recopilan.
@@ -91,7 +87,6 @@ Principalmente, las soluciones se ejecutan en la nube y proporcionan un análisi
 
 Por ejemplo, la [solución de seguimiento de cambios](https://technet.microsoft.com/library/mt484099.aspx) detecta que la configuración cambia en los sistemas de agente y escribe eventos en el repositorio de OMS que se puede analizar con varias vistas gráficas que resuman los cambios detectados.  Puede profundizar desde la vista resumida en las consultas de registro que muestran los datos detallados recopilados por la solución.
 
-
 Aunque puede seleccionar las soluciones que agregar a la suscripción, actualmente no dispone de la capacidad para crear sus propias soluciones.  Puede seleccionar los eventos y los contadores de rendimiento para recopilar y crear vistas personalizadas basadas en sus propias consultas de registro.
 
 La lógica de supervisión de Log Analytics se resume en el siguiente diagrama.
@@ -127,7 +122,6 @@ Por ejemplo, las [soluciones de evaluación de SQL y evaluación de AD](https://
 SCOM y Log Analytics ofrecen diferentes características para analizar los datos recopilados.  SCOM tiene vistas y paneles en la consola del operador para analizar datos recientes en una variedad de formatos y los informes para presentar los datos del almacén de datos en formato tabular.  Log Analytics proporciona una interfaz y un lenguaje de consulta de registro completo para analizar los datos en el repositorio de OMS.  Cuando SCOM se utiliza como origen de datos para Log Analytics, el repositorio incluye los datos recopilados por SCOM, por lo que las herramientas de Log Analytics pueden utilizarse para analizar los datos de ambos sistemas.
 
 ### <a name="operations-manager"></a>Operations Manager
-
 #### <a name="views"></a>Vistas
 Las vistas de la consola del operador permiten ver diferentes tipos de datos recopilados por SCOM en diferentes formatos, normalmente tabulares para eventos, alertas y datos de estado, y gráficos de línea para datos de rendimiento.  Las vistas realizan una consolidación o análisis mínimos de los datos, pero le permiten filtrar según determinados criterios. 
 
@@ -171,11 +165,8 @@ Además de proporcionar un análisis ad hoc, las consultas de Log Analytics pued
 ![panel de OMS](media/operations-management-suite-monitoring-product-comparison/log-analytics-dashboard.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Implemente [System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx).
-- Suscríbase a [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics).  
-
-
+* Implemente [System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh205987.aspx).
+* Suscríbase a [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics).  
 
 <!--HONumber=Oct16_HO2-->
 

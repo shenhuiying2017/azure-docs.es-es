@@ -1,28 +1,26 @@
-<properties
-   pageTitle="Scripts personalizados en máquinas virtuales de Windows mediante el uso de plantillas | Microsoft Azure"
-   description="Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado con plantillas de administrador de recursos"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Scripts personalizados en máquinas virtuales de Windows mediante el uso de plantillas | Microsoft Docs
+description: Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado con plantillas de administrador de recursos
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Uso de las extensiones de script personalizadas para máquinas virtuales Windows con plantillas de Azure Resource Manager
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
+[!INCLUDE [virtual-machines-common-extensions-customscript](../../includes/virtual-machines-common-extensions-customscript.md)]
 
 ## Ejemplo de plantilla para una máquina virtual de Windows
-
 Defina el siguiente recurso en la sección Recurso de la plantilla.
 
        {
@@ -52,7 +50,6 @@ En el ejemplo anterior, reemplace la dirección URL de archivo y el nombre de ar
 Si desea mantener de forma privada las direcciones URL y los parámetros del script, puede establecer la dirección URL del script como **privada**. Si la dirección URL del script está establecida como **privada**, solo se puede acceder a ella con un nombre de cuenta de almacenamiento y una clave, enviados como configuración protegida. También se pueden proporcionar los parámetros del script como configuración protegida con la versión 1.7 o posterior de la extensión de script personalizado.
 
 ## Ejemplo de plantilla para una máquina virtual Windows con configuración protegida
-
         {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",

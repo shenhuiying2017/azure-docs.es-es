@@ -1,101 +1,91 @@
-<properties
-	pageTitle="Administrar clústeres de Hadoop mediante la CLI de Azure | Microsoft Azure"
-	description="Cómo usar la CLI de Azure para administrar clústeres de Hadoop en HDInsight"
-	services="hdinsight"
-	editor="cgronlun"
-	manager="jhubbard"
-	authors="mumian"
-	tags="azure-portal"
-	documentationCenter=""/>
+---
+title: Administrar clústeres de Hadoop mediante la CLI de Azure | Microsoft Docs
+description: Cómo usar la CLI de Azure para administrar clústeres de Hadoop en HDInsight
+services: hdinsight
+editor: cgronlun
+manager: jhubbard
+author: mumian
+tags: azure-portal
+documentationcenter: ''
 
-<tags
-	ms.service="hdinsight"
-	ms.workload="big-data"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="jgao"/>
+ms.service: hdinsight
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: jgao
 
+---
 # Administración de clústeres de Hadoop en HDInsight mediante la CLI de Azure
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
+[!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Aprenda a usar la [interfaz de la línea de comandos de Azure](../xplat-cli-install.md) para administrar clústeres de Hadoop en HDInsight de Azure. La CLI de Azure se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
 Este artículo solo trata del uso de la CLI de Azure con HDInsight. Para obtener información general sobre cómo usar la CLI de Azure CLI, consulte [Instalación y configuración de la CLI de Azure][azure-command-line-tools].
 
-[AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 
-##Requisitos previos
-
+## Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
-- **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración.
-- **Conectarse a Azure** mediante el comando siguiente:
-
-		azure login
-
-	Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](xplat-cli-connect.md).
-	
-- **Cambiar al modo de Administrador de recursos de Azure** con el siguiente comando:
-
-		azure config mode arm
+* **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **CLI de Azure** - Vea [Instalar y configurar la CLI de Azure](../xplat-cli-install.md) para obtener información de instalación y configuración.
+* **Conectarse a Azure** mediante el comando siguiente:
+  
+        azure login
+  
+    Para más información acerca de cómo autenticarse con una cuenta profesional o educativa, consulte [Conexión a una suscripción de Azure desde la CLI de Azure](../xplat-cli-connect.md).
+* **Cambiar al modo de Administrador de recursos de Azure** con el siguiente comando:
+  
+        azure config mode arm
 
 Para obtener ayuda, use el modificador **-h**. Por ejemplo:
 
-	azure hdinsight cluster create -h
-	
-##Creación de clústeres
+    azure hdinsight cluster create -h
 
+## Creación de clústeres
 Consulte [Creación de clústeres basados en Linux en HDInsight con la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
-##Enumeración y visualización de los detalles del clúster
+## Enumeración y visualización de los detalles del clúster
 Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
 
-	azure hdinsight cluster list
-	azure hdinsight cluster show <Cluster Name>
+    azure hdinsight cluster list
+    azure hdinsight cluster show <Cluster Name>
 
 ![HDI.CLIListCluster][image-cli-clusterlisting]
 
-
-##Eliminación de clústeres
-
+## Eliminación de clústeres
 Use el comando siguiente para eliminar un clúster:
 
-	azure hdinsight cluster delete <Cluster Name>
+    azure hdinsight cluster delete <Cluster Name>
 
 También puede eliminar un clúster eliminando el grupo de recursos que lo contiene. Tenga en cuenta que esto eliminará todos los recursos del grupo, incluida la cuenta de almacenamiento predeterminada.
 
-	azure group delete <Resource Group Name>
+    azure group delete <Resource Group Name>
 
-##Escalado de clústeres
-
+## Escalado de clústeres
 Para cambiar el tamaño del clúster de Hadoop:
 
-	azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
+    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 
 
 ## Habilitar/deshabilitar el acceso HTTP para un clúster
-
-	azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-	azure hdinsight cluster disable-http-access [options] <Cluster Name>
+    azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
+    azure hdinsight cluster disable-http-access [options] <Cluster Name>
 
 ## Habilitar/deshabilitar el acceso RDP para un clúster
+      azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
+      azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 
-  	azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-  	azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 
-
-##Pasos siguientes
+## Pasos siguientes
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Administración de HDInsight mediante el Portal de Azure][hdinsight-admin-portal]
 * [Administración de HDInsight con Azure PowerShell][hdinsight-admin-powershell]
 * [Introducción a HDInsight de Azure][hdinsight-get-started]
 * [Cómo usar la CLI de Azure][azure-command-line-tools]
-
 
 [azure-command-line-tools]: ../xplat-cli-install.md
 [azure-create-storageaccount]: ../storage-create-storage-account.md

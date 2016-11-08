@@ -1,40 +1,39 @@
 
-<properties
-   pageTitle="Emparejamiento de redes virtuales de Azure | Microsoft Azure"
-   description="Más información sobre el emparejamiento de VNET en Azure."
-   services="virtual-network"
-   documentationCenter="na"
-   authors="NarayanAnnamalai"
-   manager="jefco"
-   editor="tysonn" />
-<tags
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="07/28/2016"
-   ms.author="narayan" />
+---
+title: Emparejamiento de redes virtuales de Azure | Microsoft Docs
+description: Más información sobre el emparejamiento de VNET en Azure.
+services: virtual-network
+documentationcenter: na
+author: NarayanAnnamalai
+manager: jefco
+editor: tysonn
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 07/28/2016
+ms.author: narayan
+
+---
 # Emparejamiento de VNET
-
 El emparejamiento de VNET es un mecanismo que conecta dos redes virtuales de la misma región mediante la red troncal de Azure. Una vez emparejadas, las dos redes virtuales aparecen como una sola a efectos de conectividad. No obstante, se administran como recursos independientes, pero las máquinas virtuales de estas redes virtuales pueden comunicarse entre sí directamente mediante sus direcciones IP privadas.
 
 El tráfico entre máquinas virtuales en las redes virtuales emparejadas se enruta a través de la infraestructura de Azure, de forma muy parecida a como se enruta el tráfico entre máquinas virtuales de la misma red virtual. Estas son algunas de las ventajas que reporta el uso del emparejamiento de VNET:
 
-- Baja latencia, conexión de gran ancho de banda entre los recursos de redes virtuales diferentes.
-- Capacidad para utilizar recursos como aparatos de red y puertas de enlace de VPN como puntos de tránsito en una red virtual emparejada.
-- Capacidad para conectar una red virtual que utiliza el modelo de Azure Resource Manager a una red virtual que utiliza el modelo de implementación clásico y para habilitar la conectividad completa entre los recursos de estas redes virtuales.
+* Baja latencia, conexión de gran ancho de banda entre los recursos de redes virtuales diferentes.
+* Capacidad para utilizar recursos como aparatos de red y puertas de enlace de VPN como puntos de tránsito en una red virtual emparejada.
+* Capacidad para conectar una red virtual que utiliza el modelo de Azure Resource Manager a una red virtual que utiliza el modelo de implementación clásico y para habilitar la conectividad completa entre los recursos de estas redes virtuales.
 
 Requisitos y aspectos clave del emparejamiento de VNET:
 
-- Las dos redes virtuales emparejadas deben estar en la misma región de Azure.
-- Los espacios de las direcciones IP de las redes virtuales emparejadas no deben superponerse.
-- El emparejamiento de VNET se realiza entre dos redes virtuales y no hay ninguna relación transitiva derivada. Por ejemplo, si la red virtual A está emparejada con la red virtual B y la red virtual B esta emparejada con la red virtual de C, no implica necesariamente que la red virtual esté emparejada con la red virtual C.
-- El emparejamiento se puede establecer entre redes virtuales de dos suscripciones distintas, siempre y cuando un usuario con privilegios de ambas suscripciones lo autorice y las suscripciones estén asociadas al mismo inquilino de Active Directory.
-- Una red virtual que use el modelo de implementación de Resource Manager se puede emparejar con otra red virtual que use ese mismo modelo, o bien con una red virtual que utilice el modelo de implementación clásico. Sin embargo, las redes virtuales que usen el modelo de implementación clásico no se pueden emparejar entre ellas.
-- Aunque la comunicación entre máquinas virtuales de redes virtuales emparejadas no tiene ninguna restricción de ancho de banda adicional, se sigue aplicando el límite de ancho de banda según el tamaño de la máquina virtual.
-
+* Las dos redes virtuales emparejadas deben estar en la misma región de Azure.
+* Los espacios de las direcciones IP de las redes virtuales emparejadas no deben superponerse.
+* El emparejamiento de VNET se realiza entre dos redes virtuales y no hay ninguna relación transitiva derivada. Por ejemplo, si la red virtual A está emparejada con la red virtual B y la red virtual B esta emparejada con la red virtual de C, no implica necesariamente que la red virtual esté emparejada con la red virtual C.
+* El emparejamiento se puede establecer entre redes virtuales de dos suscripciones distintas, siempre y cuando un usuario con privilegios de ambas suscripciones lo autorice y las suscripciones estén asociadas al mismo inquilino de Active Directory.
+* Una red virtual que use el modelo de implementación de Resource Manager se puede emparejar con otra red virtual que use ese mismo modelo, o bien con una red virtual que utilice el modelo de implementación clásico. Sin embargo, las redes virtuales que usen el modelo de implementación clásico no se pueden emparejar entre ellas.
+* Aunque la comunicación entre máquinas virtuales de redes virtuales emparejadas no tiene ninguna restricción de ancho de banda adicional, se sigue aplicando el límite de ancho de banda según el tamaño de la máquina virtual.
 
 ![Emparejamiento de VNET básico](./media/virtual-networks-peering-overview/figure01.png)
 
@@ -82,10 +81,9 @@ Hay límites en el número de emparejamientos de que se permiten en una red virt
 ## Precios
 El emparejamiento de VNET será gratuito durante el período de evaluación. Una vez que se lance, habrá un cargo nominal por el tráfico de entrada y salida que utilice el emparejamiento. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/virtual-network).
 
-
 ## Pasos siguientes
-- [Configuración del emparejamiento entre redes virtuales](virtual-networks-create-vnetpeering-arm-portal.md).
-- Más información sobre [NSG](virtual-networks-nsg.md).
-- Más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
+* [Configuración del emparejamiento entre redes virtuales](virtual-networks-create-vnetpeering-arm-portal.md).
+* Más información sobre [NSG](virtual-networks-nsg.md).
+* Más información sobre [rutas definidas por el usuario y reenvío IP](virtual-networks-udr-overview.md).
 
 <!---HONumber=AcomDC_0928_2016-->

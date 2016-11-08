@@ -1,143 +1,109 @@
-<properties
-   pageTitle="Registro de la aplicación y obtención de identificador de cliente y la clave para conectarse a Base de datos SQL desde el código | Microsoft Azure"
-   description="Obtenga el identificador de cliente y la clave para acceder a Base de datos SQL desde el código."
-   services="sql-database"
-   documentationCenter=""
-   authors="stevestein"
-   manager="jhubbard"
-   editor=""
-   tags=""/>
+---
+title: Registro de la aplicación y obtención de identificador de cliente y la clave para conectarse a Base de datos SQL desde el código | Microsoft Docs
+description: Obtenga el identificador de cliente y la clave para acceder a Base de datos SQL desde el código.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
+tags: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="data-management"
-   ms.date="06/06/2016"
-   ms.author="sstein"/>
+ms.service: sql-database
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-management
+ms.date: 06/06/2016
+ms.author: sstein
 
+---
 # Obtención del identificador de cliente y la clave para conectarse a Base de datos SQL desde el código
-
 Para crear y administrar la Base de datos SQL desde el código debe registrar la aplicación en el dominio de Azure Active Directory (AAD) asociado a la suscripción donde se han creado los recursos de Azure. Al registrar la aplicación, Azure generará un identificador de cliente y una clave que necesitará en el código para autenticar la aplicación. Para obtener más información, consulte [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 ## Registro de una aplicación de cliente nativa y obtención del identificador de cliente
-
 Para crear una nueva aplicación y registrarla, haga lo siguiente:
 
 1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com/) (actualmente, el registro de aplicaciones se debe realizar en el Portal clásico).
-1. Busque **Active Directory** en el menú y selecciónelo.
-
+2. Busque **Active Directory** en el menú y selecciónelo.
+   
     ![AAD][1]
-
-2. Seleccione el directorio para autenticar la aplicación y haga clic en su **Nombre**.
-
+3. Seleccione el directorio para autenticar la aplicación y haga clic en su **Nombre**.
+   
     ![Directorios][4]
-
-3. En la página del directorio, haga clic en **APLICACIONES**.
-
+4. En la página del directorio, haga clic en **APLICACIONES**.
+   
     ![Aplicaciones][5]
-
-4. Haga clic en **AGREGAR** para crear una nueva aplicación.
-
+5. Haga clic en **AGREGAR** para crear una nueva aplicación.
+   
     ![Agregar aplicación][6]
-
-5. Asigne un **NOMBRE** a la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
-
+6. Asigne un **NOMBRE** a la aplicación y seleccione **APLICACIÓN DE CLIENTE NATIVO**.
+   
     ![Agregar aplicación][7]
-
-6. Proporcione un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
-
+7. Proporcione un **URI DE REDIRECCIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
+   
     ![Agregar aplicación][8]
-
-7. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (este es el valor que necesitará en su código).
-
+8. Finalice la creación de la aplicación, haga clic en **CONFIGURAR** y copie el **ID. DE CLIENTE** (este es el valor que necesitará en su código).
+   
     ![obtener id. de cliente][9]
-
-
-1. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
-1. Seleccione **Aplicaciones de Microsoft**.
-1. Seleccione **API de administración de servicios de Microsoft Azure** y, después, complete el asistente.
-2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
-3. Seleccione **Acceder a la administración de servicios de Azure...**
-
-    ![permisos][2]
-
-2. Haga clic en **GUARDAR** en la parte inferior de la página.
-
-
+9. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
+10. Seleccione **Aplicaciones de Microsoft**.
+11. Seleccione **API de administración de servicios de Microsoft Azure** y, después, complete el asistente.
+12. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
+13. Seleccione **Acceder a la administración de servicios de Azure...**
+    
+     ![permisos][2]
+14. Haga clic en **GUARDAR** en la parte inferior de la página.
 
 ## Registro de una aplicación web (o api web) y obtención del identificador de cliente y la clave
-
 Para crear una nueva aplicación y registrarla en el directorio activo correcto, haga lo siguiente:
 
 1. Inicie sesión en el [Portal clásico](https://manage.windowsazure.com/).
-1. Busque **Active Directory** en el menú y selecciónelo.
-
+2. Busque **Active Directory** en el menú y selecciónelo.
+   
     ![AAD][1]
-
-2. Seleccione el directorio para autenticar la aplicación y haga clic en su **Nombre**.
-
+3. Seleccione el directorio para autenticar la aplicación y haga clic en su **Nombre**.
+   
     ![Directorios][4]
-
-3. En la página del directorio, haga clic en **APLICACIONES**.
-
+4. En la página del directorio, haga clic en **APLICACIONES**.
+   
     ![Aplicaciones][5]
-
-4. Haga clic en **AGREGAR** para crear una nueva aplicación.
-
+5. Haga clic en **AGREGAR** para crear una nueva aplicación.
+   
     ![Agregar aplicación][6]
-
-5. Asigne un **NOMBRE** para la aplicación y seleccione **APLICACIÓN WEB Y/O API WEB**.
-
+6. Asigne un **NOMBRE** para la aplicación y seleccione **APLICACIÓN WEB Y/O API WEB**.
+   
     ![Agregar aplicación][10]
-
-6. Rellene la información pertinente en los campos **URL DE INICIO DE SESIÓN** y **URI DE ID. DE APLICACIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
-
+7. Rellene la información pertinente en los campos **URL DE INICIO DE SESIÓN** y **URI DE ID. DE APLICACIÓN**. No tiene que ser un extremo real, simplemente un URI válido.
+   
     ![Agregar aplicación][11]
-
-7. Terminar de crear la aplicación y haga clic en **CONFIGURAR**.
-
+8. Terminar de crear la aplicación y haga clic en **CONFIGURAR**.
+   
     ![configurar][12]
-
-8. Desplácese hasta la sección **Claves** sección y seleccione **1 año** en la lista **Seleccionar duración**. El valor de la clave se mostrará después de guardar, por lo que se deberá volver y copiar la clave más tarde.
-
+9. Desplácese hasta la sección **Claves** sección y seleccione **1 año** en la lista **Seleccionar duración**. El valor de la clave se mostrará después de guardar, por lo que se deberá volver y copiar la clave más tarde.
+   
     ![establecer duración de la clave][13]
-
-
-
-1. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
-1. Seleccione **Aplicaciones de Microsoft**.
-1. Busque la opción **API de administración de servicios de Microsoft Azure** y selecciónela y, después, complete el asistente.
-2. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
-3. Seleccione **Acceder a la administración de servicios de Azure...**
-
-    ![permisos][2]
-
-2. Haga clic en **GUARDAR** en la parte inferior de la página.
-3. Una vez completada la operación de guardar, localice el ID. DE CLIENTE y la clave:
-
-    ![secretos de la aplicación web][14]
-
-
+10. Desplácese hacia abajo por la página y haga clic en **Agregar aplicación**.
+11. Seleccione **Aplicaciones de Microsoft**.
+12. Busque la opción **API de administración de servicios de Microsoft Azure** y selecciónela y, después, complete el asistente.
+13. En la sección **Permisos para otras aplicaciones** localice **API de administración de servicios de Microsoft Azure** y haga clic en **Permisos delegados**.
+14. Seleccione **Acceder a la administración de servicios de Azure...**
+    
+     ![permisos][2]
+15. Haga clic en **GUARDAR** en la parte inferior de la página.
+16. Una vez completada la operación de guardar, localice el ID. DE CLIENTE y la clave:
+    
+     ![secretos de la aplicación web][14]
 
 ## Obtención del nombre de dominio
-
 A veces se requiere el nombre de dominio para el código de autenticación. Para identificar de manera sencilla el nombre de dominio adecuado:
 
 1. Vaya al [Portal de Azure](https://portal.azure.com).
 2. Mantenga el puntero sobre su nombre en la esquina superior derecha y anote el dominio que aparece en la ventana emergente.
-
+   
     ![Identificar nombre de dominio][3]
 
-
-
-
 ## Aplicación de consola de ejemplo
-
-
 Obtenga las bibliotecas de administración necesarias, para lo que debe instalar los siguientes paquetes mediante la [consola del Administrador de paquetes](http://docs.nuget.org/Consume/Package-Manager-Console) en Visual Studio (**Herramientas** > **Administrador de paquetes NuGet** > **Consola del Administrador de paquetes**):
-
 
     PM> Install-Package Microsoft.Azure.Common.Authentication –Pre
 
@@ -146,7 +112,7 @@ Cree una aplicación de consola llamada **SqlDbAuthSample** y reemplace el conte
 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using System;
-    
+
     namespace SqlDbAuthSample
     {
     class Program
@@ -228,11 +194,8 @@ Cree una aplicación de consola llamada **SqlDbAuthSample** y reemplace el conte
 Para ejemplos de código específicos y que estén relacionados con la autenticación de Azure AD, vea el [Blog de seguridad de SQL Server](http://blogs.msdn.com/b/sqlsecurity/) en MSDN.
 
 ## Consulte también
-
-- [Creación de una Base de datos SQL con C#](sql-database-get-started-csharp.md)
-- [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
-
-
+* [Creación de una Base de datos SQL con C#](sql-database-get-started-csharp.md)
+* [Conexión a Base de datos SQL mediante autenticación de Azure Active Directory](sql-database-aad-authentication.md)
 
 <!--Image references-->
 [1]: ./media/sql-database-client-id-keys/aad.png

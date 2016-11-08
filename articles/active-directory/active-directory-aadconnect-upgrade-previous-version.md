@@ -1,36 +1,35 @@
-<properties
-   pageTitle="Azure AD Connect: actualización desde una versión anterior | Microsoft Azure"
-   description="Se explican los diferentes métodos para actualizar a la versión más reciente de Azure Active Directory Connect, como la actualización local y la migración oscilante."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect: actualización desde una versión anterior | Microsoft Docs'
+description: Se explican los diferentes métodos para actualizar a la versión más reciente de Azure Active Directory Connect, como la actualización local y la migración oscilante.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="Identity"
-   ms.date="06/27/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: Identity
+ms.date: 06/27/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect:-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
 En este tema se describen los distintos métodos que puede utilizar para actualizar la instalación de Azure AD Connect a la versión más reciente. Le recomendamos mantenerse al día con las versiones de Azure AD Connect.
 
-Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Si quiere actualizar desde DirSync, consulte en su lugar [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 Hay algunas estrategias distintas para actualizar Azure AD Connect.
 
-Método | Description
---- | ---
-[Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) | Para clientes con una instalación rápida, este es el método más fácil.
-[Actualización local](#in-place-upgrade) | Si tiene un solo servidor, actualice la instalación en contexto en el mismo servidor.
-[Migración oscilante](#swing-migration) | Con dos servidores, puede preparar uno de ellos con la nueva versión y cambiar el servidor activo cuando esté listo.
+| Método | Description |
+| --- | --- |
+| [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) |Para clientes con una instalación rápida, este es el método más fácil. |
+| [Actualización local](#in-place-upgrade) |Si tiene un solo servidor, actualice la instalación en contexto en el mismo servidor. |
+| [Migración oscilante](#swing-migration) |Con dos servidores, puede preparar uno de ellos con la nueva versión y cambiar el servidor activo cuando esté listo. |
 
-Para conocer los permisos necesarios, consulte los [permisos necesarios para la actualización](./aad-connect/active-directory-aadconnect-accounts-permissions.md#upgrade).
+Para conocer los permisos necesarios, consulte los [permisos necesarios para la actualización](active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 ## <a name="in-place-upgrade"></a>Actualización local
 Una actualización local sirve para migrar de Azure AD Sync o Azure AD Connect. No sirve para DirSync ni para una solución con FIM + el Conector de Azure AD.
@@ -52,10 +51,9 @@ Los dos servidores pueden usar versiones diferentes; por ejemplo, el servidor ac
 
 Nota: Se ha observado que algunos clientes prefieren tener tres o cuatro servidores para esto. Puesto que el servidor provisional se está actualizando, durante este tiempo no tendrá un servidor de copia de seguridad para el caso de una [recuperación ante desastres](active-directory-aadconnectsync-operations.md#disaster-recovery). Se puede preparar un nuevo conjunto de servidores primarios/en espera con la nueva versión (hasta cuatro servidores como máximo) y asegurarse de que siempre haya un servidor de ensayo preparado para tomar el control.
 
-Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](./aad-connect/active-directory-aadconnect-dirsync-upgrade-get-started.md).
+Estos pasos también sirven para pasar de Azure AD Sync o de una solución con FIM + el Conector de Azure AD. Estos pasos no sirven para DirSync, pero el mismo método de migración oscilante (también llamada implementación paralela) con los pasos para DirSync se pueden encontrar en [Azure AD Connect: actualización de Microsoft Azure Active Directory Sync (DirSync)](active-directory-aadconnect-dirsync-upgrade-get-started.md).
 
 ### <a name="swing-migration-steps"></a>Pasos de la migración oscilante
-
 1. Si utiliza Azure AD Connect en ambos servidores, asegúrese de que tanto el servidor activo como el servidor provisional estén utilizando la misma versión antes de iniciar la actualización. Esto facilitará la posterior comparación para detectar diferencias. Si va a actualizar desde Sincronización de Azure AD, estos servidores tendrán diferentes versiones.
 2. Si ha realizado una configuración personalizada y su servidor provisional no la tiene, siga los pasos que se indican en [Traslado de la configuración personalizada del servidor activo al servidor provisional](#move-custom-configuration-from-active-to-staging-server).
 3. Si está actualizando desde una versión anterior de Azure AD Connect, actualice el servidor provisional a la versión más reciente. Si va a mover desde Sincronización de Azure AD, instale Azure AD Connect en el servidor provisional.
@@ -71,24 +69,22 @@ Las reglas de sincronización personalizadas que haya creado se pueden mover con
 
 Debe asegurarse de que la configuración sea la misma en ambos servidores:
 
-- Conexión a los mismos bosques.
-- Filtrado por dominio y unidad organizativa.
-- Mismas características opcionales, como la sincronización de contraseña y la escritura diferida de contraseñas.
+* Conexión a los mismos bosques.
+* Filtrado por dominio y unidad organizativa.
+* Mismas características opcionales, como la sincronización de contraseña y la escritura diferida de contraseñas.
 
 **Migración de las reglas de sincronización**  
  Para mover una regla de sincronización personalizada, haga lo siguiente:
 
 1. Abra el **Editor de reglas de sincronización** en el servidor activo.
 2. Seleccione la regla personalizada. Haga clic en **Exportar**. Se abrirá una ventana del Bloc de notas. Guarde el archivo temporal con una extensión PS1; así se convertirá en un script de PowerShell. Copie el archivo ps1 en el servidor provisional.
-![Exportación de reglas de sincronización](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
+   ![Exportación de reglas de sincronización](./media/active-directory-aadconnect-upgrade-previous-version/exportrule.png)
 3. El GUID del Conector será diferente en el servidor de ensayo. Para obtener el GUID, inicie el **Editor de reglas de sincronización**, seleccione una de las reglas listas para usar que representa el mismo sistema conectado y haga clic en **Exportar**. Reemplace el GUID del archivo PS1 por el GUID del servidor de ensayo.
 4. En un símbolo del sistema de PowerShell, ejecute el archivo PS1. Esta acción creará la regla de sincronización personalizada en el servidor de ensayo.
 5. Si tiene varias reglas personalizadas, repita lo mismo con todas ellas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

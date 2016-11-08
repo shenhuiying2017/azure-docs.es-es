@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Muestreo de datos en tablas de HDInsight Hive de Azure | Microsoft Azure"
-    description="Reducción del muestreo de datos en tablas de HDInsight Hive (Hadopop) de Azure"
-    services="machine-learning,hdinsight"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun"  />
+---
+title: Muestreo de datos en tablas de HDInsight Hive de Azure | Microsoft Docs
+description: Reducción del muestreo de datos en tablas de HDInsight Hive (Hadopop) de Azure
+services: machine-learning,hdinsight
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/19/2016"
-    ms.author="hangzh;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: hangzh;bradsev
 
-
+---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Muestreo de datos en tablas de HDInsight Hive de Azure
-
 En este artículo, se describe cómo reducir la muestra de datos almacenados en tablas de HDInsight Hive de Azure mediante consultas de Hive. Se explican tres métodos de muestreo normalmente utilizados:
 
 * Muestreo aleatorio uniforme
@@ -30,10 +28,9 @@ En este artículo, se describe cómo reducir la muestra de datos almacenados en 
 
 El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
 
-[AZURE.INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
+[!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-
 
 ## <a name="how-to-submit-hive-queries"></a>Cómo enviar consultas de Hive
 Las consultas de subárbol se pueden enviar desde la consola de línea de comandos de Hadoop del nodo principal del clúster de Hadoop. Para ello, inicie sesión en el nodo principal del clúster de Hadoop, abra la consola de la línea de comandos de Hadoop y envíe las consultas de Hive desde allí. Para obtener instrucciones sobre el envío de consultas de Hive en la consola de línea de comandos de Hadoop, consulte [Envío de consultas de Hive](machine-learning-data-science-move-hive-tables.md#submit).
@@ -57,7 +54,6 @@ Aquí se muestra una consulta de ejemplo:
 En este caso, `<sample rate, 0-1>` especifica la proporción de registros que los usuarios quieren usar como muestra.
 
 ## <a name="<a-name="group"></a>-random-sampling-by-groups"></a><a name="group"></a> Muestreo aleatorio por grupos
-
 Cuando se realiza un muestreo de datos de categoría, podría querer incluir o excluir todas las instancias de algún valor concreto de una variable de categoría. Esto es lo que significa "muestreo por grupos".
 Por ejemplo, si tiene una variable de categoría "Estado", que tiene como valores NY, MA, CA, NJ, PA, etc., querrá que los registros de un mismo estado estén siempre juntos, ya están muestreados o no.
 
@@ -88,7 +84,6 @@ Aquí se muestra una consulta de ejemplo que realiza un muestreo por grupo:
     on b.catfield=c.catfield
 
 ## <a name="<a-name="stratified"></a>stratified-sampling"></a><a name="stratified"></a>Muestreo estratificado
-
 El muestreo aleatorio se estratifica con respecto a una variable de categoría cuando las muestras obtenidas tienen valores de esa categoría que se encuentran en la misma proporción que en la población original de la que se obtuvieron las muestras. En el mismo ejemplo que el anterior, suponga que los datos tienen subpoblaciones según los estados; por ejemplo, NJ tiene 100 observaciones, NY tiene 60 observaciones y WA tiene 300 observaciones. Si especifica que la tasa de muestreo estratificado sea 0,5, la muestra obtenida debería tener aproximadamente 50, 30 y 150 observaciones de NJ, NY y WA, respectivamente.
 
 Aquí se muestra una consulta de ejemplo:
@@ -108,8 +103,6 @@ Aquí se muestra una consulta de ejemplo:
 
 
 Para obtener información sobre los métodos de muestreo más avanzados que están disponibles en Hive, consulte [Manual de lenguaje: muestreo](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

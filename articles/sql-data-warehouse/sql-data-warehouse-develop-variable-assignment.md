@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Asignación de variables en el Almacenamiento de datos SQL | Microsoft Azure"
-   description="Sugerencias para la asignación de variables de Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="jrowlandjones"
-   manager="barbkess"
-   editor=""/>
+---
+title: Asignación de variables en el Almacenamiento de datos SQL | Microsoft Docs
+description: Sugerencias para la asignación de variables de Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones.
+services: sql-data-warehouse
+documentationcenter: NA
+author: jrowlandjones
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="06/14/2016"
-   ms.author="jrj;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 06/14/2016
+ms.author: jrj;barbkess;sonyama
 
+---
 # Asignación de variables en el Almacenamiento de datos SQL
 Las variables en el Almacenamiento de datos SQL se establecen mediante las instrucciones `DECLARE` o `SET`.
 
 A continuación se indican formas totalmente válidas para establecer el valor de una variable:
 
 ## Configuración de variables con DECLARE
-
 Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el Almacenamiento de datos SQL.
 
 ```sql
@@ -63,9 +62,8 @@ Solo puede establecer una variable al mismo tiempo con SET. Sin embargo, como he
 ## Limitaciones
 Puede usar SELECT o UPDATE para la asignación de variables.
 
-
 ## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
 
 <!--Image references-->
 

@@ -1,60 +1,53 @@
-<properties
-	pageTitle="Always Encrypted: protección de datos confidenciales en Base de datos SQL con cifrado de base de datos | Microsoft Azure"
-	description="Proteger datos confidenciales en la base de datos SQL en cuestión de minutos."
-	keywords="cifrado de datos, clave de cifrado, cifrado en la nube"
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: 'Always Encrypted: protección de datos confidenciales en Base de datos SQL con cifrado de base de datos | Microsoft Docs'
+description: Proteger datos confidenciales en la base de datos SQL en cuestión de minutos.
+keywords: cifrado de datos, clave de cifrado, cifrado en la nube
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: cgronlun
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/18/2016
+ms.author: sstein
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/18/2016"
-	ms.author="sstein"/>
-
+---
 # Always Encrypted: protección de datos confidenciales en Base de datos SQL y almacenamiento de las claves de cifrado en Almacén de claves de Azure
-
-> [AZURE.SELECTOR]
-- [Almacén de claves de Azure](sql-database-always-encrypted-azure-key-vault.md)
-- [Almacén de certificados de Windows](sql-database-always-encrypted.md)
-
+> [!div class="op_single_selector"]
+> * [Almacén de claves de Azure](sql-database-always-encrypted-azure-key-vault.md)
+> * [Almacén de certificados de Windows](sql-database-always-encrypted.md)
+> 
+> 
 
 En este artículo se muestra cómo proteger los datos confidenciales de una base de datos SQL con cifrado de datos mediante el [asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) en [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). También incluye instrucciones para almacenar cada clave de cifrado en Almacén de claves de Azure.
 
 Always Encrypted es una nueva tecnología de cifrado de datos de Base de datos SQL de Azure y SQL Server que ayuda a proteger los datos confidenciales en reposo en el servidor durante el traslado entre el cliente y el servidor, y mientras los datos están en uso. Always Encrypted garantiza que los datos confidenciales nunca van a aparecer como texto no cifrado dentro del sistema de base de datos. Después de configurar el cifrado de datos, solo las aplicaciones cliente o los servidores de aplicaciones que tienen acceso a las claves pueden acceder a los datos de texto no cifrado. Para más información, consulte [Always Encrypted (motor de base de datos)](https://msdn.microsoft.com/library/mt163865.aspx).
 
-
 Después de configurar la base de datos para usar Always Encrypted, creará una aplicación cliente en C# con Visual Studio para trabajar con los datos cifrados.
 
 Siga los pasos de este artículo y aprenda a configurar Always Encrypted para una base de datos SQL de Azure. En este artículo aprenderá a realizar las siguientes tareas:
 
-- Usar el asistente de Always Encrypted en SSMS para crear [claves de Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
-    - Crear una [clave maestra de columna (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
-    - Crear una [clave de cifrado de columna (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
-- Crear una tabla de base de datos y cifrar columnas.
-- Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
-
+* Usar el asistente de Always Encrypted en SSMS para crear [claves de Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
+  * Crear una [clave maestra de columna (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
+  * Crear una [clave de cifrado de columna (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
+* Crear una tabla de base de datos y cifrar columnas.
+* Crear una aplicación que inserta, selecciona y muestra los datos de las columnas cifradas.
 
 ## Requisitos previos
-
 Para este tutorial, necesitará:
 
-- Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versión 13.0.700.242 o posterior.
-- [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o posterior (en el equipo cliente).
-- [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-- [Azure PowerShell](../powershell-install-configure.md), versión 1.0 o posterior. Escriba **(Get-Module azure -ListAvailable).Version** para ver qué versión de PowerShell se está ejecutando.
-
-
+* Una cuenta y una suscripción de Azure. Si no tiene una, suscríbase para [una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/).
+* [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) versión 13.0.700.242 o posterior.
+* [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) o posterior (en el equipo cliente).
+* [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+* [Azure PowerShell](../powershell-install-configure.md), versión 1.0 o posterior. Escriba **(Get-Module azure -ListAvailable).Version** para ver qué versión de PowerShell se está ejecutando.
 
 ## Habilitación de la aplicación cliente para obtener acceso al servicio de Base de datos SQL
-
 Primero debe habilitar la aplicación cliente para obtener acceso al servicio Base de datos SQL; para ello, configure la autenticación necesaria y obtenga los valores de *ClientId* y *Secret* necesarios para autenticar la aplicación en el código siguiente.
 
 1. Abra el [Portal de Azure clásico](http://manage.windowsazure.com).
@@ -65,21 +58,16 @@ Primero debe habilitar la aplicación cliente para obtener acceso al servicio Ba
 6. Haga clic en **CONFIGURAR**.
 7. Copie el **ID. DE CLIENTE**. (Necesitará este valor en el código más adelante).
 8. En la sección **Claves**, seleccione **1 año** en la lista desplegable **Seleccionar duración**. (Copiará la clave después de guardar en el paso 14).
-11. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
-12. Deje **MOSTRAR** en **Aplicaciones de Microsoft** y seleccione **Microsoft Azure Service Management**. Haga clic en la marca de verificación para continuar.
-13. En la lista desplegable **Permisos delegados**, seleccione **Acceso a Azure Service Management**.
-14. Haga clic en **GUARDAR**.
-15. Una vez finalizada la operación de guardar, copie el valor de clave en la sección **keys**. (Necesitará este valor en el código más adelante).
-
-
+9. Desplácese hacia abajo y haga clic en **Agregar aplicación**.
+10. Deje **MOSTRAR** en **Aplicaciones de Microsoft** y seleccione **Microsoft Azure Service Management**. Haga clic en la marca de verificación para continuar.
+11. En la lista desplegable **Permisos delegados**, seleccione **Acceso a Azure Service Management**.
+12. Haga clic en **GUARDAR**.
+13. Una vez finalizada la operación de guardar, copie el valor de clave en la sección **keys**. (Necesitará este valor en el código más adelante).
 
 ## Creación de un almacén de claves para guardar las claves
-
 Ahora que la aplicación cliente está configurada y tiene el identificador de cliente, es el momento de crear un almacén de claves y configurar su directiva de acceso para que el usuario y su aplicación puedan acceder a los secretos del almacén (las claves de Always Encrypted). Los permisos *create*, *get*, *list*, *sign*, *verify*, *wrapKey* y *unwrapKey* son necesarios para crear una nueva clave maestra de columna y configurar el cifrado con SQL Server Management Studio.
 
-Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para obtener una explicación detallada de estos cmdlets y obtener más información sobre cómo crear y configurar un almacén de claves, consulte [Introducción al Almacén de claves de Azure](../Key-Vault/key-vault-get-started.md).
-
-
+Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para obtener una explicación detallada de estos cmdlets y obtener más información sobre cómo crear y configurar un almacén de claves, consulte [Introducción al Almacén de claves de Azure](../key-vault/key-vault-get-started.md).
 
     $subscriptionName = '<your Azure subscription name>'
     $userPrincipalName = '<username@domain.com>'
@@ -106,38 +94,32 @@ Para crear rápidamente un almacén de claves, ejecute el script siguiente. Para
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
 2. Vaya a **Nuevo** > **Datos + almacenamiento** > **Base de datos SQL**.
 3. Cree una base de datos **en blanco** denominada **Clinic** en un servidor nuevo o existente. Para obtener instrucciones detalladas para crear una base de datos en el Portal de Azure, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
-
-	![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
+   
+    ![Crear una base de datos en blanco](./media/sql-database-always-encrypted-azure-key-vault/create-database.png)
 
 Necesitará la cadena de conexión más adelante en el tutorial; por lo tanto, después de crear la base de datos, vaya a la nueva base de datos Clinic y copie la cadena de conexión. Puede obtener la cadena de conexión en cualquier momento, pero es fácil copiarla en el Portal de Azure.
 
 1. Vaya a **Bases de datos SQL** > **Clinic** > **Mostrar las cadenas de conexión de la base de datos**.
 2. Copie la cadena de conexión para **ADO.NET**.
-
-	![Copiar la cadena de conexión](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
-
+   
+    ![Copiar la cadena de conexión](./media/sql-database-always-encrypted-azure-key-vault/connection-strings.png)
 
 ## Conéctese a la base de datos con SSMS
-
 Abra SSMS y conéctese al servidor con la base de datos Clinic.
-
 
 1. Abra SSMS. (Vaya a **Conectar** > **Motor de base de datos...** para abrir la ventana **Conectar con el servidor** si no está abierta).
 2. Escriba su nombre del servidor y las credenciales. El nombre del servidor puede encontrarse en la hoja de la base de datos SQL y en la cadena de conexión que copió anteriormente. Escriba el nombre de servidor completo, incluido *database.windows.net*.
-
-	![Copiar la cadena de conexión](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
+   
+    ![Copiar la cadena de conexión](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
 
 Si se abre la ventana **Nueva regla de firewall**, inicie sesión en Azure y permita que SSMS cree una nueva regla de firewall.
 
-
 ## Creación de una tabla
-
 En esta sección, creará una tabla para almacenar datos de pacientes. Inicialmente no están cifrados; configurará el cifrado en la sección siguiente.
 
 1. Expanda **Bases de datos**.
-1. Haga clic con el botón derecho en la base de datos **Clinic** y haga clic en **Nueva consulta**.
-2. Pegue el siguiente código Transact-SQL (T-SQL) en la nueva ventana de consulta y haga clic en **Ejecutar**.
-
+2. Haga clic con el botón derecho en la base de datos **Clinic** y haga clic en **Nueva consulta**.
+3. Pegue el siguiente código Transact-SQL (T-SQL) en la nueva ventana de consulta y haga clic en **Ejecutar**.
 
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
@@ -155,18 +137,16 @@ En esta sección, creará una tabla para almacenar datos de pacientes. Inicialme
 
 
 ## Cifrado de columnas (configurar Always Encrypted)
-
 SSMS proporciona un asistente para ayudar a configurar Always Encrypted fácilmente, que configura automáticamente la clave maestra de columna, la clave de cifrado de columna y las columnas cifradas.
 
 1. Expanda **Bases de datos** > **Clinic** > **Tablas**.
 2. Haga clic con el botón derecho en la tabla **Pacientes** y seleccione **Cifrar columnas** para abrir el asistente de Always Encrypted:
-
+   
     ![Cifrar columnas](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
 El asistente Always Encrypted incluye las siguientes secciones: **Selección de columnas**, **Configuración de la clave maestra**, **Validación** y **Resumen**.
 
-### Selección de columnas##
-
+### Selección de columnas
 En la página **Introducción**, haga clic en **Siguiente** para abrir la página **Selección de columnas**. En esta página, seleccione las columnas que desea cifrar, [el tipo de cifrado y qué clave de cifrado de columna (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) desea usar.
 
 Cifre la información **SSN** y **BirthDate** de cada paciente. La columna SSN usará cifrado determinista, que admite búsquedas de igualdad, combinaciones y agrupaciones. La columna BirthDate usará cifrado aleatorio, que no admite operaciones.
@@ -175,47 +155,41 @@ Establezca el **Tipo de cifrado** de la columna SSN en **Determinista** y la col
 
 ![Cifrar columnas](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
-### Configuración de la clave maestra###
-
+### Configuración de la clave maestra
 En la página **Configuración de la clave maestra** se configura la clave maestra de columna (CMK) y se selecciona el proveedor del almacén de claves donde se almacenará la CMK. Actualmente, puede almacenar una CMK en el almacén de certificados de Windows, en Almacén de claves de Azure o en un módulo de seguridad de hardware (HSM).
 
 En este tutorial se muestra cómo almacenar las claves en Almacén de claves de Azure.
 
-1.     Seleccione **Almacén de claves de Azure**.
-1.     Seleccione el almacén de claves deseado en la lista desplegable.
-1.     Haga clic en **Next**.
+1. Seleccione **Almacén de claves de Azure**.
+2. Seleccione el almacén de claves deseado en la lista desplegable.
+3. Haga clic en **Next**.
 
 ![Configuración de la clave maestra](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
-
-### Validación###
-
+### Validación
 Puede cifrar las columnas ahora o guardar un script de PowerShell para ejecutarlo más tarde. Para este tutorial, seleccione **Continuar para finalizar ahora** y haga clic en **Siguiente**.
 
-### Resumen ###
-
+### Resumen
 Compruebe que la configuración sea correcta y haga clic en **Finalizar** para completar la configuración de Always Encrypted.
-
 
 ![Resumen](./media/sql-database-always-encrypted-azure-key-vault/summary.png)
 
-
 ### Comprobación de las acciones del asistente
-
 Una vez finalizado el asistente, la base de datos estará configurada para Always Encrypted. El asistente habrá realizado las siguientes acciones:
 
-- Creación de una clave maestra de columna (CMK) y almacenamiento en Almacén de claves de Azure.
-- Creación de una clave de cifrado de columna (CMK) y almacenamiento en Almacén de claves de Azure.
-- Configuración de las columnas seleccionadas para el cifrado. La tabla Patients aún no tiene datos, pero los datos existentes en las columnas seleccionadas ahora están cifrados.
+* Creación de una clave maestra de columna (CMK) y almacenamiento en Almacén de claves de Azure.
+* Creación de una clave de cifrado de columna (CMK) y almacenamiento en Almacén de claves de Azure.
+* Configuración de las columnas seleccionadas para el cifrado. La tabla Patients aún no tiene datos, pero los datos existentes en las columnas seleccionadas ahora están cifrados.
 
 Para comprobar la creación de las claves en SSMS, expanda **Clinic** > **Seguridad** > **Claves de Always Encrypted**.
 
-
 ## Crear una aplicación cliente que funcione con los datos cifrados
-
 Ahora que Always Encrypted está configurado, vamos a crear una aplicación que realice operaciones de *inserción* y *selección* en las columnas cifradas.
 
-> [AZURE.IMPORTANT] La aplicación debe usar objetos [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) al pasar datos de texto sin cifrar al servidor con columnas de Always Encrypted. Se generará una excepción al pasar valores literales sin usar objetos SqlParameter.
+> [!IMPORTANT]
+> La aplicación debe usar objetos [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) al pasar datos de texto sin cifrar al servidor con columnas de Always Encrypted. Se generará una excepción al pasar valores literales sin usar objetos SqlParameter.
+> 
+> 
 
 1. Abra Visual Studio y cree una nueva aplicación de consola C#. Asegúrese de que el proyecto esté establecido en **.NET Framework 4.6** o versiones posteriores.
 2. Use el nombre **AlwaysEncryptedConsoleAKVApp** para el proyecto y haga clic en **Aceptar**. ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/console-app.png)
@@ -229,25 +203,19 @@ Ejecute estas dos líneas de código en la Consola del Administrador de paquetes
 
 
 ## Modificar la cadena de conexión para habilitar Always Encrypted
-
 En esta sección se explica cómo habilitar Always Encrypted en la cadena de conexión de su base de datos.
-
 
 Para habilitar Always Encrypted, debe agregar la palabra clave **Column Encryption Setting** a la cadena de conexión y establecerla en **Enabled**.
 
 Puede establecerla directamente en la cadena de conexión o mediante [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). La aplicación de ejemplo de la siguiente sección muestra cómo usar **SqlConnectionStringBuilder**.
 
-
-
 ### Modificar Always Encrypted en la cadena de conexión
-
 Agregue la siguiente palabra clave a la cadena de conexión.
 
     Column Encryption Setting=Enabled
 
 
 ### Habilitar Always Encrypted con SqlConnectionStringBuilder
-
 El siguiente código muestra cómo habilitar Always Encrypted estableciendo [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) en [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
@@ -259,7 +227,6 @@ El siguiente código muestra cómo habilitar Always Encrypted estableciendo [Sql
        SqlConnectionColumnEncryptionSetting.Enabled;
 
 ## Registro del proveedor de Almacén de claves de Azure
-
 El código siguiente muestra cómo registrar el proveedor de Almacén de claves de Azure con el controlador de ADO.NET.
 
     private static ClientCredential _clientCredential;
@@ -281,13 +248,12 @@ El código siguiente muestra cómo registrar el proveedor de Almacén de claves 
 
 
 ## Aplicación de consola de ejemplo de Always Encrypted
-
 En este ejemplo se muestra cómo:
 
-- Modificar la cadena de conexión para habilitar Always Encrypted.
-- Registrar Almacén de claves de Azure como proveedor de almacén de claves de la aplicación.
-- Insertar datos en las columnas cifradas.
-- Seleccionar un registro mediante el filtrado de un valor específico de una columna cifrada.
+* Modificar la cadena de conexión para habilitar Always Encrypted.
+* Registrar Almacén de claves de Azure como proveedor de almacén de claves de la aplicación.
+* Insertar datos en las columnas cifradas.
+* Seleccionar un registro mediante el filtrado de un valor específico de una columna cifrada.
 
 Reemplace el contenido de **Program.cs** por el código siguiente. Reemplace la cadena de conexión para la variable global connectionString en la línea directamente anterior al método Main por una cadena de conexión válida desde el Portal de Azure. Este es el único cambio que necesita realizar en este código.
 
@@ -636,7 +602,6 @@ Ejecute la aplicación para ver Always Encrypted en acción.
 
 
 ## Comprobación del cifrado de los datos
-
 Para comprobar rápidamente que los datos reales del servidor están cifrados, podemos consultar los datos de los pacientes con SSMS (mediante la conexión actual en la que el parámetro **Column Encryption Setting** aún no está habilitado).
 
 Ejecute la siguiente consulta en la base de datos Clinic.
@@ -647,38 +612,33 @@ Puede ver que las columnas cifradas no contienen datos de texto no cifrado.
 
    ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-
 Par usar SSMS para obtener acceso a los datos de texto no cifrado, puede agregar el parámetro *Column Encryption Setting=enabled* a la conexión.
 
 1. En SSMS, haga clic con el botón derecho en el servidor en **Explorador de objetos** y elija **Desconectar**.
 2. Haga clic en **Conectar** > **Motor de base de datos** para abrir la ventana **Conectar con el servidor** y haga clic en **Opciones**.
 3. Haga clic en **Parámetros de conexión adicionales** y escriba **Column Encryption Setting=enabled**.
-
-	![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
-
+   
+    ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-connection-parameter.png)
 4. Ejecute la siguiente consulta en la base de datos Clinic.
-
+   
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-
+   
      Ahora puede ver los datos de texto no cifrado en las columnas cifradas.
 
-
-	![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
+    ![Nueva aplicación de consola](./media/sql-database-always-encrypted-azure-key-vault/ssms-plaintext.png)
 
 
 ## Pasos siguientes
 Después de crear una base de datos que usa Always Encrypted, es posible que quiera hacer lo siguiente:
 
-- [Rotar y limpiar las claves](https://msdn.microsoft.com/library/mt607048.aspx).
-- [Migrar los datos que ya están cifrados con Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
-
+* [Rotar y limpiar las claves](https://msdn.microsoft.com/library/mt607048.aspx).
+* [Migrar los datos que ya están cifrados con Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
 
 ## Información relacionada
-
-- [Always Encrypted (desarrollo de clientes)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx)
-- [Cifrado de SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
-- [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted (desarrollo de clientes)](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Cifrado de datos transparente](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Cifrado de SQL Server](https://msdn.microsoft.com/library/bb510663.aspx)
+* [Asistente de Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx)
+* [Blog de Always Encrypted](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 
 <!---HONumber=AcomDC_0824_2016-->

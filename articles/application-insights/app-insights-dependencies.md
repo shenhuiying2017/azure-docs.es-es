@@ -1,27 +1,24 @@
-<properties 
-	pageTitle="Diagnóstico de problemas con dependencias en Application Insights" 
-	description="Búsqueda de errores y rendimientos reducidos provocados por las dependencias" 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Diagnóstico de problemas con dependencias en Application Insights
+description: Búsqueda de errores y rendimientos reducidos provocados por las dependencias
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="05/12/2016" 
-	ms.author="awills"/>
- 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/12/2016
+ms.author: awills
+
+---
 # Diagnóstico de problemas con dependencias en Application Insights
-
-
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. O bien, en la secuencia de comandos de la página web, puede ser una llamada AJAX al servidor. En Application Insights para Visual Studio, puede ver fácilmente cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia.
 
 ## Dónde puede usarla
-
 La supervisión de dependencia lista para su uso sin configuraciones adicionales está disponible para:
 
 * Servicios y aplicaciones web ASP.NET que se ejecutan en un servidor IIS o en Azure.
@@ -33,33 +30,31 @@ Para otros tipos, como aplicaciones de dispositivo, puede escribir su propio mon
 El monitor de dependencia listo para su uso sin configuraciones adicionales actualmente llama a estos tipos de dependencias:
 
 * ASP.NET
- * Bases de datos SQL
- * Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
- * Llamadas HTTP locales o remotas
- * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
+  * Bases de datos SQL
+  * Servicios WFC y web de ASP.NET que usan enlaces basados en HTTP
+  * Llamadas HTTP locales o remotas
+  * DocumentDb, tabla, almacenamiento de blobs y cola de Azure
 * Java
- * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
+  * Llamadas a una base de datos a través de un controlador [JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/), por ejemplo, MySQL, SQL Server, PostgreSQL o SQLite.
 * Páginas web
- * [Llamadas AJAX](app-insights-javascript.md)
+  * [Llamadas AJAX](app-insights-javascript.md)
 
 De nuevo, puede escribir sus propias llamadas de SDK para supervisar otras dependencias.
 
 ## Para configurar la supervisión de dependencia
-
 Instale al agente adecuado para el servidor host.
 
-Plataforma | Instalación
----|---
-Servidor IIS | [Instale el Monitor de estado en el servidor](app-insights-monitor-performance-live-website-now.md) o [actualice la aplicación a .NET Framework 4.6 o superior](http://go.microsoft.com/fwlink/?LinkId=528259) e instale el [SDK de Application Insights](app-insights-asp-net.md) en la aplicación.
-Aplicación web de Azure | [Extensión de Application Insights](app-insights-azure-web-apps.md)
-Servidor web de Java | [Aplicaciones web de Java](app-insights-java-agent.md)
-Páginas web | [Monitor de JavaScript](app-insights-javascript.md) (ninguna configuración adicional aparte de la supervisión de páginas web)
-Servicio en la nube de Azure | [Uso de tarea de inicio](app-insights-cloudservices.md#dependencies) o [Instalación de .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md)  
+| Plataforma | Instalación |
+| --- | --- |
+| Servidor IIS |[Instale el Monitor de estado en el servidor](app-insights-monitor-performance-live-website-now.md) o [actualice la aplicación a .NET Framework 4.6 o superior](http://go.microsoft.com/fwlink/?LinkId=528259) e instale el [SDK de Application Insights](app-insights-asp-net.md) en la aplicación. |
+| Aplicación web de Azure |[Extensión de Application Insights](app-insights-azure-web-apps.md) |
+| Servidor web de Java |[Aplicaciones web de Java](app-insights-java-agent.md) |
+| Páginas web |[Monitor de JavaScript](app-insights-javascript.md) (ninguna configuración adicional aparte de la supervisión de páginas web) |
+| Servicio en la nube de Azure |[Uso de tarea de inicio](app-insights-cloudservices.md#dependencies) o [Instalación de .NET Framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 El Monitor de estado para los servidores de IIS no precisa que vuelva a generar el proyecto de origen con el SDK de Application Insights.
 
 ## Mapa de aplicación
-
 Mapa de aplicación sirve de ayuda visual para detectar las dependencias entre los componentes de la aplicación.
 
 ![Haga clic en Configuración, Mapa de aplicación.](./media/app-insights-dependencies/08.png)
@@ -73,7 +68,6 @@ Ancle el mapa al [panel](app-insights-dashboards.md), donde será completamente 
 [Más información](app-insights-app-map.md).
 
 ## <a name="diagnosis"></a> Diagnóstico de problemas de rendimiento relacionados con dependencias en el servidor web
-
 Para evaluar el rendimiento de las solicitudes en el servidor:
 
 ![En la página de información general de la aplicación en Application Insights, haga clic en el icono de rendimiento.](./media/app-insights-dependencies/01-performance.png)
@@ -86,12 +80,14 @@ La primera tarda mucho tiempo. Veamos si podemos averiguar dónde se está invir
 
 Haga clic en esa fila para ver los eventos de solicitud individuales:
 
-
 ![Lista de casos de solicitudes](./media/app-insights-dependencies/03-instances.png)
 
 Haga clic en cualquier instancia de ejecución prolongada para inspeccionarla con mayor profundidad.
 
-> [AZURE.NOTE] Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
+> [!NOTE]
+> Desplácese hacia abajo un poco para elegir una instancia. La latencia en la canalización puede significar que los datos de las instancias superiores están incompletos.
+> 
+> 
 
 Desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
 
@@ -101,27 +97,20 @@ Parece que la mayoría del tiempo que se ha invertido en atender a esta solicitu
 
 Seleccione esa fila para obtener más información:
 
-
 ![Haga clic en esa dependencia remota para identificar la causa.](./media/app-insights-dependencies/05-detail.png)
 
 El detalle incluye suficiente información para diagnosticar el problema.
 
-
-
 ## Errores
-
 Si hay solicitudes con error, haga clic en el gráfico.
 
 ![Haga clic en el gráfico de las solicitudes con error.](./media/app-insights-dependencies/06-fail.png)
 
 Haga clic en un tipo de solicitud y una instancia de la solicitud para buscar una llamada con errores a una dependencia remota.
 
-
 ![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/app-insights-dependencies/07-faildetail.png)
 
-
 ## Seguimiento de dependencias personalizadas
-
 El módulo de seguimiento de dependencias estándar detecta automáticamente las dependencias externas, como bases de datos y API de REST. Pero tal vez quieras que se traten algunos componentes adicionales de la misma manera.
 
 Puede escribir código que envíe la información de dependencia usando la misma [API de TrackDependency](app-insights-api-custom-events-metrics.md#track-dependency) que usan los módulos estándar.
@@ -146,12 +135,7 @@ Por ejemplo, si compila el código con un ensamblado que no escribió usted mism
 
 Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la referencia a DependencyTrackingTelemetryModule en [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md).
 
-
 ## AJAX
-
 Consulte [Application Insights para páginas web](app-insights-javascript.md).
-
-
- 
 
 <!---HONumber=AcomDC_0914_2016-->

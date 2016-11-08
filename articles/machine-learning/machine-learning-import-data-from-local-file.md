@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Importación de datos en Estudio de aprendizaje automático desde un archivo local | Microsoft Azure"
-	description="Cómo importar datos de aprendizaje en Estudio de aprendizaje automático de Azure desde un archivo local."
-	keywords="importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento"
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Importación de datos en Estudio de aprendizaje automático desde un archivo local | Microsoft Docs
+description: Cómo importar datos de aprendizaje en Estudio de aprendizaje automático de Azure desde un archivo local.
+keywords: importar datos, formato de datos, tipos de datos, orígenes de datos, datos de entrenamiento
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="garye;bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: garye;bradsev
 
-
+---
 # Importación de datos de aprendizaje en Estudio de aprendizaje automático de Azure desde un archivo local
-
-[AZURE.INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
-
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 Para usar sus propios datos en Estudio de aprendizaje automático, puede cargar un archivo de datos por adelantado desde el disco duro local para crear un módulo de conjunto de datos en el área de trabajo.
 
-
 ## Importación de datos desde un archivo local
-
 Para importar datos desde un disco duro local, siga estos pasos:
 
 1. Haga clic en **+NUEVO** en la parte inferior de la ventana de Estudio de aprendizaje automático.

@@ -1,35 +1,36 @@
-<properties
-   pageTitle="Application Dependency Monitor (ADM) en Operations Management Suite (OMS) | Microsoft Azure"
-   description="Application Dependency Monitor (ADM) es una solución de Operations Management Suite (OMS) que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  Este artículo proporciona detalles para implementar ADM en su entorno y utilizarlos en una variedad de escenarios."
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="daseidma"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/28/2016"
-   ms.author="daseidma;bwren" />
+---
+title: Application Dependency Monitor (ADM) en Operations Management Suite (OMS) | Microsoft Docs
+description: Application Dependency Monitor (ADM) es una solución de Operations Management Suite (OMS) que detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios.  Este artículo proporciona detalles para implementar ADM en su entorno y utilizarlos en una variedad de escenarios.
+services: operations-management-suite
+documentationcenter: ''
+author: daseidma
+manager: jwhit
+editor: tysonn
 
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/28/2016
+ms.author: daseidma;bwren
 
+---
 # <a name="using-application-dependency-monitor-solution-in-operations-management-suite-(oms)"></a>Utilización de la solución Application Dependency Monitor en Operations Management Suite (OMS)
 ![Icono Administración de alertas](media/operations-management-suite-application-dependency-monitor/icon.png) Application Dependency Monitor (ADM) detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos.  Application Dependency Monitor muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
 
 Este artículo describe los detalles de la utilización de Application Dependency Monitor.  Para información sobre la configuración de ADM y los agentes integrados, vea [Configuración de la solución Application Dependency Monitor en Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor-configure.md)
 
->[AZURE.NOTE]Application Dependency Monitor está actualmente en vista previa privada.  Puede solicitar acceso a la vista previa privada de ADM en [https://aka.ms/getadm](https://aka.ms/getadm).
->
->Durante la vista previa privada, todas las cuentas OMS tienen acceso ilimitado a ADM.  Los nodos ADM son gratuitos, pero los datos de Log Analytics para los tipos AdmComputer_CL y AdmProcess_CL se medirán como cualquier otra solución.
->
->Después de que ADM esté en la vista previa pública, estará disponible únicamente para clientes gratuitos y de pago de Insight & Analytics en el Plan de precios de OMS.  Las cuentas de nivel gratis se limitarán a 5 nodos ADM.  Si participa en la vista previa privada y no se inscribe en el Plan de precios de OMS cuando ADM está en la vista previa pública, se deshabilitará el ADM en ese momento. 
-
+> [!NOTE]
+> Application Dependency Monitor está actualmente en vista previa privada.  Puede solicitar acceso a la vista previa privada de ADM en [https://aka.ms/getadm](https://aka.ms/getadm).
+> 
+> Durante la vista previa privada, todas las cuentas OMS tienen acceso ilimitado a ADM.  Los nodos ADM son gratuitos, pero los datos de Log Analytics para los tipos AdmComputer_CL y AdmProcess_CL se medirán como cualquier otra solución.
+> 
+> Después de que ADM esté en la vista previa pública, estará disponible únicamente para clientes gratuitos y de pago de Insight & Analytics en el Plan de precios de OMS.  Las cuentas de nivel gratis se limitarán a 5 nodos ADM.  Si participa en la vista previa privada y no se inscribe en el Plan de precios de OMS cuando ADM está en la vista previa pública, se deshabilitará el ADM en ese momento. 
+> 
+> 
 
 ## <a name="use-cases:-make-your-it-processes-dependency-aware"></a>Casos de uso: Haga que sus procesos de TI tengan en cuenta la dependencia
-
 ### <a name="discovery"></a>Detección
 ADM crea automáticamente una asignación de referencias comunes de dependencias entre servidores, procesos y servicios de terceros.  Detecta y asigna todas las dependencias TCP, identificando las conexiones sorpresa, los sistemas de terceros remotos de los que depende y las dependencias para las áreas oscuras tradicionales de la red como DNS y AD.  ADM detecta las conexiones de red con errores que los sistemas administrados están intentando realizar, ayudándole a identificar posibles errores de configuración del servidor, interrupciones de servicio y problemas de red.
 
@@ -44,7 +45,6 @@ Si utiliza Azure Site Recovery y necesita ayuda para definir la secuencia de rec
 
 ### <a name="patch-management"></a>Administración de revisiones
 ADM mejora el uso de la evaluación de actualizaciones del sistema de OMS mostrando qué otros equipos y servidores dependen del servicio, por lo que informará con antelación antes de que afecte a los sistemas para la revisión.  ADM también mejora la administración de revisiones en OMS mostrando si los servicios están disponibles y conectados correctamente después de que se revisen y se reinicien. 
-
 
 ## <a name="mapping-overview"></a>Información general de asignación
 Los agentes ADM recopilan información acerca de todos los procesos de conexión TCP en el servidor donde están instalados, así como detalles acerca de las conexiones entrantes y salientes para cada proceso.  Mediante la lista de equipos en el lado izquierdo de la solución ADM, se pueden seleccionar máquinas con agentes ADM para visualizar sus dependencias en un intervalo de tiempo seleccionado.  La dependencia de máquina asigna el foco en un equipo concreto y muestra todos los equipos que son clientes directos de TCP o servidores de la máquina.
@@ -88,7 +88,6 @@ El panel de seguimiento de cambios de la máquina muestra una lista de todos los
 A continuación se muestra una vista detallada del evento de cambio de configuración después de seleccionar **Mostrar en Log Analytics**.
 ![Evento de cambio de configuración](media/operations-management-suite-application-dependency-monitor/configuration-change-event.png)
 
-
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 Los datos de inventario de equipo y proceso de ADM están disponibles para la [búsqueda](../log-analytics/log-analytics-log-searches.md) en Log Analytics.  Esto se puede aplicar a escenarios como la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento ad hoc. 
 
@@ -96,67 +95,62 @@ Se genera un registro por hora para cada equipo y proceso únicos, además de lo
 
 Hay propiedades generadas internamente que puede usar para identificar los equipos y procesos únicos:
 
-- PersistentKey_s se define de forma única mediante la configuración del proceso, por ejemplo, el identificador de usuario y la línea de comandos.  Es único para un equipo determinado, pero se puede repetir en varios equipos.
-- ProcessId_s y ComputerId_s son globalmente únicos en el modelo ADM.
-
-
+* PersistentKey_s se define de forma única mediante la configuración del proceso, por ejemplo, el identificador de usuario y la línea de comandos.  Es único para un equipo determinado, pero se puede repetir en varios equipos.
+* ProcessId_s y ComputerId_s son globalmente únicos en el modelo ADM.
 
 ### <a name="admcomputer_cl-records"></a>Registros de AdmComputer_CL
 Los registros con un tipo de **AdmComputer_CL** tienen datos de inventario de servidores con agentes ADM.  Estos registros tienen las propiedades de la tabla siguiente.  
 
 | Propiedad | Descripción |
-|:--|:--|
-| Tipo | *AdmComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ComputerName_s | Nombre de equipo de Windows o Linux |
-| CPUSpeed_d | Velocidad de la CPU en MHz |
-| DnsNames_s | Lista de todos los nombres DNS de este equipo |
-| IPv4s_s | Lista de todas las direcciones IPv4 en uso en este equipo |
-| IPv6s_s | Lista de todas las direcciones IPv6 en uso en este equipo.  (ADM identifica las direcciones IPv6, pero no detecta las dependencias de IPv6). |
-| Is64Bit_b | true o false según el tipo de sistema operativo |
-| MachineId_s | Un GUID interno, único en un área de trabajo OMS  |
-| OperatingSystemFamily_s | Windows o Linux |
-| OperatingSystemVersion_s | Cadena de versión del sistema operativo larga |
-| TimeGenerated | Fecha y hora en que se creó el registro. |
-| TotalCPUs_d | Número de núcleos de la CPU |
-| TotalPhysicalMemory_d | Capacidad de memoria en MB |
-| VirtualMachine_b | true or false en función de si el sistema operativo es un invitado de VM |
-| VirtualMachineID_g | Id. de VM de Hyper-V |
-| VirtualMachineName_g | Nombre de VM de Hyper-V |
-| VirtualMachineType_s | Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
+|:--- |:--- |
+| Tipo |*AdmComputer_CL* |
+| SourceSystem |*OpsManager* |
+| ComputerName_s |Nombre de equipo de Windows o Linux |
+| CPUSpeed_d |Velocidad de la CPU en MHz |
+| DnsNames_s |Lista de todos los nombres DNS de este equipo |
+| IPv4s_s |Lista de todas las direcciones IPv4 en uso en este equipo |
+| IPv6s_s |Lista de todas las direcciones IPv6 en uso en este equipo.  (ADM identifica las direcciones IPv6, pero no detecta las dependencias de IPv6). |
+| Is64Bit_b |true o false según el tipo de sistema operativo |
+| MachineId_s |Un GUID interno, único en un área de trabajo OMS |
+| OperatingSystemFamily_s |Windows o Linux |
+| OperatingSystemVersion_s |Cadena de versión del sistema operativo larga |
+| TimeGenerated |Fecha y hora en que se creó el registro. |
+| TotalCPUs_d |Número de núcleos de la CPU |
+| TotalPhysicalMemory_d |Capacidad de memoria en MB |
+| VirtualMachine_b |true or false en función de si el sistema operativo es un invitado de VM |
+| VirtualMachineID_g |Id. de VM de Hyper-V |
+| VirtualMachineName_g |Nombre de VM de Hyper-V |
+| VirtualMachineType_s |Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
 
-
-### <a name="admprocess_cl-type-records"></a>Registros de tipo AdmProcess_CL 
+### <a name="admprocess_cl-type-records"></a>Registros de tipo AdmProcess_CL
 Los registros con un tipo de **AdmProcess_CL** tienen datos de inventario para procesos con conexión TCP en servidores con agentes ADM.  Estos registros tienen las propiedades de la tabla siguiente.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Tipo | *AdmProcess_CL* |
-| SourceSystem | *OpsManager* |
-| CommandLine_s | Línea de comandos completa del proceso |
-| CompanyName_s | Nombre de la empresa (desde Windows PE o Linux RPM) |
-| Description_s | Descripción del proceso largo (desde Windows PE o Linux RPM) |
-| FileVersion_s | Versión del archivo ejecutable (desde Windows PE, solo Windows) |
-| FirstPid_d | Id. de proceso del sistema operativo |
-| InternalName_s | Nombre interno del archivo ejecutable (desde Windows PE, solo Windows) |
-| MachineId_s | Un GUID interno y único en un área de trabajo OMS  |
-| Name_s | El nombre del archivo ejecutable de proceso |
-| Path_s | Ruta de sistema de archivos del archivo ejecutable de proceso |
-| PersistentKey_s | GUID interno único dentro de este equipo |
-| PoolId_d | Identificador interno para la agregación de procesos basados en las líneas de comandos similares. |
-| ProcessId_s | Un GUID interno y único en un área de trabajo OMS  |
-| ProductName_s | Cadena de nombre de producto (desde Windows PE o Linux RPM) |
-| ProductVersion_s | Cadena de versión de producto (desde Windows PE o Linux RPM) |
-| StartTime_t | Hora de inicio de proceso en el reloj del equipo local |
-| TimeGenerated | Fecha y hora en que se creó el registro. |
-| UserDomain_s | Dominio del propietario del proceso (solo Windows) |
-| UserName_s | Nombre del propietario del proceso (solo Windows) |
-| WorkingDirectory_s | Directorio de trabajo del proceso |
-
+|:--- |:--- |
+| Tipo |*AdmProcess_CL* |
+| SourceSystem |*OpsManager* |
+| CommandLine_s |Línea de comandos completa del proceso |
+| CompanyName_s |Nombre de la empresa (desde Windows PE o Linux RPM) |
+| Description_s |Descripción del proceso largo (desde Windows PE o Linux RPM) |
+| FileVersion_s |Versión del archivo ejecutable (desde Windows PE, solo Windows) |
+| FirstPid_d |Id. de proceso del sistema operativo |
+| InternalName_s |Nombre interno del archivo ejecutable (desde Windows PE, solo Windows) |
+| MachineId_s |Un GUID interno y único en un área de trabajo OMS |
+| Name_s |El nombre del archivo ejecutable de proceso |
+| Path_s |Ruta de sistema de archivos del archivo ejecutable de proceso |
+| PersistentKey_s |GUID interno único dentro de este equipo |
+| PoolId_d |Identificador interno para la agregación de procesos basados en las líneas de comandos similares. |
+| ProcessId_s |Un GUID interno y único en un área de trabajo OMS |
+| ProductName_s |Cadena de nombre de producto (desde Windows PE o Linux RPM) |
+| ProductVersion_s |Cadena de versión de producto (desde Windows PE o Linux RPM) |
+| StartTime_t |Hora de inicio de proceso en el reloj del equipo local |
+| TimeGenerated |Fecha y hora en que se creó el registro. |
+| UserDomain_s |Dominio del propietario del proceso (solo Windows) |
+| UserName_s |Nombre del propietario del proceso (solo Windows) |
+| WorkingDirectory_s |Directorio de trabajo del proceso |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
-
-### <a name="list-the-physical-memory-capacity-of-all-managed-computers."></a>Enumerar la capacidad de memoria física de todos los equipos administrados. 
+### <a name="list-the-physical-memory-capacity-of-all-managed-computers."></a>Enumerar la capacidad de memoria física de todos los equipos administrados.
 Type=AdmComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
 
 ![Ejemplo de consulta ADM](media/operations-management-suite-application-dependency-monitor/adm-example-01.png)
@@ -187,22 +181,15 @@ Type=AdmProcess_CL Name_s=curl | Distinct ProductVersion_s
 ![Ejemplo de consulta ADM](media/operations-management-suite-application-dependency-monitor/adm-example-06.png)
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Crear un grupo de equipos de todos los equipos que ejecutan CentOS
-
 ![Ejemplo de consulta ADM](media/operations-management-suite-application-dependency-monitor/adm-example-07.png)
-
-
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
 Microsoft recopila automáticamente datos de uso y rendimiento mediante el uso del servicio Application Dependency Monitor. Microsoft usa estos datos para proporcionar y mejorar la calidad, la seguridad y la integridad del servicio Application Dependency Monitor. Los datos incluyen información sobre la configuración del software como sistema operativo y la versión, y también incluyen la dirección IP, el nombre DNS y el nombre de la estación de trabajo con el fin de proporcionar funcionalidades de solución de problemas precisas y eficientes. No recopilamos los nombres, direcciones u otra información de contacto.
 
 Para obtener más información sobre el uso y la recopilación de datos, consulte la [Declaración de privacidad de Microsoft Online Services](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga más información sobre [búsquedas de registro](../log-analytics/log-analytics-log-searches.md] in Log Analytics to retrieve data collected by Application Dependency Monitor.)
-
-
+* Obtenga más información sobre [búsquedas de registro](../log-analytics/log-analytics-log-searches.md\] in Log Analytics to retrieve data collected by Application Dependency Monitor..md)
 
 <!--HONumber=Oct16_HO2-->
 

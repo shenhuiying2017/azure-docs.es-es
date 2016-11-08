@@ -1,28 +1,28 @@
-<properties
-	pageTitle="Punto de conexión v2.0 de Azure AD | Microsoft Azure"
-	description="Una comparación entre el punto de conexión original de Azure AD y el punto de conexión v2.0."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Punto de conexión v2.0 de Azure AD | Microsoft Docs
+description: Una comparación entre el punto de conexión original de Azure AD y el punto de conexión v2.0.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # ¿Qué hay diferente en el punto de conexión v2.0?
-
 Si está familiarizado con Azure Active Directory o ha integrado aplicaciones con Azure AD en el pasado, puede que haya algunas diferencias en el punto de conexión v2.0 que no se espera. Este documento describe esas diferencias para su comprensión.
 
-> [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
-
+> [!NOTE]
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 ## Cuentas de Microsoft y cuentas de Azure AD
 El punto de conexión v2.0 permite a los desarrolladores crear aplicaciones que aceptan el inicio de sesión tanto desde cuentas Microsoft como desde cuentas de Azure AD mediante un punto de conexión de autenticación único. Esto le ofrece la posibilidad de crear su aplicación completamente independiente de la cuenta; puede no conocer el tipo de cuenta con el que el usuario inicia sesión. Por supuesto, *puede* hacer que la aplicación reconozca el tipo de cuenta que se usa en una sesión determinada, aunque no es necesario.
@@ -31,12 +31,10 @@ Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft
 
 La integración de su aplicación con las cuentas de Azure AD y las cuentas de Microsoft ahora es un proceso sencillo. Puede usar un conjunto único de extremos, una sola biblioteca y un registro de aplicaciones único para obtener acceso tanto al mundo empresarial como al de los consumidores. Para obtener más información sobre el punto de conexión v2.0, consulte [la información general](active-directory-appmodel-v2-overview.md).
 
-
 ## Nuevo portal de registro de aplicaciones
 El punto de conexión v2.0 solo se puede registrar en una nueva ubicación: [apps.dev.microsoft.com](https://apps.dev.microsoft.com). En este portal podrá obtener un id. de aplicación y personalizar la apariencia de la página de inicio de sesión de su aplicación, entre otras cuestiones. Todo lo que necesita para acceder al portal es una cuenta Microsoft, ya sea personal o profesional/educativa.
 
 Seguiremos agregando más funcionalidades a este portal de registro de aplicaciones con el tiempo. La intención es que este portal sea la nueva ubicación donde puede ir dirigirse para administrar todo lo relacionado con las aplicaciones de Microsoft.
-
 
 ## Un identificador de aplicación para todas las plataformas
 En el servicio de Azure Active Directory original, es posible que haya registrado varias aplicaciones diferentes para un proyecto único. Se vio obligado a usar registros de aplicaciones independientes para sus clientes nativos y las aplicaciones web:
@@ -53,12 +51,11 @@ Ahora todo lo que necesita es un registro de aplicación único y un id. de apli
 
 Nuestro objetivo es que esto dará lugar a una experiencia de desarrollo y administración de aplicaciones más simplificada y que creará una vista más consolidada de un proyecto único en el que podría trabajar.
 
-
 ## Ámbitos, no recursos
 En el servicio original de Azure AD, una aplicación puede comportarse como **recurso** o un destinatario de tokens. Un recurso puede definir varios **ámbitos** o **oAuth2Permissions** que comprende, lo que permite a las aplicaciones cliente solicitar tokens para ese recurso para un conjunto determinado de ámbitos. Piense en la API de Azure AD Graph como ejemplo de un recurso:
 
-- Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
-- Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
+* Identificador de recursos o `AppID URI`: `https://graph.windows.net/`
+* Ámbitos o `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.
 
 Todo esto se cumple para el punto de conexión v2.0. Una aplicación todavía se puede comportar como recurso, definir ámbitos y ser identificada por un URI. Las aplicaciones cliente todavía pueden solicitar acceso a esos ámbitos. Sin embargo, ha cambiado la manera en que un cliente solicita esos permisos. En el pasado, una solicitud de autorización de OAuth 2.0 para Azure AD podría haber tenido un aspecto similar al siguiente:
 
@@ -87,9 +84,9 @@ Las aplicaciones registradas en el servicio de Azure AD de disponibilidad genera
 
 Los permisos que una aplicación requerían se configuraban **estáticamente**. Aunque esto permitía que la configuración de la aplicación existiera en el Portal de Azure y mantenía bien el aspecto del código, presentaba algunos problemas para los desarrolladores:
 
-- Una aplicación debía conocer todos los permisos que consumiría alguna vez durante la creación de la aplicación. Agregar permisos con el tiempo era un proceso difícil.
-- Una aplicación debía conocer todos los recursos a los que tendría acceso alguna vez durante por adelantado. Era difícil crear aplicaciones que podrían tener acceso a un número arbitrario de recursos.
-- Una aplicación tenía que solicitar todos los permisos que podría necesitar alguna vez tras el primer inicio de sesión del usuario. En algunos casos, esto llevaría a una lista muy larga de permisos, lo que desanimaría a los usuarios finales de aprobar el acceso de la aplicación en el inicio de sesión inicial.
+* Una aplicación debía conocer todos los permisos que consumiría alguna vez durante la creación de la aplicación. Agregar permisos con el tiempo era un proceso difícil.
+* Una aplicación debía conocer todos los recursos a los que tendría acceso alguna vez durante por adelantado. Era difícil crear aplicaciones que podrían tener acceso a un número arbitrario de recursos.
+* Una aplicación tenía que solicitar todos los permisos que podría necesitar alguna vez tras el primer inicio de sesión del usuario. En algunos casos, esto llevaría a una lista muy larga de permisos, lo que desanimaría a los usuarios finales de aprobar el acceso de la aplicación en el inicio de sesión inicial.
 
 Con el punto de conexión v2.0, puede especificar los permisos que necesita su aplicación **dinámicamente** en tiempo de ejecución durante el uso normal de su aplicación. Para ello, puede especificar los ámbitos que necesita su aplicación en un momento determinado en el tiempo incluyéndolos en el parámetro `scope` de una solicitud de autorización:
 
@@ -105,7 +102,6 @@ Lo anterior solicita permiso para que la aplicación lea los datos de directorio
 Permitir que una aplicación solicite permisos dinámicamente mediante el parámetro `scope` le da un control total sobre la experiencia del usuario. Si lo desea, puede elegir adelantar su experiencia de consentimiento y pedir todos los permisos en una solicitud de autorización inicial. O bien, si su aplicación requiere un gran número de permisos, puede elegir recopilarlos del usuario de forma incremental, a medida que intentan usar determinadas características de la aplicación con el tiempo.
 
 ## Ámbitos conocidos
-
 #### Acceso sin conexión
 El punto de conexión v2.0 puede requerir el uso de un nuevo permiso conocido para aplicaciones: el ámbito `offline_access`. Todas las aplicaciones deberán solicitar este permiso si necesitan tener acceso a los recursos en nombre de un usuario durante un período de tiempo prolongado, incluso cuando es posible que el usuario no haya estado usando la aplicación activamente. El ámbito `offline_access` le aparecerá al usuario en cuadros de diálogo de consentimiento como "Obtener acceso a los datos sin conexión", que el usuario debe aceptar. Solicitar el permiso `offline_access` permitirá a su aplicación web recibir refresh\_tokens de OAuth 2.0 desde el extremo de v2.0. Los refresh\_tokens son de larga duración y se pueden intercambiar por nuevos access\_tokens de OAuth 2.0 durante largos períodos de acceso.
 
@@ -114,7 +110,6 @@ Si su aplicación no solicita el ámbito de `offline_access`, no recibirá refre
 Para obtener más información acerca de OAuth 2.0, refresh\_tokens y access\_tokens, consulte la [referencia del protocolo v2.0](active-directory-v2-protocols.md).
 
 #### OpenID, perfil y correo electrónico
-
 En el servicio de Azure Active Directory original, el flujo de inicio de sesión de OpenID Connect más básico proporciona una gran cantidad de información sobre el usuario en el id\_token resultante. Las notificaciones de un id\_token pueden incluir el nombre de usuario, el nombre de usuario preferido, la dirección de correo electrónico, el id. de objeto, etc.
 
 Ahora restringimos la información a la que el ámbito `openid` permite acceder a la aplicación. El ámbito "openid" solo permitirá que el usuario inicie sesión en la aplicación y que esta reciba un identificador específico de aplicación para el usuario. Si desea obtener información personal identificable (PII) acerca del usuario en la aplicación, esta tendrá que solicitar permisos adicionales al usuario. Estamos introduciendo dos nuevos ámbitos (`email` y `profile`) que permiten hacerlo.
@@ -124,7 +119,6 @@ El ámbito `email` es muy sencillo: permite que la aplicación acceda a la direc
 Esto le permite codificar la aplicación en un modo de divulgación mínima, puede pedir al usuario solo el conjunto de información que la aplicación necesita para hacer su trabajo. Para obtener más información sobre estos ámbitos, consulte [la referencia de los ámbitos de la versión 2.0](active-directory-v2-scopes.md).
 
 ## Notificaciones de token
-
 Las notificaciones en tokens emitidas por el extremo de v2.0 no serán idénticas a los tokens emitidos por los extremos de Azure AD de disponibilidad general; las aplicaciones que migran al nuevo servicio no deben suponer que existirá una notificación concreta en id\_tokens o access\_tokens. Los tokens emitidos por el extremo dev2.0 son compatibles con las especificaciones de OAuth 2.0 y OpenID Connect, pero pueden seguir una semántica diferente a la del servicio de Azure AD de disponibilidad general.
 
 Para obtener información sobre las notificaciones específicas emitidas en tokens v2.0, consulte la [referencia del token v2.0](active-directory-v2-tokens.md).

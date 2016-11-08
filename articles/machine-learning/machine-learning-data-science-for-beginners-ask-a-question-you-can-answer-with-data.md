@@ -1,44 +1,42 @@
-<properties
-   pageTitle="Realización de preguntas que pueden responderse con datos - formular preguntas | Microsoft Azure"
-   description="Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión."
-   keywords="elegir una pregunta,preguntas de ciencias de datos,formular pregunta,formular preguntas,preguntas de regresión,preguntas de clasificación,pregunta directa"
-   services="machine-learning"
-   documentationCenter="na"
-   authors="brohrer-ms"
-   manager="jhubbard"
-   editor="cjgronlund"/>
+---
+title: Realización de preguntas que pueden responderse con datos - formular preguntas | Microsoft Docs
+description: Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Incluye una comparación de preguntas de clasificación y regresión.
+keywords: elegir una pregunta,preguntas de ciencias de datos,formular pregunta,formular preguntas,preguntas de regresión,preguntas de clasificación,pregunta directa
+services: machine-learning
+documentationcenter: na
+author: brohrer-ms
+manager: jhubbard
+editor: cjgronlund
 
-<tags
-   ms.service="machine-learning"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="cgronlun;brohrer;garye"/>
+ms.service: machine-learning
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: cgronlun;brohrer;garye
 
+---
 # Realización de preguntas que pueden responderse con datos
-
 ## Vídeo 3: Ciencia de datos para principiantes
-
 Aprenda a formular una pregunta de ciencia de datos en Ciencia de datos para principiantes, vídeo 3. Este vídeo incluye una comparación de preguntas para algoritmos de clasificación y regresión.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
-> [AZURE.VIDEO data-science-for-beginners-ask-a-question-you-can-answer-with-data]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Data-science-for-beginners-Ask-a-question-you-can-answer-with-data/player]
+> 
+> 
 
 ## Otros vídeos de la serie
-
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
 
-  * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
-  * Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
-  * Vídeo 3: Realización de preguntas que pueden responderse con datos
-  * Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
-  * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
+* Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
+* Vídeo 2: [¿Están sus datos preparados para la ciencia de datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 minutos y 56 segundos)*
+* Vídeo 3: Realización de preguntas que pueden responderse con datos
+* Vídeo 4: [Predicción de respuestas con un modelo sencillo](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 minutos y 42 segundos)*
+* Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
 
 ## Transcripción: Realización de preguntas que pueden responderse con datos
-
 Bienvenido al tercer vídeo de la serie "Ciencia de datos para principiantes".
 
 En este vídeo, recibirá algunas sugerencias para formular una pregunta que se pueda responder con datos.
@@ -46,7 +44,6 @@ En este vídeo, recibirá algunas sugerencias para formular una pregunta que se 
 Para aprovechar mejor este vídeo, vea antes los dos primeros de esta serie: "Las cinco preguntas a las que responde la ciencia de datos"y "Is your data is ready for data science?" (¿Están sus datos preparados para la ciencia de datos?)
 
 ## Formulación de una pregunta directa
-
 Hemos hablado de que la ciencia de datos es el proceso de usar nombres (llamados también categorías o etiquetas) y números para predecir una respuesta a una pregunta. Pero no sirve cualquier pregunta; debe ser una *pregunta directa.*
 
 Una pregunta vaga no se tiene que responder con un nombre o un número. Una pregunta directa sí.
@@ -58,7 +55,6 @@ Si formulara una pregunta vaga como "¿Qué va a pasar con mis acciones?", el ge
 Pero si tuviera que formular una pregunta directa, como "¿Cuál será el precio de venta de mis acciones la próxima semana?", el genio no podrá evitar darle una respuesta específica y predecir un precio de venta.
 
 ## Ejemplos de respuesta: datos de destino
-
 Después de formular la pregunta, compruebe si tiene ejemplos de la respuesta en sus datos.
 
 Si nuestra pregunta es "¿Cuál será el precio de venta de mis acciones la próxima semana?", deberemos asegurarnos de que nuestros datos incluyan el historial de precios de cotización.
@@ -72,7 +68,6 @@ Estos ejemplos de respuestas se denominan destino. Un destino es lo que intentam
 Si no tiene los datos de destino, deberá obtener algunos. Sin ellos, no podrá responder a su pregunta.
 
 ## Reformulación de la pregunta
-
 A veces, puede formular la pregunta con otras palabras a fin de obtener una respuesta más útil.
 
 La pregunta "¿Este punto de datos es A o B?" predice la categoría (el nombre o la etiqueta) de algo. Para responderla, usamos un *algoritmo de clasificación*.
@@ -95,10 +90,8 @@ Hemos hablado de algunos principios básicos para formular una pregunta que se p
 
 Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
 
-
 ## Pasos siguientes
-
-  * [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
-  * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
+* [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
+* [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -3,20 +3,17 @@ Si su problema con Azure no se trata en este artículo, visite los [foros de Azu
 
 ## Pasos generales para solucionar problemas
 ### Solución de problemas de errores de asignación comunes en el modelo de implementación clásica
-
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
-- Cambie el tamaño de la máquina virtual por uno diferente.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
-
-- Elimine todas las máquinas virtuales del servicio en la nube y vuelva a crearlas.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. Después, haga clic en **Nuevo** > **Proceso** > [imagen de la máquina virtual].
+* Cambie el tamaño de la máquina virtual por uno diferente.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Configuración** > **Tamaño**. Para información detallada, vea [Cambiar el tamaño de la máquina virtual](https://msdn.microsoft.com/library/dn168976.aspx).
+* Elimine todas las máquinas virtuales del servicio en la nube y vuelva a crearlas.<br> Haga clic en **Examinar todo** > **Máquinas virtuales (clásico)** > su máquina virtual > **Eliminar**. Después, haga clic en **Nuevo** > **Proceso** > [imagen de la máquina virtual].
 
 ### Solución de problemas de errores de asignación comunes en el modelo de implementación del Administrador de recursos de Azure
-
 Estos pasos básicos pueden ayudar a resolver muchos errores de asignación en las máquinas virtuales.
 
-- Detenga (desasigne) todas las máquinas virtuales que estén en el mismo conjunto de disponibilidad y, luego, reinícielas.<br> Para ello, haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
-
-	Una vez detenidas todas las máquinas virtuales, seleccione la primera y haga clic en **Iniciar**.
+* Detenga (desasigne) todas las máquinas virtuales que estén en el mismo conjunto de disponibilidad y, luego, reinícielas.<br> Para ello, haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
+  
+    Una vez detenidas todas las máquinas virtuales, seleccione la primera y haga clic en **Iniciar**.
 
 ## Información de contexto
 ### Cómo funciona la asignación
@@ -30,12 +27,12 @@ Cuando una solicitud de asignación está anclada a un clúster, existe una posi
 ## Pasos detallados para solucionar problemas de escenarios de errores de asignación específicos en el modelo de implementación clásica
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
-- Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
-- Reinicio de las VM detenidas (desasignadas) parcialmente.
-- Reinicio de las VM detenidas (desasignadas) completamente.
-- Implementaciones de ensayo o producción (solo plataforma como servicio).
-- Grupo de afinidad (proximidad de la VM o el servicio).
-- Red virtual basada en un grupo de afinidad
+* Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
+* Reinicio de las VM detenidas (desasignadas) parcialmente.
+* Reinicio de las VM detenidas (desasignadas) completamente.
+* Implementaciones de ensayo o producción (solo plataforma como servicio).
+* Grupo de afinidad (proximidad de la VM o el servicio).
+* Red virtual basada en un grupo de afinidad
 
 Cuando reciba un error de asignación, compruebe si alguno de los escenarios descritos se aplica en su caso. Use el error de asignación que devuelve la plataforma de Azure para identificar el escenario correspondiente. Si la solicitud está anclada, quite algunas de las restricciones de anclaje para abrir su solicitud a más clústeres y aumente así la posibilidad de que la asignación se realice correctamente.
 
@@ -45,7 +42,10 @@ Dos escenarios comunes de error están relacionados con los grupos de afinidad. 
 
 En el diagrama 5 a continuación se presenta la taxonomía de los escenarios de asignación (anclados). ![Taxonomía de asignaciones ancladas](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error](#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
+> [!NOTE]
+> El error que se muestra en cada escenario de asignación está en forma abreviada. Consulte la [Búsqueda de cadenas de error](#Búsqueda de cadenas de error) para obtener cadenas de error detalladas.
+> 
+> 
 
 ## Escenario de asignación: cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
 **Error**
@@ -63,7 +63,6 @@ Si el error es Upgrade\_VMSizeNotSupported *, pruebe con otro tamaño de máquin
 Si el error es GeneralError*, es probable que el tipo de recurso (por ejemplo, un tamaño determinado de VM) sea compatible con el clúster pero que este no tenga recursos libres en ese momento. De forma parecida a como se ha indicado anteriormente, agregue el recurso de proceso deseado mediante la creación de un nuevo servicio en la nube (tenga en cuenta que el nuevo servicio en la nube tiene que usar otra dirección IP virtual) y use la red virtual regional para conectarse a los servicios en la nube.
 
 ## Escenario de asignación: reinicio de las VM detenidas (desasignadas) parcialmente.
-
 **Error**
 
 GeneralError*
@@ -75,8 +74,9 @@ La desasignación parcial indica que se detuvieron (desasignaron) una o varias V
 **Solución alternativa**
 
 Si es aceptable el uso de una dirección IP virtual diferente, elimine las VM detenidas (desasignadas), pero mantenga los discos asociados, y vuelva agregar las VM mediante un servicio en la nube diferente. Use una red virtual regional para conectarse a los servicios en la nube:
-- Si el servicio en la nube existente usa una red virtual regional, agregue el nuevo servicio en la nube a la misma red virtual.
-- Si el servicio en la nube no usa una red virtual regional, cree una nueva para el nuevo servicio en la nube y, seguidamente, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Consulte más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+
+* Si el servicio en la nube existente usa una red virtual regional, agregue el nuevo servicio en la nube a la misma red virtual.
+* Si el servicio en la nube no usa una red virtual regional, cree una nueva para el nuevo servicio en la nube y, seguidamente, [conecte la red virtual existente a la nueva red virtual](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). Consulte más información sobre las [redes virtuales regionales](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## Escenario de asignación: reinicio de las VM detenidas (desasignadas) completamente.
 **Error**
@@ -135,9 +135,9 @@ También puede [migrar la red virtual basada en un grupo de afinidad a una red v
 ## Pasos detallados para solucionar problemas de escenarios de errores de asignación específicos en el modelo de implementación de Azure Resource Manager
 A continuación se presentan los escenarios de asignación comunes que ocasionan que una solicitud de asignación quede anclada. Nos dedicaremos a cada escenario más adelante en este artículo.
 
-- Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
-- Reinicio de las VM detenidas (desasignadas) parcialmente.
-- Reinicio de las VM detenidas (desasignadas) completamente.
+* Cambio del tamaño de una VM o incorporación de VM o instancias de rol a un servicio en la nube existente.
+* Reinicio de las VM detenidas (desasignadas) parcialmente.
+* Reinicio de las VM detenidas (desasignadas) completamente.
 
 Cuando reciba un error de asignación, compruebe si alguno de los escenarios descritos se aplica en su caso. Use el error de asignación que devuelve la plataforma de Azure para identificar el escenario correspondiente. Si la solicitud está anclada a un clúster existente, quite algunas de las restricciones de anclaje para abrir su solicitud a más clústeres y aumentar así la posibilidad de que la asignación se realice correctamente.
 
@@ -200,3 +200,4 @@ No se puede actualizar la implementación. Es posible que el tamaño de la máqu
 **GeneralError***
 
 "Se produjo un error interno en el servidor. Vuelva a intentar realizar la solicitud" o "Error al producir una asignación para el servicio".
+

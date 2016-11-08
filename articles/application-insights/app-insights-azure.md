@@ -1,24 +1,22 @@
-<properties 
-	pageTitle="Application Insights para aplicaciones de Microsoft Azure" 
-	description="Analice el uso y el rendimiento de la aplicación de Azure con Application Insights." 
-	services="application-insights" 
-    documentationCenter="windows"
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Application Insights para aplicaciones de Microsoft Azure
+description: Analice el uso y el rendimiento de la aplicación de Azure con Application Insights.
+services: application-insights
+documentationcenter: windows
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/15/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: awills
 
-#  Application Insights para aplicaciones de Microsoft Azure
-
+---
+# Application Insights para aplicaciones de Microsoft Azure
 *Application Insights se encuentra en su versión de vista previa.*
-
 
 Detecte problemas, resuelva problemas y mejore continuamente sus aplicaciones. Diagnostique rápidamente cualquier problema en su aplicación activa. Sepa lo que sus usuarios hacen con ella.
 
@@ -31,14 +29,8 @@ La configuración es muy sencilla y obtendrá resultados en cuestión de minutos
 * [Aplicación web en IIS en máquina virtual de Azure](app-insights-asp-net.md)
 * [Aplicación fuera de Azure](app-insights-overview.md)
 
-
 Telemetría adicional
 
 * [Muestra de registros de diagnósticos de Azure en Application Insights](app-insights-azure-diagnostics.md)
-
-
-
-
- 
 
 <!---HONumber=AcomDC_0817_2016-->

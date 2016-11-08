@@ -1,49 +1,46 @@
-<properties
-   pageTitle="¿Qué es el Catálogo de datos de Azure? | Microsoft Azure"
-   description="En este artículo se proporciona información general del Catálogo de datos de Microsoft Azure, incluidas sus características y los problemas que está diseñado para solucionar. Catálogo de datos proporciona funcionalidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) registrar, detectar, comprender y consumir orígenes de datos."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/21/2016"
-   ms.author="maroche"/>
+---
+title: ¿Qué es el Catálogo de datos de Azure? | Microsoft Docs
+description: En este artículo se proporciona información general del Catálogo de datos de Microsoft Azure, incluidas sus características y los problemas que está diseñado para solucionar. Catálogo de datos proporciona funcionalidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) registrar, detectar, comprender y consumir orígenes de datos.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/21/2016
+ms.author: maroche
+
+---
 # ¿Qué es el Catálogo de datos de Azure?
-
 Catálogo de datos de Azure es un servicio en la nube totalmente administrado que permite a los usuarios descubrir los orígenes de datos que necesitan y comprender los orígenes de datos que se encuentran, al tiempo que ayuda a las organizaciones a obtener más valor de sus inversiones existentes. Catálogo de datos proporciona funcionalidades que permiten a cualquier usuario (desde analistas a científicos de datos y desarrolladores) detectar, comprender y consumir orígenes de datos. Catálogo de datos incluye un modelo de micromecenazgo de metadatos y anotaciones que permite a todos los usuarios contribuir con sus conocimientos para crear una comunidad y una cultura de datos.
 
 ## Desafíos de detección para los consumidores de datos
-
 Tradicionalmente, la detección de orígenes de datos empresariales ha sido un proceso orgánico basado en conocimiento tribal. Esto presenta varios desafíos para las compañías que desean sacar el máximo partido de sus recursos de información.
 
--	Los usuarios no son conscientes de que existen orígenes de datos, a menos que entren en contacto con él como parte de otro proceso; no hay ninguna ubicación central en la que se registren los orígenes de datos.
--	A menos que un usuario conozca la ubicación de un origen de datos, no se puede conectar a los datos mediante una aplicación de cliente; las experiencias del consumo de datos requieren que los usuarios conozcan la cadena de conexión o la ruta de acceso.
--	A menos que un usuario conozca la ubicación de la documentación de un origen de datos, no podrá entender los usos previstos; los orígenes de datos y la documentación residen en lugares diferentes y se consumen a través de diferentes experiencias.
--	Si un usuario tiene preguntas acerca de un recurso de información, deberá localizar al experto o a un equipo responsable de los datos y contactar con esos expertos sin conexión; no hay ninguna conexión explícita entre los datos y aquellos con perspectivas expertas en su uso.
--  A menos que un usuario comprenda el proceso de solicitar acceso al origen de datos, la detección del origen de datos y su documentación siguen sin permitirle tener acceso a los datos que requiere.
+* Los usuarios no son conscientes de que existen orígenes de datos, a menos que entren en contacto con él como parte de otro proceso; no hay ninguna ubicación central en la que se registren los orígenes de datos.
+* A menos que un usuario conozca la ubicación de un origen de datos, no se puede conectar a los datos mediante una aplicación de cliente; las experiencias del consumo de datos requieren que los usuarios conozcan la cadena de conexión o la ruta de acceso.
+* A menos que un usuario conozca la ubicación de la documentación de un origen de datos, no podrá entender los usos previstos; los orígenes de datos y la documentación residen en lugares diferentes y se consumen a través de diferentes experiencias.
+* Si un usuario tiene preguntas acerca de un recurso de información, deberá localizar al experto o a un equipo responsable de los datos y contactar con esos expertos sin conexión; no hay ninguna conexión explícita entre los datos y aquellos con perspectivas expertas en su uso.
+* A menos que un usuario comprenda el proceso de solicitar acceso al origen de datos, la detección del origen de datos y su documentación siguen sin permitirle tener acceso a los datos que requiere.
 
 ## Desafíos de detección para los productores de datos
-
 Aunque los consumidores de datos se enfrentan a estos desafíos, los usuarios responsables de producir y mantener recursos de información se enfrentan a los suyos propios.
 
--	Anotar los orígenes de datos con metadatos descriptivos suele ser un esfuerzo perdido; las aplicaciones cliente suelen omitir las descripciones que se almacenan en el origen de datos.
--	La creación de documentación para orígenes de datos suele ser un esfuerzo perdido; mantener la documentación en sincronización con el origen de datos es una responsabilidad continuada y los usuarios no tienen confianza en la documentación, ya que a menudo se percibe como obsoleta.
-- La restricción del acceso al origen de datos y la garantía de que los consumidores de datos saben cómo solicitar el acceso suponen un desafío continuo.
+* Anotar los orígenes de datos con metadatos descriptivos suele ser un esfuerzo perdido; las aplicaciones cliente suelen omitir las descripciones que se almacenan en el origen de datos.
+* La creación de documentación para orígenes de datos suele ser un esfuerzo perdido; mantener la documentación en sincronización con el origen de datos es una responsabilidad continuada y los usuarios no tienen confianza en la documentación, ya que a menudo se percibe como obsoleta.
+* La restricción del acceso al origen de datos y la garantía de que los consumidores de datos saben cómo solicitar el acceso suponen un desafío continuo.
 
 Crear y mantener la documentación para un origen de datos es complejo y lento. El desafío de conseguir que dicha documentación esté disponible para cualquier persona que use el origen de datos a menudo lo es en mayor medida.
 
 Cuando se combinan, estos desafíos presentan una barrera importante para las empresas que desean para estimular y fomentar el uso y la comprensión de los datos empresariales.
 
 ## El Catálogo de datos de Azure puede ser de gran ayuda
-
 Catálogo de datos está diseñado para abordar estos problemas y permitir a las empresas sacar el máximo partido a los recursos de información existentes. El Catálogo de datos le ayuda haciendo que los orígenes de datos sean fácilmente reconocibles y comprensibles para los usuarios que necesitan los datos que administran.
 
 El Catálogo de datos proporciona un servicio basado en la nube en el que es posible registrar el origen de los datos. Los datos permanecen en la ubicación existente, pero se agrega una copia de los metadatos al Catálogo de datos, junto con una referencia a la ubicación del origen de datos. Estos metadatos también se indexan para conseguir que cada origen de datos se pueda detectar fácilmente a través de la búsqueda y puedan ser comprensibles para los usuarios que lo detecten.
@@ -55,13 +52,11 @@ El descubrimiento y comprensión de los orígenes de datos y su uso es el propó
 ![Funcionalidades del Catálogo de datos](./media/data-catalog-what-is-data-catalog/data-catalog-capabilities.png)
 
 ## Introducción a Catálogo de datos
-
 Para empezar a usar el Catálogo de datos ya mismo, visite [www.azuredatacatalog.com](https://www.azuredatacatalog.com).
 
 Hay una guía de introducción disponible [aquí](data-catalog-get-started.md).
 
 ## Más información acerca del Catálogo de datos
-
 Para más información acerca de las funcionalidades del Catálogo de datos, consulte:
 
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)

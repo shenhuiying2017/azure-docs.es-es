@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Recopilación de registros con Diagnósticos de Azure | Microsoft Azure"
-   description="En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric que se ejecute en Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ms-toddabel"
-   manager="timlt"
-   editor=""/>
+---
+title: Recopilación de registros con Diagnósticos de Azure | Microsoft Docs
+description: En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric que se ejecute en Azure.
+services: service-fabric
+documentationcenter: .net
+author: ms-toddabel
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="toddabel"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: toddabel
 
-
-
+---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Recopilación de registros con Diagnósticos de Azure
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas del clúster o de las aplicaciones y los servicios que se ejecutan en ese clúster.
 
@@ -37,14 +36,12 @@ Use estas herramientas para realizar algunas de las operaciones que se describen
 * [Cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient)
 * [Plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 
-
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Orígenes de registros que puede recopilar
-- **Registros de Service Fabric:** emitidos por la plataforma a los canales EventSource y Seguimiento de eventos para Windows (ETW) estándar. Los registros pueden ser de uno de los varios tipos que hay:
-  - Eventos operativos: se trata de registros para las operaciones realizadas por la plataforma Service Fabric. Algunos ejemplos son la creación de aplicaciones y servicios, los cambios de estado de nodo y la información sobre la actualización.
-  - [Eventos del modelo de programación de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-  - [Eventos del modelo de programación de Reliable Services](service-fabric-reliable-services-diagnostics.md)
-- **Eventos de aplicaciones:** son los eventos que se emiten desde el código de los servicios y que se escriben mediante la clase auxiliar EventSource proporcionada en las plantillas de Visual Studio. Para obtener más información sobre cómo escribir registros de la aplicación, vea [Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
-
+* **Registros de Service Fabric:** emitidos por la plataforma a los canales EventSource y Seguimiento de eventos para Windows (ETW) estándar. Los registros pueden ser de uno de los varios tipos que hay:
+  * Eventos operativos: se trata de registros para las operaciones realizadas por la plataforma Service Fabric. Algunos ejemplos son la creación de aplicaciones y servicios, los cambios de estado de nodo y la información sobre la actualización.
+  * [Eventos del modelo de programación de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+  * [Eventos del modelo de programación de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+* **Eventos de aplicaciones:** son los eventos que se emiten desde el código de los servicios y que se escriben mediante la clase auxiliar EventSource proporcionada en las plantillas de Visual Studio. Para obtener más información sobre cómo escribir registros de la aplicación, vea [Supervisión y diagnóstico de servicios en una configuración de desarrollo de máquina local](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
 ## <a name="deploy-the-diagnostics-extension"></a>Implementación de la extensión de Diagnósticos
 El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. Los pasos varían ligeramente en función de si se utiliza Azure Portal o Azure Resource Manager. Los pasos varían también en función de si la implementación forma parte de la creación del clúster o si es para un clúster que ya existe. Echemos un vistazo a los pasos para cada escenario.
@@ -77,7 +74,6 @@ Para usar la plantilla descargada para actualizar una configuración, siga estos
 2. Modifique el contenido para que refleje la nueva configuración.
 3. Inicie PowerShell y cambie a la carpeta donde extrajo el contenido.
 4. Ejecute **deploy.ps1** y rellene el id. de suscripción, el nombre del grupo de recursos (use el mismo nombre para actualizar la configuración) y un nombre de implementación exclusivo.
-
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Implementación de la extensión de Diagnósticos como parte de la creación del clúster a través del Administrador de recursos de Azure
 Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON de la configuración de Diagnósticos a la plantilla de Resource Manager del clúster completo antes de crear el clúster. Dentro de los ejemplos de plantillas del Administrador de recursos, proporcionamos una plantilla de ejemplo del Administrador de recursos de clúster de cinco máquinas virtuales con la configuración de Diagnósticos añadida. Puede verlo en: [Ejemplo de plantilla de clúster de cinco nodos con el Administrador de recursos de Diagnósticos](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad)en la galería de ejemplos de Azure.
@@ -193,7 +189,6 @@ Luego, actualice la sección `VirtualMachineProfile` del archivo template.json. 
 
 Después de modificar el archivo template.json tal como se indicó, vuelva a publicar la plantilla de Resource Manager. En caso de que la plantilla se haya exportado, si ejecuta el archivo deploy.ps1 , se vuelve a publicar dicha plantilla. Después de realizar la implementación, asegúrese de que el estado **ProvisioningState** sea **Correcto**.
 
-
 ## <a name="update-diagnostics-to-collect-and-upload-logs-from-new-eventsource-channels"></a>Actualización de Diagnósticos para recopilar y cargar registros desde nuevos canales EventSource
 Para actualizar Diagnósticos de forma que recopile registros de canales EventSource nuevos que representan una nueva aplicación que vaya a implementar, siga los mismos pasos que en la [sección anterior](#deploywadarm) para configurar Diagnósticos para un clúster existente.
 
@@ -216,12 +211,9 @@ Para recopilar registros de eventos o contadores de rendimiento, modifique la pl
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los eventos de diagnóstico emitidos para [Reliable Actors](service-fabric-reliable-actors-diagnostics.md) y [Reliable Services](service-fabric-reliable-services-diagnostics.md) para comprender más a fondo qué eventos debería examinar durante la solución de problemas.
 
-
 ## <a name="related-articles"></a>Artículos relacionados
 * [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md)
 * [Service Fabric solution in Log Analytics](../log-analytics/log-analytics-service-fabric.md) (Solución de Service Fabric en Log Analytics)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

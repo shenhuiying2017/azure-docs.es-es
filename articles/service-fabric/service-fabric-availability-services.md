@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Disponibilidad de los servicios de Service Fabric | Microsoft Azure"
-   description="Describe la detección de errores, la conmutación por error y la recuperación para los servicios"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Disponibilidad de los servicios de Service Fabric | Microsoft Docs
+description: Describe la detección de errores, la conmutación por error y la recuperación para los servicios
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Disponibilidad de los servicios de Service Fabric
 Los servicios de Service Fabric de Azure pueden ser con o sin estado. En este artículo se ofrece una visión general de cómo Service Fabric mantiene la disponibilidad de un servicio en caso de errores.
 
@@ -38,16 +38,16 @@ Este concepto de una réplica como secundaria activa o principal se conoce como 
 ### Roles de réplica
 El rol de una réplica se usa para administrar el ciclo de vida del estado que se está administrando por esa réplica. Una réplica cuyo rol sea solicitudes de lectura de servicios principales. También ofrece solicitudes de escritura al actualizar su estado y replicar los cambios en las secundarias activas en su conjunto de réplicas. El rol de una secundaria activa es recibir cambios de estado que la réplica principal ha replicado y de actualizar su vista del estado.
 
->[AZURE.NOTE] Como los modelos de programación de nivel superior como el [marco de Reliable Actors](service-fabric-reliable-actors-introduction.md) abstraen del concepto de rol de réplica del desarrollador.
+> [!NOTE]
+> Como los modelos de programación de nivel superior como el [marco de Reliable Actors](service-fabric-reliable-actors-introduction.md) abstraen del concepto de rol de réplica del desarrollador.
+> 
+> 
 
 ## Pasos siguientes
-
 Para información sobre los conceptos de Service Fabric, vea lo siguiente:
 
-- [Escalabilidad de servicios de Service Fabric](service-fabric-concepts-scalability.md)
-
-- [Creación de particiones de los servicios de Service Fabric](service-fabric-concepts-partitioning.md)
-
-- [Definición y administración del estado](service-fabric-concepts-state.md)
+* [Escalabilidad de servicios de Service Fabric](service-fabric-concepts-scalability.md)
+* [Creación de particiones de los servicios de Service Fabric](service-fabric-concepts-partitioning.md)
+* [Definición y administración del estado](service-fabric-concepts-state.md)
 
 <!---HONumber=AcomDC_0810_2016-->

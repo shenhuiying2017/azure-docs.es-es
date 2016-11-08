@@ -1,7 +1,7 @@
 
 Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-##<a id="cliattachempty"></a>Acoplamiento de un disco vacío
+## <a id="cliattachempty"></a>Acoplamiento de un disco vacío
 El acoplamiento de un disco vacío es la forma más sencilla de agregar un disco de datos. Ejecute el siguiente comando para acoplar un nuevo disco vacío:
 
     vm disk attach-new <vm-name> <size-in-gb> [blob-url]

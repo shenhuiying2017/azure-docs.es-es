@@ -1,33 +1,32 @@
-<properties
-	pageTitle="Implementación y administración de copias de seguridad para Windows Server o cliente de Windows mediante PowerShell | Microsoft Azure"
-	description="Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell"
-	services="backup"
-	documentationCenter=""
-	authors="saurabhsensharma"
-	manager="shivamg"
-	editor=""/>
+---
+title: Implementación y administración de copias de seguridad para Windows Server o cliente de Windows mediante PowerShell | Microsoft Docs
+description: Obtenga información sobre cómo implementar y administrar Copia de seguridad de Azure mediante PowerShell
+services: backup
+documentationcenter: ''
+author: saurabhsensharma
+manager: shivamg
+editor: ''
 
-<tags
-	ms.service="backup"
-	ms.workload="storage-backup-recovery"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="saurabhsensharma;markgal;jimpark;nkolli;trinadhk"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
 
-
+---
 # Implementación y administración de copias de seguridad en Azure para Windows Server o cliente de Windows mediante PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-client-automation.md)
-- [Clásico](backup-client-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-client-automation.md)
+> * [Clásico](backup-client-automation-classic.md)
+> 
+> 
 
 En este artículo se muestra cómo usar PowerShell para configurar la Copia de seguridad de Azure en un servidor o un cliente de Windows y para administrar copias de seguridad y recuperaciones.
 
 ## Azure PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Este artículo se centra en los cmdlets de PowerShell de Azure Resource Manager (ARM), que le permiten usar un almacén de Servicios de recuperación en un grupo de recursos.
 
@@ -37,35 +36,33 @@ Si desea utilizar scripts escritos para los entornos de 0.9.8, de 1.0 o posterio
 
 [Descargue la versión de PowerShell más reciente](https://github.com/Azure/azure-powershell/releases) (la versión mínima necesaria es 1.0.0).
 
-
-[AZURE.INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
+[!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## Creación de un almacén de Servicios de recuperación
-
 Los siguientes pasos le guiarán por el proceso de creación de un almacén de Servicios de recuperación. Un almacén de Servicios de recuperación no es lo mismo que un almacén de copia de seguridad.
 
 1. Si utiliza Azure Backup por primera vez, debe utilizar el cmdlet **Register-AzureRMResourceProvider** para registrar el proveedor de Azure Recovery Services con su suscripción.
-
+   
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-
 2. El almacén de Servicios de recuperación es un recurso de ARM, por lo que deberá colocarlo dentro de un grupo de recursos. Puede usar un grupo de recursos existente o crear uno nuevo. Al crear un nuevo grupo de recursos, especifique su nombre y su ubicación.
-
+   
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "West US"
     ```
-
 3. Utilice el cmdlet **New-AzureRmRecoveryServicesVault** para crear el nuevo almacén. Asegúrese de especificar para el almacén la misma ubicación del grupo de recursos.
-
+   
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-
 4. Especifique el tipo de redundancia de almacenamiento que se usará: [almacenamiento con redundancia local (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) o [almacenamiento con redundancia geográfica (GRS)](../storage/storage-redundancy.md#geo-redundant-storage). En el ejemplo siguiente se muestra que la opción -BackupStorageRedundancy para testVault está establecida en GeoRedundant.
-
-    > [AZURE.TIP] Muchos de los cmdlets de Copia de seguridad de Azure requieren el objeto de almacén de Servicios de recuperación como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Servicios de recuperación de copia de seguridad en una variable.
-
+   
+   > [!TIP]
+   > Muchos de los cmdlets de Copia de seguridad de Azure requieren el objeto de almacén de Servicios de recuperación como entrada. Por este motivo, es conveniente almacenar el objeto de almacén de Servicios de recuperación de copia de seguridad en una variable.
+   > 
+   > 
+   
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testVault"
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
@@ -104,7 +101,6 @@ Para ver la lista de programas instalados, vaya a **Panel de Control** > **progr
 ![Agente instalado](./media/backup-client-automation/installed-agent-listing.png)
 
 ### Opciones de instalación
-
 Para ver todas las opciones disponibles a través de la línea de comandos, use el siguiente comando:
 
 ```
@@ -114,21 +110,19 @@ PS C:\> MARSAgentInstaller.exe /?
 Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
-| ---- | ----- | ----- |
-| /q | Instalación desatendida | - | 
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent | 
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. | C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch | 
-| /m | Participar en Microsoft Update | - | 
-| /nu | No comprobar si hay actualizaciones cuando finalice la instalación | - | 
-| /d | Desinstala el agente de Servicios de recuperación de Microsoft Azure | - | 
-| /ph | Dirección de host del proxy | - | 
-| /po | Número de puerto de host del proxy | - | 
-| /pu | Nombre de usuario de host del proxy | - | 
-| /pw | Contraseña del proxy | - |
-
+| --- | --- | --- |
+| /q |Instalación desatendida |- |
+| /p:"ubicación" |Ruta de acceso a la carpeta de instalación del agente de Copia de seguridad de Azure. |C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent |
+| /s:"ubicación" |Ruta de acceso a la carpeta de caché del agente de Copia de seguridad de Azure. |C:\\Archivos de programa\\Microsoft Azure Recovery Services Agent\\Scratch |
+| /m |Participar en Microsoft Update |- |
+| /nu |No comprobar si hay actualizaciones cuando finalice la instalación |- |
+| /d |Desinstala el agente de Servicios de recuperación de Microsoft Azure |- |
+| /ph |Dirección de host del proxy |- |
+| /po |Número de puerto de host del proxy |- |
+| /pu |Nombre de usuario de host del proxy |- |
+| /pw |Contraseña del proxy |- |
 
 ## Registro de Windows Server o el equipo cliente de Windows en un almacén de Servicios de recuperación
-
 Después de crear el almacén de Servicios de recuperación, descargue el agente más reciente y las credenciales de almacén y guárdelas en una ubicación adecuada como C:\\Downloads.
 
 ```
@@ -149,7 +143,10 @@ Region              :West US
 Machine registration succeeded.
 ```
 
-> [AZURE.IMPORTANT] No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> [!IMPORTANT]
+> No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> 
+> 
 
 ## Configuración de redes
 Cuando la conectividad de la máquina de Windows a Internet se realiza a través de un servidor proxy, también se puede proporcionar la configuración del proxy al agente. En este ejemplo, no hay ningún servidor proxy y por tanto se borra explícitamente cualquier información relacionada con el proxy.
@@ -174,7 +171,10 @@ PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force 
 Server properties updated successfully
 ```
 
-> [AZURE.IMPORTANT] Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> [!IMPORTANT]
+> Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> 
+> 
 
 ## Realizar copias de seguridad de archivos y carpetas
 Todas las copias de seguridad de servidores y clientes de Windows en Copia de seguridad de Azure se rigen por una directiva. La directiva consta de tres partes:
@@ -194,8 +194,8 @@ En este momento la directiva está vacía y se necesitan otros cmdlet para defin
 ### Configuración de la programación de la copia de seguridad
 La primera de las tres partes de una directiva es la programación de copia de seguridad, que se crea usando el cmdlet [New-OBSchedule](https://technet.microsoft.com/library/hh770401). La programación de copia de seguridad define cuándo deben realizarse copias de seguridad. Al crear una programación se deben especificar dos parámetros de entrada:
 
-- **Días de la semana** en los que se debe ejecutar la copia de seguridad. Puede ejecutar el trabajo de copia de seguridad en solo un día o cada día de la semana, o cualquier combinación intermedia.
-- **Horas del día** a las que se debe ejecutar la copia de seguridad. Puede definir hasta tres horas distintas del día en las que se activará la copia de seguridad.
+* **Días de la semana** en los que se debe ejecutar la copia de seguridad. Puede ejecutar el trabajo de copia de seguridad en solo un día o cada día de la semana, o cualquier combinación intermedia.
+* **Horas del día** a las que se debe ejecutar la copia de seguridad. Puede definir hasta tres horas distintas del día en las que se activará la copia de seguridad.
 
 Por ejemplo, podría configurar una directiva de copia de seguridad que se ejecute a las 4 p.m. cada sábado y domingo.
 
@@ -243,9 +243,9 @@ PolicyState     : Valid
 ### Incluir y excluir archivos de copia de seguridad
 Un objeto ```OBFileSpec``` define los archivos incluidos y excluidos de una copia de seguridad. Se trata de un conjunto de reglas de ámbito de los archivos y carpetas protegidos de un equipo. Puede tener tantas reglas de inclusión o exclusión de archivos como se necesiten y asociarlas con una directiva. Al crear un nuevo objeto OBFileSpec, puede:
 
-- Especificar los archivos y carpetas que se van a incluir
-- Especificar los archivos y carpetas que se van a excluir
-- Especificar la copia de seguridad recursiva de los datos en una carpeta (o) si se deben copiar solo los archivos de nivel superior en la carpeta especificada.
+* Especificar los archivos y carpetas que se van a incluir
+* Especificar los archivos y carpetas que se van a excluir
+* Especificar la copia de seguridad recursiva de los datos en una carpeta (o) si se deben copiar solo los archivos de nivel superior en la carpeta especificada.
 
 Esto último se consigue mediante la marca -NonRecursive del comando New-OBFileSpec.
 
@@ -379,7 +379,7 @@ DsList : {DataSource
          FileSpec:D:\
          IsExclude:False
          IsRecursive:True
-	}
+    }
 PolicyName : c2eb6568-8a06-49f4-a20e-3019ae411bac
 RetentionPolicy : Retention Days : 7
               WeeklyLTRSchedule :
@@ -579,9 +579,9 @@ PS C:\> .\MARSAgentInstaller.exe /d /q
 
 Desinstalación de los archivos binarios del agente de la máquina tiene algunas consecuencias a tener en cuenta:
 
-- Elimina el filtro de archivos de la máquina y se detiene el seguimiento de los cambios.
-- Se elimina toda la información de directivas de la máquina, pero continúa almacenada en el servicio.
-- Se eliminan todas las programaciones de copia de seguridad y no se realizan más copias de seguridad.
+* Elimina el filtro de archivos de la máquina y se detiene el seguimiento de los cambios.
+* Se elimina toda la información de directivas de la máquina, pero continúa almacenada en el servicio.
+* Se eliminan todas las programaciones de copia de seguridad y no se realizan más copias de seguridad.
 
 Sin embargo, los datos almacenados en Azure permanecen y se mantienen de acuerdo con la configuración de la directiva de retención establecida por usted. Los puntos más antiguos vencen automáticamente.
 
@@ -624,7 +624,7 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## Pasos siguientes
 Para obtener más información sobre Copia de seguridad de Azure para Windows Server o cliente de Windows, consulte
 
-- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
-- [Copia de seguridad de servidores Windows](backup-configure-vault.md)
+* [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+* [Copia de seguridad de servidores Windows](backup-configure-vault.md)
 
 <!---HONumber=AcomDC_0907_2016-->

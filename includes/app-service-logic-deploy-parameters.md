@@ -5,7 +5,6 @@ Al definir parámetros, use el campo **allowedValues** para especificar los valo
 Vamos a describir cada parámetro de la plantilla.
 
 ### logicAppName
-
 El nombre de la aplicación lógica que se va a crear.
 
     "logicAppName": {

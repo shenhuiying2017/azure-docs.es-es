@@ -1,22 +1,22 @@
 
-<properties
-	pageTitle="Uso de Azure AD Connect Health con AD DS | Microsoft Azure"
-	description="Esta es la página de Azure AD Connect Health donde se describe cómo supervisar la sincronización de AD DS."
-	services="active-directory"
-	documentationCenter=""
-	authors="arluca"
-	manager="samueld"
-	editor="curtand"/>
+---
+title: Uso de Azure AD Connect Health con AD DS | Microsoft Docs
+description: Esta es la página de Azure AD Connect Health donde se describe cómo supervisar la sincronización de AD DS.
+services: active-directory
+documentationcenter: ''
+author: arluca
+manager: samueld
+editor: curtand
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="09/30/2016"
-	ms.author="arluca"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 09/30/2016
+ms.author: arluca
 
+---
 # Uso de Azure AD Connect Health con AD DS
 La siguiente documentación es específica de la supervisión de los Servicios de dominio de Active Directory con Azure AD Connect Health. Las versiones compatibles de AD DS son: Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2.
 
@@ -51,7 +51,6 @@ Esta característica proporciona tendencias gráficas de diferentes contadores d
 De forma predeterminada, hemos preseleccionado cuatro contadores de rendimiento. Sin embargo, puede incluir otros haciendo clic en el comando de filtros y seleccionando o anulando la selección de cualquier contador de rendimiento que desee. Además, puede hacer doble clic en un gráfico del contador de rendimiento para que se abra una nueva hoja que incluye los puntos de datos correspondientes para cada uno de los controladores de dominio supervisados.
 
 ## Vínculos relacionados
-
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Instalación del agente de Azure AD Connect Health](active-directory-aadconnect-health-agent-install.md)
 * [Operaciones de Azure AD Connect Health](active-directory-aadconnect-health-operations.md)

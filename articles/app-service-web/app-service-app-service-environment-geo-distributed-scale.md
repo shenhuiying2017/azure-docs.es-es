@@ -1,24 +1,23 @@
-<properties 
-	pageTitle="Escala distribuida geográficamente con entornos de Servicio de aplicaciones" 
-	description="Aprenda a escalar aplicaciones horizontalmente con distribución geográfica con el Administrador de tráfico y los entornos de Servicio de aplicaciones." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Escala distribuida geográficamente con entornos de Servicio de aplicaciones
+description: Aprenda a escalar aplicaciones horizontalmente con distribución geográfica con el Administrador de tráfico y los entornos de Servicio de aplicaciones.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/07/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/07/2016
+ms.author: stefsch
 
+---
 # Escala distribuida geográficamente con entornos de Servicio de aplicaciones
-
-## Información general ##
+## Información general
 Aquellos escenarios de aplicaciones que requieren una escala muy elevada pueden superar la capacidad de recursos de proceso disponible para una sola implementación de una aplicación. Algunos ejemplos de los escenarios que requieren una escala extremadamente alta son las aplicaciones de votación, los acontecimientos deportivos y los espectáculos televisados. Se pueden cumplir los requisitos de gran escala mediante el escalado horizontal de las aplicaciones, con la realización de varias implementaciones de la aplicación en una única región, así como entre regiones, para afrontar los requisitos extremos de carga.
 
 Los entornos de Servicio de aplicaciones son una plataforma ideal para el escalado horizontal. Una vez seleccionado una configuración de entorno de Servicio de aplicaciones que admita una tasa de solicitudes conocida, los desarrolladores pueden implementar más entornos de Servicio de aplicaciones a modo de "plantilla" para lograr una capacidad de carga máxima deseada.
@@ -35,22 +34,21 @@ En el siguiente diagrama conceptual, se muestra una aplicación escalada horizon
 
 El resto de este tema lo guía por los pasos necesarios para configurar una topología distribuida para la aplicación de ejemplo usando varios entornos de App Service.
 
-## Planeación de la topología ##
+## Planeación de la topología
 Antes de crear la superficie de una aplicación distribuida, resulta útil tener algunos datos con antelación.
 
-- **Dominio personalizado para la aplicación:** ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación? Para la aplicación de ejemplo, el nombre de dominio personalizado es *www.scalableasedemo.com*.
-- **Dominio del Administrador de tráfico:** se debe elegir un nombre de dominio al crear un [perfil del Administrador de tráfico de Azure][AzureTrafficManagerProfile]. Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico. Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*. Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
-- **Estrategia para el escalado de la superficie de la aplicación:** ¿se distribuirá la superficie de la aplicación entre distintos entornos de Servicio de aplicaciones en una sola región? ¿Varias regiones? ¿Una combinación de ambos enfoques? La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse. Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva usando una combinación de varios entornos de Servicio de aplicaciones por región de Azure, multiplicados por más entornos de Servicio de aplicaciones implementados en varias regiones de Azure. Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo. Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de Servicio de aplicaciones en una sola región de Azure (Centro y Sur de EE. UU.).
-- **Convención de nomenclatura para los entornos de Servicio de aplicaciones:** cada entorno de Servicio de aplicaciones requiere un nombre único. Si existen más de uno o dos entornos de Servicio de aplicaciones, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos. Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla. Los nombres de los tres entornos de Servicio de aplicaciones son *fe1ase*, *fe2ase* y *fe3ase*.
-- **Convención de nomenclatura para las aplicaciones:** ya que se implementarán varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada. Una característica poco conocida pero muy cómoda de los entornos de Servicio de aplicaciones es que se puede usar el mismo nombre de aplicación en varios entornos de Servicio de aplicaciones. Dado que cada entorno de Servicio de aplicaciones tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno. Por ejemplo, un desarrollador podría denominar a las aplicaciones como sigue:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único. Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
+* **Dominio personalizado para la aplicación:** ¿cuál es el nombre de dominio personalizado que los clientes usarán para acceder a la aplicación? Para la aplicación de ejemplo, el nombre de dominio personalizado es *www.scalableasedemo.com*.
+* **Dominio del Administrador de tráfico:** se debe elegir un nombre de dominio al crear un [perfil del Administrador de tráfico de Azure][AzureTrafficManagerProfile]. Este nombre se combinará con el sufijo *trafficmanager.net* para registrar una entrada de dominio que es administrada por el Administrador de tráfico. Para la aplicación de ejemplo, el nombre elegido es *scalable-ase-demo*. Como resultado, el nombre de dominio completo administrado por el Administrador de tráfico es *scalable-ase-demo.trafficmanager.net*.
+* **Estrategia para el escalado de la superficie de la aplicación:** ¿se distribuirá la superficie de la aplicación entre distintos entornos de Servicio de aplicaciones en una sola región? ¿Varias regiones? ¿Una combinación de ambos enfoques? La decisión debería basarse en las expectativas de dónde se vaya a originar el tráfico del cliente, así como también en la medida en que el resto de la infraestructura de back-end de apoyo de una aplicación pueda escalarse. Por ejemplo, con una aplicación totalmente sin estado, se puede escalar una aplicación de forma masiva usando una combinación de varios entornos de Servicio de aplicaciones por región de Azure, multiplicados por más entornos de Servicio de aplicaciones implementados en varias regiones de Azure. Con más de 15 regiones de Azure públicas entre las que elegir, los clientes pueden realmente crear una superficie de aplicación de gran escala en todo el mundo. Para la aplicación de ejemplo usada en este artículo, se crearon tres entornos de Servicio de aplicaciones en una sola región de Azure (Centro y Sur de EE. UU.).
+* **Convención de nomenclatura para los entornos de Servicio de aplicaciones:** cada entorno de Servicio de aplicaciones requiere un nombre único. Si existen más de uno o dos entornos de Servicio de aplicaciones, resulta útil disponer de una convención de nomenclatura para ayudar a identificar cada uno de ellos. Para la aplicación de ejemplo, se usó una convención de nomenclatura sencilla. Los nombres de los tres entornos de Servicio de aplicaciones son *fe1ase*, *fe2ase* y *fe3ase*.
+* **Convención de nomenclatura para las aplicaciones:** ya que se implementarán varias instancias de la aplicación, se necesita un nombre para cada instancia de la aplicación implementada. Una característica poco conocida pero muy cómoda de los entornos de Servicio de aplicaciones es que se puede usar el mismo nombre de aplicación en varios entornos de Servicio de aplicaciones. Dado que cada entorno de Servicio de aplicaciones tiene un sufijo de dominio único, los desarrolladores pueden reutilizar el mismo nombre de aplicación en cada entorno. Por ejemplo, un desarrollador podría denominar a las aplicaciones como sigue:*myapp.foo1.p.azurewebsites.net*, *myapp.foo2.p.azurewebsites.net*, *myapp.foo3.p.azurewebsites.net*, etc. No obstante, para la aplicación de ejemplo, cada instancia tiene un nombre único. Los nombres de las instancias de aplicación usados son *webfrontend1*, *webfrontend2* y *webfrontend3*.
 
-
-## Configuración de un perfil del Administrador de tráfico ##
+## Configuración de un perfil del Administrador de tráfico
 Una vez que se implementan varias instancias de una aplicación en varios entornos de Servicio de aplicaciones, las instancias de aplicación individuales se pueden registrar con el Administrador de tráfico. Para la aplicación de ejemplo, se necesita un perfil del Administrador de tráfico para *scalable-ase-demo.trafficmanager.net* que pueda enrutar a los clientes a cualquiera de las siguientes instancias de la aplicación implementadas:
 
-- **webfrontend1.fe1ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el primer entorno de Servicio de aplicaciones.
-- **webfrontend2.fe2ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el segundo entorno de Servicio de aplicaciones.
-- **webfrontend3.fe3ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el tercer entorno de Servicio de aplicaciones.
+* **webfrontend1.fe1ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el primer entorno de Servicio de aplicaciones.
+* **webfrontend2.fe2ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el segundo entorno de Servicio de aplicaciones.
+* **webfrontend3.fe3ase.p.azurewebsites.net:** una instancia de la aplicación de ejemplo que se implementa en el tercer entorno de Servicio de aplicaciones.
 
 La forma más sencilla de registrar varios puntos de conexión de Azure App Service, todos los cuales se ejecutan en la **misma** región de Azure, es usando la [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].
 
@@ -64,7 +62,6 @@ El parámetro *TrafficRoutingMethod* define la directiva de equilibrio de carga 
 
 Con el perfil creado, se agrega cada instancia de la aplicación al perfil como un punto de conexión nativo de Azure. El código siguiente recupera una referencia a cada aplicación web front-end y, luego, agrega cada aplicación como un punto de conexión del Administrador de tráfico por medio del parámetro *TargetResourceId*.
 
-
     $webapp1 = Get-AzureRMWebApp -Name webfrontend1
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend1 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp1.Id –EndpointStatus Enabled –Weight 10
 
@@ -73,15 +70,14 @@ Con el perfil creado, se agrega cada instancia de la aplicación al perfil como 
 
     $webapp3 = Get-AzureRMWebApp -Name webfrontend3
     Add-AzureTrafficManagerEndpointConfig –EndpointName webfrontend3 –TrafficManagerProfile $profile –Type AzureEndpoints -TargetResourceId $webapp3.Id –EndpointStatus Enabled –Weight 10
-    
+
     Set-AzureTrafficManagerProfile –TrafficManagerProfile $profile
-    
+
 Observe que existe una llamada a *Add-AzureTrafficManagerEndpointConfig* para cada instancia de aplicación individual. El parámetro *TargetResourceId* de cada comando de Powershell hace referencia a una de las tres instancias de la aplicación implementada. El perfil de Traffic Manager repartirá la carga entre los tres puntos de conexión registrados en el perfil.
 
 Los tres extremos usan el mismo valor (10) para el parámetro *Weight*. Como resultado, el Administrador de tráfico distribuye las solicitudes de los clientes entre las tres instancias de la aplicación de forma relativamente uniforme.
 
-
-## Hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico ##
+## Hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico
 El último paso necesario es hacer que el dominio personalizado de la aplicación apunte al dominio del Administrador de tráfico. Para la aplicación de ejemplo, esto significa que debe apuntar a *www.scalableasedemo.com* en *scalable-ase-demo.trafficmanager.net*. Este paso se debe completar con el registrador de dominios que administra el dominio personalizado.
 
 Usando las herramientas de administración de dominios del registrador, se debe crear un registro CNAME que apunte al dominio personalizado en el dominio del Administrador de tráfico. En la figura siguiente se muestra un ejemplo de esta configuración de CNAME:
@@ -96,14 +92,14 @@ En este ejemplo, el dominio personalizado es *www.scalableasedemo.com* y cada in
 
 Como resumen del registro de un dominio personalizado con las aplicaciones de Servicio de aplicaciones de Azure, consulte el siguiente artículo acerca del [registro de dominios personalizados][RegisterCustomDomain].
 
-## Prueba de la topología distribuida ##
+## Prueba de la topología distribuida
 El resultado final de la configuración del Administrador de tráfico y de DNS es que las solicitudes de *www.scalableasedemo.com* fluirán en la siguiente secuencia:
 
 1. Un dispositivo o explorador realizará una búsqueda DNS de *www.scalableasedemo.com*.
 2. La entrada CNAME en el registrador de dominios hace que la búsqueda DNS se redirija al Administrador de tráfico de Azure.
 3. Se realiza una búsqueda DNS de *scalable-ase-demo.trafficmanager.net* en uno de los servidores DNS del Administrador de tráfico de Azure.
 4. Según la directiva de equilibrio de carga (el parámetro *TrafficRoutingMethod* usado antes al crear el perfil del Administrador de tráfico), el Administrador de tráfico seleccionará uno de los extremos configurados y devolverá el FQDN de ese extremo al explorador o dispositivo.
-5.  Dado que el FQDN del extremo es la dirección URL de una instancia de la aplicación que se ejecuta en un entorno de Servicio de aplicaciones, el explorador o el dispositivo pedirá a un servidor DNS de Microsoft Azure que resuelva el FQDN en una dirección IP.
+5. Dado que el FQDN del extremo es la dirección URL de una instancia de la aplicación que se ejecuta en un entorno de Servicio de aplicaciones, el explorador o el dispositivo pedirá a un servidor DNS de Microsoft Azure que resuelva el FQDN en una dirección IP.
 6. El explorador o el dispositivo enviará la solicitud HTTP/S a la dirección IP.
 7. La solicitud llegará a una de las instancias de la aplicación que se ejecutan en uno de los entornos de Servicio de aplicaciones.
 
@@ -111,14 +107,14 @@ En la imagen de consola siguiente, se muestra una búsqueda DNS para el dominio 
 
 ![Búsqueda DNS][DNSLookup]
 
-## Información y vínculos adicionales ##
+## Información y vínculos adicionales
 Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Documentación sobre [compatibilidad de Azure Resource Manager con Traffic Manager de Azure][ARMTrafficManager].
 
-[AZURE.INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
+[!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
-[AZURE.INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
+[!INCLUDE [app-service-web-try-app-service](../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
 [AzureTrafficManagerProfile]: https://azure.microsoft.com/documentation/articles/traffic-manager-manage-profiles/

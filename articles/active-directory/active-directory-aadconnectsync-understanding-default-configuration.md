@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Sincronización de Azure AD Connect: descripción de la configuración predeterminada | Microsoft Azure"
-    description="En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-	ms.topic="article"
-    ms.date="09/01/2016"
-    ms.author="andkjell"/>
+---
+title: 'Sincronización de Azure AD Connect: descripción de la configuración predeterminada | Microsoft Docs'
+description: En este artículo se describe la configuración predeterminada de sincronización de Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: andkjell
+
+---
 # Sincronización de Azure AD Connect: descripción de la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
 
@@ -28,72 +29,72 @@ Estas reglas también se aplican al tipo de objeto iNetOrgPerson.
 
 Un objeto de usuario debe cumplir los siguientes requisitos para que se sincronice:
 
-- Debe tener un valor de sourceAnchor.
-- Después de crear el objeto en Azure AD, no se puede cambiar el valor de sourceAnchor. Si se modifica en el entorno local, el objeto dejará de sincronizarse hasta que se vuelva a cambiar el valor de sourceAnchor a su valor anterior.
-- Debe tener rellenado el atributo accountEnabled (userAccountControl). Con una instancia de Active Directory local, este atributo siempre estará presente y rellenado.
+* Debe tener un valor de sourceAnchor.
+* Después de crear el objeto en Azure AD, no se puede cambiar el valor de sourceAnchor. Si se modifica en el entorno local, el objeto dejará de sincronizarse hasta que se vuelva a cambiar el valor de sourceAnchor a su valor anterior.
+* Debe tener rellenado el atributo accountEnabled (userAccountControl). Con una instancia de Active Directory local, este atributo siempre estará presente y rellenado.
 
 Los siguientes objetos de usuario **no** se sincronizan con Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Asegúrese de que muchos objetos incluidos en Active Directory, como la cuenta de administrador integrada, no estén sincronizados.
-- `IsPresent([sAMAccountName]) = False`. Asegúrese de que los objetos de usuario sin el atributo sAMAccountName no estén sincronizados. Esto solo sucedería prácticamente en un dominio actualizado desde NT4.
-- `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. No sincronice la cuenta de servicio que usa Azure AD Connect Sync y sus versiones anteriores.
-- No sincronice las cuentas de Exchange que no funcionan en Exchange Online.
-    - `[sAMAccountName] = "SUPPORT_388945a0"`
-    - `Left([mailNickname], 14) = "SystemMailbox{"`
-    - `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
-    - `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
-- No sincronice los objetos que no vayan a funcionar en Exchange Online. `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))` Esta máscara de bits (& H21C07000) filtraría los objetos siguientes:
-    - Carpeta pública habilitada para correo
-    - Buzón del operador del sistema
-    - Buzón de la base de datos de buzones (buzón del sistema)
-    - Grupo de seguridad universal (no se aplicaría a un usuario, pero existe por motivos de herencia)
-    - Grupo no universal (no se aplicaría a un usuario, pero existe por motivos de herencia)
-    - Plan de buzón
-    - Buzón de detección
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
+* `IsPresent([isCriticalSystemObject])`. Asegúrese de que muchos objetos incluidos en Active Directory, como la cuenta de administrador integrada, no estén sincronizados.
+* `IsPresent([sAMAccountName]) = False`. Asegúrese de que los objetos de usuario sin el atributo sAMAccountName no estén sincronizados. Esto solo sucedería prácticamente en un dominio actualizado desde NT4.
+* `Left([sAMAccountName], 4) = "AAD_"`, `Left([sAMAccountName], 5) = "MSOL_"`. No sincronice la cuenta de servicio que usa Azure AD Connect Sync y sus versiones anteriores.
+* No sincronice las cuentas de Exchange que no funcionan en Exchange Online.
+  * `[sAMAccountName] = "SUPPORT_388945a0"`
+  * `Left([mailNickname], 14) = "SystemMailbox{"`
+  * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`
+  * `(Left([sAMAccountName], 4) = "CAS_" && (InStr([sAMAccountName], "}")> 0))`
+* No sincronice los objetos que no vayan a funcionar en Exchange Online. `CBool(IIF(IsPresent([msExchRecipientTypeDetails]),BitAnd([msExchRecipientTypeDetails],&H21C07000) > 0,NULL))` Esta máscara de bits (& H21C07000) filtraría los objetos siguientes:
+  * Carpeta pública habilitada para correo
+  * Buzón del operador del sistema
+  * Buzón de la base de datos de buzones (buzón del sistema)
+  * Grupo de seguridad universal (no se aplicaría a un usuario, pero existe por motivos de herencia)
+  * Grupo no universal (no se aplicaría a un usuario, pero existe por motivos de herencia)
+  * Plan de buzón
+  * Buzón de detección
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
 
 Se aplican las siguientes reglas de atributo:
 
-- `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. El atributo sourceAnchor no procede de un buzón vinculado. Se da por hecho que, si se ha encontrado un buzón vinculado, la cuenta real se unirá más tarde.
-- Los atributos relacionados con Exchange solo se sincronizan si el atributo **mailNickName** tiene un valor.
-- Cuando hay varios bosques, los atributos se consumen en el orden siguiente:
-    1. Los atributos relacionados con el inicio de sesión (por ejemplo, userPrincipalName) proceden del bosque con una cuenta habilitada.
-    2. El atributo que se encuentra en una GAL de Exchange (lista global de direcciones) procede del bosque con un buzón de Exchange.
-    3. Si no se encuentra ningún buzón, estos atributos pueden provenir de cualquier bosque.
-    4. Los atributos relacionados con Exchange (los atributos técnicos no se muestran en la GAL) proceden del bosque en el que `mailNickname ISNOTNULL`.
-    5. Si hay varios bosques que podrían cumplir una de estas reglas, se utilizará el orden de creación (fecha y hora) de los conectores (bosques) para determinar el bosque de origen de los atributos.
+* `sourceAnchor <- IIF([msExchRecipientTypeDetails]=2,NULL,..)`. El atributo sourceAnchor no procede de un buzón vinculado. Se da por hecho que, si se ha encontrado un buzón vinculado, la cuenta real se unirá más tarde.
+* Los atributos relacionados con Exchange solo se sincronizan si el atributo **mailNickName** tiene un valor.
+* Cuando hay varios bosques, los atributos se consumen en el orden siguiente:
+  1. Los atributos relacionados con el inicio de sesión (por ejemplo, userPrincipalName) proceden del bosque con una cuenta habilitada.
+  2. El atributo que se encuentra en una GAL de Exchange (lista global de direcciones) procede del bosque con un buzón de Exchange.
+  3. Si no se encuentra ningún buzón, estos atributos pueden provenir de cualquier bosque.
+  4. Los atributos relacionados con Exchange (los atributos técnicos no se muestran en la GAL) proceden del bosque en el que `mailNickname ISNOTNULL`.
+  5. Si hay varios bosques que podrían cumplir una de estas reglas, se utilizará el orden de creación (fecha y hora) de los conectores (bosques) para determinar el bosque de origen de los atributos.
 
 ### Reglas integradas de contacto
 Un objeto de contacto debe cumplir los siguientes requisitos para sincronizarse:
 
-- El contacto debe estar habilitado para correo. Se comprueba con las reglas siguientes:
-    - `IsPresent([proxyAddresses]) = True)`. El atributo proxyAddresses debe estar rellenado.
-    - Se puede encontrar una dirección de correo electrónico principal en el atributo proxyAddresses o en el atributo de correo. La precedencia de una @ se usa para comprobar que el contenido es una dirección de correo electrónico. Una de estas dos reglas debe evaluarse como True.
-        - `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. ¿Hay una entrada con "SMTP:" y, si la hay, se puede encontrar una @ en la cadena?
-        - `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. ¿Está rellenado el atributo mail y, si lo está, se puede encontrar una @ en la cadena?
+* El contacto debe estar habilitado para correo. Se comprueba con las reglas siguientes:
+  * `IsPresent([proxyAddresses]) = True)`. El atributo proxyAddresses debe estar rellenado.
+  * Se puede encontrar una dirección de correo electrónico principal en el atributo proxyAddresses o en el atributo de correo. La precedencia de una @ se usa para comprobar que el contenido es una dirección de correo electrónico. Una de estas dos reglas debe evaluarse como True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. ¿Hay una entrada con "SMTP:" y, si la hay, se puede encontrar una @ en la cadena?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. ¿Está rellenado el atributo mail y, si lo está, se puede encontrar una @ en la cadena?
 
 Los siguientes objetos de contacto **no** se sincronizan con Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Asegúrese de que ningún objeto marcado como crítico se sincronice. No debería ser ninguno con una configuración predeterminada.
-- `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
-- `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Estos objetos no funcionarían en Exchange Online.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
+* `IsPresent([isCriticalSystemObject])`. Asegúrese de que ningún objeto marcado como crítico se sincronice. No debería ser ninguno con una configuración predeterminada.
+* `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`.
+* `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Estos objetos no funcionarían en Exchange Online.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
 
 ### Reglas integradas de grupo
 Un objeto de grupo debe cumplir los siguientes requisitos para sincronizarse:
 
-- Debe tener menos de 50.000 miembros. Estos se cuentan como el número de miembros del grupo local.
-    - Si tiene más miembros antes de que la sincronización se inicie por primera vez, el grupo no se sincronizará.
-    - Si el número de miembros crece desde que se creara inicialmente, cuando alcance los 50 000 dejará de sincronizarse hasta que la cifra sea de nuevo inferior a 50 000.
-    - Nota: Azure AD también aplicará el número de miembros de 50.000. No podrá sincronizar los grupos con más miembros, aunque modifique o elimine esta regla.
-- Si el grupo es un **grupo de distribución**, también estar habilitado para correo. Consulte [Reglas integradas de contacto](#contact-out-of-box-rules) para aplicar esta regla.
+* Debe tener menos de 50.000 miembros. Estos se cuentan como el número de miembros del grupo local.
+  * Si tiene más miembros antes de que la sincronización se inicie por primera vez, el grupo no se sincronizará.
+  * Si el número de miembros crece desde que se creara inicialmente, cuando alcance los 50 000 dejará de sincronizarse hasta que la cifra sea de nuevo inferior a 50 000.
+  * Nota: Azure AD también aplicará el número de miembros de 50.000. No podrá sincronizar los grupos con más miembros, aunque modifique o elimine esta regla.
+* Si el grupo es un **grupo de distribución**, también estar habilitado para correo. Consulte [Reglas integradas de contacto](#contact-out-of-box-rules) para aplicar esta regla.
 
 Los siguientes objetos de grupo **no** se sincronizan con Azure AD:
 
-- `IsPresent([isCriticalSystemObject])`. Asegúrese de muchos objetos incluidos en Active Directory, como el grupo de administradores integrado, no estén sincronizados.
-- `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Grupo heredado utilizado por DirSync.
-- `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Grupo de roles.
-- `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
+* `IsPresent([isCriticalSystemObject])`. Asegúrese de muchos objetos incluidos en Active Directory, como el grupo de administradores integrado, no estén sincronizados.
+* `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`. Grupo heredado utilizado por DirSync.
+* `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Grupo de roles.
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. No sincronice ningún objeto víctima de replicación.
 
 ### Reglas integradas de ForeignSecurityPrincipal
 Los FSP se unen a "cualquier" (*) objeto en el metaverso. En realidad, esta unión solo se realiza con usuarios y grupos de seguridad. Esta configuración garantiza que se resuelvan los miembros de otro bosque y que se representen correctamente en Azure AD.
@@ -101,7 +102,7 @@ Los FSP se unen a "cualquier" (*) objeto en el metaverso. En realidad, esta uni�
 ### Reglas integradas de equipo
 Un objeto de equipo debe cumplir los siguientes requisitos para sincronizarse:
 
-- `userCertificate ISNOTNULL`. Solo los equipos con Windows 10 rellenarán este atributo. Todos los objetos de equipo con un valor en este atributo se sincronizan.
+* `userCertificate ISNOTNULL`. Solo los equipos con Windows 10 rellenarán este atributo. Todos los objetos de equipo con un valor en este atributo se sincronizan.
 
 ## Descripción del escenario de reglas integradas
 En este ejemplo, usamos una implementación con un bosque de cuentas (A), un bosque de recursos (R) y un directorio de Azure AD.
@@ -112,9 +113,9 @@ En esta configuración, se da por hecho que ya hay una cuenta habilitada en el b
 
 Nuestro objetivo con la configuración predeterminada es el siguiente:
 
-- Los atributos relacionados con el inicio de sesión se sincronizarán desde el bosque con la cuenta habilitada.
-- Los que se encuentran en la GAL (lista global de direcciones) lo harán desde el bosque con el buzón. Si no se encuentra ningún buzón, se usará cualquier otro bosque.
-- Si hay un buzón vinculado, se debe encontrar la cuenta habilitada vinculada para poder exportar el objeto a Azure AD.
+* Los atributos relacionados con el inicio de sesión se sincronizarán desde el bosque con la cuenta habilitada.
+* Los que se encuentran en la GAL (lista global de direcciones) lo harán desde el bosque con el buzón. Si no se encuentra ningún buzón, se usará cualquier otro bosque.
+* Si hay un buzón vinculado, se debe encontrar la cuenta habilitada vinculada para poder exportar el objeto a Azure AD.
 
 ### Editor de reglas de sincronización
 Se puede ver y cambiar la configuración con la herramienta Editor de reglas de sincronización (SRE), y hay un acceso directo a ella en el menú Inicio.
@@ -180,9 +181,9 @@ Para ponerlo en contexto, en una implementación de bosque cuenta-recurso espera
 
 Una transformación puede tener tipos diferentes: Constante, Directa y Expresión.
 
-- En un flujo de tipo constante siempre fluirá un valor codificado. En el caso anterior, se establece siempre el valor **True** en el atributo del metaverso denominado "**accountEnabled**".
-- En un flujo de tipo directo fluirá el valor del atributo del origen hacia el atributo de destino.
-- El tercer flujo es de tipo expresión y permite configuraciones más avanzadas.
+* En un flujo de tipo constante siempre fluirá un valor codificado. En el caso anterior, se establece siempre el valor **True** en el atributo del metaverso denominado "**accountEnabled**".
+* En un flujo de tipo directo fluirá el valor del atributo del origen hacia el atributo de destino.
+* El tercer flujo es de tipo expresión y permite configuraciones más avanzadas.
 
 El lenguaje de la expresión es VBA (Visual Basic para Aplicaciones), por lo que un usuario con experiencia en Microsoft Office o VBScript reconocerá el formato. Los atributos se especifican entre corchetes, [nombreAtributo]. Los nombres de atributo y de función distinguen entre mayúsculas y minúsculas, pero el Editor de reglas de sincronización evaluará las expresiones y proporcionará una advertencia si la expresión no es válida. Todas las expresiones se expresan en una única línea con funciones anidadas. Para mostrar la eficacia del lenguaje de configuración, encontrará a continuación el flujo para pwdLastSet, pero con comentarios adicionales insertados:
 
@@ -210,25 +211,24 @@ El asistente para instalación establece la precedencia para las reglas de sincr
 ### Resumen
 Ahora conocemos lo suficiente de las reglas de sincronización para poder comprender cómo funciona la configuración con las distintas reglas de sincronización. Si tomamos un usuario y los atributos que se aportan al metaverso, las reglas se aplican en el orden siguiente:
 
-Nombre | Comentario
-:------------- | :-------------
-In from AD – User Join | Regla para unir objetos del espacio del conector con el metaverso.
-In from AD – UserAccount Enabled | Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada.
-In from AD – User Common from Exchange | Atributos encontrados en la lista global de direcciones Suponemos que la calidad de los datos es mejor en el bosque donde encontramos el buzón del usuario.
-In from AD – User Common | Atributos encontrados en la lista global de direcciones En caso de que no encontremos un buzón, cualquier otro objeto unido puede aportar el valor de atributo.
-In from AD – User Exchange | Solo existirá si se detecta Exchange. Hará fluir todos los atributos de Exchange de la infraestructura.
-In from AD – User Lync | Solo existirá si se detecta Lync. Hará fluir todos los atributos de Lync de la infraestructura.
+| Nombre | Comentario |
+|:--- |:--- |
+| In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
+| In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |
+| In from AD – User Common from Exchange |Atributos encontrados en la lista global de direcciones Suponemos que la calidad de los datos es mejor en el bosque donde encontramos el buzón del usuario. |
+| In from AD – User Common |Atributos encontrados en la lista global de direcciones En caso de que no encontremos un buzón, cualquier otro objeto unido puede aportar el valor de atributo. |
+| In from AD – User Exchange |Solo existirá si se detecta Exchange. Hará fluir todos los atributos de Exchange de la infraestructura. |
+| In from AD – User Lync |Solo existirá si se detecta Lync. Hará fluir todos los atributos de Lync de la infraestructura. |
 
 ## Pasos siguientes
-
-- Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-- Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Siga leyendo sobre cómo funciona la configuración rápida en [Azure AD Connect Sync: descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
-- Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).
+* Obtenga más información sobre el modelo de configuración en el artículo de información sobre el [aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Siga leyendo sobre cómo funciona la configuración rápida en [Azure AD Connect Sync: descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).
 
 **Temas de introducción**
 
-- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

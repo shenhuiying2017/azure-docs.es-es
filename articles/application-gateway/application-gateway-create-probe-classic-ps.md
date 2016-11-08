@@ -1,40 +1,41 @@
-<properties
-   pageTitle="Crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica | Microsoft Azure"
-   description="Aprenda a crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica."
-   services="application-gateway"
-   documentationCenter="na"
-   authors="georgewallace"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags  
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/09/2016"
-   ms.author="gwallace" />
+---
+title: Crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica | Microsoft Docs
+description: Aprenda a crear un sondeo personalizado para la puerta de enlace de aplicaciones mediante PowerShell en el modelo de implementación clásica.
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/09/2016
+ms.author: gwallace
+
+---
 # Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
-
-> [AZURE.SELECTOR]
-- [Portal de Azure](application-gateway-create-probe-portal.md)
-- [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
-- [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+> [!div class="op_single_selector"]
+> * [Portal de Azure](application-gateway-create-probe-portal.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+> 
+> 
 
 <BR>
 
-[AZURE.INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
+[!INCLUDE [azure-probe-intro-include](../../includes/application-gateway-create-probe-intro-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)] Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-classic-include.md)]
 
-[AZURE.INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource Manager](application-gateway-create-probe-ps.md).
 
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Creación de una puerta de enlace de aplicaciones
-
 Para crear una Puerta de enlace de aplicaciones:
 
 1. Cree un recurso de Puerta de enlace de aplicaciones.
@@ -42,41 +43,40 @@ Para crear una Puerta de enlace de aplicaciones:
 3. Confirme la configuración para el recurso de la puerta de enlace de aplicaciones recién creado.
 
 ### Crear un recurso de la puerta de enlace de aplicaciones
-
 Para crear la puerta de enlace, use el cmdlet **New-AzureApplicationGateway**, reemplazando los valores por los suyos propios. La facturación de la puerta de enlace no se inicia en este momento. La facturación comienza en un paso posterior, cuando la puerta de enlace se ha iniciado correctamente.
 
 En el ejemplo siguiente se crea una puerta de enlace de aplicaciones nueva mediante una red virtual denominada testvnet1 y una subred llamada subnet-1.
 
-	New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
+    New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
 Para validar que se creó la puerta de enlace, puede usar el cmdlet **Get-AzureApplicationGateway**.
 
-	Get-AzureApplicationGateway AppGwTest
+    Get-AzureApplicationGateway AppGwTest
 
->[AZURE.NOTE]  El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
+> [!NOTE]
+> El valor predeterminado de *InstanceCount* es 2, con un valor máximo de 10. El valor predeterminado de *GatewaySize* es Medium. Puede elegir entre Pequeño, Mediano y Grande.
+> 
+> 
 
  *VirtualIPs* y *DnsName* se muestran en blanco porque todavía no se ha iniciado la puerta de enlace. Se crearán una vez que la puerta de enlace esté en estado de ejecución.
 
 ## Configuración de una puerta de enlace de aplicaciones
-
 La puerta de enlace de aplicaciones se puede configurar con un archivo XML o con un objeto de configuración.
 
 ## Configuración de una puerta de enlace de aplicaciones mediante XML
-
 En el ejemplo siguiente, se usa un archivo XML para configurar todos los valores de la puerta de enlace de aplicaciones y confirmarlos en el recurso de dicha puerta de enlace.
 
 ### Paso 1
-
 Copie el texto siguiente y péguelo en el Bloc de notas.
 
-	<ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
+    <ApplicationGatewayConfiguration xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/windowsazure">
     <FrontendIPConfigurations>
         <FrontendIPConfiguration>
             <Name>fip1</Name>
             <Type>Private</Type>
         </FrontendIPConfiguration>
     </FrontendIPConfigurations>    
-	<FrontendPorts>
+    <FrontendPorts>
         <FrontendPort>
             <Name>port1</Name>
             <Port>80</Port>
@@ -98,7 +98,7 @@ Copie el texto siguiente y péguelo en el Bloc de notas.
             <Name>pool1</Name>
             <IPAddresses>
                 <IPAddress>1.1.1.1</IPAddress>
-				<IPAddress>2.2.2.2</IPAddress>
+                <IPAddress>2.2.2.2</IPAddress>
             </IPAddresses>
         </BackendAddressPool>
     </BackendAddressPools>
@@ -116,7 +116,7 @@ Copie el texto siguiente y péguelo en el Bloc de notas.
         <HttpListener>
             <Name>listener1</Name>
             <FrontendIP>fip1</FrontendIP>
-	    <FrontendPort>port1</FrontendPort>
+        <FrontendPort>port1</FrontendPort>
             <Protocol>Http</Protocol>
         </HttpListener>
     </HttpListeners>
@@ -129,44 +129,44 @@ Copie el texto siguiente y péguelo en el Bloc de notas.
             <BackendAddressPool>pool1</BackendAddressPool>
         </HttpLoadBalancingRule>
     </HttpLoadBalancingRules>
-	</ApplicationGatewayConfiguration>
+    </ApplicationGatewayConfiguration>
 
 
 Edite los valores entre paréntesis de los elementos de configuración. Guarde el archivo con extensión .xml.
 
 En el ejemplo siguiente se muestra cómo usar un archivo de configuración con el objetivo de configurar la puerta de enlace de aplicaciones para que equilibre la carga de tráfico HTTP en el puerto público 80 y envíe el tráfico de red al puerto back-end 80 entre dos direcciones IP mediante sondeo personalizado.
 
->[AZURE.IMPORTANT] El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
+> [!IMPORTANT]
+> El elemento de protocolo Http o Https distingue mayúsculas de minúsculas.
+> 
+> 
 
 Se agrega un nuevo elemento de configuración <Probe> para configurar sondeos personalizados.
 
 Los parámetros de configuración son:
 
-- **Nombre**: nombre de referencia del sondeo personalizado.
-- **Protocolo**: protocolo usado (los valores posibles son HTTP o HTTPS).
-- **Host** y **Ruta**: dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para http://contoso.com/path/custompath.htm de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
-- **Interval**: configura las comprobaciones de intervalo de sondeo en segundos.
-- **Timeout**: define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.
-- **UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.
+* **Nombre**: nombre de referencia del sondeo personalizado.
+* **Protocolo**: protocolo usado (los valores posibles son HTTP o HTTPS).
+* **Host** y **Ruta**: dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el estado de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para http://contoso.com/path/custompath.htm de forma que las comprobaciones del sondeo tengan una respuesta HTTP correcta.
+* **Interval**: configura las comprobaciones de intervalo de sondeo en segundos.
+* **Timeout**: define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.
+* **UnhealthyThreshold**: el número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.
 
 Se hace referencia al nombre del sondeo en la configuración de <BackendHttpSettings> para asignar el grupo de back-end que usará la configuración de sondeo personalizado.
 
 ## Agregar una configuración de sondeo personalizado a una puerta de enlace de aplicaciones existente
-
 El cambio de la configuración actual de una puerta de enlace de aplicaciones requiere tres pasos: obtener el archivo de configuración XML actual, modificarlo para que tenga un sondeo personalizado y configurar la puerta de enlace de aplicaciones con la nueva configuración XML.
 
 ### Paso 1
-
 Obtenga el archivo XML mediante get-AzureApplicationGatewayConfig. De esta forma, se exportará el XML de configuración que se debe modificar para agregar una configuración de sondeo.
 
-	Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+    Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
 
 
 ### Paso 2
-
 Abra el archivo XML en un editor de texto. Agregue una sección `<probe>` después de `<frontendport>`.
 
-	<Probes>
+    <Probes>
         <Probe>
             <Name>Probe01</Name>
             <Protocol>Http</Protocol>
@@ -192,14 +192,12 @@ En la sección backendHttpSettings del XML, agregue el nombre del sondeo tal y c
 Guarde el archivo XML.
 
 ### Paso 3
-
 Actualice la configuración de la puerta de enlace de aplicaciones con el nuevo archivo XML usando **AzureApplicationGatewayConfig Set**. De esta forma, se actualizará la puerta de enlace de aplicaciones con la nueva configuración.
 
-	Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
+    Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
 
 
 ## Pasos siguientes
-
 Si quiere configurar la descarga de Capa de sockets seguros (SSL), vea [Configure an application gateway for SSL offload](application-gateway-ssl.md) (Configuración de una puerta de enlace de aplicaciones para la descarga SSL mediante el modelo de implementación clásica).
 
 Si quiere configurar una puerta de enlace de aplicaciones para usarla con el equilibrador de carga interno, consulte [Creación de una puerta de enlace de aplicaciones con un equilibrador de carga interno (ILB)](application-gateway-ilb.md).

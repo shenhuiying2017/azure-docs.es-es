@@ -1,28 +1,27 @@
-<properties
-	pageTitle="Escalado vertical de máquinas virtuales de Azure con Automatización de Azure | Microsoft Azure"
-	description="Escalado verticalmente una máquina virtual de Windows en respuesta a las alertas de supervisión con Automatización de Azure"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Escalado vertical de máquinas virtuales de Azure con Automatización de Azure | Microsoft Docs
+description: Escalado verticalmente una máquina virtual de Windows en respuesta a las alertas de supervisión con Automatización de Azure
+services: virtual-machines-windows
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/29/2016"
-	ms.author="singhkay"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 03/29/2016
+ms.author: singhkay
 
+---
 # Escalado vertical de máquinas virtuales de Azure con Automatización de Azure
-
 El escalado vertical es el proceso de aumentar o disminuir los recursos de una máquina como respuesta a la carga de trabajo. Para lograrlo en Azure, cambie el tamaño de la máquina virtual. Esto puede ser útil en los siguientes escenarios:
 
-- Si la máquina virtual no se utiliza con frecuencia, puede disminuir su tamaño para reducir los costos mensuales.
-- Si la máquina virtual experimenta una carga máxima, es posible ajustarla en un mayor tamaño para aumentar su capacidad.
+* Si la máquina virtual no se utiliza con frecuencia, puede disminuir su tamaño para reducir los costos mensuales.
+* Si la máquina virtual experimenta una carga máxima, es posible ajustarla en un mayor tamaño para aumentar su capacidad.
 
 Los pasos para lograr esto se describen a continuación:
 
@@ -31,32 +30,33 @@ Los pasos para lograr esto se describen a continuación:
 3. Agregar un webhook al runbook.
 4. Agregar una alerta a la máquina virtual.
 
-> [AZURE.NOTE] Debido al tamaño de la primera máquina virtual, los tamaños a los que se puede escalar pueden estar limitados en virtud de la disponibilidad de los demás tamaños en el clúster donde actualmente está implementada la máquina virtual. En los runbooks de automatización publicados que se usan en este artículo nos hacemos cargo de esta situación y solo escalamos dentro de los siguientes pares de tamaños de máquina virtual. Esto significa que una máquina virtual Standard\_D1v2 no se aumentará de manera repentina a Standard\_G5 ni se reducirá a Basic\_A0.
-
->| Pares de escalado de tamaños de VM | |
-|---|---|
-| Basic\_A0 | Basic\_A4 |
-| Standard\_A0 | Standard\_A4 |
-| Standard\_A5 | Standard\_A7 |
-| Standard\_A8 | Standard\_A9 |
-| Standard\_A10 | Standard\_A11 |
-| Standard\_D1 | Standard\_D4 |
-| Standard\_D11 | Standard\_D14 |
-| Standard\_DS1 | Standard\_DS4 |
-| Standard\_DS11 | Standard\_DS14 |
-| Standard\_D1v2 | Standard\_D5v2 |
-| Standard\_D11v2 | Standard\_D14v2 |
-| Standard\_G1 | Standard\_G5 |
-| Standard\_GS1 | Standard\_GS5 |
+> [!NOTE]
+> Debido al tamaño de la primera máquina virtual, los tamaños a los que se puede escalar pueden estar limitados en virtud de la disponibilidad de los demás tamaños en el clúster donde actualmente está implementada la máquina virtual. En los runbooks de automatización publicados que se usan en este artículo nos hacemos cargo de esta situación y solo escalamos dentro de los siguientes pares de tamaños de máquina virtual. Esto significa que una máquina virtual Standard\_D1v2 no se aumentará de manera repentina a Standard\_G5 ni se reducirá a Basic\_A0.
+> 
+> | Pares de escalado de tamaños de VM |  |
+> | --- | --- |
+> | Basic\_A0 |Basic\_A4 |
+> | Standard\_A0 |Standard\_A4 |
+> | Standard\_A5 |Standard\_A7 |
+> | Standard\_A8 |Standard\_A9 |
+> | Standard\_A10 |Standard\_A11 |
+> | Standard\_D1 |Standard\_D4 |
+> | Standard\_D11 |Standard\_D14 |
+> | Standard\_DS1 |Standard\_DS4 |
+> | Standard\_DS11 |Standard\_DS14 |
+> | Standard\_D1v2 |Standard\_D5v2 |
+> | Standard\_D11v2 |Standard\_D14v2 |
+> | Standard\_G1 |Standard\_G5 |
+> | Standard\_GS1 |Standard\_GS5 |
+> 
+> 
 
 ## Configurar la Automatización de Azure para tener acceso a las máquinas virtuales.
-
 Lo primero que debe hacer es crear una cuenta de Automatización de Azure que hospedará los runbooks que se usan para escalar una máquina virtual. Recientemente, el servicio de automatización presentó la característica "Cuenta de ejecución", que facilita la configuración de la entidad de servicio para ejecutar los Runbooks automáticamente en nombre de un usuario. Encontrará más información al respecto en el siguiente artículo:
 
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## Importar los runbooks de escalado vertical de Automatización de Azure a la suscripción
-
 Los runbooks necesarios para el escalado vertical de la máquina virtual están publicados actualmente en la galería de runbooks de Automatización de Azure. Deberá importarlos a la suscripción. En el siguiente artículo, puede obtener información sobre cómo importar runbooks:
 
 * [Galerías de runbooks y módulos para la automatización de Azure](../automation/automation-runbook-gallery.md)
@@ -66,7 +66,6 @@ En la imagen que aparece a continuación, se muestran los runbooks que es necesa
 ![Importar runbooks](./media/virtual-machines-vertical-scaling-automation/scale-runbooks.png)
 
 ## Agregar un webhook al runbook
-
 Una vez que importe los runbooks, deberá agregar un webhook al runbook para que, de este modo, una alerta proveniente de una máquina virtual pueda desencadenarlo. A continuación, puede leer los detalles sobre cómo crear un webhook para el runbook:
 
 * [Webhooks de Automatización de Azure ](../automation/automation-webhooks.md)
@@ -74,7 +73,6 @@ Una vez que importe los runbooks, deberá agregar un webhook al runbook para que
 Asegúrese de copiar el webhook antes de cerrar el cuadro de diálogo de webhook, porque lo necesitará en la siguiente sección.
 
 ## Agregar una alerta a la máquina virtual
-
 1. Seleccione la configuración de la máquina virtual.
 2. Seleccione "Reglas de alerta".
 3. Seleccione "Agregar alerta".

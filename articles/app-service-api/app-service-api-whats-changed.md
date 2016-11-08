@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado | Microsoft Azure"
-	description="Consulte las novedades de las aplicaciones de API en el Servicio de aplicaciones de Azure."
-	services="app-service\api"
-	documentationCenter=".net"
-	authors="mohitsriv"
-	manager="wpickett"
-	editor="tdykstra"/>
+---
+title: 'Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado | Microsoft Docs'
+description: Consulte las novedades de las aplicaciones de API en el Servicio de aplicaciones de Azure.
+services: app-service\api
+documentationcenter: .net
+author: mohitsriv
+manager: wpickett
+editor: tdykstra
 
-<tags
-	ms.service="app-service-api"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/29/2016"
-	ms.author="rachelap"/>
+ms.service: app-service-api
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/29/2016
+ms.author: rachelap
 
+---
 # Aplicaciones de API del Servicio de aplicaciones: lo que ha cambiado
-
 En el evento Connect() de noviembre de 2015, se [anunciaron](https://azure.microsoft.com/blog/azure-app-service-updates-november-2015/) varias mejoras que se habían realizado en el Servicio de aplicaciones de Azure. Estas mejoras incluyen cambios subyacentes en Aplicaciones de API para equipararlas con las aplicaciones móviles y web, reducir el número de conceptos y mejorar el rendimiento en tiempo de ejecución e implementación. A partir del 30 de noviembre de 2015, las nuevas aplicaciones de API cree con el portal de administración o con las herramientas más recientes de Azure reflejarán esos cambios. Este artículo describe estos cambios y explica cómo volver a implementar las aplicaciones existentes para sacar partido de las funcionalidades.
 
 ## Cambios de características
@@ -32,12 +31,12 @@ Las características de autenticación Aplicaciones de API, Servicios móviles o
 
 En escenarios de API, hay varias funcionalidades nuevas relacionadas:
 
-- **Compatibilidad para usar Azure Active Directory directamente**, sin que el código cliente tenga que intercambiar el token de AAD por un token de sesión: el cliente solo puede incluir los tokens de AAD en el encabezado de autorización, según la especificación de los tokens de portador. Esto significa también que no se necesita ningún SDK específicos del Servicio de aplicaciones en el lado cliente o servidor.
-- **Acceso “interno” o servicio a servicio**: si tiene un proceso de demonio o algún otro cliente que necesitan acceso a las API sin una interfaz, puede solicitar un token mediante una entidad de servicio de AAD y pasarlo al Servicio de aplicaciones para la autenticación con su aplicación.
-- **Autorización diferida**: muchas aplicaciones tienen restricciones de acceso diferentes para las distintas partes de la aplicación. Quizás quiera que algunas API esté disponibles públicamente, mientras que otras requieren inicio de sesión. La característica de autenticación y autorización original era todo o nada, y todo el sitio requería inicio de sesión. Esta opción sigue existiendo, pero también puede permitir que el código de aplicación represente las decisiones de acceso después de que el Servicio de aplicaciones autentique al usuario.
- 
+* **Compatibilidad para usar Azure Active Directory directamente**, sin que el código cliente tenga que intercambiar el token de AAD por un token de sesión: el cliente solo puede incluir los tokens de AAD en el encabezado de autorización, según la especificación de los tokens de portador. Esto significa también que no se necesita ningún SDK específicos del Servicio de aplicaciones en el lado cliente o servidor.
+* **Acceso “interno” o servicio a servicio**: si tiene un proceso de demonio o algún otro cliente que necesitan acceso a las API sin una interfaz, puede solicitar un token mediante una entidad de servicio de AAD y pasarlo al Servicio de aplicaciones para la autenticación con su aplicación.
+* **Autorización diferida**: muchas aplicaciones tienen restricciones de acceso diferentes para las distintas partes de la aplicación. Quizás quiera que algunas API esté disponibles públicamente, mientras que otras requieren inicio de sesión. La característica de autenticación y autorización original era todo o nada, y todo el sitio requería inicio de sesión. Esta opción sigue existiendo, pero también puede permitir que el código de aplicación represente las decisiones de acceso después de que el Servicio de aplicaciones autentique al usuario.
+
 Para más información sobre la funciones de autenticación nuevas, consulte [Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-authentication.md). Para obtener información acerca de cómo migrar aplicaciones de desde el modelo anterior de aplicaciones de API al nuevo, consulte [Migración de aplicaciones de API existentes](#migrating-existing-api-apps) más adelante en este mismo artículo.
- 
+
 ### CORS
 En lugar de una configuración de aplicación **MS\_CrossDomainOrigins** delimitada por comas, ahora hay una hoja en el Portal de administración de Azure para configurar CORS. Como alternativa, se puede configurar mediante herramientas del Administrador de recursos, como Azure PowerShell, CLI o el [Explorador de recursos](https://resources.azure.com/). Establezca la propiedad **cors** del tipo de recurso **Microsoft.Web/sites/config** para su recurso **&lt;nombre de sitio&gt;/web**. Por ejemplo:
 
@@ -67,7 +66,6 @@ Al seleccionar **Nuevo > Web y móvil > Aplicación de API** en el portal, se cr
 Las aplicaciones de API existentes (o las aplicaciones de API de Marketplace creadas desde aplicaciones lógicas) con las funcionalidades de la versión preliminar anterior seguirán siendo visibles en el diseñador de aplicaciones lógicas y cuando se examinan todos los recursos de un grupo de recursos.
 
 ## Visual Studio
-
 La mayoría de las herramientas de Aplicaciones web funcionarán con las nuevas aplicaciones de API porque comparten el mismo tipo de recurso subyacente **Microsoft.Web/Sites**. Las herramientas de Visual Studio para Azure, sin embargo, debe actualizarse a la versión 2.8.1 o posterior puesto que expone varias funcionalidades específicas de las API. Descargue el SDK desde la [página de descargas de Azure](https://azure.microsoft.com/downloads/).
 
 Con la racionalización de los tipos del Servicio de aplicaciones, la publicación también está unificada en **Publicar > Servicio de aplicaciones de Microsoft Azure**:
@@ -86,17 +84,17 @@ Los pasos para la reimplementación son los mismos que para la implementación d
 
 1. Crear una aplicación de API vacía. Esto puede hacerse en el portal con Nuevo > Aplicación de API, en Visual Studio desde publicación o desde las herramientas del Administrador de recursos. Si usa las herramientas o plantillas del Administrador de recursos, establezca el valor de **kind** en **api** en el tipo de recurso **Microsoft.Web/Sites** para que las guías de inicio rápido y la configuración del portal de administración estén orientados a los escenarios de API.
 2. Conéctese e implemente el proyecto en la aplicación de API vacía mediante cualquiera de los mecanismos de implementación admitidos por el Servicio de aplicaciones. Para más información, consulte la [documentación de implementación del Servicio de aplicaciones de Azure](../app-service-web/web-sites-deploy.md).
-  
+
 ### Autenticación
 Los servicios de autenticación del Servicio de aplicaciones admiten las mismas funcionalidades que estaban disponibles con el modelo de aplicaciones de API anterior. Si usa tokens de sesión y necesita SDK, use los siguientes SDK de cliente y servidor:
 
-- Cliente: [SDK de cliente móvil de Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
-- Servidor: [Extensión de autenticación de .NET para Aplicaciones móviles de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
+* Cliente: [SDK de cliente móvil de Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)
+* Servidor: [Extensión de autenticación de .NET para Aplicaciones móviles de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Authentication/)
 
 Si usaba los SDK alfa del Servicio de aplicaciones, estos están en desuso:
 
-- Cliente: [SDK del Servicio de aplicaciones de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.AppService)
-- Servidor: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
+* Cliente: [SDK del Servicio de aplicaciones de Microsoft Azure](http://www.nuget.org/packages/Microsoft.Azure.AppService)
+* Servidor: [Microsoft.Azure.AppService.ApiApps.Service](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service)
 
 En particular con Azure Active Directory, no se necesita ningún SDK específico del Servicio de aplicaciones si usa el token de AAD directamente.
 
@@ -112,14 +110,12 @@ El modelo de aplicaciones de API anterior tenía API para descubrir otras aplica
 4. Durante la implementación, rellene los valores de configuración de todas las aplicaciones de API (y clientes) con los puntos de conexión de las otras aplicaciones de API. Esto es viable en implementaciones de plantilla y gracias a que las aplicaciones de API ahora permiten controlar la dirección URL.
 
 ## Uso de Aplicaciones de API con Aplicaciones lógicas
-
 El nuevo modelo de Aplicaciones de API funciona bien con el [esquema de Aplicaciones lógicas, versión 2015-08-01](../app-service-logic/app-service-logic-schema-2015-08-01.md).
 
 ## Pasos siguientes
-
 Para más información, consulte los artículos de la [sección Documentación de Aplicaciones de API](https://azure.microsoft.com/documentation/services/app-service/api/). Se han actualizado para reflejar el nuevo modelo de Aplicaciones de API. Además, visite los foros para obtener más información e instrucciones sobre la migración:
 
-- [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
-- [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
+* [Foro de MSDN](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureAPIApps)
+* [Desbordamiento de la pila](http://stackoverflow.com/questions/tagged/azure-api-apps)
 
 <!---HONumber=AcomDC_0713_2016-->

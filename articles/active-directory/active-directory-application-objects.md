@@ -1,21 +1,21 @@
-<properties
-pageTitle="Objetos de aplicación y de entidad de servicio de Azure Active Directory | Microsoft Azure"
-description="Una descripción de la relación entre los objetos de aplicación y de entidad de servicio en Azure Active Directory"
-documentationCenter="dev-center-name"
-authors="bryanla"
-manager="mbaldwin"
-services="active-directory"
-editor=""/>
+---
+title: Objetos de aplicación y de entidad de servicio de Azure Active Directory | Microsoft Docs
+description: Una descripción de la relación entre los objetos de aplicación y de entidad de servicio en Azure Active Directory
+documentationcenter: dev-center-name
+author: bryanla
+manager: mbaldwin
+services: active-directory
+editor: ''
 
-<tags
-ms.service="active-directory"
-ms.devlang="na"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="identity"
-ms.date="08/10/2016"
-ms.author="bryanla;mbaldwin"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/10/2016
+ms.author: bryanla;mbaldwin
 
+---
 # Objetos de aplicación y de entidad de servicio de Azure Active Directory
 Cuando lee sobre una "aplicación" de Azure Active Directory (AD), no siempre es claro saber exactamente a qué hace referencia el autor. El objetivo de este artículo es intentar aclararlo, definiendo los aspectos concretos y conceptuales de integración de aplicaciones de Azure AD con un ejemplo de registro y su consentimiento para una [aplicación multiinquilino](active-directory-dev-glossary.md#multi-tenant-application).
 
@@ -35,14 +35,17 @@ El objeto de entidad de servicio define la directiva y los permisos de una aplic
 
 Es necesario un objeto de entidad de servicio en cada inquilino para el que se debe representar una instancia de uso de la aplicación, lo que permite el acceso seguro a recursos que pertenecen a las cuentas de usuario de dicho inquilino. Una aplicación de un solo inquilino solamente tendrá una entidad de servicio (en su inquilino doméstica). Una [aplicación web](active-directory-dev-glossary.md#web-client) multiinquilino también tendrá una entidad de servicio en cada inquilino donde un administrador o incluso varios usuarios de ese inquilino han dado su consentimiento, lo que le permite tener acceso a sus recursos. Después de consentimiento, se consultará el objeto de entidad de servicio para las solicitudes de autorización futuras.
 
-> [AZURE.NOTE] Los cambios que realice en el objeto de aplicación también se reflejan en el objeto de entidad de servicio, solo en el inquilino principal de la aplicación (es decir, el inquilino en donde se registró). Para aplicaciones multiinquilino, los cambios realizados en el objeto de aplicación no se reflejan en los objetos de entidad de servicio del inquilino consumidor hasta que este quite el acceso y lo conceda de nuevo.
+> [!NOTE]
+> Los cambios que realice en el objeto de aplicación también se reflejan en el objeto de entidad de servicio, solo en el inquilino principal de la aplicación (es decir, el inquilino en donde se registró). Para aplicaciones multiinquilino, los cambios realizados en el objeto de aplicación no se reflejan en los objetos de entidad de servicio del inquilino consumidor hasta que este quite el acceso y lo conceda de nuevo.
+> 
+> 
 
 ## Ejemplo
 En el siguiente se muestra la relación entre un objeto de aplicación de la aplicación y los objetos de entidad de servicio correspondientes, en el contexto de una aplicación multiinquilino de ejemplo denominada **HR app**. En este escenario hay tres inquilinos de Azure AD:
 
-- **Adatum**: el inquilino usado por la empresa que desarrolló la **aplicación de recursos humanos**
-- **Contoso**: el inquilino usado por la organización Contoso, que es un consumidor de la **aplicación de recursos humanos**
-- **Fabrikam**: el inquilino usado por la organización Fabrikam, que también consume la **aplicación de recursos humanos**
+* **Adatum**: el inquilino usado por la empresa que desarrolló la **aplicación de recursos humanos**
+* **Contoso**: el inquilino usado por la organización Contoso, que es un consumidor de la **aplicación de recursos humanos**
+* **Fabrikam**: el inquilino usado por la organización Fabrikam, que también consume la **aplicación de recursos humanos**
 
 ![Relación entre un objeto de aplicación y un objeto de entidad de servicio](./media/active-directory-application-objects/application-objects-relationship.png)
 
@@ -56,8 +59,6 @@ En el paso 3, los inquilinos consumidores de la aplicación HR (Contoso y Fabrik
 Se puede acceder al objeto de aplicación de la aplicación a través de la API Graph de Azure AD, tal como está representada por su [entidad Application][AAD-Graph-App-Entity] de OData.
 
 Se puede acceder al objeto de entidad de servicio de la aplicación a través de la API Graph de Azure AD, tal como está representada por su [entidad ServicePrincipal][AAD-Graph-Sp-Entity] de OData.
-
-
 
 <!--Image references-->
 

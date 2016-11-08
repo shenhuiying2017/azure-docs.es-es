@@ -1,13 +1,11 @@
-##<a name="create-client"></a>Creación de conexiones de cliente
-
+## <a name="create-client"></a>Creación de conexiones de cliente
 Cree una conexión de cliente mediante la generación de un objeto `WindowsAzure.MobileServiceClient`. Sustituya `appUrl` por la dirección URL de la aplicación móvil.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
-##<a name="table-reference"></a>Uso de tablas
-
+## <a name="table-reference"></a>Uso de tablas
 Para acceder a los datos o actualizarlos, cree una referencia a la tabla de back-end. Reemplace `tableName` por el nombre de la tabla.
 
 ```
@@ -24,8 +22,7 @@ Una vez que disponga de una referencia de tabla, podrá realizar más operacione
 * [Modificación de datos](#modifying)
 * [Eliminación de datos](#deleting)
 
-###<a name="querying"></a>Cómo consultar una referencia de tabla
-
+### <a name="querying"></a>Cómo consultar una referencia de tabla
 Una vez que tiene una referencia de tabla, puede utilizarla para consultar datos en el servidor. Las consultas se realizan en un lenguaje "similar a LINQ". Para devolver todos los datos de la tabla, utilice lo siguiente:
 
 ```
@@ -58,8 +55,7 @@ Se llama a la función success con los resultados. No use `for (var i in results
 
 Para obtener más información sobre la sintaxis de consulta, consulte la [documentación de objetos de consulta].
 
-####<a name="table-filter"></a>Filtrado de datos en el servidor
-
+#### <a name="table-filter"></a>Filtrado de datos en el servidor
 Puede usar una cláusula `where` en la referencia de tabla:
 
 ```
@@ -82,8 +78,7 @@ table
     .then(success, failure);
 ```
 
-####<a name="table-paging"></a>Paginación mediante datos
-
+#### <a name="table-paging"></a>Paginación mediante datos
 Utilice los métodos take() y skip(). Por ejemplo, si desea dividir la tabla en registros de 100 filas:
 
 ```
@@ -111,9 +106,7 @@ El método `.includeTotalCount()` se utiliza para agregar un campo totalCount al
 
 A continuación, puede usar la variable de páginas y algunos botones de la interfaz de usuario para proporcionar una lista de páginas; utilice loadPage() para cargar los nuevos registros de cada página. Debe implementar algún tipo de almacenamiento en caché para acelerar el acceso a los registros que ya se han cargado.
 
-
-####<a name="sorting-data"></a>Cómo devolver los datos ordenados
-
+#### <a name="sorting-data"></a>Cómo devolver los datos ordenados
 Utilice los métodos de consulta .orderBy() o .orderByDescending():
 
 ```
@@ -125,8 +118,7 @@ table
 
 Para obtener más información sobre el objeto de consulta, lea la [documentación de objetos de consulta].
 
-###<a name="inserting"></a>Insertar datos
-
+### <a name="inserting"></a>Insertar datos
 Cree un objeto de JavaScript con la fecha adecuada y llame a table.insert() de manera asincrónica:
 
 ```
@@ -146,8 +138,7 @@ Tras la inserción correcta, el elemento insertado se devuelve con los campos ad
 
 Tenga en cuenta que el SDK de servidor de Node.js para Aplicaciones móviles de Azure admite el esquema dinámico con fines de desarrollo. En el caso del esquema dinámico, el esquema de la tabla se actualiza sobre la marcha, lo que permite agregar columnas a la tabla con solo especificarlas en una operación de inserción o de actualización. Se recomienda desactivar el esquema dinámico antes de pasar la aplicación a producción.
 
-###<a name="modifying"></a>Modificación de datos
-
+### <a name="modifying"></a>Modificación de datos
 De forma similar al método .insert(), debe crear un objeto Update y luego llamar a .update(). El objeto Update debe contener el identificador del registro que se va a actualizar; este se obtiene al leer el registro o al llamar a .insert().
 
 ```
@@ -163,8 +154,7 @@ table
     }, failure);
 ```
 
-###<a name="deleting"></a>Eliminación de datos
-
+### <a name="deleting"></a>Eliminación de datos
 Llame al método .del() para eliminar un registro. Pase el identificador de una referencia de objeto:
 
 ```

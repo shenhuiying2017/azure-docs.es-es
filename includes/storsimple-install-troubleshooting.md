@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 03/17/16-->
 
 ## Solución de errores en actualización
-
 **¿Qué ocurre si ve una notificación que indica que se ha producido un error en las comprobaciones previas a la actualización?**
 
 Si se produce un error en la comprobación previa, asegúrese de que ha examinado la barra de notificación detallada en la parte inferior de la página. Esto proporciona una guía para saber en qué comprobación previa se ha producido el error. La siguiente ilustración muestra una instancia en la que aparece dicha notificación. En este caso, ni la comprobación de mantenimiento del controlador ni la comprobación de mantenimiento de los componentes de hardware han resultado satisfactorias. En la sección **Estado del hardware**, puede ver que los componentes de **Controller 0** y **Controller 1** necesitan atención.

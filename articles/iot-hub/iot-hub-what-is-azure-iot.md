@@ -1,31 +1,30 @@
-<properties
- pageTitle="Soluciones de Azure para EL Internet de las cosas | Microsoft Azure"
- description="Descripción general de IoT en Azure que incluye la arquitectura de una solución de ejemplo y cómo se relaciona con el Centro de IoT de Azure, los SDK de dispositivos y las soluciones preconfiguradas"
- services="iot-hub"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Soluciones de Azure para EL Internet de las cosas | Microsoft Docs
+description: Descripción general de IoT en Azure que incluye la arquitectura de una solución de ejemplo y cómo se relaciona con el Centro de IoT de Azure, los SDK de dispositivos y las soluciones preconfiguradas
+services: iot-hub
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="na"
- ms.topic="get-started-article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="10/05/2016"
- ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 10/05/2016
+ms.author: dobett
 
-[AZURE.INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
+---
+[!INCLUDE [iot-azure-and-iot](../../includes/iot-azure-and-iot.md)]
 
 ## Pasos siguientes
-
 El Centro de IoT de Azure es un servicio de Azure que permite la comunicación bidireccional fiable y segura entre el back-end de la aplicación y millones de dispositivos. Habilita al back-end de aplicación para:
 
-- Recibir telemetría a escala de los dispositivos.
-- Distribuir datos de los dispositivos a un procesador de eventos de transmisión.
-- Recibir cargas de archivos de los dispositivos.
-- Enviar comandos de nube a dispositivo a dispositivos concretos.
+* Recibir telemetría a escala de los dispositivos.
+* Distribuir datos de los dispositivos a un procesador de eventos de transmisión.
+* Recibir cargas de archivos de los dispositivos.
+* Enviar comandos de nube a dispositivo a dispositivos concretos.
 
 Puede usar el Centro de IoT para implementar su propio back-end de soluciones. Además, el Centro de IoT incluye un registro de identidades de dispositivo que se usa para aprovisionar dispositivos, sus credenciales de seguridad y sus derechos para conectarse al Centro. Para más información acerca de IoT Hub, consulte [¿Qué es IoT Hub?][lnk-iot-hub]
 

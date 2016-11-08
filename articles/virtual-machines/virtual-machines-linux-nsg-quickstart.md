@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Apertura de puertos para una máquina virtual Linux | Microsoft Azure"
-   description="Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Apertura de puertos para una máquina virtual Linux | Microsoft Docs
+description: Más información sobre cómo abrir un puerto o crear un punto de conexión a la máquina virtual Linux mediante el modelo de implementación de Azure Resource Manager y la CLI de Azure
+services: virtual-machines-linux
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Apertura de puertos para una máquina virtual Linux en Azure
 En Azure, se abre un puerto o se crea un punto de conexión a una máquina virtual creando un filtro de red en una subred o una interfaz de red de máquina virtual. Estos filtros, que controlan el tráfico entrante y saliente, se colocan en un grupo de seguridad de red y se asocian al recurso que va a recibir dicho tráfico. Vamos a usar un ejemplo común de tráfico web en el puerto 80.
 
@@ -57,8 +57,8 @@ Si necesita utilizar el enrutamiento de puerto para asignar un único puerto ext
 ## Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
 
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-- [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
-- [Compatibilidad de Azure Resource Manager con el Equilibrador de carga](../load-balancer2 /load-balancer-arm.md)
+* [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+* [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
+* [Compatibilidad de Azure Resource Manager con el Equilibrador de carga](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

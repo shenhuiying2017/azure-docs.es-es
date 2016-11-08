@@ -1,25 +1,26 @@
-<properties
-	pageTitle="Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager | Microsoft Azure"
-	description="Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="singhkays"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager | Microsoft Docs
+description: Cómo configurar un Almacén de claves para usarlo con una máquina virtual de Azure Resource Manager.
+services: virtual-machines-linux
+documentationcenter: ''
+author: singhkays
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="singhkay"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 05/31/2016
+ms.author: singhkay
 
+---
 # Configuración de un Almacén de claves para máquinas virtuales en Azure Resource Manager
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica
+modelo de implementación clásica
 
 En la pila de Azure Resource Manager, los certificados o secretos se modelan como recursos que se proporcionan mediante el proveedor de recursos del Almacén de claves. Para más información sobre el Almacén de claves de Azure, consulte [¿Qué es el Almacén de claves de Azure?](../key-vault/key-vault-whatis.md)
 
@@ -30,12 +31,12 @@ Para crear un Almacén de claves mediante la interfaz de la línea de comandos (
 
 Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 
-	azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
 ## Uso de plantillas para configurar el Almacén de claves
 Al utilizar plantillas, debe configurar la propiedad `enabledForDeployment` como `true` para el recurso del Almacén de claves.
 
-	{
+    {
       "type": "Microsoft.KeyVault/vaults",
       "name": "ContosoKeyVault",
       "apiVersion": "2015-06-01",

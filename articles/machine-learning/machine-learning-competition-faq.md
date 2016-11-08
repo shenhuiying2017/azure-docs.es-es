@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence | Microsoft Azure"
-	description="Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence | Microsoft Docs
+description: Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence.
+services: machine-learning
+documentationcenter: ''
+author: hning86
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="haining;chlovel;garye"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: haining;chlovel;garye
 
+---
 # Preguntas frecuentes sobre las competiciones de Microsoft Cortana Intelligence
-
 **¿En qué consisten las competiciones de Cortana Intelligence?**
 
 Microsoft anuncia las competiciones de Cortana Intelligence. Las competiciones de Cortana Intelligence nos permiten unir a una comunidad global de aficionados a los datos para resolver de forma colectiva algunos de los problemas de la ciencia de datos más complejos del mundo. Las competiciones de Cortana Intelligence permiten a los aficionados a los datos de todo el mundo competir y generar modelos de ciencia de datos inteligentes y de alta precisión. Las competiciones que hospedamos están basadas en conjuntos de datos exclusivos que se han hecho públicos por primera vez. Los participantes pueden ganar premios u obtener reconocimiento a través de nuestros 10 marcadores públicos principales. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
@@ -35,11 +34,8 @@ Use nuestro [foro de Aprendizaje automático de Microsoft Azure](https://social.
 Acceda a la página principal de las competiciones a través de la Galería de Cortana Intelligence. Esta página contiene todas las competiciones que hay en curso. Cada competición incluirá instrucciones detalladas, así como las reglas de participación, información sobre los premios y la duración en su propia página de registro. Vaya [aquí](http://aka.ms/CIComp) para obtener acceso a la página de inicio de las competiciones.
 
 1. Busque la competición en la que le gustaría participar en la Galería de Cortana Intelligence, lea todas las instrucciones y vea el vídeo del tutorial; después, haga clic en el botón “Participar en la competición” para copiar el experimento de inicio en su área de trabajo de aprendizaje automático de Azure. Si ya no tiene acceso a ninguna área de trabajo, deberá crear una de antemano. Ejecute el experimento de inicio, observe las métricas de rendimiento y use su creatividad para mejorar el rendimiento del modelo. Probablemente empleará la mayor parte del tiempo en este paso.
-
 2. Cree un experimento predictivo a partir del modelo entrenado del experimento de inicio. Después, ajuste con cuidado el esquema de entrada y de salida del servicio web para asegurarse de que cumplen con el requisito especificado en la documentación de la competición. El documento del tutorial generalmente contiene instrucciones detalladas sobre cómo conseguirlo. También puede ver el vídeo del tutorial si está disponible.
-
 3. Implemente un servicio web a partir de su experimento predictivo. Pruebe el servicio web pulsando el botón Test (Probar) o con la plantilla de Excel que se genera automáticamente para asegurarse de que funciona correctamente.
-
 4. Envíe el servicio web como entrada de la competición y podrá ver la puntuación pública que obtiene en la página de la competición de la galería de Cortana Intelligence. Si consigue aparecer en el marcador, celébrelo como se merece. Después de enviar una entrada correctamente, puede volver al experimento de inicio, repetir todos los pasos, actualizar el experimento predictivo, actualizar el servicio web y enviar una nueva entrada.
 
 **¿Puedo usar herramientas de código abierto para participar en estas competiciones?**
@@ -51,11 +47,8 @@ Los participantes de la competición usan el Estudio de aprendizaje automático 
 No. De hecho, animamos a participar en el concurso a los aficionados a los datos, a los curiosos y a cualquier otro aspirante a científico de datos. Hemos diseñado los documentos de ayuda para que todos los usuarios puedan competir. Nuestro público de destino es el siguiente:
 
 * Desarrolladores de datos, científicos de datos, profesionales de BI y de análisis: los responsables de producir el contenido de datos y análisis para que otros usuarios lo consuman.
-
 * Administradores de datos: los usuarios que tengan conocimientos sobre los datos, lo que significan y cómo están diseñados para usarse y con qué propósito.
-
 * Estudiantes e investigadores: los usuarios que estén aprendiendo y adquiriendo habilidades relacionadas con los datos a través de programas académicos en universidades o participantes de los cursos en línea abiertos y masivos (MOOC).
-
 
 **¿Puedo participar con mis compañeros y formar un equipo?**
 
@@ -65,22 +58,17 @@ La plataforma de competición no admite actualmente la participación de equipos
 
 La participación en las competiciones es gratuita. Sin embargo, necesita tener acceso a un área de trabajo de aprendizaje automático de Azure para participar. Puede crear una gratuita sin necesidad de usar una tarjeta de crédito iniciando sesión con una cuenta de Microsoft válida o una cuenta de Office 365. Si ya es un cliente de Azure o de Cortana Intelligence Suite, puede crear y usar un área de trabajo estándar con la misma suscripción de Azure. Si desea comprar una suscripción de Azure, puede hacerlo [aquí](https://azure.microsoft.com/pricing). Tenga en cuenta que se aplicarán la tasas estándar si se usa un área de trabajo estándar para construir experimentos. Consulte la información sobre los precios del Aprendizaje automático de Azure [aquí](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **¿Qué son las puntuaciones públicas y privadas?**
 
 En la mayoría de las competiciones, recibirá una puntuación pública por cada envío que realice, generalmente 10-20 minutos después de cada envío. Sin embargo, una vez finalizada la competición, recibirá una puntuación privada que se usará para la clasificación final. Esto es lo que sucede:
 
 * El conjunto de datos completo que se usa en la competición se divide al azar por estratificación entre datos de entrenamiento y datos de prueba (el resto). La división aleatoria se estratifica para asegurarnos de que la distribución de las etiquetas de los datos de entrenamiento y los de pruebas sea coherente.
- 
 * Los datos de entrenamiento se cargan y se proporcionan a los usuarios como parte del experimento inicial en la configuración del módulo Importar datos.
-
 * Además, los datos de prueba se dividen en datos de pruebas públicas y privadas con la misma estratificación.
-
 * Los datos de pruebas públicas se utilizan para la ronda inicial de puntuaciones. El resultado se conoce como puntuación pública y es el que puede verse en el historial de envío tras enviar la entrada. Esta puntuación se calcula para cada entrada que se envía. Esta puntuación pública se utiliza para clasificarle en el marcador público.
-
 * Los datos de pruebas privadas se utilizan para la ronda final de puntuación una vez finalizada la competición. Esto se conoce como puntuación privada.
-
 * Para cada participante se selecciona automáticamente un número fijo, que puede variar en función de la competición, entre las entradas con las puntuaciones públicas más altas para entrar en la ronda de puntuación privada. Finalmente, se selecciona la entrada con la puntuación privada más alta para entrar en la clasificación final, que en última instancia determina quiénes son los ganadores del premio.
 
 **¿Los clientes pueden hospedar una competición en nuestra plataforma?**

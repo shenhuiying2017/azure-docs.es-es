@@ -1,34 +1,32 @@
-<properties
-    pageTitle="Copia de seguridad de Azure: implementación y administración de la copia de seguridad para DPM mediante PowerShell | Microsoft Azure"
-    description="Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
-    services="backup"
-    documentationCenter=""
-    authors="Nkolli1"
-    manager="shreeshd"
-    editor=""/>
+---
+title: 'Copia de seguridad de Azure: implementación y administración de la copia de seguridad para DPM mediante PowerShell | Microsoft Docs'
+description: Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell
+services: backup
+documentationcenter: ''
+author: Nkolli1
+manager: shreeshd
+editor: ''
 
-<tags
-    ms.service="backup"
-    ms.workload="storage-backup-recovery"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/27/2016"
-    ms.author="jimpark; trinadhk; anuragm; markgal"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/27/2016
+ms.author: jimpark; trinadhk; anuragm; markgal
 
-
-
+---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-(dpm)-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
-
-> [AZURE.SELECTOR]
-- [ARM](backup-dpm-automation.md)
-- [Clásico](backup-dpm-automation-classic.md)
+> [!div class="op_single_selector"]
+> * [ARM](backup-dpm-automation.md)
+> * [Clásico](backup-dpm-automation-classic.md)
+> 
+> 
 
 En este artículo se muestra cómo usar PowerShell para configurar la copia de seguridad de Azure en un servidor DPM y para administrar copias de seguridad y recuperaciones.
 
 ## <a name="setting-up-the-powershell-environment"></a>Configuración del entorno de PowerShell
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
 Para poder usar PowerShell para administrar las copias de seguridad de Data Protection Manager en Azure, deberá tener el entorno adecuado en PowerShell. Al principio de la sesión de PowerShell, asegúrese de ejecutar el siguiente comando para importar los módulos correctos y poder hacer referencia correctamente a los cmdlet de DPM:
 
@@ -57,15 +55,17 @@ PS C:\> Switch-AzureMode AzureResourceManager
 
 Las siguientes tareas de instalación y registro se pueden automatizar con PowerShell:
 
-- Creación de un almacén de copia de seguridad
-- Instalación del agente de Copia de seguridad de Azure
-- Registro con el servicio de Copia de seguridad de Azure
-- Configuración de redes
-- Configuración de cifrado
+* Creación de un almacén de copia de seguridad
+* Instalación del agente de Copia de seguridad de Azure
+* Registro con el servicio de Copia de seguridad de Azure
+* Configuración de redes
+* Configuración de cifrado
 
 ### <a name="create-a-backup-vault"></a>Creación de un almacén de copia de seguridad
-
-> [AZURE.WARNING] La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> [!WARNING]
+> La primera vez que los clientes usen Azure Backup deben registrar el proveedor de Azure Backup que se va a usar con su suscripción. Para ello, ejecute el siguiente comando: Register-AzureProvider -ProviderNamespace "Microsoft.Backup"
+> 
+> 
 
 Puede crear un nuevo almacén de copia de seguridad con el commandlet **New-AzureRMBackupVault** . El almacén de copia de seguridad es un recurso ARM, por lo que necesita colocarlo dentro de un grupo de recursos. En una consola de Azure PowerShell, ejecute los comandos siguientes:
 
@@ -75,7 +75,6 @@ PS C:\> $backupvault = New-AzureRMBackupVault –ResourceGroupName “test-rg”
 ```
 
 Puede obtener una lista de todos los almacenes de copia de seguridad de una suscripción dada usando el commandlet **Get-AzureRMBackupVault** .
-
 
 ### <a name="installing-the-azure-backup-agent-on-a-dpm-server"></a>Instalación del agente de copia de seguridad de Azure en un servidor DPM
 Antes de instalar el agente de copia de seguridad de Azure, necesitará tener el instalador descargado y disponible en el servidor de Windows. Puede obtener la versión más reciente del instalador en el [Centro de descarga de Microsoft](http://aka.ms/azurebackup_agent) o en la página Panel del almacén de copia de seguridad. Guarde el instalador en una ubicación que tenga fácil acceso, como *C:\Downloads\*.
@@ -102,23 +101,23 @@ PS C:\> MARSAgentInstaller.exe /?
 Las opciones disponibles incluyen:
 
 | Opción | Detalles | Valor predeterminado |
-| ---- | ----- | ----- |
-| /q | Instalación silenciosa | - |
-| /p:"ubicación" | Ruta de acceso a la carpeta de instalación para el agente de Azure Backup. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent |
-| /s:"ubicación" | Ruta de acceso a la carpeta de caché para el agente de Azure Backup. | C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch |
-| /m | Participación en Microsoft Update | - |
-| /nu | No busca actualizaciones una vez completada la instalación | - |
-| /d | Desinstala el agente de Microsoft Azure Recovery Services. | - |
-| /ph | Dirección host del proxy | - |
-| /po | Número de puerto del host de proxy | - |
-| /pu | Nombre de usuario del host de proxy | - |
-| /pw | Contraseña de proxy | - |
+| --- | --- | --- |
+| /q |Instalación silenciosa |- |
+| /p:"ubicación" |Ruta de acceso a la carpeta de instalación para el agente de Azure Backup. |C:\Archivos de programa\Microsoft Azure Recovery Services Agent |
+| /s:"ubicación" |Ruta de acceso a la carpeta de caché para el agente de Azure Backup. |C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch |
+| /m |Participación en Microsoft Update |- |
+| /nu |No busca actualizaciones una vez completada la instalación |- |
+| /d |Desinstala el agente de Microsoft Azure Recovery Services. |- |
+| /ph |Dirección host del proxy |- |
+| /po |Número de puerto del host de proxy |- |
+| /pu |Nombre de usuario del host de proxy |- |
+| /pw |Contraseña de proxy |- |
 
 ### <a name="registering-with-the-azure-backup-service"></a>Registro con el servicio de Copia de seguridad de Azure
 Para poder registrarse con el servicio de copia de seguridad de Azure, debe asegurarse de que se cumplen los [requisitos previos](backup-azure-dpm-introduction.md) . Debe:
 
-- Disponer de una suscripción válida a Azure
-- Disponer de un almacén de copia de seguridad
+* Disponer de una suscripción válida a Azure
+* Disponer de un almacén de copia de seguridad
 
 Para descargar las credenciales de almacén, ejecute el cmdlet **Get-AzureBackupVaultCredentials** en una consola de Azure PowerShell y almacénelas en una ubicación adecuada como *C:\Downloads\*.
 
@@ -138,7 +137,10 @@ PS C:\> Start-DPMCloudRegistration -DPMServerName "TestingServer" -VaultCredenti
 
 Esto registrará el servidor DPM denominado "TestingServer" con Microsoft Azure Vault usando las credenciales del almacén especificadas.
 
-> [AZURE.IMPORTANT] No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> [!IMPORTANT]
+> No use rutas de acceso relativas para especificar el archivo de credenciales del almacén de claves. Debe proporcionar una ruta de acceso absoluta como entrada para el cmdlet.
+> 
+> 
 
 ### <a name="initial-configuration-settings"></a>Opciones de configuración inicial
 Una vez que el servidor DPM se registra con el almacén de Copia de seguridad de Azure, se iniciará con la configuración de suscripción predeterminada. Estas opciones de suscripción incluyen funciones de red, cifrado y el área de ensayo. Para empezar a cambiar la configuración de la suscripción, primero se debe obtener un identificador en la configuración (valor predeterminado) existente utilizando el cmdlet [DPMCloudSubscriptionSetting](https://technet.microsoft.com/library/jj612793) :
@@ -175,7 +177,6 @@ PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -Subscrip
 
 En el ejemplo anterior, el área de ensayo se establecerá en *C:\StagingArea* en el objeto de PowerShell ```$setting```. Asegúrese de que la carpeta especificada ya existe, o bien se producirá un error en la confirmación final de la configuración de la suscripción.
 
-
 ### <a name="encryption-settings"></a>Configuración de cifrado
 Los datos de copia de seguridad enviados a Copia de seguridad de Azure están cifrados para proteger la confidencialidad de los datos. La frase de contraseña de cifrado es la "contraseña" que permite descifrar los datos en el momento de la restauración. Es importante que mantenga esta información segura cuando la establezca.
 
@@ -187,7 +188,10 @@ PS C:\> $Passphrase = ConvertTo-SecureString -string "passphrase123456789" -AsPl
 PS C:\> Set-DPMCloudSubscriptionSetting -DPMServerName "TestingServer" -SubscriptionSetting $setting -EncryptionPassphrase $Passphrase
 ```
 
-> [AZURE.IMPORTANT] Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> [!IMPORTANT]
+> Mantenga la información de la frase de contraseña segura una vez establecida. No podrá restaurar los datos de Azure sin esta frase de contraseña.
+> 
+> 
 
 En este punto, debería haber realizado todos los cambios necesarios al objeto ```$setting``` . Recuerde que debe confirmar los cambios.
 
@@ -306,9 +310,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ```
 ## <a name="view-the-backup-points"></a>Ver los puntos de copia de seguridad
 Puede usar el cmdlet [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) para obtener una lista de todos los puntos de recuperación para un origen de datos. En este ejemplo, se realiza lo siguiente:
-- se capturan todos los grupos de protección del servidor DPM, que se almacenarán en una matriz ```$PG```
-- se obtienen los orígenes de datos correspondientes a ```$PG[0]```
-- se obtienen todos los puntos de recuperación de un origen de datos.
+
+* se capturan todos los grupos de protección del servidor DPM, que se almacenarán en una matriz ```$PG```
+* se obtienen los orígenes de datos correspondientes a ```$PG[0]```
+* se obtienen todos los puntos de recuperación de un origen de datos.
 
 ```
 PS C:\> $PG = Get-DPMProtectionGroup –DPMServerName "TestingServer"
@@ -321,9 +326,9 @@ Restauración de datos es una combinación de un objeto ```RecoverableItem``` y 
 
 En el ejemplo siguiente, demostraremos cómo restaurar una máquina virtual de Hyper-V de Copia de seguridad de Azure mediante la combinación de puntos de copia de seguridad con el destino para la recuperación. En ella se incluye:
 
-- Creación de una opción de recuperación mediante el cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
-- Recuperación de la matriz de puntos de copia de seguridad mediante el cmdlet ```Get-DPMRecoveryPoint``` .
-- Elegir un punto de copia de seguridad desde el que efectuar la restauración.
+* Creación de una opción de recuperación mediante el cmdlet [New-DPMRecoveryOption](https://technet.microsoft.com/library/hh881592).
+* Recuperación de la matriz de puntos de copia de seguridad mediante el cmdlet ```Get-DPMRecoveryPoint``` .
+* Elegir un punto de copia de seguridad desde el que efectuar la restauración.
 
 ```
 PS C:\> $RecoveryOption = New-DPMRecoveryOption -HyperVDatasource -TargetServer "HVDCenter02" -RecoveryLocation AlternateHyperVServer -RecoveryType Recover -TargetLocation “C:\VMRecovery”
@@ -338,10 +343,7 @@ PS C:\> Restore-DPMRecoverableItem -RecoverableItem $RecoveryPoints[0] -Recovery
 Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
-
-
+* Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
 <!--HONumber=Oct16_HO2-->
 

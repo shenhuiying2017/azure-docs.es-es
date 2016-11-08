@@ -5,7 +5,6 @@ Al definir parámetros, use el campo **allowedValues** para especificar los valo
 Vamos a describir cada parámetro de la plantilla.
 
 ### siteName
-
 El nombre de la aplicación web que desea crear.
 
     "siteName":{
@@ -13,15 +12,13 @@ El nombre de la aplicación web que desea crear.
     }
 
 ### hostingPlanName
-
 El nombre del plan del Servicio de aplicaciones que se va a crear para hospedar la aplicación web.
-    
+
     "hostingPlanName":{
       "type":"string"
     }
 
 ### sku
-
 El nivel de precios del plan de hospedaje.
 
     "sku": {
@@ -49,7 +46,6 @@ El nivel de precios del plan de hospedaje.
 La plantilla define los valores que se permiten para este parámetro y asigna un valor predeterminado (S1) si no se especifica ningún valor.
 
 ### workerSize
-
 El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
 
     "workerSize":{
@@ -61,6 +57,6 @@ El tamaño de la instancia del plan de hospedaje (pequeño, mediano o grande).
       ],
       "defaultValue":"0"
     }
-    
+
 La plantilla define los valores que se permiten para este parámetro (0, 1 o 2) y asigna un valor predeterminado (0) si no se especifica ningún valor. Los valores corresponden a pequeño, mediano y grande.
 

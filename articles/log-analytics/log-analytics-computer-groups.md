@@ -1,22 +1,21 @@
-<properties
-    pageTitle="Grupos de equipos en búsquedas de registros en Log Analytics | Microsoft Azure"
-    description="Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bwren"
-    manager="jwhit"
-    editor=""/>
+---
+title: Grupos de equipos en búsquedas de registros en Log Analytics | Microsoft Docs
+description: Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/06/2016"
-    ms.author="bwren"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: bwren
 
-
+---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
 Los grupos de equipos en Log Analytics permiten delimitar las [búsquedas de registros](log-analytics-log-searches.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una búsqueda de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
 
@@ -24,15 +23,13 @@ Los grupos de equipos en Log Analytics permiten delimitar las [búsquedas de reg
 Puede crear un grupo de equipos en Log Analytics mediante cualquiera de los métodos de la tabla siguiente.  En las secciones siguientes se proporcionan detalles sobre cada método. 
 
 | Método | Descripción |
-|:---|:---|
-| Búsqueda de registros       | Cree una búsqueda de registros que devuelva una lista de equipos y guarde los resultados como un grupo de equipos. |
-| API de búsqueda de registros   | Use la API de búsqueda de registros para crear mediante programación un grupo de equipos basándose en los resultados de una búsqueda de registros. |
-| Active Directory | Analice automáticamente la pertenencia al grupo de cualquier equipo agente que sea miembro de un dominio de Active Directory y cree un grupo en Log Analytics para cada grupo de seguridad.
-| WSUS              | Analice automáticamente clientes o servidores WSUS para grupos de destino y cree un grupo en Log Analytics para cada uno. |
-
+|:--- |:--- |
+| Búsqueda de registros |Cree una búsqueda de registros que devuelva una lista de equipos y guarde los resultados como un grupo de equipos. |
+| API de búsqueda de registros |Use la API de búsqueda de registros para crear mediante programación un grupo de equipos basándose en los resultados de una búsqueda de registros. |
+| Active Directory |Analice automáticamente la pertenencia al grupo de cualquier equipo agente que sea miembro de un dominio de Active Directory y cree un grupo en Log Analytics para cada grupo de seguridad. |
+| WSUS |Analice automáticamente clientes o servidores WSUS para grupos de destino y cree un grupo en Log Analytics para cada uno. |
 
 ### <a name="log-search"></a>Búsqueda de registros
-
 Los grupos de equipos creados a partir de una búsqueda de registros contendrán todos los equipos devueltos por una consulta de búsqueda que defina.  Esta consulta se ejecuta cada vez que se usa el grupo de equipos de forma que se reflejen todos los cambios que se hayan producido desde la creación del grupo.
 
 Utilice el procedimiento siguiente para crear un grupo de equipos a partir de una búsqueda de registros.
@@ -48,13 +45,11 @@ A continuación se incluyen ejemplos de búsquedas que puede guardar como un gru
     Computer=*srv* | measure count() by Computer
 
 ### <a name="log-search-api"></a>API de búsqueda de registros
-
 Los grupos de equipos creados con la API de búsqueda de registros son los mismos que las búsquedas creadas con una búsqueda de registros.
 
 Para más información sobre la creación de un grupo de equipos con la API de búsqueda de registros, consulte [Grupos de equipos en API de REST de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md#computer-groups).
 
 ### <a name="active-directory"></a>Active Directory
-
 Al configurar Log Analytics para importar pertenencias a grupos de Active Directory, analizará la pertenencia al grupo de todos los equipos unidos al dominio con el agente de OMS.  En Log Analytics se crea un grupo de equipos para cada grupo de seguridad de Active Directory y cada equipo se agrega a los grupos de equipos correspondientes a los grupos de seguridad de los que son miembros.  Esta pertenencia se actualiza continuamente cada 4 horas.  
 
 Log Analytics se configura para importar grupos de seguridad de Active Directory desde el menú **Grupos de equipos** de la **Configuración** de Log Analytics.  Seleccione **Automatización** y, a continuación, **Importar pertenencias a grupos de Active Directory desde los equipos**.  No es necesario realizar ninguna configuración más.
@@ -64,7 +59,6 @@ Log Analytics se configura para importar grupos de seguridad de Active Directory
 Una vez importados los grupos, el menú mostrará el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Services
-
 Al configurar Log Analytics para importar pertenencias a grupos de WSUS, analizará la pertenencia al grupo de destino de todos los equipos con el agente de OMS.  Si utiliza destinatarios del lado cliente, se importará a Log Analytics la pertenencia a grupos de todos los equipos conectados a OMS que formen parte de cualquier grupo de destino de WSUS. Si usa destinatarios del lado servidor, debería instalarse el agente de OMS en el servidor WSUS para que se importe la información de pertenencia a grupos a OMS.  Esta pertenencia se actualiza continuamente cada 4 horas. 
 
 Log Analytics se configura para importar grupos de seguridad de Active Directory desde el menú **Grupos de equipos** de la **Configuración** de Log Analytics.  Seleccione **Active Directory** y, a continuación, **Importar pertenencias a grupos de Active Directory desde los equipos**.  No es necesario realizar ninguna configuración más.
@@ -74,7 +68,6 @@ Log Analytics se configura para importar grupos de seguridad de Active Directory
 Una vez importados los grupos, el menú mostrará el número de equipos con la pertenencia a grupos detectada y el número de grupos de importados.  Puede hacer clic en cualquiera de estos vínculos para devolver los registros de **ComputerGroup** con esta información.
 
 ## <a name="managing-computer-groups"></a>Administración de grupos de equipos
-
 Puede ver grupos de equipos creados a partir de una búsqueda de registros o de la API de búsqueda de registros desde el menú **Grupos de equipos** de la **Configuración** de Log Analytics.  Haga clic en la **x** de la columna **Quitar** para eliminar el grupo de equipos.  Haga clic en el icono **Ver miembros** de un grupo para ejecutar la búsqueda de registros del grupo que devuelve sus miembros. 
 
 ![Grupos de equipos guardados](media/log-analytics-computer-groups/configure-saved.png)
@@ -93,27 +86,22 @@ Los grupos de equipos se utilizan normalmente con la cláusula **IN** en la bús
     Type=UpdateSummary Computer IN $ComputerGroups[My Computer Group]
 
 ## <a name="computer-group-records"></a>Registros de grupos de equipos
-
 En el repositorio de OMS se crea un registro para cada pertenencia a grupos de equipos creada mediante Active Directory o WSUS.  Estos registros tienen el tipo **ComputerGroup** y sus propiedades son las que aparecen en la tabla siguiente.  Para los grupos de equipos basados en búsquedas de registros no se crean registros.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Tipo                | *ComputerGroup* |
-| SourceSystem        | *SourceSystem*  |
-| Equipo            | Nombre del equipo miembro. |
-| Grupo               | Nombre del grupo. |
-| GroupFullName       | Ruta de acceso completa al grupo, incluidos el origen y el nombre de origen.
-| GroupSource         | Origen desde el que se ha recopilado el grupo. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName     | Nombre del origen desde el que se recopilaron los grupos.  En el caso de Active Directory, es el nombre del dominio. |
-| ManagementGroupName | El nombre del grupo de administración para los agentes de SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
-| TimeGenerated       | Fecha y hora en la que se creó o actualizó el grupo de equipos. |
-
-
+|:--- |:--- |
+| Tipo |*ComputerGroup* |
+| SourceSystem |*SourceSystem* |
+| Equipo |Nombre del equipo miembro. |
+| Grupo |Nombre del grupo. |
+| GroupFullName |Ruta de acceso completa al grupo, incluidos el origen y el nombre de origen. |
+| GroupSource |Origen desde el que se ha recopilado el grupo. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| GroupSourceName |Nombre del origen desde el que se recopilaron los grupos.  En el caso de Active Directory, es el nombre del dominio. |
+| ManagementGroupName |El nombre del grupo de administración para los agentes de SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
+| TimeGenerated |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
-
+* Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
 
 <!--HONumber=Oct16_HO2-->
 

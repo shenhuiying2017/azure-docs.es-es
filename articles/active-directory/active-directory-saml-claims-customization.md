@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory | Microsoft Azure"
-    description="Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory"
-    services="active-directory"
-    documentationCenter=""
-    authors="asmalser-msft"
-    manager="femila"
-    editor=""/>
+---
+title: Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory | Microsoft Docs
+description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory
+services: active-directory
+documentationcenter: ''
+author: asmalser-msft
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="02/26/2016"
-    ms.author="asmalser"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 02/26/2016
+ms.author: asmalser
 
-
-#<a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory
-
+---
+# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 Hoy en día Azure Active Directory admite miles de aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, de las cuales más de 150 admiten el inicio de sesión único mediante el protocolo SAML 2.0. Cuando un usuario se autentica en una aplicación mediante Azure AD con SAML, Azure AD envía un token a la aplicación (mediante un redireccionamiento HTTP 302). Dicha aplicación lo valida y lo usa para iniciar la sesión del usuario en lugar de solicitar el nombre de usuario y la contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como "notificaciones".
 
 En términos de identidad, una "notificación" es información que declara un proveedor de identidades sobre un usuario dentro del token que emite para dicho usuario. En un [token SAML](http://en.wikipedia.org/wiki/SAML_2.0), estos datos se suelen encontrar en la instrucción SAML Attribute y el identificador único del usuario se representa habitualmente en SAML Subject.
@@ -33,8 +31,7 @@ Existen dos razones posibles por las que podría tener la necesidad de editar la
 
 Puede editar cualquiera de los valores de notificación predeterminados; para ello, seleccione el icono en forma de lápiz que aparece cuando sitúa el mouse sobre una de las filas de la tabla de atributos del token SAML. También puede quitar notificaciones (excepto NameIdentifier) mediante el icono **X** y agregar notificaciones nuevas con el botón **Agregar atributo de usuario**.
 
-##<a name="editing-the-nameidentifier-claim"></a>Edición de la notificación NameIdentifier
-
+## <a name="editing-the-nameidentifier-claim"></a>Edición de la notificación NameIdentifier
 Para solucionar el problema en el que la aplicación se ha implementado con un nombre de usuario diferente, haga clic en el icono de lápiz junto a la notificación NameIdentifier. Se mostrará un cuadro de diálogo con varias opciones:
 
 ![][2]
@@ -45,8 +42,7 @@ También puede usar la función especial ExtractMailPrefix() para quitar el sufi
 
 ![][3]
 
-##<a name="adding-claims"></a>Incorporación de notificaciones
-
+## <a name="adding-claims"></a>Incorporación de notificaciones
 Cuando se agrega una nueva notificación, puede especificar el nombre del atributo (que no tiene que seguir estrictamente un patrón de URI según la especificación SAML), o bien establecer el valor en cualquier atributo de usuario que se almacene en el directorio.
 
 ![][4]
@@ -58,11 +54,10 @@ Si no hay ningún valor almacenado para el atributo seleccionado para un usuario
 **Nota:** **user.onpremisesecurityidentifier** y **user.onpremisesamaccountname** solo se admiten cuando se sincronizan los datos de usuario desde una instancia local de Active Directory mediante la [herramienta Azure AD Connect](active-directory-aadconnect.md).
 
 ## <a name="related-articles"></a>Artículos relacionados
+* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+* [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 
-- [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-- [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
-- [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
-    
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/claimscustomization1.png
 [2]: ./media/active-directory-saml-claims-customization/claimscustomization2.png

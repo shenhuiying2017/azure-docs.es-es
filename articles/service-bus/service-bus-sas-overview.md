@@ -1,47 +1,43 @@
-<properties
-    pageTitle="Información general sobre las firmas de acceso compartido | Microsoft Azure"
-    description="¿Qué son las firmas acceso compartido, cómo funcionan y cómo usarlas desde Node, PHP y C#?"
-    services="service-bus,event-hubs"
-    documentationCenter="na"
-    authors="djrosanova"
-    manager="timlt"
-    editor=""/>
+---
+title: Información general sobre las firmas de acceso compartido | Microsoft Docs
+description: ¿Qué son las firmas acceso compartido, cómo funcionan y cómo usarlas desde Node, PHP y C#?
+services: service-bus,event-hubs
+documentationcenter: na
+author: djrosanova
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="06/22/2016"
-    ms.author="darosa;sethm"/>
+ms.service: service-bus
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/22/2016
+ms.author: darosa;sethm
 
+---
 # Las firmas de acceso compartido
-
 *Firmas de acceso compartido* (SAS) es el mecanismo de seguridad principal para Bus de servicio, incluidos centros de eventos, mensajería asíncrona (colas y temas) y mensajería retransmitida. Este artículo se tratan las firmas acceso compartido, cómo funcionan y cómo usarlas de forma independiente de plataforma.
 
 ## Información general de SAS
-
 Firmas de acceso compartido son un mecanismo de autenticación basado en URI y valores hash seguros SHA-256. SAS es un mecanismo muy eficaz que se usa por todos los servicios del Bus de servicio. En el uso real, SAS tiene dos componentes: una *directiva de acceso compartido* y una *firma de acceso compartido* (a menudo denominada *token*).
 
 Encontrará información más detallada sobre las firmas de acceso compartido con Bus de servicio en [Autenticación de firmas de acceso compartido con Bus de servicio](service-bus-shared-access-signature-authentication.md).
 
 ## Directiva de acceso compartido
-
 Una cuestión importante de entender acerca de SAS es que todo empieza con una directiva. Para cada directiva, decida tres tipos de información: **nombre**, **ámbito** y **permisos**. El **nombre** es solo eso; un nombre único dentro de ese ámbito. El ámbito es bastante sencillo: es el URI del recurso en cuestión. Para un espacio de nombres del Bus de servicio, el ámbito es el nombre de dominio completo (FQDN), como **`https://<yournamespace>.servicebus.windows.net/`**.
 
 Los permisos disponibles para una directiva son en gran parte explicativos:
 
-  + Los métodos Send
-  + Escuchar
-  + Manage
+* Los métodos Send
+* Escuchar
+* Manage
 
-Después de crear la directiva, se le asigna una *clave principal* y una *clave secundaria*. Son claves de alta seguridad criptográfica. No las pierda; siempre estarán disponibles en el [Portal de Azure clásico][]. Puede usar cualquiera de las claves generadas y regenerarlas en cualquier momento. Sin embargo, si regenera o cambia la clave principal en la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
+Después de crear la directiva, se le asigna una *clave principal* y una *clave secundaria*. Son claves de alta seguridad criptográfica. No las pierda; siempre estarán disponibles en el [Portal de Azure clásico][Portal de Azure clásico]. Puede usar cualquiera de las claves generadas y regenerarlas en cualquier momento. Sin embargo, si regenera o cambia la clave principal en la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
 
 Cuando se crea un espacio de nombres del Bus de servicio, se crea automáticamente una directiva para todo el espacio de nombres denominado **RootManageSharedAccessKey** y esta directiva tiene todos los permisos. No inicia sesión como **raíz**; por tanto, no use esta directiva a menos que exista realmente una buena razón. Puede crear directivas adicionales en la pestaña **Configurar** para el espacio de nombres en el portal. Es importante tener en cuenta que un nivel de árbol único en el Bus de servicio (espacio de nombres, cola, concentrador de eventos, etc.) solo puede tener hasta 12 directivas asociadas a él.
 
 ## Firma de acceso compartido (token)
-
 La propia directiva no es el token de acceso para el Bus de servicio. Es el objeto desde el que se genera el token de acceso, mediante la clave principal o la clave secundaria. El token se genera elaborando cuidadosamente una cadena con el siguiente formato:
 
 ```
@@ -59,11 +55,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 Los valores que no son de hash se encuentran en la cadena **SharedAccessSignature** para que el destinatario puede calcular el hash con los mismos parámetros, para asegurarse de que devuelve el mismo resultado. El URI especifica el ámbito y el nombre de la clave identifica la directiva que se usará para calcular el hash. Esto es importante desde una perspectiva de seguridad. Si la firma no coincide con la que el destinatario calcula (Bus de servicio), se denegará el acceso. En este punto puede estar seguro de que el remitente ha tenido acceso a la clave y que se le deberían haber concedido los derechos especificados en la directiva.
 
 ## Generación de una firma desde una directiva
-
 ¿Cómo hace esto realmente en el código? Echemos un vistazo a varias de estas.
 
 ### NodeJS
-
 ```
 function createSharedAccessToken(uri, saName, saKey) { 
     if (!uri || !saName || !saKey) { 
@@ -82,7 +76,6 @@ function createSharedAccessToken(uri, saName, saKey) {
 ``` 
 
 ### Java
-
 ```
 private static String GetSASToken(String resourceUri, String keyName, String key)
   {
@@ -131,26 +124,24 @@ public static String getHMAC256(String key, String input) {
 ```
 
 ### PHP
-
 ```
 function generateSasToken($uri, $sasKeyName, $sasKeyValue) 
 { 
 $targetUri = strtolower(rawurlencode(strtolower($uri))); 
-$expires = time(); 	
+$expires = time();     
 $expiresInMins = 60; 
 $week = 60*60*24*7;
 $expires = $expires + $week; 
 $toSign = $targetUri . "\n" . $expires; 
-$signature = rawurlencode(base64_encode(hash_hmac('sha256', 			
+$signature = rawurlencode(base64_encode(hash_hmac('sha256',             
  $toSign, $sasKeyValue, TRUE))); 
 
-$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires . 		"&skn=" . $sasKeyName; 
+$token = "SharedAccessSignature sr=" . $targetUri . "&sig=" . $signature . "&se=" . $expires .         "&skn=" . $sasKeyName; 
 return $token; 
 }
 ```
- 
-### C&#35;
 
+### C&#35;
 ```
 private static string createToken(string resourceUri, string keyName, string key)
 {
@@ -166,7 +157,6 @@ private static string createToken(string resourceUri, string keyName, string key
 ```
 
 ## Uso de la firma de acceso compartido (en el nivel HTTP)
- 
 Ahora que sabe cómo crear firmas de acceso compartido para cualquier entidad del Bus de servicio, estará listo para llevar a cabo una solicitud HTTP POST:
 
 ```
@@ -175,13 +165,12 @@ Content-Type: application/json
 Authorization: SharedAccessSignature sr=https%3A%2F%2F<yournamespace>.servicebus.windows.net%2F<yourentity>&sig=<yoursignature from code above>&se=1438205742&skn=KeyName
 ContentType: application/atom+xml;type=entry;charset=utf-8
 ``` 
-	
+
 Recuerde que esto funciona para todo. Puede crear SAS para una cola, un tema, una suscripción, un concentrador de eventos o una retransmisión. Si usa una identidad por publicador para centros de eventos, sencillamente anexa `/publishers/< publisherid>`.
 
 Si le da un token de SAS a un remitente o cliente, no tiene la clave directamente y no pueden invertir el hash para obtenerla. Como tal, tiene control sobre a lo que pueden tener acceso y durante cuánto tiempo. Algo importante de recordar es que si cambia la clave principal de la directiva, se invalidará cualquier firma de acceso compartido creada a partir de ella.
 
 ## Uso de la firma de acceso compartido (en el nivel AMQP)
-
 En la sección anterior, vimos cómo usar el token SAS con una solicitud HTTP POST para enviar datos al Bus de servicio. Como sabe, puede obtener acceso a Bus de servicio mediante Advanced Message Queuing Protocol (AMQP), que es el protocolo preferido por motivos de rendimiento en muchos escenarios. El uso de tokens SAS con AMQP se describe en el documento [Seguridad basada en notificaciones de AMQP, versión 1.0](https://www.oasis-open.org/committees/download.php/50506/amqp-cbs-v1%200-wd02%202013-08-12.doc) que está en fase de borrador desde 2013, pero que es compatible con Azure actualmente.
 
 Antes de comenzar a enviar datos a Bus de servicio, el publicador debe enviar el token de SAS de un mensaje de AMQP a un nodo de AMQP bien definido con el nombre **"$cbs"** (puede verlo como una cola especial usada por el servicio para adquirir y validar todos los tokens de SAS). El publicador debe especificar el campo **"ReplyTo"** en el mensaje de AMQP. Este es el nodo en el que el servicio contestará al publicador con el resultado de la validación del token (un patrón sencillo de solicitud/respuesta entre el publicador y el servicio). Este nodo de respuesta se crea "sobre la marcha" en lo que respecta a la "creación dinámica de nodo remoto", tal como describe la especificación de AMQP 1.0. Después de comprobar que el token SAS es válido, el publicador puede avanzar y comenzar a enviar datos al servicio.
@@ -189,7 +178,6 @@ Antes de comenzar a enviar datos a Bus de servicio, el publicador debe enviar el
 Los pasos siguientes muestran cómo enviar el token de SAS con protocolo AMQP mediante la biblioteca [AMQP.Net Lite](https://github.com/Azure/amqpnetlite). Esto es útil si no puede usar el SDK oficial de Bus de servicio (por ejemplo, en WinRT, .Net Compact Framework, .Net Micro Framework y Mono) al desarrollar en C&#35;. Por supuesto, esta biblioteca es útil para comprender cómo funciona la seguridad basada en notificaciones en el nivel AMQP, como pudo observar en el nivel HTTP (con una solicitud HTTP POST y el token de SAS enviado en el encabezado "Autorización"). Si no necesita un conocimiento tan profundo sobre AMQP, puede usar el SDK oficial de Bus de servicio con aplicaciones de .NET Framework, que lo hará por usted.
 
 ### C&#35;
-
 ```
 /// <summary>
 /// Send claim-based security (CBS) token
@@ -241,7 +229,10 @@ private bool PutCbsToken(Connection connection, string sasToken)
 
 El método `PutCbsToken()` recibe la *conexión* (instancia de clase de conexión de AMQP, proporcionada por la biblioteca [.NET Lite de AMQP](https://github.com/Azure/amqpnetlite)) que representa la conexión TCP al servicio y el parámetro *sasToken* que es el token de SAS que se va a enviar.
 
-> [AZURE.NOTE] Es importante que la conexión se cree con el **mecanismo de autenticación SASL establecido en EXTERNAL** (y no con el valor PLAIN predeterminado con el nombre de usuario y la contraseña usados cuando no tiene que enviar el token de SAS).
+> [!NOTE]
+> Es importante que la conexión se cree con el **mecanismo de autenticación SASL establecido en EXTERNAL** (y no con el valor PLAIN predeterminado con el nombre de usuario y la contraseña usados cuando no tiene que enviar el token de SAS).
+> 
+> 
 
 A continuación, el publicador crea dos vínculos de AMQP para el envío del token de SAS y la recepción de la respuesta (resultado de validación del token) del servicio.
 
@@ -250,7 +241,6 @@ El mensaje de AMQP contiene una serie de propiedades y más información que un 
 Después de enviar el token de SAS en el vínculo del remitente, el publicador debe leer la respuesta en el vínculo del receptor. La respuesta es un mensaje de AMQP simple con una propiedad de la aplicación denominada **"status-code"** que puede contener los mismos valores que un código de estado HTTP.
 
 ## Pasos siguientes
-
 Vea la [referencia de la API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/hh780717.aspx) para obtener más información sobre lo que puede hacer con estos tokens de SAS.
 
 Para obtener más información sobre la autenticación de Bus de servicio, consulte [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md).

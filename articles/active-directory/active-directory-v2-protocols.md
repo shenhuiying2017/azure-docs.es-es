@@ -1,46 +1,46 @@
-<properties
-	pageTitle="Protocolos de Azure AD v2.0 | Microsoft Azure"
-	description="Guía de los protocolos que admite el punto de conexión de Azure AD v2.0."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Protocolos de Azure AD v2.0 | Microsoft Docs
+description: Guía de los protocolos que admite el punto de conexión de Azure AD v2.0.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Protocolos de v2.0: OAuth 2.0 y OpenID Connect
-
 El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con protocolos estándar del sector, OpenID Connect y OAuth 2.0. Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos. La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras bibliotecas de código abierto.
 <!-- TODO: Need link to libraries above -->
 
-> [AZURE.NOTE]
-	No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> [!NOTE]
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0. Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> 
+> 
 
 ## Conceptos básicos
 En casi todos los flujos de OAuth y OpenID Connect hay cuatro partes implicadas en el intercambio:
 
 ![Funciones de OAuth 2.0](../media/active-directory-v2-flows/protocols_roles.png)
 
-- El **servidor de autorización** es el punto de conexión v2.0. Es responsable de garantizar la identidad del usuario, conceder y revocar el acceso a los recursos y emitir tokens. También se le conoce como proveedor de identidad: controla de forma segura todo lo que tenga que ver con la información del usuario, su acceso y las relaciones de confianza entre las partes de un flujo.
-- El **propietario del recurso** suele ser el usuario final. Es la parte que posee los datos y tiene la capacidad de permitir que terceros tengan acceso a esos datos o recursos.
-- El **cliente de OAuth** es su aplicación, identificada por su id. de aplicación. Suele ser la parte con la que interactúa el usuario final y solicita tokens del servidor de autorización. El cliente debe contar con el permiso del propietario del recurso para acceder a este.
-- El **servidor de recursos** es donde residen el recurso o los datos. Confía en el servidor de autorización para autenticar y autorizar al cliente de OAuth de forma segura y usa access\_tokens de portador para garantizar que se puede conceder el acceso a un recurso.
-
+* El **servidor de autorización** es el punto de conexión v2.0. Es responsable de garantizar la identidad del usuario, conceder y revocar el acceso a los recursos y emitir tokens. También se le conoce como proveedor de identidad: controla de forma segura todo lo que tenga que ver con la información del usuario, su acceso y las relaciones de confianza entre las partes de un flujo.
+* El **propietario del recurso** suele ser el usuario final. Es la parte que posee los datos y tiene la capacidad de permitir que terceros tengan acceso a esos datos o recursos.
+* El **cliente de OAuth** es su aplicación, identificada por su id. de aplicación. Suele ser la parte con la que interactúa el usuario final y solicita tokens del servidor de autorización. El cliente debe contar con el permiso del propietario del recurso para acceder a este.
+* El **servidor de recursos** es donde residen el recurso o los datos. Confía en el servidor de autorización para autenticar y autorizar al cliente de OAuth de forma segura y usa access\_tokens de portador para garantizar que se puede conceder el acceso a un recurso.
 
 ## Registro de aplicaciones
 Todas las aplicaciones que usen el punto de conexión v2.0 tendrán que registrarse en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) para que puedan interactuar con el uso de OAuth o de OpenID Connect. El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
-- Un **Id. de aplicación** que identifica de forma única su aplicación
-- Un **URI de redireccionamiento** o **identificador de paquete** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
-- Algunos otros valores específicos de cada escenario.
+* Un **Id. de aplicación** que identifica de forma única su aplicación
+* Un **URI de redireccionamiento** o **identificador de paquete** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
+* Algunos otros valores específicos de cada escenario.
 
 Para obtener más información, aprenda a [registrar una aplicación](active-directory-v2-app-registration.md).
 
@@ -55,11 +55,11 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Donde `{tenant}` puede adoptar uno de cuatro valores:
 
 | Valor | Description |
-| ----------------------- | ------------------------------- |
-| `common` | Permite que los usuarios con cuentas personales de Microsoft y con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
-| `organizations` | Permite que solo los usuarios con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
-| `consumers` | Permite que solo los usuarios con cuentas personales de Microsoft (MSA) inicien sesión en la aplicación. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Permite que solo los usuarios con cuentas profesionales o educativas de un inquilino específico de Azure Active Directory inicien sesión en la aplicación. Puede usarse el nombre de dominio descriptivo del inquilino de Azure AD o bien el identificador de GUID del inquilino. |
+| --- | --- |
+| `common` |Permite que los usuarios con cuentas personales de Microsoft y con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
+| `organizations` |Permite que solo los usuarios con cuentas profesionales o educativas de Azure Active Directory inicien sesión en la aplicación. |
+| `consumers` |Permite que solo los usuarios con cuentas personales de Microsoft (MSA) inicien sesión en la aplicación. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` |Permite que solo los usuarios con cuentas profesionales o educativas de un inquilino específico de Azure Active Directory inicien sesión en la aplicación. Puede usarse el nombre de dominio descriptivo del inquilino de Azure AD o bien el identificador de GUID del inquilino. |
 
 Para obtener más información sobre cómo interactuar con estos puntos de conexión, elija un tipo de aplicación en particular a continuación.
 
@@ -69,14 +69,13 @@ La implementación v2.0 de OAuth 2.0 y OpenID Connect hace un uso generalizado d
 Encontrará más detalles sobre los diferentes tipos de token que se usan en el punto de conexión v2.0 en [la referencia de token del punto de conexión v2.0](active-directory-v2-tokens.md).
 
 ## Protocolos
-
 Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, vea [los tipos de aplicaciones que puede compilar con v2.0](active-directory-v2-flows.md).
 
-- [Creación de aplicaciones móviles y nativas con OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-- [Creación de aplicaciones web con OpenID Connect](active-directory-v2-protocols-oidc.md)
-- [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md)
-- [Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
-- Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
+* [Creación de aplicaciones móviles y nativas con OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
+* [Creación de aplicaciones web con OpenID Connect](active-directory-v2-protocols-oidc.md)
+* [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](active-directory-v2-protocols-implicit.md)
+* [Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0](active-directory-v2-protocols-oauth-client-creds.md)
+* Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0 (próximamente)
 
 <!-- - Get tokens using a username & password with the OAuth 2.0 Resource Owner Password Credentials Flow (coming soon) --> 
 

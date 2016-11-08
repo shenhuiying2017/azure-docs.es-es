@@ -1,37 +1,39 @@
-<properties 
-   pageTitle="Administración de los NSG mediante el Portal de vista previa en Resource Manager | Microsoft Azure"
-   description="Obtenga información sobre cómo administrar los NSG existentes con el Portal de vista previa en Resource Manager"
-   services="virtual-network"
-   documentationCenter="na"
-   authors="jimdial"
-   manager="carmonm"
-   editor=""
-   tags="azure-resource-manager"
-/>
-<tags  
-   ms.service="virtual-network"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="03/14/2016"
-   ms.author="jdial" />
+---
+title: Administración de los NSG mediante el Portal de vista previa en Resource Manager | Microsoft Docs
+description: Obtenga información sobre cómo administrar los NSG existentes con el Portal de vista previa en Resource Manager
+services: virtual-network
+documentationcenter: na
+author: jimdial
+manager: carmonm
+editor: ''
+tags: azure-resource-manager
 
+ms.service: virtual-network
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 03/14/2016
+ms.author: jdial
+
+---
 # Administración de los NSG mediante el Portal de vista previa
+> [!div class="op_single_selector"]
+> * [Portal](virtual-network-manage-nsg-arm-portal.md)
+> * [PowerShell](virtual-network-manage-nsg-arm-ps.md)
+> * [CLI de Azure](virtual-network-manage-nsg-arm-cli.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Portal](virtual-network-manage-nsg-arm-portal.md)
-- [PowerShell](virtual-network-manage-nsg-arm-ps.md)
-- [CLI de Azure](virtual-network-manage-nsg-arm-cli.md)
+[!INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-intro-include.md](../../includes/virtual-network-manage-nsg-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] modelo de implementación clásica.
+modelo de implementación clásica.
 
-[AZURE.INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
+[!INCLUDE [virtual-network-manage-nsg-arm-scenario-include.md](../../includes/virtual-network-manage-nsg-arm-scenario-include.md)]
 
 ## Recuperar información
-
 Puede consultar los NSG existentes, recuperar las reglas de un NSG existente y averiguar cuáles son los recursos a los que está asociado un NSG.
 
 ### Consultar los NSG existentes
@@ -42,7 +44,7 @@ Para consultar todos los NSG existentes en una suscripción, siga estos pasos.
 
 ![Portal de Azure - NSG](./media/virtual-network-manage-nsg-arm-portal/figure1.png)
 
-3. Compruebe la lista de NSG en la hoja **Grupos de seguridad de red**.
+1. Compruebe la lista de NSG en la hoja **Grupos de seguridad de red**.
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure2.png)
 
@@ -52,12 +54,11 @@ Para consultar la lista de NSG del grupo de recursos **RG-NSG**, siga estos paso
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure3.png)
 
-2. En la lista de recursos, busque elementos que incluyan el icono NSG, tal como aparece en la hoja **Recursos** que se muestra a continuación.
+1. En la lista de recursos, busque elementos que incluyan el icono NSG, tal como aparece en la hoja **Recursos** que se muestra a continuación.
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure4.png)
-		 
-### Mostrar todas las reglas de un NSG
 
+### Mostrar todas las reglas de un NSG
 Para consultar las reglas de un NSG llamado **NSG-FrontEnd**, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -65,16 +66,18 @@ Para consultar las reglas de un NSG llamado **NSG-FrontEnd**, siga estos pasos.
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure5.png)
 
-3. La hoja **Reglas de seguridad de entrada** aparece como se muestra a continuación.
+1. La hoja **Reglas de seguridad de entrada** aparece como se muestra a continuación.
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure6.png)
 
-4. En la pestaña **Configuración**, haga clic en **Reglas de seguridad de salida** para ver las reglas de salida.
+1. En la pestaña **Configuración**, haga clic en **Reglas de seguridad de salida** para ver las reglas de salida.
 
->[AZURE.NOTE] Para consultar las reglas predeterminadas, haga clic en el icono **Reglas predeterminadas** que se encuentra en la parte superior de la hoja donde aparecen las reglas.
+> [!NOTE]
+> Para consultar las reglas predeterminadas, haga clic en el icono **Reglas predeterminadas** que se encuentra en la parte superior de la hoja donde aparecen las reglas.
+> 
+> 
 
 ### Consultar las asociaciones de NSG
-
 Para consultar cuáles son los recursos con que está asociado el NSG **NSG-FrontEnd**, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -82,14 +85,12 @@ Para consultar cuáles son los recursos con que está asociado el NSG **NSG-Fron
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure7.png)
 
-3. En la pestaña **Configuración**, haga clic en **Interfaces de red** para consultar cuáles son las NIC que están asociadas con el NSG.
+1. En la pestaña **Configuración**, haga clic en **Interfaces de red** para consultar cuáles son las NIC que están asociadas con el NSG.
 
 ## Administrar las reglas
-
 Puede agregar reglas a un NSG existente, editar reglas existentes y quitar reglas.
 
 ### Agregar una regla
-
 Para agregar una regla que permite el tráfico **de entrada** al puerto **443** desde cualquier máquina al NSG **NSG-FrontEnd**, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -98,12 +99,11 @@ Para agregar una regla que permite el tráfico **de entrada** al puerto **443** 
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure8.png)
 
-4. Después de unos segundos, observe la regla nueva en la hoja **Reglas de seguridad de entrada**.
+1. Después de unos segundos, observe la regla nueva en la hoja **Reglas de seguridad de entrada**.
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure9.png)
 
 ### Cambiar una regla
-
 Para cambiar la regla que se creó anteriormente y permitir el tráfico de entrada solo desde **Internet**, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -113,7 +113,6 @@ Para cambiar la regla que se creó anteriormente y permitir el tráfico de entra
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure10.png)
 
 ### Eliminar una regla
-
 Para eliminar la regla que se creó anteriormente, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -123,11 +122,9 @@ Para eliminar la regla que se creó anteriormente, siga estos pasos.
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure11.png)
 
 ## Administrar las asociaciones
-
 Puede asociar un NSG a subredes y NIC. También puede desasociar un NSG de cualquier recurso al que está asociado.
 
 ### Asociar un NSG a una NIC
-
 Para asociar el NSG **NSG-FrontEnd** a la NIC **TestNICWeb1**, siga estos pasos.
 
 1. En la hoja **Grupos de seguridad de red** o la hoja **Recursos** que aparecen a continuación, haga clic en **NSG-FrontEnd**.
@@ -136,7 +133,6 @@ Para asociar el NSG **NSG-FrontEnd** a la NIC **TestNICWeb1**, siga estos pasos.
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure12.png)
 
 ### Desasociar un NSG de una NIC
-
 Para desasociar el NSG **NSG-FrontEnd** de la NIC **TestNICWeb1**, siga estos pasos.
 
 1. En el Portal de Azure, haga clic en **Grupos de recursos >** > **RG-NSG** > **...** > **TestNICWeb1**.
@@ -144,10 +140,12 @@ Para desasociar el NSG **NSG-FrontEnd** de la NIC **TestNICWeb1**, siga estos pa
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure13.png)
 
->[AZURE.NOTE] También puede usar esta hoja para asociar la NIC a cualquier NSG existente.
+> [!NOTE]
+> También puede usar esta hoja para asociar la NIC a cualquier NSG existente.
+> 
+> 
 
 ### Desasociar un NSG de una subred
-
 Para desasociar el NSG **NSG-FrontEnd** de la subred **FrontEnd**, siga estos pasos.
 
 1. En el Portal de Azure, haga clic en **Grupos de recursos >** > **RG-NSG** > **...** > **TestVNet**.
@@ -155,22 +153,23 @@ Para desasociar el NSG **NSG-FrontEnd** de la subred **FrontEnd**, siga estos pa
 
 ![Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure14.png)
 
-3. En la hoja **FrontEnd**, haga clic en **Guardar**.
+1. En la hoja **FrontEnd**, haga clic en **Guardar**.
 
 ![Portal de Azure - NSG](./media/virtual-network-manage-nsg-arm-portal/figure15.png)
 
 ### Asociación de un grupo de seguridad de red a una máquina virtual
-
 Para asociar nuevamente el NSG **NSG-FrontEnd** a la subred **FrontEnd**, siga estos pasos.
 
 1. En el Portal de Azure, haga clic en **Grupos de recursos >** > **RG-NSG** > **...** > **TestVNet**.
 2. En la hoja **Configuración**, haga clic en **Subredes** > **FrontEnd** > **Grupo de seguridad de red** > **NSG-FrontEnd**.
 3. En la hoja **FrontEnd**, haga clic en **Guardar**.
 
->[AZURE.NOTE] También puede asociar un NSG a una subred desde la hoja **Configuración** del NSG.
+> [!NOTE]
+> También puede asociar un NSG a una subred desde la hoja **Configuración** del NSG.
+> 
+> 
 
 ## Eliminación de un grupo de seguridad de red
-
 Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para eliminar un NSG, siga estos pasos.
 
 1. En el Portal de Azure, haga clic en **Grupos de recursos >** > **RG-NSG** > **...** > **NSG-FrontEnd**.
@@ -184,7 +183,6 @@ Solo se puede eliminar un NSG que no está asociado a ningún recurso. Para elim
 [Portal de Azure: NSG](./media/virtual-network-manage-nsg-arm-portal/figure16.png)
 
 ## Pasos siguientes
-
-- [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
+* [Habilite el registro](virtual-network-nsg-manage-log.md) para los NSG.
 
 <!---HONumber=AcomDC_0914_2016-->

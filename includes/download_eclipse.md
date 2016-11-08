@@ -1,10 +1,9 @@
-##Kit de herramientas de Azure para Eclipse
-
+## Kit de herramientas de Azure para Eclipse
 Requisitos previos:
 
 1. Windows 7, Windows 8, Windows 10, Windows Server 2008 o Windows Server 2012.
 2. Sistemas operativos Macintosh o Linux que se incluyen en el artículo [Novedades del kit de herramientas de Azure para Eclipse].
-2. Eclipse Indigo o posterior.
+3. Eclipse Indigo o posterior.
 
 Pasos de instalación:
 

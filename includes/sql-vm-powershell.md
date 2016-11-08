@@ -1,10 +1,11 @@
 
 ## <a name="start-your-powershell-session"></a>Inicio de una sesión de PowerShell
-
 Primero, debe tener la versión más reciente de [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) instalada y ejecutándose. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md).
 
-
->[AZURE.NOTE] En los ejemplos de este tema se usa el [modelo de implementación de Azure Resource Manager](../articles/resource-group-overview.md) y, por consiguiente, usaremos los [cmdlets de Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> [!NOTE]
+> En los ejemplos de este tema se usa el [modelo de implementación de Azure Resource Manager](../articles/resource-group-overview.md) y, por consiguiente, usaremos los [cmdlets de Azure Resource Manager](http://msdn.microsoft.com/library/azure/mt125356.aspx). 
+> 
+> 
 
 Ejecute el cmdlet [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) y aparecerá una pantalla de inicio de sesión para especificar sus credenciales. Use las mismas credenciales que las utilizadas para iniciar sesión en el Portal de Azure.
 

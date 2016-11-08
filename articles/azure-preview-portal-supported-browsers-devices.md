@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Exploradores y dispositivos compatibles"
-	description="Describe los exploradores y dispositivos en los que funcionará el Portal de Azure." 
-	services=""
-	documentationCenter=""
-	authors="flanakin"
-	writer="flanakin"
-	manager="lwelicki"
-	editor=""/>
+---
+title: Exploradores y dispositivos compatibles
+description: Describe los exploradores y dispositivos en los que funcionará el Portal de Azure.
+services: ''
+documentationcenter: ''
+author: flanakin
+writer: flanakin
+manager: lwelicki
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="multiple"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/23/2015"
-	ms.author="micflan"/>
+ms.service: multiple
+ms.workload: multiple
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 07/23/2015
+ms.author: micflan
 
-#Exploradores y dispositivos compatibles
+---
+# Exploradores y dispositivos compatibles
 El Portal de Microsoft Azure se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
 
 ### Dispositivos compatibles
@@ -26,10 +26,10 @@ El portal se ejecutará de manera excelente en tabletas, Mac y PC modernos. Los 
 ### Exploradores compatibles
 Son compatibles las últimas versiones de los siguientes exploradores:
 
-- Edge (última versión)
-- Internet Explorer 11
-- Safari (más reciente, solo Mac)
-- Chrome (última versión)
-- Firefox (última versión)
+* Edge (última versión)
+* Internet Explorer 11
+* Safari (más reciente, solo Mac)
+* Chrome (última versión)
+* Firefox (última versión)
 
 <!---HONumber=AcomDC_0420_2016-->

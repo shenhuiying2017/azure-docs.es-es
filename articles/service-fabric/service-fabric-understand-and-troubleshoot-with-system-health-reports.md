@@ -1,36 +1,43 @@
-<properties
-   pageTitle="Solución de problemas con los informes de mantenimiento del sistema | Microsoft Azure"
-   description="Describe los informes de estado enviados por los componentes de Azure Service Fabric y su uso para la resolución de problemas de clúster o de aplicaciones."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="oanapl"
-   manager="timlt"
-   editor=""/>
+---
+title: Solución de problemas con los informes de mantenimiento del sistema | Microsoft Docs
+description: Describe los informes de estado enviados por los componentes de Azure Service Fabric y su uso para la resolución de problemas de clúster o de aplicaciones.
+services: service-fabric
+documentationcenter: .net
+author: oanapl
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/28/2016"
-   ms.author="oanapl"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/28/2016
+ms.author: oanapl
 
-
+---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
-
 Los componentes de Azure Service Fabric informan desde el primer momento de todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
 
-> [AZURE.NOTE] Para comprender los conceptos relacionados con el mantenimiento, obtenga más información sobre el [modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md).
+> [!NOTE]
+> Para comprender los conceptos relacionados con el mantenimiento, obtenga más información sobre el [modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md).
+> 
+> 
 
 Los informes de mantenimiento del sistema proporcionan visibilidad en el clúster y funcionalidad de la aplicación, así como indican problemas a través del mantenimiento. Para aplicaciones y servicios, los informes de mantenimiento del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric. Los informes no proporcionan ninguna supervisión del mantenimiento de la lógica empresarial del servicio o de la detección de los procesos bloqueados. Los servicios de usuario pueden enriquecer los datos de mantenimiento con información específica de su lógica.
 
-> [AZURE.NOTE] Solo son visibles los informes de mantenimiento de los guardianes *después* de que los componentes del sistema hayan creado la entidad. Cuando se elimina una entidad, el almacén de estado elimina automáticamente todos los informes de mantenimiento asociados a ella. Lo mismo sucede cuando se crea una nueva instancia de la entidad (por ejemplo, se crea una nueva instancia de la réplica de servicio). Todos los informes asociados a la instancia anterior se eliminan y se limpian del almacén.
+> [!NOTE]
+> Solo son visibles los informes de mantenimiento de los guardianes *después* de que los componentes del sistema hayan creado la entidad. Cuando se elimina una entidad, el almacén de estado elimina automáticamente todos los informes de mantenimiento asociados a ella. Lo mismo sucede cuando se crea una nueva instancia de la entidad (por ejemplo, se crea una nueva instancia de la réplica de servicio). Todos los informes asociados a la instancia anterior se eliminan y se limpian del almacén.
+> 
+> 
 
 Los informes de los componentes del sistema se identifican mediante el origen, que comienza por el prefijo "**System.**" . Los guardianes no pueden utilizar el mismo prefijo para sus orígenes, ya que los informes con parámetros no válidos se rechazan.
 Veamos algunos informes de sistema para entender qué los desencadena y cómo corregir los posibles problemas que representan.
 
-> [AZURE.NOTE] Service Fabric sigue agregando informes de condiciones de interés que mejoran la visibilidad de lo que sucede en el clúster y la aplicación.
+> [!NOTE]
+> Service Fabric sigue agregando informes de condiciones de interés que mejoran la visibilidad de lo que sucede en el clúster y la aplicación.
+> 
+> 
 
 ## <a name="cluster-system-health-reports"></a>Informes de mantenimiento del sistema de clúster
 La entidad de mantenimiento del clúster se crea automáticamente en el Almacén de estado. Si todo funciona correctamente, no tiene un informe del sistema.
@@ -40,9 +47,9 @@ La entidad de mantenimiento del clúster se crea automáticamente en el Almacén
 
 El informe especifica el tiempo de espera de concesión global como período de vida. El informe se vuelve a enviar una vez transcurrida la mitad de la duración del período de vida siempre y cuando la condición permanezca activa. El evento se quita automáticamente cuando haya expirado. El comportamiento de eliminación cuando caduca garantiza que el informe se limpie del Almacén de estado correctamente, incluso si el nodo de informes está inactivo.
 
-- **SourceId**: System.Federation
-- **Propiedad**: comienza por **Neighborhood** e incluye información sobre el nodo.
-- **Pasos siguientes**: investigue por qué se pierde el entorno (por ejemplo, compruebe la comunicación entre los nodos del clúster).
+* **SourceId**: System.Federation
+* **Propiedad**: comienza por **Neighborhood** e incluye información sobre el nodo.
+* **Pasos siguientes**: investigue por qué se pierde el entorno (por ejemplo, compruebe la comunicación entre los nodos del clúster).
 
 ## <a name="node-system-health-reports"></a>Informes de mantenimiento del sistema de nodos
 **System.FM**, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los nodos del clúster. Todos los nodos deben tener un informe de System.FM que muestre el estado. Las entidades de nodo se quitan cuando se quita el estado del nodo (consulte [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
@@ -50,9 +57,9 @@ El informe especifica el tiempo de espera de concesión global como período de 
 ### <a name="node-up/down"></a>Nodo activo o inactivo
 System.FM notifica que está todo correcto cuando el nodo se une al anillo (está en funcionamiento). Notifica un error cuando el nodo sale del anillo (no funciona, ya sea porque se está actualizando o simplemente porque no pudo). La jerarquía de mantenimiento generada por el almacén de estado realiza una acción sobre las entidades implementadas en correlación con los informes de nodo de System.FM. Considera el nodo como un elemento primario virtual de todas las entidades implementadas. Las entidades implementadas en ese nodo se exponen a través de las consultas si System.FM notifica que el nodo está activo, con la misma instancia que la instancia asociada a las entidades. Cuando System.FM notifica que el nodo está inactivo o que se ha reiniciado (una nueva instancia), el almacén de estado limpia automáticamente las entidades implementadas que solo pueden existir en el nodo inactivo o en la instancia anterior del nodo.
 
-- **SourceId**: System.FM
-- **Property**: State
-- **Pasos siguientes**: si el nodo está inactivo durante una actualización, debería volver a estar activo una vez que se haya actualizado. En este caso, se debe cambiar el estado de mantenimiento a Aceptar. Si el nodo no recupera ese estado o se produce un error, deberá investigar más el problema.
+* **SourceId**: System.FM
+* **Property**: State
+* **Pasos siguientes**: si el nodo está inactivo durante una actualización, debería volver a estar activo una vez que se haya actualizado. En este caso, se debe cambiar el estado de mantenimiento a Aceptar. Si el nodo no recupera ese estado o se produce un error, deberá investigar más el problema.
 
 El ejemplo siguiente muestra el evento System.FM con el estado de mantenimiento Correcto para el nodo activo:
 
@@ -80,16 +87,16 @@ HealthEvents          :
 ### <a name="certificate-expiration"></a>Caducidad del certificado
 **System.FabricNode** notifica una advertencia cuando los certificados usados por el nodo están a punto de expirar. Hay tres certificados por nodo: **Certificate_cluster**, **Certificate_server** y **Certificate_default_client**. Si faltan más de dos semanas para expirar, el estado de mantenimiento del informe es Correcto. Si faltan menos de dos semanas, el tipo de informe es una advertencia. El TTL de estos eventos es infinito y se quitan cuando un nodo deja el clúster.
 
-- **SourceId**: System.FabricNode
-- **Property**: comienza por **Certificate** y contiene más información sobre el tipo de certificado.
-- **Pasos siguientes**: actualice los certificados si están a punto de expirar.
+* **SourceId**: System.FabricNode
+* **Property**: comienza por **Certificate** y contiene más información sobre el tipo de certificado.
+* **Pasos siguientes**: actualice los certificados si están a punto de expirar.
 
 ### <a name="load-capacity-violation"></a>Infracción de la capacidad de carga
 El equilibrador de carga de Service Fabric notifica una advertencia si detecta una infracción de la capacidad de nodo.
 
- - **SourceId**: System.PLB
- - **Property**: comienza por **Capacity**.
- - **Pasos siguientes**: compruebe las métricas proporcionadas y vea la capacidad actual en el nodo.
+* **SourceId**: System.PLB
+* **Property**: comienza por **Capacity**.
+* **Pasos siguientes**: compruebe las métricas proporcionadas y vea la capacidad actual en el nodo.
 
 ## <a name="application-system-health-reports"></a>Informes de mantenimiento del sistema de la aplicación
 **System.CM**, que representa el servicio Administrador de clústeres, es la autoridad que administra la información acerca de una aplicación.
@@ -97,9 +104,9 @@ El equilibrador de carga de Service Fabric notifica una advertencia si detecta u
 ### <a name="state"></a>Estado
 System.CM notifica un estado Correcto cuando se ha creado o actualizado la aplicación. Informa al almacén de estado cuando se ha eliminado la aplicación, por lo que puede quitarse del almacén.
 
-- **SourceId**: System.CM
-- **Property**: State
-- **Pasos siguientes**: si se ha creado la aplicación, debe incluir el informe de mantenimiento del Administrador de clústeres. De lo contrario, compruebe el estado de la aplicación mediante el envío de una consulta (por ejemplo, el cmdlet de PowerShell **Get-ServiceFabricApplication -ApplicationName *nombreAplicación***).
+* **SourceId**: System.CM
+* **Property**: State
+* **Pasos siguientes**: si se ha creado la aplicación, debe incluir el informe de mantenimiento del Administrador de clústeres. De lo contrario, compruebe el estado de la aplicación mediante el envío de una consulta (por ejemplo, el cmdlet de PowerShell **Get-ServiceFabricApplication -ApplicationName *nombreAplicación***).
 
 El ejemplo siguiente muestra el evento de estado en la aplicación **fabric:/WordCount** :
 
@@ -130,8 +137,8 @@ HealthEvents                    :
 ### <a name="state"></a>Estado
 System.FM notifica un estado Correcto cuando se ha creado el servicio. Elimina la entidad del almacén de estado cuando se ha eliminado el servicio.
 
-- **SourceId**: System.FM
-- **Property**: State
+* **SourceId**: System.FM
+* **Property**: State
 
 El ejemplo siguiente muestra el evento de estado en el servicio **fabric:/WordCount/WordCountService**:
 
@@ -161,9 +168,9 @@ HealthEvents          :
 ### <a name="unplaced-replicas-violation"></a>Infracción de réplicas sin colocar
 **System.PLB** notifica una advertencia si no pudo encontrar una selección de ubicación para una o varias de las réplicas del servicio. El informe se quita cuando expira.
 
-- **SourceId**: System.FM
-- **Property**: State
-- **Pasos siguientes**: compruebe las restricciones de servicio y el estado actual de la selección de ubicación.
+* **SourceId**: System.FM
+* **Property**: State
+* **Pasos siguientes**: compruebe las restricciones de servicio y el estado actual de la selección de ubicación.
 
 El ejemplo siguiente muestra una infracción en un servicio configurado con 7 réplicas de destino en un clúster con 5 nodos:
 
@@ -244,9 +251,9 @@ Si la partición es inferior al recuento mínimo de réplicas, notifica un error
 
 Otros eventos importantes incluyen una advertencia cuando la reconfiguración tarda más tiempo de lo esperado y cuando la compilación tarda más de lo previsto. Los tiempos de compilación o reconfiguración previstos se pueden configurar en función de los escenarios de servicio. Por ejemplo, si un servicio tiene un terabyte de estado como, por ejemplo, SQL Database, la compilación tarda más tiempo del que tardaría para un servicio con una pequeña cantidad de estado.
 
-- **SourceId**: System.FM
-- **Property**: State
-- **Pasos siguientes**: si el estado de mantenimiento no es correcto, es posible que algunas réplicas no se hayan creado, abierto o promocionado a principales o secundarias de manera correcta. En muchos casos, la causa raíz es un error de servicio en la implementación del rol de apertura o cambio.
+* **SourceId**: System.FM
+* **Property**: State
+* **Pasos siguientes**: si el estado de mantenimiento no es correcto, es posible que algunas réplicas no se hayan creado, abierto o promocionado a principales o secundarias de manera correcta. En muchos casos, la causa raíz es un error de servicio en la implementación del rol de apertura o cambio.
 
 El ejemplo siguiente muestra una partición correcta:
 
@@ -315,8 +322,8 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ### <a name="replica-constraint-violation"></a>Infracción de restricción de réplica
 **System.PLB** notifica una advertencia si detecta una infracción de restricción de réplica y no se pueden colocar réplicas de la partición.
 
-- **SourceId**: System.PLB
-- **Property**: comienza por **ReplicaConstraintViolation**.
+* **SourceId**: System.PLB
+* **Property**: comienza por **ReplicaConstraintViolation**.
 
 ## <a name="replica-system-health-reports"></a>Informes de mantenimiento del sistema de replica
 **System.RA**, que representa el componente del agente de reconfiguración, es la autoridad para el estado de la réplica.
@@ -324,8 +331,8 @@ PS C:\> @(Get-ServiceFabricNode).Count
 ### <a name="state"></a>Estado
 **System.RA** notifica un estado Correcto cuando se ha creado la réplica.
 
-- **SourceId**: System.RA
-- **Property**: State
+* **SourceId**: System.RA
+* **Property**: State
 
 El ejemplo siguiente muestra una réplica correcta:
 
@@ -353,16 +360,16 @@ La descripción de este informe de mantenimiento contiene la hora de inicio (hor
 
 **System.RA** notifica una advertencia si la apertura de la réplica tarda más tiempo del configurado (valor predeterminado: 30 minutos). Si la API afecta a la disponibilidad de servicio, el informe se emite con mayor rapidez (intervalo configurable, valor predeterminado de 30 segundos). El tiempo medido incluye el tiempo necesario para la apertura del replicador y del servicio. La propiedad cambia a Correcto si se completa la apertura.
 
-- **SourceId**: System.RA
-- **Property**: **ReplicaOpenStatus**
-- **Pasos siguientes**: si el estado de mantenimiento no es Correcto, compruebe por qué la apertura de la réplica tarda más de lo previsto.
+* **SourceId**: System.RA
+* **Property**: **ReplicaOpenStatus**
+* **Pasos siguientes**: si el estado de mantenimiento no es Correcto, compruebe por qué la apertura de la réplica tarda más de lo previsto.
 
 ### <a name="slow-service-api-call"></a>Llamada a la API de servicio lenta
 **System.RAP** y **System.Replicator** notifican una advertencia si una llamada al código de servicio de usuario tarda más tiempo del configurado. La advertencia se borra cuando finaliza la llamada.
 
-- **SourceId**: System.RAP o System.Replicator
-- **Property**: el nombre de la API lenta. La descripción proporciona más detalles sobre el tiempo que la API ha estado pendiente.
-- **Pasos siguientes**: investigue por qué la llamada tarda más de lo previsto.
+* **SourceId**: System.RAP o System.Replicator
+* **Property**: el nombre de la API lenta. La descripción proporciona más detalles sobre el tiempo que la API ha estado pendiente.
+* **Pasos siguientes**: investigue por qué la llamada tarda más de lo previsto.
 
 El ejemplo siguiente muestra una partición en la pérdida de quórum, así como los pasos de investigación realizados para descubrir el motivo. Una de las réplicas tiene un estado de mantenimiento de advertencia, por tanto, ya conoce su estado. Muestra que la operación de servicio tarda más de lo previsto, un evento notificado por System.RAP. Después de recibir esta información, el paso siguiente es examinar el código de servicio e investigar. En este caso, la implementación de **RunAsync** del servicio con estado produce una excepción no controlada. Las réplicas se reciclan, por lo que quizás no pueda ver ninguna réplica en estado de advertencia. Puede intentar obtener de nuevo el estado de mantenimiento y buscar las diferencias en el identificador de réplica. En algunos casos, los reintentos pueden proporcionar pistas.
 
@@ -470,20 +477,22 @@ Eventos de diagnóstico de Visual Studio 2015: Error de RunAsync en **fabric:/He
 ### <a name="replication-queue-full"></a>Cola de replicación completa
 **System.Replicator** notifica una advertencia si la cola de replicación está llena. En la réplica principal, esto suele ocurrir porque una o varias réplicas secundarias son lentas a la hora de confirmar operaciones. En la secundaria, esto suele ocurrir cuando el servicio es lento en aplicar las operaciones. La advertencia se borra cuando la cola ya no está llena.
 
-- **SourceId**: System.Replicator
-- **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, según el rol de réplica.
+* **SourceId**: System.Replicator
+* **Property**: **PrimaryReplicationQueueStatus** o **SecondaryReplicationQueueStatus**, según el rol de réplica.
 
 ### <a name="slow-naming-operations"></a>Operaciones de nomenclatura lentas
-
 **System.NamingService** informa del estado en su réplica principal cuando una operación de nomenclatura tarda más de lo aceptable. [CreateServiceAsync](https://msdn.microsoft.com/library/azure/mt124028.aspx) o [DeleteServiceAsync](https://msdn.microsoft.com/library/azure/mt124029.aspx) son ejemplos de operaciones de nomenclatura. En FabricClient pueden encontrarse más métodos, como en [métodos de administración de servicios](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.servicemanagementclient.aspx) o [métodos de administración de propiedades](https://msdn.microsoft.com/library/azure/system.fabric.fabricclient.propertymanagementclient.aspx).
 
-> [AZURE.NOTE] El servicio de nombres resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Se trata de un servicio guardado con particiones de Service Fabric. Una de las particiones representa a Authority Owner, que contiene metadatos sobre todos los nombres y servicios de Service Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones Name Owner, por lo que el servicio se puede ampliar. Obtenga más información sobre el [servicio de nomenclatura](service-fabric-architecture.md).
+> [!NOTE]
+> El servicio de nombres resuelve los nombres de servicio en una ubicación del clúster y permite a los usuarios administrar las propiedades y los nombres de servicio. Se trata de un servicio guardado con particiones de Service Fabric. Una de las particiones representa a Authority Owner, que contiene metadatos sobre todos los nombres y servicios de Service Fabric. Los nombres de Service Fabric se asignan a particiones diferentes, denominadas particiones Name Owner, por lo que el servicio se puede ampliar. Obtenga más información sobre el [servicio de nomenclatura](service-fabric-architecture.md).
+> 
+> 
 
 Cuando una operación de nomenclatura tarda más de lo esperado, la operación se marca con un informe de advertencia en la *réplica principal de la partición del servicio de nomenclatura que se usa para la operación*. Si la operación se completa correctamente, la advertencia se elimina. Si la operación se completa con un error, el informe de estado incluye detalles sobre el error.
 
-- **SourceId**: System.NamingService
-- **Property**: comienza con el prefijo **Duration_** e identifica la operación lenta y el nombre de Service Fabric en el que se aplica la operación. Por ejemplo, si el servicio de creación en el nombre fabric:/MyApp/MyService tarda demasiado, la propiedad es Duration_AOCreateService.fabric:/MyApp/MyService. AO apunta al rol de la partición de nomenclatura para este nombre y operación.
-- **Pasos siguientes**: compruebe por qué se produce un error en la operación de nomenclatura. Cada operación puede tener diferentes causas. Por ejemplo, el servicio de eliminación puede estar atascado en un nodo debido a que el host de la aplicación se bloquee continuamente en un nodo por un error de usuario en el código del servicio.
+* **SourceId**: System.NamingService
+* **Property**: comienza con el prefijo **Duration_** e identifica la operación lenta y el nombre de Service Fabric en el que se aplica la operación. Por ejemplo, si el servicio de creación en el nombre fabric:/MyApp/MyService tarda demasiado, la propiedad es Duration_AOCreateService.fabric:/MyApp/MyService. AO apunta al rol de la partición de nomenclatura para este nombre y operación.
+* **Pasos siguientes**: compruebe por qué se produce un error en la operación de nomenclatura. Cada operación puede tener diferentes causas. Por ejemplo, el servicio de eliminación puede estar atascado en un nodo debido a que el host de la aplicación se bloquee continuamente en un nodo por un error de usuario en el código del servicio.
 
 El ejemplo siguiente muestra una operación de servicio de creación. La operación tardó más de la duración configurada. AO vuelve a intentarlo y envía trabajo a NO. NO completó la última operación con tiempo de espera. En este caso, la misma réplica es la principal tanto para el rol de AO como para el de NO.
 
@@ -538,9 +547,9 @@ HealthEvents          :
 ### <a name="activation"></a>Activación
 System.Hosting notifica un estado Correcto cuando una aplicación se ha activado correctamente en el nodo. De lo contrario, notifica un error.
 
-- **SourceId**: System.Hosting
-- **Property**: Activation, incluida la versión de lanzamiento.
-- **Pasos siguientes**: si el mantenimiento de la aplicación es incorrecto, investigue el motivo del error de la activación.
+* **SourceId**: System.Hosting
+* **Property**: Activation, incluida la versión de lanzamiento.
+* **Pasos siguientes**: si el mantenimiento de la aplicación es incorrecto, investigue el motivo del error de la activación.
 
 El ejemplo siguiente muestra una activación correcta:
 
@@ -572,9 +581,9 @@ HealthEvents                       :
 ### <a name="download"></a>Descargar
 **System.Hosting** notifica un error si se produjo un error al descargar el paquete de aplicación.
 
-- **SourceId**: System.Hosting
-- **Property**: **Download:*RolloutVersion***
-- **Pasos siguientes**: investigue el motivo del error de descarga en el nodo.
+* **SourceId**: System.Hosting
+* **Property**: **Download:*RolloutVersion***
+* **Pasos siguientes**: investigue el motivo del error de descarga en el nodo.
 
 ## <a name="deployedservicepackage-system-health-reports"></a>Informes de mantenimiento del sistema DeployedServicePackage
 **System.Hosting** es la autoridad en las entidades implementadas.
@@ -582,21 +591,21 @@ HealthEvents                       :
 ### <a name="service-package-activation"></a>Activación de paquete de servicio
 System.Hosting notifica un estado Correcto si la activación del paquete de servicio en el nodo se ha realizado correctamente. De lo contrario, notifica un error.
 
-- **SourceId**: System.Hosting
-- **Property**: Activation.
-- **Pasos siguientes**: investigue el motivo del error de la activación.
+* **SourceId**: System.Hosting
+* **Property**: Activation.
+* **Pasos siguientes**: investigue el motivo del error de la activación.
 
 ### <a name="code-package-activation"></a>Activación del paquete de código
 **System.Hosting** notifica un estado Correcto para cada paquete de código si la activación se ha realizado correctamente. Si se produce un error en la activación, notifica una advertencia tal y como está configurado. Si **CodePackage** no se puede activar o finaliza con un error mayor que el configurado **CodePackageHealthErrorThreshold**, el hospedaje notifica un error. Si hay varios paquetes de código en un paquete de servicios, se genera un informe de activación para cada uno.
 
-- **SourceId**: System.Hosting
-- **Property**: usa el prefijo **CodePackageActivation** y contiene el nombre del paquete de código y el punto de entrada como **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (por ejemplo, **CodePackageActivation:Code:SetupEntryPoint**).
+* **SourceId**: System.Hosting
+* **Property**: usa el prefijo **CodePackageActivation** y contiene el nombre del paquete de código y el punto de entrada como **CodePackageActivation:*CodePackageName*:*SetupEntryPoint/EntryPoint*** (por ejemplo, **CodePackageActivation:Code:SetupEntryPoint**).
 
 ### <a name="service-type-registration"></a>Registro del tipo de servicio
 **System.Hosting** notifica un estado Correcto si el tipo de servicio se ha registrado correctamente. Notifica un error si el registro no se ha realizado a tiempo (tal y como se ha configurado mediante **ServiceTypeRegistrationTimeout**). Si se ha anulado el registro del tipo de servicio del nodo, es debido a que se cerró el tiempo de ejecución. Hosting notifica una advertencia.
 
-- **SourceId**: System.Hosting
-- **Property**: usa el prefijo **ServiceTypeRegistration** y contiene el nombre del tipo de servicio (por ejemplo, **ServiceTypeRegistration:FileStoreServiceType**).
+* **SourceId**: System.Hosting
+* **Property**: usa el prefijo **ServiceTypeRegistration** y contiene el nombre del tipo de servicio (por ejemplo, **ServiceTypeRegistration:FileStoreServiceType**).
 
 El ejemplo siguiente muestra un paquete de servicio implementado con mantenimiento correcto:
 
@@ -649,16 +658,16 @@ HealthEvents          :
 ### <a name="download"></a>Descargar
 **System.Hosting** notifica un error si se produce un error en la descarga del paquete de servicio.
 
-- **SourceId**: System.Hosting
-- **Property**: **Download:*RolloutVersion***
-- **Pasos siguientes**: investigue el motivo del error de descarga en el nodo.
+* **SourceId**: System.Hosting
+* **Property**: **Download:*RolloutVersion***
+* **Pasos siguientes**: investigue el motivo del error de descarga en el nodo.
 
 ### <a name="upgrade-validation"></a>Validación de actualización
 **System.Hosting** notifica un error si se produce un error de validación durante la actualización o si se produce un error de actualización en el nodo.
 
-- **SourceId**: System.Hosting
-- **Property**: usa el prefijo **FabricUpgradeValidation** y contiene la versión de actualización.
-- **Description**: señala el error encontrado.
+* **SourceId**: System.Hosting
+* **Property**: usa el prefijo **FabricUpgradeValidation** y contiene la versión de actualización.
+* **Description**: señala el error encontrado.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
@@ -668,8 +677,6 @@ HealthEvents          :
 [Supervisión y diagnóstico de los servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure"
-    description="Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure"
-    services="app-service\mobile"
-    documentationCenter="javascript"
-    authors="adrianhall"
-    manager="erikre"
-    editor=""/>
+---
+title: Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure
+description: Uso del complemento de Apache Cordova para Aplicaciones móviles de Azure
+services: app-service\mobile
+documentationcenter: javascript
+author: adrianhall
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="app-service-mobile"
-    ms.workload="mobile"
-    ms.tgt_pltfrm="mobile-html"
-    ms.devlang="javascript"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="adrianha"/>
+ms.service: app-service-mobile
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-html
+ms.devlang: javascript
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: adrianha
 
-
+---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Uso de una biblioteca de cliente de Apache Cordova para Aplicaciones móviles de Azure
-
-[AZURE.INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
+[!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 En esta guía se muestran algunos escenarios comunes del uso del último [complemento de Apache Cordova para Aplicaciones móviles de Azure]. Si no está familiarizado con Aplicaciones móviles de Azure, realice primero el tutorial [Creación de una aplicación de Apache Cordova] para crear un back-end, crear una tabla y descargar un proyecto de Apache Cordova previamente compilado. En esta guía nos centramos en el complemento de Apache Cordova del lado cliente.
 
 ## <a name="supported-platforms"></a>Plataformas compatibles
-
 Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en dispositivos iOS, Android y Windows.  Las plataformas compatibles con las siguientes:
 
 * Niveles de API de Android del 19 al 24 (de KitKat a Nougat)
@@ -33,8 +30,7 @@ Este SDK es compatible con la versión 6.0.0 y posterior de Apache Cordova en di
 * Windows Phone 8,1
 * Plataforma universal de Windows
 
-##<a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Configuración y requisitos previos
-
+## <a name="<a-name="setup"></a>setup-and-prerequisites"></a><a name="Setup"></a>Configuración y requisitos previos
 En esta guía se asume que ha creado un back-end con una tabla. En esta guía se asume que la tabla tiene el mismo esquema que las tablas de dichos tutoriales. En esta guía también se supone que ha agregado el complemento de Apache Cordova al código.  Si no lo ha hecho, puede agregar el complemento Apache Cordova al proyecto en la línea de comandos:
 
 ```
@@ -43,11 +39,9 @@ cordova plugin add cordova-plugin-ms-azure-mobile-apps
 
 Para más información sobre la creación de [su primera aplicación de Apache Cordova], consulte su documentación.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
+[!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
-
-##<a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Autenticación de usuarios
-
+## <a name="<a-name="auth"></a>how-to:-authenticate-users"></a><a name="auth"></a>Autenticación de usuarios
 Azure App Service es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externos: Facebook, Google, Cuenta Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación] .
 
 Al utilizar la autenticación en una aplicación de Apache Cordova, los siguientes complementos de Cordova deben estar disponibles:
@@ -57,16 +51,15 @@ Al utilizar la autenticación en una aplicación de Apache Cordova, los siguient
 
 Se admiten dos flujos de autenticación: un flujo de servidor y un flujo de cliente.  El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
-[AZURE.INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
+[!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-###<a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
-
+### <a name="<a-name="configure-external-redirect-urls"></a>how-to:-configure-your-mobile-app-service-for-external-redirect-urls."></a><a name="configure-external-redirect-urls"></a>Cómo configurar su servicio de aplicaciones móviles para URL de redireccionamiento externas
 Varios tipos de aplicaciones de Apache Cordova utilizan una función de bucle invertido para controlar los flujos de la interfaz de usuario de OAuth.  Los flujos de interfaz de usuario de OAuth conllevan problemas, ya que el servicio de autenticación solo sabe cómo utilizar el servicio de manera predeterminada.  Ejemplos de flujos de interfaz de usuario de OAuth problemáticos:
 
-- El emulador Ripple
-- La característica Live Reload con Ionic
-- Ejecución del back-end móvil localmente
-- Ejecución del back-end móvil en una instancia de Azure App Service diferente a la que proporciona la autenticación.
+* El emulador Ripple
+* La característica Live Reload con Ionic
+* Ejecución del back-end móvil localmente
+* Ejecución del back-end móvil en una instancia de Azure App Service diferente a la que proporciona la autenticación.
 
 Siga estas instrucciones para agregar los ajustes locales a la configuración:
 
@@ -77,12 +70,12 @@ Siga estas instrucciones para agregar los ajustes locales a la configuración:
 5. Expanda los nodos **config** y **authsettings** de su sitio en el panel de navegación izquierdo.
 6. Haga clic en **Editar**
 7. Busque el elemento "allowedExternalRedirectUrls".  Se puede establecer en Null o una matriz de valores.  Cambie el valor al siguiente:
-
+   
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
-
+   
     Sustituya las URL por las de su servicio.  Por ejemplo: "http://localhost:3000" (para el servicio de muestra Node.js) o "http://localhost:4400" (para el servicio de Ripple).  Sin embargo, estas URL no son más que ejemplos. Es decir, su situación puede ser distinta, incluso si debe configurar los servicios mencionados en los ejemplos.
 8. Haga clic en el botón **Lectura/escritura** situado en la esquina superior derecha de la pantalla.
 9. Haga clic en el botón verde **PUT** .
@@ -100,8 +93,7 @@ Agregue también estas URL de bucle invertido a la configuración de CORS:
 
 Los nuevos ajustes tardarán aproximadamente entre 10 y 15 segundos en surtir efecto.
 
-##<a name="<a-name="register-for-push"></a>how-to:-register-for-push-notifications"></a><a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
-
+## <a name="<a-name="register-for-push"></a>how-to:-register-for-push-notifications"></a><a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
 Instale [phonegap-plugin-push] para administrar las notificaciones push.  Este complemento se puede agregar fácilmente mediante el comando `cordova plugin add` en la línea de comandos o por medio del instalador de complementos Git dentro de Visual Studio.  El siguiente código de la aplicación de Apache Cordova registrará el dispositivo para notificaciones push:
 
 ```

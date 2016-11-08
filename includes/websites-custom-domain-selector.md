@@ -1,7 +1,9 @@
-> [AZURE.SELECTOR]
-- [Comprar un dominio](../article/app-service-web/custom-dns-web-site-buydomains-web-app.md)
-- [Asignar un dominio externo](../article/app-service-web/web-sites-custom-domain-name.md)
-- [Asignar a un perfil del Administrador de tráfico](../article/app-service-web/web-sites-traffic-manager-custom-domain-name.md)
-- [GoDaddy](../article/app-service-web/web-sites-godaddy-custom-domain-name.md)
+> [!div class="op_single_selector"]
+> * [Comprar un dominio](../articles/app-service-web/custom-dns-web-site-buydomains-web-app.md)
+> * [Asignar un dominio externo](../articles/app-service-web/web-sites-custom-domain-name.md)
+> * [Asignar a un perfil del Administrador de tráfico](../articles/app-service-web/web-sites-traffic-manager-custom-domain-name.md)
+> * [GoDaddy](../articles/app-service-web/web-sites-godaddy-custom-domain-name.md)
+> 
+> 
 
 <!---HONumber=AcomDC_0727_2016-->

@@ -1,48 +1,48 @@
-<properties
-   pageTitle="Guía del desarrollador de Azure Active Directory | Microsoft Azure"
-   description="Una lista de términos con las características y conceptos normalmente utilizados por los desarrolladores de Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="bryanla"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Guía del desarrollador de Azure Active Directory | Microsoft Docs
+description: Una lista de términos con las características y conceptos normalmente utilizados por los desarrolladores de Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: bryanla
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="08/31/2016"
-   ms.author="bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 08/31/2016
+ms.author: bryanla
 
+---
 # Guía del desarrollador de Azure Active Directory
 En este artículo se incluyen definiciones de algunos de los conceptos básicos para el desarrollador de Azure Active Directory (AD), que son útiles para obtener información sobre el desarrollo de aplicaciones para Azure AD.
 
-## de la aplicación Twitter 
+## de la aplicación Twitter
 Un tipo de [token de seguridad](#security-token) emitido por un [servidor de autorización](#authorization-server) y usado por una [aplicación cliente](#client-application) para acceder a un [servidor de recursos protegidos](#resource-server). Normalmente en forma de [JSON Web Token (JWT)][JWT], el token personifica la autorización concedida al cliente por el [propietario del recurso](#resource-owner) para un nivel de acceso solicitado. El token contiene todas las [notificaciones](#claim) aplicables sobre el sujeto, lo que permite a la aplicación cliente utilizarlo como forma de credencial al acceder a un recurso determinado. Esto también elimina la necesidad de que el propietario del recurso exponga sus credenciales al cliente.
 
 A veces se conoce a los tokens de acceso como "Aplicación y usuario" o "Solo aplicación", según las credenciales que se va a representar. Por ejemplo, cuando una aplicación cliente usa:
 
-- La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
-- [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
+* La [concesión de autorización del "código de autorización"](#authorization-grant), el usuario final se autentica primero como propietario del recurso, delegando la autorización al cliente para acceder al recurso. Después, el cliente se autentica al obtener el token de acceso. El token a veces se conoce más específicamente como token "Aplicación y usuario", ya que representa tanto al usuario que ha autorizado la aplicación cliente como a la aplicación.
+* [La concesión de autorización de "Credenciales de cliente"](#authorization-grant), el cliente proporciona la autenticación única, que funciona sin la autorización o autenticación del propietario del recurso, por lo que a veces el token puede conocerse como un token "Solo aplicación".
 
 Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para más información.
 
-## manifiesto de aplicación  
+## manifiesto de aplicación
 Una característica proporcionada por el [Portal de Azure clásico][AZURE-classic-portal], lo que genera una representación JSON de la configuración de identidad de la aplicación, utilizada como un mecanismo para actualizar sus entidades [Application][AAD-Graph-App-Entity] y [ServicePrincipal][AAD-Graph-Sp-Entity] asociadas. Para más información, consulte [Descripción del manifiesto de aplicación de Azure Active Directory][AAD-App-Manifest].
 
-## objeto de aplicación  
+## objeto de aplicación
 Cuando se registra o se actualiza una aplicación en el [Portal de Azure clásico][AZURE-classic-portal], el portal crea o actualiza un objeto de aplicación y un [objeto de entidad de servicio](#service-principal-object) correspondiente para dicho inquilino. El objeto de aplicación *define* globalmente la configuración de identidad de la aplicación (en todos los inquilinos a los que accede), lo que proporciona una plantilla de la que *proceden* los objetos de entidad de servicio correspondientes para su uso local en tiempo de ejecución (en un inquilino específico).
 
 Para más información, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
 
-## registro de la aplicación  
+## registro de la aplicación
 Para permitir que una aplicación integre y delegue las funciones de administración de identidades y acceso a Azure AD, debe registrarse con el [inquilino](#tenant) de Azure AD. Al registrar la aplicación con Azure AD, se proporciona una configuración de identidad para la aplicación, lo que le permite integrarla con Azure AD y usar características tales como:
 
-- Administración sólida de inicio de sesión único mediante la administración de identidades de Azure AD y la implementación del protocolo [OpenID Connect][OpenIDConnect]
-- Acceso sin intermediación a los [recursos protegidos](#resource-server) por [aplicaciones cliente](#client-application), a través de la implementación del [servidor de autorización](#authorization-server) OAuth 2.0 de Azure AD.
-- [Marco de consentimiento](#consent) para administrar el acceso del cliente a los recursos protegidos, en función de la autorización del propietario del recurso.
+* Administración sólida de inicio de sesión único mediante la administración de identidades de Azure AD y la implementación del protocolo [OpenID Connect][OpenIDConnect]
+* Acceso sin intermediación a los [recursos protegidos](#resource-server) por [aplicaciones cliente](#client-application), a través de la implementación del [servidor de autorización](#authorization-server) OAuth 2.0 de Azure AD.
+* [Marco de consentimiento](#consent) para administrar el acceso del cliente a los recursos protegidos, en función de la autorización del propietario del recurso.
 
 Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
 
@@ -52,8 +52,8 @@ El acto de solicitar a un usuario credenciales legítimas, que proporciona la ba
 ## authorization
 El acto de conceder un permiso a la entidad de seguridad autenticada para hacer algo. Hay dos casos de uso principales en el modelo de programación de Azure AD:
 
-- Durante un flujo de [concesión de autorización de OAuth2](#authorization-grant): cuando el [propietario del recurso](#resource-owner) autoriza a la [aplicación cliente](#client-application), lo que permite al cliente acceder a los recursos del propietario del recurso.
-- Durante el acceso a los recursos por el cliente: cuando lo implementa el [servidor de recursos](#resource-server), el uso de los valores de [notificación](#claim) presentes en el [token de acceso](#access-token) para tomar decisiones de control de acceso basadas en ellos.
+* Durante un flujo de [concesión de autorización de OAuth2](#authorization-grant): cuando el [propietario del recurso](#resource-owner) autoriza a la [aplicación cliente](#client-application), lo que permite al cliente acceder a los recursos del propietario del recurso.
+* Durante el acceso a los recursos por el cliente: cuando lo implementa el [servidor de recursos](#resource-server), el uso de los valores de [notificación](#claim) presentes en el [token de acceso](#access-token) para tomar decisiones de control de acceso basadas en ellos.
 
 ## código de autorización
 Un "token" de corta duración proporcionado a una [aplicación cliente](#client-application) por el [punto de conexión de autorización](#authorization-endpoint), como parte del flujo de "código de autorización", una de las cuatro [concesiones de autorización](#authorization-grant) de OAuth2. El código se devuelve a la aplicación cliente como respuesta a la autenticación de un [propietario del recurso](#resource-owner), lo que indica que este propietario ha delegado la autorización para acceder a los recursos solicitados. Como parte del flujo, el código se canjea después por un [token de acceso](#access-token).
@@ -76,7 +76,7 @@ Un [token de seguridad](#security-token) contiene notificaciones, que proporcion
 
 Consulte [Referencia de tokens de Azure AD][AAD-Tokens-Claims] para más información.
 
-## aplicación cliente  
+## aplicación cliente
 Tal como se define en la [plataforma de autorización de OAuth2][OAuth2-Role-Def], una aplicación que realiza solicitudes de recursos protegidos en nombre del [propietario del recurso](#resource-owner). El término "cliente" no implica ninguna característica de implementación de hardware determinada (por ejemplo, si la aplicación se ejecuta en un servidor, un equipo de escritorio o en otros dispositivos).
 
 Una aplicación cliente solicita [autorización](#authorization) de un propietario del recurso para participar en un flujo de [concesión de autorización de OAuth2](#authorization-grant) y puede acceder a los datos y API en nombre del propietario del recurso. La plataforma de autorización de OAuth2 [define dos tipos de clientes][OAuth2-Client-Types], "confidencial" y "público", en función de la capacidad del cliente para mantener la confidencialidad de sus credenciales. Las aplicaciones pueden implementar un [cliente web (confidencial)](#web-client) que se ejecuta en un servidor web, un [cliente nativo (público)](#native-client) instalado en un dispositivo y un [cliente basado en agente usuario (público)](#user-agent-based-client) que se ejecuta en el explorador del dispositivo.
@@ -100,8 +100,8 @@ Un tipo de [aplicación cliente](#client-application) que se instala de forma na
 ## permisos
 Una [aplicación cliente](#client-application) obtiene acceso a un [servidor de recursos](#resource-server) mediante la declaración de las solicitudes de permiso. Existen dos tipos:
 
-- Permisos "delegados", que solicitan acceso [basado en el ámbito](#scopes) con autorización delegada del [propietario del recurso](#resource-owner) que ha iniciado sesión, y se presentan al recurso en tiempo de ejecución como [notificaciones "scp"](#claim) en el [token de acceso](#access-token) del cliente.
-- Permisos de "aplicación", que solicitarán acceso [basado en roles](#roles) bajo las credenciales o identidad de la aplicación cliente, y se presentan al recurso en tiempo de ejecución como [notificaciones de "roles"](#claim) en el token de acceso del cliente.
+* Permisos "delegados", que solicitan acceso [basado en el ámbito](#scopes) con autorización delegada del [propietario del recurso](#resource-owner) que ha iniciado sesión, y se presentan al recurso en tiempo de ejecución como [notificaciones "scp"](#claim) en el [token de acceso](#access-token) del cliente.
+* Permisos de "aplicación", que solicitarán acceso [basado en roles](#roles) bajo las credenciales o identidad de la aplicación cliente, y se presentan al recurso en tiempo de ejecución como [notificaciones de "roles"](#claim) en el token de acceso del cliente.
 
 También se revelan durante el proceso de [consentimiento](#consent), ya que proporciona al administrador o al propietario del recurso la oportunidad de conceder o denegar el acceso de cliente a los recursos en su inquilino.
 
@@ -150,9 +150,9 @@ El proceso de anulación de la autenticación de un usuario final, de separar el
 ## tenant
 Una instancia de un directorio de Azure AD se conoce como inquilino de Azure AD. Proporciona una variedad de características, incluidos:
 
-- Un servicio de registro de aplicaciones integradas
-- Autenticación de cuentas de usuario y aplicaciones registradas
-- Puntos de conexión REST necesarios para admitir varios protocolos, como OAuth2 y SAML, incluidos el [punto de conexión de autorización](#authorization-endpoint), el [punto de conexión de token](#token-endpoint) y el punto de conexión "común" utilizado por [aplicaciones multiempresa](#multi-tenant-application).
+* Un servicio de registro de aplicaciones integradas
+* Autenticación de cuentas de usuario y aplicaciones registradas
+* Puntos de conexión REST necesarios para admitir varios protocolos, como OAuth2 y SAML, incluidos el [punto de conexión de autorización](#authorization-endpoint), el [punto de conexión de token](#token-endpoint) y el punto de conexión "común" utilizado por [aplicaciones multiempresa](#multi-tenant-application).
 
 Un inquilino también está asociado a una suscripción de Azure u Office 365 durante el aprovisionamiento de la suscripción, lo que proporciona características de identidad y administración de acceso para la suscripción. Consulte [Obtención de un inquilino de Azure Active Directory][AAD-How-To-Tenant] para más información sobre las diversas maneras de acceder a un inquilino. Consulte [Asociación de las suscripciones de Azure con Azure Active Directory][AAD-How-Subscriptions-Assoc] para más información sobre la relación entre las suscripciones y un inquilino de Azure AD.
 

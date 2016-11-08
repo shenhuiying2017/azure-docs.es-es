@@ -1,21 +1,23 @@
-<properties
-	pageTitle="Notas de la versión de la extensión de Visual Studio para Developer Analytics"
-	description="Las últimas novedades sobre las herramientas de Visual Studio para Developer Analytics."
-	services="application-insights"
-    documentationCenter=""
-	authors="acearun"
-	manager="douge"/>
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/09/2016"
-	ms.author="acearun"/>
+---
+title: Notas de la versión de la extensión de Visual Studio para Developer Analytics
+description: Las últimas novedades sobre las herramientas de Visual Studio para Developer Analytics.
+services: application-insights
+documentationcenter: ''
+author: acearun
+manager: douge
 
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 06/09/2016
+ms.author: acearun
+
+---
 # Notas de la versión para Developer Analytics Tools
 Novedades: Análisis de Application Insights y HockeyApp en Visual Studio.
+
 ## Versión 7.0
 ### Tendencias de Application Insights de Visual Studio
 Application Insights de Visual Studio es una nueva herramienta de Visual Studio que puede utilizar como ayuda para analizar el funcionamiento de su aplicación a lo largo del tiempo. Para empezar, en el botón de la barra de herramientas de **Application Insights** o en la ventana Búsqueda de Application Insights, elija **Explorar tendencias de telemetría**. O bien, en el menú **Ver**, haga clic en **Otras ventanas** y en **Tendencias de Application Insights**. Seleccione una de las cinco consultas comunes para empezar. Puede analizar diferentes conjuntos de datos en función de los tipos de telemetría, los intervalos de tiempo y otras propiedades. Para detectar anomalías en los datos, elija una de las opciones de anomalías en la lista desplegable **Tipo de vista**. Con las opciones de filtrado de la parte inferior de la ventana, resulta más sencillo centrarse en subconjuntos específicos de la telemetría.
@@ -52,6 +54,7 @@ Nos complace anunciar la presentación de los escenarios de HockeyApp en Visual 
 Con la distribución beta, se cargan las primeras versiones de las aplicaciones en HockeyApp para su distribución en un subconjunto seleccionado de clientes o evaluadores. La distribución beta, combinada con las características de comentarios del usuario y colecciones de bloqueos de HockeyApp, puede proporcionar información importante acerca de su aplicación antes de su lanzamiento general. Puede utilizar esta información para solucionar problemas con la aplicación para evitar o minimizar problemas en el futuro, como bajas clasificaciones de la aplicación, comentarios negativos, etc.
 
 Compruebe lo sencillo que es cargar compilaciones para la distribución beta en Visual Studio.
+
 ### Aplicaciones universales de Windows
 El menú contextual de un nodo de proyecto para aplicaciones universales de Windows incluye ahora una opción para cargar la compilación en HockeyApp.
 
@@ -91,6 +94,7 @@ Observe que hay un nuevo campo en este asistente para especificar la versión de
 El resto del flujo es similar al de las aplicaciones universales de Windows: elegir las opciones de la compilación y la versión, agregar notas de la versión, cargar y administrar en el portal de HockeyApp.
 
 Es así de sencillo. Pruébelo y díganos qué le parece.
+
 ## Versión 4.3
 ### Búsqueda de telemetría desde sesiones de depuración local
 Con esta versión, ahora puede buscar la telemetría de Application Insights generada en la sesión de depuración de Visual Studio. Antes, solo podía usar la búsqueda si había registrado su aplicación con Application Insights. Ahora, la aplicación solo necesita que el SDK de Application Insights esté instalado para buscar la telemetría local.
@@ -99,9 +103,9 @@ Si tiene una aplicación de ASP.NET con el SDK de Application Insights, siga est
 
 1. Depure la aplicación.
 2. Abra Búsqueda de Application Insights de una de estas formas:
-	- En el menú **Ver**, haga clic en **Otras ventanas** y en **Búsqueda de Application Insights**.
-	- Haga clic en el botón de la barra de herramientas **Application Insights**.
-	- En el Explorador de soluciones, expanda **ApplicationInsights.config** y haga clic en **Buscar telemetría de la sesión de depuración**.
+   * En el menú **Ver**, haga clic en **Otras ventanas** y en **Búsqueda de Application Insights**.
+   * Haga clic en el botón de la barra de herramientas **Application Insights**.
+   * En el Explorador de soluciones, expanda **ApplicationInsights.config** y haga clic en **Buscar telemetría de la sesión de depuración**.
 3. Si aún no se ha registrado con Application Insights, se abrirá la ventana Búsqueda en el modo de telemetría de la sesión de depuración.
 4. Haga clic en el icono **Buscar** para ver la telemetría local.
 
@@ -109,8 +113,10 @@ Si tiene una aplicación de ASP.NET con el SDK de Application Insights, siga est
 
 ## Versión 4.2
 En esta versión hemos agregado características para facilitar la búsqueda de datos en el contexto de eventos, con la posibilidad de saltar al código desde más eventos de datos, y una experiencia fácil para enviar los datos de registro a Application Insights. Esta extensión se actualiza mensualmente. Si tiene comentarios o solicitudes de características, envíelos a aidevtools@microsoft.com.
+
 ### Experiencia de registro sin clics
 Si ya usa NLog, log4net o System.Diagnostics.Tracing, no tiene que preocuparse acerca de cómo mover todos los seguimientos a Application Insights. En esta versión, hemos integrado los adaptadores de registro de Application Insights con la experiencia de configuración normal. Si ya tiene una de estas plataformas de registro configuradas, en la siguiente sección se describe cómo obtenerla. **Si ya ha agregado Application Insights:**
+
 1. Haga clic con el botón derecho en el nodo de proyecto, haga clic en **Application Insights**, y, a continuación, en **Configurar Application Insights**. Asegúrese de que ve la opción para agregar el adaptador correcto en la ventana de configuración.
 2. O bien, cuando compile la solución, observe la ventana emergente que aparece en la parte superior derecha de la pantalla y haga clic en **Configurar**.
 
@@ -165,26 +171,22 @@ Aparecerá un cuadro de diálogo emergente cuando el proyecto se publique en lí
 ![Publicar notificación completa](./media/app-insights-release-notes-vsix/publishtoast.png)
 
 ## Versión 4.0
-
 ### Datos de Búsqueda de Application Insights en Visual Studio
 Al igual que la función de búsqueda en el portal de Application Insights, ahora en Visual Studio puede filtrar y hacer búsquedas por tipos de eventos, valores de propiedades y texto, y después inspeccionar eventos individuales.
 
 ![Ventana de búsqueda](./media/app-insights-release-notes-vsix/search.png)
 
 ### Consulta de datos procedentes de un equipo local en Herramientas de diagnóstico
-
 Puede ver la telemetría, además de otros datos de depuración, en la página de herramientas de diagnóstico de Visual Studio. Solo se admite ASP.NET 4.5.
 
 ![Página Herramientas de diagnóstico](./media/app-insights-release-notes-vsix/diagtools.png)
 
 ### Incorporación del SDK al proyecto sin iniciar sesión en Azure
-
 Ya no tiene que iniciar sesión en Azure para agregar paquetes de Application Insights al proyecto, ya sea en el cuadro de diálogo **Nuevo proyecto** o en el menú contextual del proyecto. Si inicia sesión, se instalará y configurará el SDK para enviar la telemetría al portal como antes. Si no inicia sesión, el SDK se agregará al proyecto y generará la telemetría para el concentrador de diagnósticos. Puede configurarlo más adelante si lo desea.
 
 ![Cuadro de diálogo Nuevo proyecto](./media/app-insights-release-notes-vsix/newproject.png)
 
 ### Compatibilidad con dispositivos
-
 En *Connect();* 2015 [anunciamos](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) que nuestra experiencia de desarrolladores para móviles con dispositivos es HockeyApp. HockeyApp ayuda a distribuir compilaciones beta a los evaluadores, recopilar y analizar todos los bloqueos de la aplicación y obtener comentarios directamente de los clientes. HockeyApp es compatible con su aplicación en cualquier plataforma en la que decida compilarla, ya sea iOS, Android, Windows o una solución multiplataforma como Xamarin, Cordova o Unity.
 
 En versiones futuras de la extensión Application Insights, presentaremos una experiencia más integrada entre HockeyApp y Visual Studio. Por ahora, para empezar a trabajar con HockeyApp, basta con agregar la referencia de NuGet. Consulte la [documentación](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) para más información.

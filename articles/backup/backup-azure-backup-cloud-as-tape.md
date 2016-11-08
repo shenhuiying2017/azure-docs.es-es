@@ -1,27 +1,27 @@
-<properties
-   pageTitle="Usar Copia de seguridad de Azure para reemplazar la infraestructura de cintas | Microsoft Azure"
-   description="Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
-   services="backup"
-   documentationCenter=""
-   authors="trinadhk"
-   manager="vijayts"
-   editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="09/27/2016"
-   ms.author="jimpark;trinadhk;markgal"/>
+---
+title: Usar Copia de seguridad de Azure para reemplazar la infraestructura de cintas | Microsoft Docs
+description: Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: vijayts
+editor: ''
 
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 09/27/2016
+ms.author: jimpark;trinadhk;markgal
+
+---
 # Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
-
 Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Protection Manager pueden:
 
-- Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
-- Conservar los datos de copia de seguridad durante períodos más largos.
-- Hacer a Azure partícipe de sus necesidades de retención a largo plazo (en lugar de la cinta).
+* Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
+* Conservar los datos de copia de seguridad durante períodos más largos.
+* Hacer a Azure partícipe de sus necesidades de retención a largo plazo (en lugar de la cinta).
 
 Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de la copia de seguridad de Azure (que está disponible [aquí](http://aka.ms/azurebackup_agent)). Debe actualizarse a los clientes System Center DPM, como mínimo, DPM 2012 R2 UR5 para usar DPM con el servicio de Azure Backup.
 
@@ -42,7 +42,6 @@ La directiva de retención especifica el tiempo durante el que debe almacenarse 
 El número total de "puntos de retención" especificado en esta directiva es de 90 (puntos diarios) + 40 (uno cada trimestre durante 10 años) = 130.
 
 ## Ejemplo: reunir ambos
-
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.
@@ -52,14 +51,17 @@ El número total de "puntos de retención" especificado en esta directiva es de 
 
 El número total de "puntos de retención" (desde los que un cliente puede restaurar datos) en el diagrama anterior se calcula de la forma siguiente:
 
-- 2 puntos por día durante 7 días = 14 puntos de recuperación
-- 2 puntos por día durante 4 semanas = 8 puntos de recuperación
-- 2 puntos por mes durante 12 meses = 24 puntos de recuperación
-- 1 punto por año durante 10 años = 10 puntos de recuperación
+* 2 puntos por día durante 7 días = 14 puntos de recuperación
+* 2 puntos por día durante 4 semanas = 8 puntos de recuperación
+* 2 puntos por mes durante 12 meses = 24 puntos de recuperación
+* 1 punto por año durante 10 años = 10 puntos de recuperación
 
 El número total de puntos de recuperación es 56.
 
-> [AZURE.NOTE] La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
+> [!NOTE]
+> La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
+> 
+> 
 
 ## Configuración avanzada
 Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
@@ -69,7 +71,7 @@ Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más
 ## Pasos siguientes
 Para obtener más información sobre Azure Backup, vea
 
-- [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
-- [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
+* [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
+* [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
 
 <!---HONumber=AcomDC_0928_2016-->

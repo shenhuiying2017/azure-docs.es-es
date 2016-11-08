@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Información general sobre Enterprise Integration Pack | Servicio de aplicaciones de Microsoft Azure | Microsoft Azure" 
-	description="Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante el Servicio de aplicaciones de Microsoft Azure." 
-	services="logic-apps" 
-	documentationCenter=".net,nodejs,java"
-	authors="msftman" 
-	manager="erikre" 
-	editor="cgronlun"/>
+---
+title: Información general sobre Enterprise Integration Pack | Microsoft Docs
+description: Utilice las características de Enterprise Integration Pack para posibilitar escenarios de integración y proceso empresariales mediante el Servicio de aplicaciones de Microsoft Azure.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: cgronlun
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="integration" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/08/2016" 
-	ms.author="deonhe"/>
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/08/2016
+ms.author: deonhe
 
+---
 # Integración de empresas con transformaciones XML
-
 ## Información general
 El conector de transformación de integración de empresas convierte los datos de un formato a otro. Por ejemplo, puede darse el caso de que tenga un mensaje entrante en el que la fecha actual tenga el formato añoMesDía. Puede utilizar una transformación para cambiar el formato de la fecha a mesDíaAño.
 
@@ -32,18 +31,21 @@ Cuando cargue la transformación en la cuenta de integración, podrá emplearla 
 
 **Estos son los pasos para utilizar una transformación**:
 
-### Requisitos previos 
+### Requisitos previos
 En la versión preliminar, tendrá que llevar a cabo estos pasos:
 
--  [Crear un contenedor de Funciones de Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Creación de un contenedor de Funciones de Azure").
--  [Agregar una función al contenedor de Funciones de Azure.](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Esta plantilla crea una función de Azure de C# basada en webhooks con funcionalidades de transformación que se utilizarán en escenarios de integración de Aplicaciones lógicas.")
--  Crear una cuenta de integración y agregarle una asignación.
+* [Crear un contenedor de Funciones de Azure](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Creación de un contenedor de Funciones de Azure").
+* [Agregar una función al contenedor de Funciones de Azure.](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "Esta plantilla crea una función de Azure de C# basada en webhooks con funcionalidades de transformación que se utilizarán en escenarios de integración de Aplicaciones lógicas.")
+* Crear una cuenta de integración y agregarle una asignación.
 
->[AZURE.TIP] Anote el nombre del contenedor de Funciones de Azure y el de la función de Azure, ya que los necesitará en el paso siguiente.
+> [!TIP]
+> Anote el nombre del contenedor de Funciones de Azure y el de la función de Azure, ya que los necesitará en el paso siguiente.
+> 
+> 
 
 Ahora que ha tenido en cuenta los requisitos previos, tendrá que crear la Aplicación lógica:
 
-1. Cree una aplicación lógica y [vincúlela a la cuenta de integración](./app-service-logic-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica.") que contenga la asignación.
+1. Cree una aplicación lógica y [vincúlela a la cuenta de integración](app-service-logic-enterprise-integration-accounts.md "Aprenda a vincular una cuenta de integración a una Aplicación lógica.") que contenga la asignación.
 2. Agregue un desencadenador **Request - When an HTTP request is received** (Solicitar: cuando se reciba una solicitud HTTP) a la aplicación lógica.![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)
 3. Agregue la acción **Transform XML** (Transformar XML) seleccionando primero **Agregar una acción**.![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)
 4. Escriba la palabra *transform* en el cuadro de búsqueda para filtrar todas las acciones que quiera usar.![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)
@@ -59,19 +61,16 @@ En este momento, ya ha terminado de configurar su asignación. En una aplicació
 Ahora puede probar la transformación realizando una solicitud al punto de conexión HTTP.
 
 ## Características y casos de uso
-
-- La transformación creada en una asignación puede ser simple, como copiar un nombre y una dirección de un documento a otro. O bien puede crear transformaciones más complejas mediante las operaciones de asignación integradas.
-- Hay varias operaciones de asignación o funciones a las que se puede acceder fácilmente, por ejemplo, cadenas, funciones de fecha hora, etc.
-- Puede realizar una copia de datos directa entre los esquemas. En el Asignador que incluye el SDK, es tan sencillo como dibujar una línea que conecte los elementos del esquema de origen con sus equivalentes en el de destino.
-- Al crear una asignación, verá una representación gráfica de esta, que muestra todos los vínculos y relaciones que cree.
-- Utilice la característica Comprobar asignación para agregar un mensaje XML de ejemplo. Con un solo clic, puede probar la asignación creada y ver el resultado generado.
-- Cargue asignaciones que ya existan.
-- Es compatible con el formato XML.
-
+* La transformación creada en una asignación puede ser simple, como copiar un nombre y una dirección de un documento a otro. O bien puede crear transformaciones más complejas mediante las operaciones de asignación integradas.
+* Hay varias operaciones de asignación o funciones a las que se puede acceder fácilmente, por ejemplo, cadenas, funciones de fecha hora, etc.
+* Puede realizar una copia de datos directa entre los esquemas. En el Asignador que incluye el SDK, es tan sencillo como dibujar una línea que conecte los elementos del esquema de origen con sus equivalentes en el de destino.
+* Al crear una asignación, verá una representación gráfica de esta, que muestra todos los vínculos y relaciones que cree.
+* Utilice la característica Comprobar asignación para agregar un mensaje XML de ejemplo. Con un solo clic, puede probar la asignación creada y ver el resultado generado.
+* Cargue asignaciones que ya existan.
+* Es compatible con el formato XML.
 
 ## Más información
-- [Más información sobre Enterprise Integration Pack](./app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
-- [Más información sobre las asignaciones](./app-service-logic-enterprise-integration-maps.md "Información sobre las asignaciones de integración de empresas")
- 
+* [Más información sobre Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")
+* [Más información sobre las asignaciones](app-service-logic-enterprise-integration-maps.md "Información sobre las asignaciones de integración de empresas")
 
 <!---HONumber=AcomDC_0803_2016-->

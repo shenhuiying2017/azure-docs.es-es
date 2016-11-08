@@ -1,28 +1,26 @@
-<properties 
-	pageTitle="Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones" 
-	description="Introducción a la arquitectura de la topología de red de los entornos del Servicio de aplicaciones." 
-	services="app-service" 
-	documentationCenter="" 
-	authors="stefsch" 
-	manager="wpickett" 
-	editor=""/>
+---
+title: Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
+description: Introducción a la arquitectura de la topología de red de los entornos del Servicio de aplicaciones.
+services: app-service
+documentationcenter: ''
+author: stefsch
+manager: wpickett
+editor: ''
 
-<tags 
-	ms.service="app-service" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/13/2016" 
-	ms.author="stefsch"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/13/2016
+ms.author: stefsch
 
+---
 # Información general sobre la arquitectura de red de los entornos del Servicio de aplicaciones
-
-## Introducción ##
+## Introducción
 Los entornos de Servicio de aplicaciones siempre se crean dentro de una subred de una [red virtual][virtualnetwork]; las aplicaciones que se ejecutan en un entorno de Servicio de aplicaciones pueden comunicarse con extremos privados ubicados dentro de la misma topología de red virtual. Puesto que los clientes pueden bloquear partes de su infraestructura de red virtual, es importante conocer los tipos de flujos de comunicación de red que se producen con un entorno del Servicio de aplicaciones.
 
-## Flujo de red general ##
- 
+## Flujo de red general
 Cuando un entorno del Servicio de aplicaciones (ASE) utiliza una dirección IP virtual pública (VIP) para las aplicaciones, todo el tráfico entrante llega a esa VIP pública, incluido el tráfico HTTP y HTTPS para las aplicaciones, así como otro tráfico de FTP, la funcionalidad de depuración remota y las operaciones de administración de Azure. Para obtener una lista completa de los puertos específicos (necesarios y opcionales) que están disponibles en la VIP pública, consulte el artículo sobre el [control del tráfico entrante][controllinginboundtraffic] en un entorno del Servicio de aplicaciones.
 
 Los entornos del Servicio de aplicaciones también admiten aplicaciones en ejecución enlazadas únicamente a una dirección de red virtual interna, que también se denomina "dirección del ILB" (equilibrador de carga interno). En un ASE con un ILB, el tráfico HTTP y HTTPS de las aplicaciones, así como las llamadas de depuración remota, proceden de la dirección del ILB. En las configuraciones de ASE con un ILB más habituales, el tráfico FTP y FTPS también llegan desde esa dirección. Sin embargo, las operaciones de administración de Azure seguirán fluyendo a los puertos 454 y 455 en la VIP pública de un ASE con un ILB.
@@ -33,7 +31,10 @@ En el diagrama siguiente se muestra información general de los distintos flujos
 
 Un entorno del Servicio de aplicaciones puede comunicarse con una variedad de extremos privados del cliente. Por ejemplo, las aplicaciones que se ejecutan en el entorno del Servicio de aplicaciones pueden conectarse a servidores de base de datos que se ejecutan en máquinas virtuales de IaaS en la misma topología de red virtual.
 
->[AZURE.IMPORTANT] Si examinamos el diagrama de red, la implementación correspondiente a "Otros recursos de proceso" se efectúa en una subred diferente a la del entorno del Servicio de aplicaciones. Al implementar recursos en la misma subred que el entorno del Servicio de aplicaciones (ASE), se bloqueará la conectividad del ASE a esos recursos (excepto para el enrutamiento específico dentro del entorno del Servicio de aplicaciones). Implemente en su lugar en una subred diferente (en la misma red virtual). A continuación, el entorno del Servicio de aplicaciones podrá conectarse. No se necesita ninguna configuración adicional.
+> [!IMPORTANT]
+> Si examinamos el diagrama de red, la implementación correspondiente a "Otros recursos de proceso" se efectúa en una subred diferente a la del entorno del Servicio de aplicaciones. Al implementar recursos en la misma subred que el entorno del Servicio de aplicaciones (ASE), se bloqueará la conectividad del ASE a esos recursos (excepto para el enrutamiento específico dentro del entorno del Servicio de aplicaciones). Implemente en su lugar en una subred diferente (en la misma red virtual). A continuación, el entorno del Servicio de aplicaciones podrá conectarse. No se necesita ninguna configuración adicional.
+> 
+> 
 
 Los entornos del Servicio de aplicaciones también se comunican con la base de datos SQL y los recursos del Almacenamiento de Azure necesarios para administrar y operar un entorno del Servicio de aplicaciones. Algunos recursos de almacenamiento y SQL con los que se comunica un entorno del Servicio de aplicaciones se encuentran en la misma región que el entorno del Servicio de aplicaciones, mientras que otros se encuentran en regiones de Azure remotas. Como resultado, la conectividad saliente a Internet siempre es necesaria para que un entorno del Servicio de aplicaciones funcione correctamente.
 
@@ -41,11 +42,11 @@ Puesto que un entorno del Servicio de aplicaciones se implementa en una subred, 
 
 Para obtener información detallada sobre cómo permitir la conectividad saliente de Internet desde un entorno del Servicio de aplicaciones, consulte el artículo siguiente sobre cómo trabajar con [Express Route][ExpressRoute]. El mismo enfoque que se describe en este artículo se aplica al trabajar con conectividad de sitio a sitio y al usar la tunelización forzada.
 
-## Direcciones de red de salida ##
+## Direcciones de red de salida
 Cuando un entorno del Servicio de aplicaciones realiza las llamadas salientes, una dirección IP siempre se asocia con las llamadas salientes. La dirección IP específica que se usa depende de si el extremo al que se llama se encuentra dentro de la topología de red virtual o fuera de ella.
 
 Si el extremo al que se llama está **fuera** de la topología de red virtual, entonces la dirección saliente (también conocida como la dirección NAT saliente) que se utiliza es la VIP pública del entorno del Servicio de aplicaciones. Esta dirección se encuentra en la interfaz de usuario del portal para el entorno de Servicio de aplicaciones en la hoja Propiedades.
- 
+
 ![Dirección IP saliente][OutboundIPAddress]
 
 Esta dirección también se puede determinar para los ASE que solo tienen una VIP pública creando una aplicación en el entorno de Servicio de aplicaciones y, después, realizando una operación *nslookup* en la dirección de la aplicación. La dirección IP resultante es tanto la VIP pública como la dirección NAT saliente del entorno del Servicio de aplicaciones.
@@ -60,10 +61,10 @@ En el diagrama siguiente se explican estos conceptos de manera detallada:
 
 En el diagrama anterior:
 
-- Dado que la VIP pública del entorno del Servicio de aplicaciones es 192.23.1.2, que es la dirección IP saliente que se utiliza cuando se realizan llamadas a los extremos de "Internet".
-- El intervalo CIDR de la subred que contiene para el entorno del Servicio de aplicaciones es 10.0.1.0/26. Otros extremos dentro de la misma infraestructura de red virtual verán las llamadas de aplicaciones como originadas en algún lugar dentro de este intervalo de direcciones.
+* Dado que la VIP pública del entorno del Servicio de aplicaciones es 192.23.1.2, que es la dirección IP saliente que se utiliza cuando se realizan llamadas a los extremos de "Internet".
+* El intervalo CIDR de la subred que contiene para el entorno del Servicio de aplicaciones es 10.0.1.0/26. Otros extremos dentro de la misma infraestructura de red virtual verán las llamadas de aplicaciones como originadas en algún lugar dentro de este intervalo de direcciones.
 
-## Llamadas entre entornos del Servicio de aplicaciones ##
+## Llamadas entre entornos del Servicio de aplicaciones
 El escenario puede resultar más complejo si implementa varios entornos del Servicio de aplicaciones en la misma red virtual y realiza llamadas salientes desde un entorno del Servicio de aplicaciones a otro. Estos tipos de llamadas cruzadas entre entornos del Servicio de aplicaciones también se tratarán como llamadas de "Internet".
 
 En el siguiente diagrama, se muestra un ejemplo de arquitectura en capas con aplicaciones en un entorno de Servicio de aplicaciones (p. ej., aplicaciones web de "entrada principal") que llaman a aplicaciones en un segundo entorno de Servicio de aplicaciones (por ejemplo, aplicaciones de API de back-end internas que no se crearon para que sean accesibles desde Internet).
@@ -74,13 +75,12 @@ En el ejemplo anterior, el entorno de Servicio de aplicaciones "ASE One" tiene l
 
 Aunque las llamadas entre diferentes entornos de Servicio de aplicaciones se tratan como llamadas de "Internet", cuando ambos entornos de Servicio de aplicaciones se encuentran en la misma región de Azure, el tráfico de red permanecerá en la red regional de Azure y no pasará físicamente a través de la Internet pública. Como resultado, puede usar un grupo de seguridad de red en la subred del segundo entorno de Servicio de aplicaciones para permitir solo las llamadas entrantes desde el primer entorno de Servicio de aplicaciones (cuya dirección IP saliente es 192.23.1.2), lo que garantiza una comunicación segura entre los entornos de Servicio de aplicaciones.
 
-## Información y vínculos adicionales ##
+## Información y vínculos adicionales
 Todos los artículos y procedimientos correspondientes a los entornos del Servicio de aplicaciones están disponibles en el archivo [Léame para entornos del Servicio de aplicaciones](../app-service/app-service-app-service-environments-readme.md).
 
 Se puede obtener más información sobre los puertos de entrada usados por los entornos de Servicio de aplicaciones y sobre el uso de grupos de seguridad de red para controlar el tráfico entrante [aquí][controllinginboundtraffic].
 
 Los detalles sobre el uso de rutas definidas por el usuario para conceder acceso saliente a Internet a los entornos del Servicio de aplicaciones están disponibles en este [artículo][ExpressRoute].
-
 
 <!-- LINKS -->
 [virtualnetwork]: http://azure.microsoft.com/services/virtual-network/

@@ -1,134 +1,136 @@
-<properties
-   pageTitle="Depuración de la aplicación en Visual Studio | Microsoft Azure"
-   description="Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio en un clúster de desarrollo local."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor=""/>
+---
+title: Depuración de la aplicación en Visual Studio | Microsoft Docs
+description: Mejore la confiabilidad y el rendimiento de los servicios mediante su desarrollo y depuración en Visual Studio en un clúster de desarrollo local.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/21/2016"
-   ms.author="vturecek;mikhegn"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/21/2016
+ms.author: vturecek;mikhegn
 
+---
 # Depurar la aplicación de Service Fabric con Visual Studio
-
 ## Depurar una aplicación de Service Fabric local
-
 Puede ahorrar tiempo y dinero implementando y depurando su aplicación de Service Fabric de Azure en un clúster de desarrollo del equipo local. Visual Studio puede implementar la aplicación en el clúster local y conectar automáticamente el depurador a todas las instancias de la aplicación.
 
 1. Inicie un clúster de desarrollo local siguiendo los pasos descritos en [Configurar el entorno de desarrollo de Service Fabric](service-fabric-get-started.md).
-
 2. Presione **F5** o haga clic en **Depurar** > **Iniciar depuración**.
-
+   
     ![Empezar a depurar una aplicación][startdebugging]
-
 3. Establezca puntos de interrupción en el código y recorra la aplicación haciendo clic en los comandos del menú **Depurar**.
-
-    > [AZURE.NOTE] Visual Studio se conecta a todas las instancias de su aplicación. Al recorrer el código, se pueden alcanzar los puntos de interrupción por varios procesos, lo que da lugar a sesiones simultáneas. Intente deshabilitar los puntos de interrupción después de que se alcancen, haciendo que el punto de interrupción sea condicional en el id. del subproceso o use los eventos de diagnóstico.
-
+   
+   > [!NOTE]
+   > Visual Studio se conecta a todas las instancias de su aplicación. Al recorrer el código, se pueden alcanzar los puntos de interrupción por varios procesos, lo que da lugar a sesiones simultáneas. Intente deshabilitar los puntos de interrupción después de que se alcancen, haciendo que el punto de interrupción sea condicional en el id. del subproceso o use los eventos de diagnóstico.
+   > 
+   > 
 4. La ventana **Eventos de diagnóstico** se abrirá automáticamente para que pueda ver los eventos de diagnóstico en tiempo real.
-
+   
     ![Ver eventos de diagnóstico en tiempo real][diagnosticevents]
-
 5. También puede abrir la ventana **Eventos de diagnóstico** en Cloud Explorer. En **Service Fabric**, haga clic con el botón derecho en cualquier nodo y elija **Ver seguimientos en streaming**.
-
+   
     ![Abrir la ventana de eventos de diagnóstico][viewdiagnosticevents]
-
+   
     Si quiere filtrar los seguimientos para mostrar una aplicación o un servicio específicos, simplemente habilite los seguimientos en streaming en ellos.
-
 6. Los eventos de diagnóstico se pueden ver en el archivo **ServiceEventSource.cs** generado automáticamente y se llaman desde el código de la aplicación.
-
+   
     ```csharp
     ServiceEventSource.Current.ServiceMessage(this, "My ServiceMessage with a parameter {0}", result.Value.ToString());
     ```
-
 7. La ventana **Eventos de diagnóstico** admite el filtrado, la pausa y la inspección de eventos en tiempo real. El filtro es una búsqueda de cadena simple del mensaje de evento, incluido su contenido.
-
+   
     ![Filtrar, pausar y reanudar, o inspeccionar eventos en tiempo real][diagnosticeventsactions]
-
 8. Depurar servicios es parecido a depurar cualquier otra aplicación. Para facilitar el proceso, lo normal es establecer puntos de interrupción a través de Visual Studio. Aunque las instancias de Reliable Collections se replican en varios nodos, siguen implementando IEnumerable. Esto significa que puede usar la vista de resultados en Visual Studio durante la depuración para ver lo que ha almacenado dentro. Solo tiene que establecer un punto de interrupción en el código.
-
+   
     ![Empezar a depurar una aplicación][breakpoint]
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Depurar una aplicación de Service Fabric remota
-
 Si las aplicaciones de Service Fabric se están ejecutando en un clúster de Service Fabric de Azure, es posible depurarlas de forma remota, directamente desde Visual Studio.
 
-> [AZURE.NOTE] La característica requiere [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) y el [SDK de Azure para .NET 2.9](https://azure.microsoft.com/downloads/).
+> [!NOTE]
+> La característica requiere [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) y el [SDK de Azure para .NET 2.9](https://azure.microsoft.com/downloads/).
+> 
+> 
 
 <!-- -->
-> [AZURE.WARNING] La depuración remota está diseñada para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
+> [!WARNING]
+> La depuración remota está diseñada para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución.
+> 
+> 
 
 1. Vaya a su clúster de **Cloud Explorer**, haga clic con el botón derecho y elija **Habilitar depuración**.
-
+   
     ![Habilitar la depuración remota][enableremotedebugging]
-
+   
     De esta forma se inicia el proceso de habilitar la extensión de depuración remota en los nodos del clúster, así como las configuraciones de red necesarias.
-
 2. Haga clic con el botón derecho en el nodo de clúster en **Cloud Explorer** y elija **Adjuntar depurador**.
-
+   
     ![Attach debugger][attachdebugger]
-
 3. En el cuadro de diálogo **Asociar al proceso**, elija el proceso que quiere depurar y haga clic en **Adjuntar**
-
+   
     ![Elegir proceso][chooseprocess]
-
+   
     El nombre del proceso que desea asociar equivale al nombre del ensamblado del proyecto de servicio.
-
+   
     El depurador se asociará a todos los nodos que ejecutan el proceso.
-    - En caso de que vaya a depurar un servicio sin estado, todas las instancias del servicio en todos los nodos forman parte de la sesión de depuración.
-    - Si va a depurar un servicio con estado, solo la réplica principal de cualquier partición estará activa y, por tanto, será la que capture el depurador. Si se mueve la réplica principal durante la sesión de depuración, el procesamiento de esa réplica todavía será parte de la sesión de depuración.
-    - Para capturar solo las particiones o instancias pertinentes de un servicio determinado, puede utilizar puntos de interrupción condicionales para interrumpir solo una instancia o una partición específica.
-
-    ![Punto de interrupción condicional][conditionalbreakpoint]
-
-    > [AZURE.NOTE] Actualmente no se admite la depuración de un clúster de Service Fabric con varias instancias del mismo nombre ejecutable de servicio.
-
+   
+   * En caso de que vaya a depurar un servicio sin estado, todas las instancias del servicio en todos los nodos forman parte de la sesión de depuración.
+   * Si va a depurar un servicio con estado, solo la réplica principal de cualquier partición estará activa y, por tanto, será la que capture el depurador. Si se mueve la réplica principal durante la sesión de depuración, el procesamiento de esa réplica todavía será parte de la sesión de depuración.
+   * Para capturar solo las particiones o instancias pertinentes de un servicio determinado, puede utilizar puntos de interrupción condicionales para interrumpir solo una instancia o una partición específica.
+     
+     ![Punto de interrupción condicional][conditionalbreakpoint]
+     
+     > [!NOTE]
+     > Actualmente no se admite la depuración de un clúster de Service Fabric con varias instancias del mismo nombre ejecutable de servicio.
+     > 
+     > 
 4. Cuando termine de depurar la aplicación, puede deshabilitar la extensión de depuración remota; para ello, haga clic con el botón derecho en el clúster en **Cloud Explorer** y elija **Deshabilitar depuración**
-
+   
     ![Deshabilitar la depuración remota][disableremotedebugging]
 
 ## Seguimientos en streaming desde un nodo de clúster remoto
-
 También puede trasmitir seguimientos directamente desde un nodo de clúster remoto a Visual Studio. Esta característica permite transmitir eventos de seguimiento ETW, generados en un nodo de clúster de Service Fabric, directamente en Visual Studio.
 
-> [AZURE.NOTE] La característica requiere [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) y el [SDK de Azure para .NET 2.9](https://azure.microsoft.com/downloads/).
+> [!NOTE]
+> La característica requiere [Service Fabric SDK 2.0](http://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) y el [SDK de Azure para .NET 2.9](https://azure.microsoft.com/downloads/).
+> 
+> 
 
 <!-- -->
-> [AZURE.WARNING] Los seguimientos en streaming están concebidos para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución. En un escenario de producción, debe depender del reenvío de eventos mediante Diagnósticos de Azure.
+> [!WARNING]
+> Los seguimientos en streaming están concebidos para escenarios de desarrollo y pruebas y no para su uso en entornos de producción, debido al impacto en las aplicaciones en ejecución. En un escenario de producción, debe depender del reenvío de eventos mediante Diagnósticos de Azure.
+> 
+> 
 
 1. Vaya a su clúster en **Cloud Explorer**, haga clic con el botón derecho y elija **Habilitar seguimientos en streaming**.
-
+   
     ![Habilitar seguimientos en streaming remotos][enablestreamingtraces]
-
+   
     De esta forma se inicia el proceso de habilitar la extensión de seguimientos en streaming en los nodos del clúster, así como las configuraciones de red necesarias.
-
 2. Expanda el elemento **Nodos** en **Cloud Explorer**, haga clic con el botón derecho en el nodo desde el que desea transmitir seguimientos y elija **Ver seguimientos en streaming**.
-
+   
     ![Ver seguimientos en streaming remotos][viewremotestreamingtraces]
-
+   
     Repita el paso 2 en todos los nodos desde los que quiera ver seguimientos. Cada transmisión de nodos se mostrará en una ventana dedicada.
-
+   
     Ahora puede ver los seguimientos emitidos por Service Fabric y sus servicios. Si quiere filtrar los eventos para mostrar solo una aplicación específica, simplemente escriba el nombre de la aplicación en el filtro.
-
+   
     ![Ver seguimientos en streaming][viewingstreamingtraces]
-
-4. Cuando haya realizado los seguimientos en streaming desde el clúster, puede deshabilitar los seguimientos en streaming remotos; para ello, haga clic con el botón derecho en el clúster en **Cloud Explorer** y elija **Deshabilitar seguimientos en streaming**.
-
+3. Cuando haya realizado los seguimientos en streaming desde el clúster, puede deshabilitar los seguimientos en streaming remotos; para ello, haga clic con el botón derecho en el clúster en **Cloud Explorer** y elija **Deshabilitar seguimientos en streaming**.
+   
     ![Deshabilitar seguimientos en streaming remotos][disablestreamingtraces]
 
 ## Pasos siguientes
-
-- [Pruebe un servicio de Service Fabric](service-fabric-testability-overview.md).
-- [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+* [Pruebe un servicio de Service Fabric](service-fabric-testability-overview.md).
+* [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!--Image references-->
 [startdebugging]: ./media/service-fabric-debugging-your-application/startdebugging.png

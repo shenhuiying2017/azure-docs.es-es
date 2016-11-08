@@ -1,39 +1,35 @@
-<properties
-   pageTitle="Supervisión de un clúster del servicio de contenedores de Azure con Datadog | Microsoft Azure"
-   description="Supervise un clúster del servicio de contenedores de Azure con Datadog. Utilice la interfaz de usuario web de DC/OS para implementar agentes de Datadog en el clúster."
-   services="container-service"
-   documentationCenter=""
-   authors="rbitia"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Contenedores, DC/OS, Docker Swarm, Azure"/>
+---
+title: Supervisión de un clúster del servicio de contenedores de Azure con Datadog | Microsoft Docs
+description: Supervise un clúster del servicio de contenedores de Azure con Datadog. Utilice la interfaz de usuario web de DC/OS para implementar agentes de Datadog en el clúster.
+services: container-service
+documentationcenter: ''
+author: rbitia
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Contenedores, DC/OS, Docker Swarm, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure"   
-   ms.date="07/28/2016"
-   ms.author="t-ribhat"/>
+ms.service: container-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure
+ms.date: 07/28/2016
+ms.author: t-ribhat
 
+---
 # Supervisión de un clúster del servicio de contenedores de Azure con Datadog
-
 En este artículo, implementaremos agentes Datadog en todos los nodos de agente del clúster del servicio de contenedores de Azure. Necesita una cuenta con Datadog para esta configuración.
 
-## Requisitos previos 
-
+## Requisitos previos
 [Implemente](container-service-deployment.md) y [conecte](container-service-connect.md) un clúster configurado por el servicio de contenedores de Azure. Explore la [interfaz de usuario de Marathon](container-service-mesos-marathon-ui.md). Vaya a [http://datadoghq.com](http://datadoghq.com) para configurar una cuenta de Datadog.
 
-## Datadog 
-
+## Datadog
 Datadog es un servicio de supervisión que recopila datos de supervisión de los contenedores dentro del clúster del servicio de contenedor de Azure. Datadog tiene un panel de integración de Docker donde puede ver las métricas específicas dentro de los contenedores. Las métricas que se recopilan de los contenedores están organizadas por CPU, memoria, red y E/S. Datadog divide las métricas en contenedores e imágenes. A continuación se muestra un ejemplo del aspecto de la interfaz de usuario para el uso de CPU.
 
 ![Interfaz de usuario de Datadog](./media/container-service-monitoring/datadog4.png)
 
 ## Configuración de una implementación de Datadog con Marathon
-
 Estos pasos muestran cómo configurar e implementar aplicaciones de Datadog en su clúster con Marathon.
 
 Acceda a la interfaz de usuario de DC/OS mediante [http://localhost:80/](http://localhost:80/). Una vez en la interfaz de usuario de DC/OS, vaya a "Universe" (Universo) en la parte inferior izquierda, busque "Datadog" y haga clic en "Install" (Instalar).

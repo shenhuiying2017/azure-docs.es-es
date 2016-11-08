@@ -1,49 +1,45 @@
-<properties
-    pageTitle="Roles web y de trabajo de Python con Visual Studio | Microsoft Azure"
-    description="Información general sobre el uso de Python Tools para Visual Studio para crear servicios en la nube de Azure, incluidos roles web y roles de trabajo."
-    services="cloud-services"
-    documentationCenter="python"
-    authors="thraka"
-    manager="timlt"
-    editor=""/>
+---
+title: Roles web y de trabajo de Python con Visual Studio | Microsoft Docs
+description: Información general sobre el uso de Python Tools para Visual Studio para crear servicios en la nube de Azure, incluidos roles web y roles de trabajo.
+services: cloud-services
+documentationcenter: python
+author: thraka
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="cloud-services"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="python"
-    ms.topic="hero-article"
-    ms.date="08/03/2016"
-    ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: python
+ms.topic: hero-article
+ms.date: 08/03/2016
+ms.author: adegeo
 
-
-
+---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
-
-En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][]. Aprenderá a usar Visual Studio para crear e implementar un servicio en la nube básico que use Python.
+En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [herramientas de Python para Visual Studio][herramientas de Python para Visual Studio]. Aprenderá a usar Visual Studio para crear e implementar un servicio en la nube básico que use Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
+* Visual Studio 2013 o 2015
+* [Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio] (PTVS)
+* [Herramientas de Azure SDK para 2013][] o [Herramientas de Azure SDK para VS 2015][]
+* [Python 2.7 de 32 bits][Python 2.7 de 32 bits] o [Python 3.5 de 32 bits][Python 3.5 de 32 bits]
 
- - Visual Studio 2013 o 2015
- - [Herramientas de Python para Visual Studio][] (PTVS)
- - [Herramientas de Azure SDK para 2013][] o [Herramientas de Azure SDK para VS 2015][]
- - [Python 2.7 de 32 bits][] o [Python 3.5 de 32 bits][]
-
-[AZURE.INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
+[!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>¿Qué son los roles web y de trabajo de Python?
-
 Azure proporciona tres modelos de proceso para ejecutar aplicaciones: [característica Web Apps en Azure App Service][execution model-web sites], [Azure Virtual Machines][execution model-vms] y [Azure Cloud Services][execution model-cloud services]. Los tres modelos admiten Python. Cloud Services, que incluye roles web y de trabajo, proporciona una *Plataforma como servicio (PaaS)*. En un servicio en la nube, un rol web ofrece un servidor web dedicado de Internet Information Services (IIS) para hospedar aplicaciones web front-end, mientras que un rol de trabajo puede ejecutar tareas asincrónicas, de ejecución prolongada o perpetuas independientes de la entrada o la interacción del usuario.
 
 Para más información, consulte [¿Qué es un servicio en la nube?]
 
-> [AZURE.NOTE]*¿Desea compilar un sitio web sencillo?*
-Si el escenario solo requiere un sitio web de front-end sencillo, considere el uso de la característica Aplicaciones web ligera en el Servicio de aplicaciones de Azure. Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien. Consulte el <a href="/develop/python/">Centro para desarrolladores de Python</a> para obtener artículos sobre el desarrollo de la característica Web Apps en Azure App Service.
-<br />
-
+> [!NOTE]
+> *¿Desea compilar un sitio web sencillo?*
+> Si el escenario solo requiere un sitio web de front-end sencillo, considere el uso de la característica Aplicaciones web ligera en el Servicio de aplicaciones de Azure. Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien. Consulte el <a href="/develop/python/">Centro para desarrolladores de Python</a> para obtener artículos sobre el desarrollo de la característica Web Apps en Azure App Service.
+> <br />
+> 
+> 
 
 ## <a name="project-creation"></a>Creación de un proyecto
-
 En Visual Studio, puede seleccionar **Servicio en la nube de Azure** en el cuadro de diálogo **Nuevo proyecto**, en **Python**.
 
 ![Cuadro de diálogo Nuevo proyecto](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
@@ -63,13 +59,14 @@ Puede agregar roles web o de trabajo a un servicio en la nube que ya existe en c
 Su servicio en la nube puede contener roles implementados en diferentes lenguajes.  Por ejemplo, puede tener un rol web de Python implementado con Django, con Python o con roles de trabajo de C#.  Puede comunicarse fácilmente entre sus roles usando colas del Bus de servicio o colas de almacenamiento.
 
 ## <a name="install-python-on-the-cloud-service"></a>Instalación de Python en el servicio en la nube
-
->[AZURE.WARNING] No funcionan los scripts de configuración que se instalaron con Visual Studio (en el momento en que se actualizó por última vez este artículo). En esta sección se describe una solución alternativa.
+> [!WARNING]
+> No funcionan los scripts de configuración que se instalaron con Visual Studio (en el momento en que se actualizó por última vez este artículo). En esta sección se describe una solución alternativa.
+> 
+> 
 
 El problema principal con los scripts de configuración consiste en que ellos no permiten instalar Python. En primer lugar, defina dos [tareas de inicio](cloud-services-startup-tasks.md) en el archivo [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef). La primera tarea (**PrepPython.ps1**) descarga e instala el entorno de tiempo de ejecución de Python. La segunda tarea (**PipInstaller.ps1**) ejecuta pip para instalar todas las dependencias que pueda tener.
 
 Los siguientes scripts se escribieron para Python 3.5. Si desea usar la versión 2.x de Python, establezca el archivo de variables **PYTHON2** en **activado** para las dos tareas de inicio y la tarea en tiempo de ejecución: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
-
 
 ```xml
 <Startup>
@@ -90,7 +87,7 @@ Los siguientes scripts se escribieron para Python 3.5. Si desea usar la versión
       </Variable>
       <Variable name="PYTHON2" value="off" />
     </Environment>
-    
+
   </Task>
 
 </Startup>
@@ -114,7 +111,6 @@ Se deben agregar las variables **PYTHON2** y **PYPATH** a la tarea de inicio del
 ```
 
 #### <a name="sample-servicedefinitioncsdef"></a>Archivo ServiceDefinition.csdef de ejemplo
-
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="AzureCloudServicePython" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -166,7 +162,6 @@ Se deben agregar las variables **PYTHON2** y **PYPATH** a la tarea de inicio del
 A continuación, cree los archivos **PrepPython.ps1** y **PipInstaller.ps1** en la carpeta **./bin** del rol.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-
 Este script instala Python. Si la variable de entorno **PYTHON2** se establece en **activado,** se instalará Python 2.7 o, en caso contrario, se instalará Python 3.5.
 
 ```powershell
@@ -192,7 +187,7 @@ if (-not $is_emulated){
             $url = "https://www.python.org/ftp/python/2.7.12/python-2.7.12.amd64.msi"
             $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
         }
-        
+
         Write-Output "Not found, downloading $url to $outFile$nl"
         Invoke-WebRequest $url -OutFile $outFile
         Write-Output "Installing$nl"
@@ -213,7 +208,6 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-
 Este script se llama pip e instala todas las dependencias en el archivo **requirements.txt**. Si la variable de entorno **PYTHON2** se establece en **activado**, se usará Python 2.7 o, en caso contrario, se usará Python 3.5.
 
 ```powershell
@@ -242,8 +236,10 @@ if (-not $is_emulated){
 ```
 
 #### <a name="modify-launchworkerps1"></a>Modificación del archivo LaunchWorker.ps1
-
->[AZURE.NOTE] En caso de un proyecto de **rol de trabajo**, se necesita el archivo **LauncherWorker.ps1** para ejecutar el archivo de inicio. En un proyecto de **rol web**, el archivo de inicio se define por el contrario en las propiedades del proyecto.
+> [!NOTE]
+> En caso de un proyecto de **rol de trabajo**, se necesita el archivo **LauncherWorker.ps1** para ejecutar el archivo de inicio. En un proyecto de **rol web**, el archivo de inicio se define por el contrario en las propiedades del proyecto.
+> 
+> 
 
 El archivo **bin\LaunchWorker.ps1** se creó originalmente para hacer una gran cantidad de trabajo de preparación pero realmente no funciona. Reemplace el contenido del archivo por el script siguiente.
 
@@ -285,7 +281,6 @@ else
 ```
 
 #### <a name="pscmd"></a>ps.cmd
-
 Las plantillas de Visual Studio deben haber creado un archivo **ps.cmd** en la carpeta **./bin**. Este script de shell llama a los scripts anteriores del contenedor de PowerShell y proporciona un registro basado en el nombre del contenedor de PowerShell que se ha llamado. Si no se ha creado este archivo, esto es lo que debería haber en él. 
 
 ```bat
@@ -300,7 +295,6 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Ejecución en modo local
-
 Si establece su proyecto de servicio en la nube como proyecto de inicio y presiona F5, el servicio en la nube se ejecuta en el emulador de Azure local.
 
 Aunque PTVS admite el inicio en el emulador, la depuración (por ejemplo, puntos de interrupción) no funcionará.
@@ -310,7 +304,6 @@ Para depurar roles web y de trabajo, puede establecer el proyecto de rol como pr
 ![Propiedades del proyecto de inicio de la solución](./media/cloud-services-python-ptvs/startup.png)
 
 ## <a name="publish-to-azure"></a>Publicación en Azure
-
 Para publicar, haga clic con el botón derecho en el proyecto del servicio en la nube de la solución y luego seleccione **Publicar**.
 
 ![Inicio de sesión para publicación de Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)
@@ -326,23 +319,20 @@ En la ventana de salida se verá cierto progreso y después se verá la ventana 
 La implementación tardará varios minutos. Después, sus roles web y/o de trabajo estarán ejecutándose en Azure.
 
 ### <a name="investigate-logs"></a>Investigación de registros
-
 Después de que la máquina virtual del servicio en la nube se inicie e instale Python, puede mirar los registros para buscar mensajes de error. Estos registros se encuentran en la carpeta **C:\Resources\Directory\{{role}\LogFiles**. **PrepPython.err.txt** tendrá al menos un error cuando el script intente detectar si está instalado Python y **PipInstaller.err.txt** puede informar acerca de una versión obsoleta de pip.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para obtener información detallada sobre el trabajo con roles web y de trabajo en Python Tools para Visual Studio, consulte la documentación de PTVS:
 
-- [Proyectos de servicio en la nube][]
+* [Proyectos de servicio en la nube][Proyectos de servicio en la nube]
 
 Para obtener más información sobre el uso de servicios de Azure desde roles web y de trabajo, como el uso de almacenamiento o el Bus de servicio de Azure, consulte los siguientes artículos:
 
-- [Blob service][]
-- [Table service][]
-- [Queue service][]
-- [Colas de Service Bus][]
-- [Temas de Service Bus][]
-
+* [Blob service][Blob service]
+* [Table service][Table service]
+* [Queue service][Queue service]
+* [Colas de Service Bus][Colas de Service Bus]
+* [Temas de Service Bus][Temas de Service Bus]
 
 <!--Link references-->
 

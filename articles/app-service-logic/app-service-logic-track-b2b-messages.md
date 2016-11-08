@@ -1,25 +1,23 @@
-<properties 
-   pageTitle="Seguimiento de mensajes B2B en las aplicaciones lógicas en el Servicio de aplicaciones de Azure | Microsoft Azure" 
-   description="En este tema, se describe el seguimiento del procesamiento B2B." 
-   services="logic-apps" 
-   documentationCenter=".net,nodejs,java" 
-   authors="rajram" 
-   manager="erikre" 
-   editor=""/>
+---
+title: Seguimiento de mensajes B2B en las aplicaciones lógicas en el Servicio de aplicaciones de Azure | Microsoft Docs
+description: En este tema, se describe el seguimiento del procesamiento B2B.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration" 
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
-
+---
 # Seguimiento de mensajes B2B
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 ## Información sobre el seguimiento B2B
 La comunicación B2B (del inglés Business-to-Business) implica el procesamiento de mensajes entre socios comerciales. Las relaciones se definen como "acuerdos entre dos socios comerciales". Una vez establecida la comunicación, hay que supervisar si la comunicación se produce según lo esperado.

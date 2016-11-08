@@ -1,23 +1,22 @@
-<properties
-	pageTitle="SDK de dispositivos IoT de Azure para C: serializador | Microsoft Azure"
-	description="Más información sobre la biblioteca de serializador en el SDK de dispositivos IoT de Azure para C"
-	services="iot-hub"
-	documentationCenter=""
-	authors="olivierbloch"
-	manager="timlt"
-	editor=""/>
+---
+title: 'SDK de dispositivos IoT de Azure para C: serializador | Microsoft Docs'
+description: Más información sobre la biblioteca de serializador en el SDK de dispositivos IoT de Azure para C
+services: iot-hub
+documentationcenter: ''
+author: olivierbloch
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="cpp"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/06/2016"
-     ms.author="obloch"/>
+ms.service: iot-hub
+ms.devlang: cpp
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: obloch
 
+---
 # SDK de dispositivo IoT de Microsoft Azure para C: más información sobre el serializador
-
 En el [primer el artículo](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el **SDK de dispositivos IoT de Azure**. A este le siguió un artículo que proporcionaba una descripción más detallada de [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). En este artículo terminaremos de analizar el SDK y proporcionaremos una descripción más detallada del componente que queda: la biblioteca de **serializador**.
 
 En el artículo de introducción se describía cómo usar la biblioteca de **serializador** para enviar eventos al Centro de IoT y recibir mensajes de él. En este artículo ampliaremos esta discusión con una explicación más completa de cómo modelar los datos con el macrolenguaje de **serializador**. También incluiremos en él más detalles sobre cómo la biblioteca serializa los mensajes (y, en algunos casos, cómo se puede controlar el comportamiento de serialización). Asimismo, describiremos algunos parámetros que se pueden modificar que determinan el tamaño de los modelos que se crean.
@@ -29,7 +28,6 @@ Todo lo que se describe en este artículo se basa en los ejemplos del SDK del **
 Puede encontrar el **SDK de dispositivo IoT de Azure para C** en el repositorio de [SDK de IoT de Microsoft Azure](https://github.com/Azure/azure-iot-sdks) en GitHub y ver los detalles de la API en la [referencia de la API de C](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## El lenguaje de modelado
-
 En el [artículo de introducción](iot-hub-device-sdk-c-intro.md) de esta serie se presentaba el lenguaje de modelado del **SDK de dispositivos IoT de Azure para C** mediante el ejemplo proporcionado en la aplicación **simplesample\_amqp**:
 
 ```
@@ -54,28 +52,30 @@ Los modelos contienen una definición de los eventos que puede insertar en el Ce
 
 Lo que no se demuestra en este ejemplo son tipos de datos adicionales que se admiten en el SDK. Los trataremos a continuación.
 
-> [AZURE.NOTE] El Centro de IoT hace referencia a los datos que un dispositivo envía a dicho centro como *eventos*, mientras que el lenguaje de modelado hace referencia a ellos como *datos* (definidos mediante **WITH\_DATA**). De igual forma, el Centro de IoT hace referencia a los datos que se envían a los dispositivos como *mensajes*, mientras que el modelado de datos hace referencia a ellos como *acciones* (definidas mediante **WITH\_ACTION**). Tenga en cuenta que estos términos pueden usarse indistintamente en este artículo.
+> [!NOTE]
+> El Centro de IoT hace referencia a los datos que un dispositivo envía a dicho centro como *eventos*, mientras que el lenguaje de modelado hace referencia a ellos como *datos* (definidos mediante **WITH\_DATA**). De igual forma, el Centro de IoT hace referencia a los datos que se envían a los dispositivos como *mensajes*, mientras que el modelado de datos hace referencia a ellos como *acciones* (definidas mediante **WITH\_ACTION**). Tenga en cuenta que estos términos pueden usarse indistintamente en este artículo.
+> 
+> 
 
 ### Tipos de datos admitidos
-
 Se admiten los siguientes tipos de datos en modelos creados con la biblioteca de **serializador**:
 
 | Tipo | Description |
-|-------------------------|----------------------------------------|
-| double | número de punto flotante de doble precisión |
-| int | entero de 32 bits |
-| float | número de punto flotante de precisión simple |
-| long | entero largo |
-| int8\_t | entero de 8 bits |
-| int16\_t | entero de 16 bits |
-| int32\_t | entero de 32 bits |
-| int64\_t | entero de 64 bits |
-| booleano | boolean |
-| ascii\_char\_ptr | Cadena ASCII |
-| EDM\_DATE\_TIME\_OFFSET | desplazamiento de fecha y hora |
-| EDM\_GUID | GUID |
-| EDM\_BINARY | binary |
-| DECLARE\_STRUCT | tipo de dato complejo |
+| --- | --- |
+| double |número de punto flotante de doble precisión |
+| int |entero de 32 bits |
+| float |número de punto flotante de precisión simple |
+| long |entero largo |
+| int8\_t |entero de 8 bits |
+| int16\_t |entero de 16 bits |
+| int32\_t |entero de 32 bits |
+| int64\_t |entero de 64 bits |
+| booleano |boolean |
+| ascii\_char\_ptr |Cadena ASCII |
+| EDM\_DATE\_TIME\_OFFSET |desplazamiento de fecha y hora |
+| EDM\_GUID |GUID |
+| EDM\_BINARY |binary |
+| DECLARE\_STRUCT |tipo de dato complejo |
 
 Comencemos con el último tipo de datos. **DECLARE\_STRUCT** permite definir tipos de datos complejos, que son agrupaciones de los otros tipos primitivos. Estas agrupaciones nos permiten definir un modelo parecido a este:
 
@@ -140,27 +140,27 @@ Básicamente, lo que hacemos es asignar un valor a todos los miembros de la estr
 ```
 void SendAsync(IOTHUB_CLIENT_LL_HANDLE iotHubClientHandle, const void *dataEvent)
 {
-	unsigned char* destination;
-	size_t destinationSize;
-	if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
-	{
-		// null terminate the string
-		char* destinationAsString = (char*)malloc(destinationSize + 1);
-		if (destinationAsString != NULL)
-		{
-			memcpy(destinationAsString, destination, destinationSize);
-			destinationAsString[destinationSize] = '\0';
-			IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
-			if (messageHandle != NULL)
-			{
-				IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
+    unsigned char* destination;
+    size_t destinationSize;
+    if (SERIALIZE(&destination, &destinationSize, *(const unsigned char*)dataEvent) ==
+    {
+        // null terminate the string
+        char* destinationAsString = (char*)malloc(destinationSize + 1);
+        if (destinationAsString != NULL)
+        {
+            memcpy(destinationAsString, destination, destinationSize);
+            destinationAsString[destinationSize] = '\0';
+            IOTHUB_MESSAGE_HANDLE messageHandle = IoTHubMessage_CreateFromString(destinationAsString);
+            if (messageHandle != NULL)
+            {
+                IoTHubClient_SendEventAsync(iotHubClientHandle, messageHandle, sendCallback, (void*)0);
 
-				IoTHubMessage_Destroy(messageHandle);
-			}
-			free(destinationAsString);
-		}
-		free(destination);
-	}
+                IoTHubMessage_Destroy(messageHandle);
+            }
+            free(destinationAsString);
+        }
+        free(destination);
+    }
 }
 ```
 
@@ -171,16 +171,16 @@ Otra función auxiliar que se usa en el código anterior es **GetDateTimeOffset*
 ```
 EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {
-	struct tm newTime;
-	gmtime_s(&newTime, &time);
-	EDM_DATE_TIME_OFFSET dateTimeOffset;
-	dateTimeOffset.dateTime = newTime;
-	dateTimeOffset.fractionalSecond = 0;
-	dateTimeOffset.hasFractionalSecond = 0;
-	dateTimeOffset.hasTimeZone = 0;
-	dateTimeOffset.timeZoneHour = 0;
-	dateTimeOffset.timeZoneMinute = 0;
-	return dateTimeOffset;
+    struct tm newTime;
+    gmtime_s(&newTime, &time);
+    EDM_DATE_TIME_OFFSET dateTimeOffset;
+    dateTimeOffset.dateTime = newTime;
+    dateTimeOffset.fractionalSecond = 0;
+    dateTimeOffset.hasFractionalSecond = 0;
+    dateTimeOffset.hasTimeZone = 0;
+    dateTimeOffset.timeZoneHour = 0;
+    dateTimeOffset.timeZoneMinute = 0;
+    return dateTimeOffset;
 }
 ```
 
@@ -197,7 +197,6 @@ En este ejemplo se demuestra la ventaja de usar la biblioteca de **serializador*
 Con esta información podemos definir modelos que comprendan el intervalo de tipos de datos compatibles, incluidos los tipos complejos (podríamos incluso incluir tipos complejos dentro de otros tipos complejos). No obstante, el JSON serializado generado por el ejemplo anterior nos lleva a un punto importante. *El modo en que* enviamos datos con la biblioteca de **serializador** determina exactamente cómo se forma el JSON. Este punto en particular es de lo que hablaremos a continuación.
 
 ## Más información sobre la serialización
-
 En la sección anterior se resalta un ejemplo de la salida generada por la biblioteca de **serializador**. En esta sección explicaremos cómo la biblioteca serializa los datos y cómo puede controlar este comportamiento mediante las API de serialización.
 
 Para avanzar en la discusión sobre la serialización, trabajaremos con un nuevo modelo basado en un termostato. Primero vamos a proporcionar alguna información de contexto sobre el escenario que tratamos de abordar.
@@ -207,7 +206,6 @@ Queremos modelar un termostato que mida la temperatura y la humedad. Cada fragme
 Dado este escenario, demostraremos dos formas diferentes de modelar los datos y explicaremos el efecto que tiene el modelado en el resultado serializado.
 
 ### Modelo 1
-
 Esta es la primera versión de un modelo que admite el escenario anterior:
 
 ```
@@ -300,7 +298,6 @@ Con este modelo, puede imaginar lo fácil que se podrían agregar eventos adicio
 Ahora vamos a modificar el modelo para que incluya los mismos datos pero con una estructura diferente.
 
 ### Modelo 2
-
 Considere este modelo como una alternativa al anterior:
 
 ```
@@ -444,7 +441,6 @@ Si piensa en su modelo como orientado a objetos, entonces el segundo enfoque pue
 Ningún enfoque es bueno ni malo. Lo importante es saber cómo funciona la biblioteca de **serializador** y seleccionar el enfoque de modelado que mejor se ajuste a sus necesidades.
 
 ## Administración de mensajes
-
 Hasta ahora solo hemos examinado en este artículo el envío de eventos al Centro de IoT y no hemos hablado de la recepción de mensajes. La razón de ello es que lo que necesitamos saber sobre la recepción de mensajes se ha tratado en gran medida en un [artículo anterior](iot-hub-device-sdk-c-intro.md). Como se explicaba en ese artículo, los mensajes se procesan mediante el registro de una función de devolución de llamada de mensaje:
 
 ```
@@ -529,7 +525,6 @@ El nombre de la acción debe coincidir exactamente con una acción definida en e
 En esta sección se describe todo lo que necesita saber al enviar eventos y recibir mensajes con la biblioteca de **serializador**. Antes de continuar, vamos a examinar algunos parámetros que puede configurar que controlan lo grande que es su modelo.
 
 ## Configuración de macros
-
 Si está usando la biblioteca de **serializador**, una parte importante del SDK que se debe tener en cuenta se encuentra en la biblioteca azure-c-shared-utility: Si ha clonado el repositorio Azure-iot-sdks desde GitHub con la opción recursiva, encontrará esta biblioteca de utilidad compartida aquí:
 
 ```
@@ -560,9 +555,8 @@ Los dos parámetros clave que se deben tener en cuenta son **nArithmetic** y **n
 
 Estos valores son los parámetros predeterminados incluidos con el SDK. Cada parámetro tiene el significado siguiente:
 
--   nMacroParameters: controla el número de parámetros que puede tener en una definición de macro DECLARE\_MODEL.
-
--   nArithmetic: controla el número total de miembros permitidos en un modelo.
+* nMacroParameters: controla el número de parámetros que puede tener en una definición de macro DECLARE\_MODEL.
+* nArithmetic: controla el número total de miembros permitidos en un modelo.
 
 El motivo de que estos parámetros sean importantes es que controlan lo grande que puede ser el modelo. Por ejemplo, tenga en cuenta esta definición de modelo:
 
@@ -589,6 +583,8 @@ Para poder usar la nueva versión de macro\_utils.h, quite el paquete NuGet de *
 Luego agregue este proyecto a la solución de Visual Studio:
 
 > .\\c\\serializer\\build\\windows\\serializer.vcxproj
+> 
+> 
 
 Cuando haya terminado, su solución debe tener este aspecto:
 
@@ -601,37 +597,29 @@ Tenga en cuenta que, si se aumentan estos valores mucho, se podrían exceder los
 Hasta ahora hemos visto casi todo lo que necesita saber sobre cómo escribir código con la biblioteca de **serializador**. Antes de concluir, vamos a revisar algunos temas de artículos anteriores sobre los que es posible que se esté preguntando.
 
 ## API de nivel inferior
-
 La aplicación de ejemplo en la que se centró este artículo es **simplesample\_amqp**. En este ejemplo se usan las API de nivel superior (las no "LL") para enviar eventos y recibir mensajes. Si usa estas API, se ejecuta un subproceso en segundo plano que se encarga de enviar eventos y recibir mensajes. Sin embargo, puede usar las API de nivel inferior (LL) para eliminar este subproceso en segundo plano y tener un control explícito sobre cuándo envía eventos o recibe mensajes de la nube.
 
 Como se describió en un [artículo anterior](iot-hub-device-sdk-c-iothubclient.md), hay conjuntos de funciones que constan de API de nivel superior:
 
--   IoTHubClient\_CreateFromConnectionString
-
--   IoTHubClient\_SendEventAsync
-
--   IoTHubClient\_SetMessageCallback
-
--   IoTHubClient\_Destroy
+* IoTHubClient\_CreateFromConnectionString
+* IoTHubClient\_SendEventAsync
+* IoTHubClient\_SetMessageCallback
+* IoTHubClient\_Destroy
 
 Estas API se muestran en **simplesample\_amqp**.
 
 Hay un conjunto similar de API de nivel inferior.
 
--   IoTHubClient\_LL\_CreateFromConnectionString
-
--   IoTHubClient\_LL\_SendEventAsync
-
--   IoTHubClient\_LL\_SetMessageCallback
-
--   IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 Tenga en cuenta que las API de nivel inferior funcionan exactamente como se describió en los artículos anteriores. Puede usar el primer conjunto de API, si quiere que un subproceso en segundo plano controle el envío de eventos y la recepción de mensajes. Si quiere un control explícito sobre cuándo envía y recibe datos del Centro de IoT, usará el segundo conjunto de API. Cualquier conjunto de API funciona igual de bien con la biblioteca de **serializador**.
 
 Para ver un ejemplo de cómo se usan las API de nivel inferior con la biblioteca de **serializador**, vea la aplicación **simplesample\_http**.
 
 ## Otros temas
-
 Algunos otros temas que merece la pena mencionar de nuevo son el control de propiedades, el uso de credenciales de dispositivo alternativas y las opciones de configuración. Todos estos temas se trataron en un [artículo anterior](iot-hub-device-sdk-c-iothubclient.md). Lo que hay que destacar es que todas estas características funcionan igual con la biblioteca de **serializador** que con la biblioteca de **IoTHubClient**. Por ejemplo, si desea adjuntar propiedades a un evento del modelo, use **IoTHubMessage\_Properties** y **Map**\_**AddorUpdate** de la misma forma que se describió anteriormente:
 
 ```
@@ -663,20 +651,18 @@ serializer_deinit();
 Por lo demás, todas las demás características enumeradas anteriormente funcionan igual en la biblioteca de **serializador** que en la biblioteca **IoTHubClient**. Para más información sobre cualquiera de estos temas, consulte el [artículo anterior](iot-hub-device-sdk-c-iothubclient.md) de esta serie.
 
 ## Pasos siguientes
-
 En este artículo se describen en detalle los aspectos únicos de la biblioteca de **serializador** contenida en el **SDK de dispositivo IoT de Azure para C**. Con la información proporcionada, habrá comprendido perfectamente cómo usar los modelos para enviar eventos y recibir mensajes del Centro de IoT.
 
 Con esto también concluye la serie de tres partes sobre cómo desarrollar aplicaciones con el **SDK de dispositivo IoT de Azure para C**. Esta información debería ser suficiente no solo para ayudarle en sus primeros pasos sino también para proporcionarle una comprensión profunda de cómo funcionan las API. Para obtener información adicional, existen algunos ejemplos en el SDK que no se tratan aquí. Por lo demás, la [documentación del SDK](https://github.com/Azure/azure-iot-sdks) es un buen recurso para conseguir información adicional.
-
 
 Para más información acerca del desarrollo para el Centro de IoT, consulte el [SDK de Centro de IoT][lnk-sdks].
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-- [Diseño de la solución][lnk-design]
-- [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-- [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-- [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+* [Diseño de la solución][lnk-design]
+* [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
+* [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
+* [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
 
 [lnk-sdks]: iot-hub-sdks-summary.md
 

@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Acerca de máquinas virtuales Linux | Microsoft Azure"
-	description="Conozca los aspectos básicos de las máquinas virtuales Linux en Azure usando ambos modelos de implementación."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-resource-manager,azure-service-management"/>
+---
+title: Acerca de máquinas virtuales Linux | Microsoft Docs
+description: Conozca los aspectos básicos de las máquinas virtuales Linux en Azure usando ambos modelos de implementación.
+services: virtual-machines-linux
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager,azure-service-management
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-linux"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="06/15/2016"
-	ms.author="cynthn"/>
+ms.service: virtual-machines-linux
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 06/15/2016
+ms.author: cynthn
 
-#Acerca de las máquinas virtuales Linux en Azure
-
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
-
+---
+# Acerca de las máquinas virtuales Linux en Azure
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 Máquinas virtuales de Azure es uno de los distintos tipos de recursos informáticos a petición y escalables que ofrece Azure. Por lo general, elegirá una máquina virtual si necesita más control sobre su entorno informático del que ofrecen las otras opciones.
 
@@ -28,12 +26,11 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
 
 Esta tabla permite comparar las opciones de Azure.
 
-[AZURE.INCLUDE [compute-table](../../includes/compute-options-table.md)]
+[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-[AZURE.INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
+[!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## Pasos siguientes
-
 Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Crear una máquina virtual que ejecute Linux](virtual-machines-linux-quick-create-cli.md).
 
 Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual Linux con Resource Manager](virtual-machines-linux-creation-choices.md).

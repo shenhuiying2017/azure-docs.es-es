@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Análisis del desarrollador"
-	description="DevOps con Visual Studio, Application Insights y HockeyApp"
-	authors="alancameronwills"
-	services="application-insights"
-    documentationCenter=""
-	manager="douge"/>
+---
+title: Análisis del desarrollador
+description: DevOps con Visual Studio, Application Insights y HockeyApp
+author: alancameronwills
+services: application-insights
+documentationcenter: ''
+manager: douge
 
-<tags
-	ms.service="application-insights"
-	ms.workload="tbd"
-	ms.tgt_pltfrm="ibiza"
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="05/18/2016"
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 05/18/2016
+ms.author: awills
 
+---
 # Análisis del desarrollador con Application Insights y HockeyApp
-
 *Application Insights se encuentra en su versión de vista previa.*
 
 Muchos proyectos se ejecutan en un ciclo de [DevOps](https://en.wikipedia.org/wiki/DevOps) rápido. Su función es compilar y distribuir sus aplicaciones, obtener información sobre cómo funciona y cómo las utilizan los usuarios y, después, emplear esos datos para planear más ciclos de desarrollo.
@@ -34,7 +33,6 @@ En este artículo, explicaremos cómo encajan los aspectos de supervisión del c
 Si desea ver un ejemplo concreto, hay [un caso práctico interesante](http://aka.ms/mydrivingdocs) donde se emplean varios componentes de cliente y servidor.
 
 ## Ciclo de DevOps
-
 Las herramientas de Visual Studio y Análisis del desarrollador ofrecen una experiencia de DevOps bien integrada. Por ejemplo, aquí se muestra un ciclo típico de una aplicación web (que podría ser ASP.NET, Node.js o Java):
 
 ![Ciclo de DevOps de aplicaciones web](./media/app-insights-developer-analytics/040.png)
@@ -46,9 +44,7 @@ Las herramientas de Visual Studio y Análisis del desarrollador ofrecen una expe
 * El siguiente ciclo de desarrollo se basa en el análisis de los datos de telemetría activos.
 
 ### Aplicaciones de escritorio y de dispositivos
-
 Para las aplicaciones de escritorio y de dispositivos, la parte de la distribución del ciclo es ligeramente diferente, ya que no solo vamos a cargar compilaciones en uno o dos servidores. En su lugar, una prueba unitaria y una compilación correcta pueden [desencadenar la carga en HockeyApp](https://support.hockeyapp.net/kb/third-party-bug-trackers-services-and-webhooks/how-to-use-hockeyapp-with-visual-studio-team-services-vsts-or-team-foundation-server-tfs). HockeyApp supervisa la distribución al equipo de usuarios de prueba (o al público en general, si lo prefiere).
-
 
 ![Ciclo de DevOps de dispositivos](./media/app-insights-developer-analytics/030.png)
 
@@ -60,26 +56,20 @@ HockeyApp también recopila datos de rendimiento y uso mediante los siguientes p
 
 Una vez más, se completa el ciclo de desarrollo a medida que basa los planes de desarrollo futuros en función de los comentarios obtenidos.
 
-
 ## Configuración de Análisis del desarrollador
-
 Para cada componente de la aplicación (móvil , web o escritorio), los pasos son, básicamente, los mismos. Para muchos tipos de aplicación, Visual Studio realiza automáticamente algunos de estos pasos.
 
 1. Agregue el SDK adecuado a la aplicación. En aplicaciones de dispositivos, se trata de HockeyApp, y para los servicios web, Application Insights. Cada una de ellas tiene diversas variantes para diferentes plataformas (también se puede utilizar cualquier SDK para aplicaciones de escritorio, aunque se recomienda HockeyApp).
 2. Registre la aplicación con el portal de Application Insights u HockeyApp, en función del SDK que utilice. En dicho portal es donde podrá ver análisis de la aplicación activa. Obtendrá una clave de instrumentación o identificador que se configura en la aplicación para que el SDK sepa dónde enviar sus datos de telemetría.
 3. Agregue código personalizado (si lo desea) para registrar eventos o métricas con el fin de ayudarle a diagnosticar o analizar el rendimiento o uso. Hay muchos procesos de supervisión integrados, así que no los necesitará en el primer ciclo.
-3. Para aplicaciones de dispositivos, siga estos pasos:
- * Cargue una compilación de depuración en HockeyApp. Desde ahí puede distribuirla a un grupo de usuarios de prueba. Cada vez que se cargan las compilaciones sucesivas, se notificará al equipo.
- * Al configurar el servicio de compilación continua, cree una definición de la versión que usa el paso de complemento para cargar las compilaciones en HockeyApp.
+4. Para aplicaciones de dispositivos, siga estos pasos:
+   * Cargue una compilación de depuración en HockeyApp. Desde ahí puede distribuirla a un grupo de usuarios de prueba. Cada vez que se cargan las compilaciones sucesivas, se notificará al equipo.
+   * Al configurar el servicio de compilación continua, cree una definición de la versión que usa el paso de complemento para cargar las compilaciones en HockeyApp.
 
 ### Análisis y exportación de telemetría de HockeyApp
-
 Puede investigar la telemetría de registros y personalizada de HockeyApp mediante las características de análisis y exportación continua de Application Insights [configurando un puente](app-insights-hockeyapp-bridge-app.md).
 
-
-
 ## Pasos siguientes
- 
 Aquí encontrará las instrucciones detalladas para los distintos tipos de aplicación:
 
 * [Aplicación web para ASP.NET](app-insights-asp-net.md)

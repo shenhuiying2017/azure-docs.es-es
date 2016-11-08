@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Supervisión de Caché en Redis de Azure | Microsoft Azure" 
-	description="Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Caché en Redis de Azure" 
-	services="redis-cache" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="douge" 
-	editor=""/>
+---
+title: Supervisión de Caché en Redis de Azure | Microsoft Docs
+description: Obtenga información sobre cómo supervisar el estado y el rendimiento de las instancias de Caché en Redis de Azure
+services: redis-cache
+documentationcenter: ''
+author: steved0x
+manager: douge
+editor: ''
 
-<tags 
-	ms.service="cache" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="cache-redis" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/30/2016" 
-	ms.author="sdanie"/>
+ms.service: cache
+ms.workload: tbd
+ms.tgt_pltfrm: cache-redis
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: sdanie
 
+---
 # Supervisión de Caché en Redis de Azure
-
 Caché en Redis de Azure ofrece varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Caché en Redis de Azure y ayudarle a administrar sus aplicaciones de almacenamiento en caché.
 
 Cuando se habilitan los diagnósticos de caché, las métricas para las instancias de Caché en Redis de Azure se recopilan cada 30 segundos aproximadamente y se almacenan de manera que se puedan mostrar en los gráficos de métricas y que las reglas de alerta las puedan evaluar.
@@ -28,14 +27,16 @@ Para ver métricas de caché, [examine](cache-configure.md#configure-redis-cache
 
 ![Métricas de Redis][redis-cache-redis-metrics-blade]
 
->[AZURE.IMPORTANT] Si se muestra el mensaje siguiente en la hoja **Métricas de Redis**, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
->
->`Monitoring may not be enabled. Click here to turn on Diagnostics.`
+> [!IMPORTANT]
+> Si se muestra el mensaje siguiente en la hoja **Métricas de Redis**, siga los pasos de la sección [Habilitación de diagnósticos de caché](#enable-cache-diagnostics) para habilitar diagnósticos de memoria caché.
+> 
+> `Monitoring may not be enabled. Click here to turn on Diagnostics.`
+> 
+> 
 
 La hoja **Caché en Redis** tiene gráficos de **supervisión** que muestran métricas de caché. Se puede personalizar cada gráfico agregando o quitando métricas y cambiando el intervalo de informes. Para ver y configurar operaciones y alertas, la hoja **Caché en Redis** tiene una sección **Operaciones** que muestra **Eventos** y **Reglas de alerta de caché**.
 
 ## Habilitación de diagnósticos de caché
-
 Caché en Redis de Azure proporciona la capacidad de almacenar datos de diagnóstico en una cuenta de almacenamiento para que pueda utilizar cualquier herramienta que desee a fin de obtener acceso y procesar los datos directamente. Para recopilar, almacenar y mostrar diagnósticos de caché en el Portal de Azure, se debe configurar una cuenta de almacenamiento. Las memorias caché de la misma región y suscripción comparten la misma cuenta de almacenamiento de información de diagnóstico y, al cambiar de configuración, esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
 
 Para habilitar y configurar diagnósticos de caché, vaya a la hoja **Caché en Redis** para la instancia de caché. Si los diagnósticos no están habilitados aún, se muestra un mensaje en lugar de un gráfico de diagnóstico.
@@ -54,65 +55,69 @@ Haga clic en la flecha situada a la derecha de **Cuenta de almacenamiento** para
 
 Después de establecer la configuración de diagnóstico, haga clic en **Guardar** para guardar la configuración. Tenga en cuenta que los cambios pueden tardar unos minutos en surtir efecto.
 
->[AZURE.IMPORTANT] Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (diagnóstico habilitado o deshabilitado o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
+> [!IMPORTANT]
+> Las memorias caché de igual región y suscripción comparten la misma configuración de almacenamiento de diagnóstico y, cuando se cambia de configuración (diagnóstico habilitado o deshabilitado o cambio de cuenta de almacenamiento), esta se aplica a todas las cachés de la suscripción que se encuentran en dicha región.
+> 
+> 
 
 Para ver las métricas almacenadas, examine las tablas de la cuenta de almacenamiento con nombres que empiezan por `WADMetrics`. Para obtener más información acerca del acceso a las métricas almacenadas fuera del Portal de Azure, consulte el ejemplo [Access Redis Cache Monitoring data](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) (Acceso a datos de supervisión de Caché en Redis).
 
->[AZURE.NOTE] Solo se muestran en el Portal de Azure las métricas que se almacenan en la cuenta de almacenamiento seleccionada. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.
+> [!NOTE]
+> Solo se muestran en el Portal de Azure las métricas que se almacenan en la cuenta de almacenamiento seleccionada. Si cambia las cuentas de almacenamiento, los datos de la cuenta de almacenamiento configurada anteriormente siguen estando disponibles para su descarga, pero no se muestran en el Portal de Azure.
+> 
+> 
 
 ## Métricas disponibles e intervalos de informes
-
 Las métricas de caché se notifican mediante varios intervalos de informes, incluidos **Última hora**, **Hoy**, **Última semana** y **Personalizar**. La hoja **Métrica** para cada gráfico de métricas muestra los valores promedio, mínimos y máximo para cada métrica del gráfico, y algunas métricas muestran un total para el intervalo de informes.
 
 Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la memoria caché y, para las memorias caché que usan [la agrupación en clústeres](cache-how-to-premium-clustering.md), una segunda versión de la métrica que incluye `(Shard 0-9)` en el nombre mide el rendimiento de una sola partición en una memoria caché. Por ejemplo, si una memoria caché tiene 4 particiones, `Cache Hits` es la cantidad total de resultados en toda la memoria caché, y `Cache Hits (Shard 3)` refleja simplemente los resultados para esa partición de la memoria caché.
 
->[AZURE.NOTE] Incluso cuando la memoria caché está inactiva sin ninguna aplicación de cliente activa conectada, puede que vea alguna actividad de caché, como clientes conectados, uso de memoria y operaciones que se están realizando. Esta actividad es normal durante la operación de una instancia de Caché en Redis de Azure.
+> [!NOTE]
+> Incluso cuando la memoria caché está inactiva sin ninguna aplicación de cliente activa conectada, puede que vea alguna actividad de caché, como clientes conectados, uso de memoria y operaciones que se están realizando. Esta actividad es normal durante la operación de una instancia de Caché en Redis de Azure.
+> 
+> 
 
 | Métrica | Description |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Aciertos de caché | El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](http://redis.io/commands/info) de Redis. |
-| Errores de caché | El número de búsquedas de claves incorrectas durante el intervalo de informes. Este valor se asigna a `keyspace_misses` desde el comando INFO de Redis. Los errores de caché no significan necesariamente que haya un problema con la memoria caché. Por ejemplo, cuando se utiliza el modelo de programación cache-aside, una aplicación busca un elemento en primer lugar en la memoria caché. Si el elemento no está allí (error de caché), se recupera de la base de datos y se agrega a la caché para la próxima vez. Los errores de caché son un comportamiento normal del modelo de programación cache-aside. Si el número de errores de caché es mayor de lo esperado, examine la lógica de aplicación que rellena y lee de la memoria caché. Si se expulsan los elementos de la memoria caché debido a la presión de memoria, puede haber algunos errores de caché; una métrica mejor para supervisar la presión de memoria sería `Used Memory` o `Evicted Keys`. |
-| Clientes conectados | El número de conexiones de clientes a la caché durante el intervalo de informes especificado. Este valor se asigna a `connected_clients` desde el comando INFO de Redis. Cuando se alcanza el [límite de conexión](cache-configure.md#default-redis-server-configuration), se producirá un error en los intentos de conexión posteriores a la caché. Tenga en cuenta que incluso si no hay ninguna aplicación de cliente activa, puede haber algunas instancias de clientes conectadas debido a procesos y conexiones internos. |
-| Claves expulsadas | El número de elementos que se elimina de la caché durante el intervalo de informes especificado debido al límite `maxmemory`. Este valor se asigna a `evicted_keys` desde el comando INFO de Redis. |
-| Claves expiradas | El número de elementos expirados de la caché durante el intervalo de informes especificado. Este valor se asigna a `expired_keys` desde el comando INFO de Redis. |
-| Gets | El número de operaciones get de la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` y `cmdstat_getrange`, y es equivalente a la suma de aciertos y errores de caché durante el intervalo de informes. |
-| Carga de servidor de Redis | El porcentaje de ciclos en el que el servidor de Redis está ocupado procesando y no esperando a los mensajes inactivo. Si este contador llega a 100, significa que el servidor de Redis ha llegado a un límite de rendimiento y la CPU no puede procesar el trabajo más rápidamente. Si ve alta carga del servidor de Redis, verá las excepciones de tiempo de espera en el cliente. En este caso, debería considerar la posibilidad de un escalado vertical o el particionamiento de los datos en varias cachés. |
-| Sets | El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
-| Total de operaciones | El número total de comandos procesados por el servidor de caché durante el intervalo de informes especificado. Este valor se asigna a `total_commands_processed` desde el comando INFO de Redis. Tenga en cuenta que cuando se utiliza Caché en Redis de Azure simplemente para Pub/Sub, no habrá ninguna métrica para `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, pero habrá métricas `Total Operations` que reflejan el uso de la memoria caché para operaciones Pub/Sub. |
-| Memoria usada | La cantidad de memoria caché usada para pares clave-valor en la memoria caché en MB durante el intervalo de informes especificado. Este valor se asigna a `used_memory` desde el comando INFO de Redis. Esto no incluye los metadatos o la fragmentación. |
-| Memoria RSS usada | La cantidad de memoria caché usada en MB durante el intervalo de informes especificado, incluida la fragmentación y los metadatos. Este valor se asigna a `used_memory_rss` desde el comando INFO de Redis. |
-| CPU | El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
-| Lectura de caché | La cantidad de datos que se leen de la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. **Este valor corresponde al ancho de banda de red que emplea esta caché. Si desea configurar alertas para los límites de ancho de banda de red del lado servidor, hágalo mediante este contador `Cache Read`. Consulte [esta tabla](cache-faq.md#cache-performance) para conocer los límites de ancho de banda de los diferentes tamaños y planes de tarifa de caché.** |
-| Escritura de caché | La cantidad de datos que se escriben en la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. Este valor corresponde al ancho de banda de red de los datos enviados a la memoria caché desde el cliente. |
-
+| --- | --- |
+| Aciertos de caché |El número de búsquedas de claves correctas durante el intervalo de informes. Este valor se asigna a `keyspace_hits` desde el comando [INFO](http://redis.io/commands/info) de Redis. |
+| Errores de caché |El número de búsquedas de claves incorrectas durante el intervalo de informes. Este valor se asigna a `keyspace_misses` desde el comando INFO de Redis. Los errores de caché no significan necesariamente que haya un problema con la memoria caché. Por ejemplo, cuando se utiliza el modelo de programación cache-aside, una aplicación busca un elemento en primer lugar en la memoria caché. Si el elemento no está allí (error de caché), se recupera de la base de datos y se agrega a la caché para la próxima vez. Los errores de caché son un comportamiento normal del modelo de programación cache-aside. Si el número de errores de caché es mayor de lo esperado, examine la lógica de aplicación que rellena y lee de la memoria caché. Si se expulsan los elementos de la memoria caché debido a la presión de memoria, puede haber algunos errores de caché; una métrica mejor para supervisar la presión de memoria sería `Used Memory` o `Evicted Keys`. |
+| Clientes conectados |El número de conexiones de clientes a la caché durante el intervalo de informes especificado. Este valor se asigna a `connected_clients` desde el comando INFO de Redis. Cuando se alcanza el [límite de conexión](cache-configure.md#default-redis-server-configuration), se producirá un error en los intentos de conexión posteriores a la caché. Tenga en cuenta que incluso si no hay ninguna aplicación de cliente activa, puede haber algunas instancias de clientes conectadas debido a procesos y conexiones internos. |
+| Claves expulsadas |El número de elementos que se elimina de la caché durante el intervalo de informes especificado debido al límite `maxmemory`. Este valor se asigna a `evicted_keys` desde el comando INFO de Redis. |
+| Claves expiradas |El número de elementos expirados de la caché durante el intervalo de informes especificado. Este valor se asigna a `expired_keys` desde el comando INFO de Redis. |
+| Gets |El número de operaciones get de la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` y `cmdstat_getrange`, y es equivalente a la suma de aciertos y errores de caché durante el intervalo de informes. |
+| Carga de servidor de Redis |El porcentaje de ciclos en el que el servidor de Redis está ocupado procesando y no esperando a los mensajes inactivo. Si este contador llega a 100, significa que el servidor de Redis ha llegado a un límite de rendimiento y la CPU no puede procesar el trabajo más rápidamente. Si ve alta carga del servidor de Redis, verá las excepciones de tiempo de espera en el cliente. En este caso, debería considerar la posibilidad de un escalado vertical o el particionamiento de los datos en varias cachés. |
+| Sets |El número de operaciones set a la caché durante el intervalo de informes especificado. Este valor es la suma de los siguientes valores de todos los comandos INFO de Redis: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` y `cmdstat_setnx`. |
+| Total de operaciones |El número total de comandos procesados por el servidor de caché durante el intervalo de informes especificado. Este valor se asigna a `total_commands_processed` desde el comando INFO de Redis. Tenga en cuenta que cuando se utiliza Caché en Redis de Azure simplemente para Pub/Sub, no habrá ninguna métrica para `Cache Hits`, `Cache Misses`, `Gets` o `Sets`, pero habrá métricas `Total Operations` que reflejan el uso de la memoria caché para operaciones Pub/Sub. |
+| Memoria usada |La cantidad de memoria caché usada para pares clave-valor en la memoria caché en MB durante el intervalo de informes especificado. Este valor se asigna a `used_memory` desde el comando INFO de Redis. Esto no incluye los metadatos o la fragmentación. |
+| Memoria RSS usada |La cantidad de memoria caché usada en MB durante el intervalo de informes especificado, incluida la fragmentación y los metadatos. Este valor se asigna a `used_memory_rss` desde el comando INFO de Redis. |
+| CPU |El uso de CPU del servidor de Caché en Redis de Azure como porcentaje durante el intervalo de informes especificado. Este valor se asigna al contador de rendimiento `\Processor(_Total)\% Processor Time` del sistema operativo. |
+| Lectura de caché |La cantidad de datos que se leen de la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. **Este valor corresponde al ancho de banda de red que emplea esta caché. Si desea configurar alertas para los límites de ancho de banda de red del lado servidor, hágalo mediante este contador `Cache Read`. Consulte [esta tabla](cache-faq.md#cache-performance) para conocer los límites de ancho de banda de los diferentes tamaños y planes de tarifa de caché.** |
+| Escritura de caché |La cantidad de datos que se escriben en la memoria caché en megabytes por segundo (MB/s) durante el intervalo de informes especificado. Este valor se deriva de las tarjetas de interfaz de red que admiten la máquina virtual que hospeda la caché y no es específica de Redis. Este valor corresponde al ancho de banda de red de los datos enviados a la memoria caché desde el cliente. |
 
 ## Cómo ver métricas y personalizar gráficos de métricas
-
 Puede ver una descripción general de las métricas de la caché en la hoja **Métricas de Redis**. Para acceder a la hoja **Métricas de Redis**, seleccione **Toda la configuración** > **Métricas de Redis**.
 
 ![Métricas de Redis][redis-cache-redis-metrics]
 
-
 La hoja **Métricas de Redis** contiene los siguientes gráficos.
 
 | Gráfico de métricas de Redis | Métricas mostradas |
-|------------------|-------------------|
-| Lectura y escritura de caché | Lectura de caché |
-| | Escritura de caché |
-| Clientes conectados | Clientes conectados |
-| Aciertos y errores | Aciertos de caché |
-| | Errores de caché |
-| Número total de comandos | Total de operaciones |
-| Gets y Sets | Gets |
-| | Sets |
-| Uso de CPU | CPU |
-| Uso de la memoria | Memoria usada |
-| | Memoria RSS usada |
-| Carga de servidor de Redis | Carga de servidor |
-| Recuento de claves | Total de claves |
-| | Claves expulsadas |
-| | Claves expiradas |
-
+| --- | --- |
+| Lectura y escritura de caché |Lectura de caché |
+| Escritura de caché | |
+| Clientes conectados |Clientes conectados |
+| Aciertos y errores |Aciertos de caché |
+| Errores de caché | |
+| Número total de comandos |Total de operaciones |
+| Gets y Sets |Gets |
+| Sets | |
+| Uso de CPU |CPU |
+| Uso de la memoria |Memoria usada |
+| Memoria RSS usada | |
+| Carga de servidor de Redis |Carga de servidor |
+| Recuento de claves |Total de claves |
+| Claves expulsadas | |
+| Claves expiradas | |
 
 Para obtener una vista más detallada de las métricas de un gráfico específico, y para personalizar el gráfico, haga clic en el gráfico que quiera en la hoja **Métricas de Redis** para mostrar la hoja **Métrica** de ese gráfico.
 
@@ -133,7 +138,6 @@ Para ver las métricas de un período de tiempo concreto en un gráfico, manteng
 ![Visualización de detalles del gráfico][redis-cache-view-chart-details]
 
 ## Cómo supervisar una caché premium con agrupación en clústeres
-
 Las cachés premium que tienen la [agrupación en clústeres](cache-how-to-premium-clustering.md) habilitada pueden tener hasta 10 particiones. Cada partición tiene su propia métricas y estas métricas se agregan para proporcionar las métricas para la caché como un todo. Cada métrica incluye dos versiones. Una métrica mide el rendimiento de toda la memoria caché y una segunda versión de la métrica que incluye `(Shard 0-9)` en el nombre mide el rendimiento de una sola partición en una memoria caché. Por ejemplo, si una memoria caché tiene 3 particiones, `Cache Hits` es la cantidad total de resultados en toda la memoria caché y `Cache Hits (Shard 2)` refleja simplemente los resultados para esa partición de la memoria caché.
 
 Cada gráfico de supervisión muestra las métricas de nivel superior de la memoria caché junto con las métricas para cada partición de memoria caché.
@@ -158,9 +162,7 @@ De forma predeterminada cada gráfico incluye el contador de rendimiento de cach
 
 Para obtener más información sobre los contadores de rendimiento disponibles, vea [Métricas disponibles e intervalos de informes](#available-metrics-and-reporting-intervals).
 
-
 ## Operaciones y alertas
-
 La sección **Operaciones** de la hoja **Caché en Redis** incluye las secciones **Eventos** y **Reglas de alerta**.
 
 ![Operaciones][redis-cache-operations-events]
@@ -178,16 +180,16 @@ Las reglas de alerta se pueden ver y establecer en la hoja **Métrica** de un gr
 Las reglas de alerta tienen las siguientes propiedades.
 
 | Propiedad de regla de alerta | Description |
-|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Recurso | Recurso evaluado por la regla de alerta. Al crear una regla de alerta en una caché de Redis, la memoria caché es el recurso. |
-| Nombre | Nombre que identifica de forma única la regla de alerta en la instancia de caché actual. |
-| Description | Descripción opcional de la regla de alerta. |
-| Métrica | Métrica supervisada por la regla de alerta. Para ver una lista de métricas de caché, consulte Métricas disponibles e intervalos de informes. |
-| Condición | Operador de condición para la regla de alerta. Las opciones posibles son: mayor que, mayor o igual que, menor que, menor o igual que |
-| Umbral | El valor que se utiliza para comparar con la métrica mediante el operador especificado por la propiedad condition. Dependiendo de la métrica, este valor puede ser bytes por segundo, bytes, % o recuento. |
-| Período | Especifica el período en el que se utiliza el valor medio de la métrica para la comparación de la regla de alerta. Por ejemplo, si el período es Durante la última hora, se utiliza para la comparación el valor medio de la métrica en el intervalo de hora anterior. Si desea recibir una notificación al alcanzar el umbral debido a un nivel máximo de actividad, lo adecuado es elegir un periodo más corto. Para recibir una notificación cuando haya una actividad sostenida por encima del umbral, utilice un período más largo. |
-| Servicio de correo electrónico y coadministradores | Cuando es true, se envía un correo electrónico al administrador y al coadministrador del servicio cuando la alerta de dispara. |
-| Correo electrónico de administrador adicional | Dirección de correo electrónico opcional para un administrador adicional al que notificar cuando se activa la alerta. |
+| --- | --- |
+| Recurso |Recurso evaluado por la regla de alerta. Al crear una regla de alerta en una caché de Redis, la memoria caché es el recurso. |
+| Nombre |Nombre que identifica de forma única la regla de alerta en la instancia de caché actual. |
+| Description |Descripción opcional de la regla de alerta. |
+| Métrica |Métrica supervisada por la regla de alerta. Para ver una lista de métricas de caché, consulte Métricas disponibles e intervalos de informes. |
+| Condición |Operador de condición para la regla de alerta. Las opciones posibles son: mayor que, mayor o igual que, menor que, menor o igual que |
+| Umbral |El valor que se utiliza para comparar con la métrica mediante el operador especificado por la propiedad condition. Dependiendo de la métrica, este valor puede ser bytes por segundo, bytes, % o recuento. |
+| Período |Especifica el período en el que se utiliza el valor medio de la métrica para la comparación de la regla de alerta. Por ejemplo, si el período es Durante la última hora, se utiliza para la comparación el valor medio de la métrica en el intervalo de hora anterior. Si desea recibir una notificación al alcanzar el umbral debido a un nivel máximo de actividad, lo adecuado es elegir un periodo más corto. Para recibir una notificación cuando haya una actividad sostenida por encima del umbral, utilice un período más largo. |
+| Servicio de correo electrónico y coadministradores |Cuando es true, se envía un correo electrónico al administrador y al coadministrador del servicio cuando la alerta de dispara. |
+| Correo electrónico de administrador adicional |Dirección de correo electrónico opcional para un administrador adicional al que notificar cuando se activa la alerta. |
 
 Solo se envía una notificación por cada activación de regla de alerta. Una vez que se supera el umbral de una regla y se envía una notificación, la regla no se vuelve a evaluar hasta que la métrica descienda por debajo del umbral. Si la métrica supera el umbral más tarde, se vuelve a activar la alerta y se envía una nueva notificación.
 
@@ -201,11 +203,17 @@ Escriba los criterios de la regla deseada en la hoja de la regla **Agregar una a
 
 ![Incorporación de regla de alerta][redis-cache-add-alert]
 
->[AZURE.NOTE] Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Métrica**, solo las métricas que se muestran en el gráfico de esa hoja aparecen en la lista desplegable de **Métrica**. Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Reglas de alerta**, todas las métricas de caché están disponibles en la lista desplegable de **Métrica**.
+> [!NOTE]
+> Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Métrica**, solo las métricas que se muestran en el gráfico de esa hoja aparecen en la lista desplegable de **Métrica**. Cuando se crea una regla de alerta al hacer clic en **Agregar alerta** en la hoja **Reglas de alerta**, todas las métricas de caché están disponibles en la lista desplegable de **Métrica**.
+> 
+> 
 
 Una vez que se guarda una regla de alerta, aparece en la hoja **Reglas de alerta** así como en la hoja **Métrica** para cualquier gráfico que muestra la métrica usada en la regla de alerta. Para editar una regla de alerta, haga clic en su nombre para que aparezca la hoja **Editar regla**. En la hoja **Editar regla** puede editar las propiedades de la regla, eliminar o deshabilitar la regla de alerta o volver a habilitarla si se deshabilitó anteriormente.
 
->[AZURE.NOTE] Los cambios que realice en las propiedades de la regla pueden tardar unos instantes antes de que se reflejen en la hoja **Reglas de alerta** o la hoja **Métrica**.
+> [!NOTE]
+> Los cambios que realice en las propiedades de la regla pueden tardar unos instantes antes de que se reflejen en la hoja **Reglas de alerta** o la hoja **Métrica**.
+> 
+> 
 
 Cuando se activa una regla de alerta, se envía un correo electrónico según la configuración de la regla de alerta y se muestra un icono de alerta en la parte **Reglas de alerta** de la hoja **Caché en Redis**.
 
@@ -214,14 +222,12 @@ Se considera que una regla de alerta se resuelve cuando la condición de alerta 
 Para obtener más información acerca de las alertas en Azure, consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md).
 
 ## Métricas de la hoja Caché en Redis
-
 La hoja **Caché en Redis** muestra las siguientes categorías de métricas.
 
--	[Gráficos de supervisión](#monitoring-charts)
--	[Gráficos de uso](#usage-charts)
+* [Gráficos de supervisión](#monitoring-charts)
+* [Gráficos de uso](#usage-charts)
 
 ### Gráficos de supervisión
-
 La sección **Supervisión** tiene gráficos **Aciertos y errores**, **Gets y Sets**, **Conexiones** y **Número total de comandos**.
 
 ![Gráficos de supervisión][redis-cache-monitoring-part]
@@ -229,18 +235,17 @@ La sección **Supervisión** tiene gráficos **Aciertos y errores**, **Gets y Se
 Los gráficos de **Supervisión** muestran las siguientes métricas.
 
 | Gráfico de supervisión | Métricas de caché |
-|------------------|-------------------|
-| Aciertos y errores | Aciertos de caché |
-| | Errores de caché |
-| Gets y Sets | Gets |
-| | Sets |
-| Conexiones | Clientes conectados |
-| Número total de comandos | Total de operaciones |
+| --- | --- |
+| Aciertos y errores |Aciertos de caché |
+| Errores de caché | |
+| Gets y Sets |Gets |
+| Sets | |
+| Conexiones |Clientes conectados |
+| Número total de comandos |Total de operaciones |
 
 Para obtener información sobre cómo ver las métricas y personalizar cada gráfico de esta sección, consulte la sección [Cómo ver métricas y personalizar gráficos de métricas](#how-to-view-metrics-and-customize-charts), más adelante.
 
 ### Gráficos de uso
-
 La sección **Uso** incluye los gráficos **Carga de servidor de Redis**, **Uso de memoria**, **Ancho de banda de red** y **Uso de CPU** y también muestra el **Nivel de precios** de la instancia de la caché.
 
 ![Gráficos de uso][redis-cache-usage-part]
@@ -250,14 +255,14 @@ El **Nivel de precios** muestra el nivel de precios de caché y se puede utiliza
 Los gráficos de **Uso** muestran las siguientes métricas.
 
 | Gráfico de uso | Métricas de caché |
-|-------------------|---------------|
-| Carga de servidor de Redis | Carga de servidor |
-| Uso de la memoria | Memoria usada |
-| Ancho de banda de red | Escritura de caché |
-| Uso de CPU | CPU |
+| --- | --- |
+| Carga de servidor de Redis |Carga de servidor |
+| Uso de la memoria |Memoria usada |
+| Ancho de banda de red |Escritura de caché |
+| Uso de CPU |CPU |
 
 Para obtener información sobre cómo ver las métricas y personalizar cada gráfico de esta sección, consulte la sección [Cómo ver métricas y personalizar gráficos de métricas](#how-to-view-metrics-and-customize-charts), más adelante.
-  
+
 <!-- IMAGES -->
 
 [redis-cache-enable-diagnostics]: ./media/cache-how-to-monitor/redis-cache-enable-diagnostics.png

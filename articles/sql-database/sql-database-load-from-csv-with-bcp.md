@@ -1,48 +1,41 @@
-<properties
-   pageTitle="Carga de datos desde un archivo CSV en Base de datos de SQL Azure (bcp) | Microsoft Azure"
-   description="Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure."
-   services="sql-database"
-   documentationCenter="NA"
-   authors="CarlRabeler"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Carga de datos desde un archivo CSV en Base de datos de SQL Azure (bcp) | Microsoft Docs
+description: Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure.
+services: sql-database
+documentationcenter: NA
+author: CarlRabeler
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.devlang="NA"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="09/13/2016"
-   ms.author="carlrab"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 09/13/2016
+ms.author: carlrab
 
-
+---
 # Carga de datos desde CSV en Almacenamiento de datos SQL de Azure (archivos planos)
-
 Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Base de datos SQL de Azure.
 
 ## Antes de empezar
-
 ### Requisitos previos
-
 Para seguir paso a paso este tutorial, necesita:
 
-- Un servidor lógico de Base de datos SQL de Azure y una base de datos
-- La utilidad de línea de comandos bcp instalada
-- La utilidad de línea de comandos sqlcmd instalada
+* Un servidor lógico de Base de datos SQL de Azure y una base de datos
+* La utilidad de línea de comandos bcp instalada
+* La utilidad de línea de comandos sqlcmd instalada
 
-Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][].
+Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][Centro de descarga de Microsoft].
 
 ### Datos en los formatos ASCII o UTF-16
-
 Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8.
 
 ## 1\. Creación de una tabla de destino.
-
 Defina una tabla en SQL Database como tabla de destino. Las columnas de la tabla deben corresponder con los datos de cada fila del archivo de datos.
 
 Para crear una tabla, abra un símbolo del sistema y use sqlcmd.exe para ejecutar el comando siguiente:
-
 
 ```sql
 sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q "
@@ -58,7 +51,6 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## 2\. Creación de un archivo de datos de origen
-
 Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\\Temp\\DimDate2.txt. Estos datos están en formato ASCII.
 
 ```
@@ -97,24 +89,22 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 El resultado debería ser similar a este:
 
-DateId |CalendarQuarter |FiscalQuarter
------------ |--------------- |-------------
-20150101 |1 |3
-20150201 |1 |3
-20150301 |1 |3
-20150401 |2 |4
-20150501 |2 |4
-20150601 |2 |4
-20150701 |3 |1
-20150801 |3 |1
-20150801 |3 |1
-20151001 |4 |2
-20151101 |4 |2
-20151201 |4 |2
-
+| DateId | CalendarQuarter | FiscalQuarter |
+| --- | --- | --- |
+| 20150101 |1 |3 |
+| 20150201 |1 |3 |
+| 20150301 |1 |3 |
+| 20150401 |2 |4 |
+| 20150501 |2 |4 |
+| 20150601 |2 |4 |
+| 20150701 |3 |1 |
+| 20150801 |3 |1 |
+| 20150801 |3 |1 |
+| 20151001 |4 |2 |
+| 20151101 |4 |2 |
+| 20151201 |4 |2 |
 
 ## Pasos siguientes
-
 Para migrar una base de datos de SQL Server, consulte el artículo sobre la [migración de una base de datos de SQL Server](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->

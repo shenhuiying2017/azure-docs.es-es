@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Administración de VM de un conjunto de escalado de máquinas virtuales | Microsoft Azure"
-	description="Administración de máquinas de un conjunto de escalado de máquinas virtuales mediante Azure PowerShell."
-	services="virtual-machine-scale-sets"
-	documentationCenter=""
-	authors="davidmu1"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Administración de VM de un conjunto de escalado de máquinas virtuales | Microsoft Docs
+description: Administración de máquinas de un conjunto de escalado de máquinas virtuales mediante Azure PowerShell.
+services: virtual-machine-scale-sets
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machine-scale-sets"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/14/2016"
-	ms.author="davidmu"/>
+ms.service: virtual-machine-scale-sets
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/14/2016
+ms.author: davidmu
 
+---
 # Administración de máquinas de un conjunto de escalado de máquinas virtuales
-
 Use las tareas de este artículo para administrar recursos de máquinas virtuales del conjunto de escalado de máquinas virtuales.
 
 Todas las tareas que implican administrar una máquina virtual de un conjunto de escalado requieren que conozca el identificador de instancia de la máquina que desea administrar. Puede usar el [Explorador de recursos de Azure](https://resources.azure.com) para buscar el identificador de instancia de una máquina virtual de un conjunto de escalado. El Explorador de recursos también se puede usar para comprobar el estado de las tareas que finaliza el usuario.
@@ -26,7 +25,6 @@ Todas las tareas que implican administrar una máquina virtual de un conjunto de
 Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta de Azure.
 
 ## Visualización de información sobre un conjunto de escalado de máquinas virtuales
-
 Puede obtener información general sobre un conjunto de escalado, que también se conoce como la vista de instancia. O bien, puede obtener información más específica, como información sobre los recursos del conjunto.
 
 En el comando siguiente, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, y el *nombre del conjunto de escalado* por el nombre del conjunto de escalado de máquinas virtuales. Por último, ejecútelo:
@@ -88,11 +86,11 @@ Entonces, se devuelve algo parecido a lo siguiente:
         AutoUpgradeMinorVersion                 : True
         Settings                                : {"xmlCfg":"...","storageAccount":"astore"}
     ProvisioningState                           : Succeeded
-    
+
 En este comando, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, *el nombre del conjunto de escalado* por el nombre del conjunto de escalado de máquina virtual y *#* por el identificador de instancia de la máquina virtual sobre el que desea obtener información y, a continuación, ejecútelo.
 
     Get-AzureRmVmssVM -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
-        
+
 Entonces, se devuelve algo parecido a lo siguiente:
 
     Id                            : /subscriptions/{sub-id}/resourceGroups/myrg1/providers/Microsoft.Compute/
@@ -141,9 +139,8 @@ Entonces, se devuelve algo parecido a lo siguiente:
       AutoUpgradeMinorVersion     : True
       Settings                    : {"xmlCfg":"...","storageAccount":"astore"}
       ProvisioningState           : Succeeded
-        
-## Inicio de una máquina virtual de un conjunto de escalado
 
+## Inicio de una máquina virtual de un conjunto de escalado
 En este comando, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, *nombre del conjunto de escalado* por el nombre del conjunto de escalado y *#* por el identificador de la máquina virtual que desee iniciar. Por último, ejecútelo:
 
     Start-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
@@ -165,16 +162,15 @@ En el Explorador de recursos, podemos ver que el estado de la instancia es **En 
     ]
 
 Puede iniciar todas las máquinas virtuales en el conjunto sin usar el parámetro -InstanceId.
-    
-## Detención de una máquina virtual de un conjunto de escalado
 
+## Detención de una máquina virtual de un conjunto de escalado
 En este comando, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, *nombre del conjunto de escalado* por el nombre del conjunto de escalado y *#* por el identificador de la máquina virtual que desee detener. Por último, ejecútelo:
 
-	Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+    Stop-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
 
 En el Explorador de recursos, podemos ver que el estado de la instancia es **Desasignado**:
 
-	"statuses": [
+    "statuses": [
       {
         "code": "ProvisioningState/succeeded",
         "level": "Info",
@@ -187,22 +183,20 @@ En el Explorador de recursos, podemos ver que el estado de la instancia es **Des
         "displayStatus": "VM deallocated"
       }
     ]
-    
-Para detener una máquina virtual y no desasignarla, utilice el parámetro - StayProvisioned. Puede detener todas las máquinas virtuales en el conjunto sin usar el parámetro -InstanceId.
-    
-## Reinicio de una máquina virtual de un conjunto de escalado
 
+Para detener una máquina virtual y no desasignarla, utilice el parámetro - StayProvisioned. Puede detener todas las máquinas virtuales en el conjunto sin usar el parámetro -InstanceId.
+
+## Reinicio de una máquina virtual de un conjunto de escalado
 En este comando, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, *nombre del conjunto de escalado* por el nombre del conjunto de escalado y *#* por el identificador de la máquina virtual que desee iniciar. Por último, ejecútelo:
 
-	Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
-    
+    Restart-AzureRmVmss -ResourceGroupName "resource group name" -VMScaleSetName "scale set name" -InstanceId #
+
 Puede reiniciar todas las máquinas virtuales en el conjunto sin usar el parámetro -InstanceId.
 
 ## Eliminación de una máquina virtual de un conjunto de escalado
-
 En este comando, reemplace el *nombre del grupo de recursos* por el nombre del grupo de recursos que contiene el conjunto de escalado de máquinas virtuales, *nombre del conjunto de escalado* por el nombre del conjunto de escalado y *#* por el identificador de la máquina virtual que desee quitar del conjunto de escalado. Por último, ejecútelo:
 
-	Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
+    Remove-AzureRmVmss -ResourceGroupName "resource group name" –VMScaleSetName "scale set name" -InstanceId #
 
 Puede quitar el conjunto de escalado de máquina virtual a la vez sin usar el parámetro -InstanceId.
 

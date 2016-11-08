@@ -1,40 +1,39 @@
-<properties
-	pageTitle="Referencia para desarrolladores de Funciones de Azure | Microsoft Azure"
-	description="Cómo desarrollar funciones de Azure con C#."
-	services="functions"
-	documentationCenter="na"
-	authors="christopheranderson"
-	manager="erikre"
-	editor=""
-	tags=""
-	keywords="Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor"/>
+---
+title: Referencia para desarrolladores de Funciones de Azure | Microsoft Docs
+description: Cómo desarrollar funciones de Azure con C#.
+services: functions
+documentationcenter: na
+author: christopheranderson
+manager: erikre
+editor: ''
+tags: ''
+keywords: Azure funciones, funciones, procesamiento de eventos, webhooks, proceso dinámico, arquitectura sin servidor
 
-<tags
-	ms.service="functions"
-	ms.devlang="dotnet"
-	ms.topic="reference"
-	ms.tgt_pltfrm="multiple"
-	ms.workload="na"
-	ms.date="05/13/2016"
-	ms.author="chrande"/>
+ms.service: functions
+ms.devlang: dotnet
+ms.topic: reference
+ms.tgt_pltfrm: multiple
+ms.workload: na
+ms.date: 05/13/2016
+ms.author: chrande
 
+---
 # Referencia para desarrolladores de C# de Funciones de Azure
+> [!div class="op_single_selector"]
+> * [Script de C#](functions-reference-csharp.md)
+> * [Script de F#](functions-reference-fsharp.md)
+> * [Node.js](functions-reference-node.md)
+> 
+> 
 
-> [AZURE.SELECTOR]
-- [Script de C#](../articles/azure-functions/functions-reference-csharp.md)
-- [Script de F#](../articles/azure-functions/functions-reference-fsharp.md)
-- [Node.js](../articles/azure-functions/functions-reference-node.md)
- 
 La experiencia en C# para las Funciones de Azure se basa en el SDK de WebJobs de Azure. Los datos fluyen en la función de C# a través de los argumentos de método. Los nombres de los argumentos se especifican en `function.json`, y hay nombres predefinidos para acceder a cosas como el registrador de funciones y los tokens de cancelación.
 
 En este artículo se supone que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md).
 
 ## Funcionamiento de .csx
-
 El formato `.csx` permite escribir menos "texto reutilizable" y centrarse en escribir solo una función de C#. En Azure Functions, incluya solo las referencias a ensamblados y espacios de nombres que necesite, como de costumbre, y en lugar de ajustar todo en un espacio de nombres y una clase, simplemente defina el método `Run`. Si necesita incluir todas las clases, por ejemplo para definir objetos POCO, puede incluir una clase dentro del mismo archivo.
 
 ## Enlace a argumentos
-
 Los distintos enlaces se vinculan a una función de C# mediante la propiedad `name` de la configuración de *function.json*. Cada enlace tiene sus propios tipos admitidos que se documentan por enlace. Por ejemplo, un desencadenador de blob puede admitir una cadena, un objeto POCO o algunos otros tipos. Puede utilizar el tipo que mejor se adapte a sus necesidades.
 
 ```csharp
@@ -51,7 +50,6 @@ public class MyClass
 ```
 
 ## Registro
-
 Para registrar la salida en sus registros de streaming en C#, puede incluir un argumento con tipo `TraceWriter`. Es recomendable que lo denomine `log`. Le recomendamos que evite `Console.Write` en Azure Functions.
 
 ```csharp
@@ -62,7 +60,6 @@ public static void Run(string myBlob, TraceWriter log)
 ```
 
 ## Async
-
 Para convertir una función en asincrónica, use la palabra clave `async` y devuelva un objeto `Task`.
 
 ```csharp
@@ -76,7 +73,6 @@ public async static Task ProcessQueueMessageAsync(
 ```
 
 ## Token de cancelación
-
 En algunos casos, puede que tenga operaciones que son sensibles al cierre. Aunque siempre es mejor escribir código para controlar los bloqueos, en los casos donde desee controlar las solicitudes de cierre estable, defina un argumento con tipo [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx). Se proporcionará un `CancellationToken` si se desencadena un cierre del host.
 
 ```csharp
@@ -91,7 +87,6 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ```
 
 ## Importación de espacios de nombres
-
 Si necesita importar espacios de nombres, puede hacerlo de la manera habitual, con la cláusula `using`.
 
 ```csharp
@@ -113,7 +108,6 @@ Los siguientes espacios de nombres se importan automáticamente y, por tanto, so
 * `Microsoft.Azure.WebJobs.Host`.
 
 ## Referencia a ensamblados externos
-
 Para los ensamblados de marco, agregue referencias mediante la directiva `#r "AssemblyName"`.
 
 ```csharp
@@ -150,7 +144,6 @@ Además, en los siguientes ensamblados se hace un uso especial de las mayúscula
 Si necesita hacer referencia a un ensamblado privado, puede cargar el archivo de ensamblado en una carpeta `bin` relacionada con la función y hacer referencia a él mediante el nombre de archivo (por ejemplo, `#r "MyAssembly.dll"`). Para más información acerca de cómo cargar archivos en su carpeta de función, consulte la sección siguiente sobre administración de paquetes.
 
 ## Administración de paquetes
-
 Para usar paquetes NuGet en una función de C#, cargue un archivo *project.json* en la carpeta de la función del sistema de archivos de la aplicación de función. Este es un ejemplo de archivo *project.json* que agrega una referencia a la versión 1.1.0 de Microsoft.ProjectOxford.Face:
 
 ```json
@@ -169,15 +162,11 @@ Solo se admite .NET Framework 4.6, así que asegúrese de que su archivo *projec
 
 Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene los paquetes y agrega automáticamente las referencias a sus ensamblados. No es necesario agregar directivas `#r "AssemblyName"`. Basta con agregar las instrucciones `using` necesarias al archivo *run.csx* para que use los tipos definidos en los paquetes NuGet.
 
-
 ### Cómo cargar un archivo project.json
-
 1. En primer lugar, asegúrese de que la aplicación de la función se está ejecutando, lo que puede hacer abriéndola en el Portal de Azure.
-
-	Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
-
+   
+    Esto también proporciona acceso a los registros de streaming donde se mostrará la salida de la instalación del paquete.
 2. Para cargar un archivo project.json, use uno de los métodos descritos en la sección **Actualización de los archivos de la aplicación de función** del [tema Referencia para desarrolladores de Azure Functions](functions-reference.md#fileupdate).
-
 3. Una vez cargado el archivo *project.json*, verá un resultado similar al del ejemplo siguiente en el registro de streaming de la función:
 
 ```
@@ -198,7 +187,6 @@ Al cargar un archivo *project.json*, el sistema en tiempo de ejecución obtiene 
 ```
 
 ## Variables de entorno
-
 Para obtener una variable de entorno o un valor de configuración de aplicación, use `System.Environment.GetEnvironmentVariable`, como se muestra en el ejemplo de código siguiente:
 
 ```csharp
@@ -217,7 +205,6 @@ public static string GetEnvironmentVariable(string name)
 ```
 
 ## Reutilización del código .csx
-
 Puede usar las clases y los métodos definidos en otros archivos *.csx* con el archivo *run.csx*. Para ello, use directivas `#load` en el archivo *run.csx*, como se muestra en el ejemplo siguiente.
 
 Archivo *run.csx* de ejemplo:
@@ -244,15 +231,12 @@ public static void MyLogger(TraceWriter log, string logtext)
 Puede usar una ruta de acceso relativa con la directiva `#load`:
 
 * `#load "mylogger.csx"` carga un archivo que se encuentra en la carpeta de la función.
-
 * `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta dentro de la carpeta de la función.
-
 * `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
- 
+
 La directiva `#load` solo funciona con archivos *.csx* (script de C#), no con archivos *.cs*.
 
 ## Pasos siguientes
-
 Para obtener más información, consulte los siguientes recursos:
 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)

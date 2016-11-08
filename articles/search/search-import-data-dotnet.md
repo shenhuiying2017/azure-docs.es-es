@@ -1,27 +1,29 @@
-<properties
-    pageTitle="Carga de datos en Búsqueda de Azure con el SDK para .NET | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-    description="Aprenda cómo cargar de datos en un índice de Búsqueda de Azure mediante el SDK para .NET."
-    services="search"
-    documentationCenter=""
-    authors="brjohnstmsft"
-    manager=""
-    editor=""
-    tags=""/>
+---
+title: Carga de datos en Búsqueda de Azure con el SDK para .NET | Microsoft Docs
+description: Aprenda cómo cargar de datos en un índice de Búsqueda de Azure mediante el SDK para .NET.
+services: search
+documentationcenter: ''
+author: brjohnstmsft
+manager: ''
+editor: ''
+tags: ''
 
-<tags
-    ms.service="search"
-    ms.devlang="dotnet"
-    ms.workload="search"
-    ms.topic="get-started-article"
-    ms.tgt_pltfrm="na"
-    ms.date="08/29/2016"
-    ms.author="brjohnst"/>
+ms.service: search
+ms.devlang: dotnet
+ms.workload: search
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.date: 08/29/2016
+ms.author: brjohnst
 
+---
 # Carga de datos en Búsqueda de Azure mediante el SDK para .NET
-> [AZURE.SELECTOR]
-- [Información general](search-what-is-data-import.md)
-- [.NET](search-import-data-dotnet.md)
-- [REST](search-import-data-rest-api.md)
+> [!div class="op_single_selector"]
+> * [Información general](search-what-is-data-import.md)
+> * [.NET](search-import-data-dotnet.md)
+> * [REST](search-import-data-rest-api.md)
+> 
+> 
 
 En este artículo se mostrará cómo usar el [SDK de .NET para Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx) para importar datos en un índice de Búsqueda de Azure.
 
@@ -31,9 +33,9 @@ Tenga en cuenta que todo el código de ejemplo de este artículo está escrito e
 
 Para insertar documentos en un índice mediante el SDK. para NET, necesitará:
 
-  1. Crear un objeto `SearchIndexClient` para conectarse al índice de búsqueda.
-  2. Crear un `IndexBatch` que contenga los documentos que se van a agregar, modificar o eliminar.
-  3. Llamar al método `Documents.Index` del `SearchIndexClient` para enviar el `IndexBatch` al índice de búsqueda.
+1. Crear un objeto `SearchIndexClient` para conectarse al índice de búsqueda.
+2. Crear un `IndexBatch` que contenga los documentos que se van a agregar, modificar o eliminar.
+3. Llamar al método `Documents.Index` del `SearchIndexClient` para enviar el `IndexBatch` al índice de búsqueda.
 
 ## I. Creación de una instancia de la clase SearchIndexClient
 Para importar datos en el SDK de .NET para Búsqueda de Azure, será preciso crear una instancia de la clase `SearchIndexClient`. Dicha instancia se puede construir, pero es más fácil si ya tiene una instancia de `SearchServiceClient` para llamar a su método `Indexes.GetClient`. Por ejemplo, aquí se muestra cómo obtener un `SearchIndexClient` para el índice denominado "hoteles" de un `SearchServiceClient` denominado `serviceClient`:
@@ -42,19 +44,22 @@ Para importar datos en el SDK de .NET para Búsqueda de Azure, será preciso cre
 SearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
-> [AZURE.NOTE] En una aplicación de búsqueda típica, el llenado y la administración de índices se controlan mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice porque evita la molestia de proporcionar otro `SearchCredentials`. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el `SearchIndexClient` para poder pasar una clave de consulta en lugar de una clave de administración. Esto está en consonancia con el [principio de privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) y le ayudará a proteger su aplicación. Puede encontrar más información acerca de las claves de administración y de consulta en la [referencia de la API de REST de Búsqueda de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> [!NOTE]
+> En una aplicación de búsqueda típica, el llenado y la administración de índices se controlan mediante un componente independiente de las consultas de búsqueda. `Indexes.GetClient` resulta cómodo para rellenar un índice porque evita la molestia de proporcionar otro `SearchCredentials`. Con este fin, pasa la clave de administrador que se usó para crear el `SearchServiceClient` al nuevo `SearchIndexClient`. Sin embargo, en la parte de la aplicación que ejecuta consultas, es mejor crear directamente el `SearchIndexClient` para poder pasar una clave de consulta en lugar de una clave de administración. Esto está en consonancia con el [principio de privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege) y le ayudará a proteger su aplicación. Puede encontrar más información acerca de las claves de administración y de consulta en la [referencia de la API de REST de Búsqueda de Azure en MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+> 
+> 
 
 `SearchIndexClient` tiene una propiedad `Documents`. Esta propiedad proporciona todos los métodos necesarios para agregar, modificar, eliminar o consultar los documentos del índice.
 
 ## II. Elección de la acción de indexación que va a usar
 Para importar datos mediante el SDK. de NET, es preciso empaquetar los datos en un objeto `IndexBatch`. Un `IndexBatch` encapsula una colección de objetos `IndexAction`, cada uno de los cuales contiene un documento y una propiedad que indica a Búsqueda de Azure qué acción debe realizar en el documento (cargar, combinar, eliminar, etc.). Dependiendo de cuál de las acciones siguientes elija, se deberán incluir solo ciertos campos para cada documento:
 
-Acción | Description | Campos necesarios para cada documento | Notas
---- | --- | --- | ---
-`Upload` | Una acción `Upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. | la clave, además de cualquier otro campo que desee definir | Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo.
-`Merge` | Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. | la clave, además de cualquier otro campo que desee definir | Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `DataType.Collection(DataType.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`.
-`MergeOrUpload` | Esta acción se comporta como `Merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `Upload` con un nuevo documento. | la clave, además de cualquier otro campo que desee definir |-
-`Delete` | Permite quitar el documento especificado del índice. | solo la clave | Los campos que especifique se ignorarán excepto el campo clave. Si desea quitar un campo individual de un documento, use `Merge` en su lugar y establezca el campo explícitamente con el valor NULL.
+| Acción | Description | Campos necesarios para cada documento | Notas |
+| --- | --- | --- | --- |
+| `Upload` |Una acción `Upload` es similar a un "upsert" donde se insertará el documento si es nuevo y se actualizará/reemplazará si ya existe. |la clave, además de cualquier otro campo que desee definir |Al actualizar o reemplazar un documento existente, cualquier campo que no esté especificado en la solicitud tendrá su campo establecido en `null`. Esto ocurre incluso cuando el campo se ha establecido previamente en un valor que no sea nulo. |
+| `Merge` |Permite actualizar un documento existente con los campos especificados. Si el documento no existe en el índice, se producirá un error en la combinación. |la clave, además de cualquier otro campo que desee definir |Cualquier campo que se especifica en una combinación reemplazará al campo existente en el documento. Aquí se incluyen los campos de tipo `DataType.Collection(DataType.String)`. Por ejemplo, si el documento contiene un campo `tags` con el valor `["budget"]` y ejecuta una combinación con el valor `["economy", "pool"]` para `tags`, el valor final del campo `tags` será `["economy", "pool"]`. No será `["budget", "economy", "pool"]`. |
+| `MergeOrUpload` |Esta acción se comporta como `Merge` si ya existe un documento con la clave especificada en el índice. Si el documento no existe, se comporta como `Upload` con un nuevo documento. |la clave, además de cualquier otro campo que desee definir |- |
+| `Delete` |Permite quitar el documento especificado del índice. |solo la clave |Los campos que especifique se ignorarán excepto el campo clave. Si desea quitar un campo individual de un documento, use `Merge` en su lugar y establezca el campo explícitamente con el valor NULL. |
 
 Puede especificar la acción que desea utilizar con los distintos métodos estáticos de las clases `IndexBatch` y `IndexAction`, como se muestra en la siguiente sección.
 
@@ -116,7 +121,10 @@ Se supone que este índice "hoteles" de ejemplo ya está relleno con varios docu
 
 Además, tenga en cuenta que en las solicitudes de indexación individuales solo se puede incluir un máximo de 1000 documentos.
 
-> [AZURE.NOTE] En este ejemplo, aplicamos acciones diferentes a documentos diferentes. Si deseara realizar las mismas acciones en todos los documentos del lote, en lugar de llamar a `IndexBatch.New`, podría utilizar los restantes métodos estáticos de `IndexBatch`. Por ejemplo, podría crear lotes mediante una llamada a `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` o `IndexBatch.Delete`. Estos métodos toman una colección de documentos (objetos del tipo `Hotel` en este ejemplo), en lugar de objetos `IndexAction`.
+> [!NOTE]
+> En este ejemplo, aplicamos acciones diferentes a documentos diferentes. Si deseara realizar las mismas acciones en todos los documentos del lote, en lugar de llamar a `IndexBatch.New`, podría utilizar los restantes métodos estáticos de `IndexBatch`. Por ejemplo, podría crear lotes mediante una llamada a `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` o `IndexBatch.Delete`. Estos métodos toman una colección de documentos (objetos del tipo `Hotel` en este ejemplo), en lugar de objetos `IndexAction`.
+> 
+> 
 
 ## IV. Importación de datos en el índice
 Ahora que tiene un objeto `IndexBatch` inicializado, puede enviarlo al índice, para lo que debe realizar una llamada a `Documents.Index` en el objeto `SearchIndexClient`. En el ejemplo siguiente se muestra cómo llamar a `Index`, así como algunos pasos adicionales que es preciso llevar a cabo:
@@ -145,8 +153,8 @@ Tenga en cuenta el `try`/`catch` que rodea la llamada al método `Index`. El blo
 Por último, el código del ejemplo anterior se retrasa dos segundos. La indización ocurre de manera asincrónica en el servicio Búsqueda de Azure, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
 
 <a name="HotelClass"></a>
-### Gestión de documentos del SDK de .NET
 
+### Gestión de documentos del SDK de .NET
 Quizás se pregunte cómo consigue el SDK de Azure para .NET cargar en el índice las instancias de una clase definida por el usuario como `Hotel`. Para ayudar a responder esa pregunta, examinemos la clase `Hotel`, que se asigna al esquema de índice definido en [Creación de un índice de Búsqueda de Azure mediante el SDK para .NET](search-create-index-dotnet.md#DefineIndex):
 
 ```csharp
@@ -184,13 +192,19 @@ public partial class Hotel
 
 Lo primero que debe tener en cuenta es que cada propiedad pública de `Hotel` corresponde a un campo de la definición del índice, pero con una diferencia fundamental: el nombre de cada campo comienza con una letra minúscula ("mayúsculas y minúsculas Camel"), mientras que el nombre de cada propiedad pública de `Hotel` comienza con una letra mayúscula ("mayúsculas y minúsculas Pascal"). Se trata de un escenario común en las aplicaciones .NET que realizan enlaces de datos cuando el esquema de destino está fuera del control del desarrollador de la aplicación. En lugar de tener que infringir las directrices de nomenclatura de .NET utilizando mayúsculas y minúsculas Camel para los nombres de las propiedades, puede usar el atributo `[SerializePropertyNamesAsCamelCase]` para indicar al SDK que asigne los nombres de las propiedades automáticamente a mayúsculas y minúsculas Camel.
 
-> [AZURE.NOTE] El SDK de .NET para Búsqueda de Azure usa la biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Puede encontrar más detalles en [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md#WhatsNew). Un ejemplo de ello es el uso del atributo `[JsonProperty]` en la propiedad `DescriptionFr` del código de ejemplo anterior.
+> [!NOTE]
+> El SDK de .NET para Búsqueda de Azure usa la biblioteca [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar y deserializar los objetos de modelo personalizados en JSON y de este. Puede personalizar esta serialización si es necesario. Puede encontrar más detalles en [Actualización a la versión 1.1 del SDK de .NET para Búsqueda de Azure](search-dotnet-sdk-migration.md#WhatsNew). Un ejemplo de ello es el uso del atributo `[JsonProperty]` en la propiedad `DescriptionFr` del código de ejemplo anterior.
+> 
+> 
 
 La segunda cosa importante acerca de la clase `Hotel` son los tipos de datos de las propiedades públicas. Los tipos .NET de esas propiedades se asignan a los tipos de campo equivalentes de la definición del índice. Por ejemplo, la propiedad de cadena `Category` se asigna al campo `category`, que es de tipo `DataType.String`. Se dan asignaciones de tipos semejantes entre `bool?` y `DataType.Boolean`, `DateTimeOffset?` y `DataType.DateTimeOffset`, etc. Las reglas específicas para la asignación de tipos se documentan con el método `Documents.Get` en [MSDN](https://msdn.microsoft.com/library/azure/dn931291.aspx).
 
 La capacidad de usar sus propias clases como documentos funciona en ambas direcciones; también puede recuperar los resultados de la búsqueda y hacer que el SDK los deserialice automáticamente en el tipo que prefiera, como se muestra en el [siguiente artículo](search-query-dotnet.md).
 
-> [AZURE.NOTE] El SDK de Búsqueda de Azure para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document`, así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este artículo solo se utilizan las últimas. Puede encontrar más información acerca de la clase `Document` [en MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> [!NOTE]
+> El SDK de Búsqueda de Azure para .NET también admite documentos de tipo dinámico mediante la clase `Document`, que es una asignación clave/valor de nombres de campo a valores de campo. Esto es útil en escenarios en los que no se conoce el esquema del índice en el momento del diseño o en los que resulte inconveniente enlazar a clases de modelo específicas. Todos los métodos del SDK que se ocupan de los documentos tienen sobrecargas que funcionan con la clase `Document`, así como sobrecargas de asignación rigurosa que aceptan un parámetro de tipo genérico. En el código de ejemplo de este artículo solo se utilizan las últimas. Puede encontrar más información acerca de la clase `Document` [en MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.document.aspx).
+> 
+> 
 
 **Nota importante acerca de los tipos de datos**
 

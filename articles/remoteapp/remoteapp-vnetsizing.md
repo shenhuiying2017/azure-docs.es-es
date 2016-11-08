@@ -1,27 +1,26 @@
 
-<properties
-    pageTitle="Información de tamaño para una red virtual de Azure RemoteApp | Microsoft Azure"
-    description="Obtenga información acerca de los requisitos de direcciones IP de Azure RemoteApp cuando se ejecuta con una red virtual."
-    services="remoteapp"
-    documentationCenter=""
-    authors="lizap"
-    manager="mbaldwin" />
+---
+title: Información de tamaño para una red virtual de Azure RemoteApp | Microsoft Docs
+description: Obtenga información acerca de los requisitos de direcciones IP de Azure RemoteApp cuando se ejecuta con una red virtual.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags
-    ms.service="remoteapp"
-    ms.workload="compute"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/15/2016"
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Información de tamaño para una red virtual de Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 Al usar Azure RemoteApp con una red virtual (VNET), RemoteApp usa direcciones IP dentro de la subred. En función de la escala de su servicio de RemoteApp, deberá asegurarse de que la subred tiene suficientes direcciones IP disponibles para las máquinas virtuales de RemoteApp. Aunque esta guía sobre tamaños no es perfecta dado el modo en que RemoteApp aumenta y disminuye dinámicamente la capacidad de las máquinas virtuales dentro de una colección, le permitirá calcular el intervalo de subredes. Esto es especialmente importante ya que, una vez esté vigente el servicio de RemoteApp en una red virtual, no se puede aumentar el tamaño de la subred sin quitar RemoteApp.
 
@@ -29,7 +28,7 @@ Para cada colección de RemoteApp que desee ejecutar a su capacidad máxima, deb
 
 Consulte la siguiente información para asegurarse de que la red virtual está configurada y funciona correctamente:
 
-- [Migración de una red virtual personal a una red virtual de Azure](remoteapp-migratevnet.md)
-- [Validación de la red virtual de Azure para su uso con Azure RemoteApp](remoteapp-vnet.md)
+* [Migración de una red virtual personal a una red virtual de Azure](remoteapp-migratevnet.md)
+* [Validación de la red virtual de Azure para su uso con Azure RemoteApp](remoteapp-vnet.md)
 
 <!---HONumber=AcomDC_0817_2016-->

@@ -1,27 +1,27 @@
-<properties
-	pageTitle="Qué es PowerApps Enterprise y cómo empezar | Microsoft Azure"
-	description="Introducción a PowerApps Enterprise y creación del entorno del Servicio de aplicaciones"
-	services=""
-    suite="powerapps"
-	documentationCenter=""
-	authors="linhtranms"
-	manager="dwrede"
-	editor=""/>
+---
+title: Qué es PowerApps Enterprise y cómo empezar | Microsoft Docs
+description: Introducción a PowerApps Enterprise y creación del entorno del Servicio de aplicaciones
+services: ''
+suite: powerapps
+documentationcenter: ''
+author: linhtranms
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="powerapps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="05/04/2016"
-   ms.author="litran"/>
+ms.service: powerapps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/04/2016
+ms.author: litran
 
+---
 # ¿Qué es Microsoft PowerApps Enterprise?
-
-> [AZURE.IMPORTANT] Este tema está archivado y pronto se quitará. Venga a ver lo que estamos preparando en el nuevo [PowerApps](https://powerapps.microsoft.com).
-
-
+> [!IMPORTANT]
+> Este tema está archivado y pronto se quitará. Venga a ver lo que estamos preparando en el nuevo [PowerApps](https://powerapps.microsoft.com).
+> 
+> 
 
 [1]: ./media/powerapps-get-started-azure-portal/browseall.png
 [2]: ./media/powerapps-get-started-azure-portal/allresources.png

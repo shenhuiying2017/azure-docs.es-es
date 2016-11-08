@@ -1,17 +1,14 @@
 ### <a name="create-an-aaaa-record-set-with-a-single-record"></a>Creación de un conjunto de registros AAAA con un único registro
-
     $rs = New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
     Add-AzureRmDnsRecordConfig -RecordSet $rs -Ipv6Address "2607:f8b0:4009:1803::1005"
     Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Creación de un conjunto de registros CNAME con un único registro
-
     $rs = New-AzureRmDnsRecordSet -Name "test-cname" -RecordType CNAME -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
     Add-AzureRmDnsRecordConfig -RecordSet $rs -Cname "www.contoso.com"
     Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="create-an-mx-record-set-with-a-single-record"></a>Creación de un conjunto de registros MX con un único registro
-
 En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el registro MX en el vértice de la zona (por ejemplo, "contoso.com"). Esto es común para los registros MX.
 
     $rs = New-AzureRmDnsRecordSet -Name "@" -RecordType MX -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -19,7 +16,6 @@ En este ejemplo, se utiliza el nombre de conjunto de registros "@" para crear el
     Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="create-an-ns-record-set-with-a-single-record"></a>Creación de un conjunto de registros NS con un único registro
-
     $rs = New-AzureRmDnsRecordSet -Name "test-ns" -RecordType NS -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
     Add-AzureRmDnsRecordConfig -RecordSet $rs -Nsdname "ns1.contoso.com"
     Set-AzureRmDnsRecordSet -RecordSet $rs
@@ -32,7 +28,6 @@ En este caso 'my-arpa-zone.com' representa la zona ARPA que representa el interv
     Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="create-an-srv-record-set-with-a-single-record"></a>Creación de un conjunto de registros SRV con un único registro
-
 Si va a crear un registro SRV en la raíz de la zona, basta con especificar *_service* y *_protocol* en el nombre del registro. No es necesario incluir include"@" en el nombre del registro.
 
     $rs = New-AzureRmDnsRecordSet -Name "_sip._tls" -RecordType SRV -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -40,7 +35,6 @@ Si va a crear un registro SRV en la raíz de la zona, basta con especificar *_se
     Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### <a name="create-a-txt-record-set-with-a-single-record"></a>Crear un conjunto de registros TXT con un único registro
-
     $rs = New-AzureRmDnsRecordSet -Name "test-txt" -RecordType TXT -Ttl 60 -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
     Add-AzureRmDnsRecordConfig -RecordSet $rs -Value "This is a TXT record"
     Set-AzureRmDnsRecordSet -RecordSet $rs

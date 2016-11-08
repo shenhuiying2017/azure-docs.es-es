@@ -3,13 +3,11 @@ Para establecer conexión con la instancia de Caché en Redis de Azure, los clie
 ![Configuración de caché en Redis](media/redis-cache-access-keys/redis-cache-settings.png)
 
 ### Nombre de host y puertos
-
 Para acceder al nombre de host y los puertos, haga clic en **Propiedades**.
 
 ![Propiedades de caché en Redis](media/redis-cache-access-keys/redis-cache-properties.png)
 
 ### Claves de acceso
-
 Para recuperar las claves de acceso, haga clic en **Claves de acceso**.
 
 ![Claves de acceso de caché en Redis](media/redis-cache-access-keys/redis-cache-access-keys.png)

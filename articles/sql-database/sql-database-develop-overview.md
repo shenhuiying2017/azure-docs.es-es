@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Información general de desarrollo de Base de datos SQL | Microsoft Azure"
-	description="Aprenda sobre las bibliotecas de conectividad disponibles y los procedimientos recomendados para las aplicaciones que se conectan a Base de datos SQL."
-	services="sql-database"
-	documentationCenter=""
-	authors="annemill"
-	manager="jhubbard"
-	editor="genemi"/>
+---
+title: Información general de desarrollo de Base de datos SQL | Microsoft Docs
+description: Aprenda sobre las bibliotecas de conectividad disponibles y los procedimientos recomendados para las aplicaciones que se conectan a Base de datos SQL.
+services: sql-database
+documentationcenter: ''
+author: annemill
+manager: jhubbard
+editor: genemi
 
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: annemill
 
-<tags
-	ms.service="sql-database"
-	ms.workload="data-management"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="annemill"/>
-
+---
 # Información general de desarrollo de Base de datos SQL
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Base de datos SQL de Azure.
 
@@ -64,7 +63,6 @@ La escala elástica simplifica el proceso de escalado y reducción horizontal.
 * [Introducción a la vista previa de Escalado elástico de Base de datos SQL de Azure](sql-database-elastic-scale-get-started.md)
 
 ## Pasos siguientes
-
 Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/).
 
 <!---HONumber=AcomDC_0817_2016-->

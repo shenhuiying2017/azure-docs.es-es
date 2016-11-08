@@ -1,6 +1,5 @@
 
 ### cacheSKUName
-
 El nivel de precios de la nueva Caché en Redis de Azure.
 
     "cacheSKUName": {
@@ -18,7 +17,6 @@ El nivel de precios de la nueva Caché en Redis de Azure.
 La plantilla define los valores permitidos para este parámetro ( Básico o Estándar) y asigna un valor predeterminado (Básico) si no se especifica ningún valor. Básico ofrece un único nodo con varios tamaños disponibles hasta 53 GB. Estándar proporciona dos nodos, principal/réplica, con varios tamaños disponibles de hasta 53 GB y un contrato de nivel de servicio del 99,9%.
 
 ### cacheSKUFamily
-
 La familia de la SKU.
 
     "cacheSKUFamily": {
@@ -34,7 +32,6 @@ La familia de la SKU.
 
 
 ### cacheSKUCapacity
-
 El tamaño de la nueva instancia de Caché en Redis de Azure.
 
     "cacheSKUCapacity": {

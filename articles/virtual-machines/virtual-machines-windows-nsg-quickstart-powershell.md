@@ -1,23 +1,23 @@
-<properties
-   pageTitle="Apertura de puertos para una máquina virtual con PowerShell | Microsoft Azure"
-   description="Aprenda a abrir un puerto o crear un punto de conexión a la máquina virtual Windows con el modelo de implementación de Azure Resource Manager y Azure PowerShell"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="iainfoulds"
-   manager="timlt"
-   editor=""/>
+---
+title: Apertura de puertos para una máquina virtual con PowerShell | Microsoft Docs
+description: Aprenda a abrir un puerto o crear un punto de conexión a la máquina virtual Windows con el modelo de implementación de Azure Resource Manager y Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: iainfoulds
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="08/08/2016"
-   ms.author="iainfou"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 08/08/2016
+ms.author: iainfou
 
+---
 # Apertura de puertos para una máquina virtual en Azure mediante PowerShell
-[AZURE.INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
+[!INCLUDE [virtual-machines-common-nsg-quickstart](../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 ## Comandos rápidos
 Para crear reglas de los grupos de seguridad de red y ACL necesitará [que esté instalada la versión más reciente de Azure PowerShell](../powershell-install-configure.md). También puede [llevar a cabo estos pasos con Azure Portal](virtual-machines-windows-nsg-quickstart-portal.md).
@@ -68,8 +68,8 @@ Si necesita utilizar el enrutamiento de puerto para asignar un único puerto ext
 ## Pasos siguientes
 En este ejemplo, se ha creado una regla sencilla para permitir tráfico HTTP. Puede encontrar información sobre la creación de entornos más detallados en los siguientes artículos:
 
-- [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
-- [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
-- [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
+* [Información general del Administrador de recursos de Azure](../resource-group-overview.md)
+* [¿Qué es un grupo de seguridad de red?](../virtual-network/virtual-networks-nsg.md)
+* [Información general de Azure Resource Manager para equilibradores de carga](../load-balancer/load-balancer-arm.md)
 
 <!---HONumber=AcomDC_0907_2016-->

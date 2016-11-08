@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Diagnóstico de Reliable Services con estado | Microsoft Azure"
-   description="Funcionalidad de diagnóstico para Reliable Services con estado"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="AlanWarwick"
-   manager="timlt"
-   editor=""/>
+---
+title: Diagnóstico de Reliable Services con estado | Microsoft Docs
+description: Funcionalidad de diagnóstico para Reliable Services con estado
+services: service-fabric
+documentationcenter: .net
+author: AlanWarwick
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="05/17/2016"
-   ms.author="alanwar"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 05/17/2016
+ms.author: alanwar
 
+---
 # Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.
 
@@ -25,17 +25,15 @@ El nombre EventSource de la clase StatefulServiceBase de Reliable Services con e
 Otros ejemplos de herramientas y tecnologías que ayudan a recopilar o ver eventos EventSource son [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnósticos de Microsoft Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) y [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## Eventos
-
-|Nombre del evento|Id. de evento|Level|Descripción del evento|
-|----------|--------|-----|-----------------|
-|StatefulRunAsyncInvocation|1|Informativo|Emitido cuando se inicia la tarea RunAsync del servicio|
-|StatefulRunAsyncCancellation|2|Informativo|Emitido cuando se cancela la tarea RunAsync del servicio|
-|StatefulRunAsyncCompletion|3|Informativo|Emitido cuando se completa la tarea RunAsync del servicio|
-|StatefulRunAsyncSlowCancellation|4|Warning (Advertencia)|Emitido cuando la tarea RunAsync del servicio tarda demasiado tiempo en completar la cancelación|
-|StatefulRunAsyncFailure|5|Error|Emitido cuando la tarea RunAsync del servicio genera una excepción|
+| Nombre del evento | Id. de evento | Level | Descripción del evento |
+| --- | --- | --- | --- |
+| StatefulRunAsyncInvocation |1 |Informativo |Emitido cuando se inicia la tarea RunAsync del servicio |
+| StatefulRunAsyncCancellation |2 |Informativo |Emitido cuando se cancela la tarea RunAsync del servicio |
+| StatefulRunAsyncCompletion |3 |Informativo |Emitido cuando se completa la tarea RunAsync del servicio |
+| StatefulRunAsyncSlowCancellation |4 |Warning (Advertencia) |Emitido cuando la tarea RunAsync del servicio tarda demasiado tiempo en completar la cancelación |
+| StatefulRunAsyncFailure |5 |Error |Emitido cuando la tarea RunAsync del servicio genera una excepción |
 
 ## Interpretar eventos
-
 Los eventos StatefulRunAsyncInvocation, StatefulRunAsyncCompletion y StatefulRunAsyncCancellation son útiles para que el escritor del servicio comprenda el ciclo de vida de un servicio, así como el momento en que se inicia, se cancela o completa un servicio. Esto puede ser útil al depurar problemas de servicio o al comprender el ciclo de vida de servicio.
 
 Los escritores del servicio deben prestar especial atención a los eventos StatefulRunAsyncSlowCancellation y StatefulRunAsyncFailure, ya que indican problemas con el servicio.

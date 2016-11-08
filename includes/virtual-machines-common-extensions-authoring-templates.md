@@ -1,5 +1,4 @@
 ## Información general de las plantillas del Administrador de recursos de Azure
-
 Las plantillas del Administrador de recursos de Azure le permiten especificar mediante declaración la infraestructura IaaS de Azure en el lenguaje Json definiendo las dependencias entre recursos. Para obtener información más detallada de las plantillas del Administrador de recursos de Azure, consulte los siguientes artículos:
 
 [Información general del grupo de recursos](../articles/resource-group-overview.md)
@@ -30,7 +29,6 @@ Como se puede ver en lo anterior, la plantilla de extensión contiene dos partes
 2. Configuración de la extensión.
 
 ## Identificación de publisher, type y typeHandlerVersion para cualquier extensión.
-
 Tanto Microsoft como publicadores de terceros de confianza publican las extensiones de VM de Azure y cada extensión se identifica de forma exclusiva por publisher, type y typeHandlerVersion. Pueden determinarse de la manera siguiente:
 
 <!---HONumber=AcomDC_0330_2016-->

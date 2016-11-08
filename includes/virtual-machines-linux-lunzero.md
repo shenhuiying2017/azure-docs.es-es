@@ -9,11 +9,14 @@ Considere el ejemplo siguiente que muestra un fragmento de código de salida de 
 
 Los dos discos de datos existen en LUN 0 y LUN 1 (la primera columna de la salida `lsscsi` detalla `[host:channel:target:lun]`). Ambos discos deben estar accesibles desde la máquina virtual. Si ha especificado manualmente el primer disco que se va a agregar en LUN 1 y el segundo disco en LUN 2, es posible que no vea los discos correctamente desde la máquina virtual.
 
-> [AZURE.NOTE] El valor `host` de Azure es 5 en estos ejemplos, pero puede variar según el tipo de almacenamiento que se seleccione.
+> [!NOTE]
+> El valor `host` de Azure es 5 en estos ejemplos, pero puede variar según el tipo de almacenamiento que se seleccione.
+> 
+> 
 
 Este comportamiento de disco no es un problema de Azure, sino la forma en la que el kernel de Linux cumple las especificaciones de SCSI. Cuando el kernel de Linux analiza el bus SCSI para los dispositivos conectados, un dispositivo debe encontrarse en LUN 0 para que el sistema siga analizando dispositivos adicionales. De esta forma:
 
-- Revise la salida de `lsscsi` después de agregar un disco de datos para comprobar que tiene un disco en LUN 0.
-- Si el disco no aparece correctamente en la máquina virtual, compruebe que existe el disco en LUN 0.
+* Revise la salida de `lsscsi` después de agregar un disco de datos para comprobar que tiene un disco en LUN 0.
+* Si el disco no aparece correctamente en la máquina virtual, compruebe que existe el disco en LUN 0.
 
 <!---HONumber=AcomDC_0803_2016-->

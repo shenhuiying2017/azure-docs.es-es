@@ -1,32 +1,30 @@
-<properties 
-    pageTitle="Introducción al modelo de autenticación y seguridad de los Centros de eventos | Microsoft Azure"
-    description="Introducción al modelo de autenticación y seguridad de Centros de eventos"
-    services="event-hubs"
-    documentationCenter="na"
-    authors="sethmanheim"
-    manager="timlt"
-    editor="" />
-<tags 
-    ms.service="event-hubs"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="na"
-    ms.date="08/16/2016"
-    ms.author="sethm;clemensv" />
+---
+title: Introducción al modelo de autenticación y seguridad de los Centros de eventos | Microsoft Docs
+description: Introducción al modelo de autenticación y seguridad de Centros de eventos
+services: event-hubs
+documentationcenter: na
+author: sethmanheim
+manager: timlt
+editor: ''
 
+ms.service: event-hubs
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/16/2016
+ms.author: sethm;clemensv
 
+---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de los Centros de eventos
-
 El modelo de seguridad de los Centros de eventos cumple los siguientes requisitos:
 
-- Solo los dispositivos que tengan credenciales válidas pueden enviar datos a un Centro de eventos.
-- Un dispositivo no puede suplantar a otro dispositivo.
-- Un dispositivo no autorizado puede bloquearse para que no envíe datos a un Centro de eventos.
+* Solo los dispositivos que tengan credenciales válidas pueden enviar datos a un Centro de eventos.
+* Un dispositivo no puede suplantar a otro dispositivo.
+* Un dispositivo no autorizado puede bloquearse para que no envíe datos a un Centro de eventos.
 
 ## <a name="device-authentication"></a>Autenticación de dispositivos
-
-El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
+El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
 
 Normalmente, un Centro de eventos emplea a un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten control de acceso y limitación avanzados.
 
@@ -37,7 +35,6 @@ Aunque no se recomienda, es posible equipar los dispositivos con tokens que conc
 Todos los tokens se firman con una clave de SAS. Normalmente, todos los tokens se firman con la misma clave. Los dispositivos no conocen la clave; esto evita que los dispositivos produzcan tokens.
 
 ### <a name="create-the-sas-key"></a>Creación de la clave SAS
-
 Cuando se crea un espacio de nombres de Centros de eventos, Centros de eventos de Azure genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el Centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre `EventHubSendKey`.
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el Centro de eventos:
@@ -61,7 +58,6 @@ nm.CreateEventHub(ed);
 ```
 
 ### <a name="generate-tokens"></a>Generación de tokens
-
 Puede generar tokens con la clave de SAS. Solo debe generar un token por dispositivo. Los tokens se pueden producir con el método siguiente. Todos los tokens se generan con la clave **EventHubSendKey** . A cada token se le asigna un URI único.
 
 ```
@@ -85,17 +81,14 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 Normalmente, los tokens tienen una duración que se parece o supera la duración del dispositivo. Si el dispositivo tiene la capacidad de obtener un nuevo token, pueden usarse tokens con una duración más corta.
 
 ### <a name="devices-sending-data"></a>Envío de datos de dispositivos
-
 Cuando se han creado los tokens, cada dispositivo se aprovisiona con su propio token único.
 
 Cuando el dispositivo envía datos a un Centro de eventos, el dispositivo etiqueta su token con la solicitud de envío. Para evitar que un atacante use la técnica de eavesdropping y robe el token, la comunicación entre el dispositivo y el Centro de eventos debe realizarse a través de un canal cifrado.
 
 ### <a name="blacklisting-devices"></a>Incorporación de dispositivos a la lista negra
-
 Si un atacante roba un token, el atacante puede suplantar el dispositivo al que se ha robado el token. Al incorporar un dispositivo a la lista negra, se consigue que el dispositivo quede inutilizable hasta que se le asigne un nuevo token que use un publicador diferente.
 
 ## <a name="authentication-of-back-end-applications"></a>Autenticación de aplicaciones de back-end
-
 Para autenticar aplicaciones de back-end que consumen los datos que generan los dispositivos, Centros de eventos emplea un modelo de seguridad que es similar al que se usa en los temas de Bus de servicio. Un grupo de consumidores de Centros de eventos equivale a una suscripción a un tema de Bus de servicio. Un cliente puede crear un grupo de consumidores si la solicitud para crear el grupo de consumidores viene acompañada de un token que concede privilegios de administración para el Centro de eventos o para el espacio de nombres al que pertenece. Se permite que un cliente pueda consumir datos de un grupo de consumidores si la solicitud de recepción está acompañada de un token que concede derechos de recepción en ese grupo de consumidores, Centro de eventos o espacio de nombres al que pertenece el Centro de eventos.
 
 La versión actual de Bus de servicio no admite reglas SAS para suscripciones individuales. Lo mismo sucede con los grupos de consumidores de los Centros de eventos. La compatibilidad con SAS se agregará para ambas características en el futuro.
@@ -103,17 +96,16 @@ La versión actual de Bus de servicio no admite reglas SAS para suscripciones in
 En ausencia de autenticación SAS para grupos de consumidores individuales, puede usar claves SAS para proteger todos los grupos de consumidores con una clave común. Este enfoque permite que una aplicación consuma datos desde cualquiera de los grupos de consumidores de un Centro de eventos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Para más información sobre Centros de eventos, visite los siguientes temas:
 
-- [Información general de los Centros de eventos]
-- Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
-- Una [aplicación de ejemplo completa que usa Centros de eventos].
+* [Información general de los Centros de eventos]
+* Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
+* Una [aplicación de ejemplo completa que usa Centros de eventos].
 
 [Información general de los Centros de eventos]: event-hubs-overview.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
 [solución de mensajería en cola]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
- 
+
 
 
 

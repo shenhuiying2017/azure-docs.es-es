@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos | Microsoft Azure"
-   description="Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos."
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="jhubbard"
-   editor=""/>
+---
+title: Compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos | Microsoft Docs
+description: Obtenga información sobre compatibilidad de Almacenamiento de datos SQL con clientes de nivel inferior para auditoría de datos.
+services: sql-data-warehouse
+documentationcenter: ''
+author: ronortloff
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-database"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="10/31/2016" 
-   ms.author="rortloff;barbkess"/>
+ms.service: sql-database
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/31/2016
+ms.author: rortloff;barbkess
 
-
+---
 # <a name="sql-data-warehouse-downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse: compatibilidad con clientes de nivel inferior para enmascaramiento de datos dinámicos y auditoría
-
 [Auditoría](sql-data-warehouse-auditing-overview.md) funciona con los clientes SQL que admiten el redireccionamiento de TDS.
 
 Cualquier cliente que implementa TDS 7.4 también debe admitir el redireccionamiento. Entre las excepciones a esto se incluyen JDBC 4.0, en el que la función de redireccionamiento no es totalmente compatible y Tedious para Node.JS, en cuya redireccionamiento no se ha implementado.
@@ -31,14 +29,12 @@ FQDN del servidor modificado en la cadena de conexión: <*nombre del servidor*>.
 
 Una lista parcial de "Clientes de nivel inferior" incluye:
 
-- .NET 4.0 y versiones posteriores,
-- ODBC 10.0 y versiones posteriores.
-- JDBC (aunque JDBC admite TDS 7.4, la característica de redireccionamiento de TDS no es totalmente compatible)
-- Tedious (para Node.JS)
+* .NET 4.0 y versiones posteriores,
+* ODBC 10.0 y versiones posteriores.
+* JDBC (aunque JDBC admite TDS 7.4, la característica de redireccionamiento de TDS no es totalmente compatible)
+* Tedious (para Node.JS)
 
 **Comentario:** la anterior modificación de FDQN de servidor puede resultar útil también para aplicar una directiva de auditoría de nivel de SQL Server sin necesidad de un paso de configuración en cada base de datos (mitigación temporal).     
-
-
 
 <!--HONumber=Oct16_HO2-->
 

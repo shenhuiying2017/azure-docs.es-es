@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Windows | Microsoft Azure"
-   description="Configuración de ejemplo para crear plantillas con extensiones"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Ejemplo de configuración para las extensiones de la máquina virtual de Windows | Microsoft Docs
+description: Configuración de ejemplo para crear plantillas con extensiones
+services: virtual-machines-windows
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Ejemplos de configuración de la extensión de máquina virtual de Windows de Azure.
-
-> [AZURE.SELECTOR]
-- [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -55,7 +56,6 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       }
 
 ## Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
-
     {
      "type":"Microsoft.Compute/virtualMachineScaleSets",
     ....
@@ -100,14 +100,12 @@ Antes de implementar la extensión, compruebe la versión más reciente de la ex
       }
 
 #### Descripción del parámetro:
-
-- fileUris: lista separada por comas de direcciones URL de los archivos que se descargarán en la máquina virtual por la Extensión. No se descargan los archivos si no se especifica nada. Si los archivos están en Almacenamiento de Azure, fileURLs puede marcarse como privado y los correspondientes storageAccountName y storageAccountKey se pueden pasar como parámetros privados para tener acceso a estos archivos.
-- commandToExecute: [parámetro obligatorio]: este es el comando que se ejecutará por la Extensión.
-- storageAccountName: [parámetro opcional]: nombre de la cuenta de almacenamiento para tener acceso a fileURLs si están marcados como privados.
-- storageAccountKey: [parámetro opcional]: clave de cuenta de almacenamiento para tener acceso a fileURLs, si están marcados como privados.
+* fileUris: lista separada por comas de direcciones URL de los archivos que se descargarán en la máquina virtual por la Extensión. No se descargan los archivos si no se especifica nada. Si los archivos están en Almacenamiento de Azure, fileURLs puede marcarse como privado y los correspondientes storageAccountName y storageAccountKey se pueden pasar como parámetros privados para tener acceso a estos archivos.
+* commandToExecute: [parámetro obligatorio]: este es el comando que se ejecutará por la Extensión.
+* storageAccountName: [parámetro opcional]: nombre de la cuenta de almacenamiento para tener acceso a fileURLs si están marcados como privados.
+* storageAccountKey: [parámetro opcional]: clave de cuenta de almacenamiento para tener acceso a fileURLs, si están marcados como privados.
 
 ### Extensión CustomScript 1.7.
-
 Consulte la versión 1.4 de CustomScript para ver la descripción del parámetro. La versión 1.7 admite el envío de parámetros de script (commandToExecute) como protectedSettings, en cuyo caso se cifrará antes del envío. Puede especificarse el parámetro 'commandToExecute' en la configuración o protectedSettings, pero no en ambos.
 
         {
@@ -128,7 +126,6 @@ Consulte la versión 1.4 de CustomScript para ver la descripción del parámetro
         }
 
 ### Extensión VMAccess.
-
       {
           "publisher": "Microsoft.Compute",
           "type": "VMAccessAgent",
@@ -340,14 +337,13 @@ Consulte la versión 1.4 de CustomScript para ver la descripción del parámetro
           }
 
 ### Diagnóstico de Azure
-
 Para más detalles sobre cómo configurar los diagnósticos, vea [Extensión de diagnósticos de Azure](virtual-machines-windows-extensions-diagnostics-template.md).
 
           {
             "publisher": "Microsoft.Azure.Diagnostics",
             "type": "IaaSDiagnostics",
             "typeHandlerVersion": "1.5",
-			"autoUpgradeMinorVersion": true,
+            "autoUpgradeMinorVersion": true,
             "settings": {
               "xmlCfg": "[base64(variables('wadcfgx'))]",
               "storageAccount": "[parameters('diagnosticsStorageAccount')]"

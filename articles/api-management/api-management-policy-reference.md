@@ -1,79 +1,78 @@
-<properties 
-	pageTitle="Referencia de la directiva de Administración de API de Azure" 
-	description="Obtenga información acerca de las directivas disponibles para configurar Administración de API." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="vladvino" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Referencia de la directiva de Administración de API de Azure
+description: Obtenga información acerca de las directivas disponibles para configurar Administración de API.
+services: api-management
+documentationcenter: ''
+author: vladvino
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/29/2016" 
-	ms.author="apimpm"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: apimpm
 
+---
 # Referencia de la directiva de Administración de API de Azure
+Esta sección proporciona un índice de las directivas en la [Referencia de la directiva de Administración de API de Azure][Referencia de la directiva de Administración de API de Azure]. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API][Directivas en Administración de API].
 
-Esta sección proporciona un índice de las directivas en la [Referencia de la directiva de Administración de API de Azure][]. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API][].
-
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][] y [Establecer variable][] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][] y [Expresiones de directiva][].
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Flujo de control] y [Establecer variable][Establecer variable] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][Directivas avanzadas] y [Expresiones de directiva][Expresiones de directiva].
 
 ## Índice de referencia de directiva
-
--	[Directivas de restricción de acceso][]
-	-	[Activar encabezado HTTP][]\: aplica la existencia o el valor de un encabezado HTTP.
-	-	[Limitar la frecuencia de llamadas por suscripción][]\: evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
-	-	[Limitar la frecuencia de llamadas por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey): evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
-	-	[Restringir IP de autor de llamada][]\: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
-	-	[Establecer cuota de uso por suscripción][]\: le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
-	-	[Establecer cuota de uso por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey): le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
-	-	[Validar JWT][]\: aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
--	[Directivas avanzadas][]
-	-	[Flujo de control][]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][] booleanas.
-	-	[Reenviar solicitud][]\: reenvía la solicitud al servicio back-end.
-	-	[Registro para el centro de eventos][]\: envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
-	-	[Reintentar](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Retry): reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.
-	-	[Devolver respuesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.
-	-	[Enviar solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): envía una solicitud a la dirección URL especificada sin esperar una respuesta.
-	-	[Enviar solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): envía una solicitud a la dirección URL especificada.
-	-	[Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
-	-	[Establecer estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
-	-	[Establecer variable][]\: conserva un valor en una variable de [contexto][] con nombre para el acceso posterior.
-	-	[Seguimiento](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Trace): agrega una cadena a la salida de [API Inspector](../api-management/api-management-howto-api-inspector.md).
-	-	[Esperar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait): espera a que se completen las directivas adjuntas Enviar solicitud, Obtener el valor de caché o Flujo de control antes de continuar.
--	[Directivas de autenticación][]
-	-	[Autenticar con opción básica][]\: autenticar con un servicio de back-end mediante la autenticación básica.
-	-	[Autenticar con certificado de cliente][]\: autenticar con un servicio de back-end mediante certificados de cliente.
--	[Directivas de almacenamiento en caché][]
-	-	[Obtener de caché][]\: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
-	-	[Almacenar en caché][]\: almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
-	-	[Obtener valor de caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupere un elemento almacenado en caché por clave.
-	-	[Almacenar valor en caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): almacene un elemento en la memoria caché por clave.
-	-	[Quitar valor de caché](https://msdn.microsoft.com/es-ES/library/dn894086.aspx#RemoveCacheByKey); quita un elemento de la memoria caché por clave.
--	[Directivas entre dominios][]
-	-	[Permitir llamadas entre dominios][]\: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
-	-	[CORS][]\: agrega soporte de uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
-	-	[JSONP][]\: agrega JSON con soporte de relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
--	[Directivas de transformación][]
-	-	[Convertir JSON a XML][] \: convierte el cuerpo de solicitud o respuesta de JSON a XML.
-	-	[Convertir XML a JSON][] \: convierte el cuerpo de solicitud o respuesta de XML a JSON.
-	-	[Buscar y reemplazar la cadena en el cuerpo][]\: encuentra una subcadena de solicitud o de respuesta y la reemplaza por una subcadena diferente.
-	-	[Enmascarar URL en el contenido][]\: reescribe (enmascara) vínculos en el cuerpo de respuesta para que apunten al vínculo equivalente a través de la puerta de enlace.
-	-	[Establecer el servicio back-end][]\: cambia el servicio back-end para una solicitud entrante.
-	-	[Establecer cuerpo][] -establece el cuerpo del mensaje para las solicitudes entrantes y salientes.
-	-	[Establecer encabezado HTTP][]\: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
-	-	[Establecer el parámetro de cadena de consulta][]\: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
-	-	[URL de reescritura][]\: convierte una URL de solicitud de su forma pública a la forma esperada por el servicio web.
+* [Directivas de restricción de acceso][Directivas de restricción de acceso]
+  * [Activar encabezado HTTP][Activar encabezado HTTP]\: aplica la existencia o el valor de un encabezado HTTP.
+  * [Limitar la frecuencia de llamadas por suscripción][Limitar la frecuencia de llamadas por suscripción]\: evita los picos de uso de la API limitando la frecuencia de llamadas, por suscripción.
+  * [Limitar la frecuencia de llamadas por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey): evita los picos de uso de la API limitando la frecuencia de llamadas, por clave.
+  * [Restringir IP de autor de llamada][Restringir IP de autor de llamada]\: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
+  * [Establecer cuota de uso por suscripción][Establecer cuota de uso por suscripción]\: le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por suscripción.
+  * [Establecer cuota de uso por clave](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey): le permite aplicar un volumen de llamadas renovables o permanentes o una cuota de ancho de banda por clave.
+  * [Validar JWT][Validar JWT]\: aplica la existencia y la validez de un JWT extraído de un encabezado HTTP especificado o un parámetro de consulta especificado.
+* [Directivas avanzadas][Directivas avanzadas]
+  * [Flujo de control][Flujo de control]\: aplica condicionalmente instrucciones de directiva basadas en los resultados de la evaluación de [expresiones][expresiones] booleanas.
+  * [Reenviar solicitud][Reenviar solicitud]\: reenvía la solicitud al servicio back-end.
+  * [Registro para el centro de eventos][Registro para el centro de eventos]\: envía mensajes en el formato especificado a un destino de mensaje definido por una entidad del [registrador](https://msdn.microsoft.com/library/azure/mt592020.aspx#Logger).
+  * [Reintentar](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Retry): reintenta ejecutar las instrucciones de directiva adjuntas, si y hasta que se cumple la condición. La ejecución se repite en los intervalos de tiempo especificados y hasta el número de reintentos indicado.
+  * [Devolver respuesta](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse): anula la ejecución de la canalización y devuelve la respuesta especificada directamente al llamador.
+  * [Enviar solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest): envía una solicitud a la dirección URL especificada sin esperar una respuesta.
+  * [Enviar solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest): envía una solicitud a la dirección URL especificada.
+  * [Establecer método de solicitud](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetRequestMethod): le permite cambiar el método HTTP de una solicitud.
+  * [Establecer estado](https://msdn.microsoft.com/library/azure/dn894085.aspx#SetStatus): cambia el código de estado HTTP al valor especificado.
+  * [Establecer variable][Establecer variable]\: conserva un valor en una variable de [contexto][contexto] con nombre para el acceso posterior.
+  * [Seguimiento](https://msdn.microsoft.com/es-ES/library/dn894085.aspx#Trace): agrega una cadena a la salida de [API Inspector](api-management-howto-api-inspector.md).
+  * [Esperar](https://msdn.microsoft.com/library/azure/dn894085.aspx#Wait): espera a que se completen las directivas adjuntas Enviar solicitud, Obtener el valor de caché o Flujo de control antes de continuar.
+* [Directivas de autenticación][Directivas de autenticación]
+  * [Autenticar con opción básica][Autenticar con opción básica]\: autenticar con un servicio de back-end mediante la autenticación básica.
+  * [Autenticar con certificado de cliente][Autenticar con certificado de cliente]\: autenticar con un servicio de back-end mediante certificados de cliente.
+* [Directivas de almacenamiento en caché][Directivas de almacenamiento en caché]
+  * [Obtener de caché][Obtener de caché]\: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
+  * [Almacenar en caché][Almacenar en caché]\: almacena en caché la respuesta de acuerdo con la configuración de control de caché especificada.
+  * [Obtener valor de caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey): recupere un elemento almacenado en caché por clave.
+  * [Almacenar valor en caché](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey): almacene un elemento en la memoria caché por clave.
+  * [Quitar valor de caché](https://msdn.microsoft.com/es-ES/library/dn894086.aspx#RemoveCacheByKey); quita un elemento de la memoria caché por clave.
+* [Directivas entre dominios][Directivas entre dominios]
+  * [Permitir llamadas entre dominios][Permitir llamadas entre dominios]\: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
+  * [CORS][CORS]\: agrega soporte de uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
+  * [JSONP][JSONP]\: agrega JSON con soporte de relleno (JSONP) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
+* [Directivas de transformación][Directivas de transformación]
+  * [Convertir JSON a XML][Convertir JSON a XML] \: convierte el cuerpo de solicitud o respuesta de JSON a XML.
+  * [Convertir XML a JSON][Convertir XML a JSON] \: convierte el cuerpo de solicitud o respuesta de XML a JSON.
+  * [Buscar y reemplazar la cadena en el cuerpo][Buscar y reemplazar la cadena en el cuerpo]\: encuentra una subcadena de solicitud o de respuesta y la reemplaza por una subcadena diferente.
+  * [Enmascarar URL en el contenido][Enmascarar URL en el contenido]\: reescribe (enmascara) vínculos en el cuerpo de respuesta para que apunten al vínculo equivalente a través de la puerta de enlace.
+  * [Establecer el servicio back-end][Establecer el servicio back-end]\: cambia el servicio back-end para una solicitud entrante.
+  * [Establecer cuerpo][Establecer cuerpo] -establece el cuerpo del mensaje para las solicitudes entrantes y salientes.
+  * [Establecer encabezado HTTP][Establecer encabezado HTTP]\: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
+  * [Establecer el parámetro de cadena de consulta][Establecer el parámetro de cadena de consulta]\: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
+  * [URL de reescritura][URL de reescritura]\: convierte una URL de solicitud de su forma pública a la forma esperada por el servicio web.
 
 ## Pasos siguientes
-
 Para obtener más información acerca de las expresiones de directivas, vea el siguiente vídeo.
 
-> [AZURE.VIDEO policy-expressions-in-azure-api-management]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
+> 
+> 
 
 [Directivas de restricción de acceso]: https://msdn.microsoft.com/library/azure/dn894078.aspx
 [Activar encabezado HTTP]: https://msdn.microsoft.com/library/azure/034febe3-465f-4840-9fc6-c448ef520b0f#CheckHTTPHeader
@@ -120,6 +119,6 @@ Para obtener más información acerca de las expresiones de directivas, vea el s
 
 [Expresiones de directiva]: https://msdn.microsoft.com/library/azure/dn910913.aspx
 
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

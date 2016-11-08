@@ -1,54 +1,57 @@
-<properties 
-   pageTitle="Interfaz de usuario de Azure Mobile Engagement: segmentos" 
-   description="Obtenga información acerca de cómo crear y administrar los segmentos de usuarios para identificar patrones de uso mediante Azure Mobile Engagement" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: 'Interfaz de usuario de Azure Mobile Engagement: segmentos'
+description: Obtenga información acerca de cómo crear y administrar los segmentos de usuarios para identificar patrones de uso mediante Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Cómo crear y administrar los segmentos de usuarios para identificar patrones de uso
-
 En este artículo se describe la pestaña **SEGMENTOS** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles.
 
 La sección de segmentos de la interfaz de usuario permite trabajar en la segmentación de los usuarios según los diferentes comportamientos y análisis que puede obtener de la aplicación y a los que también puede tener acceso a través de la API de segmentos. Los segmentos se calculan por primera vez 24 horas después de crearse y se vuelven a calcular cada 24 horas, según la información de análisis más reciente. Una vez que se calcula un segmento, muestra un gráfico de "Historial de día a día" cada día.
 
-
->[AZURE.NOTE] Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> [!NOTE]
+> Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> 
+> 
 
 ## Crear segmentos
 Puede crear un segmento basándose en hasta 10 criterios en un período concreto hasta 60 días en el pasado desde la sección de análisis. Por ejemplo, puede crear un segmento basándose en las personas que han consultado ciertas páginas o buscado contenido específico dentro de la aplicación en los últimos 10 días. Esta información está disponible en la sección de análisis. Por lo tanto, se puede utilizar para crear un segmento y, a continuación, configurar una notificación de inserción para orientarla a este subconjunto para que vuelvan a la aplicación.
- 
+
 > Nota: Una vez que se ha calculado un segmento, no se puede editar; solo se puede clonar (copiar) o destruir (eliminar). Los segmentos se pueden clonar dentro de la misma aplicación (con el mismo AppID) y también se pueden clonar en otras aplicaciones (con un AppID diferente).
- 
+> 
+> 
+
  ![segments1][35]
 
 ## Segmentos de ejemplo
  ![segments2][36]
 
 Los segmentos permiten segmentar a los usuarios finales de la aplicación. La segmentación de los usuarios es una estrategia de marketing importante. Azure Mobile Engagement le permite obtener datos históricos y crear segmentos personalizados. Esta poderosa herramienta permite para obtener información acerca de la experiencia de los clientes en la aplicación. Puede analizar fácilmente los segmentos y utilizarlos como destinos de inserción. Un caso de uso común es en el que desea enviar una notificación para animar a los usuarios finales a calificar la aplicación en la tienda. En lugar de enviar una notificación a todos los usuarios finales, puede crear un segmento que especificará solo los usuarios que han utilizado la aplicación todos los días durante el último mes y que han tenido una gran experiencia de usuario. Cuando se envían menos notificaciones de inserción de mayor grado de orientación, se obtiene una mayor rentabilidad.
- 
+
  ![segments3][37]
 
 ### Segmentos que puede crear en función de los elementos principales de Azure Mobile Engagement:
-- Evento: cree un segmento orientado a un evento específico de la aplicación que haya ocurrido más de dos veces por semana.
-- Sesión: cree un segmento de los usuarios que haya utilizado la aplicación más de 5 veces la semana pasada.
-- Actividad: cree un segmento de los usuarios que hayan utilizado una página o contenido más o menos de 10 horas el último mes.
-- Trabajo: cree un segmento de usuarios que ha completado un trabajo más de dos veces al día.
-- Bloqueo: cree un segmento de todos los usuarios que hayan tenido un bloqueo más de 10 veces la semana pasada. (Puede insertar este segmento con una disculpa o incluso un cupón).
-- Error: cree un segmento de todos los usuarios que han tenido un error más de 100 veces los últimos 3 días.
-- Información de la aplicación: cree un segmento que tenga como destino información de aplicación personalizada que se produjese durante los últimos 25 días.
- 
- ![segments4][38]
+* Evento: cree un segmento orientado a un evento específico de la aplicación que haya ocurrido más de dos veces por semana.
+* Sesión: cree un segmento de los usuarios que haya utilizado la aplicación más de 5 veces la semana pasada.
+* Actividad: cree un segmento de los usuarios que hayan utilizado una página o contenido más o menos de 10 horas el último mes.
+* Trabajo: cree un segmento de usuarios que ha completado un trabajo más de dos veces al día.
+* Bloqueo: cree un segmento de todos los usuarios que hayan tenido un bloqueo más de 10 veces la semana pasada. (Puede insertar este segmento con una disculpa o incluso un cupón).
+* Error: cree un segmento de todos los usuarios que han tenido un error más de 100 veces los últimos 3 días.
+* Información de la aplicación: cree un segmento que tenga como destino información de aplicación personalizada que se produjese durante los últimos 25 días.
+  
+  ![segments4][38]
 
 Para usar el segmento de forma óptima, debe realizar una integración personalizada del SDK en la aplicación con un plan de marcado de etiquetas "Información de la aplicación". A continuación, vaya a la página principal de la interfaz, seleccione la aplicación que desee y haga clic en la sección "Segmentos".
 
@@ -57,49 +60,46 @@ Para usar el segmento de forma óptima, debe realizar una integración personali
 
 ## Ejemplo en la vida real: cree un segmento simple basado en la información de "Sesión"
 Crear un segmento de todos los usuarios finales que han utilizado la aplicación al menos 50 veces en la última semana. Desde allí, busque solo los usuarios finales que han invertido al menos 30 segundos en la aplicación por sesión. Esto mostrará todos los usuarios finales que tengan una experiencia positiva en la aplicación. A continuación, el segmento creado puede usarse para insertar una notificación a estos usuarios finales para pedirles que valoren la aplicación en la tienda.
- 
+
  ![segments5][39]
 
 1. Asigne un nombre de segmento para encontrarlo rápidamente en la lista "Segmento".
 2. Haga clic en el botón "Crear".
- 
- ![segments6][40]
+   
+   ![segments6][40]
 
 Seleccione la sesión.
- 
+
  ![segments7][41]
 
 1. Seleccione el periodo de "Semana pasada".
 2. Haga clic en Siguiente.
- 
- ![segments8][42]
-
-1. Seleccione el operador relevante en la lista: =; ≥, ≤.
-2. Escriba el recuento que desee.
-3. Seleccione la instancia que desee.
-4. Haga clic en Siguiente. Este ejemplo se establece para que en la última semana, detecte a los usuarios que han realizado al menos 50 sesiones.
- 
- ![segments9][43]
+   
+   ![segments8][42]
+3. Seleccione el operador relevante en la lista: =; ≥, ≤.
+4. Escriba el recuento que desee.
+5. Seleccione la instancia que desee.
+6. Haga clic en Siguiente. Este ejemplo se establece para que en la última semana, detecte a los usuarios que han realizado al menos 50 sesiones.
+   
+   ![segments9][43]
 
 Para la segmentación de la sesión, puede elegir la duración por sesión como criterio.
 
 1. Seleccione el operador de la lista.
 2. Proporcione la duración por sesión.
 3. Haga clic en Siguiente. En este ejemplo, dice que en todas las sesiones que han sido segmentadas en la sección de repetición, seleccione solo a los usuarios que han pasado más de 30 segundos por sesión.
- 
- ![segments10][44]
+   
+   ![segments10][44]
 
 Asigne un nombre al criterio para recuperarlo en el embudo completo y haga clic en Finalizar.
- 
+
  ![segments11][45]
 
 Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segmento. Dado que los segmentos se basan en un segmento de datos de análisis, los segmentos se calculan una vez al día. En este ejemplo, el 47,7% del total de usuarios finales coincide con el criterio. Deben ser los usuarios que han tenido una buena experiencia y que es posible que proporcionen una clasificación superior si les inserta una notificación en la que se les solicite que califiquen la aplicación en la tienda.
 
-
 ## Otras referencias
-
-- [Conceptos][Link 6]
-- [Guía de solución de problemas de servicios][Link 24]
+* [Conceptos][Link 6]
+* [Guía de solución de problemas de servicios][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -195,6 +195,6 @@ Cuando haya terminado de configurar su criterio, aparecerá en el embudo de segm
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

@@ -1,30 +1,34 @@
-<properties
-   pageTitle="Guía de solución de problemas de ExpressRoute: obtención de tablas ARP | Microsoft Azure"
-   description="En esta página se proporcionan instrucciones para obtener tablas ARP para un circuito ExpressRoute."
-   documentationCenter="na"
-   services="expressroute"
-   authors="ganesr"
-   manager="carolz"
-   editor="tysonn"/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="ganesr"/>
+---
+title: 'Guía de solución de problemas de ExpressRoute: obtención de tablas ARP | Microsoft Docs'
+description: En esta página se proporcionan instrucciones para obtener tablas ARP para un circuito ExpressRoute.
+documentationcenter: na
+services: expressroute
+author: ganesr
+manager: carolz
+editor: tysonn
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: ganesr
 
+---
 # <a name="expressroute-troubleshooting-guide:-getting-arp-tables-in-the-classic-deployment-model"></a>Guía de solución de problemas de ExpressRoute: obtención de tablas ARP en el modelo de implementación clásica
-
-> [AZURE.SELECTOR]
-[PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-[PowerShell - Clásico](expressroute-troubleshooting-arp-classic.md)
+> [!div class="op_single_selector"]
+> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> [PowerShell - Clásico](expressroute-troubleshooting-arp-classic.md)
+> 
+> 
 
 Este artículo le guiará a través de los pasos para obtener las tablas del Protocolo de resolución de direcciones (ARP) para su circuito Azure ExpressRoute.
 
->[AZURE.IMPORTANT] Este documento está pensado para ayudarle a diagnosticar y corregir problemas sencillos. No pretende sustituir al soporte técnico de Microsoft. Si no puede solucionar el problema mediante las siguientes instrucciones, abra una solicitud de soporte técnico con [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> [!IMPORTANT]
+> Este documento está pensado para ayudarle a diagnosticar y corregir problemas sencillos. No pretende sustituir al soporte técnico de Microsoft. Si no puede solucionar el problema mediante las siguientes instrucciones, abra una solicitud de soporte técnico con [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+> 
+> 
 
 ## <a name="address-resolution-protocol-(arp)-and-arp-tables"></a>Protocolo de resolución de direcciones (ARP) y tablas ARP
 ARP es un protocolo de nivel 2 que se define en [RFC 826](https://tools.ietf.org/html/rfc826). ARP se usa para asignar una dirección Ethernet (dirección MAC) a una dirección IP.
@@ -48,16 +52,12 @@ A continuación, se muestra un ejemplo de una tabla ARP:
 En la siguiente sección se proporciona información sobre cómo puede ver las tablas ARP que ven los enrutadores de borde de ExpressRoute.
 
 ## <a name="prerequisites-for-using-arp-tables"></a>Requisitos previos para usar las tablas ARP
-
 Asegúrese de que tiene lo siguiente antes de continuar:
 
- - Un circuito ExpressRoute válido configurado con al menos un emparejamiento. El circuito debe estar completamente configurado por el proveedor de conectividad. Usted (o su proveedor de conectividad) debe configurar al menos uno de los emparejamientos (privado de Azure, público de Azure o Microsoft) en este circuito.
-
- - Intervalos de direcciones IP que se usan para configurar los emparejamientos (privado de Azure, público de Azure y Microsoft). Revise los ejemplos de asignación de dirección IP en [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para comprender cómo se asignan las direcciones IP a las interfaces en su sitio y el sitio de ExpressRoute. Puede obtener información sobre la configuración de emparejamiento en la página [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-classic.md).
-
- - Información del equipo de red o del proveedor de conectividad sobre las direcciones MAC de las interfaces que se usan con estas direcciones IP.
-
- - El módulo más reciente de Windows PowerShell para Azure (versión 1.50 o superior).
+* Un circuito ExpressRoute válido configurado con al menos un emparejamiento. El circuito debe estar completamente configurado por el proveedor de conectividad. Usted (o su proveedor de conectividad) debe configurar al menos uno de los emparejamientos (privado de Azure, público de Azure o Microsoft) en este circuito.
+* Intervalos de direcciones IP que se usan para configurar los emparejamientos (privado de Azure, público de Azure y Microsoft). Revise los ejemplos de asignación de dirección IP en [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para comprender cómo se asignan las direcciones IP a las interfaces en su sitio y el sitio de ExpressRoute. Puede obtener información sobre la configuración de emparejamiento en la página [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-classic.md).
+* Información del equipo de red o del proveedor de conectividad sobre las direcciones MAC de las interfaces que se usan con estas direcciones IP.
+* El módulo más reciente de Windows PowerShell para Azure (versión 1.50 o superior).
 
 ## <a name="arp-tables-for-your-expressroute-circuit"></a>Tablas ARP para el circuito ExpressRoute
 En esta sección se proporcionan instrucciones sobre cómo ver las tablas ARP para cada tipo de emparejamiento mediante PowerShell. Antes de continuar, usted o su proveedor de conectividad necesita configurar el emparejamiento. Cada circuito tiene dos rutas de acceso (principal y secundaria). Puede comprobar en la tabla ARP cada ruta de acceso de forma independiente.
@@ -132,12 +132,10 @@ A continuación se muestra el resultado de ejemplo de una de las rutas de acceso
 La tabla ARP de un emparejamiento se puede usar para validar la configuración y la conectividad de nivel 2. En esta sección se proporciona información general sobre la apariencia de las tablas ARP en distintos escenarios.
 
 ### <a name="arp-table-when-a-circuit-is-in-an-operational-(expected)-state"></a>Tabla ARP cuando un circuito está en un estado operativo (esperado)
-
- - La tabla ARP tiene una entrada para el lado local con una dirección IP válida y la dirección MAC, y una entrada similar para el lado de Microsoft.
- - El último octeto de la dirección IP local siempre será un número impar.
- - El último octeto de la dirección IP de Microsoft siempre será un número par.
- - La misma dirección MAC aparece en el lado de Microsoft para los tres emparejamientos (principales o secundarios).
-
+* La tabla ARP tiene una entrada para el lado local con una dirección IP válida y la dirección MAC, y una entrada similar para el lado de Microsoft.
+* El último octeto de la dirección IP local siempre será un número impar.
+* El último octeto de la dirección IP de Microsoft siempre será un número par.
+* La misma dirección MAC aparece en el lado de Microsoft para los tres emparejamientos (principales o secundarios).
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
@@ -145,30 +143,27 @@ La tabla ARP de un emparejamiento se puede usar para validar la configuración y
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-it's-on-premises-or-when-the-connectivity-provider-side-has-problems"></a>Tabla ARP cuando es local o cuando el lado del proveedor de conectividad tiene problemas
-
  Solo aparece una entrada en la tabla ARP. Muestra la asignación entre la dirección MAC y la dirección IP que se usa en el lado de Microsoft.
 
         Age InterfaceProperty IpAddress  MacAddress    
         --- ----------------- ---------  ----------    
           0 Microsoft         65.0.0.2 aaaa.bbbb.cccc
 
->[AZURE.NOTE] Si experimenta un problema como este, abra una solicitud de soporte con su proveedor de conectividad para resolverlo.
-
+> [!NOTE]
+> Si experimenta un problema como este, abra una solicitud de soporte con su proveedor de conectividad para resolverlo.
+> 
+> 
 
 ### <a name="arp-table-when-the-microsoft-side-has-problems"></a>Tabla ARP cuando el lado de Microsoft tiene problemas
-
- - Cuando hay problemas en el lado de Microsoft, no verá una tabla ARP para un emparejamiento.
- -  Abra una solicitud de soporte con [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que tiene un problema con la conectividad de nivel 2.
+* Cuando hay problemas en el lado de Microsoft, no verá una tabla ARP para un emparejamiento.
+* Abra una solicitud de soporte con [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Especifique que tiene un problema con la conectividad de nivel 2.
 
 ## <a name="next-steps"></a>Pasos siguientes
-
- - Validar las configuraciones de nivel 3 para el circuito ExpressRoute:
-     - Obtenga un resumen de ruta para determinar el estado de las sesiones BGP.
-     - Obtenga una tabla de rutas para determinar qué prefijos se anuncian a través de ExpressRoute.
- - Validar la transferencia de datos revisando los bytes de entrada y de salida.
- - Si sigue teniendo problemas, abra una solicitud de soporte técnico en [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
-
-
+* Validar las configuraciones de nivel 3 para el circuito ExpressRoute:
+  * Obtenga un resumen de ruta para determinar el estado de las sesiones BGP.
+  * Obtenga una tabla de rutas para determinar qué prefijos se anuncian a través de ExpressRoute.
+* Validar la transferencia de datos revisando los bytes de entrada y de salida.
+* Si sigue teniendo problemas, abra una solicitud de soporte técnico en [Ayuda y soporte técnico de Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
 
 <!--HONumber=Oct16_HO2-->
 

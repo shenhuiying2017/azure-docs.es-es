@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Explorador de recursos de Azure | Microsoft Azure"
-   description="Describe el Explorador de recursos de Azure y cómo se puede usar para ver y actualizar las implementaciones mediante Azure Resource Manager."
-   services="azure-resource-manager"
-   documentationCenter="na"
-   authors="stuartleeks"
-   manager="ankodu"
-   editor=""/>
+---
+title: Explorador de recursos de Azure | Microsoft Docs
+description: Describe el Explorador de recursos de Azure y cómo se puede usar para ver y actualizar las implementaciones mediante Azure Resource Manager.
+services: azure-resource-manager
+documentationcenter: na
+author: stuartleeks
+manager: ankodu
+editor: ''
 
-<tags
-   ms.service="azure-resource-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/01/2016"
-   ms.author="stuartle;tomfitz"/>
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/01/2016
+ms.author: stuartle;tomfitz
 
+---
 # Uso del Explorador de recursos de Azure para ver y modificar recursos
 El [Explorador de recursos de Azure](https://resources.azure.com) es una excelente herramienta para buscar recursos que ya haya creado en su suscripción. Con esta herramienta, puede comprender cómo se estructuran los recursos y ver las propiedades asignadas a cada recurso. Puede aprender acerca de las operaciones de API de REST y los cmdlets de PowerShell que están disponibles para un tipo de recurso y puede emitir comandos a través de la interfaz. El Explorador de recursos puede resultar especialmente útil al crear plantillas de Azure Resource Manager porque le permite visualizar las propiedades de los recursos existentes.
 
@@ -45,7 +45,6 @@ Al explorar una base de datos, se muestran sus propiedades. En la siguiente capt
 ![base de datos sql](./media/resource-manager-resource-explorer/are-04-database-get.png)
 
 ## Cambio de recursos
-
 Una vez localizado un recurso, puede seleccionar el botón Editar para editar el contenido del archivo JSON. Después, puede usar el Explorador de recursos para editar el archivo JSON y enviar una solicitud PUT para cambiar el recurso. Por ejemplo, la siguiente imagen muestra el nivel de base de datos cambiado a `S0`:
 
 ![base de datos - solicitud PUT](./media/resource-manager-resource-explorer/are-05-database-put.png)
@@ -57,7 +56,6 @@ Una vez enviada la solicitud, el Explorador de recursos vuelve a emitir la solic
 ![base de datos - solicitud GET 2](./media/resource-manager-resource-explorer/are-06-database-get2.png)
 
 ## Realización de acciones en los recursos
-
 La pestaña **Acciones** le permite ver y realizar otras operaciones REST. Por ejemplo, si ha seleccionado un recurso de sitio web, la pestaña Acciones presenta una larga lista de operaciones disponibles, algunas de las cuales se muestran a continuación.
 
 ![web - solicitud POST](./media/resource-manager-resource-explorer/are-web-post.png)

@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Primeros pasos en la creación de un equilibrador de carga interno en el Resource Manager mediante el Portal de Azure | Microsoft Azure"
-   description="Obtenga información sobre cómo crear un equilibrador de carga interno en Resource Manager mediante el Portal de Azure"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="sdwheeler"
-   manager="carmonm"
-   editor=""
-   tags="azure-service-management"
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/31/2016"
-   ms.author="sewhee" />
+---
+title: Primeros pasos en la creación de un equilibrador de carga interno en el Resource Manager mediante el Portal de Azure | Microsoft Docs
+description: Obtenga información sobre cómo crear un equilibrador de carga interno en Resource Manager mediante el Portal de Azure
+services: load-balancer
+documentationcenter: na
+author: sdwheeler
+manager: carmonm
+editor: ''
+tags: azure-service-management
 
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/31/2016
+ms.author: sewhee
+
+---
 # Primeros pasos en la creación de un equilibrador de carga interno en el Portal de Azure
+[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+[!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
+[!INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)]
 
-[AZURE.INCLUDE [azure-arm-classic-important-include](../../includes/learn-about-deployment-models-rm-include.md)] [classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
+[classic deployment model](load-balancer-get-started-ilb-classic-ps.md).
 
-[AZURE.INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
-
+[!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
 ## Primeros pasos en la creación de un equilibrador de carga interno mediante el Portal de Azure
-
 Para crear un equilibrador de carga interno desde el Portal de Azure, siga estos pasos.
 
 1. Desde un explorador, vaya al [Portal de Azure](http://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
@@ -37,30 +36,31 @@ Para crear un equilibrador de carga interno desde el Portal de Azure, siga estos
 3. En la hoja **Cree un equilibrador de carga**, escriba un **nombre** para el equilibrador de carga.
 4. En **Esquema**, haga clic en **Interno**.
 5. Haga clic en **Red Virtual** y, a continuación, seleccione la red virtual donde desee crear el equilibrador de carga.
-
-    >[AZURE.NOTE] Si no ve la red virtual que desea utilizar, compruebe la **ubicación** que utiliza para el equilibrador de carga y cámbiela según corresponda.
-
+   
+   > [!NOTE]
+   > Si no ve la red virtual que desea utilizar, compruebe la **ubicación** que utiliza para el equilibrador de carga y cámbiela según corresponda.
+   > 
+   > 
 6. Haga clic en **Subred** y, a continuación, seleccione la subred en la que desee crear el equilibrador de carga.
 7. En **Asignación de direcciones IP**, haga clic en **Dinámica** o **Estática**, dependiendo de si desea que la dirección IP del equilibrador de carga sea fija (estática) o no.
-
-    >[AZURE.NOTE] Si selecciona usar una dirección IP estática, tendrá que proporcionar una dirección para el equilibrador de carga.
-
+   
+   > [!NOTE]
+   > Si selecciona usar una dirección IP estática, tendrá que proporcionar una dirección para el equilibrador de carga.
+   > 
+   > 
 8. En **Grupo de recursos**, especifique el nombre de un grupo de recursos nuevo para el equilibrador de carga, o haga clic en **Seleccionar existente** y seleccione un grupo de recursos existente.
 9. Haga clic en **Crear**.
 
 ## Configuración de las reglas de equilibrio de carga
-
 Después de la creación del equilibrador de carga, vaya al recurso del equilibrador de carga para configurarlo. Tiene que configurar primero un grupo de direcciones back-end y un sondeo antes de configurar una regla de equilibrio de carga.
 
 ### Paso 1: Configuración de un grupo back-end
-
 1. En el Portal de Azure, haga clic en **Examinar** > **Equilibradores de carga**, y, a continuación, haga clic en el equilibrador de carga que creó anteriormente.
 2. En la hoja **Configuración**, haga clic en **Grupos back-end**.
 3. En la hoja **Grupos de direcciones de back-end**, haga clic en **Agregar**.
 4. En la hoja **Agregar grupo back-end**, escriba un **nombre** para el grupo back-end y, a continuación, haga clic en **Aceptar**.
 
 ### Paso 2: Configure un sondeo
-
 1. En el Portal de Azure, haga clic en **Examinar** > **Equilibradores de carga**, y, a continuación, haga clic en el equilibrador de carga que creó anteriormente.
 2. En la hoja **Configuración**, haga clic en **Sondeos**.
 3. En la hoja **Sondeos**, haga clic en **Agregar**.
@@ -73,7 +73,6 @@ Después de la creación del equilibrador de carga, vaya al recurso del equilibr
 10. Haga clic en **Aceptar** para crear el sondeo.
 
 ### Paso 3: Configuración de las reglas de equilibrio de carga
-
 1. En el Portal de Azure, haga clic en **Examinar** > **Equilibradores de carga**, y, a continuación, haga clic en el equilibrador de carga que creó anteriormente.
 2. En la hoja **Configuración**, haga clic en **Reglas de equilibrio de carga**.
 3. En la hoja **Reglas de equilibrio de carga**, haga clic en **Agregar**.
@@ -88,7 +87,6 @@ Después de la creación del equilibrador de carga, vaya al recurso del equilibr
 12. Haga clic en **Aceptar**.
 
 ## Pasos siguientes
-
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)

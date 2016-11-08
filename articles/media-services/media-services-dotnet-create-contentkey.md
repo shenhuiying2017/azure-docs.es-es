@@ -1,28 +1,27 @@
-<properties 
-    pageTitle="Creación de claves de contenido con .NET" 
-    description="Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos." 
-    services="media-services" 
-    documentationCenter="" 
-    authors="Juliako" 
-    manager="erikre" 
-    editor=""/>
+---
+title: Creación de claves de contenido con .NET
+description: Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos.
+services: media-services
+documentationcenter: ''
+author: Juliako
+manager: erikre
+editor: ''
 
-<tags 
-    ms.service="media-services" 
-    ms.workload="media" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="09/26/2016"
-    ms.author="juliako"/>
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: juliako
 
-
-
-#<a name="create-contentkeys-with-.net"></a>Creación de claves de contenido con .NET
-
-> [AZURE.SELECTOR]
-- [REST](media-services-rest-create-contentkey.md)
-- [.NET](media-services-dotnet-create-contentkey.md)
+---
+# <a name="create-contentkeys-with-.net"></a>Creación de claves de contenido con .NET
+> [!div class="op_single_selector"]
+> * [REST](media-services-rest-create-contentkey.md)
+> * [.NET](media-services-dotnet-create-contentkey.md)
+> 
+> 
 
 Servicios multimedia permite crear nuevos recursos y entregar recursos cifrados. Una **ContentKey** proporciona acceso seguro a los **recursos**. 
 
@@ -32,10 +31,12 @@ Al entregar recursos a los clientes, puede [configurar que los recursos se cifre
 
 Los recursos cifrados tienen que estar asociados con **ContentKey**. En este artículo se describe cómo crear una clave de contenido.
 
->[AZURE.NOTE] Al crear un nuevo recurso **StorageEncrypted** con el SDK de Media Services para .NET, se crea automáticamente el valor de **ContentKey** y se vincula al recurso.
+> [!NOTE]
+> Al crear un nuevo recurso **StorageEncrypted** con el SDK de Media Services para .NET, se crea automáticamente el valor de **ContentKey** y se vincula al recurso.
+> 
+> 
 
-##<a name="contentkeytype"></a>ContentKeyType
-
+## <a name="contentkeytype"></a>ContentKeyType
 Uno de los valores que debe configurar al crear una clave de contenido es el tipo de clave de contenido. Elija uno de los valores siguientes. 
 
     public enum ContentKeyType
@@ -62,8 +63,7 @@ Uno de los valores que debe configurar al crear una clave de contenido es el tip
         EnvelopeEncryption = 4
     }
 
-##<a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Crear ContentKey de tipo de sobre
-
+## <a name="<a-id="envelope_contentkey"></a>create-envelope-type-contentkey"></a><a id="envelope_contentkey"></a>Crear ContentKey de tipo de sobre
 El siguiente fragmento de código crea una clave de contenido del tipo de cifrado de sobre. A continuación, asocia la clave con el recurso especificado.
 
     static public IContentKey CreateEnvelopeTypeContentKey(IAsset asset)
@@ -100,8 +100,7 @@ llamada
 
 
 
-##<a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Crear ContentKey de tipo común    
-
+## <a name="<a-id="common_contentkey"></a>create-common-type-contentkey"></a><a id="common_contentkey"></a>Crear ContentKey de tipo común
 El fragmento de código siguiente crea una clave de contenido del tipo de cifrado común. A continuación, asocia la clave con el recurso especificado.
 
     static public IContentKey CreateCommonTypeContentKey(IAsset asset)
@@ -139,15 +138,11 @@ llamada
     IContentKey key = CreateCommonTypeContentKey(encryptedsset); 
 
 
-##<a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Envío de comentarios
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
+## <a name="provide-feedback"></a>Envío de comentarios
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 <!--HONumber=Oct16_HO2-->
 

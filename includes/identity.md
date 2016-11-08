@@ -1,31 +1,20 @@
 La administración de la identidad es igual de importante en la nube pública que en las instalaciones locales. Para ayudar en esto, Azure es compatible con diferentes tecnologías de identidad en la nube. Entre ellas se incluyen las siguientes:
 
-- Puede ejecutar Windows Server Active Directory (conocido normalmente como AD) en la nube con máquinas virtuales creadas con máquinas virtuales de Azure. Este enfoque es recomendable cuando usa Azure para ampliar el centro de datos local en la nube.
-
-
-- Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de [Software como servicio (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
-
-
-- Las aplicaciones que se ejecutan en la nube o en local pueden usar el control de acceso de Azure Active Directory para permitir que los usuarios inicien sesión mediante identidades de Facebook, Google, Microsoft y otros proveedores de identidades.
-
+* Puede ejecutar Windows Server Active Directory (conocido normalmente como AD) en la nube con máquinas virtuales creadas con máquinas virtuales de Azure. Este enfoque es recomendable cuando usa Azure para ampliar el centro de datos local en la nube.
+* Puede usar Azure Active Directory para proporcionar a los usuarios un inicio de sesión único en aplicaciones de [Software como servicio (SaaS)](https://azure.microsoft.com/overview/what-is-saas/). Por ejemplo, Microsoft Office 365 usa esta tecnología y las aplicaciones que se ejecutan en Azure u otras plataformas en la nube también pueden usarla.
+* Las aplicaciones que se ejecutan en la nube o en local pueden usar el control de acceso de Azure Active Directory para permitir que los usuarios inicien sesión mediante identidades de Facebook, Google, Microsoft y otros proveedores de identidades.
 
 En este artículo se describen las tres opciones.
 
 ## Tabla de contenido
-
-- [Ejecución de Windows Server Active Directory en máquinas virtuales](#adinvm)
-
-- [Uso de Azure Active Directory](#ad)
-
-- [Uso del control de acceso de Azure Active Directory](#ac)
-
+* [Ejecución de Windows Server Active Directory en máquinas virtuales](#adinvm)
+* [Uso de Azure Active Directory](#ad)
+* [Uso del control de acceso de Azure Active Directory](#ac)
 
 ## <a name="adinvm"></a>Ejecución de Windows Server Active Directory en máquinas virtuales
-
 Ejecutar Windows Server AD en máquinas virtuales de Azure es muy parecido a hacerlo de manera local. La [ilustración 1](#fig1) muestra un ejemplo típico de su apariencia.
 
 ![Azure Active Directory en máquina virtual](./media/identity/identity_01_ADinVM.png)
-
 
 <a name="Fig1"></a>Ilustración 1: Windows Server Active Directory puede ejecutarse en máquinas virtuales de Azure conectadas al centro de datos local de una organización mediante la red virtual de Azure.
 
@@ -33,34 +22,27 @@ En el ejemplo que se muestra a continuación, Windows Server AD se ejecuta en m�
 
 Existen varias opciones para conectar los controladores de dominio en la nube con los que se ejecutan localmente:
 
-- Hacer que todos formen parte de un dominio de Active Directory.
-
-- Crear dominios de AD independientes de manera local y en la nube que formen parte del mismo bosque.
-
-- Crear bosques de AD en la nube y de forma local y, a continuación, conectar los bosques mediante confianzas entre bosques o Servicios de federación de Active Directory (AD FS) de Windows Server, que también pueden ejecutarse en máquinas virtuales en Azure.
+* Hacer que todos formen parte de un dominio de Active Directory.
+* Crear dominios de AD independientes de manera local y en la nube que formen parte del mismo bosque.
+* Crear bosques de AD en la nube y de forma local y, a continuación, conectar los bosques mediante confianzas entre bosques o Servicios de federación de Active Directory (AD FS) de Windows Server, que también pueden ejecutarse en máquinas virtuales en Azure.
 
 Sea cual sea la elección, el administrador debe asegurarse de que las solicitudes de autenticación de los usuarios locales se dirigen a los controladores de dominio en la nube solo cuando sea necesario, ya que es posible que el vínculo a la nube sea más lento que las redes locales. Otro factor a tener en cuenta en la conexión de controladores de dominio locales y en la nube es el tráfico que genera la replicación. Los controladores de dominio en la nube se encuentran normalmente en su propio sitio de AD, lo que permite al administrador programar la frecuencia con la que se realiza la replicación. Azure cobra el tráfico de envío saliente de un centro de datos de Azure, aunque no los bytes de envío entrante, lo que puede afectar a las opciones de replicación del administrador. También cabe destacar que mientras Azure proporciona su propio soporte para el Sistema de nombres de dominio (DNS), al servicio le faltan las características necesarias para Active Directory (como soporte para registros de SRV y Dynamic DNS). Debido a esto, la ejecución de Windows Server AD en Azure requiere que se configuren sus propios servidores DNS en la nube.
 
 Ejecutar Windows Server AD en máquinas virtuales de Azure es recomendable en distintas situaciones determinadas. A continuación se muestran algunos ejemplos:
 
-- Si usa máquinas virtuales de Azure como una extensión de su propio centro de datos, debe ejecutar aplicaciones en la nube que necesiten controladores de dominio locales para controlar aspectos como las solicitudes de autenticación integrada en Windows o consultas LDAP. Por ejemplo, SharePoint interactúa normalmente con Active Directory, y cuando sea posible ejecutar una granja de SharePoint en Azure con un directorio local, la configuración de controladores de dominio en la nube mejorará notablemente el rendimiento. Es importante tener en cuenta que esto no es obligatorio. Sin embargo, muchas aplicaciones pueden ejecutarse correctamente en la nube solo mediante controladores de dominio locales.
-
-- Supongamos que una sucursal lejana no dispone de los recursos para ejecutar sus propios controladores de dominio. Actualmente, los usuarios deben autenticar en los controles de dominio en el otro lado del mundo, por lo que el inicio de sesión es lento. La ejecución de Active Directory en Azure en un centro de datos de Microsoft cercano puede acelerar el inicio de sesión sin que sean necesarios más servidores en la sucursal.
-
-- Una organización que usa Azure para la recuperación ante desastres puede conservar un conjunto reducido de máquinas virtuales activas en la nube, incluido un controlador de dominio. Por lo tanto, puede estar preparada para ampliar este sitio según corresponda y hacerse cargo de los errores en cualquier otro lugar.
+* Si usa máquinas virtuales de Azure como una extensión de su propio centro de datos, debe ejecutar aplicaciones en la nube que necesiten controladores de dominio locales para controlar aspectos como las solicitudes de autenticación integrada en Windows o consultas LDAP. Por ejemplo, SharePoint interactúa normalmente con Active Directory, y cuando sea posible ejecutar una granja de SharePoint en Azure con un directorio local, la configuración de controladores de dominio en la nube mejorará notablemente el rendimiento. Es importante tener en cuenta que esto no es obligatorio. Sin embargo, muchas aplicaciones pueden ejecutarse correctamente en la nube solo mediante controladores de dominio locales.
+* Supongamos que una sucursal lejana no dispone de los recursos para ejecutar sus propios controladores de dominio. Actualmente, los usuarios deben autenticar en los controles de dominio en el otro lado del mundo, por lo que el inicio de sesión es lento. La ejecución de Active Directory en Azure en un centro de datos de Microsoft cercano puede acelerar el inicio de sesión sin que sean necesarios más servidores en la sucursal.
+* Una organización que usa Azure para la recuperación ante desastres puede conservar un conjunto reducido de máquinas virtuales activas en la nube, incluido un controlador de dominio. Por lo tanto, puede estar preparada para ampliar este sitio según corresponda y hacerse cargo de los errores en cualquier otro lugar.
 
 Existen también otras posibilidades. Por ejemplo, en un centro de datos local no es obligatorio conectarse a Windows Server AD en la nube. Debe crear un bosque independiente en Azure si su intención es ejecutar una granja de SharePoint que ofrezca servicio, por ejemplo, a un determinado grupo de usuarios que iniciarían sesión de manera independiente con identidades basadas en la nube. La forma en la que use esta tecnología depende de cuáles sean sus objetivos. (Para obtener información más detallada sobre cómo usar Windows Server AD con Azure, [consulte aquí](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)).
 
 ## <a name="ad"></a>Uso de Azure Active Directory
-
 A medida que las aplicaciones SaaS se vuelven más frecuentes, se plantea una pregunta obvia: ¿qué tipo de servicio de directorio deben usar estas aplicaciones basadas en la nube? La respuesta de Microsoft a esa pregunta es Azure Active Directory.
 
 Existen dos opciones principales para usar este servicio de directorio en la nube:
 
-- Las personas y las organizaciones que usan solo aplicaciones SaaS pueden confiar en Azure Active Directory como su único servicio de directorio.
-
-- Las organizaciones que ejecutan Windows Server Active Directory pueden conectar su directorio local a Azure Active Directory y, a continuación, usarlo para ofrecer a sus usuarios un inicio de sesión único en aplicaciones SaaS.
-
+* Las personas y las organizaciones que usan solo aplicaciones SaaS pueden confiar en Azure Active Directory como su único servicio de directorio.
+* Las organizaciones que ejecutan Windows Server Active Directory pueden conectar su directorio local a Azure Active Directory y, a continuación, usarlo para ofrecer a sus usuarios un inicio de sesión único en aplicaciones SaaS.
 
 En la [ilustración 2](#fig2) se muestra la primera de las dos opciones, en la que Azure Active Directory es lo único necesario.
 
@@ -91,7 +73,6 @@ Para usar Azure AD, el usuario primero inicia sesión en el dominio de Active Di
 Actualmente, Azure AD no es una sustitución completa para Windows Server AD local. Como ya hemos mencionado, el directorio en la nube cuenta con un esquema mucho más simple y al que también le faltan elementos como una directiva de grupo, la capacidad de almacenar información sobre máquinas y compatibilidad con LDAP. De hecho, no puede configurarse una máquina de Windows para permitir a los usuarios iniciar sesión en ella con otra solución que no sea Azure AD; este escenario no se admite. En este caso, entre los objetivos iniciales de Azure AD se encuentran dejar que los usuarios empresariales obtengan acceso a aplicaciones en la nube sin conservar un inicio de sesión independiente y liberar a los administradores de directorio de la sincronización manual del directorio local con cada aplicación SaaS que usa su organización. Sin embargo, con el paso del tiempo, se espera que este servicio de directorio en la nube se aplique a un mayor número de escenarios.
 
 ## <a name="ac"></a>Uso del control de acceso de Azure Active Directory
-
 Las tecnologías de identidad basada en la nube pueden usarse para resolver una serie de problemas. Azure Active Directory puede ofrecer a los usuarios de la organización un inicio de sesión único, por ejemplo, en varias aplicaciones SaaS. Sin embargo, las tecnologías de identidad en la nube también pueden usarse de otras formas.
 
 Supongamos, por ejemplo, que una aplicación desea permitir a sus usuarios iniciar sesión con tokens emitidos por varios *proveedores de identidades*. Hoy en día existe un gran número de proveedores de identidad, como Facebook, Google, Microsoft y otros, y las aplicaciones permiten normalmente a los usuarios iniciar sesión con una de estas identidades. ¿Por qué una aplicación se preocupa por conservar su propia lista de usuarios y contraseñas cuando puede confiar en identidades que ya existen? La aceptación de identidades existentes facilita la vida a los usuarios, que cuentan con un nombre de usuario y contraseña menos que recordar, y a los creadores de la aplicación, que no tienen que mantener sus propias listas de nombres de usuario y contraseñas.
@@ -116,8 +97,7 @@ Cabe destacar que ninguno de estos aspectos del control de acceso es exclusivo d
 
 Trabajar con identidades es importante en prácticamente cualquier aplicación. El objetivo del control de acceso es hacer que los desarrolladores creen aplicaciones que acepten identidades de distintos proveedores de identidad de una manera más sencilla. Con la colocación de este servicio en la nube, Microsoft ha conseguido que esté disponible para cualquier aplicación que se ejecute en cualquier plataforma.
 
-##Acerca del autor
-
+## Acerca del autor
 David Chappell es el director de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) en San Francisco (California).
 
 <!---HONumber=AcomDC_0727_2016-->

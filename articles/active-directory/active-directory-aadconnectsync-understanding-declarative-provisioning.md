@@ -1,23 +1,21 @@
-<properties
-    pageTitle="Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo | Microsoft Azure"
-    description="Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect."
-    services="active-directory"
-    documentationCenter=""
-    authors="andkjell"
-    manager="femila"
-    editor=""/>
+---
+title: 'Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo | Microsoft Docs'
+description: Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/29/2016"
-    ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/29/2016
+ms.author: billmath
 
-
-
+---
 # <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
 
@@ -30,12 +28,12 @@ La canalización consta de varios módulos diferentes. Cada uno de ellos es resp
 
 ![Canalización de sincronización](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/pipeline.png)  
 
-- Origen: el objeto de origen.
-- [Ámbito](#scope): busca todas las reglas de sincronización que están en ámbito.
-- [Unión](#join): determina la relación entre el espacio conector y el metaverso.
-- [Transformación](#transform): calcula cómo deben transformarse los atributos y el flujo.
-- [Prioridad](#precedence): resuelve las contribuciones de atributo en conflicto.
-- Destino: el objeto de destino.
+* Origen: el objeto de origen.
+* [Ámbito](#scope): busca todas las reglas de sincronización que están en ámbito.
+* [Unión](#join): determina la relación entre el espacio conector y el metaverso.
+* [Transformación](#transform): calcula cómo deben transformarse los atributos y el flujo.
+* [Prioridad](#precedence): resuelve las contribuciones de atributo en conflicto.
+* Destino: el objeto de destino.
 
 ## <a name="scope"></a>Ámbito
 El módulo de ámbito consiste en evaluar un objeto, y determina las reglas que están en el ámbito y deben incluirse en el procesamiento. En función de los valores de los atributos en el objeto, se evalúan diferentes reglas de sincronización para que estén en el ámbito. Por ejemplo, un usuario deshabilitado sin ningún buzón de Exchange tiene reglas diferentes a las de un usuario con un buzón habilitado.  
@@ -48,18 +46,18 @@ El ámbito se define como cláusulas y grupos. Las cláusulas están dentro de u
 
 El módulo de ámbito admite las siguientes operaciones:
 
-Operación | Description
---- | ---
-EQUAL, NOTEQUAL | Una comparación de cadenas que evalúa si el valor es igual al valor del atributo. Para los atributos con varios valores, consulte ISIN e ISNOTIN.
-LESSTHAN, LESSTHAN_OR_EQUAL | Una comparación de cadenas que evalúa si el valor es menor que el valor en el atributo.
-CONTAINS, NOTCONTAINS | Una comparación de cadenas que evalúa si el valor puede encontrarse en cualquier lugar dentro del valor del atributo.
-STARTSWITH, NOTSTARTSWITH | Una comparación de cadenas que evalúa si el valor está al principio del valor del atributo.
-ENDSWITH, NOTENDSWITH | Una comparación de cadenas que evalúa si el valor está al final del valor del atributo.
-GREATERTHAN, GREATERTHAN_OR_EQUAL | Una comparación de cadenas que evalúa si el valor es mayor que el valor en el atributo.
-ISNULL, ISNOTNULL | Evalúa si el atributo no está presente en el objeto. Si el atributo no está presente y, por tanto, es nulo, la regla está en el ámbito.
-ISIN, ISNOTIN | Evalúa si el valor está presente en el atributo definido. Esta operación es la variación con múltiples valores de EQUAL y NOTEQUAL. Se supone que el atributo es tiene múltiples valores y si el valor puede encontrarse en cualquiera de los valores de atributo; en ese caso, la regla está en el ámbito.
-ISBITSET, ISNOTBITSET | Evalúa si hay un determinado bit establecido. Por ejemplo, se puede usar para evaluar los bits de userAccountControl para ver si un usuario está habilitado o deshabilitado.
-ISMEMBEROF, ISNOTMEMBEROF | El valor debe contener un DN para un grupo en el espacio conector. Si el objeto es un miembro del grupo especificado, la regla está en el ámbito.
+| Operación | Description |
+| --- | --- |
+| EQUAL, NOTEQUAL |Una comparación de cadenas que evalúa si el valor es igual al valor del atributo. Para los atributos con varios valores, consulte ISIN e ISNOTIN. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |Una comparación de cadenas que evalúa si el valor es menor que el valor en el atributo. |
+| CONTAINS, NOTCONTAINS |Una comparación de cadenas que evalúa si el valor puede encontrarse en cualquier lugar dentro del valor del atributo. |
+| STARTSWITH, NOTSTARTSWITH |Una comparación de cadenas que evalúa si el valor está al principio del valor del atributo. |
+| ENDSWITH, NOTENDSWITH |Una comparación de cadenas que evalúa si el valor está al final del valor del atributo. |
+| GREATERTHAN, GREATERTHAN_OR_EQUAL |Una comparación de cadenas que evalúa si el valor es mayor que el valor en el atributo. |
+| ISNULL, ISNOTNULL |Evalúa si el atributo no está presente en el objeto. Si el atributo no está presente y, por tanto, es nulo, la regla está en el ámbito. |
+| ISIN, ISNOTIN |Evalúa si el valor está presente en el atributo definido. Esta operación es la variación con múltiples valores de EQUAL y NOTEQUAL. Se supone que el atributo es tiene múltiples valores y si el valor puede encontrarse en cualquiera de los valores de atributo; en ese caso, la regla está en el ámbito. |
+| ISBITSET, ISNOTBITSET |Evalúa si hay un determinado bit establecido. Por ejemplo, se puede usar para evaluar los bits de userAccountControl para ver si un usuario está habilitado o deshabilitado. |
+| ISMEMBEROF, ISNOTMEMBEROF |El valor debe contener un DN para un grupo en el espacio conector. Si el objeto es un miembro del grupo especificado, la regla está en el ámbito. |
 
 ## <a name="join"></a>Unión
 El módulo de unión en la canalización de sincronización es responsable de encontrar la relación entre el objeto en el origen y un objeto en el destino. En una regla de entrada, esta relación sería un objeto en un espacio conector que busca una relación con un objeto en el metaverso.  
@@ -147,22 +145,19 @@ En este escenario, debe cambiar el ámbito de las reglas de sincronización para
 ![Varios objetos unidos al mismo objeto de mv](./media/active-directory-aadconnectsync-understanding-declarative-provisioning/multiple2.png)  
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
-- Vea cómo se utiliza aprovisionamiento declarativo integrado en el artículo sobre la [configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md).
-- Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).
-- Siga leyendo sobre cómo los usuarios y contactos se utilizan juntos en el artículo de [descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
+* Consulte más detalles sobre el lenguaje de expresiones en el artículo [Descripción de las expresiones de aprovisionamiento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Vea cómo se utiliza aprovisionamiento declarativo integrado en el artículo sobre la [configuración predeterminada](active-directory-aadconnectsync-understanding-default-configuration.md).
+* Descubra cómo hacer un cambio práctico utilizando el aprovisionamiento declarativo en [Sincronización de Azure AD Connect: cómo realizar un cambio en la configuración predeterminada](active-directory-aadconnectsync-change-the-configuration.md).
+* Siga leyendo sobre cómo los usuarios y contactos se utilizan juntos en el artículo de [descripción de usuarios y contactos](active-directory-aadconnectsync-understanding-users-and-contacts.md).
 
 **Temas de introducción**
 
-- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
 **Temas de referencia**
 
-- [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
-
-
+* [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
 
 <!--HONumber=Oct16_HO2-->
 

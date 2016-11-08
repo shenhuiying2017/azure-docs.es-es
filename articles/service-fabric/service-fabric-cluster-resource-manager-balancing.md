@@ -1,29 +1,29 @@
-<properties
-   pageTitle="Equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric de Azure | Microsoft Azure"
-   description="Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric de Azure | Microsoft Docs
+description: Una introducción al equilibrio del clúster con el Administrador de recursos de clúster de Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Equilibrio del clúster de Service Fabric
 Cluster Resource Manager de Service Fabric permite crear informes sobre la carga dinámica, reaccionar a los cambios en el clúster, corregir las infracciones de restricciones y volver a equilibrar el clúster si es necesario. Pero, ¿con qué frecuencia se hace esto y qué lo desencadena? Hay varios controles relacionados con esto.
 
 El primer conjunto de controles en torno al equilibrio es un conjunto de temporizadores. Estos temporizadores controlan la frecuencia con la que Cluster Resource Manager examina el estado del clúster para ver qué cosas hay que solucionar. Hay tres categorías de trabajo, cada uno con su propio temporizador correspondiente. Son las siguientes:
 
-1.	Selección de ubicación: esta fase tiene que ver con la colocación de las réplicas con estado o las instancias sin estado que faltan. Abarca los nuevos servicios y la administración de réplicas con estado o instancias sin estado que han dado error y es necesario volver a crear. Aquí también se administra la eliminación de réplicas o instancias.
-2.	Comprobaciones de restricciones: en esta etapa se comprueban y corrigen las infracciones (reglas) de las distintas restricciones de selección de ubicación dentro del sistema. Ejemplos de reglas son asegurarse de que los nodos no sobrepasan la capacidad y que las restricciones de selección de ubicación de un servicio se cumplen (más información al respecto más adelante).
-3.	Equilibrio: en esta etapa se comprueba si el reequilibrio proactivo es necesario según el nivel de equilibrio deseado configurado para distintas métricas y, en caso afirmativo, se intenta encontrar una disposición en el clúster que sea más equilibrada.
+1. Selección de ubicación: esta fase tiene que ver con la colocación de las réplicas con estado o las instancias sin estado que faltan. Abarca los nuevos servicios y la administración de réplicas con estado o instancias sin estado que han dado error y es necesario volver a crear. Aquí también se administra la eliminación de réplicas o instancias.
+2. Comprobaciones de restricciones: en esta etapa se comprueban y corrigen las infracciones (reglas) de las distintas restricciones de selección de ubicación dentro del sistema. Ejemplos de reglas son asegurarse de que los nodos no sobrepasan la capacidad y que las restricciones de selección de ubicación de un servicio se cumplen (más información al respecto más adelante).
+3. Equilibrio: en esta etapa se comprueba si el reequilibrio proactivo es necesario según el nivel de equilibrio deseado configurado para distintas métricas y, en caso afirmativo, se intenta encontrar una disposición en el clúster que sea más equilibrada.
 
 ## Configuración de pasos y temporizadores del Administrador de recursos de clúster
 Cada uno de estos tipos diferentes de correcciones que se pueden realizar con Cluster Resource Manager se controla mediante un temporizador diferente que determina su frecuencia. Por ejemplo, si solo quiere tratar con la colocación de nuevas cargas de trabajo de servicio en el clúster cada hora (a fin de procesarlas por lotes), pero quiere comprobaciones periódicas de equilibrio cada unos cuantos segundos, puede configurar ese comportamiento. Cuando se desencadena cada temporizador, se programa la tarea. De forma predeterminada, Resource Manager examina su estado y aplica actualizaciones (procesando por lotes todos los cambios que se han producido desde el último examen, como advertir que un nodo está inactivo) cada décima de segundo, establece las marcas de comprobación de ubicación y restricción cada segundo y la marca de equilibrio cada cinco segundos.
@@ -104,10 +104,9 @@ Cluster Resource Manager calcula automáticamente qué servicios están relacion
 ![Equilibrio conjunto de los servicios][Image5]
 
 ## Pasos siguientes
-- Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para obtener más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
-- El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para obtener más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
-- El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md).
-
+* Las métricas son el modo en que el Administrador de recursos de clúster de Service Fabric administra la capacidad y el consumo en el clúster. Para obtener más información sobre ellas y cómo configurarlas, consulte [este artículo](service-fabric-cluster-resource-manager-metrics.md).
+* El costo del movimiento es una forma de señalizar al Administrador de recursos de clúster que determinados servicios son más caros de mover que otros. Para obtener más información sobre el costo del movimiento, consulte [este artículo](service-fabric-cluster-resource-manager-movement-cost.md).
+* El Administrador de recursos de clúster presenta varias limitaciones que se pueden configurar para ralentizar la renovación del clúster. Aunque no son normalmente necesarias, si las necesita, puede encontrar información sobre ellas [aquí](service-fabric-cluster-resource-manager-advanced-throttling.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png

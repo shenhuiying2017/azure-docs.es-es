@@ -1,45 +1,45 @@
-<properties
-	pageTitle="Información general sobre el registro de actividad de Azure | Microsoft Azure"
-	description="Aprenda qué es el registro de actividad de Azure y cómo puede usarlo para comprender los eventos que se producen en su suscripción de Azure."
-	authors="johnkemnetz"
-	manager="rboucher"
-	editor=""
-	services="monitoring-and-diagnostics"
-	documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Información general sobre el registro de actividad de Azure | Microsoft Docs
+description: Aprenda qué es el registro de actividad de Azure y cómo puede usarlo para comprender los eventos que se producen en su suscripción de Azure.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-	ms.service="monitoring-and-diagnostics"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/17/2016"
-	ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/17/2016
+ms.author: johnkem
 
+---
 # Información general sobre el registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información sobre las operaciones realizadas en recursos de su suscripción. El registro de actividad se conocía antes como "Registros de auditoría" o "Registros operativos", ya que notifica eventos del plano de control para las suscripciones. Con el registro de actividad, puede determinar el qué, el quién y el cuándo de cualquier operación de escritura (PUT, POST, DELETE) realizada en los recursos de su suscripción. También puede comprender el estado de la operación y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET).
 
-El registro de actividad se diferencia de los [registros de diagnóstico](./monitoring-overview-of-diagnostic-logs.md) en que estos últimos son emitidos por un solo recurso. Estos registros proporcionan datos sobre el funcionamiento de ese recurso, en lugar de las operaciones en ese recurso.
+El registro de actividad se diferencia de los [registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en que estos últimos son emitidos por un solo recurso. Estos registros proporcionan datos sobre el funcionamiento de ese recurso, en lugar de las operaciones en ese recurso.
 
 Puede recuperar eventos del registro de actividad mediante el Portal de Azure, la CLI, los cmdlets de PowerShell y la API de REST Insights.
 
 ## Qué se puede hacer con el registro de actividad
 Estas son algunas de las cosas que puede hacer con el registro de actividad:
 
-- Verlo y realizar consultas en él en el **Portal de Azure**.
-- Consultarlo por medio de la API de REST, un cmdlet de PowerShell o la CLI.
-- [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](./insights-auditlog-to-webhook-email.md)
-- [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](./monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
-- Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-audit-logs/).
-- [Transmitirlo a un **centro de eventos**](./monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
+* Verlo y realizar consultas en él en el **Portal de Azure**.
+* Consultarlo por medio de la API de REST, un cmdlet de PowerShell o la CLI.
+* [Crear una alerta de correo electrónico o webhook que se desencadene con un evento de registro de actividad.](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](../monitoring-and-diagnostics/monitoring-archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante **perfiles de registro**.
+* Analizarlo en PowerBI con el [**paquete de contenido de PowerBI**](https://powerbi.microsoft.com/es-ES/documentation/powerbi-content-pack-azure-audit-logs/).
+* [Transmitirlo a un **centro de eventos**](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como PowerBI.
 
 ## Exportación del registro de actividad con perfiles de registro
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
 
-- Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o centros de eventos)
-- Qué categorías de eventos se deberían enviar (por ejemplo, Escritura, Eliminación, Acción)
-- Qué regiones (ubicaciones) se deben exportar
-- Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647. Si se establecen directivas de retención pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
+* Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o centros de eventos)
+* Qué categorías de eventos se deberían enviar (por ejemplo, Escritura, Eliminación, Acción)
+* Qué regiones (ubicaciones) se deben exportar
+* Cuánto tiempo debe retenerse el registro de actividad en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647. Si se establecen directivas de retención pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
 
 Esta configuración se puede establecer por medio de la opción "Exportar" en la hoja de registro de actividad en el portal o mediante programación [con la API de REST](https://msdn.microsoft.com/library/azure/dn931927.aspx), los cmdlets de PowerShell o la CLI. Una suscripción solo puede tener un perfil de registro.
 
@@ -47,13 +47,13 @@ Esta configuración se puede establecer por medio de la opción "Exportar" en la
 Puede transmitir el registro de actividad a un centro de eventos o almacenarlo en una cuenta de almacenamiento mediante la opción "Exportar" en el Portal de Azure.
 
 1. Vaya a la hoja de **registro de actividad** mediante el menú en el lado izquierdo del portal.
-
+   
     ![Ir al registro de actividad en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
 2. Haga clic en el botón **Exportar** en la parte superior de la hoja.
-
+   
     ![Botón Exportar en el portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
 3. En la hoja que aparece, puede seleccionar las regiones para las que quiere exportar eventos, la cuenta de almacenamiento en la que desea guardar eventos (así como el número de días que desee conservarlos en almacenamiento; con un valor de 0 se conservarán los registros de manera indefinida) y el espacio de nombres del Bus de servicio donde desea que se cree un centro de eventos para transmitir estos eventos.
-
+   
     ![Exportar en hoja de registro de actividad](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
 4. Haga clic en **Guardar** para guardar la configuración. La configuración se aplica inmediatamente a la suscripción.
 
@@ -69,13 +69,13 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 ```
 
 | Propiedad | Obligatorio | Description |
-|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nombre | Sí | Nombre de su perfil de registro. |
-| StorageAccountId | No | Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-| serviceBusRuleId | No | Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| RetentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
-| Categorías | No | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| --- | --- | --- |
+| Nombre |Sí |Nombre de su perfil de registro. |
+| StorageAccountId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+| serviceBusRuleId |No |Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
+| Categorías |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### Eliminación de perfil de registro
 ```
@@ -98,13 +98,13 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 ```
 
 | Propiedad | Obligatorio | Description |
-|------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| name | Sí | Nombre de su perfil de registro. |
-| storageId | No | Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
-| serviceBusRuleId | No | Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-| Ubicaciones | Sí | Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
-| retentionInDays | Sí | Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
-| categories | No | Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
+| --- | --- | --- |
+| name |Sí |Nombre de su perfil de registro. |
+| storageId |No |Identificador de recurso de la cuenta de almacenamiento donde se debe guardar el registro de actividad. |
+| serviceBusRuleId |No |Identificador de regla del Bus de servicio para el espacio de nombres del Bus de servicio donde desea que se creen centros de eventos. Será una cadena con este formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. |
+| retentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+| categories |No |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
 #### Eliminación de perfil de registro
 ```
@@ -196,31 +196,31 @@ Cada evento en el registro de actividad tiene un blob JSON como este:
 ```
 
 | Nombre del elemento | Description |
-|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| authorization | Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
-| caller | Dirección de correo electrónico del usuario que ha realizado la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. |
-| canales nueva | Uno de los siguientes valores: "Admin", "Operation" |
-| correlationId | Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
-| description | Descripción de texto estático de un evento. |
-| eventDataId | Identificador único de un evento. |
-| eventSource | Nombre de la infraestructura o el servicio de Azure que generó el evento. |
-| httpRequest | Blob que describe la solicitud HTTP. Normalmente incluye "clientRequestId", "clientIpAddress" y "method" (el método HTTP, por ejemplo, PUT). |
-| level | Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning", "Informational" y "Verbose" |
-| resourceGroupName | Nombre del grupo de recursos del recurso afectado. |
-| resourceProviderName | Nombre del proveedor de recursos del recurso afectado. |
-| resourceUri | Identificador de recurso del recurso afectado. |
-| operationId | GUID compartido entre los eventos correspondientes a una sola operación. |
-| operationName | Nombre de la operación. |
-| propiedades | Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
-| status | Cadena que describe el estado de la operación. Algunos valores habituales son: Started, In Progress, Succeeded, Failed, Active y Resolved. |
-| subStatus | Por lo general, el código de estado HTTP de la llamada de REST correspondiente, pero también puede incluir otras cadenas que describen un subestado, como estos valores habituales: OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504). |
-| eventTimestamp | Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
-| submissionTimestamp | Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
-| subscriptionId | Identificador de la suscripción de Azure. |
-| nextLink | Token de continuación para recuperar el siguiente conjunto de resultados cuando se dividen en varias respuestas. Suele ser así si hay más de 200 registros. |
+| --- | --- |
+| authorization |Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
+| caller |Dirección de correo electrónico del usuario que ha realizado la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. |
+| canales nueva |Uno de los siguientes valores: "Admin", "Operation" |
+| correlationId |Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
+| description |Descripción de texto estático de un evento. |
+| eventDataId |Identificador único de un evento. |
+| eventSource |Nombre de la infraestructura o el servicio de Azure que generó el evento. |
+| httpRequest |Blob que describe la solicitud HTTP. Normalmente incluye "clientRequestId", "clientIpAddress" y "method" (el método HTTP, por ejemplo, PUT). |
+| level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning", "Informational" y "Verbose" |
+| resourceGroupName |Nombre del grupo de recursos del recurso afectado. |
+| resourceProviderName |Nombre del proveedor de recursos del recurso afectado. |
+| resourceUri |Identificador de recurso del recurso afectado. |
+| operationId |GUID compartido entre los eventos correspondientes a una sola operación. |
+| operationName |Nombre de la operación. |
+| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
+| status |Cadena que describe el estado de la operación. Algunos valores habituales son: Started, In Progress, Succeeded, Failed, Active y Resolved. |
+| subStatus |Por lo general, el código de estado HTTP de la llamada de REST correspondiente, pero también puede incluir otras cadenas que describen un subestado, como estos valores habituales: OK (código de estado HTTP: 200), Created (código de estado HTTP: 201), Accepted (código de estado HTTP: 202), No Content (código de estado HTTP: 204), Bad Request (código de estado HTTP: 400), Not Found (código de estado HTTP: 404), Conflict (código de estado HTTP: 409), Internal Server Error (código de estado HTTP: 500), Service Unavailable (código de estado HTTP: 503) y Gateway Timeout (código de estado HTTP: 504). |
+| eventTimestamp |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
+| submissionTimestamp |Marca de tiempo de cuándo el evento empezó a estar disponible para las consultas. |
+| subscriptionId |Identificador de la suscripción de Azure. |
+| nextLink |Token de continuación para recuperar el siguiente conjunto de resultados cuando se dividen en varias respuestas. Suele ser así si hay más de 200 registros. |
 
 ## Pasos siguientes
-- [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
-- [Transmisión del registro de actividad de Azure a centros de eventos](./monitoring-stream-activity-logs-event-hubs.md)
+* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
+* [Transmisión del registro de actividad de Azure a centros de eventos](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
 
 <!---HONumber=AcomDC_0907_2016-->

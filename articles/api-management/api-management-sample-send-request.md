@@ -1,24 +1,22 @@
-<properties
-	pageTitle="Uso del servicio de administración de API para generar solicitudes HTTP"
-	description="Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API"
-	services="api-management"
-	documentationCenter=""
-	authors="darrelmiller"
-	manager=""
-	editor=""/>
+---
+title: Uso del servicio de administración de API para generar solicitudes HTTP
+description: Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API
+services: api-management
+documentationcenter: ''
+author: darrelmiller
+manager: ''
+editor: ''
 
-<tags
-	ms.service="api-management"
-	ms.devlang="dotnet"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="na"
-	ms.date="08/09/2016"
-	ms.author="darrmi"/>
+ms.service: api-management
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: darrmi
 
-
+---
 # Uso de servicios externos del servicio de administración de API de Azure
-
 Las directivas disponibles en el servicio de administración de API de Azure pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de Administración de API brinda muchas más oportunidades.
 
 Anteriormente hemos visto cómo podemos interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-log-to-eventhub-sample.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio basado en HTTP externo. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utilizará para manipular en cierto modo la solicitud y respuesta originales.
@@ -130,17 +128,17 @@ Al unir todas las piezas, se obtiene la siguiente directiva:
       </send-request>
 
       <choose>
-  			<!-- Check active property in response -->
-  			<when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
-  				<!-- Return 401 Unauthorized with http-problem payload -->
-  				<return-response response-variable-name="existing response variable">
-  					<set-status code="401" reason="Unauthorized" />
-  					<set-header name="WWW-Authenticate" exists-action="override">
-  						<value>Bearer error="invalid_token"</value>
-  					</set-header>
-  				</return-response>
-  			</when>
-  		</choose>
+              <!-- Check active property in response -->
+              <when condition="@((bool)((IResponse)context.Variables["tokenstate"]).Body.As<JObject>()["active"] == false)">
+                  <!-- Return 401 Unauthorized with http-problem payload -->
+                  <return-response response-variable-name="existing response variable">
+                      <set-status code="401" reason="Unauthorized" />
+                      <set-header name="WWW-Authenticate" exists-action="override">
+                          <value>Bearer error="invalid_token"</value>
+                      </set-header>
+                  </return-response>
+              </when>
+          </choose>
       <base />
     </inbound>
 
@@ -149,7 +147,7 @@ Este ejemplo es solo uno de los muchos que hay sobre cómo puede usarse la direc
 ## Composición de respuesta
 La directiva `send-request` se puede emplear para mejorar una solicitud principal a un sistema de back-end, como vimos en el ejemplo anterior, o bien se puede usar como una sustitución íntegra de la llamada de back-end. Gracias a esta técnica se pueden crear fácilmente recursos compuestos que se agregan desde varios sistemas diferentes.
 
-### Creación de un panel   
+### Creación de un panel
 A veces le gustaría exponer información existente en varios sistemas de back-end, por ejemplo, para realizar un panel. Los KPI proceden de los distintos back-end, pero prefiere no proporcionarles acceso directo y sería mejor si se pudiera recuperar toda la información en una única solicitud. Es posible que parte de la información de back-end deba segmentarse, desglosarse y corregirse un poco primero. Poder almacenar en caché ese recurso compuesto sería útil para reducir la carga de back-end, pues ya sabe que los usuarios tienen la costumbre de recurrir a la tecla F5 para ver si pueden cambiar sus métricas de déficit de rendimiento.
 
 ### Emulación del recurso
@@ -192,7 +190,6 @@ Una vez que se tiene esta información, se pueden realizar solicitudes a todos l
 Estas solicitudes se ejecutarán en secuencia, que no es lo ideal. En una próxima versión, se introducirá una nueva directiva llamada `wait` que permitirá la ejecución en paralelo de todas estas solicitudes.
 
 ### Respuesta
-
 Para construir la respuesta compuesta, se puede usar la directiva [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
 
     <return-response response-variable-name="existing response variable">
@@ -212,7 +209,7 @@ Para construir la respuesta compuesta, se puede usar la directiva [return-respon
 Este es el aspecto de la directiva completa:
 
     <policies>
-    	<inbound>
+        <inbound>
 
       <set-variable name="fromDate" value="@(context.Request.Url.Query["fromDate"].Last())">
       <set-variable name="toDate" value="@(context.Request.Url.Query["toDate"].Last())">
@@ -250,13 +247,13 @@ Este es el aspecto de la directiva completa:
                           ).ToString())
           </set-body>
         </return-response>
-    	</inbound>
-    	<backend>
-    		<base />
-    	</backend>
-    	<outbound>
-    		<base />
-    	</outbound>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
     </policies>
 
 En la configuración de la operación de marcador de posición se puede configurar el recurso del panel que se va a almacenar en caché durante al menos una hora porque conocemos la naturaleza de los datos, que aunque lleven una hora sin actualizarse seguirán siendo lo suficientemente efectivos para transmitir información valiosa a los usuarios.
@@ -267,6 +264,8 @@ El servicio de administración de API de Azure proporciona directivas flexibles 
 ## Ver un vídeo de información general de estas directivas
 Para más información sobre las directivas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) y [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) que se describen en este artículo, vea el siguiente vídeo.
 
-> [AZURE.VIDEO send-request-and-return-response-policies]
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
+> 
+> 
 
 <!---HONumber=AcomDC_0810_2016-->

@@ -1,32 +1,35 @@
-<properties
-   pageTitle="Copia de seguridad de Azure: copia de seguridad de máquinas virtuales de IaaS de Azure con discos cifrados | Microsoft Azure"
-   description="Averigüe cómo Copia de seguridad de Azure controla los datos cifrados con BitLocker o dmcrypt durante la copia de seguridad de máquinas virtuales de IaaS. Este artículo le prepara para las diferencias en las experiencias de copia de seguridad y restauración al trabajar con discos cifrados."
-   services="backup"
-   documentationCenter=""
-   authors="pallavijoshi"
-   manager="vijayts"
-   editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="08/16/2016"
-   ms.author="markgal; jimpark; trinadhk"/>
+---
+title: 'Copia de seguridad de Azure: copia de seguridad de máquinas virtuales de IaaS de Azure con discos cifrados | Microsoft Docs'
+description: Averigüe cómo Copia de seguridad de Azure controla los datos cifrados con BitLocker o dmcrypt durante la copia de seguridad de máquinas virtuales de IaaS. Este artículo le prepara para las diferencias en las experiencias de copia de seguridad y restauración al trabajar con discos cifrados.
+services: backup
+documentationcenter: ''
+author: pallavijoshi
+manager: vijayts
+editor: ''
 
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 08/16/2016
+ms.author: markgal; jimpark; trinadhk
+
+---
 # Tratar con discos cifrados durante la copia de seguridad de máquina virtual
-
 Para las empresas que desean cifrar sus datos de máquina virtual en Azure, la solución que se debe usar es [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md) o Bitlocker en Windows y dmcrypt en equipos Linux.
 
-> [AZURE.NOTE]  Copia de seguridad de Azure admite la copia de seguridad y restauración de máquinas virtuales cifradas mediante Cifrado de discos de Azure (ADE). <br>
-1. Esto es posible gracias al uso de PowerShell si la máquina virtual se cifra mediante BEK y KEK. <br>
-2. Estas operaciones no se admiten si la máquina virtual está cifrada solo con BEK. <br> Consulte la documentación de [PowerShell con Copia de seguridad de Azure](backup-azure-vms-automation.md) para realizar tareas de copia de seguridad y restauración de máquinas virtuales cifradas con ADE.
+> [!NOTE]
+> Copia de seguridad de Azure admite la copia de seguridad y restauración de máquinas virtuales cifradas mediante Cifrado de discos de Azure (ADE). <br>
+> 
+> 1. Esto es posible gracias al uso de PowerShell si la máquina virtual se cifra mediante BEK y KEK. <br>
+> 2. Estas operaciones no se admiten si la máquina virtual está cifrada solo con BEK. <br> Consulte la documentación de [PowerShell con Copia de seguridad de Azure](backup-azure-vms-automation.md) para realizar tareas de copia de seguridad y restauración de máquinas virtuales cifradas con ADE.
+> 
+> 
 
 Este artículo trata sobre las máquinas virtuales de Azure cifradas con CloudLink.
 
 ## Cómo funciona la copia de seguridad
-
 La solución consta de dos niveles: el nivel de máquina virtual y el nivel de almacenamiento.
 
 1. El nivel de máquina virtual trata con los datos como se ven por el sistema operativo invitado y las aplicaciones que se ejecutan en la máquina virtual. También es la capa que ejecuta el software de cifrado (Bitlocker o dmcrypt), cifrando de forma transparente datos en los volúmenes antes de escribir los datos en los discos.
@@ -37,44 +40,39 @@ La solución consta de dos niveles: el nivel de máquina virtual y el nivel de a
 El cifrado completo de datos se produce de forma transparente y sin problemas en el nivel de máquina virtual. Por tanto, los datos escritos en los blobs de página conectados a la máquina virtual son los datos cifrados. Cuando la [Copia de seguridad de Azure toma una instantánea de los discos de la máquina virtual y transfiere los datos](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines), copia los datos cifrados presentes en los blobs de página.
 
 ## Componentes de soluciones
-
 Hay muchos elementos de esta solución que se tienen que configurar y administrar correctamente para que funcione:
 
 | Función | Software usado | Notas adicionales |
-| -------- | ------------- | ------- |
-| Cifrado | BitLocker o dmcrypt | Como el cifrado se produce en una capa *diferentes* en comparación con la Copia de seguridad de Azure, no importa qué software de cifrado se usa. Dicho eso, esta experiencia se ha validado solo con CloudLink mediante Bitlocker y dmcrypt.<br><br> Para cifrar los datos, se necesita una clave. La clave también se tiene que mantener segura para garantizar el acceso autorizado a los datos. |
-| Administración de claves | CloudLink SecureVM | La clave es esencial para cifrar o descifrar los datos. Sin la clave correcta, no se pueden recuperar los datos. Esto resulta *increíblemente* importante con:<br><li>Sustituciones clave<li>Retención a largo plazo<br><br>Por ejemplo, es posible que la clave usada para hacer copias de seguridad de datos hace 7 años no sea la misma clave que se usa en la actualidad. Sin la clave de hace 7 años, será imposible usar los datos restaurados de ese momento.|
-| Copia de seguridad de datos | Copia de seguridad de Azure | Use la Copia de seguridad de Azure para hacer una copia de seguridad de una de las máquinas virtuales de IaaS de Azure a través del [portal de administración de Azure](http://manage.windowsazure.com) o con PowerShell |
-| Restauración de datos | Copia de seguridad de Azure | Use la Copia de seguridad de Azure para restaurar discos o una máquina virtual completa desde un punto de recuperación. Los datos no se descifran por la Copia de seguridad de Azure como parte de la operación de restauración.|
-| Descifrado | BitLocker o dmcrypt | Para leer datos de un disco de datos restaurada o una máquina virtual restaurada, el software necesita la clave desde el software de administración de claves. Sin la clave correcta, no se pueden descifrar los datos. |
+| --- | --- | --- |
+| Cifrado |BitLocker o dmcrypt |Como el cifrado se produce en una capa *diferentes* en comparación con la Copia de seguridad de Azure, no importa qué software de cifrado se usa. Dicho eso, esta experiencia se ha validado solo con CloudLink mediante Bitlocker y dmcrypt.<br><br> Para cifrar los datos, se necesita una clave. La clave también se tiene que mantener segura para garantizar el acceso autorizado a los datos. |
+| Administración de claves |CloudLink SecureVM |La clave es esencial para cifrar o descifrar los datos. Sin la clave correcta, no se pueden recuperar los datos. Esto resulta *increíblemente* importante con:<br><li>Sustituciones clave<li>Retención a largo plazo<br><br>Por ejemplo, es posible que la clave usada para hacer copias de seguridad de datos hace 7 años no sea la misma clave que se usa en la actualidad. Sin la clave de hace 7 años, será imposible usar los datos restaurados de ese momento. |
+| Copia de seguridad de datos |Copia de seguridad de Azure |Use la Copia de seguridad de Azure para hacer una copia de seguridad de una de las máquinas virtuales de IaaS de Azure a través del [portal de administración de Azure](http://manage.windowsazure.com) o con PowerShell |
+| Restauración de datos |Copia de seguridad de Azure |Use la Copia de seguridad de Azure para restaurar discos o una máquina virtual completa desde un punto de recuperación. Los datos no se descifran por la Copia de seguridad de Azure como parte de la operación de restauración. |
+| Descifrado |BitLocker o dmcrypt |Para leer datos de un disco de datos restaurada o una máquina virtual restaurada, el software necesita la clave desde el software de administración de claves. Sin la clave correcta, no se pueden descifrar los datos. |
 
-> [AZURE.IMPORTANT]  La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
+> [!IMPORTANT]
+> La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
+> 
+> 
 
 ### Escenarios admitidos
-
-
 | &nbsp; | Almacén de copia de seguridad | Almacén de Servicios de recuperación |
-| :-- | :-- | :-- |
-| Máquinas virtuales de Azure IaaS V1 | Sí | No |
-| Máquinas virtuales de Azure IaaS V2 | N/D | No |
-
+|:--- |:--- |:--- |
+| Máquinas virtuales de Azure IaaS V1 |Sí |No |
+| Máquinas virtuales de Azure IaaS V2 |N/D |No |
 
 ## CloudLink SecureVM
-
 [CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) es una solución de cifrado de máquina virtual que se puede usar para proteger los datos de la máquina virtual de IaaS de Azure. CloudLink SecureVM es compatible con el uso de la Copia de seguridad de Azure.
 
 ### Información de compatibilidad
-
-- CloudLink SecureVM versión 4.0 (versión 21536.121 o superior)
-- Azure PowerShell versión 0.9.8 o posterior
+* CloudLink SecureVM versión 4.0 (versión 21536.121 o superior)
+* Azure PowerShell versión 0.9.8 o posterior
 
 ### Administración de claves
-
 Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen copias de seguridad existentes, debe asegurarse de que las claves usadas en el momento de la copia de seguridad están disponibles. Una sugerencia para hacerlo es realizar una copia de seguridad del almacén de claves o de todo el sistema SecureVM.
 
 ### Documentación y recursos
-
-- [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
-- [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
+* [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
+* [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
 
 <!---HONumber=AcomDC_0817_2016-->

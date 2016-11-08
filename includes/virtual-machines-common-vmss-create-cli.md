@@ -13,7 +13,6 @@ Desventajas:
 1. No se puede adjuntar discos de datos a instancias de máquina virtual en un conjunto de escala. En su lugar, debe utilizar Almacenamiento de blobs, Archivos de Azure, tablas de Azure u otra solución de almacenamiento.
 
 ## Creación rápida mediante CLI de Azure
-
 Si no lo ha hecho aún, puede obtener una [evaluación gratuita de la suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [a su cuenta de Azure](../articles/xplat-cli-connect.md). Una vez hecho, puede ejecutar los siguientes comandos para crear rápidamente un conjunto de escalado de máquina virtual:
 
 ```bash
@@ -71,7 +70,6 @@ ssh -p 50000 $FQDN
 ```
 
 ## Pasos siguientes
-
 Para obtener información general, consulte la [página de aterrizaje principal de los conjuntos de escalado de máquina virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 
 Para consultar la documentación, consulte la [página de documentación principal de los conjuntos de escalado de máquina virtual](https://azure.microsoft.com/documentation/services/virtual-machines-scale-sets/).

@@ -1,54 +1,49 @@
-<properties
-    pageTitle="Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Azure"
-    description="Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: 'Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Docs'
+description: Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/01/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/01/2016
+ms.author: maheshu
 
-
+---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Cómo decidir si Active Directory Domain Services es adecuado para su caso de uso
 Active Directory Domain Service permite implementar cargas de trabajo en los servicios de infraestructura de Azure sin tener que preocuparse por mantener la infraestructura de identidad. Este servicio administrado no es lo mismo que una implementación típica de Windows Server Active Directory donde los usuarios son los encargados de llevarla a cabo y administrarla. El servicio está diseñado para implementaciones sencillas, tareas de corrección y supervisión de estado automatizadas e infraestructura de identidad simples para la nube. Realizamos continuamente cambios en el servicio para agregar compatibilidad con escenarios comunes de implementación.
 
 Decida si quiere utilizar Azure AD Domain Services, o bien poner en marcha y administrar su propia infraestructura de AD en Azure:
 
-- Vea la lista de [características que ofrece Azure AD Domain Services](active-directory-ds-features.md).
-
-- Consulte los [escenarios de implementación comunes de Azure AD Domain Services](active-directory-ds-scenarios.md).
-
-- Finalmente, [compare Azure AD Domain Services con una opción de AD de implementación personal](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
-
+* Vea la lista de [características que ofrece Azure AD Domain Services](active-directory-ds-features.md).
+* Consulte los [escenarios de implementación comunes de Azure AD Domain Services](active-directory-ds-scenarios.md).
+* Finalmente, [compare Azure AD Domain Services con una opción de AD de implementación personal](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure).
 
 ## <a name="compare-azure-ad-domain-services-to-diy-ad-domain-in-azure"></a>Comparación de Azure AD Domain Services con un dominio de AD de implementación personal en Azure
 La tabla siguiente ayuda a decidir si usar Azure AD Domain Services y administrar su propia infraestructura de AD en Azure.
 
-|**Característica**|**Azure AD Domain Services**|**AD de implementación personal en máquinas virtuales de Azure**|
-|---|:---:|:---:|
-|[**Servicio administrado**](active-directory-ds-comparison.md#managed-service)|**&#x2713;**|**&#x2715;**|
-|[**Implementaciones seguras**](active-directory-ds-comparison.md#secure-deployments)|**&#x2713;**|El administrador debe proteger la implementación.|
-|[**Servidor DNS**](active-directory-ds-comparison.md#dns-server)|**&#x2713;** (servicio administrado)|**&#x2713;**|
-|[**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges)|**&#x2715;**|**&#x2713;**|
-|[**Unión a un dominio**](active-directory-ds-comparison.md#domain-join)|**&#x2713;**|**&#x2713;**|
-|[**Autenticación de dominios mediante NTLM y Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos)|**&#x2713;**|**&#x2713;**|
-|[**Estructura de unidad organizativa personalizada**](active-directory-ds-comparison.md#custom-ou-structure)|**&#x2713;**|**&#x2713;**|
-|[**Extensiones de esquema**](active-directory-ds-comparison.md#schema-extensions)|**&#x2715;**|**&#x2713;**|
-|[**Confianzas de bosques o dominios de AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts)|**&#x2715;**|**&#x2713;**|
-|[**LDAP read**](active-directory-ds-comparison.md#ldap-read)|**&#x2713;**|**&#x2713;**|
-|[**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap)|**&#x2713;**|**&#x2713;**|
-|[**LDAP write**](active-directory-ds-comparison.md#ldap-write)|**&#x2715;**|**&#x2713;**|
-|[**Group Policy**](active-directory-ds-comparison.md#group-policy)|Simple|Completo|
-|[**Implementación distribuida geográficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments)|**&#x2715;**|**&#x2713;**|
-
+| **Característica** | **Azure AD Domain Services** | **AD de implementación personal en máquinas virtuales de Azure** |
+| --- |:---:|:---:|
+| [**Servicio administrado**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**Implementaciones seguras**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |El administrador debe proteger la implementación. |
+| [**Servidor DNS**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (servicio administrado) |**&#x2713;** |
+| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**Unión a un dominio**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
+| [**Autenticación de dominios mediante NTLM y Kerberos**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
+| [**Estructura de unidad organizativa personalizada**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
+| [**Extensiones de esquema**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
+| [**Confianzas de bosques o dominios de AD**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
+| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**LDAP seguro (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |Simple |Completo |
+| [**Implementación distribuida geográficamente**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>Servicio administrado
 Los dominios de Azure AD Domain Services los administra Microsoft. No tiene que preocuparse por las tareas de aplicación de revisiones, actualizaciones, supervisión, lo que garantiza la disponibilidad del dominio. Estas tareas de administración se ofrecen como un servicio de Microsoft Azure en los dominios administrados.
@@ -92,29 +87,24 @@ No se admiten construcciones de directivas de grupo sofisticadas en el dominio a
 #### <a name="geo-dispersed-deployments"></a>Implementaciones dispersas geográficamente
 Los dominios administrativos de Azure AD Domain Services están disponibles en una sola red virtual en Azure. Para escenarios que requieren la presencia de controladores de dominio en varias regiones de Azure en todo el mundo, la mejor opción puede ser configurar controladores de dominio en máquinas virtuales IaaS de Azure.
 
-
 ## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Opciones de implementación de AD personal
 Puede que tenga casos de uso de implementación donde necesite algunas de las funcionalidades que ofrezca una instalación de Windows Server AD. En estos casos, considere una de las siguientes opciones de implementación personal:
 
-- **Dominio en la nube independiente** : puede configurar un dominio en la nube independiente con máquinas virtuales configuradas como controladores de dominio. Esta infraestructura no se integra con su entorno de AD local. Esta opción requeriría un conjunto diferente de credenciales en la nube para iniciar sesión o administrar máquinas virtuales en la nube.
+* **Dominio en la nube independiente** : puede configurar un dominio en la nube independiente con máquinas virtuales configuradas como controladores de dominio. Esta infraestructura no se integra con su entorno de AD local. Esta opción requeriría un conjunto diferente de credenciales en la nube para iniciar sesión o administrar máquinas virtuales en la nube.
+* **Implementación de bosques de recursos** : puede configurar un dominio en la topología de bosque de recursos con máquinas virtuales configuradas como controladores de dominio. Después, podrá configurar una relación de confianza de AD con su entorno de AD local. Puede unir equipos a un dominio (máquinas virtuales de Azure) en este bosque de recursos en la nube. La autenticación de usuarios se produce a través de una conexión VPN o ExpressRoute en el directorio local.
+* **Ampliación del dominio local a Azure** : puede conectar una red virtual de Azure a su red local mediante una conexión VPN o ExpressRoute, de modo que las máquinas virtuales de Azure se pueden unir a su entorno de AD local. Otra alternativa es promover controladores de dominio de réplica del dominio local en Azure como una máquina virtual. De esta forma, podrá establecer que se replique a través de una conexión VPN o ExpressRoute en el directorio local. Este modo de implementación amplía de manera eficaz su dominio local a Azure.
 
-- **Implementación de bosques de recursos** : puede configurar un dominio en la topología de bosque de recursos con máquinas virtuales configuradas como controladores de dominio. Después, podrá configurar una relación de confianza de AD con su entorno de AD local. Puede unir equipos a un dominio (máquinas virtuales de Azure) en este bosque de recursos en la nube. La autenticación de usuarios se produce a través de una conexión VPN o ExpressRoute en el directorio local.
-
-- **Ampliación del dominio local a Azure** : puede conectar una red virtual de Azure a su red local mediante una conexión VPN o ExpressRoute, de modo que las máquinas virtuales de Azure se pueden unir a su entorno de AD local. Otra alternativa es promover controladores de dominio de réplica del dominio local en Azure como una máquina virtual. De esta forma, podrá establecer que se replique a través de una conexión VPN o ExpressRoute en el directorio local. Este modo de implementación amplía de manera eficaz su dominio local a Azure.
-
-> [AZURE.NOTE] Puede determinar que una opción de implementación personal es más adecuada para sus casos de uso de implementación. Considere la posibilidad de [enviarnos comentarios](active-directory-ds-contact-us.md) para ayudarnos a comprender qué características lo ayudarán a decantarse por Azure AD Domain Services en un futuro. Estos comentarios nos ayudan a mejorar el servicio para que se ajuste mejor a sus necesidades de implementación y casos de uso.
+> [!NOTE]
+> Puede determinar que una opción de implementación personal es más adecuada para sus casos de uso de implementación. Considere la posibilidad de [enviarnos comentarios](active-directory-ds-contact-us.md) para ayudarnos a comprender qué características lo ayudarán a decantarse por Azure AD Domain Services en un futuro. Estos comentarios nos ayudan a mejorar el servicio para que se ajuste mejor a sus necesidades de implementación y casos de uso.
+> 
+> 
 
 Hemos publicado [directrices de implementación de Windows Server Active Directory en Microsoft Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) para ayudar a simplificar las instalaciones personales.
 
-
 ## <a name="related-content"></a>Contenido relacionado
-- [Características de Azure AD Domain Services](active-directory-ds-features.md)
-
-- [Escenarios de implementación de Azure AD Domain Services](active-directory-ds-scenarios.md)
-
-- [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
-
-
+* [Características de Azure AD Domain Services](active-directory-ds-features.md)
+* [Escenarios de implementación de Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
 <!--HONumber=Oct16_HO2-->
 

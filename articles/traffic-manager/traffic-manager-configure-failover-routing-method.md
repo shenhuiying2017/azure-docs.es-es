@@ -1,28 +1,27 @@
-<properties 
-   pageTitle="Configuración del método de enrutamiento del tráfico del Administrador de tráfico| Microsoft Azure"
-   description="Este artículo le ayudará a configurar el método de enrutamiento del tráfico de conmutación por error en el Administrador de tráfico"
-   services="traffic-manager"
-   documentationCenter=""
-   authors="sdwheeler"
-   manager="carmonm"
-   editor="tysonn" />
-<tags 
-   ms.service="traffic-manager"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="06/10/2016"
-   ms.author="sewhee" />
+---
+title: Configuración del método de enrutamiento del tráfico del Administrador de tráfico| Microsoft Docs
+description: Este artículo le ayudará a configurar el método de enrutamiento del tráfico de conmutación por error en el Administrador de tráfico
+services: traffic-manager
+documentationcenter: ''
+author: sdwheeler
+manager: carmonm
+editor: tysonn
 
+ms.service: traffic-manager
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 06/10/2016
+ms.author: sewhee
+
+---
 # Configuración del método de enrutamiento de conmutación por error
-
 En ocasiones, una organización desea proporcionar confiabilidad en sus servicios. Puede hacerlo mediante servicios de copia de seguridad en caso de que el servicio principal esté desactivado. Un patrón habitual de la conmutación por error del servicio es que proporciona un conjunto de servicios idénticos y que envía el tráfico a un servicio principal, mientras mantiene una lista configurada de uno o más servicios de copia de seguridad. Puede configurar este tipo de copia de seguridad con servicios en la nube y sitios web de Azure siguiendo los procedimientos que se indican a continuación.
 
 Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del método de enrutamiento del tráfico de conmutación por error para sitios web en un centro de datos (también conocido como región), independientemente del modo del sitio web. El Administrador de tráfico permite especificar el método de enrutamiento del tráfico de conmutación por error para sitios web en distintos centros de datos.
 
 ## Para configurar el método de enrutamiento de tráfico de conmutación por error:
-
 1. En el Portal de Azure clásico, en el panel izquierdo, haga clic en el icono **Administrador de tráfico** para abrir el panel del Administrador de tráfico. Si aún no ha creado su perfil de Administrador de tráfico, consulte [Administración de perfiles del Administrador de tráfico](traffic-manager-manage-profiles.md) para conocer el procedimiento de creación de un perfil básico de Administrador de tráfico.
 2. En el panel Administrador de tráfico del Portal de Azure clásico, localice el perfil del Administrador de tráfico que contiene la configuración que quiere modificar y haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
 3. En la página del perfil, haga clic en **Extremos** en la parte superior y compruebe que estén presentes tanto los servicios en la nube como los sitios web (extremos) que desee incluir en la configuración. Para obtener el procedimiento para agregar o quitar extremos, consulte [Administración de extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
@@ -35,7 +34,6 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 10. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca de este procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 
 ## Pasos siguientes
-
 [Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
 
 [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
@@ -49,7 +47,5 @@ Tenga en cuenta que Sitios web de Azure ya proporciona la funcionalidad del mét
 [Administrador de tráfico: deshabilitación, habilitación o eliminación de un perfil](disable-enable-or-delete-a-profile.md)
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
-
- 
 
 <!---HONumber=AcomDC_0824_2016-->

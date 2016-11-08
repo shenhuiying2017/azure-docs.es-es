@@ -1,32 +1,32 @@
-<properties 
-	pageTitle="Incorporación de operaciones a una API en Administración de API de Azure | Microsoft Azure" 
-	description="Obtenga información acerca de cómo agregar operaciones a una API en Administración de API de Azure." 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: Incorporación de operaciones a una API en Administración de API de Azure | Microsoft Docs
+description: Obtenga información acerca de cómo agregar operaciones a una API en Administración de API de Azure.
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/09/2016
+ms.author: sdanie
 
+---
 # Incorporación de operaciones a una API en Administración de API de Azure
-
 Es necesario agregar operaciones para poder utilizar una API en Administración de API. En esta guía se muestra cómo agregar y configurar diferentes tipos de operaciones a una API en Administración de API.
 
 ## <a name="add-operation"> </a>Agregar una operación
-
 Las operaciones se agregan y se configuran para una API en el portal del publicador. Para llegar al portal del publicador, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
->Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+> Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][Creación de una instancia del servicio de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> 
+> 
 
 Seleccione las API que desee en el portal del publicador y luego seleccione la pestaña **Operaciones**.
 
@@ -54,7 +54,6 @@ Si lo desea, especifique la **plantilla de la URL de reescritura**. Esto permite
 
 Los usuarios que llamen a la operación usarán el formato `/customers?customerid=ALFKI`, que se asignará a `/Customers('ALFKI')` al invocar al servicio back-end.
 
-
 **Nombre para mostrar** y **Descripción** ofrecen una descripción de la operación y se usan para proporcionar documentación a los desarrolladores que usen esta API en el portal para desarrolladores.
 
 ![Description][api-management-description]
@@ -62,7 +61,6 @@ Los usuarios que llamen a la operación usarán el formato `/customers?customeri
 La descripción de la operación se puede especificar como texto sin formato o HTML en el cuadro de texto **Descripción**.
 
 ## <a name="operation-caching"> </a>Almacenamiento en caché de operaciones
-
 El almacenamiento en caché de respuestas reduce la latencia que perciben los consumidores de la API, rebaja el consumo de ancho de banda y disminuye la carga en el servicio web HTTP que implementa la API.
 
 Para habilitar fácil y rápidamente el almacenamiento en caché de la operación, seleccione la pestaña **Caching** y active la casilla **Habilitar**.
@@ -73,28 +71,29 @@ Para habilitar fácil y rápidamente el almacenamiento en caché de la operació
 
 Se usan claves de caché para diferenciar entre respuestas de forma que la respuesta correspondiente a cada clave de caché distinta obtenga su propio valor almacenado en caché por separado. Opcionalmente, escriba los parámetros específicos de la cadena de consulta o los encabezados HTTP que se usarán para calcular los valores de clave de caché en los cuadros de texto **Variar por parámetros de cadena de consulta** y **Variar por encabezados**, respectivamente. Cuando no se especifica ninguno, se usan la dirección URL de la solicitud completa y los siguientes valores de encabezado HTTP en la generación de claves de caché: **Accept** y **Accept-Charset**.
 
->Para obtener más información sobre el almacenamiento en caché y las directivas de almacenamiento en caché, consulte [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure][].
-
+> Para obtener más información sobre el almacenamiento en caché y las directivas de almacenamiento en caché, consulte [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure][Almacenamiento en caché de resultados de operaciones en Administración de API de Azure].
+> 
+> 
 
 ## <a name="request-parameters"> </a>Parámetros de solicitud
-
 Los parámetros de la operación se administran en la pestaña Parámetros. Los parámetros especificados en **Modelo de URL** en la pestaña **Firma** se agregan automáticamente y solo pueden cambiarse modificando la plantilla de URL. Se pueden introducir manualmente parámetros adicionales.
 
 Para agregar un nuevo parámetro de consulta, haga clic en **Agregar parámetro de consulta** y especifique la siguiente información:
 
--	**Nombre**: nombre del parámetro.
--	**Descripción**: breve descripción del parámetro (opcional).
--	**Tipo**: tipo de parámetro, seleccionado en la lista desplegable.
--	**Valores**: valores que se pueden asignar a este parámetro. Uno de los valores se puede marcar como predeterminado (opcional).
--	**Obligatorio**: convierte el parámetro en obligatorio al activar la casilla.
+* **Nombre**: nombre del parámetro.
+* **Descripción**: breve descripción del parámetro (opcional).
+* **Tipo**: tipo de parámetro, seleccionado en la lista desplegable.
+* **Valores**: valores que se pueden asignar a este parámetro. Uno de los valores se puede marcar como predeterminado (opcional).
+* **Obligatorio**: convierte el parámetro en obligatorio al activar la casilla.
 
 ![Parámetros de la solicitud][api-management-request-parameters]
 
 ## <a name="request-body"> </a>Cuerpo de la solicitud
-
 Si la operación lo permite (por ejemplo, PUT, POST) y requiere un cuerpo, puede proporcionar un ejemplo del mismo en todos los formatos de representación compatibles (por ejemplo, json, XML).
 
->El cuerpo de la solicitud solo se usa a efectos de documentación y no se valida.
+> El cuerpo de la solicitud solo se usa a efectos de documentación y no se valida.
+> 
+> 
 
 Para especificar un cuerpo de la solicitud, cambie a la pestaña **Cuerpo**.
 
@@ -105,7 +104,6 @@ Haga clic en **Agregar representación**, comience a escribir el nombre del tipo
 Además de las representaciones, también puede especificar una descripción opcional de texto en el cuadro de texto **Descripción**.
 
 ## <a name="responses"> </a>Respuestas
-
 Es recomendable proporcionar ejemplos de respuestas para todos los códigos de estado que puede producir la operación. Cada código de estado puede tener más de un ejemplo de cuerpo de respuesta, uno para cada tipo de contenido admitido.
 
 Para agregar una respuesta, haga clic en **Agregar** y comience a escribir el código de estado que desee. En este ejemplo, el código de estado es **200 OK**. Cuando el código aparezca en la lista desplegable, selecciónelo; el código de respuesta se creará y se agregará a la operación.
@@ -124,12 +122,10 @@ Si lo desea, agregue una descripción opcional en el cuadro de texto **Descripci
 
 Una vez configurada la operación, haga clic en **Guardar**.
 
-
 ## <a name="next-steps"> </a>Pasos siguientes
-
 Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API al producto y publicarlo para que los desarrolladores pueden llamar a las operaciones.
 
--	[Creación y publicación de un producto][]
+* [Creación y publicación de un producto][Creación y publicación de un producto]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png

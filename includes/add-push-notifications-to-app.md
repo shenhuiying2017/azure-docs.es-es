@@ -1,6 +1,5 @@
 
 ## <a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
-
 * En QSAppDelegate.m, importe el SDK de iOS y QSTodoService.h:
 
 ```

@@ -1,60 +1,56 @@
-<properties
-	pageTitle="Inicio de sesión en una máquina virtual de Azure clásico | Microsoft Azure"
-	description="Use el Portal de Azure clásico para iniciar sesión en una máquina virtual de Windows creada con el modelo de implementación clásica."
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="cynthn"
-	manager="timlt"
-	editor="tysonn"
-	tags="azure-service-management"/>
+---
+title: Inicio de sesión en una máquina virtual de Azure clásico | Microsoft Docs
+description: Use el Portal de Azure clásico para iniciar sesión en una máquina virtual de Windows creada con el modelo de implementación clásica.
+services: virtual-machines-windows
+documentationcenter: ''
+author: cynthn
+manager: timlt
+editor: tysonn
+tags: azure-service-management
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="vm-windows"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/28/2016"
-	ms.author="cynthn"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: article
+ms.date: 07/28/2016
+ms.author: cynthn
 
-
+---
 # Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure clásico
-
 En el Portal de Azure clásico, usará el botón **Conectar** para iniciar una sesión de Escritorio remoto e iniciar sesión en una máquina virtual de Windows.
 
 ¿Desea conectarse a una máquina virtual Linux? Consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-mac-create-ssh-keys.md).
 
 Aprenda cómo [realizar estos pasos con el nuevo Portal de Azure](virtual-machines-windows-connect-logon.md).
 
-[AZURE.INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
 ## Tutorial en vídeo
-
 A continuación se facilita una guía detallada en vídeo de los pasos de este tutorial. También se tratan los extremos y los puertos públicos y privados utilizados para conectarse a una VM de Windows en Azure.
 
-[AZURE.VIDEO logging-on-to-vm-running-windows-server-on-azure]
+[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Logging-On-To-VM-Running-Windows-Server-on-Azure/player]
+
 
 
 ## Conexión a la máquina virtual
-
 1. Inicie sesión en el portal clásico de Azure.
-
 2. Haga clic en **Máquinas virtuales** y después seleccione la máquina virtual.
-
 3. En la barra de comandos situada en la parte inferior de la página, haga clic en **Conectar**.
+   
+    ![Iniciar sesión en la nueva máquina virtual](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
 
-	![Iniciar sesión en la nueva máquina virtual](./media/virtual-machines-windows-classic-connect-logon/connectwindows.png)
-	
-> [AZURE.TIP] Si el botón **Conectar** no está disponible, consulte las sugerencias de solución de problemas al final de este artículo.
+> [!TIP]
+> Si el botón **Conectar** no está disponible, consulte las sugerencias de solución de problemas al final de este artículo.
+> 
+> 
 
 ## Iniciar sesión en la nueva máquina virtual
-
-[AZURE.INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
+[!INCLUDE [virtual-machines-log-on-win-server](../../includes/virtual-machines-log-on-win-server.md)]
 
 ## Pasos siguientes
-
--	Si el botón **Conectar** está inactivo o tiene otros problemas con la conexión a Escritorio remoto, pruebe a restablecer la configuración. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer configuración remota**.
--	Si experimenta problemas con la contraseña, intente restablecerla. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer contraseña**.
+* Si el botón **Conectar** está inactivo o tiene otros problemas con la conexión a Escritorio remoto, pruebe a restablecer la configuración. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer configuración remota**.
+* Si experimenta problemas con la contraseña, intente restablecerla. Desde el panel de la máquina virtual, en **Vista rápida**, haga clic en **Restablecer contraseña**.
 
 Si esas sugerencias no funcionan o no son lo que necesita, vea [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](virtual-machines-windows-troubleshoot-rdp-connection.md). En este artículo se le guiará a través del diagnóstico y la resolución de problemas comunes.
 

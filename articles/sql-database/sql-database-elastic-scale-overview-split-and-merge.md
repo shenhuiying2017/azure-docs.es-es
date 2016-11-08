@@ -1,22 +1,21 @@
-<properties 
-    pageTitle="Mover datos entre bases de datos en la nube escaladas horizontalmente | Microsoft Azure" 
-    description="Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas." 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove"/>
+---
+title: Mover datos entre bases de datos en la nube escaladas horizontalmente | Microsoft Docs
+description: Explica cómo manipular las particiones y mover los datos a través de un servicio autohospedado mediante las API de bases de datos elásticas.
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove" />
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Moving data between scaled-out cloud databases (Mover datos entre bases de datos en la nube escaladas horizontalmente)
-
 Si es desarrollador de Software como servicio y su aplicación experimenta de pronto una demanda enorme, es necesario adaptarse al crecimiento. De este modo, agrega más bases de datos (particiones). ¿Cómo redistribuye los datos en las nuevas bases de datos sin interrumpir la integridad de los datos? Use la **herramienta de división y combinación** para mover datos desde bases de datos limitadas a las nuevas bases de datos.
 
 La herramienta de división y combinación se ejecuta como servicio web de Azure. Un administrador o desarrollador usa la herramienta para mover shardlets (datos de una partición) entre distintas bases de datos (particiones). La herramienta usa la administración de mapas de particiones para mantener la base de datos de metadatos de servicio y garantizar asignaciones coherentes.
@@ -26,18 +25,16 @@ La herramienta de división y combinación se ejecuta como servicio web de Azure
 ## Descargar
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-
 ## Documentación
 1. [Tutorial de la herramienta de división y combinación de Base de datos elástica](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
-* [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md)
-* [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md) (Consideraciones de seguridad de división y combinación)
-* [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
-* [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md) (Migrar bases de datos existentes de escalado horizontal)
-* [Elastic database tools](sql-database-elastic-scale-introduction.md) (Herramientas para bases de datos elásticas)
-* [Glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md)
+2. [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md)
+3. [Split-merge security considerations](sql-database-elastic-scale-split-merge-security-configuration.md) (Consideraciones de seguridad de división y combinación)
+4. [Administración de mapas de particiones.](sql-database-elastic-scale-shard-map-management.md)
+5. [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md) (Migrar bases de datos existentes de escalado horizontal)
+6. [Elastic database tools](sql-database-elastic-scale-introduction.md) (Herramientas para bases de datos elásticas)
+7. [Glosario de las herramientas de bases de datos elásticas](sql-database-elastic-scale-glossary.md)
 
 ## ¿Por qué usar la herramienta de división y combinación?
-
 **Flexibilidad**
 
 Las aplicaciones necesitan extenderse de manera flexible más allá de los límites de una sola base de datos de Base de datos SQL de Azure. Use la herramienta para mover datos según sea necesario a nuevas bases de datos conservando la integridad.
@@ -55,7 +52,6 @@ La capacidad debe reducirse debido a la naturaleza estacional de una empresa. La
 Con varios inquilinos por base de datos, la asignación de shardlets a particiones puede generar cuellos de botella en la capacidad de algunas particiones. Esto requiere volver a asignar shardlets o mover shardlets ocupados a particiones nuevas o menos utilizadas.
 
 ## Conceptos y características clave
-
 **Servicios hospedados por el cliente**
 
 El servicio División y combinación es un servicio hospedado por el cliente. Debe implementar y hospedar el servicio en su suscripción a Microsoft Azure. El paquete que descarga de NuGet contiene una plantilla de configuración que se debe completar con la información correspondiente a la implementación específica. Consulte el [tutorial de División y combinación](sql-database-elastic-scale-configure-deploy-split-and-merge.md) para obtener más detalles. Dado que el servicio se ejecuta en su suscripción de Azure, es posible controlar y configurar la mayoría de los aspectos de seguridad del servicio. La plantilla predeterminada incluye las opciones para configurar SSL, autenticación de cliente basada en certificados, cifrado para credenciales almacenadas, protección ante denegación de servicio y restricciones de IP. Puede encontrar más información sobre los aspectos de seguridad en el siguiente documento [Configuración de seguridad de división y combinación](sql-database-elastic-scale-split-merge-security-configuration.md).
@@ -83,9 +79,7 @@ El servicio División y combinación usa una base de datos para mantener su esta
 El servicio División y combinación hace la diferencia entre (1) tablas particionadas, (2) tablas de referencia y (3) tablas normales. La semántica de una operación de división/combinación/desplazamiento depende del tipo de tabla usada y se define de la siguiente manera:
 
 * **Tablas particionadas**: las operaciones de división, combinación y desplazamiento mueven los shardlets desde la partición de origen a la partición de destino. Tras finalizar correctamente la solicitud general, esos shardlets dejan de estar presentes en la partición de origen. Observe que las tablas de destino deben existir en la partición de destino y no pueden contener datos en el intervalo de destino antes del procesamiento de la operación. 
-
 * **Tablas de referencia**: en el caso de las tablas de referencia, las operaciones de división, combinación y desplazamiento copian los datos de la partición de origen a la partición de destino. Observe que, sin embargo, no se producen cambios en la partición de destino de una tabla determinada si ya hay presente alguna fila en esta tabla en la partición de destino. La tabla debe estar vacía para que se procese la operación de copia de cualquier tabla de referencia.
-
 * **Otras tablas**: es posible que haya presente otras tablas, ya sea en el origen o el destino de una operación de división y combinación. El servicio División y combinación omite estas tablas en cualquier operación de copia o de desplazamiento de datos. Sin embargo, observe que pueden interferir con estas operaciones en caso de restricciones.
 
 Las API **SchemaInfo** del mapa de particiones proporcionan la información en las tablas de referencia en comparación con las tablas particionadas. El siguiente ejemplo ilustra el uso de estas API en un objeto smm de administrador de mapa de particiones determinado:
@@ -114,99 +108,71 @@ El servicio División y combinación analiza las dependencias entre las tablas y
 
 Si hay errores, el servicio División y combinación reanuda las operaciones después de cualquier interrupción y apunta a completar cualquier solicitud en curso. Sin embargo, puede haber situaciones irrecuperables, por ejemplo, cuando la partición de destino se pierde o se ve comprometida más allá de la reparación. En esas circunstancias, algunos shardlets que iban a moverse podrían seguir residiendo en la partición de origen. El servicio asegura que las asignaciones de shardlets solo se actualicen después de que se copian los datos necesarios a la partición de destino. Los shardlets se eliminan del origen solo una vez que todos los datos se han copiado al destino y que se han actualizado correctamente las asignaciones correspondientes. La operación de eliminación ocurre en segundo plano mientras el intervalo ya está en línea en la partición de destino. El servicio División y combinación siempre garantiza la exactitud de las asignaciones almacenadas en el mapa de particiones.
 
-
 ## La interfaz de usuario de División y combinación
-
 El paquete del servicio División y combinación incluye un rol de trabajo y un rol web. El rol web se usa para enviar solicitudes de división y combinación de manera interactiva. Los componentes principales de la interfaz de usuario son los siguientes:
 
--    Tipo de operación: el tipo de operación es un botón de radio que controla la clase de operación que realiza el servicio para esta solicitud. Puede elegir entre los escenarios de división, combinación y movimiento. También puede cancelar una operación anteriormente enviada. Puede usar las solicitudes de división, combinación y movimiento para los mapas de particiones de intervalo. Los mapas de particiones de lista solo admiten operaciones de movimiento.
+* Tipo de operación: el tipo de operación es un botón de radio que controla la clase de operación que realiza el servicio para esta solicitud. Puede elegir entre los escenarios de división, combinación y movimiento. También puede cancelar una operación anteriormente enviada. Puede usar las solicitudes de división, combinación y movimiento para los mapas de particiones de intervalo. Los mapas de particiones de lista solo admiten operaciones de movimiento.
+* Mapa de particiones: la sección siguiente de parámetros de solicitud abarca información acerca del mapa de particiones y de la base de datos que hospeda el mapa de particiones. En concreto, debe proporcionar el nombre del servidor de Base de datos SQL de Azure y la base de datos que hospeda el mapa de particiones, las credenciales para conectarse a la base de datos del mapa de particiones y, finalmente, el nombre del mapa de particiones. Actualmente, la operación solo acepta un conjunto de credenciales. Estas credenciales deben tener permisos suficientes para realizar cambios en el mapa de particiones, así como también en los datos de usuario en las particiones.
+* Intervalo de origen (División y combinación): una operación de división y combinación procesa un intervalo con su clave superior e inferior. Para especificar una operación con un valor de clave superior desvinculado, active la casilla “La clave superior es máxima" y deje en blanco el campo de clave superior. Los valores de clave de intervalo que especifique no tienen que coincidir de manera precisa con una asignación y su límites en el mapa de particiones. Si no especifica ningún límite de intervalo, todo el servicio deducirá el intervalo más próximo automáticamente. Puede usar el script de PowerShell GetMappings.ps1 para recuperar las asignaciones actuales de un mapa de partición determinado.
+* Comportamiento de origen de división (división): en el caso de las operaciones de división, defina el punto en el que dividir el intervalo de origen. Para ello, proporcione la clave de particionamiento donde desee que se produzca la partición. Utilice el botón de radio para especificar si desea mover la parte inferior del intervalo (excluyendo la clave de división) o si desea mover la parte superior (incluida la clave de división).
+* Shardlet de origen (desplazamiento): las operaciones de desplazamiento son diferentes a las operaciones de división o combinación, puesto que no requieren un intervalo para describir el origen. Un origen para el desplazamiento simplemente se identifica con el valor de la clave de particionamiento que planea mover.
+* Partición de destino (división): una vez que haya proporcionado la información sobre el origen de la operación de división, debe definir dónde desea copiar los datos, para lo cual debe proporcionar el nombre de la base de datos y el servidor de Base de datos SQL de Azure para el destino.
+* Intervalo de destino (combinación): las operaciones de combinación mueven shardlets a una partición existente. Para identificar la partición existente, proporcione lo límites de intervalo del intervalo existente con el que desea combinar.
+* Tamaño de lote: el tamaño del lote controla el número de shardlets que quedarán sin conexión a la vez durante el desplazamiento de los datos. Este es un valor entero en el que puede usar valores más pequeños cuando sea susceptible ante largos períodos de tiempo de inactividad para los shardlets. Los valores mayores aumentarán el tiempo durante el cual un shardlet determinado está sin conexión, pero podrían mejorar el rendimiento.
+* Identificador de operación (cancelación): si tiene en curso una operación que ya no es necesaria, puede cancelarla si en este campo proporciona su identificador de operación. Puede recuperar el identificador de operación en la tabla de estado de solicitud (consulte la sección 8.1) o desde la salida del explorador web donde envió la solicitud.
 
--    Mapa de particiones: la sección siguiente de parámetros de solicitud abarca información acerca del mapa de particiones y de la base de datos que hospeda el mapa de particiones. En concreto, debe proporcionar el nombre del servidor de Base de datos SQL de Azure y la base de datos que hospeda el mapa de particiones, las credenciales para conectarse a la base de datos del mapa de particiones y, finalmente, el nombre del mapa de particiones. Actualmente, la operación solo acepta un conjunto de credenciales. Estas credenciales deben tener permisos suficientes para realizar cambios en el mapa de particiones, así como también en los datos de usuario en las particiones.
-
--    Intervalo de origen (División y combinación): una operación de división y combinación procesa un intervalo con su clave superior e inferior. Para especificar una operación con un valor de clave superior desvinculado, active la casilla “La clave superior es máxima" y deje en blanco el campo de clave superior. Los valores de clave de intervalo que especifique no tienen que coincidir de manera precisa con una asignación y su límites en el mapa de particiones. Si no especifica ningún límite de intervalo, todo el servicio deducirá el intervalo más próximo automáticamente. Puede usar el script de PowerShell GetMappings.ps1 para recuperar las asignaciones actuales de un mapa de partición determinado.
-
--    Comportamiento de origen de división (división): en el caso de las operaciones de división, defina el punto en el que dividir el intervalo de origen. Para ello, proporcione la clave de particionamiento donde desee que se produzca la partición. Utilice el botón de radio para especificar si desea mover la parte inferior del intervalo (excluyendo la clave de división) o si desea mover la parte superior (incluida la clave de división).
-
--    Shardlet de origen (desplazamiento): las operaciones de desplazamiento son diferentes a las operaciones de división o combinación, puesto que no requieren un intervalo para describir el origen. Un origen para el desplazamiento simplemente se identifica con el valor de la clave de particionamiento que planea mover.
-
--    Partición de destino (división): una vez que haya proporcionado la información sobre el origen de la operación de división, debe definir dónde desea copiar los datos, para lo cual debe proporcionar el nombre de la base de datos y el servidor de Base de datos SQL de Azure para el destino.
-
--    Intervalo de destino (combinación): las operaciones de combinación mueven shardlets a una partición existente. Para identificar la partición existente, proporcione lo límites de intervalo del intervalo existente con el que desea combinar.
-
--    Tamaño de lote: el tamaño del lote controla el número de shardlets que quedarán sin conexión a la vez durante el desplazamiento de los datos. Este es un valor entero en el que puede usar valores más pequeños cuando sea susceptible ante largos períodos de tiempo de inactividad para los shardlets. Los valores mayores aumentarán el tiempo durante el cual un shardlet determinado está sin conexión, pero podrían mejorar el rendimiento.
-
--    Identificador de operación (cancelación): si tiene en curso una operación que ya no es necesaria, puede cancelarla si en este campo proporciona su identificador de operación. Puede recuperar el identificador de operación en la tabla de estado de solicitud (consulte la sección 8.1) o desde la salida del explorador web donde envió la solicitud.
-
-
-## Requisitos y limitaciones 
-
+## Requisitos y limitaciones
 La implementación actual del servicio División y combinación está sujeta a los siguientes requisitos y limitaciones:
 
 * Las particiones deben existir y estar registradas en el mapa de particiones antes de que se pueda realizar una operación de división y combinación en estas particiones. 
-
 * El servicio no crea tablas ni ningún otro objeto de base de datos de manera automática como parte de sus operaciones. Esto significa que el esquema para todas las tablas particionadas y las tablas de referencia debe existir en la partición de destino antes de cualquier operación de división/combinación/desplazamiento. En especial, las tablas particionadas deben estar vacías en el intervalo donde una operación de división/combinación/desplazamiento agregará nuevos shardlets. De otro modo, la operación no pasará la comprobación de coherencia inicial en la partición de destino. Tenga en cuenta, además, que los datos de referencia solo se copian si la tabla de referencia está vacía y si no hay garantías de coherencia respecto de otras operaciones de escritura simultáneas en las tablas de referencia. Recomendamos que, cuando ejecute operaciones de división y combinación, ninguna otra operación de escritura realice cambios en las tablas de referencia.
-
 * El servicio se basa en la identidad de las filas establecida por una clave o índice único que incluye la clave de particionamiento para mejorar el rendimiento y la confiabilidad de shardlets de gran tamaño. Esto permite que el servicio mueva datos en una granularidad incluso más fina que solo el valor de clave de particionamiento. De este modo se reduce la cantidad máxima de espacio de registro y bloqueos que se requieren durante la operación. Considere la posibilidad de crear un índice único o una clave principal que incluya la clave de particionamiento en una tabla determinada si desea usar esa tabla con solicitudes de división/combinación/desplazamiento. Por motivos de rendimiento, la clave de particionamiento debe ser la columna inicial de la clave o del índice.
-
 * Durante el procesamiento de la solicitud, algunos datos de shardlets pueden estar presentes tanto en la partición de origen como en la de destino. Esto es necesario como protección contra errores durante el desplazamiento de los shardlets. La integración de División y combinación con el mapa de particiones garantiza que las conexiones mediante las API de enrutamiento dependiente de los datos que usan el método **OpenConnectionForKey** en el mapa de particiones no vean ningún estado intermedio incoherente. Sin embargo, cuando se conecten a la partición de origen o a la partición de destino sin usar el método **OpenConnectionForKey**, es posible que los estados intermedios incoherentes sean visibles cuando las solicitudes de división/combinación/desplazamiento estén en desarrollo. Estas conexiones pueden mostrar resultados parciales o duplicados, dependiendo del tiempo o de la partición subyacente a la conexión. Esta limitación incluye actualmente las conexiones realizadas por Consultas a través de particiones múltiples de Escalado elástico.
-
 * No se debe compartir la base de datos de metadatos para el servicio División y combinación entre diferentes roles. Por ejemplo, un rol del servicio de División y combinación que se ejecuta en ensayo tiene que señalar a una base de datos de metadatos diferente que el rol de producción.
- 
 
-## Facturación 
-
+## Facturación
 El servicio División y combinación se ejecuta como un servicio en la nube en la suscripción a Microsoft Azure. Por lo tanto, se aplican cargos por servicios en la nube a la instancia del servicio. A menos que realice operaciones de división/combinación/desplazamiento de manera frecuente, le recomendamos eliminar el servicio en la nube División y combinación. Esto ahorra costos relacionados con instancias de servicio en la nube en ejecución o implementadas. Puede volver a implementar e iniciar la configuración inmediatamente ejecutable cada vez que necesite realizar operaciones de división y combinación.
- 
-## Supervisión 
-### Tablas de estado 
 
+## Supervisión
+### Tablas de estado
 El servicio División y combinación proporciona la tabla **RequestStatus** en la base de datos de repositorio de metadatos para supervisar las solicitudes completadas y en curso. La tabla contiene una fila para cada solicitud de división y combinación que se ha enviado a esta instancia del servicio División y combinación. Brinda la siguiente información para cada solicitud:
 
 * **Timestamp**: la hora y la fecha en que se inició la solicitud.
-
 * **OperationId**: un GUID que identifica de manera única la solicitud. Esta solicitud también puede utilizarse para cancelar la operación mientras que todavía está en curso.
-
 * **Status**: el estado actual de la solicitud. Para las solicitudes en curso, también muestra la fase actual en que está la solicitud.
-
 * **CancelRequest**: marca que indica si se ha cancelado la solicitud.
-
 * **Progress**: una estimación de porcentaje de la finalización de la operación. Un valor de 50 indica que la operación está aproximadamente un 50% completada.
-
 * **Details**: un valor XML que proporciona un informe de progreso más detallado. El informe de progreso se actualiza periódicamente a medida que los conjuntos de filas se copian desde el origen al destino. En caso de errores o excepciones, esta columna también incluye información más detallada sobre el error.
 
-
 ### Diagnóstico de Azure
-
 El servicio División y combinación usa Diagnósticos de Azure basado en el SDK de Azure 2.5 para supervisión y diagnóstico. Para controlar la configuración de diagnóstico, consulte la información explicada aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md). El paquete de descarga incluye dos configuraciones de diagnóstico: una para el rol web y otra para rol de trabajo. Estas configuraciones de diagnóstico para el servicio siguen la guía que aparece en [Fundamentos de servicios en la nube en Microsoft Azure](https://code.msdn.microsoft.com/windowsazure/Cloud-Service-Fundamentals-4ca72649). Incluye las definiciones para registrar los contadores de rendimiento, registros IIS, registros de eventos de Windows y registros de eventos de la aplicación de división y combinación.
 
-## Implementar diagnósticos 
-
+## Implementar diagnósticos
 Para habilitar la supervisión y el diagnóstico mediante el uso de la configuración de diagnóstico para el rol web y el rol de trabajo proporcionado por el paquete NuGet, ejecute los siguientes comandos con Azure PowerShell:
 
     $storage_name = "<YourAzureStorageAccount>" 
-    
+
     $key = "<YourAzureStorageAccountKey" 
-    
+
     $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    
-    
+
+
     $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml" 
-    
+
     $service_name = "<YourCloudServiceName>" 
-    
+
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb" 
-    
-    
+
+
     $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml" 
-    
+
     $service_name = "<YourCloudServiceName>" 
-    
+
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker" 
 
 Puede encontrar más información sobre cómo configurar e implementar los ajustes de diagnóstico aquí: [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## Recuperar diagnósticos 
-
+## Recuperar diagnósticos
 Se puede tener acceso fácilmente a los diagnósticos desde el Explorador de servidores de Visual Studio en la parte de Azure del árbol del Explorador de servidores. Abra una instancia de Visual Studio y, en la barra de menú, haga clic en Ver y en Explorador de servidores. Haga clic en el icono de Azure para conectarse a su suscripción a Azure. Luego vaya a Azure -> Almacenamiento -> <your storage account> -> Tablas -> WADLogsTable. Para obtener más información, consulte [Exploración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 ![WADLogsTable][2]
@@ -215,17 +181,14 @@ WADLogsTable resaltado en la figura anterior contiene los eventos detallados del
 
 ![Configuración][3]
 
-
 ## Rendimiento
-
 En general, se espera un mejor rendimiento de los niveles de servicio más altos y con mayor rendimiento de Base de datos SQL de Azure. Las asignaciones de memoria, CPU y E/S para los niveles de servicio más altos benefician las operaciones de copia y eliminación masiva que el servicio División y combinación usa. Por ese motivo, aumente el nivel de servicio para esas bases de datos durante un período definido y limitado.
 
 El servicio también realiza consultas de validación como parte de su funcionamiento normal. Estas consultas de validación comprueban la presencia inesperada de datos en el intervalo de destino y se aseguran de que cualquier operación de división/combinación/desplazamiento comience desde un estado coherente. Estas consultas realizando todo el trabajo sobre los intervalos de clave de particionamiento definidos por el ámbito de la operación y el tamaño de lote que se proporcionan como parte de la definición de la solicitud. Estas consultas tienen un mejor rendimiento cuando existe un índice que tiene la clave de particionamiento como la columna inicial.
 
-Además, una propiedad de unicidad con la clave de particionamiento como la columna inicial permitirá que el servicio utilice un enfoque optimizado que limite el consumo de recursos en términos de memoria y espacio de registro. Esta propiedad de unicidad es necesaria para mover los tamaños de datos de gran tamaño (normalmente más de 1 GB).
+Además, una propiedad de unicidad con la clave de particionamiento como la columna inicial permitirá que el servicio utilice un enfoque optimizado que limite el consumo de recursos en términos de memoria y espacio de registro. Esta propiedad de unicidad es necesaria para mover los tamaños de datos de gran tamaño (normalmente más de 1 GB).
 
 ## Procedimiento de actualización
-
 1. Siga los pasos en [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md) (Implementar un servicio División y combinación).
 2. Cambie el archivo de configuración de servicio en la nube para que la implementación de División y combinación refleje los nuevos parámetros de configuración. Un nuevo parámetro requerido es la información acerca del certificado utilizado para el cifrado. Una manera fácil de hacerlo consiste en comparar el nuevo archivo de plantilla de configuración de la descarga con la configuración existente. Asegúrese de agregar la configuración para "DataEncryptionPrimaryCertificateThumbprint" y "DataEncryptionPrimary" tanto para la web como para el rol de trabajo.
 3. Antes de implementar la actualización en Azure, asegúrese de que se han terminado todas las operaciones de División y combinación actualmente en ejecución. Puede hacerlo fácilmente consultando las tablas RequestStatus y PendingWorkflows en la base de datos de metadatos de División y combinación para solicitudes en curso.
@@ -234,22 +197,19 @@ Además, una propiedad de unicidad con la clave de particionamiento como la colu
 No es necesario aprovisionar una nueva base de datos de metadatos para que se actualice la División y combinación. La nueva versión actualizará automáticamente su base de datos de metadatos existente a la nueva versión.
 
 ## Prácticas recomendadas y solución de problemas
- 
--    Defina un inquilino de prueba y ejecute las operaciones de división/combinación/desplazamiento más importantes con el inquilino de prueba entre varias particiones. Asegúrese de que todos los metadatos estén correctamente definidos en el mapa de particiones y que las operaciones no infrinjan las restricciones o las claves externas.
--    Mantenga el tamaño del inquilino de prueba sobre el tamaño de datos máximo del inquilino de mayor tamaño para asegurarse de no encontrar problemas relacionados con el tamaño de los datos. Esto le permite evaluar un límite superior en el tiempo necesario para mover a un solo inquilino. 
--    Asegúrese de que el esquema permita las eliminaciones. El servicio División y combinación requiere la capacidad de quitar los datos de la partición de origen una vez que los datos se han copiado correctamente en el destino. Por ejemplo, los **desencadenadores de eliminación** pueden impedir que el servicio elimine los datos en el origen y pueden provocar errores en operaciones.
--    La clave de particionamiento debe ser la columna inicial de la clave principal o la definición de índice único. Eso asegura el mejor rendimiento para las consultas de validación de división y combinación y para las operaciones de desplazamiento y eliminación de datos reales que siempre funcionan en intervalos de clave de particionamiento.
--    Coloque el servicio División y combinación en la región y el centro de datos donde residen sus datos. 
+* Defina un inquilino de prueba y ejecute las operaciones de división/combinación/desplazamiento más importantes con el inquilino de prueba entre varias particiones. Asegúrese de que todos los metadatos estén correctamente definidos en el mapa de particiones y que las operaciones no infrinjan las restricciones o las claves externas.
+* Mantenga el tamaño del inquilino de prueba sobre el tamaño de datos máximo del inquilino de mayor tamaño para asegurarse de no encontrar problemas relacionados con el tamaño de los datos. Esto le permite evaluar un límite superior en el tiempo necesario para mover a un solo inquilino. 
+* Asegúrese de que el esquema permita las eliminaciones. El servicio División y combinación requiere la capacidad de quitar los datos de la partición de origen una vez que los datos se han copiado correctamente en el destino. Por ejemplo, los **desencadenadores de eliminación** pueden impedir que el servicio elimine los datos en el origen y pueden provocar errores en operaciones.
+* La clave de particionamiento debe ser la columna inicial de la clave principal o la definición de índice único. Eso asegura el mejor rendimiento para las consultas de validación de división y combinación y para las operaciones de desplazamiento y eliminación de datos reales que siempre funcionan en intervalos de clave de particionamiento.
+* Coloque el servicio División y combinación en la región y el centro de datos donde residen sus datos. 
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
-
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-overview-split-and-merge/split-merge-overview.png
 [2]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics.png
 [3]: ./media/sql-database-elastic-scale-overview-split-and-merge/diagnostics-config.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

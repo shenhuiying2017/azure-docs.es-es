@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Optimización del enrutamiento de ExpressRoute | Microsoft Azure"
-   description="Esta página proporciona detalles acerca de como optimizar el enrutamiento cuando un cliente tiene más de un circuito de ExpressRoute que se conecta entre Microsoft y la red corporativa del cliente."
-   documentationCenter="na"
-   services="expressroute"
-   authors="charwen"
-   manager="carmonm"
-   editor=""/>
-<tags
-   ms.service="expressroute"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/10/2016"
-   ms.author="charwen"/>
+---
+title: Optimización del enrutamiento de ExpressRoute | Microsoft Docs
+description: Esta página proporciona detalles acerca de como optimizar el enrutamiento cuando un cliente tiene más de un circuito de ExpressRoute que se conecta entre Microsoft y la red corporativa del cliente.
+documentationcenter: na
+services: expressroute
+author: charwen
+manager: carmonm
+editor: ''
 
+ms.service: expressroute
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/10/2016
+ms.author: charwen
 
+---
 # <a name="optimize-expressroute-routing"></a>Optimización de enrutamiento de ExpressRoute
 Cuando hay varios circuitos ExpressRoute, tiene más de una ruta de acceso para conectarse a Microsoft. Como resultado, se puede producir un enrutamiento no óptimo: es decir, el tráfico puede utilizar una ruta más larga para conectarse con Microsoft y este a su vez, con su red. Cuanto más larga sea la ruta de acceso a la red, mayor será la latencia. La latencia tiene un efecto directo en la experiencia del usuario y en el rendimiento de las aplicaciones. En este artículo se describe este problema y se explica cómo optimizar el enrutamiento mediante las tecnologías de enrutamiento estándar.
 
@@ -39,13 +39,17 @@ Hay dos soluciones al problema. La primera consiste simplemente en que anuncie e
 
 La segunda solución es que continúe anunciando ambos prefijos para los dos circuitos de ExpressRoute y, además, nos indique qué prefijo está más cerca de cada una de sus oficinas. Dado que se admite la anteposición de BGP AS Path, puede configurar AS Path como prefijo para que influya en el enrutamiento. En este ejemplo, puede alargar AS PATH para 172.2.0.0/31 en el este de EE.UU para que se prefiera el circuito de ExpressRoute del oeste para el tráfico destinado a este prefijo (ya que nuestra red creerá que la ruta de acceso a este prefijo es más corta en el oeste). De igual manera, puede alargar AS PATH para 172.2.0.2/31 en el oeste para que se prefiera el circuito de ExpressRoute en el este de EE.UU. De esta forma, se optimizará el enrutamiento para ambas oficinas. Con este diseño, si se interrumpe un circuito de ExpressRoute, Exchange Online podrá conectarse a través de otro circuito de ExpressRoute y de la red WAN. 
 
->[AZURE.IMPORTANT] Se quitan los números AS privados en AS PATH para los prefijos recibidos en el emparejamiento de Microsoft. Debe adjuntar números AS públicos en AS PATH para que influyan en el enrutamiento del emparejamiento de Microsoft.
+> [!IMPORTANT]
+> Se quitan los números AS privados en AS PATH para los prefijos recibidos en el emparejamiento de Microsoft. Debe adjuntar números AS públicos en AS PATH para que influyan en el enrutamiento del emparejamiento de Microsoft.
+> 
+> 
 
 ![](./media/expressroute-optimize-routing/expressroute-case2-solution.png)
 
->[AZURE.IMPORTANT] Aunque los ejemplos que se proporcionan aquí son para Microsoft y los emparejamientos públicos, se admiten las mismas funcionalidades para el emparejamiento privado. Además, la ruta de acceso de AS antepuesta funciona dentro de un único circuito ExpressRoute, para influir en la selección de las rutas de acceso principales y secundarias.
-
-
+> [!IMPORTANT]
+> Aunque los ejemplos que se proporcionan aquí son para Microsoft y los emparejamientos públicos, se admiten las mismas funcionalidades para el emparejamiento privado. Además, la ruta de acceso de AS antepuesta funciona dentro de un único circuito ExpressRoute, para influir en la selección de las rutas de acceso principales y secundarias.
+> 
+> 
 
 <!--HONumber=Oct16_HO2-->
 

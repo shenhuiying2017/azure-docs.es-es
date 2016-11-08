@@ -2,73 +2,62 @@
 
 
 ## Ventajas de la integración de procesos, redes y almacenamiento en el modelo de implementación de Azure Resource Manager
-
 El modelo de implementación de Azure Resource Manager ofrece la posibilidad de aprovechar fácilmente plantillas de aplicación pregeneradas o crear una plantilla de aplicación para implementar y administrar recursos de procesos, redes y almacenamiento en Azure. En esta sección, analizaremos las ventajas de implementar recursos a través del modelo de implementación de Azure Resource Manager.
 
--	La complejidad simplificada: cree, integre y colabore en aplicaciones complicadas que pueden incluir toda la gama de recursos de Azure (por ejemplo, sitios web, bases de datos SQL, máquinas virtuales o redes virtuales) desde un archivo de plantilla que se puede compartir
--	Flexibilidad para tener implementaciones repetibles para administradores de sistemas, devOps y desarrollo cuando se utiliza el mismo archivo de plantilla
--	La integración profunda de extensiones de máquina virtual (scripts personalizados, DSC, Chef, Puppet, etc.) con el Administrador de recursos de Azure en un archivo de plantilla permite una fácil orquestación de la configuración en la VM
--	Definición de etiquetas y la propagación de facturación de las etiquetas de los recursos de procesos, redes y almacenamiento
--	Administración de acceso a recursos de la organización sencilla y precisa con el Control de acceso basado en roles (RBAC) de Azure
--	Historial de actualización simplificado mediante la modificación de la plantilla original y, a continuación, una nueva implementación
-
+* La complejidad simplificada: cree, integre y colabore en aplicaciones complicadas que pueden incluir toda la gama de recursos de Azure (por ejemplo, sitios web, bases de datos SQL, máquinas virtuales o redes virtuales) desde un archivo de plantilla que se puede compartir
+* Flexibilidad para tener implementaciones repetibles para administradores de sistemas, devOps y desarrollo cuando se utiliza el mismo archivo de plantilla
+* La integración profunda de extensiones de máquina virtual (scripts personalizados, DSC, Chef, Puppet, etc.) con el Administrador de recursos de Azure en un archivo de plantilla permite una fácil orquestación de la configuración en la VM
+* Definición de etiquetas y la propagación de facturación de las etiquetas de los recursos de procesos, redes y almacenamiento
+* Administración de acceso a recursos de la organización sencilla y precisa con el Control de acceso basado en roles (RBAC) de Azure
+* Historial de actualización simplificado mediante la modificación de la plantilla original y, a continuación, una nueva implementación
 
 ## Avances de las API de procesos, redes y almacenamiento en el Administrador de recursos de Azure
-
 Además de las ventajas que se han mencionado anteriormente, existen algunos avances de rendimiento significativos en las API publicadas:
 
--	Habilitación de la implementación masiva y paralela de las máquinas virtuales
--	Compatibilidad con tres dominios de error en conjuntos de disponibilidad
--	Extensión de script personalizada mejorada que permite la especificación de scripts desde cualquier dirección URL personalizada accesible públicamente
-- Integración de máquinas virtuales con el almacén de claves de Azure para un almacenamiento muy seguro e implementación privada de secretos desde los [módulos de seguridad de hardware](http://wikipedia.org/wiki/Hardware_security_module) [validados por FIPS](http://wikipedia.org/wiki/FIPS_140-2)
--	Proporciona los bloques de creación básicos de las redes a través de API que permiten a los clientes construir aplicaciones complicadas que incluyen interfaces de red, equilibradores de carga y redes virtuales
--	Las interfaces de red como un nuevo objeto permiten mantener y volver a usar configuraciones de redes complicadas para las máquinas virtuales
--	Los equilibradores de carga como un recurso de primera clase permiten la asignación de direcciones IP
--	Las API de red virtual pormenorizadas permiten simplificar la administración de redes virtuales individuales
+* Habilitación de la implementación masiva y paralela de las máquinas virtuales
+* Compatibilidad con tres dominios de error en conjuntos de disponibilidad
+* Extensión de script personalizada mejorada que permite la especificación de scripts desde cualquier dirección URL personalizada accesible públicamente
+* Integración de máquinas virtuales con el almacén de claves de Azure para un almacenamiento muy seguro e implementación privada de secretos desde los [módulos de seguridad de hardware](http://wikipedia.org/wiki/Hardware_security_module) [validados por FIPS](http://wikipedia.org/wiki/FIPS_140-2)
+* Proporciona los bloques de creación básicos de las redes a través de API que permiten a los clientes construir aplicaciones complicadas que incluyen interfaces de red, equilibradores de carga y redes virtuales
+* Las interfaces de red como un nuevo objeto permiten mantener y volver a usar configuraciones de redes complicadas para las máquinas virtuales
+* Los equilibradores de carga como un recurso de primera clase permiten la asignación de direcciones IP
+* Las API de red virtual pormenorizadas permiten simplificar la administración de redes virtuales individuales
 
 ## Diferencias conceptuales con la introducción de nuevas API
-
 En esta sección, examinaremos algunas de las diferencias conceptuales más importantes entre las API basadas en XML disponibles hoy en día y las API basadas en JSON disponibles a través del Administrador de recursos de Azure para procesos, redes y almacenamiento.
 
- Elemento | Administración de servicios de Azure (basado en XML) | Proveedores de procesos, redes y almacenamiento (basados en JSON)
- ---|---|---
-| Servicio en la nube para máquinas virtuales |	El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. | El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
-| Conjuntos de disponibilidad | La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. | Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
-| Grupos de afinidad |	Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
-| Equilibrio de carga | La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. | El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. [Más información.](../articles/resource-groups-networking.md) |
-|Dirección IP virtual | Los servicios en la nube obtendrán a una VIP (dirección IP virtual) predeterminada cuando se agrega una máquina virtual a un servicio en la nube. La dirección IP virtual es la dirección asociada al equilibrador de carga implícito. | La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Las direcciones IP públicas dinámicas pueden asignarse a un equilibrador de carga. Las direcciones IP públicas se pueden proteger mediante grupos de seguridad. |
-|Dirección IP reservada|	Puede reservar una dirección IP en Azure y asociarlo a un servicio en la nube para asegurarse de que la dirección IP es permanente. | La dirección IP pública puede crearse en modo "Estático" y ofrece la misma capacidad que una "dirección IP reservada". Las direcciones IP públicas estáticas solo puede asignarse a un equilibrador de carga ahora. |
-|Dirección IP pública (PIP) por máquina virtual | Las direcciones IP públicas también se pueden asociar directamente a una máquina virtual. | La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Sin embargo, solo se pueden asignar direcciones IP públicas dinámica a una interfaz de red para obtener una dirección IP pública por máquina virtual ahora. |
-|Extremos| Es necesario configurar los extremos de entrada en una máquina virtual para abrir la conectividad para determinados puertos. Uno de los modos comunes de conectarse a las máquinas virtuales es mediante la configuración de extremos de entrada. | Las reglas de entrada NAT se puede configurar en equilibradores de carga para lograr la misma capacidad de habilitar los extremos en puertos específicos para conectarse a las máquinas virtuales. |
-|Nombre DNS| Un servicio en la nube obtendría un nombre de DNS único global implícito. Por ejemplo: `mycoffeeshop.cloudapp.net`. | Los nombres DNS son parámetros opcionales que se pueden especificar en un recurso de dirección IP pública. El nombre de dominio completo tendrá el siguiente formato: `<domainlabel>.<region>.cloudapp.azure.com`. |
-|Interfaces de red | La interfaz de red principal y secundaria y sus propiedades se definieron como configuración de red de una máquina virtual. | La interfaz de red es un recurso expuesto por el proveedor de Microsoft.Network. El ciclo de vida de la interfaz de red no está asociado a una máquina virtual. |
+| Elemento | Administración de servicios de Azure (basado en XML) | Proveedores de procesos, redes y almacenamiento (basados en JSON) |
+| --- | --- | --- |
+| Servicio en la nube para máquinas virtuales |El servicio en la nube es un contenedor para las máquinas virtuales que exige la disponibilidad de la plataforma y el equilibrio de carga. |El servicio en la nube ya no es un objeto necesario para crear una máquina virtual usando el nuevo modelo. |
+| Conjuntos de disponibilidad |La disponibilidad en la plataforma se ha indicado mediante la configuración del mismo "AvailabilitySetName" en las máquinas virtuales. El número máximo de dominios con error era de 2. |Un conjunto de disponibilidad es un recurso expuesto por el proveedor de Microsoft.Compute. Las máquinas virtuales que requieren alta disponibilidad deben incluirse en el conjunto de disponibilidad. Ahora, el recuento máximo de dominios con error es de 3. |
+| Grupos de afinidad |Los grupos de afinidad eran necesarios para crear redes virtuales. Sin embargo, con la introducción de las redes virtuales regionales, ya no era necesario. |Para simplificar, no existe el concepto de grupos de afinidad en las API expuestas a través del Administrador de recursos de Azure. |
+| Equilibrio de carga |La creación de un servicio en la nube proporciona un equilibrador de carga implícito para las máquinas virtuales implementadas. |El equilibrador de carga es un recurso expuesto por el proveedor de Microsoft.Network. La interfaz de red principal de las máquinas virtuales cuya carga se debe equilibrar debe hacer referencia al equilibrador de carga. Los equilibradores de carga pueden ser internos o externos. [Más información.](../articles/virtual-network/resource-groups-networking.md) |
+| Dirección IP virtual |Los servicios en la nube obtendrán a una VIP (dirección IP virtual) predeterminada cuando se agrega una máquina virtual a un servicio en la nube. La dirección IP virtual es la dirección asociada al equilibrador de carga implícito. |La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Las direcciones IP públicas dinámicas pueden asignarse a un equilibrador de carga. Las direcciones IP públicas se pueden proteger mediante grupos de seguridad. |
+| Dirección IP reservada |Puede reservar una dirección IP en Azure y asociarlo a un servicio en la nube para asegurarse de que la dirección IP es permanente. |La dirección IP pública puede crearse en modo "Estático" y ofrece la misma capacidad que una "dirección IP reservada". Las direcciones IP públicas estáticas solo puede asignarse a un equilibrador de carga ahora. |
+| Dirección IP pública (PIP) por máquina virtual |Las direcciones IP públicas también se pueden asociar directamente a una máquina virtual. |La dirección IP pública es un recurso expuesto por el proveedor de Microsoft.Network. La dirección IP pública puede ser estática (reservada) o dinámica. Sin embargo, solo se pueden asignar direcciones IP públicas dinámica a una interfaz de red para obtener una dirección IP pública por máquina virtual ahora. |
+| Extremos |Es necesario configurar los extremos de entrada en una máquina virtual para abrir la conectividad para determinados puertos. Uno de los modos comunes de conectarse a las máquinas virtuales es mediante la configuración de extremos de entrada. |Las reglas de entrada NAT se puede configurar en equilibradores de carga para lograr la misma capacidad de habilitar los extremos en puertos específicos para conectarse a las máquinas virtuales. |
+| Nombre DNS |Un servicio en la nube obtendría un nombre de DNS único global implícito. Por ejemplo: `mycoffeeshop.cloudapp.net`. |Los nombres DNS son parámetros opcionales que se pueden especificar en un recurso de dirección IP pública. El nombre de dominio completo tendrá el siguiente formato: `<domainlabel>.<region>.cloudapp.azure.com`. |
+| Interfaces de red |La interfaz de red principal y secundaria y sus propiedades se definieron como configuración de red de una máquina virtual. |La interfaz de red es un recurso expuesto por el proveedor de Microsoft.Network. El ciclo de vida de la interfaz de red no está asociado a una máquina virtual. |
 
 ## Introducción a las plantillas de Azure para máquinas virtuales
-
 Puede empezar con las plantillas de Azure aprovechando las distintas herramientas que tenemos para desarrollar e implementar la plataforma.
 
 ### Portal de Azure
-
 El Portal de Azure seguirá teniendo la opción de implementar máquinas virtuales con el modelo de implementación clásica y máquinas virtuales con el modelo de implementación del Administrador de recursos simultáneamente. El Portal de Azure también permitirá las implementaciones de plantillas personalizadas.
 
 ### Azure PowerShell
-
 Azure PowerShell tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager contendrá también los cmdlets para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](../articles/powershell-azure-resource-manager.md).
 
 ### CLI de Azure
-
 La interfaz de línea de comandos (CLI de Azure) de Azure tendrá dos modos de implementación: el modo **AzureServiceManagement** y el modo **AzureResourceManager**. El modo AzureResourceManager ahora también contiene comandos para administrar máquinas virtuales, redes virtuales y cuentas de almacenamiento. Puede leer más sobre este tema [aquí](../articles/xplat-cli-azure-resource-manager.md).
 
 ### Visual Studio
-
 Con la última versión del SDK de Azure para Visual Studio, puede crear e implementar máquinas virtuales y aplicaciones complejas desde Visual Studio. Visual Studio ofrece la capacidad de implementar desde una lista de plantillas preconfigurada o iniciar desde una plantilla vacía.
 
 ### API de REST
-
 Puede encontrar la documentación detallada de la API de REST para los proveedores de recursos de procesos, redes y almacenamiento [aquí](https://msdn.microsoft.com/library/azure/dn790568.aspx).
 
 ## Preguntas más frecuentes
-
 **¿Puedo crear una máquina virtual mediante el nuevo Administrador de recursos de Azure para implementar en una red virtual o en una cuenta de almacenamiento creada mediante las API de Administración de servicios de Azure?**
 
 Esto no se admite en este momento. No se puede implementar mediante las nuevas API del Administrador de recursos de Azure para implementar una máquina virtual en una red virtual que creó con las API de administración de servicios.

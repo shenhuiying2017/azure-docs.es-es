@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication"
-	description="En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
+description: En este documento se describe cómo empezar a trabajar con el Servidor Azure MFA y cómo actualizar a partir del PhoneFactor Agent anterior.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="get-started-article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
-
 Para la actualización de PhoneFactor Agent v5.x o anterior al Servidor Azure Multi-Factor Authentication es necesario desinstalar PhoneFactor Agent y sus componentes afiliados antes de instalar el Servidor Multi-Factor Authentication Server y sus componentes afiliados.
 
 ## Para actualizar el PhoneFactor Agent al Servidor Azure Multi-Factor Authentication
@@ -39,6 +38,7 @@ Para la actualización de PhoneFactor Agent v5.x o anterior al Servidor Azure Mu
 
 
 <li>Si el servicio web de aplicación móvil está instalado:
+
 <ol>
 <li>Vaya a la carpeta de instalación y haga una copia de seguridad del archivo web.config. La ubicación de instalación predeterminada es C:\inetpub\wwwroot\PhoneFactorPhoneAppWebService.</li>
 <li>Desinstale el servicio web de la aplicación móvil con Programas y características de Windows.</li></ol>
@@ -56,6 +56,7 @@ Para la actualización de PhoneFactor Agent v5.x o anterior al Servidor Azure Mu
 <li>Si previamente se ha instalado el Portal de usuarios en el servidor de PhoneFactor Agent, instale el nuevo Portal de usuarios de Multi-Factor Authentication desde la interfaz de usuario del Servidor Multi-Factor Authentication. Tenga en cuenta que el nombre de directorio virtual predeterminado es ahora “MultiFactorAuth” en lugar de “PhoneFactor”. Si desea usar el nombre anterior, debe cambiar el nombre del directorio virtual durante la instalación. De lo contrario, si permite que la instalación use el nuevo nombre predeterminado, debe hacer clic en el icono de Portal de usuarios del Servidor Multi-Factor Authentication y actualizar la dirección URL del Portal de usuarios en la pestaña Configuración.
 
 <li>Si el portal de usuarios o el servicio web de aplicación móvil ya estaba instalado en un servidor diferente desde el agente de PhoneFactor:
+
 <ol>
 <li>Vaya a la ubicación de instalación (por ejemplo, C:\Program Files\PhoneFactor) y copie los instaladores adecuados al otro servidor. Hay instaladores de 32 bits y 64 bits para el Portal de usuarios y el servicio web de la aplicación móvil. Se denominan MultiFactorAuthenticationUserPortalSetupXX.msi y MultiFactorAuthenticationMobileAppWebServiceSetupXX.msi respectivamente.</li>
 <li>Para instalar el Portal de usuarios en el servidor web, abra un símbolo del sistema como administrador y ejecute MultiFactorAuthenticationUserPortalSetupXX.msi. Tenga en cuenta que el nombre de directorio virtual predeterminado es ahora “MultiFactorAuth” en lugar de “PhoneFactor”. Si desea usar el nombre anterior, debe cambiar el nombre del directorio virtual durante la instalación. De lo contrario, si permite que la instalación use el nuevo nombre predeterminado, debe hacer clic en el icono de Portal de usuarios del Servidor Multi-Factor Authentication y actualizar la dirección URL del Portal de usuarios en la pestaña Configuración. Será necesario informar a los usuarios existentes de la nueva dirección URL.</li>

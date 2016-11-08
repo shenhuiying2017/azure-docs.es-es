@@ -1,31 +1,28 @@
-<properties
- pageTitle="Plantillas de aplicaciones lógicas | Microsoft Azure"
- description="Aprenda a usar plantillas de aplicaciones lógicas creadas previamente que le ayudarán a comenzar."
- authors="kevinlam1"
- manager="dwrede"
- editor=""
- services="app-service\logic"
- documentationCenter=""/>
+---
+title: Plantillas de aplicaciones lógicas | Microsoft Docs
+description: Aprenda a usar plantillas de aplicaciones lógicas creadas previamente que le ayudarán a comenzar.
+author: kevinlam1
+manager: dwrede
+editor: ''
+services: app-service\logic
+documentationcenter: ''
 
-<tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="klam"/>
+ms.service: app-service-logic
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: klam
 
+---
 # Plantillas de aplicaciones lógicas
-
 ## ¿Qué son las plantillas de aplicaciones lógicas?
-
 Una plantilla de aplicación lógica es una aplicación lógica pregenerada que se puede usar para comenzar rápidamente a crear su propio flujo de trabajo.
 
 Estas plantillas son una buena forma de detectar patrones distintos que se pueden crear mediante aplicaciones lógicas. Puede usar estas plantillas tal cual o modificarlas para adaptarlas a su escenario.
 
 ## Información general de plantillas disponibles
-
 Hay muchas plantillas disponibles publicadas actualmente en la plataforma de aplicaciones lógicas. A continuación se muestran algunas categorías de ejemplo, así como los tipos de conectores que utilizan.
 
 ### Plantillas de empresa en la nube
@@ -43,8 +40,7 @@ Entre los patrones para ayudar a mejorar la productividad personal se incluyen p
 ### Plantillas en la nube del consumidor
 Plantillas simples que se integran con los servicios de las redes sociales como Twitter, Slack o el correo electrónico, capaces a la larga de reforzar las iniciativas de marketing de las redes sociales. También se incluyen plantillas como la de copia repetitiva que permiten aumentar la productividad mediante el ahorro del tiempo invertido en tareas habitualmente repetitivas.
 
-## Creación de una aplicación lógica mediante una plantilla 
-
+## Creación de una aplicación lógica mediante una plantilla
 Para comenzar a usar la plantilla de aplicaciones lógicas, vaya al diseñador de aplicaciones lógicas. Si accede al diseñador abriendo una aplicación lógica que ya existe, esta se cargará automáticamente en la vista del diseñador. Sin embargo, si va a crear una nueva aplicación lógica, verá la pantalla siguiente. ![](../../includes/media/app-service-logic-templates/template7.png)
 
 En esta pantalla, puede elegir empezar con una aplicación lógica en blanco o una plantilla predefinida. Si selecciona una de las plantillas, se proporcionará información adicional. En este ejemplo, se utilizará la plantilla *When a new file is created in Dropbox, copy it to OneDrive* (Si se crea un nuevo archivo en Dropbox, cópiese en OneDrive). ![](../../includes/media/app-service-logic-templates/template2.png)
@@ -58,7 +54,6 @@ En el ejemplo anterior, como sucede con muchas plantillas, algunos de los campos
 Si desea volver al visor de plantillas, seleccione el botón *Plantillas* en la barra de navegación superior. Al volver al visor de plantillas, perderá cualquier progreso no guardado. Antes de volver al visor de plantillas, verá un mensaje de advertencia que le avisará de esto. ![](../../includes/media/app-service-logic-templates/template5.png)
 
 ## Implementación de una aplicación lógica creada desde una plantilla
-
 Una vez que ha cargado la plantilla y realizado los cambios deseados, seleccione el botón Guardar situado en la esquina superior izquierda. Esto permite guardar y publicar la aplicación lógica. ![](../../includes/media/app-service-logic-templates/template6.png)
 
 Para más información sobre cómo agregar más pasos en una plantilla de aplicación lógica existente o realizar modificaciones en general, consulte [Creación de una aplicación lógica](app-service-logic-create-a-logic-app.md).

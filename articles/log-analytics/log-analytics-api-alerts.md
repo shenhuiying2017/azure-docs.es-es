@@ -1,23 +1,22 @@
-<properties
-   pageTitle="API de REST de alertas de Log Analytics"
-   description="Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: API de REST de alertas de Log Analytics
+description: Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="log-analytics-alert-rest-api"></a>API de REST de alertas de Log Analytics
-
 Con la API de REST de alertas de Log Analytics se pueden crear y administrar alertas de Operations Management Suite (OMS).  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
 
 La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de REST de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API desde una línea de comandos de PowerShell a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de Azure Resource Manager de RESTful para realizar llamadas a las áreas de trabajo de OMS y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
@@ -29,11 +28,11 @@ Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Anal
 Una búsqueda guardada puede tener una o varias programaciones. La programación define la frecuencia con que se realiza la búsqueda y el intervalo de tiempo en el que se identifican los criterios.
 Las programaciones tienen las propiedades de la siguiente tabla.
 
-| Propiedad  | Descripción |
-|:--|:--|
-| Intervalo | Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
-| QueryTimeSpan | Intervalo de tiempo en el que se evalúan los criterios. Debe ser igual o mayor que Intervalo. Se mide en minutos. |
-| Versión | Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| Propiedad | Descripción |
+|:--- |:--- |
+| Intervalo |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
+| QueryTimeSpan |Intervalo de tiempo en el que se evalúan los criterios. Debe ser igual o mayor que Intervalo. Se mide en minutos. |
+| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos y un valor de Timespan de 30 minutos, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si los criterios siguieran evaluándose como True durante un intervalo de 30 minutos.
 
@@ -81,10 +80,10 @@ Una programación puede tener varias acciones. Una acción puede definir uno o v
 Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos tipos de alertas tienen diferentes propiedades adicionales, descritas aquí.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Tipo | Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
-| Nombre | Nombre para mostrar de la alerta. |
-| Versión | Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+|:--- |:--- |
+| Tipo |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
+| Nombre |Nombre para mostrar de la alerta. |
+| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 ### <a name="retrieving-actions"></a>Recuperar acciones
 Use el método Get para recuperar todas las acciones de una programación.
@@ -111,10 +110,10 @@ Use el método Delete con el identificador de acción para eliminar esa acción.
 Una programación debe tener una acción de alerta única y exclusivamente.  Las acciones de alerta tienen una o varias de las secciones de la siguiente tabla.  Cada una de ellas se describe con más detalle abajo.
 
 | Sección | Descripción |
-|:--|:--|
-| Umbral | Criterios para establecer cuándo se va a ejecutar la acción. |  
-| EmailNotification | Se envía un correo electrónico a varios destinatarios. |
-| Corrección | Se inicia un Runbook en Automatización de Azure para intentar corregir el problema detectado. |
+|:--- |:--- |
+| Umbral |Criterios para establecer cuándo se va a ejecutar la acción. |
+| EmailNotification |Se envía un correo electrónico a varios destinatarios. |
+| Corrección |Se inicia un Runbook en Automatización de Azure para intentar corregir el problema detectado. |
 
 #### <a name="thresholds"></a>Umbrales
 Una acción de alerta debe tener un umbral única y exclusivamente.  Cuando los resultados de una búsqueda guardada coinciden con el umbral de una acción asociada a esa búsqueda, se ejecutan los demás procesos de esa acción.  Una acción también puede contener solo un umbral para que pueda usarse con acciones de otros tipos que no contienen umbrales.
@@ -122,9 +121,9 @@ Una acción de alerta debe tener un umbral única y exclusivamente.  Cuando los 
 Los umbrales tienen las propiedades de la siguiente tabla.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Operador | Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
-| Valor | Valor del umbral. |
+|:--- |:--- |
+| Operador |Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
+| Valor |Valor del umbral. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos, un valor de Timespan de 30 minutos y un valor de Threshold mayor que 10, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si devolviera 10 eventos creados durante un intervalo de 30 minutos.
 
@@ -155,10 +154,10 @@ Use el método Put con un identificador de acción existente para modificar una 
 Las notificaciones de correo electrónico envían correo a uno o más destinatarios.  Tienen las propiedades de la siguiente tabla.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Recipients | Lista de direcciones de correo electrónico. |
-| Asunto | Asunto del correo electrónico. |
-| Datos adjuntos | Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor “None”. |
+|:--- |:--- |
+| Recipients |Lista de direcciones de correo electrónico. |
+| Asunto |Asunto del correo electrónico. |
+| Datos adjuntos |Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor “None”. |
 
 La siguiente es una respuesta de ejemplo de una acción de notificación de correo con un umbral.  
 
@@ -197,10 +196,10 @@ Las correcciones inician un Runbook en Automatización de Azure que intenta corr
 Las correcciones tienen las propiedades de la siguiente tabla.
 
 | Propiedad | Descripción |
-|:--|:--|
-| RunbookName | Nombre del Runbook. Debe coincidir con un Runbook publicado en la cuenta de automatización que configuró en la solución de Automatización en el área de trabajo de OMS. |
-| WebhookUri | URI del webhook.
-| Expiry | Fecha y hora de expiración del webhook.  Si el webhook no tiene una fecha expiración, puede ser cualquier fecha futura válida. |
+|:--- |:--- |
+| RunbookName |Nombre del Runbook. Debe coincidir con un Runbook publicado en la cuenta de automatización que configuró en la solución de Automatización en el área de trabajo de OMS. |
+| WebhookUri |URI del webhook. |
+| Expiry |Fecha y hora de expiración del webhook.  Si el webhook no tiene una fecha expiración, puede ser cualquier fecha futura válida. |
 
 La siguiente es una respuesta de ejemplo de una acción de corrección con un umbral.
 
@@ -254,9 +253,9 @@ Las acciones de webhook no tienen umbral, sino que deben agregarse a una program
 Las acciones de webhook tienen las propiedades de la siguiente tabla.
 
 | Propiedad | Descripción |
-|:--|:--|
-| WebhookUri | Asunto del correo electrónico. |
-| CustomPayload | Carga personalizada que se va a enviar al webhook.  El formato dependerá de lo que el webhook espere. |
+|:--- |:--- |
+| WebhookUri |Asunto del correo electrónico. |
+| CustomPayload |Carga personalizada que se va a enviar al webhook.  El formato dependerá de lo que el webhook espere. |
 
 La siguiente es una respuesta de ejemplo de una acción de webhook y una acción de alerta asociada con un umbral.
 
@@ -305,10 +304,7 @@ Use el método Put con un identificador de acción existente para modificar una 
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Use la [API de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md) en Log Analytics.
-
-
+* Use la [API de búsqueda de registros de Log Analytics](log-analytics-log-search-api.md) en Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

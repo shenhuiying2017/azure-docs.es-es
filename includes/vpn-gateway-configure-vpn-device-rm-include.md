@@ -3,7 +3,7 @@ Para configurar el dispositivo VPN, necesitará la dirección IP pública de la 
 
 Para buscar la dirección IP pública de la puerta de enlace de red virtual con PowerShell, utilice el ejemplo siguiente:
 
-	Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
+    Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
 También puede utilizar el Portal de Azure para ver la dirección IP pública de la puerta de enlace de red virtual. Vaya a **Puertas de enlace de red virtual** y, luego, haga clic en el nombre de su puerta de enlace.
 

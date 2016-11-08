@@ -1,26 +1,23 @@
-<properties
-   pageTitle="Configuración de un clúster independiente | Microsoft Azure"
-   description="En este artículo se describe cómo configurar un clúster de Service Fabric privado o independiente."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="dsk-2015"
-   manager="timlt"
-   editor=""/>
+---
+title: Configuración de un clúster independiente | Microsoft Docs
+description: En este artículo se describe cómo configurar un clúster de Service Fabric privado o independiente.
+services: service-fabric
+documentationcenter: .net
+author: dsk-2015
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="06/23/2016"
-   ms.author="dkshir"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 06/23/2016
+ms.author: dkshir
 
-
-
+---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>Opciones de configuración de clústeres de Windows independientes
-
-En este artículo se describe cómo configurar un clúster de Service Fabric independiente con el archivo _**ClusterConfig.JSON**_. Este archivo se descarga en el equipo de trabajo cuando se [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). El archivo ClusterConfig.JSON permite especificar información tal como los nodos de Service Fabric y sus direcciones IP, los distintos tipos de nodos en el clúster, las configuraciones de seguridad y la topología de red (dominios de error o actualización) para el clúster de Service Fabric. 
+En este artículo se describe cómo configurar un clúster de Service Fabric independiente con el archivo ***ClusterConfig.JSON***. Este archivo se descarga en el equipo de trabajo cuando se [descarga el paquete de Service Fabric independiente](service-fabric-cluster-creation-for-windows-server.md#downloadpackage). El archivo ClusterConfig.JSON permite especificar información tal como los nodos de Service Fabric y sus direcciones IP, los distintos tipos de nodos en el clúster, las configuraciones de seguridad y la topología de red (dominios de error o actualización) para el clúster de Service Fabric. 
 
 A continuación examinaremos las diversas secciones de este archivo.
 
@@ -33,8 +30,8 @@ Describe las opciones de configuración generales del clúster, como se muestra 
 
 Asigne cualquier nombre descriptivo al clúster de Service Fabric en la variable **name** . Puede cambiar el valor de **clusterManifestVersion** según su configuración; deberá actualizarlo antes de actualizar la configuración de Service Fabric. Puede dejar el valor predeterminado de **apiVersion** .
 
-
 <a id="clusternodes"></a>
+
 ## <a name="nodes-on-the-cluster"></a>Nodos del clúster
 Puede configurar los nodos en el clúster de Service Fabric mediante la sección **nodos** , como se muestra en el siguiente fragmento de código.
 
@@ -60,17 +57,15 @@ Puede configurar los nodos en el clúster de Service Fabric mediante la sección
 
 Un clúster de Service Fabric necesita un mínimo de 3 nodos. Puede agregar más nodos a esta sección según su configuración. La siguiente tabla explica las opciones de configuración de cada nodo.
 
-|**Opción de configuración del nodo**|**Descripción**|
-|-----------------------|--------------------------|
-|nodeName|Puede asignar cualquier nombre descriptivo al nodo.|
-|iPAddress|Para averiguar la dirección IP del nodo, abra una ventana de comandos y escriba `ipconfig`. Anote la dirección IPV4 y asígnela a la variable **iPAddress** .|
-|nodeTypeRef|Cada nodo se puede asignar a un tipo de nodo diferente. Los [tipos de nodos](#nodetypes) se definen en la sección siguiente.|
-|faultDomain|Los dominios de error permiten a los administradores de clústeres definir los nodos físicos que es probable que experimenten errores al mismo tiempo debido a las dependencias físicas compartidas.|
-|upgradeDomain|Los dominios de actualización describen conjuntos de nodos que se apagan para las actualizaciones de Service Fabric aproximadamente al mismo tiempo. Puede elegir qué nodos desea asignar a cada dominio de actualización porque no están limitados por ningún requisito físico.| 
-
+| **Opción de configuración del nodo** | **Descripción** |
+| --- | --- |
+| nodeName |Puede asignar cualquier nombre descriptivo al nodo. |
+| iPAddress |Para averiguar la dirección IP del nodo, abra una ventana de comandos y escriba `ipconfig`. Anote la dirección IPV4 y asígnela a la variable **iPAddress** . |
+| nodeTypeRef |Cada nodo se puede asignar a un tipo de nodo diferente. Los [tipos de nodos](#nodetypes) se definen en la sección siguiente. |
+| faultDomain |Los dominios de error permiten a los administradores de clústeres definir los nodos físicos que es probable que experimenten errores al mismo tiempo debido a las dependencias físicas compartidas. |
+| upgradeDomain |Los dominios de actualización describen conjuntos de nodos que se apagan para las actualizaciones de Service Fabric aproximadamente al mismo tiempo. Puede elegir qué nodos desea asignar a cada dominio de actualización porque no están limitados por ningún requisito físico. |
 
 ## <a name="cluster-**properties**"></a> **Propiedades**
-
 La sección **properties** del archivo ClusterConfig.JSON se usa para configurar el clúster de la siguiente manera.
 
 ### <a name="**diagnosticsstore**"></a>**diagnosticsStore**
@@ -94,7 +89,7 @@ Para configurar los parámetros que habilitan el diagnóstico y la solución de 
         "connectionstring": "xstore:DefaultEndpointsProtocol=https;AccountName=[AzureAccountName];AccountKey=[AzureAccountKey]"
     }
 
-### <a name="**security**"></a>**security** 
+### <a name="**security**"></a>**security**
 La sección **security** es necesaria para un clúster de Service Fabric independiente protegido. El siguiente fragmento de código muestra una parte de esta sección.
 
     "security": {
@@ -110,11 +105,11 @@ La sección **security** es necesaria para un clúster de Service Fabric indepen
 **reliabilityLevel** define el número de copias de los servicios del sistema que se pueden ejecutar en los nodos principales del clúster. Esto aumenta la confiabilidad de estos servicios y, por lo tanto, el clúster. Puede establecer esta variable en *Bronce*, *Plata*, *Oro* o *Platino* para 3, 5, 7 o 9 copias de estos servicios, respectivamente. Vea el ejemplo siguiente.
 
     "reliabilityLevel": "Bronze",
-    
+
 Como un nodo principal ejecuta una única copia de los servicios del sistema, tenga en cuenta que necesitaría un mínimo de 3 nodos principales para el nivel de confiabilidad *Bronce*, 5 para *Plata*, 7 para *Oro* y 9 para *Platino*.
 
-
 <a id="nodetypes"></a>
+
 ### <a name="**nodetypes**"></a>**nodeTypes**
 La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. Se debe especificar al menos un tipo de nodo en un clúster, tal y como se muestra en el siguiente fragmento de código. 
 
@@ -138,7 +133,6 @@ La sección **nodeTypes** describe el tipo de los nodos que tiene el clúster. S
 
 **name** es el nombre descriptivo de este tipo de nodo específico. Para crear un nodo de este tipo, debe asignar el nombre descriptivo de este tipo de nodo a la variable **nodeTypeRef** de ese nodo, tal y como se mencionó en la sección [Nodos del clúster](#clusternodes) anterior. Para cada tipo de nodo, puede definir varios puntos de conexión a este clúster. Puede elegir cualquier número de puerto para estos puntos de conexión, siempre que no entren en conflicto con otros puntos de conexión de este clúster. Si desea crear un puerto de puerta de enlace de aplicación http, puede especificar "reverseProxyEndpointPort": [número de puerto] además de otros puertos como se indicó anteriormente. En un clúster con varios tipos de nodos, habrá un tipo de nodo principal, cuyo valor de **isPrimary** es *true*. En el resto de los nodos, el valor de **isPrimary** es *false*. Lea [Consideraciones de planeación de capacidad del clúster de Service Fabric](service-fabric-cluster-capacity.md) para más información sobre los valores **nodeTypes** y **reliabilityLevel** según la capacidad de su clúster, y para conocer las diferencias entre los tipos de nodo principal y no principal.
 
-
 ### <a name="**fabricsettings**"></a>**fabricSettings**
 Esta sección permite establecer los directorios raíz de los registros y datos de Service Fabric. Puede personalizarlos solo durante la creación inicial del clúster. Vea el siguiente fragmento de código de ejemplo de esta sección.
 
@@ -154,14 +148,8 @@ Esta sección permite establecer los directorios raíz de los registros y datos 
 
 Se recomienda usar una unidad sin sistema operativo como FabricDataRoot y FabricLogRoot, dado que proporciona una mayor confiabilidad frente a bloqueos del sistema operativo. Tenga en cuenta que si solo personaliza la raíz de los datos, la raíz del registro se colocará un nivel por debajo de la raíz de los datos.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-
 Cuando ya tenga un archivo ClusterConfig.JSON completo configurado según la configuración del clúster independiente, puede implementar el clúster siguiendo el artículo [Creación de un clúster de Azure Service Fabric local o en la nube](service-fabric-cluster-creation-for-windows-server.md) y luego continúe con [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-
-
-
-
 
 <!--HONumber=Oct16_HO2-->
 

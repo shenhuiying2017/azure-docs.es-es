@@ -1,31 +1,31 @@
-<properties
-   pageTitle="Descripción del clúster del equilibrador de recursos| Microsoft Azure"
-   description="Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo en el Administrador de recursos de clúster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: Descripción del clúster del equilibrador de recursos| Microsoft Docs
+description: Descripción de un clúster de Service Fabric mediante la especificación de dominios de error, dominios de actualización, propiedades de nodo y capacidades de nodo en el Administrador de recursos de clúster.
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Descripción de un clúster de Service Fabric
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Cluster Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster y para asegurarse de que los recursos del clúster se estén usando de la forma adecuada.
 
 ## Conceptos clave
 Cluster Resource Manager es compatible con varias de las características que describen un clúster:
 
-- Dominios de error
-- Dominios de actualización
-- Propiedades del nodo
-- Capacidades de nodo
+* Dominios de error
+* Dominios de actualización
+* Propiedades del nodo
+* Capacidades de nodo
 
 ## Dominios de error
 Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía. Ya que es natural que estas se superpongan, los dominios de error son intrínsecamente jerárquicos y se representan como identificadores URI de Service Fabric.
@@ -70,8 +70,8 @@ Cluster Resource Manager trata el deseo de mantener un servicio en equilibrio en
 
 Vamos a ver un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado con 5 dominios de error (FD) y 5 dominios de actualización (UD).
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 |
+| --- |:---:|:---:|:---:|:---:|:---:|
 | UD0 |N1 | | | | |
 | UD1 |N6 |N2 | | | |
 | UD2 | | |N3 | | |
@@ -82,39 +82,38 @@ Ahora supongamos que creamos un servicio con un valor TargetReplicaSetSize de 5.
 
 Este es el diseño que obtuvimos y el número total de las réplicas por dominio de error y de actualización.
 
-
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 | |R2 | | | |1 |
 | UD2 | | |R3 | | |1 |
 | UD3 | | | |R4 | |1 |
 | UD4 | | | | |R5 |1 |
-| FDTotal | 1 | 1 | 1 | 1 | 1 |-|
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Observe que este diseño se equilibra en términos de nodos por dominio de error y dominio de actualización, y que también está equilibrado en cuanto al número de réplicas por dominio de error y de actualización. Cada dominio tiene el mismo número de nodos y el mismo número de réplicas.
 
 Ahora, echemos un vistazo a lo que sucedería si hubiéramos utilizado N6 en lugar de N2. ¿Cómo se distribuirían las réplicas entonces? Tendrían un aspecto similar al siguiente:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 |R1 | | | | |1 |
 | UD1 |R5 | | | | |1 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-|FDTotal|2 |0 |1 |1 |1 |- |
+| FDTotal |2 |0 |1 |1 |1 |- |
 
 Esto infringe nuestra definición de la restricción de dominio de error, ya que FD0 tiene 2 réplicas mientras FD1 tiene 0, lo que hace que la diferencia total sea 2 y, por tanto, Cluster Resource Manager no permitirá esta disposición. De forma similar si hubiéramos seleccionado N2-6 obtendríamos:
 
-| |FD0 |FD1 |FD2 |FD3 |FD4 |UDTotal|
-|-------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
+|  | FD0 | FD1 | FD2 | FD3 | FD4 | UDTotal |
+| --- |:---:|:---:|:---:|:---:|:---:|:---:|
 | UD0 | | | | | |0 |
 | UD1 |R5 |R1 | | | |2 |
 | UD2 | | |R2 | | |1 |
 | UD3 | | | |R3 | |1 |
 | UD4 | | | | |R4 |1 |
-| FDTotal | 1 | 1 | 1 | 1 | 1 |-|
+| FDTotal |1 |1 |1 |1 |1 |- |
 
 Esto aunque ofrece equilibrio en términos de dominios de error, infringe la restricción de dominio de actualización (ya que UD0 tiene 0 réplicas mientras UD1 tiene 2) y, por tanto, tampoco es válido.
 
@@ -143,14 +142,17 @@ ClusterManifest.xml
     </WindowsServer>
   </Infrastructure>
 ```
-> [AZURE.NOTE] En las implementaciones de Azure, los dominios de error y los de actualización son asignados por Azure. Por lo tanto, la definición de los nodos y roles dentro de la opción de infraestructura de Azure no incluye la información del dominio de errores ni de actualizaciones.
+> [!NOTE]
+> En las implementaciones de Azure, los dominios de error y los de actualización son asignados por Azure. Por lo tanto, la definición de los nodos y roles dentro de la opción de infraestructura de Azure no incluye la información del dominio de errores ni de actualizaciones.
+> 
+> 
 
 ## Restricciones de colocación y propiedades de nodo
 A veces (de hecho, la mayor parte del tiempo) le va a interesar asegurarse de que ciertas cargas de trabajo solo se ejecuten en determinados nodos o conjuntos de nodos en el clúster. Por ejemplo, algunas cargas de trabajo pueden requerir GPU o SSD, al contrario que otras. Un buen ejemplo de esto es prácticamente cualquier arquitectura de n niveles, en la que determinadas máquinas sirven de front-end o lado de la aplicación que sirve a la interfaz (y por tanto están expuestas a Internet), mientras que otro conjunto (a menudo con recursos de hardware diferentes) se encarga del trabajo de las capas de proceso o almacenamiento (y generalmente no están expuestas a Internet). Service Fabric espera que, incluso en un mundo de microservicios, haya casos en que se deban ejecutar cargas de trabajo concretas en configuraciones de hardware concretas, por ejemplo:
 
-- una aplicación de n niveles existente se ha transferido "tal cual" a un entorno de Service Fabric;
-- se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad;
--	una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
+* una aplicación de n niveles existente se ha transferido "tal cual" a un entorno de Service Fabric;
+* se prefiere ejecutar una carga de trabajo en un hardware específico por motivos de rendimiento, escala o aislamiento de seguridad;
+* una carga de trabajo debe estar aislada de otras por una directiva o a causa del consumo de recursos.
 
 Para admitir estos tipos de configuraciones, Service Fabric parte de una noción de primera clase de lo que llamamos restricciones de colocación. Se pueden usar restricciones de selección de ubicación para indicar dónde se deben ejecutar determinados servicios. Los usuarios pueden extender el conjunto de restricciones, lo que significa que se pueden etiquetar nodos con propiedades personalizadas y después seleccionarlas también.
 
@@ -158,26 +160,26 @@ Para admitir estos tipos de configuraciones, Service Fabric parte de una noción
 
 Las distintas etiquetas de clave-valor en los nodos se conocen como *propiedades* de selección de ubicación del nodo (o simplemente propiedades de nodo), mientras que la instrucción en el servicio se denomina *restricción* de selección ubicación. El valor especificado en la propiedad de nodo puede ser una cadena, un booleano o de tipo Long con signo. La restricción puede ser cualquier instrucción booleana que opera en las diferentes propiedades del nodo en el clúster. Los selectores válidos en estas instrucciones booleanas (que son cadenas) son:
 
-- comprobaciones condicionales para crear instrucciones concretas
-  - "igual a" ==
-  - "mayor que" >
-  - "menor que" <
-  - "no igual a" !=
-  - "mayor que o igual a" >=
-  - "menor que o igual a" <=
-- instrucciones booleanas para la agrupación y la negación
-  - "y" &&
-  - "o" ||
-  - "no" !
-- paréntesis para operaciones de agrupamiento
-  - ()
-
+* comprobaciones condicionales para crear instrucciones concretas
+  * "igual a" ==
+  * "mayor que" >
+  * "menor que" <
+  * "no igual a" !=
+  * "mayor que o igual a" >=
+  * "menor que o igual a" <=
+* instrucciones booleanas para la agrupación y la negación
+  * "y" &&
+  * "o" ||
+  * "no" !
+* paréntesis para operaciones de agrupamiento
+  
+  * ()
+  
   Estos son algunos ejemplos de instrucciones de restricción básicas que utilizan algunos de los símbolos anteriores. Tenga en cuenta que las propiedades de nodo pueden ser cadenas, bools o valores numéricos.
-
-  - "Foo > = 5"
-  - "NodeColor! = verde"
-  - "((OneProperty < 100) || ((AnotherProperty == falso) & & (OneProperty > = 100))) "
-
+  
+  * "Foo > = 5"
+  * "NodeColor! = verde"
+  * "((OneProperty < 100) || ((AnotherProperty == falso) & & (OneProperty > = 100))) "
 
 El servicio se puede colocar solo en los nodos donde la instrucción general se evalúa como "True". Los nodos que no tengan definida ninguna propiedad no coinciden con ninguna restricción de colocación que contenga esa propiedad.
 
@@ -334,10 +336,10 @@ LoadMetricInformation     :
 ```
 
 ## Pasos siguientes
-- Para más información sobre el flujo de información y la arquitectura dentro de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md)
-- Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-- Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-- Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
+* Para más información sobre el flujo de información y la arquitectura dentro de Cluster Resource Manager, consulte [este artículo](service-fabric-cluster-resource-manager-architecture.md)
+* Definir las métricas de desfragmentación es una manera de consolidar la carga en los nodos en lugar de distribuirla. Para saber cómo configurar la desfragmentación, consulte [este artículo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Empiece desde el principio y [obtenga una introducción a Cluster Resource Manager de Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
+* Para más información sobre cómo Cluster Resource Manager administra y equilibra la carga en el clúster, consulte el artículo sobre el [equilibrio de carga](service-fabric-cluster-resource-manager-balancing.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-fault-domains.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-cluster-description/cluster-uneven-fault-domain-layout.png

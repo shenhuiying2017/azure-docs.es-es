@@ -1,46 +1,45 @@
-<properties
-    pageTitle="Script de PowerShell para identificar bases de datos individuales adecuadas para un grupo | Microsoft Azure"
-    description="Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece un script de Powershell para ayudarle a evaluar la idoneidad de usar un grupo de bases de datos elásticas para un grupo de base de datos."
-    services="sql-database"
-    documentationCenter=""
-    authors="stevestein"
-    manager="jhubbard"
-    editor=""/>
+---
+title: Script de PowerShell para identificar bases de datos individuales adecuadas para un grupo | Microsoft Docs
+description: Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece un script de Powershell para ayudarle a evaluar la idoneidad de usar un grupo de bases de datos elásticas para un grupo de base de datos.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-    ms.service="sql-database"
-    ms.devlang="NA"
-    ms.date="09/28/2016"
-    ms.author="sstein"
-    ms.workload="data-management"
-    ms.topic="article"
-    ms.tgt_pltfrm="NA"/>
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas
-
 El script de ejemplo de PowerShell que se ofrece en este artículo calcula los valores agregados de eDTU para bases de datos de usuario de un servidor de Base de datos SQL. El script recopila datos mientras se ejecuta y, para una carga de trabajo de producción típica, debe ejecutar el script durante al menos un día. Lo ideal es ejecutar el script durante un tiempo que represente la carga de trabajo típica de las bases de datos. Ejecute el script el tiempo suficiente como para capturar los datos que representan el uso normal y máximo de las bases de datos. La ejecución del script una semana o incluso más tiempo probablemente dará un cálculo más preciso.
 
 Este script es útil para evaluar las bases de datos en servidores v11 para la migración a servidores v12, donde se admiten los grupos. En servidores v12, SQL Database cuenta con inteligencia integrada que analiza la telemetría del historial de uso y recomienda un grupo cuando resulte más rentable. Para más información, consulte el artículo [Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas](sql-database-elastic-pool-manage-portal.md).
 
-> [AZURE.IMPORTANT] Mantenga la ventana de PowerShell abierta cuando ejecute el script. No cierre la ventana de PowerShell hasta que haya ejecutado el script durante la cantidad de tiempo necesario. 
+> [!IMPORTANT]
+> Mantenga la ventana de PowerShell abierta cuando ejecute el script. No cierre la ventana de PowerShell hasta que haya ejecutado el script durante la cantidad de tiempo necesario. 
+> 
+> 
 
-## <a name="prerequisites"></a>Requisitos previos 
-
+## <a name="prerequisites"></a>Requisitos previos
 Instale lo siguiente antes de ejecutar el script:
 
-- La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
-- El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
+* La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Detalles del script
-
 Puede ejecutar el script desde la máquina local o una máquina virtual en la nube. Cuando lo ejecute desde la máquina local, es posible que se produzcan cargos de salida de datos porque el script tiene que descargar datos de las bases de datos de destino. A continuación se muestra la estimación de volumen de datos según el número de bases de datos de destino y la duración de la ejecución del script. Para ver los costes de transferencia de datos de Azure, consulte [Detalles de precios de transferencias de datos](https://azure.microsoft.com/pricing/details/data-transfers/).
-       
- -     Una base de datos por hora = 38 KB
- -     Una base de datos por día = 900 KB
- -     Una base de datos por semana = 6 MB
- -     100 bases de datos por día = 90 MB
- -     500 bases de datos por semana = 3 GB
+
+* Una base de datos por hora = 38 KB
+* Una base de datos por día = 900 KB
+* Una base de datos por semana = 6 MB
+* 100 bases de datos por día = 90 MB
+* 500 bases de datos por semana = 3 GB
 
 De forma predeterminado, el script no compila información para las siguientes bases de datos:
 
@@ -54,16 +53,14 @@ El script necesita una base de datos de salida para almacenar datos intermedios 
 El script tiene que proporcionarle las credenciales para conectarse al servidor de destino (el candidato de grupo de bases de datos elásticas) con un nombre de servidor completo, <*dbname*>**.database.windows.net**. El script no es compatible con el análisis de varios servidores a la vez.
 
 Después de enviar valores para el conjunto inicial de parámetros, se le pedirá que inicie sesión en la cuenta de Azure. Esto es para iniciar sesión en el servidor de destino, no en el servidor de base de datos de salida.
-    
+
 Si detecta las siguientes advertencias cuando ejecute el script, puede ignorarlas:
 
-- ADVERTENCIA: El cmdlet Switch-AzureMode está en desuso.
-- ADVERTENCIA: No se pudo obtener la información de servicio de SQL Server. Se produjo un error al intentar conectar con VMI en 'Microsoft.Azure.Commands.Sql.dll' con el siguiente error: El servidor RPC no está disponible.
+* ADVERTENCIA: El cmdlet Switch-AzureMode está en desuso.
+* ADVERTENCIA: No se pudo obtener la información de servicio de SQL Server. Se produjo un error al intentar conectar con VMI en 'Microsoft.Azure.Commands.Sql.dll' con el siguiente error: El servidor RPC no está disponible.
 
 Cuando el script se completa, proporciona el número estimado de eDTU necesarias para que un grupo contenga todas las bases de datos candidatas en el servidor de destino. Estas eDTU estimadas se pueden usar para crear y configurar el grupo. Una vez que se crea el grupo y las bases de datos se trasladan a este, supervíselo muy de cerca durante algunos días y realice los ajustes que se requieran en la configuración de eDTU de grupo. Consulte [Monitor, manage, and size an elastic database pool (Supervisión, administración y cambio de tamaño de un grupo de bases de datos elásticas)](sql-database-elastic-pool-manage-portal.md).
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -270,7 +267,7 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 
 
 

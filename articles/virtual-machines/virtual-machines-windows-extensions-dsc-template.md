@@ -1,33 +1,32 @@
-<properties
-   pageTitle="Configuración de estado deseado con plantilla de Resource Manager| Microsoft Azure"
-   description="Definición de la plantilla de Resource Manager para la configuración de estado deseado en Azure con ejemplos y solución de problemas"
-   services="virtual-machines-windows"
-   documentationCenter=""
-   authors="zjalexander"
-   manager="timlt"
-   editor=""
-   tags="azure-service-management,azure-resource-manager"
-   keywords=""/>
+---
+title: Configuración de estado deseado con plantilla de Resource Manager| Microsoft Docs
+description: Definición de la plantilla de Resource Manager para la configuración de estado deseado en Azure con ejemplos y solución de problemas
+services: virtual-machines-windows
+documentationcenter: ''
+author: zjalexander
+manager: timlt
+editor: ''
+tags: azure-service-management,azure-resource-manager
+keywords: ''
 
-<tags
-   ms.service="virtual-machines-windows"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-windows"
-   ms.workload="na"
-   ms.date="09/15/2016"
-   ms.author="zachal"/>
+ms.service: virtual-machines-windows
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: na
+ms.date: 09/15/2016
+ms.author: zachal
 
+---
 # VMSS de Windows y configuración de estado deseado con plantillas de Azure Resource Manager
 En este artículo, se describe la plantilla de Resource Manager para el [controlador de extensión de configuración de estado deseado](virtual-machines-windows-extensions-dsc-overview.md).
 
 ## Ejemplo de plantilla para una máquina virtual de Windows
-
 El siguiente fragmento corresponde a la sección Resource de la plantilla.
 
 ```json
-			"name": "Microsoft.Powershell.DSC",
-			"type": "extensions",
+            "name": "Microsoft.Powershell.DSC",
+            "type": "extensions",
              "location": "[resourceGroup().location]",
              "apiVersion": "2015-06-15",
              "dependsOn": [
@@ -56,7 +55,6 @@ El siguiente fragmento corresponde a la sección Resource de la plantilla.
 ```
 
 ## Ejemplo de plantilla para VMSS de Windows
-
 Un nodo de VMSS tiene una sección "properties" con el atributo "extensionProfile" de "VirtualMachineProfile". DSC se agrega en "extensions".
 
 ```json
@@ -89,7 +87,6 @@ Un nodo de VMSS tiene una sección "properties" con el atributo "extensionProfil
 ```
 
 ## Información de configuración detallada
-
 Este es el esquema para la parte de configuración (settings) de la extensión DSC de Azure en una plantilla de Azure Resource Manager.
 
 ```json
@@ -137,17 +134,17 @@ Este es el esquema para la parte de configuración (settings) de la extensión D
 ## Detalles
 | Nombre de propiedad | Tipo | Description |
 | --- | --- | --- |
-| settings.wmfVersion | string | Especifica la versión de Windows Management Framework que debe instalarse en la máquina virtual. Si se establece esta propiedad en "latest", se instala la versión más reciente de WMF. Los únicos valores posibles actuales para esta propiedad son **"4.0", "5.0", "5.0PP" y "latest"**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es "latest".|
-| settings.configuration.url | string | Especifica la ubicación de la dirección URL desde la que descargar el archivo zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, debe establecer la propiedad protectedSettings.configurationUrlSasToken en el valor de su token de SAS. Esta propiedad es necesaria si se definen settings.configuration.script o settings.configuration.function. |
-| settings.configuration.script | string | Especifica el nombre de archivo del script que contiene la definición de la configuración de DSC. Este script debe estar en la carpeta raíz del archivo zip descargado de la dirección URL especificada en la propiedad configuration.url. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.script. |
-| settings.configuration.function | string | Especifica el nombre de la configuración de DSC. La configuración con nombre debe incluirse en el script definido en configuration.script. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.function. |
-| settings.configurationArguments | Colección | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
-| settings.configurationData.url | string | Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.pds1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, debe establecer la propiedad protectedSettings.configurationDataUrlSasToken en el valor de su token de SAS.|
-| settings.privacy.dataEnabled | string | Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **"Enable", "Disable", '' o $null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es ". [Más información](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
-| settings.advancedOptions.downloadMappings | Colección | Define las ubicaciones alternativas desde las que descargar WMF. [Más información](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
-| protectedSettings.configurationArguments | Colección | Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
-| protectedSettings.configurationUrlSasToken | string | Especifica el token de SAS para acceder a la dirección URL definida en configuration.url. Esta propiedad no está cifrada. |
-| protectedSettings.configurationDataUrlSasToken | string | Especifica el token de SAS para acceder a la dirección URL definida en configurationData.url. Esta propiedad no está cifrada. |
+| settings.wmfVersion |string |Especifica la versión de Windows Management Framework que debe instalarse en la máquina virtual. Si se establece esta propiedad en "latest", se instala la versión más reciente de WMF. Los únicos valores posibles actuales para esta propiedad son **"4.0", "5.0", "5.0PP" y "latest"**. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es "latest". |
+| settings.configuration.url |string |Especifica la ubicación de la dirección URL desde la que descargar el archivo zip de la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, debe establecer la propiedad protectedSettings.configurationUrlSasToken en el valor de su token de SAS. Esta propiedad es necesaria si se definen settings.configuration.script o settings.configuration.function. |
+| settings.configuration.script |string |Especifica el nombre de archivo del script que contiene la definición de la configuración de DSC. Este script debe estar en la carpeta raíz del archivo zip descargado de la dirección URL especificada en la propiedad configuration.url. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.script. |
+| settings.configuration.function |string |Especifica el nombre de la configuración de DSC. La configuración con nombre debe incluirse en el script definido en configuration.script. Esta propiedad es necesaria si se definen settings.configuration.url o settings.configuration.function. |
+| settings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
+| settings.configurationData.url |string |Especifica la dirección URL desde la que descargar el archivo de datos de configuración (.pds1) que se usará como entrada para la configuración de DSC. Si la dirección URL proporcionada requiere un token de SAS para el acceso, debe establecer la propiedad protectedSettings.configurationDataUrlSasToken en el valor de su token de SAS. |
+| settings.privacy.dataEnabled |string |Habilita o deshabilita la recopilación de telemetría. Los únicos valores posibles para esta propiedad son **"Enable", "Disable", '' o $null**. Si se deja esta propiedad en blanco o como null, se habilita la telemetría. El valor predeterminado es ". [Más información](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
+| settings.advancedOptions.downloadMappings |Colección |Define las ubicaciones alternativas desde las que descargar WMF. [Más información](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
+| protectedSettings.configurationArguments |Colección |Define los parámetros que desea pasar a la configuración de DSC. Esta propiedad no está cifrada. |
+| protectedSettings.configurationUrlSasToken |string |Especifica el token de SAS para acceder a la dirección URL definida en configuration.url. Esta propiedad no está cifrada. |
+| protectedSettings.configurationDataUrlSasToken |string |Especifica el token de SAS para acceder a la dirección URL definida en configurationData.url. Esta propiedad no está cifrada. |
 
 ## Settings frente a ProtectedSettings
 Todas las configuraciones se guardan en un archivo de texto de configuración en la máquina virtual. Las propiedades en "settings" son públicas porque no están cifradas en el archivo de texto de configuración. Las propiedades en "protectedSettings" se cifran con un certificado y no se muestran en texto sin formato en este archivo de la máquina virtual.
@@ -158,15 +155,14 @@ Si la configuración necesita credenciales, pueden incluirse en protectedSetting
 "protectedSettings": {
     "configurationArguments": {
         "parameterOfTypePSCredential1": {
-       	    "userName": "UsernameValue1",
-       	    "password": "PasswordValue1"
+               "userName": "UsernameValue1",
+               "password": "PasswordValue1"
         }
     }
 }
 ```
 
 ## Ejemplo
-
 El ejemplo siguiente se deriva de la sección "Introducción" de la [página con información general sobre el controlador de la extensión DSC](virtual-machines-windows-extensions-dsc-overview.md). Este ejemplo usa plantillas de Resource Manager en lugar de cmdlets para implementar la extensión. Guardar la configuración "IisInstall.ps1", colóquela en un archivo .ZIP y cargue el archivo en una dirección URL accesible. Este ejemplo usa el almacenamiento de blobs de Azure, pero es posible descargar archivos .ZIP desde cualquier ubicación.
 
 En la plantilla de Azure Resource Manager, el siguiente código indica a la máquina virtual que descargue el archivo correcto y ejecute la función de PowerShell adecuada:
@@ -222,18 +218,17 @@ Así se adapta el formato anterior al actual:
 
 | Nombre de propiedad | Equivalente en el esquema anterior |
 | --- | --- |
-| settings.wmfVersion | settings.WMFVersion |
-| settings.configuration.url | settings.ModulesUrl |
-| settings.configuration.script | Primera parte de settings.ConfigurationFunction (antes de "\\") |
-| settings.configuration.function | Segunda parte de settings.ConfigurationFunction (después de "\\") |
-| settings.configurationArguments | settings.Properties |
-| settings.configurationData.url | protectedSettings.DataBlobUri (sin token de SAS) |
-| settings.privacy.dataEnabled | settings.Privacy.DataEnabled |
-| settings.advancedOptions.downloadMappings | settings.AdvancedOptions.DownloadMappings |
-| protectedSettings.configurationArguments | protectedSettings.Properties |
-| protectedSettings.configurationUrlSasToken | settings.SasToken |
-| protectedSettings.configurationDataUrlSasToken | Token de SAS de protectedSettings.DataBlobUri |
-
+| settings.wmfVersion |settings.WMFVersion |
+| settings.configuration.url |settings.ModulesUrl |
+| settings.configuration.script |Primera parte de settings.ConfigurationFunction (antes de "\\") |
+| settings.configuration.function |Segunda parte de settings.ConfigurationFunction (después de "\\") |
+| settings.configurationArguments |settings.Properties |
+| settings.configurationData.url |protectedSettings.DataBlobUri (sin token de SAS) |
+| settings.privacy.dataEnabled |settings.Privacy.DataEnabled |
+| settings.advancedOptions.downloadMappings |settings.AdvancedOptions.DownloadMappings |
+| protectedSettings.configurationArguments |protectedSettings.Properties |
+| protectedSettings.configurationUrlSasToken |settings.SasToken |
+| protectedSettings.configurationDataUrlSasToken |Token de SAS de protectedSettings.DataBlobUri |
 
 ## Solución de problemas: código de error 1100
 El código de error 1100 indica que hay un problema con la entrada del usuario a la extensión DSC. El texto de estos errores es variable y puede cambiar. Estos son algunos de los errores que pueden surgir y cómo corregirlos.
@@ -282,9 +277,9 @@ Solución: Quite una de las propiedades duplicadas.
 Problema: Una propiedad definida requiere otra propiedad que falta.
 
 Soluciones:
-- Proporcione la propiedad que falta.
-- Quite la propiedad que necesita la propiedad que falta.
 
+* Proporcione la propiedad que falta.
+* Quite la propiedad que necesita la propiedad que falta.
 
 ## Pasos siguientes
 Aprenda sobre DSC y los conjuntos de escalado de máquina virtual en [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md) (Uso de conjuntos de escalado de máquina virtual con la extensión DSC de Azure).

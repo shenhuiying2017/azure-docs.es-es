@@ -1,37 +1,41 @@
-<properties
-	pageTitle="Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones"
-	description="Obtenga información acerca del uso de las llamadas de API de RESTful para la copia de seguridad y restauración de una aplicación en el Servicio de aplicaciones de Azure"
-	services="app-service"
-	documentationCenter=""
-	authors="NKing92"
-	manager="wpickett"
-    editor="" />
+---
+title: Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones
+description: Obtenga información acerca del uso de las llamadas de API de RESTful para la copia de seguridad y restauración de una aplicación en el Servicio de aplicaciones de Azure
+services: app-service
+documentationcenter: ''
+author: NKing92
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/10/2016"
-	ms.author="nicking"/>
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/10/2016
+ms.author: nicking
+
+---
 # Uso de REST para copia de seguridad y restauración de aplicaciones del Servicio de aplicaciones
-
-> [AZURE.SELECTOR]
-- [PowerShell](../app-service/app-service-powershell-backup.md)
-- [API DE REST](websites-csm-backup.md)
+> [!div class="op_single_selector"]
+> * [PowerShell](../app-service/app-service-powershell-backup.md)
+> * [API DE REST](websites-csm-backup.md)
+> 
+> 
 
 Se puede realizar una copia de seguridad de las [aplicaciones del Servicio de aplicaciones](https://azure.microsoft.com/services/app-service/web/) como blobs en Almacenamiento de Azure. La copia de seguridad también puede contener las bases de datos de la aplicación. Si la aplicación se ha eliminado accidentalmente alguna vez o si necesita revertirse a una versión anterior, es posible restaurarla desde cualquier copia de seguridad anterior. Las copias de seguridad se pueden realizar en cualquier momento a petición o se pueden programar a intervalos adecuados.
 
 En este artículo se explica cómo realizar copias de seguridad y restauraciones de una aplicación con solicitudes de API de RESTful. Si desea crear y administrar copias de seguridad de aplicaciones gráficamente mediante el Portal de Azure, consulte [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
 
 <a name="gettingstarted"></a>
+
 ## Introducción
 Para enviar solicitudes de REST, necesita saber el **nombre**, **grupo de recursos** e **identificador de suscripción** de la aplicación. Para encontrar esta información, puede hacer clic en la aplicación, en la hoja **Servicio de aplicaciones** del [Portal de Azure](https://portal.azure.com). Para ver los ejemplos de este artículo, vamos a configurar el sitio web **backuprestoreapiexamples.azurewebsites.net**. Se almacena en el grupo de recursos Default-Web-WestUS y se ejecuta en una suscripción con el identificador 00001111-2222-3333-4444-555566667777.
 
 ![Información del sitio web de ejemplo][SampleWebsiteInformation]
 
 <a name="backup-restore-rest-api"></a>
+
 ## Copia de seguridad y restauración de API de REST
 Ahora, vamos a describir varios ejemplos de cómo usar la API de REST para la copia de seguridad y la restauración de una aplicación. Cada ejemplo incluye una dirección URL y un cuerpo de solicitud HTTP. La dirección URL de ejemplo contiene marcadores de posición entre llaves, por ejemplo, {id.-suscripción}. Reemplace los marcadores de posición por la información correspondiente a su aplicación. Como referencia, proporcionamos una explicación de cada marcador de posición que aparece en las direcciones URL de ejemplo.
 
@@ -43,6 +47,7 @@ Ahora, vamos a describir varios ejemplos de cómo usar la API de REST para la co
 Para obtener la documentación completa de la API, entre ellos, varios parámetros opcionales que pueden incluirse en la solicitud HTTP, consulte el [Explorador de recursos de Azure r](https://resources.azure.com/).
 
 <a name="backup-on-demand"></a>
+
 ## Copia de seguridad de una aplicación a petición
 Para realizar una copia de seguridad de una aplicación de inmediato, envíe una solicitud **POST** a**https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backup/**.
 
@@ -96,9 +101,13 @@ Se inicia de inmediato una copia de seguridad de la aplicación al recibir la so
 }
 ```
 
->[AZURE.NOTE] Se pueden encontrar mensajes de error en la propiedad de registro de la respuesta HTTP.
+> [!NOTE]
+> Se pueden encontrar mensajes de error en la propiedad de registro de la respuesta HTTP.
+> 
+> 
 
 <a name="schedule-automatic-backups"></a>
+
 ## Programación de copias de seguridad automáticas
 Además de la copia de seguridad de una aplicación a petición, también puede programar la ejecución de una copia de seguridad automática.
 
@@ -137,6 +146,7 @@ Para obtener una configuración de copia de seguridad de una aplicación, envíe
 La dirección URL de nuestro sitio de ejemplo es **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/config/backup/list**.
 
 <a name="get-backup-status"></a>
+
 ## Obtención del estado de una copia de seguridad
 En función de lo grande que sea la aplicación, una copia de seguridad puede tardar varios minutos en completarse. Las copias de seguridad pueden también provocar errores, alargar el tiempo de espera o completarse solo parcialmente. Para ver el estado de todas las copias de seguridad de una aplicación, envíe una solicitud **GET** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups**.
 
@@ -179,6 +189,7 @@ El estado de una copia de seguridad es un tipo enumerado. Mostramos, a continuac
 * 9: Eliminada: se ha eliminado correctamente la copia de seguridad.
 
 <a name="restore-app"></a>
+
 ## Restauración de una aplicación desde una copia de seguridad
 Si se ha eliminado la aplicación, o si desea revertir la aplicación a una versión anterior, puede restaurar la aplicación desde una copia de seguridad. Para invocar una restauración, envíe una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/restore**.
 
@@ -207,12 +218,14 @@ En el cuerpo de la solicitud, envíe un objeto JSON que contiene las propiedades
 A veces, es posible que desee crear una nueva aplicación al restaurar una copia de seguridad, en lugar de sobrescribir una aplicación existente. Para ello, cambie la dirección URL de la solicitud a fin de que apunte a la nueva aplicación que desea crear y cambie la propiedad **overwrite** en JSON a **false**.
 
 <a name="delete-app-backup"></a>
+
 ## Eliminación de una copia de seguridad de aplicación
 Si desea eliminar una copia de seguridad, envíe una solicitud **DELETE** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}**.
 
 Este es el aspecto de la dirección URL de nuestro sitio web de ejemplo. **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backups/1**
 
 <a name="manage-sas-url"></a>
+
 ## Administración de la dirección URL de SAS de una copia de seguridad
 Servicio de aplicaciones de Azure intentará eliminar la copia de seguridad de Almacenamiento de Azure con la dirección URL de SAS proporcionada al crear la copia de seguridad. Si esta dirección URL de SAS ya no es válida, no se puede eliminar la copia de seguridad mediante la API de REST. Sin embargo, puede actualizar la dirección URL de SAS asociada a una copia de seguridad mediante el envío de una solicitud **POST** a la dirección URL **https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{name}/backups/{backup-id}/list**.
 
@@ -229,7 +242,10 @@ En el cuerpo de la solicitud, envíe un objeto JSON que contiene la nueva direcc
 }
 ```
 
->[AZURE.NOTE] Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si quiere ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior. Incluya un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contiene toda la información de la copia de seguridad, incluida su dirección URL de SAS.
+> [!NOTE]
+> Por motivos de seguridad, no se devuelve la dirección URL de SAS asociada a una copia de seguridad al enviar una solicitud GET para una copia de seguridad específica. Si quiere ver la dirección URL de SAS asociada a una copia de seguridad, envíe una solicitud POST a la misma dirección URL anterior. Incluya un objeto JSON vacío en el cuerpo de la solicitud. La respuesta del servidor contiene toda la información de la copia de seguridad, incluida su dirección URL de SAS.
+> 
+> 
 
 <!-- IMAGES -->
 [SampleWebsiteInformation]: ./media/websites-csm-backup/01siteconfig.png

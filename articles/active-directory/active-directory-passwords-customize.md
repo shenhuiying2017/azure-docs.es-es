@@ -1,45 +1,45 @@
-<properties
-    pageTitle="Personalizar: Administración de contraseñas de Azure AD | Microsoft Azure"
-    description="Cómo personalizar el aspecto, el comportamiento y las notificaciones de la Administración de contraseñas en Azure AD para satisfacer sus necesidades."
-    services="active-directory"
-    documentationCenter=""
-    authors="asteen"
-    manager="femila"
-    editor="curtand"/>
+---
+title: 'Personalizar: Administración de contraseñas de Azure AD | Microsoft Docs'
+description: Cómo personalizar el aspecto, el comportamiento y las notificaciones de la Administración de contraseñas en Azure AD para satisfacer sus necesidades.
+services: active-directory
+documentationcenter: ''
+author: asteen
+manager: femila
+editor: curtand
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/03/2016"
-    ms.author="asteen"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/03/2016
+ms.author: asteen
 
-
+---
 # <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
-
-> [AZURE.IMPORTANT] **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> [!IMPORTANT]
+> **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
+> 
+> 
 
 A fin de ofrecer la mejor experiencia posible a los usuarios, se recomienda explorar y jugar con todas las opciones de configuración de administración de contraseñas que están a su disposición. De hecho, puede empezar a explorarlas de inmediato en la pestaña de configuración de la **extensión de Active Directory** en el [Portal de Azure clásico](https://manage.windowsazure.com). Este tema le guiará a través de todas las diferentes personalizaciones de la Administración de contraseñas que puede realizar como administrador desde la pestaña **Configurar** del directorio dentro del [Portal de Azure clásico](https://manage.windowsazure.com), entre las que se incluyen las siguientes:
 
 | Tema. |  |
-| --------- | --------- |
-| ¿Cómo se habilita o deshabilita el restablecimiento de contraseña? | [Configuración: usuarios habilitados para el restablecimiento de contraseña](#users-enabled-for-password-reset) |
-| ¿Cómo se limita el ámbito de restablecimiento de contraseña a un conjunto específico de usuarios? | [Restricción del restablecimiento de contraseña a usuarios específicos](#restrict-access-to-password-reset) |
-| ¿Cómo se pueden cambiar los métodos de autenticación que se admiten? | [Configuración: métodos de autenticación disponibles para los usuarios](#authentication-methods-available-to-users) |
-| ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? | [Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) |
-| ¿Cómo se configuran preguntas de seguridad personalizadas? | [Configuración: preguntas de seguridad personalizadas](#custom-security-questions) |
-| ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? | [Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) |
-| ¿Cómo se puede cambiar el número de preguntas de seguridad que son necesarias? | [Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
-| ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? | [Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
-| ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? | [Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
-| ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? | [Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
-| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? | [Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
-| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? | [Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
-| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? | [Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
-| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? | [Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |
-
+| --- | --- |
+| ¿Cómo se habilita o deshabilita el restablecimiento de contraseña? |[Configuración: usuarios habilitados para el restablecimiento de contraseña](#users-enabled-for-password-reset) |
+| ¿Cómo se limita el ámbito de restablecimiento de contraseña a un conjunto específico de usuarios? |[Restricción del restablecimiento de contraseña a usuarios específicos](#restrict-access-to-password-reset) |
+| ¿Cómo se pueden cambiar los métodos de autenticación que se admiten? |[Configuración: métodos de autenticación disponibles para los usuarios](#authentication-methods-available-to-users) |
+| ¿Cómo se puede cambiar el número de métodos de autenticación necesarios? |[Configuración: número de métodos de autenticación necesarios](#number-of-authentication-methods-required) |
+| ¿Cómo se configuran preguntas de seguridad personalizadas? |[Configuración: preguntas de seguridad personalizadas](#custom-security-questions) |
+| ¿Cómo se configuran preguntas de seguridad localizadas predefinidas? |[Configuración: preguntas de seguridad basadas en el conocimiento](#knowledge-based-security-questions) |
+| ¿Cómo se puede cambiar el número de preguntas de seguridad que son necesarias? |[Configuración: número de preguntas de seguridad de registro o restablecimiento](#number-of-questions-required-to-register) |
+| ¿Cómo puedo forzar a que mis usuarios se registren al iniciar sesión? |[Implementación de restablecimiento de contraseña basado en registro forzoso](#require-users-to-register-when-signing-in) |
+| ¿Cómo se puede forzar a que los usuarios confirmen de nuevo su registro periódicamente? |[Configuración: número de días antes de que los usuarios deban confirmar nuevamente sus datos de autenticación](#number-of-days-before-users-must-confirm-their-contact-data) |
+| ¿Cómo puedo personalizar cómo los usuarios se ponen en contacto con un administrador? |[Configuración: personalización del vínculo "póngase en contacto con su administrador"](#customize-the-contact-your-administrator-link) |
+| ¿Cómo se puede permitir que los usuarios desbloqueen cuentas de AD sin restablecer una contraseña? |[Configuración: permitir que los usuarios desbloqueen sus cuentas de AD sin restablecer una contraseña](#allow-users-to-unlock-accounts-without-resetting-their-password) |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los usuarios? |[Configuración: notificar a los usuarios cuando sus contraseñas se han restablecido](#notify-users-and-admins-when-their-own-password-has-been-reset) |
+| ¿Cómo se pueden habilitar las notificaciones de restablecimiento de contraseña para los administradores? |[Configuración: notificar a otros administradores cuando un administrador restablezca su propia contraseña](#notify-admins-when-other-admins-reset-their-own-passwords) |
+| ¿Cómo se puede personalizar la apariencia del restablecimiento de contraseña? |[Configuración: nombre, marca y logotipo de la empresa ](#password-management-look-and-feel) |
 
 ## <a name="password-management-look-and-feel"></a>Aspecto de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas.  Puede configurar estas opciones en la sección **Propiedades de directorio** de la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
@@ -134,7 +134,10 @@ Determina si el logotipo se muestra en la parte inferior de los correos electró
 ## <a name="password-management-behavior"></a>Comportamiento de la Administración de contraseñas
 En la siguiente tabla se describe la forma en la que cada control afecta a la experiencia de los usuarios que se registran para el restablecimiento de contraseña y que restablecen sus contraseñas.  Puede configurar estas opciones en la sección **Directiva de restablecimiento de contraseña** del usuario en la pestaña **Configurar** del [Portal de administración de Azure](https://manage.windowsazure.com).
 
-> [AZURE.NOTE] La cuenta de administrador que se está usando debe tener una licencia de AAD Premium asignada para ver estos controles de directivas.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores.  **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
+> [!NOTE]
+> La cuenta de administrador que se está usando debe tener una licencia de AAD Premium asignada para ver estos controles de directivas.<br><br>Estos controles de directiva solo se aplican a usuarios finales que restablecen sus contraseñas, no a administradores.  **Los administradores tienen una directiva predeterminada de correo electrónico alternativo o teléfono móvil que se especifica para ellos por parte de Microsoft y que no se puede cambiar.**
+> 
+> 
 
 <table>
             <tbody><tr>
@@ -868,7 +871,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**P+F**](active-directory-passwords-faq.md) : obtenga respuestas a las preguntas más frecuentes.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
-
 
 [001]: ./media/active-directory-passwords-customize/001.jpg "Image_001.jpg"
 

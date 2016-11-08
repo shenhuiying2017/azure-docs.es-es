@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Modelo de datos de Application Insights" 
-	description="Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Modelo de datos de Application Insights
+description: Describe las propiedades exportadas con la exportación continua de JSON y usadas como filtros.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="03/21/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 03/21/2016
+ms.author: awills
 
+---
 # Modelo de exportación de datos de Application Insights
-
 En esta tabla se enumeran las propiedades de telemetría enviadas desde los SDK de [Application Insights](app-insights-overview.md) al portal. Verá estas propiedades en el resultado de datos de [Exportación continua](app-insights-export-telemetry.md). También aparecen en los filtros de propiedad del [Explorador de métricas](app-insights-metrics-explorer.md) y la [Búsqueda de diagnóstico](app-insights-diagnostic-search.md).
 
 Puntos a tener en cuenta:
@@ -27,10 +26,7 @@ Puntos a tener en cuenta:
 
 Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustran cómo usarlas.
 
-
-
 ## Ejemplo
-
     // A server report about an HTTP request
     {
     "request": [ 
@@ -110,220 +106,187 @@ Hay varios [ejemplos](app-insights-export-telemetry.md#code-samples) que ilustra
     }
   }
 
-
-
-
 ## Context
-
 Una sección de contexto acompaña a todos los tipos de telemetría. No todos estos campos se transmiten con cada punto de datos.
 
-
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| context.custom.dimensions [0] | objeto [ ] | Pares de cadenas de clave-valor establecidos por el parámetro de propiedades personalizadas. Longitud máxima de clave: 100, longitud máxima de valores: 1024. Más de 100 valores únicos, se pueden realizar búsquedas en la propiedad, pero no se puede usar para la segmentación. Máximo de 200 claves por ikey. |
-| context.custom.metrics [0] | objeto [ ] | Los pares de clave-valor se establecen mediante el parámetro de medidas personalizado y mediante TrackMetrics. Longitud máxima de clave: 100, los valores pueden ser numéricos. |
-| context.data.eventTime | cadena | UTC |
-| context.data.isSynthetic | boolean | La solicitud parece proceder de un bot o una prueba web. |
-| context.data.samplingRate | número | Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0.|
-| context.device | objeto | Dispositivo de cliente |
-| context.device.browser | cadena | IE, Chrome,… |
-| context.device.browserVersion | cadena | Chrome 48.0,… |
-| context.device.deviceModel | cadena | |
-| context.device.deviceName | cadena | |
-| context.device.id | cadena | |
-| context.device.locale | cadena | en-GB, de-DE,… |
-| context.device.network | cadena | |
-| context.device.oemName | cadena | |
-| context.device.osVersion | cadena | Sistema operativo del host |
-| context.device.roleInstance | cadena | Identificador del host del servidor |
-| context.device.roleName | cadena | |
-| context.device.type | cadena | PC, explorador,… |
-| context.location | objeto | Derivado de clientip. |
-| context.location.city | cadena | Derivado de clientip, si se conoce. |
-| context.location.clientip | cadena | El último octágono se hace anónimo en 0. |
-| context.location.continent | cadena | |
-| context.location.country | cadena | |
-| context.location.province | cadena | Estado o provincia |
-| context.operation.id | cadena | Los elementos que tienen el mismo identificador de operación se muestran como elementos relacionados en el portal. Normalmente, el identificador de solicitud. |
-| context.operation.name | cadena | Nombre de solicitud o dirección URL |
-| context.operation.parentId | cadena | Permite elementos relacionados anidados. |
-| context.session.id | cadena | Identificador de un grupo de operaciones del mismo origen. Un período de 30 minutos sin una operación señala el final de una sesión. |
-| context.session.isFirst | boolean | |
-| context.user.accountAcquisitionDate | cadena | |
-| context.user.anonAcquisitionDate | cadena | |
-| context.user.anonId | cadena | |
-| context.user.authAcquisitionDate | cadena | [Usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
-| context.user.isAuthenticated | boolean | |
-| internal.data.documentVersion | cadena | |
-| internal.data.id | cadena | |
-
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| context.custom.dimensions [0] |objeto [ ] |Pares de cadenas de clave-valor establecidos por el parámetro de propiedades personalizadas. Longitud máxima de clave: 100, longitud máxima de valores: 1024. Más de 100 valores únicos, se pueden realizar búsquedas en la propiedad, pero no se puede usar para la segmentación. Máximo de 200 claves por ikey. |
+| context.custom.metrics [0] |objeto [ ] |Los pares de clave-valor se establecen mediante el parámetro de medidas personalizado y mediante TrackMetrics. Longitud máxima de clave: 100, los valores pueden ser numéricos. |
+| context.data.eventTime |cadena |UTC |
+| context.data.isSynthetic |boolean |La solicitud parece proceder de un bot o una prueba web. |
+| context.data.samplingRate |número |Porcentaje de telemetría generado por el SDK que se envía al portal. Intervalo 0,0 a 100,0. |
+| context.device |objeto |Dispositivo de cliente |
+| context.device.browser |cadena |IE, Chrome,… |
+| context.device.browserVersion |cadena |Chrome 48.0,… |
+| context.device.deviceModel |cadena | |
+| context.device.deviceName |cadena | |
+| context.device.id |cadena | |
+| context.device.locale |cadena |en-GB, de-DE,… |
+| context.device.network |cadena | |
+| context.device.oemName |cadena | |
+| context.device.osVersion |cadena |Sistema operativo del host |
+| context.device.roleInstance |cadena |Identificador del host del servidor |
+| context.device.roleName |cadena | |
+| context.device.type |cadena |PC, explorador,… |
+| context.location |objeto |Derivado de clientip. |
+| context.location.city |cadena |Derivado de clientip, si se conoce. |
+| context.location.clientip |cadena |El último octágono se hace anónimo en 0. |
+| context.location.continent |cadena | |
+| context.location.country |cadena | |
+| context.location.province |cadena |Estado o provincia |
+| context.operation.id |cadena |Los elementos que tienen el mismo identificador de operación se muestran como elementos relacionados en el portal. Normalmente, el identificador de solicitud. |
+| context.operation.name |cadena |Nombre de solicitud o dirección URL |
+| context.operation.parentId |cadena |Permite elementos relacionados anidados. |
+| context.session.id |cadena |Identificador de un grupo de operaciones del mismo origen. Un período de 30 minutos sin una operación señala el final de una sesión. |
+| context.session.isFirst |boolean | |
+| context.user.accountAcquisitionDate |cadena | |
+| context.user.anonAcquisitionDate |cadena | |
+| context.user.anonId |cadena | |
+| context.user.authAcquisitionDate |cadena |[Usuario autenticado](app-insights-api-custom-events-metrics.md#authenticated-users) |
+| context.user.isAuthenticated |boolean | |
+| internal.data.documentVersion |cadena | |
+| internal.data.id |cadena | |
 
 ## Eventos
-
 Eventos personalizados generados por [TrackEvent()](app-insights-api-custom-events-metrics.md#track-event).
 
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| event [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| event [0] name | cadena | Nombre del evento. Longitud máxima: 250. |
-| event [0] url | cadena | |
-| event [0] urlData.base | cadena | |
-| event [0] urlData.host | cadena | |
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| event [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| event [0] name |cadena |Nombre del evento. Longitud máxima: 250. |
+| event [0] url |cadena | |
+| event [0] urlData.base |cadena | |
+| event [0] urlData.host |cadena | |
 
 ## Excepciones
-
 Notifica sobre [excepciones](app-insights-asp-net-exceptions.md) en el servidor y en el explorador.
 
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| basicException [0] assembly | cadena | |
-| basicException [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| basicException [0] exceptionGroup | cadena | |
-| basicException [0] exceptionType | cadena | |cadena | |
-| basicException [0] failedUserCodeMethod | cadena | |
-| basicException [0] failedUserCodeAssembly | cadena | |
-| basicException [0] handledAt | cadena | |
-| basicException [0] hasFullStack | boolean | |
-| basicException [0] id | cadena | |
-| basicException [0] method | cadena | |
-| basicException [0] message | cadena | Mensaje de excepción. Longitud máxima: 10 000.|
-| basicException [0] outerExceptionMessage | cadena | |
-| basicException [0] outerExceptionThrownAtAssembly | cadena | |
-| basicException [0] outerExceptionThrownAtMethod | cadena | |
-| basicException [0] outerExceptionType | cadena | |
-| basicException [0] outerId | cadena | |
-| basicException [0] parsedStack [0] assembly | cadena | |
-| basicException [0] parsedStack [0] fileName | cadena | |
-| basicException [0] parsedStack [0] level | integer | |
-| basicException [0] parsedStack [0] line | integer | |
-| basicException [0] parsedStack [0] method | cadena | |
-| basicException [0] stack | cadena | Longitud máxima: 10 000.|
-| basicException [0] typeName | cadena | |
-
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| basicException [0] assembly |cadena | |
+| basicException [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| basicException [0] exceptionGroup |cadena | |
+| basicException [0] exceptionType |cadena | |
+| basicException [0] failedUserCodeMethod |cadena | |
+| basicException [0] failedUserCodeAssembly |cadena | |
+| basicException [0] handledAt |cadena | |
+| basicException [0] hasFullStack |boolean | |
+| basicException [0] id |cadena | |
+| basicException [0] method |cadena | |
+| basicException [0] message |cadena |Mensaje de excepción. Longitud máxima: 10 000. |
+| basicException [0] outerExceptionMessage |cadena | |
+| basicException [0] outerExceptionThrownAtAssembly |cadena | |
+| basicException [0] outerExceptionThrownAtMethod |cadena | |
+| basicException [0] outerExceptionType |cadena | |
+| basicException [0] outerId |cadena | |
+| basicException [0] parsedStack [0] assembly |cadena | |
+| basicException [0] parsedStack [0] fileName |cadena | |
+| basicException [0] parsedStack [0] level |integer | |
+| basicException [0] parsedStack [0] line |integer | |
+| basicException [0] parsedStack [0] method |cadena | |
+| basicException [0] stack |cadena |Longitud máxima: 10 000. |
+| basicException [0] typeName |cadena | |
 
 ## Mensajes de seguimiento
-
 Enviados por [TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y por los [adaptadores de registro](app-insights-asp-net-trace-logs.md).
 
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| message [0] loggerName | cadena ||
-| message [0] parameters | cadena ||
-| message [0] raw | cadena | El mensaje de registro, longitud máxima: 10 000. |
-| message [0] severityLevel | cadena | |
-
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| message [0] loggerName |cadena | |
+| message [0] parameters |cadena | |
+| message [0] raw |cadena |El mensaje de registro, longitud máxima: 10 000. |
+| message [0] severityLevel |cadena | |
 
 ## Dependencia remota
-
 Enviado por TrackDependency. Se usa para notificar el rendimiento y el uso de las [llamadas a dependencias](app-insights-asp-net-dependencies.md) en el servidor y de las llamadas AJAX en el explorador.
 
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| remoteDependency [0] async | boolean | |
-| remoteDependency [0] baseName | cadena | |
-| remoteDependency [0] commandName | cadena | Por ejemplo, "home/index". |
-| remoteDependency [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| remoteDependency [0] dependencyTypeName | cadena | HTTP, SQL... |
-| remoteDependency [0] durationMetric.value | número | Tiempo desde la llamada hasta la finalización de respuesta de la dependencia |
-| remoteDependency [0] id | cadena | |
-| remoteDependency [0] name | cadena | URL Longitud máxima: 250.|
-| remoteDependency [0] resultCode | cadena | de la dependencia de HTTP |
-| remoteDependency [0] success | boolean | |
-| remoteDependency [0] type | cadena | Http, Sql,... |
-| remoteDependency [0] url | cadena | Longitud máxima: 2000 |
-| remoteDependency [0] urlData.base | cadena | Longitud máxima: 2000 |
-| remoteDependency [0] urlData.hashTag | cadena | |
-| remoteDependency [0] urlData.host | cadena | Longitud máxima: 200 |
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| remoteDependency [0] async |boolean | |
+| remoteDependency [0] baseName |cadena | |
+| remoteDependency [0] commandName |cadena |Por ejemplo, "home/index". |
+| remoteDependency [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| remoteDependency [0] dependencyTypeName |cadena |HTTP, SQL... |
+| remoteDependency [0] durationMetric.value |número |Tiempo desde la llamada hasta la finalización de respuesta de la dependencia |
+| remoteDependency [0] id |cadena | |
+| remoteDependency [0] name |cadena |URL Longitud máxima: 250. |
+| remoteDependency [0] resultCode |cadena |de la dependencia de HTTP |
+| remoteDependency [0] success |boolean | |
+| remoteDependency [0] type |cadena |Http, Sql,... |
+| remoteDependency [0] url |cadena |Longitud máxima: 2000 |
+| remoteDependency [0] urlData.base |cadena |Longitud máxima: 2000 |
+| remoteDependency [0] urlData.hashTag |cadena | |
+| remoteDependency [0] urlData.host |cadena |Longitud máxima: 200 |
 
 ## Solicitudes
-
 Enviado por [TrackRequest](app-insights-api-custom-events-metrics.md#track-request). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.
 
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| request [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| request [0] durationMetric.value | número | Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
-| request [0] id | cadena | Identificador de operación |
-| request [0] name | cadena | GET y POST + dirección url base. Longitud máxima: 250 |
-| request [0] responseCode | integer | Respuesta HTTP enviada al cliente |
-| request [0] success | boolean | Predeterminado == (responseCode &lt; 400) |
-| request [0] url | cadena | No incluye el host |
-| request [0] urlData.base | cadena | |
-| request [0] urlData.hashTag | cadena | |
-| request [0] urlData.host | cadena | |
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| request [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| request [0] durationMetric.value |número |Tiempo desde que llega la solicitud hasta la respuesta. 1e7 = 1 s |
+| request [0] id |cadena |Identificador de operación |
+| request [0] name |cadena |GET y POST + dirección url base. Longitud máxima: 250 |
+| request [0] responseCode |integer |Respuesta HTTP enviada al cliente |
+| request [0] success |boolean |Predeterminado == (responseCode &lt; 400) |
+| request [0] url |cadena |No incluye el host |
+| request [0] urlData.base |cadena | |
+| request [0] urlData.hashTag |cadena | |
+| request [0] urlData.host |cadena | |
 
 ## Rendimiento de la vista de página
-
 Enviado por el explorador. Mide el tiempo que se tarda en procesar una página desde que el usuario inicia la solicitud hasta que aparece por completo (excluidas las llamadas AJAX asincrónicas).
 
 Los valores de contexto muestran el sistema operativo del cliente y la versión del explorador.
 
-
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| clientPerformance [0] clientProcess.value | integer | Tiempo transcurrido desde el fin de la recepción del código HTML hasta que se muestra la página. |
-| clientPerformance [0] name | cadena | |
-| clientPerformance [0] networkConnection.value | integer | Tiempo necesario para establecer una conexión de red. |
-| clientPerformance [0] receiveRequest.value | integer | Tiempo transcurrido desde la finalización del envío de la solicitud hasta la recepción del código HTML en la respuesta. |
-| clientPerformance [0] sendRequest.value | integer | Tiempo empleado en enviar la solicitud HTTP. |
-| clientPerformance [0] total.value | integer | Tiempo transcurrido desde que se empieza a enviar la solicitud hasta que se muestra la página. |
-| clientPerformance [0] url | cadena | Dirección URL de esta solicitud |
-| clientPerformance [0] urlData.base | cadena | |
-| clientPerformance [0] urlData.hashTag | cadena | |
-| clientPerformance [0] urlData.host | cadena | |
-| clientPerformance [0] urlData.protocol | cadena | |
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| clientPerformance [0] clientProcess.value |integer |Tiempo transcurrido desde el fin de la recepción del código HTML hasta que se muestra la página. |
+| clientPerformance [0] name |cadena | |
+| clientPerformance [0] networkConnection.value |integer |Tiempo necesario para establecer una conexión de red. |
+| clientPerformance [0] receiveRequest.value |integer |Tiempo transcurrido desde la finalización del envío de la solicitud hasta la recepción del código HTML en la respuesta. |
+| clientPerformance [0] sendRequest.value |integer |Tiempo empleado en enviar la solicitud HTTP. |
+| clientPerformance [0] total.value |integer |Tiempo transcurrido desde que se empieza a enviar la solicitud hasta que se muestra la página. |
+| clientPerformance [0] url |cadena |Dirección URL de esta solicitud |
+| clientPerformance [0] urlData.base |cadena | |
+| clientPerformance [0] urlData.hashTag |cadena | |
+| clientPerformance [0] urlData.host |cadena | |
+| clientPerformance [0] urlData.protocol |cadena | |
 
 ## Vistas de página
-
 Enviado por trackPageView() o [stopTrackPage](app-insights-api-custom-events-metrics.md#page-view)
 
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| view [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| view [0] durationMetric.value | integer | Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
-| view [0] name | cadena | Título de la página. Longitud máxima: 250 |
-| view [0] url | cadena | |
-| view [0] urlData.base | cadena | |
-| view [0] urlData.hashTag | cadena | |
-| view [0] urlData.host | cadena | |
-
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| view [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| view [0] durationMetric.value |integer |Valor establecido opcionalmente en trackPageView() o mediante startTrackPage() - stopTrackPage(). No es igual que los valores de clientPerformance. |
+| view [0] name |cadena |Título de la página. Longitud máxima: 250 |
+| view [0] url |cadena | |
+| view [0] urlData.base |cadena | |
+| view [0] urlData.hashTag |cadena | |
+| view [0] urlData.host |cadena | |
 
 ## Disponibilidad
-
 Notifica sobre [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md).
 
-|Ruta de acceso|Tipo|Notas|
-|---|---|---|
-| availability [0] availabilityMetric.name | cadena | availability |
-| availability [0] availabilityMetric.value | número |1,0 o 0,0 |
-| availability [0] count | integer | 100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
-| availability [0] dataSizeMetric.name | cadena | |
-| availability [0] dataSizeMetric.value | integer | |
-| availability [0] durationMetric.name | cadena | |
-| availability [0] durationMetric.value | número | Duración de la prueba. 1e7 = 1 s |
-| availability [0] message | cadena | Diagnóstico de errores |
-| availability [0] result | cadena | Sin errores/Error |
-| availability [0] runLocation | cadena | Origen geográfica de la solicitud http |
-| availability [0] testName | cadena | |
-| availability [0] testRunId | cadena | |
-| availability [0] testTimestamp | cadena | |
-
-
-
+| Ruta de acceso | Tipo | Notas |
+| --- | --- | --- |
+| availability [0] availabilityMetric.name |cadena |availability |
+| availability [0] availabilityMetric.value |número |1,0 o 0,0 |
+| availability [0] count |integer |100/(frecuencia de [muestreo](app-insights-sampling.md)). Por ejemplo: 4 =&gt; 25 %. |
+| availability [0] dataSizeMetric.name |cadena | |
+| availability [0] dataSizeMetric.value |integer | |
+| availability [0] durationMetric.name |cadena | |
+| availability [0] durationMetric.value |número |Duración de la prueba. 1e7 = 1 s |
+| availability [0] message |cadena |Diagnóstico de errores |
+| availability [0] result |cadena |Sin errores/Error |
+| availability [0] runLocation |cadena |Origen geográfica de la solicitud http |
+| availability [0] testName |cadena | |
+| availability [0] testRunId |cadena | |
+| availability [0] testTimestamp |cadena | |
 
 ## Métricas
-
 Generado por TrackMetric().
 
 El valor de la métrica se encuentra en context.custom.metrics[0].
@@ -354,7 +317,6 @@ Por ejemplo:
     }
 
 ## Acerca de los valores de métrica
-
 Los valores de métrica, tanto en los informes de métrica como en otros lugares, se notifican con una estructura de objeto estándar. Por ejemplo:
 
       "durationMetric": {
@@ -376,15 +338,10 @@ En las tablas anteriores, hemos omitido los campos usados con poca frecuencia co
 
 En lugar de la agregación previa de las métricas, puede usar el [muestreo](app-insights-sampling.md) si necesita reducir el volumen de datos de telemetría.
 
-
 ### Duraciones
-
 Excepto donde se indique lo contrario, las duraciones se representan en décimas de microsegundo, por lo que 10000000,0 equivalen a 1 segundo.
 
-
-
 ## Consulte también
-
 * [Application Insights](app-insights-overview.md) 
 * [Exportación continua](app-insights-export-telemetry.md)
 * [Ejemplos de código](app-insights-export-telemetry.md#code-samples)

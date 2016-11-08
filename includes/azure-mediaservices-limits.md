@@ -1,20 +1,20 @@
-Recurso|Límite predeterminado|Límite máximo
----|---|---
-Cuentas de Servicios multimedia de Azure (AMS) en una única suscripción||25
-Recursos por cuenta de AMS||1\.000.000<sup>1</sup>
-Tareas encadenadas por trabajo||30
-Recursos por tarea.||50
-Recursos por trabajo||100
-Trabajos por cuenta de AMS ||50 000<sup>2</sup>
-Localizadores únicos asociados a un recurso al mismo tiempo||5<sup>4</sup>
-Canales activos por cuenta de AMS</p></td>|5</p></td>|N/A<sup>1</sup>
-Programas en estado detenido por canal </p></td>|50</p></td>|N/A<sup>1</sup>
-Programas en estado de ejecución por canal </p></td>|3</p></td>|3
-Extremos de streaming en estado de ejecución por cuenta de ASM</p></td>|2</p></td>|N/A<sup>1</sup>
-Unidades de streaming por extremo de streaming</p></td>|10 </p></td>|N/A<sup>1</sup>
-Unidades de codificación por cuenta de AMS</p></td>|25</p></td>|N/A<sup>1</sup>
-Cuentas de almacenamiento | |1\.000<sup>5</sup>
-Directivas || 1\.000.000<sup>6</sup>
+| Recurso | Límite predeterminado | Límite máximo |
+| --- | --- | --- |
+| Cuentas de Servicios multimedia de Azure (AMS) en una única suscripción | |25 |
+| Recursos por cuenta de AMS | |1\.000.000<sup>1</sup> |
+| Tareas encadenadas por trabajo | |30 |
+| Recursos por tarea. | |50 |
+| Recursos por trabajo | |100 |
+| Trabajos por cuenta de AMS | |50 000<sup>2</sup> |
+| Localizadores únicos asociados a un recurso al mismo tiempo | |5<sup>4</sup> |
+| Canales activos por cuenta de AMS</p></td> |5</p></td> |N/A<sup>1</sup> |
+| Programas en estado detenido por canal </p></td> |50</p></td> |N/A<sup>1</sup> |
+| Programas en estado de ejecución por canal </p></td> |3</p></td> |3 |
+| Extremos de streaming en estado de ejecución por cuenta de ASM</p></td> |2</p></td> |N/A<sup>1</sup> |
+| Unidades de streaming por extremo de streaming</p></td> |10 </p></td> |N/A<sup>1</sup> |
+| Unidades de codificación por cuenta de AMS</p></td> |25</p></td> |N/A<sup>1</sup> |
+| Cuentas de almacenamiento | |1\.000<sup>5</sup> |
+| Directivas | |1\.000.000<sup>6</sup> |
 
 <sup>1</sup> Puede solicitar la actualización de los límites de esta cuota abriendo una incidencia de soporte técnico. No cree más cuentas de AMS para aumentar los límites; en su lugar, envíe una incidencia de soporte técnico.
 

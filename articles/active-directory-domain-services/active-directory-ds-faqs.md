@@ -1,32 +1,28 @@
-<properties
-    pageTitle="Preguntas más frecuentes - Azure Active Directory Domain Services | Microsoft Azure"
-    description="Preguntas más frecuentes sobre Servicios de dominio de Azure Active Directory"
-    services="active-directory-ds"
-    documentationCenter=""
-    authors="mahesh-unnikrishnan"
-    manager="stevenpo"
-    editor="curtand"/>
+---
+title: Preguntas más frecuentes - Azure Active Directory Domain Services | Microsoft Docs
+description: Preguntas más frecuentes sobre Servicios de dominio de Azure Active Directory
+services: active-directory-ds
+documentationcenter: ''
+author: mahesh-unnikrishnan
+manager: stevenpo
+editor: curtand
 
-<tags
-    ms.service="active-directory-ds"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/07/2016"
-    ms.author="maheshu"/>
+ms.service: active-directory-ds
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/07/2016
+ms.author: maheshu
 
-
+---
 # <a name="azure-active-directory-domain-services:-frequently-asked-questions-(faqs)"></a>Azure Active Directory Domain Services: Preguntas más frecuentes (P+F)
-
 Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services. Siga comprobando si hay actualizaciones.
 
 ### <a name="troubleshooting-guide"></a>Guía de solución de problemas
 Consulte nuestra [Guía de solución de problemas](active-directory-ds-troubleshooting.md) para obtener soluciones para los problemas habituales detectados al configurar o administrar los Servicios de dominio de Azure AD.
 
-
 ### <a name="configuration"></a>Configuración
-
 #### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory?"></a>¿Se pueden crear varios dominios para un único directorio de Azure AD?
 No. Solo se puede crear un único dominio atendido por Servicios de dominio de Azure AD para un único directorio de Azure AD.  
 
@@ -43,7 +39,6 @@ No. Los Servicios de dominio de Azure AD solo se pueden configurar en el [Portal
 No. El dominio de Servicios de dominio de Azure AD es un dominio administrado. No es necesario aprovisionar, configurar o administrar controladores de dominio para este dominio, Microsoft proporciona estas actividades de administración como un servicio. Por lo tanto, no podrá agregar controladores de dominio adicionales (ni de lectura y escritura ni de solo lectura) para el dominio administrado.
 
 ### <a name="administration-and-operations"></a>Administración y operaciones
-
 #### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop?"></a>¿Puedo conectarme al controlador de dominio para mi dominio administrado mediante Escritorio remoto?
 No. Los administradores de inquilinos no tienen privilegios para conectarse a controladores de dominio en el dominio administrado mediante el Escritorio remoto. Los miembros del grupo "Administradores de controlador de dominio de AAD" pueden administrar el dominio administrado usando las herramientas de administración de AD, como el Centro de administración de Active Directory (ADAC) o AD PowerShell. Estas herramientas se instalan mediante la característica "Herramientas de administración de servidor remoto" en un servidor de Windows unido al dominio administrado.
 
@@ -63,7 +58,6 @@ No. Microsoft administra el esquema del dominio administrado. No se admiten exte
 Sí. Los usuarios que pertenecen al grupo "Administradores de controlador de dominio de AAD" reciben privilegios de "Administrador de DNS" con el fin de modificar los registros DNS en el dominio administrado. Estos usuarios pueden utilizar la consola de administrador de DNS en un equipo que ejecuta Windows Server unido al dominio administrado para administrar DNS. A fin de utilizar la consola de administrador de DNS, instale "Herramientas del servidor DNS", que forma parte de la característica opcional "Herramientas de administración remota del servidor" en el servidor. Hay más información sobre [utilidades para administrar, supervisar y solucionar problemas de DNS](https://technet.microsoft.com/library/cc753579.aspx) disponible en TechNet.
 
 ### <a name="billing-and-availability"></a>Facturación y disponibilidad
-
 #### <a name="is-azure-ad-domain-services-a-paid-service?"></a>¿Azure AD Domain Services es un servicio de pago?
 Sí. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/active-directory-ds/)para obtener más información.
 
@@ -75,8 +69,6 @@ No, Servicios de dominio de Azure AD es un servicio de Azure de pago por uso y n
 
 #### <a name="what-azure-regions-is-the-service-available-in?"></a>¿En qué regiones de Azure está disponible el servicio?
 Consulte nuestra [página de regiones](active-directory-ds-regions.md) para obtener una lista de las regiones de Azure donde está disponible Azure AD Domain Services.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

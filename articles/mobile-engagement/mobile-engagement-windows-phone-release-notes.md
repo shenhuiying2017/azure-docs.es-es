@@ -1,52 +1,47 @@
-<properties 
-	pageTitle="Notas de la versión del SDK de Windows Phone Silverlight" 
-	description="Azure Mobile Engagement - Notas de la versión del SDK de Windows Phone Silverlight" 					
-	services="mobile-engagement" 
-	documentationCenter="mobile" 
-	authors="piyushjo" 
-	manager="dwrede" 
-	editor="" />
+---
+title: Notas de la versión del SDK de Windows Phone Silverlight
+description: Azure Mobile Engagement - Notas de la versión del SDK de Windows Phone Silverlight
+services: mobile-engagement
+documentationcenter: mobile
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags 
-	ms.service="mobile-engagement" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
-	ms.devlang="na"
-	ms.topic="article" 
-	ms.date="08/19/2016" 
-	ms.author="piyushjo" />
+ms.service: mobile-engagement
+ms.workload: mobile
+ms.tgt_pltfrm: mobile-windows-phone
+ms.devlang: na
+ms.topic: article
+ms.date: 08/19/2016
+ms.author: piyushjo
 
-#Notas de la versión del SDK de Windows Phone Silverlight
-
-
-##3\.3.0 (04/19/2016)
+---
+# Notas de la versión del SDK de Windows Phone Silverlight
+## 3\.3.0 (04/19/2016)
 Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.4.0**
 
--   API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
+* API "TestLogLevel" agregada para habilitar, deshabilitar y filtrar registros de consola emitidos por el SDK.
 
-##3\.2.0 (01/22/2016)
+## 3\.2.0 (01/22/2016)
 Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.3.0**
 
--   Esquemas personalizados, ms appx y ms-appdata disponibles en direcciones URL de acción.
--   Mejoras de estabilidad.
-  
-##3\.1.0 (20/11/2015)
+* Esquemas personalizados, ms appx y ms-appdata disponibles en direcciones URL de acción.
+* Mejoras de estabilidad.
+
+## 3\.1.0 (20/11/2015)
 Parte del paquete NuGet *MicrosoftAzure.MobileEngagement* **v3.2.0**
 
--   Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
--   Mejoras de los registros de consola.
+* Bloqueo fijo al solicitar el identificador del dispositivo justo después de la inicialización.
+* Mejoras de los registros de consola.
 
-##3\.0.0 (03/04/2015)
+## 3\.0.0 (03/04/2015)
+* Icono de notificación predeterminado actualizado.
+* Envíe comentarios de acción de notificación del sistema al hacer clic en una notificación.
+* Se ha fijado una condición de carrera en la notificación del sistema.
 
--   Icono de notificación predeterminado actualizado.
--   Envíe comentarios de acción de notificación del sistema al hacer clic en una notificación.
--   Se ha fijado una condición de carrera en la notificación del sistema.
-
-##2\.0.0 (02/17/2015)
-
--   Versión inicial de Azure Mobile Engagement.
--   La configuración de appId o sdkKey se sustituye por una configuración de la cadena de conexión.
--   Mejoras de seguridad.
- 
+## 2\.0.0 (02/17/2015)
+* Versión inicial de Azure Mobile Engagement.
+* La configuración de appId o sdkKey se sustituye por una configuración de la cadena de conexión.
+* Mejoras de seguridad.
 
 <!---HONumber=AcomDC_0824_2016-->

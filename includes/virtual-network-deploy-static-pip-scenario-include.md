@@ -1,5 +1,4 @@
 ## Escenario
-
 Este documento le guiará por una implementación que usa una dirección IP pública estática asignada a una máquina virtual (VM). En este escenario, tiene una sola máquina virtual con su propia dirección IP pública estática. La máquina virtual forma parte de una subred denominada **FrontEnd** y también tiene una dirección IP privada estática (**192.168.1.101**) en esa subred.
 
 Es posible que necesite una dirección IP estática para los servidores web que requieren conexiones SSL en las que el certificado SSL está vinculado a una dirección IP.

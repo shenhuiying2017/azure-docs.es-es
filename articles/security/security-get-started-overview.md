@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Información general de seguridad de Azure | Microsoft Azure"
-   description="El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Información general de seguridad de Azure | Microsoft Docs
+description: El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Información general de seguridad de Azure
-
 El sitio de información de seguridad de Microsoft Azure en Azure.com es el lugar para las respuestas técnicas a las preguntas de seguridad de Azure. Si está interesado en el cumplimiento de Azure y en cómo Azure protege su propia infraestructura, visite el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/default.aspx).
 
 Sabemos que la seguridad tiene la máxima prioridad en la nube y conocemos la importancia que tiene que buscar información exacta y a tiempo sobre la seguridad de Azure. Una de las principales razones para usar Azure en sus aplicaciones y servicios es aprovechar la amplia gama de herramientas de seguridad y funcionalidades disponibles. Estas herramientas y funcionalidades permiten crear soluciones seguras en la plataforma Azure segura.
@@ -31,18 +30,21 @@ Cada categoría tendrá un artículo de información general. El objetivo del ar
 
 Actualmente, el sitio de información de seguridad de Azure cubre las siguientes categorías:
 
-- Recursos
-- Seguridad de las redes
-- Seguridad para almacenamiento
-- Seguridad de máquina virtual
-- Endpoint Protection
-- Administración y supervisión de seguridad
-- Administración de identidades
-- Servicios de PaaS
-- Específico del sector
-- Arquitectura
+* Recursos
+* Seguridad de las redes
+* Seguridad para almacenamiento
+* Seguridad de máquina virtual
+* Endpoint Protection
+* Administración y supervisión de seguridad
+* Administración de identidades
+* Servicios de PaaS
+* Específico del sector
+* Arquitectura
 
-> [AZURE.NOTE] Todos los artículos que tenemos en el sitio de información de seguridad de Azure aparecen en la navegación en el lado izquierdo de la página. Si quiere ver todos los artículos, simplemente haga clic o pulse en **Ver más** en la parte inferior de la lista de categorías.
+> [!NOTE]
+> Todos los artículos que tenemos en el sitio de información de seguridad de Azure aparecen en la navegación en el lado izquierdo de la página. Si quiere ver todos los artículos, simplemente haga clic o pulse en **Ver más** en la parte inferior de la lista de categorías.
+> 
+> 
 
 Queremos saber su opinión. Si le gustaría que se agregaran categorías, comuníquenoslo. Si hay artículos que le gustaría agregar a una categoría existente, háganoslo saber también. Puede utilizar la siguiente sección de comentarios o escribirnos a [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) e incorporaremos sus recomendaciones a nuestros planes.
 

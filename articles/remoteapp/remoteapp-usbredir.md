@@ -1,26 +1,25 @@
-<properties 
-    pageTitle="Redireccionamiento de los dispositivos USB en Azure RemoteApp | Microsoft Azure" 
-    description="Más información acerca de cómo usar el redireccionamiento para dispositivos USB en Azure RemoteApp." 
-    services="remoteapp" 
-	documentationCenter="" 
-    authors="lizap" 
-    manager="mbaldwin" />
+---
+title: Redireccionamiento de los dispositivos USB en Azure RemoteApp | Microsoft Docs
+description: Más información acerca de cómo usar el redireccionamiento para dispositivos USB en Azure RemoteApp.
+services: remoteapp
+documentationcenter: ''
+author: lizap
+manager: mbaldwin
 
-<tags 
-    ms.service="remoteapp" 
-    ms.workload="compute" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="08/15/2016" 
-    ms.author="elizapo" />
+ms.service: remoteapp
+ms.workload: compute
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/15/2016
+ms.author: elizapo
 
-
-
+---
 # Redireccionamiento de los dispositivos USB en Azure RemoteApp
-
-> [AZURE.IMPORTANT]
-Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> [!IMPORTANT]
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> 
+> 
 
 El redireccionamiento de dispositivos permite a los usuarios emplear los dispositivos USB conectados a su equipo o tableta con las aplicaciones de Azure RemoteApp. Por ejemplo, si comparte Skype a través de Azure RemoteApp, los usuarios necesitan poder usar las cámaras de su dispositivo.
 
@@ -32,11 +31,11 @@ Aunque en este artículo se trata del redireccionamiento de cámaras web, puede 
 Azure RemoteApp usa mecanismos muy similares para redirigir dispositivos USB como los que están disponibles para los Servicios de Escritorio remoto. La tecnología subyacente le permite elegir el método de redireccionamiento correcto para un dispositivo determinado, para obtener lo mejor del nivel alto y el redireccionamiento del dispositivo USB RemoteFX mediante el comando **usbdevicestoredirect:s:**. Hay cuatro elementos en este comando:
 
 | Orden de procesamiento | Parámetro | Description |
-|------------------|---------------------|----------------------------------------------------------------------------------------------------------------------------|
-| 1 | * | Selecciona todos los dispositivos que no se recogen mediante el redireccionamiento de alto nivel. Nota: por diseño, * no funciona para las cámaras web USB. |
-| | {GUID de clase de dispositivo} | Selecciona todos los dispositivos que coinciden con la clase de configuración de dispositivo especificada. |
-| | USB\\InstanceID | Selecciona un dispositivo USB especificado para el identificador de instancia determinado. |
-| 2 | -USB\\Instance ID | Quita la configuración de redireccionamiento para el dispositivo especificado. |
+| --- | --- | --- |
+| 1 |* |Selecciona todos los dispositivos que no se recogen mediante el redireccionamiento de alto nivel. Nota: por diseño, * no funciona para las cámaras web USB. |
+| {GUID de clase de dispositivo} |Selecciona todos los dispositivos que coinciden con la clase de configuración de dispositivo especificada. | |
+| USB\\InstanceID |Selecciona un dispositivo USB especificado para el identificador de instancia determinado. | |
+| 2 |-USB\\Instance ID |Quita la configuración de redireccionamiento para el dispositivo especificado. |
 
 ## Redireccionamiento de un dispositivo USB mediante el GUID de clase de dispositivo
 Hay dos formas de buscar el GUID de clase del dispositivo que se puede usar para el redireccionamiento.
@@ -51,16 +50,15 @@ Una forma mejor, o la segunda opción, es seguir estos pasos para encontrar el G
 
 Por ejemplo:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s:<Class Guid value>"
 
 Puede combinar varios redireccionamientos de dispositivos en el mismo cmdlet. Por ejemplo: para redirigir el almacenamiento local y una cámara web USB, cmdlet tiene el siguiente aspecto:
 
-		Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
+        Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "drivestoredirect:s:*`nusbdevicestoredirect:s:<Class Guid value>"
 
 Al establecer el redireccionamiento de dispositivos por GUID de clase se redirigen todos los dispositivos que coinciden con ese GUID de clase de la colección especificada. Por ejemplo, si hay varios equipos en la red local que tienen las mismas cámaras web USB, puede ejecutar un solo cmdlet para redirigir todas las cámaras web.
 
 ## Redireccionamiento de un dispositivo USB con el identificador de instancia del dispositivo
-
 Si desea un control más preciso y desea controlar el redireccionamiento de dispositivos, puede usar el parámetro de redireccionamiento **USB\\InstanceID**.
 
 La parte más difícil de este método es encontrar el identificador de instancia del dispositivo USB. Necesitará tener acceso al equipo y al dispositivo USB específico. A continuación, siga estos pasos:
@@ -73,11 +71,11 @@ La parte más difícil de este método es encontrar el identificador de instanci
 
 Ahora puede usar el identificador de instancia en el siguiente cmdlet:
 
-	Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
+    Set-AzureRemoteAppCollection -CollectionName <collection name> -CustomRdpProperty "nusbdevicestoredirect:s: USB<Device InstanceID value>"
 
 
 
-### Permítanos ayudarle 
+### Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** para realizar cambios que nos llegarán para su revisión y, luego, una vez que los aprobemos, verá los cambios y mejoras aquí.
 
 <!---HONumber=AcomDC_0817_2016-->

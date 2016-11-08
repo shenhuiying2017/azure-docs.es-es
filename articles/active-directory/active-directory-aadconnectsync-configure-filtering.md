@@ -1,35 +1,37 @@
-<properties
-	pageTitle="Configuración de filtrado de sincronización de Azure AD Connect | Microsoft Azure"
-	description="Explica cómo configurar el filtrado en Azure AD Connect Sync."
-	services="active-directory"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: Configuración de filtrado de sincronización de Azure AD Connect | Microsoft Docs
+description: Explica cómo configurar el filtrado en Azure AD Connect Sync.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/13/2016"
-	ms.author="andkjell;markvi"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/13/2016
+ms.author: andkjell;markvi
 
-
+---
 # Azure AD Connect Sync: configuración del filtrado
 Con el filtrado, puede controlar qué objetos deben aparecer en Azure AD desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios finales con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
 
 En algunos casos, es necesario realizar algunos cambios en la configuración predeterminada. Estos son algunos ejemplos:
 
-- Quiere usar la [topología de varios directorios de Azure AD](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-directory). Después, debe aplicar un filtro para controlar qué objeto se debe sincronizar en un directorio determinado de Azure AD.
-- Va a ejecutar un piloto para Azure u Office 365 y desea solo un subconjunto de usuarios en Azure AD. En el pequeño proyecto piloto, no es importante tener una lista global de direcciones completa para demostrar la funcionalidad.
-- Tiene varias cuentas de servicio y otras de carácter no personal que no desea que estén presentes en Azure AD.
-- Por motivos de cumplimiento, no elimina ninguna cuenta de usuario local. Solo las deshabilita. Pero en Azure AD solo quiere que haya cuentas activas presentes.
+* Quiere usar la [topología de varios directorios de Azure AD](active-directory-aadconnect-topologies.md#each-object-only-once-in-an-azure-ad-directory). Después, debe aplicar un filtro para controlar qué objeto se debe sincronizar en un directorio determinado de Azure AD.
+* Va a ejecutar un piloto para Azure u Office 365 y desea solo un subconjunto de usuarios en Azure AD. En el pequeño proyecto piloto, no es importante tener una lista global de direcciones completa para demostrar la funcionalidad.
+* Tiene varias cuentas de servicio y otras de carácter no personal que no desea que estén presentes en Azure AD.
+* Por motivos de cumplimiento, no elimina ninguna cuenta de usuario local. Solo las deshabilita. Pero en Azure AD solo quiere que haya cuentas activas presentes.
 
 En este artículo, se trata cómo configurar los distintos métodos de filtrado.
 
-> [AZURE.IMPORTANT]Microsoft no admite la modificación ni el funcionamiento de Azure AD Connect Sync que no se limite a estas acciones documentadas formalmente. Cualquiera de estas acciones puede dar lugar a un estado incoherente o no admitido de Azure AD Connect Sync y, como resultado, Microsoft no ofrece soporte técnico para las implementaciones de este tipo.
+> [!IMPORTANT]
+> Microsoft no admite la modificación ni el funcionamiento de Azure AD Connect Sync que no se limite a estas acciones documentadas formalmente. Cualquiera de estas acciones puede dar lugar a un estado incoherente o no admitido de Azure AD Connect Sync y, como resultado, Microsoft no ofrece soporte técnico para las implementaciones de este tipo.
+> 
+> 
 
 ## Conceptos básicos y notas importantes
 En Azure AD Connect Sync, puede habilitar el filtrado en cualquier momento. Si comienza con una configuración predeterminada de la sincronización de directorios y después configura el filtrado, los objetos que se filtren ya no se sincronizan con Azure AD. Como resultado de este cambio, todo objeto de Azure AD que se sincroniza previamente pero que se filtra después se elimina en Azure AD.
@@ -69,13 +71,10 @@ Después de completar todos los cambios de filtrado, no olvide volver a seleccio
 ## Opciones de filtrado
 Los tipos de configuración de filtrado siguientes pueden aplicarse a la herramienta Sincronización de directorios:
 
-- [**Basado en grupo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): el filtrado basado en un único grupo solo se puede configurar durante la instalación inicial con el Asistente para instalación. No se profundiza más en este tema.
-
-- [**Basado en dominios**](#domain-based-filtering): esta opción permite seleccionar qué dominios se sincronizarán con Azure AD. También permite agregar y quitar dominios de la configuración del motor de sincronización si realiza cambios en la infraestructura local después de instalar Azure AD Connect Sync.
-
-- [**Basado en unidades organizativas**](#organizational-unitbased-filtering): esta opción de filtrado permite seleccionar qué unidades organizativas se sincronizan con Azure AD. Esta opción está en todos los tipos de objeto de las unidades organizativas seleccionadas.
-
-- [**Basado en atributos**](#attribute-based-filtering): esta opción permite filtrar objetos en función de los valores de sus atributos. También puede tener filtros diferentes para distintos tipos de objetos.
+* [**Basado en grupo**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): el filtrado basado en un único grupo solo se puede configurar durante la instalación inicial con el Asistente para instalación. No se profundiza más en este tema.
+* [**Basado en dominios**](#domain-based-filtering): esta opción permite seleccionar qué dominios se sincronizarán con Azure AD. También permite agregar y quitar dominios de la configuración del motor de sincronización si realiza cambios en la infraestructura local después de instalar Azure AD Connect Sync.
+* [**Basado en unidades organizativas**](#organizational-unitbased-filtering): esta opción de filtrado permite seleccionar qué unidades organizativas se sincronizan con Azure AD. Esta opción está en todos los tipos de objeto de las unidades organizativas seleccionadas.
+* [**Basado en atributos**](#attribute-based-filtering): esta opción permite filtrar objetos en función de los valores de sus atributos. También puede tener filtros diferentes para distintos tipos de objetos.
 
 Puede usar varias opciones de filtrado al mismo tiempo. Por ejemplo, puede utilizar el filtrado basado en unidades organizativas para incluir solo los objetos de una unidad organizativa y, al mismo tiempo, el filtrado basado en atributos para filtrar aún más los objetos. Cuando se usan varios métodos de filtrado, los filtros utilizan un operador AND lógico entre los filtros.
 
@@ -88,9 +87,9 @@ Solo debe seguir estos pasos si por alguna razón no se puede ejecutar el Asiste
 
 La configuración del filtrado basado en dominios consta de estos pasos:
 
-- [Selección de los dominios](#select-domains-to-be-synchronized) que deben incluirse en la sincronización.
-- Para cada dominio agregado o quitado, ajuste de los [perfiles de ejecución](#update-run-profiles).
-- [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
+* [Selección de los dominios](#select-domains-to-be-synchronized) que deben incluirse en la sincronización.
+* Para cada dominio agregado o quitado, ajuste de los [perfiles de ejecución](#update-run-profiles).
+* [Aplicación y comprobación de los cambios](#apply-and-verify-changes).
 
 ### Selección de los dominios que se sincronizarán
 **Para configurar el filtro de dominio, realice los pasos siguientes:**
@@ -110,11 +109,11 @@ Si ha actualizado el filtro de dominio, también debe actualizar los perfiles de
 
 Debe ajustar los siguientes perfiles:
 
-- Importación completa
-- Sincronización completa
-- Importación delta
-- Sincronización delta
-- Exportación
+* Importación completa
+* Sincronización completa
+* Importación delta
+* Sincronización delta
+* Exportación
 
 Para cada uno de los cinco perfiles, siga estos pasos para cada dominio **agregado**:
 
@@ -132,7 +131,7 @@ Como resultado, cada dominio que desee sincronizar debe aparecer como paso en ca
 
 Para cerrar el cuadro de diálogo **Configure Run Profiles** (Configurar perfiles de ejecución), haga clic en **Aceptar**.
 
-- Para completar la configuración, [aplique y compruebe los cambios](#apply-and-verify-changes).
+* Para completar la configuración, [aplique y compruebe los cambios](#apply-and-verify-changes).
 
 ## Filtrado basado en unidades organizativas
 La mejor manera de cambiar el filtrado basado en unidades organizativas es la siguiente: ejecutar el Asistente para instalación y cambiar [filtrado por dominio y unidad organizativa](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). El Asistente para instalación está automatizando todas las tareas que se documentan en este tema.
@@ -147,10 +146,10 @@ Solo debe seguir estos pasos si por alguna razón no se puede ejecutar el Asiste
 4. Haga clic en **Configurar particiones de directorio**, seleccione el dominio que desee configurar y,luego, haga clic en **Contenedores**.
 5. Cuando se le solicite, proporcione las credenciales con acceso de lectura al entorno de Active Directory local. No tiene por qué ser el usuario que esté rellenado en el cuadro de diálogo.
 6. En el cuadro de diálogo **Select Containers** (Seleccionar contenedores), borre las unidades organizativas que no desee sincronizar con el directorio en la nube y luego haga clic en **Aceptar**. ![Unidad organizativa](./media/active-directory-aadconnectsync-configure-filtering/ou.png)
-  - El contenedor **Computers** debe estar seleccionado para que los equipos con Windows 10 se sincronicen correctamente con Azure AD. Si los equipos unidos a un dominio se encuentran en otras unidades organizativas, asegúrese de que estén seleccionadas.
-  - Se debe seleccionar el contenedor **ForeignSecurityPrincipals** si tiene varios bosques con confianzas. Este contenedor permitirá que se resuelva la pertenencia a grupos de seguridad de otros bosques.
-  - La unidad organizativa **RegisteredDevices** debe estar seleccionada si ha habilitado la característica de escritura diferida de dispositivos. Si usa otra característica de reescritura, como la de grupos, asegúrese de que estas ubicaciones estén seleccionadas.
-  - Seleccione cualquier otra unidad organizativa donde se encuentren usuarios, objetos InetOrgPerson, grupos, contactos y equipos. En la imagen anterior, se encuentran en la unidad organizativa ManagedObjects.
+   * El contenedor **Computers** debe estar seleccionado para que los equipos con Windows 10 se sincronicen correctamente con Azure AD. Si los equipos unidos a un dominio se encuentran en otras unidades organizativas, asegúrese de que estén seleccionadas.
+   * Se debe seleccionar el contenedor **ForeignSecurityPrincipals** si tiene varios bosques con confianzas. Este contenedor permitirá que se resuelva la pertenencia a grupos de seguridad de otros bosques.
+   * La unidad organizativa **RegisteredDevices** debe estar seleccionada si ha habilitado la característica de escritura diferida de dispositivos. Si usa otra característica de reescritura, como la de grupos, asegúrese de que estas ubicaciones estén seleccionadas.
+   * Seleccione cualquier otra unidad organizativa donde se encuentren usuarios, objetos InetOrgPerson, grupos, contactos y equipos. En la imagen anterior, se encuentran en la unidad organizativa ManagedObjects.
 7. Cuando termine, haga clic en el botón **Aceptar** para cerrar el cuadro de diálogo **Propiedades**.
 8. Para completar la configuración, [aplique y compruebe los cambios](#apply-and-verify-changes).
 
@@ -198,9 +197,8 @@ En el ejemplo siguiente, solo sincronizaremos los objetos de usuario en los que 
 5. En **Scoping filter** (Filtro de ámbito), haga clic en **Agregar grupo**, luego en **Agregar cláusula** y, en Atributo, seleccione **departamento**. Asegúrese de que el operador esté configurado en **EQUAL** y escriba el valor **Ventas** en el cuadro Valor. Haga clic en **Siguiente**. ![Ámbito de entrante 5](./media/active-directory-aadconnectsync-configure-filtering/inbound5.png)
 6. Deje las reglas de **unión** vacías y, a continuación, haga clic en **Siguiente**.
 7. Haga clic en **Add Transformations** (Agregar transformaciones), seleccione **Constante** en **FlowType** (Tipo de flujo), seleccione el Atributo de destino **cloudFiltered** y, en el cuadro de texto Origen, escriba **False**. Haga clic en **Agregar** para guardar la regla. ![Transformación de entrante 6](./media/active-directory-aadconnectsync-configure-filtering/inbound6.png) Este es un caso especial en el que estableceremos cloudFiltered explícitamente en False.
-
-	Ahora tenemos que crear la regla de sincronización de comodín.
-
+   
+    Ahora tenemos que crear la regla de sincronización de comodín.
 8. Asigne a la regla un nombre descriptivo, como "*Entrante desde AD – Usuario Filtro de comodín*". Seleccione el bosque correcto: **Usuario** para **CS object type** (Tipo de objeto de sistema conectado) y **Persona** para **MV object type** (Tipo de objeto Metaverso). Como **Tipo de vínculo**, seleccione **Unirse**, en precedencia escriba un valor que no esté usando ninguna otra regla de sincronización (por ejemplo, 600). Se ha seleccionado un valor de precedencia más alto (precedencia inferior) que la anterior regla de sincronización, pero además se ha dejado espacio para agregar más reglas de filtrado de sincronización más adelante cuando queramos empezar a sincronizar otros departamentos. Haga clic en **Siguiente**. ![Descripción de entrante 7](./media/active-directory-aadconnectsync-configure-filtering/inbound7.png)
 9. Deje **Scoping filter** (Filtro de ámbito) vacío y haga clic en **Siguiente**. Un filtro vacío indica que se debe aplicar la regla a todos los objetos.
 10. Deje las reglas de **unión** vacías y, a continuación, haga clic en **Siguiente**.

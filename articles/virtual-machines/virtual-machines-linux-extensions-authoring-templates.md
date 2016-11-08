@@ -1,25 +1,24 @@
-<properties
-   pageTitle="Creación de plantillas con extensiones de máquina virtual de Linux | Microsoft Azure"
-   description="Obtenga información sobre cómo crear plantillas de Azure Resource Manager con extensiones para máquinas virtuales de Linux."
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Creación de plantillas con extensiones de máquina virtual de Linux | Microsoft Docs
+description: Obtenga información sobre cómo crear plantillas de Azure Resource Manager con extensiones para máquinas virtuales de Linux.
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="03/29/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 03/29/2016
+ms.author: kundanap
 
+---
 # Creación de plantillas de Azure Resource Manager con extensiones de máquina virtual de Linux
-
-[AZURE.INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
+[!INCLUDE [virtual-machines-common-extensions-authoring-templates](../../includes/virtual-machines-common-extensions-authoring-templates.md)]
 
 En la CLI de Azure, ejecute el siguiente comando:
 
@@ -33,10 +32,12 @@ Este comando devuelve el nombre del editor y el nombre y la versión de la exten
 
 Estas tres propiedades se asignan a "publisher", "type" y "typeHandlerVersion", respectivamente, en el fragmento de plantilla anterior.
 
->[AZURE.NOTE]Siempre se recomienda usar la versión más reciente de la extensión para obtener la funcionalidad más actualizada.
+> [!NOTE]
+> Siempre se recomienda usar la versión más reciente de la extensión para obtener la funcionalidad más actualizada.
+> 
+> 
 
 ## Identificación del esquema de los parámetros de configuración de la extensión
-
 El siguiente paso en la creación de una plantilla de extensión consiste en identificar el formato para proporcionar parámetros de configuración. Cada extensión es compatible con su propio conjunto de parámetros.
 
 Para consultar configuraciones de ejemplo de para las extensiones de Linux, haga clic en la documentación [Linux eExtensions samples](virtual-machines-linux-extensions-configuration-samples.md) (Ejemplos de extensiones de Linux).

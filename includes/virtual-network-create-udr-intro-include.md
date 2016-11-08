@@ -2,8 +2,8 @@ Aunque el uso de rutas del sistema facilita el tráfico automáticamente para su
 
 A continuación se indican algunos de los casos donde se pueden usar aplicaciones virtuales:
 
-- Supervisión del tráfico con un sistema de detección de intrusos (IDS)
-- Control del tráfico con un firewall
+* Supervisión del tráfico con un sistema de detección de intrusos (IDS)
+* Control del tráfico con un firewall
 
 Para obtener más información sobre el enrutamiento definido por el usuario y el reenvío IP, visite [Rutas definidas por el usuario y reenvío IP](../articles/virtual-network/virtual-networks-udr-overview.md).
 

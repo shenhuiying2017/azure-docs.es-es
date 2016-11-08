@@ -1,33 +1,29 @@
-<properties
- pageTitle="Guía del desarrollador: lenguaje de consulta | Microsoft Azure"
- description="Guía del desarrollador de Azure IoT Hub: descripción del lenguaje de consulta que se usa para recuperar información acerca de gemelos, métodos y trabajos desde IoT Hub"
- services="iot-hub"
- documentationCenter=".net"
- authors="fsautomata"
- manager="timlt"
- editor=""/>
+---
+title: 'Guía del desarrollador: lenguaje de consulta | Microsoft Docs'
+description: 'Guía del desarrollador de Azure IoT Hub: descripción del lenguaje de consulta que se usa para recuperar información acerca de gemelos, métodos y trabajos desde IoT Hub'
+services: iot-hub
+documentationcenter: .net
+author: fsautomata
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-hub"
- ms.devlang="multiple"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/30/2016" 
- ms.author="elioda"/>
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/30/2016
+ms.author: elioda
 
-
+---
 # <a name="reference-query-language-for-twins-and-jobs"></a>Referencia: lenguaje de consulta para gemelos y trabajos
-
 ## <a name="overview"></a>Información general
-
 IoT Hub proporciona un eficaz lenguaje similar a SQL para recuperar información sobre [dispositivos gemelos][lnk-twins] y [trabajos][lnk-jobs]. Este artículo presenta:
 
 * una introducción a las características principales del lenguaje de consulta de IoT Hub y
 * una descripción más detallada del lenguaje.
 
 ## <a name="getting-started-with-twin-queries"></a>Introducción a las consultas de gemelos
-
 Los [dispositivos gemelos][lnk-twins] pueden contener objetos JSON arbitrarios como etiquetas y propiedades. IoT Hub permite consultar los dispositivos gemelos como un solo documento JSON que contiene toda la información de los gemelos.
 Por ejemplo, suponga que sus gemelos de IoT Hub tienen la siguiente estructura:
 
@@ -73,7 +69,10 @@ Por lo tanto, la consulta siguiente recupera el conjunto completo de dispositivo
 
         SELECT * FROM devices
 
-> [AZURE.NOTE] Los [SDK de IoT Hub][lnk-hub-sdks] admiten la paginación de resultados de gran tamaño.
+> [!NOTE]
+> Los [SDK de IoT Hub][lnk-hub-sdks] admiten la paginación de resultados de gran tamaño.
+> 
+> 
 
 IoT Hub permite recuperar gemelos filtrando por condiciones arbitrarias. Por ejemplo,
 
@@ -120,8 +119,7 @@ devuelve el recuento de los dispositivos en cada estado de configuración de tel
 
 En el ejemplo anterior, se demuestra una situación en la que tres dispositivos notificaron una configuración correcta, dos aún están aplicándola y uno notificó un error.
 
-### <a name="c-example"></a>Ejemplo de C#
-
+### <a name="c-example"></a>Ejemplo de C
 El [SDK del servicio C#][lnk-hub-sdks] expone la funcionalidad de consulta en la clase **RegistryManager**.
 Este ejemplo corresponde a una consulta simple:
 
@@ -139,7 +137,6 @@ Observe cómo se crea una instancia del objeto **query** con un tamaño de pági
 Es importante tener en cuenta que el objeto query expone varios elementos **Next\***, según la opción de deserialización que requiera la consulta, es decir, objetos de trabajo o gemelo, o JSON sin formato que se usará cuando se utilicen proyecciones.
 
 ### <a name="node-example"></a>Ejemplo de Node
-
 El [SDK del servicio Node][lnk-hub-sdks] expone la funcionalidad de consulta en el objeto **Registry**.
 Este ejemplo corresponde a una consulta simple:
 
@@ -164,11 +161,9 @@ Observe cómo se crea una instancia del objeto **query** con un tamaño de pági
 Es importante tener en cuenta que el objeto query expone varios elementos **next\***, según la opción de deserialización que requiera la consulta, es decir, objetos de trabajo o gemelo, o JSON sin formato que se usará cuando se utilicen proyecciones.
 
 ### <a name="limitations"></a>Limitaciones
-
 Actualmente, solo se admiten proyecciones cuando se usan agregaciones, es decir, las consultas no agregadas solo pueden usar `SELECT *`. Además, solo se admite la agregación junto con la agrupación.
 
 ## <a name="getting-started-with-jobs-queries"></a>Introducción a las consultas de trabajos
-
 Los [trabajos][lnk-jobs] proporcionan una forma de ejecutar operaciones en conjuntos de dispositivos. Cada dispositivo gemelo contiene la información de los trabajos de los que forma parte en una colección denominada **jobs**.
 Lógicamente,
 
@@ -231,7 +226,6 @@ Actualmente, las consultas en **devices.jobs** no admiten:
 * realizar agregaciones, por ejemplo, count, avg, group by.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Conceptos básicos de una consulta de IoT Hub
-
 Cada consulta de IoT Hub consta de cláusulas SELECT y FROM, y de cláusulas WHERE y GROUP BY opcionales. Cada consulta se ejecuta en una colección de documentos JSON, por ejemplo, dispositivos gemelos. La cláusula FROM indica la colección de documentos en la que se va a iterar (**devices** o **devices.jobs**). Después se aplica el filtro en la cláusula WHERE. En el caso de las agregaciones, se agrupan los resultados de este paso como se especifica en la cláusula GROUP BY y, para cada grupo, se genera una fila como se especifica en la cláusula SELECT.
 
         SELECT <select_list>
@@ -240,17 +234,14 @@ Cada consulta de IoT Hub consta de cláusulas SELECT y FROM, y de cláusulas WHE
         [GROUP BY <group_specification>]
 
 ## <a name="from-clause"></a>Cláusula FROM
-
 La cláusula **FROM <from_specification>** solo puede suponer dos valores: **FROM devices**, para consultar dispositivos gemelos, o **FROM devices.jobs**, para consultar detalles por dispositivo del trabajo.
 
 ## <a name="where-clause"></a>Cláusula WHERE
-
 La cláusula **WHERE <filter_condition>** es opcional. Especifica las condiciones que los documentos JSON en la colección FROM deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas como "true" para que se incluya en el resultado.
 
 Las condiciones permitidas se describen en la sección [Expresiones y condiciones][lnk-query-expressions].
 
 ## <a name="select-clause"></a>Cláusula SELECT
-
 La cláusula SELECT (**SELECT <select_list>**) es obligatoria y especifica qué valores se recuperarán de la consulta. Especifica los valores JSON que se usarán para generar nuevos objetos JSON. Para cada elemento del subconjunto filtrado (y, opcionalmente, agrupado) de la colección FROM, la fase de proyección genera un nuevo objeto JSON, construido con los valores especificados en la cláusula SELECT.
 
 Esta es la gramática de la cláusula SELECT:
@@ -278,7 +269,6 @@ donde **attribute_name** hace referencia a cualquier propiedad del documento JSO
 Actualmente, las cláusulas de selección diferentes de **SELECT \*** solo se admiten en las consultas agregadas.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
-
 La cláusula **GROUP BY <group_specification>** es un paso opcional que se puede ejecutar después del filtro especificado en la cláusula WHERE y antes de la proyección especificada en la cláusula SELECT. Agrupa los documentos según el valor de un atributo. Estos grupos se usan para generar valores agregados, como se especifica en la cláusula SELECT.
 
 Un ejemplo de consulta con GROUP BY es:
@@ -300,7 +290,6 @@ donde **attribute_name** hace referencia a cualquier propiedad del documento JSO
 Actualmente, solo se admite la cláusula GROUP BY al consultar gemelos.
 
 ## <a name="expressions-and-conditions"></a>Expresiones y condiciones
-
 Brevemente, una *expresión*:
 
 * Se evalúa como una instancia de un tipo JSON (es decir, booleano, número, cadena, matriz u objeto), y
@@ -334,26 +323,24 @@ La sintaxis de las expresiones es:
 donde:
 
 | Símbolo | Definición |
-| -------------- | -----------------|
-| attribute_name | Cualquier propiedad del documento JSON en la colección FROM. |
-| unary_operator | Cualquier operador unario según la sección Operadores. |
-| binary_operator | Cualquier operador binario según la sección Operadores. |
-| decimal_literal | Un valor float expresado en notación decimal. |
-| hexadecimal_literal | Un número expresado por la cadena "0x" seguida de una cadena de dígitos hexadecimales. |
-| string_literal | Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se encierran entre comillas simples (apóstrofo: ') o comillas dobles (comillas: "). Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
+| --- | --- |
+| attribute_name |Cualquier propiedad del documento JSON en la colección FROM. |
+| unary_operator |Cualquier operador unario según la sección Operadores. |
+| binary_operator |Cualquier operador binario según la sección Operadores. |
+| decimal_literal |Un valor float expresado en notación decimal. |
+| hexadecimal_literal |Un número expresado por la cadena "0x" seguida de una cadena de dígitos hexadecimales. |
+| string_literal |Los literales de cadena son cadenas Unicode representadas por una secuencia de cero o varios caracteres Unicode o secuencias de escape. Los literales de cadena se encierran entre comillas simples (apóstrofo: ') o comillas dobles (comillas: "). Caracteres de escape permitidos: `\'`, `\"`, `\\`, `\uXXXX` para los caracteres Unicode definidos con 4 dígitos hexadecimales. |
 
 ### <a name="operators"></a>Operadores
-
 Se admiten los siguientes operadores:
 
 | Familia | Operadores |
-| -------------- | -----------------|
-| Aritméticos | +,-,*,/,% |
-| Lógicos | AND, OR, NOT |
-| De comparación |  =, !=, <, >, <=, >=, <> |
+| --- | --- |
+| Aritméticos |+,-,*,/,% |
+| Lógicos |AND, OR, NOT |
+| De comparación |=, !=, <, >, <=, >=, <> |
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Aprenda a ejecutar consultas en sus aplicaciones mediante los [SDK de IoT Hub][lnk-hub-sdks].
 
 [lnk-query-where]: iot-hub-devguide-query-language.md#where-clause

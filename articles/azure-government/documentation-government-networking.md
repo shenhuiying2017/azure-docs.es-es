@@ -1,26 +1,24 @@
-<properties
-	pageTitle="Documentación de Azure Governmenmt | Microsoft Azure"
-	description="Se proporciona una comparación de características e instrucciones sobre la conectividad privada a e-Government."
-	services="Azure-Government"
-	cloud="gov" 
-	documentationCenter=""
-	authors="ryansoc"
-	manager="zakramer"
-	editor=""/>
+---
+title: Documentación de Azure Governmenmt | Microsoft Docs
+description: Se proporciona una comparación de características e instrucciones sobre la conectividad privada a e-Government.
+services: Azure-Government
+cloud: gov
+documentationcenter: ''
+author: ryansoc
+manager: zakramer
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="azure-government"
-	ms.date="08/25/2016"
-	ms.author="ryansoc"/>
+ms.service: multiple
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: azure-government
+ms.date: 08/25/2016
+ms.author: ryansoc
 
-#  Redes de Azure Government
-
-##  ExpressRoute (conectividad privada)
-
+---
+# Redes de Azure Government
+## ExpressRoute (conectividad privada)
 Hay dos servicios básicos que proporcionan conectividad de red privada en Azure Government: VPN (de sitio a sitio en una organización típica ) y ExpressRoute.
 
 ExpressRoute de Azure se usa para crear conexiones privadas entre centros de datos de Azure Government y la infraestructura local, o en un entorno de coubicación. Las conexiones ExpressRoute no utilizan la Internet pública y ofrecen más confiabilidad, velocidad, seguridad y una menor latencia que las conexiones a Internet habituales. En algunos casos, el uso de conexiones ExpressRoute para transferir datos entre sistemas locales y Azure puede aportar beneficios económicos importantes.

@@ -1,39 +1,39 @@
-<properties
- pageTitle="Metadatos de información de dispositivo en la solución de supervisión remota | Microsoft Azure"
- description="Una descripción de la supervisión remota de la solución preconfigurada de IoT de Azure y su arquitectura."
- services=""
- suite="iot-suite"
- documentationCenter=""
- authors="dominicbetts"
- manager="timlt"
- editor=""/>
+---
+title: Metadatos de información de dispositivo en la solución de supervisión remota | Microsoft Docs
+description: Una descripción de la supervisión remota de la solución preconfigurada de IoT de Azure y su arquitectura.
+services: ''
+suite: iot-suite
+documentationcenter: ''
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
- ms.service="iot-suite"
- ms.devlang="na"
- ms.topic="article"
- ms.tgt_pltfrm="na"
- ms.workload="na"
- ms.date="09/12/2016"
- ms.author="dobett"/>
+ms.service: iot-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/12/2016
+ms.author: dobett
 
+---
 # Metadatos de información de dispositivo en la solución preconfigurada de supervisión remota
-
 La solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT de Azure muestra un enfoque para administrar los metadatos de dispositivo. En este artículo se describe el enfoque que adopta esta solución para que comprenda:
 
-- Qué metadatos de dispositivo almacena la solución.
-- Cómo la solución administra los metadatos de dispositivo.
+* Qué metadatos de dispositivo almacena la solución.
+* Cómo la solución administra los metadatos de dispositivo.
 
 ## Context
-
 La solución preconfigurada de supervisión remota usa el [Centro de IoT de Azure][lnk-iot-hub] para que los dispositivos puedan enviar datos a la nube. El Centro de IoT incluye un [Registro de identidad del dispositivo][lnk-identity-registry] para controlar el acceso. Este registro es diferente del *Registro de dispositivos* específico de la solución de supervisión remota que almacena los metadatos de información de dispositivo. La solución de supervisión remota emplea una base de datos de [DocumentDB][lnk-docdb] para implementar su Registro de dispositivos y almacenar los metadatos de información de dispositivo. En el documento sobre la [arquitectura de referencia de IoT de Microsoft Azure][lnk-ref-arch] se describe la función del Registro de dispositivos en una solución típica de IoT.
 
-> [AZURE.NOTE] La solución preconfigurada de supervisión remota mantiene sincronizado el Registro de identidad del dispositivo con el Registro de dispositivos. Ambos utilizan el mismo id. de dispositivo para identificar de forma única cada dispositivo conectado a su centro de IoT.
+> [!NOTE]
+> La solución preconfigurada de supervisión remota mantiene sincronizado el Registro de identidad del dispositivo con el Registro de dispositivos. Ambos utilizan el mismo id. de dispositivo para identificar de forma única cada dispositivo conectado a su centro de IoT.
+> 
+> 
 
 La [versión preliminar de administración de dispositivos de IoT Hub][lnk-dm-preview] agrega características a IoT Hub que son parecidas a las de la administración de la información de dispositivos descrita en este artículo. En este momento, la solución de supervisión remota solo hace uso de las características de IoT Hub disponibles con carácter general (GA).
 
 ## Metadatos de información de dispositivo
-
 Un documento JSON de metadatos de información de dispositivo almacenado en la base de datos de DocumentDB del Registro de dispositivos tiene la siguiente estructura:
 
 ```
@@ -55,28 +55,29 @@ Un documento JSON de metadatos de información de dispositivo almacenado en la b
 }
 ```
 
-- **DeviceProperties**: el propio dispositivo escribe estas propiedades y el dispositivo es la entidad emisora de estos datos. Otras propiedades de dispositivo de ejemplo incluyen el número de serie, el número de modelo y el fabricante.
-- **DeviceID**: el identificador único del dispositivo. Este valor es el mismo en el Registro de identidad del dispositivo del Centro de IoT.
-- **HubEnabledState**: el estado del dispositivo en el Centro de IoT. Este valor se establece inicialmente en **null** hasta que el dispositivo se conecta por primera vez. En el portal de solución, un valor **null** se representa como el dispositivo que está "registrado pero no está presente".
-- **CreatedTime**: la hora a la que se creó el dispositivo.
-- **DeviceState**: el estado notificado por el dispositivo.
-- **UpdatedTime**: la hora en que se actualizó por última vez el dispositivo mediante el portal de solución.
-- **SystemProperties**: el portal de solución escribe las propiedades del sistema y el dispositivo no conoce estas propiedades. Un ejemplo de propiedad del sistema es el **ICCID** si la solución está autorizada y conectada con un servicio de administración de dispositivos habilitados para SIM.
-- **Commands**: una lista de los comandos que admite el dispositivo. El dispositivo proporciona esta información a la solución.
-- **CommandHistory**: una lista de los comandos enviados por la solución de supervisión remota al dispositivo y el estado de esos comandos.
-- **IsSimulatedDevice**: una marca que identifica un dispositivo como un dispositivo simulado.
-- **id**: el identificador único de DocumentDB para este documento de dispositivo.
+* **DeviceProperties**: el propio dispositivo escribe estas propiedades y el dispositivo es la entidad emisora de estos datos. Otras propiedades de dispositivo de ejemplo incluyen el número de serie, el número de modelo y el fabricante.
+* **DeviceID**: el identificador único del dispositivo. Este valor es el mismo en el Registro de identidad del dispositivo del Centro de IoT.
+* **HubEnabledState**: el estado del dispositivo en el Centro de IoT. Este valor se establece inicialmente en **null** hasta que el dispositivo se conecta por primera vez. En el portal de solución, un valor **null** se representa como el dispositivo que está "registrado pero no está presente".
+* **CreatedTime**: la hora a la que se creó el dispositivo.
+* **DeviceState**: el estado notificado por el dispositivo.
+* **UpdatedTime**: la hora en que se actualizó por última vez el dispositivo mediante el portal de solución.
+* **SystemProperties**: el portal de solución escribe las propiedades del sistema y el dispositivo no conoce estas propiedades. Un ejemplo de propiedad del sistema es el **ICCID** si la solución está autorizada y conectada con un servicio de administración de dispositivos habilitados para SIM.
+* **Commands**: una lista de los comandos que admite el dispositivo. El dispositivo proporciona esta información a la solución.
+* **CommandHistory**: una lista de los comandos enviados por la solución de supervisión remota al dispositivo y el estado de esos comandos.
+* **IsSimulatedDevice**: una marca que identifica un dispositivo como un dispositivo simulado.
+* **id**: el identificador único de DocumentDB para este documento de dispositivo.
 
-> [AZURE.NOTE] La información de dispositivo también puede incluir metadatos para describir la telemetría que envía el dispositivo al Centro de IoT. La solución de supervisión remota utiliza estos metadatos de telemetría para personalizar cómo se muestra en el panel la [telemetría dinámica][lnk-dynamic-telemetry].
+> [!NOTE]
+> La información de dispositivo también puede incluir metadatos para describir la telemetría que envía el dispositivo al Centro de IoT. La solución de supervisión remota utiliza estos metadatos de telemetría para personalizar cómo se muestra en el panel la [telemetría dinámica][lnk-dynamic-telemetry].
+> 
+> 
 
 ## Ciclo de vida
-
 La primera vez que se crea un dispositivo en el portal de solución, la solución crea una entrada en su Registro de dispositivos, como se mostró anteriormente. Gran parte de la información desaparece inicialmente y **HubEnabledState** se establece en **null**. En este punto, la solución también crea una entrada para el dispositivo en el Registro de identidad del dispositivo que genera las claves que usa el dispositivo para autenticarse en IoT Hub.
 
 Cuando un dispositivo se conecta por primera vez a la solución, envía un mensaje de información de dispositivo. Este mensaje incluye propiedades del dispositivo, como el fabricante, el número de modelo y el número de serie. Un mensaje de información de dispositivo también incluye una lista de los comandos que admite el dispositivo, como información sobre los parámetros de comando. Cuando la solución recibe este mensaje, actualiza los metadatos de información de dispositivo en el Registro de dispositivos.
 
 ### Visualización y edición de la información de dispositivo en el portal de solución
-
 La lista de dispositivos en el portal de solución muestra las siguientes propiedades de dispositivo en forma de columnas: **Estado**, **Id. de dispositivo**, **Fabricante**, **Número de modelo**, **Número de serie**, **Firmware**, **Plataforma**, **Procesador** y **RAM instalada**. Las propiedades del dispositivo **Latitud** y **Longitud** controlan la ubicación en Mapas de Bing en el panel.
 
 ![Lista de dispositivos][img-device-list]
@@ -90,17 +91,17 @@ Puede usar el portal de solución para quitar un dispositivo de la solución. Cu
 ![Eliminación de dispositivos][img-device-remove]
 
 ## Procesamiento de mensajes de información de dispositivo
-
 Los mensajes de información de dispositivo enviados por un dispositivo son distintos de los mensajes de telemetría. Los mensajes de información de dispositivo incluyen información como las propiedades del dispositivo, los comandos a los que un dispositivo puede responder y el historial de comandos. El propio Centro de IoT no conoce los metadatos contenidos en un mensaje de información de dispositivo y procesa el mensaje de la misma manera que cualquier mensaje del dispositivo a la nube. En la solución de supervisión remota, un trabajo de [Azure Stream Analytics][lnk-stream-analytics] \(ASA) lee los mensajes de IoT Hub. El trabajo de Stream Analytics **DeviceInfo** filtra los mensajes que contienen **"ObjectType": "DeviceInfo"** y los reenvía a la instancia de host de **EventProcessorHost** que se ejecuta en un trabajo web. La lógica de la instancia de **EventProcessorHost** utiliza el identificador de dispositivo para encontrar el registro de DocumentDB del dispositivo específico y actualizarlo. El Registro de dispositivos incluye ahora información como las propiedades, los comandos y el historial de comandos del dispositivo.
 
-> [AZURE.NOTE] Un mensaje de información de dispositivo es un mensaje estándar del dispositivo a la nube. La solución distingue entre mensajes de información de dispositivo y mensajes de telemetría mediante consultas ASA.
+> [!NOTE]
+> Un mensaje de información de dispositivo es un mensaje estándar del dispositivo a la nube. La solución distingue entre mensajes de información de dispositivo y mensajes de telemetría mediante consultas ASA.
+> 
+> 
 
 ## Ejemplo de registros de información de dispositivo
-
 La solución preconfigurada de supervisión remota emplea dos tipos de registros de información de dispositivo: registros para los dispositivos simulados implementados con la solución y registros para los dispositivos personalizados que se conectan a la solución.
 
 ### Dispositivo simulado
-
 En el ejemplo siguiente se muestra el registro de información de dispositivo JSON para un dispositivo simulado. Este registro tiene un valor establecido para **UpdatedTime** que indica que el dispositivo ha enviado un mensaje de **DeviceInfo** a IoT Hub. El registro incluye algunas propiedades de dispositivo comunes, define los seis comandos que admiten los dispositivos simulados y tiene la marca **IsSimulatedDevice** establecida en **1**.
 
 ```
@@ -182,7 +183,6 @@ En el ejemplo siguiente se muestra el registro de información de dispositivo JS
 ```
 
 ### Dispositivo personalizado
-
 En el ejemplo siguiente se muestra el registro de información de dispositivo JSON para un dispositivo personalizado, con la marca **IsSimulatedDevice** establecida en **0**. Puede ver que este dispositivo personalizado admite dos comandos y que el portal de solución ha enviado un comando **SetTemperature** al dispositivo:
 
 ```
@@ -259,14 +259,11 @@ A continuación se muestra el mensaje **DeviceInfo** de JSON que el dispositivo 
 ```
 
 ## Pasos siguientes
-
 Ahora que ya ha terminado de aprender cómo personalizar las soluciones preconfiguradas, puede explorar algunas de las características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
-- [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
-- [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
-- [Seguridad total de IoT][lnk-security-groundup]
-
-
+* [Información general de la solución preconfigurada de mantenimiento predictivo][lnk-predictive-overview]
+* [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
+* [Seguridad total de IoT][lnk-security-groundup]
 
 <!-- Images and links -->
 [img-device-list]: media/iot-suite-remote-monitoring-device-info/image1.png

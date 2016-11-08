@@ -1,21 +1,21 @@
-<properties 
-	pageTitle="Certificados de administración y servicios en la nube | Microsoft Azure" 
-	description="Aprenda a crear y a usar certificados con Microsoft Azure" 
-	services="cloud-services" 
-	documentationCenter=".net" 
-	authors="Thraka" 
-	manager="timlt" 
-	editor=""/>
+---
+title: Certificados de administración y servicios en la nube | Microsoft Docs
+description: Aprenda a crear y a usar certificados con Microsoft Azure
+services: cloud-services
+documentationcenter: .net
+author: Thraka
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="07/05/2016"
-	ms.author="adegeo"/>
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2016
+ms.author: adegeo
 
+---
 # Introducción a los certificados para los servicios en la nube de Azure
 Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico, no ARM). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
 
@@ -33,15 +33,18 @@ Los certificados de servicio se pueden administrar independientemente de los ser
 ## ¿Qué son los certificados de administración?
 Los certificados de administración permiten realizar autenticación con la API de administración de servicios proporcionada por Azure clásico. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube.
 
->[AZURE.WARNING] Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
+> [!WARNING]
+> Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados.
+> 
+> 
 
 ### Limitaciones
 Hay un límite de 100 certificados de administración por suscripción. También hay un límite de 100 certificados de administración para todas las suscripciones bajo un identificador de usuario de un administrador de servicio específico. Si ya ha se ha usado el identificador de usuario para el administrador de la cuenta para agregar 100 certificados de administración y se necesitan más certificados, puede agregar un coadministrador para añadir certificados adicionales.
 
 Antes de agregar más de 100 certificados, vea si puede reutilizar un certificado existente. El uso de coadministradores agrega complejidad potencialmente innecesaria al proceso de administración de certificados.
 
-
 <a name="create"></a>
+
 ## Creación de un nuevo certificado autofirmado
 Puede utilizar cualquier herramienta disponible para crear un certificado autofirmado, siempre que cumpla esta configuración:
 
@@ -56,19 +59,19 @@ Puede utilizar cualquier herramienta disponible para crear un certificado autofi
 Hay dos métodos sencillos para crear un certificado en Windows, con la utilidad `makecert.exe` o con IIS.
 
 ### Makecert.exe
-
 Esta utilidad ha quedado en desuso y ya no se documenta aquí. Consulte [este artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968) para obtener más información.
 
 ### PowerShell
-
 ```powershell
 $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLocation "cert:\LocalMachine\My"
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
 
->[AZURE.NOTE] Si desea utilizar el certificado con una dirección IP en lugar de un dominio, utilice la dirección IP en el parámetro - DnsName.
-
+> [!NOTE]
+> Si desea utilizar el certificado con una dirección IP en lugar de un dominio, utilice la dirección IP en el parámetro - DnsName.
+> 
+> 
 
 Si quiere utilizar este [certificado con el portal de administración](../azure-api-management-certs.md), expórtelo a un archivo **.cer**:
 
@@ -77,7 +80,6 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 ```
 
 ### Internet Information Services (IIS)
-
 Hay muchas páginas en Internet que explican cómo hacer esto con IIS. [Aquí](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html) hay una excelente que encontré en la que se explica bien.
 
 ### Java
@@ -87,11 +89,13 @@ Puede usar Java para [crear un certificado](../app-service-web/java-create-azure
 En [este](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md) artículo se describe cómo crear certificados con SSH.
 
 ## Pasos siguientes
-
 [Cargue el certificado de servicio en el Portal de Azure clásico](cloud-services-configure-ssl-certificate.md) (o en el [Portal de Azure](cloud-services-configure-ssl-certificate-portal.md)).
 
 Cargue un [certificado de API de administración](../azure-api-management-certs.md) en el Portal de Azure clásico.
 
->[AZURE.NOTE] El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
+> [!NOTE]
+> El Portal de Azure no usa certificados de administración para tener acceso a la API, sino cuentas de usuario.
+> 
+> 
 
 <!---HONumber=AcomDC_0914_2016-->

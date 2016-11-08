@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Uso del Validador XML de BizTalk en aplicaciones lógicas en el Servicio de aplicaciones de Azure | Microsoft Azure"
-   description="Valide esquemas utilizando el Validador XML de BizTalk en la aplicación lógica."
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="rajram"
-   manager="erikre"
-   editor=""/>
+---
+title: Uso del Validador XML de BizTalk en aplicaciones lógicas en el Servicio de aplicaciones de Azure | Microsoft Docs
+description: Valide esquemas utilizando el Validador XML de BizTalk en la aplicación lógica.
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: rajram
+manager: erikre
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="04/20/2016"
-   ms.author="rajram"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 04/20/2016
+ms.author: rajram
 
+---
 # Validador XML de BizTalk
-
-[AZURE.INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
+[!INCLUDE [app-service-logic-version-message](../../includes/app-service-logic-version-message.md)]
 
 Use el conector Validador XML de BizTalk de la aplicación para validar los datos XML con respecto a los esquemas XML predefinidos. Los usuarios pueden usar los esquemas existentes o generar esquemas basándose en una instancia de archivo sin formato, una instancia de JSON o conectores existentes.
 
@@ -38,24 +37,21 @@ Los usuarios pueden cargar esquemas desde un disco o generar uno a partir de una
 
 ![Esquemas del Validador XML de BizTalk][3]
 
-
 ### Uso del Codificador de archivos sin formato de BizTalk en la superficie de diseño
 Una vez configurado, los usuarios pueden seleccionar *->* y elegir una acción de una lista de acciones:
 
 ![Lista de acciones del Validador XML de BizTalk][4]
 
 #### Validar XML
-
 La acción Validar XML valida un entrada XML dada con respecto a esquemas preconfigurados:
 
 ![Acción Validar XML del Validador XML de BizTalk][5]
 
-Parámetro|Tipo|Descripción del parámetro
----|---|---
-XML de entrada|cadena|XML de entrada para validar
+| Parámetro | Tipo | Descripción del parámetro |
+| --- | --- | --- |
+| XML de entrada |cadena |XML de entrada para validar |
 
 La acción devuelve la salida como un objeto. El resultado contiene el modelo que representa la respuesta del Validador XML. Consta de resultado, nombre de esquema, nodo raíz y descripción del error.
-
 
 <!-- References -->
 [1]: ./media/app-service-logic-xml-validator/XmlValidator.ClickToConfigure.PNG

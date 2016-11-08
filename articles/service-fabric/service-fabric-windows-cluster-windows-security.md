@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Protección de un clúster en ejecución en Windows mediante la seguridad de Windows | Microsoft Azure"
-   description="Aprenda a configurar la seguridad de nodo a nodo y de cliente a nodo en un clúster independiente que se ejecute en Windows mediante la seguridad de Windows."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="rwike77"
-   manager="timlt"
-   editor=""/>
+---
+title: Protección de un clúster en ejecución en Windows mediante la seguridad de Windows | Microsoft Docs
+description: Aprenda a configurar la seguridad de nodo a nodo y de cliente a nodo en un clúster independiente que se ejecute en Windows mediante la seguridad de Windows.
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/25/2016"
-   ms.author="ryanwi"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/25/2016
+ms.author: ryanwi
 
-
+---
 # Proteger un clúster independiente en Windows mediante la seguridad de Windows
-
 Para evitar el acceso no autorizado a un clúster de Service Fabric, debe protegerlo, especialmente cuando se están ejecutando en él cargas de trabajo de producción. Este artículo describe cómo configurar la seguridad de nodo a nodo y de cliente a nodo mediante la seguridad de Windows en el archivo *ClusterConfig.JSON* y se corresponde con el paso de configuración de seguridad descrito en [Creación de un clúster de Service Fabric de Azure local o en la nube](service-fabric-cluster-creation-for-windows-server.md). Para más información sobre cómo Service Fabric usa los certificados X.509, consulte [Protección de un clúster de Service Fabric](service-fabric-cluster-security.md).
 
->[AZURE.NOTE]
-Considere la selección de seguridad para la seguridad de nodo a nodo con cuidado, ya que no hay ninguna actualización de clúster de una opción de seguridad a otra. Cambiar la selección de seguridad requeriría una recompilación completa del clúster.
+> [!NOTE]
+> Considere la selección de seguridad para la seguridad de nodo a nodo con cuidado, ya que no hay ninguna actualización de clúster de una opción de seguridad a otra. Cambiar la selección de seguridad requeriría una recompilación completa del clúster.
+> 
+> 
 
 ## Configuración de la seguridad de Windows
 El archivo de configuración de ejemplo *ClusterConfig.Windows.JSON* descargado junto con el paquete de clúster independiente [Microsoft.Azure.ServiceFabric.WindowsServer.<versión>.zip](http://go.microsoft.com/fwlink/?LinkId=730690) contiene una plantilla para configurar la seguridad de Windows. La seguridad de Windows se configura en la sección **Propiedades**:
@@ -32,7 +32,7 @@ El archivo de configuración de ejemplo *ClusterConfig.Windows.JSON* descargado 
             "ClusterCredentialType": "Windows",
             "ServerCredentialType": "Windows",
             "WindowsIdentities": {
-		"ClusterIdentity" : "[domain\machinegroup]",
+        "ClusterIdentity" : "[domain\machinegroup]",
                 "ClientIdentities": [{
                     "Identity": "[domain\username]",
                     "IsAdmin": true
@@ -41,15 +41,15 @@ El archivo de configuración de ejemplo *ClusterConfig.Windows.JSON* descargado 
         }
 ```
 
-|**Opciones de configuración.**|**Descripción**|
-|-----------------------|--------------------------|
-|ClusterCredentialType|La seguridad de Windows se habilita estableciendo el parámetro **ClusterCredentialType** en *Windows*.|
-|ServerCredentialType|La seguridad de Windows para los clientes se habilita estableciendo el parámetro **ServerCredentialType** en *Windows*. Esto indica que los clientes del clúster, y el clúster propiamente dicho, se están ejecutando dentro de un dominio de Active Directory.|
-|WindowsIdentities|Contiene las identidades de cliente y del clúster.|
-|ClusterIdentity|Permite configurar la seguridad de nodo a nodo. Una lista separada por comas de cuentas de servicio administradas de grupos o nombres de equipo.|
-|ClientIdentities|Permite configurar la seguridad de cliente a nodo. Una matriz de cuentas de usuario de cliente.|
-|Identidad|La identidad del cliente, un usuario de dominio.|
-|IsAdmin|True especifica que el usuario de dominio tiene acceso de cliente de administrador, mientras que False especifica un acceso de cliente de usuario.|
+| **Opciones de configuración.** | **Descripción** |
+| --- | --- |
+| ClusterCredentialType |La seguridad de Windows se habilita estableciendo el parámetro **ClusterCredentialType** en *Windows*. |
+| ServerCredentialType |La seguridad de Windows para los clientes se habilita estableciendo el parámetro **ServerCredentialType** en *Windows*. Esto indica que los clientes del clúster, y el clúster propiamente dicho, se están ejecutando dentro de un dominio de Active Directory. |
+| WindowsIdentities |Contiene las identidades de cliente y del clúster. |
+| ClusterIdentity |Permite configurar la seguridad de nodo a nodo. Una lista separada por comas de cuentas de servicio administradas de grupos o nombres de equipo. |
+| ClientIdentities |Permite configurar la seguridad de cliente a nodo. Una matriz de cuentas de usuario de cliente. |
+| Identidad |La identidad del cliente, un usuario de dominio. |
+| IsAdmin |True especifica que el usuario de dominio tiene acceso de cliente de administrador, mientras que False especifica un acceso de cliente de usuario. |
 
 La [seguridad de nodo a nodo](service-fabric-cluster-security.md#node-to-node-security) se configura mediante **ClusterIdentity**. Para crear relaciones de confianza entre los nodos, debe asegurarse de que ambos conocen su existencia mutuamente. Esto puede realizarse de dos maneras diferentes: especificando la cuenta de servicio administrada de grupos que incluye todos los nodos del clúster o especificando las identidades de nodo de dominio de todos los nodos del clúster. Se recomienda encarecidamente usar el enfoque que emplea la [cuenta de servicio administrada de grupos (gMSA)](https://technet.microsoft.com/library/hh831782.aspx), especialmente para los clústeres más grandes (más de 10 nodos) o para los clústeres que es probable que crezcan o se reduzcan. Este enfoque permite agregar o quitar nodos de la gMSA, sin que sea necesario ningún cambio en el manifiesto de clúster. Este enfoque no requiere la creación de un grupo de dominio para el que se hayan otorgado derechos de accesos a los administradores de clústeres para agregar y quitar miembros. Para más información, consulte [Introducción a las cuentas de servicio administradas de grupo](http://technet.microsoft.com/library/jj128431.aspx).
 
@@ -62,7 +62,7 @@ La sección de **seguridad** del ejemplo siguiente configura la seguridad de Win
     "ClusterCredentialType": "Windows",
     "ServerCredentialType": "Windows",
     "WindowsIdentities": {
-		"ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
+        "ClusterIdentity" : "ServiceFabric/clusterA.contoso.com",
         "ClientIdentities": [{
             "Identity": "CONTOSO\\usera",
         "IsAdmin": true
@@ -72,7 +72,6 @@ La sección de **seguridad** del ejemplo siguiente configura la seguridad de Win
 ```
 
 ## Pasos siguientes
-
 Después de configurar la seguridad de Windows en el archivo *ClusterConfig.JSON*, reanude el proceso de creación de clústeres en [Creación de un clúster independiente que se ejecuta en Windows](service-fabric-cluster-creation-for-windows-server.md).
 
 Para más información sobre la seguridad de nodo a nodo, la seguridad de cliente a nodo y el control de acceso basado en roles, consulte [Escenarios de seguridad de clúster](service-fabric-cluster-security.md).

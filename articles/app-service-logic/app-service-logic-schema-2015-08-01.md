@@ -1,23 +1,22 @@
-<properties 
-	pageTitle="Nueva versión de esquema 2015-08-01-preview" 
-	description="Aprenda a escribir la definición de JSON de la versión más reciente de Aplicaciones lógicas" 
-	authors="stepsic-microsoft-com" 
-	manager="dwrede" 
-	editor="" 
-	services="logic-apps" 
-	documentationCenter=""/>
+---
+title: Nueva versión de esquema 2015-08-01-preview
+description: Aprenda a escribir la definición de JSON de la versión más reciente de Aplicaciones lógicas
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
+services: logic-apps
+documentationcenter: ''
 
-<tags
-	ms.service="logic-apps"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="05/31/2016"
-	ms.author="stepsic"/>
-	
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/31/2016
+ms.author: stepsic
+
+---
 # Nueva versión de esquema 2015-08-01-preview
-
 La nueva versión de esquema y API de Aplicaciones lógicas presenta varias mejoras que optimizan la confiabilidad y la facilidad de uso de estas aplicaciones. Hay cuatro diferencias principales:
 
 1. El tipo de acción **APIApp** se ha actualizado al nuevo tipo de acción **APIConnection**.
@@ -26,15 +25,14 @@ La nueva versión de esquema y API de Aplicaciones lógicas presenta varias mejo
 4. En la llamada a los flujos de trabajo secundarios se usa un nuevo esquema.
 
 ## 1\. Paso a las conexiones de API
-
 El cambio más importante es que ya no es necesario implementar aplicaciones de API en la suscripción de Azure para usar las API. Las API se pueden usar de dos formas:
+
 * API administradas
 * API web personalizadas
 
 Cada una de ellas se controla de forma algo diferente ya que sus modelos de administración y hospedaje son diferentes. Una ventaja de este modelo es que ya no está limitado a los recursos que se implementan en el grupo de recursos.
 
 ### API administradas
-
 Hay varias API que administra Microsoft en su nombre, como Office 365, Salesforce, Twitter, FTP etc. Algunas de estas API administrada pueden usarse tal y como están, como en el caso de Bing Translate, mientras que otras requieren configuración. Esta configuración se conoce como *conexión*.
 
 Por ejemplo, cuando utilice Office 365, deberá crear una conexión que contenga el token de inicio de sesión de Office 365. Este token se almacenará y actualizará de forma segura para que la aplicación lógica pueda llamar siempre a la API de Office 365. Como alternativa, si desea conectarse a su servidor SQL o FTP, debe crear una conexión que tenga la cadena de conexión.
@@ -80,121 +78,119 @@ PUT https://management.azure.com/subscriptions/{subid}/resourceGroups/{rgname}/p
 
 Con el siguiente cuerpo:
 
-
 ```
 {
   "properties": {
     "api": {
       "id": "/subscriptions/{subid}/providers/Microsoft.Web/managedApis/azureblob"
     },
-	"parameterValues" : {
-		"accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
-	}
+    "parameterValues" : {
+        "accountName" : "{The name of the storage account -- the set of parameters is different for each API}"
+    }
   },
   "location" : "{Logic app's location}"
 }
 ```
 
 ### Implementación de API administradas en una plantilla de Azure Resource Manager
-
 Puede crear una aplicación completa en una plantilla de ARM siempre que no requiera inicio de sesión interactivo. Si requiere inicio de sesión, puede configurar todo con la plantilla de ARM, pero aún así tendrá que visitar el portal para autorizar las conexiones.
 
 ```
-	"resources": [{
-		"apiVersion": "2015-08-01-preview",
-		"name": "azureblob",
-		"type": "Microsoft.Web/connections",
-		"location": "[resourceGroup().location]",
-		"properties": {
-			"api": {
-				"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-			},
-			"parameterValues": {
-				"accountName": "[parameters('storageAccountName')]",
-				"accessKey": "[parameters('storageAccountKey')]"
-			}
-		}
-	}, {
-		"type": "Microsoft.Logic/workflows",
-		"apiVersion": "2015-08-01-preview",
-		"name": "[parameters('logicAppName')]",
-		"location": "[resourceGroup().location]",
-		"dependsOn": [
-			"[resourceId('Microsoft.Web/connections', 'azureblob')]"
-		],
-		"properties": {
-			"sku": {
-				"name": "[parameters('sku')]",
-				"plan": {
-					"id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
-				}
-			},
-			"definition": {
-				"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
-				"actions": {
-					"Create_file": {
-						"type": "apiconnection",
-						"inputs": {
-							"host": {
-								"api": {
-									"runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
-								},
-								"connection": {
-									"name": "@parameters('$connections')['azureblob']['connectionId']"
-								}
-							},
-							"method": "post",
-							"queries": {
-								"folderPath": "[concat('/',parameters('containerName'))]",
-								"name": "helloworld.txt"
-							},
-							"body": "@decodeDataUri('data:,Hello+world!')",
-							"path": "/datasets/default/files"
-						},
-						"conditions": []
-					}
-				},
-				"contentVersion": "1.0.0.0",
-				"outputs": {},
-				"parameters": {
-					"$connections": {
-						"defaultValue": {},
-						"type": "Object"
-					}
-				},
-				"triggers": {
-					"recurrence": {
-						"type": "Recurrence",
-						"recurrence": {
-							"frequency": "Day",
-							"interval": 1
-						}
-					}
-				}
-			},
-			"parameters": {
-				"$connections": {
-					"value": {
-						"azureblob": {
-							"connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
-							"connectionName": "azureblob",
-							"id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
-						}
+    "resources": [{
+        "apiVersion": "2015-08-01-preview",
+        "name": "azureblob",
+        "type": "Microsoft.Web/connections",
+        "location": "[resourceGroup().location]",
+        "properties": {
+            "api": {
+                "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+            },
+            "parameterValues": {
+                "accountName": "[parameters('storageAccountName')]",
+                "accessKey": "[parameters('storageAccountKey')]"
+            }
+        }
+    }, {
+        "type": "Microsoft.Logic/workflows",
+        "apiVersion": "2015-08-01-preview",
+        "name": "[parameters('logicAppName')]",
+        "location": "[resourceGroup().location]",
+        "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', 'azureblob')]"
+        ],
+        "properties": {
+            "sku": {
+                "name": "[parameters('sku')]",
+                "plan": {
+                    "id": "[concat(resourceGroup().id, '/providers/Microsoft.Web/serverfarms/',parameters('svcPlanName'))]"
+                }
+            },
+            "definition": {
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#",
+                "actions": {
+                    "Create_file": {
+                        "type": "apiconnection",
+                        "inputs": {
+                            "host": {
+                                "api": {
+                                    "runtimeUrl": "https://logic-apis-westus.azure-apim.net/apim/azureblob"
+                                },
+                                "connection": {
+                                    "name": "@parameters('$connections')['azureblob']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "queries": {
+                                "folderPath": "[concat('/',parameters('containerName'))]",
+                                "name": "helloworld.txt"
+                            },
+                            "body": "@decodeDataUri('data:,Hello+world!')",
+                            "path": "/datasets/default/files"
+                        },
+                        "conditions": []
+                    }
+                },
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object"
+                    }
+                },
+                "triggers": {
+                    "recurrence": {
+                        "type": "Recurrence",
+                        "recurrence": {
+                            "frequency": "Day",
+                            "interval": 1
+                        }
+                    }
+                }
+            },
+            "parameters": {
+                "$connections": {
+                    "value": {
+                        "azureblob": {
+                            "connectionId": "[concat(resourceGroup().id,'/providers/Microsoft.Web/connections/azureblob')]",
+                            "connectionName": "azureblob",
+                            "id": "[concat(subscription().id,'/providers/Microsoft.Web/locations/westus/managedApis/azureblob')]"
+                        }
 
-					}
-				}
-			}
-		}
-	}]
+                    }
+                }
+            }
+        }
+    }]
 ```
 
 En este ejemplo puede ver que las conexiones son recursos normales que residen en su grupo de recursos. Hacen referencia a las API administradas disponibles en su suscripción.
 
 ### Sus API web personalizadas
-
 Si utiliza sus propias API (en concreto, las que no están administradas por Microsoft), debe usar la acción **HTTP** integrada para llamarlas. Para tener una buena experiencia, debe exponer un punto de conexión de Swagger para la API. De esta forma, el diseñador de aplicaciones lógicas podrá representar las entradas y salidas de la API. Sin un punto de conexión de Swagger, el diseñador solo podrá mostrar las entradas y salidas como objetos JSON opacos.
 
 Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl`:
+
 ```
 {
    "actions": {
@@ -215,7 +211,6 @@ Este es un ejemplo que muestra la nueva propiedad `metadata.apiDefinitionUrl`:
 Si hospeda su API web en el **Servicio de aplicaciones**, se mostrará automáticamente en la lista de acciones disponibles en el diseñador. De lo contrario, tendrá que pegar la dirección URL directamente. El punto de conexión de Swagger debe estar sin autenticar para que se pueda usar dentro del diseñador de Aplicaciones lógicas (aunque puede proteger la API propiamente dicha con cualquier método que se admita en Swagger).
 
 ### Uso de las aplicaciones de API ya implementadas con 2015-08-01-preview
-
 Si anteriormente implementó una aplicación de API, puede llamarla mediante la acción **HTTP**.
 
 Por ejemplo, si utiliza Dropbox para enumerar archivos, tendrá algo parecido a esto en su definición de versión de esquema **2014-12-01-preview**:
@@ -289,18 +284,17 @@ Puede construir la acción HTTP equivalente como se indica a continuación (la s
 Vamos a recorrer estas propiedades una a una:
 
 | Propiedad de acción | Descripción |
-| --------------- | -----------  |
-| `type` | `Http` en lugar de `APIapp` |
-| `metadata.apiDefinitionUrl` | Si quiere usar esta acción en el diseñador de Aplicaciones lógicas, incluirá el punto de conexión de metadatos. Esto se construye a partir de: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
-| `inputs.uri` | Esto se construye a partir de: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
-| `inputs.method` | Siempre `POST` |
-| `inputs.body` | Idéntico a los parámetros de la aplicación de API | 
-| `inputs.authentication` | Idéntico a la autenticación de la aplicación de API |
+| --- | --- |
+| `type` |`Http` en lugar de `APIapp` |
+| `metadata.apiDefinitionUrl` |Si quiere usar esta acción en el diseñador de Aplicaciones lógicas, incluirá el punto de conexión de metadatos. Esto se construye a partir de: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
+| `inputs.uri` |Esto se construye a partir de: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
+| `inputs.method` |Siempre `POST` |
+| `inputs.body` |Idéntico a los parámetros de la aplicación de API |
+| `inputs.authentication` |Idéntico a la autenticación de la aplicación de API |
 
 Este enfoque debería funcionar para todas las acciones de aplicación de API. Sin embargo, tenga en cuenta que estas aplicaciones de API anteriores ya no se admiten, y debe cambiar a una de las otras dos opciones anteriores (una API administrada u hospedar la API web personalizada).
 
 ## 2\. Cambio de nombre de Repeat a Foreach
-
 En la versión de esquema anterior, recibimos numerosos comentarios de los clientes en que se indicaba que la instrucción **Repeat** era confusa y no captaba adecuadamente el significado de "para cada bucle". Por eso, le hemos cambiado el nombre por **Foreach**. Por ejemplo:
 
 ```
@@ -416,13 +410,12 @@ Ahora puede hacer esto en su lugar:
 
 Con estos cambios, se eliminan las funciones `@repeatItem()`, `@repeatBody()` y `@repeatOutputs()`.
 
-## 3\. Agente de escucha HTTP nativo 
+## 3\. Agente de escucha HTTP nativo
 Las funcionalidades de agente de escucha HTTP ahora están integradas, así que ya no necesita implementar una aplicación de API de agente de escucha HTTP. Consulte aquí [los detalles completos de cómo hacer que los puntos de conexión de Aplicaciones lógicas se pueden llamar](app-service-logic-http-endpoint.md).
 
 Con estos cambios, se elimina la función `@accessKeys()` y se sustituye por la función `@listCallbackURL()` a efectos de obtener el punto de conexión (cuando sea necesario). Además, ahora debe definir al menos un desencadenador en la aplicación lógica. Si desea `/run` el flujo de trabajo, necesitará tener uno de estos tres desencadenadores: `manual`, `apiConnectionWebhook` o `httpWebhook`.
 
 ## 4\. Llamada a flujos de trabajo secundarios
-
 Anteriormente, para llamar a los flujos de trabajo secundarios era necesario ir a cada uno de ellos, obtener el token de acceso y luego pegarlo en la definición de la aplicación lógica deseada. Con la nueva versión de esquema, el motor de Aplicaciones lógicas generará automáticamente una firma SAS en tiempo de ejecución del flujo de trabajo secundario, lo que significa que no tendrá que pegar ningún secreto en la definición. Aquí tiene un ejemplo:
 
 ```
@@ -454,7 +447,6 @@ Una segunda mejora es proporcionaremos a los flujos de trabajo secundarios acces
 Por último, hay cambios necesarios en el flujo de trabajo secundario. Mientras que antes podía llamar a un flujo de trabajo secundario directamente, ahora deberá definir un punto de conexión de desencadenamiento en el flujo de trabajo para que el elemento primario realice la llamada. Por lo general, esto significa agregar un desencadenador del tipo **manual** y luego usarlo en la definición del elemento primario. Tenga en cuenta que la propiedad `host` tiene un valor `triggerName`, ya que siempre debe especificar qué desencadenador va a invocar.
 
 ## Otros cambios
-
 ### Nueva propiedad queries
 Todos los tipos de acción admiten una nueva entrada llamada **queries**. Esta puede ser un objeto estructurado en lugar de tener que ensamblar la cadena a mano.
 

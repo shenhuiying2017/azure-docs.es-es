@@ -1,34 +1,33 @@
-<properties
-	pageTitle="Asistente para copia de Data Factory | Microsoft Azure"
-	description="Obtenga información sobre cómo utilizar el Asistente para copia de Data Factory para copiar datos de orígenes de datos admitidos en receptores."
-	services="data-factory"
-	documentationCenter=""
-	authors="spelluru"
-	manager="jhubbard"
-	editor="monicar"/>
+---
+title: Asistente para copia de Data Factory | Microsoft Docs
+description: Obtenga información sobre cómo utilizar el Asistente para copia de Data Factory para copiar datos de orígenes de datos admitidos en receptores.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-	ms.service="data-factory"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="07/27/2016"
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/27/2016
+ms.author: spelluru
 
+---
 # Asistente para copia de Data Factory
 El Asistente para copia de Data Factory de Azure permite crear una canalización para copiar datos de orígenes compatibles en destinos sin escribir definiciones de JSON para los servicios vinculados, los conjuntos de datos y las canalizaciones. Si quiere iniciar el Asistente para copia, haga clic en el icono **Copiar datos** de la página principal de Data Factory.
 
 ![Asistente para copia](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Características
-
 ### Un asistente intuitivo y sin interrupciones para copiar datos
 Gracias a este asistente, podrá trasladar datos de un origen a un destino en cuestión de minutos con los siguientes sencillos pasos:
 
-1.	Seleccione el origen.
-2.	Seleccione el destino.
-3.	Configure las opciones.
+1. Seleccione el origen.
+2. Seleccione el destino.
+3. Configure las opciones.
 
 ![Selección de origen de datos](./media/data-factory-copy-wizard/select-data-source-page.png)
 
@@ -63,10 +62,10 @@ Puede usar variables en la ruta de la carpeta para copiar datos desde una carpet
 
 Supongamos que tiene carpetas de entrada con el siguiente formato:
 
-	2016/03/01/01
-	2016/03/01/02
-	2016/03/01/03
-	...
+    2016/03/01/01
+    2016/03/01/02
+    2016/03/01/03
+    ...
 
 Haga clic en el botón **Examinar** del **archivo o carpeta**, vaya a una de estas carpetas (por ejemplo, 2016->03->01->02) y haga clic en **Seleccionar**. En el cuadro de texto, debería aparecer **2016/03/01/02**. Ahora, sustituya **2016** por **{year}**, **03** por **{month}**, **01** por **{day}** y **02** por **{hour}** y presione la tecla Tabulación. Aparecerán listas desplegables en las que podrá seleccionar el formato de estas cuatro variables:
 

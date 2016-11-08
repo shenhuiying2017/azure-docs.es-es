@@ -1,36 +1,35 @@
-<properties 
-	pageTitle="Operaciones comunes en la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
-	description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Operaciones comunes en la API de recomendaciones de Aprendizaje automático | Microsoft Docs
+description: Aplicación de ejemplo de recomendación de aprendizaje automático de Azure
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-
+---
 # Tutorial de aplicación de ejemplo de la API Recomendaciones
+> [!NOTE]
+> Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
+> 
+> 
 
->[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
-
-##Propósito
-
+## Propósito
 Este documento muestra el uso de algunas de las API de recomendaciones de Aprendizaje automático de Azure a través de una [aplicación de ejemplo](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 Esta aplicación no está pensada para incluir todas las funcionalidades ni usa todas las API. Muestra algunas operaciones que se suelen realizar las primeras veces que se usa el servicio de recomendación de Aprendizaje automático.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Introducción al servicio de recomendación de Aprendizaje automático
-
+## Introducción al servicio de recomendación de Aprendizaje automático
 Las recomendaciones a través del servicio de recomendación de Aprendizaje automático se habilitan al compilar un modelo de recomendaciones basado en los datos siguientes:
 
 * Un repositorio de los elementos que desea recomendar, también conocido como "catálogo".
@@ -56,18 +55,15 @@ Para habilitar el escenario anterior, haga lo siguiente en el servicio de recome
 
 Normalmente, se ejecuta la recomendación Get para un cierto período de tiempo. Durante ese período de tiempo, puede redirigir los datos de uso al sistema de recomendación de Aprendizaje automático, que agrega estos datos al contenedor del modelo especificado. Cuando tenga suficientes datos de uso, puede crear un nuevo modelo de recomendación que incorpore los datos de uso adicionales.
 
-##Requisitos previos
-
+## Requisitos previos
 * Visual Studio 2013
 * Acceso a Internet
 * Suscripción a la API de recomendaciones (https://datamarket.azure.com/dataset/amla/recommendations).
 
-##Solución de aplicación de ejemplo de Aprendizaje automático de Azure
-
+## Solución de aplicación de ejemplo de Aprendizaje automático de Azure
 Esta solución contiene el código fuente, el uso de la muestra, el archivo de catálogo y las directivas para descargar los paquetes necesarios para la compilación.
 
-##API utilizadas
-
+## API utilizadas
 La aplicación utiliza la funcionalidad de la recomendación de Aprendizaje automático a través de un subconjunto de API disponibles. Las siguientes API se muestran en la aplicación:
 
 * Crear modelo: cree el contenedor lógico para mantener los modelos de datos y recomendación. Un modelo se identifica mediante un nombre. El usuario no puede crear más de un modelo con el mismo nombre.
@@ -83,13 +79,11 @@ Para obtener una descripción completa de la API, consulte la documentación de 
 **Nota**: un modelo puede tener varias compilaciones con el tiempo (no de forma simultánea). Cada compilación se crea con el mismo catálogo o con uno actualizado y los datos de uso adicionales.
 
 ## Dificultades habituales
-
 * Debe proporcionar su nombre de usuario y la clave de la cuenta principal de Microsoft Azure Marketplace para ejecutar la aplicación de ejemplo.
 * Si ejecuta la aplicación de ejemplo de forma consecutiva, se producirá un error. El flujo de la aplicación incluye el monitor de creación, carga y compilación, y obtiene la recomendación de un nombre de modelo predefinido; por lo tanto, se producirán errores cuando se ejecute de forma consecutiva si no cambia el nombre del modelo entre ejecuciones.
 * Puede que las recomendaciones no devuelvan datos. La aplicación de ejemplo usa un archivo de uso y de catálogo muy pequeño. Por lo tanto, algunos elementos del catálogo no tendrán ningún elemento recomendado.
 
 ## Renuncia de responsabilidades
 La aplicación de ejemplo no está diseñada para ejecutarse en un entorno de producción. Los datos proporcionados en el catálogo son muy pequeños y no constituyen un modelo de recomendación significativo. Los datos se proporcionan como una demostración.
- 
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,31 +1,27 @@
-<properties
-    pageTitle="Crear y cargar datos en tablas de Hive desde el almacenamiento de blobs de Azure | Microsoft Azure"
-    description="Crear tablas de subárbol y cargar datos de blob en tablas de subárbol"
-    services="machine-learning,storage"
-    documentationCenter=""
-    authors="bradsev"
-    manager="jhubbard"
-    editor="cgronlun" />
+---
+title: Crear y cargar datos en tablas de Hive desde el almacenamiento de blobs de Azure | Microsoft Docs
+description: Crear tablas de subárbol y cargar datos de blob en tablas de subárbol
+services: machine-learning,storage
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-    ms.service="machine-learning"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/14/2016"
-    ms.author="bradsev" />
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/14/2016
+ms.author: bradsev
 
-
-
-#<a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
-
+---
+# <a name="create-and-load-data-into-hive-tables-from-azure-blob-storage"></a>Crear y cargar datos en tablas de subárbol desde el almacenamiento de blobs de Azure
 En este tema se presentan consultas genéricas de Hive que crean tablas de Hive y cargan datos desde Azure Blob Storage. También se ofrecen algunas instrucciones acerca de las particiones de tablas de subárbol y de cómo utilizar el formato ORC para mejorar el rendimiento de las consultas.
 
 Este **menú** siguiente redirige a temas en los que se describe cómo introducir datos en entornos de destino en que se pueden almacenar y procesar datos durante el proceso de ciencia de datos en equipos (TDSP).
 
-[AZURE.INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
-
+[!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se supone que ha:
@@ -41,13 +37,11 @@ Se supone que los datos de las tablas de Hive están en un formato tabular **sin
 
 Si desea practicar con el grupo **NYC Taxi Trip Data**, necesita hacer lo siguiente:
 
-- **Descargue** los 24 archivos de [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
-- **Descomprima** todos los archivos en archivos .csv.
-- **cargue** los archivos en el contenedor predeterminado (o el contenedor pertinente) de la cuenta de Azure Storage que se creó mediante el procedimiento descrito en el tema [Personalización de los clústeres de Hadoop de HDInsight de Azure para el proceso de ciencia de datos en equipos](machine-learning-data-science-customize-hadoop-cluster.md) . En esta [página](machine-learning-data-science-process-hive-walkthrough.md#upload)encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
-
+* **Descargue** los 24 archivos de [NYC Taxi Trip Data](http://www.andresmh.com/nyctaxitrips) (12 archivos de carreras y 12 archivos de tarifas).
+* **Descomprima** todos los archivos en archivos .csv.
+* **cargue** los archivos en el contenedor predeterminado (o el contenedor pertinente) de la cuenta de Azure Storage que se creó mediante el procedimiento descrito en el tema [Personalización de los clústeres de Hadoop de HDInsight de Azure para el proceso de ciencia de datos en equipos](machine-learning-data-science-customize-hadoop-cluster.md) . En esta [página](machine-learning-data-science-process-hive-walkthrough.md#upload)encontrará el proceso de cargar los archivos .csv en el contenedor predeterminado de la cuenta de almacenamiento.
 
 ## <a name="<a-name="submit"></a>how-to-submit-hive-queries"></a><a name="submit"></a>Envío de consultas de Hive
-
 Las consultas de subárbol se pueden enviar mediante:
 
 1. [Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop](#headnode)
@@ -58,9 +52,7 @@ Las consultas de Hive son similares a SQL. Los usuarios familiarizados con SQL p
 
 Al enviar una consulta de subárbol, también puede controlar el destino del resultado de las consultas de subárbol, ya sea en la pantalla o en un archivo local del nodo principal o en un blob de Azure.
 
-
-###<a name="<a-name="headnode"></a>-1.-submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a> 1. Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
-
+### <a name="<a-name="headnode"></a>-1.-submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a> 1. Enviar consultas de Hive a través de línea de comandos de Hadoop en el nodo principal del clúster de Hadoop
 Si la consulta es compleja, enviar consultas de Hive directamente en el nodo principal del clúster de Hadoop normalmente permite obtener respuestas más rápidas que si se efectúa el envío mediante un editor de Hive o scripts de Azure PowerShell.
 
 Inicie sesión en el nodo principal del clúster de Hadoop, abra la línea de comandos de Hadoop en el escritorio del nodo principal y escriba el comando `cd %hive_home%\bin`.
@@ -72,19 +64,16 @@ Los usuarios disponen de tres maneras de enviar consultas de Hive en la línea d
 * Con la consola de comandos de Hive
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line."></a>Envíe consultas de subárbol directamente en la línea de comandos de Hadoop.
-
 Los usuarios pueden ejecutar el comando como `hive -e "<your hive query>;` para enviar consultas de Hive sencillas directamente en la línea de comandos de Hadoop. Este es un ejemplo, donde el cuadro rojo muestra el comando que envía la consulta de subárbol y el cuadro verde muestra el resultado de la consulta de subárbol.
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-.hql-files"></a>Enviar consultas de subárbol en archivos .hql
-
 Cuando la consulta de subárbol es más complicada y tiene varias líneas, no resulta práctico modificar consultas en la línea de comandos o la consola de comandos de subárbol. Una alternativa es usar un editor de texto en el nodo principal del clúster de Hadoop y guardar las consultas de subárbol en un archivo .hql de un directorio local del nodo principal. A continuación, la consulta de Hive del archivo .hql puede enviarse mediante el argumento `-f` del modo indicado a continuación:
 
     hive -f "<path to the .hql file>"
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-3.png)
-
 
 **Suprimir la impresión de pantalla del estado de progreso de las consultas de subárbol**
 
@@ -94,7 +83,6 @@ De forma predeterminada, después de enviar la consulta de Hive en la línea de 
     hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console."></a>Envíe consultas de subárbol en la consola de comandos de subárbol.
-
 Los usuarios también pueden especificar en primer lugar la consola de comandos de Hive al ejecutar el comando `hive` en la línea de comandos de Hadoop y, a continuación, enviar consultas de Hive en la consola de comandos de Hive. Aquí tiene un ejemplo. En este ejemplo, los dos cuadros de color rojo resaltan los comandos que se utilizan para escribir en la consola de comandos de subárbol y la consulta de subárbol enviada en la consola de comandos de subárbol, respectivamente. El cuadro verde resalta el resultado de la consulta de subárbol.
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/run-hive-queries-2.png)
@@ -125,17 +113,13 @@ Si abre el contenedor predeterminado del clúster de Hadoop mediante herramienta
 
 ![Creación del espacio de trabajo](./media/machine-learning-data-science-move-hive-tables/output-hive-results-3.png)
 
-###<a name="<a-name="hive-editor"></a>-2.-submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
-
+### <a name="<a-name="hive-editor"></a>-2.-submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
 También puede utilizar la consola de consultas (Editor de Hive) escribiendo una dirección URL del formulario *https://&#60;Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.
 
-###<a name="<a-name="ps"></a>-3.-submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
-
+### <a name="<a-name="ps"></a>-3.-submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
 Los usuarios pueden también usar PowerShell para enviar consultas de Hive. Para obtener instrucciones, consulte [Envío de trabajos de Hive mediante PowerShell](../hdinsight/hdinsight-submit-hadoop-jobs-programmatically.md#hive-powershell).
 
-
 ## <a name="<a-name="create-tables"></a>create-hive-database-and-tables"></a><a name="create-tables"></a>Creación de tablas y base de datos de Hive
-
 Las consultas de Hive se comparten en el [repositorio de Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) y se pueden descargar desde allí.
 
 Esta es la consulta de subárbol que crea una tabla de subárbol.
@@ -155,25 +139,26 @@ Esta es la consulta de subárbol que crea una tabla de subárbol.
 
 Estas son las descripciones de los campos que los usuarios necesitan para conectar y otras configuraciones:
 
-- **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
-- **&#60;nombre de tabla>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *&#60;nombre de tabla>* sin &#60;nombre de base de datos>.
-- **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
-- **&#60;line separator>**: separador que delimita las líneas del archivo de datos.
-- **&#60;storage location>**: la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
-- **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
+* **&#60;nombre de base de datos>**: nombre de la base de datos que los usuarios desean crear. Si los usuarios solo desean usar la base de datos predeterminada, se puede omitir la consulta *crear base de datos...*
+* **&#60;nombre de tabla>**: nombre de la tabla que los usuarios quieren crear en la base de datos especificada. Si los usuarios desean usar la base de datos predeterminada, puede hacer referencia directamente a la tabla *&#60;nombre de tabla>* sin &#60;nombre de base de datos>.
+* **&#60;separador de campos>**: separador que delimita los campos del archivo de datos que se cargará en la tabla de Hive.
+* **&#60;line separator>**: separador que delimita las líneas del archivo de datos.
+* **&#60;storage location>**: la ubicación de Azure Storage para guardar los datos de tablas de Hive. Si los usuarios no especifican *LOCATION &#60;ubicación de almacenamiento>*, la base de datos y las tablas se almacenan de forma predeterminada en el directorio *hive/warehouse/* del contenedor predeterminado del clúster Hive. Si un usuario desea especificar la ubicación de almacenamiento, esta debe estar dentro del contenedor predeterminado para la base de datos y las tablas. A esta ubicación tiene que hacerse referencia como ubicación relativa al contenedor predeterminado del clúster con el formato *'wasb:///&#60;directory 1>/'* o *'wasb:///&#60;directory 1>/&#60;directory 2>/'*, etc. Después de ejecutar la consulta, se crean los directorios relativos dentro del contenedor predeterminado.
+* **TBLPROPERTIES("skip.header.line.count"="1")**: si el archivo de datos tiene una línea de encabezado, los usuarios deben agregar esta propiedad **al final** de la consulta *create table*. De lo contrario, se carga la línea de encabezado como registro en la tabla. Si el archivo de datos no tiene una línea de encabezado, se puede omitir esta configuración en la consulta.
 
 ## <a name="<a-name="load-data"></a>load-data-to-hive-tables"></a><a name="load-data"></a>Carga de datos en tablas de Hive
 Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-- **&#60;ruta de acceso a datos de blob>**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&#60;ruta de acceso a datos de blob>* debe tener el formato "*wasb:///&#60;directorio de este contenedor>/&#60;nombre del archivo de blob>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debe tener el formato "*wasb://&#60;nombre del contenedorname>@&#60;storage nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
-
-    >[AZURE.NOTE] Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.
-
+* **&#60;ruta de acceso a datos de blob>**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *&#60;ruta de acceso a datos de blob>* debe tener el formato "*wasb:///&#60;directorio de este contenedor>/&#60;nombre del archivo de blob>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *&#60;ruta de acceso a datos de blob>* debe tener el formato "*wasb://&#60;nombre del contenedorname>@&#60;storage nombre de cuenta de almacenamiento>.blob.core.windows.net/&#60;nombre de archivo de blob>"*.
+  
+  > [!NOTE]
+  > Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.
+  > 
+  > 
 
 ## <a name="<a-name="partition-orc"></a>advanced-topics:-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>Temas avanzados: tabla con particiones y datos de Hive de almacén en formato ORC
-
 Si los datos son grandes, crear particiones de la tabla será beneficioso para las consultas que solo necesitan examinar algunas particiones de la tabla. Por ejemplo, es razonable crear particiones de los datos de registro de un sitio web por fechas.
 
 Además de crear particiones de tablas de subárbol, también es beneficioso almacenar los datos de subárbol en el formato ORC. Para obtener más información acerca de la aplicación de formato ORC, consulte <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">El uso de archivos ORC mejora el rendimiento cuando Hive está leyendo, escribiendo y procesando datos</a>.
@@ -199,7 +184,6 @@ Al consultar tablas con particiones, se recomienda agregar la condición de part
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
 ### <a name="<a-name="orc"></a>store-hive-data-in-orc-format"></a><a name="orc"></a>Almacenamiento de datos de Hive en formato ORC
-
 Los usuarios no pueden cargar datos directamente desde Blob Storage en tablas de Hive que se almacenan en el formato ORC. Estos son los pasos que los usuarios deben seguir para cargar datos desde blobs de Azure a tablas de Hive almacenadas en formato ORC.
 
 Cree una tabla externa **STORED AS TEXTFILE** y cargue datos del almacenamiento de blobs en la tabla.
@@ -233,7 +217,10 @@ Seleccionar datos desde la tabla externa del paso 1 e insertarlos en la tabla de
         INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
->[AZURE.NOTE] Si la tabla TEXTFILE *&#60;nombre de base de datos>.&#60;nombre de la tabla de archivo de texto externo>`SELECT * FROM <database name>.<external textfile table name>` tiene particiones, en el PASO 3, el comando * selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* se producirá un error, ya que *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* de la manera siguiente:
+> [!NOTE]
+> Si la tabla TEXTFILE *&#60;nombre de base de datos>.&#60;nombre de la tabla de archivo de texto externo>`SELECT * FROM <database name>.<external textfile table name>` tiene particiones, en el PASO 3, el comando * selecciona la variable de partición como un campo en el conjunto de datos devuelto. Si se inserta en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* se producirá un error, ya que *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* no tiene la variable de partición como un campo en el esquema de tabla. En este caso, los usuarios deben seleccionar específicamente los campos que se van a insertar en *&#60;nombre de base de datos>.&#60;nombre de la tabla ORC>* de la manera siguiente:
+> 
+> 
 
         INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition variable>=<partition value>)
            SELECT field1, field2, ..., fieldN
@@ -245,8 +232,6 @@ Es seguro quitar *&#60;nombre de la tabla de archivo de texto externo>* cuando u
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 Después de seguir este procedimiento, debe tener una tabla con datos en el formato ORC lista para su uso.  
-
-
 
 <!--HONumber=Oct16_HO2-->
 

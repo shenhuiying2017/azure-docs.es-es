@@ -1,6 +1,6 @@
 <a name="tellmecs"></a>
-## Información sobre los servicios en la nube
 
+## Información sobre los servicios en la nube
 Los servicios en la nube son un ejemplo de plataforma como-servicio (PaaS). Como [Servicio de aplicaciones](../articles/app-service-web/app-service-web-overview.md), esta tecnología está diseñada para ser compatible con aplicaciones escalables, confiables y económicas de operar. Al igual que un Servicio de aplicaciones, se hospedan en máquinas virtuales, así que también son servicios en la nube; sin embargo, se tiene más control sobre las máquinas virtuales. Puede instalar su propio software en máquinas virtuales de Servicio en la nube y tener acceso remoto a ellas.
 
 ![cs\_diagram](./media/cloud-services-choose-me-content/diagram.png)

@@ -8,55 +8,49 @@ Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Ja
 Omita los pasos 1-3 si creó la aplicación de consola para enviar notificaciones cuando completó [Introducción a los Centros de notificaciones][get-started].
 
 1. En Visual Studio, cree una aplicación de consola en Visual C#: 
-
-   	![][13]
-
+   
+       ![][13]
 2. En el menú principal de Visual Studio, haga clic sucesivamente en **Herramientas**, **Administrador de paquetes de la biblioteca** y **Consola del administrador de paquetes**, y luego, en la ventana de la consola, escriba lo siguiente y presione **Entrar**:
-
+   
         Install-Package Microsoft.Azure.NotificationHubs
- 	
-	Así se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet Microsoft.Azure.Notification Hubs</a>.
-
+   
+    Así se agrega una referencia al SDK de Centros de notificaciones de Azure mediante el <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">paquete NuGet Microsoft.Azure.Notification Hubs</a>.
 3. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
-
+   
         using Microsoft.Azure.NotificationHubs;
-
 4. En la clase `Program`, agregue el siguiente método o reemplácelo si ya existe:
-
+   
         private static async void SendTemplateNotificationAsync()
         {
-			// Define the notification hub.
-		    NotificationHubClient hub = 
-				NotificationHubClient.CreateClientFromConnectionString(
-					"<connection string with full access>", "<hub name>");
-
+            // Define the notification hub.
+            NotificationHubClient hub = 
+                NotificationHubClient.CreateClientFromConnectionString(
+                    "<connection string with full access>", "<hub name>");
+   
             // Create an array of breaking news categories.
             var categories = new string[] { "World", "Politics", "Business", 
-											"Technology", "Science", "Sports"};
-
+                                            "Technology", "Science", "Sports"};
+   
             // Sending the notification as a template notification. All template registrations that contain 
-			// "messageParam" and the proper tags will receive the notifications. 
-			// This includes APNS, GCM, WNS, and MPNS template registrations.
-
+            // "messageParam" and the proper tags will receive the notifications. 
+            // This includes APNS, GCM, WNS, and MPNS template registrations.
+   
             Dictionary<string, string> templateParams = new Dictionary<string, string>();
-
+   
             foreach (var category in categories)
             {
                 templateParams["messageParam"] = "Breaking " + category + " News!";            
                 await hub.SendTemplateNotificationAsync(templateParams, category);
             }
-		 }
-
-	Este código envía una notificación de plantilla para cada una de las seis etiquetas en la matriz de cadenas. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
-
-6. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with full access>` por su nombre del centro de notificaciones y la cadena de conexión para *DefaultFullSharedAccessSignature* del panel de su centro de notificaciones.
-
-7. Agregue las siguientes líneas al método **Main**:
-
+         }
+   
+    Este código envía una notificación de plantilla para cada una de las seis etiquetas en la matriz de cadenas. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
+5. En el código anterior, reemplace los marcadores de posición `<hub name>` y `<connection string with full access>` por su nombre del centro de notificaciones y la cadena de conexión para *DefaultFullSharedAccessSignature* del panel de su centro de notificaciones.
+6. Agregue las siguientes líneas al método **Main**:
+   
          SendTemplateNotificationAsync();
-		 Console.ReadLine();
-
-8. Compile la aplicación de consola.
+         Console.ReadLine();
+7. Compile la aplicación de consola.
 
 <!-- Anchors -->
 [From a console app]: #console

@@ -1,40 +1,37 @@
-<properties
-   pageTitle="Solución de problemas de implementación de máquinas virtuales de Linux o problemas de Resource Manager | Microsoft Azure"
-   description="Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Linux en Azure"
-   services="virtual-machines-linux, azure-resource-manager"
-   documentationCenter=""
-   authors="JiangChen79"
-   manager="felixwu"
-   editor=""
-   tags="top-support-issue, azure-resource-manager"/>
+---
+title: Solución de problemas de implementación de máquinas virtuales de Linux o problemas de Resource Manager | Microsoft Docs
+description: Solución de problemas de implementación de Resource Manager cuando crea una nueva máquina virtual de Linux en Azure
+services: virtual-machines-linux, azure-resource-manager
+documentationcenter: ''
+author: JiangChen79
+manager: felixwu
+editor: ''
+tags: top-support-issue, azure-resource-manager
 
-<tags
-  ms.service="virtual-machines-linux"
-  ms.workload="na"
-  ms.tgt_pltfrm="vm-linux"
-  ms.devlang="na"
-  ms.topic="article"
-  ms.date="09/09/2016"
-  ms.author="cjiang"/>
+ms.service: virtual-machines-linux
+ms.workload: na
+ms.tgt_pltfrm: vm-linux
+ms.devlang: na
+ms.topic: article
+ms.date: 09/09/2016
+ms.author: cjiang
 
-
+---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solución de problemas de la implementación de Resource Manager con la creación de una nueva máquina virtual de Linux en Azure
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
-
-[AZURE.INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="collect-audit-logs"></a>Recopilación de registros de auditoría
-
 Para iniciar la solución de problemas, recopile los registros de auditoría para identificar el error asociado con el problema. Los vínculos siguientes contienen información detallada sobre el proceso que se debe seguir.
 
 [Solución de problemas de implementaciones de grupo de recursos con el Portal de Azure](../resource-manager-troubleshoot-deployments-portal.md)
 
 [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md)
 
-[AZURE.INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
+[!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
-[AZURE.INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
+[!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
 **Y:** si el sistema operativo es Linux generalizado y se carga o captura con la configuración generalizada, no habrá errores. De forma similar, si el sistema operativo es Linux especializado y se carga o captura con la configuración especializada, no habrá errores.
 
@@ -65,26 +62,24 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 **Resolución 1:**
 
-- Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
-- Si no se puede cambiar el tamaño de la máquina virtual solicitada:
-  - Detenga todas las máquinas virtuales en el conjunto de disponibilidad.
-  Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Virtual Machines** > *su máquina virtual* > **Detener**.
-  - Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
-  - Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
+* Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
+* Si no se puede cambiar el tamaño de la máquina virtual solicitada:
+  * Detenga todas las máquinas virtuales en el conjunto de disponibilidad.
+    Haga clic en **Grupos de recursos** > *su grupo de recursos* > **Recursos** > *su conjunto de disponibilidad* > **Virtual Machines** > *su máquina virtual* > **Detener**.
+  * Después de detener todas las máquinas virtuales, cree la nueva máquina virtual con el tamaño deseado.
+  * Inicie la nueva máquina virtual en primer lugar y luego seleccione cada una de las máquinas virtuales detenidas y haga clic en **Iniciar**.
 
 **Causa 2:** el clúster no tiene recursos disponibles.
 
 **Resolución 2:**
 
-- Vuelva a intentar la solicitud más tarde.
-- Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
-  - Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
-  - Agregue la nueva máquina virtual a la misma red virtual.
+* Vuelva a intentar la solicitud más tarde.
+* Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
+  * Cree una nueva máquina virtual en un conjunto de disponibilidad diferente (en la misma región).
+  * Agregue la nueva máquina virtual a la misma red virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Linux detenida o al cambiar el tamaño de una máquina virtual Linux existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Linux existente en Azure](virtual-machines-linux-restart-resize-error-troubleshooting.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

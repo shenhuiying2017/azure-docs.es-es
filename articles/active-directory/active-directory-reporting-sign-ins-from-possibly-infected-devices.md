@@ -1,22 +1,21 @@
-<properties
-	pageTitle="Inicios de sesión desde dispositivos posiblemente infectados"
-	description="Un informe que incluye intentos de inicio de sesión que se han ejecutado desde dispositivos en los que se puede estar ejecutando algún malware (software malintencionado)."
-	services="active-directory"
-	documentationCenter=""
-	authors="SSalahAhmed"
-	manager="gchander"
-	editor=""/>
+---
+title: Inicios de sesión desde dispositivos posiblemente infectados
+description: Un informe que incluye intentos de inicio de sesión que se han ejecutado desde dispositivos en los que se puede estar ejecutando algún malware (software malintencionado).
+services: active-directory
+documentationcenter: ''
+author: SSalahAhmed
+manager: gchander
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/04/2016"
-	ms.author="saah;kenhoff"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/04/2016
+ms.author: saah;kenhoff
 
-
+---
 # Inicios de sesión desde dispositivos posiblemente infectados
 Este informe intenta identificar los dispositivos de usuario que se han infectado y ahora forman parte de una red de robots (botnet). Ponemos en correlación las direcciones IP de los inicios de sesión de los usuarios con las direcciones IP que sabemos que están en contacto con servidores de botnets.
 

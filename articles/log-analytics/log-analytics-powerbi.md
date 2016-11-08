@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Exportación de datos de Log Analytics a Power BI | Microsoft Azure"
-   description="Power BI es un servicio de análisis empresarial basado en la nube de Microsoft que proporciona unos excelentes informes y visualizaciones para el análisis de los distintos conjuntos de datos.  Log Analytics puede exportar continuamente datos desde el repositorio de OMS a Power BI con lo que podrá aprovechar sus herramientas de análisis y visualizaciones.  En este artículo se explica cómo configurar las consultas en Log Analytics para que se exporten a Power BI automáticamente a intervalos regulares."
-   services="log-analytics"
-   documentationCenter=""
-   authors="bwren"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="log-analytics"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="10/18/2016"
-   ms.author="bwren" />
+---
+title: Exportación de datos de Log Analytics a Power BI | Microsoft Docs
+description: Power BI es un servicio de análisis empresarial basado en la nube de Microsoft que proporciona unos excelentes informes y visualizaciones para el análisis de los distintos conjuntos de datos.  Log Analytics puede exportar continuamente datos desde el repositorio de OMS a Power BI con lo que podrá aprovechar sus herramientas de análisis y visualizaciones.  En este artículo se explica cómo configurar las consultas en Log Analytics para que se exporten a Power BI automáticamente a intervalos regulares.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: jwhit
+editor: tysonn
 
+ms.service: log-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 10/18/2016
+ms.author: bwren
 
+---
 # <a name="export-log-analytics-data-to-power-bi"></a>Exportación de datos de Log Analytics a Power BI
-
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) es un servicio de análisis empresarial basado en la nube de Microsoft que proporciona unos excelentes informes y visualizaciones para el análisis de los distintos conjuntos de datos.  Log Analytics puede exportar automáticamente datos desde el repositorio de OMS a Power BI con lo que podrá aprovechar sus herramientas de análisis y visualizaciones.
 
 Si configura Power BI con Log Analytics, podrá crear consultas de registro que exporten los resultados a los conjuntos de datos correspondientes de Power BI.  La consulta y la exportación se continuarán ejecutándo automáticamente según la programación que defina para mantener el conjunto de datos actualizado con los últimos datos recopilados por Log Analytics.
@@ -25,15 +24,16 @@ Si configura Power BI con Log Analytics, podrá crear consultas de registro que 
 ![Log Analytics a Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="power-bi-schedules"></a>Programaciones de Power BI
-
 Una *programación de Power BI* incluye una búsqueda de registros que exporta un conjunto de datos desde el repositorio de OMS al conjunto de datos correspondiente de Power BI y una programación que define la frecuencia de ejecución de esta búsqueda para mantener el conjunto de datos actualizado.
 
 Los campos del conjunto de datos se corresponderán con las propiedades de los registros devueltos por la búsqueda de registros.  Si la búsqueda devuelve registros de diferentes tipos, el conjunto de datos incluirá todas las propiedades de cada uno de los tipos incluidos.  
 
-> [AZURE.NOTE] Se recomienda usar una consulta de búsqueda de registros que devuelva datos sin procesar en lugar de realizar cualquier consolidación mediante comandos como [Measure](log-analytics-search-reference.md#measure).  Puede realizar cualquier cálculo y adición en Power BI a partir de los datos sin procesar.
+> [!NOTE]
+> Se recomienda usar una consulta de búsqueda de registros que devuelva datos sin procesar en lugar de realizar cualquier consolidación mediante comandos como [Measure](log-analytics-search-reference.md#measure).  Puede realizar cualquier cálculo y adición en Power BI a partir de los datos sin procesar.
+> 
+> 
 
 ## <a name="connecting-oms-workspace-to-power-bi"></a>Conexión del área de trabajo de OMS a Power BI
-
 Para poder exportar desde Log Analytics a Power BI, debe conectar el área de trabajo de OMS a la cuenta de Power BI mediante el siguiente procedimiento.  
 
 1. En la consola de OMS, haga clic en el icono **Configuración** .
@@ -42,7 +42,6 @@ Para poder exportar desde Log Analytics a Power BI, debe conectar el área de tr
 4. Escriba las credenciales de la cuenta de Power BI.
 
 ## <a name="create-a-power-bi-schedule"></a>Creación de una programación de Power BI
-
 Cree una programación de Power BI para cada conjunto de datos mediante el siguiente procedimiento.
 
 1. En la consola de OMS, haga clic en el icono **Búsqueda de registros** .
@@ -51,14 +50,13 @@ Cree una programación de Power BI para cada conjunto de datos mediante el sigui
 4. Proporcione la información en la tabla siguiente y haga clic en **Guardar**.
 
 | Propiedad | Descripción |
-|:--|:--|
-| Nombre | Nombre para identificar la programación cuando consulte la lista de programaciones de Power BI. |
-| Búsqueda guardada | La búsqueda de registros que desea ejecutar.  Puede seleccionar la consulta actual u otra búsqueda guardada existente en el cuadro desplegable. |
-| Schedule | La frecuencia con la que se ejecutará la búsqueda guardada y la exportación al conjunto de datos de Power BI.  El valor debe estar comprendido entre 15 minutos y 24 horas. |
-| Nombre del conjunto de datos | El nombre del conjunto de datos de Power BI.  Se creará si no existe y se actualizará si ya existe. |
+|:--- |:--- |
+| Nombre |Nombre para identificar la programación cuando consulte la lista de programaciones de Power BI. |
+| Búsqueda guardada |La búsqueda de registros que desea ejecutar.  Puede seleccionar la consulta actual u otra búsqueda guardada existente en el cuadro desplegable. |
+| Schedule |La frecuencia con la que se ejecutará la búsqueda guardada y la exportación al conjunto de datos de Power BI.  El valor debe estar comprendido entre 15 minutos y 24 horas. |
+| Nombre del conjunto de datos |El nombre del conjunto de datos de Power BI.  Se creará si no existe y se actualizará si ya existe. |
 
 ## <a name="viewing-and-removing-power-bi-schedules"></a>Visualización y eliminación de programaciones de Power BI
-
 Observe la lista de programaciones de Power BI existente mediante el siguiente procedimiento.
 
 1. En la consola de OMS, haga clic en el icono **Configuración** .
@@ -113,11 +111,8 @@ Para guardar el informe, haga clic en el botón Guardar situado en la parte supe
 ![Informes de Power BI](media/log-analytics-powerbi/walkthrough-report.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- Obtenga información sobre de las [búsquedas de registro](log-analytics-log-searches.md) para crear consultas que se puedan exportar a Power BI.
-- Obtenga más información sobre [Power BI](http://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de Log Analytics.
-
-
+* Obtenga información sobre de las [búsquedas de registro](log-analytics-log-searches.md) para crear consultas que se puedan exportar a Power BI.
+* Obtenga más información sobre [Power BI](http://powerbi.microsoft.com) para generar visualizaciones basadas en exportaciones de Log Analytics.
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,29 +1,28 @@
-<properties
-    pageTitle="Habilitación automática de Configuración de diagnóstico con una plantilla de Resource Manager | Microsoft Azure"
-    description="Aprenda a usar una plantilla de Resource Manager para crear una configuración de diagnóstico que le permitirá transmitir los registros de diagnóstico a centros de eventos o almacenarlos en una cuenta de almacenamiento."
-    authors="johnkemnetz"
-    manager="rboucher"
-    editor=""
-    services="monitoring-and-diagnostics"
-    documentationCenter="monitoring-and-diagnostics"/>
+---
+title: Habilitación automática de Configuración de diagnóstico con una plantilla de Resource Manager | Microsoft Docs
+description: Aprenda a usar una plantilla de Resource Manager para crear una configuración de diagnóstico que le permitirá transmitir los registros de diagnóstico a centros de eventos o almacenarlos en una cuenta de almacenamiento.
+author: johnkemnetz
+manager: rboucher
+editor: ''
+services: monitoring-and-diagnostics
+documentationcenter: monitoring-and-diagnostics
 
-<tags
-    ms.service="monitoring-and-diagnostics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="johnkem"/>
+ms.service: monitoring-and-diagnostics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: johnkem
 
-
+---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitación automática de Configuración de diagnóstico al crear recursos con una plantilla de Resource Manager
 En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto permite empezar automáticamente a transmitir las métricas y los registros de diagnóstico a Event Hubs, a archivarlos en una cuenta de almacenamiento o a enviarlos a Log Analytics cuando se crea un recurso.
 
 El método para habilitar registros de diagnóstico mediante una plantilla de Resource Manager depende del tipo de recurso.
 
-- **no de proceso** (por ejemplo, Grupos de seguridad de red, Logic Apps, Automatización) usan [Configuración de diagnóstico como se describe en este artículo](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-- **de proceso** (basados en WAD/LAD) usan el [archivo de configuración de WAD/LAD descrito en este artículo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **no de proceso** (por ejemplo, Grupos de seguridad de red, Logic Apps, Automatización) usan [Configuración de diagnóstico como se describe en este artículo](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+* **de proceso** (basados en WAD/LAD) usan el [archivo de configuración de WAD/LAD descrito en este artículo](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 En este artículo se describe cómo configurar diagnósticos mediante cualquiera de estos métodos.
 
@@ -38,7 +37,7 @@ A continuación, se ofrece un ejemplo del archivo JSON de plantilla que debe gen
 Para recursos no de proceso, debe hacer dos cosas:
 
 1. Agregue parámetros al blob de parámetros para el nombre de cuenta de almacenamiento, el identificador de regla de Service Bus o el identificador del área de trabajo de Log Analytics de OMS (esto habilita el archivado de registros de diagnóstico en una cuenta de almacenamiento, el streaming de registros a Event Hubs o el envío de registros a Log Analytics).
-
+   
     ```json
     "storageAccountName": {
       "type": "string",
@@ -60,7 +59,7 @@ Para recursos no de proceso, debe hacer dos cosas:
     }
     ```
 2. En la matriz de recursos del recurso para el que desea habilitar los registros de diagnóstico, agregue un recurso de tipo `[resource namespace]/providers/diagnosticSettings`.
-
+   
     ```json
     "resources": [
       {
@@ -181,16 +180,16 @@ Para habilitar los diagnósticos en un recurso de proceso, por ejemplo, un clús
 2. Especifique una cuenta de almacenamiento y/o un centro de eventos como parámetro.
 3. Agregue el contenido del archivo XML de WADCfg a la propiedad XMLCfg y dé el formato de escape correcto a todos los caracteres XML.
 
-> [AZURE.WARNING] Este último paso puede ser complicado de realizar correctamente. [Consulte este artículo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) para ver un ejemplo que divide el esquema de configuración de diagnóstico en variables con el formato y el escape correctos.
+> [!WARNING]
+> Este último paso puede ser complicado de realizar correctamente. [Consulte este artículo](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md#diagnostics-configuration-variables) para ver un ejemplo que divide el esquema de configuración de diagnóstico en variables con el formato y el escape correctos.
+> 
+> 
 
 Se describe el proceso completo, con ejemplos, [en este documento](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
 
-
 ## <a name="next-steps"></a>Pasos siguientes
-- [Más información sobre los registros de Diagnósticos de Azure](./monitoring-overview-of-diagnostic-logs.md)
-- [Transmita registros de diagnóstico de Azure a centros de eventos](./monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
-
+* [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
+* [Transmita registros de diagnóstico de Azure a centros de eventos](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--HONumber=Oct16_HO2-->
 

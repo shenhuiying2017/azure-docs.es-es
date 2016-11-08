@@ -1,47 +1,47 @@
-<properties
-	pageTitle="Incorporación de notificaciones push a la aplicación (iOS) | Back-end de JavaScript"
-	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS."
-	services="mobile-services,notification-hubs"
-	documentationCenter="ios"
-	manager="dwrede"
-	editor=""
-	authors="krisragh"/>
+---
+title: Incorporación de notificaciones push a la aplicación (iOS) | Microsoft Docs
+description: Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS.
+services: mobile-services,notification-hubs
+documentationcenter: ios
+manager: dwrede
+editor: ''
+author: krisragh
 
-<tags
-	ms.service="mobile-services"
-	ms.workload="mobile"
-	ms.tgt_pltfrm="ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="07/21/2016"
-	ms.author="krisragh"/>
+ms.service: mobile-services
+ms.workload: mobile
+ms.tgt_pltfrm: ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 07/21/2016
+ms.author: krisragh
 
+---
 # Incorporación de notificaciones push a una aplicación de iOS y un back-end de JavaScript
-
-[AZURE.INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
+[!INCLUDE [mobile-services-selector-get-started-push](../../includes/mobile-services-selector-get-started-push.md)]
 
 &nbsp;
 
-[AZURE.INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+[!INCLUDE [mobile-service-note-mobile-apps](../../includes/mobile-services-note-mobile-apps.md)]
+
 > Para más información sobre la versión de Mobile Apps equivalente de este tema, consulte [Incorporación de notificaciones push a la aplicación iOS](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+> 
+> 
 
 En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio rápido](mobile-services-ios-get-started.md), de modo que el servicio móvil envíe una notificación push cada vez que se inserte un registro. Debe completar primero el tutorial [Introducción a Servicios móviles].
 
-> [AZURE.NOTE] El [simulador de iOS no admite notificaciones push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que debe usar un dispositivo iOS físico. También deberá suscribirse como [miembro del programa para desarrolladores de Apple](https://developer.apple.com/programs/ios/). Esta suscripción es de pago.
+> [!NOTE]
+> El [simulador de iOS no admite notificaciones push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que debe usar un dispositivo iOS físico. También deberá suscribirse como [miembro del programa para desarrolladores de Apple](https://developer.apple.com/programs/ios/). Esta suscripción es de pago.
+> 
+> 
 
-[AZURE.INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
-
+[!INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
 
 ## <a id="configure"></a>Configuración de Azure para enviar notificaciones push
-
-[AZURE.INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
+[!INCLUDE [Configuración de notificaciones push en Servicios móviles de Azure](../../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>Actualización del script de back-end para enviar notificaciones push
-
 * En el [Portal de Azure clásico], haga clic en la pestaña **Datos** y luego en **TodoItem**. En **TodoItem**, haga clic en la pestaña **Script** y seleccione **Insertar**. Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
-
 * Reemplace la función de inserción por el siguiente código y haga clic en **Guardar**. De esta forma, se registra un nuevo script de inserción, que usa el [objeto apns] para enviar una notificación de inserción (el texto insertado) al dispositivo especificado en la solicitud de inserción. Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación del sistema.
-
 
 ```
         function insert(item, user, request) {
@@ -59,10 +59,9 @@ En este tema se muestra cómo agregar notificaciones push al [proyecto de inicio
         }
 ```
 
-[AZURE.INCLUDE [Agregar notificaciones push a la aplicación](../../includes/add-push-notifications-to-app.md)]
+[!INCLUDE [Agregar notificaciones push a la aplicación](../../includes/add-push-notifications-to-app.md)]
 
-[AZURE.INCLUDE [Prueba de las notificaciones push en la aplicación](../../includes/test-push-notifications-in-app.md)]
-
+[!INCLUDE [Prueba de las notificaciones push en la aplicación](../../includes/test-push-notifications-in-app.md)]
 
 <!-- Anchors. -->
 

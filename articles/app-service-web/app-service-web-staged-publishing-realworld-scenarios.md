@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Uso eficaz de entornos DevOps para las aplicaciones web"
-   description="Aprenda a usar ranuras de implementación para configurar y administrar varios entornos de desarrollo para la aplicación"
-   services="app-service\web"
-   documentationCenter=""
-   authors="sunbuild"
-   manager="yochayk"
-   editor=""/>
+---
+title: Uso eficaz de entornos DevOps para las aplicaciones web
+description: Aprenda a usar ranuras de implementación para configurar y administrar varios entornos de desarrollo para la aplicación
+services: app-service\web
+documentationcenter: ''
+author: sunbuild
+manager: yochayk
+editor: ''
 
-<tags
-   ms.service="app-service"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="web"
-   ms.date="05/31/2016"
-   ms.author="sumuth"/>
+ms.service: app-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: web
+ms.date: 05/31/2016
+ms.author: sumuth
 
+---
 # Uso eficaz de entornos DevOps para las aplicaciones web
-
 En este artículo se muestra cómo configurar y administrar implementaciones de aplicaciones web para varias versiones de la aplicación como desarrollo, ensayo, control de calidad y producción. Cada versión de la aplicación se puede considerar un entorno de desarrollo para una necesidad específica dentro de su proceso de implementación; por ejemplo, el equipo de desarrolladores puede usar el entorno de control de calidad para probar la calidad de la aplicación antes de enviar los cambios a producción. La configuración de varios entornos de desarrollo puede ser una tarea difícil dado que debe realizar el seguimiento de los recursos y administrarlos (proceso, aplicación web, base de datos, caché, etc.) a través de estos entornos, así como implementar el contenido de un entorno a otro.
 
 ## Configuración de un entorno que no es de producción (ensayo, desarrollo, control de calidad)
@@ -30,7 +29,6 @@ El siguiente paso después de que la aplicación web de producción está en fun
 Para configurar una ranura de implementación de ensayo, consulte [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md) . Cada entorno debe incluir su propio conjunto de recursos; por ejemplo, si su aplicación web usa una base de datos, entonces tanto la aplicación web de producción como la aplicación web de ensayo deben usar diferentes bases de datos. Agregue recursos de entorno de desarrollo de ensayo, como base de datos, almacenamiento o caché para configurar el entorno de desarrollo de ensayo.
 
 ## Ejemplos del uso de varios entornos de desarrollo
-
 Todo proyecto debe seguir la administración de un código fuente con al menos dos entornos, un entorno de desarrollo y un entorno de producción; sin embargo, al usar sistemas de administración del contenido, marcos de aplicaciones, etc., podemos encontrarnos con problemas en los que la aplicación no admite ese escenario de forma predeterminada. Esto sucede con algunos de los marcos más conocidos que describimos a continuación. Muchas preguntas vienen a la mente cuando se trabaja con un CMS o un marco, como por ejemplo:
 
 1. ¿Cómo dividirlo en diferentes entornos?
@@ -45,23 +43,22 @@ En esta sección obtendrá información sobre cómo configurar un flujo de traba
 
 Antes de crear una ranura de ensayo, configure el código de aplicación para admitir varios entornos. Para admitir varios entornos en WordPress debe editar `wp-config.php` en la aplicación web de desarrollo local y agregar el código siguiente al principio del archivo. De esta forma, la aplicación puede seleccionar la configuración correcta en función del entorno seleccionado.
 
-
-	// Support multiple environments
-	// set the config file based on current environment
-	/**/
-	if (strpos(filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING),'localhost') !== false) {
-	    // local development
-	    $config_file = 'config/wp-config.local.php';
-	}
-	elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
-	      //single file for all azure development environments
-	      $config_file = 'config/wp-config.azure.php';
-	}
-	$path = dirname(__FILE__) . '/';
-	if (file_exists($path . $config_file)) {
-	    // include the config file if it exists, otherwise WP is going to fail
-	    require_once $path . $config_file;
-	}
+    // Support multiple environments
+    // set the config file based on current environment
+    /**/
+    if (strpos(filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING),'localhost') !== false) {
+        // local development
+        $config_file = 'config/wp-config.local.php';
+    }
+    elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
+          //single file for all azure development environments
+          $config_file = 'config/wp-config.azure.php';
+    }
+    $path = dirname(__FILE__) . '/';
+    if (file_exists($path . $config_file)) {
+        // include the config file if it exists, otherwise WP is going to fail
+        require_once $path . $config_file;
+    }
 
 
 
@@ -70,104 +67,103 @@ Cree una carpeta bajo la raíz de la aplicación web llamada `config` y agregue 
 Copie lo siguiente en `wp-config.local.php`:
 
 ```
-	
-	<?php
-	
-	// MySQL settings
-	/** The name of the database for WordPress */
-	
-	define('DB_NAME', 'yourdatabasename');
-	
-	/** MySQL database username */
-	define('DB_USER', 'yourdbuser');
-	
-	/** MySQL database password */
-	define('DB_PASSWORD', 'yourpassword');
-	
-	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
-	/**
-	 * For developers: WordPress debugging mode.
-	 * * Change this to true to enable the display of notices during development.
-	 * It is strongly recommended that plugin and theme developers use WP_DEBUG
-	 * in their development environments.
-	 */
-	define('WP_DEBUG', true);
-	
-	//Security key settings
-	define('AUTH_KEY',         'put your unique phrase here');
-	define('SECURE_AUTH_KEY',  'put your unique phrase here');
-	define('LOGGED_IN_KEY',    'put your unique phrase here');
-	define('NONCE_KEY',        'put your unique phrase here');
-	define('AUTH_SALT',        'put your unique phrase here');
-	define('SECURE_AUTH_SALT', 'put your unique phrase here');
-	define('LOGGED_IN_SALT',   'put your unique phrase here');
-	define('NONCE_SALT',       'put your unique phrase here');
-	
-	/**
-	 * WordPress Database Table prefix.
-	 *
-	 * You can have multiple installations in one database if you give each a unique
-	 * prefix. Only numbers, letters, and underscores please!
-	 */
-	$table_prefix  = 'wp_';
+
+    <?php
+
+    // MySQL settings
+    /** The name of the database for WordPress */
+
+    define('DB_NAME', 'yourdatabasename');
+
+    /** MySQL database username */
+    define('DB_USER', 'yourdbuser');
+
+    /** MySQL database password */
+    define('DB_PASSWORD', 'yourpassword');
+
+    /** MySQL hostname */
+    define('DB_HOST', 'localhost');
+    /**
+     * For developers: WordPress debugging mode.
+     * * Change this to true to enable the display of notices during development.
+     * It is strongly recommended that plugin and theme developers use WP_DEBUG
+     * in their development environments.
+     */
+    define('WP_DEBUG', true);
+
+    //Security key settings
+    define('AUTH_KEY',         'put your unique phrase here');
+    define('SECURE_AUTH_KEY',  'put your unique phrase here');
+    define('LOGGED_IN_KEY',    'put your unique phrase here');
+    define('NONCE_KEY',        'put your unique phrase here');
+    define('AUTH_SALT',        'put your unique phrase here');
+    define('SECURE_AUTH_SALT', 'put your unique phrase here');
+    define('LOGGED_IN_SALT',   'put your unique phrase here');
+    define('NONCE_SALT',       'put your unique phrase here');
+
+    /**
+     * WordPress Database Table prefix.
+     *
+     * You can have multiple installations in one database if you give each a unique
+     * prefix. Only numbers, letters, and underscores please!
+     */
+    $table_prefix  = 'wp_';
 ```
 
 La configuración de las claves de seguridad que se indican arriba puede ayudar a impedir que la aplicación web se piratee, así que use valores únicos. Si debe generar la cadena para estas claves de seguridad, puede ir al generador automático y crear nuevas claves o valores mediante este [vínculo](https://api.wordpress.org/secret-key/1.1/salt).
 
 Copie el siguiente código en `wp-config.azure.php`:
 
-
 ```
 
-	<?php
-	// MySQL settings
-	/** The name of the database for WordPress */
-	
-	define('DB_NAME', getenv('DB_NAME'));
-	
-	/** MySQL database username */
-	define('DB_USER', getenv('DB_USER'));
-	
-	/** MySQL database password */
-	define('DB_PASSWORD', getenv('DB_PASSWORD'));
-	
-	/** MySQL hostname */
-	define('DB_HOST', getenv('DB_HOST'));
-	
-	/**
-	* For developers: WordPress debugging mode.
-	*
-	* Change this to true to enable the display of notices during development.
-	* It is strongly recommended that plugin and theme developers use WP_DEBUG
-	* in their development environments.
-	* Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
-	* do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
-	* with WP_DEBUG_LOG so that errors are not displayed on the page */
-	
-	*/
-	define('WP_DEBUG', getenv('WP_DEBUG'));
-	define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
-	define('WP_DEBUG_DISPLAY',false);
-	
-	//Security key settings
-	/** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
-	define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
-	define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
-	define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
-	define('NONCE_KEY', getenv('DB_NONCE_KEY'));
-	define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
-	define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
-	define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
-	define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
-	
-	/**
-	* WordPress Database Table prefix.
-	*
-	* You can have multiple installations in one database if you give each a unique
-	* prefix. Only numbers, letters, and underscores please!
-	*/
-	$table_prefix  = getenv('DB_PREFIX');
+    <?php
+    // MySQL settings
+    /** The name of the database for WordPress */
+
+    define('DB_NAME', getenv('DB_NAME'));
+
+    /** MySQL database username */
+    define('DB_USER', getenv('DB_USER'));
+
+    /** MySQL database password */
+    define('DB_PASSWORD', getenv('DB_PASSWORD'));
+
+    /** MySQL hostname */
+    define('DB_HOST', getenv('DB_HOST'));
+
+    /**
+    * For developers: WordPress debugging mode.
+    *
+    * Change this to true to enable the display of notices during development.
+    * It is strongly recommended that plugin and theme developers use WP_DEBUG
+    * in their development environments.
+    * Turn on debug logging to investigate issues without displaying to end user. For WP_DEBUG_LOG to
+    * do anything, WP_DEBUG must be enabled (true). WP_DEBUG_DISPLAY should be used in conjunction
+    * with WP_DEBUG_LOG so that errors are not displayed on the page */
+
+    */
+    define('WP_DEBUG', getenv('WP_DEBUG'));
+    define('WP_DEBUG_LOG', getenv('TURN_ON_DEBUG_LOG'));
+    define('WP_DEBUG_DISPLAY',false);
+
+    //Security key settings
+    /** If you need to generate the string for security keys mentioned above, you can go the automatic generator to create new keys/values: https://api.wordpress.org/secret-key/1.1/salt **/
+    define('AUTH_KEY' ,getenv('DB_AUTH_KEY'));
+    define('SECURE_AUTH_KEY',  getenv('DB_SECURE_AUTH_KEY'));
+    define('LOGGED_IN_KEY', getenv('DB_LOGGED_IN_KEY'));
+    define('NONCE_KEY', getenv('DB_NONCE_KEY'));
+    define('AUTH_SALT',  getenv('DB_AUTH_SALT'));
+    define('SECURE_AUTH_SALT', getenv('DB_SECURE_AUTH_SALT'));
+    define('LOGGED_IN_SALT',   getenv('DB_LOGGED_IN_SALT'));
+    define('NONCE_SALT',   getenv('DB_NONCE_SALT'));
+
+    /**
+    * WordPress Database Table prefix.
+    *
+    * You can have multiple installations in one database if you give each a unique
+    * prefix. Only numbers, letters, and underscores please!
+    */
+    $table_prefix  = getenv('DB_PREFIX');
 ```
 
 #### Uso de rutas de acceso relativas
@@ -178,9 +174,9 @@ Agregue las siguientes entradas al archivo `wp-config.php` delante del comentari
 ```
 
     define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_CONTENT_URL', '/wp-content');
-	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_CONTENT_URL', '/wp-content');
+    define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
 ```
 
 Active el complemento en el menú `Plugins` del panel de administrador de WordPress. Guarde la configuración de vínculo permanente para la aplicación de WordPress.
@@ -190,58 +186,58 @@ Las actualizaciones principales de WordPress no afectan a los archivos `wp-confi
 
 ```
 
-	<?php
-	/**
-	 * The base configurations of the WordPress.
-	 *
-	 * This file has the following configurations: MySQL settings, Table Prefix,
-	 * Secret Keys, and ABSPATH. You can find more information by visiting
-	 *
-	 * Codex page. You can get the MySQL settings from your web host.
-	 *
-	 * This file is used by the wp-config.php creation script during the
-	 * installation. You don't have to use the web web app, you can just copy this file
-	 * to "wp-config.php" and fill in the values.
-	 *
-	 * @package WordPress
-	 */
-	
-	// Support multiple environments
-	// set the config file based on current environment
-	if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
-	    $config_file = 'config/wp-config.local.php';
-	}
-	elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
-	    $config_file = 'config/wp-config.azure.php';
-	}
-	
-	
-	$path = dirname(__FILE__) . '/';
-	if (file_exists($path . $config_file)) {
-	    // include the config file if it exists, otherwise WP is going to fail
-	    require_once $path . $config_file;
-	}
-	
-	/** Database Charset to use in creating database tables. */
-	define('DB_CHARSET', 'utf8');
-	
-	/** The Database Collate type. Don't change this if in doubt. */
-	define('DB_COLLATE', '');
-	
-	
-	/* That's all, stop editing! Happy blogging. */
-	
-	define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	define('WP_CONTENT_URL', '/wp-content');
-	define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
-	
-	/** Absolute path to the WordPress directory. */
-	if ( !defined('ABSPATH') )
-		define('ABSPATH', dirname(__FILE__) . '/');
-	
-	/** Sets up WordPress vars and included files. */
-	require_once(ABSPATH . 'wp-settings.php');
+    <?php
+    /**
+     * The base configurations of the WordPress.
+     *
+     * This file has the following configurations: MySQL settings, Table Prefix,
+     * Secret Keys, and ABSPATH. You can find more information by visiting
+     *
+     * Codex page. You can get the MySQL settings from your web host.
+     *
+     * This file is used by the wp-config.php creation script during the
+     * installation. You don't have to use the web web app, you can just copy this file
+     * to "wp-config.php" and fill in the values.
+     *
+     * @package WordPress
+     */
+
+    // Support multiple environments
+    // set the config file based on current environment
+    if (strpos($_SERVER['HTTP_HOST'],'localhost') !== false) { // local development
+        $config_file = 'config/wp-config.local.php';
+    }
+    elseif  ((strpos(getenv('WP_ENV'),'stage') !== false) ||  (strpos(getenv('WP_ENV'),'prod' )!== false )){
+        $config_file = 'config/wp-config.azure.php';
+    }
+
+
+    $path = dirname(__FILE__) . '/';
+    if (file_exists($path . $config_file)) {
+        // include the config file if it exists, otherwise WP is going to fail
+        require_once $path . $config_file;
+    }
+
+    /** Database Charset to use in creating database tables. */
+    define('DB_CHARSET', 'utf8');
+
+    /** The Database Collate type. Don't change this if in doubt. */
+    define('DB_COLLATE', '');
+
+
+    /* That's all, stop editing! Happy blogging. */
+
+    define('WP_HOME', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_SITEURL', 'http://' . filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+    define('WP_CONTENT_URL', '/wp-content');
+    define('DOMAIN_CURRENT_SITE', filter_input(INPUT_SERVER, 'HTTP_HOST', FILTER_SANITIZE_STRING));
+
+    /** Absolute path to the WordPress directory. */
+    if ( !defined('ABSPATH') )
+        define('ABSPATH', dirname(__FILE__) . '/');
+
+    /** Sets up WordPress vars and included files. */
+    require_once(ABSPATH . 'wp-settings.php');
 ```
 
 #### Configuración de un entorno de ensayo
@@ -260,15 +256,15 @@ Los desarrolladores pueden almacenar pares de cadena clave -valor en Azure como 
 
 Este proceso que se define a continuación es útil cuando se realizan actualizaciones, ya que incluye cambios tanto en los archivos como en la base de datos de la aplicación de WordPress:
 
-- Actualización de versión de WordPress
-- Agregar nuevos complementos o editar o actualizar los existentes
-- Agregar nuevos temas o editar o actualizar los existentes
+* Actualización de versión de WordPress
+* Agregar nuevos complementos o editar o actualizar los existentes
+* Agregar nuevos temas o editar o actualizar los existentes
 
 Configure los valores de aplicación para:
 
-- La información de base de datos
-- Activar o desactivar el registro de WordPress
-- Configurar la seguridad de WordPress
+* La información de base de datos
+* Activar o desactivar el registro de WordPress
+* Configurar la seguridad de WordPress
 
 ![Configuración de aplicaciones para la aplicación web de Wordpress](./media/app-service-web-staged-publishing-realworld-scenarios/3configure.png)
 
@@ -282,13 +278,14 @@ Examine y pruebe la aplicación web provisional. Si consideramos un escenario en
 
 ![Examen de la aplicación web de ensayo antes del intercambio de ranuras](./media/app-service-web-staged-publishing-realworld-scenarios/5wpstage.png)
 
-
  Si todo está bien, haga clic en el botón **Intercambiar** en la aplicación web de ensayo para mover el contenido al entorno de producción. En este caso, intercambia la aplicación web y la base de datos entre los entornos durante cada una de las operaciones de **intercambio**.
 
 ![Vista previa de los cambios de intercambio para WordPress](./media/app-service-web-staged-publishing-realworld-scenarios/6swaps1.png)
 
- > [AZURE.NOTE]
- Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), **active** la casilla **Configuración de ranuras** para todos los valores de *configuración de aplicaciones* y de *configuración de cadenas de conexión* que estén relacionados con la base de datos en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
+> [!NOTE]
+> Si tiene un escenario en el que solo necesita insertar archivos (sin actualizaciones de la base de datos), **active** la casilla **Configuración de ranuras** para todos los valores de *configuración de aplicaciones* y de *configuración de cadenas de conexión* que estén relacionados con la base de datos en la hoja de configuración de la aplicación web, dentro del Portal de Azure, antes de realizar el intercambio. En este caso DB\_NAME, DB\_HOST, DB\_PASSWORD, DB\_USER, la configuración predeterminada de cadena de conexión, no se debe mostrar en los cambios de vista previa al realizar un **intercambio**. En este momento, cuando finalice la operación de **intercambio**, la aplicación web de WordPress **SOLO** tendrá los archivos actualizados.
+> 
+> 
 
 Antes de realizar un intercambio, aquí está la aplicación web de WordPress de producción ![Aplicación web de producción antes del intercambio de ranuras](./media/app-service-web-staged-publishing-realworld-scenarios/7bfswap.png)
 
@@ -332,15 +329,15 @@ Haga clic en **Obtener configuración de publicación** para la ranura de implem
 
  ![Obtención de configuración de publicación de la aplicación web de ensayo](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 
-- Abra la aplicación web de desarrollo local en **WebMatrix** o **Visual Studio**. En este tutorial se usa WebMatrix, así que primero debe importar el archivo de configuración de publicación de la aplicación web de ensayo
+* Abra la aplicación web de desarrollo local en **WebMatrix** o **Visual Studio**. En este tutorial se usa WebMatrix, así que primero debe importar el archivo de configuración de publicación de la aplicación web de ensayo
 
 ![Importación de la configuración de publicación para Umbraco mediante WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/11import.png)
 
-- Revise los cambios en el cuadro de diálogo e implemente la aplicación web local en la aplicación web de Azure: *umbracositecms-1-stage*. Al implementar los archivos directamente en la aplicación web de ensayo, se omitirán todos los archivos de la `~/app_data/TEMP/` carpeta puesto que estos se volverán a generar la primera vez que se inicie la aplicación web de ensayo. También debe omitir el archivo `~/app_data/umbraco.config`, dado que también se volverá a generar.
+* Revise los cambios en el cuadro de diálogo e implemente la aplicación web local en la aplicación web de Azure: *umbracositecms-1-stage*. Al implementar los archivos directamente en la aplicación web de ensayo, se omitirán todos los archivos de la `~/app_data/TEMP/` carpeta puesto que estos se volverán a generar la primera vez que se inicie la aplicación web de ensayo. También debe omitir el archivo `~/app_data/umbraco.config`, dado que también se volverá a generar.
 
 ![Revisión de los cambios de publicación en WebMatrix](./media/app-service-web-staged-publishing-realworld-scenarios/12umbpublish.png)
 
-- Después de publicar correctamente la aplicación web local de Umbraco en la aplicación web de ensayo, busque esta última y ejecute algunas pruebas para descartar cualquier problema.
+* Después de publicar correctamente la aplicación web local de Umbraco en la aplicación web de ensayo, busque esta última y ejecute algunas pruebas para descartar cualquier problema.
 
 #### Configuración del módulo de implementación Courier2
 Con el módulo [Courier2](http://umbraco.com/products/more-add-ons/courier-2) puede insertar contenido, hojas de estilo, módulos de desarrollo y mucho más desde una aplicación web de ensayo hasta la aplicación web de producción, con un simple clic con el botón derecho. De este modo se facilita el desarrollo y se reduce el riesgo de interrumpir la aplicación web de producción al implementar una actualización. Adquiera una licencia de Courier2 para el dominio `*.azurewebsites.net` y su dominio personalizado (por ejemplo, http://abc.com). Después de haber adquirido la licencia, coloque la licencia descargada (archivo .LIC) en la carpeta `bin`.
@@ -372,7 +369,7 @@ Para configurarlo, debe actualizar el archivo courier.config en la carpeta **Con
   </repositories>
  ```
 
-En `<repositories>`, especifique la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando un proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
+En `<repositories>`, especifique la dirección URL del sitio de producción y la información de usuario. Si está usando el proveedor de pertenencia de Umbraco predeterminado, agregue el identificador del usuario de administración en la sección <user>. Si está usando un proveedor de pertenencia de Umbraco personalizado, use `<login>`,`<password>` para que el módulo Courier2 sepa cómo conectarse al sitio de producción. Para obtener más información, revise la [documentación](http://umbraco.com/help-and-support/customer-area/courier-2-support-and-download/developer-documentation) del módulo Courier.
 
 De igual forma, instale el módulo Courier en el sitio de producción y configúrelo para que apunte a la aplicación web de ensayo en su archivo courier.config respectivo, tal como se muestra aquí.
 
@@ -415,11 +412,9 @@ Examine la aplicación web de producción para ver si se reflejan los cambios.
 Para obtener más información sobre cómo usar Courier, revise la documentación.
 
 #### Actualización de la versión de CMS de Umbraco
-
 Courier no ayudará a la implementación con la actualización de una versión a otra de CMS de Umbraco. Al actualizar la versión de CMS de Umbraco, debe comprobar si hay incompatibilidades con los módulos personalizados o los módulos de terceros y las bibliotecas principales de Umbraco. Como procedimiento recomendado
 
 1. Realice SIEMPRE una copia de seguridad de su aplicación web y de la base de datos antes de realizar una actualización. En la aplicación web de Azure, puede configurar copias de seguridad automáticas de los sitios web con la característica de copia de seguridad y restaurar el sitio en caso necesario mediante la característica de restauración. Para obtener más detalles, consulte [Realización de una copia de seguridad de las aplicaciones web](web-sites-backup.md) y [Restauración de la aplicación web](web-sites-restore.md).
-
 2. Compruebe si los paquetes de terceros que usa son compatibles con la versión a la que va a actualizar. En la página de descarga del paquete, revise la compatibilidad del proyecto con la versión de CMS de Umbraco.
 
 Para obtener más detalles sobre cómo actualizar la aplicación web localmente, siga las instrucciones que se mencionan [aquí](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
@@ -429,6 +424,7 @@ Cuando se haya actualizado el sitio de desarrollo local, publique los cambios en
 ![Vista previa de intercambio para la implementación de CMS de Umbraco](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
 Las ventajas de intercambiar la aplicación web y la base de datos son las siguientes:
+
 1. Ofrece la posibilidad de revertir a la versión anterior de la aplicación web con otro **intercambio** si hay algún problema con la aplicación.
 2. Para realizar una actualización deberá implementar los archivos y la base de datos de la aplicación web de ensayo en la aplicación web y la base de datos de producción. Son muchas las cosas que pueden salir mal al implementar los archivos y las bases de datos. Mediante la característica **Intercambiar** de las ranuras, podemos reducir tanto el tiempo de inactividad durante una actualización como el riesgo de que se produzcan errores al implementar los cambios.
 3. Ofrece la posibilidad de hacer **pruebas A/B** mediante la característica de [pruebas en producción](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/).

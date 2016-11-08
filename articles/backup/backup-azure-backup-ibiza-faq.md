@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Preguntas más frecuentes sobre el almacén de Servicios de recuperación | Microsoft Azure"
-   description="Esta versión de las preguntas más frecuentes es compatible con la versión de vista previa pública del servicio Copia de seguridad de Azure. Respuestas a las preguntas más frecuentes sobre agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la solución de Copia de seguridad de Azure."
-   services="backup"
-   documentationCenter=""
-   authors="markgalioto"
-   manager="jwhit"
-   editor=""
-   keywords="solución de copia de seguridad; servicio de copia de seguridad"/>
+---
+title: Preguntas más frecuentes sobre el almacén de Servicios de recuperación | Microsoft Docs
+description: Esta versión de las preguntas más frecuentes es compatible con la versión de vista previa pública del servicio Copia de seguridad de Azure. Respuestas a las preguntas más frecuentes sobre agente de copia de seguridad, copia de seguridad y retención, recuperación, seguridad y otras preguntas comunes sobre la solución de Copia de seguridad de Azure.
+services: backup
+documentationcenter: ''
+author: markgalioto
+manager: jwhit
+editor: ''
+keywords: solución de copia de seguridad; servicio de copia de seguridad
 
-<tags
-   ms.service="backup"
-   ms.workload="storage-backup-recovery"
-	 ms.tgt_pltfrm="na"
-	 ms.devlang="na"
-	 ms.topic="get-started-article"
-	 ms.date="08/21/2016"
-	 ms.author="trinadhk; markgal; jimpark;"/>
+ms.service: backup
+ms.workload: storage-backup-recovery
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 08/21/2016
+ms.author: trinadhk; markgal; jimpark;
 
+---
 # Almacén de Servicios de recuperación: preguntas más frecuentes
-
-> [AZURE.SELECTOR]
-- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
-- [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
+> [!div class="op_single_selector"]
+> * [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo clásico](backup-azure-backup-faq.md)
+> * [Preguntas más frecuentes acerca del servicio Copia de seguridad para el modo de Resource Manager](backup-azure-backup-ibiza-faq.md)
+> 
+> 
 
 En este artículo se proporciona información específica acerca del almacén de Servicios de recuperación y complementa el artículo con las [preguntas más frecuentes acerca de Copia de seguridad de Azure](backup-azure-backup-faq.md). La sección de preguntas más frecuentes acerca de Copia de seguridad de Azure proporciona el conjunto completo de preguntas y respuestas sobre este servicio.
 

@@ -6,8 +6,8 @@ Cuando agregue una conexión de red virtual a red virtual, compruebe que ambas r
 4. En **Tipo de conexión**, seleccione **Red virtual a red virtual**.
 5. En **Puerta de enlace de red virtual**, el valor es fijo porque se conecta desde esta puerta de enlace.
 6. En **Segunda puerta de enlace de red virtual**, seleccione la puerta de enlace a la que desea crear una conexión desde esta puerta de enlace.
-8. Los valores restantes para **Suscripción**, **Grupo de recursos** y **Ubicación** son fijos.
-9. Haga clic en **Aceptar** para crear la conexión. El mensaje *Creando la conexión* aparecerá de forma intermitente en la pantalla.
-10. Una vez que se complete la conexión, aparecerá en la hoja **Conexiones** de su puerta de enlace.
+7. Los valores restantes para **Suscripción**, **Grupo de recursos** y **Ubicación** son fijos.
+8. Haga clic en **Aceptar** para crear la conexión. El mensaje *Creando la conexión* aparecerá de forma intermitente en la pantalla.
+9. Una vez que se complete la conexión, aparecerá en la hoja **Conexiones** de su puerta de enlace.
 
 <!---HONumber=AcomDC_0107_2016-->

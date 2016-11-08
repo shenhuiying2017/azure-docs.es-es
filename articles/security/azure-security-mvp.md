@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Programa MVP de seguridad de Azure | Microsoft Azure"
-   description="El artículo proporciona información general sobre el área de contribución de seguridad de Azure en el programa MVP."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="StevenPo"
-   editor="TomSh"/>
+---
+title: Programa MVP de seguridad de Azure | Microsoft Docs
+description: El artículo proporciona información general sobre el área de contribución de seguridad de Azure en el programa MVP.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: StevenPo
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/02/2016"
-   ms.author="yurid"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/02/2016
+ms.author: yurid
 
+---
 # Programa MVP de seguridad de Azure
-
 Los profesionales más valiosos (MVP) de Microsoft son líderes de la comunidad que han demostrado un compromiso ejemplar para ayudar a que otros usuarios saquen el máximo partido de su experiencia con las tecnologías de Microsoft. Comparten su experiencia técnica, sus conocimientos prácticos y su pasión excepcionales con la comunidad y con Microsoft.
 
 Nos complace anunciar que Microsoft Azure ahora reconoce a los expertos de la comunidad con especial experiencia en la seguridad de Azure. Se puede otorgar el MVP en Microsoft Azure a los MVP de Microsoft dentro del área de contribución de la seguridad de Azure.

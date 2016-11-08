@@ -1,30 +1,27 @@
-<properties
-    pageTitle="Uso de temas de Service Bus (Ruby) | Microsoft Azure"
-    description="Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby."
-    services="service-bus"
-    documentationCenter="ruby"
-    authors="sethmanheim"
-    manager="timlt"
-    editor=""/>
+---
+title: Uso de temas de Service Bus (Ruby) | Microsoft Docs
+description: Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby.
+services: service-bus
+documentationcenter: ruby
+author: sethmanheim
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="service-bus"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="ruby"
-    ms.topic="article"
-    ms.date="10/04/2016"
-    ms.author="sethm"/>
+ms.service: service-bus
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: ruby
+ms.topic: article
+ms.date: 10/04/2016
+ms.author: sethm
 
-
+---
 # <a name="how-to-use-service-bus-topics/subscriptions"></a>Uso de temas/suscripciones del Bus de servicio
-
-[AZURE.INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 En este artículo se describe cómo usar los temas y las suscripciones de Service Bus desde aplicaciones Ruby. Entre los escenarios tratados se incluyen la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para más información sobre los temas y las suscripciones, vea la sección [Pasos siguientes](#next-steps).
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Temas y suscripciones de Service Bus
-
 Las suscripciones y los temas del Bus de servicio son compatibles con el modelo de comunicación de mensajería de *publicación/suscripción* . Cuando se usan temas y suscripciones, los componentes de una aplicación distribuida no se comunican directamente entre ellos, sino que intercambian mensajes a través de un tema, que actúa como un intermediario.
 
 ![TopicConcepts](./media/service-bus-ruby-how-to-use-topics-subscriptions/sb-topics-01.png)
@@ -36,48 +33,42 @@ Una suscripción al tema funciona de forma similar a una cola virtual que recibe
 Las suscripciones y temas de Service Bus le permiten escalar para realizar el procesamiento de un número elevado de mensajes en una serie amplia de usuarios y aplicaciones.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-
 Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque [Azure Portal][] no crea el espacio de nombres con una conexión ACS.
 
 Para crear un espacio de nombres:
 
 1. Abra una ventana de la consola de Azure PowerShell.
-
 2. Escriba el comando siguiente para crear un espacio de nombres. Proporcione su propio valor de espacio de nombres y especifique la misma región que la aplicación.
-
+   
     ```
     New-AzureSBNamespace -Name 'yourexamplenamespace' -Location 'West US' -NamespaceType 'Messaging' -CreateACSNamespace $true
     ```
-
+   
     ![Crear espacio de nombres](./media/service-bus-ruby-how-to-use-topics-subscriptions/showcmdcreate.png)
 
 ## <a name="obtain-default-management-credentials-for-the-namespace"></a>Obtención de credenciales de administración predeterminadas para el espacio de nombres
-
 Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.
 
 El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del Bus de servicio muestra la clave que puede usar para administrar el espacio de nombres. Copie el valor **DefaultKey**. Más adelante en este tutorial usará este valor en su código.
 
 ![Copiar clave](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
-> [AZURE.NOTE]
+> [!NOTE]
 > También puede encontrar esta clave si inicia sesión en [Azure Portal][] y va a la información de conexión para el espacio de nombres.
+> 
+> 
 
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-
 Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
-
 Para usar el Bus de servicio, descargue y use el paquete Ruby Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### <a name="use-rubygems-to-obtain-the-package"></a>Uso de RubyGems para obtener el paquete
-
 1. Use una interfaz de línea de comandos como **PowerShell** (Windows), **Terminal** (Mac) o **Bash** (Unix).
-
 2. Escriba "gem install azure" en la ventana de comandos para instalar la gema y las dependencias.
 
 ### <a name="import-the-package"></a>Importación del paquete
-
 Con el editor de texto que prefiera, agregue lo siguiente al principio del archivo de Ruby en el que pretenda utilizar el almacenamiento:
 
 ```
@@ -85,7 +76,6 @@ require "azure"
 ```
 
 ## <a name="set-up-a-service-bus-connection"></a>Configuración de una conexión del Bus de servicio
-
 El módulo Azure lee las variables de entorno **AZURE\_SERVICEBUS\_NAMESPACE** y **AZURE\_SERVICEBUS\_ACCESS\_KEY** para obtener la información necesaria para conectarse al espacio de nombres. Si no configura estas variables de entorno, debe especificar la información del espacio de nombres antes de usar **Azure::ServiceBusService** con el siguiente código:
 
 ```
@@ -96,7 +86,6 @@ Azure.config.sb_access_key = "<your azure service bus access key>"
 Defina el valor del espacio de nombres en el valor que creó en lugar de hacerlo en la dirección URL completa. Por ejemplo, utilice **"suespaciodenombresdeejemplo"**, no "suespaciodenombresdeejemplo.servicebus.windows.net".
 
 ## <a name="create-a-topic"></a>de un tema
-
 El objeto **Azure::ServiceBusService** le permite trabajar con temas. El siguiente código crea un objeto **Azure::ServiceBusService**. Para crear un tema, use el método **create\_topic()**. En el siguiente ejemplo se crea un tema o se imprime el error si lo hubiera.
 
 ```
@@ -119,13 +108,11 @@ topic = azure_service_bus_service.create_topic(topic)
 ```
 
 ## <a name="create-subscriptions"></a>Creación de suscripciones
-
 Las suscripciones a temas también se crean con el objeto **Azure::ServiceBusService**. A las suscripciones se les asigna un nombre y pueden tener un filtro opcional que restrinja el conjunto de mensajes que se entregan a su cola virtual.
 
 Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen, o se elimine el tema al que están asociadas. Si la aplicación contiene lógica para crear una suscripción, primero debe comprobar si esta ya existe utilizando el método getSubscription.
 
 ### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
-
 El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "all-messages" que usa el filtro predeterminado **MatchAll**.
 
 ```
@@ -133,7 +120,6 @@ subscription = azure_service_bus_service.create_subscription("test-topic", "all-
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>Creación de suscripciones con filtros
-
 También puede definir filtros que le permitan especificar qué mensajes enviados a un tema deben mostrarse dentro de una suscripción a una suscripción determinada.
 
 El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
@@ -173,7 +159,6 @@ rule = azure_service_bus_service.create_rule(rule)
 Ahora, cuando se envíe un mensaje a "test-topic", siempre se entregará a los destinatarios suscritos a la suscripción de tema "all-messages" y, selectivamente, a los destinatarios suscritos a la suscripción de tema "high-messages" o "low-messages" (dependiendo del contenido del mensaje).
 
 ## <a name="send-messages-to-a-topic"></a>Envío de mensajes a un tema
-
 Para enviar un mensaje a un tema de Service Bus, la aplicación debe utilizar el método **send\_topic\_message()** en el objeto **Azure::ServiceBusService**. Los mensajes enviados a los temas de Service Bus son instancias de los objetos **Azure::ServiceBus::BrokeredMessage**. Los objetos **Azure::ServiceBus::BrokeredMessage** cuentan con un conjunto de propiedades estándar (como **label** y **time\_to\_live**), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede establecer el cuerpo del mensaje pasando un valor de cadena al método **send\_topic\_message()**, con lo que las propiedades estándar requeridas adquieren valores predeterminados.
 
 En el siguiente ejemplo se demuestra cómo enviar cinco mensajes de prueba a "test-topic". Tenga en cuenta que el valor de la propiedad personalizada **message_number** de cada mensaje varía en función de la iteración del bucle (determina qué suscripción lo recibe):
@@ -189,7 +174,6 @@ end
 El tamaño máximo de mensaje que admiten los temas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene un tema, pero hay un tope para el tamaño total de los mensajes contenidos en un tema. El tamaño de los temas se define en el momento de la creación (el límite máximo es de 5 GB).
 
 ## <a name="receive-messages-from-a-subscription"></a>Recepción de mensajes de una suscripción
-
 Los mensajes se reciben de una suscripción mediante el método **receive\_subscription\_message()** del objeto **Azure::ServiceBusService**. De forma predeterminada, los mensajes se leen (máximo) y bloquean sin que se eliminen de la suscripción. Puede leer y eliminar el mensaje de la suscripción estableciendo la opción **peek\_lock** en **false**.
 
 El comportamiento predeterminado convierte la lectura y eliminación en una operación de dos fases que también hace posible admitir aplicaciones que no toleran la pérdida de mensajes. Cuando el Bus de servicio recibe una solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que otros consumidores lo reciban y, a continuación, lo devuelve a la aplicación. Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete\_subscription\_message()** y facilitando el mensaje que se va a eliminar a modo de parámetro. El método **delete\_subscription\_message()** marcará el mensaje como consumido y lo eliminará de la suscripción.
@@ -207,7 +191,6 @@ azure_service_bus_service.delete_subscription_message(message)
 ```
 
 ## <a name="handle-application-crashes-and-unreadable-messages"></a>errores de la aplicación y mensajes que no se pueden leer
-
 El Bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los errores de la aplicación o las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces puede llamar al método **unlock\_subscription\_message()** del objeto **Azure::ServiceBusService**. Esto hace que Service Bus desbloquee el mensaje de la suscripción y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
 También hay un tiempo de espera asociado con un mensaje bloqueado en la suscripción y, si la aplicación no puede procesar el mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces Service Bus desbloquea el mensaje automáticamente y hace que esté disponible para que pueda volver a recibirse.
@@ -215,7 +198,6 @@ También hay un tiempo de espera asociado con un mensaje bloqueado en la suscrip
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete\_subscription\_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esta lógica se consigue usando la propiedad **message\_id** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
-
 Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Azure Portal][] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
 
 ```
@@ -229,13 +211,12 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos vínculos para obtener más información.
 
-- Vea [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
-- Referencia de API para [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
-- Visite el repositorio de [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.
- 
+* Vea [Colas, temas y suscripciones](service-bus-queues-topics-subscriptions.md).
+* Referencia de API para [SqlFilter](http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.sqlfilter.aspx).
+* Visite el repositorio de [SDK de Azure para Ruby](https://github.com/Azure/azure-sdk-for-ruby) en GitHub.
+
 [Portal de Azure]: https://portal.azure.com
 
 

@@ -1,26 +1,24 @@
-<properties
-   pageTitle="Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure | Microsoft Azure"
-    description="Aprenda a crear clústeres de HDInsight bajo demanda con Data Factory de Azure."
-   services="hdinsight"
-   documentationCenter=""
-   tags="azure-portal"
-   authors="mumian"
-   manager="jhubbard"
-   editor="cgronlun"/>
+---
+title: Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure | Microsoft Docs
+description: Aprenda a crear clústeres de HDInsight bajo demanda con Data Factory de Azure.
+services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: mumian
+manager: jhubbard
+editor: cgronlun
 
-<tags
-   ms.service="hdinsight"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="big-data"
-   ms.date="10/06/2016"
-   ms.author="jgao"/>
+ms.service: hdinsight
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 10/06/2016
+ms.author: jgao
 
-
+---
 # <a name="create-on-demand-linux-based-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Creación de clústeres de Hadoop basados en Linux bajo demanda en HDInsight usando Data Factory de Azure
-
-[AZURE.INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
+[!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 [Azure Data Factory](../data-factory/data-factory-introduction.md) es un servicio de integración de datos basado en la nube que organiza y automatiza el movimiento y la transformación de datos. En este artículo, aprenderá cómo usar Data Factory de Azure para crear un [servicio vinculado de HDInsight de Azure bajo demanda](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service), y a usar el clúster para ejecutar un trabajo de Hive. Este es el flujo de nivel alto:
 
@@ -46,28 +44,29 @@ Para obtener una lista de actividades de transformación de datos de Data Factor
 
 Hay muchas ventajas en usar HDInsight con Data Factory:
 
-- La facturación de los clústeres de HDInsight se prorratea por minuto, tanto si los está usando como si no. Mediante Data Factory, los clústeres se crean bajo demanda. Además, los clústeres se eliminan automáticamente cuando se completan los trabajos.  Por lo tanto, solo se paga por el trabajo que ejecuta el tiempo y el tiempo de inactividad breve (período de vida).
-- Puede crear un flujo de trabajo mediante la canalización de Data Factory.
-- Puede programar trabajos recursivos.  
+* La facturación de los clústeres de HDInsight se prorratea por minuto, tanto si los está usando como si no. Mediante Data Factory, los clústeres se crean bajo demanda. Además, los clústeres se eliminan automáticamente cuando se completan los trabajos.  Por lo tanto, solo se paga por el trabajo que ejecuta el tiempo y el tiempo de inactividad breve (período de vida).
+* Puede crear un flujo de trabajo mediante la canalización de Data Factory.
+* Puede programar trabajos recursivos.  
 
-> [AZURE.NOTE] Actualmente, solo puede crear clústeres de HDInsight basado en Linux de la versión 3.2 desde Data Factory de Azure.
+> [!NOTE]
+> Actualmente, solo puede crear clústeres de HDInsight basado en Linux de la versión 3.2 desde Data Factory de Azure.
+> 
+> 
 
-##<a name="prerequisites:"></a>Requisitos previos:
-
+## <a name="prerequisites:"></a>Requisitos previos:
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
-- [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-- CLI de Azure o Azure PowerShell. 
+* [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* CLI de Azure o Azure PowerShell. 
+  
+    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
-    [AZURE.INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
-
-##<a name="prepare-storage-account"></a>Preparación de la cuenta de almacenamiento
-
+## <a name="prepare-storage-account"></a>Preparación de la cuenta de almacenamiento
 Puede utilizar hasta tres cuentas de almacenamiento en este escenario:
 
-- la cuenta de almacenamiento predeterminado para el clúster de HDInsight
-- la cuenta de almacenamiento para los datos de entrada
-- la cuenta de almacenamiento para los datos de salida
+* la cuenta de almacenamiento predeterminado para el clúster de HDInsight
+* la cuenta de almacenamiento para los datos de entrada
+* la cuenta de almacenamiento para los datos de salida
 
 Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los 3 objetivos. El script de ejemplo de Azure PowerShell y la CLI de Azure de esta sección realiza las siguientes tareas:
 
@@ -76,18 +75,21 @@ Para simplificar el tutorial, utilizará una cuenta de almacenamiento para los 3
 3. Cree una cuenta de almacenamiento de Azure.
 4. Cree un contenedor de blobs en la cuenta de almacenamiento.
 5. Copie los dos archivos siguientes en el contenedor de blobs:
+   
+   * Archivo de datos de entrada: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
+   * Script de HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
+     
+     Ambos archivos se almacenan en un contenedor de blobs público. 
 
-    - Archivo de datos de entrada: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
-    - Script de HiveQL: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
-
-    Ambos archivos se almacenan en un contenedor de blobs público. 
-
->[AZURE.IMPORTANT] Anote el nombre del grupo de recursos, el nombre de la cuenta de almacenamiento y la clave de cuenta de almacenamiento utilizados en el script.  Los necesitará en la siguiente sección.
+> [!IMPORTANT]
+> Anote el nombre del grupo de recursos, el nombre de la cuenta de almacenamiento y la clave de cuenta de almacenamiento utilizados en el script.  Los necesitará en la siguiente sección.
+> 
+> 
 
 **Para preparar el almacenamiento y copiar los archivos mediante la CLI de Azure**
 
     azure login
-    
+
     azure config mode arm
 
     azure group create --name "<Azure Resource Group Name>" --location "East US 2"
@@ -189,9 +191,8 @@ Si necesita ayuda con este script de PowerShell, vea [Uso de Azure PowerShell co
 5. Haga clic en los iconos **Blobs** .
 6. Haga clic en el contenedor **adfgetstarted** . Verá dos carpetas: **datos de entrada** y **script**.
 7. Abra la carpeta y compruebe los archivos en las carpetas.
- 
-## <a name="create-data-factory"></a>Creación de Data Factory
 
+## <a name="create-data-factory"></a>Creación de Data Factory
 Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL preparados, está listo para crear Data Factory. Existen varios métodos para crear Data Factory. Utilizará Azure Portal para llamar a una plantilla de Resource Manager personalizada en este tutorial. También puede llamar a la plantilla de Resource Manager desde la [CLI de Azure](../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows) y [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Para otros métodos de creación de Data Factory, vea [Tutorial: creación de la  primera Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 La plantilla de Resource Manager de nivel superior contiene lo siguiente:
@@ -219,13 +220,13 @@ La plantilla de Resource Manager de nivel superior contiene lo siguiente:
         ]
     }
 
-Un recurso de Data Factory denominado *hdinsight-hive-on-demand* (el nombre no se muestra en la captura de pantalla). Data Factory solo se admite actualmente en la región Oeste de EE. UU. y de Europa del Norte. 
+Un recurso de Data Factory denominado *hdinsight-hive-on-demand* (el nombre no se muestra en la captura de pantalla). Data Factory solo se admite actualmente en la región Oeste de EE. UU. y de Europa del Norte. 
 
 El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 
-- Un servicio vinculado a la cuenta de almacenamiento que se usará como la cuenta de almacenamiento para HDInsight de forma predeterminada, almacenamiento de datos de entrada y almacenamiento de datos de salida.
-- Un servicio vinculado al clúster de HDInsight que se va a crear:
-
+* Un servicio vinculado a la cuenta de almacenamiento que se usará como la cuenta de almacenamiento para HDInsight de forma predeterminada, almacenamiento de datos de entrada y almacenamiento de datos de salida.
+* Un servicio vinculado al clúster de HDInsight que se va a crear:
+  
         {
             "dependsOn": [ ... ],
             "type": "linkedservices",
@@ -244,31 +245,30 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
                 }
             }
         },
-
+  
     Aunque no se especifica, el clúster se crea en la misma región que la cuenta de almacenamiento.
-    
+  
     Observe la configuración de *timeToLive* . Data Factory elimina el clúster automáticamente después de que esté inactivo durante 30 minutos.
-- Un conjunto de datos para los datos de entrada. Aquí se definen el nombre de archivo y el nombre de carpeta:
-
+* Un conjunto de datos para los datos de entrada. Aquí se definen el nombre de archivo y el nombre de carpeta:
+  
         "fileName": "input.log",
         "folderPath": "adfgetstarted/inputdata",
-        
-- Un conjunto de datos para los datos de salida y, a continuación, la canalización de procesamiento de datos. Aquí se define la ruta de acceso de salida:
-        
+* Un conjunto de datos para los datos de salida y, a continuación, la canalización de procesamiento de datos. Aquí se define la ruta de acceso de salida:
+  
         "folderPath": "adfgetstarted/partitioneddata",
-
+  
     La configuración de [disponibilidad del conjunto de datos](../data-factory/data-factory-create-datasets.md#Availability) es la siguiente:
-    
+  
         "availability": {
             "frequency": "Month",
             "interval": 1,
             "style": "EndOfInterval"
         },
-
+  
     En Data Factory de Azure, la disponibilidad del conjunto de datos de salida activa la canalización. Esto significa que el segmento se genera mensualmente en el último día del mes. Para obtener más información, vea [Programación y ejecución de Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
-
+  
     La definición de canalización es la siguiente:
-    
+  
         {
             "dependsOn": [ ... ],
             "type": "datapipelines",
@@ -284,11 +284,11 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
                 "isPaused": false
             }
         }
-                
+  
     Contiene una actividad. Tanto el *inicio* como el *final* de la actividad tienen una fecha pasada, lo que significa que habrá un único segmento. Si el extremo es una fecha futura, Data Factory creará otro segmento cuando llegue la hora. Para obtener más información, vea [Programación y ejecución de Data Factory](../data-factory/data-factory-scheduling-and-execution.md).
-
+  
     El siguiente script Json es la definición de actividad:
-    
+  
         "activities": [
             {
                 "type": "HDInsightHive",
@@ -318,15 +318,14 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
                 "linkedServiceName": "HDInsightOnDemandLinkedService"
             }
         ],
-    
+  
     Se definen las entradas, salidas y la ruta de acceso del script.
-    
+
 **Para crear una Data Factory**
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal. La plantilla se encuentra en https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. 
-
+   
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-
 2. Escriba **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** y **STORAGEACCOUNTKEY** para la cuenta que creó en la última sección y, después, haga clic en **Aceptar**. El nombre de Data Factory debe ser único globalmente.
 3. En **Grupo de recursos**, seleccione el mismo grupo de recursos que usó en la última sección.
 4. Haga clic en **Términos legales** y, luego, en **Crear**.
@@ -334,9 +333,9 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 6. Haga clic en el icono para abrir el grupo de recursos. Ahora verá un recurso de Data Factory más, además del recurso de la cuenta de almacenamiento.
 7. Haga clic en **hdinsight-hive-on-demand**.
 8. Haga clic en el icono **Diagrama** . El diagrama muestra una actividad con un conjunto de datos de entrada y un conjunto de datos de salida:
-
+   
     ![Diagrama de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-pipeline-diagram.png)
-    
+   
     Los nombres se definen en la plantilla de Resource Manager.
 9. Haga doble clic en **AzureBlobOutput**.
 10. En los **segmentos actualizados recientemente**, verá un segmento. Si el estado es **En curso**, espere hasta que se cambie a **Listo**.
@@ -344,22 +343,21 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 **Para comprobar la salida de Data Factory**
 
 1. Utilice el mismo procedimiento en la última sesión para comprobar el contenido de los contenedores adfgetstarted. Hay dos nuevos contenedores además de **adfgetsarted**:
-
-    - adfhdinsight-Hive-on-Demand-hdinsightondemandlinked-xxxxxxxxxxxxx: este es el contenedor predeterminado del clúster de HDInsight. El nombre del contenedor predeterminado sigue el patrón: "adf<yourdatafactoryname>-linkedservicename-datetimestamp". 
-    - adfjobs: este es el contenedor para los registros de trabajo de ADF.
-    
-    La salida de Data Factory se almacena en afgetstarted según la configuración de la plantilla de Resource Manager. 
+   
+   * adfhdinsight-Hive-on-Demand-hdinsightondemandlinked-xxxxxxxxxxxxx: este es el contenedor predeterminado del clúster de HDInsight. El nombre del contenedor predeterminado sigue el patrón: "adf<yourdatafactoryname>-linkedservicename-datetimestamp". 
+   * adfjobs: este es el contenedor para los registros de trabajo de ADF.
+     
+     La salida de Data Factory se almacena en afgetstarted según la configuración de la plantilla de Resource Manager. 
 2. Haga clic en **adfgetstarted**.
 3. Haga doble clic en **partitioneddata**. Verá una carpeta **año=2014** porque todos los registros de web tienen una fecha en el año 2014. 
-
+   
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-year.png)
-
+   
     Si profundiza en la lista, verá 3 carpetas de enero, febrero y marzo. Además, hay un registro para cada mes.
-
+   
     ![Salida de la canalización de la actividad de Hive bajo demanda de HDInsight para Data Factory de Azure](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-adf-output-month.png)
 
-##<a name="clean-up-the-tutorial"></a>Limpieza del tutorial
-
+## <a name="clean-up-the-tutorial"></a>Limpieza del tutorial
 Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDInsight cada vez que un segmento debe procesarse, a menos que haya un clúster existente activo (timeToLive), y el clúster se elimina cuando se realiza el procesamiento. Para cada clúster, Data Factory de Azure crea un almacenamiento de blobs de Azure usado como sistema de archivos predeterminado para el clúster.  Aunque se elimine el clúster de HDInsight, el contenedor de almacenamiento de blobs predeterminado y la cuenta de almacenamiento asociada no se eliminan. Esto es así por diseño. A medida que se procesan más segmentos, verá muchos contenedores en su Almacenamiento de blobs de Azure. Si no los necesita para solucionar problemas de trabajos, puede eliminarlos para reducir el costo de almacenamiento. Los nombres de estos contenedores siguen un patrón: "adfyourdatafactoryname-linkedservicename-datetimestamp". 
 
 [Azure Resource Manager](../resource-group-overview.md) se usa para implementar, administrar y supervisar la solución como un grupo.  Al eliminar un grupo de recursos, se eliminan todos los componentes dentro del grupo.  
@@ -375,8 +373,8 @@ Con el servicio vinculado de HDInsight a petición, se crea un clúster de HDIns
 
 En caso de que no desee eliminar la cuenta de almacenamiento al eliminar el grupo de recursos, puede considerar el siguiente diseño de arquitectura mediante la separación de los datos empresariales de la cuenta de almacenamiento predeterminada. En este caso, tendrá un grupo de recursos para la cuenta de almacenamiento con los datos empresariales y el otro grupo de recursos para la cuenta de almacenamiento predeterminada y Data Factory.  Cuando se elimina el segundo grupo de recursos, no afectará a la cuenta de almacenamiento de datos empresariales.  Para ello: 
 
-- Agregue lo siguiente al grupo de recursos de nivel superior junto con el recurso Microsoft.DataFactory/datafactories en la plantilla de Resource Manager. Crea una cuenta de almacenamiento nueva:
-
+* Agregue lo siguiente al grupo de recursos de nivel superior junto con el recurso Microsoft.DataFactory/datafactories en la plantilla de Resource Manager. Crea una cuenta de almacenamiento nueva:
+  
         {
             "name": "[parameters('defaultStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
@@ -384,15 +382,14 @@ En caso de que no desee eliminar la cuenta de almacenamiento al eliminar el grup
             "apiVersion": "[variables('defaultApiVersion')]",
             "dependsOn": [ ],
             "tags": {
-
+  
             },
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
-
-- Agregue un nuevo punto de servicio vinculado a la nueva cuenta de almacenamiento:
-
+* Agregue un nuevo punto de servicio vinculado a la nueva cuenta de almacenamiento:
+  
         {
             "dependsOn": [ "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]" ],
             "type": "linkedservices",
@@ -405,15 +402,14 @@ En caso de que no desee eliminar la cuenta de almacenamiento al eliminar el grup
                 }
             }
         },
-    
-- Configure el servicio vinculado bajo demanda de HDInsight con un dependsOn y un additionalLinkedServiceNames adicionales:
-
+* Configure el servicio vinculado bajo demanda de HDInsight con un dependsOn y un additionalLinkedServiceNames adicionales:
+  
         {
             "dependsOn": [
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'))]",
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('defaultStorageLinkedServiceName'))]",
                 "[concat('Microsoft.DataFactory/dataFactories/', parameters('dataFactoryName'), '/linkedservices/', variables('storageLinkedServiceName'))]"
-                
+  
             ],
             "type": "linkedservices",
             "name": "[variables('hdInsightOnDemandLinkedServiceName')]",
@@ -433,16 +429,13 @@ En caso de que no desee eliminar la cuenta de almacenamiento al eliminar el grup
             }
         },            
 
-##<a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para crear el clúster de HDInsight bajo demanda para procesar los trabajos de Hive. Para obtener más información:
 
-- [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
-- [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
-- [Documentación de Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
-
-
-
+* [Tutorial de Hadoop: Introducción al uso de Hadoop en HDInsight basado en Linux](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Creación de clústeres de Hadoop basados en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+* [Documentación de HDInsight](https://azure.microsoft.com/documentation/services/hdinsight/)
+* [Documentación de Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
 <!--HONumber=Oct16_HO2-->
 

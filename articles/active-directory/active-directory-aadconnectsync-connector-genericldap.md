@@ -1,28 +1,27 @@
-<properties
-   pageTitle="Conector LDAP genérico | Microsoft Azure"
-   description="En este artículo se describe cómo configurar el conector de LDAP genérico de Microsoft."
-   services="active-directory"
-   documentationCenter=""
-   authors="AndKjell"
-   manager="femila"
-   editor=""/>
+---
+title: Conector LDAP genérico | Microsoft Docs
+description: En este artículo se describe cómo configurar el conector de LDAP genérico de Microsoft.
+services: active-directory
+documentationcenter: ''
+author: AndKjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/30/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/30/2016
+ms.author: billmath
 
-
+---
 # <a name="generic-ldap-connector-technical-reference"></a>Referencia técnica del conector de LDAP genérico
 En este artículo se describe el conector de LDAP genérico. El artículo se aplica a los siguientes productos:
 
-- Microsoft Identity Manager 2016 (MIM2016)
-- Forefront Identity Manager 2010 R2 (FIM2010R2)
-    -   Debe usar la revisión 4.1.3671.0 o posterior ( [KB3092178](https://support.microsoft.com/kb/3092178)).
+* Microsoft Identity Manager 2016 (MIM2016)
+* Forefront Identity Manager 2010 R2 (FIM2010R2)
+  * Debe usar la revisión 4.1.3671.0 o posterior ( [KB3092178](https://support.microsoft.com/kb/3092178)).
 
 Para MIM2016 y FIM2010R2, el conector está disponible como descarga desde el [Centro de descarga de Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
@@ -36,63 +35,63 @@ Ciertas operaciones y elementos de esquema, como los necesarios para realizar la
 
 Desde una perspectiva de alto nivel, las siguientes características son compatibles con la versión actual del conector:
 
-Característica | Soporte técnico
---- | --- |
-Origen de datos conectado | El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Directorios importantes no admitidos:** <li>Microsoft Active Directory Domain Services (AD DS) [Usar en su lugar el Conector Active Directory integrado]</li><li>Oracle Internet Directory (OID)</li>
-Escenarios   | <li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li>
-Operaciones |Se admiten las siguientes operaciones en todos los directorios LDAP:  <li>Importación completa</li><li>Exportación</li>Solo se admiten las siguientes operaciones en los directorios especificados:<li>Importación diferencial</li><li>Establecer contraseña, cambiar contraseña</li>
-Esquema | <li>Se ha detectado el esquema desde el esquema LDAP (RFC3673 y RFC4512/4.2).</li><li>Admite clases estructurales, clases auxiliares y la clase de objeto extensibleObject (RFC4512/4.3)</li>
+| Característica | Soporte técnico |
+| --- | --- |
+| Origen de datos conectado |El conector es compatible con todos los servidores LDAP v3 (compatibles con RFC 4510). Se ha probado con los siguientes:  <li>Microsoft Active Directory Lightweight Directory Services (AD LDS)</li><li>Catálogo global de Microsoft Active Directory (AD GC)</li><li>389 Directory Server</li><li>Apache Directory Server</li><li>IBM Tivoli DS</li><li>Isode Directory</li><li>NetIQ eDirectory</li><li>Novell eDirectory</li><li>Open DJ</li><li>Open DS</li><li>Open LDAP (openldap.org)</li><li>Oracle (anteriormente Sun) Directory Server Enterprise Edition</li><li>RadiantOne Virtual Directory Server (VDS)</li><li>Sun One Directory Server</li>**Directorios importantes no admitidos:** <li>Microsoft Active Directory Domain Services (AD DS) [Usar en su lugar el Conector Active Directory integrado]</li><li>Oracle Internet Directory (OID)</li> |
+| Escenarios |<li>Administración del ciclo de vida de objetos</li><li>Administración de grupos</li><li>Administración de contraseñas</li> |
+| Operaciones |Se admiten las siguientes operaciones en todos los directorios LDAP:  <li>Importación completa</li><li>Exportación</li>Solo se admiten las siguientes operaciones en los directorios especificados:<li>Importación diferencial</li><li>Establecer contraseña, cambiar contraseña</li> |
+| Esquema |<li>Se ha detectado el esquema desde el esquema LDAP (RFC3673 y RFC4512/4.2).</li><li>Admite clases estructurales, clases auxiliares y la clase de objeto extensibleObject (RFC4512/4.3)</li> |
 
 ### <a name="delta-import-and-password-management-support"></a>Compatibilidad con importación diferencial y administración de contraseñas
 Directorios compatibles con la importación diferencial y la administración de contraseñas:
 
-- Microsoft Active Directory Lightweight Directory Services (AD LDS)
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
-- Catálogo global de Microsoft Active Directory (AD GC)
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
-- 389 Directory Server
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Apache Directory Server
-    - No es compatible con la importación diferencial ya que este directorio no tiene un registro de cambios persistente
-    - Es compatible con la operación Establecer contraseña
-- IBM Tivoli DS
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Isode Directory
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Novell eDirectory y NetIQ eDirectory
-    - Compatible con las operaciones Agregar, Actualizar y Cambiar nombre de la importación diferencial
-    - No es compatible con operaciones Eliminar para importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Open DJ
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Open DS
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- Open LDAP (openldap.org)
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con la operación Establecer contraseña
-    - No admite la operación Cambiar contraseña
-- Oracle (anteriormente Sun) Directory Server Enterprise Edition
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
-- RadiantOne Virtual Directory Server (VDS)
-    - Debe utilizar la versión 7.1.1 o superior
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
--  Sun One Directory Server
-    - Es compatible con todas las operaciones de la importación diferencial
-    - Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Microsoft Active Directory Lightweight Directory Services (AD LDS)
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con la operación Establecer contraseña
+* Catálogo global de Microsoft Active Directory (AD GC)
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con la operación Establecer contraseña
+* 389 Directory Server
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Apache Directory Server
+  * No es compatible con la importación diferencial ya que este directorio no tiene un registro de cambios persistente
+  * Es compatible con la operación Establecer contraseña
+* IBM Tivoli DS
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Isode Directory
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Novell eDirectory y NetIQ eDirectory
+  * Compatible con las operaciones Agregar, Actualizar y Cambiar nombre de la importación diferencial
+  * No es compatible con operaciones Eliminar para importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Open DJ
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Open DS
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Open LDAP (openldap.org)
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con la operación Establecer contraseña
+  * No admite la operación Cambiar contraseña
+* Oracle (anteriormente Sun) Directory Server Enterprise Edition
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* RadiantOne Virtual Directory Server (VDS)
+  * Debe utilizar la versión 7.1.1 o superior
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
+* Sun One Directory Server
+  * Es compatible con todas las operaciones de la importación diferencial
+  * Es compatible con las operaciones Establecer contraseña y Cambiar contraseña
 
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de usar el conector, asegúrese de que tiene lo siguiente en el servidor de sincronización:
 
-- Microsoft .NET 4.5.2 Framework o posterior
+* Microsoft .NET 4.5.2 Framework o posterior
 
 ### <a name="detecting-the-ldap-server"></a>Detección del servidor LDAP
 El conector se basa en diversas técnicas para detectar e identificar el servidor LDAP. El conector utiliza el DSE de raíz, el nombre y la versión del proveedor, e inspecciona el esquema para buscar objetos únicos y atributos que se sabe que existen en determinados servidores LDAP. Estos datos, si existen, se utilizan para rellenar previamente las opciones de configuración del conector.
@@ -134,15 +133,15 @@ El conector intenta detectar si las opciones están presentes en el servidor. Si
 ### <a name="delta-import"></a>Importación diferencial
 La importación diferencial sólo está disponible cuando se ha detectado un directorio de soporte. Actualmente se utilizan los siguientes métodos:
 
-- Registro de accesos LDAP. Consulte [http://www.openldap.org/doc/admin24/overlays.html#Access Registro de ](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
-- Registro de cambios LDAP. Consulte [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
-- Marca de tiempo. Para Novell/NetIQ eDirectory el conector utiliza la última fecha y hora para obtener objetos creados y actualizados. Novell/NetIQ eDirectory no proporcionan un medio equivalente para recuperar objetos eliminados. Esta opción también se puede utilizar si ningún otro método de importación diferencial está activo en el servidor LDAP. Esta opción no puede importar los objetos eliminados.
-- USNChanged. Consulte: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
+* Registro de accesos LDAP. Consulte [http://www.openldap.org/doc/admin24/overlays.html#Access Registro de ](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
+* Registro de cambios LDAP. Consulte [http://tools.ietf.org/html/draft-good-ldap-changelog-04](http://tools.ietf.org/html/draft-good-ldap-changelog-04)
+* Marca de tiempo. Para Novell/NetIQ eDirectory el conector utiliza la última fecha y hora para obtener objetos creados y actualizados. Novell/NetIQ eDirectory no proporcionan un medio equivalente para recuperar objetos eliminados. Esta opción también se puede utilizar si ningún otro método de importación diferencial está activo en el servidor LDAP. Esta opción no puede importar los objetos eliminados.
+* USNChanged. Consulte: [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
 ### <a name="not-supported"></a>No compatible
 No se admiten las siguientes características LDAP:
 
-- Referencias LDAP entre servidores (RFC 4511/4.1.10)
+* Referencias LDAP entre servidores (RFC 4511/4.1.10)
 
 ## <a name="create-a-new-connector"></a>Creación de un nuevo conector
 Para crear un conector de LDAP genérico, en **Servicio de sincronización**, seleccione **Agente de administración** y **Crear**. Seleccione el conector **LDAP genérico (Microsoft)** .
@@ -154,10 +153,10 @@ En la página Conectividad, debe especificar la información de host, puerto y e
 
 ![Conectividad](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
 
-- El valor de tiempo de espera de la conexión solo se utiliza para la primera conexión al servidor cuando se detecta el esquema.
-- Si el enlace es anónimo, no se utiliza ningún nombre de usuario o contraseña ni certificados.
-- Para otros enlaces, escriba la información ya sea mediante nombre de usuario y contraseña o bien mediante la selección de un certificado.
-- Si usa Kerberos para autenticar, proporcione también el dominio kerberos o el dominio del usuario.
+* El valor de tiempo de espera de la conexión solo se utiliza para la primera conexión al servidor cuando se detecta el esquema.
+* Si el enlace es anónimo, no se utiliza ningún nombre de usuario o contraseña ni certificados.
+* Para otros enlaces, escriba la información ya sea mediante nombre de usuario y contraseña o bien mediante la selección de un certificado.
+* Si usa Kerberos para autenticar, proporcione también el dominio kerberos o el dominio del usuario.
 
 El cuadro de texto **Alias de atributo** se utiliza para los atributos definidos en el esquema con la sintaxis RFC4522. Estos atributos no se pueden detectar durante la detección del esquema y el conector necesita ayuda para identificarlos. Por ejemplo, es necesario escribir lo siguiente en el cuadro de texto de alias de atributos para identificar correctamente el atributo userCertificate como un atributo binario:
 
@@ -180,29 +179,29 @@ La sección superior muestra la información proporcionada por el propio servido
 
 Las casillas de **controles compatibles** controlan el comportamiento de ciertas operaciones:
 
-- Con la eliminación de árbol seleccionada, se elimina una jerarquía con una llamada LDAP. Con la eliminación de árbol no seleccionada, el conector realiza una eliminación recursiva, si fuera necesario.
-- Con los resultados paginados seleccionados el conector realiza importaciones paginadas con el tamaño especificado en los pasos de ejecución.
-- Las opciones VLVControl y SortControl son una alternativa a pagedResultsControl a la hora de leer los datos del directorio LDAP.
-- Si ninguna de las tres opciones (pagedResultsControl, VLVControl y SortControl) está seleccionada, el conector importa todos los objetos en una sola operación, lo que podría producir un error si es un directorio grande.
-- ShowDeletedControl solo se utiliza cuando el método de importación diferencial es USNChanged.
+* Con la eliminación de árbol seleccionada, se elimina una jerarquía con una llamada LDAP. Con la eliminación de árbol no seleccionada, el conector realiza una eliminación recursiva, si fuera necesario.
+* Con los resultados paginados seleccionados el conector realiza importaciones paginadas con el tamaño especificado en los pasos de ejecución.
+* Las opciones VLVControl y SortControl son una alternativa a pagedResultsControl a la hora de leer los datos del directorio LDAP.
+* Si ninguna de las tres opciones (pagedResultsControl, VLVControl y SortControl) está seleccionada, el conector importa todos los objetos en una sola operación, lo que podría producir un error si es un directorio grande.
+* ShowDeletedControl solo se utiliza cuando el método de importación diferencial es USNChanged.
 
 El DN del registro de cambios es el contexto de nomenclatura utilizado por el registro de cambios diferencial, por ejemplo, **cn = changelog**. Se debe especificar este valor para poder hacer la importación diferencial.
 
 La siguiente es una lista de los nombres distintivos del registro de cambios predeterminado:
 
-Directorio | Registro de cambios diferencial
---- | ---
-AD LDS y AD GC de Microsoft | Detectado automáticamente. USNChanged.
-Apache Directory Server | No disponible.
-Directory 389 | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
-IBM Tivoli DS | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
-Isode Directory | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
-Novell / NetIQ eDirectory | No disponible. Marca de tiempo. El conector utiliza la última fecha y hora de actualización para obtener los registros agregados y actualizados.
-Open DJ/DS | Registro de cambios.  Valor predeterminado que se utiliza: **cn=changelog**
-Open LDAP | Registro de accesos. Valor predeterminado que se utiliza: **cn=accesslog**
-Oracle DSEE | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
-RadiantOne VDS | Directorio virtual. Depende del directorio conectado a VDS.
-Sun One Directory Server | Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog**
+| Directorio | Registro de cambios diferencial |
+| --- | --- |
+| AD LDS y AD GC de Microsoft |Detectado automáticamente. USNChanged. |
+| Apache Directory Server |No disponible. |
+| Directory 389 |Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
+| IBM Tivoli DS |Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
+| Isode Directory |Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
+| Novell / NetIQ eDirectory |No disponible. Marca de tiempo. El conector utiliza la última fecha y hora de actualización para obtener los registros agregados y actualizados. |
+| Open DJ/DS |Registro de cambios.  Valor predeterminado que se utiliza: **cn=changelog** |
+| Open LDAP |Registro de accesos. Valor predeterminado que se utiliza: **cn=accesslog** |
+| Oracle DSEE |Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
+| RadiantOne VDS |Directorio virtual. Depende del directorio conectado a VDS. |
+| Sun One Directory Server |Registro de cambios. Valor predeterminado que se utiliza: **cn=changelog** |
 
 El atributo de contraseña es el nombre de atributo que debe usar el conector para establecer la contraseña en las operaciones de cambio de contraseña y establecimiento de contraseña.
 De forma predeterminada este valor se establece en **userPassword** , pero puede cambiarse si es necesario para un sistema LDAP en particular.
@@ -232,19 +231,19 @@ Esta página siempre tiene un valor preconfigurado y no se puede cambiar. Si se 
 
 La siguiente es una lista de servidores LDAP y el delimitador que se utiliza:
 
-Directorio | Atributo de delimitador
---- | ---
-AD LDS y AD GC de Microsoft | objectGUID
-389 Directory Server | dn
-Apache Directory | dn
-IBM Tivoli DS | dn
-Isode Directory | dn
-Novell / NetIQ eDirectory | GUID
-Open DJ/DS | dn
-Open LDAP | dn
-Oracle ODSEE | dn
-RadiantOne VDS | dn
-Sun One Directory Server | dn
+| Directorio | Atributo de delimitador |
+| --- | --- |
+| AD LDS y AD GC de Microsoft |objectGUID |
+| 389 Directory Server |dn |
+| Apache Directory |dn |
+| IBM Tivoli DS |dn |
+| Isode Directory |dn |
+| Novell / NetIQ eDirectory |GUID |
+| Open DJ/DS |dn |
+| Open LDAP |dn |
+| Oracle ODSEE |dn |
+| RadiantOne VDS |dn |
+| Sun One Directory Server |dn |
 
 ## <a name="other-notes"></a>Otras notas
 Esta sección proporciona información de los aspectos que son específicos para este conector o aspectos que, por otras razones, es importante conocer.
@@ -257,10 +256,7 @@ Para Novell eDirectory la importación diferencial no detecta las eliminaciones 
 Para directorios con un registro de cambios diferenciales que se basa en la fecha y hora, se recomienda encarecidamente ejecutar una importación completa de manera periódica. Este proceso permite que el motor de sincronización encuentre cualquier diferencia entre el servidor LDAP y lo que está en el espacio del conector.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-
--   Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-
-
+* Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--HONumber=Oct16_HO2-->
 

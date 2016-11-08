@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Inducción de errores controlados con Caos en clústeres de Service Fabric | Microsoft Azure"
-   description="Uso de los servicios de inserción de errores y análisis del clúster para administrar Caos en el clúster."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="motanv"
-   manager="rsinha"
-   editor="toddabel"/>
+---
+title: Inducción de errores controlados con Caos en clústeres de Service Fabric | Microsoft Docs
+description: Uso de los servicios de inserción de errores y análisis del clúster para administrar Caos en el clúster.
+services: service-fabric
+documentationcenter: .net
+author: motanv
+manager: rsinha
+editor: toddabel
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/19/2016"
-   ms.author="motanv"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/19/2016
+ms.author: motanv
 
+---
 # Inducción de errores controlados con Caos en clústeres de Service Fabric
 Los sistemas distribuidos a gran escala, como las infraestructuras en la nube, por naturaleza, no son confiables. Azure Service Fabric permite a los desarrolladores crear servicios confiables sobre una infraestructura no confiable. Para crear servicios sólidos, los desarrolladores deben poder inducir errores en esa infraestructura no confiable para probar la estabilidad de sus servicios.
 
@@ -24,12 +24,12 @@ El servicio de inserción de errores y análisis del clúster (también denomina
 ## Errores inducidos en Caos
 Caos genera errores en todo el clúster de Service Fabric y comprime todos los detectados en meses o años en tan solo unas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pasan desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio. Caos induce errores de las siguientes categorías:
 
- - Reinicio de un nodo
- - Reinicio de un paquete de código implementado
- - Eliminación de una réplica
- - Reinicio de una réplica
- - Desplazamiento de una réplica principal (configurable)
- - Desplazamiento de una réplica secundaria (configurable)
+* Reinicio de un nodo
+* Reinicio de un paquete de código implementado
+* Eliminación de una réplica
+* Reinicio de una réplica
+* Desplazamiento de una réplica principal (configurable)
+* Desplazamiento de una réplica secundaria (configurable)
 
 Caos se ejecuta en varias iteraciones y cada una de ellas consta de validaciones de clúster y errores correspondientes al periodo especificado. También se puede configurar el tiempo empleado por el clúster para que la estabilización y la validación sean correctas. Si se detecta un error de validación de clúster, Caos genera y conserva un evento ValidationFailedEvent con la marca de tiempo UTC y los detalles de los errores.
 
@@ -38,16 +38,16 @@ Por ejemplo, analice una instancia de Caos establecida para ejecutarse durante u
 En la versión actual, Caos solo induce errores seguros; es decir, si no hay errores externos, nunca se producirá una pérdida de cuórum o de datos.
 
 ## Opciones de configuración importantes
- - **TimeToRun**: tiempo total durante el cual se ejecutará Caos antes de finalizar el proceso con éxito. Caos puede detenerse antes de que se haya ejecutando durante el periodo de TimeToRun a través de la API StopChaos.
- - **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el clúster pase a tener un estado correcto antes de volver a realizar la comprobación. El objetivo de esta espera es reducir la carga en el clúster mientras se está recuperando. Estas son las comprobaciones que se realizan:
-    - Si el estado del clúster es correcto.
-    - Si estado del servicio es correcto.
-    - El tamaño del conjunto de réplicas de destino conseguido para la partición del servicio.
-    - No hay réplicas InBuild.
- - **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la acción de Caos. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. Caos garantiza que, si no hay errores externos, no habrá pérdida de cuórum o de datos, con independencia de lo elevado del número de esta configuración.
- - **EnableMoveReplicaFaults**: habilita o deshabilita los errores que provocan el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
- - **WaitTimeBetweenIterations**: cantidad de tiempo de espera entre iteraciones; es decir, después de una ronda de errores y de su validación correspondiente.
- - **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre dos errores consecutivos en una iteración.
+* **TimeToRun**: tiempo total durante el cual se ejecutará Caos antes de finalizar el proceso con éxito. Caos puede detenerse antes de que se haya ejecutando durante el periodo de TimeToRun a través de la API StopChaos.
+* **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el clúster pase a tener un estado correcto antes de volver a realizar la comprobación. El objetivo de esta espera es reducir la carga en el clúster mientras se está recuperando. Estas son las comprobaciones que se realizan:
+  * Si el estado del clúster es correcto.
+  * Si estado del servicio es correcto.
+  * El tamaño del conjunto de réplicas de destino conseguido para la partición del servicio.
+  * No hay réplicas InBuild.
+* **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la acción de Caos. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. Caos garantiza que, si no hay errores externos, no habrá pérdida de cuórum o de datos, con independencia de lo elevado del número de esta configuración.
+* **EnableMoveReplicaFaults**: habilita o deshabilita los errores que provocan el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
+* **WaitTimeBetweenIterations**: cantidad de tiempo de espera entre iteraciones; es decir, después de una ronda de errores y de su validación correspondiente.
+* **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre dos errores consecutivos en una iteración.
 
 ## Ejecución de Caos
 Ejemplo de C#

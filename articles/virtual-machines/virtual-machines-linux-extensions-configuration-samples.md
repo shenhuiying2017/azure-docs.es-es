@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Ejemplo de configuración para las extensiones de la máquina virtual de Linux | Microsoft Azure"
-   description="Configuración de ejemplo para crear plantillas con extensiones para máquinas virtuales de Linux"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Ejemplo de configuración para las extensiones de la máquina virtual de Linux | Microsoft Docs
+description: Configuración de ejemplo para crear plantillas con extensiones para máquinas virtuales de Linux
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
-
+---
 # <a name="linux-vm-extension-configuration-samples"></a>Ejemplos de configuración de la extensión de máquina virtual Linux
-
-> [AZURE.SELECTOR]
-- [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell: plantilla](virtual-machines-windows-extensions-configuration-samples.md)
+> * [CLI: plantilla](virtual-machines-linux-extensions-configuration-samples.md)
+> 
+> 
 
 <br>
 
@@ -56,7 +56,6 @@ El fragmento de plantilla para extensiones de implementación tiene el aspecto s
       }
 
 ## <a name="sample-template-snippet-for-vm-extensions-with-vm-scale-sets."></a>Fragmento de plantilla de ejemplo para extensiones de VM con conjuntos de escalado de VM.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -217,8 +216,6 @@ En los ejemplos anteriores, reemplace el número de versión por el número de v
 Esta es una plantilla de máquina virtual completa para la creación de una VM de Linux con una extensión:
 
 [Extensión del script personalizado en una máquina virtual de Linux](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

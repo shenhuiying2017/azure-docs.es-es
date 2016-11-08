@@ -1,24 +1,26 @@
-<properties
-   pageTitle="Uso de la aplicación de API de JavaScript en una aplicación lógica | Microsoft Azure"
-   description="Conector o aplicación de API de JavaScript"
-   services="logic-apps"
-   documentationCenter=".net,nodejs,java"
-   authors="stepsic-microsoft-com"
-   manager="dwrede"
-   editor=""/>
+---
+title: Uso de la aplicación de API de JavaScript en una aplicación lógica | Microsoft Docs
+description: Conector o aplicación de API de JavaScript
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: stepsic-microsoft-com
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="multiple"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="integration"
-   ms.date="09/01/2016"
-   ms.author="stepsic"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 09/01/2016
+ms.author: stepsic
 
+---
 # Aplicación de API de JavaScript
-
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
+> [!NOTE]
+> Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
+> 
+> 
 
 La aplicación de API de JavaScript proporciona una manera sencilla de ejecutar expresiones sencillas de JavaScript *mientras se ejecuta una aplicación lógica*.
 
@@ -39,8 +41,9 @@ Para usar la aplicación de API de JavaScript, deberá crear primero una instanc
 Puede crear un desencadenador que el servicio de Aplicaciones lógicas sondee (en el intervalo que defina) y, si devuelve cualquier otro contenido, la aplicación lógica se ejecuta. De lo contrario, espera hasta el siguiente intervalo de sondeo para volver a comprobarlo.
 
 Las entradas para el desencadenador son las siguientes:
-- **Expresión de JavaScript**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica, mientras que podría devolver cualquier otro valor cuando sí desee su ejecución. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica.
-- **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
+
+* **Expresión de JavaScript**: una expresión que se evalúa. Se invoca dentro de una función y debe devolver `false` cuando no desee que se ejecute la aplicación lógica, mientras que podría devolver cualquier otro valor cuando sí desee su ejecución. Puede usar el contenido de la respuesta en las acciones de la aplicación lógica.
+* **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
 Por ejemplo, podría disponer de un desencadenador simple que solo ejecute la aplicación lógica entre los 15 y los 30 minutos de cada hora:
 
@@ -49,35 +52,36 @@ var d = new Date(); return (d.getMinutes() > 15) && (d.getMinutes() < 30);
 ```
 
 ### Acción
-
 Del mismo modo, puede proporcionar la acción que desea ejecutar.
 
 Las entradas para la acción son las siguientes:
-- **Expresión de JavaScript**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido.
-- **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
+
+* **Expresión de JavaScript**: una expresión que se evalúa. Debe incluir la instrucción `return` para obtener cualquier contenido.
+* **Objeto de contexto**: un objeto opcional que se puede pasar al desencadenador. Puede definir tantas propiedades como desee, pero la entidad de nivel superior debe ser un objeto, por ejemplo, `{ "bar" : 0}`.
 
 Por ejemplo, imagine que utiliza el desencadenador de Office 365 **Nuevo correo electrónico**. Que devuelve el siguiente objeto:
+
 ```
 {
-	...
-	"Attachments" : [
-		{
-			"name" : "Picture.png",
-			"content" : {
-				"ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
-				"ContentType" : "image/png",
-				"ContentTransferEncoding" : "Base64"
-			}
-		},	
-		{
-			"name" : "File.txt",
-			"content" : {
-				"ContentData" : "Don't worry, be happy!",
-				"ContentType" : "text/plain",
-				"ContentTransferEncoding" : "None"
-			}
-		}	
-	]
+    ...
+    "Attachments" : [
+        {
+            "name" : "Picture.png",
+            "content" : {
+                "ContentData" : "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAGUExURf///wAAAFXC034AAAASSURBVAjXY2BgCGBgYOhgKAAABEIBSWDJEbYAAAAASUVORK5CYII=",
+                "ContentType" : "image/png",
+                "ContentTransferEncoding" : "Base64"
+            }
+        },    
+        {
+            "name" : "File.txt",
+            "content" : {
+                "ContentData" : "Don't worry, be happy!",
+                "ContentType" : "text/plain",
+                "ContentTransferEncoding" : "None"
+            }
+        }    
+    ]
 }
 ```
 
@@ -91,8 +95,6 @@ La acción devuelve el JSON que devolvió a partir de la función. Por lo tanto,
 
 ## Aplicaciones adicionales del conector
 Después de crear el conector, puede agregarlo a un flujo empresarial mediante una aplicación lógica. Consulte [¿Qué son las aplicaciones lógicas?](app-service-logic-what-are-logic-apps.md)
-
- 
 
 <!--References -->
 

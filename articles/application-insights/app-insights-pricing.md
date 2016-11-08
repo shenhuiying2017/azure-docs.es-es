@@ -1,22 +1,21 @@
-<properties 
-	pageTitle="Administración de precios y cuotas para Application Insights" 
-	description="Elija el plan de precios que necesite." 
-	services="application-insights" 
-    documentationCenter=""
-	authors="alancameronwills" 
-	manager="douge"/>
+---
+title: Administración de precios y cuotas para Application Insights
+description: Elija el plan de precios que necesite.
+services: application-insights
+documentationcenter: ''
+author: alancameronwills
+manager: douge
 
-<tags 
-	ms.service="application-insights" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="ibiza" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/27/2016" 
-	ms.author="awills"/>
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: na
+ms.topic: article
+ms.date: 08/27/2016
+ms.author: awills
 
+---
 # Administración de precios y cuotas para Application Insights
-
 *Application Insights se encuentra en su versión de vista previa.*
 
 Los [precios][pricing] de [Application Insights para Visual Studio][start] se basan en el volumen de datos por aplicación. Hay un nivel Gratis sustancial en el que se pueden disfrutar la mayoría de las características con algunas limitaciones.
@@ -26,7 +25,6 @@ Cada recurso de Application Insights se cobra como un servicio independiente y c
 [Consulte el esquema de precios][pricing].
 
 ## Revisión del plan de cuotas y precios para el recurso de Application Insights
-
 Puede abrir la hoja Cuota + Precios de la configuración del recurso de la aplicación.
 
 ![Elija Configuración, Cuota + Precios.](./media/app-insights-pricing/01-pricing.png)
@@ -40,45 +38,39 @@ Su elección del esquema de precios afecta a:
 Estos límites se establecen por separado para cada recurso de Application Insights.
 
 ### Evaluación gratuita de Premium
-
 Al crear un nuevo recurso de Application Insights, este se inicia en el nivel Gratis.
 
 En cualquier momento, puede cambiar a la evaluación gratuita de Premium de 30 días. Esto le ofrecerá las ventajas del nivel Premium. Después de 30 días, la suscripción cambiará automáticamente al nivel en que se encontrase previamente, a menos que se elija explícitamente otro nivel. Puede seleccionar el nivel que desee en cualquier momento durante el período de evaluación, pero podrá seguir optando a la evaluación gratuita hasta el final del período de 30 días.
 
-
 ## Cuota mensual
-
 * En cada mes natural, la aplicación puede enviar hasta una cantidad especificada de telemetría a Application Insights. Actualmente la cuota para el plan de tarifa gratuito es de 5 millones de puntos de datos al mes y mucho más para los demás esquemas; puede comprar más si alcanza la cuota. Consulte el [esquema de precios][pricing] para ver los números reales.
 * La cuota depende del nivel de precios que haya elegido.
 * La cuota se cuenta a partir de la medianoche UTC del primer día de cada mes.
 * El gráfico de puntos de datos muestra el uso que se ha hecho de la cuota en este mes.
 * La cuota se mide en *puntos de datos.* Un único punto de datos es una llamada a uno de los métodos de seguimiento, independientemente de si se llama explícitamente en el código o por uno de los módulos de telemetría estándar. Puede tener varias propiedades asociadas y métricas.
 * Los puntos de datos se generan por:
- * [Módulos de SDK](app-insights-configuration-with-applicationinsights-config.md) que recopilan datos de forma automática, por ejemplo, para informar de una solicitud o un bloqueo, o para medir el rendimiento.
- * Las llamadas a [API](app-insights-api-custom-events-metrics.md) `Track...` escritas, como `TrackEvent` o `trackPageView`.
- * [Las pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) que configuró.
+  * [Módulos de SDK](app-insights-configuration-with-applicationinsights-config.md) que recopilan datos de forma automática, por ejemplo, para informar de una solicitud o un bloqueo, o para medir el rendimiento.
+  * Las llamadas a [API](app-insights-api-custom-events-metrics.md) `Track...` escritas, como `TrackEvent` o `trackPageView`.
+  * [Las pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md) que configuró.
 * Durante la depuración, puede ver los puntos de datos que se envían desde la aplicación en la ventana de salida de Visual Studio. Los eventos de cliente se pueden ver abriendo que la pestaña de red en el panel de depuración del explorador (normalmente F12).
 * Los *datos de la sesión* no se cuentan en la cuota. Esto incluye los recuentos de datos de usuarios, sesiones, entorno y dispositivo.
 * Si desea contar puntos de datos por inspección, puede encontrarlos en diversos lugares:
- * Cada elemento que ve en la [búsqueda de diagnósticos](app-insights-diagnostic-search.md), que incluye solicitudes HTTP, excepciones, seguimientos de registros, vistas de página, eventos de dependencia y eventos personalizados.
- * Cada medida sin procesar de una [métrica](app-insights-metrics-explorer.md), como un contador de rendimiento. (Los puntos que se ven en los gráficos normalmente son agregados de varios puntos de datos sin procesar).
- * Cada punto de un gráfico de disponibilidad web es también un agregado de varios puntos de datos.
+  * Cada elemento que ve en la [búsqueda de diagnósticos](app-insights-diagnostic-search.md), que incluye solicitudes HTTP, excepciones, seguimientos de registros, vistas de página, eventos de dependencia y eventos personalizados.
+  * Cada medida sin procesar de una [métrica](app-insights-metrics-explorer.md), como un contador de rendimiento. (Los puntos que se ven en los gráficos normalmente son agregados de varios puntos de datos sin procesar).
+  * Cada punto de un gráfico de disponibilidad web es también un agregado de varios puntos de datos.
 * También puede inspeccionar puntos de datos individuales en el origen durante la depuración:
- * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida.
- * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
+  * Si ejecuta su aplicación en el modo de depuración en Visual Studio, los puntos de datos se registran en la ventana de salida.
+  * Para ver los puntos de datos de cliente, abra panel de depuración del explorador (normalmente F12) y abra la ficha Red.
 * La velocidad de datos se puede reducir (de forma predeterminada) mediante el [muestreo adaptable](app-insights-sampling.md). Esto significa que, a medida que aumente el uso de su aplicación, la velocidad de telemetría no incrementará tanto como cabría esperar.
 
 ### Superávit
-
 Si una aplicación envía más de la cuota mensual, puede:
 
 * Pagar por datos adicionales. Consulte el [esquema de precios][pricing] para obtener más información. Puede elegir esta opción de antemano. Esta opción no está disponible en el nivel de precios Gratis.
 * Actualización del nivel de precios
 * No haga nada. Los datos de la sesión seguirán registrándose, pero otros datos no aparecerán en la búsqueda de diagnóstico o en el explorador de métricas.
 
-
 ## ¿Cuántos datos estoy enviando?
-
 El gráfico de la parte inferior de la hoja de precios muestra el volumen del punto de datos de la aplicación con grupos en función del tipo de punto de datos. (También puede crear este gráfico en el Explorador de métricas).
 
 ![En la parte inferior de la hoja de precios.](./media/app-insights-pricing/03-allocation.png)
@@ -89,9 +81,7 @@ El gráfico muestra el volumen de datos que llega al servicio Application Insigh
 
 Si el volumen de datos alcanza su cuota mensual, aparecerá una anotación en el gráfico.
 
-
 ## Velocidad de datos
-
 Además de la cuota mensual, estos valores limitan la velocidad de los datos. Para el [plan de tarifa][pricing] gratuito, el límite es de 200 puntos de datos por segundo de promedio durante 5 minutos, y para los niveles de pago es de 500/s de promedio durante 1 minuto.
 
 Hay tres depósitos que se cuentan por separado:
@@ -99,8 +89,6 @@ Hay tres depósitos que se cuentan por separado:
 * [Llamadas a TrackTrace](app-insights-api-custom-events-metrics.md#track-trace) y [registros capturados](app-insights-asp-net-trace-logs.md)
 * [Excepciones](app-insights-api-custom-events-metrics.md#track-exception), limitado a 50 puntos/s.
 * Toda la demás telemetría (vistas de páginas, sesiones, solicitudes, dependencias, métricas, eventos personalizados, resultados de prueba web).
-
-
 
 *¿Qué ocurre si mi aplicación supera la tasa por segundo?*
 
@@ -113,9 +101,7 @@ Si se produce la limitación, verá una notificación de advertencia que indica 
 * Abra Configuración/cuotas y precios para ver el gráfico de volumen de datos.
 * O bien, en el Explorador de métricas, agregue un nuevo gráfico y seleccione **Volumen de punto de datos** como su métrica. Active la agrupación y agrupe por **Tipo de datos**.
 
-
 ## Reducción de la velocidad de datos
-
 Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 
 * Use el [Muestreo](app-insights-sampling.md). Esta tecnología reduce la velocidad de los datos sin sesgar las métricas y sin interrumpir la capacidad de navegar entre los elementos relacionados en la búsqueda.
@@ -123,9 +109,7 @@ Si alcanza los valores de limitación, puede hacer alguna de estas cosas:
 * Desactivar los módulos de recopilación que no necesite; para ello, [edite ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Por ejemplo, podría decidir que los contadores de rendimiento o datos de dependencia no son esenciales.
 * Métricas agregadas previamente. Si ha colocado llamadas a TrackMetric en su aplicación, puede reducir el tráfico mediante la sobrecarga que acepta el cálculo de la media y la desviación estándar de un lote de medidas. O bien, puede usar un [paquete de agregación previa](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
-
 ## Muestreo
-
 El [muestreo](app-insights-sampling.md) es un método que permite reducir la velocidad a la que se envían datos de telemetría a la aplicación, al mismo tiempo que se conserva la capacidad de buscar eventos relacionados durante las búsquedas de diagnósticos y se conservan los recuentos de eventos correctos.
 
 El muestreo es una manera efectiva de reducir los gastos y permanecer dentro de la cuota mensual. El algoritmo de muestreo conserva elementos relacionados con la telemetría, de modo que, por ejemplo, al usar la búsqueda se puede buscar la solicitud relacionada con una excepción determinada. El algoritmo también conserva recuentos correctos, para que pueda ver en el Explorador de métricas los valores correctos de tasas de solicitudes, tasas de excepciones y otros recuentos.
@@ -139,10 +123,13 @@ Para establecer el muestreo de ingesta, establezca el control en la hoja Quotas 
 
 ![En la hoja Cuota y precios, haga clic en el icono Ejemplos y seleccione una fracción de muestreo.](./media/app-insights-pricing/04.png)
 
-> [AZURE.WARNING] El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación.
+> [!WARNING]
+> El valor que aparece en el icono Muestras retenidas indica solo el valor que ha establecido para el muestreo de ingesta. No muestra la frecuencia de muestreo que está funcionando en el SDK de la aplicación.
 > 
 > Si ya se ha muestreado la telemetría entrante en el SDK, no se aplica el muestreo de ingesta.
- 
+> 
+> 
+
 Para conocer la frecuencia de muestreo real independientemente de dónde se ha aplicado, use una [consulta de Analytics](app-insights-analytics.md) como esta:
 
     requests | where timestamp > ago(1d)
@@ -152,25 +139,19 @@ Para conocer la frecuencia de muestreo real independientemente de dónde se ha a
 En cada registro retenido, `itemCount` indica el número de registros originales que representa, equivale a 1 + el número de registros descartados anteriores.
 
 ## Revisión de la factura de su suscripción a Azure
-
 Los cargos de Application Insights se agregarán a la factura de Azure. Puede ver los detalles de su factura de Azure en la sección de facturación del portal de Azure o en el [Portal de facturación de Azure](https://account.windowsazure.com/Subscriptions).
 
 ![En el menú lateral, elija Facturación.](./media/app-insights-pricing/02-billing.png)
 
-
-
 ## Límites de los nombres
-
-1.	Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
-2.	Las [propiedades][apiproperties] se pueden usar en los filtros y agruparse solo cuando tengan menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
-3.	Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
+1. Máximo de 200 nombres de métrica únicos y 200 nombres de propiedad únicos para la aplicación. Las métricas incluyen el envío de datos a través de TrackMetric, así como mediciones de otros tipos de datos como eventos. Los [nombres de métricas y propiedades][api] son globales por clave de instrumentación.
+2. Las [propiedades][apiproperties] se pueden usar en los filtros y agruparse solo cuando tengan menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
+3. Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
 
 Si se percata de que la aplicación supera estos límites, plantéese la posibilidad de dividir los datos entre diferentes claves de instrumentación: es decir, [cree nuevos recursos de Application Insights](app-insights-create-new-resource.md) y envíe parte de los datos a las nuevas claves de instrumentación. Es posible que descubra que el resultado está mejor estructurado. Puede usar los [paneles](app-insights-dashboards.md#dashboards) para colocar las métricas diferentes en la misma pantalla, por lo que este enfoque no limita su capacidad de comparar distintas métricas.
 
 ## Resumen de límites
-
-[AZURE.INCLUDE [límites-de-application-insights](../../includes/application-insights-limits.md)]
-
+[!INCLUDE [límites-de-application-insights](../../includes/application-insights-limits.md)]
 
 <!--Link references-->
 
@@ -179,6 +160,6 @@ Si se percata de que la aplicación supera estos límites, plantéese la posibil
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
 
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->

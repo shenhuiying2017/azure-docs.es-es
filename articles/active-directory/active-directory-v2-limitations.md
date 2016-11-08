@@ -1,30 +1,28 @@
-<properties
-    pageTitle="Restricciones y limitaciones del punto de conexión v2.0 | Microsoft Azure"
-    description="Una lista de limitaciones y restricciones con el punto de conexión v2.0 de Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Restricciones y limitaciones del punto de conexión v2.0 | Microsoft Docs
+description: Una lista de limitaciones y restricciones con el punto de conexión v2.0 de Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="should-i-use-the-v2.0-endpoint?"></a>¿Debo usar el punto de conexión v2.0?
-
 Al crear aplicaciones que se integran con Azure Active Directory, tendrá que decidir si los protocolos de autenticación y el punto de conexión v2.0 cubrirán sus necesidades.  El punto de conexión de Azure AD original sigue siendo totalmente compatible y, en algunos aspectos, tiene más características que v2.0.  Sin embargo, el punto de conexión v2.0 [introduce importantes ventajas](active-directory-v2-compare.md) para los desarrolladores que pueden convencerle de usar el nuevo modelo de programación.
 
 En este momento, recomendamos usar el punto de conexión v2.0 de la siguiente forma:
 
-- Si desea que se admitan cuentas Microsoft en su aplicación, debería usar el punto de conexión v2.0.  Sin embargo, asegúrese de comprender las limitaciones que aparecen en este artículo, sobre todo con las relacionadas específicamente con las cuentas profesionales y educativas.
-- Si la aplicación solo requiere cuentas profesionales o educativas auxiliares, debe usar los [puntos de conexión de Azure AD originales](active-directory-developers-guide.md).
+* Si desea que se admitan cuentas Microsoft en su aplicación, debería usar el punto de conexión v2.0.  Sin embargo, asegúrese de comprender las limitaciones que aparecen en este artículo, sobre todo con las relacionadas específicamente con las cuentas profesionales y educativas.
+* Si la aplicación solo requiere cuentas profesionales o educativas auxiliares, debe usar los [puntos de conexión de Azure AD originales](active-directory-developers-guide.md).
 
 Con el tiempo, desarrollaremos el punto de conexión v2.0 para eliminar las restricciones que mencionamos en este artículo, por lo que siempre debe usar este punto de conexión.  Mientras tanto, este artículo está pensado para ayudarle a determinar si el punto de conexión v2.0 es para usted.  Seguiremos actualizando este artículo a lo largo del tiempo para reflejar el estado actual del punto de conexión v2.0, así que consúltelo de nuevo para volver a evaluar sus requisitos en relación con las funcionalidades de v2.0.
 
@@ -50,10 +48,10 @@ De forma similar, las aplicaciones registradas en el nuevo portal de registro de
 
 Además, los registros de aplicación creados en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) tienen las siguientes observaciones:
 
-- No se admite la propiedad **homepage**, que también se conoce como **dirección URL de inicio de sesión**.  Sin una página de inicio, estas aplicaciones no se mostrarán en el panel de Office MyApps.
-- En este momento, solo se permiten dos secretos de aplicación por cada identificador de aplicación.
-- Un registro de aplicación solo puede verse y administrarse mediante una cuenta de desarrollador única.  No se puede compartir entre varios desarrolladores.
-- Existen varias restricciones del formato de redirect_uri permitido.  Vea la siguiente sección para obtener más información.
+* No se admite la propiedad **homepage**, que también se conoce como **dirección URL de inicio de sesión**.  Sin una página de inicio, estas aplicaciones no se mostrarán en el panel de Office MyApps.
+* En este momento, solo se permiten dos secretos de aplicación por cada identificador de aplicación.
+* Un registro de aplicación solo puede verse y administrarse mediante una cuenta de desarrollador única.  No se puede compartir entre varios desarrolladores.
+* Existen varias restricciones del formato de redirect_uri permitido.  Vea la siguiente sección para obtener más información.
 
 ## <a name="restrictions-on-redirect-uris"></a>Restricciones en los URI de redireccionamiento
 Las aplicaciones que se registran en el nuevo portal de registro de aplicaciones están restringidas actualmente a un conjunto limitado de valores de parámetro redirect_uri.  El URI de redireccionamiento de aplicaciones y servicios web debe comenzar por el esquema `https`, y todos los valores de URI de redireccionamiento deben compartir un único dominio DNS.  Por ejemplo, no es posible registrar una aplicación web que tiene varios redirect_uri:
@@ -63,8 +61,8 @@ Las aplicaciones que se registran en el nuevo portal de registro de aplicaciones
 
 El sistema de registro compara el nombre DNS completo de los elementos redirect_uri existentes con el nombre DNS del redirect_uri que va a agregar. Se producirá un error en la solicitud para agregar el nombre DNS si se cumple algunas de las condiciones siguientes:  
 
-- Si el nombre DNS completo del nuevo redirect_uri no coincide con el nombre DNS del redirect_uri existente
-- Si el nombre DNS completo del nuevo redirect_uri no es un subdominio del redirect_uri existente
+* Si el nombre DNS completo del nuevo redirect_uri no coincide con el nombre DNS del redirect_uri existente
+* Si el nombre DNS completo del nuevo redirect_uri no es un subdominio del redirect_uri existente
 
 Por ejemplo, si la aplicación tiene el redirect_uri:
 
@@ -91,29 +89,29 @@ Para obtener información sobre cómo registrar una aplicación en el nuevo port
 ## <a name="restrictions-on-services-&-apis"></a>Restricciones en los servicios y API
 Actualmente, el punto de conexión v2.0 admite el inicio de sesión en cualquier aplicación registrada en el nuevo portal de registro de aplicaciones, siempre que se encuentre en la lista de [flujos de autenticación admitidos](active-directory-v2-flows.md).  Sin embargo, estas aplicaciones sólo podrán adquirir tokens de acceso de OAuth 2.0 para un conjunto de recursos muy limitado.  El extremo v2.0 solo emitirá access_tokens para:
 
-- La aplicación que solicita el token.  Una aplicación puede adquirir un elemento access_token por sí misma si la aplicación lógica se compone de varios componentes o niveles diferentes.  Para ver este escenario en acción, consulte nuestros tutoriales de [Introducción](active-directory-appmodel-v2-overview.md#getting-started) .
-- Las API de REST de Correo, Calendario y Contactos de Outlook, que se encuentran en https://outlook.office.com.  Para obtener información sobre cómo compilar una aplicación que tenga acceso a estas API, consulte estos tutoriales de [Introducción a Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) .
-- Las API de Microsoft Graph.  Para más información acerca de Microsoft Graph y todos los datos que está disponibles, consulte [https://graph.microsoft.io](https://graph.microsoft.io).
+* La aplicación que solicita el token.  Una aplicación puede adquirir un elemento access_token por sí misma si la aplicación lógica se compone de varios componentes o niveles diferentes.  Para ver este escenario en acción, consulte nuestros tutoriales de [Introducción](active-directory-appmodel-v2-overview.md#getting-started) .
+* Las API de REST de Correo, Calendario y Contactos de Outlook, que se encuentran en https://outlook.office.com.  Para obtener información sobre cómo compilar una aplicación que tenga acceso a estas API, consulte estos tutoriales de [Introducción a Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) .
+* Las API de Microsoft Graph.  Para más información acerca de Microsoft Graph y todos los datos que está disponibles, consulte [https://graph.microsoft.io](https://graph.microsoft.io).
 
 No hay otros servicios compatibles en este momento.  Se agregarán más servicios de Microsoft Online en el futuro, así como la compatibilidad con sus propios servicios y API web.
 
 ## <a name="restrictions-on-libraries-&-sdks"></a>Restricciones en las bibliotecas y SDK
 En este momento, la compatibilidad con bibliotecas del punto de conexión v2.0 es bastante limitada.  Si desea utilizar el punto de conexión v2.0 en una aplicación de producción, tiene las siguientes opciones:
 
-- Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens.  Incluye el software intermedio OWIN Open ID Connect para ASP.NET y nuestro complemento NodeJS Passport.  También hay ejemplos de código con este middleware en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started) .
-- Para otras plataformas y aplicaciones nativas y móviles, también puede integrarse con el punto de conexión v2.0 directamente enviando y recibiendo mensajes de protocolo en el código de su aplicación.  Los protocolos v2.0 OpenID Connect y OAuth [se han documentado explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
-- Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0.  El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes.  La disponibilidad de estas bibliotecas varía en función la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones más usadas. Consulte [Azure Active Directory (AD) v2.0 and authentication libraries](active-directory-v2-libraries.md) (Azure Active Directory (AD) v2.0 y bibliotecas de autenticación) para obtener más información, así como la lista de bibliotecas de cliente de código abierto y ejemplos que se han probado con el punto de conexión v2.0.
+* Si está creando una aplicación web, puede utilizar sin ningún riesgo nuestro software intermedio del lado del servidor disponible con carácter general, para realizar el inicio de sesión y la validación de tokens.  Incluye el software intermedio OWIN Open ID Connect para ASP.NET y nuestro complemento NodeJS Passport.  También hay ejemplos de código con este middleware en nuestra sección [Introducción](active-directory-appmodel-v2-overview.md#getting-started) .
+* Para otras plataformas y aplicaciones nativas y móviles, también puede integrarse con el punto de conexión v2.0 directamente enviando y recibiendo mensajes de protocolo en el código de su aplicación.  Los protocolos v2.0 OpenID Connect y OAuth [se han documentado explícitamente](active-directory-v2-protocols.md) para ayudarle a realizar dicha integración.
+* Por último, puede usar las bibliotecas de código abierto de Open ID Connect y OAuth para integrarse con el punto de conexión v2.0.  El protocolo v2.0 debe ser compatible con muchas bibliotecas de código abierto de los protocolos sin cambios importantes.  La disponibilidad de estas bibliotecas varía en función la plataforma y el lenguaje, y en los sitios web de [OpenID Connect](http://openid.net/connect/) y [OAuth 2.0](http://oauth.net/2/) se mantiene una lista de las implementaciones más usadas. Consulte [Azure Active Directory (AD) v2.0 and authentication libraries](active-directory-v2-libraries.md) (Azure Active Directory (AD) v2.0 y bibliotecas de autenticación) para obtener más información, así como la lista de bibliotecas de cliente de código abierto y ejemplos que se han probado con el punto de conexión v2.0.
 
 También hemos publicado una vista preliminar inicial de la [biblioteca de autenticación de Microsoft (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) solo para .NET.  Si lo desea, puede probar esta biblioteca en aplicaciones .NET de cliente y servidor, pero como se trata de una biblioteca de versión preliminar, no dispone de soporte con calidad GA.
 
 ## <a name="restrictions-on-protocols"></a>Restricciones en los protocolos
 El punto de conexión v2.0 solo es compatible con OpenID Connect y OAuth 2.0.  Sin embargo, no se han incorporado todas las características y funcionalidades de cada protocolo en el punto de conexión v2.0:
 
-- El punto de conexión `end_session_endpoint` de OpenID Connect, lo que permite que una aplicación finalice la sesión del usuario con el punto de conexión v2.0.
-- Los elementos id_tokens que emite el punto de conexión v2.0 contienen un identificador en pares del usuario.  Es decir, dos aplicaciones diferentes recibirán identificadores diferentes para el mismo usuario.  Tenga en cuenta que al consultar el punto de conexión `/me` de Microsoft Graph, podrá obtener un identificador correlacionable del usuario que puede utilizarse en diferentes aplicaciones.
-- En estos momentos, los elementos id_tokens que emite el punto de conexión v2.0 no contienen una notificación `email` del usuario, aunque adquiera el permiso del usuario para ver su correo electrónico.
-- El punto de conexión de información de usuario de OpenID Connect. En estos momentos, el punto de conexión de información de usuario no está implementado en el punto de conexión v2.0.  Sin embargo, todos los datos de perfil de usuario que recibiría posiblemente en este punto de conexión están disponible en el punto de conexión `/me` de Microsoft Graph.
-- Notificaciones de grupos y roles.  En este momento, el punto de conexión v2.0 no admite la emisión de notificaciones de roles o grupos en id_tokens.
+* El punto de conexión `end_session_endpoint` de OpenID Connect, lo que permite que una aplicación finalice la sesión del usuario con el punto de conexión v2.0.
+* Los elementos id_tokens que emite el punto de conexión v2.0 contienen un identificador en pares del usuario.  Es decir, dos aplicaciones diferentes recibirán identificadores diferentes para el mismo usuario.  Tenga en cuenta que al consultar el punto de conexión `/me` de Microsoft Graph, podrá obtener un identificador correlacionable del usuario que puede utilizarse en diferentes aplicaciones.
+* En estos momentos, los elementos id_tokens que emite el punto de conexión v2.0 no contienen una notificación `email` del usuario, aunque adquiera el permiso del usuario para ver su correo electrónico.
+* El punto de conexión de información de usuario de OpenID Connect. En estos momentos, el punto de conexión de información de usuario no está implementado en el punto de conexión v2.0.  Sin embargo, todos los datos de perfil de usuario que recibiría posiblemente en este punto de conexión están disponible en el punto de conexión `/me` de Microsoft Graph.
+* Notificaciones de grupos y roles.  En este momento, el punto de conexión v2.0 no admite la emisión de notificaciones de roles o grupos en id_tokens.
 
 Para comprender mejor el alcance de la funcionalidad de protocolo que se admite en el punto de conexión v2.0, consulte [Protocolos de v2.0: OAuth 2.0 y OpenID Connect](active-directory-v2-protocols.md).
 
@@ -127,8 +125,6 @@ Como desarrollador, probablemente no pueda controlar cuándo se establecen las d
 
 ##### <a name="windows-integrated-authentication-for-federated-tenants"></a>Autenticación integrada de Windows para inquilinos federados
 Si ha usado ADAL (y, por tanto, el punto de conexión de Azure AD original) en aplicaciones Windows, puede que haya utilizado lo que se conoce como "concesión de aserción SAML".  Esta concesión permite a los inquilinos de Azure AD federado autenticarse de manera silenciosa con su instancia local de Active Directory sin tener que escribir las credenciales.  La concesión de aserción SAML no se admite actualmente en el punto de conexión v2.0.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

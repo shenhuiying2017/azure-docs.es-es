@@ -1,31 +1,32 @@
-<properties 
-	pageTitle="Configuración y uso de la API de recomendaciones de Aprendizaje automático | Microsoft Azure" 
-	description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Configuración y uso de la API de recomendaciones de Aprendizaje automático | Microsoft Docs
+description: Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/>
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-#Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
-
-
+---
+# Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
 **¿Qué son las recomendaciones?**
 
->[AZURE.NOTE] Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
+> [!NOTE]
+> Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
+> 
+> 
 
 Para las organizaciones y empresas que dependen de las recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes, las recomendaciones de Aprendizaje automático de Azure les ofrecen un motor de recomendaciones de autoservicio. Es una implementación del filtrado de colaboración que usa la factorización matricial como algoritmo básico. Los desarrolladores de aplicaciones pueden tener acceso a recomendaciones mediante las API de REST.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **¿Qué puedo hacer con las recomendaciones?**
 
@@ -34,15 +35,14 @@ Las recomendaciones toman como entrada un elemento o un conjunto de elementos y 
 **¿Hay alguna limitación de uso?**
 
 Recomendaciones tiene las siguientes limitaciones de uso:
+
 * Número máximo de modelos por suscripción: 10
 * Número máximo de elementos que puede contener un catálogo: 100.000
 * El número máximo de puntos de uso que se mantienen es ~ 5 000 000. Se eliminarán los más antiguos si se cargan o notifican unos nuevos.
-* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
-* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
+* El tamaño máximo de datos que puede enviarse por correo electrónico (por ejemplo, importar datos de catálogo o importar datos de uso) es de 200 MB.
+* El número de transacciones por segundo (TPS) para una compilación de modelo de Recomendaciones que no está activa es de ~2 TPS. Una compilación de modelo de recomendaciones que esté activa puede contener hasta 20 TPS.
 
-##Compra y facturación 
-
-
+## Compra y facturación
 **¿Cuánto cuestan las recomendaciones durante el período de lanzamiento?**
 
 Las recomendaciones son un servicio basado en suscripción. El pago se realiza en función del volumen de transacciones al mes. Puede consultar la [página de ofertas](https://datamarket.azure.com/dataset/amla/recommendations) de Microsoft Azure Marketplace para obtener más información sobre los precios.
@@ -93,8 +93,7 @@ Para cancelar la suscripción, siga estos pasos. Si su suscripción actual es un
 
 Si desea cancelar su suscripción inmediatamente, para poder adquirir una nueva suscripción, presente una incidencia en el [Soporte técnico de Microsoft](https://support.microsoft.com/oas/default.aspx?gprid=17024&st=1&wfxredirect=1&sd=gn).
 
-##Introducción a las recomendaciones
-
+## Introducción a las recomendaciones
 **¿Me van a servir las recomendaciones?**
 
 Las recomendaciones de Aprendizaje automático de Azure son aconsejables para aquellas organizaciones y empresas que dependen de recomendaciones para la venta cruzada y la venta adicional de productos a sus clientes. Si tiene un sitio web orientado a clientes, personal de ventas, un equipo de ventas interno o un centro de llamadas y si, además, ofrece un catálogo con varias docenas de productos o servicios, su balance final puede beneficiarse de usar estas recomendaciones.
@@ -119,8 +118,7 @@ La documentación de API está incluida en la [Guía de inicio rápido sobre rec
 
 Tiene dos opciones para cargar los datos de uso y el catálogo: puede exportar estos datos desde el sistema CRM u otros registros y cargarlos en las recomendaciones. La otra opción es agregar etiquetas al sitio web que realizará el seguimiento de las actividades del usuario. Si utiliza el segundo método, los datos se almacenarán en Azure.
 
-##Mantenimiento y soporte técnico
-
+## Mantenimiento y soporte técnico
 **¿Qué volumen pueden tener mis datos?**
 
 Cada conjunto de datos puede contener hasta 100 000 elementos del catálogo y hasta 2048 MB de datos de uso. Además, una suscripción puede contener hasta 10 conjuntos de datos (modelos).
@@ -132,9 +130,5 @@ El soporte técnico está disponible en el sitio de [Soporte técnico de Microso
 **¿Dónde puedo encontrar los términos de uso?**
 
 [Términos de uso de la API de recomendaciones de Aprendizaje automático de Microsoft Azure](https://datamarket.azure.com/dataset/amla/recommendations#terms).
-
-
-
- 
 
 <!---HONumber=AcomDC_0914_2016-->

@@ -1,37 +1,39 @@
-<properties
-	pageTitle="Aplicación iOS de Azure AD v2.0 | Microsoft Azure"
-	description="Procedimiento para compilar una aplicación iOS con la que los usuarios pueden iniciar sesión utilizando su cuenta personal de Microsoft como sus cuentas profesionales o educativas mediante bibliotecas de terceros"
-	services="active-directory"
-	documentationCenter=""
-	authors="brandwe"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Aplicación iOS de Azure AD v2.0 | Microsoft Docs
+description: Procedimiento para compilar una aplicación iOS con la que los usuarios pueden iniciar sesión utilizando su cuenta personal de Microsoft como sus cuentas profesionales o educativas mediante bibliotecas de terceros
+services: active-directory
+documentationcenter: ''
+author: brandwe
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="mobile-ios"
-	ms.devlang="objective-c"
-	ms.topic="article"
-	ms.date="06/28/2016"
-	ms.author="brandwe"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: mobile-ios
+ms.devlang: objective-c
+ms.topic: article
+ms.date: 06/28/2016
+ms.author: brandwe
 
+---
 # Adición de inicio de sesión a una aplicación iOS mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
-
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.
 
 Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscar a otros de la misma organización mediante la API Graph.
 
 Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran parte de esta configuración de ejemplo no le sea relevante. Si este es el caso, le recomendamos que lea [Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-
-> [AZURE.NOTE]
-    Algunas características de nuestra plataforma mencionadas en los estándares OAuth2 u OpenID Connect, como el acceso condicional y la administración de directivas de Intune, deben usar nuestras bibliotecas de código abierto de Microsoft Azure Identity.
+> [!NOTE]
+> Algunas características de nuestra plataforma mencionadas en los estándares OAuth2 u OpenID Connect, como el acceso condicional y la administración de directivas de Intune, deben usar nuestras bibliotecas de código abierto de Microsoft Azure Identity.
+> 
+> 
 
 No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión.
 
-> [AZURE.NOTE]
-    Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> [!NOTE]
+> Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> 
+> 
 
 ## Descarga del código desde GitHub
 El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Samples/active-directory-ios-native-nxoauth2-v2). Para continuar, puede [descargar el esqueleto de la aplicación como un archivo .zip](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-DotNet/archive/skeleton.zip) o clonar el esqueleto:
@@ -49,78 +51,71 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 ## Registrar una aplicación
 Cree una nueva aplicación en el [portal de registro de la aplicación](https://apps.dev.microsoft.com) o siga los pasos detallados en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md). Asegúrese de que:
 
-- Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
-- Agregar la plataforma **Móvil** a la aplicación.
-- Copie el **URI de redireccionamiento** del portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
-
+* Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
+* Agregar la plataforma **Móvil** a la aplicación.
+* Copie el **URI de redireccionamiento** del portal. Debe usar el valor predeterminado de `urn:ietf:wg:oauth:2.0:oob`.
 
 ## Descarga de la biblioteca de terceros NXOAuth2 y creación de un área de trabajo
-
 Para este tutorial, usaremos OAuth2Client desde GitHub, que es una biblioteca de OAuth2 para Mac OS X e iOS (Cocoa y Cocoa touch). Esta biblioteca se basa en el borrador 10 de la especificación OAuth2. Implementa el perfil de la aplicación nativa y admite el punto de conexión de autorización del usuario. Esto es todo lo que vamos a necesitar para integrarlo con la plataforma de Microsoft Identity.
 
 ### Adición de la biblioteca al proyecto mediante CocoaPods
-
 CocoaPods es un administrador de dependencias para proyectos de Xcode. Administra automáticamente los pasos de instalación anteriores.
 
 ```
 $ vi Podfile
 ```
 1. Agregue lo siguiente a este podfile:
-
-	```
-	 platform :ios, '8.0'
-
-	 target 'QuickStart' do
-
-	 pod 'NXOAuth2Client'
-
-	 end
-	```
-
+   
+    ```
+     platform :ios, '8.0'
+   
+     target 'QuickStart' do
+   
+     pod 'NXOAuth2Client'
+   
+     end
+    ```
 2. Cargue el archivo podfile mediante CocoaPods. Así se creará una nueva área de trabajo de XCode que cargará.
-
-	```
-	$ pod install
-	...
-	$ open QuickStart.xcworkspace
-	```
+   
+    ```
+    $ pod install
+    ...
+    $ open QuickStart.xcworkspace
+    ```
 
 ## Exploración de la estructura del proyecto
-
 Hemos configurado la siguiente estructura para nuestro proyecto en el esquema:
 
-- Una vista principal con una búsqueda UPN
-- Una vista de detalle para los datos sobre el usuario seleccionado
-- Una vista de inicio de sesión que permite al usuario iniciar sesión en la aplicación para consultar el gráfico
+* Una vista principal con una búsqueda UPN
+* Una vista de detalle para los datos sobre el usuario seleccionado
+* Una vista de inicio de sesión que permite al usuario iniciar sesión en la aplicación para consultar el gráfico
 
 Pasaremos por varios archivos del esquema para agregar la autenticación. Aunque otras partes del código, como el código visual, no son relevantes para la identidad, se incluyen también.
 
 ## Configuración del archivo settings.plst en la biblioteca
-
--	En el proyecto QuickStart, abra el archivo `settings.plist`. Reemplace los valores de los elementos de la sección para que reflejen los usados en el Portal de Azure. El código hará referencia a estos valores cada vez que use la biblioteca de autenticación de Active Directory.
-    -	`clientId` es el id. de cliente de la aplicación que copió del portal.
-    -	`redirectUri` es la URL de redirección que ha proporcionado el portal.
+* En el proyecto QuickStart, abra el archivo `settings.plist`. Reemplace los valores de los elementos de la sección para que reflejen los usados en el Portal de Azure. El código hará referencia a estos valores cada vez que use la biblioteca de autenticación de Active Directory.
+  * `clientId` es el id. de cliente de la aplicación que copió del portal.
+  * `redirectUri` es la URL de redirección que ha proporcionado el portal.
 
 ## Configuración de la biblioteca de NXOAuth2Client en LoginViewController
-
 La biblioteca NXOAuth2Client requiere que se configuren algunos valores. Después de completar esa tarea, puede usar el token obtenido para llamar a la API Graph. Como se llamará a `LoginView` cada vez que tengamos que autenticarnos, procede insertar los valores de configuración en ese archivo.
 
-- Vamos a agregar algunos valores al archivo `LoginViewController.m` para establecer el contexto de la autenticación y autorización. Después del código, encontrará los detalles de los valores.
-
-	```objc
-	NSString *scopes = @"openid offline_access User.Read";
-	NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
-	NSString *loginURL = @"https://login.microsoftonline.com/common/login";
-	NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
-	NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
-	NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
-	static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
-	NSURL *myRequestedUrl;
-	NSURL *myLoadedUrl;
-	bool loginFlow = FALSE;
-	bool isRequestBusy;
-	NSURL *authcode;
-	```
+* Vamos a agregar algunos valores al archivo `LoginViewController.m` para establecer el contexto de la autenticación y autorización. Después del código, encontrará los detalles de los valores.
+  
+    ```objc
+    NSString *scopes = @"openid offline_access User.Read";
+    NSString *authURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/authorize";
+    NSString *loginURL = @"https://login.microsoftonline.com/common/login";
+    NSString *bhh = @"urn:ietf:wg:oauth:2.0:oob?code=";
+    NSString *tokenURL = @"https://login.microsoftonline.com/common/oauth2/v2.0/token";
+    NSString *keychain = @"com.microsoft.azureactivedirectory.samples.graph.QuickStart";
+    static NSString * const kIDMOAuth2SuccessPagePrefix = @"session_state=";
+    NSURL *myRequestedUrl;
+    NSURL *myLoadedUrl;
+    bool loginFlow = FALSE;
+    bool isRequestBusy;
+    NSURL *authcode;
+    ```
 
 Analicemos los detalles del código.
 
@@ -135,7 +130,6 @@ Para `authURL`, `loginURL`, `bhh` y `tokenURL`, debe utilizar los valores indica
 El resto de estos valores se necesitan para usar la biblioteca y crear sitios para agregar los valores al contexto.
 
 ### Creación de una caché de URL
-
 Dentro de `(void)viewDidLoad()`, que siempre se invoca después de cargar la vista, el código siguiente prepara una memoria caché para que podamos utilizarlo.
 
 Agregue el siguiente código:
@@ -155,7 +149,6 @@ Agregue el siguiente código:
 ```
 
 ### Creación de una vista web para iniciar sesión
-
 Gracias a las vistas web, podemos solicitar al usuario factores adicionales, como mensajes de texto SMS (si están configurados) o devolver mensajes de error al usuario. Aquí también configuraremos la vista web y, después, escribiremos el código para controlar las devoluciones de llamada que se realizarán en la vista web de los servicios de identidad.
 
 ```objc
@@ -172,7 +165,6 @@ Gracias a las vistas web, podemos solicitar al usuario factores adicionales, com
 ```
 
 ### Invalidación de los métodos de la vista web para controlar la autenticación
-
 Tal y como hemos explicado anteriormente, para indicar a la vista web lo que sucederá cuando un usuario tenga que iniciar sesión, puede pegar el código siguiente.
 
 ```objc
@@ -226,7 +218,6 @@ Tal y como hemos explicado anteriormente, para indicar a la vista web lo que suc
 ```
 
 ### Escriba el código para controlar el resultado de la solicitud de OAuth2.
-
 El siguiente código controlará la URL de redireccionamiento que se devuelve desde la vista web. Si la autenticación no se realizó correctamente, el código volverá a tratar de realizar la operación. Mientras tanto, la biblioteca proporcionará el error que se puede ver en la consola, o bien lo controlará de forma asincrónica.
 
 ```objc
@@ -247,10 +238,7 @@ El siguiente código controlará la URL de redireccionamiento que se devuelve de
 ```
 
 ### Configuración del contexto de OAuth (denominado "almacén de cuentas")
-
 Aquí se puede llamar a `-[NXOAuth2AccountStore setClientID:secret:authorizationURL:tokenURL:redirectURL:forAccountType:]` en el almacén de cuentas compartidas para cada servicio al que quiere que acceda la aplicación. El tipo de cuenta es una cadena que se utiliza como identificador para un servicio determinado. Como va a acceder a la API Graph, el código hará referencia a ella como `"myGraphService"`. Después, configuramos un observador que nos indicará cuándo cambia algo con el token. Una vez obtenido el token, devolvemos al usuario a la `masterView`.
-
-
 
 ```objc
 - (void)setupOAuth2AccountStore {
@@ -296,7 +284,6 @@ Aquí se puede llamar a `-[NXOAuth2AccountStore setClientID:secret:authorization
 ```
 
 ## Configuración de la vista principal para buscar y mostrar los usuarios de la API Graph
-
 Las aplicaciones de control de vista principal (MVC) que muestran los datos devueltos en la cuadrícula no se tratan en este tutorial. Hay varios en línea que explican cómo crear una. Todo este código se encuentra en el archivo de esquema. Sin embargo, debemos tratar algunos aspectos en esta aplicación MVC:
 
 * Interceptar cuando el usuario escribe algo en el campo de búsqueda
@@ -305,7 +292,6 @@ Las aplicaciones de control de vista principal (MVC) que muestran los datos devu
 Lo haremos todo a continuación.
 
 ### Adición de una comprobación para ver si hemos iniciado sesión
-
 La aplicación no sirve de mucho si el usuario no ha iniciado sesión, por lo que se recomienda comprobar si ya hay un token en la memoria caché. De lo contrario, volveremos a la vista de inicio de sesión para que el usuario inicie sesión. Como recordará, la mejor manera de realizar acciones cuando se carga una vista es usar el método `viewDidLoad()` que proporciona Apple.
 
 ```objc
@@ -327,7 +313,6 @@ La aplicación no sirve de mucho si el usuario no ha iniciado sesión, por lo qu
 ```
 
 ### Actualizar la vista de tabla cuando se reciben datos
-
 Cuando la API Graph devuelve los datos, debe mostrarlos. Para simplificar, este es todo el código que necesita si quiere actualizar la tabla. Solo tiene que pegar los valores correctos en el código reutilizable de MVC.
 
 ```objc
@@ -364,7 +349,6 @@ Cuando la API Graph devuelve los datos, debe mostrarlos. Para simplificar, este 
 ```
 
 ### Proporcionar una manera de llamar a la API Graph cuando alguien escribe en el campo de búsqueda
-
 Cuando un usuario escribe una búsqueda en el cuadro, hay que llevarla a la API Graph. La clase `GraphAPICaller`, que creará en el código siguiente, separa la funcionalidad de búsqueda de la de presentación. Por ahora, vamos a escribir el código que transmite los caracteres de búsqueda a la API Graph. Para ello, se proporciona el método denominado "`lookupInGraph`", que toma la cadena que queremos buscar.
 
 ```objc
@@ -403,11 +387,9 @@ if (searchText.length > 0) {
 ```
 
 ## Escritura de una clase auxiliar para acceder a la API Graph
-
 Se trata del núcleo de nuestra aplicación. Mientras que el resto consistía en insertar código en el patrón MVC predeterminado de Apple, aquí escribimos código para consultar el gráfico cuando el usuario escribe y devolver los datos. Aquí se muestra el código y, abajo de este, proporcionamos una explicación detallada.
 
 ### Creación de un nuevo archivo de encabezado Objective C
-
 Denomine al archivo`GraphAPICaller.h` y agregue el código siguiente.
 
 ```objc
@@ -421,9 +403,7 @@ Denomine al archivo`GraphAPICaller.h` y agregue el código siguiente.
 
 Se puede ver que estamos especificando un método que toma una cadena y devuelve un elemento completionBlock. Este elemento completionBlock, como se habrá imaginado, actualizará la tabla proporcionando un objeto con datos rellenados en tiempo real cuando el usuario realiza las búsquedas.
 
-
 ### Creación de un nuevo archivo Objective C
-
 Denomine al archivo`GraphAPICaller.m` y agregue el método siguiente.
 
 ```objc
@@ -499,7 +479,6 @@ Analicemos pormenorizadamente este método.
 El núcleo de este código se encuentra en el método `NXOAuth2Request`, que toma los parámetros que ya hemos definido dentro del archivo settings.plist.
 
 El primer paso consiste en crear la llamada correcta a la API Graph. Como vamos a llamar a `/users`, lo especificamos anexándolo a nuestro recurso de API Graph junto con la versión. Se recomienda colocarlos en un archivo de configuración externo, ya que pueden cambiar cuando evolucione la API.
-
 
 ```objc
 NSString *graphURL = [NSString stringWithFormat:@"%@%@/users", data.graphApiUrlString, data.apiversion];
@@ -581,11 +560,9 @@ Finalmente, veamos cómo se devuelven los datos al método MasterViewController.
 
 
 ## Ejecución del ejemplo
-
 Si ha utilizado el esquema o ha seguido todo el tutorial, la aplicación debería ejecutarse ahora. Inicie el simulador y haga clic en **Iniciar sesión** para usar la aplicación.
 
 ## Obtención de actualizaciones de seguridad para nuestro producto
-
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
 <!---HONumber=AcomDC_0720_2016-->

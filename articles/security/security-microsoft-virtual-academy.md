@@ -1,23 +1,22 @@
-<properties
-   pageTitle="Cursos de seguridad de Azure de Microsoft Virtual Academy | Microsoft Azure"
-   description="Este artículo proporciona una colección protegida de cursos relacionados con la seguridad en Azure de Microsoft Virtual Academy. Microsoft Virtual Academy proporciona cursos en línea gratuitos para ayudar a los desarrolladores, profesionales de TI y expertos en el tratamiento de los datos, así como a los alumnos a conocer la tecnología más reciente, desarrollar sus capacidades y avanzar en su profesión."
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: Cursos de seguridad de Azure de Microsoft Virtual Academy | Microsoft Docs
+description: Este artículo proporciona una colección protegida de cursos relacionados con la seguridad en Azure de Microsoft Virtual Academy. Microsoft Virtual Academy proporciona cursos en línea gratuitos para ayudar a los desarrolladores, profesionales de TI y expertos en el tratamiento de los datos, así como a los alumnos a conocer la tecnología más reciente, desarrollar sus capacidades y avanzar en su profesión.
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/09/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/09/2016
+ms.author: terrylan
 
+---
 # Cursos de seguridad de Azure de Microsoft Virtual Academy
-
 Microsoft Virtual Academy proporciona cursos en línea gratuitos para ayudar a los desarrolladores, profesionales de TI y expertos en el tratamiento de los datos, así como a los alumnos a conocer la tecnología más reciente, desarrollar sus capacidades y avanzar en su profesión.
 
 En esta página, puede encontrar una colección protegida de cursos relacionados con la seguridad de Azure. Visite [Microsoft Virtual Academy](https://mva.microsoft.com/) para ver todos los cursos que están disponibles.

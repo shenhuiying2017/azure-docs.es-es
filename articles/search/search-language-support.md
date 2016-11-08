@@ -1,50 +1,52 @@
-<properties
-   pageTitle="Creación de un índice para documentos en varios idiomas en Búsqueda de Azure | Microsoft Azure | Servicio de búsqueda hospedado en la nube"
-   description=" Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
-   services="search"
-   documentationCenter=""
-   authors="yahnoosh"
-   manager="pablocas"
-   editor=""/>
+---
+title: Creación de un índice para documentos en varios idiomas en Búsqueda de Azure | Microsoft Docs
+description: " Búsqueda de Azure admite 56 idiomas y aprovecha los analizadores de idiomas Lucene y la tecnología de procesamiento de lenguaje natural de Microsoft."
+services: search
+documentationcenter: ''
+author: yahnoosh
+manager: pablocas
+editor: ''
 
-<tags
-   ms.service="search"
-   ms.devlang="na"
-   ms.workload="search"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.date="07/14/2016"
-   ms.author="jlembicz"/>
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.date: 07/14/2016
+ms.author: jlembicz
 
+---
 # Creación de un índice para documentos en varios idiomas en Búsqueda de Azure
-> [AZURE.SELECTOR]
-- [Portal](search-language-support.md)
-- [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
-- [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> [!div class="op_single_selector"]
+> * [Portal](search-language-support.md)
+> * [REST](https://msdn.microsoft.com/library/azure/dn879793.aspx)
+> * [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.search.models.analyzername.aspx)
+> 
+> 
 
 Desatar la potencia de los analizadores de lenguajes es tan fácil como establecer una propiedad en un campo de búsqueda en la definición del índice. Ahora puede realizar este paso en el portal.
 
 A continuación, se muestran capturas de pantalla de las hojas del Portal de Azure para Búsqueda de Azure que permiten a los usuarios definir un esquema de índice. En esta hoja, los usuarios pueden crear todos los campos y establecer la propiedad de analizador para cada uno de ellos.
 
-> [AZURE.IMPORTANT] Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez guardado los cambios.
+> [!IMPORTANT]
+> Solo puede establecer un analizador de lenguaje durante la definición de campo, como en al crear un nuevo índice desde el principio de o al agregar un nuevo campo a un índice existente. Asegúrese de especificar completamente todos los atributos, incluido el analizador, al crear el campo. No podrá editar los atributos ni cambiar el tipo de analizador una vez guardado los cambios.
+> 
+> 
 
 ## Definición de una nueva definición de campo
-
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y abra la hoja de servicio del servicio de búsqueda.
 2. Haga clic en **Agregar un índice** en la barra de comandos de la parte superior del panel de servicio para iniciar un nuevo índice, o abra un índice existente para establecer un analizador de nuevos campos que se va a agregar a un índice existente.
 3. Aparece la hoja Campos, que proporciona opciones para definir el esquema del índice, incluida la pestaña Analizador usada para elegir un analizador de lenguaje.
 4. En Campos, inicie una definición de campo y proporcione un nombre, seleccione el tipo de datos y establezca los atributos para marcar el campo como texto completo que se puede buscar, recuperar resultados de búsqueda, que se pueden usar en estructuras de navegación de facetas, se pueden ordenar, etc.
 5. Antes de pasar al siguiente campo, abra la pestaña **Analizador**.
 
-   
 ![][1] *Para seleccionar un analizador, haga clic en la pestaña Analizador en la hoja Campos*
 
 ## Selección de un analizador
-
-6. Desplácese hasta encontrar el campo que va a definir.
-7. Si no ha marcado el campo como de búsqueda, haga clic en la casilla para marcarla como **Permite búsqueda**.
-8. Haga clic en el área Analizador para mostrar la lista de analizadores disponibles.
-9. Elija el analizador que desea usar.
+1. Desplácese hasta encontrar el campo que va a definir.
+2. Si no ha marcado el campo como de búsqueda, haga clic en la casilla para marcarla como **Permite búsqueda**.
+3. Haga clic en el área Analizador para mostrar la lista de analizadores disponibles.
+4. Elija el analizador que desea usar.
 
 ![][2] *Seleccione uno de los analizadores compatibles para cada campo*
 

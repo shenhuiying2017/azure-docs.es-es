@@ -1,35 +1,31 @@
-<properties
-    pageTitle="Procesamiento de mensajes de dispositivo a la nube de IoT Hub (Java) | Microsoft Azure"
-    description="Siga este tutorial de Java para aprender patrones útiles de procesamiento de mensajes de dispositivo a nube de IoT Hub."
-    services="iot-hub"
-    documentationCenter="java"
-    authors="dominicbetts"
-    manager="timlt"
-    editor=""/>
+---
+title: Procesamiento de mensajes de dispositivo a la nube de IoT Hub (Java) | Microsoft Docs
+description: Siga este tutorial de Java para aprender patrones útiles de procesamiento de mensajes de dispositivo a nube de IoT Hub.
+services: iot-hub
+documentationcenter: java
+author: dominicbetts
+manager: timlt
+editor: ''
 
-<tags
-     ms.service="iot-hub"
-     ms.devlang="java"
-     ms.topic="article"
-     ms.tgt_pltfrm="na"
-     ms.workload="na"
-     ms.date="09/01/2016"
-     ms.author="dobett"/>
+ms.service: iot-hub
+ms.devlang: java
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/01/2016
+ms.author: dobett
 
-
+---
 # <a name="tutorial-how-to-process-iot-hub-devicetocloud-messages-using-java"></a>Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub mediante Java
-
-[AZURE.INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
+[!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## <a name="introduction"></a>Introducción
-
 El centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional fiable y segura entre millones de dispositivos IoT y una aplicación back-end. Otros tutoriales ([Introducción a Azure IoT Hub para .NET] y [Envío de mensajes de nube a dispositivo con IoT Hub]) muestran cómo usar la funcionalidad básica de mensajería de dispositivo a nube y de nube a dispositivo de IoT Hub.
 
 Este tutorial se basa en el código que se muestra en el tutorial [Introducción al Centro de IoT de Azure para .NET] y muestra dos patrones escalables que se pueden usar para procesar mensajes de dispositivo a nube:
 
-- Almacenamiento confiable de mensajes de dispositivo a nube de [Almacenamiento de blobs de Azure]. Un escenario común es el *análisis en frío* , en el que se almacenan datos de telemetría en blobs para usarlos como entrada en los procesos de análisis. Estos procesos pueden estar controlados por herramientas como [Azure Data Factory] o la pila [HDInsight (Hadoop)].
-
-- Procesamiento confiable de mensajes de dispositivo a nube *interactivos* . Los mensajes de dispositivo a nube son interactivos cuando son desencadenantes inmediatos de un conjunto de acciones en el back-end de la aplicación. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de *punto de datos* simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
+* Almacenamiento confiable de mensajes de dispositivo a nube de [Almacenamiento de blobs de Azure]. Un escenario común es el *análisis en frío* , en el que se almacenan datos de telemetría en blobs para usarlos como entrada en los procesos de análisis. Estos procesos pueden estar controlados por herramientas como [Azure Data Factory] o la pila [HDInsight (Hadoop)].
+* Procesamiento confiable de mensajes de dispositivo a nube *interactivos* . Los mensajes de dispositivo a nube son interactivos cuando son desencadenantes inmediatos de un conjunto de acciones en el back-end de la aplicación. Por ejemplo, un dispositivo puede enviar un mensaje de alarma que desencadena la inserción de una incidencia en un sistema CRM. Por el contrario, los mensajes de *punto de datos* simplemente se envían a un motor de análisis. Por ejemplo, la telemetría de temperatura de un dispositivo que se almacena para su posterior análisis es un mensaje de punto de datos.
 
 Como IoT Hub expone un punto de conexión compatible con [Event Hubs][lnk-event-hubs] para recibir mensajes de dispositivo a nube, este tutorial usa una instancia de [EventProcessorHost]. Esta instancia:
 
@@ -38,7 +34,10 @@ Como IoT Hub expone un punto de conexión compatible con [Event Hubs][lnk-event-
 
 El Bus de servicio ayuda a asegurar un procesamiento confiable de mensajes interactivos, ya que ofrece puntos de comprobación de cada mensaje y desduplicación basada en periodos de tiempo.
 
-> [AZURE.NOTE] Una instancia de **EventProcessorHost** es solamente una de las formas de procesar los mensajes interactivos. Otras opciones son [Azure Service Fabric][lnk-service-fabric] y [Azure Stream Analytics][lnk-stream-analytics].
+> [!NOTE]
+> Una instancia de **EventProcessorHost** es solamente una de las formas de procesar los mensajes interactivos. Otras opciones son [Azure Service Fabric][lnk-service-fabric] y [Azure Stream Analytics][lnk-stream-analytics].
+> 
+> 
 
 Al final de este tutorial, ejecutará tres aplicaciones de consola de Java:
 
@@ -46,31 +45,28 @@ Al final de este tutorial, ejecutará tres aplicaciones de consola de Java:
 * **process-d2c-messages** usa la clase [EventProcessorHost] para recuperar mensajes desde el punto de conexión compatible con Event Hubs. A continuación, almacena los mensajes de punto de datos de forma confiable en Azure Blob Storage y envía mensajes interactivos a una cola de Service Bus.
 * **process-interactive-messages** quita los mensajes interactivos de la cola de Service Bus.
 
-> [AZURE.NOTE] El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Para obtener instrucciones sobre cómo reemplazar el dispositivo simulado de este tutorial con un dispositivo físico y sobre cómo conectar dispositivos a IoT Hub, consulte el [Centro para desarrolladores de Azure IoT].
+> [!NOTE]
+> El Centro de IoT ofrece compatibilidad con el SDK para muchas plataformas de dispositivos y lenguajes, entre los que se incluyen C, Java y JavaScript. Para obtener instrucciones sobre cómo reemplazar el dispositivo simulado de este tutorial con un dispositivo físico y sobre cómo conectar dispositivos a IoT Hub, consulte el [Centro para desarrolladores de Azure IoT].
+> 
+> 
 
 Este tutorial se puede aplicar directamente a otras formas de consumir mensajes compatibles con Centros de eventos como, por ejemplo, proyectos de [HDInsight (Hadoop)] . Consulte la [Guía del desarrollador del Centro de IoT de Azure - Dispositivo a nube]para más información.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Una versión funcional y completa del tutorial [Introducción a IoT Hub] .
-
-+ Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
-
-+ Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
-
-+ Una cuenta de Azure activa. <br/>Si no tiene una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
+* Una versión funcional y completa del tutorial [Introducción a IoT Hub] .
+* Java SE 8. <br/> [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) describe cómo instalar Java para este tutorial en Windows o Linux.
+* Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] (Preparación de un entorno de desarrollo) describe cómo instalar Maven para este tutorial en Windows o Linux.
+* Una cuenta de Azure activa. <br/>Si no tiene una suscripción de Azure, puede crear una [cuenta gratis](https://azure.microsoft.com/free/) en tan solo unos minutos.
 
 También se dan por sentados ciertos conocimientos sobre [Azure Storage] y [Azure Service Bus].
 
-
 ## <a name="send-interactive-messages-from-a-simulated-device"></a>Envío de mensajes interactivos desde un dispositivo simulado
-
 En esta sección, modificará la aplicación de dispositivo simulado que creó en el tutorial [Introducción a IoT Hub] para enviar mensajes de dispositivo a nube interactivos a IoT Hub.
 
 1. Con un editor de texto, abra el archivo simulated-device\src\main\java\com\mycompany\app\App.java. Este archivo contiene el código para la aplicación **simulated-device** que creó en el tutorial [Introducción a IoT Hub] .
-
 2. Agregue la siguiente clase anidada a la clase **App** :
-
+   
     ```
     private static class InteractiveMessageSender implements Runnable {
       public void run() {
@@ -81,11 +77,11 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
             msg.setMessageId(java.util.UUID.randomUUID().toString());
             msg.setProperty("messageType", "interactive");
             System.out.println("Sending interactive message: " + msgStr);
-
+   
             Object lockobj = new Object();
             EventCallback callback = new EventCallback();
             client.sendEventAsync(msg, callback, lockobj);
-
+   
             synchronized (lockobj) {
               lockobj.wait();
             }
@@ -97,35 +93,37 @@ En esta sección, modificará la aplicación de dispositivo simulado que creó e
       }
     }
     ```
-
+   
     Esta clase es similar a la clase **MessageSender** del proyecto **simulated-device**. Las únicas diferencias son que ahora ha definido la propiedad del sistema **MessageId** y una propiedad personalizada llamada **messageType**.
     El código asigna un identificador único universal (UUID) a la propiedad **MessageId** . Service Bus puede utilizar este identificador para desduplicar los mensajes que recibe. En el ejemplo se usa la propiedad **messageType** para distinguir los mensajes interactivos de los mensajes de punto de datos. La aplicación pasa esta información en las propiedades del mensaje, no en el cuerpo, para que el procesador de eventos no tenga que deserializar el mensaje para realizar su enrutamiento.
-
-    > [AZURE.NOTE] Es importante crear el valor de **MessageId** usado para desduplicar los mensajes interactivos en el código de dispositivo. Las comunicaciones de red intermitentes, u otros errores, podrían provocar varias retransmisiones del mismo mensaje desde ese dispositivo. También puede utilizar un identificador de mensaje semántico, como un hash de los campos de datos relevantes del mensaje, en lugar de un UUID.
-
+   
+   > [!NOTE]
+   > Es importante crear el valor de **MessageId** usado para desduplicar los mensajes interactivos en el código de dispositivo. Las comunicaciones de red intermitentes, u otros errores, podrían provocar varias retransmisiones del mismo mensaje desde ese dispositivo. También puede utilizar un identificador de mensaje semántico, como un hash de los campos de datos relevantes del mensaje, en lugar de un UUID.
+   > 
+   > 
 3. Modifique el método **main** para enviar mensajes interactivos y de punto de datos, tal y como se muestra en el siguiente fragmento de código:
-
+   
     ````
     MessageSender sender = new MessageSender();
     InteractiveMessageSender interactiveSender = new InteractiveMessageSender();
-
+   
     ExecutorService executor = Executors.newFixedThreadPool(2);
     executor.execute(sender);
     executor.execute(interactiveSender);
     ````
-
 4. Guarde y cierre el archivo simulated-device\src\main\java\com\mycompany\app\App.java.
-
-    > [AZURE.NOTE] Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios).
-
+   
+   > [!NOTE]
+   > Para simplificar, en este tutorial no se implementa ninguna directiva de reintentos. En el código de producción, debe implementar una directiva de reintentos (por ejemplo, retroceso exponencial), tal y como se sugiere en el artículo de MSDN [Transient Fault Handling](Control de errores transitorios.md).
+   > 
+   > 
 5. Para compilar la aplicación **simulated-device** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta simulated-device:
-
+   
     ```
     mvn clean package -DskipTests
     ```
 
 ## <a name="process-devicetocloud-messages"></a>Procesamiento de mensajes de dispositivo a la nube
-
 En esta sección, creará una aplicación de consola de Java que procesa los mensajes de dispositivo a nube desde IoT Hub. El Centro de IoT expone un punto de conexión compatible con [Centros de eventos]que permite que una aplicación lea los mensajes de dispositivo a nube. En este tutorial se utiliza la clase [EventProcessorHost] para procesar estos mensajes en una aplicación de consola. Para más información sobre cómo procesar los mensajes de los Centros de eventos, consulte el tutorial [Introducción a los Centros de eventos] .
 
 La principal dificultad a la que se enfrenta a la hora de implementar un almacenamiento confiable de mensajes de puntos de datos o de reenviar los mensajes interactivos, es que el procesamiento de eventos depende del consumidor de mensajes para ejecutar puntos de control de su progreso. Además, para lograr un alto rendimiento, al leer desde Event Hubs debería ejecutar puntos de control en lotes grandes. Este enfoque crea la posibilidad de realizar un procesamiento duplicado para un gran número de mensajes si se produce un error y tiene que volver al punto de control anterior. En este tutorial verá cómo sincronizar escrituras de Azure Storage y ventanas de desduplicación de Service Bus con puntos de control de la clase **EventProcessorHost** .
@@ -134,46 +132,50 @@ Para escribir mensajes de manera confiable en Almacenamiento de Azure, en el eje
 
 El procesador de eventos usa desplazamientos de mensajes de Centros de eventos como identificadores de bloque. Este mecanismo permite al procesador de eventos realizar una comprobación de desduplicación antes de confirmar el nuevo bloque en el almacenamiento, con lo que se vigila la posibilidad de que se produzca un bloqueo entre la confirmación de un bloque y el punto de control.
 
-> [AZURE.NOTE] En este tutorial se usa una sola cuenta de almacenamiento para escribir todos los mensajes que se recuperan del Centro de IoT. Consulte las [instrucciones de escalabilidad de Almacenamiento de Azure]para decidir si necesita utilizar varias cuentas de Almacenamiento de Azure en su solución.
+> [!NOTE]
+> En este tutorial se usa una sola cuenta de almacenamiento para escribir todos los mensajes que se recuperan del Centro de IoT. Consulte las [instrucciones de escalabilidad de Almacenamiento de Azure]para decidir si necesita utilizar varias cuentas de Almacenamiento de Azure en su solución.
+> 
+> 
 
 La aplicación utiliza la característica de desduplicación de Service Bus para evitar duplicados cuando procesa mensajes interactivos. El dispositivo simulado marca cada mensaje interactivo con un único **MessageId**. Estos identificadores permiten a Service Bus garantizar que, en la ventana de tiempo de desduplicación especificado, no se entregarán dos mensajes con el mismo **MessageId** a los receptores. Esta desduplicación, junto con la semántica de finalización de cada mensaje que proporcionan las colas del Bus de servicio, facilita la implementación de un procesamiento confiable de los mensajes interactivos.
 
 Para tener la seguridad de que no se reenvía ningún mensaje fuera de la ventana de desduplicación, el código sincroniza el mecanismo de ejecución de puntos de control de la clase **EventProcessorHost** con la ventana de desduplicación de cola del Bus de servicio. Esta sincronización se realiza forzando un punto de control al menos una vez cada vez que transcurre una ventana de tiempo de desduplicación (en este tutorial, una hora).
 
-> [AZURE.NOTE] En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio de Azure] para más información sobre cómo utilizar las colas del Bus de servicio para cumplir los requisitos de escalabilidad de su solución.
+> [!NOTE]
+> En este tutorial se usa una cola del Bus de servicio para procesar todos los mensajes interactivos recibidos del Centro de IoT. Consulte la [documentación del Bus de servicio de Azure] para más información sobre cómo utilizar las colas del Bus de servicio para cumplir los requisitos de escalabilidad de su solución.
+> 
+> 
 
 ### <a name="provision-an-azure-storage-account-and-a-service-bus-queue"></a>Aprovisionamiento de una cuenta de almacenamiento de Azure y una cola del Bus de servicio
-
 Para poder utilizar la clase [EventProcessorHost] , debe tener una cuenta de Azure Storage que permita que la clase **EventProcessorHost** registre la información del punto de control. Puede utilizar una cuenta de almacenamiento que ya exista o seguir las instrucciones que se indican en [Acerca de las cuentas de almacenamiento de Azure] para crear una nueva. Tome nota de la cadena de conexión de la cuenta de almacenamiento.
 
-> [AZURE.NOTE] Al copiar y pegar la cadena de conexión de la cuenta de almacenamiento, asegúrese de que no contenga ningún espacio.
+> [!NOTE]
+> Al copiar y pegar la cadena de conexión de la cuenta de almacenamiento, asegúrese de que no contenga ningún espacio.
+> 
+> 
 
 También necesitará una cola del Bus de servicio para habilitar el procesamiento confiable de los mensajes interactivos. Puede crear una cola mediante programación con una ventana de desduplicación de una hora, tal y como se explica en [Utilización de las colas del Bus de servicio][cola del Bus de servicio]. Como alternativa, puede usar el [Portal de Azure clásicol][lnk-classic-portal] siguiendo estos pasos:
 
 1. Haga clic en la opción **Nuevo** de la esquina inferior izquierda. Después, haga clic en **App Services** > **Service Bus** > **Cola** > **Creación personalizada**. Escriba el nombre **d2ctutorial**, seleccione una región y use un espacio de nombres existente o cree uno nuevo. Tome nota del nombre del espacio de nombres; lo necesitará más adelante en este tutorial. En la siguiente página, seleccione **Habilitar detección de duplicados** y establezca el valor de **Período de tiempo de historial de detección de duplicados** en una hora. Haga clic en la marca de verificación de la esquina inferior derecha para guardar la configuración de la cola.
-
+   
     ![Creación de colas en el Portal de Azure][30]
-
 2. En la lista de colas de Service Bus, haga clic en **d2ctutorial** y luego en **Configurar**. Cree dos directivas de acceso compartido, una llamada **enviar** con permisos de **envío** y otra llamada **escuchar** con permisos de **escucha**. Tome nota de los valores de **Clave principal** de las dos directivas; los necesitará más adelante en este tutorial. Cuando haya terminado, haga clic en **Guardar** de la parte inferior.
-
+   
     ![Configuración de colas en el Portal de Azure][31]
 
 ### <a name="create-the-event-processor"></a>Creación del procesador de eventos
-
 En esta sección, creará una aplicación de Java para procesar los mensajes desde el punto de conexión compatible con Event Hubs.
 
 La primera tarea consiste en agregar un proyecto de Maven llamado **process-d2c-messages** , que recibe mensajes de dispositivo a la nube del punto de conexión compatible con Event Hubs de IoT Hub y enruta los mensajes a otros servicios back-end.
 
 1. En la carpeta iot-java-get-started creada en la sección [Introducción a IoT Hub] , cree un proyecto de Maven llamado **process-d2c-messages** mediante el comando siguiente en el símbolo del sistema. Observe que este es un comando único y largo:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-
 2. En el símbolo del sistema, vaya a la nueva carpeta process-d2c-messages.
-
 3. Con un editor de texto, abra el archivo pom.xml en la carpeta process-d2c-messages y agregue la siguiente dependencia al nodo **dependencies** . Estas dependencias permiten usar los paquetes azure-eventhubs, azure-eventhubs-eph y azure-servicebus a la aplicación para interactuar con su centro de IoT y la cola Service Bus:
-
+   
     ```
     <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -191,19 +193,18 @@ La primera tarea consiste en agregar un proyecto de Maven llamado **process-d2c-
       <version>0.9.4</version>
     </dependency>
     ```
-
 4. Guarde y cierre el archivo pom.xml.
 
 La siguiente tarea consiste en agregar una clase **ErrorNotificationHandler** al proyecto.
 
 1. Use un editor de texto para crear un archivo process-d2c-messages\src\main\java\com\mycompany\app\ErrorNotificationHandler.java. Agregue el código siguiente al archivo para mostrar los mensajes de error de la instancia de **EventProcesssorHost** :
-
+   
     ```
     package com.mycompany.app;
-
+   
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
-
+   
     public class ErrorNotificationHandler implements
         Consumer<ExceptionReceivedEventArgs> {
       @Override
@@ -214,7 +215,6 @@ La siguiente tarea consiste en agregar una clase **ErrorNotificationHandler** al
       }
     }
     ```
-
 2. Guarde y cierre el archivo ErrorNotificationHandler.java.
 
 Ahora puede agregar una clase que implementa la interfaz **IEventProcessor** . La clase **EventProcessorHost** llama a esta clase para procesar los mensajes del dispositivo a la nube recibidos del Centro de IoT. El código de esta clase implementa la lógica para almacenar los mensajes de manera confiable en un contenedor de blobs y reenviar los mensajes interactivos a la cola del Bus de servicio.
@@ -223,17 +223,19 @@ El método **onEvents** establece la variable **latestEventData**, que supervisa
 
 El método **AppendAndCheckpoint** genera primero un valor de **blockid** para el bloque que se va a anexar al blob. Azure Storage requiere que todos los identificadores de bloque tengan la misma longitud, por lo que el método rellena el desplazamiento con ceros iniciales. Luego, si ya existe un bloque con este identificador en el blob, el método lo sobrescribe con el contenido actual del búfer.
 
-> [AZURE.NOTE] Para simplificar el código, en este tutorial se usa un solo archivo de blob por partición para almacenar los mensajes. En una solución real, los archivos se implementarían gradualmente, de modo que se crean archivos adicionales cuando alcanzan un determinado tamaño. Recuerde que el blob en bloques de Azure puede tener como máximo 195 GB de datos.
+> [!NOTE]
+> Para simplificar el código, en este tutorial se usa un solo archivo de blob por partición para almacenar los mensajes. En una solución real, los archivos se implementarían gradualmente, de modo que se crean archivos adicionales cuando alcanzan un determinado tamaño. Recuerde que el blob en bloques de Azure puede tener como máximo 195 GB de datos.
+> 
+> 
 
 La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
 
 1. Use un editor de texto para crear un archivo process-d2c-messages\src\main\java\com\mycompany\app\EventProcessor.java.
-
 2. Agregue las siguientes instrucciones de importación y la definición de clase al archivo EventProcessor.java. La clase **EventProcessor** implementa la interfaz **IEventProcessor** que define el comportamiento del cliente de Event Hubs:
-
+   
     ```
     package com.mycompany.app;
-
+   
     import java.io.ByteArrayInputStream;
     import java.io.ByteArrayOutputStream;
     import java.io.IOException;
@@ -244,28 +246,27 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
     import java.util.ArrayList;
     import java.util.Base64;
     import java.util.concurrent.ExecutionException;
-
+   
     import com.microsoft.azure.eventhubs.EventData;
     import com.microsoft.azure.eventprocessorhost.*;
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.blob.*;
     import com.microsoft.windowsazure.services.servicebus.*;
     import com.microsoft.windowsazure.services.servicebus.models.BrokeredMessage;
-
+   
     public class EventProcessor implements IEventProcessor {
-
+   
     }
     ```
-
 3. Agregue los siguientes métodos a la clase **EventProcessor** para implementar la interfaz **IEventProcessor**:
-
+   
     ```
     @Override
     public void onOpen(PartitionContext context) throws Exception {
       System.out.println("EventProcessorHost: Partition "
           + context.getPartitionId() + " is opening");
     }
-
+   
     @Override
     public void onClose(PartitionContext context, CloseReason reason)
         throws Exception {
@@ -273,46 +274,43 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
           + context.getPartitionId() + " is closing for reason "
           + reason.toString());
     }
-
+   
     @Override
     public void onError(PartitionContext context, Throwable error) {
       System.out.println("EventProcessorHost: Partition "
           + context.getPartitionId() + " onError: " + error.toString());
     }
-
+   
     @Override
     public void onEvents(PartitionContext context, Iterable<EventData> messages)
         throws Exception {
     }
     ```
-
 4. Agregue las siguientes variables de nivel de clase a la clase **EventProcessor** :
-
+   
     ```
     public static CloudBlobContainer blobContainer;
     public static ServiceBusContract serviceBusContract;
-
+   
     // Use a smaller MAX_BLOCK_SIZE value to test.
     final private int MAX_BLOCK_SIZE = 4 * 1024 * 1024;
     final private Duration MAX_CHECKPOINT_TIME = Duration.ofHours(1);
-
+   
     private ByteArrayOutputStream toAppend = new ByteArrayOutputStream(
         MAX_BLOCK_SIZE);
     private Instant start = Instant.now();
     private EventData latestEventData;
     ```
-
 5. Agregue un método **AppendAndCheckPoint** con la firma siguiente a la clase **EventProcessor**:
-
+   
     ```
     private void AppendAndCheckPoint(PartitionContext context)
       throws URISyntaxException, StorageException, IOException,
       IllegalArgumentException, InterruptedException, ExecutionException {
     }
     ```
-
 6. Agregue el código siguiente al método **AppendAndCheckPoint** para obtener el número de secuencia y el desplazamiento de mensajes actual de la partición:
-
+   
     ```
     String currentOffset = latestEventData.getSystemProperties().getOffset();
     Long currentSequence = latestEventData.getSystemProperties().getSequenceNumber();
@@ -321,9 +319,8 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
             "\nAppendAndCheckPoint using partition: %s, offset: %s, sequence: %s\n",
             context.getPartitionId(), currentOffset, currentSequence);
     ```
-
 7. En el método **AppendAndCheckPoint**, use el valor de desplazamiento actual para crear una instancia **BlockEntry** para el bloque siguiente que se guardará en el blob:
-
+   
     ```
     Long blockId = Long.parseLong(currentOffset);
     String blockIdString = String.format("startSeq:%1$025d", blockId);
@@ -331,20 +328,18 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
         blockIdString.getBytes(StandardCharsets.US_ASCII));
     BlockEntry block = new BlockEntry(encodedBlockId);
     ```
-
 8. En el método **AppendAndCheckPoint** , cargue el último conjunto de mensajes en el blob en bloques y recupere la lista de bloques:
-
+   
     ```
     String blobName = String.format("iothubd2c_%s", context.getPartitionId());
     CloudBlockBlob currentBlob = blobContainer.getBlockBlobReference(blobName);
-
+   
     currentBlob.uploadBlock(block.getId(),
         new ByteArrayInputStream(toAppend.toByteArray()), toAppend.size());
     ArrayList<BlockEntry> blockList = currentBlob.downloadBlockList();
     ```
-
 9. En el método **AppendAndCheckPoint** , cree el bloque inicial en un blob nuevo o anexe el bloque al blob existente:
-
+   
     ```
     if (currentBlob.exists()) {
       // Check if we should append new block or overwrite existing block
@@ -363,21 +358,19 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
     }
     currentBlob.commitBlockList(blockList);
     ```
-
 10. Por último, en el método **AppendAndCheckPoint** , cree un punto de control en la partición y prepárese para guardar el siguiente bloque de mensajes:
-
+    
     ```
     context.checkpoint(latestEventData);
-
+    
     // Reset everything after the checkpoint.
     toAppend.reset();
     start = Instant.now();
     System.out.printf("Checkpointed on partition id: %s\n",
         context.getPartitionId());
     ```
-
 11. En el método **onEvents** , agregue el siguiente código para recibir mensajes del punto de conexión de IoT Hub y reenviar mensajes interactivos a la cola de Service Bus. A continuación, llame al método **AppendAndCheckPoint** cuando el bloque esté lleno o se agote el tiempo de espera:
-
+    
     ```
     if (messages != null) {
       for (EventData eventData : messages) {
@@ -402,9 +395,8 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
       }
     }
     ```
-
 12. Por último, en el método **onEvents**, agregue una cláusula 'else if' para llamar a **AppendAndCheckPoint** si el tiempo de espera se agota y no hay ningún mensaje procedente de IoT Hub:
-
+    
     ```
     else if ((toAppend.size() > 0)
         && Duration.between(start, Instant.now())
@@ -412,15 +404,13 @@ La siguiente tarea consiste en implementar la interfaz **IEventProcessor** :
       AppendAndCheckPoint(context);
     }
     ```
-
 13. Guarde los cambios en el archivo EventProcessor.java.
 
 La tarea final del proyecto **process-d2c-messages** consiste en agregar código al método **main**, que crea una instancia de **EventProcessorHost**.
 
 1. Con un editor de texto, abra el archivo process-d2c-messages\src\main\java\com\mycompany\app\App.java.
-
 2. Agregue las siguientes instrucciones **import** al archivo:
-
+   
     ```
     import com.microsoft.azure.eventprocessorhost.*;
     import com.microsoft.azure.servicebus.ConnectionStringBuilder;
@@ -430,29 +420,26 @@ La tarea final del proyecto **process-d2c-messages** consiste en agregar código
     import com.microsoft.windowsazure.Configuration;
     import com.microsoft.windowsazure.services.servicebus.ServiceBusConfiguration;
     import com.microsoft.windowsazure.services.servicebus.ServiceBusService;
-
+   
     import java.net.URISyntaxException;
     import java.security.InvalidKeyException;
     import java.util.concurrent.*;
     ```
-
 3. Agregue la siguiente variable de nivel de clase a la clase **App** . Reemplace **{yourstorageaccountconnectionstring}** por la cadena de conexión de la cuenta de Azure Storage que anotó anteriormente en la sección [Aprovisionamiento de una cuenta de Azure Storage y una cola de Service Bus](#provision-an-azure-storage-account-and-a-service-bus-queue) :
-
+   
     ```
     private final static String storageConnectionString = "{yourstorageaccountconnectionstring}";
     ```
-
 4. Agregue las siguientes variables de nivel de clase a la clase **App** y reemplace **{yourservicebusnamespace}** por el espacio de nombres de Service Bus y **{yourservicebussendkey}** por la clave **send** de la cola. Anteriormente anotó el espacio de nombres y los valores de la clave **listen** en la sección [Aprovisionamiento de una cuenta de Azure Storage y una cola de Service Bus](#provision-an-azure-storage-account-and-a-service-bus-queue) :
-
+   
     ```
     private final static String serviceBusNamespace = "{yourservicebusnamespace}";
     private final static String serviceBusSasKeyName = "send";
     private final static String serviceBusSASKey = "{yourservicebussendkey}";
     private final static String serviceBusRootUri = ".servicebus.windows.net";
     ```
-
 5. Agregue las siguientes variables de nivel de clase a la clase **App** . Reemplace **{youreventhubcompatibleendpoint}** por el nombre del punto de conexión compatible con Event Hubs. El nombre del punto de conexión es similar a **ihs...namespace**, por lo que deberá quitar el prefijo **sb://** y el sufijo **.servicebus.windows.net/**. Reemplace **{youreventhubcompatiblename}** por el nombre compatible con Event Hubs. Reemplace **{youriothubkey}** por la clave **iothubowner**. Tomó nota de estos valores en la sección [Creación de un centro de IoT][lnk-create-an-iot-hub] en el tutorial *Introducción a Azure IoT Hub para Java*:
-
+   
     ```
     private final static String consumerGroupName = "$Default";
     private final static String namespaceName = "{youreventhubcompatibleendpoint}";
@@ -460,17 +447,15 @@ La tarea final del proyecto **process-d2c-messages** consiste en agregar código
     private final static String sasKeyName = "iothubowner";
     private final static String sasKey = "{youriothubkey}";
     ```
-
 6. Modifique la signatura del método **main** de la siguiente manera:
-
+   
     ```
     public static void main(String args[]) throws InvalidKeyException,
       URISyntaxException, StorageException {
     }
     ```
-
 7. Agregue el código siguiente al método **main** para obtener una referencia al contenedor de blobs que almacena los mensajes:
-
+   
     ```
     System.out.println("Process D2C messages using EventProcessorHost");
     CloudStorageAccount account = CloudStorageAccount
@@ -480,18 +465,16 @@ La tarea final del proyecto **process-d2c-messages** consiste en agregar código
         .getContainerReference("d2cjavatutorial");
     EventProcessor.blobContainer.createIfNotExists();
     ```
-
 8. Agregue el código siguiente al método **main** para obtener una referencia al servicio Service Bus:
-
+   
     ```
     Configuration config = ServiceBusConfiguration
         .configureWithSASAuthentication(serviceBusNamespace,
             serviceBusSasKeyName, serviceBusSASKey, serviceBusRootUri);
     EventProcessor.serviceBusContract = ServiceBusService.create(config);
     ```
-
 9. En el método **main**, configure y cree una instancia de **EventProcessorHost**. La opción **setInvokeProcessorAfterReceiveTimeout** garantiza que la instancia de **EventProcessorHost** invocará el método **onEvents** en la interfaz **IEventProcessor** aunque no haya mensajes para procesar. Después, el método **onEvents** invoca siempre el método **AppendAndCheckPoint** cuando el tiempo de espera se agota.
-
+   
     ```
     ConnectionStringBuilder eventHubConnectionString = new ConnectionStringBuilder(
         namespaceName, eventHubName, sasKeyName, sasKey);
@@ -502,9 +485,8 @@ La tarea final del proyecto **process-d2c-messages** consiste en agregar código
     options.setExceptionNotification(new ErrorNotificationHandler());
     options.setInvokeProcessorAfterReceiveTimeout(true);
     ```
-
 10. En el método **main**, registre la implementación de **IEventProcessor** con la instancia de **EventProcessorHost**:
-
+    
     ```
     try {
       System.out.println("Registering host named " + host.getHostName());
@@ -520,49 +502,43 @@ La tarea final del proyecto **process-d2c-messages** consiste en agregar código
       System.out.println(e.toString());
     }
     ```
-
 11. Por último, agregue al método **main** lógica para apagar la instancia de **EventProcessorHost**:
-
+    
     ```
     System.out.println("Press enter to stop");
     try {
       System.in.read();
       host.unregisterEventProcessor();
-
+    
       System.out.println("Calling forceExecutorShutdown");
       EventProcessorHost.forceExecutorShutdown(120);
     } catch (Exception e) {
       System.out.println(e.toString());
       e.printStackTrace();
     }
-
+    
     System.out.println("End of sample");
     ```
-
 12. Guarde y cierre el archivo process-d2c-messages\src\main\java\com\mycompany\app\App.java.
-
 13. Para compilar la aplicación **process-d2c-messages** con Maven, ejecute el siguiente comando en el símbolo del sistema, en la carpeta process-d2c-messages:
-
+    
     ```
     mvn clean package -DskipTests
     ```
 
 ## <a name="receive-interactive-messages"></a>Recepción de mensajes interactivos
-
 En esta sección, escribirá una aplicación de consola de Java que recibe los mensajes interactivos de la cola de Service Bus.
 
 La primera tarea consiste en agregar un proyecto de Maven llamado **process-interactive-messages** que recibe los mensajes enviados en la cola de Service Bus desde las instancias de **EventProcessor**.
 
 1. En la carpeta iot-java-get-started creada en la sección [Introducción a IoT Hub] , cree un proyecto de Maven llamado **process-interactive-messages** mediante el comando siguiente en el símbolo del sistema. Observe que este es un comando único y largo:
-
+   
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-interactive-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
-
 2. En el símbolo del sistema, vaya a la nueva carpeta process-interactive-messages.
-
 3. Con un editor de texto, abra el archivo pom.xml en la carpeta process-interactive-messages y agregue la siguiente dependencia al nodo **dependencies** . Esta dependencia permite usar el paquete azure-servicebus en la aplicación para interactuar con la cola de Service Bus:
-
+   
     ```
     <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -570,28 +546,25 @@ La primera tarea consiste en agregar un proyecto de Maven llamado **process-inte
       <version>0.9.4</version>
     </dependency>
     ```
-
 4. Guarde y cierre el archivo pom.xml.
 
 La siguiente tarea consiste en agregar código para recuperar mensajes de la cola de Service Bus.
 
 1. Con un editor de texto, abra el archivo process-interactive-messages\src\main\java\com\mycompany\app\App.java.
-
 2. Agregue las siguientes instrucciones `import` al archivo:
-
+   
     ```
     import java.io.IOException;
     import java.util.concurrent.ExecutorService;
     import java.util.concurrent.Executors;
-
+   
     import com.microsoft.windowsazure.Configuration;
     import com.microsoft.windowsazure.exception.ServiceException;
     import com.microsoft.windowsazure.services.servicebus.*;
     import com.microsoft.windowsazure.services.servicebus.models.*;
     ```
-
 3. Agregue las siguientes variables de nivel de clase a la clase **App** y reemplace **{yourservicebusnamespace}** por el espacio de nombres de Service Bus y **{yourservicebuslistenkey}** por la clave **listen** de la cola. Anteriormente anotó el espacio de nombres y los valores de la clave **listen** en la sección [Aprovisionamiento de una cuenta de Azure Storage y una cola de Service Bus](#provision-an-azure-storage-account-and-a-service-bus-queue) :
-
+   
     ```
     private final static String serviceBusNamespace = "{yourservicebusnamespace}";
     private final static String serviceBusSasKeyName = "listen";
@@ -600,9 +573,8 @@ La siguiente tarea consiste en agregar código para recuperar mensajes de la col
     private final static String queueName = "d2ctutorial";
     private static ServiceBusContract service = null;
     ```
-
 4. Agregue la siguiente clase anidada a la clase **App** para recibir mensajes de la cola:
-
+   
     ```
     private static class MessageReceiver implements Runnable {
       public void run() {
@@ -639,74 +611,69 @@ La siguiente tarea consiste en agregar código para recuperar mensajes de la col
       }
     }
     ```
-
 5. Modifique la signatura del método **main** de la siguiente manera:
-
+   
     ```
     public static void main(String args[]) throws ServiceException, IOException {
     }
     ```
-
 6. En el método **main** , agregue el código siguiente para empezar a escuchar mensajes nuevos:
-
+   
     ```
     System.out.println("Process interactive messages");
-
+   
     Configuration config = ServiceBusConfiguration
         .configureWithSASAuthentication(serviceBusNamespace,
             serviceBusSasKeyName, serviceBusSASKey, serviceBusRootUri);
     service = ServiceBusService.create(config);
-
+   
     MessageReceiver receiver = new MessageReceiver();
-
+   
     ExecutorService executor = Executors.newFixedThreadPool(2);
     executor.execute(receiver);
-
+   
     System.out.println("Press ENTER to exit.");
     System.in.read();
     executor.shutdownNow();
     ```
-
 7. Guarde y cierre el archivo process-interactive-messages\src\main\java\com\mycompany\app\App.java.
-
 8. Para compilar la aplicación **process-interactive-messages** con Maven, ejecute el siguiente comando en el símbolo del sistema en la carpeta process-interactive-messages:
-
+   
     ```
     mvn clean package -DskipTests
     ```
 
 ## <a name="run-the-applications"></a>Ejecución de las aplicaciones
-
 Ahora está preparado para ejecutar las tres aplicaciones.
 
-1.  Para ejecutar la aplicación **process-interactive-messages** , en un símbolo del sistema o en el shell, vaya a la carpeta process-interactive-messages y ejecute el siguiente comando:
+1. Para ejecutar la aplicación **process-interactive-messages** , en un símbolo del sistema o en el shell, vaya a la carpeta process-interactive-messages y ejecute el siguiente comando:
+   
+   ```
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
+   
+   ![Ejecución de process-interactive-messages][processinteractive]
+2. Para ejecutar la aplicación **process-d2c-messages** , en un símbolo del sistema o en el shell, vaya a la carpeta process-d2c-messages y ejecute el siguiente comando:
+   
+   ```
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
+   
+   ![Ejecución de process-d2c-messages][processd2c]
+3. Para ejecutar la aplicación **simulated-device** , en un símbolo del sistema o en el shell, vaya a la carpeta simulated-device y ejecute el siguiente comando:
+   
+   ```
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
+   
+   ![Ejecución de simulated-device][simulateddevice]
 
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
-
-    ![Ejecución de process-interactive-messages][processinteractive]
-
-2.  Para ejecutar la aplicación **process-d2c-messages** , en un símbolo del sistema o en el shell, vaya a la carpeta process-d2c-messages y ejecute el siguiente comando:
-
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
-
-    ![Ejecución de process-d2c-messages][processd2c]
-
-3.  Para ejecutar la aplicación **simulated-device** , en un símbolo del sistema o en el shell, vaya a la carpeta simulated-device y ejecute el siguiente comando:
-
-    ```
-    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
-    ```
-
-    ![Ejecución de simulated-device][simulateddevice]
-
-> [AZURE.NOTE] Para ver las actualizaciones en el archivo de blob, debe reducir la constante **MAX_BLOCK_SIZE** de la clase **StoreEventProcessor** a un valor inferior, como **1024**. Este cambio resulta útil ya que se tarda algún tiempo en alcanzar el límite de tamaño de bloque con los datos enviados por el dispositivo simulado. Con un tamaño de bloque menor no tiene que esperar tanto tiempo para ver el blob que se crea y se actualiza. Aunque un tamaño de bloque mayor hace que la aplicación sea más escalable.
+> [!NOTE]
+> Para ver las actualizaciones en el archivo de blob, debe reducir la constante **MAX_BLOCK_SIZE** de la clase **StoreEventProcessor** a un valor inferior, como **1024**. Este cambio resulta útil ya que se tarda algún tiempo en alcanzar el límite de tamaño de bloque con los datos enviados por el dispositivo simulado. Con un tamaño de bloque menor no tiene que esperar tanto tiempo para ver el blob que se crea y se actualiza. Aunque un tamaño de bloque mayor hace que la aplicación sea más escalable.
+> 
+> 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 En este tutorial, ha aprendido a procesar de manera confiable mensajes de dispositivo a nube interactivos y de punto de datos mediante la clase [EventProcessorHost] .
 
 El tutorial sobre [el envío de mensajes de dispositivo a la nube con IoT Hub][lnk-c2d] muestra cómo enviar mensajes a los dispositivos desde el back-end.

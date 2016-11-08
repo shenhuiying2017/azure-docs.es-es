@@ -1,30 +1,29 @@
-<properties
-   pageTitle="Protección de un clúster de Service Fabric | Microsoft Azure"
-   description="Describe los escenarios de seguridad de un clúster de Service Fabric y las diferentes tecnologías que se utilizan para implementarlos."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="ChackDan"
-   manager="timlt"
-   editor=""/>
+---
+title: Protección de un clúster de Service Fabric | Microsoft Docs
+description: Describe los escenarios de seguridad de un clúster de Service Fabric y las diferentes tecnologías que se utilizan para implementarlos.
+services: service-fabric
+documentationcenter: .net
+author: ChackDan
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="08/19/2016"
-   ms.author="chackdan"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/19/2016
+ms.author: chackdan
 
+---
 # Escenarios de seguridad de los clústeres de Service Fabric
-
 Un clúster de Service Fabric es un recurso que usted posee. Los clústeres siempre deben estar protegidos para evitar que usuarios no autorizados se conecten a su clúster, especialmente cuando en él se están ejecutando cargas de trabajo de producción. Aunque es posible crear un clúster no protegido, si lo hace, permitirá que cualquier usuario anónimo se conecte a él si expone los puntos de conexión de administración al Internet público.
 
 En este artículo se proporciona información general sobre los escenarios de seguridad de los clústeres que se ejecutan en Azure o de forma independiente, así como sobre las diversas tecnologías que se utilizan para implementar estos escenarios. Estos son los escenarios de seguridad de clúster:
 
-- Seguridad de nodo a nodo
-- Seguridad de cliente a nodo
-- Control de acceso basado en roles (RBAC)
+* Seguridad de nodo a nodo
+* Seguridad de cliente a nodo
+* Control de acceso basado en roles (RBAC)
 
 ## Seguridad de nodo a nodo
 Protege la comunicación entre las máquinas virtuales o las máquinas del clúster. De esta forma se garantiza que solo los equipos que están autorizados a unirse al clúster pueden participar en el hospedaje de aplicaciones y servicios en el clúster.
@@ -32,6 +31,7 @@ Protege la comunicación entre las máquinas virtuales o las máquinas del clús
 ![Diagrama de comunicación de nodo a nodo][Node-to-Node]
 
 Los clústeres que se ejecutan en Azure o los independientes que se ejecutan en Windows pueden utilizar una [seguridad basada en certificados](https://msdn.microsoft.com/library/ff649801.aspx) o la [seguridad de Windows](https://msdn.microsoft.com/library/ff649396.aspx) para las máquinas con Windows Server.
+
 ### Seguridad basada en certificados de nodo a nodo
 Service Fabric usa certificados de servidor X.509 que se especifican como parte de las configuraciones del tipo de nodo cuando se crea un clúster. Al final de este artículo, se proporciona una descripción rápida de qué son estos certificados y cómo se pueden adquirir o crear.
 
@@ -75,18 +75,16 @@ Los administradores tienen acceso total a las capacidades de administración (in
 
 Especifique los roles de cliente de usuario y administrador cuando cree el clúster con identidades independientes (certificados, AAD, etc.) para cada uno. Para más información sobre la configuración de control de acceso predeterminada y cómo cambiarla, consulte [Control de acceso basado en rol para clientes de Service Fabric](service-fabric-cluster-security-roles.md).
 
-
 ## Certificados X.509 y Service Fabric
 Los certificados digitales X509 se usan habitualmente para autenticar a clientes y servidores y para cifrar y firmar mensajes digitalmente. Para más información sobre estos certificados, vaya a [Trabajar con certificados](http://msdn.microsoft.com/library/ms731899.aspx).
 
 Algunos puntos importantes que hay que tener en cuenta:
 
-- Los certificados usados en clústeres que ejecutan cargas de trabajo de producción deberán crearse mediante un servicio de certificados de Windows Server correctamente configurado u obtenerse de una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) autorizada.
-- No use nunca certificados temporales o de pruebas en producción creados con herramientas como MakeCert.exe.
-- Puede usar un certificado autofirmado, pero solo para los clústeres de prueba y no para los que se encuentran en fase de producción.
+* Los certificados usados en clústeres que ejecutan cargas de trabajo de producción deberán crearse mediante un servicio de certificados de Windows Server correctamente configurado u obtenerse de una [entidad de certificación (CA)](https://en.wikipedia.org/wiki/Certificate_authority) autorizada.
+* No use nunca certificados temporales o de pruebas en producción creados con herramientas como MakeCert.exe.
+* Puede usar un certificado autofirmado, pero solo para los clústeres de prueba y no para los que se encuentran en fase de producción.
 
 ### Certificados de servidor X.509
-
 Los certificados de servidor tienen la tarea principal de autenticar un servidor (nodo) en los clientes o de autenticar un servidor (nodo) en un servidor (nodo). Una de las comprobaciones iniciales cuando un nodo o un cliente autentica un nodo consiste en comprobar el valor del nombre común en el campo Sujeto. Este nombre común o uno de los nombres alternativos del sujeto del certificado debe estar presente en la lista de nombres comunes permitidos.
 
 En el siguiente artículo se describe cómo generar certificados con nombres alternativos de firmante (SAN): [Cómo agregar un nombre alternativo del firmante a un certificado LDAP seguro](http://support.microsoft.com/kb/931351).
@@ -96,16 +94,17 @@ El campo de sujeto puede contener varios valores, cada uno con un prefijo de ini
 El valor del campo Propósitos planteados del certificado debe incluir un valor apropiado, como "Autenticación de servidor" o "Autenticación de cliente".
 
 ### Certificados de cliente X.509
-
 Los certificados de cliente normalmente no los emite una entidad de certificación de terceros. En su lugar, el almacén Personal de la ubicación del usuario actual contiene normalmente los certificados de cliente colocados ahí por una entidad de certificación raíz, con un propósito planteado de "Autenticación de cliente". El cliente puede usar este tipo de certificado cuando se requiere autenticación mutua.
 
->[AZURE.NOTE] Todas las operaciones de administración en el clúster de Service Fabric requieren certificados de servidor. No se pueden usar certificados de cliente para la administración.
+> [!NOTE]
+> Todas las operaciones de administración en el clúster de Service Fabric requieren certificados de servidor. No se pueden usar certificados de cliente para la administración.
+> 
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 
 ## Pasos siguientes
-
 En este artículo se proporciona información conceptual sobre la seguridad de los clústeres. Después, [cree un clúster de Azure mediante una plantilla de Resource Manager](service-fabric-cluster-creation-via-arm.md) o a través del [Portal de Azure](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->

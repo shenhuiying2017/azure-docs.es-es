@@ -1,35 +1,34 @@
-<properties
-   pageTitle="Cifrado de datos transparente en SQL Data Warehouse (Portal)| Microsoft Azure"
-   description="Cifrado de datos transparente (TDE) en SQL Data Warehouse"
-   services="sql-data-warehouse"
-   documentationCenter=""
-   authors="ronortloff"
-   manager="barbkess"
-   editor=""/>
+---
+title: Cifrado de datos transparente en SQL Data Warehouse (Portal)| Microsoft Docs
+description: Cifrado de datos transparente (TDE) en SQL Data Warehouse
+services: sql-data-warehouse
+documentationcenter: ''
+author: ronortloff
+manager: barbkess
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.workload="data-management"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="09/24/2016" 
-   ms.author="rortloff;barbkess;sonyama"/>
+ms.service: sql-data-warehouse
+ms.workload: data-management
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/24/2016
+ms.author: rortloff;barbkess;sonyama
 
+---
 # Introducción al cifrado de datos transparente (TDE) en Almacenamiento de datos SQL
-
-> [AZURE.SELECTOR]
-- [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
-- [Autenticación](sql-data-warehouse-authentication.md)
-- [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
-- [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> [!div class="op_single_selector"]
+> * [Información general sobre seguridad](sql-data-warehouse-overview-manage-security.md)
+> * [Autenticación](sql-data-warehouse-authentication.md)
+> * [Cifrado (Portal)](sql-data-warehouse-encryption-tde.md)
+> * [Cifrado (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
 ## Permisos necesarios
-
 Para habilitar el Cifrado de datos transparente (TDE), debe ser un administrador o un miembro del rol dbmanager.
 
 ## Habilitar el cifrado
-
 Para habilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 
 1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
@@ -39,7 +38,6 @@ Para habilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 5. Seleccione **Guardar** ![][3]
 
 ## Deshabilitar el cifrado
-
 Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 
 1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
@@ -49,11 +47,10 @@ Para deshabilitar TDE para un Almacenamiento de datos SQL, siga estos pasos:
 5. Seleccione **Guardar** ![][5]
 
 ## DMV de cifrado
-
 El cifrado se puede confirmar con las siguientes DMV:
 
-- [Sys.Databases]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
+* [Sys.Databases]
+* [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
 
 <!--MSDN references-->
 [Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx

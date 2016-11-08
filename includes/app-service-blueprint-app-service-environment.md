@@ -1,8 +1,6 @@
 * [Configuración de una superficie de aplicaciones distribuidas geográficamente](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
 * [Implementación de una arquitectura de seguridad por niveles](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
 * [Configuración de un firewall de aplicaciones web con un Entorno del Servicio de aplicaciones](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
-
-
 * [Creación de un entorno del Servicio de aplicaciones habilitado para ILB mediante plantillas de Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Usar el escalado automático con un Entorno del Servicio de aplicaciones](../articles/app-service/app-service-environment-auto-scale.md)
 * [Protección del tráfico de entrada](../articles/app-service-web/app-service-app-service-environment-control-inbound-traffic.md)

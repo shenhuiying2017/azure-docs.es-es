@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Administrador de recursos de clúster de Service Fabric: directivas de colocación | Microsoft Azure"
-   description="Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="masnider"
-   manager="timlt"
-   editor=""/>
+---
+title: 'Administrador de recursos de clúster de Service Fabric: directivas de colocación | Microsoft Docs'
+description: Información general sobre las reglas y directivas de colocación adicionales para los servicios de Service Fabric
+services: service-fabric
+documentationcenter: .net
+author: masnider
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="Service-Fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/19/2016"
-   ms.author="masnider"/>
+ms.service: Service-Fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/19/2016
+ms.author: masnider
 
+---
 # Directivas de colocación de servicios de Service Fabric
 Existen numerosas reglas adicionales que podrían afectarle si el clúster de Service Fabric está distribuido entre varias distancias geográficas, por ejemplo, entre varios centros de datos o regiones de Azure, o si su entorno abarca diversas áreas de control geopolítico (o cualquier otro caso en el que haya límites legales o de directiva que le afecten, o en el que las distancias implicadas tengan un impacto real en el rendimiento o la latencia). La mayoría pueden configurarse mediante propiedades de nodo y restricciones de colocación, pero otras son más complicadas. Para simplificar las cosas, proporcionamos estos comandos adicionales. Al igual que sucede con otras restricciones de ubicación, las directivas de selección de ubicación pueden configurarse en función de la instancia de servicio con nombre.
 
@@ -96,7 +96,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Se preguntará si sería posible usar estas configuraciones para los servicios de un clúster que no esté distribuido geográficamente. Por supuesto que se puede. Pero tampoco hay una buena razón para ello; en concreto, se deben evitar configuraciones de dominios preferidos requeridos y no válidos a no ser que realmente vaya a ejecutar un clúster distribuido geográficamente - no tiene sentido intentar forzar que una carga de trabajo determinada se ejecute en un solo bastidor, o dar preferencia a algún segmento del clúster local sobre otro a menos que haya diferentes tipos de hardware o que se produzca la segmentación de la carga de trabajo, y esos casos se pueden administrar mediante restricciones de ubicación normales.
 
 ## Pasos siguientes
-- Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md).
+* Para más información sobre las otras opciones disponibles para configurar servicios, consulte el tema sobre las demás configuraciones de Cluster Resource Manager disponibles en [Más información sobre la configuración de servicios](service-fabric-cluster-resource-manager-configure-services.md).
 
 [Image1]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-invalid-placement-domain.png
 [Image2]: ./media/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies/cluster-required-placement-domain.png

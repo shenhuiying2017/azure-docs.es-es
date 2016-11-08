@@ -1,24 +1,23 @@
-<properties
-   pageTitle="Conexión a orígenes de datos | Microsoft Azure"
-   description="Artículo de procedimientos que indica cómo conectarse a orígenes de datos que se detectan con el Catálogo de datos de Azure."
-   services="data-catalog"
-   documentationCenter=""
-   authors="steelanddata"
-   manager="NA"
-   editor=""
-   tags=""/>
-<tags
-   ms.service="data-catalog"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-catalog"
-   ms.date="09/15/2016"
-   ms.author="maroche"/>
+---
+title: Conexión a orígenes de datos | Microsoft Docs
+description: Artículo de procedimientos que indica cómo conectarse a orígenes de datos que se detectan con el Catálogo de datos de Azure.
+services: data-catalog
+documentationcenter: ''
+author: steelanddata
+manager: NA
+editor: ''
+tags: ''
 
+ms.service: data-catalog
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-catalog
+ms.date: 09/15/2016
+ms.author: maroche
 
+---
 # Conexión a orígenes de datos
-
 ## Introducción
 El **Catálogo de datos de Microsoft Azure** es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección de orígenes de datos empresariales. En otras palabras, el **Catálogo de datos de Azure** consiste en ayudar a las personas a detectar, comprender y usar orígenes de datos, y en ayudar a las organizaciones a obtener más valor de sus datos. Un aspecto clave de este escenario es el uso de los datos: cuando un usuario detecta un origen de datos y comprende su propósito, el paso siguiente es la conexión al origen de datos para utilizar sus datos.
 
@@ -39,12 +38,12 @@ Al utilizar el menú "Abrir en..." para orígenes de datos del portal de Azure D
 
 | Abrir en la aplicación | Extensión de archivo o protocolo | Versiones de aplicación admitidas |
 | --- | --- | --- |
-| Excel | .odc | Excel 2010 o posterior |
-| Excel (primeros 1000) | .odc | Excel 2010 o posterior |
-| Power Query | .xlsx | Excel 2016 o Excel 2010 o Excel 2013 con el complemento de Power Query para Excel instalado
-| Power BI Desktop | .pbix | Power BI Desktop de julio de 2016 o posterior |
-| SQL Server Data Tools | vsweb:// | Visual Studio 2013 Update 4 o posterior con las herramientas de SQL Server instaladas |
-| Administrador de informes | http:// | Consulte los [requisitos del explorador para SQL Server Reporting Services](https://technet.microsoft.com/es-ES/library/ms156511.aspx) |
+| Excel |.odc |Excel 2010 o posterior |
+| Excel (primeros 1000) |.odc |Excel 2010 o posterior |
+| Power Query |.xlsx |Excel 2016 o Excel 2010 o Excel 2013 con el complemento de Power Query para Excel instalado |
+| Power BI Desktop |.pbix |Power BI Desktop de julio de 2016 o posterior |
+| SQL Server Data Tools |vsweb:// |Visual Studio 2013 Update 4 o posterior con las herramientas de SQL Server instaladas |
+| Administrador de informes |http:// |Consulte los [requisitos del explorador para SQL Server Reporting Services](https://technet.microsoft.com/es-ES/library/ms156511.aspx) |
 
 ## Sus propios datos y herramientas
 Las opciones disponibles en el menú dependerán del tipo de recurso de datos actualmente seleccionado. Por supuesto, no se incluyen todas las herramientas posibles en el menú "Abrir en…", pero aun así es fácil conectarse al origen de datos con cualquier herramienta de cliente. Cuando se selecciona un recurso de datos en el portal del **Catálogo de datos de Azure**, se muestra la ubicación completa en el panel de propiedades.
@@ -60,10 +59,10 @@ Con el objetivo de simplificar las cosas para los usuarios que detecten un orige
 
  ![Información de conexión con las instrucciones de solicitud de acceso proporcionadas](./media/data-catalog-how-to-connect/data-catalog-how-to-connect4.png)
 
-##Resumen
+## Resumen
 Al registrar un origen de datos con el **Catálogo de datos de Azure**, se consigue que esos datos sean detectables mediante la copia de los metadatos descriptivos y estructurales del origen de datos en el servicio Catálogo. Cuando se registra y detecta un origen de datos, los usuarios pueden conectarse al origen de datos desde el menú "Abrir en…" del portal del **Catálogo de datos de Azure** o mediante sus herramientas de datos favoritas.
 
 ## Otras referencias
-- Consulte el tutorial [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.
+* Consulte el tutorial [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo realizar una conexión a orígenes de datos.
 
 <!---HONumber=AcomDC_0921_2016-->

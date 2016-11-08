@@ -1,32 +1,30 @@
- <properties
-   pageTitle="Azure y Linux | Microsoft Azure"
-   description="Describe los servicios de proceso, almacenamiento y red de Azure con máquinas virtuales de Linux."
-   services="virtual-machines-linux"
-   documentationCenter="virtual-machines-linux"
-   authors="vlivech"
-   manager="timlt"
-   editor=""/>
+---
+title: Azure y Linux | Microsoft Docs
+description: Describe los servicios de proceso, almacenamiento y red de Azure con máquinas virtuales de Linux.
+services: virtual-machines-linux
+documentationcenter: virtual-machines-linux
+author: vlivech
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure"
-   ms.date="09/14/2016"
-   ms.author="v-livech"/>
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 09/14/2016
+ms.author: v-livech
 
+---
 # Azure y Linux
-
 Microsoft Azure es una colección cada vez mayor de servicios en la nube, públicos e integrados, que incluyen servicios de análisis, Máquinas virtuales, de bases de datos, móviles, de red, de almacenamiento y web, ideales para hospedar sus soluciones. Microsoft Azure proporciona una plataforma informática escalable que permite pagar solo por lo que use, cuando lo desee, sin tener que invertir en hardware local. Azure está listo cuando tenga que escalar sus soluciones vertical y horizontalmente a cualquier escala que necesite para atender las necesidades de sus clientes.
 
 Si está familiarizado con las distintas características de AWS de Amazon, puede examinar el [documento de asignación de definiciones](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) donde se comparan Azure y AWS.
 
-
 ## Regiones
 Los recursos de Microsoft Azure se distribuyen en diversas regiones geográficas de todo el mundo. Un "region" representa varios centros de datos en una única área geográfica. A partir del 1 de enero de 2016, esto incluye: 8 en América, 2 en Europa, 6 en Asia Pacífico, 2 en China continental y 3 en India. Si lo desea, puede consultar la lista completa de todas las regiones de Azure, existentes y de próxima incorporación.
 
-- [Regiones de Azure](https://azure.microsoft.com/regions/)
+* [Regiones de Azure](https://azure.microsoft.com/regions/)
 
 ## Disponibilidad
 Para que su implementación pueda optar a nuestro contrato de nivel de servicio de máquina virtual 99,95, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Esto garantizará que las máquinas virtuales estén distribuidas en varios dominios de error en nuestros centros de datos e implementadas en hosts con diferentes tiempos de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
@@ -51,30 +49,27 @@ Estas son algunas directrices básicas para seleccionar un tamaño de máquina v
 
 Nota: Las máquinas virtuales de las series DS y GS tienen acceso a Almacenamiento premium, nuestro almacenamiento de alto rendimiento, baja latencia y respaldado por SSD para cargas de trabajo con uso intensivo de E/S. Almacenamiento premium está disponible en determinadas regiones. Para obtener información, consulte:
 
-- [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)
+* [Premium Storage: almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md)
 
 ## Automatización
 Para instaurar una cultura de DevOps adecuada, la infraestructura al completa debe ser código. Cuando toda la infraestructura reside en el código, puede volver a crearse con facilidad (servidores de Phoenix). Azure funciona con todas las principales herramientas de automatización, como Ansible, Chef, SaltStack y Puppet. Asimismo, tiene sus propias herramientas de automatización:
 
-- [Plantillas de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-
-- [VMAccess de Azure](virtual-machines-linux-using-vmaccess-extension.md)
+* [Plantillas de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [VMAccess de Azure](virtual-machines-linux-using-vmaccess-extension.md)
 
 Azure está implementando la compatibilidad con [cloud-init](http://cloud-init.io/) en la mayoría de las distribuciones de Linux que admiten este paquete. En estos momentos, las máquinas virtuales Ubuntu de Canonical se implementan con cloud-init habilitado de forma predeterminada. Fedora, CentOS y RHEL de Red Hat admiten cloud-init; sin embargo, las imágenes de Azure que mantiene Red Hat no tienen instalado este paquete. Para usar cloud-init en un sistema operativo de la familia Red Hat, debe crear una imagen personalizada con cloud-init instalado.
 
-- [Uso de cloud-init en máquinas virtuales Linux](virtual-machines-linux-using-cloud-init.md)
+* [Uso de cloud-init en máquinas virtuales Linux](virtual-machines-linux-using-cloud-init.md)
 
 ## Cuotas
 Cada suscripción de Azure tiene límites de cuota predeterminados que pueden afectar a la implementación de un gran número de máquinas virtuales en su proyecto. El límite actual por suscripción es 20 máquinas virtuales por región. Para aumentar estos límites de cuota, envíe una incidencia de soporte técnico y solicite un aumento del límite. Más información sobre los límites de cuota:
 
-- [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
-
+* [Límites de servicio de suscripción de Azure](../azure-subscription-service-limits.md)
 
 ## Asociados
-
 En Microsoft trabajamos estrechamente con nuestros asociados para garantizar que las imágenes disponibles están actualizadas y optimizadas para los entornos de tiempo de ejecución de Azure. Para obtener más información sobre nuestros asociados, visite las siguientes páginas de Marketplace.
 
-- [Linux en distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md)
+* [Linux en distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md)
 
 Red Hat: [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 
@@ -96,7 +91,6 @@ Docker: [Azure Marketplace - Azure Container Service with Docker Swarm](https://
 
 Jenkins: [Azure Marketplace - CloudBees Jenkins Platform](https://azure.microsoft.com/marketplace/partners/cloudbees/jenkins-platformjenkins-platform/)
 
-
 ## Configuración en Azure
 Para empezar a usar Azure, necesita una cuenta de Azure, la CLI de Azure instalada y un par de claves SSH públicas y privadas.
 
@@ -115,53 +109,39 @@ Cuando haya configurado la cuenta de Azure, instalado la CLI de Azure y creado l
 ## Creación de una máquina virtual con la CLI
 Una forma rápida de implementar una máquina virtual sin abandonar el terminal en el que está trabajando es crear una máquina virtual Linux. Toda la información que se puede especificar en el portal web está disponible a través de un indicador o conmutador de línea de comandos.
 
-- [Creación de una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-quick-create-cli.md)
 
 ## Crear una máquina virtual en el portal
 Una forma sencilla de crear una máquina virtual Linux en el portal web de Azure es seleccionar las diversas opciones de implementación y hacer clic en ellas. En lugar de utilizar marcadores o conmutadores de línea de comandos, puede ver un diseño web agradable con varias opciones y configuraciones. Todos los elementos disponibles a través de la interfaz de línea de comandos también se encuentran en el portal.
 
-- [Creación de una máquina virtual Linux mediante el portal](virtual-machines-linux-quick-create-portal.md)
+* [Creación de una máquina virtual Linux mediante el portal](virtual-machines-linux-quick-create-portal.md)
 
 ## Inicio de sesión mediante SSH sin una contraseña
 Ahora, la máquina virtual se está ejecutando en Azure y ya puede iniciar sesión en ella. Usar contraseñas para iniciar sesión a través de SSH no es un proceso rápido ni seguro. La forma más segura y rápida de iniciar sesión es utilizar claves SSH. Al crear una máquina virtual Linux mediante el portal o la CLI, tiene dos opciones de autenticación. Si elige una contraseña para SSH, Azure configurará la máquina virtual para permitir los inicios de sesión mediante contraseñas. Si decide utilizar una clave pública SSH, Azure configurará la máquina virtual para permitir que solo se pueda iniciar sesión a través de claves SSH y deshabilitará los inicios de sesión con contraseñas. Para proteger la máquina virtual Linux al permitir que solo se inicie sesión con claves de SSH, utilice la opción de claves públicas SSH durante la creación de las máquinas virtuales en el portal o la CLI.
 
-- [Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md)
+* [Deshabilitación de las contraseñas SSH en la máquina virtual de Linux mediante la configuración de SSHD](virtual-machines-linux-mac-disable-ssh-password-usage.md)
 
 ## Componentes de Azure relacionados
-
 ## Almacenamiento
-
-- [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md)
-
-- [Adición de un disco a una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-add-disk.md)
-
-- [Incorporación de un disco de datos a una máquina virtual Linux en el Portal de Azure](virtual-machines-linux-attach-disk-portal.md)
+* [Introducción a Almacenamiento de Microsoft Azure](../storage/storage-introduction.md)
+* [Adición de un disco a una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-add-disk.md)
+* [Incorporación de un disco de datos a una máquina virtual Linux en el Portal de Azure](virtual-machines-linux-attach-disk-portal.md)
 
 ## Redes
-
-- [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
-
-- [Direcciones IP en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-
-- [Apertura de puertos para una máquina virtual Linux en Azure](virtual-machines-linux-nsg-quickstart.md)
-
-- [Crear un nombre de dominio completo en el Portal de Azure](virtual-machines-linux-portal-create-fqdn.md)
-
+* [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md)
+* [Direcciones IP en Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Apertura de puertos para una máquina virtual Linux en Azure](virtual-machines-linux-nsg-quickstart.md)
+* [Crear un nombre de dominio completo en el Portal de Azure](virtual-machines-linux-portal-create-fqdn.md)
 
 ## Contenedores
-
-- [Máquinas virtuales y contenedores de Azure](virtual-machines-linux-containers.md)
-
-- [Presentación del servicio Contenedor de Azure](../container-service/container-service-intro.md)
-
-- [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
+* [Máquinas virtuales y contenedores de Azure](virtual-machines-linux-containers.md)
+* [Presentación del servicio Contenedor de Azure](../container-service/container-service-intro.md)
+* [Implementación de un clúster del servicio Contenedor de Azure](../container-service/container-service-deployment.md)
 
 ## Pasos siguientes
-
 Ya tiene una visión general de Linux en Azure. El siguiente paso consiste en empezar a crear algunas máquinas virtuales.
 
-- [Creación de una máquina virtual de Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md)
-
-- [Creación de una máquina virtual Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual de Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md)
+* [Creación de una máquina virtual Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md)
 
 <!---HONumber=AcomDC_0928_2016-->

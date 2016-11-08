@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Creación de conjuntos de escalado de máquina virtual con cmdlets de PowerShell | Microsoft Azure"
-	description="Empezar a crear y administrar los primeros conjuntos de escalado de máquina virtual de Azure con cmdlets de Azure PowerShell"
-	services="virtual-machines-windows"
-	documentationCenter=""
-	authors="danielsollondon"
-	manager="timlt"
-	editor=""
-	tags="azure-resource-manager"/>
+---
+title: Creación de conjuntos de escalado de máquina virtual con cmdlets de PowerShell | Microsoft Docs
+description: Empezar a crear y administrar los primeros conjuntos de escalado de máquina virtual de Azure con cmdlets de Azure PowerShell
+services: virtual-machines-windows
+documentationcenter: ''
+author: danielsollondon
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-	ms.service="virtual-machines-windows"
-	ms.workload="infrastructure-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="03/30/2016"
-	ms.author="danielsollondon"/>
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/30/2016
+ms.author: danielsollondon
 
+---
 # Creación de conjuntos de escalado de máquina virtual con cmdlets de PowerShell
-
 En el siguiente ejemplo de creación de un conjunto de escalado de máquina virtual (VMSS) se crea un VMSS de tres nodos con todas las redes y almacenamiento asociados.
 
 ## Primeros pasos
@@ -27,9 +26,7 @@ Asegúrese de que tiene instalado el módulo Azure PowerShell más reciente con 
 Para buscar commandlets relacionados con los VMSS, use la cadena de búsqueda *VMSS*.
 
 ## Creación de un VMSS
-
 ##### Crear grupo de recursos
-
 ```
 $loc = 'westus';
 $rgname = 'mynewrgwu';
@@ -37,7 +34,6 @@ $rgname = 'mynewrgwu';
 ```
 
 ##### Crear una cuenta de almacenamiento
-
 Establezca el tipo o nombre de la cuenta de almacenamiento.
 
 ```
@@ -49,16 +45,13 @@ $stoaccount = Get-AzureRmStorageAccount -ResourceGroupName $rgname -Name $stonam
 ```
 
 #### Crear redes (VNET o subred)
-
 ##### Especificación de subred
-
 ```
 $subnetName = 'websubnet'
   $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix "10.0.0.0/24";
 ```
 
 ##### Especificación de VNET
-
 ```
 $vnet = New-AzureRmVirtualNetwork -Force -Name ('vnet' + $rgname) -ResourceGroupName $rgname -Location $loc -AddressPrefix "10.0.0.0/16" -DnsServer "10.1.1.1" -Subnet $subnet;
 $vnet = Get-AzureRmVirtualNetwork -Name ('vnet' + $rgname) -ResourceGroupName $rgname;
@@ -68,7 +61,6 @@ $subnetId = $vnet.Subnets[0].Id;
 ```
 
 ##### Crear un recurso de IP pública para permitir el acceso externo
-
 Se enlazará con el equilibrador de carga.
 
 ```
@@ -77,7 +69,6 @@ $pubip = Get-AzureRmPublicIpAddress -Name ('pubip' + $rgname) -ResourceGroupName
 ```
 
 ##### Crear y configurar un equilibrador de carga
-
 ```
 $frontendName = 'fe' + $rgname
 $backendAddressPoolName = 'bepool' + $rgname
@@ -141,7 +132,6 @@ $expectedLb = Get-AzureRmLoadBalancer -Name $lbName -ResourceGroupName $rgname
 ```
 
 ##### Configurar y crear VMSS
-
 Tenga en cuenta que este ejemplo de infraestructura muestra cómo configurar, distribuir y escalar el tráfico web a través del VMSS, pero que las imágenes de las máquinas virtuales especificadas aquí no tienen instalado ningún servicio web.
 
 ```

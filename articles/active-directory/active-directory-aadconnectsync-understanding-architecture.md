@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Azure AD Connect Sync: Descripción de la arquitectura | Microsoft Azure"
-   description="En este tema se describe la arquitectura de sincronización de Azure AD Connect y se explican los términos usados."
-   services="active-directory"
-   documentationCenter=""
-   authors="andkjell"
-   manager="femila"
-   editor=""/>
+---
+title: 'Azure AD Connect Sync: Descripción de la arquitectura | Microsoft Docs'
+description: En este tema se describe la arquitectura de sincronización de Azure AD Connect y se explican los términos usados.
+services: active-directory
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.workload="identity"
-   ms.tgt_pltfrm="na"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.date="08/31/2016"
-   ms.author="billmath"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/31/2016
+ms.author: billmath
 
-
+---
 # <a name="azure-ad-connect-sync:-understanding-the-architecture"></a>Azure AD Connect Sync: Descripción de la arquitectura
 En este tema, se describe la arquitectura básica para la sincronización de Azure AD Connect. En muchos aspectos, es similar a la de sus predecesores: MIIS 2003, ILM 2007 y FIM 2010. Azure AD Connect Sync representa la evolución de estas tecnologías anteriores. Si ya conoce cualquiera de ellas, el contenido de este tema también le resultará familiar. Si está comenzando con la sincronización, entonces este tema está a su nivel. De todos modos, no es requisito conocer los detalles de este tema para realizar personalizaciones correctas en la sincronización de Azure AD Connect (llamado motor de sincronización en este tema).
 
@@ -43,8 +42,8 @@ Si el origen de datos conectado usa componentes estructurales, como particiones 
 ### <a name="internal-structure-of-the-sync-engine-namespace"></a>Estructura interna del espacio de nombres del motor de sincronización
 El espacio de nombres del motor de sincronización en total está formado por dos espacios de nombres que almacenan la información de identidad. Los dos espacios de nombres son:
 
-- El espacio conector (CS)
-- El metaverso (MV)
+* El espacio conector (CS)
+* El metaverso (MV)
 
 El **espacio conector** es un área de almacenamiento provisional que contiene representaciones de los objetos designados desde un origen de datos conectado y los atributos especificados en la lista de inclusión de atributos. El motor de sincronización usa el espacio conector para determinar qué ha cambiado en el origen de datos conectado y almacenar provisionalmente los cambios entrantes. Además, el motor de sincronización usa el espacio conector para almacenar de forma provisional los cambios salientes que se van a exportar al origen de datos conectado. El motor de sincronización mantiene un espacio conector distinto como área de almacenamiento provisional para cada conector.
 
@@ -66,8 +65,8 @@ Cuando el motor de sincronización se comunica con un origen de datos conectado,
 
 Todos los objetos en el espacio conector poseen dos atributos:
 
-- Un identificador único global (GUID)
-- Un nombre distintivo (también conocido como DN)
+* Un identificador único global (GUID)
+* Un nombre distintivo (también conocido como DN)
 
 Si el origen de datos conectado asigna un atributo único al objeto, los objetos en el espacio conector también pueden tener un atributo de delimitador. El atributo de delimitador identifica de forma única un objeto en el origen de datos conectado. El motor de sincronización usa el delimitador para localizar la representación correspondiente a este objeto en el origen de datos conectado. El motor de sincronización da por supuesto que el delimitador de un objeto no cambia nunca mientras dure el objeto.
 
@@ -77,8 +76,8 @@ En ese caso, se genera el delimitador a partir de uno o más atributos únicos d
 
 El objeto de espacio conector puede ser uno de los siguientes:
 
-- Un objeto de almacenamiento provisional
-- Un marcador de posición
+* Un objeto de almacenamiento provisional
+* Un marcador de posición
 
 ### <a name="staging-objects"></a>Objetos de almacenamiento provisional
 Un objeto de almacenamiento provisional representa una instancia de los tipos de objeto designados del origen de datos conectado. Además del GUID y el nombre distintivo, un objeto de almacenamiento provisional siempre posee un valor que indica el tipo de objeto.
@@ -139,9 +138,9 @@ Un objeto de importación se crea como objeto separado. A cambio, un objeto de e
 ## <a name="sync-engine-identity-management-process"></a>Proceso de administración de identidad del motor de sincronización
 El proceso de administración de identidad controla cómo se actualiza la información de identidad entre distintos orígenes de datos conectados. La administración de identidad se produce en tres procesos:
 
-- Importación
-- Sincronización
-- Exportación
+* Importación
+* Sincronización
+* Exportación
 
 Durante el proceso de importación, el motor de sincronización evalúa la información de identidad entrante desde un origen de datos conectado. Cuando se detectan cambios, crea nuevos objetos de almacenamiento provisional o actualiza los existentes en el espacio conector para la sincronización.
 
@@ -158,34 +157,34 @@ Durante el proceso de importación, el motor de sincronización evalúa las actu
 
 Al almacenar los objetos de forma provisional en el espacio conector antes de la sincronización, el motor de sincronización solo puede procesar la información de identidad que haya cambiado. Este proceso proporciona las siguientes ventajas:
 
-- **Sincronización eficiente**. Se minimiza la cantidad de datos procesados durante la sincronización.
-- **Resincronización eficiente**. Puede cambiar cómo el motor de sincronización procesa la información de identidad sin volver a conectarlo al origen de datos.
-- **Oportunidad de obtener una vista previa de la sincronización**. Puede obtener una vista previa de la sincronización para comprobar que sus suposiciones sobre el proceso de administración de identidad sean correctas.
+* **Sincronización eficiente**. Se minimiza la cantidad de datos procesados durante la sincronización.
+* **Resincronización eficiente**. Puede cambiar cómo el motor de sincronización procesa la información de identidad sin volver a conectarlo al origen de datos.
+* **Oportunidad de obtener una vista previa de la sincronización**. Puede obtener una vista previa de la sincronización para comprobar que sus suposiciones sobre el proceso de administración de identidad sean correctas.
 
 Para cada objeto que se especifica en el conector, en primer lugar el motor de sincronización intenta localizar una representación del objeto en el espacio conector del conector. El motor de sincronización examina todos los objetos de almacenamiento provisional en el espacio conector e intenta encontrar uno correspondiente que tenga un atributo de delimitador coincidente. Si no hay ningún objeto de almacenamiento provisional con un atributo de delimitador coincidente, el motor de sincronización intenta encontrar uno con el mismo nombre distintivo.
 
 Cuando el motor de sincronización encuentra un objeto de almacenamiento provisional que coincide con el nombre distintivo pero no con el delimitador, se produce el siguiente comportamiento especial:
 
-- Si el objeto que se encuentra en el espacio conector no tiene ningún delimitador, el motor de sincronización lo quita del espacio conector y marca el objeto de metaverso al que está vinculado para **volver a intentar el aprovisionamiento en la siguiente sincronización**. A continuación, crea el nuevo objeto de importación.
-- Si el objeto que se encuentra en el espacio conector tiene delimitador, el motor de sincronización da por supuesto que este objeto se ha cambiado de nombre o eliminado en el directorio conectado. Asigna un nuevo nombre distintivo temporal al objeto de espacio conector para que pueda almacenar provisionalmente el objeto entrante. El objeto anterior se convierte en **transitorio**y espera a que el conector importe el cambio de nombre o la eliminación para resolver la situación.
+* Si el objeto que se encuentra en el espacio conector no tiene ningún delimitador, el motor de sincronización lo quita del espacio conector y marca el objeto de metaverso al que está vinculado para **volver a intentar el aprovisionamiento en la siguiente sincronización**. A continuación, crea el nuevo objeto de importación.
+* Si el objeto que se encuentra en el espacio conector tiene delimitador, el motor de sincronización da por supuesto que este objeto se ha cambiado de nombre o eliminado en el directorio conectado. Asigna un nuevo nombre distintivo temporal al objeto de espacio conector para que pueda almacenar provisionalmente el objeto entrante. El objeto anterior se convierte en **transitorio**y espera a que el conector importe el cambio de nombre o la eliminación para resolver la situación.
 
 Si el motor de sincronización localiza un objeto de almacenamiento provisional que se corresponde con el objeto especificado en el conector, determina qué tipo de cambios se aplicarán. Por ejemplo, el motor de sincronización podría cambiar el nombre o eliminar el objeto en el origen de datos conectado o solamente actualizar los valores de atributo del objeto.
 
 Los objetos de almacenamiento provisional con datos actualizados se marcan como pendientes de importación. Existen distintos tipos de importación pendiente. Según el resultado del proceso de importación, un objeto de almacenamiento provisional en el espacio conector tiene uno de los siguientes tipos de importación pendiente:
 
-- **Ninguna**. No hay disponible ningún cambio en ninguno de los atributos del objeto de almacenamiento provisional. El motor de sincronización no marca este tipo como pendiente de importación.
-- **Agregar**. El objeto de almacenamiento provisional es un nuevo objeto de importación en el espacio conector. El motor de sincronización marca este tipo como pendiente de importación para seguir procesándolo en el metaverso.
-- **Actualizar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se puedan procesar las actualizaciones de los atributos en el metaverso. Entre las actualizaciones, se incluye el cambio de nombre del objeto.
-- **Eliminar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se pueda eliminar el objeto unido.
-- **Eliminar o agregar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector, pero los tipos de objeto no coinciden. En este caso, se almacena provisionalmente una modificación de tipo Eliminar o agregar. Este tipo de modificación indica al motor de sincronización que se debe producir una resincronización completa de este objeto porque se le aplicarán diferentes conjuntos de reglas cuando el tipo de objeto cambie.
+* **Ninguna**. No hay disponible ningún cambio en ninguno de los atributos del objeto de almacenamiento provisional. El motor de sincronización no marca este tipo como pendiente de importación.
+* **Agregar**. El objeto de almacenamiento provisional es un nuevo objeto de importación en el espacio conector. El motor de sincronización marca este tipo como pendiente de importación para seguir procesándolo en el metaverso.
+* **Actualizar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se puedan procesar las actualizaciones de los atributos en el metaverso. Entre las actualizaciones, se incluye el cambio de nombre del objeto.
+* **Eliminar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector y marca este tipo como pendiente de importación para que se pueda eliminar el objeto unido.
+* **Eliminar o agregar**. El motor de sincronización encuentra un objeto de almacenamiento provisional correspondiente en el espacio conector, pero los tipos de objeto no coinciden. En este caso, se almacena provisionalmente una modificación de tipo Eliminar o agregar. Este tipo de modificación indica al motor de sincronización que se debe producir una resincronización completa de este objeto porque se le aplicarán diferentes conjuntos de reglas cuando el tipo de objeto cambie.
 
 Al establecer el estado de importación pendiente de un objeto de almacenamiento provisional, se puede reducir de forma notable la cantidad de datos que se procesan durante la sincronización, porque esto permite que el sistema solo procese los objetos que tengan datos actualizados.
 
 ### <a name="synchronization-process"></a>Proceso de sincronización
 La sincronización consta de dos procesos relacionados:
 
-- Sincronización de entrada, cuando se actualiza el contenido del metaverso usando los datos en el espacio conector.
-- Sincronización de salida, cuando se actualiza el contenido del espacio conector con datos en el metaverso.
+* Sincronización de entrada, cuando se actualiza el contenido del metaverso usando los datos en el espacio conector.
+* Sincronización de salida, cuando se actualiza el contenido del espacio conector con datos en el metaverso.
 
 Usando la información almacenada provisionalmente en el espacio conector, el proceso de sincronización de entrada crea en el metaverso la vista integrada de los datos que se almacenan en los orígenes de datos conectados. Dependiendo de cómo se configuren las reglas, se agregarán todos los objetos de almacenamiento provisional o solo aquellos que tengan información pendiente de importación.
 
@@ -197,9 +196,9 @@ La sincronización de entrada crea la vista integrada en el metaverso con la inf
 
 La sincronización de entrada incluye los siguientes procesos:
 
-- **Aprovisionamiento** (también denominado **proyección** si es importante distinguir este proceso del aprovisionamiento de la sincronización de salida). El motor de sincronización crea un nuevo objeto de metaverso basándose en un objeto de almacenamiento provisional y los vincula. El aprovisionamiento es una operación de nivel de objeto.
-- **Unión**. El motor de sincronización vincula un objeto de almacenamiento provisional a un objeto de metaverso existente. La unión es una operación de nivel de objeto.
-- **Flujo de atributos de importación**. El motor de sincronización actualiza los valores de atributo, lo que se denomina flujo de atributos, del objeto en el metaverso. El flujo de atributos de importación es una operación de nivel de atributo que requiere un vínculo entre un objeto de almacenamiento provisional y un objeto de metaverso.
+* **Aprovisionamiento** (también denominado **proyección** si es importante distinguir este proceso del aprovisionamiento de la sincronización de salida). El motor de sincronización crea un nuevo objeto de metaverso basándose en un objeto de almacenamiento provisional y los vincula. El aprovisionamiento es una operación de nivel de objeto.
+* **Unión**. El motor de sincronización vincula un objeto de almacenamiento provisional a un objeto de metaverso existente. La unión es una operación de nivel de objeto.
+* **Flujo de atributos de importación**. El motor de sincronización actualiza los valores de atributo, lo que se denomina flujo de atributos, del objeto en el metaverso. El flujo de atributos de importación es una operación de nivel de atributo que requiere un vínculo entre un objeto de almacenamiento provisional y un objeto de metaverso.
 
 El aprovisionamiento es el único proceso que crea objetos en el metaverso y afecta solamente a los objetos de importación que sean objetos separados. Durante el aprovisionamiento, el motor de sincronización crea un objeto de metaverso que corresponde al tipo del objeto de importación y establece un vínculo entre ambos objetos, lo que crea un objeto unido.
 
@@ -217,17 +216,17 @@ La sincronización de salida actualiza los objetos de exportación cuando un obj
 
 La sincronización de salida consta de tres procesos:
 
-- **Aprovisionamiento**
-- **Desaprovisionamiento**
-- **Flujo de atributos de exportación**
+* **Aprovisionamiento**
+* **Desaprovisionamiento**
+* **Flujo de atributos de exportación**
 
 Tanto el aprovisionamiento como el desaprovisionamiento son operaciones de nivel de objeto. El desaprovisionamiento depende del aprovisionamiento porque solo lo puede iniciar este último. El desaprovisionamiento se desencadena cuando el aprovisionamiento quita el vínculo entre un objeto de metaverso y un objeto de exportación.
 
 El aprovisionamiento se desencadena siempre cuando se aplican cambios a objetos en el metaverso. Cuando se realizan cambios en objetos de metaverso, el motor de sincronización puede llevar a cabo cualquiera de las siguientes tareas como parte del proceso de aprovisionamiento:
 
-- Crear objetos unidos, donde un objeto de metaverso se vincula a un objeto de exportación recién creado.
-- Cambiar el nombre de un objeto unido.
-- Separar los vínculos entre un objeto de metaverso y objetos de almacenamiento provisional, lo que crea un objeto separado.
+* Crear objetos unidos, donde un objeto de metaverso se vincula a un objeto de exportación recién creado.
+* Cambiar el nombre de un objeto unido.
+* Separar los vínculos entre un objeto de metaverso y objetos de almacenamiento provisional, lo que crea un objeto separado.
 
 Si el aprovisionamiento requiere que el motor de sincronización cree un objeto de conector, el objeto de almacenamiento provisional al que está vinculado el objeto de metaverso siempre es un objeto de exportación porque el objeto aún no existirá en el origen de datos conectado.
 
@@ -254,8 +253,6 @@ Por ejemplo, si el motor de sincronización exporta el atributo C, que tiene el 
 Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

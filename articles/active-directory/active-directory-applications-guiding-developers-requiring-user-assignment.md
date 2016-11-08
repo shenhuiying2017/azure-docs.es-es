@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Azure AD y aplicaciones: necesidad de asignación de usuario | Microsoft Azure"
-	description="Cómo requerir la asignación de usuario para aplicaciones de Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD y aplicaciones: necesidad de asignación de usuario | Microsoft Docs'
+description: Cómo requerir la asignación de usuario para aplicaciones de Azure.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/09/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/09/2015
+ms.author: inhenk
 
+---
 # Azure AD y aplicaciones: necesidad de asignación de usuario
-
 ## Necesidad de asignación de usuario
 1. Inicie sesión en el portal de Azure con una cuenta de administrador.
 2. Haga clic en el elemento **Todos los elementos** del menú principal.
@@ -31,6 +30,6 @@
 Ahora tendrá que asignar usuarios o grupos a la aplicación. Vea [Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) y [Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md).
 
 ## Pasos siguientes
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0928_2016-->

@@ -1,34 +1,35 @@
-<properties
-    pageTitle="Tipos de punto de conexión v2.0 | Microsoft Azure"
-    description="Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="mbaldwin"
-    editor=""/>
+---
+title: Tipos de punto de conexión v2.0 | Microsoft Docs
+description: Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/30/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2016
+ms.author: dastrock
 
-
+---
 # <a name="types-of-apps-for-the-v2.0-endpoint"></a>Tipos de aplicaciones para el punto de conexión v2.0
 El punto de conexión v2.0 admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0](active-directory-v2-protocols.md#oauth2-authorization-code-flow) o [OpenID Connect](active-directory-v2-protocols.md#openid-connect-sign-in-flow).  Este documento describe brevemente los tipos de aplicaciones que puede crear, independientemente del lenguaje o la plataforma que prefiera.  Le ayudará a comprender los escenarios de alto nivel antes de [introducirse en el código](active-directory-appmodel-v2-overview.md#getting-started).
 
-> [AZURE.NOTE]
-    No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+> [!NOTE]
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
+> 
+> 
 
 ## <a name="the-basics"></a>Conceptos básicos
 Todas las aplicaciones que utilicen el punto de conexión v2.0 tendrán que registrarse en [apps.dev.microsoft.com](https://apps.dev.microsoft.com).  El proceso de registro de la aplicación recopilará y asignará algunos valores a la aplicación:
 
-- Un **Id. de aplicación** que identifica de forma única su aplicación
-- Un **URI de redireccionamiento** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
-- Algunos otros valores específicos de cada escenario.  Para más detalles, aprenda cómo [registrar una aplicación](active-directory-v2-app-registration.md).
+* Un **Id. de aplicación** que identifica de forma única su aplicación
+* Un **URI de redireccionamiento** que puede utilizarse para dirigir las respuestas de nuevo a la aplicación
+* Algunos otros valores específicos de cada escenario.  Para más detalles, aprenda cómo [registrar una aplicación](active-directory-v2-app-registration.md).
 
 Una vez registrada, la aplicación se comunica con Azure AD mediante el envío de solicitudes al punto de conexión v2.0 de Azure Active Directory.  Proporcionamos marcos y bibliotecas de código abierto que se encargan de los detalles de estas solicitudes; sin embargo, también puede implementar la lógica de autenticación personalmente creando solicitudes para estos puntos de conexión:
 
@@ -89,7 +90,6 @@ Para más información acerca de authorization_codes, refresh_tokens y los pasos
 
 Para aprender a proteger una API web con access_tokens de OAuth2, consulte los ejemplos de código de as API web en la [sección de introducción](active-directory-appmodel-v2-overview.md#getting-started).
 
-
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 Las aplicaciones instaladas en un dispositivo, como las  aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario.  Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).  
 
@@ -122,8 +122,6 @@ Estos tipos de aplicaciones no son compatibles actualmente con el punto de conex
 Muchas arquitecturas incluyen una API web que necesita llamar a otra API web de nivel inferior, ambas protegidas mediante el punto de conexión v2.0.  Este escenario es común en los clientes nativos que tienen una API web back-end, que, a su vez, llama a un servicio de Microsoft Online, como Office 365 o Graph API.
 
 Este escenario de API web encadenada puede admitirse mediante la concesión de credenciales de portador Jwt de OAuth 2.0, también conocido como el [flujo "en nombre de"](active-directory-v2-protocols.md#oauth2-on-behalf-of-flow).  Sin embargo, el flujo "en nombre de" no está implementado actualmente en el punto de conexión v2.0.  Para ver cómo funciona este flujo en el servicio Azure AD, disponible con carácter general, consulte el [ejemplo de código "en nombre de" en GitHub](https://github.com/AzureADSamples/WebAPI-OnBehalfOf-DotNet).
-
-
 
 <!--HONumber=Oct16_HO2-->
 

@@ -1,38 +1,31 @@
 
-<properties
-   pageTitle="Seguridad de los clústeres de Service Fabric: roles del cliente | Microsoft Azure"
-   description="En este artículo, se describen los dos roles del cliente y los permisos que otorga cada uno de ellos."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="coreysa"
-   editor=""/>
+---
+title: 'Seguridad de los clústeres de Service Fabric: roles del cliente | Microsoft Docs'
+description: En este artículo, se describen los dos roles del cliente y los permisos que otorga cada uno de ellos.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: coreysa
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/14/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/14/2016
+ms.author: subramar
 
-
-
+---
 # Control de acceso basado en roles para clientes de Service Fabric
-
 Azure Service Fabric admite dos tipos distintos de control de acceso para los clientes que están conectados a un clúster de Service Fabric: administrador y usuario. El control de acceso permite al administrador de clústeres limitar el acceso a determinadas operaciones de clúster para distintos grupos de usuarios, lo que aumenta la seguridad del clúster.
 
 Los **administradores** tienen acceso total a las funcionalidades de administración (incluidas las capacidades de lectura y escritura). Los **usuarios**, de forma predeterminada, solo tienen acceso de lectura a las funcionalidades de administración (por ejemplo, funcionalidad de consulta) y a la característica para resolver las aplicaciones y los servicios.
 
 Especifique los dos roles de cliente (administrador y cliente) cuando cree el clúster con certificados independientes para cada uno. Vea el artículo sobre [seguridad del clúster de Service Fabric](service-fabric-cluster-security.md) para obtener información detallada sobre cómo configurar un clúster seguro de Service Fabric.
 
-
 ## Configuración del control de acceso predeterminado
-
-
 El tipo de control de acceso del administrador permite acceder a todas las API de FabricClient. Se puede realizar cualquier operación de lectura y escritura en el clúster de Service Fabric, como:
-
 
 ### Operaciones en servicios y aplicaciones
 * **CreateService**: creación de servicios
@@ -53,7 +46,6 @@ El tipo de control de acceso del administrador permite acceder a todas las API d
 * **RecoverPartitions**: recuperación de particiones
 * **RecoverServicePartitions**: recuperación de particiones de servicio
 * **RecoverSystemPartitions**: recuperación de particiones de servicio de sistema
-
 
 ### Operaciones del clúster
 * **ProvisionFabric**: aprovisionamiento de MSI o manifiesto de clúster
@@ -84,8 +76,6 @@ El tipo de control de acceso del administrador permite acceder a todas las API d
 * **Query**: todas las consultas permitidas
 * **NameExists**: comprobaciones de la existencia del identificador URI de la nomenclatura
 
-
-
 El tipo de control de acceso de usuario, de forma predeterminada, está limitado a las siguientes operaciones:
 
 * **EnumerateSubnames**: enumeración del identificador URI de la nomenclatura
@@ -106,11 +96,9 @@ El tipo de control de acceso de usuario, de forma predeterminada, está limitado
 El control de acceso de administrador también tiene acceso a estas operaciones.
 
 ## Cambio de la configuración predeterminada para los roles de cliente
-
 En el archivo de manifiesto de clúster, puede proporcionar capacidades de administración al cliente si es necesario. Puede cambiar los valores predeterminados mediante la opción **Fabric Settings** durante la [creación del clúster](service-fabric-cluster-creation-via-portal.md) y especificar la configuración especificada anteriormente en los campos **nombre**, **admin**, **usuario** y **valor**.
 
 ## Pasos siguientes
-
 [Seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md)
 
 [Creación de clústeres de Service Fabric](service-fabric-cluster-creation-via-portal.md)

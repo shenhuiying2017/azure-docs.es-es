@@ -1,35 +1,33 @@
-<properties
-   pageTitle="Recopilación de registros con Diagnósticos de Azure de Linux | Microsoft Azure"
-   description="En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric de Linux que se ejecute en Azure."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="mani-ramaswamy"
-   manager="timlt"
-   editor=""/>
+---
+title: Recopilación de registros con Diagnósticos de Azure de Linux | Microsoft Docs
+description: En este artículo se describe cómo configurar Diagnósticos de Azure para recopilar registros de un clúster de Service Fabric de Linux que se ejecute en Azure.
+services: service-fabric
+documentationcenter: .net
+author: mani-ramaswamy
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotNet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/28/2016"
-   ms.author="subramar"/>
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/28/2016
+ms.author: subramar
 
-
-
+---
 # <a name="collect-logs-by-using-azure-diagnostics"></a>Recopilación de registros con Diagnósticos de Azure
-
-> [AZURE.SELECTOR]
-- [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
-- [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> [!div class="op_single_selector"]
+> * [Windows](service-fabric-diagnostics-how-to-setup-wad.md)
+> * [Linux](service-fabric-diagnostics-how-to-setup-lad.md)
+> 
+> 
 
 Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar los registros de todos los nodos en una ubicación central. La presencia de los registros en una ubicación central facilita el análisis y la solución de los problemas, ya estén en sus servicios, sus aplicaciones o en el propio clúster. Uno de los métodos para cargar y recopilar registros es usar la extensión de Diagnósticos de Azure que carga los registros en Almacenamiento de Azure. Puede leer los eventos desde el almacenamiento y colocarlos en un producto como [Elastic Search](service-fabric-diagnostic-how-to-use-elasticsearch.md) u otra solución de análisis de registro.
 
 ## <a name="log-sources-that-you-might-want-to-collect"></a>Orígenes de registros que puede recopilar
-- **Registros de Service Fabric:** emitidos por la plataforma mediante [LTTng](http://lttng.org) y cargados en la cuenta de almacenamiento. Los registros pueden ser eventos operativos o eventos de tiempo de ejecución que la plataforma emite. Estos registros se almacenan en la ubicación que el manifiesto de clúster especifica. (Para obtener los detalles de la cuenta de almacenamiento, busque la etiqueta **AzureTableWinFabETWQueryable** y busque **StoreConnectionString**).
-- **Eventos de aplicación:** eventos emitidos desde el código de servicios. Puede utilizar cualquier solución de registro que escriba archivos de registro basados en texto, por ejemplo, LTTng. Para obtener más información, consulte la documentación de LTTng sobre el seguimiento de la aplicación.  
-
+* **Registros de Service Fabric:** emitidos por la plataforma mediante [LTTng](http://lttng.org) y cargados en la cuenta de almacenamiento. Los registros pueden ser eventos operativos o eventos de tiempo de ejecución que la plataforma emite. Estos registros se almacenan en la ubicación que el manifiesto de clúster especifica. (Para obtener los detalles de la cuenta de almacenamiento, busque la etiqueta **AzureTableWinFabETWQueryable** y busque **StoreConnectionString**).
+* **Eventos de aplicación:** eventos emitidos desde el código de servicios. Puede utilizar cualquier solución de registro que escriba archivos de registro basados en texto, por ejemplo, LTTng. Para obtener más información, consulte la documentación de LTTng sobre el seguimiento de la aplicación.  
 
 ## <a name="deploy-the-diagnostics-extension"></a>Implementación de la extensión de Diagnósticos
 El primer paso para recopilar registros será implementar la extensión WAD en cada una de las máquinas virtuales del clúster de Service Fabric. La extensión de Diagnósticos recopila registros en cada máquina virtual y los carga a la cuenta de almacenamiento que especifique. Los pasos varían en función de si se utiliza Azure Portal o Azure Resource Manager.
@@ -44,11 +42,8 @@ También puede usar Operations Management Suite, como se describe en [Operations
 
 Una vez finalizada esta configuración, el agente de LAD supervisa los archivos de registro especificados. Siempre que se anexa una nueva línea al archivo, se crea una entrada syslog que se envía al almacenamiento especificado.
 
-
 ## <a name="next-steps"></a>Pasos siguientes
 Compruebe la [documentación de LTTng](http://lttng.org/docs) y el [uso de LAD](../virtual-machines/virtual-machines-linux-classic-diagnostic-extension.md) para obtener información más detallada sobre qué eventos debe examinar durante la solución de problemas.
-
-
 
 <!--HONumber=Oct16_HO2-->
 

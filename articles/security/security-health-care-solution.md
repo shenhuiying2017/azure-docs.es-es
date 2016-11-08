@@ -1,23 +1,22 @@
-<properties
-   pageTitle="A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure (Guía práctica para el diseño de soluciones de asistencia sanitaria en Azure) | Microsoft Azure"
-   description=" Este artículo le ayuda a entender cómo mejorar la seguridad para las soluciones de asistencia sanitaria mediante los servicios de Azure y sus características configurables. "
-   services="security"
-   documentationCenter="na"
-   authors="TomShinder"
-   manager="MBaldwin"
-   editor="TomSh"/>
+---
+title: A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure (Guía práctica para el diseño de soluciones de asistencia sanitaria en Azure) | Microsoft Docs
+description: " Este artículo le ayuda a entender cómo mejorar la seguridad para las soluciones de asistencia sanitaria mediante los servicios de Azure y sus características configurables. "
+services: security
+documentationcenter: na
+author: TomShinder
+manager: MBaldwin
+editor: TomSh
 
-<tags
-   ms.service="security"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/06/2016"
-   ms.author="terrylan"/>
+ms.service: security
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/06/2016
+ms.author: terrylan
 
+---
 # Guía práctica para el diseño de soluciones de asistencia sanitaria en Azure
-
 Nuevas empresas del sector sanitario, integradores de sistemas (SIs), proveedores de software independientes (ISV) y organizaciones de asistencia sanitaria que estén considerando la posibilidad de cambiar a Azure, buscan una guía para incorporar controles de seguridad que les ayuden a cumplir sus obligaciones de cumplimiento de normas.
 
 El documento [A Practical Guide to Designing Secure Health Care Solutions in Microsoft Azure](https://aka.ms/azureindustrysecurity) (Guía práctica para el diseño de soluciones de asistencia sanitaria en Azure) le ayudará a comprender cómo puede mejorar la seguridad de las soluciones mediante el uso de los servicios y características de Azure que se pueden configurar según sus requisitos. El contenido se divide en tres secciones principales:

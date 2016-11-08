@@ -1,32 +1,33 @@
-<properties
-pageTitle="Trello | Microsoft Azure"
-description="Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa. Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo. Conéctese a Trello para administrar los paneles, listas y tarjetas"
-services="logic-apps"	
-documentationCenter=".net,nodejs,java" 	
-authors="msftman"	
-manager="erikre"	
-editor=""
-tags="connectors" />
+---
+title: Trello | Microsoft Docs
+description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa. Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo. Conéctese a Trello para administrar los paneles, listas y tarjetas
+services: logic-apps
+documentationcenter: .net,nodejs,java
+author: msftman
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-ms.service="logic-apps"
-ms.devlang="multiple"
-ms.topic="article"
-ms.tgt_pltfrm="na"
-ms.workload="integration"
-ms.date="08/18/2016"
-ms.author="deonhe"/>
+ms.service: logic-apps
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: integration
+ms.date: 08/18/2016
+ms.author: deonhe
 
+---
 # Introducción al conector Trello
-
 Trello le ofrece perspectiva sobre todos los proyectos, en el trabajo y en casa. Es una manera fácil, gratis, flexible y visual de administrar los proyectos y organizar todo. Conéctese a Trello para administrar los paneles, listas y tarjetas.
 
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+> [!NOTE]
+> Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+> 
+> 
 
 Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Desencadenadores y acciones
-
 El conector Trello se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
 
  El conector Trello tiene las siguientes acciones y desencadenadores disponibles:
@@ -34,37 +35,41 @@ El conector Trello se puede usar como acción; tiene desencadenadores. Todos los
 ### Acciones de Trello
 Puede realizar estas acciones:
 
-|Acción|Description|
-|--- | ---|
-|[ListCards](connectors-create-api-trello.md#listcards)|Enumera las tarjetas en el panel|
-|[GetCard](connectors-create-api-trello.md#getcard)|Obtiene las tarjetas según el identificador|
-|[UpdateCard](connectors-create-api-trello.md#updatecard)|Actualiza las tarjetas|
-|[DeleteCard](connectors-create-api-trello.md#deletecard)|Elimina las tarjetas|
-|[CreateCard](connectors-create-api-trello.md#createcard)|Crea una nueva tarjeta en la cuenta de Trello|
-|[ListBoards](connectors-create-api-trello.md#listboards)|Enumera los paneles|
-|[GetBoard](connectors-create-api-trello.md#getboard)|Obtiene paneles según el identificador|
-|[ListLists](connectors-create-api-trello.md#listlists)|Enumera listas de tarjetas en el panel|
-|[GetList](connectors-create-api-trello.md#getlist)|Obtiene listas según el identificador|
+| Acción | Description |
+| --- | --- |
+| [ListCards](connectors-create-api-trello.md#listcards) |Enumera las tarjetas en el panel |
+| [GetCard](connectors-create-api-trello.md#getcard) |Obtiene las tarjetas según el identificador |
+| [UpdateCard](connectors-create-api-trello.md#updatecard) |Actualiza las tarjetas |
+| [DeleteCard](connectors-create-api-trello.md#deletecard) |Elimina las tarjetas |
+| [CreateCard](connectors-create-api-trello.md#createcard) |Crea una nueva tarjeta en la cuenta de Trello |
+| [ListBoards](connectors-create-api-trello.md#listboards) |Enumera los paneles |
+| [GetBoard](connectors-create-api-trello.md#getboard) |Obtiene paneles según el identificador |
+| [ListLists](connectors-create-api-trello.md#listlists) |Enumera listas de tarjetas en el panel |
+| [GetList](connectors-create-api-trello.md#getlist) |Obtiene listas según el identificador |
+
 ### Desencadenadores de Trello
 Se pueden escuchar estos eventos:
 
-|Desencadenador | Description|
-|--- | ---|
-|Cuando se agrega una nueva tarjeta a un panel|Se desencadena un flujo cuando se agrega una nueva tarjeta a un panel|
-|Cuando se agrega una nueva tarjeta a una lista|Se desencadena un flujo cuando se agrega una nueva tarjeta a una lista|
-
+| Desencadenador | Description |
+| --- | --- |
+| Cuando se agrega una nueva tarjeta a un panel |Se desencadena un flujo cuando se agrega una nueva tarjeta a un panel |
+| Cuando se agrega una nueva tarjeta a una lista |Se desencadena un flujo cuando se agrega una nueva tarjeta a una lista |
 
 ## Creación de una conexión a Trello
 Para crear aplicaciones lógicas con Trello, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
 
-|Propiedad| Obligatorio|Description|
-| ---|---|---|
-|SWT|Sí|Proporciona las credenciales de Trello|
+| Propiedad | Obligatorio | Description |
+| --- | --- | --- |
+| SWT |Sí |Proporciona las credenciales de Trello |
+
 Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
 
->[AZURE.INCLUDE [Pasos para crear una conexión a Trello](../../includes/connectors-create-api-trello.md)]
-
->[AZURE.TIP] Puede usar esta conexión en otras aplicaciones lógicas.
+> [!INCLUDE [Pasos para crear una conexión a Trello](../../includes/connectors-create-api-trello.md)]
+> 
+> [!TIP]
+> Puede usar esta conexión en otras aplicaciones lógicas.
+> 
+> 
 
 ## Referencia para Trello
 Se aplica a la versión: 1.0
@@ -74,532 +79,471 @@ Cuando se agrega una nueva tarjeta a un panel: desencadena un flujo cuando se ag
 
 ```GET: /trigger/boards/{board_id}/cards```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|path|Ninguna|Identificador único del panel en el que capturar las tarjetas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |path |Ninguna |Identificador único del panel en el que capturar las tarjetas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## OnNewCardInList
 Cuando se agrega una nueva tarjeta a una lista: desencadena un flujo cuando se agrega una nueva tarjeta a una lista
 
 ```GET: /trigger/lists/{list_id}/cards```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador único del panel en el que capturar las tarjetas|
-|list\_id|string|yes|path|Ninguna|Identificador único de la lista en la que capturar las tarjetas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador único del panel en el que capturar las tarjetas |
+| list\_id |string |yes |path |Ninguna |Identificador único de la lista en la que capturar las tarjetas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## ListCards
 Enumera las tarjetas en el panel: enumera las tarjetas en el panel
 
 ```GET: /boards/{board_id}/cards```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|path|Ninguna|Identificador del panel en el que capturar todas las tarjetas|
-|actions|string|no|query|Ninguna|Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|attachments|boolean|no|query|Ninguna|Muestra los datos adjuntos|
-|attachment\_fields|string|no|query|Ninguna|Enumera los campos de datos adjuntos a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|stickers|boolean|no|query|Ninguna|Muestra los adhesivos|
-|members|boolean|no|query|Ninguna|Muestra los miembros|
-|member\_fields|string|no|query|Ninguna|Enumera los campos de los miembros a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|CheckItemStates|boolean|no|query|Ninguna|Devuelve los estados de la tarjeta|
-|Checklists|string|no|query|Ninguna|Muestra las listas de comprobación|
-|limit|integer|no|query|Ninguna|El número máximo de resultados que se devolverán, entre 1 y 1000|
-|since|string|no|query|Ninguna|Captura todas las tarjetas posteriores a esta fecha|
-|antes de|string|no|query|Ninguna|Captura todas las tarjetas anteriores a esta fecha|
-|filter|string|no|query|Ninguna|Filtra la respuesta|
-|fields|string|no|query|Ninguna|Enumera los campos de las tarjetas a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |path |Ninguna |Identificador del panel en el que capturar todas las tarjetas |
+| actions |string |no |query |Ninguna |Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| attachments |boolean |no |query |Ninguna |Muestra los datos adjuntos |
+| attachment\_fields |string |no |query |Ninguna |Enumera los campos de datos adjuntos a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| stickers |boolean |no |query |Ninguna |Muestra los adhesivos |
+| members |boolean |no |query |Ninguna |Muestra los miembros |
+| member\_fields |string |no |query |Ninguna |Enumera los campos de los miembros a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| CheckItemStates |boolean |no |query |Ninguna |Devuelve los estados de la tarjeta |
+| Checklists |string |no |query |Ninguna |Muestra las listas de comprobación |
+| limit |integer |no |query |Ninguna |El número máximo de resultados que se devolverán, entre 1 y 1000 |
+| since |string |no |query |Ninguna |Captura todas las tarjetas posteriores a esta fecha |
+| antes de |string |no |query |Ninguna |Captura todas las tarjetas anteriores a esta fecha |
+| filter |string |no |query |Ninguna |Filtra la respuesta |
+| fields |string |no |query |Ninguna |Enumera los campos de las tarjetas a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## GetCard
 Obtiene la tarjeta según el identificador: obtiene la tarjeta según el identificador
 
 ```GET: /cards/{card_id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador del panel en el que capturar las tarjetas|
-|card\_id|string|yes|path|Ninguna|Identificador de la tarjeta a capturar|
-|actions|string|no|query|Ninguna|Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|actions\_entities|boolean|no|query|Ninguna|Devuelve entidades de acción|
-|actions\_display|boolean|no|query|Ninguna|Devuelve presentaciones de acciones|
-|actions\_limit|integer|no|query|Ninguna|Número máximo de acciones a devolver|
-|action\_fields|string|no|query|Ninguna|Lista de campos de acción a devolver para cada acción. Especifica 'all' o una lista de valores válidos separados por comas|
-|action\_memberCreator\_fields|string|no|query|Ninguna|Lista de campos de creador de miembros de acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|attachments|boolean|no|query|Ninguna|Devuelve datos adjuntos|
-|attachement\_fields|string|no|query|Ninguna|Lista de campos de datos adjuntos a devolver para cada archivo adjunto. Especifica 'all' o una lista de valores válidos separados por comas|
-|members|boolean|no|query|Ninguna|Devuelve miembros|
-|member\_fields|string|no|query|Ninguna|Lista de campos de miembros a devolver para cada miembro. Especifica 'all' o una lista de valores válidos separados por comas|
-|membersVoted|boolean|no|query|Ninguna|Devuelve miembros votados|
-|memberVoted\_fields|string|no|query|Ninguna|Lista de campos de miembros votados a devolver para cada miembro votado. Especifica 'all' o una lista de valores válidos separados por comas|
-|checkItemStates|boolean|no|query|Ninguna|Devuelve estados de la tarjeta|
-|checkItemState\_fields|string|no|query|Ninguna|Lista de campos de estado que se van a devolver para cada estado del artículo de la tarjeta. Especifica 'all' o una lista de valores válidos separados por comas|
-|checklists|string|no|query|Ninguna|Devuelve listas de comprobación|
-|checklist\_fields|string|no|query|Ninguna|Lista de campos de la lista de comprobación a devolver para cada lista de comprobación. Especifica 'all' o una lista de valores válidos separados por comas|
-|board|boolean|no|query|Ninguna|Devuelve el panel al que pertenece la tarjeta|
-|board\_fields|string|no|query|Ninguna|Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|list|boolean|no|query|Ninguna|Devuelve la lista a la que pertenece la tarjeta|
-|list\_fields|string|no|query|Ninguna|Enumera los campos de la lista a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|stickers|boolean|no|query|Ninguna|Devuelve adhesivos|
-|sticker\_fields|string|no|query|Ninguna|Lista de los campos de adhesivo a devolver para cada adhesivo. Especifica 'all' o una lista de valores válidos separados por comas|
-|fields|string|no|query|Ninguna|Enumera los campos de las tarjetas a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador del panel en el que capturar las tarjetas |
+| card\_id |string |yes |path |Ninguna |Identificador de la tarjeta a capturar |
+| actions |string |no |query |Ninguna |Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| actions\_entities |boolean |no |query |Ninguna |Devuelve entidades de acción |
+| actions\_display |boolean |no |query |Ninguna |Devuelve presentaciones de acciones |
+| actions\_limit |integer |no |query |Ninguna |Número máximo de acciones a devolver |
+| action\_fields |string |no |query |Ninguna |Lista de campos de acción a devolver para cada acción. Especifica 'all' o una lista de valores válidos separados por comas |
+| action\_memberCreator\_fields |string |no |query |Ninguna |Lista de campos de creador de miembros de acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| attachments |boolean |no |query |Ninguna |Devuelve datos adjuntos |
+| attachement\_fields |string |no |query |Ninguna |Lista de campos de datos adjuntos a devolver para cada archivo adjunto. Especifica 'all' o una lista de valores válidos separados por comas |
+| members |boolean |no |query |Ninguna |Devuelve miembros |
+| member\_fields |string |no |query |Ninguna |Lista de campos de miembros a devolver para cada miembro. Especifica 'all' o una lista de valores válidos separados por comas |
+| membersVoted |boolean |no |query |Ninguna |Devuelve miembros votados |
+| memberVoted\_fields |string |no |query |Ninguna |Lista de campos de miembros votados a devolver para cada miembro votado. Especifica 'all' o una lista de valores válidos separados por comas |
+| checkItemStates |boolean |no |query |Ninguna |Devuelve estados de la tarjeta |
+| checkItemState\_fields |string |no |query |Ninguna |Lista de campos de estado que se van a devolver para cada estado del artículo de la tarjeta. Especifica 'all' o una lista de valores válidos separados por comas |
+| checklists |string |no |query |Ninguna |Devuelve listas de comprobación |
+| checklist\_fields |string |no |query |Ninguna |Lista de campos de la lista de comprobación a devolver para cada lista de comprobación. Especifica 'all' o una lista de valores válidos separados por comas |
+| board |boolean |no |query |Ninguna |Devuelve el panel al que pertenece la tarjeta |
+| board\_fields |string |no |query |Ninguna |Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| list |boolean |no |query |Ninguna |Devuelve la lista a la que pertenece la tarjeta |
+| list\_fields |string |no |query |Ninguna |Enumera los campos de la lista a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| stickers |boolean |no |query |Ninguna |Devuelve adhesivos |
+| sticker\_fields |string |no |query |Ninguna |Lista de los campos de adhesivo a devolver para cada adhesivo. Especifica 'all' o una lista de valores válidos separados por comas |
+| fields |string |no |query |Ninguna |Enumera los campos de las tarjetas a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## UpdateCard
 Tarjeta de actualización: tarjeta de actualización
 
 ```PUT: /cards/{card_id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador del panel desde el que capturar las tarjetas|
-|card\_id|string|yes|path|Ninguna|Identificador de la tarjeta a actualizar|
-|updateCard| |yes|body|Ninguna|Valores actualizados de tarjeta|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador del panel desde el que capturar las tarjetas |
+| card\_id |string |yes |path |Ninguna |Identificador de la tarjeta a actualizar |
+| updateCard | |yes |body |Ninguna |Valores actualizados de tarjeta |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## DeleteCard
 Elimina la tarjeta: elimina la tarjeta
 
 ```DELETE: /cards/{card_id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador del panel desde el que capturar las tarjetas|
-|card\_id|string|yes|path|Ninguna|Identificador de la tarjeta a eliminar|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador del panel desde el que capturar las tarjetas |
+| card\_id |string |yes |path |Ninguna |Identificador de la tarjeta a eliminar |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## CreateCard
 Crea tarjetas: crea una nueva tarjeta en la cuenta de Trello
 
 ```POST: /cards```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador único del panel en el que crear las tarjetas|
-|newCard| |yes|body|Ninguna|Nueva tarjeta para agregar al panel de Trello|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador único del panel en el que crear las tarjetas |
+| newCard | |yes |body |Ninguna |Nueva tarjeta para agregar al panel de Trello |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## ListBoards
 Enumera los paneles: enumera los paneles
 
 ```GET: /member/me/boards```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|filter|string|no|query|Ninguna|Enumera los filtros a aplicar a los resultados del panel. Especifica 'all' o una lista de valores válidos separados por comas|
-|fields|string|no|query|Ninguna|Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|actions|string|no|query|Ninguna|Enumera los campos de acción a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|actions\_entities|boolean|no|query|Ninguna|Devuelve entidades de acción|
-|actions\_limit|integer|no|query|Ninguna|Número máximo de acciones a devolver|
-|actions\_format|string|no|query|Ninguna|Especifica el formato de las acciones a devolver|
-|actions\_since|string|no|query|Ninguna|Devuelve las acciones posteriores a la fecha especificada|
-|action\_fields|string|no|query|Ninguna|Enumera los campos de la acción a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|memberships|string|no|query|Ninguna|Especifica la información de pertenencia a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|organization|boolean|no|query|Ninguna|Especifica la información de la organización a devolver|
-|organization\_fields|string|no|query|Ninguna|Enumera los campos de la organización a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|lists|string|no|query|Ninguna|Especifica si desea devolver listas que pertenecen al panel|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| filter |string |no |query |Ninguna |Enumera los filtros a aplicar a los resultados del panel. Especifica 'all' o una lista de valores válidos separados por comas |
+| fields |string |no |query |Ninguna |Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| actions |string |no |query |Ninguna |Enumera los campos de acción a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| actions\_entities |boolean |no |query |Ninguna |Devuelve entidades de acción |
+| actions\_limit |integer |no |query |Ninguna |Número máximo de acciones a devolver |
+| actions\_format |string |no |query |Ninguna |Especifica el formato de las acciones a devolver |
+| actions\_since |string |no |query |Ninguna |Devuelve las acciones posteriores a la fecha especificada |
+| action\_fields |string |no |query |Ninguna |Enumera los campos de la acción a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| memberships |string |no |query |Ninguna |Especifica la información de pertenencia a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| organization |boolean |no |query |Ninguna |Especifica la información de la organización a devolver |
+| organization\_fields |string |no |query |Ninguna |Enumera los campos de la organización a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| lists |string |no |query |Ninguna |Especifica si desea devolver listas que pertenecen al panel |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## GetBoard
 Obtiene el panel según el identificador: obtiene el panel según el identificador.
 
 ```GET: /boards/{board_id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|path|Ninguna|Identificador único del panel a obtener|
-|actions|string|no|query|Ninguna|Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|action\_entities|boolean|no|query|Ninguna|Especifica si desea devolver entidades de acción|
-|actions\_display|boolean|no|query|Ninguna|Especifica si desea devolver presentaciones de acciones|
-|actions\_format|string|no|query|Ninguna|Especifica el formato de las acciones a devolver|
-|actions\_since|string|no|query|Ninguna|Solo se devuelven las acciones posteriores a esta fecha|
-|actions\_limit|integer|no|query|Ninguna|Número máximo de acciones a devolver|
-|action\_fields|string|no|query|Ninguna|Enumera los campos a devolver con cada campo. Especifica 'all' o una lista de valores válidos separados por comas|
-|action\_member|boolean|no|query|Ninguna|Especifica si desea devolver miembros de acción|
-|action\_member\_fields|string|no|query|Ninguna|Enumera los campos de miembros a devolver con cada miembro de la acción. Especifica 'all' o una lista de valores válidos separados por comas|
-|action\_memberCreator|boolean|no|query|Ninguna|Especifica si desea devolver un creador de miembros de acciones|
-|action\_memberCreator\_fields|string|no|query|Ninguna|Enumera los campos de creador de miembros de acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|cards|string|no|query|Ninguna|Especifica las tarjetas a devolver|
-|card\_fields|string|no|query|Ninguna|Enumera los campos a devolver para cada tarjeta. Especifica 'all' o una lista de valores válidos separados por comas|
-|card\_attachments|boolean|yes|query|Ninguna|Especifica si desea devolver los datos adjuntos de tarjetas|
-|card\_attachment\_fields|string|no|query|Ninguna|Enumera los campos de datos adjuntos a devolver para cada archivo adjunto. Especifica 'all' o una lista de valores válidos separados por comas|
-|card\_checklists|string|no|query|Ninguna|Especifica las listas de comprobación a devolver para cada tarjeta|
-|card\_stickers|boolean|no|query|Ninguna|Especifica si desea devolver adhesivos de tarjetas|
-|boardStarts|string|no|query|Ninguna|Especifica las estrellas del panel a devolver|
-|etiquetas|string|no|query|Ninguna|Especifica las etiquetas a devolver|
-|label\_fields|string|no|query|Ninguna|Enumera los campos de etiqueta a devolver para cada etiqueta. Especifica 'all' o una lista de valores válidos separados por comas|
-|labels\_limits|integer|no|query|Ninguna|Número máximo de etiquetas a devolver|
-|lists|string|no|query|Ninguna|Especifica las listas a devolver|
-|list\_fields|string|no|query|Ninguna|Enumera los campos de lista a devolver para cada lista. Especifica 'all' o una lista de valores válidos separados por comas|
-|memberships|string|no|query|Ninguna|Enumera las pertenencias a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|memberships\_member|boolean|no|query|Ninguna|Especifica si desea devolver miembros de pertenencia|
-|memberships\_member\_fields|string|no|query|Ninguna|Enumera los campos de miembros a devolver para cada miembro de pertenencia. Especifica 'all' o una lista de valores válidos separados por comas|
-|members|string|no|query|Ninguna|Enumera los miembros a devolver.|
-|member\_fields|string|no|query|Ninguna|Enumera los campos de miembros a devolver para cada miembro. Especifica 'all' o una lista de valores válidos separados por comas|
-|membersInvited|string|no|query|Ninguna|Especifica los miembros invitados a devolver|
-|membersInvited\_fields|string|no|query|Ninguna|Enumera los campos a devolver para cada miembro invitado. Especifica 'all' o una lista de valores válidos separados por comas|
-|checklists|string|no|query|Ninguna|Especifica las listas de comprobación a devolver|
-|checklist\_fields|string|no|query|Ninguna|Enumera los campos de la lista de comprobación a devolver para cada lista de comprobación. Especifica 'all' o una lista de valores válidos separados por comas|
-|organization|boolean|no|query|Ninguna|Especifica si desea devolver la información de la organización|
-|organization\_fields|string|no|query|Ninguna|Enumera los campos de la organización a devolver para cada organización. Especifica 'all' o una lista de valores válidos separados por comas|
-|organization\_memberships|string|no|query|Ninguna|Enumera las pertenencias de la organización a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|myPerfs|boolean|no|query|Ninguna|Especifica si desea devolver mis rendimientos|
-|fields|string|no|query|Ninguna|Enumera los campos a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |path |Ninguna |Identificador único del panel a obtener |
+| actions |string |no |query |Ninguna |Enumera las acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| action\_entities |boolean |no |query |Ninguna |Especifica si desea devolver entidades de acción |
+| actions\_display |boolean |no |query |Ninguna |Especifica si desea devolver presentaciones de acciones |
+| actions\_format |string |no |query |Ninguna |Especifica el formato de las acciones a devolver |
+| actions\_since |string |no |query |Ninguna |Solo se devuelven las acciones posteriores a esta fecha |
+| actions\_limit |integer |no |query |Ninguna |Número máximo de acciones a devolver |
+| action\_fields |string |no |query |Ninguna |Enumera los campos a devolver con cada campo. Especifica 'all' o una lista de valores válidos separados por comas |
+| action\_member |boolean |no |query |Ninguna |Especifica si desea devolver miembros de acción |
+| action\_member\_fields |string |no |query |Ninguna |Enumera los campos de miembros a devolver con cada miembro de la acción. Especifica 'all' o una lista de valores válidos separados por comas |
+| action\_memberCreator |boolean |no |query |Ninguna |Especifica si desea devolver un creador de miembros de acciones |
+| action\_memberCreator\_fields |string |no |query |Ninguna |Enumera los campos de creador de miembros de acciones a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| cards |string |no |query |Ninguna |Especifica las tarjetas a devolver |
+| card\_fields |string |no |query |Ninguna |Enumera los campos a devolver para cada tarjeta. Especifica 'all' o una lista de valores válidos separados por comas |
+| card\_attachments |boolean |yes |query |Ninguna |Especifica si desea devolver los datos adjuntos de tarjetas |
+| card\_attachment\_fields |string |no |query |Ninguna |Enumera los campos de datos adjuntos a devolver para cada archivo adjunto. Especifica 'all' o una lista de valores válidos separados por comas |
+| card\_checklists |string |no |query |Ninguna |Especifica las listas de comprobación a devolver para cada tarjeta |
+| card\_stickers |boolean |no |query |Ninguna |Especifica si desea devolver adhesivos de tarjetas |
+| boardStarts |string |no |query |Ninguna |Especifica las estrellas del panel a devolver |
+| etiquetas |string |no |query |Ninguna |Especifica las etiquetas a devolver |
+| label\_fields |string |no |query |Ninguna |Enumera los campos de etiqueta a devolver para cada etiqueta. Especifica 'all' o una lista de valores válidos separados por comas |
+| labels\_limits |integer |no |query |Ninguna |Número máximo de etiquetas a devolver |
+| lists |string |no |query |Ninguna |Especifica las listas a devolver |
+| list\_fields |string |no |query |Ninguna |Enumera los campos de lista a devolver para cada lista. Especifica 'all' o una lista de valores válidos separados por comas |
+| memberships |string |no |query |Ninguna |Enumera las pertenencias a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| memberships\_member |boolean |no |query |Ninguna |Especifica si desea devolver miembros de pertenencia |
+| memberships\_member\_fields |string |no |query |Ninguna |Enumera los campos de miembros a devolver para cada miembro de pertenencia. Especifica 'all' o una lista de valores válidos separados por comas |
+| members |string |no |query |Ninguna |Enumera los miembros a devolver. |
+| member\_fields |string |no |query |Ninguna |Enumera los campos de miembros a devolver para cada miembro. Especifica 'all' o una lista de valores válidos separados por comas |
+| membersInvited |string |no |query |Ninguna |Especifica los miembros invitados a devolver |
+| membersInvited\_fields |string |no |query |Ninguna |Enumera los campos a devolver para cada miembro invitado. Especifica 'all' o una lista de valores válidos separados por comas |
+| checklists |string |no |query |Ninguna |Especifica las listas de comprobación a devolver |
+| checklist\_fields |string |no |query |Ninguna |Enumera los campos de la lista de comprobación a devolver para cada lista de comprobación. Especifica 'all' o una lista de valores válidos separados por comas |
+| organization |boolean |no |query |Ninguna |Especifica si desea devolver la información de la organización |
+| organization\_fields |string |no |query |Ninguna |Enumera los campos de la organización a devolver para cada organización. Especifica 'all' o una lista de valores válidos separados por comas |
+| organization\_memberships |string |no |query |Ninguna |Enumera las pertenencias de la organización a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| myPerfs |boolean |no |query |Ninguna |Especifica si desea devolver mis rendimientos |
+| fields |string |no |query |Ninguna |Enumera los campos a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## ListLists
 Enumera las listas de tarjeta en el panel: enumera las listas de tarjeta en el panel
 
 ```GET: /boards/{board_id}/lists```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|path|Ninguna|Identificador único del panel en el que capturar las listas|
-|cards|string|no|query|Ninguna|Especifica las tarjetas a devolver|
-|card\_fields|string|no|query|Ninguna|Enumera los campos de las tarjetas desde los que devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|filter|string|no|query|Ninguna|Especifica la propiedad de filtro para las listas|
-|fields|string|no|query|Ninguna|Enumera los campos a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |path |Ninguna |Identificador único del panel en el que capturar las listas |
+| cards |string |no |query |Ninguna |Especifica las tarjetas a devolver |
+| card\_fields |string |no |query |Ninguna |Enumera los campos de las tarjetas desde los que devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| filter |string |no |query |Ninguna |Especifica la propiedad de filtro para las listas |
+| fields |string |no |query |Ninguna |Enumera los campos a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
 
 #### Response
-
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
 ## GetList
 Obtiene listas según el identificador: obtiene listas según el identificador
 
 ```GET: /lists/{list_id}```
 
-| Nombre| Tipo de datos|Obligatorio|Ubicado en|Valor predeterminado|Description|
-| ---|---|---|---|---|---|
-|board\_id|string|yes|query|Ninguna|Identificador único del panel desde el que capturar las listas|
-|list\_id|string|yes|path|Ninguna|Identificador único de la lista a capturar|
-|cards|string|no|query|Ninguna|Especifica las tarjetas a devolver|
-|card\_fields|string|no|query|Ninguna|Enumera los campos de tarjeta a devolver para cada tarjeta. Especifica 'all' o una lista de valores válidos separados por comas|
-|board|boolean|no|query|Ninguna|Especifica si desea devolver información del panel|
-|board\_fields|string|no|query|Ninguna|Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
-|fields|string|no|query|Ninguna|Enumera los campos de la lista a devolver. Especifica 'all' o una lista de valores válidos separados por comas|
+| Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
+| --- | --- | --- | --- | --- | --- |
+| board\_id |string |yes |query |Ninguna |Identificador único del panel desde el que capturar las listas |
+| list\_id |string |yes |path |Ninguna |Identificador único de la lista a capturar |
+| cards |string |no |query |Ninguna |Especifica las tarjetas a devolver |
+| card\_fields |string |no |query |Ninguna |Enumera los campos de tarjeta a devolver para cada tarjeta. Especifica 'all' o una lista de valores válidos separados por comas |
+| board |boolean |no |query |Ninguna |Especifica si desea devolver información del panel |
+| board\_fields |string |no |query |Ninguna |Enumera los campos de los paneles a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
+| fields |string |no |query |Ninguna |Enumera los campos de la lista a devolver. Especifica 'all' o una lista de valores válidos separados por comas |
 
 #### Response
+| Nombre | Descripción |
+| --- | --- |
+| 200 |OK |
+| 400 |Bad Request |
+| 401 |No autorizado |
+| 403 |Prohibido |
+| 404 |No encontrado |
+| 500 |Error interno del servidor. Error desconocido |
+| default |Error en la operación |
 
-|Nombre|Descripción|
-|---|---|
-|200|OK|
-|400|Bad Request|
-|401|No autorizado|
-|403|Prohibido|
-|404|No encontrado|
-|500|Error interno del servidor. Error desconocido|
-|default|Error en la operación|
-
-
-## Definiciones de objeto 
-
+## Definiciones de objeto
 ### Card
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|id|string|No |
-|checkItemStates|array|No |
-|closed|boolean|No |
-|dateLastActivity|string|No |
-|desc|string|No |
-|idBoard|string|No |
-|idList|string|No |
-|idMembersVoted|array|No |
-|idShort|integer|No |
-|idAttachmentCover|string|No |
-|manualCoverAttachment|boolean|No |
-|idLabels|array|No |
-|name|string|No |
-|pos|integer|No |
-|shortLink|string|No |
-|badges|not defined|No |
-|due|string|No |
-|email|string|No |
-|shortUrl|string|No |
-|subscribed|boolean|No |
-|url|string|No |
-
-
+| --- | --- | --- |
+| id |string |No |
+| checkItemStates |array |No |
+| closed |boolean |No |
+| dateLastActivity |string |No |
+| desc |string |No |
+| idBoard |string |No |
+| idList |string |No |
+| idMembersVoted |array |No |
+| idShort |integer |No |
+| idAttachmentCover |string |No |
+| manualCoverAttachment |boolean |No |
+| idLabels |array |No |
+| name |string |No |
+| pos |integer |No |
+| shortLink |string |No |
+| badges |not defined |No |
+| due |string |No |
+| email |string |No |
+| shortUrl |string |No |
+| subscribed |boolean |No |
+| url |string |No |
 
 ### Notificaciones
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|Votes|integer|No |
-|ViewingMemberVoted|boolean|No |
-|Subscribed|boolean|No |
-|Fogbugz|string|No |
-|CheckItems|integer|No |
-|CheckItemsChecked|integer|No |
-|Comentarios|integer|No |
-|Datos adjuntos|integer|No |
-|Description|boolean|No |
-|Due|string|No |
-
-
+| --- | --- | --- |
+| Votes |integer |No |
+| ViewingMemberVoted |boolean |No |
+| Subscribed |boolean |No |
+| Fogbugz |string |No |
+| CheckItems |integer |No |
+| CheckItemsChecked |integer |No |
+| Comentarios |integer |No |
+| Datos adjuntos |integer |No |
+| Description |boolean |No |
+| Due |string |No |
 
 ### Objeto
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-
-
+| --- | --- | --- |
+|  | | |
 
 ### CreateCard
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|idList|string|Sí |
-|name|string|Sí |
-|desc|string|No |
-|pos|string|No |
-|idMembers|string|No |
-|idLabels|string|No |
-|urlSource|string|No |
-|fileSource|string|No |
-|idCardSource|string|No |
-|keepFromSource|string|No |
-
-
+| --- | --- | --- |
+| idList |string |Sí |
+| name |string |Sí |
+| desc |string |No |
+| pos |string |No |
+| idMembers |string |No |
+| idLabels |string |No |
+| urlSource |string |No |
+| fileSource |string |No |
+| idCardSource |string |No |
+| keepFromSource |string |No |
 
 ### UpdateCard
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|name|string|No |
-|desc|string|No |
-|closed|boolean|No |
-|idMembers|string|No |
-|idAttachmentCover|string|No |
-|idList|string|No |
-|idBoard|string|No |
-|pos|string|No |
-|due|string|No |
-|subscribed|boolean|No |
-
-
+| --- | --- | --- |
+| name |string |No |
+| desc |string |No |
+| closed |boolean |No |
+| idMembers |string |No |
+| idAttachmentCover |string |No |
+| idList |string |No |
+| idBoard |string |No |
+| pos |string |No |
+| due |string |No |
+| subscribed |boolean |No |
 
 ### Board
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|id|string|No |
-|closed|boolean|No |
-|dateLastActivity|string|No |
-|dateLastView|string|No |
-|desc|string|No |
-|idOrganization|string|No |
-|invitations|array|No |
-|invited|boolean|No |
-|labelNames|not defined|No |
-|memberships|array|No |
-|name|string|No |
-|pinned|boolean|No |
-|powerUps|array|No |
-|perfs|not defined|No |
-|shortLink|string|No |
-|shortUrl|string|No |
-|starred|string|No |
-|subscribed|string|No |
-|url|string|No |
-
-
+| --- | --- | --- |
+| id |string |No |
+| closed |boolean |No |
+| dateLastActivity |string |No |
+| dateLastView |string |No |
+| desc |string |No |
+| idOrganization |string |No |
+| invitations |array |No |
+| invited |boolean |No |
+| labelNames |not defined |No |
+| memberships |array |No |
+| name |string |No |
+| pinned |boolean |No |
+| powerUps |array |No |
+| perfs |not defined |No |
+| shortLink |string |No |
+| shortUrl |string |No |
+| starred |string |No |
+| subscribed |string |No |
+| url |string |No |
 
 ### Etiqueta
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|green|string|No |
-|yellow|string|No |
-|orange|string|No |
-|red|string|No |
-|purple|string|No |
-|blue|string|No |
-|sky|string|No |
-|lime|string|No |
-|pink|string|No |
-|black|string|No |
-
-
+| --- | --- | --- |
+| green |string |No |
+| yellow |string |No |
+| orange |string |No |
+| red |string |No |
+| purple |string |No |
+| blue |string |No |
+| sky |string |No |
+| lime |string |No |
+| pink |string |No |
+| black |string |No |
 
 ### Pertenencia
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|id|string|No |
-|idMember|string|No |
-|memberType|string|No |
-|unconfirmed|boolean|No |
-
-
+| --- | --- | --- |
+| id |string |No |
+| idMember |string |No |
+| memberType |string |No |
+| unconfirmed |boolean |No |
 
 ### Rendimientos
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|permissionLevel|string|No |
-|voting|string|No |
-|comentarios|string|No |
-|invitations|string|No |
-|selfJoin|boolean|No |
-|cardCovers|boolean|No |
-|calendarFeedEnabled|boolean|No |
-|background|string|No |
-|backgroundColor|string|No |
-|backgroundImage|string|No |
-|backgroundImageScaled|string|No |
-|backgroundTile|boolean|No |
-|backgroundBrightness|string|No |
-|canBePublic|boolean|No |
-|canBeOrg|boolean|No |
-|canBePrivate|boolean|No |
-|canInvite|boolean|No |
-
-
+| --- | --- | --- |
+| permissionLevel |string |No |
+| voting |string |No |
+| comentarios |string |No |
+| invitations |string |No |
+| selfJoin |boolean |No |
+| cardCovers |boolean |No |
+| calendarFeedEnabled |boolean |No |
+| background |string |No |
+| backgroundColor |string |No |
+| backgroundImage |string |No |
+| backgroundImageScaled |string |No |
+| backgroundTile |boolean |No |
+| backgroundBrightness |string |No |
+| canBePublic |boolean |No |
+| canBeOrg |boolean |No |
+| canBePrivate |boolean |No |
+| canInvite |boolean |No |
 
 ### Enumerar
-
-
 | Nombre de propiedad | Tipo de datos | Obligatorio |
-|---|---|---|
-|id|string|No |
-|name|string|No |
-|closed|boolean|No |
-|idBoard|string|No |
-|pos|número|No |
-|subscribed|boolean|No |
-|cards|array|No |
-|board|not defined|No |
-
+| --- | --- | --- |
+| id |string |No |
+| name |string |No |
+| closed |boolean |No |
+| idBoard |string |No |
+| pos |número |No |
+| subscribed |boolean |No |
+| cards |array |No |
+| board |not defined |No |
 
 ## Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)

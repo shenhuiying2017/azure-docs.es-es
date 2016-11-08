@@ -1,25 +1,22 @@
-<properties
-	pageTitle="Escalado automático y entorno del Servicio de aplicaciones | Microsoft Azure"
-	description="Escalado automático y entorno del Servicio de aplicaciones"
-	services="app-service"
-	documentationCenter=""
-	authors="btardif"
-	manager="wpickett"
-	editor=""
-/>
+---
+title: Escalado automático y entorno del Servicio de aplicaciones | Microsoft Docs
+description: Escalado automático y entorno del Servicio de aplicaciones
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="app-service"
-	ms.workload="web"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/07/2016"
-	ms.author="byvinyal"
-/>
+ms.service: app-service
+ms.workload: web
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/07/2016
+ms.author: byvinyal
 
+---
 # Escalado automático y entorno del Servicio de aplicaciones
-
 Los entornos del Servicio de aplicaciones de Azure admiten el *escalado automático*. Puede usar el escalado automático basado en métricas o programación grupos de trabajo individuales.
 
 ![Opciones de escalado automático para un grupo de trabajo.][intro]
@@ -27,7 +24,6 @@ Los entornos del Servicio de aplicaciones de Azure admiten el *escalado automát
 El escalado automático optimiza el uso de recursos gracias al crecimiento y reducción automáticos de un entorno del Servicio de aplicaciones para ajustarse a su presupuesto o a su perfil de carga.
 
 ## Configuración del escalado automático de grupo de trabajo
-
 Puede acceder a la funcionalidad de escalado automático desde la pestaña **Configuración** del grupo de trabajo.
 
 ![Pestaña Configuración del grupo de trabajo.][settings-scale]
@@ -51,13 +47,11 @@ Después de definir un perfil, puede agregar reglas de escalado automático para
  Se puede usar cualquier grupo de trabajo o métrica de front-end para definir las reglas de escalado automático. Son las mismas métricas que puede supervisar en los gráficos de la hoja de recursos o para las que puede configurar alertas.
 
 ## Ejemplo de escalado automático
-
 La mejor manera de ilustrar el escalado automático de un entorno del Servicio de aplicaciones es mediante un escenario.
 
 En este artículo veremos todas las consideraciones que se deben tener en cuenta al configurar el escalado automático y todas las interacciones que entran en juego cuando se aplica el escalado automático en entornos del Servicio de aplicaciones que se hospedan en un entorno del Servicio de aplicaciones.
 
 ### Introducción al escenario
-
 Frank es administrador de sistemas de una empresa y ha migrado parte de las cargas de trabajo que administra a un entorno del Servicio de aplicaciones.
 
 El entorno del Servicio de aplicaciones está configurado a escala manual de la siguiente manera:
@@ -75,37 +69,36 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 
 ![Configuración específica para las aplicaciones LOB.][asp-scale]
 
-|	**Perfil de escalado automático: Días laborables: plan del Servicio de aplicaciones** |	**Perfil de escalado automático: Fines de semana: plan del Servicio de aplicaciones** |
-|	----------------------------------------------------	|	----------------------------------------------------	|
-|	**Nombre:** perfil Día laborable |	**Nombre:** perfil Fin de semana |
-|	**Escalar por:** Reglas de rendimiento y programación |	**Escalar por:** Reglas de rendimiento y programación |
-|	**Perfil:** Días laborables |	**Perfil:** Fin de semana |
-|	**Tipo:** periodicidad |	**Tipo:** periodicidad |
-|	**Rango objetivo:** de 5 a 20 instancias |	**Rango objetivo:** de 3 a 10 instancias |
-|	**Días:** lunes, martes, miércoles, jueves, viernes |	**Días:** sábado, domingo |
-|	**Hora de inicio:** 9:00 |	**Hora de inicio:** 9:00 |
-|	**Zona horaria:** UTC-08 |	**Zona horaria:** UTC-08 |
-| | |
-|	**Regla de escalado automático (escalar verticalmente)** |	**Regla de escalado automático (escalar verticalmente)** |
-|	**Recurso:** Producción (entorno del Servicio de aplicaciones) |	**Recurso:** Producción (entorno del Servicio de aplicaciones) |
-|	**Métrica:** % de CPU |	**Métrica:** % de CPU |
-|	**Operación:** Mayor que 60% |	**Operación:** Mayor que 80% |
-|	**Duración:** 5 minutos |	**Duración:** 10 minutos |
-|	**Agregación de tiempo:** media |	**Agregación de tiempo:** media |
-|	**Acción:** Aumentar recuento en 2 |	**Acción:** Aumentar recuento en 1 |
-|	**Tiempo de finalización (minutos):** 15 |	**Tiempo de finalización (minutos):** 20 |
-| | |
- |	**Regla de escalado automático (reducir verticalmente)** |	**Regla de escalado automático (reducir verticalmente)** |
-|	**Recurso:** Producción (entorno del Servicio de aplicaciones) |	**Recurso:** Producción (entorno del Servicio de aplicaciones) |
-|	**Métrica:** % de CPU |	**Métrica:** % de CPU |
-|	**Operación:** menor que el 30 % |	**Operación:** menor que el 20 % |
-|	**Duración:** 10 minutos |	**Duración:** 15 minutos |
-|	**Agregación de tiempo:** media |	**Agregación de tiempo:** media |
-|	**Acción:** Reducir recuento en 1 |	**Acción:** Reducir recuento en 1 |
-|	**Tiempo de finalización (minutos):** 20 |	**Tiempo de finalización (minutos):** 10 |
+| **Perfil de escalado automático: Días laborables: plan del Servicio de aplicaciones** | **Perfil de escalado automático: Fines de semana: plan del Servicio de aplicaciones** |
+| --- | --- |
+| **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
+| **Escalar por:** Reglas de rendimiento y programación |**Escalar por:** Reglas de rendimiento y programación |
+| **Perfil:** Días laborables |**Perfil:** Fin de semana |
+| **Tipo:** periodicidad |**Tipo:** periodicidad |
+| **Rango objetivo:** de 5 a 20 instancias |**Rango objetivo:** de 3 a 10 instancias |
+| **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
+| **Hora de inicio:** 9:00 |**Hora de inicio:** 9:00 |
+| **Zona horaria:** UTC-08 |**Zona horaria:** UTC-08 |
+|  | |
+| **Regla de escalado automático (escalar verticalmente)** |**Regla de escalado automático (escalar verticalmente)** |
+| **Recurso:** Producción (entorno del Servicio de aplicaciones) |**Recurso:** Producción (entorno del Servicio de aplicaciones) |
+| **Métrica:** % de CPU |**Métrica:** % de CPU |
+| **Operación:** Mayor que 60% |**Operación:** Mayor que 80% |
+| **Duración:** 5 minutos |**Duración:** 10 minutos |
+| **Agregación de tiempo:** media |**Agregación de tiempo:** media |
+| **Acción:** Aumentar recuento en 2 |**Acción:** Aumentar recuento en 1 |
+| **Tiempo de finalización (minutos):** 15 |**Tiempo de finalización (minutos):** 20 |
+|  | |
+| **Regla de escalado automático (reducir verticalmente)** |**Regla de escalado automático (reducir verticalmente)** |
+| **Recurso:** Producción (entorno del Servicio de aplicaciones) |**Recurso:** Producción (entorno del Servicio de aplicaciones) |
+| **Métrica:** % de CPU |**Métrica:** % de CPU |
+| **Operación:** menor que el 30 % |**Operación:** menor que el 20 % |
+| **Duración:** 10 minutos |**Duración:** 15 minutos |
+| **Agregación de tiempo:** media |**Agregación de tiempo:** media |
+| **Acción:** Reducir recuento en 1 |**Acción:** Reducir recuento en 1 |
+| **Tiempo de finalización (minutos):** 20 |**Tiempo de finalización (minutos):** 10 |
 
 ### Tasa de inflación del plan del Servicio de aplicaciones
-
 Los planes del Servicio de aplicaciones configurados para el escalado automático lo realizarán a una tasa máxima por hora. Esta tasa se puede calcular en función de los valores indicados en la regla de escalado automático.
 
 Comprender y calcular la *tasa de inflación del plan del Servicio de aplicaciones* es importante para el escalado automático del entorno del Servicio de aplicaciones, ya que los cambios en el escalado de un grupo de trabajo no son instantáneos.
@@ -139,7 +132,6 @@ Si se hospedan varios planes del Servicio de aplicaciones en un grupo de trabajo
 ![Cálculo de la tasa de inflación total para varios planes del Servicio de aplicaciones hospedados en un grupo de trabajo.][ASP-Total-Inflation]
 
 ### Uso de la tasa de inflación del plan del Servicio de aplicaciones para definir reglas de escalado automático del grupo de trabajo
-
 Los grupos de trabajo que hospedan planes del Servicio de aplicaciones que están configurados para el escalado automático tendrán que asignar un búfer de capacidad. El búfer permite que las operaciones de escalado automático aumenten y reduzcan el plan del Servicio de aplicaciones según sea necesario. El búfer mínimo será la tasa de inflación total del plan del Servicio de aplicaciones calculada.
 
 Puesto que las operaciones de escalado del entorno del Servicio de aplicaciones tardan algún tiempo en aplicarse, deben tenerse en cuenta los cambios de demanda adicionales que se pueden producir mientras están en curso una operación de escalado. Para dar cabida a esta latencia, se recomienda usar la tasa de inflación total del plan del Servicio de aplicaciones calculada como el número mínimo de instancias que se agregan para cada operación de escalado automático.
@@ -148,34 +140,34 @@ Con esta información, Frank puede definir el siguiente perfil y las siguientes 
 
 ![Ejemplo de reglas de perfil de escalado automático para línea de negocio.][Worker-Pool-Scale]
 
-|	**Perfil de escalado automático: Días laborables** |	**Perfil de escalado automático: Fines de semana** |
-|	----------------------------------------------------	|	--------------------------------------------	|
-|	**Nombre:** perfil Día laborable |	**Nombre:** perfil Fin de semana |
-|	**Escalar por:** Reglas de rendimiento y programación |	**Escalar por:** Reglas de rendimiento y programación |
-|	**Perfil:** Días laborables |	**Perfil:** Fin de semana |
-|	**Tipo:** periodicidad |	**Tipo:** periodicidad |
-|	**Rango objetivo:** de 13 a 25 instancias |	**Rango objetivo:** de 6 a 15 instancias |
-|	**Días:** lunes, martes, miércoles, jueves, viernes |	**Días:** sábado, domingo |
-|	**Hora de inicio:** 7:00 |	**Hora de inicio:** 9:00 |
-|	**Zona horaria:** UTC-08 |	**Zona horaria:** UTC-08 |
-| | |
-|	**Regla de escalado automático (escalar verticalmente)** |	**Regla de escalado automático (escalar verticalmente)** |
-|	**Recurso:** Grupo de trabajo 1 |	**Recurso:** Grupo de trabajo 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operación:** Menor que 8 |	**Operación:** Menor que 3 |
-|	**Duración:** 20 minutos |	**Duración:** 30 minutos |
-|	**Agregación de tiempo:** media |	**Agregación de tiempo:** media |
-|	**Acción:** Aumentar recuento en 8 |	**Acción:** Aumentar recuento en 3 |
-|	**Tiempo de finalización (minutos):** 180 |	**Tiempo de finalización (minutos):** 180 |
-| | |
-|	**Regla de escalado automático (reducir verticalmente)** |	**Regla de escalado automático (reducir verticalmente)** |
-|	**Recurso:** Grupo de trabajo 1 |	**Recurso:** Grupo de trabajo 1 |
-|	**Métrica:** WorkersAvailable |	**Métrica:** WorkersAvailable |
-|	**Operación:** Mayor que 8 |	**Operación:** Mayor que 3 % |
-|	**Duración:** 20 minutos |	**Duración:** 15 minutos |
-|	**Agregación de tiempo:** media |	**Agregación de tiempo:** media |
-|	**Acción:** Reducir recuento en 2 |	**Acción:** Reducir recuento en 3 |
-|	**Tiempo de finalización (minutos):** 120 |	**Tiempo de finalización (minutos):** 120 |
+| **Perfil de escalado automático: Días laborables** | **Perfil de escalado automático: Fines de semana** |
+| --- | --- |
+| **Nombre:** perfil Día laborable |**Nombre:** perfil Fin de semana |
+| **Escalar por:** Reglas de rendimiento y programación |**Escalar por:** Reglas de rendimiento y programación |
+| **Perfil:** Días laborables |**Perfil:** Fin de semana |
+| **Tipo:** periodicidad |**Tipo:** periodicidad |
+| **Rango objetivo:** de 13 a 25 instancias |**Rango objetivo:** de 6 a 15 instancias |
+| **Días:** lunes, martes, miércoles, jueves, viernes |**Días:** sábado, domingo |
+| **Hora de inicio:** 7:00 |**Hora de inicio:** 9:00 |
+| **Zona horaria:** UTC-08 |**Zona horaria:** UTC-08 |
+|  | |
+| **Regla de escalado automático (escalar verticalmente)** |**Regla de escalado automático (escalar verticalmente)** |
+| **Recurso:** Grupo de trabajo 1 |**Recurso:** Grupo de trabajo 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operación:** Menor que 8 |**Operación:** Menor que 3 |
+| **Duración:** 20 minutos |**Duración:** 30 minutos |
+| **Agregación de tiempo:** media |**Agregación de tiempo:** media |
+| **Acción:** Aumentar recuento en 8 |**Acción:** Aumentar recuento en 3 |
+| **Tiempo de finalización (minutos):** 180 |**Tiempo de finalización (minutos):** 180 |
+|  | |
+| **Regla de escalado automático (reducir verticalmente)** |**Regla de escalado automático (reducir verticalmente)** |
+| **Recurso:** Grupo de trabajo 1 |**Recurso:** Grupo de trabajo 1 |
+| **Métrica:** WorkersAvailable |**Métrica:** WorkersAvailable |
+| **Operación:** Mayor que 8 |**Operación:** Mayor que 3 % |
+| **Duración:** 20 minutos |**Duración:** 15 minutos |
+| **Agregación de tiempo:** media |**Agregación de tiempo:** media |
+| **Acción:** Reducir recuento en 2 |**Acción:** Reducir recuento en 3 |
+| **Tiempo de finalización (minutos):** 120 |**Tiempo de finalización (minutos):** 120 |
 
 El rango objetivo definido en el perfil se calcula sumando el número mínimo de instancias definido en el perfil para el plan del Servicio de aplicaciones al búfer.
 
@@ -186,41 +178,40 @@ El recuento de aumento de las reglas de escalado vertical se debe configurar al 
 El recuento de reducción se puede ajustar en un valor situado entre 1/2X y 1X de la tasa de inflación del plan del Servicio de aplicaciones para la reducción vertical.
 
 ### Escalado automático para un grupo de servidores front-end
-
 Las reglas de escalado automático de front-end son más sencillas que las de los grupos de trabajo. En primer lugar, debe asegurarse de que dicha duración de la medida y los temporizadores de enfriamiento tienen en cuenta que las operaciones de escala no son instantáneas en un plan del Servicio de aplicaciones.
 
-En este escenario, Frank sabe que la tasa de errores aumenta cuando los servidores front-end alcanzan el 80 % de la CPU. Para evitarlo, establece la regla de escalado automático para aumentar las instancias como sigue:
+En este escenario, Frank sabe que la tasa de errores aumenta cuando los servidores front-end alcanzan el 80 % de la CPU. Para evitarlo, establece la regla de escalado automático para aumentar las instancias como sigue:
 
 ![Configuración del escalado automático para un grupo de servidores front-end.][Front-End-Scale]
 
-|	**Perfil de escalado automático: Servidores front-end** |
-|	--------------------------------------------	|
-|	**Nombre:** Escalado automático: Servidores front-end |
-|	**Escalar por:** Reglas de rendimiento y programación |
-|	**Perfil:** Todos los días |
-|	**Tipo:** periodicidad |
-|	**Rango objetivo:** de 3 a 10 instancias |
-|	**Días:** Todos los días |
-|	**Hora de inicio:** 9:00 |
-|	**Zona horaria:** UTC-08 |
-| |
-|	**Regla de escalado automático (escalar verticalmente)** |
-|	**Recurso:** Grupo de servidores front-end |
-|	**Métrica:** % de CPU |
-|	**Operación:** Mayor que 60% |
-|	**Duración:** 20 minutos |
-|	**Agregación de tiempo:** media |
-|	**Acción:** Aumentar recuento en 3 |
-|	**Tiempo de finalización (minutos):** 120 |
-| |
-|	**Regla de escalado automático (reducir verticalmente)** |
-|	**Recurso:** Grupo de trabajo 1 |
-|	**Métrica:** % de CPU |
-|	**Operación:** menor que el 30 % |
-|	**Duración:** 20 minutos |
-|	**Agregación de tiempo:** media |
-|	**Acción:** Reducir recuento en 3 |
-|	**Tiempo de finalización (minutos):** 120 |
+| **Perfil de escalado automático: Servidores front-end** |
+| --- |
+| **Nombre:** Escalado automático: Servidores front-end |
+| **Escalar por:** Reglas de rendimiento y programación |
+| **Perfil:** Todos los días |
+| **Tipo:** periodicidad |
+| **Rango objetivo:** de 3 a 10 instancias |
+| **Días:** Todos los días |
+| **Hora de inicio:** 9:00 |
+| **Zona horaria:** UTC-08 |
+|  |
+| **Regla de escalado automático (escalar verticalmente)** |
+| **Recurso:** Grupo de servidores front-end |
+| **Métrica:** % de CPU |
+| **Operación:** Mayor que 60% |
+| **Duración:** 20 minutos |
+| **Agregación de tiempo:** media |
+| **Acción:** Aumentar recuento en 3 |
+| **Tiempo de finalización (minutos):** 120 |
+|  |
+| **Regla de escalado automático (reducir verticalmente)** |
+| **Recurso:** Grupo de trabajo 1 |
+| **Métrica:** % de CPU |
+| **Operación:** menor que el 30 % |
+| **Duración:** 20 minutos |
+| **Agregación de tiempo:** media |
+| **Acción:** Reducir recuento en 3 |
+| **Tiempo de finalización (minutos):** 120 |
 
 <!-- IMAGES -->
 [intro]: ./media/app-service-environment-auto-scale/introduction.png

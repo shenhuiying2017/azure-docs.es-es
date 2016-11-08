@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Temas de ayuda del portal de registro de aplicaciones | Microsoft Azure"
-	description="Descripción de las distintas características del portal de registro de aplicaciones de Microsoft."
-	services="active-directory"
-	documentationCenter=""
-	authors="dstrockis"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Temas de ayuda del portal de registro de aplicaciones | Microsoft Docs
+description: Descripción de las distintas características del portal de registro de aplicaciones de Microsoft.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/16/2016"
-	ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/16/2016
+ms.author: dastrock
 
+---
 # Referencia del registro de aplicaciones
 Este documento proporciona el contexto y las descripciones de las distintas características que se encuentran en el portal de registro de aplicaciones de Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com).
 

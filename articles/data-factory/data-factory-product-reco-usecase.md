@@ -1,33 +1,30 @@
-<properties 
-	pageTitle="Caso de uso de Factoría de datos: recomendaciones del producto" 
-	description="Obtenga información acerca de un caso de uso que se implementan mediante Factoría de datos de Azure junto con otros servicios." 
-	services="data-factory" 
-	documentationCenter="" 
-	authors="spelluru" 
-	manager="jhubbard" 
-	editor="monicar"/>
+---
+title: 'Caso de uso de Factoría de datos: recomendaciones del producto'
+description: Obtenga información acerca de un caso de uso que se implementan mediante Factoría de datos de Azure junto con otros servicios.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags 
-	ms.service="data-factory" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/01/2016" 
-	ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: spelluru
 
-# Caso de uso: recomendaciones de productos 
-
+---
+# Caso de uso: recomendaciones de productos
 Data Factory de Azure es uno de los muchos servicios que se usan para implementar el conjunto de aplicaciones Cortana Intelligence de aceleradores de soluciones. Consulte la página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para más información sobre este conjunto de aplicaciones. En este documento se describe un caso de uso común que los usuarios de Azure ya resolvieron e implementaron mediante Data Factory de Azure y otros servicios del componente Cortana Intelligence.
 
 ## Escenario
-
 Los distribuidores en línea normalmente desean conseguir que sus clientes compren los productos presentando los productos que probablemente más les interesen y, por tanto, es más probable que compren. Para lograr esto, los distribuidores en línea deben personalizar la experiencia en línea de sus usuarios mediante recomendaciones de productos personalizadas para ese usuario concreto. Estas recomendaciones personalizadas se van a realizar en función de los datos de su comportamiento de compra actual e histórico, la información de productos, las marcas recién introducidas y los datos de segmentación de productos y clientes. Además, se pueden proporcionar recomendaciones de productos a usuarios basadas en el análisis del comportamiento de uso general de todos los usuarios combinados.
 
 El objetivo de estos distribuidores es optimizar para conseguir conversiones de clic a venta y obtener mayores ingresos por ventas. Para conseguirlo, se proporcionan recomendaciones de productos contextuales, basadas en el comportamiento en función de los intereses y las acciones del cliente. En este caso práctico, usaremos distribuidores en línea como ejemplo de empresas que se quieren optimizar para sus clientes. Sin embargo, estos principios se aplican a cualquier empresa que quiera atraer a sus clientes a sus productos y servicios y mejorar su experiencia de compra con recomendaciones de productos personalizadas.
 
 ## Desafíos
-
 Existen muchos desafíos a los que se enfrentan los distribuidores en línea al intentar implementar este tipo de caso de uso.
 
 En primer lugar, se deben ingerir datos de diferentes tamaños y formas procedentes de varios orígenes de datos, tanto locales como en la nube. Estos datos incluyen datos de productos, datos históricos del comportamiento de los clientes y datos de los usuarios cuando exploran el sitio comercial en línea.
@@ -39,7 +36,6 @@ En tercer lugar, las recomendaciones deben poder entregarse inmediatamente al us
 Por último, los distribuidores necesitan medir la eficacia de su enfoque mediante el seguimiento de las ventas totales, las ventas cruzadas y la conversión de clic a ventas, así como realizar ajustes en sus recomendaciones futuras.
 
 ## Información general de la solución
-
 Este caso práctico de ejemplo fue resuelto e implementado por usuarios reales de Azure Data Factory y otros servicios del componente Cortana Intelligence, como [HDInsight](https://azure.microsoft.com/services/hdinsight/) y [Power BI](https://powerbi.microsoft.com/).
 
 El distribuidor en línea usa un almacén de blobs de Azure, un servidor de SQL Sefver local, la Base de datos SQL de Azure y un data mart relacional como opciones de almacenamiento de datos a lo largo del flujo de trabajo. El almacén de blobs contiene información del cliente, los datos de comportamiento de cliente y los datos de información de los productos. Los datos de información de los productos incluyen información de la marca de producto y un catálogo de los producto almacenado localmente en un almacenamiento de datos SQL.
@@ -55,13 +51,8 @@ El sistema de recomendaciones usado para el aprendizaje automático en este ejem
 Por último, el conjunto de resultados de las recomendaciones de productos personalizadas se mueve a un data mart relacional para su consumo por el sitio web del distribuidor. Otra aplicación también podría acceder al conjunto de resultados directamente desde el almacenamiento de blobs, o bien el conjunto de resultados podría moverse a almacenes adicionales para otros consumidores y casos de uso.
 
 ## Ventajas
-
 Al optimizar su estrategia de recomendación de productos y alinearla con los objetivos empresariales, la solución cumplió los objetivos de marketing y comercialización de los distribuidores en línea. Además, pudieron operacionalizar y administrar el flujo de trabajo de recomendaciones de productos de forma confiable, eficiente y rentable. El enfoque les facilitó la actualización de su modelo y el ajuste de su efectividad en función de las medidas de conversión de clic a ventas. Mediante Azure Data Factory, pudieron abandonar la tan costosa y laboriosa administración manual de los recursos en la nube y pasar a su administración a petición. Por lo tanto, consiguieron ahorrar tiempo y dinero y reducir el tiempo de implementación de la solución. Las vistas de linaje de datos y el estado de funcionamiento del servicio ahora se pueden visualizar y solucionar problemas fácilmente con la supervisión de factoría de datos intuitiva y la administración de interfaz de usuario disponible en el Portal de Azure. Su solución ahora se puede programar y administrar para que los datos terminados se generen y proporcionen a sus usuarios de forma confiable, y los datos y las dependencias de procesamiento se administran automáticamente sin intervención humana.
 
 Gracias a esta experiencia de compra personalizada, el distribuidor en línea creó una experiencia del cliente más competitiva y atractiva y, por tanto, que aumenta la satisfacción general del cliente y las ventas.
-
-
-
-  
 
 <!---HONumber=AcomDC_0907_2016-->

@@ -1,34 +1,32 @@
-<properties
-    pageTitle="Programación y ejecución con Data Factory | Microsoft Azure"
-    description="Obtenga información sobre los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure."
-    services="data-factory"
-    documentationCenter=""
-    authors="spelluru"
-    manager="jhubbard"
-    editor="monicar"/>
+---
+title: Programación y ejecución con Data Factory | Microsoft Docs
+description: Obtenga información sobre los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure.
+services: data-factory
+documentationcenter: ''
+author: spelluru
+manager: jhubbard
+editor: monicar
 
-<tags
-    ms.service="data-factory"
-    ms.workload="data-services"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/22/2016"
-    ms.author="spelluru"/>
+ms.service: data-factory
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/22/2016
+ms.author: spelluru
 
-
+---
 # <a name="data-factory-scheduling-and-execution"></a>Programación y ejecución de Data Factory
 En este artículo se explican los aspectos de programación y ejecución del modelo de aplicación de Azure Data Factory. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se presupone que comprende los conceptos básicos del modelo de aplicación de Data Factory, como la actividad, las canalizaciones, los servicios vinculados y los conjuntos de datos. Para los conceptos básicos de Azure Data Factory, consulte los artículos siguientes:
 
-- [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
-- [Procesos](data-factory-create-pipelines.md)
-- [Conjuntos de datos](data-factory-create-datasets.md) 
+* [Introducción al servicio Factoría de datos de Azure](data-factory-introduction.md)
+* [Procesos](data-factory-create-pipelines.md)
+* [Conjuntos de datos](data-factory-create-datasets.md) 
 
 ## <a name="schedule-an-activity"></a>Programación de una actividad
-
 Con la sección de programación del JSON de actividad, puede especificar una programación recurrente para una actividad. Por ejemplo, puede programar una actividad cada hora de la manera siguiente:
 
     "scheduler": {
@@ -47,7 +45,6 @@ La propiedad **scheduler** admite las mismas subpropiedades que la propiedad **a
 Puede especificar propiedades de **programador** para una actividad, pero esta propiedad es **opcional**. Si especifica una propiedad, debe coincidir con el ritmo que indique en la definición del conjunto de datos de salida. Actualmente, el conjunto de datos de salida es lo que controla la programación, por lo que debe crear un conjunto de datos de salida aunque la actividad no genere ninguna salida. Si la actividad no toma ninguna entrada, puede omitir la creación del conjunto de datos de entrada.
 
 ## <a name="time-series-datasets-and-data-slices"></a>Conjuntos de datos y segmentos de datos de series temporales
-
 Los datos de series temporales son una secuencia continua de puntos de datos que consisten normalmente en mediciones sucesivas realizadas en un intervalo de tiempo. Ejemplos comunes de datos de series temporales incluyen datos de sensores y datos de telemetría de aplicación.
 
 Con Data Factory, puede procesar datos de series temporales por lotes con ejecuciones de actividad. Normalmente, hay un ritmo periódico en el que llegan los datos de entrada y los datos de salida tienen que producirse. Este ritmo se modela especificando la sección **availability** en el conjunto de datos de la manera siguiente:
@@ -70,7 +67,6 @@ Actualmente, Data Factory requiere que el programa especificado en la actividad 
 Para más información sobre las diferentes propiedades disponibles para la sección de disponibilidad, consulte [creación de conjuntos de datos](data-factory-create-datasets.md).
 
 ## <a name="move-data-from-sql-database-to-blob-storage"></a>Mover datos de SQL Database a Blob Storage
-
 Vamos a juntar todo y ponerlo en marcha mediante la creación de una canalización que copia datos de una tabla de Azure SQL Database en Azure Blob Storage cada hora.
 
 **Entrada: conjunto de datos de Azure SQL Database**
@@ -154,8 +150,6 @@ El valor **frequency** está establecido en **Hour** y **interval** está establ
 
 El valor **frequency** está establecido en **Hour** y **interval** está establecido en **1** en la sección de disponibilidad.
 
-
-
 **Actividad: actividad de copia**
 
     {
@@ -208,23 +202,24 @@ Cuando se ejecutan tres de los segmentos entre las 8 y las 11 a.m., los datos de
 
 Tras implementar la canalización, el blob de Azure se rellena de la manera siguiente:
 
--   Archivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con datos
-
-            10002345,334,2,2015-01-01 08:24:00.3130000
-            10002345,347,15,2015-01-01 08:24:00.6570000
-            10991568,2,7,2015-01-01 08:56:34.5300000
-
-    > [AZURE.NOTE] &lt;Guid&gt; se sustituye por un GUID real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
--   Archivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con datos:
-
-            10002345,334,1,2015-01-01 09:13:00.3900000
-            24379245,569,23,2015-01-01 09:25:00.3130000
-            16777799,21,115,2015-01-01 09:47:34.3130000
--   Archivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sin datos.
-
+* Archivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con datos
+  
+          10002345,334,2,2015-01-01 08:24:00.3130000
+          10002345,347,15,2015-01-01 08:24:00.6570000
+          10991568,2,7,2015-01-01 08:56:34.5300000
+  
+  > [!NOTE]
+  > &lt;Guid&gt; se sustituye por un GUID real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
+  > 
+  > 
+* Archivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con datos:
+  
+          10002345,334,1,2015-01-01 09:13:00.3900000
+          24379245,569,23,2015-01-01 09:25:00.3130000
+          16777799,21,115,2015-01-01 09:47:34.3130000
+* Archivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sin datos.
 
 ## <a name="active-period-for-pipeline"></a>Período activo de canalización
-
 El artículo sobre la [creación de canalizaciones](data-factory-create-pipelines.md) introdujo el concepto de período activo para una canalización especificada mediante la configuración de las propiedades **start** y **end**.
 
 Puede establecer la fecha de inicio para el período activo de la canalización en el pasado. Data Factory calcula automáticamente (rellena hacia atrás) todos los segmentos de datos en el pasado y empieza a procesarlos.
@@ -232,7 +227,7 @@ Puede establecer la fecha de inicio para el período activo de la canalización 
 ## <a name="parallel-processing-of-data-slices"></a>Procesamiento en paralelo de segmentos de datos
 Puede configurar segmentos de datos de relleno de fondo para que se ejecuten en paralelo estableciendo la propiedad **concurrency** en la sección de directivas de la actividad JSON. Para obtener más información sobre esta propiedad, vea [Creación de canalizaciones](data-factory-create-pipelines.md).
 
-## <a name="rerun-a-failed-data-slice"></a>Volver a ejecutar un segmento de datos con errores 
+## <a name="rerun-a-failed-data-slice"></a>Volver a ejecutar un segmento de datos con errores
 Puede supervisar la ejecución de segmentos de manera visual enriquecida. Consulte [Supervisión y administración de canalizaciones mediante hojas de Azure Portal](data-factory-monitor-manage-pipelines.md) o [Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) para más información.
 
 Observe el ejemplo siguiente, que muestra dos actividades. Activity1 produce un conjunto de datos de series temporales con segmentos de salida que se han consumido como entrada por Activity2 para generar el conjunto de datos de series temporales de salida final.
@@ -252,8 +247,8 @@ Puede encadenar dos actividades (ejecutar una después de otra) haciendo que el 
 
 Por ejemplo, considere el siguiente caso:
 
-1.  La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de salida D2.
-2.  La canalización P2 incluye la actividad A2 que requiere una entrada del conjunto de datos D2 y genera el conjunto de datos de salida D3.
+1. La canalización P1 incluye la actividad A1 que requiere el conjunto de datos de entrada externo D1 y genera el conjunto de datos de salida D2.
+2. La canalización P2 incluye la actividad A2 que requiere una entrada del conjunto de datos D2 y genera el conjunto de datos de salida D3.
 
 En este escenario, las actividades A1 y A2 son canalizaciones diferentes. La actividad A1 se ejecuta cuando los datos externos están disponibles y se alcanza la frecuencia de disponibilidad programada. La actividad A2 se ejecuta cuando están disponibles los segmentos programados de D2 y se alcanza la frecuencia de disponibilidad programada. Si se produce un error en uno de los segmentos del conjunto de datos D2, A2 no se ejecuta para ese segmento hasta que está disponible.
 
@@ -452,17 +447,13 @@ Entradas: Dataset3, Dataset2. Salida: Dataset4.
 
 Observe que en el ejemplo, hay dos conjuntos de datos de entrada especificados para la segunda actividad de copia. Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. CopyActivity2 empezaría solo después de que se cumplen las condiciones siguientes:
 
-- ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usa al copiar datos en Dataset4. Solo actúa como una dependencia de programación de ActividadCopia2.   
-- ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
-
-
+* ActividadCopia1 se ha completado correctamente y ConjuntoDatos2 está disponible. Este conjunto de datos no se usa al copiar datos en Dataset4. Solo actúa como una dependencia de programación de ActividadCopia2.   
+* ConjuntoDatos3 está disponible. Este conjunto de datos representa los datos que se copian en el destino.  
 
 ## <a name="model-datasets-with-different-frequencies"></a>Modelado de conjuntos de datos con distintas frecuencias
-
 En los ejemplos, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Data Factory admite el modelado de estos escenarios.
 
 ### <a name="sample-1:-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Ejemplo 1: Generación de un informe de salida diario para los datos de entrada que esté disponibles cada hora
-
 Considere un escenario en el que tiene datos de medida de entrada de sensores disponibles cada hora en Azure Blob Storage. Quiere generar un informe agregado diario con estadísticas como media, máximo y mínimo para el día con la [actividad de Hive de Data Factory](data-factory-hive-activity.md).
 
 A continuación, se muestra cómo puede modelar este escenario con Data Factory:
@@ -498,7 +489,6 @@ Se quitan los archivos de entrada de cada hora en la carpeta para el día especi
 **Conjunto de datos de salida**
 
 Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en **Day** (frecuencia: día e intervalo: 1).
-
 
     {
       "name": "AzureBlobOutput",
@@ -578,9 +568,7 @@ El diagrama siguiente muestra el escenario desde el punto de vista de la depende
 
 El segmento de salida para cada día depende de 24 segmentos por hora del conjunto de datos de entrada. Data Factory calcula automáticamente estas dependencias al determinar los segmentos de datos de entrada que se encuentran en el mismo período de tiempo que el segmento de salida que se va a producir. Si cualquiera de los 24 segmentos de entrada no está disponible, Data Factory espera a que el segmento de entrada esté listo antes de empezar la ejecución de la actividad diaria.
 
-
 ### <a name="sample-2:-specify-dependency-with-expressions-and-data-factory-functions"></a>Ejemplo 2: Especificación de la dependencia con expresiones y funciones de Data Factory
-
 Consideremos otro escenario. Suponga que tiene una actividad de Hive que procesa dos conjuntos de datos de entrada. Uno de ellos tiene nuevos datos diariamente, pero otro obtiene datos nuevos cada semana. Supongamos que desea combinar las dos entradas y producir una salida cada día.
 
 El enfoque sencillo, en el que Data Factory determina automáticamente los segmentos de entrada correctos que se van a procesar al alinearlos con el período de los segmentos de datos de salida, no funciona.
@@ -725,12 +713,10 @@ La actividad de Hive toma las dos entradas y genera un segmento de salida cada d
     }
 
 
-## <a name="data-factory-functions-and-system-variables"></a>Funciones y variables del sistema de Data Factory   
-
+## <a name="data-factory-functions-and-system-variables"></a>Funciones y variables del sistema de Data Factory
 Para conocer la lista de funciones y variables del sistema que admite Data Factory, consulte el artículo [Azure Data Factory: funciones y variables del sistema](data-factory-functions-variables.md) .
 
 ## <a name="data-dependency-deep-dive"></a>Profundización en la dependencia de datos
-
 Con el fin de generar un segmento del conjunto de datos mediante la ejecución de una actividad, Data Factory usa el siguiente *modelo de dependencia* para determinar las relaciones entre los conjuntos de datos usados y los generados por una actividad.
 
 El intervalo de tiempo de los conjuntos de datos de entrada necesario para generar el segmento del conjunto de datos de salida se denomina *período de dependencia*.
@@ -751,7 +737,6 @@ Por ejemplo, en el ejemplo de agregación, en el que la salida se produce diaria
 También puede proporcionar su propia asignación para el período de dependencia, como se muestra en el ejemplo, donde una de las entradas es semanal y el segmento de salida se produce diariamente.
 
 ## <a name="data-dependency-and-validation"></a>Dependencia y validación de datos
-
 Un conjunto de datos puede tener una directiva de validación definida que especifique cómo se pueden validar los datos generados por la ejecución de un segmento antes de que esté listo para su uso. Consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md) para más información.
 
 En estos casos, cuando el segmento ha terminado de ejecutarse, el estado del mismo cambia a **En espera** con un subestado de **Validación**. Una vez validados los segmentos, el estado del segmento cambia a **Listo**.
@@ -761,7 +746,6 @@ Si se ha generado un segmento de datos, pero no ha pasado la validación, no se 
 [Supervisión y administración de canalizaciones](data-factory-monitor-manage-pipelines.md) se tratan los diversos estados de los segmentos de datos en Data Factory.
 
 ## <a name="external-data"></a>Datos externos
-
 Un conjunto de datos se puede marcar como externo (como se muestra en el fragmento de JSON), lo que implica que no se generó con Azure Data Factory. En tal caso, la directiva de conjunto de datos puede tener un conjunto de parámetros adicional que describe la validación adicional y la directiva de reintento para el conjunto de datos. Consulte [Creación de canalizaciones](data-factory-create-pipelines.md) para ver una descripción de todas las propiedades.
 
 De forma similar a los conjuntos de datos que produce Data Factory, los segmentos de datos externos deben estar preparados antes de que se puedan procesar los segmentos dependientes.
@@ -834,12 +818,10 @@ Puede crear y programar una canalización que se ejecute periódicamente (por ej
 
 Tenga en cuenta lo siguiente:
 
-- No se especifican las horas de **inicio** y **finalización** de la canalización.
-- La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.  
-- La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
-- Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
-
-
+* No se especifican las horas de **inicio** y **finalización** de la canalización.
+* La disponibilidad (**availability**) de los conjuntos de datos de entrada y salida se especifica (**frequency** e **interval**), incluso aunque Data Factory no use los valores.  
+* La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
+* Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
 <!--HONumber=Oct16_HO2-->
 

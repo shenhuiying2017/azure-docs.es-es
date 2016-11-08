@@ -1,29 +1,28 @@
-<properties
-	pageTitle="Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication"
-	description="Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365."
-	services="multi-factor-authentication"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor="curtland"/>
+---
+title: Creación de contraseñas de aplicación con el portal de Office 365 para Azure Multi-Factor Authentication
+description: Esta página muestra a los usuarios cómo pueden crear contraseñas de aplicación adicionales en el portal de Office 365.
+services: multi-factor-authentication
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: curtland
 
-<tags
-	ms.service="multi-factor-authentication"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/04/2016"
-	ms.author="kgremban"/>
+ms.service: multi-factor-authentication
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/04/2016
+ms.author: kgremban
 
+---
 # Creación o eliminación de contraseñas de aplicación en el portal de Office 365 para Azure Multi-Factor Authentication
-
 Si usa la autenticación multifactor con Office 365, le interesará crear contraseñas de aplicación a través del portal de Office 365.
 
 ## Creación de contraseñas de aplicación en el portal de Office 365
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Inicie sesión en el portal de Office 365</li>
 <li>En la esquina superior derecha seleccione el widget de configuración</li>
 <li>A la izquierda seleccione Comprobación de seguridad adicional</li>
@@ -46,9 +45,9 @@ Si usa la autenticación multifactor con Office 365, le interesará crear contra
 
 
 ## Para eliminar contraseñas de aplicación en el portal de Office 365
---------------------------------------------------------------------------------
-
+- - -
 <ol>
+
 <li>Inicie sesión en el portal de Office 365</li>
 <li>En la esquina superior derecha, seleccione el widget y elija la configuración de Office 365.</li>
 <li>En la parte inferior, haga clic en Comprobación de seguridad adicional y seleccione **Actualizar los números de teléfono usados para la seguridad de la cuenta**.3</li>

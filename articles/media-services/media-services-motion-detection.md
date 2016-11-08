@@ -1,26 +1,23 @@
-<properties
-    pageTitle="Detección de movimientos con Análisis multimedia de Azure | Microsoft Azure"
-    description="El procesador de multimedia (MP) Detector de movimiento multimedia de Azure permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono."
-    services="media-services"
-    documentationCenter=""
-    authors="juliako"
-    manager="erikre"
-    editor=""/>
+---
+title: Detección de movimientos con Análisis multimedia de Azure | Microsoft Docs
+description: El procesador de multimedia (MP) Detector de movimiento multimedia de Azure permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono.
+services: media-services
+documentationcenter: ''
+author: juliako
+manager: erikre
+editor: ''
 
-<tags
-    ms.service="media-services"
-    ms.workload="media"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/10/2016"  
-    ms.author="milanga;juliako;"/>
- 
+ms.service: media-services
+ms.workload: media
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: milanga;juliako;
 
+---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detección de movimientos con Análisis multimedia de Azure
-
-##<a name="overview"></a>Información general
-
+## <a name="overview"></a>Información general
 El procesador de multimedia (MP) **Detector de movimiento multimedia de Azure** permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono. La detección de movimiento se puede usar en grabaciones con cámara estática para identificar las secciones del vídeo donde se produjo el movimiento. Genera un archivo JSON que contiene metadatos con marcas de tiempo y la región delimitadora donde se produjo el evento.
 
 Orientada a las fuentes de vídeo de seguridad, esta tecnología puede clasificar el movimiento en eventos relevantes y falsos positivos, como sombras y cambios en la iluminación. Esto le permite generar alertas de seguridad a partir de las fuentes de las cámaras sin recibir correos no deseados con una cantidad interminable de eventos irrelevantes, a la vez que puede extraer momentos de interés a partir vídeos de vigilancia considerablemente extensos.
@@ -29,30 +26,24 @@ El MP **Detector de movimiento multimedia de Azure** está actualmente en versi�
 
 Este tema proporciona detalles sobre **Azure Media Motion Detector** y muestra cómo se usa con el SDK de Media Services para .NET
 
-
-##<a name="motion-detector-input-files"></a>Archivos de entrada del Detector de movimiento
-
+## <a name="motion-detector-input-files"></a>Archivos de entrada del Detector de movimiento
 Archivos de vídeo. Actualmente, se admiten los siguientes formatos: MP4, MOV y WMV.
 
-##<a name="task-configuration-(preset)"></a>Configuración de tareas (valor predeterminado)
-
+## <a name="task-configuration-(preset)"></a>Configuración de tareas (valor predeterminado)
 Cuando cree una tarea con **Azure Media Motion Detector**, tiene que especificar una configuración preestablecida. 
 
-###<a name="parameters"></a>Parámetros
-
+### <a name="parameters"></a>Parámetros
 Puede usar los siguientes parámetros:
 
-Nombre|Opciones|Descripción|Valor predeterminado
----|---|---|---
-sensitivityLevel|Cadena: 'bajo', 'medio', 'alto'|Establece el nivel de sensibilidad que se usa para notificar los movimientos. Es necesario ajustarlo bien para controlar la cantidad de falsos positivos.|'medio'
-frameSamplingValue|Un número entero positivo|Establece la frecuencia con la que se ejecuta el algoritmo. 1 es en cada fotograma, 2 significa en uno de cada dos fotogramas y así sucesivamente.|1
-detectLightChange|Valor booleano: 'true', 'false'|Establece si se notifican los cambios de luz en los resultados|'False'
-mergeTimeThreshold|Xs-time: hh:mm:ss<br/>Ejemplo: 00:00:03|Especifica el período de tiempo entre eventos de movimiento donde 2 eventos se combinarán y se notifican como 1.|00:00:00
-detectionZones|Una matriz de zonas de detección:<br/>-La zona de detección es un array de 3 o más puntos<br/>-punto es una coordenada x y de 0 a 1.|Describe la lista de zonas de detección poligonal que se usan.<br/>Los resultados aparecerán con las zonas como un identificador, siendo el primero 'id': 0|Zona única que abarca todo el marco.
+| Nombre | Opciones | Descripción | Valor predeterminado |
+| --- | --- | --- | --- |
+| sensitivityLevel |Cadena: 'bajo', 'medio', 'alto' |Establece el nivel de sensibilidad que se usa para notificar los movimientos. Es necesario ajustarlo bien para controlar la cantidad de falsos positivos. |'medio' |
+| frameSamplingValue |Un número entero positivo |Establece la frecuencia con la que se ejecuta el algoritmo. 1 es en cada fotograma, 2 significa en uno de cada dos fotogramas y así sucesivamente. |1 |
+| detectLightChange |Valor booleano: 'true', 'false' |Establece si se notifican los cambios de luz en los resultados |'False' |
+| mergeTimeThreshold |Xs-time: hh:mm:ss<br/>Ejemplo: 00:00:03 |Especifica el período de tiempo entre eventos de movimiento donde 2 eventos se combinarán y se notifican como 1. |00:00:00 |
+| detectionZones |Una matriz de zonas de detección:<br/>-La zona de detección es un array de 3 o más puntos<br/>-punto es una coordenada x y de 0 a 1. |Describe la lista de zonas de detección poligonal que se usan.<br/>Los resultados aparecerán con las zonas como un identificador, siendo el primero 'id': 0 |Zona única que abarca todo el marco. |
 
-###<a name="json-example"></a>Ejemplo JSON
-
-    
+### <a name="json-example"></a>Ejemplo JSON
     {
       'version': '1.0',
       'options': {
@@ -82,35 +73,36 @@ detectionZones|Una matriz de zonas de detección:<br/>-La zona de detección es 
     }
 
 
-##<a name="motion-detector-output-files"></a>Archivos de salida del Detector de movimiento
-
+## <a name="motion-detector-output-files"></a>Archivos de salida del Detector de movimiento
 Un trabajo de detección de movimiento devolverá un archivo JSON en el recurso de salida, el que describe las alertas de movimiento y sus categorías dentro del vídeo. El archivo contendrá información sobre el tiempo y la duración del movimiento detectado en el vídeo.
 
 La API del Detector de movimiento brinda indicadores una vez que hay objetos en movimiento en un vídeo de fondo fijo (por ejemplo, un vídeo de vigilancia). El Detector de movimiento está entrenado para disminuir las alarmas falsas, como cambios de iluminación y sombras. Las limitaciones actuales de los algoritmos incluyen vídeos con visión nocturna, objetos semitransparentes y objetos pequeños.
 
-###<a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
-
->[AZURE.NOTE]En la versión más reciente, el formato JSON de salida ha cambiado y puede representar un cambio importante para algunos clientes.
+### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
+> [!NOTE]
+> En la versión más reciente, el formato JSON de salida ha cambiado y puede representar un cambio importante para algunos clientes.
+> 
+> 
 
 En la tabla siguiente, se describen elementos del archivo JSON de salida.
 
-Elemento|Descripción
----|---
-Versión|Esto se refiere a la versión de la API de vídeo. La versión actual es 2.
-Escala de tiempo|"Tics" por segundo del vídeo.
-Offset|La diferencia de tiempo para las marcas de tiempo en "tics". En la versión 1.0 de las API de vídeo, será siempre 0. En los escenarios futuros que se admitan, este valor puede cambiar.
-Framerate|Fotogramas por segundo del vídeo.
-Ancho, alto|Se refiere al ancho y alto del vídeo en píxeles.
-Iniciar|La marca de tiempo de inicio en "tics".
-Duración|La longitud del evento, en "tics".
-Intervalo|El intervalo de cada entrada del evento, en "tics".
-Eventos|Cada fragmento de evento contiene el movimiento detectado dentro de esa duración.
-Tipo|En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras.
-RegionID|Tal como se explicó anteriormente, este valor siempre será 0 en esta versión. Esta etiqueta brinda a la API de vídeo la flexibilidad para encontrar el movimiento en diversas regiones en las versiones futuras.
-Regiones|Se refiere al área del vídeo donde le interesa el movimiento. <br/><br/>-"id" representa el área de la región: en esta versión es solo una, Id. 0. <br/>-"tipo" representa la forma de la región que le interesa para un movimiento. Actualmente, se admiten los valores "rectángulo" y "polígono".<br/> Si especifica "rectángulo", las dimensiones de la región son X, Y, ancho y alto. Las coordenadas X e Y representan las coordenadas XY del lado superior izquierdo de la región en una escala normalizada de 0,0 a 1,0. El ancho y el alto representan el tamaño de la región en una escala normalizada de 0,0 a 1,0. En la versión actual, X, Y, ancho y alto son valores fijos siempre en 0, 0 y 1, 1. <br/>Si especifica "polígono", la región tiene dimensiones en puntos. <br/>
-Fragments|Los metadatos se separan en diferentes segmentos denominados fragmentos. Cada fragmento contiene un inicio, una duración, un número de intervalo y eventos. Un fragmento sin eventos significa que no se detectó movimiento durante esa hora de inicio y la duración.
-Corchetes []|Cada corchete representa un intervalo del evento. Si ese intervalo contiene corchetes vacíos, significa que no se detectó movimiento.
-Ubicaciones|Esta nueva entrada de eventos muestra la ubicación donde se produjo el movimiento. Se trata de un valor más específico que las zonas de detección.
+| Elemento | Descripción |
+| --- | --- |
+| Versión |Esto se refiere a la versión de la API de vídeo. La versión actual es 2. |
+| Escala de tiempo |"Tics" por segundo del vídeo. |
+| Offset |La diferencia de tiempo para las marcas de tiempo en "tics". En la versión 1.0 de las API de vídeo, será siempre 0. En los escenarios futuros que se admitan, este valor puede cambiar. |
+| Framerate |Fotogramas por segundo del vídeo. |
+| Ancho, alto |Se refiere al ancho y alto del vídeo en píxeles. |
+| Iniciar |La marca de tiempo de inicio en "tics". |
+| Duración |La longitud del evento, en "tics". |
+| Intervalo |El intervalo de cada entrada del evento, en "tics". |
+| Eventos |Cada fragmento de evento contiene el movimiento detectado dentro de esa duración. |
+| Tipo |En la versión actual, este valor siempre es "2" para el movimiento genérico. Esta etiqueta brinda a las API de vídeo la flexibilidad para clasificar el movimiento en las versiones futuras. |
+| RegionID |Tal como se explicó anteriormente, este valor siempre será 0 en esta versión. Esta etiqueta brinda a la API de vídeo la flexibilidad para encontrar el movimiento en diversas regiones en las versiones futuras. |
+| Regiones |Se refiere al área del vídeo donde le interesa el movimiento. <br/><br/>-"id" representa el área de la región: en esta versión es solo una, Id. 0. <br/>-"tipo" representa la forma de la región que le interesa para un movimiento. Actualmente, se admiten los valores "rectángulo" y "polígono".<br/> Si especifica "rectángulo", las dimensiones de la región son X, Y, ancho y alto. Las coordenadas X e Y representan las coordenadas XY del lado superior izquierdo de la región en una escala normalizada de 0,0 a 1,0. El ancho y el alto representan el tamaño de la región en una escala normalizada de 0,0 a 1,0. En la versión actual, X, Y, ancho y alto son valores fijos siempre en 0, 0 y 1, 1. <br/>Si especifica "polígono", la región tiene dimensiones en puntos. <br/> |
+| Fragments |Los metadatos se separan en diferentes segmentos denominados fragmentos. Cada fragmento contiene un inicio, una duración, un número de intervalo y eventos. Un fragmento sin eventos significa que no se detectó movimiento durante esa hora de inicio y la duración. |
+| Corchetes [] |Cada corchete representa un intervalo del evento. Si ese intervalo contiene corchetes vacíos, significa que no se detectó movimiento. |
+| Ubicaciones |Esta nueva entrada de eventos muestra la ubicación donde se produjo el movimiento. Se trata de un valor más específico que las zonas de detección. |
 
 El siguiente es un ejemplo de salida JSON
 
@@ -155,22 +147,19 @@ El siguiente es un ejemplo de salida JSON
                 "regionId": 0
               }
             ],
-    
+
     …
-##<a name="limitations"></a>Limitaciones
-
-- Los formatos de vídeo de entrada admitidos incluyen MP4, MOV y WMV.
-- La detección de movimiento está optimizada para los vídeos de fondo fijos. El algoritmo se centra en disminuir las alarmas falsas, como cambios en la iluminación y sombras.
-- Es posible que no se detecten ciertos movimientos debido a desafíos técnicos; por ejemplo, vídeos con visión nocturna, objetos semitransparentes y objetos pequeños.
-
+## <a name="limitations"></a>Limitaciones
+* Los formatos de vídeo de entrada admitidos incluyen MP4, MOV y WMV.
+* La detección de movimiento está optimizada para los vídeos de fondo fijos. El algoritmo se centra en disminuir las alarmas falsas, como cambios en la iluminación y sombras.
+* Es posible que no se detecten ciertos movimientos debido a desafíos técnicos; por ejemplo, vídeos con visión nocturna, objetos semitransparentes y objetos pequeños.
 
 ## <a name="sample-code"></a>Código de ejemplo
-
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
-1. Crear un trabajo con una tarea de detección de movimiento de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado JSON. 
-                    
+2. Crear un trabajo con una tarea de detección de movimiento de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado JSON. 
+   
         {
           'Version': '1.0',
           'Options': {
@@ -198,9 +187,8 @@ El programa siguiente muestra cómo:
             ]
           }
         }
-
-1. Descargar los archivos JSON de salida. 
-         
+3. Descargar los archivos JSON de salida. 
+   
         using System;
         using System.Configuration;
         using System.IO;
@@ -208,7 +196,7 @@ El programa siguiente muestra cómo:
         using Microsoft.WindowsAzure.MediaServices.Client;
         using System.Threading;
         using System.Threading.Tasks;
-        
+   
         namespace VideoMotionDetection
         {
             class Program
@@ -218,70 +206,70 @@ El programa siguiente muestra cómo:
                     ConfigurationManager.AppSettings["MediaServicesAccountName"];
                 private static readonly string _mediaServicesAccountKey =
                     ConfigurationManager.AppSettings["MediaServicesAccountKey"];
-        
+   
                 // Field for service context.
                 private static CloudMediaContext _context = null;
                 private static MediaServicesCredentials _cachedCredentials = null;
-        
+   
                 static void Main(string[] args)
                 {
-        
+   
                     // Create and cache the Media Services credentials in a static class variable.
                     _cachedCredentials = new MediaServicesCredentials(
                                     _mediaServicesAccountName,
                                     _mediaServicesAccountKey);
                     // Used the cached credentials to create CloudMediaContext.
                     _context = new CloudMediaContext(_cachedCredentials);
-        
+   
                     // Run the VideoMotionDetection job.
                     var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
                                                 @"C:\supportFiles\VideoMotionDetection\config.json");
-        
+   
                     // Download the job output asset.
                     DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
                 }
-        
+   
                 static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
                 {
                     // Create an asset and upload the input media file to storage.
                     IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                         "My Video Motion Detection Input Asset",
                         AssetCreationOptions.None);
-        
+   
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("My Video Motion Detection Job");
-        
+   
                     // Get a reference to Azure Media Motion Detector.
                     string MediaProcessorName = "Azure Media Motion Detector";
-        
+   
                     var processor = GetLatestMediaProcessorByName(MediaProcessorName);
-        
+   
                     // Read configuration from the specified file.
                     string configuration = File.ReadAllText(configurationFile);
-        
+   
                     // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
                         processor,
                         configuration,
                         TaskOptions.None);
-        
+   
                     // Specify the input asset.
                     task.InputAssets.Add(asset);
-        
+   
                     // Add an output asset to contain the results of the job.
                     task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
-        
+   
                     // Use the following event handler to check job progress.  
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
-        
+   
                     // Launch the job.
                     job.Submit();
-        
+   
                     // Check job execution and wait for job to finish.
                     Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
-        
+   
                     progressJobTask.Wait();
-        
+   
                     // If job state is Error, the event handling
                     // method for job progress should log errors.  Here we check
                     // for error state and exit if needed.
@@ -293,20 +281,20 @@ El programa siguiente muestra cómo:
                                                         error.Message));
                         return null;
                     }
-        
+   
                     return job.OutputMediaAssets[0];
                 }
-        
+   
                 static IAsset CreateAssetAndUploadSingleFile(string filePath, string assetName, AssetCreationOptions options)
                 {
                     IAsset asset = _context.Assets.Create(assetName, options);
-        
+   
                     var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
                     assetFile.Upload(filePath);
-        
+   
                     return asset;
                 }
-        
+   
                 static void DownloadAsset(IAsset asset, string outputDirectory)
                 {
                     foreach (IAssetFile file in asset.AssetFiles)
@@ -314,7 +302,7 @@ El programa siguiente muestra cómo:
                         file.Download(Path.Combine(outputDirectory, file.Name));
                     }
                 }
-        
+   
                 static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
                 {
                     var processor = _context.MediaProcessors
@@ -322,20 +310,20 @@ El programa siguiente muestra cómo:
                         .ToList()
                         .OrderBy(p => new Version(p.Version))
                         .LastOrDefault();
-        
+   
                     if (processor == null)
                         throw new ArgumentException(string.Format("Unknown media processor",
                                                                    mediaProcessorName));
-        
+   
                     return processor;
                 }
-        
+   
                 static private void StateChanged(object sender, JobStateChangedEventArgs e)
                 {
                     Console.WriteLine("Job state changed event:");
                     Console.WriteLine("  Previous state: " + e.PreviousState);
                     Console.WriteLine("  Current state: " + e.CurrentState);
-        
+   
                     switch (e.CurrentState)
                     {
                         case JobState.Finished:
@@ -360,27 +348,22 @@ El programa siguiente muestra cómo:
                             break;
                     }
                 }
-        
+   
             }
         }
 
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-##<a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
+## <a name="provide-feedback"></a>Envío de comentarios
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
-##<a name="provide-feedback"></a>Envío de comentarios
-
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##<a name="related-links"></a>Vínculos relacionados
+## <a name="related-links"></a>Vínculos relacionados
 [Blog de Azure Media Services Motion Detector](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Información general de análisis de Servicios multimedia de Azure](media-services-analytics-overview.md)
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
-
 
 <!--HONumber=Oct16_HO2-->
 

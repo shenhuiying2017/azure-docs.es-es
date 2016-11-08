@@ -1,29 +1,29 @@
 
-<properties
-    pageTitle="Flujo de credenciales de cliente de la versión 2.0 de OAuth de Azure | Microsoft Azure"
-    description="Creación de aplicaciones web mediante la implementación del protocolo de autenticación OAuth 2.0 de Azure AD."
-    services="active-directory"
-    documentationCenter=""
-    authors="dstrockis"
-    manager="msmbaldwin"
-    editor=""/>
+---
+title: Flujo de credenciales de cliente de la versión 2.0 de OAuth de Azure | Microsoft Docs
+description: Creación de aplicaciones web mediante la implementación del protocolo de autenticación OAuth 2.0 de Azure AD.
+services: active-directory
+documentationcenter: ''
+author: dstrockis
+manager: msmbaldwin
+editor: ''
 
-<tags
-    ms.service="active-directory"
-    ms.workload="identity"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="09/26/2016"
-    ms.author="dastrock"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/26/2016
+ms.author: dastrock
 
-
+---
 # <a name="v2.0-protocols---oauth-2.0-client-credentials-flow"></a>Protocolos de la versión 2.0: flujo de credenciales de cliente de OAuth 2.0
-
 La [concesión de credenciales de cliente de OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4), a veces denominada "OAuth de dos vías", puede utilizarse para acceder a los recursos hospedados en la web mediante el uso la identidad de una aplicación.  Normalmente, se utiliza para las interacciones de servidor a servidor que deben ejecutarse en segundo plano sin la presencia inmediata de un usuario final.  Estos tipos de aplicaciones suelen denominarse **demonios** o **cuentas de servicio**.
 
-> [AZURE.NOTE]
-    No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> [!NOTE]
+> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe utilizar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> 
+> 
 
 En el escenario más típico tres OAuth de tres vías, una aplicación cliente tiene permiso para acceder a un recurso en nombre de un usuario determinado.  El permiso se **delega** del usuario a aplicación, normalmente, durante el proceso de [consentimiento](active-directory-v2-scopes.md) .  Sin embargo, en el flujo de credenciales de cliente, los permisos se conceden **directamente** en la propia aplicación.  Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar alguna acción, y no algún usuario.
 
@@ -32,7 +32,7 @@ El flujo entero de credenciales de cliente tiene un aspecto similar a lo que se 
 
 ![Flujo de credenciales de cliente](../media/active-directory-v2-flows/convergence_scenarios_client_creds.png)
 
-## <a name="get-direct-authorization"></a>Obtención de autorización directa 
+## <a name="get-direct-authorization"></a>Obtención de autorización directa
 Hay dos maneras de que una aplicación obtenga normalmente autorización directa para acceder a un recurso: a través de una lista de control de acceso en el recurso o asignando permisos de aplicación en Azure AD.  Existen otras formas un recurso de que un recurso pueda autorizar a sus clientes, y de cada servidor de recursos pueda elegir el método que más convenga a su aplicación.  Estos dos métodos son las más comunes en Azure AD y se recomiendan para los clientes y recursos que quieren realizar el flujo de credenciales de cliente.
 
 ### <a name="access-control-lists"></a>Listas de control de acceso
@@ -45,28 +45,25 @@ Este tipo de autorización es común para las cuentas de servicio y los demonios
 ### <a name="application-permissions"></a>Permisos de aplicación
 En lugar de utilizar las ACL, las API pueden exponer un conjunto de **permisos de aplicación** que se pueden conceder a una aplicación.  El administrador de una organización concede un permiso de aplicación y solo puede utilizarse para tener acceso a datos que pertenecen a dicha organización y sus empleados.  Por ejemplo, Microsoft Graph expone varios permisos de aplicación:
 
-- Lectura correo en todos los buzones de correo
-- Lectura y escritura en todos los buzones de correo
-- Envío de correo como cualquier usuario
-- Lectura de datos de directorio
-- [Y mucho más](https://graph.microsoft.io)
+* Lectura correo en todos los buzones de correo
+* Lectura y escritura en todos los buzones de correo
+* Envío de correo como cualquier usuario
+* Lectura de datos de directorio
+* [Y mucho más](https://graph.microsoft.io)
 
 Para obtener estos permisos en su aplicación, puede realizar los pasos siguientes.
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
-
-- Navegue a la aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o [cree una aplicación](active-directory-v2-app-registration.md) si no lo ha hecho aún.  Tendrá que asegurarse de que la aplicación ha creado, al menos, un secreto de aplicación.
-- Busque la sección de **permisos directos de aplicación** y agregue los permisos que requiere la aplicación.
-- No se olvide de **guardar** el registro de aplicaciones
+* Navegue a la aplicación en [apps.dev.microsoft.com](https://apps.dev.microsoft.com) o [cree una aplicación](active-directory-v2-app-registration.md) si no lo ha hecho aún.  Tendrá que asegurarse de que la aplicación ha creado, al menos, un secreto de aplicación.
+* Busque la sección de **permisos directos de aplicación** y agregue los permisos que requiere la aplicación.
+* No se olvide de **guardar** el registro de aplicaciones
 
 #### <a name="recommended:-sign-the-user-into-your-app"></a>Recomendación: iniciar la sesión del en la aplicación
-
 Normalmente, al compilar una aplicación que usa permisos de aplicación, esta tendrá que tener una página o vista que permita la administración para aprobar los permisos de la aplicación.  Esta página puede formar parte del flujo de registro de la aplicación, de la configuración de la aplicación o de un flujo de conexión específico.  En muchos casos, tiene sentido que la aplicación muestre esta vista de conexión solo después de que un usuario haya iniciado sesión con una cuenta Microsoft profesional o educativa.
 
 Iniciar la sesión del usuario en la aplicación permite identificar la organización a la que pertenece el usuario antes de pedirle aprobar los permisos de aplicación.  Aunque no es estrictamente necesario, puede ayudarlo a crear una experiencia más intuitiva para los usuarios de la organización.  Para iniciar la sesión del usuario, siga nuestros [tutoriales del protocolo de la versión 2.0](active-directory-v2-protocols.md).
 
 #### <a name="request-the-permissions-from-a-directory-admin"></a>Solicitud de los permisos de un administrador de directorios
-
 Cuando esté listo para solicitar permisos del administrador de la empresa, puede redirigir al usuario a la versión 2.0 del **punto de conexión de consentimiento del administrador**.
 
 ```
@@ -86,12 +83,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Parámetro | | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| tenant | requerido | El inquilino de directorio al que quiere solicitar permiso.  Se pueden proporcionar en formato de nombre descriptivo o GUID.  Si no sabe a qué inquilino pertenece el usuario y quiere permitirle que inicie sesión con cualquier inquilino, utilice `common`. |
-| client_id | requerido | El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
-| redirect_uri | requerido | El elemento redirect_uri donde desea que se envíe la respuesta para que se controle la aplicación.  Debe coincidir exactamente con uno de los elementos redirect_uri que registró en el portal, con la excepción de que debe estar codificado como URL y que pueden tener segmentos de ruta adicionales. |
-| state | recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token.  Puede ser una cadena de cualquier contenido que desee.  El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
+| Parámetro |  | Description |
+| --- | --- | --- |
+| tenant |requerido |El inquilino de directorio al que quiere solicitar permiso.  Se pueden proporcionar en formato de nombre descriptivo o GUID.  Si no sabe a qué inquilino pertenece el usuario y quiere permitirle que inicie sesión con cualquier inquilino, utilice `common`. |
+| client_id |requerido |El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
+| redirect_uri |requerido |El elemento redirect_uri donde desea que se envíe la respuesta para que se controle la aplicación.  Debe coincidir exactamente con uno de los elementos redirect_uri que registró en el portal, con la excepción de que debe estar codificado como URL y que pueden tener segmentos de ruta adicionales. |
+| state |recomendado |Un valor incluido en la solicitud que se devolverá también en la respuesta del token.  Puede ser una cadena de cualquier contenido que desee.  El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 
 En este momento, Azure AD exigirá que solo un administrador de inquilinos pueda iniciar sesión para completar la solicitud.  Se pedirá al administrador que apruebe todos los permisos de aplicación directos que ha solicitado para la aplicación en el portal de registro. 
 
@@ -103,11 +100,10 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 ```
 
 | Parámetro | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| tenant | El inquilino de directorio que concedió los permisos solicitados, en formato GUID. |
-| state | Un valor incluido en la solicitud que se devolverá también en la respuesta del token.  Puede ser una cadena de cualquier contenido que desee.  El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| admin_consent | Se establecerá en `True`. |
-
+| --- | --- | --- |
+| tenant |El inquilino de directorio que concedió los permisos solicitados, en formato GUID. |
+| state |Un valor incluido en la solicitud que se devolverá también en la respuesta del token.  Puede ser una cadena de cualquier contenido que desee.  El estado se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
+| admin_consent |Se establecerá en `True`. |
 
 ##### <a name="error-response"></a>Respuesta de error
 Si el administrador no aprueba los permisos de la aplicación, la respuesta error será la siguiente:
@@ -117,9 +113,9 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 ```
 
 | Parámetro | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
-| error_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error.  |
+| --- | --- | --- |
+| error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
+| error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error. |
 
 Una vez que haya recibido una respuesta correcta del punto de conexión de aprovisionamiento de la aplicación, esta habrá obtenida los permisos de aplicación directos que solicitó.  Ahora puede pasar a solicitar un token para el recurso deseado.
 
@@ -138,12 +134,12 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microso
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Parámetro | | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| client_id | requerido | El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
-| ámbito | requerido | El valor pasado para el parámetro `scope` en esta solicitud debe ser el identificador de recursos (el URI de id. de la aplicación) del recurso deseado, con el sufijo `.default`.  Por tanto, para el ejemplo de Microsoft Graph, el valor debe ser `https://graph.microsoft.com/.default`.  Este valor indica el punto de conexión v2.0 de todos los permisos de aplicación directos que ha configurado para la aplicación, debe emitir un token para aquellos relacionados con el recurso deseado. |
-| client_secret | requerido | El secreto de aplicación que creó en el portal de registro de aplicaciones para su aplicación. |
-| grant_type | requerido | Debe ser `client_credentials`. | 
+| Parámetro |  | Description |
+| --- | --- | --- |
+| client_id |requerido |El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com)) asignó a su aplicación. |
+| ámbito |requerido |El valor pasado para el parámetro `scope` en esta solicitud debe ser el identificador de recursos (el URI de id. de la aplicación) del recurso deseado, con el sufijo `.default`.  Por tanto, para el ejemplo de Microsoft Graph, el valor debe ser `https://graph.microsoft.com/.default`.  Este valor indica el punto de conexión v2.0 de todos los permisos de aplicación directos que ha configurado para la aplicación, debe emitir un token para aquellos relacionados con el recurso deseado. |
+| client_secret |requerido |El secreto de aplicación que creó en el portal de registro de aplicaciones para su aplicación. |
+| grant_type |requerido |Debe ser `client_credentials`. |
 
 #### <a name="successful-response"></a>Respuesta correcta
 Una respuesta correcta adoptará el siguiente formato:
@@ -157,10 +153,10 @@ Una respuesta correcta adoptará el siguiente formato:
 ```
 
 | Parámetro | Description |
-| ----------------------- | ------------------------------- |
-| access_token | El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web. |
-| token_type | Indica el valor de tipo de token. El único tipo que admite Azure AD es `Bearer`.  |
-| expires_in | Durante cuánto tiempo es válido el token de acceso (en segundos). |
+| --- | --- |
+| access_token |El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web. |
+| token_type |Indica el valor de tipo de token. El único tipo que admite Azure AD es `Bearer`. |
+| expires_in |Durante cuánto tiempo es válido el token de acceso (en segundos). |
 
 #### <a name="error-response"></a>Respuesta de error
 Una respuesta de error tendrá el siguiente formato:
@@ -179,13 +175,13 @@ Una respuesta de error tendrá el siguiente formato:
 ```
 
 | Parámetro | Description |
-| ----------------------- | ------------------------------- |
-| error | Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
-| error_description | Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación.  |
-| error_codes | Una lista de los códigos de error específicos de STS que pueden ayudar en los diagnósticos.  |
-| timestamp | La hora a la que se produjo el error. |
-| trace_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos.  |
-| correlation_id | Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
+| --- | --- |
+| error |Una cadena de código de error que puede utilizarse para clasificar los tipos de errores que se producen y para reaccionar ante ellos. |
+| error_description |Un mensaje de error específico que puede ayudar a un desarrollador a identificar la causa de un error de autenticación. |
+| error_codes |Una lista de los códigos de error específicos de STS que pueden ayudar en los diagnósticos. |
+| timestamp |La hora a la que se produjo el error. |
+| trace_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos. |
+| correlation_id |Un identificador exclusivo para la solicitud que puede ayudar en los diagnósticos entre componentes. |
 
 ## <a name="use-a-token"></a>Uso de un token
 Ahora que ha obtenido un token, puede utilizarlo para realizar solicitudes al recurso.  Cuando expira el token, basta con repetir la solicitud al punto de conexión `/token` para obtener un token de acceso nuevo.
@@ -206,7 +202,6 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## <a name="code-sample"></a>Código de ejemplo
 Para ver un ejemplo de una aplicación que implementa la concesión de client_credentials mediante el punto de conexión de consentimiento del administrador, consulte nuestro [ejemplo de código de demonio versión 2.0](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
-
 
 <!--HONumber=Oct16_HO2-->
 

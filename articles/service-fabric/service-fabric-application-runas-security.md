@@ -1,22 +1,21 @@
-<properties
-   pageTitle="Descripción de las directivas de seguridad del servicio y de la aplicación Service Fabric | Microsoft Azure"
-   description="Información general sobre cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad locales y del sistema, incluido el punto SetupEntry en el que una aplicación necesita realizar alguna acción con privilegios antes de iniciarse"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="msfussell"
-   manager="timlt"
-   editor=""/>
+---
+title: Descripción de las directivas de seguridad del servicio y de la aplicación Service Fabric | Microsoft Docs
+description: Información general sobre cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad locales y del sistema, incluido el punto SetupEntry en el que una aplicación necesita realizar alguna acción con privilegios antes de iniciarse
+services: service-fabric
+documentationcenter: .net
+author: msfussell
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="09/22/2016"
-   ms.author="mfussell"/>
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/22/2016
+ms.author: mfussell
 
-
+---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
 Azure Service Fabric permite proteger aplicaciones que se ejecutan en el clúster en distintas cuentas de usuario. También protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario, como archivos, directorios y certificados. Esto permite proteger las aplicaciones en ejecución, incluso en un entorno hospedado compartido, unas de otras. 
 
@@ -27,7 +26,6 @@ De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la mi
 Se pueden definir y crear grupos de usuarios, con el fin de que se puedan agregar uno o varios usuarios a cada grupo para poder administrarlos de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo.
 
 ## <a name="configure-the-policy-for-service-setupentrypoint"></a>Configuración de la directiva del SetupEntryPoint del servicio
-
 Como se describe en [Modelar una aplicación en Service Fabric](service-fabric-application-model.md) , **SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *NetworkService* ) antes que cualquier otro punto de entrada. El ejecutable que especifica **EntryPoint** suele ser el host de servicios de ejecución prolongada, por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el host de servicios con privilegios elevados durante largos períodos. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea.
 
 A continuación aparece un ejemplo de manifiesto de servicio básico que muestra SetupEntryPoint y el EntryPoint principal del servicio.
@@ -57,7 +55,6 @@ A continuación aparece un ejemplo de manifiesto de servicio básico que muestra
 ~~~
 
 ### <a name="configure-the-policy-using-a-local-account"></a>Configuración de la directiva mediante una cuenta local
-
 Tras configurar el servicio para que tenga un punto de entrada de configuración, puede cambiar los permisos de seguridad que ejecuta en el manifiesto de aplicación. En el ejemplo siguiente, se muestra cómo configurar el servicio para que se ejecute con privilegios de cuenta de administrador de usuarios.
 
 ~~~
@@ -117,7 +114,7 @@ Luego, anote el nombre del nodo donde el servicio se ha implementado e iniciado 
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-###  <a name="configure-the-policy-using-local-system-accounts"></a>Configuración de la directiva mediante cuentas de sistema locales
+### <a name="configure-the-policy-using-local-system-accounts"></a>Configuración de la directiva mediante cuentas de sistema locales
 A menudo es preferible ejecutar el script de inicio mediante una cuenta de sistema local en lugar de usar una cuenta de administrador, como se mostró anteriormente. Normalmente, el hecho de ejecutar la directiva RunAs como administrador no funciona bien, ya que las máquinas tienen el Control de acceso de usuario (UAC) habilitado de forma predeterminada. En estos casos, **la recomendación es ejecutar el SetupEntryPoint como LocalSystem en lugar de un usuario local agregado al grupo de administradores**. En el ejemplo siguiente, se muestra cómo establecer SetupEntryPoint para que se ejecute como LocalSystem.
 
 ~~~
@@ -138,9 +135,8 @@ A menudo es preferible ejecutar el script de inicio mediante una cuenta de siste
 </ApplicationManifest>
 ~~~
 
-##  <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Inicio de comandos de PowerShell desde un SetupEntryPoint
+## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Inicio de comandos de PowerShell desde un SetupEntryPoint
 Para ejecutar PowerShell desde el punto **SetupEntryPoint**, puede ejecutar **PowerShell.exe** en un archivo por lotes que apunte al archivo de PowerShell. En primer lugar, agregue un archivo de PowerShell al proyecto de servicio, por ejemplo, **MySetup.ps1**. No olvide configurar la propiedad *Copiar si es posterior* para que el archivo se incluya también en el paquete de servicio. El ejemplo siguiente muestra un archivo por lotes de ejemplo que inicia un archivo de PowerShell denominado MySetup.ps1, que establece una variable de entorno del sistema denominada **TestVariable**.
-
 
 MySetup.bat para iniciar el archivo de PowerShell.
 
@@ -191,7 +187,7 @@ Echo "Test console redirection which writes to the application log folder on the
 
 **Después de haber depurado la secuencia de comandos, quite inmediatamente esta directiva de redireccionamiento de consola.**
 
-## <a name="configure-policy-for-service-code-packages"></a>Configuración de la directiva para los paquetes de código del servicio 
+## <a name="configure-policy-for-service-code-packages"></a>Configuración de la directiva para los paquetes de código del servicio
 En los pasos anteriores se explicaba cómo aplicar la directiva RunAs a SetupEntryPoint. Ahora se explicará más detalladamente cómo crear diferentes entidades de seguridad que se pueden aplicar como directivas de servicio.
 
 ### <a name="create-local-user-groups"></a>Creación de grupos de usuarios locales
@@ -365,7 +361,6 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Pasos siguientes
-
 * [Entender el modelo de aplicación](service-fabric-application-model.md)
 * [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md)
 * [Implementar una aplicación](service-fabric-deploy-remove-applications.md)

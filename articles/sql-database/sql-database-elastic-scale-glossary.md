@@ -1,21 +1,21 @@
-<properties 
-    pageTitle="Glosario de las herramientas de Base de datos elástica | Microsoft Azure" 
-    description="Explicación de los términos usados en las herramientas de bases de datos elásticas" 
-    services="sql-database" 
-    documentationCenter="" 
-    manager="jhubbard" 
-    authors="ddove" 
-    editor=""/>
+---
+title: Glosario de las herramientas de Base de datos elástica | Microsoft Docs
+description: Explicación de los términos usados en las herramientas de bases de datos elásticas
+services: sql-database
+documentationcenter: ''
+manager: jhubbard
+author: ddove
+editor: ''
 
-<tags 
-    ms.service="sql-database" 
-    ms.workload="sql-database" 
-    ms.tgt_pltfrm="na" 
-    ms.devlang="na" 
-    ms.topic="article" 
-    ms.date="05/27/2016" 
-    ms.author="ddove"/>
+ms.service: sql-database
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/27/2016
+ms.author: ddove
 
+---
 # Glosario de las herramientas de bases de datos elásticas
 Los siguientes términos se definen para las [herramientas de Base de datos elástica](sql-database-elastic-scale-introduction.md), una característica de Base de datos SQL de Azure. Las herramientas se usan para administrar [mapas de particiones](sql-database-elastic-scale-shard-map-management.md) e incluyen la [biblioteca de cliente](sql-database-elastic-database-client-library.md), la [herramienta de división y combinación](sql-database-elastic-scale-overview-split-and-merge.md), los [grupos elásticos](sql-database-elastic-pool.md) y las [consultas](sql-database-elastic-query-overview.md).
 
@@ -65,9 +65,7 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 ![Asignaciones][2]
 
-
-##Verbos
-
+## Verbos
 **Escalado horizontal**: el acto de escalar (o reducir) horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.
 
 ![Escalado horizontal y vertical][3]
@@ -82,12 +80,12 @@ Aquí se muestra una representación de bases de datos de inquilino único y mul
 
 **Escalado vertical**: el acto de escalar (o reducir) verticalmente el nivel de rendimiento de una partición individual. Por ejemplo, cambiando una partición de Standard a Premium (lo que genera más recursos informáticos).
 
-[AZURE.INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
+[!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
 [2]: ./media/sql-database-elastic-scale-glossary/mappings.png
 [3]: ./media/sql-database-elastic-scale-glossary/h_versus_vert.png
- 
+
 
 <!---HONumber=AcomDC_0601_2016-->

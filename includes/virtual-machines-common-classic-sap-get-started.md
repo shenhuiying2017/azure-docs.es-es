@@ -1,6 +1,5 @@
 
 ## Planeamiento e implementación
-
 Título: SAP NetWeaver en máquinas virtuales de Azure: guía de planeación e implementación
 
 Resumen: Este es el documento por donde debe empezar si está pensando en ejecutar SAP NetWeaver en máquinas virtuales de Azure. Esta guía de planeación e implementación le ayudará a evaluar si un sistema basado SAP NetWeaver planeado o existente puede implementarse en un entorno de máquinas virtuales de Azure. Cubre varios escenarios de implementación de SAP NetWeaver e incluye configuraciones SAP específicas para Azure. Este documento enumera y describe toda la información de configuración necesaria que deberá tener al lado de SAP/Azure para ejecutar un entorno SAP híbrido. También cubre las medidas que se pueden tomar para garantizar una alta disponibilidad de los sistemas basados en SAP NetWeaver en IaaS.
@@ -8,6 +7,7 @@ Resumen: Este es el documento por donde debe empezar si está pensando en ejecut
 Actualizado: agosto de 2015
 
 [Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397963)
+
 ## Implementación
 Título: SAP NetWeaver en máquinas virtuales de Azure: Guía de implementación
 
@@ -27,7 +27,6 @@ Actualización: diciembre de 2015
 [Descargar esta guía ahora](http://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## SAP NetWeaver en Azure
-
 Título: SAP NetWeaver: creación de una solución de recuperación ante desastres basada en Azure
 
 Resumen: Este documento proporciona una guía paso a paso para crear una solución de recuperación ante desastres basada en Azure para SAP NetWeaver. La solución descrita asume que el entorno SAP se ejecuta en instalaciones locales virtualizadas basadas en Hyper-V. En la primera parte del documento, los servicios de Azure Site Recovery (ASR) se presentan en sus componentes. La segunda parte del documento describe características específicas para entornos basados en SAP NetWeaver. Se explican y describen las posibilidades de uso de ASR con instancias de aplicación de SAP NetWeaver y los servicios centrales de SAP. La segunda parte se centra en cómo usar ASR para los servicios centrales de SAP protegidos con configuraciones del clúster de conmutación por error de Windows Server.

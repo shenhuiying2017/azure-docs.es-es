@@ -1,22 +1,22 @@
-<properties
-	pageTitle="Azure AD Connect Sync: administración de la cuenta de servicio de Azure AD | Microsoft Azure"
-	description="En este tema se describe cómo restaurar la cuenta de servicio de Azure AD."
-	services="active-directory"
-    keywords="AADSTS70002, AADSTS50054, Procedimiento para restablecer la contraseña de la cuenta de servicio del conector de Azure AD Connect Sync"
-	documentationCenter=""
-	authors="andkjell"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD Connect Sync: administración de la cuenta de servicio de Azure AD | Microsoft Docs'
+description: En este tema se describe cómo restaurar la cuenta de servicio de Azure AD.
+services: active-directory
+keywords: AADSTS70002, AADSTS50054, Procedimiento para restablecer la contraseña de la cuenta de servicio del conector de Azure AD Connect Sync
+documentationcenter: ''
+author: andkjell
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/01/2016"
-	ms.author="andkjell"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/01/2016
+ms.author: andkjell
 
+---
 # Sincronización de Azure AD Connect: administración de la cuenta de servicio de Azure AD
 Se supone que la cuenta de servicio utilizada por el conector de Azure AD está libre de servicio. Si necesita restablecer sus credenciales, este tema le interesa. Por ejemplo, si un administrador global ha restablecido la contraseña por error en la cuenta de servicio mediante PowerShell.
 
@@ -32,17 +32,16 @@ Este cmdlet restablecerá la contraseña de la cuenta de servicio y la actualiza
 ## Problemas conocidos que pueden solucionarse siguiendo estos pasos
 Esta sección es una lista de los errores notificados por clientes que se solucionaron mediante un restablecimiento de las credenciales de la cuenta de servicio de Azure AD.
 
------------
+- - -
 Evento 6900: el servidor encontró un error inesperado al procesar una notificación de cambio de contraseña: AADSTS70002: error al validar las credenciales. AADSTS50054: se utilizó una contraseña antigua para realizar la autenticación.
 
-----------
+- - -
 Evento 659: error al recuperar la configuración de sincronización de directivas de contraseña. Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException: AADSTS70002: error al validar las credenciales. AADSTS50054: se utilizó una contraseña antigua para realizar la autenticación.
 
 ## Pasos siguientes
-
 **Temas de introducción**
 
-- [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
-- [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
+* [Sincronización de Azure AD Connect: comprender y personalizar la sincronización](active-directory-aadconnectsync-whatis.md)
+* [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
 <!---HONumber=AcomDC_0907_2016-->

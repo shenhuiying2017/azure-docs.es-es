@@ -1,46 +1,40 @@
-<properties
-    pageTitle="Crear y usar una SAS con Almacenamiento de blobs | Microsoft Azure"
-    description="En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Almacenamiento de blobs y cómo usarlas desde las aplicaciones cliente."
-    services="storage"
-    documentationCenter=""
-    authors="tamram"
-    manager="carmonm"
-    editor="tysonn"/>
+---
+title: Crear y usar una SAS con Almacenamiento de blobs | Microsoft Docs
+description: En este tutorial se muestra cómo crear firmas de acceso compartido para su uso con Almacenamiento de blobs y cómo usarlas desde las aplicaciones cliente.
+services: storage
+documentationcenter: ''
+author: tamram
+manager: carmonm
+editor: tysonn
 
-<tags
-    ms.service="storage"
-    ms.workload="storage"
-    ms.tgt_pltfrm="na"
-    ms.devlang="dotnet"
-    ms.topic="article"
-    ms.date="10/18/2016"
-    ms.author="tamram"/>
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 10/18/2016
+ms.author: tamram
 
-
-
+---
 # <a name="shared-access-signatures,-part-2:-create-and-use-a-sas-with-blob-storage"></a>Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs
-
 ## <a name="overview"></a>Información general
-
 [Parte 1](storage-dotnet-shared-access-signature-part-1.md) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para luego usarlas con Almacenamiento de blobs. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen los siguientes aspectos del uso de firmas de acceso compartido:
 
-- Generación de una firma de acceso compartido en un contenedor
-- Generación de una firma de acceso compartido en un blob
-- Creación de una directiva de acceso almacenada para administrar las firmas en los recursos de un contenedor
-- Comprobación de las firmas de acceso compartido de una aplicación cliente
+* Generación de una firma de acceso compartido en un contenedor
+* Generación de una firma de acceso compartido en un blob
+* Creación de una directiva de acceso almacenada para administrar las firmas en los recursos de un contenedor
+* Comprobación de las firmas de acceso compartido de una aplicación cliente
 
 ## <a name="about-this-tutorial"></a>Acerca de este tutorial
-
 En este tutorial, nos centraremos en la creación de firmas de acceso compartido para contenedores y blobs mediante la creación de dos aplicaciones de consola. La primera aplicación de consola genera firmas de acceso compartido en un contenedor y en un blob. Dicha aplicación conoce las claves de la cuenta de almacenamiento. La segunda aplicación de consola, que actuará como aplicación cliente, obtiene acceso a los recursos del contenedor y del blob mediante las firmas de acceso compartido creadas con la primera aplicación. Esta aplicación solo usa las firmas mencionadas para autenticar su acceso a los recursos del contenedor y del blob, pero no conoce las claves de la cuenta.
 
 ## <a name="part-1:-create-a-console-application-to-generate-shared-access-signatures"></a>Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido
-
 En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "paquete de NuGet") (en inglés) que contenga los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de contar con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión de [Azure SDK para .NET](https://azure.microsoft.com/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a los archivos **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll** de una de las siguientes formas:
 
--   Si quiere instalar el paquete NuGet, instale primero el [cliente NuGet](https://docs.nuget.org/consume/installing-nuget). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Azure Storage** y siga las instrucciones de instalación.
--   También puede buscar los ensamblados en la instalación del SDK de Azure y agregar referencias a estos.
+* Si quiere instalar el paquete NuGet, instale primero el [cliente NuGet](https://docs.nuget.org/consume/installing-nuget). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Azure Storage** y siga las instrucciones de instalación.
+* También puede buscar los ensamblados en la instalación del SDK de Azure y agregar referencias a estos.
 
 En la parte superior del archivo Program.cs, agregue las siguientes instrucciones **using** :
 
@@ -61,7 +55,6 @@ Edite el archivo app.config para que contenga un valor de configuración con una
     </configuration>
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Generación de un URI de firma de acceso compartido para un contenedor
-
 Para comenzar, se agregará un método para generar una firma de acceso compartido en un nuevo contenedor. En este caso, la firma no está asociada a una directiva de acceso almacenada, por lo que incluye en el URI la información que indica su tiempo de expiración y los permisos que concede.
 
 En primer lugar, agregue código al método **Main()** para autenticar el acceso a la cuenta de almacenamiento y crear un contenedor:
@@ -114,7 +107,6 @@ Compile y ejecute para generar el URI de la firma de acceso compartido para el n
 Una vez que se ejecute el código, la firma de acceso compartido creada en el contenedor será válida durante las veinticuatro horas siguientes. Dicha firma concede permiso al cliente para enumerar los blobs en el contenedor y escribir un nuevo blob en este.
 
 ### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Generación de un URI de firma de acceso compartido para un blob
-
 A continuación, vamos a escribir código similar al anterior para crear un nuevo blob en el contenedor y generar una firma de acceso compartido para este. Dicha firma no está asociada a una directiva de acceso almacenada, por lo que incluye la hora de inicio, el tiempo de expiración y la información de permisos en el URI.
 
 Agregue un nuevo método para crear un blob y escriba texto en este. A continuación, se genera una firma de acceso compartido y se devuelve el URI de la firma:
@@ -161,7 +153,6 @@ Compile y ejecute para generar el URI de la firma de acceso compartido para el n
     https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ### <a name="create-a-stored-access-policy-on-the-container"></a>Creación de una directiva de acceso almacenada en el contenedor
-
 Ahora vamos a crear una directiva de acceso almacenada en el contenedor que definirá las restricciones de las firmas de acceso compartido asociadas.
 
 En los ejemplos anteriores, hemos especificado la hora de inicio (de forma implícita o explícita), el tiempo de expiración y los permisos del URI de la firma de acceso compartido. En los siguientes, especificaremos estos datos en la directiva de acceso almacenada y no en la firma. Al hacerlo, podemos cambiar estas restricciones sin necesidad de volver a emitir la firma de acceso compartido.
@@ -205,7 +196,6 @@ En la parte inferior del método **Main()**, antes de la llamada a **Console.Rea
 Tenga en cuenta que cuando borra las directivas de acceso en un contenedor, deberá primero obtener los permisos existentes del contenedor, borrar luego los permisos y establecerlos de nuevo.
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Generación de un URI de firma de acceso compartido en el contenedor que usa una directiva de acceso
-
 A continuación, vamos a crear otra firma de acceso compartido en el contenedor generado anteriormente, si bien esta vez la asociaremos a la directiva de acceso creada en el ejemplo anterior.
 
 Agregue un nuevo método para generar otra firma de acceso compartido en el contenedor:
@@ -227,7 +217,6 @@ En la parte inferior del método **Main()**, antes de la llamada a **Console.Rea
     Console.WriteLine();
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>Generación de un URI de firma de acceso compartido en el blob que usa una directiva de acceso
-
 Por último, agregaremos un método similar para crear otro blob y generar una firma de acceso compartido que se asocia a una directiva de acceso.
 
 Agregue un nuevo método para crear un blob y generar una firma de acceso compartido:
@@ -309,10 +298,12 @@ Al ejecutar la aplicación de consola GenerateSharedAccessSignatures, el resulta
 ![sas-console-output-1][sas-console-output-1]
 
 ## <a name="part-2:-create-a-console-application-to-test-the-shared-access-signatures"></a>Parte 2: Creación de una aplicación de consola para probar las firmas de acceso compartido
-
 Para probar las firmas de acceso compartido creadas en los ejemplos anteriores, crearemos una segunda aplicación de consola que use dichas firmas para realizar operaciones en el contenedor y en un blob.
 
-> [AZURE.NOTE] Si han transcurrido más de 24 horas desde que se completó la primera parte del tutorial, las firmas generadas ya no serán válidas. En este caso, deberá ejecutar el código de la primera aplicación de consola a fin de generar nuevas firmas de acceso compartido y usarlas en la segunda parte del tutorial.
+> [!NOTE]
+> Si han transcurrido más de 24 horas desde que se completó la primera parte del tutorial, las firmas generadas ya no serán válidas. En este caso, deberá ejecutar el código de la primera aplicación de consola a fin de generar nuevas firmas de acceso compartido y usarlas en la segunda parte del tutorial.
+> 
+> 
 
 En Visual Studio, cree una nueva aplicación de consola de Windows y denomínela **ConsumeSharedAccessSignatures**. Agregue referencias a **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll**, como ya ha hecho anteriormente.
 
@@ -333,7 +324,6 @@ Agregue las siguientes constantes al cuerpo del método **Main()** y actualice s
     }
 
 ### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Incorporación de un método para probar las operaciones del contenedor con una firma de acceso compartido
-
 A continuación, vamos a agregar un método para probar algunas operaciones representativas del contenedor con una firma de acceso compartido en este último. Tenga en cuenta que dicha firma se usa para devolver una referencia al contenedor y el acceso a este se autentica en función de la firma sola.
 
 Agregue el método siguiente a Program.cs:
@@ -443,7 +433,6 @@ Actualice el método **Main()** para que llame a **UseContainerSAS()** con las d
 
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Incorporación de un método para probar operaciones de blob con una firma de acceso compartido
-
 Por último, vamos a agregar un método para probar algunas operaciones representativas del blob usando una firma de acceso compartido en este último. En este caso se usa el constructor **CloudBlockBlob(String)**y se pasa la firma de acceso compartido para devolver una referencia al blob. No se requiere ningún otro tipo de autenticación, esta se basa exclusivamente en la firma.
 
 Agregue el método siguiente a Program.cs:
@@ -543,7 +532,6 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 ![sas-console-output-2][sas-console-output-2]
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 [Firmas de acceso compartido, Parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 
 [Administración del acceso de lectura anónimo a contenedores y blobs](storage-manage-access-to-resources.md)

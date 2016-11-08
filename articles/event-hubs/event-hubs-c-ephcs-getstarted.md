@@ -1,67 +1,59 @@
-<properties
-    pageTitle="Introducción a los Centros de eventos en C y C# | Microsoft Azure"
-    description="Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos con C y a recibirlos en C# mediante EventProcessorHost."
-    services="event-hubs"
-    documentationCenter=""
-    authors="jtaubensee"
-    manager="timlt"
-    editor=""/>
+---
+title: Introducción a los Centros de eventos en C y C# | Microsoft Docs
+description: Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos con C y a recibirlos en C# mediante EventProcessorHost.
+services: event-hubs
+documentationcenter: ''
+author: jtaubensee
+manager: timlt
+editor: ''
 
-<tags
-    ms.service="event-hubs"
-    ms.workload="na"
-    ms.tgt_pltfrm="c"
-    ms.devlang="csharp"
-    ms.topic="article"
-    ms.date="08/16/2016"
-    ms.author="jotaub;sethm"/>
+ms.service: event-hubs
+ms.workload: na
+ms.tgt_pltfrm: c
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/16/2016
+ms.author: jotaub;sethm
 
-
+---
 # <a name="get-started-with-event-hubs"></a>Introducción a los Centros de eventos
-
-[AZURE.INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
+[!INCLUDE [service-bus-selector-get-started](../../includes/service-bus-selector-get-started.md)]
 
 ## <a name="introduction"></a>Introducción
-
 Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
 
 Para obtener más información, consulte [Información general de los Centros de eventos de Azure][].
 
-En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Event Processor Host][] de C#.
+En este tutorial, aprenderá a recopilar mensajes en un Centro de eventos mediante una aplicación de consola en C y a recuperarlos en paralelo con la biblioteca [Event Processor Host][Event Processor Host] de C#.
 
 Para completar este tutorial, necesitará lo siguiente:
 
-+ Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
+* Un entorno de desarrollo de C. Para este tutorial, consideraremos la pila de gcc en una [VM Linux de Azure](../virtual-machines/virtual-machines-linux-quick-create-cli.md) con Ubuntu 14.04. En los vínculos externos se proporcionarán instrucciones para otros entornos.
+* Microsoft Visual Studio Express para Windows
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-+ Microsoft Visual Studio Express para Windows
+[!INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
 
-+ Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+[!INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
 
-[AZURE.INCLUDE [event-hubs-create-event-hub](../../includes/event-hubs-create-event-hub.md)]
-
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-c](../../includes/service-bus-event-hubs-get-started-send-c.md)]
-
-[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
+[!INCLUDE [service-bus-event-hubs-get-started-receive-ephcs](../../includes/service-bus-event-hubs-get-started-receive-ephcs.md)]
 
 ## <a name="run-the-applications"></a>Ejecución de las aplicaciones
-
 Ahora está preparado para ejecutar las aplicaciones.
 
-1.  Ejecute el proyecto **Receiver** desde Visual Studio y espere a que inicie los receptores para todas las particiones.
-
-    ![][21]
-
-2.  Ejecute el programa **Sender** y verá que los eventos aparecen en la ventana del receptor.
-
-    ![][24]
+1. Ejecute el proyecto **Receiver** desde Visual Studio y espere a que inicie los receptores para todas las particiones.
+   
+   ![][21]
+2. Ejecute el programa **Sender** y verá que los eventos aparecen en la ventana del receptor.
+   
+   ![][24]
 
 ## <a name="next-steps"></a>Pasos siguientes
-
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-- Una [aplicación de ejemplo completa que usa Centros de eventos][].
-- El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][] .
-- [Información general de los Centros de eventos][]
+* Una [aplicación de ejemplo completa que usa Centros de eventos][aplicación de ejemplo completa que usa Centros de eventos].
+* El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][Escala horizontal del procesamiento de eventos con Centros de eventos] .
+* [Información general de los Centros de eventos][]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

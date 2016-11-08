@@ -1,33 +1,33 @@
-<properties
-   pageTitle="Escalado del servicio web | Microsoft Azure"
-   description="Aprenda a aumentar la simultaneidad y a agregar nuevos puntos de conexión para escalar un servicio web."
-   services="machine-learning"
-   documentationCenter=""
-   authors="neerajkh"
-   manager="srikants"
-   editor="cgronlun"
-   keywords="aprendizaje automático de azure, servicios web, operacionalización, escalado, punto de conexión, simultaneidad"
-   />
-<tags
-   ms.service="machine-learning"
-   ms.devlang="NA"
-   ms.workload="data-services"
-   ms.tgt_pltfrm="na"
-   ms.topic="article"
-   ms.date="10/05/2016"
-   ms.author="neerajkh"/>
+---
+title: Escalado del servicio web | Microsoft Docs
+description: Aprenda a aumentar la simultaneidad y a agregar nuevos puntos de conexión para escalar un servicio web.
+services: machine-learning
+documentationcenter: ''
+author: neerajkh
+manager: srikants
+editor: cgronlun
+keywords: aprendizaje automático de azure, servicios web, operacionalización, escalado, punto de conexión, simultaneidad
 
+ms.service: machine-learning
+ms.devlang: NA
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.topic: article
+ms.date: 10/05/2016
+ms.author: neerajkh
 
+---
 # <a name="scaling-a-web-service"></a>Escalado de servicios web
-
->[AZURE.NOTE] En este tema se describen técnicas que se aplican a un servicio web Machine Learning clásico. 
+> [!NOTE]
+> En este tema se describen técnicas que se aplican a un servicio web Machine Learning clásico. 
+> 
+> 
 
 De manera predeterminada, cada servicio web publicado está configurado para admitir 20 solicitudes simultáneas y 200 solicitudes simultáneas como máximo. Aunque el Portal de Azure clásico ofrece una manera de establecer este valor, Azure Machine Learning optimiza automáticamente este valor con el fin de brindar el mejor rendimiento para el servicio web, por lo que se omite el valor del portal. 
 
 Si tiene previsto llamar a la API con una carga mayor que un máximo de 200 llamadas simultáneas, debe crear varios puntos de conexión en el mismo servicio web. Acto seguido, podrá distribuir aleatoriamente la carga entre todos ellos.
 
 ## <a name="add-new-endpoints-for-same-web-service"></a>Agregar puntos de conexión nuevos para el mismo servicio web
-
 El escalado de un servicio web es una tarea común. Algunos de los motivos para ello son admitir más de 200 solicitudes simultáneas, aumentar la disponibilidad a través de varios puntos de conexión u ofrecer puntos de conexión independientes para el servicio web. Puede aumentar la escala agregando más puntos de conexión para el mismo servicio web a través del [Portal de Azure clásico](https://manage.windowsazure.com/) o del portal [Servicio web Azure Machine Learning](https://services.azureml.net/).
 
 Para obtener más información sobre la incorporación de puntos de conexión nuevos, consulte [Creación de puntos de conexión](machine-learning-create-endpoint.md).

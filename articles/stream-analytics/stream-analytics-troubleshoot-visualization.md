@@ -1,33 +1,28 @@
-<properties
-	pageTitle="Visualización y solución de problemas de trabajos de Análisis de transmisiones | Microsoft Azure"
-	description="Aprenda a visualizar una canalización de trabajo de Análisis de transmisiones para el autoservicio de solución de problemas mediante la característica de diagrama de diagnóstico."
-	keywords=""
-	documentationCenter=""
-	services="stream-analytics"
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"
-/>
+---
+title: Visualización y solución de problemas de trabajos de Análisis de transmisiones | Microsoft Docs
+description: Aprenda a visualizar una canalización de trabajo de Análisis de transmisiones para el autoservicio de solución de problemas mediante la característica de diagrama de diagnóstico.
+keywords: ''
+documentationcenter: ''
+services: stream-analytics
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="data-services"
-	ms.date="09/26/2016"
-	ms.author="jeffstok"
-/>
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: data-services
+ms.date: 09/26/2016
+ms.author: jeffstok
 
-
+---
 # Visualización y solución de problemas de trabajos de Análisis de transmisiones
-
 En Análisis de transmisiones, al igual que con otras tecnologías basadas en la nube, en ocasiones se necesita la solución de problemas para profundizar en los motivos de que un trabajo no produzca el resultado esperado (o ningún resultado para ese propósito). A este respecto, Análisis de transmisiones ofrece la posibilidad de visualizar un trabajo en streaming. Esto también resulta útil como herramienta de modelado y tiene la ventaja adicional, para aquellos que lo necesitan, de documentar su trabajo.
 
 En el panel de visualización se pueden ver las entradas, así como la consulta que se ejecuta y luego todas las salidas configuradas. Los problemas de conectividad o configuración se hacen más evidentes y también ayuda a tener una representación visual de su configuración.
 
 ## Uso de la herramienta de diagrama de diagnóstico
-
 Para tener acceso a este visualizador, simplemente haga clic en el botón "Diagrama de diagnóstico" en la hoja "Configuración" del trabajo de Análisis de transmisiones.
 
 ![stream-analytics-troubleshoot-visualization-diagnosis-diagram](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-diagnosis-diagram1.png)
@@ -40,15 +35,11 @@ Cuando el usuario quiera examinar los pasos de consulta intermedios para compren
 
 ![stream-analytics-troubleshoot-visualization-intermediate-steps](./media/stream-analytics-troubleshoot-visualization/stream-analytics-troubleshoot-visualization-intermediate-steps.png)
 
-
-
-
 ## Pasos siguientes
-
-- [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
-- [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
-- [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
-- [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-- [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
+* [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
+* [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
+* [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!---HONumber=AcomDC_0928_2016-->

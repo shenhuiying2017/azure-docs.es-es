@@ -1,28 +1,25 @@
-<properties
-    pageTitle="Preguntas frecuentes de Log Analytics | Microsoft Azure"
-    description="Respuestas a las preguntas frecuentes sobre el servicio Log Analytics."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Preguntas frecuentes de Log Analytics | Microsoft Docs
+description: Respuestas a las preguntas frecuentes sobre el servicio Log Analytics.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="10/10/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/10/2016
+ms.author: banders
 
-
+---
 # <a name="log-analytics-faq"></a>Preguntas frecuentes sobre Log Analytics
-
 En este artículo de Microsoft, se presenta una lista de preguntas frecuentes sobre Log Analytics en Microsoft Operations Management Suite (OMS). Si tiene alguna pregunta adicional sobre Log Analytics, vaya al [foro de discusión](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) y publíquela. Alguien de nuestra comunidad le ayudará a obtener respuestas. Si una pregunta es frecuente, se agregará a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ## <a name="general"></a>General
-
 **P. ¿Qué comprobaciones llevan a cabo las soluciones AD y Evaluación de SQL?**
 
 a. La consulta siguiente muestra una descripción de todas las comprobaciones que se llevan a cabo actualmente:
@@ -58,7 +55,7 @@ Cuando se realizan implementaciones de servicios, cambian las direcciones IP rea
 
 **P. Uso ExpressRoute para realizar la conexión con Azure. ¿Usará el tráfico de Log Analytics la conexión ExpressRoute?**  
 
-a. En la [documentación de ExpressRoute](./expressroute/expressroute-faqs.md#supported-services), se describen los distintos tipos de tráfico de dicho servicio.
+a. En la [documentación de ExpressRoute](../expressroute/expressroute-faqs.md#supported-services), se describen los distintos tipos de tráfico de dicho servicio.
 
 El tráfico dirigido a Log Analytics utiliza el circuito de ExpressRoute de emparejamiento público.
 
@@ -90,7 +87,6 @@ R.: En SCOM, quite el equipo de la lista administrada de OMS. Con ello, se detie
 Quite todas las áreas de trabajo enumeradas en **Azure Log Analytics (OMS)**.
 
 ## <a name="agent-data"></a>Datos del agente
-
 **P. ¿Qué cantidad de datos puedo enviar a Log Analytics a través del agente? ¿Hay un volumen máximo de información por cliente?**  
 a. El plan gratuito establece un límite diario de 500 MB por área de trabajo. Los planes estándar y premium carecen de límites en cuanto a la cantidad de datos cargada. En tanto servicio en la nube, Log Analytics de OMS se ha concebido para escalarse verticalmente de forma automática con el fin de hacer frente al volumen procedente de un cliente (aun cuando se trate de varios terabytes diarios).
 
@@ -106,9 +102,9 @@ a. El ancho de banda equivale a una función de la cantidad de datos enviados. L
 
 a. El volumen depende en gran medida de los siguientes factores:
 
-- Las soluciones habilitadas
-- El número de registros y contadores de rendimiento recopilados
-- El volumen de datos de los registros
+* Las soluciones habilitadas
+* El número de registros y contadores de rendimiento recopilados
+* El volumen de datos de los registros
 
 El plan de tarifas gratuito constituye una buena forma de incorporar varios servidores y estimar el volumen de datos típico. El uso general se muestra en la página **Uso** .
 En el caso de los equipos capaces de ejecutar al agente de WireData, podrá ver la cantidad de datos enviados mediante la siguiente consulta:
@@ -120,10 +116,7 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-- [Introducción a Log Analytics](log-analytics-get-started.md) , encontrará más información sobre esta solución y cómo empezar a utilizarla en cuestión de minutos.
-
-
+* [Introducción a Log Analytics](log-analytics-get-started.md) , encontrará más información sobre esta solución y cómo empezar a utilizarla en cuestión de minutos.
 
 <!--HONumber=Oct16_HO2-->
 

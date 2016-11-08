@@ -1,5 +1,4 @@
 ## Archivo de parámetros
-
 Si utiliza un archivo de parámetros para pasar los valores de parámetro durante la implementación, tendrá que crear un archivo JSON con un formato similar al del ejemplo siguiente.
 
     {

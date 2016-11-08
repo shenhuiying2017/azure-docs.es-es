@@ -1,23 +1,22 @@
-<properties
-	pageTitle="Escalado automático de nodos de ejecución en un grupo de Lote de Azure | Microsoft Azure"
-	description="Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo."
-	services="batch"
-	documentationCenter=""
-	authors="mmacy"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Escalado automático de nodos de ejecución en un grupo de Lote de Azure | Microsoft Docs
+description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
+services: batch
+documentationcenter: ''
+author: mmacy
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="batch"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-windows"
-	ms.workload="multiple"
-	ms.date="09/27/2016"
-	ms.author="marsma"/>
+ms.service: batch
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
+ms.workload: multiple
+ms.date: 09/27/2016
+ms.author: marsma
 
+---
 # Escalación automática de los nodos de ejecución en un grupo de Lote de Azure
-
 Con la escala automática, el servicio Lote de Azure puede agregar o quitar de forma dinámica nodos de ejecución en un grupo en función de los parámetros definidos. Con esto puede ahorrar tiempo y dinero ajustando automáticamente la cantidad de potencia de procesamiento utilizada por la aplicación: agregar nodos a medida que las demandas de la tarea del trabajo aumentan y quitarlos cuando disminuyen.
 
 Habilitar el escalado automático en un grupo de nodos de proceso mediante la asociación con una *fórmula de escalado automático* que defina, como con el método [PoolOperations.EnableAutoScale][net_enableautoscale] en la biblioteca de [.NET de Lote](batch-dotnet-get-started.md). A continuación, el servicio Lote usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Lote responde a las muestras de datos de métricas de servicio que se recopilan periódicamente y ajusta el número de nodos de proceso del grupo a un intervalo configurable según la fórmula asociada.
@@ -25,8 +24,7 @@ Habilitar el escalado automático en un grupo de nodos de proceso mediante la as
 Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo con el "escalado automático" habilitado. Lote proporciona la capacidad de evaluar las fórmulas antes de asignarlas a grupos y de supervisar el estado de las ejecuciones de escalado automático.
 
 ## Fórmulas de escalado automático
-
-Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] \(REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
+Una fórmula de escalado automático es un valor de cadena definido que contiene una o varias instrucciones y que se asignan al elemento [autoScaleFormula][rest_autoscaleformula] \(REST de Lote) o a la propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] \(.NET de Lote) de un grupo. Cuando se asigna a un grupo, el servicio Lote usa la fórmula para determinar el número de nodos de proceso de un grupo para el siguiente intervalo de procesamiento (más en intervalos posteriores). La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, y saltos de línea y comentarios.
 
 Puede imaginarse que las fórmulas de escalado automático son un "idioma" de escalado automático de Lote. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio de Lote) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
@@ -50,10 +48,12 @@ $TargetDedicated = min(10, $averageActiveTaskCount);
 
 Las siguientes secciones de este artículo tratan de las distintas entidades que conformarán las fórmulas de escalado automático, incluidos variables, operadores, operaciones y funciones. En Lote, encontrará información acerca de cómo obtener varias métricas de recursos y tareas de proceso. Puede usar estas métricas para ajustar de forma inteligente el número de nodos del grupo en función del estado de tareas y el uso de recursos. Después, aprenderá a construir una fórmula y a habilitar el escalado automático en un grupo mediante API de .NET y de REST de Lote. Por último, terminaremos con algunas fórmulas de ejemplo.
 
-> [AZURE.IMPORTANT] Cada cuenta de Lote de Azure se limita a un número máximo de núcleos (y por lo tanto de nodos de ejecución) que pueden utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite de núcleos. Por lo tanto, podría no alcanzar el número de nodos de ejecución que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> [!IMPORTANT]
+> Cada cuenta de Lote de Azure se limita a un número máximo de núcleos (y por lo tanto de nodos de ejecución) que pueden utilizarse para su procesamiento. El servicio Lote creará nodos solo hasta ese límite de núcleos. Por lo tanto, podría no alcanzar el número de nodos de ejecución que se especifica mediante una fórmula. Consulte [Cuotas y límites del servicio de Lote de Azure](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> 
+> 
 
 ## Variables
-
 En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio se integran en el servicio de Lote: algunas son de lectura y escritura y otras son de solo lectura. Las variables definidas por el usuario son las que *usted* define. En la fórmula de ejemplo de dos líneas anterior, `$TargetDedicated` es una variable definida por el servicio, mientras que `$averageActiveTaskCount` está definida por el usuario.
 
 Las tablas siguientes muestran las variables de lectura y escritura y de solo lectura definidas por el servicio Lote.
@@ -62,113 +62,113 @@ Puede **obtener** y **establecer** los valores de estas variables definidas por 
 
 | Variables definidas por el servicio de solo escritura | Description |
 | --- | --- |
-| $TargetDedicated | Número **objetivo** de **nodos de ejecución dedicados** para el grupo. Es el número de nodos de ejecución al que se debe escalar el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Esto puede ocurrir si el número de nodos de destino se modifica de nuevo mediante una evaluación posterior de escalado automático antes de que el grupo haya alcanzado el objetivo inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino. |
-| $NodeDeallocationOption | La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: finalizará las tareas inmediatamente y las colocará en la cola de trabajos para que se vuelvan a programar.<li>**terminate**: finalizará las tareas inmediatamente y las quitará de la cola de trabajos.<li>**taskcompletion**: esperará a que las tareas en ejecución finalicen y, a continuación, quitarán el nodo del grupo.<li>**retaineddata**: esperará a que todos los datos locales con tareas retenidas en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
+| $TargetDedicated |Número **objetivo** de **nodos de ejecución dedicados** para el grupo. Es el número de nodos de ejecución al que se debe escalar el grupo. Es un número "objetivo" porque es posible que un grupo no alcance el número objetivo de nodos. Esto puede ocurrir si el número de nodos de destino se modifica de nuevo mediante una evaluación posterior de escalado automático antes de que el grupo haya alcanzado el objetivo inicial. También puede ocurrir si se alcanza una cuota de nodos o núcleos de la cuenta de Lote antes de llegar al número de nodos de destino. |
+| $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: finalizará las tareas inmediatamente y las colocará en la cola de trabajos para que se vuelvan a programar.<li>**terminate**: finalizará las tareas inmediatamente y las quitará de la cola de trabajos.<li>**taskcompletion**: esperará a que las tareas en ejecución finalicen y, a continuación, quitarán el nodo del grupo.<li>**retaineddata**: esperará a que todos los datos locales con tareas retenidas en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
 
 Puede **obtener** el valor de estas variables definidas por el servicio para realizar ajustes basados en las métricas del servicio Batch:
 
 | Variables definidas por el servicio de solo lectura | Description |
 | --- | --- |
-| $CPUPercent | El porcentaje medio de uso de CPU. |
-| $WallClockSeconds | El número de segundos consumidos. |
-| $MemoryBytes | La media de megabytes usados. |
-| $DiskBytes | La media de gigabytes usados en los discos locales. |
-| $DiskReadBytes | El número de bytes leídos. |
-| $DiskWriteBytes | El número de bytes escritos. |
-| $DiskReadOps | El número de operaciones de disco de lectura realizadas. |
-| $DiskWriteOps | El número de operaciones de disco de escritura realizadas. |
-| $NetworkInBytes | El número de bytes entrantes. |
-| $NetworkOutBytes | El número de bytes salientes. |
-| $SampleNodeCount | El número de nodos de ejecución. |
-| $ActiveTasks | El número de tareas que se encuentran en estado activo. |
-| $RunningTasks | El número de tareas en un estado de ejecución. |
-| $PendingTasks | La suma de $ActiveTasks y $RunningTasks. |
-| $SucceededTasks | El número de tareas que finalizó correctamente. |
-| $FailedTasks | El número de tareas erróneas. |
-| $CurrentDedicated | El número actual de dedicado de nodos de ejecución dedicados. |
+| $CPUPercent |El porcentaje medio de uso de CPU. |
+| $WallClockSeconds |El número de segundos consumidos. |
+| $MemoryBytes |La media de megabytes usados. |
+| $DiskBytes |La media de gigabytes usados en los discos locales. |
+| $DiskReadBytes |El número de bytes leídos. |
+| $DiskWriteBytes |El número de bytes escritos. |
+| $DiskReadOps |El número de operaciones de disco de lectura realizadas. |
+| $DiskWriteOps |El número de operaciones de disco de escritura realizadas. |
+| $NetworkInBytes |El número de bytes entrantes. |
+| $NetworkOutBytes |El número de bytes salientes. |
+| $SampleNodeCount |El número de nodos de ejecución. |
+| $ActiveTasks |El número de tareas que se encuentran en estado activo. |
+| $RunningTasks |El número de tareas en un estado de ejecución. |
+| $PendingTasks |La suma de $ActiveTasks y $RunningTasks. |
+| $SucceededTasks |El número de tareas que finalizó correctamente. |
+| $FailedTasks |El número de tareas erróneas. |
+| $CurrentDedicated |El número actual de dedicado de nodos de ejecución dedicados. |
 
-> [AZURE.TIP] Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de ejemplo](#getsampledata) más adelante para más información.
+> [!TIP]
+> Las variables de solo lectura definidas por el servicio que se muestran anteriormente son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Consulte la sección [Obtención de datos de ejemplo](#getsampledata) más adelante para más información.
+> 
+> 
 
 ## Tipos
-
 Estos son los **tipos** que se admiten en las fórmulas.
 
-- double
-- doubleVec
-- doubleVecList
-- string
-- timestamp: timestamp es una estructura compuesta que contiene los siguientes miembros:
-
-	- year
-	- mes (1-12)
-	- día (1-31)
-	- weekday (en formato de número; p.ej., 1 para lunes)
-	- hora (en formato de número de 24 horas; p.ej., 13 significa 1 p.m.)
-	- minuto (00-59)
-	- segundo (00-59)
-- timeinterval
-
-	- TimeInterval\_Zero
-	- TimeInterval\_100ns
-	- TimeInterval\_Microsecond
-	- TimeInterval\_Millisecond
-	- TimeInterval\_Second
-	- TimeInterval\_Minute
-	- TimeInterval\_Hour
-	- TimeInterval\_Day
-	- TimeInterval\_Week
-	- TimeInterval\_Year
+* double
+* doubleVec
+* doubleVecList
+* string
+* timestamp: timestamp es una estructura compuesta que contiene los siguientes miembros:
+  
+  * year
+  * mes (1-12)
+  * día (1-31)
+  * weekday (en formato de número; p.ej., 1 para lunes)
+  * hora (en formato de número de 24 horas; p.ej., 13 significa 1 p.m.)
+  * minuto (00-59)
+  * segundo (00-59)
+* timeinterval
+  
+  * TimeInterval\_Zero
+  * TimeInterval\_100ns
+  * TimeInterval\_Microsecond
+  * TimeInterval\_Millisecond
+  * TimeInterval\_Second
+  * TimeInterval\_Minute
+  * TimeInterval\_Hour
+  * TimeInterval\_Day
+  * TimeInterval\_Week
+  * TimeInterval\_Year
 
 ## Operaciones
-
 Estas **operaciones** se permiten en los tipos enumerados arriba.
 
 | Operación | Operadores admitidos | Tipo de resultado |
-| ------------------------------------- | --------------------- | ------------- |
-| double *operador* double | +, -, *, / | double |
-| double *operador* timeinterval | * | timeinterval |
-| doubleVec *operador* double | +, -, *, / | doubleVec |
-| doubleVec *operador* doubleVec | +, -, *, / | doubleVec |
-| timeinterval *operador* double | *, / | timeinterval |
-| timeinterval *operador* timeinterval | +, - | timeinterval |
-| timeinterval *operador* timestamp | + | timestamp |
-| timestamp *operador* timeinterval | + | timestamp |
-| timestamp *operador* timestamp | - | timeinterval | 
-| *operador*double | -, ! | double | 
-| *operador*timeinterval | - | timeinterval | 
-| double *operador* double | <, <=, ==, >=, >, != | double | 
-| string *operador* string | <, <=, ==, >=, >, != | double | 
-| timestamp *operador* timestamp | <, <=, ==, >=, >, != | double | 
-| timeinterval *operador* timeinterval | <, <=, ==, >=, >, != | double | 
-| double *operator* double | &&, &#124;&#124; | double |
+| --- | --- | --- |
+| double *operador* double |+, -, *, / |double |
+| double *operador* timeinterval |* |timeinterval |
+| doubleVec *operador* double |+, -, *, / |doubleVec |
+| doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
+| timeinterval *operador* double |*, / |timeinterval |
+| timeinterval *operador* timeinterval |+, - |timeinterval |
+| timeinterval *operador* timestamp |+ |timestamp |
+| timestamp *operador* timeinterval |+ |timestamp |
+| timestamp *operador* timestamp |- |timeinterval |
+| *operador*double |-, ! |double |
+| *operador*timeinterval |- |timeinterval |
+| double *operador* double |<, <=, ==, >=, >, != |double |
+| string *operador* string |<, <=, ==, >=, >, != |double |
+| timestamp *operador* timestamp |<, <=, ==, >=, >, != |double |
+| timeinterval *operador* timeinterval |<, <=, ==, >=, >, != |double |
+| double *operator* double |&&, &#124;&#124; |double |
 
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 
 ## Funciones
-
 Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
 
-| Función | Tipo de valor devuelto | Description
-| --------------------------------- | ------------- | --------- |
-| avg(doubleVecList) | double | Devuelve el valor medio de todos los valores de doubleVecList.
-| len(doubleVecList) | double | Devuelve la longitud del vector creado a partir de doubleVecList.
-| lg(double) | double | Devuelve la base logarítmica 2 de double.
-| lg(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double).
-| ln(double) | double | Devuelve el registro natural de double.
-| ln(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double).
-| log(double) | double | Devuelve la base logarítmica 10 de double.
-| log(doubleVecList) | doubleVec | Devuelve la base logarítmica de componentes 10 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double log(double).
-| max(doubleVecList) | double | Devuelve el valor máximo de doubleVecList.
-| min(doubleVecList) | double | Devuelve el valor mínimo de doubleVecList.
-| norm(doubleVecList) | double | Devuelve la norma de dos del vector creado a partir de doubleVecList.
-| percentile(doubleVec v, double p) | double | Devuelve el elemento percentil del vector v.
-| rand() | double | Devuelve un valor aleatorio entre 0,0 y 1,0.
-| range(doubleVecList) | double | Devuelve la diferencia entre los valores máximo y mínimo en doubleVecList.
-| std(doubleVecList) | double | Devuelve la desviación de muestra estándar de los valores en doubleVecList.
-| stop() | | Detiene la evaluación de la expresión de escalado automático.
-| sum(doubleVecList) | double | Devuelve la suma de todos los componentes de doubleVecList.
-| time(string dateTime="") | timestamp | Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123.
-| val(doubleVec v, double i) | double | Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero.
+| Función | Tipo de valor devuelto | Description |
+| --- | --- | --- |
+| avg(doubleVecList) |double |Devuelve el valor medio de todos los valores de doubleVecList. |
+| len(doubleVecList) |double |Devuelve la longitud del vector creado a partir de doubleVecList. |
+| lg(double) |double |Devuelve la base logarítmica 2 de double. |
+| lg(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double). |
+| ln(double) |double |Devuelve el registro natural de double. |
+| ln(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 2 de doubleVecList. Se debe pasar explícitamente un vec(double) para el parámetro. En caso contrario, se supone la versión double lg(double). |
+| log(double) |double |Devuelve la base logarítmica 10 de double. |
+| log(doubleVecList) |doubleVec |Devuelve la base logarítmica de componentes 10 de doubleVecList. Se debe pasar explícitamente un vec(double) para un único parámetro double. En caso contrario, se supone la versión double log(double). |
+| max(doubleVecList) |double |Devuelve el valor máximo de doubleVecList. |
+| min(doubleVecList) |double |Devuelve el valor mínimo de doubleVecList. |
+| norm(doubleVecList) |double |Devuelve la norma de dos del vector creado a partir de doubleVecList. |
+| percentile(doubleVec v, double p) |double |Devuelve el elemento percentil del vector v. |
+| rand() |double |Devuelve un valor aleatorio entre 0,0 y 1,0. |
+| range(doubleVecList) |double |Devuelve la diferencia entre los valores máximo y mínimo en doubleVecList. |
+| std(doubleVecList) |double |Devuelve la desviación de muestra estándar de los valores en doubleVecList. |
+| stop() | |Detiene la evaluación de la expresión de escalado automático. |
+| sum(doubleVecList) |double |Devuelve la suma de todos los componentes de doubleVecList. |
+| time(string dateTime="") |timestamp |Devuelve la marca de tiempo de la hora actual si no se pasan los parámetros o la marca de hora de la cadena dateTime si se pasó. Los formatos de dateTime compatibles son W3C-DTF y RFC 1123. |
+| val(doubleVec v, double i) |double |Devuelve el valor del elemento que está en la ubicación i en el vector v con el índice inicial de cero. |
 
 Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista como argumento. La lista separada por comas es cualquier combinación de *double* y *doubleVec*. Por ejemplo:
 
@@ -177,21 +177,19 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
 ## <a name="getsampledata"></a>Obtención de datos de ejemplo
-
 Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Lote. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para acceder a los datos que están asociados a cada objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
 
 `$CPUPercent.GetSample(TimeInterval_Minute * 5)`
 
 | Método | Description |
 | --- | --- |
-| GetSample() | El método `GetSample()` devuelve un vector de ejemplos de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, no todos los ejemplos durante un período determinado pueden estar disponibles para la evaluación mediante una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que obtener a partir de los ejemplos más recientes que se han recopilado. <br/><br/>`GetSample(1)` devuelve el último ejemplo disponible. Para métricas como`$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló el ejemplo. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. Es mejor en esos casos usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período para recopilar datos de ejemplo. Opcionalmente, también especifica el porcentaje de ejemplos que deben estar disponibles en el plazo de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolvería 20 ejemplos si todos los ejemplos de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` fallaría porque solo el 90 por ciento de los ejemplos está disponible.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` sería correcto.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un plazo de tiempo para la recopilación de datos con una hora de inicio y finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Esto debe tenerlo en cuenta cuando use el método `GetSample`. Consulte `GetSamplePercent` a continuación.|
-| GetSamplePeriod() | Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
-| Count() | Devuelve el número total de ejemplos en el historial de métrica. |
-| HistoryBeginTime() | Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
-| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático.|
+| GetSample() |El método `GetSample()` devuelve un vector de ejemplos de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, no todos los ejemplos durante un período determinado pueden estar disponibles para la evaluación mediante una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que obtener a partir de los ejemplos más recientes que se han recopilado. <br/><br/>`GetSample(1)` devuelve el último ejemplo disponible. Para métricas como`$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló el ejemplo. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. Es mejor en esos casos usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período para recopilar datos de ejemplo. Opcionalmente, también especifica el porcentaje de ejemplos que deben estar disponibles en el plazo de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` devolvería 20 ejemplos si todos los ejemplos de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` fallaría porque solo el 90 por ciento de los ejemplos está disponible.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` sería correcto.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un plazo de tiempo para la recopilación de datos con una hora de inicio y finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Esto debe tenerlo en cuenta cuando use el método `GetSample`. Consulte `GetSamplePercent` a continuación. |
+| GetSamplePeriod() |Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
+| Count() |Devuelve el número total de ejemplos en el historial de métrica. |
+| HistoryBeginTime() |Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
+| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo: <br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático. |
 
 ### Ejemplos, porcentaje de ejemplo y el método *GetSample()*
-
 La operación principal de una fórmula de escalado automático es la obtención de datos de métricas de tareas y recursos y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo las fórmulas de escalado automático interactúan con datos de métricas, también denominados "muestras".
 
 **Muestras**
@@ -224,10 +222,12 @@ Para mayor seguridad, puede forzar el *error* en una evaluación de fórmula si 
 
 También es importante, debido al retraso mencionado anteriormente en la disponibilidad de las muestras, especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Esto es porque los ejemplos tardan aproximadamente un minuto en propagarse por el sistema, por lo que los ejemplos del intervalo `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no suelen estar disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
 
-> [AZURE.IMPORTANT] Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> [!IMPORTANT]
+> Es **muy recomendable** que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalado automático**. Esto es porque `GetSample(1)` básicamente dice al servicio Lote "Dame el ejemplo más reciente que tengas, independientemente de cuánto tiempo hace que lo tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+> 
+> 
 
 ## Métricas
-
 Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) más arriba para más información sobre cada métrica.
 
 <table>
@@ -238,11 +238,11 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
   <tr>
     <td><b>Recurso</b></td>
     <td><p>Las <b>métricas de recurso</b> se basan en el uso de CPU, ancho de banda y memoria de nodos de ejecución, así como en el número de nodos.</p>
-		<p> Estas variables definidas por el servicio se usan para realizar ajustes basados en el número de nodos:</p>
+        <p> Estas variables definidas por el servicio se usan para realizar ajustes basados en el número de nodos:</p>
     <p><ul>
       <li>$TargetDedicated</li>
-			<li>$CurrentDedicated</li>
-			<li>$SampleNodeCount</li>
+            <li>$CurrentDedicated</li>
+            <li>$SampleNodeCount</li>
     </ul></p>
     <p>Estas variables definidas por el servicio se usan para realizar ajustes basados en el uso de recursos de nodo:</p>
     <p><ul>
@@ -265,13 +265,12 @@ Puede usar tanto métricas de **recurso** como de **tarea** al definir una fórm
       <li>$RunningTasks</li>
       <li>$PendingTasks</li>
       <li>$SucceededTasks</li>
-			<li>$FailedTasks</li></ul></p>
-		</td>
+            <li>$FailedTasks</li></ul></p>
+        </td>
   </tr>
 </table>
 
 ## Compilación de una fórmula de escalado automático
-
 Para construir una fórmula de escalado automático, es preciso formar instrucciones mediante los componentes anteriores y combinar dichas instrucciones en una fórmula completa. Por ejemplo, aquí construimos una fórmula, para lo que primero definimos los requisitos para una fórmula que:
 
 1. Aumentará el número de nodos de ejecución de destino en un grupo si el uso de la CPU es alto.
@@ -298,17 +297,22 @@ $TotalNodes = (avg($CPUPercent.GetSample(TimeInterval_Minute*60)) < 0.2) ? ($Cur
 $TargetDedicated = min(400, $TotalNodes)
 ```
 
-> [AZURE.NOTE] Las fórmulas de escalado automática constan de variables, tipos, operaciones y funciones de la API de [REST de Azure Batch][rest_api]. Úselos en las cadenas de fórmula aunque trabaje con la biblioteca de [.NET de Lote][net_api].
+> [!NOTE]
+> Las fórmulas de escalado automática constan de variables, tipos, operaciones y funciones de la API de [REST de Azure Batch][rest_api]. Úselos en las cadenas de fórmula aunque trabaje con la biblioteca de [.NET de Lote][net_api].
+> 
+> 
 
 ## Creación de un grupo con el escalado automático habilitado
-
 Para habilitar el escalado automático al crear un grupo, use una de las técnicas siguientes:
 
-- [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx): este cmdlet de Azure PowerShell usa el parámetro AutoScaleFormula para especificar la fórmula de escalado automático.
-- [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx): después de llamar a este método .NET para crear un grupo, establecerá las propiedades [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) y [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) del grupo para habilitar el escalado automático.
-- [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): los elementos enableAutoScale y autoScaleFormula se usan en esta solicitud de API de REST para configurar el escalado automático del grupo al crearlo.
+* [New-AzureBatchPool](https://msdn.microsoft.com/library/azure/mt125936.aspx): este cmdlet de Azure PowerShell usa el parámetro AutoScaleFormula para especificar la fórmula de escalado automático.
+* [BatchClient.PoolOperations.CreatePool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.createpool.aspx): después de llamar a este método .NET para crear un grupo, establecerá las propiedades [CloudPool.AutoScaleEnabled](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleenabled.aspx) y [CloudPool.AutoScaleFormula](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscaleformula.aspx) del grupo para habilitar el escalado automático.
+* [Agregar un grupo a una cuenta](https://msdn.microsoft.com/library/azure/dn820174.aspx): los elementos enableAutoScale y autoScaleFormula se usan en esta solicitud de API de REST para configurar el escalado automático del grupo al crearlo.
 
-> [AZURE.IMPORTANT] Si crea un grupo con el escalado automático habilitado mediante una de las técnicas anteriores, el parámetro *targetDedicated* para el grupo **no** debe especificarse. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
+> [!IMPORTANT]
+> Si crea un grupo con el escalado automático habilitado mediante una de las técnicas anteriores, el parámetro *targetDedicated* para el grupo **no** debe especificarse. Tenga en cuenta también que si desea cambiar manualmente el tamaño de un grupo con el escalado automático habilitado (por ejemplo, con [BatchClient.PoolOperations.ResizePool][net_poolops_resizepool]), primero tiene que **deshabilitar** el escalado automático en el grupo y después cambiar su tamaño.
+> 
+> 
 
 El fragmento de código siguiente muestra la creación de un grupo habilitado para escalado automático ([CloudPool][net_cloudpool]) mediante el uso de la biblioteca de [.NET de Lote][net_api]. La fórmula de escalado automático del grupo establece el número de nodos de destino en cinco los lunes y en uno todos los demás días de la semana. Además, el intervalo de escalado automático se establece en 30 minutos (consulte la sección [Intervalo de escalado automático](#automatic-scaling-interval) más adelante). En este y en otros fragmentos de código en C# de este artículo, "myBatchClient" es una instancia totalmente inicializada de [BatchClient][net_batchclient].
 
@@ -321,43 +325,49 @@ pool.Commit();
 ```
 
 ### Intervalo de escalado automático
-
 De forma predeterminada, el servicio Lote ajusta el tamaño de un grupo según su fórmula de escalado automático cada **15 minutos**. No obstante, este intervalo es configurable mediante las siguientes propiedades de grupo:
 
-- API de REST: [autoScaleEvaluationInterval][rest_autoscaleinterval]
-- API de .NET: [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
+* API de REST: [autoScaleEvaluationInterval][rest_autoscaleinterval]
+* API de .NET: [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval]
 
 Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo fuera de este margen, el servicio Lote devolverá un error de solicitud incorrecta (400).
 
-> [AZURE.NOTE] Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
+> [!NOTE]
+> Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
+> 
+> 
 
 ## Habilitación del escalado automático después de crear un grupo
-
 Si ya configuró un grupo con un número específico de nodos de proceso mediante el parámetro *targetDedicated*, puede actualizar el grupo existente posteriormente para que el escalado se realice de forma automática. Puede realizar esto de una de estas formas:
 
-- [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: este método .NET requiere el identificador de un grupo existente y la fórmula de escalado automático que se va a aplicar al grupo.
-- [Habilitación del escalado automático en un grupo][rest_enableautoscale]\: esta API de REST requiere el identificador del grupo existente en el URI y la fórmula de escalado automático en el cuerpo de la solicitud.
+* [BatchClient.PoolOperations.EnableAutoScale][net_enableautoscale]\: este método .NET requiere el identificador de un grupo existente y la fórmula de escalado automático que se va a aplicar al grupo.
+* [Habilitación del escalado automático en un grupo][rest_enableautoscale]\: esta API de REST requiere el identificador del grupo existente en el URI y la fórmula de escalado automático en el cuerpo de la solicitud.
 
-> [AZURE.NOTE] Si se especificó un valor para el parámetro *targetDedicated* cuando se creó el grupo, se ignora cuando se evalúa la fórmula de escalado automático.
+> [!NOTE]
+> Si se especificó un valor para el parámetro *targetDedicated* cuando se creó el grupo, se ignora cuando se evalúa la fórmula de escalado automático.
+> 
+> 
 
 Este fragmento de código muestra cómo habilitar el escalado automático en el grupo existente mediante la biblioteca de [.NET de Batch][net_api]. Tenga en cuenta que tanto la habilitación como la actualización de la fórmula en un grupo existente usan el mismo método. Por lo tanto, esta técnica *actualizaría* la fórmula en el grupo especificado si el escalado automático ya se había habilitado. El fragmento de código asume que "mypool" es el identificador de un grupo existente ([CloudPool][net_cloudpool]).
 
-		 // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
-		 // Mondays, and 1 on every other day of the week
-		 string myAutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
+         // Define the autoscaling formula. In this snippet, the  formula sets the target number of nodes to 5 on
+         // Mondays, and 1 on every other day of the week
+         string myAutoScaleFormula = "$TargetDedicated = (time().weekday==1?5:1);";
 
-		 // Update the existing pool's autoscaling formula by calling the BatchClient.PoolOperations.EnableAutoScale
-		 // method, passing in both the pool's ID and the new formula.
-		 myBatchClient.PoolOperations.EnableAutoScale("mypool", myAutoScaleFormula);
+         // Update the existing pool's autoscaling formula by calling the BatchClient.PoolOperations.EnableAutoScale
+         // method, passing in both the pool's ID and the new formula.
+         myBatchClient.PoolOperations.EnableAutoScale("mypool", myAutoScaleFormula);
 
 ## Evaluación de la fórmula de escalación automática
-
 Siempre es una buena práctica evaluar una fórmula antes de usarla en su aplicación. La fórmula se evalúa realizando una "ejecución de prueba" de la misma en un grupo existente. Para ello, use:
 
-- [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) o [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx): estos métodos .NET requieren el identificador de un grupo existente y la cadena que contiene la fórmula del escalado automático. Los resultados de la llamada aparecen en una instancia de la clase [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
-- [Evaluación de una fórmula de escalado automático](https://msdn.microsoft.com/library/azure/dn820183.aspx): en esta solicitud de API de REST, el identificador del grupo se especifica en el URI. La fórmula de escalado automático se especifica en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
+* [BatchClient.PoolOperations.EvaluateAutoScale](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscale.aspx) o [BatchClient.PoolOperations.EvaluateAutoScaleAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.evaluateautoscaleasync.aspx): estos métodos .NET requieren el identificador de un grupo existente y la cadena que contiene la fórmula del escalado automático. Los resultados de la llamada aparecen en una instancia de la clase [AutoScaleEvaluation](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscaleevaluation.aspx).
+* [Evaluación de una fórmula de escalado automático](https://msdn.microsoft.com/library/azure/dn820183.aspx): en esta solicitud de API de REST, el identificador del grupo se especifica en el URI. La fórmula de escalado automático se especifica en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
-> [AZURE.NOTE] Para evaluar una fórmula de escalado automático, primero es preciso habilitar el escalado automático en el grupo con una fórmula válida.
+> [!NOTE]
+> Para evaluar una fórmula de escalado automático, primero es preciso habilitar el escalado automático en el grupo con una fórmula válida.
+> 
+> 
 
 En este fragmento de código que usa la biblioteca de [.NET de Lote][net_api], se evalúa una fórmula antes de aplicarla al grupo ([CloudPool][net_cloudpool]).
 
@@ -368,33 +378,33 @@ CloudPool pool = myBatchClient.PoolOperations.GetPool("mypool");
 // We must ensure that autoscaling is enabled on the pool prior to evaluating a formula
 if (pool.AutoScaleEnabled.HasValue && pool.AutoScaleEnabled.Value)
 {
-	// The formula to evaluate - adjusts target number of nodes based on day of week and time of day
-	string myFormula = @"
-		$CurTime=time();
-		$WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
-		$IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
-		$IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
-		$TargetDedicated=$IsWorkingWeekdayHour?20:10;
-	";
+    // The formula to evaluate - adjusts target number of nodes based on day of week and time of day
+    string myFormula = @"
+        $CurTime=time();
+        $WorkHours=$CurTime.hour>=8 && $CurTime.hour<18;
+        $IsWeekday=$CurTime.weekday>=1 && $CurTime.weekday<=5;
+        $IsWorkingWeekdayHour=$WorkHours && $IsWeekday;
+        $TargetDedicated=$IsWorkingWeekdayHour?20:10;
+    ";
 
-	// Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
-	// the pool.
-	AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
+    // Perform the autoscale formula evaluation. Note that this does not actually apply the formula to
+    // the pool.
+    AutoScaleEvaluation eval = client.PoolOperations.EvaluateAutoScale(pool.Id, myFormula);
 
-	if (eval.AutoScaleRun.Error == null)
-	{
-		// Evaluation success - print the results of the AutoScaleRun. This will display the values of each
-		// variable as evaluated by the autoscale formula.
-		Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
+    if (eval.AutoScaleRun.Error == null)
+    {
+        // Evaluation success - print the results of the AutoScaleRun. This will display the values of each
+        // variable as evaluated by the autoscale formula.
+        Console.WriteLine("AutoScaleRun.Results: " + eval.AutoScaleRun.Results);
 
-		// Apply the formula to the pool since it evaluated successfully
-		client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
-	}
-	else
-	{
-		// Evaluation failed, output the message associated with the error
-		Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
-	}
+        // Apply the formula to the pool since it evaluated successfully
+        client.PoolOperations.EnableAutoScale(pool.Id, myFormula);
+    }
+    else
+    {
+        // Evaluation failed, output the message associated with the error
+        Console.WriteLine("AutoScaleRun.Error.Message: " + eval.AutoScaleRun.Error.Message);
+    }
 }
 ```
 
@@ -403,21 +413,18 @@ La evaluación correcta de la fórmula en este fragmento generará una salida si
 `AutoScaleRun.Results: $TargetDedicated = 10;$NodeDeallocationOption = requeue;$CurTime = 2015 - 08 - 25T20: 08:42.271Z;$IsWeekday = 1;$IsWorkingWeekdayHour = 0;$WorkHours = 0`
 
 ## Obtención de información sobre las ejecuciones de escalado automático
-
 Compruebe periódicamente los resultados de las ejecuciones de escalado automático para garantizar que una fórmula funciona según lo esperado.
 
-- [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx): al utilizar la biblioteca de. NET, esta propiedad de un grupo proporciona una instancia de la clase [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx). Esta clase proporciona las siguientes propiedades de la ejecución de escalado automático más reciente:
-  - [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
-  - [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
-  - [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
-- [Obtención de información sobre un grupo](https://msdn.microsoft.com/library/dn820165.aspx): esta solicitud de API de REST devuelve información acerca del grupo, lo que incluye la última ejecución del escalado automático.
+* [CloudPool.AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudpool.autoscalerun.aspx): al utilizar la biblioteca de. NET, esta propiedad de un grupo proporciona una instancia de la clase [AutoScaleRun](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.aspx). Esta clase proporciona las siguientes propiedades de la ejecución de escalado automático más reciente:
+  * [AutoScaleRun.Error](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.error.aspx)
+  * [AutoScaleRun.Results](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.results.aspx)
+  * [AutoScaleRun.Timestamp](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.autoscalerun.timestamp.aspx)
+* [Obtención de información sobre un grupo](https://msdn.microsoft.com/library/dn820165.aspx): esta solicitud de API de REST devuelve información acerca del grupo, lo que incluye la última ejecución del escalado automático.
 
 ## <a name="examples"></a>Fórmulas de ejemplo
-
 Echemos un vistazo a algunos ejemplos que muestran varias de las formas en que pueden usarse las fórmulas para escalar automáticamente los recursos de proceso de un grupo.
 
 ### Ejemplo 1: Ajuste basado en la fecha y hora
-
 Quizás desee ajustar el tamaño de un grupo según el día de la semana y la hora del día, y aumentar o reducir el número de nodos del grupo en consecuencia:
 
 ```
@@ -431,7 +438,6 @@ $TargetDedicated=$IsWorkingWeekdayHour?20:10;
 En primer lugar, esta fórmula obtiene la hora actual. Si se trata de un día laborable (1-5) y dentro del horario laboral (de 8 a.m. a 6 p.m.), el tamaño del grupo de destino se establece en 20 nodos. De lo contrario, el tamaño del grupo se establece en 10 nodos.
 
 ### Ejemplo 2: Ajuste basado en tareas
-
 En este ejemplo, el tamaño del grupo se ajusta en función del número de tareas en la cola. Tenga en cuenta que las cadenas de la fórmulas aceptan tanto comentarios como saltos de línea.
 
 ```
@@ -450,7 +456,6 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### Ejemplo 3: Contabilidad para tareas paralelas
-
 Este es otro ejemplo que ajusta el tamaño del grupo en función del número de tareas. Esta fórmula también tiene en cuenta el valor de [MaxTasksPerComputeNode][net_maxtasks] que se ha establecido para el grupo. Esto es especialmente útil en aquellas situaciones en las que la [ejecución de tareas paralelas](batch-parallel-node-tasks.md) se ha habilitado en el grupo.
 
 ```
@@ -469,35 +474,32 @@ $NodeDeallocationOption = taskcompletion;
 ```
 
 ### Ejemplo 4: Configuración de un tamaño de grupo inicial
-
 En este ejemplo se muestra un fragmento de código de C# con una fórmula de escalado automático que establece el tamaño del grupo en cierto número de nodos durante un período de tiempo inicial. A continuación, se ajusta el tamaño del grupo según el número de tareas activas y en ejecución una vez transcurrido el período de tiempo inicial.
 
 ```
 string now = DateTime.UtcNow.ToString("r");
 string formula = string.Format(@"
 
-	$TargetDedicated = {1};
-	lifespan         = time() - time(""{0}"");
-	span             = TimeInterval_Minute * 60;
-	startup          = TimeInterval_Minute * 10;
-	ratio            = 50;
+    $TargetDedicated = {1};
+    lifespan         = time() - time(""{0}"");
+    span             = TimeInterval_Minute * 60;
+    startup          = TimeInterval_Minute * 10;
+    ratio            = 50;
 
-	$TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
-	", now, 4);
+    $TargetDedicated = (lifespan > startup ? (max($RunningTasks.GetSample(span, ratio), $ActiveTasks.GetSample(span, ratio)) == 0 ? 0 : $TargetDedicated) : {1});
+    ", now, 4);
 ```
 
 La fórmula en el fragmento de código anterior:
 
-- Establece el tamaño inicial del grupo en cuatro nodos.
-- No ajusta el tamaño del grupo en los 10 primeros minutos del ciclo de vida del mismo.
-- Después de 10 minutos, obtiene el valor máximo del número de tareas activas y en ejecución en los últimos 60 minutos.
-  - Si ambos valores son 0 (lo que indica que no hay tareas activas o en ejecución en los últimos 60 minutos) el tamaño del grupo se establece en 0.
-  - Si cualquier valor es mayor que cero, no hay cambios.
+* Establece el tamaño inicial del grupo en cuatro nodos.
+* No ajusta el tamaño del grupo en los 10 primeros minutos del ciclo de vida del mismo.
+* Después de 10 minutos, obtiene el valor máximo del número de tareas activas y en ejecución en los últimos 60 minutos.
+  * Si ambos valores son 0 (lo que indica que no hay tareas activas o en ejecución en los últimos 60 minutos) el tamaño del grupo se establece en 0.
+  * Si cualquier valor es mayor que cero, no hay cambios.
 
 ## Pasos siguientes
-
 * [Maximizar el uso de recursos de proceso de Lote de Azure con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
-
 * Para otro ajuste de la eficacia, asegúrese de que la aplicación Lote consulta el servicio Lote de la manera más óptima. En [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md), aprenderá a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de proceso o tareas.
 
 [net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx

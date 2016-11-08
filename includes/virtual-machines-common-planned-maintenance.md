@@ -1,7 +1,6 @@
 
 
 ## Actualizaciones de conservación de memoria
-
 En el caso de una clase de actualizaciones en Microsoft Azure, los clientes no verán afectadas sus máquinas virtuales en ejecución. Muchas de estas actualizaciones son componentes o servicios que se pueden actualizar sin interferir con la instancia en ejecución. Algunas de estas actualizaciones son actualizaciones de la infraestructura de la plataforma en el sistema operativo host, que se pueden aplicar sin necesidad de un reinicio completo de las máquinas virtuales.
 
 Estas actualizaciones se realizan con la tecnología que permite la migración en vivo in situ, también llamada actualización de "conservación de memoria". Al actualizar, la máquina virtual se pone en un estado de "pausa" y conserva la memoria RAM, mientras que el sistema operativo host subyacente recibe las actualizaciones y revisiones necesarias. La máquina virtual se reanudará en menos de 30 segundos después de haberse puesto en pausa. Una vez reanudada, se sincronizará automáticamente el reloj de la máquina virtual.
@@ -11,7 +10,6 @@ No todas las actualizaciones pueden implementarse con este mecanismo, pero graci
 Se aplican actualizaciones de instancias múltiples (parar máquinas virtuales en un conjunto de disponibilidad) a un dominio de actualización a la vez.
 
 ## Configuraciones de máquinas virtuales
-
 Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y una sola instancia. En una configuración de instancias múltiples, las máquinas virtuales similares se colocan en un conjunto de disponibilidad.
 
 La configuración de instancias múltiples proporciona redundancia entre equipos físicos, potencia y red, y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben prestar el mismo servicio a la aplicación.
@@ -22,9 +20,7 @@ Por el contrario, se usa una configuración de una sola instancia se usa para m�
 
 Para obtener más información sobre los contratos de nivel de servicio, vea la sección "Servicios en la nube, máquinas virtuales y red virtual" de [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
 
-
 ## Actualizaciones de una configuración de instancias múltiples
-
 Durante el mantenimiento planeado, la plataforma Azure actualizará primero el conjunto de máquinas virtuales que se hospedan en una configuración de instancias múltiples. Esto hace que estas máquinas virtuales se reinicien con aproximadamente 15 minutos de inactividad.
 
 En una configuración de instancias múltiples, las máquinas virtuales se actualizan de forma que conservan la disponibilidad durante todo el proceso, suponiendo que cada máquina realiza una función similar a las otras que forman parte del conjunto.
@@ -48,7 +44,6 @@ Use el visor para determinar qué máquinas virtuales están configuradas en una
 ![][image4]
 
 ## Actualizaciones de una configuración de una sola instancia
-
 Una vez completadas las actualizaciones de instancias múltiples, Azure realizará la actualización de las máquinas virtuales de una sola instancia. Esta actualización también provoca el reinicio de las máquinas virtuales que no se ejecutan en conjuntos de disponibilidad.
 
 Tenga en cuenta que, aunque solamente tenga una instancia ejecutándose en un conjunto de disponibilidad, la plataforma Azure seguirá tratándola como una actualización de instancias múltiples.
@@ -58,32 +53,30 @@ Las máquinas virtuales con una configuración de una sola instancia se actualiz
 Este evento de mantenimiento planeado afectará a la disponibilidad de la aplicación para este tipo de configuración de máquina virtual. Azure ofrece una notificación de mantenimiento planeado para máquinas virtuales con 1 semana de antelación en la configuración de una instancia.
 
 ## Notificación por correo electrónico
-
 Solo en el caso de las configuraciones de máquinas virtuales de una instancia o de instancias múltiples, Azure envía con antelación una comunicación por correo electrónico para avisarle del próximo mantenimiento planeado (una semana de antelación). Este correo electrónico se enviará a las cuentas de correo electrónico del administrador y el coadministrador de la suscripción. A continuación se muestra un ejemplo de este tipo de correo electrónico:
 
 <!--Image reference-->
 ![][image1]
 
 ## Pares de región
-
-Al ejecutar el mantenimiento, Azure solo actualizará las instancias de máquina virtual en una sola región de su pareja. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Se programarán a una hora independiente, lo que permitirá la conmutación por error o el equilibrio de carga entre regiones. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
+Al ejecutar el mantenimiento, Azure solo actualizará las instancias de máquina virtual en una sola región de su pareja. Por ejemplo, al actualizar las máquinas virtuales de la zona centro-norte de EE. UU., Azure no actualizará las máquinas virtuales de centro-sur de EE. UU. al mismo tiempo. Se programarán a una hora independiente, lo que permitirá la conmutación por error o el equilibrio de carga entre regiones. Sin embargo, otras regiones como Europa del Norte pueden estar en mantenimiento al mismo tiempo que el Este de EE. UU.
 
 Consulte la tabla siguiente para obtener información sobre los pares de región actuales:
 
-Región 1 | Región 2
-:----- | ------:
-Centro-Norte de EE. UU | Centro-Sur de EE. UU
-Este de EE. UU. | Oeste de EE. UU.
-Este de EE. UU. - 2 | Central EE. UU.:
-Europa del Norte | Europa occidental
-Sudeste de Asia | Asia oriental
-Este de China | Norte de China
-Este de Japón | Oeste de Japón
-Sur de Brasil | Centro-Sur de EE. UU
-Sudeste de Australia | Australia Oriental
-India central | Sur de India
-India occidental | Sur de India
-Gobierno de EE. UU. - Iowa | Gobierno de EE. UU. - Virginia
+| Región 1 | Región 2 |
+|:--- | ---:|
+| Centro-Norte de EE. UU |Centro-Sur de EE. UU |
+| Este de EE. UU. |Oeste de EE. UU. |
+| Este de EE. UU. - 2 |Central EE. UU.: |
+| Europa del Norte |Europa occidental |
+| Sudeste de Asia |Asia oriental |
+| Este de China |Norte de China |
+| Este de Japón |Oeste de Japón |
+| Sur de Brasil |Centro-Sur de EE. UU |
+| Sudeste de Australia |Australia Oriental |
+| India central |Sur de India |
+| India occidental |Sur de India |
+| Gobierno de EE. UU. - Iowa |Gobierno de EE. UU. - Virginia |
 
 <!--Anchors-->
 [image1]: ./media/virtual-machines-common-planned-maintenance/vmplanned1.png

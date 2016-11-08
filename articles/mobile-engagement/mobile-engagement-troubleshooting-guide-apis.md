@@ -1,65 +1,56 @@
-<properties 
-   pageTitle="Guía de solución de problemas de Azure Mobile Engagement - API" 
-   description="Guías de solución de problemas de Azure Mobile Engagement - API" 
-   services="mobile-engagement" 
-   documentationCenter="" 
-   authors="piyushjo" 
-   manager="dwrede" 
-   editor=""/>
+---
+title: Guía de solución de problemas de Azure Mobile Engagement - API
+description: Guías de solución de problemas de Azure Mobile Engagement - API
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile" 
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # Guía de solución de problemas de la API
-
 Los siguientes son posibles problemas que pueden producirse con cómo los administradores interactúan con Azure Mobile Engagement a través de las API.
 
 ## Problemas de sintaxis
-
 ### Problema
-- Errores de sintaxis mediante la API (o un comportamiento inesperado).
+* Errores de sintaxis mediante la API (o un comportamiento inesperado).
 
 ### Causas
-
-- Problemas de sintaxis:
-    - Asegúrese de comprobar la sintaxis de la API específica que se utiliza para confirmar que la opción está disponible.
-    - Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción (la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción).
-    - Otro problema común con la integración del SDK y el uso de la API es confundir la clave del SDK y la clave de la API.
-    - Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera (especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
+* Problemas de sintaxis:
+  * Asegúrese de comprobar la sintaxis de la API específica que se utiliza para confirmar que la opción está disponible.
+  * Un problema común con el uso de la API consiste en confundir la API de cobertura y la API de inserción (la mayoría de las tareas debe realizarse con la API de cobertura en lugar de la API de inserción).
+  * Otro problema común con la integración del SDK y el uso de la API es confundir la clave del SDK y la clave de la API.
+  * Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera (especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
 
 ### Otras referencias
- 
-- [Documentación de la API][Link 4]
-- [Información del protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
- 
+* [Documentación de la API][Link 4]
+* [Información del protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
+
 ## No se puede usar la API para realizar la misma acción disponible en la interfaz de usuario de Azure Mobile Engagement
-
 ### Problema
-- Una acción que funciona desde la interfaz de usuario de Azure Mobile Engagement no funciona desde la API de Azure Mobile Engagement relacionada.
+* Una acción que funciona desde la interfaz de usuario de Azure Mobile Engagement no funciona desde la API de Azure Mobile Engagement relacionada.
 
 ### Causas
-
-- Confirmar que puede realizar la misma acción desde la interfaz de usuario de Azure Mobile Engagement muestra que ha integrado correctamente esta función de Azure Mobile Engagement con el SDK.
+* Confirmar que puede realizar la misma acción desde la interfaz de usuario de Azure Mobile Engagement muestra que ha integrado correctamente esta función de Azure Mobile Engagement con el SDK.
 
 ### Otras referencias
- 
-- [Documentación de la interfaz de usuario][Link 1]
- 
-## Mensajes de error
+* [Documentación de la interfaz de usuario][Link 1]
 
+## Mensajes de error
 ### Problema
-- Códigos de error mediante la API que se muestra en el tiempo de ejecución o en los registros.
+* Códigos de error mediante la API que se muestra en el tiempo de ejecución o en los registros.
 
 ### Causas
-
-- A continuación se muestra una lista compuesta de números de códigos de estado de API comunes de referencia y de solución de problemas preliminar:
-
+* A continuación se muestra una lista compuesta de números de códigos de estado de API comunes de referencia y de solución de problemas preliminar:
+  
         200        Success.
         200        Account updated: device registered, associated, updated, or removed from the current account.
         200        Returns a list of projects as a JSON object or an authentication token generated and returned in the response’s body.
@@ -81,23 +72,19 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### Otras referencias
+* [Documentación de API: para errores detallados en cada API específica][Link 4]
 
-- [Documentación de API: para errores detallados en cada API específica][Link 4]
- 
 ## Errores silenciosos
-
 ### Problema
-- Se produce un error en la acción de la API sin que se muestre ningún mensaje de error en el tiempo de ejecución o en los registros.
+* Se produce un error en la acción de la API sin que se muestre ningún mensaje de error en el tiempo de ejecución o en los registros.
 
 ### Causas
-
-- Muchos elementos se deshabilitarán en la interfaz de usuario de Azure Mobile Engagement si no se integran correctamente, pero se producirá un error silenciosamente a través de la API, por lo tanto, no olvide probar la misma funcionalidad desde la interfaz de usuario para ver si funciona.
-- Azure Mobile Engagement y muchas funciones avanzadas de Azure Mobile Engagement que está intentando usar necesitan integrarse individualmente en su aplicación con el SDK en pasos distintos para poder utilizarlas.
+* Muchos elementos se deshabilitarán en la interfaz de usuario de Azure Mobile Engagement si no se integran correctamente, pero se producirá un error silenciosamente a través de la API, por lo tanto, no olvide probar la misma funcionalidad desde la interfaz de usuario para ver si funciona.
+* Azure Mobile Engagement y muchas funciones avanzadas de Azure Mobile Engagement que está intentando usar necesitan integrarse individualmente en su aplicación con el SDK en pasos distintos para poder utilizarlas.
 
 ### Otras referencias
+* [Guía de solución de problemas: SDK][Link 25]
 
-- [Guía de solución de problemas: SDK][Link 25]
- 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md
 [Link 2]: mobile-engagement-troubleshooting-guide.md
@@ -128,6 +115,6 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
- 
+
 
 <!---HONumber=AcomDC_0824_2016-->

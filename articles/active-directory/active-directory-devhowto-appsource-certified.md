@@ -1,24 +1,22 @@
-<properties
-   pageTitle="Obtención de AppSource certificado para Azure Active Directory | Microsoft Azure"
-   description="Información detallada sobre cómo certificar su instancia de AppSource de la aplicación para Azure Active Directory."
-   services="active-directory"
-   documentationCenter=""
-   authors="skwan"
-   manager="mbaldwin"
-   editor=""/>
+---
+title: Obtención de AppSource certificado para Azure Active Directory | Microsoft Docs
+description: Información detallada sobre cómo certificar su instancia de AppSource de la aplicación para Azure Active Directory.
+services: active-directory
+documentationcenter: ''
+author: skwan
+manager: mbaldwin
+editor: ''
 
-<tags
-   ms.service="active-directory"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="identity"
-   ms.date="09/22/2016"
-   ms.author="skwan;bryanla"/>
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/22/2016
+ms.author: skwan;bryanla
 
-
-#<a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Obtención de AppSource certificado para Azure Active Directory (AD) 
-
+---
+# <a name="how-to-get-appsource-certified-for-azure-active-directory-(ad)"></a>Obtención de AppSource certificado para Azure Active Directory (AD)
 Para recibir la certificación de AppSource para Azure AD, la aplicación debe implementar el patrón de inicio de sesión multiempresa con Azure AD mediante los protocolos de OpenID Connect, OAuth 2.0 o SAML 2.0. 
 
 Si no está familiarizado con el desarrollo de aplicaciones multiempresa o el inicio de sesión de Azure AD, siga estos pasos:

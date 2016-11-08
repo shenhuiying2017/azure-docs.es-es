@@ -8,32 +8,21 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 
 
 ### Obtenga la cadena de conexión del portal de Azure
-
-
 Utilice el [portal de vista previa de Azure](https://portal.azure.com/) para obtener la cadena de conexión necesaria para que su programa cliente interactúe con Base de datos SQL de Azure:
 
-
 1. Haga clic en **EXAMINAR** > **Bases de datos SQL**.
-
+   
     ![Seleccionar SQL][1-select-sql]
-
 2. Escriba el nombre de la base de datos en el cuadro de texto de filtro situado en la esquina superior izquierda de la hoja **Bases de datos SQL**.
-
+   
     ![Selección de la base de datos][2-select-database]]
-
 3. Haga clic en la fila correspondiente a la base de datos.
-
 4. Cuando aparezca la hoja de su base de datos, para una mayor comodidad visual puede hacer clic en los controles estándar para minimizar y contraer las hojas que utilizó para examinar y filtrar de la base de datos.
-
 5. En la hoja de la base de datos, haga clic en **Mostrar cadenas de conexión de la base de datos**.
-
 6. Si piensa utilizar la biblioteca de conexiones de ODBC, copie la cadena etiquetada con **ODBC**.
-
-	![Copie la cadena de conexión ODBC correspondiente a la base de datos][3-get-connection-string]
-
+   
+    ![Copie la cadena de conexión ODBC correspondiente a la base de datos][3-get-connection-string]
 7. Pegue la información de la cadena de conexión en el código del programa cliente. Tendrá que sustituir {your\_password\_here} por su contraseña real.
-
-
 
 <!--
 Could not find a good link for ODBC

@@ -1,83 +1,80 @@
-<properties 
-	pageTitle="Aprenda a proteger el acceso a datos en DocumentDB | Microsoft Azure" 
-	description="Obtenga información sobre los conceptos de control de acceso en DocumentDB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos." 
-	services="documentdb" 
-	authors="kiratp" 
-	manager="jhubbard" 
-	editor="monicar" 
-	documentationCenter=""/>
+---
+title: Aprenda a proteger el acceso a datos en DocumentDB | Microsoft Docs
+description: Obtenga información sobre los conceptos de control de acceso en DocumentDB, incluidas las claves maestras, las claves de solo lectura, los usuarios y los permisos.
+services: documentdb
+author: kiratp
+manager: jhubbard
+editor: monicar
+documentationcenter: ''
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/19/2016" 
-	ms.author="kipandya"/>
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/19/2016
+ms.author: kipandya
 
+---
 # Protección del acceso a los datos de DocumentDB
-
 En este artículo se proporciona información general sobre la protección del acceso a los datos almacenados en [DocumentDB de Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
 Después de leer dicha información, podrá responder a las preguntas siguientes:
 
--	¿Qué son las claves maestras de DocumentDB?
--	¿Qué son las claves de solo lectura de DocumentDB?
--	¿Qué son los tokens de recursos de DocumentDB?
--	¿Cómo puedo utilizar los usuarios y permisos de DocumentDB para proteger el acceso a los datos de dicha base?
+* ¿Qué son las claves maestras de DocumentDB?
+* ¿Qué son las claves de solo lectura de DocumentDB?
+* ¿Qué son los tokens de recursos de DocumentDB?
+* ¿Cómo puedo utilizar los usuarios y permisos de DocumentDB para proteger el acceso a los datos de dicha base?
 
 ## Conceptos de control de acceso a DocumentDB
-
 DocumentDB proporciona conceptos de primera clase para controlar el acceso a sus recursos. Para la finalidad de este tema, los recursos de DocumentDB se agrupan en dos categorías:
 
-- Recursos administrativos
-	- Cuenta
-	- Base de datos
-	- Usuario
-	- Permiso
-- Recursos de aplicación
-	- Colección
-	- Oferta
-	- Documento
-	- Datos adjuntos
-	- Procedimiento almacenado
-	- Desencadenador
-	- Función definida por el usuario
+* Recursos administrativos
+  * Cuenta
+  * Base de datos
+  * Usuario
+  * Permiso
+* Recursos de aplicación
+  * Colección
+  * Oferta
+  * Documento
+  * Datos adjuntos
+  * Procedimiento almacenado
+  * Desencadenador
+  * Función definida por el usuario
 
 En el contexto de estas dos categorías, DocumentDB admite tres tipos de roles de control de acceso: administrador de cuenta, administrador de solo lectura y usuario de base de datos. Los derechos de cada rol de control de acceso son:
- 
-- Administrador de cuenta: acceso completo a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
-- Administrador de solo lectura: acceso de solo lectura a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
-- Usuario de la base de datos: recurso de usuario de DocumentDB asociado a un conjunto específico de recursos propios de DocumentDB (por ejemplo, colecciones, documentos, scripts). Puede haber uno o más recursos de usuario asociados a una base de datos determinada y cada uno de estos puede tener uno o varios permisos asociados.
+
+* Administrador de cuenta: acceso completo a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
+* Administrador de solo lectura: acceso de solo lectura a todos los recursos (administrativos y de aplicación) en una cuenta de DocumentDB determinada.
+* Usuario de la base de datos: recurso de usuario de DocumentDB asociado a un conjunto específico de recursos propios de DocumentDB (por ejemplo, colecciones, documentos, scripts). Puede haber uno o más recursos de usuario asociados a una base de datos determinada y cada uno de estos puede tener uno o varios permisos asociados.
 
 Teniendo en cuenta las categorías y los recursos mencionados, el modelo de control de acceso de DocumentDB define tres tipos de construcciones de acceso:
 
-- Claves maestras: tras crear una cuenta de DocumentDB, se crean dos claves maestras (principal y secundaria). Estas claves habilitan el acceso administrativo completo a todos los recursos de dicha cuenta.
+* Claves maestras: tras crear una cuenta de DocumentDB, se crean dos claves maestras (principal y secundaria). Estas claves habilitan el acceso administrativo completo a todos los recursos de dicha cuenta.
 
 ![Ilustración de las claves maestras de DocumentDB](./media/documentdb-secure-access-to-data/masterkeys.png)
 
-- Claves de solo lectura: tras crear una cuenta de DocumentDB, se crean dos claves de solo lectura (principal y secundaria). Estas claves habilitan el acceso de solo lectura a todos los recursos de dicha cuenta.
+* Claves de solo lectura: tras crear una cuenta de DocumentDB, se crean dos claves de solo lectura (principal y secundaria). Estas claves habilitan el acceso de solo lectura a todos los recursos de dicha cuenta.
 
 ![Ilustración de claves de solo lectura de DocumentDB](./media/documentdb-secure-access-to-data/readonlykeys.png)
 
-- Tokens de recursos: un token de recurso se asocia a un recurso de permiso de DocumentDB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un recurso de aplicación de DocumentDB específico (por ejemplo, colección o documento).
+* Tokens de recursos: un token de recurso se asocia a un recurso de permiso de DocumentDB y captura la relación entre el usuario de una base de datos y el permiso que este tiene para un recurso de aplicación de DocumentDB específico (por ejemplo, colección o documento).
 
 ![Ilustración de tokens de recursos de DocumentDB](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
 ## Trabajo con claves maestras y de solo lectura de DocumentDB
-
 Como se mencionó anteriormente, las claves maestras de DocumentDB proporcionan acceso administrativo completo a todos los recursos de una cuenta de este tipo, mientras que las claves de solo lectura habilitan el acceso de lectura a todos los recursos de la cuenta. El fragmento de código siguiente muestra cómo usar un extremo y la clave principal de la cuenta de DocumentDB para crear una instancia de DocumentClient y una nueva base de datos.
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
     //These values are available from the Azure Classic Portal on the DocumentDB Account Blade under "Keys".
     //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
-    
+
     private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
     private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
-        
+
     client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
-    
+
     // Create Database
     Database database = await client.CreateDatabaseAsync(
         new Database
@@ -87,7 +84,6 @@ Como se mencionó anteriormente, las claves maestras de DocumentDB proporcionan 
 
 
 ## Información general de tokens de recursos de DocumentDB
-
 Si desea proporcionar acceso a los recursos de su cuenta de DocumentDB a un cliente que no es de confianza con la clave maestra, puede usar un token de recurso (mediante la creación de usuarios y permisos de DocumentDB). Las claves maestras de DocumentDB incluyen una clave principal y una secundaria, cada una de las cuales concede acceso administrativo a la cuenta y a todos los recursos incluidos en esta. La exposición de alguna de las claves maestras posibilita que se haga un uso negligente o malintencionado de la cuenta.
 
 Del mismo modo, las claves de solo lectura de DocumentDB proporcionan acceso de lectura a todos los recursos (excepto, por supuesto, los recursos de permisos) de una cuenta de este tipo y no se pueden usar para proporcionar un acceso más específico a recursos concretos de dicha base de datos.
@@ -118,16 +114,20 @@ Un recurso de usuario de DocumentDB se asocia a una base de datos de este tipo. 
 
     docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUser);
 
-> [AZURE.NOTE] Cada usuario de DocumentDB tiene una propiedad PermissionsLink que se puede usar para recuperar la lista de permisos asociados al usuario.
+> [!NOTE]
+> Cada usuario de DocumentDB tiene una propiedad PermissionsLink que se puede usar para recuperar la lista de permisos asociados al usuario.
+> 
+> 
 
 Un recurso de permiso de DocumentDB se asocia a un usuario de dicha base de datos. Cada usuario puede contener cero o más permisos de DocumentDB. Un recurso de permiso proporciona acceso a un token de seguridad que el usuario necesita al intentar obtener acceso a un recurso de aplicación específico. Un recurso de permiso puede proporcionar dos posibles niveles de acceso:
 
-- Todo: el usuario tiene pleno permiso en el recurso.
-- Lectura: el usuario solo puede leer el contenido del recurso, pero no realizar operaciones de escritura, actualización o eliminación en este.
+* Todo: el usuario tiene pleno permiso en el recurso.
+* Lectura: el usuario solo puede leer el contenido del recurso, pero no realizar operaciones de escritura, actualización o eliminación en este.
 
-
-> [AZURE.NOTE] Para ejecutar procedimientos almacenados de DocumentDB, el usuario debe tener el permiso Todo en la colección donde se va a ejecutar el procedimiento almacenado.
-
+> [!NOTE]
+> Para ejecutar procedimientos almacenados de DocumentDB, el usuario debe tener el permiso Todo en la colección donde se va a ejecutar el procedimiento almacenado.
+> 
+> 
 
 El fragmento de código siguiente muestra cómo crear un recurso de permiso, leer el token de dicho recurso y asociar los permisos al usuario creado anteriormente.
 
@@ -138,9 +138,9 @@ El fragmento de código siguiente muestra cómo crear un recurso de permiso, lee
         ResourceLink = documentCollection.SelfLink,
         Id = "readperm"
     };
-            
+
   docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission); Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
-  
+
 Si ha especificado una clave de partición para la colección y, a continuación, el permiso de colección, los recursos de documentos y datos adjuntos también deben incluir la clave ResourcePartitionKey además del vínculo ResourceLink.
 
 Para poder obtener fácilmente todos los recursos de permiso asociados a un usuario determinado, DocumentDB dispone de una fuente de permisos para cada objeto de usuario. El fragmento de código siguiente muestra cómo recuperar el permiso asociado al usuario creado anteriormente, construir una lista de permisos y crear instancias de un nuevo elemento DocumentClient en nombre del usuario.
@@ -150,21 +150,22 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
       UriFactory.CreateUserUri("db", "myUser"));
 
     List<Permission> permList = new List<Permission>();
-      
+
     foreach (Permission perm in permFeed)
     {
         permList.Add(perm);
     }
-            
+
     DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 
-> [AZURE.TIP] Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora. Sin embargo, la vigencia del token puede especificarse explícitamente hasta un máximo de 5 horas.
+> [!TIP]
+> Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora. Sin embargo, la vigencia del token puede especificarse explícitamente hasta un máximo de 5 horas.
+> 
+> 
 
 ## Pasos siguientes
-
-- Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
-- Para obtener más información acerca de cómo administrar las claves maestras y de solo lectura, haga clic [aquí](documentdb-manage-account.md).
-- Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
- 
+* Para obtener más información acerca de DocumentDB, haga clic [aquí](http://azure.com/docdb).
+* Para obtener más información acerca de cómo administrar las claves maestras y de solo lectura, haga clic [aquí](documentdb-manage-account.md).
+* Para obtener más información acerca de cómo construir tokens de autorización de DocumentDB, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
 <!---HONumber=AcomDC_0921_2016-->

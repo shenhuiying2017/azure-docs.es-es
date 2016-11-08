@@ -1,31 +1,32 @@
-<properties
-	pageTitle="Kit de herramientas de Azure para IntelliJ | Microsoft Azure"
-	description="Obtenga información sobre el kit de herramientas de Azure para IntelliJ."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+---
+title: Kit de herramientas de Azure para IntelliJ | Microsoft Docs
+description: Obtenga información sobre el kit de herramientas de Azure para IntelliJ.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: robmcm;asirveda
 
+---
 # Kit de herramientas de Azure para IntelliJ
-
 El kit de herramientas de Azure para IntelliJ ofrece plantillas y funciones que permiten crear, desarrollar, probar e implementar aplicaciones de Azure fácilmente con el entorno de desarrollo de IntelliJ. Es un proyecto de código abierto, cuyo código fuente está disponible con la licencia MIT desde el sitio del proyecto en:
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] También hay un kit de herramientas de Azure para el IDE de Eclipse. Para obtener más información, consulte [Kit de herramientas de Azure para Eclipse].
+> [!NOTE]
+> También hay un kit de herramientas de Azure para el IDE de Eclipse. Para obtener más información, consulte [Kit de herramientas de Azure para Eclipse].
+> 
+> 
 
 ## Introducción al kit de herramientas de Azure para IntelliJ
-
 Los artículos siguientes lo ayudarán a empezar a usar el kit de herramientas de Azure para IntelliJ:
 
 * [Novedades del kit de herramientas de Azure para IntelliJ]
@@ -33,24 +34,22 @@ Los artículos siguientes lo ayudarán a empezar a usar el kit de herramientas d
 * [Creación de una aplicación web Hello World para Azure en IntelliJ]
 
 ## Uso del kit de herramientas de Azure para IntelliJ
-
 En los artículos siguientes se muestra cómo usar el Kit de herramientas de Azure para IntelliJ para agregar funcionalidad de Azure a sus proyectos de Java:
 
 * [Depuración de una aplicación web de Java en Azure mediante IntelliJ]
 * [Uso del complemento Herramientas de HDInsight para IntelliJ IDEA para crear aplicaciones Spark para clúster HDInsight Spark Linux][HDInsight Tools Plugin for IntelliJ]
 
 ## Otras referencias
-
 Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
-- [Kit de herramientas de Azure para Eclipse]
-  - [Instalación del Kit de herramientas de Azure para Eclipse]
-  - [Creación de una aplicación web Hello World para Azure en Eclipse]
-  - [Novedades del kit de herramientas de Azure para Eclipse]
-- *Kit de herramientas de Azure para IntelliJ (este artículo)*
-  - [Instalación del kit de herramientas de Azure para IntelliJ]
-  - [Creación de una aplicación web Hello World para Azure en IntelliJ]
-  - [Novedades del kit de herramientas de Azure para IntelliJ]
+* [Kit de herramientas de Azure para Eclipse]
+  * [Instalación del Kit de herramientas de Azure para Eclipse]
+  * [Creación de una aplicación web Hello World para Azure en Eclipse]
+  * [Novedades del kit de herramientas de Azure para Eclipse]
+* *Kit de herramientas de Azure para IntelliJ (este artículo)*
+  * [Instalación del kit de herramientas de Azure para IntelliJ]
+  * [Creación de una aplicación web Hello World para Azure en IntelliJ]
+  * [Novedades del kit de herramientas de Azure para IntelliJ]
 
 Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 

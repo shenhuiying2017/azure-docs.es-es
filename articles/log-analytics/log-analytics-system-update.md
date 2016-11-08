@@ -1,24 +1,22 @@
-<properties
-    pageTitle="Solución System Update Assessment de Log Analytics | Microsoft Azure"
-    description="Puede usar la solución de actualizaciones del sistema de Log Analytics para ayudarle a aplicar las actualizaciones que faltan a los servidores de su infraestructura."
-    services="log-analytics"
-    documentationCenter=""
-    authors="bandersmsft"
-    manager="jwhit"
-    editor=""/>
+---
+title: Solución System Update Assessment de Log Analytics | Microsoft Docs
+description: Puede usar la solución de actualizaciones del sistema de Log Analytics para ayudarle a aplicar las actualizaciones que faltan a los servidores de su infraestructura.
+services: log-analytics
+documentationcenter: ''
+author: bandersmsft
+manager: jwhit
+editor: ''
 
-<tags
-    ms.service="log-analytics"
-    ms.workload="na"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.date="08/11/2016"
-    ms.author="banders"/>
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/11/2016
+ms.author: banders
 
-
+---
 # <a name="system-update-assessment-solution-in-log-analytics"></a>Solución System Update Assessment de Log Analytics
-
 Puede usar la solución de actualizaciones del sistema de Log Analytics para ayudarle a aplicar las actualizaciones que faltan a los servidores de su infraestructura. Una vez instalada la solución, puede ver las actualizaciones que faltan en sus servidores supervisados mediante el icono **System Update Assessment** en la página **Información general** de OMS.
 
 Si se detectan actualizaciones que faltan, se muestran los detalles en el panel **Actualizaciones** . Puede usar el panel **Actualizaciones** para trabajar con actualizaciones que faltan y desarrollar un plan para aplicarlas a los servidores que las necesiten.
@@ -26,28 +24,25 @@ Si se detectan actualizaciones que faltan, se muestran los detalles en el panel 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-- Agregue la solución System Update Assessment al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
+* Agregue la solución System Update Assessment al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
 
 ## <a name="system-update-data-collection-details"></a>Detalles de la recopilación de datos de actualizaciones del sistema
-
 La solución System Update Assessment recopila metadatos y datos de estado con los agentes habilitados.
 
 En la tabla siguiente se muestran los métodos de recopilación de datos y otros detalles sobre cómo se recopilan los datos para System Update Assessment.
 
 | plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
-|---|---|---|---|---|---|---|
-|Windows|![Sí](./media/log-analytics-system-update/oms-bullet-green.png)|![Sí](./media/log-analytics-system-update/oms-bullet-green.png)|![No](./media/log-analytics-system-update/oms-bullet-red.png)|            ![No](./media/log-analytics-system-update/oms-bullet-red.png)|![Sí](./media/log-analytics-system-update/oms-bullet-green.png)| Al menos 2 veces al día y 15 minutos después de instalar una actualización|
+| --- | --- | --- | --- | --- | --- | --- |
+| Windows |![Sí](./media/log-analytics-system-update/oms-bullet-green.png) |![Sí](./media/log-analytics-system-update/oms-bullet-green.png) |![No](./media/log-analytics-system-update/oms-bullet-red.png) |![No](./media/log-analytics-system-update/oms-bullet-red.png) |![Sí](./media/log-analytics-system-update/oms-bullet-green.png) |Al menos 2 veces al día y 15 minutos después de instalar una actualización |
 
 En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la solución System Update Assessment:
 
-|**Tipo de datos**|**Fields**|
-|---|---|
-|Metadatos|BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime|
-|Estado|StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified|
-
+| **Tipo de datos** | **Fields** |
+| --- | --- |
+| Metadatos |BaseManagedEntityId, ObjectStatus, OrganizationalUnit, ActiveDirectoryObjectSid, PhysicalProcessors, NetworkName, IPAddress, ForestDNSName, NetbiosComputerName, VirtualMachineName, LastInventoryDate, HostServerNameIsVirtualMachine, IP Address, NetbiosDomainName, LogicalProcessors, DNSName, DisplayName, DomainDnsName, ActiveDirectorySite, PrincipalName, OffsetInMinuteFromGreenwichTime |
+| Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ### <a name="to-work-with-updates"></a>Para trabajar con actualizaciones, siga estos pasos:
-
 1. En la página **Información general**, haga clic en el icono **System Update Assessment**.  
     ![Icono de Evaluación de la actualización del sistema](./media/log-analytics-system-update/sys-update-tile.png)
 2. En el panel **Actualizaciones** , vea las categorías de actualización.  
@@ -75,13 +70,8 @@ En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la 
 14. Si se han aplicado las actualizaciones de la ejecución de la actualización, en la hoja **Actualizaciones críticas o de seguridad de Windows**, verá que se reduce el número de actualizaciones.  
     ![Hoja Actualizaciones críticas o de seguridad de Windows: reducción del número de actualizaciones](./media/log-analytics-system-update/sys-updates12.png)
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
-
-- [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver datos detallados de la actualización del sistema.
-
-
+* [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver datos detallados de la actualización del sistema.
 
 <!--HONumber=Oct16_HO2-->
 

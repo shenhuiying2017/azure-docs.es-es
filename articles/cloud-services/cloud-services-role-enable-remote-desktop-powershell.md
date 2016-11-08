@@ -1,35 +1,34 @@
-<properties
-pageTitle="Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell"
-description="Configuración de la aplicación de servicios en la nube de Azure con PowerShell para permitir conexiones a Escritorio remoto"
-services="cloud-services"
-documentationCenter=""
-authors="thraka"
-manager="timlt"
-editor=""/>
-<tags
-ms.service="cloud-services"
-ms.workload="tbd"
-ms.tgt_pltfrm="na"
-ms.devlang="na"
-ms.topic="article"
-ms.date="08/05/2016"
-ms.author="adegeo"/>
+---
+title: Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
+description: Configuración de la aplicación de servicios en la nube de Azure con PowerShell para permitir conexiones a Escritorio remoto
+services: cloud-services
+documentationcenter: ''
+author: thraka
+manager: timlt
+editor: ''
 
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/05/2016
+ms.author: adegeo
+
+---
 # Habilitación de la conexión a Escritorio remoto para un rol de Servicios en la nube de Azure mediante PowerShell
-
->[AZURE.SELECTOR]
-- [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md)
-- [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
-- [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
-
+> [!div class="op_single_selector"]
+> * [Portal de Azure clásico](cloud-services-role-enable-remote-desktop.md)
+> * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+> * [Visual Studio](../vs-azure-tools-remote-desktop-roles.md)
+> 
+> 
 
 Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta en Azure. Puede usar la conexión de Escritorio remoto para solucionar y diagnosticar problemas con su aplicación mientras se ejecuta.
 
 En este artículo se describe cómo habilitar Escritorio remoto en los roles del servicio en la nube con PowerShell. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). PowerShell usa la extensión de Escritorio remoto, por lo que Escritorio remoto se puede habilitar después de la implementación de la aplicación.
 
-
 ## Configuración de Escritorio remoto desde PowerShell
-
 El cmdlet [Set-AzureServiceRemoteDesktopExtension](https://msdn.microsoft.com/library/azure/dn495117.aspx) permite habilitar Escritorio remoto en los roles especificados o en todos los roles de la implementación del servicio en la nube. Este cmdlet permite especificar el nombre de usuario y la contraseña del usuario de Escritorio remoto a través del parámetro *Credential*, que acepta un objeto PSCredential.
 
 Si PowerShell se usa de forma interactiva, el objeto PSCredential se puede establecer fácilmente mediante una llamada al cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx).
@@ -48,7 +47,10 @@ También puede crear un archivo de contraseña segura para que no tenga que escr
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
->[AZURE.IMPORTANT] Al establecer la contraseña asegúrese de cumplir los [requisitos de complejidad](https://technet.microsoft.com/library/cc786468.aspx).
+> [!IMPORTANT]
+> Al establecer la contraseña asegúrese de cumplir los [requisitos de complejidad](https://technet.microsoft.com/library/cc786468.aspx).
+> 
+> 
 
 Para crear el objeto de credencial desde el archivo de contraseña seguro debe leer el contenido del archivo y convertirlo en una cadena segura con [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
@@ -67,7 +69,6 @@ Set-AzureServiceRemoteDesktopExtension -ServiceName $servicename -Credential $cr
 Opcionalmente, también puede especificar la ranura de implementación y los roles en que desea habilitar Escritorio remoto. Si no se especifican estos parámetros, el cmdlet habilita el Escritorio remoto en todos los roles de la ranura de implementación de **producción**.
 
 La extensión de Escritorio remoto se asocia con una implementación. Si crea una nueva implementación para el servicio, tendrá que habilitar el Escritorio remoto en la nueva implementación. Si desea que Escritorio remoto esté siempre habilitado, debe considerar la integración de scripts de PowerShell en el flujo de trabajo de implementación.
-
 
 ## Escritorio remoto en una instancia de rol
 El cmdlet [Get-AzureRemoteDesktopFile](https://msdn.microsoft.com/library/azure/dn495261.aspx) se usa para introducir Escritorio remoto en una instancia de rol específica del servicio en la nube. Puede usar el parámetro *LocalPath* para descargar el archivo RDP localmente. O bien puede usar el parámetro *Launch* para iniciar directamente el cuadro de diálogo Conexión a Escritorio remoto para tener acceso a la instancia de rol del servicio en la nube.
@@ -93,14 +94,14 @@ Para quitar la extensión de Escritorio remoto de la implementación, puede usar
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 
->[AZURE.NOTE] Para quitar completamente la configuración de la extensión se debe llamar al cmdlet *remove* con el parámetro **UninstallConfiguration**.
->
->El parámetro **UninstallConfiguration** desinstala cualquier configuración de la extensión que se aplica al servicio. Cada configuración de la extensión se asocia a la configuración del servicio. Si se llama al cmdlet *remove* sin **UninstallConfiguration**, se desasocia la <mark>implementación</mark> de la configuración de la extensión, con lo que se quitará eficazmente la extensión. Sin embargo, la configuración de la extensión sigue estando asociada al servicio.
-
-
+> [!NOTE]
+> Para quitar completamente la configuración de la extensión se debe llamar al cmdlet *remove* con el parámetro **UninstallConfiguration**.
+> 
+> El parámetro **UninstallConfiguration** desinstala cualquier configuración de la extensión que se aplica al servicio. Cada configuración de la extensión se asocia a la configuración del servicio. Si se llama al cmdlet *remove* sin **UninstallConfiguration**, se desasocia la <mark>implementación</mark> de la configuración de la extensión, con lo que se quitará eficazmente la extensión. Sin embargo, la configuración de la extensión sigue estando asociada al servicio.
+> 
+> 
 
 ## Recursos adicionales
-
 [Configuración de servicios en la nube](cloud-services-how-to-configure.md)
 
 <!---HONumber=AcomDC_0810_2016-->

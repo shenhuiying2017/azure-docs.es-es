@@ -1,21 +1,21 @@
-<properties
-	pageTitle="Azure AD y aplicaciones: asignación de grupos a una aplicación | Microsoft Azure"
-	description="Cómo implementar la asignación de grupos para aplicaciones de Azure."
-	services="active-directory"
-	documentationCenter=""
-	authors="IHenkel"
-	manager="femila"
-	editor=""/>
+---
+title: 'Azure AD y aplicaciones: asignación de grupos a una aplicación | Microsoft Docs'
+description: Cómo implementar la asignación de grupos para aplicaciones de Azure.
+services: active-directory
+documentationcenter: ''
+author: IHenkel
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="12/03/2015"
-	ms.author="inhenk"/>
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/03/2015
+ms.author: inhenk
 
+---
 # Azure AD y aplicaciones: asignación de grupos a una aplicación
 Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignación de usuarios. Para obtener información sobre cómo requerir la asignación de usuarios, consulte el artículo [Necesidad de asignación de usuario](active-directory-applications-guiding-developers-requiring-user-assignment.md).
 
@@ -34,6 +34,6 @@ En este artículo se supone que ya ha creado grupos en el Active Directory que e
 10. Haga clic en **Sí** cuando se le solicite.
 
 ## Pasos siguientes
-[AZURE.INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
+[!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
 
 <!---HONumber=AcomDC_0928_2016-->

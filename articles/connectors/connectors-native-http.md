@@ -1,35 +1,33 @@
-<properties
-	pageTitle="Adición de la acción HTTP a las aplicaciones lógicas | Microsoft Azure"
-	description="Información general de la acción HTTP con propiedades"
-	services=""
-	documentationCenter=""
-	authors="jeffhollan"
-	manager="erikre"
-	editor=""
-	tags="connectors"/>
+---
+title: Adición de la acción HTTP a las aplicaciones lógicas | Microsoft Docs
+description: Información general de la acción HTTP con propiedades
+services: ''
+documentationcenter: ''
+author: jeffhollan
+manager: erikre
+editor: ''
+tags: connectors
 
-<tags
-   ms.service="logic-apps"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="07/15/2016"
-   ms.author="jehollan"/>
+ms.service: logic-apps
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 07/15/2016
+ms.author: jehollan
 
+---
 # Introducción a la acción HTTP
-
 Con la acción HTTP, puede ampliar los flujos de trabajo de su organización y comunicarse con cualquier punto de conexión a través de HTTP.
 
 Puede:
 
-- Cree flujos de trabajo de aplicaciones lógicas que se activen (desencadenador) cuando un sitio web que administre deje de funcionar.
-- Comuníquese con cualquier punto de conexión por HTTP para ampliar los flujos de trabajo a otros servicios.
+* Cree flujos de trabajo de aplicaciones lógicas que se activen (desencadenador) cuando un sitio web que administre deje de funcionar.
+* Comuníquese con cualquier punto de conexión por HTTP para ampliar los flujos de trabajo a otros servicios.
 
 Para empezar a usar la acción HTTP en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
 ## Uso del desencadenador HTTP
-
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](connectors-overview.md).
 
 Esta es una secuencia de ejemplo de cómo configurar un desencadenador HTTP en el diseñador de aplicaciones lógicas.
@@ -42,173 +40,169 @@ Esta es una secuencia de ejemplo de cómo configurar un desencadenador HTTP en e
 ![Desencadenador HTTP](./media/connectors-native-http/using-trigger.png)
 
 ### Funcionamiento del desencadenador HTTP
-
 El desencadenador HTTP realizará una llamada a un punto de conexión HTTP en un intervalo periódico. De forma predeterminada, cualquier código de respuesta HTTP inferior a 300 hará que una aplicación lógica se ejecute. Puede agregar una condición en la vista código que se evaluará después de la llamada HTTP para determinar si se debe activar la aplicación lógica. Este es un ejemplo de un desencadenador HTTP que se activará cada vez que el código de estado devuelto sea mayor o igual que `400`.
 
 ```javascript
 "Http":
 {
-	"conditions": [
-		{
-			"expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
-		}
-	],
-	"inputs": {
-		"method": "GET",
-		"uri": "https://blogs.msdn.microsoft.com/logicapps/",
-		"headers": {
-			"accept-language": "en"
-		}
-	},
-	"recurrence": {
-		"frequency": "Second",
-		"interval": 15
-	},
-	"type": "Http"
+    "conditions": [
+        {
+            "expression": "@greaterOrEquals(triggerOutputs()['statusCode'], 400)"
+        }
+    ],
+    "inputs": {
+        "method": "GET",
+        "uri": "https://blogs.msdn.microsoft.com/logicapps/",
+        "headers": {
+            "accept-language": "en"
+        }
+    },
+    "recurrence": {
+        "frequency": "Second",
+        "interval": 15
+    },
+    "type": "Http"
 }
 ```
 
 Los detalles completos acerca de los parámetros de desencadenador HTTP están disponibles en [MSDN](https://msdn.microsoft.com/library/azure/mt643939.aspx#HTTP-trigger).
 
 ## Uso de la acción HTTP
-
 Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](connectors-overview.md).
 
 1. Seleccione el botón **Nuevo paso**.
 2. Elija **Agregar una acción**.
 3. En el cuadro de búsqueda de acciones, escriba **http** para mostrar la acción HTTP.
-
-	![Selección de la acción de HTTP](./media/connectors-native-http/using-action-1.png)
-
+   
+    ![Selección de la acción de HTTP](./media/connectors-native-http/using-action-1.png)
 4. Agregue cualquier parámetro necesario para la llamada HTTP.
-
-	![Finalización de la acción de HTTP](./media/connectors-native-http/using-action-2.png)
-
+   
+    ![Finalización de la acción de HTTP](./media/connectors-native-http/using-action-2.png)
 5. Haga clic en la esquina superior izquierda de la barra de herramientas para guardar. La aplicación lógica guardará y publicará (activará).
 
 ## Desencadenador HTTP
-
 Aquí se muestran los detalles del desencadenador que admite este conector. El conector HTTP tiene un desencadenador.
 
-|Desencadenador|Description|
-|---|---|
-|HTTP|Realiza una llamada HTTP y devuelve el contenido de la respuesta.|
+| Desencadenador | Description |
+| --- | --- |
+| HTTP |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
 
 ## Acción HTTP
-
 Aquí se muestran los detalles de la acción que admite este conector. El conector HTTP tiene una acción posible.
 
-|Acción|Description|
-|---|---|
-|HTTP|Realiza una llamada HTTP y devuelve el contenido de la respuesta.|
+| Acción | Description |
+| --- | --- |
+| HTTP |Realiza una llamada HTTP y devuelve el contenido de la respuesta. |
 
 ## Detalles HTTP
-
 Las tablas siguientes describen los campos de entrada obligatorios y opcionales para la acción y los detalles de salida correspondientes asociados a su uso.
-
 
 #### Solicitud HTTP
 Los siguientes son los campos de entrada para la acción que realiza una solicitud de salida HTTP. Un * significa que es un campo obligatorio.
 
-|Nombre para mostrar|Nombre de propiedad|Description|
-|---|---|---|
-|Método*|estático|El verbo HTTP que se usará|
-|URI*|uri|El identificador URI de la solicitud HTTP|
-|Encabezados|encabezados|Objeto JSON de los encabezados HTTP que incluir|
-|Cuerpo|body|Cuerpo de la solicitud HTTP|
-|Autenticación|authentication|Detalles en la sección [Autenticación](#authentication)|
+| Nombre para mostrar | Nombre de propiedad | Description |
+| --- | --- | --- |
+| Método* |estático |El verbo HTTP que se usará |
+| URI* |uri |El identificador URI de la solicitud HTTP |
+| Encabezados |encabezados |Objeto JSON de los encabezados HTTP que incluir |
+| Cuerpo |body |Cuerpo de la solicitud HTTP |
+| Autenticación |authentication |Detalles en la sección [Autenticación](#authentication) |
+
 <br>
 
 #### Detalles de salida
-
 Los detalles de la salida de la respuesta HTTP son los siguientes.
 
-|Nombre de propiedad|Tipo de datos|Description|
-|---|---|---|
-|Encabezados|objeto|Encabezados de respuesta|
-|Cuerpo|objeto|Objeto de respuesta|
-|Código de estado|int|Código de estado HTTP|
+| Nombre de propiedad | Tipo de datos | Description |
+| --- | --- | --- |
+| Encabezados |objeto |Encabezados de respuesta |
+| Cuerpo |objeto |Objeto de respuesta |
+| Código de estado |int |Código de estado HTTP |
 
 ## Autenticación
-
-La característica Logic Apps del Servicio de aplicaciones de Azure le permite utilizar diferentes tipos de autenticación en los puntos de conexión HTTP. Esta autenticación se puede utilizar con los conectores **HTTP**, **[HTTP + Swagger](./connectors-native-http-swagger.md)** y **[HTTP Webhook](./connectors-native-webhook.md)**. Los siguientes tipos de autenticación pueden configurarse:
+La característica Logic Apps del Servicio de aplicaciones de Azure le permite utilizar diferentes tipos de autenticación en los puntos de conexión HTTP. Esta autenticación se puede utilizar con los conectores **HTTP**, **[HTTP + Swagger](connectors-native-http-swagger.md)** y **[HTTP Webhook](connectors-native-webhook.md)**. Los siguientes tipos de autenticación pueden configurarse:
 
 * [Autenticación básica](#basic-authentication)
 * [Autenticación de certificados de clientes](#client-certificate-authentication)
 * [Autenticación de OAuth de Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
 
 #### Autenticación básica
-
 Se requiere el siguiente objeto de autenticación para la autenticación básica. Un * significa que es un campo obligatorio.
 
-|Nombre de propiedad|Tipo de datos|Description|
-|---|---|---|
-|Type*|type|Tipo de autenticación (debe ser `Basic` para la autenticación básica)|
-|Username*|nombre de usuario|Nombre de usuario que se va a autenticar|
-|Password*|contraseña|Contraseña para autenticar.|
+| Nombre de propiedad | Tipo de datos | Description |
+| --- | --- | --- |
+| Type* |type |Tipo de autenticación (debe ser `Basic` para la autenticación básica) |
+| Username* |nombre de usuario |Nombre de usuario que se va a autenticar |
+| Password* |contraseña |Contraseña para autenticar. |
 
->[AZURE.TIP] Si quiere utilizar una contraseña que no se pueda recuperar de la definición, use un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
+> [!TIP]
+> Si quiere utilizar una contraseña que no se pueda recuperar de la definición, use un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()`.
+> 
+> 
 
 Por tanto, debe crear un objeto similar al siguiente en el campo de autenticación:
 
 ```javascript
 {
-	"type": "Basic",
-	"username": "user",
-	"password": "test"
+    "type": "Basic",
+    "username": "user",
+    "password": "test"
 }
 ```
 
 #### Autenticación de certificados de clientes
-
 Se requiere el siguiente objeto de autenticación para la autenticación de certificados de clientes. Un * significa que es un campo obligatorio.
 
-|Nombre de propiedad|Tipo de datos|Description|
-|---|---|---|
-|Type*|type|El tipo de autenticación (debe ser `ClientCertificate` para los certificados de cliente SSL)|
-|PFX*|pfx|El contenido codificado en base 64 del archivo de intercambio de información personal (PFX)|
-|Password*|contraseña|La contraseña para acceder al archivo PFX|
+| Nombre de propiedad | Tipo de datos | Description |
+| --- | --- | --- |
+| Type* |type |El tipo de autenticación (debe ser `ClientCertificate` para los certificados de cliente SSL) |
+| PFX* |pfx |El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
+| Password* |contraseña |La contraseña para acceder al archivo PFX |
 
->[AZURE.TIP] Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardar la aplicación lógica.
+> [!TIP]
+> Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardar la aplicación lógica.
+> 
+> 
 
 Por ejemplo:
 
 ```javascript
 {
-	"type": "ClientCertificate",
-	"pfx": "aGVsbG8g...d29ybGQ=",
-	"password": "@parameters('myPassword')"
+    "type": "ClientCertificate",
+    "pfx": "aGVsbG8g...d29ybGQ=",
+    "password": "@parameters('myPassword')"
 }
 ```
 
 #### Autenticación de OAuth de Azure AD
-
 Se requiere el siguiente objeto de autenticación para la autenticación de OAuth de Azure AD. Un * significa que es un campo obligatorio.
 
-|Nombre de propiedad|Tipo de datos|Description|
-|---|---|---|
-|Type*|type|El tipo de autenticación (debe ser `ActiveDirectoryOAuth` para la autenticación de OAuth de Azure AD)|
-|Tenant*|tenant|Identificador del inquilino de Azure AD.|
-|Audience*|audience|Establézcala en `https://management.core.windows.net/`|
-|Client ID*|clientId|Identificador de cliente para la aplicación de Azure AD|
-|Secret*|secret|El secreto del cliente que solicita el token|
+| Nombre de propiedad | Tipo de datos | Description |
+| --- | --- | --- |
+| Type* |type |El tipo de autenticación (debe ser `ActiveDirectoryOAuth` para la autenticación de OAuth de Azure AD) |
+| Tenant* |tenant |Identificador del inquilino de Azure AD. |
+| Audience* |audience |Establézcala en `https://management.core.windows.net/` |
+| Client ID* |clientId |Identificador de cliente para la aplicación de Azure AD |
+| Secret* |secret |El secreto del cliente que solicita el token |
 
->[AZURE.TIP] Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardarse.
+> [!TIP]
+> Puede usar un parámetro `securestring` y la [función de definición de flujo de trabajo](http://aka.ms/logicappdocs) `@parameters()` para usar un parámetro que no se pueda leer en la definición después de guardarse.
+> 
+> 
 
 Por ejemplo:
 
 ```javascript
 {
-	"type": "ActiveDirectoryOAuth",
-	"tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
-	"audience": "https://management.core.windows.net/",
-	"clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
-	"secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+    "type": "ActiveDirectoryOAuth",
+    "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    "audience": "https://management.core.windows.net/",
+    "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+    "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
 }
 ```
 
 ## Pasos siguientes
-
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Puede explorar los demás conectores disponibles en Logic Apps consultando nuestra [lista de API](apis-list.md).
 
 <!---HONumber=AcomDC_0810_2016-->

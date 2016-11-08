@@ -1,39 +1,41 @@
-<properties
-   pageTitle="Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Azure"
-   description="Describe el uso de la máquina de Docker para crear hosts de docker en Azure."
-   services="azure-container-service"
-   documentationCenter="na"
-   authors="mlearned"
-   manager="douge"
-   editor="" />
-<tags
-   ms.service="multiple"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="multiple"
-   ms.date="06/08/2016"
-   ms.author="mlearned" />
+---
+title: Creación de hosts de Docker en Azure con una máquina de Docker | Microsoft Docs
+description: Describe el uso de la máquina de Docker para crear hosts de docker en Azure.
+services: azure-container-service
+documentationcenter: na
+author: mlearned
+manager: douge
+editor: ''
 
+ms.service: multiple
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: multiple
+ms.date: 06/08/2016
+ms.author: mlearned
+
+---
 # Creación de hosts de Docker en Azure con docker-machine
-
 La ejecución de contenedores de [Docker](https://www.docker.com/) requiere una máquina virtual host que ejecute el demonio de Docker. En este tema, se describe cómo usar el comando [docker-machine](https://docs.docker.com/machine/) para crear máquinas virtuales Linux, configuradas con el demonio de Docker, que se ejecuten en Azure.
 
 **Nota:**
-- *Este artículo depende de la versión 0.7.0 de docker-machine, o de una versión superior*
-- *Muy pronto será posible usar contenedores de Windows a través del comando docker-machine*
+
+* *Este artículo depende de la versión 0.7.0 de docker-machine, o de una versión superior*
+* *Muy pronto será posible usar contenedores de Windows a través del comando docker-machine*
 
 ## Creación de VM con la máquina de Docker
-
 Cree máquinas virtuales host de Docker en Azure con el comando `docker-machine create` mediante el controlador `azure`.
 
 El controlador de Azure necesitará su identificador de suscripción. Para recuperar su suscripción de Azure, puede usar la [CLI de Azure](xplat-cli-install.md) o [Azure Portal](https://portal.azure.com).
 
 **Uso del portal de Azure**
-- Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
+
+* Seleccione Suscripciones de la página de navegación izquierda y copie el identificador de suscripción.
 
 **Uso de la CLI de Azure**
-- Escriba ```azure account list``` y copie el identificador de suscripción.
+
+* Escriba ```azure account list``` y copie el identificador de suscripción.
 
 Escriba `docker-machine create --driver azure` para ver las opciones y sus valores predeterminados. Para más información, también puede consultar la [documentación del controlador de Azure de Docker](https://docs.docker.com/machine/drivers/azure/).
 
@@ -45,14 +47,13 @@ docker-machine create -d azure --azure-subscription-id <Your AZURE_SUBSCRIPTION_
 
 ## Elección de un host de Docker con una docker-machine
 Una vez que tenga una entrada en docker-machine para su host, puede establecer el host predeterminado al ejecutar comandos de Docker.
-##Con PowerShell
 
+## Con PowerShell
 ```powershell
 docker-machine env MyDockerHost | Invoke-Expression 
 ```
 
-##Con Bash
-
+## Con Bash
 ```bash
 eval $(docker-machine env MyDockerHost)
 ```
@@ -65,7 +66,6 @@ docker info
 ```
 
 ## Ejecución de un contenedor
-
 Con un host configurado, ya se puede ejecutar un servidor web simple para probar si dicho host se ha configurado correctamente. Aquí se usará una imagen de nginx estándar, se especifica que debe escuchar el puerto 80 y que si la máquina virtual host se reinicia, el contenedor también se reiniciará (`--restart=always`).
 
 ```bash
@@ -87,7 +87,6 @@ Status: Downloaded newer image for nginx:latest
 ```
 
 ## Prueba del contenedor
-
 Examine los contenedores en ejecución mediante `docker ps`:
 
 ```bash
@@ -104,7 +103,7 @@ PS C:\> docker-machine ip MyDockerHost
 
 ![Ejecución del contenedor ngnix](./media/vs-azure-tools-docker-machine-azure-config/nginxsuccess.png)
 
-##Resumen
+## Resumen
 Con docker-machine se pueden aprovisionar fácilmente hosts de Docker en Azure para las validaciones de host de Docker individuales. Para la creación de hospedaje de contenedores, consulte el [Servicio de contenedores de Azure](http://aka.ms/AzureContainerService)
 
 Para desarrollar aplicaciones de .NET Core con Visual Studio, consulte [Docker Tools para Visual Studio](http://aka.ms/DockerToolsForVS)

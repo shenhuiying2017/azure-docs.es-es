@@ -1,28 +1,28 @@
-<properties 
-	pageTitle="Desencadenadores de aplicaciones de API del Servicio de aplicaciones API | Microsoft Azure" 
-	description="Cómo implementar desencadenadores en una aplicación de API del Servicio de aplicaciones de Azure" 
-	services="logic-apps" 
-	documentationCenter=".net" 
-	authors="guangyang"
-	manager="wpickett" 
-	editor="jimbe"/>
+---
+title: Desencadenadores de aplicaciones de API del Servicio de aplicaciones API | Microsoft Docs
+description: Cómo implementar desencadenadores en una aplicación de API del Servicio de aplicaciones de Azure
+services: logic-apps
+documentationcenter: .net
+author: guangyang
+manager: wpickett
+editor: jimbe
 
-<tags 
-	ms.service="logic-apps" 
-	ms.workload="na" 
-	ms.tgt_pltfrm="dotnet" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/25/2016" 
-	ms.author="rachelap"/>
+ms.service: logic-apps
+ms.workload: na
+ms.tgt_pltfrm: dotnet
+ms.devlang: na
+ms.topic: article
+ms.date: 08/25/2016
+ms.author: rachelap
 
+---
 # Desencadenadores de aplicación de API del Servicio de aplicaciones de Azure
-
->[AZURE.NOTE] Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones de API.
-
+> [!NOTE]
+> Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de las aplicaciones de API.
+> 
+> 
 
 ## Información general
-
 En este artículo, se explica cómo implementar desencadenadores de aplicación de API y consumirlos desde una aplicación lógica.
 
 Todos los fragmentos de código de este tema proceden del [ejemplo de código de la aplicación de API FileWatcher](http://go.microsoft.com/fwlink/?LinkId=534802).
@@ -30,34 +30,31 @@ Todos los fragmentos de código de este tema proceden del [ejemplo de código de
 Tenga en cuenta que tendrá que descargar el siguiente paquete de NuGet para el código en este artículo para realizar la compilación y ejecución: [http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/](http://www.nuget.org/packages/Microsoft.Azure.AppService.ApiApps.Service/).
 
 ## ¿Qué son los desencadenadores de aplicación de API?
-
 Es frecuente que una aplicación de API deba desencadenar un evento de forma que los clientes de la aplicación de API realicen la acción apropiada como respuesta al evento. El mecanismo basado en la API de REST que hace posible este escenario se denomina "desencadenador de aplicación de API".
 
 Por ejemplo, supongamos que el código de su cliente utiliza la [aplicación API de conector de Twitter](../app-service-logic/app-service-logic-connector-twitter.md), y el código necesita realizar una acción basada en nuevos tweets que contengan palabras específicas. En este caso, puede configurar un desencadenador de inserción o de extracción para facilitar esta tarea.
 
 ## Desencadenador de sondeo frente a desencadenador de inserción
-
 Actualmente, se admiten dos tipos de desencadenadores:
 
-- Desencadenador de sondeo: el cliente sondea la aplicación de API para la notificación de un evento que se ha activado.
-- Desencadenador de inserción: se notifica al cliente mediante la aplicación de API cuando se activa un evento.
+* Desencadenador de sondeo: el cliente sondea la aplicación de API para la notificación de un evento que se ha activado.
+* Desencadenador de inserción: se notifica al cliente mediante la aplicación de API cuando se activa un evento.
 
 ### Desencadenador de sondeo
-
 Un desencadenador de sondeo se implementa como una API de REST normal y espera que sus clientes (por ejemplo, una aplicación lógica) efectúen un sondeo para obtener notificaciones. El cliente puede conservar el estado, pero desencadenador de sondeo en sí no tiene estado.
 
 En la información siguiente sobre los paquetes de solicitud y respuesta, se ilustran algunos aspectos claves del contrato del desencadenador de sondeo:
 
-- Solicitud
-    - Método HTTP: GET
-    - Parámetros
-        - triggerState: este parámetro opcional permite a los clientes especificar su estado para que el desencadenador de sondeo pueda decidir correctamente si debe devolver la notificación o no según el estado especificado.
-        - Parámetros específicos de la API
-- Response
-    - Código de estado **200**: la solicitud es válida y hay una notificación desde el desencadenador. El contenido de la notificación será el cuerpo de la respuesta. El encabezado "Retry-After" en la respuesta indica que hay que recuperar datos de notificación adicionales con una llamada de solicitud posterior.
-    - Código de estado **202**: la solicitud es válida, pero no hay una notificación nueva desde el desencadenador.
-    - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
-    - Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
+* Solicitud
+  * Método HTTP: GET
+  * Parámetros
+    * triggerState: este parámetro opcional permite a los clientes especificar su estado para que el desencadenador de sondeo pueda decidir correctamente si debe devolver la notificación o no según el estado especificado.
+    * Parámetros específicos de la API
+* Response
+  * Código de estado **200**: la solicitud es válida y hay una notificación desde el desencadenador. El contenido de la notificación será el cuerpo de la respuesta. El encabezado "Retry-After" en la respuesta indica que hay que recuperar datos de notificación adicionales con una llamada de solicitud posterior.
+  * Código de estado **202**: la solicitud es válida, pero no hay una notificación nueva desde el desencadenador.
+  * Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
+  * Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
 
 El siguiente fragmento de código es un ejemplo de cómo se debe implementar un desencadenador de sondeo.
 
@@ -97,24 +94,23 @@ Para probar este desencadenador de sondeo, siga estos pasos:
 3. Efectúe una llamada al desencadenador de sondeo con el parámetro **triggerState** establecido en una marca de tiempo anterior al paso 2. La siguiente imagen muestra la solicitud de ejemplo a través de Postman. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/callpolltriggerfrompostman.PNG)
 
 ### Desencadenador de inserción
-
 Un desencadenador de inserción se implementa como una API de REST normal que envía notificaciones a los clientes que se han registrado para recibir notificaciones cuando se activan determinados eventos.
 
 En la información siguiente sobre los paquetes de solicitud y respuesta, se ilustran algunos aspectos claves del contrato del desencadenador de inserción.
 
-- Solicitud
-    - Método HTTP: PUT
-    - Parámetros
-        - triggerId: (obligatorio) cadena opaca (por ejemplo, un GUID) que representa el registro de un desencadenador de inserción.
-        - callbackUrl: (obligatorio) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
-        - Parámetros específicos de la API
-- Response
-    - Código de estado **200**: solicitud de registro de cliente correcta.
-    - Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
-    - Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
-- Devolución de llamada
-    - Método HTTP: POST
-    - Cuerpo de la solicitud: contenido de la notificación.
+* Solicitud
+  * Método HTTP: PUT
+  * Parámetros
+    * triggerId: (obligatorio) cadena opaca (por ejemplo, un GUID) que representa el registro de un desencadenador de inserción.
+    * callbackUrl: (obligatorio) dirección URL de la devolución de llamada que se ejecuta al activarse el evento. La ejecución es una llamada HTTP POST simple.
+    * Parámetros específicos de la API
+* Response
+  * Código de estado **200**: solicitud de registro de cliente correcta.
+  * Código de estado **4xx**: la solicitud no es válida. El cliente no debe intentar efectuar la solicitud de nuevo.
+  * Código de estado **5xx**: la solicitud ha producido un error interno en el servidor o un problema temporal. El cliente debe intentar efectuar la solicitud de nuevo.
+* Devolución de llamada
+  * Método HTTP: POST
+  * Cuerpo de la solicitud: contenido de la notificación.
 
 El siguiente fragmento de código es un ejemplo de cómo se debe implementar un desencadenador de inserción.
 
@@ -202,7 +198,6 @@ Para probar este desencadenador de sondeo, siga estos pasos:
 5. Compruebe el RequestBin para confirmar que la devolución de llamada del desencadenador de inserción se realiza con una salida de propiedad. ![Llamada al desencadenador de sondeo mediante Postman](./media/app-service-api-dotnet-triggers/pushtriggercallbackinrequestbin.PNG)
 
 ### Descripción de los desencadenadores en la definición de la API
-
 Después de implementar los desencadenadores e implementar la aplicación de API en Azure, navegue hasta la hoja de la **definición de la API** en el portal de vista previa de Azure. Verá que los desencadenadores se reconocen automáticamente en la interfaz de usuario, que se controla mediante la definición de la API Swagger 2.0 de la aplicación de API.
 
 ![Hoja de definición de la API](./media/app-service-api-dotnet-triggers/apidefinitionblade.PNG)
@@ -226,19 +221,17 @@ Si hace clic en el botón para **descargar Swagger** y abra el archivo JSONj. Ve
 
 La propiedad de extensión **x-ms-schedular-trigger** representa la forma en que los desencadenadores se han descrito en la definición de la API. Esta propiedad la agrega automáticamente la puerta de enlace de la aplicación de API cuando se solicita la definición de la API a través de la puerta de enlace, si la solicitud se ajusta a uno de los siguientes criterios. (También puede agregar esta propiedad manualmente).
 
-- Desencadenador de sondeo
-    - Si el método HTTP es **GET**.
-    - Si la propiedad **operationId** contiene la cadena **trigger**.
-    - Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerState**.
-- Desencadenador de inserción
-    - Si el método HTTP es **PUT**.
-    - Si la propiedad **operationId** contiene la cadena **trigger**.
-    - Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerId**.
+* Desencadenador de sondeo
+  * Si el método HTTP es **GET**.
+  * Si la propiedad **operationId** contiene la cadena **trigger**.
+  * Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerState**.
+* Desencadenador de inserción
+  * Si el método HTTP es **PUT**.
+  * Si la propiedad **operationId** contiene la cadena **trigger**.
+  * Si la propiedad **parameter** incluye un parámetro con una propiedad **name** establecida en **triggerId**.
 
 ## Uso de desencadenadores de la aplicación de API en aplicaciones lógicas
-
 ### Muestre y configure desencadenadores de la aplicación de API en el Diseñador de aplicaciones lógicas
-
 Si crea una aplicación lógica en el mismo grupo de recursos que la aplicación de API, podrá agregarla al lienzo del diseñador simplemente haciendo clic en ella. Las imágenes siguientes ilustran este proceso:
 
 ![Desencadenadores en el Diseñador de aplicaciones lógicas](./media/app-service-api-dotnet-triggers/triggersinlogicappdesigner.PNG)
@@ -248,12 +241,11 @@ Si crea una aplicación lógica en el mismo grupo de recursos que la aplicación
 ![Configuración del desencadenador de inserción en el Diseñador de aplicaciones lógicas](./media/app-service-api-dotnet-triggers/configurepushtriggerinlogicappdesigner.PNG)
 
 ## Optimización de los desencadenadores de la aplicación de API para aplicaciones de lógicas
-
 Después de agregar desencadenadores a una aplicación de API, hay algunas cosas que puede hacer para mejorar la experiencia al usar la aplicación de API en una aplicación lógica.
 
 Por ejemplo, el parámetro **triggerState** para los desencadenadores de sondeo se debe configurar con la siguiente expresión en la aplicación lógica. Esta expresión debe evaluar la última invocación del desencadenador desde la aplicación lógica y devolver ese valor.
 
-	@coalesce(triggers()?.outputs?.body?['triggerState'], '')
+    @coalesce(triggers()?.outputs?.body?['triggerState'], '')
 
 NOTA: para obtener una explicación de las funciones utilizadas en la expresión anterior, consulte la documentación sobre el [lenguaje de definición del flujo de trabajo de la aplicación lógica](https://msdn.microsoft.com/library/azure/dn948512.aspx).
 
@@ -261,7 +253,7 @@ Los usuarios de la aplicación lógica deben proporcionar la expresión anterior
 
     "/api/Messages/poll": {
       "get": {
-	    "operationId": "Messages_NewMessageTrigger",
+        "operationId": "Messages_NewMessageTrigger",
         "parameters": [
           {
             "name": "triggerState",
@@ -295,7 +287,6 @@ Mediante las propiedades de extensión **x-ms-scheduler-recommendation** y **x-m
 
 
 ### Adición de propiedades de extensión en la definición de la API
-
 La información de metadatos adicionales (por ejemplo, las propiedades de extensión **x-ms-scheduler-recommendation** y **x-ms-visibility**) puede agregarse en la definición de la API de dos maneras: estática o dinámica.
 
 En el caso de los metadatos estáticos, puede editar directamente el archivo */metadata/apiDefinition.swagger.json* en el proyecto y agregar manualmente las propiedades.
@@ -340,6 +331,6 @@ El siguiente es un ejemplo de cómo esta clase se puede implementar para facilit
             }
         }
     }
- 
+
 
 <!---HONumber=AcomDC_0831_2016-->
