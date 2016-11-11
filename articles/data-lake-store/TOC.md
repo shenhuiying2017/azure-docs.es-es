@@ -1,70 +1,70 @@
-# Overview
-## [Overview of Azure Data Lake Store](data-lake-store-overview.md)
-## [Compare Azure Data Lake Store with Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Use Azure Data Lake Store for big data processing](data-lake-store-data-scenarios.md)
-## [Open source applications that work with Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
+# Información general
+## [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
+## [Comparación de Azure Data Lake Store con Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Uso de Azure Data Lake Store para el procesamiento de macrodatos](data-lake-store-data-scenarios.md)
+## [Aplicaciones de código abierto que funcionan con Azure Data Lake Store](data-lake-store-compatible-oss-other-applications.md)
 
-# Get started
-## [Using Portal](data-lake-store-get-started-portal.md)
-## [Using PowerShell](data-lake-store-get-started-powershell.md)
-## [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-## [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-## [Using REST API](data-lake-store-get-started-rest-api.md)
-## [Using Azure CLI](data-lake-store-get-started-cli.md)
-## [Using Node.js](data-lake-store-manage-use-nodejs.md)
+# Primeros pasos
+## [Uso del portal](data-lake-store-get-started-portal.md)
+## [Uso de PowerShell](data-lake-store-get-started-powershell.md)
+## [Uso de .NET SDK](data-lake-store-get-started-net-sdk.md)
+## [Uso de SDK de Java](data-lake-store-get-started-java-sdk.md)
+## [Uso de la API de REST](data-lake-store-get-started-rest-api.md)
+## [Uso de la CLI de Azure](data-lake-store-get-started-cli.md)
+## [Uso de Node.js](data-lake-store-manage-use-nodejs.md)
 
-# How to
-## Copy Data
-### [Using Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
-### [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
-### [Using Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-### [Upload data from offline sources](data-lake-store-offline-bulk-data-upload.md)
+# Cómo
+## Copia de datos
+### [Uso de Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Uso de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
+### [Uso de DistCp](data-lake-store-copy-data-wasb-distcp.md)
+### [Uso de Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
+### [Carga de datos de orígenes sin conexión](data-lake-store-offline-bulk-data-upload.md)
 
-## Develop
-### [Using PowerShell](data-lake-store-get-started-powershell.md)
-### [Using .NET SDK](data-lake-store-get-started-net-sdk.md)
-### [Using Java SDK](data-lake-store-get-started-java-sdk.md)
-### [Using REST API](data-lake-store-get-started-rest-api.md)
-### [Using Azure CLI](data-lake-store-get-started-cli.md)
-### [Using Node.js](data-lake-store-manage-use-nodejs.md)
+## Desarrollo
+### [Uso de PowerShell](data-lake-store-get-started-powershell.md)
+### [Uso de .NET SDK](data-lake-store-get-started-net-sdk.md)
+### [Uso de SDK de Java](data-lake-store-get-started-java-sdk.md)
+### [Uso de la API de REST](data-lake-store-get-started-rest-api.md)
+### [Uso de la CLI de Azure](data-lake-store-get-started-cli.md)
+### [Uso de Node.js](data-lake-store-manage-use-nodejs.md)
 
-## Secure Data
-### [Security overview](data-lake-store-security-overview.md)
-### [Access control in Data Lake Store](data-lake-store-access-control.md)
-### [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-### [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
-### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
+## Protección de los datos
+### [Introducción a la seguridad](data-lake-store-security-overview.md)
+### [Control de acceso en Data Lake Store](data-lake-store-access-control.md)
+### [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
+### [Autenticación entre servicios](data-lake-store-authenticate-using-active-directory.md)
+### [Autenticación de usuario final](data-lake-store-end-user-authenticate-using-active-directory.md)
  
-## Integrate with Azure Services
-### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
-### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
-### [Create HDInsight cluster with Data Lake Store using Resource Manager template](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
-### [Use with Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
-### [Use with Stream Analytics](data-lake-store-stream-analytics.md)
-### [Use with Power BI](data-lake-store-power-bi.md)
-### [Use with Data Catalog](data-lake-store-with-data-catalog.md)
-### [More Azure integration options](data-lake-store-integrate-with-other-services.md)
+## Integración con servicios de Azure
+### [Uso con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+### [Creación de clúster de HDInsight con Data Lake Store mediante el Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+### [Creación de clúster de HDInsight con Data Lake Store mediante PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
+### [Creación de clúster de HDInsight con Data Lake Store mediante la plantilla de Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+### [Uso con Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [Uso con Stream Analytics](data-lake-store-stream-analytics.md)
+### [Uso con Power BI](data-lake-store-power-bi.md)
+### [Uso con Data Catalog](data-lake-store-with-data-catalog.md)
+### [Más opciones para la integración de Azure](data-lake-store-integrate-with-other-services.md)
 
-## Manage
-### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
+## Administrar
+### [Acceso a los registros de diagnóstico](data-lake-store-diagnostic-logs.md)
 
-# Reference
+# Referencia
 ## [.NET SDK](https://msdn.microsoft.com/library/azure/mt581387.aspx)
-## [Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt607120.aspx)
-## [REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx)
+## [SDK de Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+## [Cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt607120.aspx)
+## [API DE REST](https://msdn.microsoft.com/library/azure/mt693424.aspx)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 
-# Related
+# Temas relacionados
 ## [Cortana Intelligence Suite](https://www.microsoft.com/en-us/cloud-platform/what-is-cortana-intelligence-suite)
 
-# Resources
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
-## [Stack Overflow Forum](http://stackoverflow.com/questions/tagged/azure-data-lake)
-## [Give feedback on UserVoice](https://feedback.azure.com/forums/327234-data-lake)
-## [Data Lake Store Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
+# resources
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Foro de Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
+## [Comentarios sobre UserVoice](https://feedback.azure.com/forums/327234-data-lake)
+## [Blog de Data Lake Store](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 
 <!--HONumber=Nov16_HO2-->

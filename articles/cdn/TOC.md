@@ -1,59 +1,59 @@
-# [Overview](cdn-overview.md)
-## [Azure CDN Best practices](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-# Get Started
-## [Using Azure CDN](cdn-create-new-endpoint.md)
-## Get started with Azure CDN development
+# [Información general](cdn-overview.md)
+## [Procedimientos recomendados para la red CDN de Azure](../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+# Introducción
+## [Uso de CDN de Azure](cdn-create-new-endpoint.md)
+## Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 ### [.NET](cdn-app-dev-net.md)
 ### [Node.js](cdn-app-dev-node.md)
 
-# How To
+# Procedimientos
 ## Integrate
-### [Integrate with Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
-### [Integrate with Cloud Services](cdn-cloud-service-with-cdn.md)
-### [Integrate with Storage](cdn-create-a-storage-account-with-cdn.md)
-### [Cross-origin resource sharing](cdn-cors.md)
+### [Integración con Web Apps](../app-service-web/cdn-websites-with-cdn.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Integración con Cloud Services](cdn-cloud-service-with-cdn.md)
+### [Integración con Storage](cdn-create-a-storage-account-with-cdn.md)
+### [Uso compartido de recursos entre orígenes](cdn-cors.md)
 
-## Manage
-### [Manage with PowerShell](cdn-manage-powershell.md)
-### Configure time-to-live
-#### [Web Apps/Cloud Services, ASP.NET, or IIS content](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Storage blob service content](cdn-manage-expiration-of-blob-content.md)
-### [Map a custom domain to CDN](cdn-map-content-to-custom-domain.md)
-### [Restrict access by country](cdn-restrict-access-by-country.md)
-### [Improve performance by compressing files](cdn-improve-performance.md)
-### Cache content by query string
-#### [Standard tier](cdn-query-string.md)
-#### [Premium tier](cdn-query-string-premium.md)
-### [Purge cached assets](cdn-purge-endpoint.md)
-### [Pre-load cached assets](cdn-preload-endpoint.md)
-### [Override behavior with rules](cdn-rules-engine.md)
-### [Get real-time alerts](cdn-real-time-alerts.md)
+## Administrar
+### [Administración con PowerShell](cdn-manage-powershell.md)
+### Configuración del período de vida
+#### [Contenido de Web Apps/Cloud Services, ASP.NET o IIS](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Contenido de Storage Blob Service](cdn-manage-expiration-of-blob-content.md)
+### [Asignación de un dominio personalizado a una red CDN](cdn-map-content-to-custom-domain.md)
+### [Restricción del acceso por países](cdn-restrict-access-by-country.md)
+### [Mejora del rendimiento mediante la compresión de archivos](cdn-improve-performance.md)
+### Almacenamiento en caché de contenido mediante cadenas de consulta
+#### [Nivel estándar](cdn-query-string.md)
+#### [Nivel Premium](cdn-query-string-premium.md)
+### [Purga de recursos en caché](cdn-purge-endpoint.md)
+### [Precarga de recursos en caché](cdn-preload-endpoint.md)
+### [Invalidación del comportamiento con reglas](cdn-rules-engine.md)
+### [Obtención de alertas en tiempo real](cdn-real-time-alerts.md)
 
-## Automate
-### [Manage with PowerShell](cdn-manage-powershell.md)
+## Automatizar
+### [Administración con PowerShell](cdn-manage-powershell.md)
 
-## Analyze
-### [Analyze usage patterns](cdn-analyze-usage-patterns.md)
-### [Generate advanced HTTP reports](cdn-advanced-http-reports.md)
-### [View real-time statistics](cdn-real-time-stats.md)
-### [Analyze edge node performance](cdn-edge-performance.md)
+## Análisis
+### [Análisis de los patrones de uso](cdn-analyze-usage-patterns.md)
+### [Generación de informes HTTP avanzados](cdn-advanced-http-reports.md)
+### [Visualización de estadísticas en tiempo real](cdn-real-time-stats.md)
+### [Análisis del rendimiento del nodo perimetral](cdn-edge-performance.md)
 
-## Develop
-### Get started with Azure CDN development
+## Desarrollo
+### Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
 #### [.NET](cdn-app-dev-net.md)
 #### [Node.js](cdn-app-dev-node.md)
 
-## Troubleshoot
-### [Troubleshoot 404 status](cdn-troubleshoot-endpoint.md)
-### [Troubleshoot file compression](cdn-troubleshoot-compression.md)
+## Solución de problemas
+### [Solución de problemas de estado 404](cdn-troubleshoot-endpoint.md)
+### [Solución de problemas de compresión de archivos](cdn-troubleshoot-compression.md)
 
-# Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt634456.aspx)
+# Referencia
+## [Referencia de API de REST](https://msdn.microsoft.com/library/mt634456.aspx)
 
-# Related
+# Temas relacionados
 
-# Resources
-## [Azure CDN POP Locations](cdn-pop-locations.md)
+# resources
+## [Ubicaciones POP de red CDN de Azure](cdn-pop-locations.md)
 
 
 <!--HONumber=Nov16_HO2-->

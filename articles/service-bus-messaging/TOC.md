@@ -1,47 +1,70 @@
-# Overview
-## [What is Service Bus Messaging?](service-bus-queues-topics-subscriptions.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [FAQ](service-bus-faq.md)
-# Get Started
-## [Create a namespace](service-bus-create-namespace-portal.md)
-## [Get started with queues](service-bus-dotnet-get-started-with-queues.md)
-## [Get started with topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-## [Shared Access Signatures (SAS)](service-bus-sas-overview.md)
+# Información general
+## [¿Qué es la mensajería de Service Bus?](service-bus-queues-topics-subscriptions.md)
+## [Comparación de colas de Azure con colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+## [P+F](service-bus-faq.md)
 
-# How To
-## Develop
-### [Create applications that use queues](service-bus-create-queues.md)
-### [Create applications that use topics/subscriptions](service-bus-create-topics-subscriptions.md)
-### [Authentication and authorization](service-bus-authentication-and-authorization.md)
-### [Premium messaging](service-bus-premium-messaging.md)
-### [Optimize performance](service-bus-performance-improvements.md)
-### [Partitioned messaging entities](service-bus-partitioning.md)
-### [Dead-letter queues](service-bus-dead-letter-queues.md)
-### [Transaction processing](service-bus-transactions.md)
-### [AMQP developer's guide](service-bus-amqp-dotnet.md)
-### [Use AMQP with the .NET API](service-bus-dotnet-advanced-message-queuing.md)
-### [Use AMQP with partitioned queues and topics](service-bus-partitioned-queues-and-topics-amqp-overview.md)
-### [Asynchronous messaging and high availability](service-bus-async-messaging.md)
-### [Handling outages and disasters](service-bus-outages-disasters.md)
-### [Paired namespaces](service-bus-paired-namespaces.md)
-### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
-### [Pricing details](service-bus-pricing-billing.md)
-### [Compare Azure Queues and Service Bus queues](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-## Manage
-### [Using ARM templates](service-bus-resource-manager-overview.md)
-### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
-### [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
-# Reference
-## [Samples](service-bus-samples.md)
-## [.NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [REST API reference](https://msdn.microsoft.com/library/azure/hh780717)
-## [Exceptions](service-bus-messaging-exceptions.md)
-## [Quotas](service-bus-quotas.md)
-# Resources
+# Introducción
+## [Creación de un espacio de nombres](service-bus-create-namespace-portal.md)
+## Uso de colas
+### [.NET](service-bus-dotnet-get-started-with-queues.md)
+### [Java](service-bus-java-how-to-use-queues.md)
+### [Node.js](service-bus-nodejs-how-to-use-queues.md)
+### [PHP](service-bus-php-how-to-use-queues.md)
+### [Python](service-bus-python-how-to-use-queues.md)
+### [Ruby](service-bus-ruby-how-to-use-queues.md)
+### [REST](service-bus-brokered-tutorial-rest.md)
+## Uso de temas y suscripciones
+### [.NET](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+### [Java](service-bus-java-how-to-use-topics-subscriptions.md)
+### [Node.js](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
+### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
+### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
+## [Generación de firmas de acceso compartido](service-bus-sas-overview.md)
+
+# Procedimientos
+## Planeamiento y diseño
+### [Optimización del rendimiento](service-bus-performance-improvements.md)
+### [Mensajería asincrónica y alta disponibilidad](service-bus-async-messaging.md)
+### [Control de interrupciones y desastres](service-bus-outages-disasters.md)
+
+## Desarrollo
+### [Aplicaciones que usan colas](service-bus-create-queues.md)
+### [Aplicaciones que usan temas y suscripciones](service-bus-create-topics-subscriptions.md)
+### [Autenticación y autorización](service-bus-authentication-and-authorization.md)
+### [Mensajería premium](service-bus-premium-messaging.md)
+### [Temas y colas con particiones](service-bus-partitioning.md)
+### [Colas de mensajes fallidos](service-bus-dead-letter-queues.md)
+### [Procesamiento de transacciones](service-bus-transactions.md)
+### [Guía del desarrollador de AMQP]
+#### [.NET](service-bus-amqp-dotnet.md)
+#### [Java](service-bus-amqp-java.md)
+#### [PHP](service-bus-amqp-php.md)
+#### [Python](service-bus-amqp-python.md)
+#### [Apache](service-bus-amqp-apache.md)
+### [Uso de AMQP con API de .NET](service-bus-dotnet-advanced-message-queuing.md)
+### [Uso de AMQP con temas y colas con particiones](service-bus-partitioned-queues-and-topics-amqp-overview.md)
+### [Espacios de nombres emparejados](service-bus-paired-namespaces.md)
+### [Encadenamiento de entidades con reenvío automático](service-bus-auto-forwarding.md)
+## Administrar
+### [Uso de plantillas de ARM](service-bus-resource-manager-overview.md)
+### [Uso de PowerShell para aprovisionar entidades](service-bus-powershell-how-to-provision.md)
+
+# Referencia
+## [Detalles de precios](service-bus-pricing-billing.md)
+## [Ejemplos](service-bus-samples.md)
+## [Referencia de la API de .NET](https://msdn.microsoft.com/library/azure/jj933424)
+## [Referencia de API de REST](https://msdn.microsoft.com/library/azure/hh780717)
+## [Excepciones](service-bus-messaging-exceptions.md)
+## [Cuotas](service-bus-quotas.md)
+
+# resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
-## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Foros de MSDN](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Precios](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Explorador del Bus de servicio](https://github.com/paolosalvatori/ServiceBusExplorer)
 
 
 <!--HONumber=Nov16_HO2-->

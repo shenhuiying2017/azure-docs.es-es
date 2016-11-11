@@ -1,59 +1,59 @@
-# Overview
-## [What is Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/)
-## [How it works](active-directory-b2c-overview.md)
-## [Types of applications](active-directory-b2c-apps.md)
-## [Production-scale vs preview B2C tenants](active-directory-b2c-reference-tenant-type.md)
+# Información general
+## [¿Qué es Azure AD B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
+## [Funcionamiento](active-directory-b2c-overview.md)
+## [Tipos de aplicaciones](active-directory-b2c-apps.md)
+## [Inquilinos B2C de producción frente a inquilinos de vista previa](active-directory-b2c-reference-tenant-type.md)
 
-# Get Started
-## [Create an Azure AD B2C Directory](active-directory-b2c-get-started.md)
-## [Register your application](active-directory-b2c-app-registration.md)
-## Quickstart Guides
-### [Build an iOS app](active-directory-b2c-devquickstarts-ios.md)
-### [Build an Android app](active-directory-b2c-devquickstarts-android.md)
-### [Build a Node.Js Web API](active-directory-b2c-devquickstarts-api-node.md)
-### [Build a .NET Web App](active-directory-b2c-devquickstarts-web-dotnet.md)
-#### [Sign up and sign in on an ASP.NET web app](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
-### [Build a .NET Web API](active-directory-b2c-devquickstarts-api-dotnet.md)
-### [Build a Windows desktop app](active-directory-b2c-devquickstarts-native-dotnet.md)
-### [Call a web API from a .NET web app](active-directory-b2c-devquickstarts-web-api-dotnet.md)
-### [Use the Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
-### [Add sign-in to a Node.js web app](active-directory-b2c-devquickstarts-web-node.md)
-## [Frequently asked questions](active-directory-b2c-faqs.md)
+# Introducción
+## [Creación de un directorio de Azure AD B2C](active-directory-b2c-get-started.md)
+## [Registro de la aplicación](active-directory-b2c-app-registration.md)
+## Guías de inicio rápido
+### [Creación de una aplicación para iOS](active-directory-b2c-devquickstarts-ios.md)
+### [Creación de una aplicación para Android](active-directory-b2c-devquickstarts-android.md)
+### [Creación de una API web de Node.Js](active-directory-b2c-devquickstarts-api-node.md)
+### [Creación de una aplicación web de .NET](active-directory-b2c-devquickstarts-web-dotnet.md)
+#### [Registro e inicio de sesión en una aplicación web ASP.NET](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+### [Creación de una API web de .NET](active-directory-b2c-devquickstarts-api-dotnet.md)
+### [Creación de una aplicación de escritorio de Windows](active-directory-b2c-devquickstarts-native-dotnet.md)
+### [Llamada a una API web desde una aplicación web .NET](active-directory-b2c-devquickstarts-web-api-dotnet.md)
+### [Uso de la API Graph de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md)
+### [Incorporación del inicio de sesión a una aplicación web de Node.js](active-directory-b2c-devquickstarts-web-node.md)
+## [Preguntas más frecuentes](active-directory-b2c-faqs.md)
 
-# How To
-## Manage
-### [Enable multi-factor authentication](active-directory-b2c-reference-mfa.md)
-### [Set up self-service password reset](active-directory-b2c-reference-sspr.md)
-### [Token, session, and SSO configuration](active-directory-b2c-token-session-sso.md)
-## Develop
-### Sign up and sign in
-#### [Microsoft Account](active-directory-b2c-setup-msa-app.md)
+# Procedimientos
+## Administrar
+### [Habilitación de Multi-Factor Authentication](active-directory-b2c-reference-mfa.md)
+### [Configuración del restablecimiento de contraseña de autoservicio](active-directory-b2c-reference-sspr.md)
+### [Configuración de token, sesiones y SSO](active-directory-b2c-token-session-sso.md)
+## Desarrollo
+### Registrarse e iniciar sesión
+#### [Cuenta Microsoft](active-directory-b2c-setup-msa-app.md)
 #### [Facebook](active-directory-b2c-setup-fb-app.md)
 #### [Google+](active-directory-b2c-setup-goog-app.md)
 #### [Amazon](active-directory-b2c-setup-amzn-app.md)
 #### [LinkedIn](active-directory-b2c-setup-li-app.md)
-### [Use custom attributes](active-directory-b2c-reference-custom-attr.md)
-### [OAuth 2.0 authorization code flow](active-directory-b2c-reference-oauth-code.md)
-### [Web sign-in with OpenID Connect](active-directory-b2c-reference-oidc.md)
-### [Customize the user interface](active-directory-b2c-reference-ui-customization.md)
-#### [Helper tool for customization](active-directory-b2c-reference-ui-customization-helper-tool.md)
-## Troubleshoot
-### [Issues when creating a directory](active-directory-b2c-support-create-directory.md)
+### [Uso de atributos personalizados](active-directory-b2c-reference-custom-attr.md)
+### [Flujo de código de autorización de OAuth 2.0](active-directory-b2c-reference-oauth-code.md)
+### [Inicio de sesión web con OpenID Connect](active-directory-b2c-reference-oidc.md)
+### [Personalización de la interfaz del usuario](active-directory-b2c-reference-ui-customization.md)
+#### [Herramienta de ayudante para la personalización](active-directory-b2c-reference-ui-customization-helper-tool.md)
+## Solución de problemas
+### [Problemas para crear un directorio](active-directory-b2c-support-create-directory.md)
 
-# Reference
-## [Limitations & Restrictions](active-directory-b2c-limitations.md)
-## [Extensible policy framework](active-directory-b2c-reference-policies.md)
-## [Authentication Protocols](active-directory-b2c-reference-protocols.md)
+# Referencia
+## [Limitaciones y restricciones](active-directory-b2c-limitations.md)
+## [Marco de directiva extensible](active-directory-b2c-reference-policies.md)
+## [Protocolos de autenticación](active-directory-b2c-reference-protocols.md)
 ## [Tokens](active-directory-b2c-reference-tokens.md)
 
-# Related
+# Temas relacionados
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# Resources
-## [Support](active-directory-b2c-support.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
-## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+# resources
+## [Soporte técnico](active-directory-b2c-support.md)
+## [Precios](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [Foro de comentarios de Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
 
 <!--HONumber=Nov16_HO2-->
 

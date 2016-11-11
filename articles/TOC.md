@@ -1,73 +1,73 @@
-# Compute
-## [Container Service](/azure/container-service/)
-## [Batch](/azure/batch/)
-## [Cloud Services](/azure/cloud-services/)
-## [Functions](/azure/functions/)
+# Proceso
+## [Servicio Contenedor](/azure/container-service/)
+## [Lote](/azure/batch/)
+## [Servicios en la nube](/azure/cloud-services/)
+## [Funciones](/azure/functions/)
 ## [Service Fabric](/azure/service-fabric/)
-## [Virtual Machines](/azure/virtual-machines/)
-### [Linux VMs](/azure/virtual-machines/linux/)
-### [Windows VMs](/azure/virtual-machines/windows/)
-## [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
+## [Máquinas virtuales](/azure/virtual-machines/)
+### [Máquinas virtuales Linux](/azure/virtual-machines/linux/)
+### [Máquinas virtuales Windows](/azure/virtual-machines/windows/)
+## [Conjuntos de escalado de máquina virtual](/azure/virtual-machine-scale-sets/)
 ## [Resource Manager](/azure/azure-resource-manager/)
-# Data and Databases
+# Datos y bases de datos
 ## [DocumentDB](/azure/documentdb/)
 ## [Redis Cache](/azure/redis-cache/)
 ## [SQL Data Warehouse](/azure/sql-data-warehouse/)
-## [SQL Database](/azure/sql-database/)
+## [Base de datos SQL](/azure/sql-database/)
 ## [SQL Server Stretch DB](/azure/sql-server-stretch-database/)
-# Developer Tools
+# Herramientas para desarrolladores
 ## [DevTest Lab](/azure/devtest-lab/)
-## [Best Practices](/azure/guidance/)
-# Enterprise Integration
+## [Procedimientos recomendados](/azure/guidance/)
+# Integración empresarial
 ## [Biztalk Services](/azure/biztalk-services/)
-## [Service Bus](/azure/service-bus/)
+## [Bus de servicio](/azure/service-bus/)
 ## [Azure Stack](/azure/azure-stack/)
-# Intelligence & Analytics
+# Inteligencia + Análisis
 ## [Cognitive Services](/azure/cognitive-services/)
 ## [Data Catalog](/azure/data-catalog/)
-## [Data Factory](/azure/data-factory/)
-## [Data Lake Analytics](/azure/data-lake-analytics/)
+## [Factoría de datos](/azure/data-factory/)
+## [Análisis de Data Lake](/azure/data-lake-analytics/)
 ## [HDInsights](/azure/hdinsights/)
-## [Machine Learning](/azure/macine-learning/)
+## [Aprendizaje automático](/azure/macine-learning/)
 ## [PowerBI Embedded](/azure/powerbi-embedded/)
 ## [Stream Analytics](/azure/stream-analytics/)
-# Internet of Things
-## [Event Hubs](/azure/event-hubs/)
-## [IoT Hub](/azure/iot-hub/)
-## [IoT Suite](/azure/iot-suite/)
-# Monitoring & Management
-## [Billing](/azure/billing/)
+# Internet de las cosas
+## [Centros de eventos](/azure/event-hubs/)
+## [Centro de IoT](/azure/iot-hub/)
+## [Conjunto de aplicaciones de IoT](/azure/iot-suite/)
+# Supervisión y administración
+## [Facturación](/azure/billing/)
 ## [Operations Management Suite](/azure/operations-management-suite/)
-## [Site Recovery](/azure/site-recovery/)
+## [Recuperación de sitios](/azure/site-recovery/)
 ## [Application Insights](/azure/application-insights/)
-# Networking
-## [Application Gateway](/azure/application-gateway/)
-## [CDN](/azure/cdn/)
+# Redes
+## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [SERVICIO CDN](/azure/cdn/)
 ## [DNS](/azure/dns/)
 ## [ExpressRoute](/azure/expressroute/)
-## [Load Balancer](/azure/load-balancer/)
-## [Traffic Manager](/azure/traffic-manager/)
+## [Equilibrador de carga](/azure/load-balancer/)
+## [Administrador de tráfico](/azure/traffic-manager/)
 ## [Virtual Network](/azure/virtual-network/)
 ## [VPN Gateway](/azure/vpn-gateway/)
-# Security & Identity
+# Seguridad e identidad
 ## [Security Center](/azure/security-center/)
 ## [Active Directory](/azure/active-directory/)
 ## [Active Directory B2C](/azure/active-directory-b2c/)
 ## [Active Directory Domain Services](/azure/active-directory-domain-services/)
 ## [KeyVault](/azure/key-vault/)
 ## [Multifactor Authentication](/azure/multi-factor-authentication/)
-# Storage
-## [Backup](/azure/backup/)
+# Almacenamiento
+## [Copia de seguridad](/azure/backup/)
 ## [Data Lake Store](/azure/data-lake-store/)
-## [Storage](/azure/storage/)
+## [Almacenamiento](/azure/storage/)
 ## [StorSimple](/azure/storsimple/)
-# Web + Mobile
-## [API Management](/azure/api-management/)
+# Web y móvil
+## [Administración de API](/azure/api-management/)
 ## [App Service](/azure/app-service/)
 ## [Logic Apps](/azure/app-service-logic/)
-## [Media Services](/azure/media-services/)
+## [Servicios multimedia](/azure/media-services/)
 ## [Mobile Engagement](/azure/mobile-engagement/)
-## [Notification Hubs](/azure/notification-hubs/)
+## [Centros de notificaciones](/azure/notification-hubs/)
 ## [Search](/azure/search/)
 # [Azure Government](/azure/azure-government/)
 

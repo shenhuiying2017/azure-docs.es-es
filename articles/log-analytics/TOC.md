@@ -1,68 +1,68 @@
-# Overview
-## [What is Log Analytics?](log-analytics-overview.md)
-## [Data security](log-analytics-security.md)
-## [Log Analytics FAQ](log-analytics-faq.md)
-# Get Started
-## [Sign up for Log Analytics](log-analytics-get-started.md)
-## [Manage access](log-analytics-manage-access.md)
-## [Proxy and firewall](log-analytics-proxy-firewall.md)
-## [Usage data](log-analytics-usage.md)
+# Información general
+## [¿Qué es Log Analytics?](log-analytics-overview.md)
+## [Seguridad de datos](log-analytics-security.md)
+## [Preguntas frecuentes sobre Log Analytics](log-analytics-faq.md)
+# Introducción
+## [Suscripción a Log Analytics](log-analytics-get-started.md)
+## [Administración del acceso](log-analytics-manage-access.md)
+## [Proxy y firewall](log-analytics-proxy-firewall.md)
+## [Datos de uso](log-analytics-usage.md)
 
-# How To
+# Procedimientos
 ## Integrate
-### Connected sourcces
-#### [Windows agents](log-analytics-windows-agents.md)
-#### [Linux agents](log-analytics-linux-agents.md)
-#### [Azure virtual machines](log-analytics-azure-vm-extension.md)
-#### [Azure Storage](log-analytics-azure-storage.md)
+### Orígenes conectados
+#### [Agentes de Windows](log-analytics-windows-agents.md)
+#### [Agentes de Linux](log-analytics-linux-agents.md)
+#### [Máquinas virtuales de Azure](log-analytics-azure-vm-extension.md)
+#### [Almacenamiento de Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
-#### [Configuration Manager](log-analytics-sccm.md)
-### Data Sources
-#### [Data sources overview](log-analytics-data-sources.md)
-#### [Windows events](log-analytics-data-sources-windows-events.md)
+#### [Administrador de configuración](log-analytics-sccm.md)
+### Orígenes de datos
+#### [Introducción a orígenes de datos](log-analytics-data-sources.md)
+#### [Eventos de Windows](log-analytics-data-sources-windows-events.md)
 #### [Syslog](log-analytics-data-sources-syslog.md)
-#### [Performance counters](log-analytics-data-sources-performance-counters.md)
-#### [IIS logs](log-analytics-data-sources-iis-logs.md)
-#### [Custom logs](log-analytics-data-sources-custom-logs.md)
-#### [Custom fields](log-analytics-custom-fields.md)
-## Develop
-### [Log searches overview](log-analytics-log-searches.md)
-### [Search reference](log-analytics-search-reference.md)
-### [Computer groups](log-analytics-computer-groups.md)
-### [Alerts](log-analytics-alerts.md)
-### Solutions
-#### [Solutions overview](log-analytics-add-solutions.md)
-#### [AD Assessment](log-analytics-ad-assessment.md)
-#### [AD Replication Status](log-analytics-ad-replication-status.md)
-#### [Alert management](log-analytics-solution-alert-management.md)
-#### [Capacity Management](log-analytics-capacity.md)
-#### [Change Tracking](log-analytics-change-tracking.md)
-#### [Configuration Assessment](log-analytics-configuration-assessment.md)
-#### [Containers](log-analytics-containers.md)
-#### [Key Vault](log-analytics-azure-key-vault.md)
-#### [Malware Assessment](log-analytics-malware.md)
-#### [Networking Analytics](log-analytics-azure-networking-analytics.md)
-#### [Network Performance Monitor](log-analytics-network-performance-monitor.md)
-#### [Security Audit](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
+#### [Contadores de rendimiento](log-analytics-data-sources-performance-counters.md)
+#### [Registros de IIS](log-analytics-data-sources-iis-logs.md)
+#### [Registros personalizados](log-analytics-data-sources-custom-logs.md)
+#### [Campos personalizados](log-analytics-custom-fields.md)
+## Desarrollo
+### [Introducción a búsquedas de registros](log-analytics-log-searches.md)
+### [Referencia de búsqueda](log-analytics-search-reference.md)
+### [Grupos de equipos](log-analytics-computer-groups.md)
+### [Alertas](log-analytics-alerts.md)
+### Soluciones
+#### [Introducción a soluciones](log-analytics-add-solutions.md)
+#### [Evaluación de AD](log-analytics-ad-assessment.md)
+#### [Estado de replicación de AD](log-analytics-ad-replication-status.md)
+#### [Administración de alertas](log-analytics-solution-alert-management.md)
+#### [Administración de la capacidad](log-analytics-capacity.md)
+#### [Seguimiento de cambios](log-analytics-change-tracking.md)
+#### [Evaluación de la configuración](log-analytics-configuration-assessment.md)
+#### [Contenedores](log-analytics-containers.md)
+#### [Almacén de claves](log-analytics-azure-key-vault.md)
+#### [Evaluación de malware](log-analytics-malware.md)
+#### [Análisis de redes](log-analytics-azure-networking-analytics.md)
+#### [Monitor de rendimiento de red](log-analytics-network-performance-monitor.md)
+#### [Auditoría de seguridad](../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json)
 #### [Service Fabric](log-analytics-service-fabric.md)
-#### [SQL Assessment](log-analytics-sql-assessment.md)
+#### [Evaluación de SQL](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [System Update Assessment](log-analytics-system-update.md)
+#### [Evaluación de la actualización del sistema](log-analytics-system-update.md)
 #### [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
-## Analyze
-### [Dashboards](log-analytics-dashboards.md)
-### [View Designer](log-analytics-view-designer.md)
+## Análisis
+### [Paneles](log-analytics-dashboards.md)
+### [Visualización del diseñador](log-analytics-view-designer.md)
 ### [Power BI](log-analytics-powerbi.md)
-## Automate
-### [Data collector API](log-analytics-data-collector-api.md)
-### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
-### [Log Search API](log-analytics-log-search-api.md)
-### [Alert API](log-analytics-api-alerts.md)
-# Reference
-# Related
-# Resources
+## Automatizar
+### [API de recopilador de datos](log-analytics-data-collector-api.md)
+### [Cmdlets de PowerShell](log-analytics-powershell-workspace-configuration.md)
+### [API de búsqueda de Log](log-analytics-log-search-api.md)
+### [API de alerta](log-analytics-api-alerts.md)
+# Referencia
+# Temas relacionados
+# Recursos
 
 
 
