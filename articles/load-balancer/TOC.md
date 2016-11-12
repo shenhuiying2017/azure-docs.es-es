@@ -1,0 +1,51 @@
+# Información general
+## [¿Qué es el equilibrador de carga?](load-balancer-overview.md)
+## [Equilibrador de carga de Internet](load-balancer-internet-overview.md)
+## [Equilibrador de carga interno](load-balancer-internal-overview.md)
+## [Descripción de los sondeos del equilibrador de carga](load-balancer-custom-probe-overview.md)
+## [Soporte técnico de Azure Resource Manager](load-balancer-arm.md)
+## [Compatibilidad de IPv6](load-balancer-ipv6-overview.md)
+## [Varias direcciones VIP](load-balancer-multivip-overview.md)
+# Introducción
+## [Configuración del equilibrador de carga interno](load-balancer-get-started-ilb-arm-portal.md)
+### [Configuración del equilibrador de carga interno (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [Configuración del equilibrador de carga interno (CLI)](load-balancer-get-started-ilb-arm-cli.md)
+### [Configuración del equilibrador de carga interno (plantilla)](load-balancer-get-started-ilb-arm-template.md)
+## [Configuración del equilibrador de carga interno para Cloud Services](load-balancer-get-started-ilb-classic-cloud.md)
+### [Configuración del equilibrador de carga interno para Cloud Services (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
+### [Configuración del equilibrador de carga interno para Cloud Services (CLI)](load-balancer-get-started-ilb-classic-cli.md)
+## [Configuración del equilibrador de carga accesible desde Internet](load-balancer-get-started-internet-portal.md)
+### [Configuración del equilibrador de carga accesible desde Internet (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
+### [Configuración del equilibrador de carga accesible desde Internet (CLI)](load-balancer-get-started-internet-arm-cli.md)
+### [Configuración del equilibrador de carga accesible desde Internet (plantilla)](load-balancer-get-started-internet-arm-template.md)
+## [Configuración del equilibrador de carga accesible desde Internet (portal clásico)](load-balancer-get-started-internet-classic-portal.md)
+### [Configuración del equilibrador de carga accesible desde Internet (nube clásica)](load-balancer-get-started-internet-classic-cloud.md)
+### [Configuración del equilibrador de carga accesible desde Internet (PS clásico)](load-balancer-get-started-internet-classic-ps.md)
+### [Configuración del equilibrador de carga accesible desde Internet (CLI clásica)](load-balancer-get-started-internet-classic-cli.md)
+## [Creación de un equilibrador de carga accesible desde Internet con IPv6](load-balancer-ipv6-internet-ps.md)
+### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (CLI)](load-balancer-ipv6-internet-cli.md)
+### [Creación de un equilibrador de carga accesible desde Internet con IPv6 (plantilla)](load-balancer-ipv6-internet-template.md)
+# Cómo
+## [Configuración del tiempo de espera de inactividad TCP del equilibrador de carga](load-balancer-tcp-idle-timeout.md)
+## [Configuración del modo de distribución en el equilibrador de carga](load-balancer-distribution-mode.md)
+## [Configuración del equilibrador de carga interno para SQL AlwaysOn](load-balancer-configure-sqlao.md)
+## [Configuración de varias direcciones VIP para un servicio en la nube](load-balancer-multivip.md)
+## [Log Analytics para Azure Load Balancer](load-balancer-monitor-log.md)
+## [Configuración de DHCPv6 para VM de Linux](load-balancer-ipv6-for-linux.md)
+# Referencia
+## [API de Resource Manager](https://go.microsoft.com/fwlink/p/?LinkId=536405)
+## [CmdLets de PowerShell de Resource Manager](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [Uso de recursos de red](https://go.microsoft.com/fwlink/p/?LinkId=536403)
+# Temas relacionados
+## [Puerta de enlace de aplicaciones](https://azure.microsoft.com/documentation/services/application-gateway/)
+## [Express Route](https://azure.microsoft.com/documentation/services/expressroute/)
+## [Virtual Network](https://azure.microsoft.com/documentation/services/virtual-network/)
+## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
+## [Máquina virtual](https://azure.microsoft.com/documentation/services/virtual-machines/)
+## [Administrador de tráfico](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [DNS](https://azure.microsoft.com/documentation/services/dns/)
+
+
+<!--HONumber=Nov16_HO2-->
+
+

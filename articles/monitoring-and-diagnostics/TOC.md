@@ -1,0 +1,54 @@
+# Información general
+## [Información general sobre la supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)
+## [Introducción a las métricas](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+## [Introducción a las alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+## [Introducción a los registros de escalado automático](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)
+## [Introducción al registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+## [Introducción a los registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+## [Integraciones de partners](../monitoring-and-diagnostics/monitoring-partners.md)
+
+# Introducción
+## [Introducción a Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md)
+## [Permisos de roles y seguridad](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md)
+
+# Cómo
+## Alertas
+### [Introducción a las alertas](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+### [Configuración de alertas en Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+### [Configuración de alertas con CLI](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+### [Configuración de alertas con PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
+### [Configuración de un webhook en una alerta de métrica](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+### [Creación de una alerta de métrica con una plantilla de Resource Manager](../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md)
+## Autoscale
+### [Introducción a los registros de escalado automático](../monitoring-and-diagnostics/monitoring-overview-autoscale.md)
+### [Procedimientos recomendados de escalado automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
+### [Métricas comunes de escalado automático](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
+### [Escalado automático de conjuntos de escalado de máquinas virtuales con plantillas de Resource Manager](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+### [Configuración de webhooks y notificaciones por correo electrónico en escalado automático](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
+## Registro de actividad
+### [Introducción al registro de actividad](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+### [Visualización de eventos en el registro de actividad](../monitoring-and-diagnostics/insights-debugging-with-events.md)
+### [Configuración de webhook en una alerta del registro de actividad](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+### [Archivo del registro de actividad](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
+### [Transmitir el registro de actividades a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+### [https://azure.microsoft.com/en-us/documentation/articles/resource-group-audit/
+## Registros de diagnóstico
+### [Introducción a los registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+### [Archivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+### [Transmisión a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+### [Habilitación de la configuración de diagnóstico mediante plantillas de Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)
+## API de REST
+### [Tutorial con la API de REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+
+# Referencia
+## [Lista de métricas compatibles](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+## [Referencia de la API de REST de supervisión](https://msdn.microsoft.com/library/azure/dn931943)
+## [Ejemplos de la CLI de Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Ejemplos de cmdlets de Azure PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Referencia del SDK de .NET](https://msdn.microsoft.com/library/azure/dn802153)
+
+
+<!--HONumber=Nov16_HO2-->
+
+

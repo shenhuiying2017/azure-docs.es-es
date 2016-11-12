@@ -1,0 +1,117 @@
+# Información general
+## [Introducción al servicio Data Factory de Azure](data-factory-introduction.md)
+## [Precios](https://azure.microsoft.com/pricing/details/data-factory/)
+## [Índice de todos los artículos](data-factory-alltopcat.md)
+## Conceptos
+### [Conjuntos de datos](data-factory-create-datasets.md)
+### [Canalizaciones y actividades](data-factory-create-pipelines.md)
+### [Actividades de movimiento de datos](data-factory-data-movement-activities.md)
+### [Actividades de transformación de datos](data-factory-data-transformation-activities.md)
+### [Programación y ejecución con Data Factory](data-factory-scheduling-and-execution.md)
+### [Servicios vinculados de procesos](data-factory-compute-linked-services.md)
+# Introducción
+## [Tutorial: creación de una canalización para copiar datos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+### [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
+### [Portal de Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+### [Plantilla de Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+### [API DE REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+### [API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+## [Tutorial: creación de una canalización para transformar datos](data-factory-build-your-first-pipeline.md)
+### [Portal de Azure](data-factory-build-your-first-pipeline-using-editor.md)
+### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
+### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
+### [Plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
+### [API DE REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+## [Tutorial: traslado de datos desde local a la nube](data-factory-move-data-between-onprem-and-cloud.md)
+## [Tutorial: creación y uso de una actividad personalizada en una canalización](data-factory-use-custom-activities.md)
+
+# Procedimientos
+## Traslado de datos
+### [Asistente para copia de Data Factory](data-factory-copy-wizard.md)
+### [Carga de 1 TB en 15 minutos con el Asistente para copiar](data-factory-load-sql-data-warehouse.md)
+### [Actividad de copia](data-factory-data-movement-activities.md)
+### [Traslado de datos híbridos](data-factory-move-data-between-onprem-and-cloud.md)
+### [Data Management Gateway](data-factory-data-management-gateway.md)
+### [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md)
+### [Azure Blob Storage](data-factory-azure-blob-connector.md)
+### [Tablas de Azure](data-factory-azure-table-connector.md)
+### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
+### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+### [Azure SQL Database](data-factory-azure-sql-connector.md)
+### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+### [SQL Server](data-factory-sqlserver-connector.md)
+### [Oracle](data-factory-onprem-oracle-connector.md)
+### [MySQL](data-factory-onprem-mysql-connector.md)
+### [DB2](data-factory-onprem-db2-connector.md)
+### [Teradata](data-factory-onprem-teradata-connector.md)
+### [PostgreSQL](data-factory-onprem-postgresql-connector.md)
+### [Sybase](data-factory-onprem-sybase-connector.md)
+### [Cassandra](data-factory-onprem-cassandra-connector.md)
+### [MongoDB](data-factory-on-premises-mongodb-connector.md)
+### [Amazon Redshift](data-factory-amazon-redshift-connector.md)
+### [Sistema de archivos](data-factory-onprem-file-system-connector.md)
+### [HDFS](data-factory-hdfs-connector.md)
+### [Amazon S3](data-factory-amazon-simple-storage-service-connector.md)
+### [Salesforce](data-factory-salesforce-connector.md)
+### [Tabla web](data-factory-web-table-connector.md)
+### [Orígenes de OData](data-factory-odata-connector.md)
+### [Almacenes de datos de ODBC](data-factory-odbc-connector.md)
+### [FTP](data-factory-ftp-connector.md)
+
+## Transformación de datos
+### [Actividades de transformación de datos](data-factory-data-transformation-activities.md)
+### [Actividad de Hive de HDInsight](data-factory-hive-activity.md)
+### [Actividad de Pig de HDInsight](data-factory-pig-activity.md)
+### [Actividad de MapReduce de HDInsight](data-factory-map-reduce.md)
+### [Actividad de streaming de HDInsight](data-factory-hadoop-streaming-activity.md)
+### [Actividad de ejecución de Batch de Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
+### [Actividad de procedimiento almacenado](data-factory-stored-proc-activity.md)
+### [Actividad U-SQL de Data Lake Analytics](data-factory-usql-activity.md)
+### [Actividad personalizada de .NET](data-factory-use-custom-activities.md)
+### [Invocar programas Spark](data-factory-spark.md)
+### [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
+## Desarrollo
+### [Uso de Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Uso de Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+### [Uso de PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+### [Uso de la plantilla de Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
+### [Uso de la API de REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+### [Uso de la API de .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
+### [Ejemplos](data-factory-samples.md)
+### [Variables del sistema y funciones](data-factory-functions-variables.md)
+### [Reglas de nomenclatura](data-factory-naming-rules.md)
+### [Registro de cambios de la API de .NET](data-factory-api-change-log.md)
+## Supervisar y administrar
+### [Uso de Azure Portal](data-factory-api-change-log.md)
+### [Uso de la aplicación de supervisión y administración](data-factory-monitor-manage-app.md)
+### [Canalizaciones de Azure Data Factory](data-factory-monitor-manage-pipelines.md)
+### [Uso de SDK de .NET](data-factory-create-data-factories-programmatically.md)
+### [Solución de problemas de la factoría de datos](data-factory-troubleshoot.md)
+### [Solución de problemas con el uso de Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
+### [Implementación con plantillas de Azure Resource Manager](data-factory-how-to-use-resource-manager-templates.md)
+# Referencia 
+## [Referencia para desarrolladores de Factoría de datos de Azure](data-factory-sdks.md)
+
+# Recursos:
+## [Casos prácticos](data-factory-customer-case-studies.md)
+### [Recomendaciones de productos](data-factory-product-reco-usecase.md)
+### [Generación de perfiles de clientes](data-factory-customer-profiling-usecase.md)
+### [Procesamiento de datos a gran escala mediante Data Factory y Lote](data-factory-data-processing-using-batch.md)
+## [Preguntas más frecuentes](data-factory-faq.md)
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory)
+## [Solicitud de una característica](https://feedback.azure.com/forums/270578-azure-data-factory)
+## [Notas de la versión de Data Management Gateway](data-factory-gateway-release-notes.md)
+
+
+
+
+
+
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
