@@ -1,13 +1,13 @@
 ---
-title: 'Prueba de la Base de datos SQL: uso de C# para crear una Base de datos SQL | Microsoft Docs'
+title: 'Prueba de la SQL Database: uso de C# para crear una SQL Database | Microsoft Docs'
 description: Pruebe la Base de datos SQL para desarrollar aplicaciones SQL y C# y crear una Base de datos SQL de Azure con C# mediante la biblioteca de Base de datos SQL para. NET.
 keywords: probar sql, sql c#
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0ffe433d9899610d5ff83c66b6cdaaecd16e9c57
+
 
 ---
-# <a name="try-sql-database:-use-c#-to-create-a-sql-database-with-the-sql-database-library-for-.net"></a>Prueba de Base de datos SQL: Use C# para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET
+# <a name="try-sql-database-use-c-to-create-a-sql-database-with-the-sql-database-library-for-net"></a>Prueba de Base de datos SQL: Use C# para crear una Base de datos SQL con la biblioteca de Base de datos SQL para .NET
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-get-started.md)
 > * [C#](sql-database-get-started-csharp.md)
@@ -27,10 +31,10 @@ ms.author: sstein
 
 Aprenda a usar C# para crear una instancia de Azure SQL Database con la [biblioteca de administración de Microsoft Azure SQL para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). En este artículo se describe cómo crear una base de datos única con SQL y C#. Para crear grupos de bases de datos elásticas, consulte [Creación de un nuevo grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-create-csharp.md).
 
-La biblioteca de administración de Azure SQL Database para .NET ofrece una API basada en [Azure Resource Manager](../resource-group-overview.md) que encapsula la [API de REST de SQL Database basada en Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+La biblioteca de administración de Azure SQL Database para .NET ofrece una API basada en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que encapsula la [API de REST de SQL Database basada en Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las [bibliotecas basadas en el modelo de implementación clásica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) (más antiguas), se admiten por razones de compatibilidad con versiones anteriores, por lo que se recomienda que utilice las bibliotecas basadas en Resource Manager que son más recientes.
+> Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las [bibliotecas basadas en el modelo de implementación clásica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) (más antiguas), se admiten por razones de compatibilidad con versiones anteriores, por lo que se recomienda que utilice las bibliotecas basadas en Resource Manager que son más recientes.
 > 
 > 
 
@@ -61,7 +65,7 @@ Para crear una base de datos SQL con C#, cargue las bibliotecas de administraci�
 > 
 > 
 
-## <a name="create-a-sql-database-server,-firewall-rule,-and-sql-database---c#-example"></a>Creación de un servidor de SQL Database, una regla de firewall y una base de datos SQL: ejemplo de C
+## <a name="create-a-sql-database-server-firewall-rule-and-sql-database-c-example"></a>Creación de un servidor de SQL Database, una regla de firewall y una base de datos SQL: ejemplo de C#
 En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de firewall y una base de datos SQL. Consulte [Creación de una entidad de servicio para acceder a recursos](#create-a-service-principal-to-access-resources) para obtener las variables `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Reemplace el contenido de **Program.cs** por lo siguiente y actualice `{variables}` con los valores de la aplicación (sin incluir `{}`).
@@ -288,6 +292,6 @@ Ahora que probó la Base de datos SQL y configuró una base de datos con C#, est
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

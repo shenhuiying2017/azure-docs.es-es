@@ -1,4 +1,4 @@
-Se puede tener acceso a las memorias caché en el [Portal de Azure](https://portal.azure.com) mediante la hoja **Examinar**.
+Se puede tener acceso a las memorias caché en el [Portal de Azure](https://portal.azure.com) mediante la hoja **Examinar** .
 
 ![Caché en Redis de Azure - Hoja Examinar](media/redis-cache-browse/redis-cache-browse.png)
 
@@ -12,4 +12,8 @@ Haga clic en **Configuración** o en **Toda la configuración** para ver y confi
 
 ![Caché en Redis - Todas las configuraciones](media/redis-cache-browse/redis-cache-blade.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

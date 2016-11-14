@@ -1,19 +1,23 @@
 ---
-title: Creación de la primera aplicación de Service Fabric en Visual Studio | Microsoft Docs
-description: Creación, implementación y depuración de una aplicación de Service Fabric con Visual Studio
+title: "Creación de la primera aplicación de Service Fabric en Visual Studio | Microsoft Docs"
+description: "Creación, implementación y depuración de una aplicación de Service Fabric con Visual Studio"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2016
+ms.date: 10/26/2016
 ms.author: ryanwi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+
 
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Creación de la primera aplicación de Azure Service Fabric
@@ -96,7 +100,7 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
 4. Busque en el proyecto de servicio la clase que deriva de StatefulService (por ejemplo, MyStatefulService) y establezca un punto de interrupción en la primera línea del método `RunAsync` .
    
     ![Punto de interrupción en el método RunAsync de servicio con estado][7]
-5. Haga clic con el botón derecho en la aplicación de la bandeja del sistema del Administrador de clústeres local y elija **Manage Local Cluster** (Administrar clúster local) para iniciar Service Fabric Explorer.
+5. Haga clic con el botón derecho en la aplicación de la bandeja del sistema del Administrador de clústeres local y elija **Administrar clúster local** para iniciar Service Fabric Explorer.
    
     ![Inicie el Explorador de Service Fabric desde el Administrador de clústeres locales][systray-launch-sfx]
    
@@ -107,7 +111,7 @@ Ahora que tiene una aplicación, pruebe a ejecutarla.
     ![Detener un nodo en el Explorador de Service Fabric][sfx-stop-node]
    
     Momentáneamente, debería ver que se alcanza el punto de interrupción en Visual Studio cuando el cálculo hacía perfectamente en un nodo se conmuta por error a otro.
-8. Vuelva al Visor de eventos de diagnóstico y observe los mensajes. Tenga en cuenta que el contador no ha dejado de incrementarse, aunque los eventos proceden de otro nodo.
+8. Vuelva al Visor de eventos de diagnóstico y observe los mensajes. El contador no ha dejado de incrementarse, aunque los eventos proceden de otro nodo.
    
     ![Visor de eventos de diagnóstico después de la conmutación por error][diagnostic-events-viewer-detail-post-failover]
 
@@ -122,7 +126,7 @@ Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se qui
   Antes de concluir, es importante recordar que el clúster local es real. La detención del depurador elimina la instancia de la aplicación y anula el registro del tipo de aplicación. No obstante, el clúster se sigue ejecutando en segundo plano. Tiene varias opciones para administrar el clúster:
 
 1. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
-2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Tenga en cuenta que esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Elimine el clúster solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
+2. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Elimine el clúster solo si no tiene intención utilizar el clúster local durante algún tiempo o si necesita reclamar recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Aprenda a crear un [clúster en Azure](service-fabric-cluster-creation-via-portal.md) o un [clúster independiente en Windows](service-fabric-cluster-creation-for-windows-server.md).
@@ -147,6 +151,6 @@ Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se qui
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

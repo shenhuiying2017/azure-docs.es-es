@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio | Microsoft Docs'
-description: En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Visual Studio.
+title: "Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio | Microsoft Docs"
+description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Visual Studio."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1751185b-ce0a-4ab2-a9c3-e37b4d149ca3
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/17/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b3381396ce198fbcaf13d63510ef12b225735a49
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Tutorial: Crear una canalización con la actividad de copia mediante Visual Studio
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -59,7 +63,7 @@ Estos son los pasos que se realizan en este tutorial:
     ![Cuadro de diálogo Nuevo proyecto](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-project-dialog.png)
 3. Escriba un **nombre** para el proyecto, la **ubicación** y un nombre para la **solución**; a continuación, haga clic en **Aceptar**.
    
-    ![Explorador de soluciones](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png) 
+    ![Explorador de soluciones](./media/data-factory-copy-activity-tutorial-using-visual-studio/solution-explorer.png)    
 
 ## <a name="create-linked-services"></a>Crear servicios vinculados
 Los servicios vinculados vinculan almacenes de datos o servicios de proceso con una factoría de datos de Azure. Consulte los [almacenes de datos compatibles](data-factory-data-movement-activities.md##supported-data-stores-and-formats) para ver todos orígenes y receptores que admite la actividad de copia. Consulte los [servicios vinculados de procesos](data-factory-compute-linked-services.md) para ver la lista de servicios de proceso compatibles con Data Factory. En este tutorial no se usan servicios de proceso. 
@@ -137,7 +141,7 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
    * **linkedServiceName** está establecido en **AzureStorageLinkedService**. Este servicio vinculado lo creó en el paso 2.
    * **folderPath** está establecido en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta mediante la propiedad **fileName** . Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
    * **type** de formato está establecido en **TextFormat**.
-   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**). 
+   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).    
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**). Por consiguiente, Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. 
    
    Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
@@ -194,7 +198,7 @@ En este paso se crea un conjunto de datos de salida denominado **OutputDataset**
    
     Tenga en cuenta los siguientes puntos: 
    
-   * **type** de conjunto de datos está establecido en **AzureSqlTable**.
+   * **type** de conjunto de datos está establecido en **AzureSQLTable**.
    * **linkedServiceName** está establecido en **AzureSqlLinkedService** (este servicio vinculado lo creó en el paso 2).
    * **tablename** está establecido en **emp**.
    * En la tabla emp de la base de datos hay tres columnas: **ID**, **FirstName** y **LastName**. ID es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
@@ -269,7 +273,7 @@ Ya ha creado las tablas y los servicios vinculados de entrada/salida. Ahora, va 
    
    En el ejemplo anterior hay 24 segmentos de datos, ya que cada segmento de datos se produce cada hora.
 
-## <a name="publish/deploy-data-factory-entities"></a>Publicación e implementación de las entidades de Data Factory
+## <a name="publishdeploy-data-factory-entities"></a>Publicación e implementación de las entidades de Data Factory
 En este paso, se publican las entidades de Data Factory (servicios vinculados, conjuntos de datos y canalización) que se crearon anteriormente. También se especifica el nombre de la nueva instancia de Data Factory que se va a crear para almacenar dichas entidades.  
 
 1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones y haga clic en **Publicar**. 
@@ -283,7 +287,7 @@ En este paso, se publican las entidades de Data Factory (servicios vinculados, c
    2. Escriba **VSTutorialFactory** para **Nombre**.  
       
       > [!IMPORTANT]
-      > El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Factoría de datos: reglas de nomenclatura](data-factory-naming-rules.md) para las reglas de nomenclatura para los artefactos de Factoría de datos.     
+      > El nombre del generador de datos de Azure debe ser único global. Si recibe un error sobre el nombre de la factoría de datos cuando se publica, cámbielo (por ejemplo, sunombreVSTutorialFactory) e intente publicar de nuevo. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.        
       > 
       > 
    3. Seleccione su suscripción de Azure en el campo **Suscripción** .
@@ -292,17 +296,18 @@ En este paso, se publican las entidades de Data Factory (servicios vinculados, c
       > Si no ve ninguna suscripción, asegúrese de que ha iniciado sesión con una cuenta que sea administrador o coadministrador de la suscripción.  
       > 
       > 
-   4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 5. Seleccione la **Región** de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
-5. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**.
-   
-        ![Configurar página de Data Factory](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
-6. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.
+   4. Seleccione el **grupo de recursos** para la factoría de datos que se va a crear. 
+   5. Seleccione la **Región** de la factoría de datos. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
+   6. Haga clic en **Siguiente** para cambiar a la página **Publicar elementos**.
+      
+       ![Configurar página de Data Factory](media/data-factory-copy-activity-tutorial-using-visual-studio/configure-data-factory-page.png)   
+5. En la página **Publicar elementos**, asegúrese de que todas las factorías de datos están seleccionadas y haga clic en **Siguiente** para cambiar a la página **Resumen**.
    
    ![Página Publicar elementos](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-items-page.png)     
-7. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
+6. Revise el resumen y haga clic en **Siguiente** para iniciar el proceso de implementación y ver el **Estado de implementación**.
    
    ![Página Publicar resumen](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-8. En la página **Estado de implementación** , debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
+7. En la página **Estado de implementación** , debería ver el estado del proceso de implementación. Cuando se haya completado la implementación, haga clic en Finalizar. 
    ![Página Estado de la implementación](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png) Tenga en cuenta los siguientes puntos: 
 
 * Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
@@ -327,7 +332,7 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**.
-   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.    
+   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.     
    2. Un servicio vinculado **SQL Azure** para vincular la base de datos SQL de Azure que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.
 4. Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**. 
@@ -357,6 +362,9 @@ Consulte [Supervisión de conjuntos de datos y canalizaciones](data-factory-copy
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: 'Opciones y rendimiento de SQL Database: niveles de servicio | Microsoft Docs'
-description: Compare el rendimiento y las características de continuidad empresarial de SQL Database de los niveles de servicio para encontrar el equilibrio adecuado entre costo y funcionalidad a medida que se escalan.
+description: "Compare el rendimiento y las características de continuidad empresarial de SQL Database de los niveles de servicio para encontrar el equilibrio adecuado entre costo y funcionalidad a medida que se escalan."
 keywords: opciones de base de datos, rendimiento de la base de datos
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
 editor: CarlRabeler
-
+ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/10/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+
 
 ---
-# <a name="sql-database-options-and-performance:-understand-what's-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
+# <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
 [Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio con varios niveles de rendimiento para controlar varias cargas de trabajo. Cada nivel de rendimiento proporciona un conjunto de recursos cada vez mayor, diseñado para proporcionar un mayor rendimiento. Puede administrar cada base de datos en su propio [nivel de servicio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con su propio nivel de rendimiento. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un conjunto compartido de recursos. Los recursos disponibles para las bases de datos independientes se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas o eDTU. Para más información sobre DTU y eDTU, consulte [Qué es una DTU](sql-database-what-is-a-dtu.md). 
 
 En ambos casos, los niveles de servicio son: **Básico**, **Estándar** y **Premium**. En estos niveles, las opciones de las bases de datos son similares para las bases de datos independientes y para los grupos elásticos, pero hay consideraciones adicionales para los grupos elásticos. Este artículo proporciona información detallada sobre los niveles de servicio para las bases de datos independientes y los grupos elásticos.
@@ -70,7 +74,7 @@ Para decidir el nivel de servicio para una base de datos independiente, empiece 
 
 Cuando haya determinado la edición de SQL Database, estará listo para determinar el nivel de rendimiento de la base de datos (el número de DTU). Este valor se puede estimar y, después, [escalar o reducir verticalmente de manera dinámica](sql-database-scale-up.md) en función de su experiencia real. También puede utilizar la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para hacer una estimación del número aproximado de DTU necesario. 
 
-### <a name="choosing-a-service-tier-for-an-elastic-database-pool."></a>Selección de un nivel de servicio para un grupo de bases de datos elásticas
+### <a name="choosing-a-service-tier-for-an-elastic-database-pool"></a>Selección de un nivel de servicio para un grupo de bases de datos elásticas
 Para decidir el nivel de servicio para un grupo de bases de datos elásticas, empiece por determinar las características de las bases de datos necesarias.
 
 * Tamaño de la base de datos (2 GB para el nivel Básico, 250 GB para el Estándar y 500 GB para el Premium)
@@ -90,6 +94,9 @@ Una vez determinado el nivel de servicio para el grupo, estará preparado para d
 * [Modelos de diseño para las aplicaciones SaaS multiinquilino mediante Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * [Curso de vídeo de la Academia virtual de Microsoft sobre las funcionalidades de las bases de datos elásticas en Azure SQL Database](https://mva.microsoft.com/en-US/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

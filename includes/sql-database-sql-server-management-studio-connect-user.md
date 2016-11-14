@@ -1,4 +1,4 @@
-## Conexión a Base de datos SQL de Azure como usuario
+## <a name="connect-to-azure-sql-database-as-a-user"></a>Conexión a Base de datos SQL de Azure como usuario
 Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS como usuario.
 
 1. Escriba "Microsoft SQL Server Management Studio" en el cuadro de búsqueda de Windows y, a continuación, haga clic en la aplicación de escritorio para iniciar SSMS.
@@ -6,7 +6,7 @@ Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS como usua
 
 * **Tipo de servidor**: el valor predeterminado es el motor de base de datos; no cambie este valor.
   
-  * **Nombre del servidor**: escriba el nombre del servidor que hospeda la base de datos SQL con el formato siguiente: *&lt;servername>*.**database.windows.net**.
+  * **Nombre del servidor**: escriba el nombre del servidor que hospeda la SQL Database con el formato siguiente: *&lt;nombreDeServidor>*.**database.windows.net**
   * **Tipo de autenticación**: si acaba de empezar, seleccione Autenticación de SQL. Si ha habilitado Active Directory para el servidor lógico de Base de datos SQL, puede seleccionar Autenticación de contraseña de Active Directory o Autenticación integrada de Active Directory.
   * **Nombre de usuario**: si ha seleccionado Autenticación de SQL o Autenticación de contraseña de Active Directory, escriba el nombre de un usuario con acceso a una base de datos en el servidor.
   * **Contraseña**: si ha seleccionado Autenticación de SQL o Autenticación de contraseña de Active Directory, escriba la contraseña para el usuario especificado.
@@ -27,7 +27,11 @@ Siga estos pasos para conectarse a Base de datos SQL de Azure con SSMS como usua
    
       ![SQL Server Management Studio: conexión a un servidor de Base de datos SQL](./media/sql-database-sql-server-management-studio-connect-user/connect-user-5.png)
 
-## Solución de problemas de errores de conexión
-La razón más común de los errores de conexión son errores en el nombre del servidor (recuerde, <*servername>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o la contraseña, así como el servidor que no permite conexiones por motivos de seguridad.
+## <a name="troubleshoot-connection-failures"></a>Solución de problemas de errores de conexión
+La razón más común de los errores de conexión son errores en el nombre del servidor (recuerde, <*nombreDeServidor>* es el nombre del servidor lógico, no el de la base de datos), el nombre de usuario o la contraseña, así como el servidor que no permite conexiones por motivos de seguridad. 
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

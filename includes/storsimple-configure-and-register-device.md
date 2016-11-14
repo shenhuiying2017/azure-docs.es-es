@@ -1,22 +1,22 @@
 <!--author=alkohli last changed: 12/01/15-->
 
 
-#### Para configurar y registrar el dispositivo
+#### <a name="to-configure-and-register-the-device"></a>Para configurar y registrar el dispositivo
 1. Acceder a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obtener instrucciones. **Siga el procedimiento exactamente como se indica o no podrá acceder a la consola.**
-2. En la sesión que se abre, presione ENTRAR una vez para obtener un símbolo del sistema.
-3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione ENTRAR.
+2. En la sesión que se abre, presione ENTRAR una vez para obtener un símbolo del sistema. 
+3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione ENTRAR. 
    
     ![Configurar y registrar el dispositivo 1 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice1-include.png)
-4. En el menú de la consola serie que se muestra, seleccione la opción 1 para iniciar sesión con acceso completo.
+4. En el menú de la consola serie que se muestra, seleccione la opción 1 para iniciar sesión con acceso completo. 
    
     ![Registrar el dispositivo 2 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice2-include.png)
    
-     Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.** El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
+     Complete los pasos 5-12 para configurar las opciones de red necesarias mínimas para el dispositivo. **Estos pasos de configuración deben realizarse en el controlador activo del dispositivo.**  El menú de la consola serie indica el estado del controlador en el mensaje del banner. Si no está conectado al controlador activo, desconéctese y, a continuación, conéctese al controlador activo.
 5. En el símbolo del sistema, escriba su contraseña. La contraseña predeterminada del dispositivo es **Password1**.
 6. Escriba el siguiente comando:
    
-     `Invoke-HcsSetupWizard`
-7. Aparecerá un Asistente para instalación que le ayudará a configurar las opciones de red para el dispositivo. Proporcione la siguiente información:
+     `Invoke-HcsSetupWizard` 
+7. Aparecerá un Asistente para instalación que le ayudará a configurar las opciones de red para el dispositivo. Proporcione la siguiente información: 
    
    * Dirección IP para la interfaz de red DATA 0
    * Máscara de subred
@@ -25,15 +25,16 @@
    * Dirección IP para el servidor NTP principal
      
      > [!NOTE]
-     > Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error «El dispositivo no está listo», compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
+     > Tendrá que esperar unos minutos para que se apliquen la máscara de subred y la configuración de DNS. Si recibe el mensaje de error "El dispositivo no está listo", compruebe la conexión de red física en la interfaz de red DATA 0 de su controlador activo.
      > 
      > 
 8. (Opcional) Configure el servidor proxy web. Aunque la configuración del proxy web es opcional, **tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí**. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md). Si surge algún problema durante este paso, vea la guía de solución de problemas de [Errores durante la configuración del proxy web](../articles/storsimple/storsimple-troubleshoot-deployment.md#errors-during-the-optional-web-proxy-settings).
 
-      > [AZURE.NOTE] También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
+     > [!NOTE]
+     > También puede presionar Ctrl+C en cualquier momento para salir del Asistente para instalación. Se conservarán todos los valores de configuración que aplicó antes de emitir este comando.
 
 1. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla para sesiones posteriores. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener una combinación de caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales.
-2. La contraseña de StorSimple Snapshot Manager también se establece aquí. Use esta contraseña para autenticar un dispositivo con el host de Windows que ejecuta StorSimple Snapshot Manager. Cuando se le solicite, proporcione una contraseña de entre 14 y 15 caracteres. La contraseña debe contener una combinación de tres de los siguientes elementos: caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales.
+2. La contraseña de StorSimple Snapshot Manager también se establece aquí. Use esta contraseña para autenticar un dispositivo con el host de Windows que ejecuta StorSimple Snapshot Manager. Cuando se le solicite, proporcione una contraseña de entre 14 y 15 caracteres. La contraseña debe contener una combinación de tres de los siguientes elementos: caracteres en minúsculas, caracteres en mayúsculas, números y caracteres especiales. 
    
    ![Registrar el dispositivo 4 de StorSimple](./media/storsimple-configure-and-register-device/HCS_RegisterYourDevice4-include.png)
    
@@ -56,11 +57,11 @@
 5. Salga de la consola serie.
 6. Vuelva al Portal de Azure clásico y siga estos pasos:
    
-   1. Haga doble clic en el servicio de Administrador de StorSimple para acceder a la página **Inicio rápido**.
+   1. Haga doble clic en el servicio de Administrador de StorSimple para acceder a la página **Inicio rápido** .
    2. Haga clic en **Ver los dispositivos conectados**.
-   3. En la página **Dispositivos**, compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**. Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
+   3. En la página **Dispositivos** , compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**. Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
    
-   ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png)
+   ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device/HCS_DevicesPageM-include.png) 
    
    > [!IMPORTANT]
    > Después de que el dispositivo esté en línea, conecta los cables de red que desconectaste al principio de este paso.
@@ -73,4 +74,8 @@ Después de que el dispositivo se haya registrado correctamente y no esté en l�
 
 Para ver un vídeo que muestra cómo configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple, haga clic [aquí](https://azure.microsoft.com/documentation/videos/initialize-the-storsimple-appliance/).
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
