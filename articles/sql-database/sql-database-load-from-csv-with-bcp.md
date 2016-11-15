@@ -1,12 +1,12 @@
 ---
 title: Carga de datos desde un archivo CSV en Base de datos de SQL Azure (bcp) | Microsoft Docs
-description: Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure.
+description: "Para un tamaño de datos pequeño, utiliza bcp para importar datos en Base de datos SQL de Azure."
 services: sql-database
 documentationcenter: NA
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+
 
 ---
-# Carga de datos desde CSV en Almacenamiento de datos SQL de Azure (archivos planos)
+# <a name="load-data-from-csv-into-azure-sql-data-warehouse-flat-files"></a>Carga de datos desde CSV en Almacenamiento de datos SQL de Azure (archivos planos)
 Puede utilizar la herramienta de línea de comandos bcp para importar datos desde un archivo CSV en Base de datos SQL de Azure.
 
-## Antes de empezar
-### Requisitos previos
+## <a name="before-you-begin"></a>Antes de empezar
+### <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
 * Un servidor lógico de Base de datos SQL de Azure y una base de datos
@@ -29,10 +33,10 @@ Para seguir paso a paso este tutorial, necesita:
 
 Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][Centro de descarga de Microsoft].
 
-### Datos en los formatos ASCII o UTF-16
-Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8.
+### <a name="data-in-ascii-or-utf16-format"></a>Datos en los formatos ASCII o UTF-16
+Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8. 
 
-## 1\. Creación de una tabla de destino.
+## <a name="1-create-a-destination-table"></a>1. Creación de una tabla de destino.
 Defina una tabla en SQL Database como tabla de destino. Las columnas de la tabla deben corresponder con los datos de cada fila del archivo de datos.
 
 Para crear una tabla, abra un símbolo del sistema y use sqlcmd.exe para ejecutar el comando siguiente:
@@ -50,8 +54,8 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 
-## 2\. Creación de un archivo de datos de origen
-Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\\Temp\\DimDate2.txt. Estos datos están en formato ASCII.
+## <a name="2-create-a-source-data-file"></a>2. Creación de un archivo de datos de origen
+Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archivo de texto y, después, guarde este archivo en el directorio temporal local, C:\Temp\DimDate2.txt. Estos datos están en formato ASCII.
 
 ```
 20150301,1,3
@@ -74,7 +78,7 @@ Abra el Bloc de notas y copie las líneas de datos siguientes en un nuevo archiv
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t ','
 ```
 
-## 3\. Carga de los datos
+## <a name="3-load-the-data"></a>3. Carga de los datos
 Para cargar los datos, abra un símbolo del sistema y ejecute el comando siguiente, pero reemplace los valores de nombre de servidor, nombre de base de datos, nombre de usuario y contraseña por su propia información.
 
 ```sql
@@ -104,14 +108,18 @@ El resultado debería ser similar a este:
 | 20151101 |4 |2 |
 | 20151201 |4 |2 |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para migrar una base de datos de SQL Server, consulte el artículo sobre la [migración de una base de datos de SQL Server](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
+[sintaxis de CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
 [Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

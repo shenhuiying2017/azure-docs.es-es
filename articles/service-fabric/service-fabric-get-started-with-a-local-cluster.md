@@ -1,12 +1,12 @@
 ---
-title: Introducción a la implementación y actualización de aplicaciones en un clúster local | Microsoft Docs
-description: Configurar un clúster local de Service Fabric, implementar en él una aplicación existente y actualizar dicha aplicación.
+title: "Introducción a la implementación y actualización de aplicaciones en un clúster local | Microsoft Docs"
+description: "Configurar un clúster local de Service Fabric, implementar en él una aplicación existente y actualizar dicha aplicación."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2016
 ms.author: ryanwi;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+
 
 ---
-# Introducción a la implementación y actualización de aplicaciones en un clúster local
+# <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Introducción a la implementación y actualización de aplicaciones en un clúster local
 El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo local y puede usar para empezar a trabajar rápidamente con aplicaciones de implementación y administración en un clúster local. En este artículo, se crea un clúster local, se implementa en él una aplicación existente y, a continuación, se actualiza la aplicación a una nueva versión, y todo ello desde Windows PowerShell.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ El SDK de Service Fabric de Azure incluye un completo entorno de desarrollo loca
 > 
 > 
 
-## Creación de un clúster local
+## <a name="create-a-local-cluster"></a>Creación de un clúster local
 Un clúster de Service Fabric representa un conjunto de recursos de hardware en los que se pueden implementar aplicaciones. Normalmente, un clúster se compone de cualquier número entre cinco y varios miles de máquinas. Sin embargo, el SDK de Service Fabric incluye una configuración de clúster que se puede ejecutar en una única máquina.
 
 Es importante comprender que el clúster local de Service Fabric no es un emulador o simulador. Ejecuta el mismo código de plataforma que se encuentra en clústeres de varias máquinas. La única diferencia es que ejecuta en una única máquina los procesos de plataforma que suelen estar dispersos en cinco máquinas.
@@ -49,7 +53,7 @@ El SDK proporciona dos maneras de configurar un clúster local: un script de Win
    
     Ya está listo para intentar implementar una aplicación en el clúster.
 
-## Implementar una aplicación
+## <a name="deploy-an-application"></a>Implementar una aplicación
 El SDK de Service Fabric incluye un amplio conjunto de marcos y herramientas para desarrolladores para crear aplicaciones. Si está interesado en aprender a crear aplicaciones en Visual Studio, consulte [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
 En este tutorial, se usará una aplicación de ejemplo existente (denominada WordCount), con el fin de que nos podamos centrar en los aspectos de la administración de la plataforma, entre los que se incluyen la implementación, supervisión y actualización.
@@ -60,13 +64,13 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
     ```powershell
     Import-Module "$ENV:ProgramFiles\Microsoft SDKs\Service Fabric\Tools\PSModule\ServiceFabricSDK\ServiceFabricSDK.psm1"
     ```
-3. Cree un directorio para almacenar la aplicación que va a descargar e implementar, por ejemplo, C:\\ServiceFabric.
+3. Cree un directorio para almacenar la aplicación que va a descargar e implementar, por ejemplo, C:\ServiceFabric.
    
     ```powershell
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó. Nota: el explorador Microsoft Edge guarda el archivo con extensión *.zip*. Debe cambiar la extensión del archivo a *.sfpkg*.
+4. [Descargue la aplicación WordCount](http://aka.ms/servicefabric-wordcountapp) en la ubicación que creó.  Nota: el explorador Microsoft Edge guarda el archivo con extensión *.zip* .  Debe cambiar la extensión del archivo a *.sfpkg*.
 5. Conecte con el clúster local:
    
     ```powershell
@@ -89,7 +93,7 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
    
     La aplicación que hemos implementado contiene cuatro particiones. Por tanto las palabras que empiezan de la A a la G se almacenan en la primera partición, las que comienzan de la H a la N en la segunda partición, y así sucesivamente.
 
-## Visualización de los detalles y estado de la aplicación
+## <a name="view-application-details-and-status"></a>Visualización de los detalles y estado de la aplicación
 Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los detalles de la aplicación en PowerShell.
 
 1. Consulte todas las aplicaciones implementadas en el clúster:
@@ -129,7 +133,7 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
    > 
    > 
 
-## Actualizar una aplicación
+## <a name="upgrade-an-application"></a>Actualizar una aplicación
 Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Vamos realizar una actualización simple de la aplicación WordCount.
 
 La nueva versión de la aplicación ahora contará solo las palabras que comiencen por vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
@@ -162,8 +166,8 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
    
     ![Ver la nueva versión de la aplicación en el explorador][deployed-app-ui-v2]
 
-## Limpiar
-Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten. Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar aplicaciones y el clúster:
+## <a name="cleaning-up"></a>Limpiar
+Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten.  Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar aplicaciones y el clúster:
 
 1. Para quitar una aplicación particular y todos sus datos, ejecute lo siguiente:
    
@@ -185,8 +189,10 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Quite el clúster local solo si no tiene intención utilizarlo durante algún tiempo o si necesita reclamar recursos.
 
-## Modo de clúster de un nodo y de cinco nodos
-Cuando se trabaja con el clúster local para desarrollar aplicaciones, a menudo se encuentra realizando iteraciones rápidas de escritura de código, depuración, cambio del código, depuración, etc. Para ayudar a optimizar este proceso, el clúster local se puede ejecutar de dos modos: en un nodo o en cinco. Ambos modos de clúster tienen sus ventajas. El modo de clúster de 5 nodos le permite trabajar con un clúster real. Puede probar escenarios de conmutación por error, trabajar con más instancias y réplicas de los servicios. El modo de clúster de un nodo está optimizado para una rápida implementación y registro de servicios que le ayudarán a validar rápidamente código mediante el tiempo de ejecución de Service Fabric.
+## <a name="1-node-and-5-node-cluster-mode"></a>Modo de clúster de un nodo y de cinco nodos
+Cuando se trabaja con el clúster local para desarrollar aplicaciones, a menudo se encuentra realizando iteraciones rápidas de escritura de código, depuración, cambio del código, depuración, etc. Para ayudar a optimizar este proceso, el clúster local se puede ejecutar de dos modos: en un nodo o en cinco. Ambos modos de clúster tienen sus ventajas.
+El modo de clúster de 5 nodos le permite trabajar con un clúster real. Puede probar escenarios de conmutación por error, trabajar con más instancias y réplicas de los servicios.
+El modo de clúster de un nodo está optimizado para una rápida implementación y registro de servicios que le ayudarán a validar rápidamente código mediante el tiempo de ejecución de Service Fabric.
 
 Ni el modo de clúster de un nodo ni el de cinco son emuladores o simuladores. Ejecuta el mismo código de plataforma que se encuentra en clústeres de varias máquinas.
 
@@ -217,9 +223,9 @@ Si está usando el administrador de clústeres local de Service Fabric:
 > 
 > 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Tras la implementación y actualización de algunas aplicaciones pregeneradas, puede [intentar compilar la suya propia en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
-* Todas las acciones realizadas en el clúster local en este artículo se pueden realizar también en un [clúster de Azure](service-fabric-cluster-creation-via-portal.md).
+* Todas las acciones realizadas en el clúster local en este artículo se pueden realizar también en un [clúster de Azure](service-fabric-cluster-creation-via-portal.md) .
 * La actualización realizada en este artículo era básica. Consulte la [documentación de actualización](service-fabric-application-upgrade.md) para más información acerca de la eficacia y flexibilidad de las actualizaciones de Service Fabric.
 
 <!-- Images -->
@@ -242,4 +248,8 @@ Si está usando el administrador de clústeres local de Service Fabric:
 [cluster-setup-success-1-node]: ./media/service-fabric-get-started-with-a-local-cluster/cluster-setup-success-1-node.png
 [switch-cluster-mode]: ./media/service-fabric-get-started-with-a-local-cluster/switch-cluster-mode.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

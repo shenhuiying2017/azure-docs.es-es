@@ -1,12 +1,12 @@
 ---
-title: Introducción a los Centros de eventos en C# | Microsoft Docs
+title: "Introducción a Event Hubs en C# | Microsoft Docs"
 description: Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos con C# y a recibirlos en Java mediante EventProcessorHost.
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 059fb733-a397-400e-8e43-0c7ea5930b8b
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 51d880650ab8059f3346b5c1272c232b49be33e9
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Introducción a los Centros de eventos
@@ -48,9 +52,9 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-* Una [aplicación de ejemplo completa que usa Centros de eventos][aplicación de ejemplo completa que usa Centros de eventos].
-* El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][Escala horizontal del procesamiento de eventos con Centros de eventos] .
-* [Información general de los Centros de eventos][]
+* Una completa [aplicación de ejemplo que usa Event Hubs][aplicación de ejemplo que usa Event Hubs].
+* El ejemplo de [Escala horizontal del procesamiento de eventos con Event Hubs][Escala horizontal del procesamiento de eventos con Event Hubs].
+* [Información general de Event Hubs][Información general de Event Hubs]
 
 <!-- Images. -->
 [21]: ./media/event-hubs-csharp-ephjava-getstarted/ephjava.png
@@ -64,6 +68,6 @@ Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y e
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

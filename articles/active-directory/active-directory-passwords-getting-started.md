@@ -1,13 +1,13 @@
 ---
-title: Introducción a la administración de contraseñas en Azure AD | Microsoft Docs
-description: Permita a los usuarios restablecer sus contraseñas, descubra los requisitos previos para el restablecimiento de contraseñas y permita la escritura diferida de contraseñas para administrar las contraseñas locales en Active Directory.
+title: "Introducción a la administración de contraseñas en Azure AD | Microsoft Docs"
+description: "Permita a los usuarios restablecer sus contraseñas, descubra los requisitos previos para el restablecimiento de contraseñas y permita la escritura diferida de contraseñas para administrar las contraseñas locales en Active Directory."
 services: active-directory
-keywords: Administración de contraseñas de Active Directory, administración de contraseñas, restablecimiento de contraseñas de Azure AD
-documentationcenter: ''
+keywords: "Administración de contraseñas de Active Directory, administración de contraseñas, restablecimiento de contraseñas de Azure AD"
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: bde8799f-0b42-446a-ad95-7ebb374c3bec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+
 
 ---
 # <a name="getting-started-with-password-management"></a>Introducción a la administración de contraseñas
@@ -61,7 +65,7 @@ Antes de poder habilitar y utilizar el restablecimiento de contraseña de autose
 * Crear, al menos, una cuenta de administrador y una cuenta de usuario en el directorio de AAD.
 * Asigne un AAD Premium, Basic o licencia de Office 365 de pago a la cuenta de administrador y a la cuenta de usuario que creó.
 
-### <a name="step-1:-configure-password-reset-policy"></a>Paso 1: configurar la directiva de restablecimiento de contraseña
+### <a name="step-1-configure-password-reset-policy"></a>Paso 1: configurar la directiva de restablecimiento de contraseña
 Para configurar la directiva de restablecimiento de contraseña del usuario, complete los pasos siguientes:
 
 1. Abra el explorador que prefiera y vaya al [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -94,7 +98,7 @@ Para configurar la directiva de restablecimiento de contraseña del usuario, com
    
    ![][006]
 
-### <a name="step-2:-add-contact-data-for-your-test-user"></a>Paso 2: agregar datos de contacto del usuario de prueba
+### <a name="step-2-add-contact-data-for-your-test-user"></a>Paso 2: agregar datos de contacto del usuario de prueba
 Tiene varias opciones para especificar los datos de los usuarios de su organización que se usarán para restablecer la contraseña.
 
 * Editar usuarios en el [Portal de Azure clásico](https://manage.windowsazure.com) o en el [Portal de administración de Office 365](https://portal.microsoftonline.com)
@@ -119,10 +123,10 @@ Si desea obtener más información sobre qué datos se usan para el restablecimi
    
    ![][010]
 
-### <a name="step-3:-reset-your-azure-ad-password-as-a-user"></a>Paso 3: restablecer la contraseña de Azure AD como usuario
+### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Paso 3: restablecer la contraseña de Azure AD como usuario
 Ahora que configuró una directiva de restablecimiento de usuario y especificó los detalles de contacto del usuario, este puede realizar un restablecimiento de contraseña de autoservicio.
 
-#### <a name="to-perform-a-self-service-password-reset"></a>Para realizar un restablecimiento de contraseña de autoservicio
+#### <a name="to-perform-a-selfservice-password-reset"></a>Para realizar un restablecimiento de contraseña de autoservicio
 1. Si va a un sitio como [**portal.microsoftonline.com**](http://portal.microsoftonline.com), verá una pantalla de inicio de sesión similar a la siguiente.  Haga clic en el vínculo **¿No puede tener acceso a su cuenta?** para probar la interfaz de usuario del restablecimiento de contraseña.
    
    ![][011]
@@ -194,7 +198,7 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
   > 
   > 
 
-### <a name="step-1:-download-the-latest-version-of-azure-ad-connect"></a>Paso 1: descargar la versión más reciente de Azure AD Connect
+### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Paso 1: descargar la versión más reciente de Azure AD Connect
 La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior.  La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Para comprobar la versión de Sincronización de Azure AD
@@ -213,7 +217,7 @@ Si el número de la versión es mayor o igual que **1.0.0419.0911** o si va a in
 > 
 > 
 
-### <a name="step-2:-enable-password-writeback-in-azure-ad-connect"></a>Paso 2: habilitar la escritura diferida de contraseñas en Azure AD Connect
+### <a name="step-2-enable-password-writeback-in-azure-ad-connect"></a>Paso 2: habilitar la escritura diferida de contraseñas en Azure AD Connect
 Ahora que descargó la herramienta Azure AD Connect, está listo para habilitar la escritura diferida de contraseñas.  Puede hacerlo de dos maneras.  Puede habilitar la escritura diferida de contraseñas en la pantalla de características opcionales del asistente para la configuración de Azure AD Connect, o bien puede habilitar a través de Windows PowerShell.
 
 #### <a name="to-enable-password-writeback-in-the-configuration-wizard"></a>Para habilitar la escritura diferida de contraseñas en el asistente de configuración
@@ -237,7 +241,7 @@ Ahora que descargó la herramienta Azure AD Connect, está listo para habilitar 
 5. Habilite la escritura diferida de contraseñas mediante la ejecución del cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
 > [!NOTE]
-> Si se solicita una credencial, asegúrese de que la cuenta de administrador que especifique para AzureADCredential sea una **cuenta de administrador en la nube (creada en Azure AD)**, no una cuenta federada (creada en una versión local de AD y sincronizado en Azure AD).
+> Si se le solicita una credencial, asegúrese de que la cuenta de administrador que especifica para AzureADCredential sea una **cuenta de administrador de la nube (creada en Azure AD)**y no una cuenta federada (creada en AD local y sincronizada en Azure AD).
 > 
 > [!NOTE]
 > La escritura diferida de contraseñas se puede deshabilitar a través de PowerShell mediante la repetición de las mismas instrucciones anteriores, pero pasando `$false` en el paso, o bien mediante el establecimiento de la opción **Write Passwords Back to On-Premises Directory** (Escribir contraseñas en diferido en el directorio local) en **No** en la **sección Políticas para restablecer la contraseña del usuario** de la pestaña **Configurar** de su directorio en el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -251,7 +255,7 @@ También puede comprobar que el servicio se ha instalado correctamente. Para ell
 
   ![][023]
 
-### <a name="step-3:-configure-your-firewall"></a>Paso 3: configurar el firewall
+### <a name="step-3-configure-your-firewall"></a>Paso 3: configurar el firewall
 Una vez que haya habilitado la escritura diferida de contraseñas en la herramienta Azure AD Connect, deberá asegurarse de que el servicio se puede conectar a la nube.
 
 1. Una vez que finalice la instalación, si bloquea las conexiones salientes desconocidas en el entorno, también deberá agregar las reglas siguientes al firewall. Asegúrese de reiniciar su máquina con AAD Connect después de realizar estos cambios:
@@ -259,7 +263,7 @@ Una vez que haya habilitado la escritura diferida de contraseñas en la herramie
    * Permita conexiones salientes a https://ssprsbprodncu-sb.accesscontrol.windows.net/
    * Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto 9350-9354 y el puerto TCP 5671.
 
-### <a name="step-4:-set-up-the-appropriate-active-directory-permissions"></a>Paso 4: configurar los permisos adecuados de Active Directory
+### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Paso 4: configurar los permisos adecuados de Active Directory
 En todos los bosques que contengan usuarios cuyas contraseñas se van a restablecer, si X es la cuenta que se especificó para ese bosque en el Asistente para configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio de dicho bosque. El derecho debe estar marcado como heredado por todos los objetos de usuario.  
 
 Si no está seguro de cuál es la cuenta a la que se hace referencia en el párrafo anterior, abra la UI de configuración de Azure Active Directory Connect y haga clic en la opción **Revisar su solución** .  La cuenta a la que debe agregar permisos se muestra subrayada en rojo en la captura de pantalla siguiente.
@@ -295,7 +299,7 @@ Si no está seguro de cuál es la cuenta a la que se hace referencia en el párr
    ![][028]
 10. Luego haga clic en **Aplicar o Aceptar** en todos los cuadros de diálogo abiertos.
 
-### <a name="step-5:-reset-your-ad-password-as-a-user"></a>Paso 5: restablecer la contraseña de AD como usuario
+### <a name="step-5-reset-your-ad-password-as-a-user"></a>Paso 5: restablecer la contraseña de AD como usuario
 Ahora que la escritura diferida de contraseñas está habilitada, para saber si funciona, restablezca la contraseña de un usuario cuya cuenta se haya sincronizado en el inquilino de la nube.
 
 #### <a name="to-verify-password-writeback-is-working-properly"></a>Para comprobar que la escritura diferida de contraseñas funciona correctamente
@@ -321,7 +325,7 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 * [**Funcionamiento**](active-directory-passwords-how-it-works.md): obtenga información acerca de los seis componentes diferentes del servicio y lo que hace cada uno
 * [**Personalizar**](active-directory-passwords-customize.md): obtenga información acerca de cómo personalizar la apariencia y el comportamiento del servicio para ajustarse a las necesidades de su organización
 * [**Procedimientos recomendados**](active-directory-passwords-best-practices.md): obtenga información acerca de cómo implementar rápidamente y administrar eficazmente las contraseñas de la organización
-* [**Obtener información**](active-directory-passwords-get-insights.md): obtenga información acerca de nuestras funcionalidades integradas de creación de informes
+* [**Obtener información**](active-directory-passwords-get-insights.md): obtenga información acerca de nuestras funcionalidades integradas de creación de informes.
 * [**P+F**](active-directory-passwords-faq.md) : obtenga respuestas a las preguntas más frecuentes.
 * [**Solución de problemas**](active-directory-passwords-troubleshoot.md): obtenga información sobre cómo solucionar rápidamente los problemas del servicio.
 * [**Más información**](active-directory-passwords-learn-more.md): profundice en los detalles técnicos del funcionamiento del servicio.
@@ -361,6 +365,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

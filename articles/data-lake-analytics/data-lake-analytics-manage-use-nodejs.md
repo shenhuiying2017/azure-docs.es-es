@@ -1,12 +1,12 @@
 ---
-title: Administración de Análisis de Azure Data Lake mediante Azure SDK para Node.js | Microsoft Docs
-description: Aprenda a administrar cuentas de Análisis con Data Lake, orígenes de datos, usuarios y trabajos mediante Azure SDK para Node.js
+title: "Administración de Azure Data Lake Analytics mediante Azure SDK para Node.js | Microsoft Docs"
+description: "Aprenda a administrar cuentas de Análisis con Data Lake, orígenes de datos, usuarios y trabajos mediante Azure SDK para Node.js"
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 10ec0b63e1867f5f62d30d879a4497c0880d9494
+
 
 ---
-# Administración de Análisis de Azure Data Lake mediante Azure SDK para Node.js
+# <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Administración de Análisis de Azure Data Lake mediante Azure SDK para Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Azure SDK para Node.js se puede usar para administrar cuentas de Análisis con Azure Data Lake, trabajos y catálogos. Para ver el tema de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
@@ -28,17 +32,17 @@ Ahora es compatible con:
 * **Versión de API de REST para el catálogo: 2015-10-01-preview**
 * **Versión de API de REST para el trabajo: 2016-03-20-preview**
 
-## Características
+## <a name="features"></a>Características
 * Administración de cuentas: crear, obtener, enumerar, actualizar y eliminar.
 * Administración de trabajos: enviar, obtener, enumerar, cancelar.
 * Administración de catálogos: obtener, enumerar, crear (secretos), actualizar (secretos), eliminar (secretos).
 
-## Cómo instalarlo
+## <a name="how-to-install"></a>Cómo instalarlo
 ```bash
 npm install azure-arm-datalake-analytics
 ```
 
-## Autenticación mediante Azure Active Directory
+## <a name="authenticate-using-azure-active-directory"></a>Autenticación mediante Azure Active Directory
  ```javascript
  var msrestAzure = require('ms-rest-azure');
  //user authentication
@@ -47,7 +51,7 @@ npm install azure-arm-datalake-analytics
  var credentials = new msRestAzure.ApplicationTokenCredentials('your-client-id', 'your-domain', 'your-secret');
  ```
 
-## Creación del cliente de Análisis de Data Lake
+## <a name="create-the-data-lake-analytics-client"></a>Creación del cliente de Análisis de Data Lake
 ```javascript
 var adlaManagement = require("azure-arm-datalake-analytics");
 var acccountClient = new adlaManagement.DataLakeAnalyticsAccountClient(credentials, 'your-subscription-id');
@@ -55,7 +59,7 @@ var jobClient = new adlaManagement.DataLakeAnalyticsJobClient(credentials, 'azur
 var catalogClient = new adlaManagement.DataLakeAnalyticsCatalogClient(credentials, 'azuredatalakeanalytics.net');
 ```
 
-## Creación de una cuenta de Análisis de Data Lake
+## <a name="create-a-data-lake-analytics-account"></a>Creación de una cuenta de Análisis de Data Lake
 ```javascript
 var util = require('util');
 var resourceGroupName = 'testrg';
@@ -104,7 +108,7 @@ client.account.create(resourceGroupName, accountName, accountToCreate, function 
 });
 ```
 
-## Obtención de una lista de dominios
+## <a name="get-a-list-of-jobs"></a>Obtención de una lista de dominios
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -117,7 +121,7 @@ jobClient.job.list(accountName, function (err, result, request, response) {
 });
 ```
 
-## Obtención de una lista de bases de datos en el catálogo de Análisis de Data Lake
+## <a name="get-a-list-of-databases-in-the-data-lake-analytics-catalog"></a>Obtención de una lista de bases de datos en el catálogo de Análisis de Data Lake
 ```javascript
 var util = require('util');
 var accountName = 'testadlaacct';
@@ -130,8 +134,13 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## Otras referencias
-* [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node) (Microsoft Azure SDK para Node.js)
-* [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store) (Microsoft Azure SDK para Node.js: Administración de Almacén de Data Lake)
+## <a name="see-also"></a>Otras referencias
+* [Microsoft Azure SDK for Node.js](https://github.com/azure/azure-sdk-for-node)
+* [Microsoft Azure SDK for Node.js - Data Lake Store Management](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

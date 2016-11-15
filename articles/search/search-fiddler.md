@@ -1,22 +1,26 @@
 ---
-title: Uso de Fiddler para evaluar y probar las API de REST de Búsqueda de Azure | Microsoft Docs
-description: Usar Fiddler para comprobar la disponibilidad de Búsqueda de Azure y probar las API de REST sin código.
+title: "Cómo usar Fiddler para evaluar y probar las API de REST de Azure Search | Microsoft Docs"
+description: "Usar Fiddler para comprobar la disponibilidad de Búsqueda de Azure y probar las API de REST sin código."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: mblythe
-editor: ''
-
+editor: 
+ms.assetid: 790e5779-c6a3-4a07-9d1e-d6739e6b87d2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/08/2016
+ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
+ms.openlocfilehash: 12f5a22fa65d84682e5792bcbe88b67986540498
+
 
 ---
-# Usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
+# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Usar Fiddler para evaluar y probar las API de REST de Búsqueda de Azure
 > [!div class="op_single_selector"]
 > * [Información general](search-query-overview.md)
 > * [Explorador de búsqueda](search-explorer.md)
@@ -32,9 +36,9 @@ En los siguientes pasos, podrá crear un índice, cargar documentos, consultar e
 
 Para completar estos pasos, necesitará un servicio Búsqueda de Azure y `api-key`. Consulte [Crear un servicio Búsqueda de Azure en el portal](search-create-service-portal.md) para obtener instrucciones sobre cómo empezar.
 
-## Creación de un índice
-1. Inicie Fiddler. En el menú **Archivo**, desactive **Capturar tráfico** para ocultar actividad HTTP irrelevante que no está relacionada con la tarea actual.
-2. En la pestaña **Compositor**, formulará una solicitud similar a la siguiente captura de pantalla:
+## <a name="create-an-index"></a>Creación de un índice
+1. Inicie Fiddler. En el menú **Archivo**, desactive **Capturar tráfico** para ocultar la actividad HTTP irrelevante que no está relacionada con la tarea actual.
+2. En la pestaña **Compositor** , formulará una solicitud similar a la siguiente captura de pantalla:
    
       ![][1]
 3. Seleccione **PUT**.
@@ -77,8 +81,8 @@ En unos segundos verá una respuesta HTTP 201 en la lista de sesiones, que indic
 
 Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el error HTTP 400 o 404, compruebe el cuerpo de la solicitud para verificar que no haya errores al copiar/pegar. Un HTTP 403 indica normalmente que hay un problema con la clave de API (es una clave no válida o un problema de sintaxis sobre cómo se específica la clave de API).
 
-## Carga de documentos
-En la pestaña **Compositor**, se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
+## <a name="load-documents"></a>Carga de documentos
+En la pestaña **Compositor** , se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
 
    ![][2]
 
@@ -158,8 +162,8 @@ En la pestaña **Compositor**, se verá su solicitud para enviar documentos como
 
 En unos pocos segundos debe ver una respuesta HTTP 200 en la lista de sesiones. Esto indica que los documentos se crearon correctamente. Si obtiene un 207, al menos un documento no pudo cargarse. Si obtiene un error 404, se ha producido un error de sintaxis en el encabezado o en el cuerpo de la solicitud.
 
-## Consultas al índice
-Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos. En la pestaña **Compositor**, el comando **GET** que consulta su servicio será similar a la siguiente captura de pantalla.
+## <a name="query-the-index"></a>Consultas al índice
+Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos.  En la pestaña **Compositor**, el comando **GET** que consulta su servicio será similar a la siguiente captura de pantalla.
 
    ![][3]
 
@@ -190,8 +194,8 @@ La siguiente consulta de ejemplo proviene del tema [Operación de índice de bú
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2015-02-28
 
-## Consultas al sistema
-También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña **Compositor**, su solicitud será similar a la siguiente y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
+## <a name="query-the-system"></a>Consultas al sistema
+También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña **Compositor** , su solicitud será similar a la siguiente y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
 
  ![][5]
 
@@ -209,7 +213,7 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 5. Haga clic en **Ejecutar**. Debe ver un código de estado HTTP 200 en la lista de sesiones. Seleccione la entrada enviada para su comando.
 6. Haga clic en la pestaña **Inspectores**, en **Encabezados** y seleccione el formato JSON. Debe ver el recuento de documentos y el tamaño del almacenamiento (en KB).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-manage.md) para un enfoque sin código para administrar y usar Búsqueda de Azure.
 
 <!--Image References-->
@@ -219,4 +223,8 @@ Consulte [Administración del servicio de búsqueda en Microsoft Azure](search-m
 [4]: ./media/search-fiddler/AzureSearch_Fiddler4_QueryResults.png
 [5]: ./media/search-fiddler/AzureSearch_Fiddler5_QueryStats.png
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

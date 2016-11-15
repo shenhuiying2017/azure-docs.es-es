@@ -1,12 +1,12 @@
 ---
-title: Transición de circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs
-description: Esta página proporciona una visión general de lo que necesita saber sobre cómo realizar la transición del modelo de implementación clásica al modelo de implementación de Resource Manager.
+title: "Transición de circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs"
+description: "Esta página proporciona una visión general de lo que necesita saber sobre cómo realizar la transición del modelo de implementación clásica al modelo de implementación de Resource Manager."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 945923d9858ec0ed31272c23268b263f77b5c7a4
+
 
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute del modelo de implementación clásica al modelo de implementación de Resource Manager
@@ -74,7 +78,7 @@ El rendimiento agregado se ve limitado por la capacidad de procesamiento de la p
 ## <a name="access-to-azure-public-and-microsoft-peering-resources"></a>Acceso a recursos de emparejamiento público de Azure y de Microsoft
 Puede seguir teniendo acceso a los recursos a los que normalmente se accede mediante el emparejamiento público de Azure y el emparejamiento de Microsoft sin interrupciones.  
 
-## <a name="what's-supported"></a>Lo que se admite
+## <a name="whats-supported"></a>Lo que se admite
 En esta sección se describe lo que se admite para los circuitos ExpressRoute:
 
 * Para acceder a redes virtuales implementadas tanto en el modelo clásico como en el de Resource Manager se puede usar un solo circuito ExpressRoute.
@@ -84,7 +88,7 @@ En esta sección se describe lo que se admite para los circuitos ExpressRoute:
 * El circuito ExpressRoute actúa como puente entre los modelos de implementación clásica y de Resource Manager. El tráfico entre las máquinas virtuales implementadas en las redes virtuales según el modelo clásico y las implementadas en las redes virtuales según el de Resource Manager fluirá a través de ExpressRoute si ambas redes virtuales están vinculadas al mismo circuito ExpressRoute.
 * Los modelos de implementación clásica y de Resource Manager admiten ambos la conectividad entre suscripciones.
 
-## <a name="what's-not-supported"></a>Lo que no se admite
+## <a name="whats-not-supported"></a>Lo que no se admite
 En esta sección se describe lo que no se admite para los circuitos ExpressRoute:
 
 * Trasladar vínculos del circuito, puertas de enlace y redes virtuales del modelo de implementación clásica al modelo de implementación de Resource Manager.
@@ -102,6 +106,9 @@ Revise las instrucciones que se ofrecen en [Transición de los circuitos Express
   * [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
   * [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

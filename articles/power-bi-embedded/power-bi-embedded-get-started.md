@@ -1,13 +1,13 @@
 ---
-title: Introducción a Microsoft Power BI Embedded
-description: Power BI Embedded, agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial
+title: "Introducción a Microsoft Power BI Embedded"
+description: "Power BI Embedded, agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+
 
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Introducción a Microsoft Power BI Embedded
@@ -72,7 +76,7 @@ Con **Power BI Desktop**, para conectarse al origen de datos, puede importar una
 
 Estas son las diferencias entre usar **Importación** y **DirectQuery**.
 
-| Importación | DirectQuery |
+| Importar | DirectQuery |
 | --- | --- |
 | Las tablas, las columnas y los *datos* se importan o se copian en **Power BI Desktop**. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta una copia de los datos. Para ver los cambios que se han producido en los datos subyacentes, debe actualizar o importar de nuevo un conjunto de datos actual completo. |En *Power BI Desktop* , solo se importan o copian **tablas y columnas**. Mientras trabaja con visualizaciones, **Power BI Desktop** consulta el origen de datos subyacente, lo que significa que siempre verá los datos actuales. |
 
@@ -100,6 +104,9 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 * [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
