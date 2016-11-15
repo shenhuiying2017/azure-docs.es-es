@@ -6,4 +6,7 @@ En este escenario se realizarán las siguientes tareas:
 
 ![Escenario del equilibrador de carga](./media/load-balancer-get-started-internet-scenario-include/scenario-classic.png)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

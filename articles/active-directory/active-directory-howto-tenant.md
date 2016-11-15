@@ -1,12 +1,12 @@
 ---
-title: Obtención de un inquilino de Azure AD | Microsoft Docs
-description: Obtenga un inquilino de Azure Active Directory para el registro y la creación de aplicaciones.
+title: "Obtención de un inquilino de Azure AD | Microsoft Docs"
+description: "Obtenga un inquilino de Azure Active Directory para el registro y la creación de aplicaciones."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: terrylan
-editor: ''
-
+editor: 
+ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/28/2015
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b72271ca68df3b4b11c41f208fd1e3dd75b5e727
+
 
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Obtención de un inquilino de Azure Active Directory
@@ -60,6 +64,9 @@ Si todo lo anterior es un galimatías para usted, no se preocupe.  Simplemente v
 
 Como parte del proceso de registro en Azure, se le solicitará que proporcione la información de tarjeta de crédito.  Puede continuar con confianza: no se le cobrará por publicar aplicaciones en Azure AD o crear nuevos inquilinos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

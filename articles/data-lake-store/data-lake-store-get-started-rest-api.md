@@ -1,12 +1,12 @@
 ---
-title: Introducción al Almacén de Data Lake mediante la API de REST| Microsoft Docs
-description: Usar las API de REST de WebHDFS para realizar operaciones en el Almacén de Data Lake
+title: "Introducción a Data Lake Store mediante la API de REST | Microsoft Docs"
+description: "Usar las API de REST de WebHDFS para realizar operaciones en el Almacén de Data Lake"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6001c89804f7443e21e6e2eeecf3f1d3b682be9a
+
 
 ---
-# Introducción al Almacén de Azure Data Lake mediante las API de REST
+# <a name="get-started-with-azure-data-lake-store-using-rest-apis"></a>Introducción al Almacén de Azure Data Lake mediante las API de REST
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -35,15 +39,15 @@ En este artículo, obtendrá información sobre cómo usar las API de REST de We
 > 
 > 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Cree una aplicación de Azure Active Directory**. Utilice la aplicación Azure AD para autenticar la aplicación Data Lake Store con Azure AD. Existen diferentes enfoques para realizar la autenticación con Azure AD, que son **autenticación de usuario final** o **autenticación de servicio a servicio**. Para instrucciones y más información acerca de cómo realizar la autenticación, consulte [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md) (Autenticación con Data Lake Store mediante Azure Active Directory).
+* **Cree una aplicación de Azure Active Directory**. Utilice la aplicación Azure AD para autenticar la aplicación Data Lake Store con Azure AD. Existen diferentes enfoques para realizar la autenticación con Azure AD, que son la **autenticación de usuario final** o la **autenticación de servicio a servicio**. Para instrucciones y más información acerca de cómo realizar la autenticación, consulte [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md)(Autenticación con Data Lake Store mediante Azure Active Directory).
 * [cURL](http://curl.haxx.se/). En este artículo se usa cURL para demostrar cómo realizar llamadas de la API de REST en una cuenta de Almacén de Data Lake.
 
-## ¿Cómo se puede autenticar mediante Azure Active Directory?
+## <a name="how-do-i-authenticate-using-azure-active-directory"></a>¿Cómo se puede autenticar mediante Azure Active Directory?
 Puede usar dos enfoques para autenticar con Azure Active Directory.
 
-### Autenticación de usuario final (interactiva)
+### <a name="enduser-authentication-interactive"></a>Autenticación de usuario final (interactiva)
 En este escenario, la aplicación pide al usuario que inicie sesión y todas las operaciones se realizan en el contexto del usuario. Realice los pasos siguientes para realizar la autenticación interactiva.
 
 1. A través de la aplicación, redirija al usuario a la siguiente dirección URL:
@@ -51,7 +55,7 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
         https://login.microsoftonline.com/<TENANT-ID>/oauth2/authorize?client_id=<CLIENT-ID>&response_type=code&redirect_uri=<REDIRECT-URI>
    
    > [!NOTE]
-   > \<REDIRECT-URI> debe codificarse para utilizarse en una dirección URL. Así, para https://localhost, utilice `https%3A%2F%2Flocalhost`.
+   > \<REDIRECT-URI> debe codificarse para utilizarse en una dirección URL. Por lo tanto, para https://localhost, use `https%3A%2F%2Flocalhost`).
    > 
    > 
    
@@ -84,8 +88,8 @@ En este escenario, la aplicación pide al usuario que inicie sesión y todas las
 
 Para más información sobre la autenticación interactiva de usuarios, consulte el [flujo de concesión de un código de autorización](https://msdn.microsoft.com/library/azure/dn645542.aspx).
 
-### Autenticación de servicio a servicio (no interactiva)
-En este escenario, la aplicación proporciona sus propias credenciales para realizar las operaciones. Para ello, debe emitir una solicitud POST como la que se muestra a continuación.
+### <a name="servicetoservice-authentication-noninteractive"></a>Autenticación de servicio a servicio (no interactiva)
+En este escenario, la aplicación proporciona sus propias credenciales para realizar las operaciones. Para ello, debe emitir una solicitud POST como la que se muestra a continuación. 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -97,16 +101,16 @@ El resultado de esta solicitud incluirá un token de autorización (que se indic
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
-En este artículo se usa el enfoque **no interactivo**. Para más información sobre el enfoque no interactivo (llamadas de servicio a servicio), consulte el tema sobre [llamadas de servicio a servicio utilizando las credenciales del cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
+En este artículo se usa el enfoque **no interactivo** . Para más información sobre el enfoque no interactivo (llamadas de servicio a servicio), consulte el tema sobre [llamadas de servicio a servicio utilizando las credenciales del cliente](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## Crear una cuenta de Almacén de Data Lake
+## <a name="create-a-data-lake-store-account"></a>Crear una cuenta de Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST que se define [aquí](https://msdn.microsoft.com/library/mt694078.aspx).
 
-Use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
-En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. La carga de la solicitud de este comando se encuentra en el archivo **input.json** que se proporciona para el parámetro `-d` anterior. El contenido del archivo input.json es similar al siguiente:
+En el comando anterior, reemplace \<`REDACTED`\> por el token de autorización que recuperó anteriormente. La carga útil de la solicitud de este comando se encuentra en el archivo **input.json** que se proporciona para el parámetro `-d` anterior. El contenido del archivo input.json es similar al siguiente:
 
     {
     "location": "eastus2",
@@ -116,27 +120,27 @@ En el comando anterior, reemplace <`REDACTED`> por el token de autorización que
     "properties": {}
     }    
 
-## Crear carpetas en una cuenta de Almacén de Data Lake
+## <a name="create-folders-in-a-data-lake-store-account"></a>Crear carpetas en una cuenta de Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Make_a_Directory).
 
-Use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=MKDIRS
 
-En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente. Este comando crea un directorio denominado **mytempdir** bajo la carpeta raíz de su cuenta de Data Lake Store.
+En el comando anterior, reemplace \<`REDACTED`\> por el token de autorización que recuperó anteriormente. Este comando crea un directorio denominado **mytempdir** bajo la carpeta raíz de su cuenta de Data Lake Store.
 
 Si la operación se completa correctamente, verá una respuesta similar a la siguiente:
 
     {"boolean":true}
 
-## Mostrar carpetas en una cuenta de Almacén de Data Lake
+## <a name="list-folders-in-a-data-lake-store-account"></a>Mostrar carpetas en una cuenta de Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#List_a_Directory).
 
-Use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/?op=LISTSTATUS
 
-En el comando anterior, reemplace <`REDACTED`> por el token de autorización que recuperó anteriormente.
+En el comando anterior, reemplace \<`REDACTED`\> por el token de autorización que recuperó anteriormente.
 
 Si la operación se completa correctamente, verá una respuesta similar a la siguiente:
 
@@ -157,12 +161,12 @@ Si la operación se completa correctamente, verá una respuesta similar a la sig
     }
     }
 
-## Cargar datos en una cuenta del Almacén de Data Lake
+## <a name="upload-data-into-a-data-lake-store-account"></a>Cargar datos en una cuenta del Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Create_and_Write_to_a_File).
 
 Cargar datos con la API de REST de WebHDFS es un proceso de dos pasos, como se explica a continuación.
 
-1. Envíe una solicitud PUT de HTTP sin enviar los datos del archivo que se va a cargar. En el siguiente comando, reemplace **<yourstorename>** por el nombre de Data Lake Store.
+1. Envíe una solicitud PUT de HTTP sin enviar los datos del archivo que se va a cargar. En el siguiente comando, reemplace **\<yourstorename>** por el nombre de Data Lake Store.
    
         curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/?op=CREATE
    
@@ -176,7 +180,7 @@ Cargar datos con la API de REST de WebHDFS es un proceso de dos pasos, como se e
         Location: https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/somerandomfile.txt?op=CREATE&write=true
         ...
         ...
-2. Ahora debe enviar otra solicitud PUT de HTTP en la dirección URL que se muestra para la propiedad **Location** de la respuesta. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+2. Ahora debe enviar otra solicitud PUT de HTTP en la dirección URL que se muestra para la propiedad **Location** de la respuesta. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
    
         curl -i -X PUT -T myinputfile.txt -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=CREATE&write=true
    
@@ -188,7 +192,7 @@ Cargar datos con la API de REST de WebHDFS es un proceso de dos pasos, como se e
         ...
         ...
 
-## Leer datos de una cuenta del Almacén de Data Lake
+## <a name="read-data-from-a-data-lake-store-account"></a>Leer datos de una cuenta del Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Open_and_Read_a_File).
 
 La lectura de datos desde una cuenta del Almacén de Data Lake es un proceso de dos pasos.
@@ -196,7 +200,7 @@ La lectura de datos desde una cuenta del Almacén de Data Lake es un proceso de 
 * Primero, envíe una solicitud GET en el punto de conexión `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Esto devolverá una ubicación a la que se debe enviar la siguiente solicitud GET.
 * Después, envíe la solicitud GET en el punto de conexión `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Se mostrará el contenido del archivo.
 
-Sin embargo, como no existe ninguna diferencia en los parámetros de entrada entre el primer y el segundo paso, puede usar el parámetro `-L` para enviar la primera solicitud. Básicamente, la opción `-L` combina dos solicitudes en una y provocará que cURL vuelva a realizar la solicitud en la nueva ubicación. Por último, se muestra el resultado de todas las llamadas de solicitud, como se muestra a continuación. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Sin embargo, como no existe ninguna diferencia en los parámetros de entrada entre el primer y el segundo paso, puede usar el parámetro `-L` para enviar la primera solicitud. `-L` combina dos solicitudes en una y provocará que cURL vuelva a realizar la solicitud en la nueva ubicación. Por último, se muestra el resultado de todas las llamadas de solicitud, como se muestra a continuación. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN
 
@@ -212,10 +216,10 @@ Debería ver una salida similar a la siguiente:
 
     Hello, Data Lake Store user!
 
-## Cambiar el nombre de un archivo en una cuenta del Almacén de Data Lake
+## <a name="rename-a-file-in-a-data-lake-store-account"></a>Cambiar el nombre de un archivo en una cuenta del Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Rename_a_FileDirectory).
 
-Para cambiar el nombre de un archivo, use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Para cambiar el nombre de un archivo, use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -d "" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=RENAME&destination=/mytempdir/myinputfile1.txt
 
@@ -226,10 +230,10 @@ Debería ver una salida similar a la siguiente:
 
     {"boolean":true}
 
-## Eliminar un archivo de una cuenta del Almacén de Data Lake
+## <a name="delete-a-file-from-a-data-lake-store-account"></a>Eliminar un archivo de una cuenta del Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST de WebHDFS que se define [aquí](http://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-hdfs/WebHDFS.html#Delete_a_FileDirectory).
 
-Para eliminar un archivo, use el siguiente comando cURL. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Para eliminar un archivo, use el siguiente comando cURL. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile1.txt?op=DELETE
 
@@ -240,10 +244,10 @@ Debe ver algo parecido a lo siguiente:
 
     {"boolean":true}
 
-## Eliminar una cuenta del Almacén de Data Lake
+## <a name="delete-a-data-lake-store-account"></a>Eliminar una cuenta del Almacén de Data Lake
 Esta operación se basa en la llamada de la API de REST que se define [aquí](https://msdn.microsoft.com/library/mt694075.aspx).
 
-Use el siguiente comando cURL para eliminar la cuenta del Almacén de Data Lake. Reemplace **<yourstorename>** por el nombre de Data Lake Store.
+Use el siguiente comando cURL para eliminar la cuenta del Almacén de Data Lake. Reemplace **\<yourstorename>** por el nombre de Data Lake Store.
 
     curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
 
@@ -253,7 +257,12 @@ Debe ver algo parecido a lo siguiente:
     ...
     ...
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Abrir aplicaciones Big Data de origen que funcionan con el Almacén de Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

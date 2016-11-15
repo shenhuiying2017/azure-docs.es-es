@@ -1,12 +1,12 @@
 ---
-title: Introducción a ExpressRoute | Microsoft Docs
-description: Esta página proporciona información general del servicio ExpressRoute, incluido cómo funciona una conexión ExpressRoute.
+title: "Introducción a ExpressRoute | Microsoft Docs"
+description: "Esta página proporciona información general del servicio ExpressRoute, incluido cómo funciona una conexión ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b3e0fd5342c4729d6ffee4858089099b31404a8
+
 
 ---
 # <a name="expressroute-technical-overview"></a>Información técnica de ExpressRoute
@@ -33,16 +37,16 @@ Microsoft Azure ExpressRoute le permite ampliar sus redes de local en la nube de
 
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-## <a name="<a-name="howtoconnect"></a>how-can-i-connect-my-network-to-microsoft-using-expressroute?"></a><a name="howtoconnect"></a>¿Cómo puedo conectar mi red a Microsoft mediante ExpressRoute?
+## <a name="a-namehowtoconnectahow-can-i-connect-my-network-to-microsoft-using-expressroute"></a><a name="howtoconnect"></a>¿Cómo puedo conectar mi red a Microsoft mediante ExpressRoute?
 Puede crear una conexión entre su red local y Microsoft Cloud de tres maneras diferentes
 
-### <a name="co-located-at-a-cloud-exchange"></a>Ubicación compartida en un intercambio en la nube
+### <a name="colocated-at-a-cloud-exchange"></a>Ubicación compartida en un intercambio en la nube
 Si está colocado en la misma instalación con un intercambio en la nube, puede solicitar conexiones cruzadas virtuales a Microsoft Cloud a través del intercambio de Ethernet del proveedor de la ubicación compartida. Los proveedores de ubicación compartida pueden ofrecer conexiones cruzadas de nivel 2, o conexiones cruzadas de nivel 3 administradas entre la infraestructura en la instalación de ubicación compartida y Microsoft Cloud.
 
-### <a name="point-to-point-ethernet-connections"></a>Conexiones Ethernet de punto a punto
+### <a name="pointtopoint-ethernet-connections"></a>Conexiones Ethernet de punto a punto
 Puede conectar sus centros de datos locales u oficinas a Microsoft Cloud a través de vínculos de Ethernet de punto a punto. Los proveedores de Ethernet de punto a punto pueden ofrecer conexiones de nivel 2 o de nivel 3 administradas entre el sitio y Microsoft Cloud.
 
-### <a name="any-to-any-(ipvpn)-networks"></a>Redes de conectividad universal (IPVPN)
+### <a name="anytoany-ipvpn-networks"></a>Redes de conectividad universal (IPVPN)
 Puede integrar la WAN con Microsoft Cloud. Los proveedores IPVPN (normalmente VPN MPLS) ofrecen conectividad universal entre los centros de datos y las sucursales. Microsoft Cloud puede estar conectada a la WAN de forma que parezca otra sucursal más. Los proveedores de WAN normalmente ofrecen una conectividad de nivel 3 administrada. Las características y capacidades de ExpressRoute son todas idénticas en todos los modelos de conectividad anteriores. 
 
 Los proveedores de conectividad pueden ofrecer uno o varios modelos de conectividad. Puede trabajar en conjunción con su proveedor de conectividad para elegir el modelo que mejor le convenga.
@@ -74,7 +78,7 @@ Puede conectarse a Microsoft en una de nuestras [ubicaciones de configuración e
 
 Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en Europa septentrional y Europa occidental. Consulte el artículo [Asociados de ExpressRoute de Azure y ubicaciones de emparejamiento](expressroute-locations.md) para obtener información general sobre las regiones geopolíticas, regiones de Microsoft Cloud asociadas y las correspondientes ubicaciones de configuración entre pares de ExpressRoute.
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Conectividad global con el complemento ExpressRoute Premium
+### <a name="global-connectivity-with-expressroute-premium-addon"></a>Conectividad global con el complemento ExpressRoute Premium
 Puede habilitar la característica de complemento ExpressRoute Premium para ampliar la conectividad a través de límites geopolíticos. Por ejemplo, si se conectó a Microsoft en Ámsterdam a través de ExpressRoute, tendrá acceso a todos los servicios en la nube de Microsoft hospedados en todas las regiones del mundo (excluidas las nubes nacionales). Puede tener acceso a los servicios implementados en Sudamérica o Australia del mismo modo que accede a las regiones de Europa septentrional y occidental.
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Ecosistema de socios de conectividad enriquecida
@@ -118,6 +122,9 @@ Puede elegir el modelo de facturación que mejor le convenga. Elija entre los mo
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 
