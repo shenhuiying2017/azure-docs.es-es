@@ -9,10 +9,14 @@
     ![](./media/mobile-engagement-create-new-ios-app/xcode-project-props.png)
 
 > [!IMPORTANT]
-> Asegúrese de que el Identificador de la agrupación coincide con lo que haya definido en la consola del desarrollador de Apple para AppId y que dispone de un certificado correspondiente para él.
+> Asegúrese de que el Identificador de la agrupación coincide con lo que haya definido en la consola del desarrollador de Apple para AppId y que dispone de un certificado correspondiente para él. 
 > 
 > 
 
 Xcode creará la aplicación de demostración en la que se integrará Mobile Engagement.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

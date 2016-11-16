@@ -27,7 +27,7 @@
 ### [Sugerencias para la solución de problemas](../app-service-logic/app-service-logic-diagnosing-failures.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Límites y configuración](../app-service-logic/app-service-logic-limits-and-config.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## Enterprise Integration Pack (EIP)
+## Uso de Enterprise Integration Pack (EIP)
 ### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Introducción a las cuentas de integración](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Contratos](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -54,11 +54,11 @@
 ### [Esquemas de seguimiento de X12](../app-service-logic/app-service-logic-track-integration-account-x12-tracking-shemas.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Esquema de seguimiento personalizado](../app-service-logic/app-service-logic-track-integration-account-custom-tracking-shema.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## Puerta de enlace
+## Uso de puerta de enlace
 ### [Conexión de local](../app-service-logic/app-service-logic-gateway-connection.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Instalación](../app-service-logic/app-service-logic-gateway-install.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
-## Publicar
+## Automatizar
 ### [Plantilla de Automation](../app-service-logic/app-service-logic-create-deploy-template.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Publicación desde VS](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
@@ -72,9 +72,21 @@
 ### [Disponibilidad general](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Versión preliminar](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
+## [Cmdlets de PowerShell](/powershell/resourcemanager/)
+## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
+## [API de REST](/rest/api/logic/)
+
 ## Esquema de 2014 (antes de la disponibilidad general)
 ### [Conector para recursos de Azure](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Conector de archivos](../app-service-logic/app-service-logic-connector-file.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+
+# Recursos
+## [Precios](https://azure.microsoft.com/pricing/details/logic-apps/)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=logic-apps) 
+
+
 
 <!--HONumber=Nov16_HO2-->
 

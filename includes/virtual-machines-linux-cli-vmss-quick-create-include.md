@@ -1,7 +1,7 @@
-Si no lo ha hecho aún, puede obtener una [prueba gratuita de la suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [a su cuenta de Azure](../articles/xplat-cli-connect.md). Una vez hecho, puede ejecutar los siguientes comandos para crear rápidamente un conjunto de escalado:
+Si no lo ha hecho todavía, puede obtener una [evaluación gratuita de susscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [ a su cuenta de Azure](../articles/xplat-cli-connect.md). Una vez hecho, puede ejecutar los siguientes comandos para crear rápidamente un conjunto de escalado:
 
 ```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/documentation/articles/resource-manager-deployment-model/)
+# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
 azure config mode arm
 
 # quick-create a scale set
@@ -13,7 +13,7 @@ azure config mode arm
 azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
 ```
 
-Si desea personalizar la ubicación o image-urn, busque en los comandos `azure location list` y `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
+Si desea personalizar la ubicación o el URN de la imagen, use los comandos `azure location list` y `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
 
 Cuando se haya devuelto este comando, se habrá creado el conjunto de escalado. Este conjunto de escalado tendrá un equilibrador de carga con reglas NAT que asignan el puerto 50 000+ i del equilibrador de carga al puerto 22 de la máquina virtual i. Por lo tanto, una vez que determinemos el FQDN del equilibrador de carga, podremos conectarnos mediante SSH a nuestras máquinas virtuales:
 
@@ -56,4 +56,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!---HONumber=AcomDC_0413_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

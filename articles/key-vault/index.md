@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Key Vault Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: d6059070f8cb8765986763a2ae52068ab692d41d
+ms.openlocfilehash: 9614778d6c7502f16639d2ccb2f259a98be5b0c9
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .PFX files, and passwords) by using keys that are protected by hardware security modules (HSMs). For added assurance, you can import or generate keys in HSMs.
+---
+# <a name="key-vault-documentation"></a>Documentación de Key Vault
+
+Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por servicios y aplicaciones en la nube. Mediante el uso de Key Vault, puede cifrar claves y secretos (por ejemplo claves de autenticación, claves de cuenta de almacenamiento, claves de cifrado de datos, archivos .PFX y contraseñas) a través del uso de claves que están protegidas por módulos de seguridad de hardware (HSM). Para tener mayor seguridad, puede importar o generar las claves en HSM.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Key Vault</h3>
+                        <h3>Información sobre Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Key Vault Video Library</h3>
+                        <h3>Biblioteca de vídeos de Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault</h3>
+                        <h3>Introducción a Key Vault</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Key Vault from a Web Application</h3>
+                        <h3>Empezar a trabajar con Key Vault desde una aplicación web</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Set up Azure Key Vault with end-to-end key rotation and auditing</h3>
+                        <h3>Configuración de Azure Key Vault con la auditoría y la rotación de claves de un extremo a otro</h3>
                     </div>
                 </div>
             </div>
@@ -100,22 +104,22 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 ---
 
-## Reference
+## <a name="reference"></a>Referencia
 
-### PowerShell
-[Azure PowerShell Reference](/PowerShell/azureps-cmdlets-docs)
+### <a name="powershell"></a>PowerShell
+[Referencia de Azure PowerShell](/PowerShell/azureps-cmdlets-docs)
 
-### Azure CLI 
-[Key Vault using Azure CLI](/cli/azure/keyvault)
+### <a name="azure-cli"></a>CLI de Azure 
+[Uso de la CLI de Azure por parte de Key Vault](/cli/azure/keyvault)
 
-### Java 
-[Key Vault in Java Reference](/java/api/)
+### <a name="java"></a>Java 
+[Referencia de Java en Key Vault](/java/api/)
 
-### .NET 
-[Key Vault Managed Reference API](/dotnet/api/) 
+### <a name="net"></a>.NET 
+[API de referencia administrada de Key Vault](/dotnet/api/) 
 
-### REST 
-[Key Vault REST API Reference](/rest/api/keyvault) 
+### <a name="rest"></a>REST 
+[Referencia de la API de REST de Key Vault](/rest/api/keyvault) 
 
 ---
 
@@ -123,7 +127,12 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/key-vault.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Key Vault Documentation
-        </div>
+Descarga de la documentación de Key Vault </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

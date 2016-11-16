@@ -1,12 +1,12 @@
 ---
-title: Azure Active Directory FAQ | Microsoft Docs
-description: Azure Active Directory FAQ that provides answers to questions in conjunction with accessing Azure and Azure Active Directory, password management and application access.
+title: P+F de Azure Active Directory | Microsoft Docs
+description: "P+F de Azure Active Directory que proporciona respuestas a preguntas relativas al acceso a Azure y Azure Active Directory, la administración de contraseñas y el acceso a aplicaciones."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,146 +14,153 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f7070d9d691e2471978a2986025ebfdafbeaa7c
+
 
 ---
-# <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
-Azure Active Directory is a comprehensive Identity as a Service (IDaaS) solution that spans all aspects of identity, access management, and security.
+# <a name="azure-active-directory-faq"></a>P+F de Azure Active Directory
+Azure Active Directory es una completa solución de identidad como servicio (IDaaS) que abarca todos los aspectos de la identidad, la administración de acceso y la seguridad.
 
-For more details, see [What is Azure Active Directory?](active-directory-whatis.md).
+Para más información, consulte [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 
-## <a name="accessing-azure-and-azure-active-directory"></a>Accessing Azure and Azure Active Directory
-**Q: Why do I get “No subscriptions found” when I try to access Azure AD in the Azure classic portal (https://manage.windowsazure.com)?**
+## <a name="accessing-azure-and-azure-active-directory"></a>Acceso a Azure y Azure Active Directory
+**P: ¿Por qué veo "No se encontraron suscripciones" cuando intento acceder a Azure AD en el Portal de Azure clásico (https://manage.windowsazure.com)?**
 
-**A:** Accessing the Azure classic portal requires each user to have permissions on an Azure subscription. If you have a paid Office 365 or Azure AD navigate to  [http://aka.ms/accessAAD](http://aka.ms/accessAAD) for a one-time activation step, otherwise you will need to activate a full [Azure trial](https://azure.microsoft.com/pricing/free-trial/) or a paid subscription. 
+**R:** Para acceder al Portal de Azure clásico, cada usuario debe tener permisos en una suscripción de Azure. Si tiene Office 365 o Azure AD de pago, vaya a [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para la activación por única vez; de lo contrario, debe activar una [evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/) completa o una suscripción de pago. 
 
-For more details, see:
+Para obtener información, consulte:
 
-* [How Azure subscriptions are associated with Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
-* [Manage the directory for your Office 365 subscription in Azure](active-directory-manage-o365-subscription.md)
-
-- - -
-**Q: What’s the relationship between Azure AD, Office 365, and Azure?**
-
-**A:** Azure Active Directory provides you with common identity and access capabilities to all Microsoft online services. Whether you are using Office 365, Microsoft Azure, Intune or others, you are already using an Azure AD to enable sign-on and access management for all of these services. 
-
-In fact, all the users you have enabled for Microsoft Online services are defined as user accounts in one or more Azure AD instances. You can enable these accounts for free Azure AD capabilities such as cloud application access.
-
-Additionally, Azure AD paid services (e.g.: Azure AD basic, Premium, EMS, etc.) complement other Online services such as Office 365 and Microsoft Azure with comprehensive enterprise scale management and security solutions.
+* [Asociación de las suscripciones de Azure con Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+* [Administración del directorio para la suscripción de Office 365 en Azure](active-directory-manage-o365-subscription.md)
 
 - - -
-## <a name="getting-started-with-hybrid-azure-ad"></a>Getting started with Hybrid Azure AD
-**Q: How can I connect my on-premises directory to Azure AD?**
+**P: ¿Cuál es la relación entre AD de Azure, Office 365 y Azure?**
 
-**A:** You can connect your on-premises directory to Azure AD using **Azure AD Connect**. 
+**R:** Azure Active Directory ofrece funcionalidades de acceso e identidad comunes a todos los servicios de Microsoft Online Services. Tanto si usa Office 365 como Microsoft Azure, Intune u otros servicios, ya está utilizando Azure AD para habilitar la administración del acceso y el inicio de sesión de todos estos servicios. 
 
-For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+De hecho, todos los usuarios que haya habilitado para Microsoft Online Services están definidos como cuentas de usuario en una o más instancias de Azure AD. Puede habilitar gratis en estas cuentas funcionalidades de Azure AD, como el acceso a aplicaciones en la nube.
 
-- - -
-**Q: How do I set up SSO between my on-premises directory and my cloud applications?**
-
-**A:** You only need to set up SSO between your on-premises directory and Azure AD. As long as you access your cloud applications through Azure AD, the service automatically drives your users to correctly authenticate with their on-premises credentials.
-
-Implementing SSO from on-premises can be easily achieved with federation solutions such as ADFS or by configuring password hash sync. You can easily deploy both options using the Azure AD Connect configuration wizard.
-
-For more details, see [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
+Además, los servicios de pago de Azure AD (por ejemplo, Azure AD Básico, Premium, EMS, etc.) complementan a otros servicios de Online Services, como Office 365 y Microsoft Azure, con completas soluciones de administración y seguridad para empresas.
 
 - - -
-**Q: Does Azure Active Directory provide a self-service portal for users in my organization?**
+## <a name="getting-started-with-hybrid-azure-ad"></a>Introducción a Azure AD híbrido
+**P: ¿Cómo conecto mi directorio local a Azure AD?**
 
-**A:** Yes, Azure Active Directory provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. IF you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal. 
+**R:** Puede conectar su directorio local a Azure AD mediante **Azure AD Connect**. 
 
-For more information, see the [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md). 
-
-- - -
-**Q: Does Azure AD help me manage my on-premises infrastructure?**
-
-**A:** Yes, it does. The Azure AD Premium edition provides you with **Connect Health**. Azure AD Connect Health helps you monitor and gain insight into your on-premises identity infrastructure and the synchronization services.  
-
-For more details, see [Monitor your on-premises identity infrastructure and synchronization services in the cloud](active-directory-aadconnect-health.md).  
+Para más información, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 - - -
-## <a name="password-management"></a>Password management
-**Q: Can I use Azure AD password write-back without password sync? (AKA, I would like to use Azure AD SSPR with password write-back but I don’t want my passwords stored in the cloud?)**
+**P: ¿Cómo se configura el SSO entre mi directorio local y las aplicaciones de nube?**
 
-**A:** You do not need to synchronize your AD passwords to Azure AD in order to enable write-back. In a federated environment, Azure AD SSO relies on the on-premises directory to authenticate the user. This scenario does not require the on-premises password to be tracked in Azure AD.
+**R:** Solo es preciso configurar el SSO entre el directorio local y Azure AD. Mientras tenga acceso a las aplicaciones en la nube mediante Azure AD, el servicio lleva automáticamente a los usuarios a autenticarse correctamente con sus credenciales locales.
 
-- - -
-**Q: How long does it take for a password to be written back to AD on-premises?**
+La implementación del SSO desde el entorno local se puede lograr fácilmente con soluciones de federación como ADFS o configurando la sincronización de los hash de contraseña. Puede implementar fácilmente ambas opciones con el Asistente para configuración de Azure AD Connect.
 
-**A:** Password write-back operates in real-time. 
-
-For more details, see [Getting started with Password Management](active-directory-passwords-getting-started.md) 
+Para más información, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 - - -
-**Q: Can I use password write-back with passwords that are managed by an administrator?**
+**P: ¿Proporciona Azure Active Directory un portal de autoservicio para usuarios en mi organización?**
 
-**A:** Yes, if you have password write-back enabled, the password operations performed by an administrator are written back to your on-premises environment.  
+**R:** Sí, Azure Active Directory proporciona el [panel de acceso de Azure AD](http://myapps.microsoft.com) para el autoservicio de los usuarios y el acceso a las aplicaciones. Si es cliente de Office 365, encontrará muchas de las mismas funcionalidades en el portal de Office 365. 
 
-For more answers to password related questions, see [Password Management Frequently Asked Questions](active-directory-passwords-faq.md).
-
-- - -
-## <a name="application-access"></a>Application access
-**Q: Where can I find a list of applications that are pre-integrated with Azure AD and their capabilities?**
-
-**A:** Azure AD has over 2600 pre-integrated applications from Microsoft, application service providers, or partners. All pre-integrated applications support SSO. SSO enables you to use your organizational credentials to access your apps. Some of the applications also support automated provisioning and de-provisioning
-
-For a complete list of the pre-integrated applications, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Para más información, consulte [Introducción al panel de acceso](active-directory-saas-access-panel-introduction.md). 
 
 - - -
-**Q: What if the application I need is not in the Azure AD marketplace?**
+**P: ¿Me ayuda Azure AD a administrar la infraestructura local?**
 
-**A:** With Azure AD Premium, you can add and configure any application you want. Depending on your application’s capabilities and your preferences, you can configure SSO and automated provisioning.  
+**R:** Efectivamente. La edición Azure AD Premium incluye **Connect Health**. Azure AD Connect Health le ayuda a supervisar y a comprender mejor su infraestructura de identidad local y los servicios de sincronización.  
 
-For more details, see:
-
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](active-directory-saas-custom-apps.md)
-* [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](active-directory-scim-provisioning.md) 
+Para más información, consulte [Supervisión de la infraestructura de identidad local y los servicios de sincronización en la nube](active-directory-aadconnect-health.md).  
 
 - - -
-**Q: How do users sign into applications using Azure Active Directory?**
+## <a name="password-management"></a>Administración de contraseñas
+**P: ¿Puedo usar la escritura diferida de contraseñas de Azure AD sin sincronización de contraseñas? (Es decir, me gustaría usar SSPR de Azure AD con la escritura diferida de contraseñas, pero no quiero que mis contraseñas se almacenen en la nube)**
 
-**A:** Azure Active directory provides several ways for users to view and access their applications such as:
-
-* The Azure AD access panel
-* The Office 365 application launcher
-* Direct sign-on to federated apps
-* Deep links to federated, password-based, or existing apps
-
-For more information, see [Deploying Azure AD integrated applications to users](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+**R:** No es necesario sincronizar las contraseñas de AD con Azure AD para habilitar la escritura diferida. En un entorno federado, el SSO Azure AD se basa en el directorio local para autenticar al usuario. En este caso no se necesita la contraseña local para realizar el seguimiento en Azure AD.
 
 - - -
-**Q: What are the different ways Azure Active Directory enables authentication and single sign-on to applications?**
+**P: ¿Cuánto se tarda en escribir una contraseña en diferido en AD local?**
 
-**A:** Azure Active Directory supports many standardized protocols for authentication and authorization such as SAML 2.0, OpenID Connect, OAuth 2.0, and WS-Federation. Azure AD also supports password vaulting and automated sign-in capabilities for apps that only support forms-based authentication.  
+**R:** La escritura diferida de contraseñas funciona en tiempo real. 
 
-For more information, see:
-
-* [Authentication Scenarios for Azure AD](active-directory-authentication-scenarios.md)
-* [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+Para más información, consulte [Introducción a la administración de contraseñas](active-directory-passwords-getting-started.md) 
 
 - - -
-**Q: Can I add applications I’m running on-premises?**
+**P: ¿Puedo usar la escritura diferida de contraseñas con las que administra un administrador?**
 
-**A:** Azure AD Application Proxy provides you with easy and secure access to on-premises web applications that you choose. You can access these applications in the same way you are accessing your SaaS apps in Azure Active Directory. There is no need for a VPN or changing your network infrastructure.  
+**R:** Sí, si tiene la escritura diferida de contraseñas habilitada, las operaciones de contraseña realizadas por un administrador se escriben de manera diferida en el entorno local.  
 
-For more details, see [How to provide secure remote access to on-premises applications](active-directory-application-proxy-get-started.md).
-
-- - -
-**Q: How do I require MFA for users accessing a particular application?**
-
-**A:** With Azure AD conditional access, you can assign a unique access policy for each application. In your policy, you can require MFA at all times, or when users are not connected to the local network.  
-
-For more details, see [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md).
+Para ver más respuestas a preguntas relativas a las contraseñas, consulte [Preguntas más frecuentes sobre la administración de contraseñas](active-directory-passwords-faq.md).
 
 - - -
-**Q: What is Automated User Provisioning for SaaS Apps?**
+## <a name="application-access"></a>Acceso a las aplicaciones
+**P: ¿Dónde puedo encontrar una lista de las aplicaciones preintegradas en Azure AD y sus funcionalidades?**
 
-**A:** Azure Active Directory allows you to automate the creation, maintenance, and removal of user identities in many popular cloud (SaaS) applications. 
+**R:** Azure AD cuenta con más de 2600 aplicaciones preintegradas de Microsoft, proveedores de servicios de aplicaciones o asociados. Todas las aplicaciones preintegradas deben ser compatibles con el SSO. El SSO permite utilizar las credenciales de su organización para acceder a las aplicaciones. Algunas de las aplicaciones también admiten el aprovisionamiento y desaprovisionamiento automatizados.
 
-For more information, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](active-directory-saas-app-provisioning.md)
+Para ver una lista exhaustiva de las aplicaciones preintegradas, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
 - - -
-<!--HONumber=Oct16_HO2-->
+**P: ¿Qué ocurre si no encuentro la aplicación que necesito en Marketplace de Azure AD?**
+
+**R:** Con Azure AD Premium, puede agregar y configurar cualquier aplicación. Según las funcionalidades de la aplicación y sus preferencias, puede configurar el SSO y el aprovisionamiento automatizado.  
+
+Para obtener información, consulte:
+
+* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
+* [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](active-directory-scim-provisioning.md) 
+
+- - -
+**P: ¿Cómo inician los usuarios sesión en aplicaciones con Azure Active Directory?**
+
+**R:** Azure Active Directory proporciona varias maneras de que los usuarios vean y accedan a sus aplicaciones, como:
+
+* El Panel de acceso de Azure AD
+* El iniciador de aplicaciones de Office 365
+* Inicio de sesión directo en aplicaciones federadas
+* Vínculos profundos a aplicaciones federadas, con contraseña o existentes
+
+Para más información, consulte [Implementación de aplicaciones integradas en Azure AD a los usuarios](active-directory-appssoaccess-whatis.md#deploying-azure-ad-integrated-applications-to-users).
+
+- - -
+**P: ¿Cuáles son las distintas formas en que Azure Active Directory permite la autenticación y el inicio de sesión único en aplicaciones?**
+
+**R:** Azure Active Directory admite muchos protocolos estandarizados para la autenticación y la autorización, como SAML 2.0, OpenID Connect, OAuth 2.0 y WS-Federation. Además, Azure AD admite las funcionalidades de inicio de sesión automatizado y de almacenamiento de contraseñas para las aplicaciones que solo sean compatibles con la autenticación basada en formularios.  
+
+Para más información, consulte:
+
+* [Escenarios de autenticación para Azure AD](active-directory-authentication-scenarios.md)
+* [Protocolos de autenticación de Azure Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)
+
+- - -
+**P: ¿Puedo agregar aplicaciones que ejecuto de manera local?**
+
+**R:** El proxy de aplicación de Azure AD proporciona un acceso fácil y seguro a las aplicaciones web locales que elija. Puede acceder a ellas como si se trataran de sus aplicaciones SaaS en Azure Active Directory. No se necesita una VPN ni cambiar la infraestructura de red.  
+
+Para más información, consulte [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md).
+
+- - -
+**P: ¿Cómo solicito MFA para que los usuarios accedan a una aplicación determinada?**
+
+**R:** Con el acceso condicional de Azure AD, puede asignar una directiva de acceso única a cada aplicación. En la directiva, puede solicitar MFA siempre o cuando los usuarios no estén conectados a la red local.  
+
+Para más información, consulte [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md).
+
+- - -
+**P: ¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?**
+
+**R:** Azure Active Directory permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en muchas aplicaciones (SaaS) en la nube conocidas. 
+
+Para más información, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md)
+
+- - -
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

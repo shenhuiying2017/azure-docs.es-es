@@ -1,12 +1,12 @@
 ---
-title: Manage endpoints in Azure Traffic Manager | Microsoft Docs
-description: This article will help you add, remove, enable and disable endpoints from Azure Traffic Manager.
+title: "Administración de extremos en el Azure Traffic Manager | Microsoft Docs"
+description: "Este artículo le ayudará a agregar, quitar, habilitar y deshabilitar extremos del Administrador de tráfico de Azure."
 services: traffic-manager
-documentationcenter: ''
+documentationcenter: 
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,64 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6af6652d39fad5812c15e19fa29c757595a78b6
 
 ---
-# <a name="add,-disable,-enable,-or-delete-endpoints"></a>Add, disable, enable, or delete endpoints
-The Web Apps feature in Azure App Service already provides failover and round-robin traffic routing functionality for websites within a datacenter, regardless of the website mode. Azure Traffic Manager allows you to specify failover and round-robin traffic routing for websites and cloud services in different datacenters. The first step necessary to provide that functionality is to add the cloud service or website endpoint to Traffic Manager.
+
+# <a name="add-disable-enable-or-delete-endpoints"></a>Incorporación, deshabilitación, habilitación o eliminación de puntos de conexión
+
+La función Aplicaciones web Servicio de aplicaciones de Azure ya proporciona la funcionalidad de enrutamiento del tráfico de conmutación por error y round robin para sitios web en un centro de datos, independientemente del modo del sitio web. El Administrador de tráfico de Azure permite especificar el enrutamiento del tráfico de conmutación por error y round robin para sitios web y servicios en la nube en distintos centros de datos. El primer paso necesario para proporcionar esa funcionalidad es agregar el extremo del sitio web o del servicio en la nube al Administrador de tráfico.
 
 > [!NOTE]
-> This article explains how to use the classic portal. The Azure classic portal only supports the creation and assignment of cloud services and Web apps as endpoints. The new [Azure portal](https://portal.azure.com) is the preferred interface.
-> 
-> 
+> En este artículo se explica cómo usar el portal clásico. El Portal de Azure clásico solo admite la creación y asignación de servicios en la nube y aplicaciones web como puntos de conexión. Se prefiere la nueva interfaz [Azure Portal](https://portal.azure.com).
 
-You can also disable individual endpoints that are part of a Traffic Manager profile. Disabling an endpoint leaves it as part of the profile, but the profile acts as if the endpoint is not included in it. This action is useful for temporarily removing an endpoint that is in maintenance mode or being redeployed. Once the endpoint is up and running again, it can be enabled.
+También puede deshabilitar los extremos individuales que forman parte de un perfil del Administrador de tráfico. Al deshabilitar un extremo, se deja como parte del perfil, pero el perfil actúa como si el extremo no estuviera incluido en él. Esta acción es útil para quitar temporalmente un punto de conexión que se encuentre en modo de mantenimiento o que se vaya a implementar. Cuando el extremo vuelva a estar en funcionamiento, se puede habilitar
 
 > [!NOTE]
-> Disabling an endpoint has nothing to do with its deployment state in Azure. A healthy endpoint remains up and able to receive traffic even when disabled in Traffic Manager. Additionally, disabling an endpoint in one profile does not affect its status in another profile.
-> 
-> 
+> Deshabilitar un extremo no tiene nada que ver con su estado de implementación en Azure. Sigue activo un punto de conexión en buen estado que puede recibir tráfico incluso cuando se deshabilite en Traffic Manager. Además, al deshabilitar un extremo de un perfil, no se afecta al estado en otro perfil.
 
-## <a name="to-add-a-cloud-service-or-website-endpoint"></a>To add a cloud service or website endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
-3. At the bottom of the page, click **Add** to access the **Add Service Endpoints** page. By default, the page lists the cloud services under **Service Endpoints**.
-4. For cloud services, select the cloud services in the list to add them as endpoints for this profile. Clearing the cloud service name removes it from the list of endpoints.
-5. For websites, click the **Service Type** drop-down list, and then select **Web app**.
-6. Select the websites in the list to add them as endpoints for this profile. Clearing the website name removes it from the list of endpoints. You can select only one website per Azure datacenter (also known as a region). When you select the first website, the other websites in the same datacenter become unavailable for selection. Also note that only Standard websites are listed.
-7. After you select the endpoints for this profile, click the checkmark on the lower right to save your changes.
+## <a name="to-add-a-cloud-service-or-website-endpoint"></a>Para agregar un extremo de servicio en la nube o sitio web
+
+1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
+2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que forman parte de la configuración.
+3. En la parte inferior de la página, haga clic en **Agregar** para acceder a la página **Agregar extremos del servicio**. De manera predeterminada, la página muestra los servicios en la nube en **Extremos del servicio**.
+4. Para los servicios en la nube, selecciónelos en la lista para agregarlos como puntos de conexión para este perfil. Si borra el nombre del servicio en la nube, este se eliminará de la lista de extremos.
+5. Para los sitios web, haga clic en la lista desplegable **Tipo de servicio** y seleccione **Aplicación web**.
+6. Seleccione los sitios web de la lista para agregarlos como extremos para este perfil. Si borra el nombre del servicio en la nube, este se eliminará de la lista de extremos. Solo puede seleccionar un sitio web por cada centro de datos de Azure (también conocido como región). Cuando se selecciona el primer sitio web, los demás sitios web en el mismo centro de datos dejarán de estar disponibles para seleccionarse. Tenga en cuenta, asimismo, que solo se enumeran sitios web estándar.
+7. Una vez seleccionados los extremos de este perfil, haga clic en la marca de verificación, situada abajo a la derecha, para guardar los cambios.
 
 > [!NOTE]
-> After you add or remove an endpoint from a profile using the *Failover* traffic routing method, the failover priority list may not be ordered they way you want. You can adjust the order of the Failover Priority List on the Configuration page. For more information, see [Configure Failover traffic routing](traffic-manager-configure-failover-routing-method.md).
-> 
-> 
+> Después de agregar o quitar un punto de conexión de un perfil mediante el método de enrutamiento de tráfico *Conmutación por error*, no podrá ordenar como desee la lista de prioridad de conmutación por error. Puede ajustar el orden de la lista de prioridad de conmutación por error en la página Configuración. Para obtener más información, consulte [Método de enrutamiento del tráfico de conmutación por error](traffic-manager-configure-failover-routing-method.md).
 
-## <a name="to-disable-an-endpoint"></a>To disable an endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
-3. Click the endpoint that you want to disable, and then click **Disable** at the bottom of the page.
-4. Clients continue to send traffic to the endpoint for the duration of Time-to-Live (TTL). You can change the TTL on the Configuration page of the Traffic Manager profile.
+## <a name="to-disable-an-endpoint"></a>Para deshabilitar un extremo
 
-## <a name="to-enable-an-endpoint"></a>To enable an endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are included in your configuration.
-3. Click the endpoint that you want to enable, and then click **Enable** at the bottom of the page.
-4. Clients are directed to the enabled endpoint as dictated by the profile.
+1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
+2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración.
+3. Haga clic en el extremo que desea deshabilitar y, a continuación, haga clic en **Deshabilitar** en la parte inferior de la página.
+4. Los clientes siguen enviando tráfico al punto de conexión durante el período de vida (TTL). Puede cambiar el valor de TTL en la página Configuración del perfil de Traffic Manager.
 
-## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>To delete a cloud service or website endpoint
-1. On the Traffic Manager pane in the Azure classic portal, locate the Traffic Manager profile that contains the endpoint settings that you want to modify. To open the settings page, click the arrow to the right of the profile name.
-2. At the top of the page, click **Endpoints** to view the endpoints that are already part of your configuration.
-3. On the Endpoints page, click the name of the endpoint that you want to delete from the profile.
-4. At the bottom of the page, click **Delete**.
+## <a name="to-enable-an-endpoint"></a>Para habilitar un extremo
 
-## <a name="next-steps"></a>Next steps
-* [Traffic Manager - Disable, enable, or delete a profile](traffic-manager-manage-profiles.md)
-* [Configure failover routing method](traffic-manager-configure-failover-routing-method.md)
-* [Configure round robin routing method](traffic-manager-configure-round-robin-routing-method.md)
-* [Configure performance routing method](traffic-manager-configure-performance-routing-method.md)
-* [Troubleshooting Traffic Manager degraded state](traffic-manager-troubleshooting-degraded.md)
-* [Traffic Manager performance considerations](traffic-manager-performance-considerations.md)
-* [Operations on Traffic Manager (REST API Reference)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
+2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que se incluyen en la configuración.
+3. Haga clic en el extremo que desea habilitar y, a continuación, haga clic en **Habilitar** en la parte inferior de la página.
+4. Los clientes se dirigen al punto de conexión habilitado como se indica en el perfil.
 
-<!--HONumber=Oct16_HO2-->
+## <a name="to-delete-a-cloud-service-or-website-endpoint"></a>Para eliminar un extremo del servicio en la nube o del sitio web
+
+1. En el panel Traffic Manager del Portal de Azure clásico, localice el perfil de Traffic Manager que contiene la configuración del punto de conexión que desea modificar. Para abrir la página de configuración, haga clic en la flecha a la derecha del nombre del perfil.
+2. En la parte superior de la página, haga clic en **Extremos** para ver los extremos que forman parte de la configuración.
+3. En la página Extremos, haga clic en el nombre del extremo que desea eliminar del perfil.
+4. En la parte inferior de la página, haga clic en **Eliminar**.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* [Administración de perfiles de Traffic Manager](traffic-manager-manage-profiles.md)
+* [Configurar métodos de enrutamiento](traffic-manager-configure-routing-method.md)
+* [Solución de problemas de estado degradado del Administrador de tráfico](traffic-manager-troubleshooting-degraded.md)
+* [Consideraciones de rendimiento sobre el Administrador de tráfico](traffic-manager-performance-considerations.md)
+* [Operaciones del Administrador de tráfico (referencia de la API de REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

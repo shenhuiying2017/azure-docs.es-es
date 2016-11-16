@@ -5,7 +5,11 @@ Si usa una suscripción de Azure de la que no es el administrador o el propietar
 
 Para más información sobre cómo trabajar con la administración de acceso, consulte los documentos siguientes:
 
-* [Introducción a la administración de acceso en el Portal de Azure](../articles/active-directory/role-based-access-control-what-is.md)
+* [Introducción a la administración de acceso en Azure Portal](../articles/active-directory/role-based-access-control-what-is.md)
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../articles/active-directory/role-based-access-control-configure.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

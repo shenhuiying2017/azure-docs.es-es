@@ -1,12 +1,12 @@
 ---
-title: Información general sobre Service Bus Relay | Microsoft Docs
-description: Información general sobre Retransmisión de bus de servicio.
+title: "Información general sobre Service Bus Relay | Microsoft Docs"
+description: "Información general sobre Retransmisión de bus de servicio."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0482096cbec6a5e4b7b13ea662a180cd9b96e85f
+
 
 ---
 # <a name="overview-of-service-bus-relay"></a>Información general sobre Service Bus Relay
 El componente central de Service Bus es un servicio de *retransmisión* centralizado (pero con una carga muy equilibrada) que permite crear aplicaciones híbridas que se ejecutan tanto en el centro de datos de Azure como en entornos empresariales locales.  Service Bus Relay admite diversos protocolos de transporte y estándares de servicios web. Incluye SOAP, WS-* e incluso REST. El servicio de retransmisión facilita las aplicaciones híbridas, ya que permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall y sin que sea necesario realizar cambios molestos en una infraestructura de red corporativa. 
 
-![Conceptos del relé](./media/service-bus-relay-overview/sb-relay-01.png)
+![Conceptos del relé WCF](./media/service-bus-relay-overview/sb-relay-01.png)
 
 El servicio de retransmisión admite mensajería unidireccional tradicional, mensajería de solicitud/respuesta y mensajería de punto a punto. También admite la distribución de eventos en el ámbito de internet para habilitar escenarios de publicación/suscripción y la comunicación de socket bidireccional para aumentar la eficacia punto a punto. 
 
@@ -30,9 +34,12 @@ Inicie la conexión entre el servicio local y el servicio de retransmisión medi
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener detalles sobre Service Bus Relay, consulte los temas siguientes.
 
-* [Información general sobre la arquitectura de Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Uso del servicio Service Bus Relay](service-bus-dotnet-how-to-use-relay.md)
+* [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Uso del servicio Service Bus WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

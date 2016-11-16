@@ -40,12 +40,12 @@
 ### [Administración mediante automatización](automation-manage-api-management.md)
 ### [Configuración mediante Git](api-management-configuration-repository-git.md)
 #Referencia
-## [Plantillas](https://msdn.microsoft.com/en-us/library/azure/mt697540)
-## [Referencia de cmdlet de PowerShell de implementación de servicio](https://msdn.microsoft.com/en-us/library/azure/mt619282)
+## [Cmdlet de PowerShell de Resource Manager]/powershell/resourcemanager()
+## [Referencia de cmdlet de PowerShell de implementación clásica](https://msdn.microsoft.com/en-us/library/azure/mt613507)
+## [API de REST](/rest/api/apimanagement/)
 ## [Directivas](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-## [API DE REST](https://msdn.microsoft.com/en-us/library/azure/dn776326)
-## [Cmdlet de PowerShell de administración de servicios](https://msdn.microsoft.com/en-us/library/azure/mt613507)
-#resources
+## [Plantillas](https://msdn.microsoft.com/en-us/library/azure/mt697540)
+#Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/api-management/)
 ## [Notas del producto: API Management basada en la nube](http://j.mp/ms-apim-whitepaper)
 ## [Guía de diseño de una API](../best-practices-api-design.md?toc=%2fazure%2fapi-management%2ftoc.json)
@@ -55,7 +55,7 @@
 ## [API Management funciona bien con otros servicios de Azure](http://weblogs.asp.net/cschittko/api-management-plays-well-with-other-azure-services)
 ## [Proporción de acceso como RBAC con la API de REST](http://blogs.msdn.com/b/katriend/archive/2015/12/21/using-the-azure-api-management-rest-api-as-workaround-to-rbac-functionality.aspx)
 ## [Configuración de PostMan para llamar las API de API Management](http://www.bizbert.com/bizbert/2015/07/08/Setting+Up+PostMan+To+Call+The+Azure+Management+APIs.aspx)
-## [Complemento de API Management para la API de SmartBear Ready! ](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
+## [Complemento de API Management para SmartBear API](http://smartbear.com/plugins/microsoft-azure-api-management-plugin/)
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: Publicación de aplicaciones para usuarios individuales en una colección de Azure RemoteApp (versión preliminar) | Microsoft Docs
+title: "Publicación de aplicaciones para usuarios individuales en una colección de Azure RemoteApp (versión preliminar) | Microsoft Docs"
 description: Aprenda a publicar aplicaciones para usuarios individuales, en lugar de para grupos en Azure RemoteApp.
 services: remoteapp-preview
-documentationcenter: ''
+documentationcenter: 
 author: piotrci
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 1fd0539d-fa65-4ea5-a98e-0be0cf580690
 ms.service: remoteapp
 ms.devlang: na
 ms.topic: hero-article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
 ms.author: piotrci
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+
 
 ---
-# Publicación de aplicaciones para usuarios individuales en una colección de Azure RemoteApp (versión preliminar)
+# <a name="publish-applications-to-individual-users-in-an-azure-remoteapp-collection-preview"></a>Publicación de aplicaciones para usuarios individuales en una colección de Azure RemoteApp (versión preliminar)
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -42,7 +46,7 @@ Ahora, esto es posible en Azure RemoteApp: actualmente solo como una caracterís
    * Esta característica no proporciona un bloqueo de aplicaciones seguro; solo limita la visibilidad de la fuente de aplicaciones.
    * Si necesita impedir que los usuarios accedan a todas las aplicaciones, deberá utilizar colecciones independientes.
 
-## Obtención de los cmdlets de PowerShell de Azure RemoteApp
+## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Obtención de los cmdlets de PowerShell de Azure RemoteApp
 Para probar la nueva funcionalidad de la versión preliminar, debe usar los cmdlets de Azure PowerShell. Actualmente no se puede usar el Portal de administración de Azure para habilitar el modo de publicación de nueva aplicación.
 
 En primer lugar, asegúrese de tener el [módulo de Azure PowerShell](../powershell-install-configure.md) instalado.
@@ -53,7 +57,7 @@ A continuación, inicie la consola de PowerShell en modo de administrador y ejec
 
 Se le pedirá el nombre de usuario y la contraseña de Azure. Cuando haya iniciado sesión, podrá ejecutar los cmdlets de Azure RemoteApp en las suscripciones de Azure.
 
-## Cómo comprobar en qué modo está una colección
+## <a name="how-to-check-which-mode-a-collection-is-in"></a>Cómo comprobar en qué modo está una colección
 Ejecute el siguiente cmdlet:
 
         Get-AzureRemoteAppCollection <collectionName>
@@ -65,38 +69,43 @@ La propiedad AclLevel puede tener los valores siguientes:
 * Recopilación: el modo de publicación original. Todos los usuarios pueden ver todas las aplicaciones publicadas.
 * Aplicación: el nuevo modo de publicación Los usuarios solo pueden ver las aplicaciones publicadas directamente para ellos.
 
-## Cómo cambiar al modo de publicación de aplicaciones
+## <a name="how-to-switch-to-application-publishing-mode"></a>Cómo cambiar al modo de publicación de aplicaciones
 Ejecute el siguiente cmdlet:
 
         Set-AzureRemoteAppCollection -CollectionName -AclLevel Application
 
 Se conservará el estado de publicación de la aplicación: inicialmente, todos los usuarios verán las aplicaciones originales publicadas.
 
-## Cómo enumerar los usuarios que pueden ver una aplicación específica
+## <a name="how-to-list-users-who-can-see-a-specific-application"></a>Cómo enumerar los usuarios que pueden ver una aplicación específica
 Ejecute el siguiente cmdlet:
 
         Get-AzureRemoteAppUser -CollectionName <collectionName> -Alias <appAlias>
 
 Este cmdlet permite enumerar todos los usuarios que pueden ver la aplicación.
 
-Nota: Puede ver los alias de la aplicación (denominados "appAlias" en la sintaxis anterior) mediante la ejecución de Get-AzureRemoteAppProgram -CollectionNam <nombreDeColección>.
+Nota: Puede ver los alias de la aplicación (denominados "appAlias" en la sintaxis anterior) mediante la ejecución de Get-AzureRemoteAppProgram -CollectionName <collectionName>.
 
-## Cómo asignar una aplicación a un usuario
+## <a name="how-to-assign-an-application-to-a-user"></a>Cómo asignar una aplicación a un usuario
 Ejecute el siguiente cmdlet:
 
         Add-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
 El usuario verá ahora la aplicación en el cliente de RemoteApp de Azure y podrá conectarse a ella.
 
-## Cómo quitar una aplicación de un usuario
+## <a name="how-to-remove-an-application-from-a-user"></a>Cómo quitar una aplicación de un usuario
 Ejecute el siguiente cmdlet:
 
         Remove-AzureRemoteAppUser -CollectionName <collectionName> -UserUpn <user@domain.com> -Type <OrgId|MicrosoftAccount> -Alias <appAlias>
 
-## Envío de comentarios
+## <a name="providing-feedback"></a>Envío de comentarios
 Agradecemos sus comentarios y sugerencias sobre esta característica de la versión preliminar. Rellene la [encuesta](http://www.instant.ly/s/FDdrb) para que podamos conocer su opinión.
 
-## ¿No ha tenido la oportunidad de probar la característica en la versión preliminar?
+## <a name="havent-had-a-chance-to-try-the-preview-feature"></a>¿No ha tenido la oportunidad de probar la característica en la versión preliminar?
 Si no ha participado aún en la versión preliminar, use esta [encuesta](http://www.instant.ly/s/AY83p) para solicitar acceso.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

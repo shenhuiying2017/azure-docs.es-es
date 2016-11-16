@@ -1,4 +1,4 @@
-## Definición de una directiva de copia de seguridad
+## <a name="defining-a-backup-policy"></a>Definición de una directiva de copia de seguridad
 Una directiva de copia de seguridad define una matriz del momento en que se toman las instantáneas de datos y cuánto tiempo se retienen las instantáneas. Al definir una directiva para la copia de seguridad de una máquina virtual, puede desencadenar un trabajo de copia de seguridad *una vez al día*. Cuando se crea una nueva directiva, se aplica al almacén. La interfaz de la directiva de copia de seguridad tiene el siguiente aspecto:
 
 ![Directiva de copia de seguridad](./media/backup-create-policy-for-vms/backup-policy.png)
@@ -25,4 +25,9 @@ Para crear una directiva:
 4. Después de configurar todas las opciones de la directiva, en la parte superior de la hoja, haga clic en **Guardar**.
    
     La nueva directiva se aplica inmediatamente en el almacén.
+
+
+
+<!--HONumber=Nov16_HO2-->
+
 

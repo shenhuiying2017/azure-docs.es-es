@@ -1,12 +1,12 @@
 ---
-title: Hospedaje de varios sitios en Puerta de enlace de aplicaciones | Microsoft Docs
-description: Esta página proporciona información general de la compatibilidad multisitio de Puerta de enlace de aplicaciones.
+title: Hospedaje de varios sitios en Application Gateway | Microsoft Docs
+description: "Esta página proporciona información general de la compatibilidad multisitio de Puerta de enlace de aplicaciones."
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 85fc1315f32811873c577fe75d88eb08a2bbac26
+
 
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hospedaje de varios sitios de Puerta de enlace de aplicaciones
@@ -25,7 +29,7 @@ Las solicitudes de http://contoso.com se enrutan a ContosoServerPool y las de ht
 
 De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de puerta de enlace de aplicaciones. Ejemplos de uso de subdominios podrían incluir http://blog.contoso.com y http://app.contoso.com hospedados en una única implementación de puerta de enlace de aplicaciones.
 
-## <a name="host-headers-and-server-name-indication-(sni)"></a>Encabezados de host e Indicación de nombre de servidor (SNI)
+## <a name="host-headers-and-server-name-indication-sni"></a>Encabezados de host e Indicación de nombre de servidor (SNI)
 Existen tres mecanismos comunes para habilitar el hospedaje de varios sitios en la misma infraestructura.
 
 1. Hospede varias aplicaciones web, cada una en una dirección IP única.
@@ -117,6 +121,9 @@ No se requiere ningún cambio en la regla de enrutamiento. La regla de enrutamie
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce el hospedaje de varios sitios, vaya a la sección sobre cómo [crear una puerta de enlace de aplicaciones mediante el hospedaje de varios sitios](application-gateway-create-multisite-azureresourcemanager-powershell.md) para crear una puerta de enlace de aplicaciones con la capacidad de admitir más de una aplicación web.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

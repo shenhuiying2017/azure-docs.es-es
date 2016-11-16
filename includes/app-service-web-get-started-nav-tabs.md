@@ -1,5 +1,5 @@
 > [!div class="op_single_selector"]
-> * [Primera aplicación web](../articles/app-service-web/app-service-web-get-started.md)
+> * [Primera aplic. web](../articles/app-service-web/app-service-web-get-started.md)
 > * [.NET](../articles/app-service-web/web-sites-dotnet-get-started.md)
 > * [PHP](../articles/app-service-web/app-service-web-php-get-started.md)
 > * [Node.js](../articles/app-service-web/app-service-web-nodejs-get-started.md)
@@ -9,4 +9,8 @@
 > 
 > 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Introducción a Aplicaciones móviles de Azure para aplicaciones Xamarin.Android
-description: Siga este tutorial para empezar a usar Aplicaciones móviles de Azure para el desarrollo de Xamarin Android.
+title: "Introducción a Aplicaciones móviles de Azure para aplicaciones Xamarin.Android"
+description: "Siga este tutorial para empezar a usar Aplicaciones móviles de Azure para el desarrollo de Xamarin Android."
 services: app-service\mobile
 documentationcenter: xamarin
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
@@ -14,12 +14,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+
 
 ---
-# Creación de una aplicación Xamarin.Android
+# <a name="create-a-xamarinandroid-app"></a>Creación de una aplicación Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## Información general
+## <a name="overview"></a>Información general
 En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin.Android. Para obtener más información, consulte [¿Qué son las aplicaciones móviles?](app-service-mobile-value-prop.md)
 
 La siguiente captura de pantalla muestra la aplicación final:
@@ -28,47 +32,48 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de aplicaciones móviles para aplicaciones Xamarin.Android.
 
-## Requisitos previos
-Para completar este tutorial, necesitará lo siguiente:
+## <a name="prerequisites"></a>Requisitos previos
+Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 
-* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 aplicaciones móviles gratuitas. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para obtener una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile), donde podrá crear inmediatamente una aplicación móvil de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a usar Azure App Service antes de suscribirse para obtener una cuenta de Azure, vaya a [Cree su aplicación de Azure App Service](https://tryappservice.azure.com/?appServiceName=mobile).  Podrá crear inmediatamente una Mobile App de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-## Creación de un nuevo back-end de Aplicaciones móviles de Azure
-Siga estos pasos para crear un nuevo back-end de aplicación móvil.
+## <a name="create-an-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Azure Mobile App
+Siga estos pasos para crear un back-end de Mobile App.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargará un proyecto de servidor para un back-end de "lista de tareas" sencillo y lo publicará en Azure.
+Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usarse por las aplicaciones del cliente móvil. Después, descargue un proyecto de servidor para un back-end de "lista de tareas" sencillo y publíquelo en Azure.
 
-## Configuración del proyecto de servidor
+## <a name="configure-the-server-project"></a>Configuración del proyecto de servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Descarga y ejecución de la aplicación Xamarin.Android
+## <a name="download-and-run-the-xamarinandroid-app"></a>Descarga y ejecución de la aplicación Xamarin.Android
 1. En **Descargar y ejecutar el proyecto de Xamarin.Android**, haga clic en el botón **Descargar**.
    
-      De este modo, se descarga un proyecto que contiene la aplicación cliente que está conectada a la aplicación móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+      Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 2. Presione la tecla **F5** para compilar el proyecto e iniciar la aplicación.
-3. En la aplicación, escriba un texto significativo, como *Realice el tutorial*. Luego, haga clic en el botón **Agregar**.
+3. En la aplicación, escriba un texto significativo, como *Realizar el tutorial* y luego haga clic en el botón **Agregar**.
    
     ![][10]
    
-    Esta acción envía una solicitud POST al nuevo back-end de aplicación móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de la aplicación móvil devuelve los elementos almacenados en la tabla y los datos aparecen en la lista.
+    Los datos de la solicitud se insertan en la tabla TodoItem. El back-end de la aplicación móvil devuelve los elementos almacenados en la tabla y los datos aparecen en la lista.
    
    > [!NOTE]
    > Puede revisar el código de acceso al back-end de aplicación móvil para consultar e insertar datos; este se encuentra en el archivo de C# ToDoActivity.cs.
    > 
    > 
 
-## Pasos siguientes
-* [Adición de la autenticación a la aplicación Xamarin.Android](app-service-mobile-xamarin-android-get-started-users.md) Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
-* [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md) Aprenda a registrarse para agregar notificaciones push a la aplicación.
-* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md) Aprenda a trabajar con el SDK de cliente administrado en la aplicación Xamarin.
+## <a name="next-steps"></a>Pasos siguientes
+* [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)
+* [Adición de la autenticación a la aplicación Xamarin.Android ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md)
+* [Uso del cliente administrado para Aplicaciones móviles de Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
@@ -78,7 +83,11 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
+[Portal de Azure]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -2,10 +2,10 @@
 title: Uso de Outlook en Azure RemoteApp | Microsoft Docs
 description: Aprenda a configurar y usar Outlook en Azure RemoteApp | Microsoft Azure
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: pavithir
 manager: mbaldwin
-
+ms.assetid: cb2a498f-9539-4522-a874-542114926a61
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -13,6 +13,10 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1ec1d88b72d2f34dc7515d4387d09a46b4da7184
+
 
 ---
 # <a name="using-microsoft-outlook-in-azure-remoteapp"></a>Uso de Microsoft Outlook en Azure RemoteApp
@@ -33,6 +37,9 @@ Lectura las [instrucciones detalladas sobre cómo habilitar el modo en caché](h
 ## <a name="search"></a>Search
 En Azure RemoteApp, el uso de la búsqueda dentro de Outlook tiene limitaciones. Azure RemoteApp usa máquinas virtuales agrupadas para adaptarse a las sesiones de usuario. La indexación de la búsqueda depende del id. de máquina, que es diferente para las distintas máquinas virtuales. Es posible que cada vez que un usuario inicie sesión en Azure RemoteApp, se dirija a una nueva máquina virtual. Eso significaría que, si se habilitase la búsqueda local, el indizador se ejecutaría cada vez que cambiase el id. de máquina (cuando el usuario estuviese en una máquina virtual diferente). En función del tamaño del archivo .OST, el indexador podría tardar mucho tiempo en completarse y usar los recursos necesarios para otras aplicaciones. La búsqueda no solo sería lenta, sino que quizás tampoco daría resultados. Mediante un perfil de cuenta del modo en línea podría solucionar este problema, pero el rendimiento general sufriría debido a la falta de una caché local (consulte el vínculo de arriba para más información acerca de la diferencia entre el modo en caché y en línea). Lamentablemente, no se puede deshabilitar la búsqueda local o indexada y no se puede habilitar la búsqueda en línea de forma predeterminada en Outlook 2013.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

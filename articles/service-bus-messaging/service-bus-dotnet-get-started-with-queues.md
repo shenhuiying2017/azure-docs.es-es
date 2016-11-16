@@ -1,12 +1,12 @@
 ---
-title: Introducción a las colas del Bus de servicio | Microsoft Docs
-description: Cómo escribir una aplicación de consola en C# para la mensajería del Bus de servicio
+title: "Introducción a las colas de Service Bus | Microsoft Docs"
+description: "Cómo escribir una aplicación de consola en C# para la mensajería del Bus de servicio"
 services: service-bus
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus
 ms.devlang: tbd
 ms.topic: hero-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+
 
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introducción a las colas del Bus de servicio
@@ -33,17 +37,17 @@ En este tutorial, se llevará a cabo lo siguiente:
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1.-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante el Portal de Azure
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Creación de un espacio de nombres mediante el Portal de Azure
 Si ya tiene creado un espacio de nombres de Service Bus, vaya a la sección [Creación de una cola mediante Azure Portal](#2-create-a-queue-using-the-azure-portal).
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2.-create-a-queue-using-the-azure-portal"></a>2. Creación de una cola mediante el Portal de Azure
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Creación de una cola mediante el Portal de Azure
 Si ya ha creado una cola de Service Bus, vaya a la sección [Envío de mensajes a la cola](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3.-send-messages-to-the-queue"></a>3. Envío de mensajes a la cola
+## <a name="3-send-messages-to-the-queue"></a>3. Envío de mensajes a la cola
 Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con Visual Studio.
 
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
@@ -99,7 +103,7 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
    
       ![Recuento de mensajes][queue-message]
 
-## <a name="4.-receive-messages-from-the-queue"></a>4. Recepción de mensajes de la cola
+## <a name="4-receive-messages-from-the-queue"></a>4. Recepción de mensajes de la cola
 1. Cree una nueva aplicación de consola y agregue una referencia al paquete NuGet del Bus de servicio, al igual que con la aplicación de envío anterior.
 2. Agregue la siguiente instrucción `using` al principio del archivo Program.cs.
    
@@ -172,6 +176,7 @@ Consulte nuestro [repositorio de GitHub](https://github.com/Azure-Samples/azure-
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO2-->
 
 

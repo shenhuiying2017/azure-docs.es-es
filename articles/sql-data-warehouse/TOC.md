@@ -7,7 +7,7 @@
 # Introducción
 
 ## Creación de Almacenamiento de datos SQL
-### [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+### [Azure Portal](sql-data-warehouse-get-started-provision.md)
 ### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 ## [procedimientos recomendados](sql-data-warehouse-best-practices.md)
@@ -20,7 +20,7 @@
 
 ### [Introducción a la copia de seguridad](sql-data-warehouse-backups.md)
 ### [Introducción a la restauración](sql-data-warehouse-restore-database-overview.md)
-#### [Portal de Azure](sql-data-warehouse-restore-database-portal.md)
+#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
 #### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
@@ -103,7 +103,7 @@
 ## Pausa y escalado
 
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
-### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)
+### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API DE REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
@@ -136,6 +136,9 @@
 # resources
 ## [Precios](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
+## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## Asociados
 ### [Business intelligence](sql-data-warehouse-partner-business-intelligence.md)

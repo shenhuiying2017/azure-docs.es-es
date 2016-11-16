@@ -5,4 +5,8 @@ Si ya está familiarizado con los Centros de notificaciones, puede seleccionar o
 
 Nos tomamos muy en serio sus comentarios. Si tiene dificultades para completar este tema o tiene recomendaciones para mejorar este contenido, agradecemos que escriba sus comentarios en la parte inferior de la página.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

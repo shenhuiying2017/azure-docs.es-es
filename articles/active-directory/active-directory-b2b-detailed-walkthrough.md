@@ -1,13 +1,13 @@
 ---
-title: Tutorial detallado sobre cómo usar la vista previa de colaboración B2B de Azure Active Directory | Microsoft Docs
-description: La colaboración con Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas.
+title: "Tutorial detallado sobre cómo usar la versión preliminar de colaboración B2B de Azure Active Directory | Microsoft Docs"
+description: "La colaboración con Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 7ae68208-63c1-4128-8e44-43a4f56d34dc
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: get-started-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f2e38a5b8b541f3e1797cfdb700fd4c7107657b9
+
 
 ---
-# Vista previa de la colaboración B2B de Azure AD: tutorial detallado
+# <a name="azure-ad-b2b-collaboration-preview-detailed-walkthrough"></a>Vista previa de la colaboración B2B de Azure AD: tutorial detallado
 En este tutorial se describe cómo usar la colaboración B2B de Azure AD. Como administrador de TI de Contoso, queremos compartir aplicaciones con los empleados de tres compañías asociadas. Ninguna de las compañías asociadas necesita tener Azure AD.
 
 * Alice, de Simple Partner Org
@@ -26,8 +30,8 @@ En este tutorial se describe cómo usar la colaboración B2B de Azure AD. Como a
 
 Una vez enviadas las invitaciones a los usuarios de los asociados, se pueden configurar en Azure AD para concederles acceso a las aplicaciones y la pertenencia a grupos mediante el Portal de Azure. Comencemos por agregar a Alice.
 
-## Incorporación de Alice al directorio de Contoso
-1. Cree un archivo .csv con los encabezados como se muestran, y rellene solo los campos **Email**, **DisplayName** e **InviteContactUsUrl** de Alice. **DisplayName** es el nombre que aparece en la invitación y en el directorio de Azure AD de Contoso. **InviteContactUsUrl** es la manera que Alice tiene de ponerse en contacto con Contoso. En el siguiente ejemplo, InviteContactUsUrl especifica el perfil de LinkedIn de Contoso. Es importante escribir las etiquetas en la primera fila del archivo .csv exactamente como se especifica en la [referencia del formato de archivo CSV](active-directory-b2b-references-csv-file-format.md).  
+## <a name="adding-alice-to-the-contoso-directory"></a>Incorporación de Alice al directorio de Contoso
+1. Cree un archivo .csv con los encabezados como se muestran, y rellene solo los campos **Email**, **DisplayName** y **InviteContactUsUrl** de Alice. **DisplayName** es el nombre que aparece en la invitación y en el directorio de Azure AD de Contoso. **InviteContactUsUrl** es la manera que Alice tiene de ponerse en contacto con Contoso. En el siguiente ejemplo, InviteContactUsUrl especifica el perfil de LinkedIn de Contoso. Es importante escribir las etiquetas en la primera fila del archivo .csv exactamente como se especifica en la [referencia del formato de archivo CSV](active-directory-b2b-references-csv-file-format.md).  
    ![Archivo CSV de ejemplo para Alice](./media/active-directory-b2b-detailed-walkthrough/AliceCSV.png)
 2. En el Portal de Azure, agregue un usuario al directorio de Contoso (Active Directory > Contoso > Usuarios > Agregar usuario). En la lista desplegable "Tipo de usuario", seleccione "Usuarios en compañías asociadas". Cargue el archivo .csv. Asegúrese de que el archivo .csv está cerrado antes de cargarlo.  
    ![Carga del archivo CSV de Alice](./media/active-directory-b2b-detailed-walkthrough/AliceUpload.png)
@@ -42,8 +46,8 @@ Una vez enviadas las invitaciones a los usuarios de los asociados, se pueden con
 
 Este procedimiento es la forma más sencilla de colaboración B2B. Como usuario del directorio de Azure AD de Contoso, se puede conceder acceso a Alice a las aplicaciones y los grupos mediante el Portal de Azure. Ahora agreguemos a Bob, que necesita acceso a las aplicaciones Moodle y Salesforce.
 
-## Incorporación de Bob al directorio de Contoso y concesión de acceso a las aplicaciones
-1. Use Windows PowerShell con el módulo de Azure AD instalado para encontrar el identificador de las aplicaciones Moodle y Salesforce. Los identificadores se pueden recuperar con el cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`, que muestra una lista de todas las aplicaciones disponibles en Contoso y sus AppPrincialIds.  
+## <a name="adding-bob-to-the-contoso-directory-and-granting-access-to-apps"></a>Incorporación de Bob al directorio de Contoso y concesión de acceso a las aplicaciones
+1. Use Windows PowerShell con el módulo de Azure AD instalado para encontrar el identificador de las aplicaciones Moodle y Salesforce. Los identificadores se pueden recuperar con el cmdlet: `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId` , que muestra una lista de todas las aplicaciones disponibles en Contoso y sus AppPrincialIds.  
    ![Se recuperan los identificadores de Bob](./media/active-directory-b2b-detailed-walkthrough/BobPowerShell.png)
 2. Cree un archivo .csv que contenga los datos de Bob para Email, DisplayName, **InviteAppID**, **InviteAppResources** e InviteContactUsUrl. Rellene **InviteAppResources** con los AppPrincipalIds de Moodle y Salesforce encontrados en PowerShell, separados por un espacio. Rellene **InviteAppId** con el mismo AppPrincipalId de Moodle para personalizar la marca de las páginas de correo electrónico e inicio de sesión.  
    ![Archivo CSV de ejemplo para Bob](./media/active-directory-b2b-detailed-walkthrough/BobCSV.png)
@@ -55,23 +59,23 @@ Este procedimiento es la forma más sencilla de colaboración B2B. Como usuario 
 
 A continuación, agregue a Carol, que necesita acceso a las aplicaciones, así como pertenecer a grupos en el directorio de Contoso.
 
-## Incorporación de Carol al directorio de Contoso, concesión de acceso a las aplicaciones y pertenencia a grupos
+## <a name="adding-carol-to-the-contoso-directory-granting-access-to-apps-and-giving-group-membership"></a>Incorporación de Carol al directorio de Contoso, concesión de acceso a las aplicaciones y pertenencia a grupos
 1. Use Windows PowerShell con el módulo de Azure AD instalado para encontrar el identificador de las aplicaciones y de los grupos en Contoso.
    
    * Recupere el valor de AppPrincipalId mediante el cmdlet `Get-MsolServicePrincipal | fl DisplayName, AppPrincipalId`, igual que para Bob.
    * Recupere el valor de ObjectId para grupos mediante el cmdlet `Get-MsolGroup | fl DisplayName, ObjectId`. Esto muestra una lista de todos los grupos de Contoso y sus valores de ObjectId. Los identificadores de grupo también se pueden recuperar como el Identificador de objeto en la pestaña Propiedades del grupo en el Portal de Azure.  
      ![Se recuperan los identificadores y grupos para Carol](./media/active-directory-b2b-detailed-walkthrough/CarolPowerShell.png)
-2. Cree el archivo .csv, rellene los campos Email, DisplayName, InviteAppID, InviteAppResources, **InviteGroupResources** e InviteContactUsUrl con los datos correspondientes a Carol. **InviteGroupResources** se rellena con los identificadores de objeto de los grupos MyGroup1 y Externals, separados por un espacio.  
+2. Cree el archivo .csv, rellene los campos Email, DisplayName, InviteAppID, InviteAppResources, **InviteGroupResources**e InviteContactUsUrl con los datos correspondientes a Carol. **InviteGroupResources** se rellena con los identificadores de objeto de los grupos MyGroup1 y Externals, separados por un espacio.  
    ![Archivo CSV de ejemplo para Carol](./media/active-directory-b2b-detailed-walkthrough/CarolCSV.png)
 3. Cargue el archivo .csv mediante el Portal de Azure.
 4. Carol es un usuario en el directorio de Contoso y también es miembro de los grupos MyGroup1 y Externals, como se muestra en el Portal de Azure.  
    ![Carol aparece en un grupo de Azure AD](./media/active-directory-b2b-detailed-walkthrough/CarolGroup.png)
-5. Carol recibe un correo electrónico con un vínculo para aceptar la invitación. Cuando inicia sesión, se le redirige al panel de acceso a aplicaciones para tener acceso a Moodle y Salesforce.
+5. Carol recibe un correo electrónico con un vínculo para aceptar la invitación. Cuando inicia sesión, se le redirige al panel de acceso a aplicaciones para tener acceso a Moodle y Salesforce.  
 
 Eso es todo lo que hay que hacer para agregar usuarios de compañías asociadas en colaboración B2B de Azure AD. Este tutorial ha mostrado cómo agregar los usuarios Alice, Bob y Carol al directorio de Contoso mediante tres archivos .csv independientes. Este proceso puede ser más fácil si se condensan los archivos .csv independientes en un único archivo.  
 ![Archivo CSV de ejemplo para Alice, Bob y Carol](./media/active-directory-b2b-detailed-walkthrough/CombinedCSV.png)
 
-## Artículos relacionados
+## <a name="related-articles"></a>Artículos relacionados
 Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 
 * [¿Qué es la colaboración B2B de Azure AD?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -82,4 +86,9 @@ Examine nuestros otros artículos sobre la colaboración B2B de Azure AD:
 * [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

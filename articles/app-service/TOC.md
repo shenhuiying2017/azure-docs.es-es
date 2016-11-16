@@ -1,5 +1,6 @@
-# [Información general](app-service-how-works-readme.md)
+# Información general
 ## [¿Qué es App Service?](app-service-value-prop-what-is.md)
+## [Cómo funciona](app-service-how-works-readme.md)
 ## [Planes de App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # Primeros pasos
@@ -45,9 +46,9 @@
 #### [Qué es el SDK de WebJobs de Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Creación de un WebJob .NET en Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Uso de Azure Queue Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Uso de Azure Service Bus con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Uso de Azure Table Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Uso del Bus de servicio de Azure con el SDK de trabajos web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service%2ftoc.json)
+#### [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### Entorno de App Service
 #### [Creación de una aplicación web en un entorno de App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -145,19 +146,18 @@
 ### [Solución de problemas con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 # Referencia
-## [Portal de Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Referencia de App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [procedimientos recomendados](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Recursos de WebJob](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# Temas relacionados
 ## [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
-
+# Recursos
+## [Precios](https://azure.microsoft.com/pricing/details/app-service/)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=app-service) 
 
 <!--HONumber=Nov16_HO2-->
 

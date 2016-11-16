@@ -1,117 +1,101 @@
 ---
-title: Implementación de su primera aplicación web de Python en Azure en 5 minutos | Microsoft Docs
-description: Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente.
+title: "Implementación de su primera aplicación web de Python en Azure en 5 minutos | Microsoft Docs"
+description: "Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente."
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 928ee2e5-6143-4c0c-8546-366f5a3d80ce
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/16/2016
+ms.date: 10/13/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d0614b80ca8be3e37b0168ddafc110f1adaad123
+
 
 ---
-# Implementación de su primera aplicación web de Python en Azure en 5 minutos
-Este tutorial le ayudará a implementar su primera aplicación web de Python en [Azure App Service](../app-service/app-service-value-prop-what-is.md). 
-App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) 
-y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
+# <a name="deploy-your-first-python-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web de Python en Azure en 5 minutos
+Este tutorial le ayudará a implementar su primera aplicación web de Python en [Azure App Service](../app-service/app-service-value-prop-what-is.md).
+App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
-Podrá:
+Podrá: 
 
 * Crear una aplicación web en Azure App Service.
 * Implementar el código de Python de ejemplo.
 * Ver la ejecución del código en directo en producción.
 * Actualizar la aplicación web del mismo modo que [insertaría confirmaciones de Git](https://git-scm.com/docs/git-push).
 
-## Requisitos previos
-* [Instale Git](http://www.git-scm.com/downloads). Compruebe que la instalación se realizó correctamente ejecutando `git --version` en un símbolo del sistema de Windows, 
-  una ventana de PowerShell, un shell de Linux o un terminal de OS X.
-* Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede 
-  [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o 
-  [activar los beneficios de suscripción de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+## <a name="prerequisites"></a>Requisitos previos
+* [Git](http://www.git-scm.com/downloads).
+* [Azure CLI](../xplat-cli-install.md).
+* Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 > 
 > 
 
-<a name="create"></a>
-
-## Creación de una aplicación web
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
-2. En el menú izquierdo, haga clic en **nuevo** > **Web y móvil** > **Aplicación web**.
+## <a name="deploy-a-python-web-app"></a>Implementación de una aplicación web de Python
+1. Abra un símbolo del sistema de Windows, una ventana de PowerShell, un shell de Linux o un terminal de OS X. Ejecute `git --version` y `azure --version` para comprobar que Git y la CLI de Azure estén instalados en el equipo.
    
-    ![](./media/app-service-web-get-started-languages/create-web-app-portal.png)
-3. En la hoja de creación de la aplicación, utilice la siguiente configuración para su nueva aplicación:
+    ![Prueba de la instalación de las herramientas de la CLI para su primera aplicación web en Azure](./media/app-service-web-get-started/1-test-tools.png)
    
-   * **Nombre de la aplicación**: escriba un nombre único.
-   * **Grupo de recursos**: seleccione **Crear nuevo** y asígnele un nombre.
-   * **Plan de App Service/Ubicación**: haga clic en esta opción para configurarla y, después, en **Crear nuevo** para establecer el nombre, la ubicación y 
-     el plan de tarifa del plan de App Service. Puede usar el plan de tarifa **Gratis**.
-     
-     Cuando haya terminado, la hoja de creación de la aplicación debe tener este aspecto:
-     
-     ![](./media/app-service-web-get-started-languages/create-web-app-settings.png)
-4. Haga clic en **Crear** en la parte inferior. Puede hacer clic en el icono de **notificación**, situado en la parte superior, para ver el progreso.
+    Si no ha instalado las herramientas, consulte [Requisitos previos](#Prerequisites) para obtener vínculos de descarga.
+2. Inicie sesión en Azure como se indica a continuación:
    
-    ![](./media/app-service-web-get-started-languages/create-web-app-started.png)
-5. Cuando la implementación haya finalizado, verá este mensaje de notificación. Haga clic en el mensaje para abrir la hoja de implementación.
+        azure login
    
-    ![](./media/app-service-web-get-started-languages/create-web-app-finished.png)
-6. En la hoja **Implementación correcta**, haga clic en el vínculo **Recurso** para abrir la hoja de su nueva aplicación web.
+    Siga el mensaje de ayuda para continuar con el proceso de inicio de sesión.
    
-    ![](./media/app-service-web-get-started-languages/create-web-app-resource.png)
-
-## Implementación del código en la aplicación web
-Ahora vamos a implementar código en Azure mediante Git.
-
-1. En la hoja de la aplicación web, desplácese hacia abajo hasta **Opciones de implementación** o búsquela, y haga clic en ella.
+    ![Inicio de sesión en Azure para crear su primera aplicación web](./media/app-service-web-get-started/3-azure-login.png)
+3. Cambie la CLI de Azure al modo ASM y establezca el usuario de implementación para App Service. Va a implementar código mediante las credenciales posteriormente.
    
-    ![](./media/app-service-web-get-started-languages/deploy-web-app-deployment-options.png)
-2. Haga clic en **Elegir origen** > **Repositorio de Git local** > **Aceptar**.
-3. En la hoja de la aplicación web, haga clic en **Credenciales de implementación**.
-4. Configure las credenciales de implementación y haga clic en **Guardar**.
-5. En la hoja de la aplicación web, desplácese hacia abajo hasta **Propiedades** o búsquela, y haga clic en ella. Junto a **Dirección URL de Git**, haga clic en el botón **Copiar**.
-   
-    ![](./media/app-service-web-get-started-languages/deploy-web-app-properties.png)
-   
-    Ya está listo para implementar el código con Git.
-6. En el terminal de la línea de comandos, cambie a un directorio de trabajo (`CD`) y clone la aplicación de ejemplo del modo siguiente:
+        azure config mode asm
+        azure site deployment user set --username <username> --pass <password>
+4. Cambie a un directorio de trabajo (`CD`) y clone la aplicación de ejemplo como se indica a continuación:
    
         git clone https://github.com/Azure-Samples/app-service-web-python-get-started.git
+5. Cambie al repositorio de la aplicación de ejemplo. Por ejemplo:
    
-    ![Clonación del código de ejemplo de aplicación de su primera aplicación web de Azure](./media/app-service-web-get-started-languages/python-git-clone.png)
+        cd app-service-web-python-get-started
+6. Cree el recurso de la aplicación de App Service en Azure con un nombre de aplicación único y el usuario de implementación que configuró anteriormente. Cuando se le solicite, especifique el número de la región deseada.
    
-    Para *&lt;github_sample_url>*, use una de las siguientes direcciones URL, en función del marco que le guste:
-7. Cambie al repositorio de la aplicación de ejemplo. Por ejemplo,
+        azure site create <app_name> --git --gitusername <username>
    
-        cd app-service-web-html-get-started
-8. En el Git remoto, configure la dirección URL de Git de su aplicación de Azure, que copió del portal unos pocos pasos antes.
+    ![Creación del recurso de Azure para su primera aplicación web en Azure](./media/app-service-web-get-started-languages/python-site-create.png)
    
-        git remote add azure <giturlfromportal>
-9. Implemente su código de ejemplo en la nueva aplicación de Azure igual que insertaría cualquier código con Git:
+    La aplicación se crea en Azure ahora. El directorio actual también se inicializa con Git y se conecta a la nueva aplicación del Servicio de aplicaciones como un Git remoto.
+    Puede dirigirse a la dirección URL de la aplicación (http://&lt;nombre_aplicación>.azurewebsites.net) para ver la bonita página HTML predeterminada, pero usemos ahora su código.
+7. Implemente su código de ejemplo en la nueva aplicación de Azure igual que insertaría cualquier código con Git. Cuando se le pida, use la contraseña que configuró anteriormente.
    
         git push azure master
    
     ![Inserción de código en su primera aplicación web de Azure](./media/app-service-web-get-started-languages/python-git-push.png)
    
-    Si usó uno de los marcos de lenguaje, verá un resultado diferente. Esto se debe a que `git push` no solo inserta código en Azure, sino que también desencadena tareas de implementación en el motor de implementación. Si tiene cualquier archivo requirements.txt en la raíz del proyecto (repositorio), el script de implementación restaurará los paquetes necesarios para usted.
+    `git push` no solo inserta código en Azure, sino que también desencadena tareas de implementación en el motor de implementación. 
+    Si tiene cualquier archivo requirements.txt (Python) en la raíz del proyecto (repositorio), el script de implementación restaurará los paquetes necesarios para usted. 
 
-Eso es todo. El código se ejecuta ahora en directo en Azure. En el explorador, vaya a http://*&lt;appname>*.azurewebsites.net para verlo en acción.
+Enhorabuena, ha implementado la aplicación en el Servicio de aplicaciones de Azure.
 
-## Realización de actualizaciones en la aplicación
+## <a name="see-your-app-running-live"></a>Visualización de la aplicación en ejecución
+Para ver cómo la aplicación se ejecuta en Azure, ejecute este comando desde cualquier directorio del repositorio:
+
+    azure site browse
+
+## <a name="make-updates-to-your-app"></a>Realización de actualizaciones en la aplicación
 Ahora puede usar Git para efectuar inserciones desde la raíz del proyecto (repositorio) con el fin de realizar una actualización en el sitio activo. Hágalo igual que cuando implementó el código por primera vez. Por ejemplo, cada vez que quiera insertar un nuevo cambio que ha probado localmente, solo tiene que ejecutar los siguientes comandos desde la raíz del proyecto (repositorio):
 
     git add .
     git commit -m "<your_message>"
     git push azure master
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Crear, configurar e implementar una aplicación web de Django en Azure en Visual Studio](web-sites-python-ptvs-django-mysql.md). Gracias a este tutorial, aprenderá los conocimientos básicos necesarios para ejecutar una aplicación web de Python en Azure, como:
 
 * Crear e implementar una aplicación de Python mediante una plantilla.
@@ -121,9 +105,12 @@ Ahora puede usar Git para efectuar inserciones desde la raíz del proyecto (repo
 
 También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
-* Pruebe [otras formas de implementar el código en Azure](web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione 
-  **GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
-* Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte 
-  [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
+* Pruebe [otras formas de implementar el código en Azure](web-sites-deploy.md). Por ejemplo, para implementar desde uno de los repositorios de GitHub, simplemente seleccione **GitHub** en lugar de **Repositorio de Git local** en **Opciones de implementación**.
+* Lleve su aplicación de Azure aún más lejos. Autentique los usuarios. Escálela según la demanda. Configure algunas alertas de rendimiento. Todo ello con unos cuantos clics. Consulte [Incorporación de funcionalidad a su primera aplicación web](app-service-web-get-started-2.md).
 
-<!----HONumber=AcomDC_0920_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

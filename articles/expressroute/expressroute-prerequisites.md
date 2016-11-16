@@ -1,12 +1,12 @@
 ---
-title: Requisitos previos para la adopción de ExpressRoute | Microsoft Docs
-description: Esta página proporciona una lista de requisitos que deben cumplirse para poder solicitar un circuito ExpressRoute de Azure.
+title: "Requisitos previos para la adopción de ExpressRoute | Microsoft Docs"
+description: "Esta página proporciona una lista de requisitos que deben cumplirse para poder solicitar un circuito ExpressRoute de Azure."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a582941b06fa7f81d7db188f2a9feba837b9bfd8
+
 
 ---
-# <a name="expressroute-prerequisites-&-checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
+# <a name="expressroute-prerequisites-checklist"></a>Requisitos previos y lista de comprobación de ExpressRoute
 Para conectarse a Servicios en la nube de Microsoft con ExpressRoute, deberá comprobar que se han cumplido los requisitos enumerados en las secciones siguientes.
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
@@ -60,6 +64,9 @@ Si tiene pensado habilitar CRM Online en ExpressRoute, revise los siguientes doc
   * [Configuración del enrutamiento](expressroute-howto-routing-classic.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

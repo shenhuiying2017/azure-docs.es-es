@@ -1,23 +1,28 @@
 ---
-title: Introducción a la creación de un equilibrador de carga orientado a Internet en el modo clásico mediante PowerShell | Microsoft Docs
-description: Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modo clásico con PowerShell.
+title: "Introducción a la creación de un equilibrador de carga orientado a Internet en el modo clásico mediante PowerShell | Microsoft Docs"
+description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en el modo clásico con PowerShell."
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7344f2c3eeb7d52f8bc60e564d66b2cc51f10f75
 
 ---
-# Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en PowerShell
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en PowerShell
+
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -28,7 +33,8 @@ Este artículo trata sobre el modelo de implementación clásico. También puede
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## Configurar el equilibrador de carga con PowerShell
+## <a name="set-up-load-balancer-using-powershell"></a>Configurar el equilibrador de carga con PowerShell
+
 Para configurar un equilibrador de carga con PowerShell, siga estos pasos:
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
@@ -36,24 +42,38 @@ Para configurar un equilibrador de carga con PowerShell, siga estos pasos:
 
 En el ejemplo siguiente se agregará un conjunto de equilibrador de carga denominado "webfarm" al servicio en la nube "mytestcloud" (o myctestcloud.cloudapp.net), agregando los puntos de conexión para el equilibrador de carga a las máquinas virtuales denominadas "web1" y "web2". El equilibrador de carga recibe tráfico de red en el puerto 80 y equilibra la carga entre las máquinas virtuales definidas por el punto de conexión local (en este caso el puerto 80) mediante TCP.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
+
 Crear un punto de conexión con equilibrio de carga para la primera máquina virtual "web1"
 
+```powershell
     Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-### Paso 2
-Crear otro punto de conexión para la segunda máquina virtual "web2" con el mismo nombre de conjunto de equilibrador de carga
+### <a name="step-2"></a>Paso 2
 
+Crear otro punto de conexión para la segunda máquina virtual "web2" con el mismo nombre del conjunto de equilibrador de carga
+
+```powershell
     Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+```
 
-## Quitar una máquina virtual de un equilibrador de carga
+## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Quitar una máquina virtual de un equilibrador de carga
+
 Puede usar Remove-AzureEndpoint para quitar un punto de conexión de la máquina virtual del equilibrador de carga.
 
+```powershell
     Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+```
 
-## Pasos siguientes
-También puede [empezar a crear un equilibrador de carga interno](load-balancer-get-started-ilb-classic-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento especifico del tráfico de red del equilibrador de carga.
+## <a name="next-steps"></a>Pasos siguientes
+
+También puede [empezar a crear un equilibrador de carga interno](load-balancer-get-started-ilb-classic-ps.md) y configurar el tipo de [modo de distribución](load-balancer-distribution-mode.md) para un comportamiento del tráfico de red de un equilibrador de carga específico.
 
 Si la aplicación necesita mantener conexiones activas para servidores detrás de un equilibrador de carga, puede obtener más información acerca de la [configuración de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md). Le ayudará a conocer el comportamiento de conexión del tiempo de inactividad cuando se usa el Equilibrador de carga de Azure.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

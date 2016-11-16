@@ -1,41 +1,45 @@
 ---
-title: Protección de la API con Administración de API de Azure | Microsoft Docs
-description: Aprenda a proteger su API con directivas de cuotas y limitaciones (limitación de frecuencia).
+title: "Protección de la API con Azure API Management | Microsoft Docs"
+description: "Aprenda a proteger su API con directivas de cuotas y limitaciones (limitación de frecuencia)."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5050b99039da511ed3e6179b5b4ca2d04de527f7
+
 
 ---
-# Protección de su API con límites de frecuencia mediante Administración de API de Azure
+# <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>Protección de su API con límites de frecuencia mediante Administración de API de Azure
 Esta guía muestra lo fácil que es agregar protección para la API de back-end mediante la configuración de directivas de cuota y límite de frecuencia con Administración de API de Azure.
 
 En este tutorial, creará un producto de API de "evaluación gratuita" que permita a los desarrolladores realizar hasta 10 llamadas por minuto y hasta un máximo de 200 llamadas por semana a la API mediante las directivas [Limitar la frecuencia de llamadas por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate) y [Establecer la cuota de uso por suscripción](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota). A continuación, publicará la API y probará la directiva de límite de frecuencia.
 
-Para obtener información sobre escenarios de limitación avanzados mediante las directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consulte [Limitación avanzada de solicitudes con Administración de API de Azure](api-management-sample-flexible-throttling.md).
+Para más información sobre escenarios de limitación avanzados mediante las directivas [rate-limit-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRateByKey) y [quota-by-key](https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuotaByKey), consulte [Limitación avanzada de solicitudes con Azure API Management](api-management-sample-flexible-throttling.md).
 
 ## <a name="create-product"> </a>Para crear un producto
 En este paso, creará un producto de evaluación gratuita que no requiere aprobación de suscripción.
 
 > [!NOTE]
-> Si ya tiene un producto configurado y desea usarlo para este tutorial, puede pasar la sección [Configurar directivas de cuota y límite de frecuencia][Configurar directivas de cuota y límite de frecuencia] y seguir el tutorial a partir de ahí con su producto en lugar de con el producto Prueba gratuita.
+> Si ya tiene un producto configurado y desea usarlo para este tutorial, puede pasar la sección [Para configurar las directivas de límite de frecuencia de llamadas y de cuota][Para configurar las directivas de límite de frecuencia de llamadas y de cuota] y seguir el tutorial a partir de ahí con su producto en lugar de con el producto Evaluación gratuita.
 > 
 > 
 
-Para comenzar, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para comenzar, haga clic en **Portal para editores** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
 
-> Si aún no ha creado ninguna instancia del servicio de administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Administración de su primera API en Administración de API de Azure][Administración de su primera API en Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia de API Management][Creación de una instancia de API Management] en el tutorial [Administración de su primera API en Azure API Management][Administración de su primera API en Azure API Management].
 > 
 > 
 
@@ -45,25 +49,25 @@ Haga clic en **Productos** en el menú **Administración de API** a la izquierda
 
 Haga clic en **Agregar producto** para mostrar el cuadro de diálogo **Agregar nuevo producto**.
 
-![Add new product][api-management-new-product-window]
+![Agregar nuevo producto][api-management-new-product-window]
 
-En el cuadro **Título** escriba **Prueba gratuita**.
+En el cuadro **Título** escriba **Evaluación gratuita**.
 
-En el cuadro **Descripción**, escriba **Los suscriptores podrán realizar 10 llamadas/minuto hasta un máximo de 200 llamadas/semana; después, el acceso se denegará**.
+En el cuadro **Descripción**, escriba  **Los suscriptores podrán realizar 10 llamadas/minuto hasta un máximo de 200 llamadas/semana; después, el acceso se denegará.**
 
 Los productos de Administración de API pueden estar abiertos o protegidos. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Asegúrese de que la opción **Requerir suscripción** está seleccionada para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
 
 Si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto, active **Requerir aprobación de suscripción**. Si la casilla no está seleccionada, los intentos de suscripción se aprobarán automáticamente. En este ejemplo, las suscripciones se aprueban automáticamente, por lo que no tiene que seleccionar la casilla.
 
-Para permitir que las cuentas de desarrollador se suscriban varias veces al nuevo producto, active la casilla **Permitir varias suscripciones simultáneas**. En este tutorial no se usan varias suscripciones simultáneas; por tanto, no active la casilla.
+Para permitir que las cuentas de desarrollador se suscriban varias veces al nuevo producto, active la casilla **Permitir varias suscripciones simultáneas** . En este tutorial no se usan varias suscripciones simultáneas; por tanto, no active la casilla.
 
 Una vez especificados todos los valores, haga clic en **Guardar** para crear el producto.
 
 ![Product added][api-management-product-added]
 
-De forma predeterminada, los usuarios pueden ver los nuevos productos en el grupo **Administradores**. Vamos a agregar el grupo **Desarrolladores**. Haga clic en **Prueba gratuita** y haga clic en la pestaña **Visibilidad**.
+De forma predeterminada, los usuarios pueden ver los nuevos productos en el grupo **Administradores** . Vamos a agregar el grupo **Desarrolladores** . Haga clic en **Evaluación gratuita** y, después, en la pestaña **Visibilidad**.
 
-> En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos. Para obtener información, consulte [Creación y uso de grupos en Administración de API de Azure][Creación y uso de grupos en Administración de API de Azure].
+> En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos. Para obtener más información, vea [Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management][Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management].
 > 
 > 
 
@@ -74,24 +78,24 @@ Seleccione la casilla **Desarrolladores** y, a continuación, haga clic en **Gua
 ## <a name="add-api"> </a>Para agregar una API al producto
 En este paso del tutorial, agregaremos la API Eco al nuevo producto Prueba gratuita.
 
-> Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para más información, consulte [Administración de su primera API en Administración de API de Azure][Administración de su primera API en Administración de API de Azure].
+> Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para más información, consulte [Administración de su primera API en Azure API Management][Administración de su primera API en Azure API Management].
 > 
 > 
 
-Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Prueba gratuita** para configurar el producto.
+Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Evaluación gratuita** para configurar el producto.
 
 ![Configure product][api-management-configure-product]
 
 Haga clic en **Agregar API al producto**.
 
-![Add API to product][api-management-add-api]
+![Agregar API al producto][api-management-add-api]
 
-Seleccione **API Eco** y luego haga clic en **Guardar**.
+Seleccione **Echo API** (API Eco ) y luego haga clic en **Guardar**.
 
 ![Add Echo API][api-management-add-echo-api]
 
 ## <a name="policies"> </a>Para configurar las directivas de límite de frecuencia de llamadas y de cuota
-Los límites de tasa y las cuotas se configuran en el editor de directivas. Haga clic en **Directivas** en el menú **Administración de API** de la izquierda. En la lista **Producto**, haga clic en **Prueba gratuita**.
+Los límites de tasa y las cuotas se configuran en el editor de directivas. Haga clic en **Directivas** en el menú **Administración de API** de la izquierda. En la lista **Producto**, haga clic en **Evaluación gratuita**.
 
 ![Product policy][api-management-product-policy]
 
@@ -115,12 +119,12 @@ Una vez que el cursor se ha situado en el elemento de directiva **inbound**, hag
     </api>
     </rate-limit>
 
-**Limitar la frecuencia de llamadas por suscripción** no solo se puede usar a nivel de producto sino también a los nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento**rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
+**Limitar la frecuencia de llamadas por suscripción** no solo se puede usar a nivel de producto sino también a los nivel de API y de nombre de operación individual. En este tutorial solamente se usan directivas de nivel de producto; por tanto, elimine los elementos **api** y **operation** del elemento **rate-limit**, de manera que solo permanezca el elemento externo **rate-limit**, tal y como se muestra en el siguiente ejemplo.
 
     <rate-limit calls="number" renewal-period="seconds">
     </rate-limit>
 
-En el producto **Prueba gratuita**, la tasa máxima de llamadas permitida es de 10 llamadas por minuto; por tanto, escriba **10** como el valor para el atributo calls y **60** para el atributo **renewal-period**.
+En el producto de evaluación gratuita, la tasa máxima de llamadas permitida es de 10 llamadas por minuto; por tanto, escriba **10** como el valor para el atributo **calls** y **60** para el atributo **renewal-period**.
 
     <rate-limit calls="10" renewal-period="60">
     </rate-limit>
@@ -133,12 +137,12 @@ Para configurar la directiva **Establecer la cuota de uso por suscripción**, si
     </api>
     </quota>
 
-Dado que esta directiva también está pensada para aplicarse en el nivel de producto, elimine los elementos **api** y **operation** tal y como se muestra en el siguiente ejemplo.
+Dado que esta directiva también está pensada para aplicarse en el nivel de producto, elimine los elementos de nombre **api** y **operation** tal y como se muestra en el siguiente ejemplo.
 
     <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">
     </quota>
 
-Las cuotas se pueden basar en el número de llamadas por intervalo, ancho de banda o ambos. En este tutorial no estamos fijando límites en función del ancho de banda, por lo que puede eliminar el atributo **bandwidth**.
+Las cuotas se pueden basar en el número de llamadas por intervalo, ancho de banda o ambos. En este tutorial no estamos fijando límites en función del ancho de banda, por lo que puede eliminar el atributo **bandwidth** .
 
     <quota calls="number" renewal-period="seconds">
     </quota>
@@ -175,7 +179,7 @@ Una vez configuradas las directivas deseadas, haga clic en **Guardar**.
 ![Save policy][api-management-policy-save]
 
 ## <a name="publish-product"> </a> Para publicar el producto
-Ahora que se agregaron las API y se configuraron las directivas, el producto debe publicarse para que los desarrolladores puedan usarlo. Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Prueba gratuita** para configurar el producto.
+Ahora que se agregaron las API y se configuraron las directivas, el producto debe publicarse para que los desarrolladores puedan usarlo. Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Evaluación gratuita** para configurar el producto.
 
 ![Configure product][api-management-configure-product]
 
@@ -190,39 +194,40 @@ Ahora que el producto se ha publicado, estará disponible para suscribirse a él
 > 
 > 
 
-Haga clic en **Usuarios** en el menú **Administración de API** a la izquierda y haga clic en el nombre de su cuenta de desarrollador. En este ejemplo usamos la cuenta del desarrollador **Clayton Gragg**.
+Haga clic en **Usuarios** en el menú **Administración de API** a la izquierda y haga clic en el nombre de su cuenta de desarrollador. En este ejemplo usamos la cuenta del desarrollador **Clayton Gragg** .
 
 ![Configure developer][api-management-configure-developer]
 
 Haga clic en **Agregar suscripción**.
 
-![Add subscription][api-management-add-subscription-menu]
+![Agregar suscripción][api-management-add-subscription-menu]
 
 Seleccione **Evaluación gratuita** y, después, haga clic en **Suscribirse**.
 
-![Add subscription][api-management-add-subscription]
+![Agregar suscripción][api-management-add-subscription]
 
 > [!NOTE]
 > En este tutorial, no está habilitada la posibilidad de varias suscripciones simultáneas para el producto de evaluación gratuita. Si lo estuvieran, se le pediría que pusiera un nombre a la suscripción, tal como se muestra en el ejemplo siguiente.
 > 
 > 
 
-![Add subscription][api-management-add-subscription-multiple]
+![Agregar suscripción][api-management-add-subscription-multiple]
 
 Después de hacer clic **Suscribirse**, el producto aparece en la lista **Suscripción** del usuario.
 
 ![Subscription added][api-management-subscription-added]
 
 ## <a name="test-rate-limit"> </a>Para llamar a una operación y prueba del límite de frecuencia
-Ahora que el producto Prueba gratuita está configurado y publicado, podemos llamar a algunas operaciones y probar la directiva de límite de tasa. Haga clic en **Portal para desarrolladores** en el menú superior derecho para cambiar al portal para desarrolladores.
+Ahora que el producto Prueba gratuita está configurado y publicado, podemos llamar a algunas operaciones y probar la directiva de límite de tasa.
+Haga clic en **Portal para desarrolladores** en el menú superior derecho para cambiar al portal para desarrolladores.
 
-![Portal para desarrolladores][api-management-developer-portal-menu]
+![portal para desarrolladores][api-management-developer-portal-menu]
 
-Haga clic en **API** en el menú superior y, después, en **API Eco**.
+Haga clic en **API** en el menú superior y, después, en **Echo API** (API Eco).
 
-![Portal para desarrolladores][api-management-developer-portal-api-menu]
+![portal para desarrolladores][api-management-developer-portal-api-menu]
 
-Haga clic en **Recurso GET** y, a continuación, en **Probarlo**.
+Haga clic en **GET Resource** (Recurso GET) y, después, en **Pruébelo**.
 
 ![Open console][api-management-open-console]
 
@@ -231,15 +236,15 @@ Mantenga los valores predeterminados de los parámetros y seleccione la clave de
 ![Subscription key][api-management-select-key]
 
 > [!NOTE]
-> Si tiene varias suscripciones, asegúrese de seleccionar la clave para **Prueba gratuita** ya que, de lo contrario, las directivas configuradas en los pasos anteriores no entrarán en vigor.
+> Si tiene varias suscripciones, asegúrese de seleccionar la clave para **Prueba gratuita**ya que, de lo contrario, las directivas configuradas en los pasos anteriores no entrarán en vigor.
 > 
 > 
 
-Haga clic en **Enviar** y vea la respuesta. Observe el **Estado de respuesta** de **200 OK**.
+Haga clic en **Enviar**y vea la respuesta. Observe el **Estado de respuesta** de **200 OK**.
 
 ![Operation results][api-management-http-get-results]
 
-Haga clic en **Enviar** en una frecuencia mayor que la directiva del límite de frecuencia de 10 llamadas por minuto. Una vez superada la directiva del límite de frecuencia, se devolverá un estado de respuesta de **429 Too many Requests**.
+Haga clic en **Enviar** en una frecuencia mayor que la directiva del límite de frecuencia de 10 llamadas por minuto. Una vez superada la directiva del límite de frecuencia, se devolverá un estado de respuesta de **429 Too many Requests** .
 
 ![Operation results][api-management-http-get-429]
 
@@ -281,26 +286,30 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 [api-management-subscription-added]: ./media/api-management-howto-product-with-rules/api-management-subscription-added.png
 [api-management-add-subscription-multiple]: ./media/api-management-howto-product-with-rules/api-management-add-subscription-multiple.png
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to add and publish a product]: api-management-howto-add-products.md
-[Monitoring and analytics]: ../api-management-monitoring.md
-[Add APIs to a product]: api-management-howto-add-products.md#add-apis
-[Publish a product]: api-management-howto-add-products.md#publish-product
-[Administración de su primera API en Administración de API de Azure]: api-management-get-started.md
-[Creación y uso de grupos en Administración de API de Azure]: api-management-howto-create-groups.md
-[View subscribers to a product]: api-management-howto-add-products.md#view-subscribers
-[Get started with Azure API Management]: api-management-get-started.md
-[Creación de una instancia de Administración de API]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
+[Incorporación de operaciones a una API]: api-management-howto-add-operations.md
+[Incorporación y publicación de un producto]: api-management-howto-add-products.md
+[Supervisión y análisis]: ../api-management-monitoring.md
+[Incorporación de API a un producto]: api-management-howto-add-products.md#add-apis
+[Publicación de un producto]: api-management-howto-add-products.md#publish-product
+[Administración de su primera API en Azure API Management]: api-management-get-started.md
+[Creación y uso de grupos para administrar cuentas de desarrollador en Azure API Management]: api-management-howto-create-groups.md
+[Vista de los suscriptores de un producto]: api-management-howto-add-products.md#view-subscribers
+[Introducción a la Administración de API de Azure]: api-management-get-started.md
+[Creación de una instancia de API Management]: api-management-get-started.md#create-service-instance
+[Pasos siguientes]: #next-steps
 
-[Create a product]: #create-product
-[Configurar directivas de cuota y límite de frecuencia]: #policies
-[Add an API to the product]: #add-api
-[Publish the product]: #publish-product
-[Subscribe a developer account to the product]: #subscribe-account
-[Call an operation and test the rate limit]: #test-rate-limit
+[Creación de un producto]: #create-product
+[Para configurar las directivas de límite de frecuencia de llamadas y de cuota]: #policies
+[Incorporación de una API al producto]: #add-api
+[Publicación del producto]: #publish-product
+[Suscripción de una cuenta de desarrollador al producto]: #subscribe-account
+[Llamada a una operación y prueba del límite de frecuencia]: #test-rate-limit
 
-[Limit call rate]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
-[Set usage quota]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
+[Limitar la frecuencia de llamadas]: https://msdn.microsoft.com/library/azure/dn894078.aspx#LimitCallRate
+[Establecer la cuota de uso]: https://msdn.microsoft.com/library/azure/dn894078.aspx#SetUsageQuota
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,13 +1,13 @@
 ---
-title: Configuración del enrutamiento de un circuito de ExpressRoute mediante el Portal de Azure| Microsoft Docs
-description: Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
+title: "Configuración del enrutamiento de un circuito de ExpressRoute mediante Azure Portal | Microsoft Docs"
+description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 8c2a7ed2-ae5c-4e49-81f6-77cf9f2b2ac9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d78bdb6cbb9870298b050207fd1fa9c5e71d674
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute
@@ -148,11 +152,11 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
    ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft2.png)
 5. Guarde la configuración una vez que haya especificado todos los parámetros. 
    
-    Si el circuito llega a un estado de validación necesaria (como se muestra a continuación), debe abrir una incidencia de soporte técnico para mostrar la prueba de propiedad de los prefijos a nuestro equipo de soporte técnico.  
+    Si el circuito llega a un estado de validación necesaria (como se muestra a continuación), debe abrir una incidencia de soporte técnico para mostrar la prueba de propiedad de los prefijos a nuestro equipo de soporte técnico.    
    
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft5.png)
 
-    Puede abrir una incidencia de soporte técnico directamente desde el portal, tal como se muestra a continuación   
+    Puede abrir una incidencia de soporte técnico directamente desde el portal, tal como se muestra a continuación     
 
     ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft6.png)
 
@@ -183,6 +187,9 @@ Siguiente paso, [Vinculación de redes virtuales a circuitos ExpressRoute](expre
 * Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 * Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

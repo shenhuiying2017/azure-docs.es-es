@@ -1,12 +1,12 @@
 ---
 title: Uso de temas de Service Bus con .NET | Microsoft Docs
-description: Aprenda a usar los temas y las suscripciones de Service Bus con .NET en Azure. Los ejemplos de código están escritos para aplicaciones .NET.
+description: "Aprenda a usar los temas y las suscripciones de Service Bus con .NET en Azure. Los ejemplos de código están escritos para aplicaciones .NET."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
 ms.service: service-bus
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b90d2b49807b39bb7a71315877a8e84550efc9cc
+
 
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions"></a>Uso de temas y suscripciones del Bus de servicio
@@ -47,7 +51,7 @@ El bus de servicio usa una cadena de conexión para almacenar extremos y credenc
 En ambos casos, puede recuperar la cadena de conexión utilizando el método `CloudConfigurationManager.GetSetting`, como se muestra más adelante en este artículo.
 
 ### <a name="configure-your-connection-string"></a>Configuración de una cadena de conexión
-El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde [Azure Portal][] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (**.csdef**), como se indica en el siguiente ejemplo.
+El mecanismo de configuración de servicios le permite cambiar dinámicamente la configuración desde [Azure Portal][Azure Portal] sin volver a implementar la aplicación. Por ejemplo, agregue una etiqueta `Setting` al archivo de definición de servicio (**.csdef**), como se indica en el siguiente ejemplo.
 
 ```
 <ServiceDefinition name="Azure1">
@@ -90,9 +94,9 @@ Al usar Sitios web o Máquinas virtuales, se recomienda usar el sistema de confi
 </configuration>
 ```
 
-Use el nombre y los valores de clave de SAS recuperados de [Azure Portal][], como se ha descrito anteriormente.
+Use el nombre y los valores de clave de SAS recuperados de [Azure Portal][Azure Portal], como se ha descrito anteriormente.
 
-## <a name="create-a-topic"></a>un tema
+## <a name="create-a-topic"></a>de un tema
 Puede realizar operaciones de administración en los temas y las suscripciones de Service Bus a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Esta clase proporciona métodos para crear, enumerar y eliminar temas.
 
 En el ejemplo siguiente, se construye un objeto `NamespaceManager` mediante la clase `CloudConfigurationManager` de Azure con una cadena de conexión que consta de la dirección base de un espacio de nombres de Service Bus y las credenciales de SAS pertinentes con permisos para administrarlo. Esta cadena de conexión tiene la forma siguiente:
@@ -151,7 +155,7 @@ También puede crear suscripciones de temas con la clase [NamespaceManager](http
 > 
 > 
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
 El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Si se usa el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "AllMessages" que usa el filtro predeterminado **MatchAll**.
 
 ```
@@ -170,7 +174,7 @@ if (!namespaceManager.SubscriptionExists("TestTopic", "AllMessages"))
 ### <a name="create-subscriptions-with-filters"></a>Creación de suscripciones con filtros
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción a un tema determinado.
 
-El tipo de filtro más flexible compatible con suscripciones es la clase [SqlFilter][SqlFilter], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para más información acerca de las expresiones que se pueden usar con un filtro de SQL, consulte la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
+El tipo de filtro más flexible compatible con suscripciones es la clase [SqlFilter][SqlFilter], que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, vea la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 En el ejemplo siguiente, se crea una suscripción denominada **HighMessages** con un objeto [SqlFilter][SqlFilter] que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada con un valor superior a 3.
 
@@ -303,11 +307,11 @@ namespaceManager.DeleteSubscription("TestTopic", "HighMessages");
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de los temas y las suscripciones de Service Bus, siga estos vínculos para más información.
 
-* [Colas, temas y suscripciones de Service Bus][].
+* [Colas, temas y suscripciones][Colas, temas y suscripciones].
 * [Ejemplo de filtros de tema][Ejemplo de filtros de tema]
 * Referencia de API para [SqlFilter][SqlFilter].
-* Si quiere crear una aplicación de trabajo que envíe mensajes a una cola de Service Bus y que reciba mensajes de dicha cola, consulte [Tutorial de .NET de mensajería asíncrona de Service Bus][].
-* Ejemplos de Service Bus: descárguelos de [Ejemplos de Azure][Ejemplos de Azure] o consulte la [información general](../service-bus/service-bus-samples.md).
+* Si quiere crear una aplicación de trabajo que envíe mensajes a una cola de Service Bus y que reciba mensajes de dicha cola, consulte [Tutorial de .NET de mensajería asincrónica de Service Bus][Tutorial de .NET de mensajería asincrónica de Service Bus].
+* Ejemplos de Service Bus: descárguelos de [Ejemplos de Azure][ejemplos de Azure] o consulte la [información general](service-bus-samples.md).
 
 [Portal de Azure]: https://portal.azure.com
 
@@ -322,6 +326,6 @@ Ahora que conoce los fundamentos de los temas y las suscripciones de Service Bus
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

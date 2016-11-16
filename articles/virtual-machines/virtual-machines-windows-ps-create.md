@@ -1,155 +1,164 @@
 ---
-title: Creación de una máquina virtual de Azure con PowerShell | Microsoft Docs
-description: Use Azure PowerShell y Azure Resource Manager para crear fácilmente una nueva máquina virtual con Windows Server.
+title: "Creación de una máquina virtual de Azure con PowerShell | Microsoft Docs"
+description: "Use Azure PowerShell y Azure Resource Manager para crear fácilmente una nueva máquina virtual con Windows Server."
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 14fe9ca9-e228-4d3b-a5d8-3101e9478f6e
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2016
+ms.date: 10/21/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+
 
 ---
-# Creación de una máquina virtual de Windows con Resource Manager y PowerShell
-En este artículo se muestra cómo crear rápidamente una máquina virtual de Azure con Windows Server y los recursos que necesita mediante [Resource Manager](../resource-group-overview.md) y PowerShell.
+# <a name="create-a-windows-vm-using-resource-manager-and-powershell"></a>Creación de una máquina virtual de Windows con Resource Manager y PowerShell
+En este artículo se muestra cómo crear rápidamente una máquina virtual de Azure con Windows Server y los recursos que necesita mediante [Resource Manager](../azure-resource-manager/resource-group-overview.md) y PowerShell. 
 
-Todos los pasos de este artículo son necesarios para crear una máquina virtual; se tardará unos 30 minutos en realizarlos.
+Todos los pasos de este artículo son necesarios para crear una máquina virtual; se tardará unos 30 minutos en realizarlos. Reemplace los valores de parámetros de ejemplo en los comandos por nombres que tengan sentido para su entorno.
 
-## Paso 1: Instalación de Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta.
+## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
+Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
 
-## Paso 2: Creación de un grupo de recursos
-En primer lugar, cree un grupo de recursos.
+## <a name="step-2-create-a-resource-group"></a>Paso 2: Creación de un grupo de recursos
+Todos los recursos deben encontrarse en un grupo de recursos, así que es lo primero que hay que crear.  
 
 1. Obtenga una lista de las ubicaciones donde se pueden crear los recursos.
    
-        Get-AzureRmLocation | sort Location | Select Location
+    ```powershell
+    Get-AzureRmLocation | sort Location | Select Location
+    ```
+2. Establezca la ubicación de los recursos. Este comando establece la ubicación en **centralus**.
    
-    Puede ver algo parecido a este ejemplo:
+    ```powershell
+    $location = "centralus"
+    ```
+3. Cree un grupo de recursos. Este comando crea el grupo de recursos denominado **myResourceGroup** en la ubicación que estableció.
    
-        Location
-        --------
-        australiaeast
-        australiasoutheast
-        brazilsouth
-        canadacentral
-        canadaeast
-        centralindia
-        centralus
-        eastasia
-        eastus
-        eastus2
-        japaneast
-        japanwest
-        northcentralus
-        northeurope
-        southcentralus
-        southeastasia
-        southindia
-        westeurope
-        westindia
-        westus
-2. Reemplace el valor de **$locName** por una ubicación de la lista. Cree la variable.
-   
-        $locName = "centralus"
-3. Reemplace el valor de **$rgName** por el nombre del nuevo grupo de recursos. Cree la variable y el grupo de recursos.
-   
-        $rgName = "mygroup1"
-        New-AzureRmResourceGroup -Name $rgName -Location $locName
+    ```powershell
+    $myResourceGroup = "myResourceGroup"
+    New-AzureRmResourceGroup -Name $myResourceGroup -Location $location
+    ```
 
-## Paso 3: Creación de una cuenta de almacenamiento
-Se necesita una [cuenta de almacenamiento](../storage/storage-introduction.md) para almacenar el disco duro virtual que se usa con la máquina virtual que cree.
+## <a name="step-3-create-a-storage-account"></a>Paso 3: Creación de una cuenta de almacenamiento
+Se necesita una [cuenta de almacenamiento](../storage/storage-introduction.md) para almacenar el disco duro virtual que se usa con la máquina virtual que cree. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
 
-1. Reemplace el valor de **$stName** por un nombre para la cuenta de almacenamiento. Compruebe que el nombre sea único.
+1. Pruebe si el nombre de la cuenta de almacenamiento es único. Este comando comprueba el nombre **myStorageAccount**.
    
-        $stName = "mystorage1"
-        Get-AzureRmStorageAccountNameAvailability $stName
+    ```powershell
+    $myStorageAccountName = "mystorageaccount"
+    Get-AzureRmStorageAccountNameAvailability $myStorageAccountName
+    ```
    
-    Si este comando devuelve **True**, el nombre propuesto es único en Azure. Los nombres de cuentas de almacenamiento deben tener entre 3 y 24 caracteres, y solo pueden contener números y letras minúsculas.
-2. Ahora, ejecute el comando para crear la cuenta de almacenamiento.
+    Si este comando devuelve **True**, el nombre propuesto es único en Azure. 
+2. Ahora, cree la cuenta de almacenamiento.
    
-        $storageAcc = New-AzureRmStorageAccount -ResourceGroupName $rgName -Name $stName -SkuName "Standard_LRS" -Kind "Storage" -Location $locName
+    ```powershell    
+    $myStorageAccount = New-AzureRmStorageAccount -ResourceGroupName $myResourceGroup `
+        -Name $myStorageAccountName -SkuName "Standard_LRS" -Kind "Storage" -Location $location
+    ```
 
-## Paso 4: Creación de una red virtual
+## <a name="step-4-create-a-virtual-network"></a>Paso 4: Creación de una red virtual
 Todas las máquinas virtuales forman parte de una [red virtual](../virtual-network/virtual-networks-overview.md).
 
-1. Reemplace el valor de **$subnetName** por el nombre de la subred. Cree la variable y la subred.
+1. Cree una subred para la red virtual. Este comando crea una subred denominada **mySubnet** con un prefijo de dirección 10.0.0.0/24.
    
-        $subnetName = "mysubnet1"
-        $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
-2. Reemplace el valor de **$vnetName** por el nombre de la red virtual. Cree la variable y la red virtual con la subred.
+    ```powershell
+    $mySubnet = New-AzureRmVirtualNetworkSubnetConfig -Name "mySubnet" -AddressPrefix 10.0.0.0/24
+    ```
+2. Ahora cree la red virtual. Este comando crea una red virtual denominada **myVnet** con la subred que creó y un prefijo de dirección **10.0.0.0/16**.
    
-        $vnetName = "myvnet1"
-        $vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
-   
-    Use valores que tengan sentido para su aplicación y entorno.
+    ```powershell
+    $myVnet = New-AzureRmVirtualNetwork -Name "myVnet" -ResourceGroupName $myResourceGroup `
+        -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $mySubnet
+    ```
 
-## Paso 5: Creación de una dirección IP y una interfaz de red
+## <a name="step-5-create-a-public-ip-address-and-network-interface"></a>Paso 5: Creación de una dirección IP y una interfaz de red
 Para permitir la comunicación con la máquina virtual en la red virtual, necesitará una [dirección IP pública](../virtual-network/virtual-network-ip-addresses-overview-arm.md) y una interfaz de red.
 
-1. Reemplace el valor de **$ipName** por el nombre de la dirección IP pública. Cree la variable y la dirección IP pública.
+1. Cree la dirección IP pública. Este comando crea una dirección IP pública denominada **myPublicIp** con un método de asignación **dinámico**.
    
-        $ipName = "myIPaddress1"
-        $pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic
-2. Reemplace el valor de **$nicName** por el nombre de la interfaz de red. Cree la variable y la interfaz de red.
+    ```powershell
+    $myPublicIp = New-AzureRmPublicIpAddress -Name "myPublicIp" -ResourceGroupName $myResourceGroup `
+        -Location $location -AllocationMethod Dynamic
+    ```
+2. Cree la interfaz de red. Este comando crea una interfaz de red denominada **myNIC**.
    
-        $nicName = "mynic1"
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
+    ```powershell
+    $myNIC = New-AzureRmNetworkInterface -Name "myNIC" -ResourceGroupName $myResourceGroup `
+        -Location $location -SubnetId $myVnet.Subnets[0].Id -PublicIpAddressId $myPublicIp.Id
+    ```
 
-## Paso 6: Creación de una máquina virtual
+## <a name="step-6-create-a-virtual-machine"></a>Paso 6: Creación de una máquina virtual
 Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina virtual.
 
-1. Ejecute el comando para establecer el nombre de la cuenta de administrador y la contraseña de la máquina virtual.
+1. Ejecute este comando para establecer el nombre de la cuenta de administrador y la contraseña de la máquina virtual.
+
+    ```powershell
+    $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+    ```
    
-        $cred = Get-Credential -Message "Type the name and password of the local administrator account."
+    La contraseña tiene que tener de 12 a 123 caracteres y contener al menos una minúscula, una mayúscula, un número y un carácter especial. 
+2. Cree el objeto de configuración de la máquina virtual. Este comando crea un objeto de configuración denominado **myVmConfig** que define el nombre y el tamaño de la máquina virtual.
    
-    La contraseña tiene que tener de 12 a 123 caracteres y contener al menos una minúscula, una mayúscula, un número y un carácter especial.
-2. Reemplace el valor de **$vmName** por el nombre de la máquina virtual. Cree la variable y la configuración de la máquina virtual.
+    ```powershell
+    $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
+    ```
    
-        $vmName = "myvm1"
-        $vm = New-AzureRmVMConfig -VMName $vmName -VMSize "Standard_A1"
+    Consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-windows-sizes.md) para ver una lista de los tamaños disponibles para una máquina virtual.
+3. Configure el sistema operativo para la máquina virtual. Este comando establece el nombre del equipo, el tipo de sistema operativo y las credenciales de cuenta para la máquina virtual.
    
-    Consulte [Tamaños de las máquinas virtuales Windows en Azure](virtual-machines-windows-sizes.md) para ver una lista de los tamaños disponibles para una máquina virtual.
-3. Reemplace el valor de **$compName** por el nombre de equipo de la máquina virtual. Cree la variable y agregue la información del sistema operativo a la configuración.
+    ```powershell
+    $myVM = Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred `
+        -ProvisionVMAgent -EnableAutoUpdate
+    ```
+4. Defina la imagen que se va a usar para aprovisionar la máquina virtual. Este comando define la imagen de Windows Server que se usará para la máquina virtual. 
    
-        $compName = "myvm1"
-        $vm = Set-AzureRmVMOperatingSystem -VM $vm -Windows -ComputerName $compName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-4. Defina la imagen que se usará para aprovisionar la máquina virtual.
+    ```powershell
+    $myVM = Set-AzureRmVMSourceImage -VM $myVM -PublisherName "MicrosoftWindowsServer" `
+        -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
+    ```
    
-        $vm = Set-AzureRmVMSourceImage -VM $vm -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2012-R2-Datacenter -Version "latest"
-   
-    Para más información sobre cómo seleccionar las imágenes que se van a utilizar, consulte [Navegación y selección de las imágenes de máquina virtual Windows en Azure con Powershell o CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Para más información sobre cómo seleccionar las imágenes que se van a usar, consulte [Navegación y selección de las imágenes de máquina virtual Windows en Azure con PowerShell o CLI](virtual-machines-windows-cli-ps-findimage.md).
 5. Agregue la interfaz de red que creó a la configuración.
    
-        $vm = Add-AzureRmVMNetworkInterface -VM $vm -Id $nic.Id
-6. Reemplace el valor de **$blobPath** por una ruta de acceso y el nombre de archivo del almacenamiento del disco duro virtual. Normalmente, el archivo de disco duro virtual se almacena en un contenedor, por ejemplo **vhds/WindowsVMosDisk.vhd**. Cree las variables.
+    ```powershell
+    $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
+    ```
+6. Defina el nombre y la ubicación del disco duro de la máquina virtual. El archivo de disco duro virtual se almacena en un contenedor. Este comando crea el disco en un contenedor denominado **vhds/WindowsVMosDisk.vhd** en la cuenta de almacenamiento que ha creado.
    
-        $blobPath = "vhds/WindowsVMosDisk.vhd"
-        $osDiskUri = $storageAcc.PrimaryEndpoints.Blob.ToString() + $blobPath
-7. Reemplace el valor de **$diskName** por el nombre del disco del sistema operativo. Cree la variable y agregue la información del disco a la configuración.
+    ```powershell
+    $blobPath = "vhds/myOsDisk1.vhd"
+    $osDiskUri = $myStorageAccount.PrimaryEndpoints.Blob.ToString() + $blobPath
+    ```
+7. Agregue la información del disco de sistema operativo a la configuración de máquina virtual. Reemplace el valor de **$diskName** por el nombre del disco del sistema operativo. Cree la variable y agregue la información del disco a la configuración.
    
-        $diskName = "windowsvmosdisk"
-        $vm = Set-AzureRmVMOSDisk -VM $vm -Name $diskName -VhdUri $osDiskUri -CreateOption fromImage
+    ```powershell
+    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    ```
 8. Finalmente, cree la máquina virtual.
    
-        New-AzureRmVM -ResourceGroupName $rgName -Location $locName -VM $vm
-   
-    Debería ver el grupo de recursos y todos sus recursos en el Portal de Azure y un estado correcto en la ventana de PowerShell:
-   
-        RequestId  IsSuccessStatusCode  StatusCode  ReasonPhrase
-        ---------  -------------------  ----------  ------------
-                                  True          OK  OK
+    ```powershell
+    New-AzureRmVM -ResourceGroupName $myResourceGroup -Location $location -VM $myVM
+    ```
 
-## Pasos siguientes
-* Si se produjeron problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../resource-manager-troubleshoot-deployments-portal.md).
-* Obtenga más información sobre cómo administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
-* Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md).
+## <a name="next-steps"></a>Pasos siguientes
+* Si se han producido problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
+* Aprenda a administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
+* Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

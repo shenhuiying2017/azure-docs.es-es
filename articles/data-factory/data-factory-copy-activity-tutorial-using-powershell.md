@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: crear una canalización con la actividad de copia con Azure PowerShell | Microsoft Docs'
-description: En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Azure PowerShell.
+title: "Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell | Microsoft Docs"
+description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Azure PowerShell."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3247a5004198eedcf40cb3aa38de767a08e545a8
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-powershell"></a>Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-powershell"></a>Tutorial: Crear una canalización con la actividad de copia con Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -103,48 +107,48 @@ En este paso, creará dos servicios vinculados: **StorageLinkedService** y **Azu
 ### <a name="create-a-linked-service-for-an-azure-storage-account"></a>Creación de un servicio vinculado para una cuenta de almacenamiento de Azure
 1. Cree un archivo JSON con el nombre **StorageLinkedService.json** en **C:\ADFGetStartedPSH** con el siguiente contenido. Si todavía no existe, cree la carpeta ADFGetStartedPSH.
    
-           {
+         {
                "name": "StorageLinkedService",
                "properties": {
-                   "type": "AzureStorage",
-                   "typeProperties": {
+                 "type": "AzureStorage",
+                 "typeProperties": {
                        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-                   }
+                 }
                }
-           }
+         }
    
    Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure.
 2. En **PowerShell de Azure**, cambie a la carpeta **ADFGetStartedPSH**. 
 3. Use el cmdlet **New-AzureRmDataFactoryLinkedService** para crear un servicio vinculado. Tanto cmdlet como otros cmdlets de Data Factory que usa en este tutorial requieren que se pasen los valores de los parámetros **ResourceGroupName** y **DataFactoryName**. Como alternativa, puede usar **Get-AzureRmDataFactory** para obtener un objeto DataFactory y pasarlo sin necesidad de escribir ResourceGroupName y DataFactoryName cada vez que ejecuta un cmdlet. Ejecute el comando siguiente para asignar el resultado del cmdlet **Get-AzureRmDataFactory** a una variable: **$df**: 
    
-       $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 4. Ahora, ejecute el cmdlet **New-AzureRmDataFactoryLinkedService** para crear el servicio vinculado: **StorageLinkedService**. 
    
-       New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
+     New-AzureRmDataFactoryLinkedService $df -File .\StorageLinkedService.json
    
    Si no hubiera ejecutado el cmdlet **Get-AzureRmDataFactory** y asignado la salida a la variable **$df**, tendría que especificar valores para los parámetros ResourceGroupName y DataFactoryName de la siguiente forma.   
    
-       New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
+     New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName ADFTutorialDataFactoryPSH -File .\StorageLinkedService.json
    
    Si cierra Azure PowerShell en medio del tutorial, tendrá que ejecutar el cmdlet Get-AzureRmDataFactory la próxima vez que ejecute Azure PowerShell para completar el tutorial.
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Creación de un servicio vinculado para una base de datos SQL de Azure
 1. Cree un archivo JSON denominado AzureSqlLinkedService.json con el siguiente contenido:
    
-           {
-               "name": "AzureSqlLinkedService",
-               "properties": {
-                   "type": "AzureSqlDatabase",
-                   "typeProperties": {
+         {
+             "name": "AzureSqlLinkedService",
+             "properties": {
+                 "type": "AzureSqlDatabase",
+                 "typeProperties": {
                        "connectionString": "Server=tcp:<server>.database.windows.net,1433;Database=<databasename>;User ID=<user>@<server>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-                   }
+                 }
                }
-           }
+         }
    
    Reemplace **servername**, **databasename**, **username@servername** y **password** por los nombres del servidor SQL Azure, de la base de datos, de la cuenta de usuario y de la contraseña.
 2. Ejecute el siguiente comando para crear un servicio vinculado: 
    
-       New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
    
    Confirme que la opción **Permitir el acceso a servicios de Azure** esté activada para el servidor SQL de Azure. Para comprobarla y activarla, siga estos pasos:
    
@@ -196,36 +200,36 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
 
 1. Cree un archivo JSON llamado **EmpBlobTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
    
-           {
-             "name": "EmpTableFromBlob",
-             "properties": {
-               "structure": [
-                 {
-                   "name": "FirstName",
-                   "type": "String"
-                 },
-                 {
-                   "name": "LastName",
-                   "type": "String"
-                 }
-               ],
-               "type": "AzureBlob",
-               "linkedServiceName": "StorageLinkedService",
-               "typeProperties": {
-                 "fileName": "emp.txt",
-                 "folderPath": "adftutorial/",
-                 "format": {
-                   "type": "TextFormat",
-                   "columnDelimiter": ","
-                 }
+         {
+           "name": "EmpTableFromBlob",
+           "properties": {
+             "structure": [
+               {
+                 "name": "FirstName",
+                 "type": "String"
                },
-               "external": true,
-               "availability": {
-                 "frequency": "Hour",
-                 "interval": 1
+               {
+                 "name": "LastName",
+                 "type": "String"
                }
+             ],
+             "type": "AzureBlob",
+             "linkedServiceName": "StorageLinkedService",
+             "typeProperties": {
+               "fileName": "emp.txt",
+               "folderPath": "adftutorial/",
+               "format": {
+                 "type": "TextFormat",
+                 "columnDelimiter": ","
+               }
+             },
+             "external": true,
+             "availability": {
+               "frequency": "Hour",
+               "interval": 1
              }
            }
+         }
    
    Tenga en cuenta los siguientes puntos: 
    
@@ -234,7 +238,7 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
    * **folderPath** está establecido en el contenedor **adftutorial**. 
    * **fileName** se establece en **emp.txt**. Si no especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
    * **type** de formato está establecido en **TextFormat**.
-   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**). 
+   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).    
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**). Por consiguiente, Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**).
    
    Si no especifica un valor de **fileName** para una **tabla** de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada. 
@@ -243,52 +247,52 @@ Una tabla es un conjunto de datos rectangular y tiene un esquema. En este paso, 
    
    Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se produce un segmento para 2016-10-20T08:00:00, folderName se establece en wikidatagateway/wikisampledataout/2016/10/20 y fileName se establece en 08.csv. 
    
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-           ],
+         "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+         "fileName": "{Hour}.csv",
+         "partitionedBy": 
+         [
+             { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+             { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+             { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+             { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+         ],
    
    Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](http://go.microsoft.com/fwlink/?LinkId=516971) .
 2. Ejecute el comando siguiente para crear el conjunto de datos de Factoría de datos.
    
-       New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
+     New-AzureRmDataFactoryDataset $df -File .\EmpBlobTable.json
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
 En este paso se crea un conjunto de datos de salida denominado **EmpSQLTable**. Este conjunto de datos apunta a una tabla SQL (**emp**) de Azure SQL Database representada por **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp** . 
 
 1. Cree un archivo JSON denominado **EmpSQLTable.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido:
    
-           {
-             "name": "EmpSQLTable",
-             "properties": {
-               "structure": [
-                 {
-                   "name": "FirstName",
-                   "type": "String"
-                 },
-                 {
-                   "name": "LastName",
-                   "type": "String"
-                 }
-               ],
-               "type": "AzureSqlTable",
-               "linkedServiceName": "AzureSqlLinkedService",
-               "typeProperties": {
-                 "tableName": "emp"
+         {
+           "name": "EmpSQLTable",
+           "properties": {
+             "structure": [
+               {
+                 "name": "FirstName",
+                 "type": "String"
                },
-               "availability": {
-                 "frequency": "Hour",
-                 "interval": 1
+               {
+                 "name": "LastName",
+                 "type": "String"
                }
+             ],
+             "type": "AzureSqlTable",
+             "linkedServiceName": "AzureSqlLinkedService",
+             "typeProperties": {
+               "tableName": "emp"
+             },
+             "availability": {
+               "frequency": "Hour",
+               "interval": 1
              }
            }
+         }
    
-    Tenga en cuenta los siguientes puntos: 
+   Tenga en cuenta los siguientes puntos: 
    
    * **type** de conjunto de datos está establecido en **AzureSqlTable**.
    * **linkedServiceName** está establecido en **AzureSqlLinkedService**.
@@ -297,54 +301,54 @@ En este paso se crea un conjunto de datos de salida denominado **EmpSQLTable**. 
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 2. Ejecute el comando siguiente para crear el conjunto de datos de Factoría de datos. 
    
-       New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
+     New-AzureRmDataFactoryDataset $df -File .\EmpSQLTable.json
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 En este paso, creará una canalización con una **actividad de copia** que utiliza **EmpTableFromBlob** como entrada y **EmpSQLTable** como salida.
 
 1. Cree un archivo JSON llamado **ADFTutorialPipeline.json** en la carpeta **C:\ADFGetStartedPSH** con el siguiente contenido: 
    
-            {
-             "name": "ADFTutorialPipeline",
-             "properties": {
-               "description": "Copy data from a blob to Azure SQL table",
-               "activities": [
-                 {
-                   "name": "CopyFromBlobToSQL",
-                   "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-                   "type": "Copy",
-                   "inputs": [
-                     {
-                       "name": "EmpTableFromBlob"
-                     }
-                   ],
-                   "outputs": [
-                     {
-                       "name": "EmpSQLTable"
-                     }
-                   ],
-                   "typeProperties": {
-                     "source": {
-                       "type": "BlobSource"
-                     },
-                     "sink": {
-                       "type": "SqlSink"
-                     }
-                   },
-                   "Policy": {
-                     "concurrency": 1,
-                     "executionPriorityOrder": "NewestFirst",
-                     "style": "StartOfInterval",
-                     "retry": 0,
-                     "timeout": "01:00:00"
+          {
+           "name": "ADFTutorialPipeline",
+           "properties": {
+             "description": "Copy data from a blob to Azure SQL table",
+             "activities": [
+               {
+                 "name": "CopyFromBlobToSQL",
+                 "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+                 "type": "Copy",
+                 "inputs": [
+                   {
+                     "name": "EmpTableFromBlob"
                    }
+                 ],
+                 "outputs": [
+                   {
+                     "name": "EmpSQLTable"
+                   }
+                 ],
+                 "typeProperties": {
+                   "source": {
+                     "type": "BlobSource"
+                   },
+                   "sink": {
+                     "type": "SqlSink"
+                   }
+                 },
+                 "Policy": {
+                   "concurrency": 1,
+                   "executionPriorityOrder": "NewestFirst",
+                   "style": "StartOfInterval",
+                   "retry": 0,
+                   "timeout": "01:00:00"
                  }
-               ],
-               "start": "2016-08-09T00:00:00Z",
-               "end": "2016-08-10T00:00:00Z",
-               "isPaused": false
-             }
+               }
+             ],
+             "start": "2016-08-09T00:00:00Z",
+             "end": "2016-08-10T00:00:00Z",
+             "isPaused": false
            }
+         }
    
    Tenga en cuenta los siguientes puntos:
    
@@ -361,7 +365,7 @@ En este paso, creará una canalización con una **actividad de copia** que utili
    Para obtener más información sobre las propiedades JSON, vea [Referencia de scripting JSON](http://go.microsoft.com/fwlink/?LinkId=516971) .
 2. Ejecute el comando siguiente para crear la tabla Factoría de datos. 
    
-       New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
 
 **¡Enhorabuena!**  Ha creado correctamente una factoría de datos de Azure, servicios vinculados, tablas y una canalización, y ha programado la canalización.
 
@@ -370,10 +374,10 @@ En este paso, usará Azure PowerShell para supervisar lo que está ocurriendo en
 
 1. Ejecute **Get-AzureRmDataFactory** y asigne el resultado a la variable $df.
    
-       $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
+     $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH
 2. Ejecute **Get-AzureRmDataFactorySlice** para obtener la información sobre todos los segmentos de **EmpSQLTable**, que es la tabla de salida de la canalización.  
    
-       Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+     Get-AzureRmDataFactorySlice $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
    
    Reemplace la parte del año, mes y fecha del parámetro **StartDateTime** por el año, mes y fecha actuales. Esta configuración debe coincidir con el valor de **Inicio** del JSON de canalización. 
    
@@ -381,38 +385,14 @@ En este paso, usará Azure PowerShell para supervisar lo que está ocurriendo en
    
    **Salida de ejemplo:**
    
-       ResourceGroupName : ADFTutorialResourceGroup
-       DataFactoryName   : ADFTutorialDataFactoryPSH
-       TableName         : EmpSQLTable
-       Start             : 8/9/2016 12:00:00 AM
-       End               : 8/9/2016 1:00:00 AM
-       RetryCount        : 0
-       Status            : Waiting
-       LatencyStatus     :
-       LongRetryCount    : 0
+     ResourceGroupName : ADFTutorialResourceGroup   DataFactoryName   : ADFTutorialDataFactoryPSH   TableName         : EmpSQLTable   Start             : 8/9/2016 12:00:00 AM   End               : 8/9/2016 1:00:00 AM   RetryCount        : 0   Status            : Waiting   LatencyStatus     :   LongRetryCount    : 0
 3. Ejecute **Get-AzureRmDataFactoryRun** para obtener la información de la actividad que se ejecuta para un segmento **específico**. Cambie el valor del parámetro **StartDateTime** para que coincida con la hora de **Inicio** del segmento desde la salida. El valor de **StartDateTime** debe estar en [formato ISO](http://en.wikipedia.org/wiki/ISO_8601). 
    
-       Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
+     Get-AzureRmDataFactoryRun $df -DatasetName EmpSQLTable -StartDateTime 2016-08-09T00:00:00
    
    Debería ver el resultado, que es similar al siguiente:
    
-       Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable
-       ResourceGroupName   : ADFTutorialResourceGroup
-       DataFactoryName     : ADFTutorialDataFactoryPSH
-       TableName           : EmpSQLTable
-       ProcessingStartTime : 8/9/2016 11:03:28 PM
-       ProcessingEndTime   : 8/9/2016 11:04:36 PM
-       PercentComplete     : 100
-       DataSliceStart      : 8/9/2016 10:00:00 PM
-       DataSliceEnd        : 8/9/2016 11:00:00 PM
-       Status              : Succeeded
-       Timestamp           : 8/9/2016 11:03:28 PM
-       RetryAttempt        : 0
-       Properties          : {}
-       ErrorMessage        :
-       ActivityName        : CopyFromBlobToSQL
-       PipelineName        : ADFTutorialPipeline
-       Type                : Copy
+     Id                  : 3404c187-c889-4f88-933b-2a2f5cd84e90_635614488000000000_635614524000000000_EmpSQLTable   ResourceGroupName   : ADFTutorialResourceGroup   DataFactoryName     : ADFTutorialDataFactoryPSH   TableName           : EmpSQLTable   ProcessingStartTime : 8/9/2016 11:03:28 PM   ProcessingEndTime   : 8/9/2016 11:04:36 PM   PercentComplete     : 100   DataSliceStart      : 8/9/2016 10:00:00 PM   DataSliceEnd        : 8/9/2016 11:00:00 PM   Status              : Succeeded   Timestamp           : 8/9/2016 11:03:28 PM   RetryAttempt        : 0   Properties          : {}   ErrorMessage        :   ActivityName        : CopyFromBlobToSQL   PipelineName        : ADFTutorialPipeline   Type                : Copy
 
 Vea [Data Factory Cmdlet Reference][cmdlet-reference] (Referencia de cmdlets de Data Factory) para obtener la documentación completa sobre los cmdlets de Data Factory. 
 
@@ -421,7 +401,7 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**.
-   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.    
+   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.     
    2. Un servicio vinculado **SQL Azure** para vincular la base de datos SQL de Azure que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos** que describen los datos de entrada y salida de las canalizaciones.
 4. Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**. 
@@ -453,6 +433,6 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

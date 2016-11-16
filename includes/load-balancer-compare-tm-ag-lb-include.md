@@ -1,23 +1,24 @@
-## Diferencias del equilibrador de carga
+## <a name="load-balancer-differences"></a>Diferencias del equilibrador de carga
+
 Existen diversas opciones para distribuir el tráfico de red con Microsoft Azure. Estas opciones funcionan de manera diferente, ya que disponen de un conjunto de características distintas y son compatibles con escenarios distintos. Cada una se puede usar por separado, pero también se pueden combinar.
 
 * **Azure Load Balancer** actúa como capa de transporte (nivel 4 en la pila de referencia de red de OSI). Proporciona distribución del tráfico en el nivel de red entre las instancias de una aplicación que se ejecutan en el mismo centro de datos de Azure.
 * **Application Gateway** funciona en el nivel de aplicación (nivel 7 en la pila de referencia de red de OSI). Actúa como un servicio de proxy inverso, que termina la conexión de cliente y reenvía las solicitudes de vuelta a los puntos de conexión de back-end.
-* **Traffic Manager** funciona en el nivel de DNS. Usa las respuestas DNS para dirigir el tráfico de usuario final a los puntos de conexión distribuidos globalmente. A continuación, los clientes se conectan a esos puntos de conexión directamente.
+* **Traffic Manager** funciona en el nivel de DNS.  Usa las respuestas DNS para dirigir el tráfico de usuario final a los puntos de conexión distribuidos globalmente. A continuación, los clientes se conectan a esos puntos de conexión directamente.
 
 En la tabla siguiente se resumen las características ofrecidas por cada servicio:
 
-| Servicio | Equilibrador de carga de Azure | Puerta de enlace de aplicaciones | Administrador de tráfico |
+| Servicio | Azure Load Balancer | Application Gateway | Traffic Manager |
 | --- | --- | --- | --- |
 | Technology |Nivel de transporte (nivel 4) |Nivel de aplicación (nivel 7) |Nivel de DNS |
 | Protocolos de aplicación admitidos |Cualquiera |HTTP y HTTPS |Cualquiera (es necesario un punto de conexión HTTP para la supervisión del punto de conexión) |
-| Extremos |Instancias de rol de máquinas virtuales de Azure y servicios en la nube |Cualquier dirección IP interna de Azure o dirección IP de Internet pública |Azure Virtual Machines, Cloud Services, Azure Web Apps y puntos de conexión externos |
+| Extremos |Instancias de rol de máquinas virtuales de Azure y servicios en la nube |Cualquier dirección IP interna de Azure o dirección IP de Internet pública  |Azure Virtual Machines, Cloud Services, Azure Web Apps y puntos de conexión externos |
 | Compatibilidad de redes virtuales |Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) |Puede usarse para aplicaciones accesibles desde Internet e internas (red virtual) |Solo es compatible con aplicaciones accesibles desde Internet |
 | Supervisión de puntos de conexión |Se admite a través de sondeos |Se admite a través de sondeos |Se admite a través de HTTP/HTTPS GET |
 
 Azure Load Balancer o Application Gateway enrutan el tráfico de red a los puntos de conexión, pero los escenarios de uso difieren en cuanto al tráfico que pueden administrar. La tabla siguiente le ayuda a entender la diferencia entre los dos equilibradores de carga:
 
-| Tipo | Equilibrador de carga de Azure | Puerta de enlace de aplicaciones |
+| Tipo | Azure Load Balancer | Application Gateway |
 | --- | --- | --- |
 | Protocolos |UDP/TCP |HTTP/HTTPS |
 | Reserva de IP |Compatible |No compatible |
@@ -26,4 +27,7 @@ Azure Load Balancer o Application Gateway enrutan el tráfico de red a los punto
 | Sondeos de estado |Intervalo de sondeo predeterminado: 15 segundos. Se excluye de la rotación tras dos errores continuos. Admite sondeos definidos por el usuario |Intervalo de sondeo inactivo: 30 segundos. Se excluye tras cinco errores consecutivos de tráfico real o tras un solo error de sondeo en modo inactivo. Admite sondeos definidos por el usuario |
 | Descarga de SSL |No compatible |Compatible |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

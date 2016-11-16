@@ -57,7 +57,7 @@
 #### [Desempaquetado colocación y conexión de un 8600](storsimple-8600-hardware-installation.md)
 #### [Hardware admitido para interfaces de red de 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### Implementación 
+### Implementación
 #### [Servicio StorSimple Manager](storsimple-manage-service.md)
 #### [Dispositivo físico en Azure: actual](storsimple-deployment-walkthrough-u2.md)
 ##### [Dispositivo físico en Azure: actualización 1](storsimple-deployment-walkthrough-u1.md)
@@ -68,7 +68,7 @@
 #### [Adaptador de StorSimple para SharePoint](storsimple-adapter-for-sharepoint.md)
 
 ## Cómo
-### Administrar 
+### Administrar
 #### [Uso del servicio StorSimple Manager](storsimple-manager-service-administration.md)
 ##### [Restauración desde una copia de seguridad](storsimple-restore-from-backup-set-u2.md)
 ###### [Restauración desde una copia de seguridad](storsimple-restore-from-backup-set.md)
@@ -160,18 +160,20 @@
 ### [Versión: disponibilidad general](storsimple-july-2014-release-notes.md)
 
 ## Referencia
-### [Referencia de cmdlets de Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/dn920427)
-### [Referencia de cmdlets de Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx)
+### [PowerShell](/powershell/servicemanagement/)
 
-# [StorSimple series 5000-7000](http://onlinehelp.storsimple.com)
+# Temas relacionados
+## [StorSimple series 5000-7000](http://onlinehelp.storsimple.com)
 
-# resources
-## [Blog sobre Azure](https://azure.microsoft.com/blog/)
-## [Foros](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
+# Recursos
+## [Foro](https://social.msdn.microsoft.com/Forums/azure/home?forum=StorSimple)
 ## [Blog de marketing](http://blogs.technet.com/b/cis/)
-## [Marketing](https://www.microsoft.com/en-us/server-cloud/products/storsimple/explore.aspx)
+## [Marketing](https://www.microsoft.com/server-cloud/products/storsimple/explore.aspx)
 ## [Blog de soporte técnico](http://blogs.msdn.com/b/storsimple/)
 ## [Avisos de terceros](http://download.microsoft.com/download/2/0/0/2003271D-69D5-4143-85A2-F1D8EA058F52/StorSimple TPNs.zip)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=storsimple)
+## [Precios](https://azure.microsoft.com/pricing/details/storsimple/)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=storsimple)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -1,12 +1,12 @@
 ---
-title: Aplicación híbrida en la nube/local (.NET) | Microsoft Docs
-description: Obtenga información acerca de cómo crear una aplicación híbrida en la nube o local de .NET con la retransmisión del Bus de servicio de Azure.
+title: "Aplicación híbrida en la nube/local (.NET) | Microsoft Docs"
+description: "Obtenga información acerca de cómo crear una aplicación híbrida en la nube o local de .NET con la retransmisión del Bus de servicio de Azure."
 services: service-bus
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c9d542edf04c119f5d97f80eacdfd0521acd77d
+
 
 ---
-# <a name=".net-on-premises/cloud-hybrid-application-using-azure-service-bus-relay"></a>Aplicación híbrida en la nube/local .NET mediante Azure Service Bus Relay
+# <a name="net-onpremisescloud-hybrid-application-using-azure-service-bus-wcf-relay"></a>Aplicación híbrida en la nube/local .NET mediante Azure Service Bus WCF Relay
 ## <a name="introduction"></a>Introducción
 En este artículo se describe cómo compilar una aplicación de nube híbrida con Microsoft Azure y Visual Studio. Se supone que no tiene ninguna experiencia previa con Azure. En menos de 30 minutos, dispondrá de una aplicación que utiliza varios recursos de Azure funcionando en la nube.
 
 Aprenderá a:
 
 * Crear o adaptar un servicio web existente para su consumo por una solución web.
-* Utilizar Azure Service Bus Relay para compartir datos entre una aplicación de Azure y un servicio web hospedado en otra parte.
+* Utilizar Azure Service Bus WCF Relay para compartir datos entre una aplicación de Azure y un servicio web hospedado en otra parte.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
@@ -32,7 +36,7 @@ Las soluciones de negocio por lo general están compuestas por una combinación 
 
 Los arquitectos de soluciones están comenzando a utilizar la nube para abordar con más facilidad los requisitos de escala y reducir los costes operativos. De esta manera, se dan cuenta de que los activos de servicio existentes que les gustaría aprovechar como base de sus soluciones se encuentran dentro del firewall corporativo y no resulta sencillo para la solución en la nube el acceso a ellos. Muchos de los servicios internos no están construidos ni hospedados de una forma que se puedan exponer fácilmente en los servidores perimetrales de la red corporativa.
 
-La Retransmisión de bus de servicio está diseñada para el caso de uso en que se toman los servicios web de Windows Communication Foundation (WCF) existentes y se permite el acceso seguro a los mismos a las soluciones que residen fuera del perímetro corporativo, sin necesidad de realizar cambios molestos en la infraestructura de la red corporativa. Dichos servicios de Retransmisión de bus de servicio aún se hospedan en el entorno existente, pero delegan la escucha de sesiones y solicitudes de entrada en el Bus de servicio hospedado en la nube. Service Bus también protege dichos servicios del acceso no autorizado mediante el uso de la autenticación de [firma de acceso compartido](../service-bus/service-bus-sas-overview.md) (SAS).
+La Retransmisión de bus de servicio está diseñada para el caso de uso en que se toman los servicios web de Windows Communication Foundation (WCF) existentes y se permite el acceso seguro a los mismos a las soluciones que residen fuera del perímetro corporativo, sin necesidad de realizar cambios molestos en la infraestructura de la red corporativa. Dichos servicios de Retransmisión de bus de servicio aún se hospedan en el entorno existente, pero delegan la escucha de sesiones y solicitudes de entrada en el Bus de servicio hospedado en la nube. Service Bus también protege dichos servicios del acceso no autorizado mediante el uso de la autenticación de [firma de acceso compartido](../service-bus-messaging/service-bus-sas-overview.md) (SAS).
 
 ## <a name="solution-scenario"></a>Escenario de la solución
 En este tutorial, creará un sitio web de ASP.NET que le permitirá ver una lista de productos en la página del inventario de productos.
@@ -59,7 +63,7 @@ Para comenzar a usar las características del bus de servicio en Azure, primero 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="create-an-on-premises-server"></a>Creación de un servidor local
+## <a name="create-an-onpremises-server"></a>Creación de un servidor local
 En primer lugar, cree un sistema de catálogo de productos local (ficticio). Será bastante simple; puede considerar que representa un sistema de catálogo de productos local real con una superficie de servicio completa que se intenta integrar.
 
 Este proyecto es una aplicación de consola de Visual Studio y emplea el [paquete NuGet de Azure Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) para incluir las bibliotecas y los valores de configuración de Service Bus.
@@ -197,14 +201,14 @@ Este proyecto es una aplicación de consola de Visual Studio y emplea el [paquet
     
     ```
     <appSettings>
-    <!-- Service Bus specific app settings for messaging connections -->
-    <add key="Microsoft.ServiceBus.ConnectionString"
+       <!-- Service Bus specific app settings for messaging connections -->
+       <add key="Microsoft.ServiceBus.ConnectionString"
            value="Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourKey"/>
     </appSettings>
     ```
 14. Presione **Ctrl+Mayús+B**, o bien, en el menú **Compilar**, haga clic en **Compilar solución** para compilar la aplicación y comprobar la exactitud del trabajo hasta el momento.
 
-## <a name="create-an-asp.net-application"></a>Creación de una aplicación ASP.NET
+## <a name="create-an-aspnet-application"></a>Creación de una aplicación ASP.NET
 En esta sección se creará una aplicación ASP.NET simple que mostrará los datos recuperados del servicio de producto.
 
 ### <a name="create-the-project"></a>Creación del proyecto
@@ -234,7 +238,7 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
    
    ```
    // Declare properties for the products inventory.
-   namespace ProductsWeb.Models
+    namespace ProductsWeb.Models
    {
        public class Product
        {
@@ -278,31 +282,31 @@ En esta sección se creará una aplicación ASP.NET simple que mostrará los dat
    @model IEnumerable<ProductsWeb.Models.Product>
    
    @{
-           ViewBag.Title = "Index";
+            ViewBag.Title = "Index";
    }
    
    <h2>Prod Inventory</h2>
    
    <table>
-           <tr>
-               <th>
-                   @Html.DisplayNameFor(model => model.Name)
-               </th>
+             <tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Name)
+                 </th>
                  <th></th>
-               <th>
-                   @Html.DisplayNameFor(model => model.Quantity)
-               </th>
-           </tr>
+                 <th>
+                     @Html.DisplayNameFor(model => model.Quantity)
+                 </th>
+             </tr>
    
    @foreach (var item in Model) {
-           <tr>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Name)
-               </td>
-               <td>
-                   @Html.DisplayFor(modelItem => item.Quantity)
-               </td>
-           </tr>
+             <tr>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Name)
+                 </td>
+                 <td>
+                     @Html.DisplayFor(modelItem => item.Quantity)
+                 </td>
+             </tr>
    }
    
    </table>
@@ -469,6 +473,6 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

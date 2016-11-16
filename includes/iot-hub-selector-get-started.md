@@ -5,7 +5,7 @@
 > 
 > 
 
-## Introducción
+## <a name="introduction"></a>Introducción
 El Centro de IoT de Azure es un servicio totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos de Internet de las cosas (IoT) y un back-end de soluciones. Uno de los mayores desafíos que plantean los proyectos de IoT es cómo conectar dispositivos al back-end de la solución de manera segura y confiable. Para abordar este desafío, el Centro de IoT:
 
 * Ofrece una mensajería confiable de gran escala de dispositivo a nube y de nube a dispositivo.
@@ -18,4 +18,8 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 * Crear una identidad de dispositivo en el Centro de IoT.
 * Crear un dispositivo simulado que envía la telemetría a su back-end en la nube y recibe los comandos del back-end en la nube.
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

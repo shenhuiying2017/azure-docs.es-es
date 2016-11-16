@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Crear una canalización con la actividad de copia mediante la API de REST | Microsoft Docs'
-description: En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Visual Studio.
+title: "Tutorial: Crear una canalización con la actividad de copia mediante la API de REST | Microsoft Docs"
+description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante Visual Studio."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e3c045d652c04a8a03525753d9c18c3017c04f08
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-rest-api"></a>Tutorial: Crear una canalización con la actividad de copia mediante la API de REST
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-rest-api"></a>Tutorial: Crear una canalización con la actividad de copia mediante la API de REST
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -67,7 +71,7 @@ Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure m
 ## <a name="create-json-definitions"></a>Creación de definiciones de JSON
 Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe. 
 
-### <a name="datafactory.json"></a>datafactory.json
+### <a name="datafactoryjson"></a>datafactory.json
 > [!IMPORTANT]
 > El nombre debe ser único globalmente, por lo que quizás desee usar el prefijo/sufijo ADFCopyTutorialDF para que sea un nombre único. 
 > 
@@ -78,7 +82,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
         "location": "WestUS"
     }  
 
-### <a name="azurestoragelinkedservice.json"></a>azurestoragelinkedservice.json
+### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
 > Reemplace **accountname** y **accountkey** por el nombre y la clave de su cuenta de almacenamiento de Azure. Para aprender a obtener una clave de acceso de almacenamiento, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
 > 
@@ -94,7 +98,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
         }
     }
 
-### <a name="azuersqllinkedservice.json"></a>azuersqllinkedservice.json
+### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
 > Reemplace **servername**, **databasename**, **username** y **password** por los nombres del servidor SQL Azure, de la Base de datos SQL, de la cuenta de usuario y de la contraseña para la cuenta.  
 > 
@@ -112,7 +116,7 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
     }
 
 
-### <a name="inputdataset.json"></a>inputdataset.json
+### <a name="inputdatasetjson"></a>inputdataset.json
     {
       "name": "AzureBlobInput",
       "properties": {
@@ -152,7 +156,7 @@ La definición de JSON define un conjunto de datos denominado **AzureBlobInput**
 * **linkedServiceName** está establecido en **AzureStorageLinkedService**. 
 * **folderPath** está establecido en el contenedor **adftutorial** y **fileName** está establecido en **emp.txt**.  
 * **type** de formato está establecido en **TextFormat**.
-* Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**). 
+* Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).    
 * **availability** está establecido en **hourly** (frequency está establecido en hour e interval en 1). Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) especificado. 
 
 Si no especifica un valor de **fileName** para un conjunto de datos de entrada, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
@@ -161,7 +165,7 @@ Si no especifica un valor **fileName** para una **tabla de salida**, los archivo
 
 Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv. 
 
-    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
     "partitionedBy": 
     [
@@ -172,7 +176,7 @@ Para establecer **folderPath** y **fileName** de forma dinámica según la hora 
     ],
 
 
-### <a name="outputdataset.json"></a>outputdataset.json
+### <a name="outputdatasetjson"></a>outputdataset.json
     {
       "name": "AzureSqlOutput",
       "properties": {
@@ -209,7 +213,7 @@ Tenga en cuenta los siguientes puntos:
 * En la tabla emp de la base de datos hay tres columnas: **ID**, **FirstName** y **LastName**. ID es una columna de identidad, por lo que deberá especificar solo **FirstName** y **LastName** aquí.
 * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
-### <a name="pipeline.json"></a>pipeline.json
+### <a name="pipelinejson"></a>pipeline.json
     {
       "name": "ADFTutorialPipeline",
       "properties": {
@@ -468,7 +472,7 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**:
-   1. Un servicio vinculado Almacenamiento de Azure para vincular la cuenta de Almacenamiento de Azure que contiene datos de entrada.    
+   1. Un servicio vinculado Almacenamiento de Azure para vincular la cuenta de Almacenamiento de Azure que contiene datos de entrada.     
    2. Un servicio vinculado SQL Azure para vincular la base de datos SQL de Azure que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos**que describen los datos de entrada y salida para las canalizaciones.
 4. Ha creado una **canalización** con una actividad de copia con un origen BlobSource y un receptor SqlSink. 
@@ -500,6 +504,6 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

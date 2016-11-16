@@ -1,13 +1,13 @@
 ---
-title: Cómo configurar el enrutamiento de un circuito ExpressRoute | Microsoft Docs
-description: Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
+title: "Configuración del enrutamiento de un circuito de ExpressRoute | Microsoft Docs"
+description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
 ms.devlang: na
 ms.topic: hero-article
@@ -15,24 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/05/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45c0646f6eb1067f49bc185f1592cd1c94fc9470
+
 
 ---
-# Creación y modificación del enrutamiento de un circuito ExpressRoute
+# <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute
 > [!div class="op_single_selector"]
 > [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
 > [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classic](expressroute-howto-routing-classic.md)
+> [PowerShell - Clásico](expressroute-howto-routing-classic.md)
 > 
 > 
 
-Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito de ExpressRoute con PowerShell y el modelo de implementación de Azure Resource Manager. Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar las configuraciones entre pares para un circuito ExpressRoute.
+Este artículo le guiará por los pasos necesarios para crear y administrar la configuración de enrutamiento para un circuito de ExpressRoute con PowerShell y el modelo de implementación de Azure Resource Manager.  Los siguientes pasos también le mostrarán cómo comprobar el estado, actualizar, o eliminar y desaprovisionar las configuraciones entre pares para un circuito ExpressRoute. 
 
-**Información sobre los modelos de implementación de Azure**
+**Información acerca de los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
-## Requisitos previos de configuración
-* Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior.
+## <a name="configuration-prerequisites"></a>Requisitos previos de configuración
+* Necesitará la versión más reciente de los módulos de Azure PowerShell, versión 1.0 o posterior. 
 * Antes de comenzar la configuración, asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la página de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md).
 * Tiene que tener un circuito ExpressRoute activo. Antes de continuar, siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-arm.md) y para que el proveedor de conectividad habilite el circuito. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets que se describen a continuación.
 
@@ -43,12 +47,12 @@ Estas instrucciones se aplican solo a los circuitos creados con proveedores de s
 > 
 > 
 
-Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una.
+Puede configurar una, dos o las tres configuraciones entre pares (Azure privado, Azure público y Microsoft) para un circuito ExpressRoute. Puede establecer las configuraciones entre pares en cualquier orden. Pero tiene que asegurarse de que completa cada configuración entre pares de una en una. 
 
-## Configuración entre pares privados de Azure
-Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares privados de Azure para un circuito ExpressRoute.
+## <a name="azure-private-peering"></a>Configuración entre pares privados de Azure
+Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares privados de Azure para un circuito ExpressRoute. 
 
-### Creación de un emparejamiento privado de Azure
+### <a name="to-create-azure-private-peering"></a>Creación de un emparejamiento privado de Azure
 1. Importe el módulo de PowerShell para ExpressRoute.
    
      Para comenzar a usar los cmdlets de ExpressRoute, debe instalar el programa de instalación de PowerShell más reciente desde la [Galería de PowerShell](http://www.powershellgallery.com/) e importar los módulos del Administrador de recursos de Azure en la sesión de PowerShell. Deberá ejecutar PowerShell como administrador.
@@ -61,7 +65,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    
         Import-AzureRM
    
-    También puede importar un módulo determinado en dicho intervalo.
+    También puede importar un módulo determinado en dicho intervalo. 
    
         Import-Module AzureRM.Network 
    
@@ -74,9 +78,9 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Crear un circuito ExpressRoute.
    
-    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
+    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. 
    
-    Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
+    Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes. 
 3. Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado.
    
     En primer lugar tiene que comprobar si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado. Observe el ejemplo siguiente.
@@ -133,7 +137,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
      > 
      > 
 
-### Visualización de los detalles del emparejamiento privado
+### <a name="to-view-azure-private-peering-details"></a>Visualización de los detalles del emparejamiento privado
 Puede obtener detalles de configuración mediante el siguiente cmdlet
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -141,7 +145,7 @@ Puede obtener detalles de configuración mediante el siguiente cmdlet
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Circuit $ckt    
 
 
-### Actualización del establecimiento de configuración del emparejamiento privado de Azure
+### <a name="to-update-azure-private-peering-configuration"></a>Actualización del establecimiento de configuración del emparejamiento privado de Azure
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet. En el ejemplo siguiente, se está actualizando el identificador de VLAN del circuito de 100 a 500.
 
     Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
@@ -149,11 +153,11 @@ Puede actualizar cualquier parte de la configuración mediante el siguiente cmdl
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Eliminación del emparejamiento privado de Azure
+### <a name="to-delete-azure-private-peering"></a>Eliminación del emparejamiento privado de Azure
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.
 
 > [!WARNING]
-> Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet.
+> Tiene que asegurarse de que todas las redes virtuales se desvinculan del circuito ExpressRoute antes de ejecutar este cmdlet. 
 > 
 > 
 
@@ -162,10 +166,10 @@ Puede quitar el establecimiento de configuración entre pares ejecutando el sigu
 
 
 
-## Configuración entre pares públicos de Azure
+## <a name="azure-public-peering"></a>Configuración entre pares públicos de Azure
 Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar la configuración entre pares públicos de Azure para un circuito ExpressRoute.
 
-### Creación de un emparejamiento público de Azure
+### <a name="to-create-azure-public-peering"></a>Creación de un emparejamiento público de Azure
 1. Importe el módulo de PowerShell para ExpressRoute.
    
      Para comenzar a usar los cmdlets de ExpressRoute, debe instalar el programa de instalación de PowerShell más reciente desde la [Galería de PowerShell](http://www.powershellgallery.com/) e importar los módulos del Administrador de recursos de Azure en la sesión de PowerShell. Deberá ejecutar PowerShell como administrador.
@@ -178,7 +182,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    
         Import-AzureRM
    
-    También puede importar un módulo determinado en dicho intervalo.
+    También puede importar un módulo determinado en dicho intervalo. 
    
         Import-Module AzureRM.Network 
    
@@ -191,7 +195,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Crear un circuito ExpressRoute.
    
-    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
+    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. 
    
     Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
 3. Compruebe el circuito de ExpressRoute para asegurarse de que está aprovisionado.
@@ -247,7 +251,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
     >[AZURE.IMPORTANT] Asegúrese de especificar su número AS como ASN de configuración entre pares y no como cliente ASN.
 
-### Visualización de detalles de un emparejamiento público de Azure
+### <a name="to-view-azure-public-peering-details"></a>Visualización de detalles de un emparejamiento público de Azure
 Puede obtener detalles de configuración mediante el siguiente cmdlet
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -255,7 +259,7 @@ Puede obtener detalles de configuración mediante el siguiente cmdlet
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
 
 
-### Actualización del establecimiento de configuración del emparejamiento público de Azure
+### <a name="to-update-azure-public-peering-configuration"></a>Actualización del establecimiento de configuración del emparejamiento público de Azure
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet
 
     Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600 
@@ -264,16 +268,16 @@ Puede actualizar cualquier parte de la configuración mediante el siguiente cmdl
 
 En el ejemplo anterior se está actualizando el identificador de VLAN del circuito de 200 a 600.
 
-### Eliminación del emparejamiento público de Azure
+### <a name="to-delete-azure-public-peering"></a>Eliminación del emparejamiento público de Azure
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Emparejamiento de Microsoft
-Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar el establecimiento de configuración entre pares de Microsoft para un circuito ExpressRoute.
+## <a name="microsoft-peering"></a>Emparejamiento de Microsoft
+Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y eliminar el establecimiento de configuración entre pares de Microsoft para un circuito ExpressRoute. 
 
-### Creación del emparejamiento de Microsoft
+### <a name="to-create-microsoft-peering"></a>Creación del emparejamiento de Microsoft
 1. Importe el módulo de PowerShell para ExpressRoute.
    
      Para comenzar a usar los cmdlets de ExpressRoute, debe instalar el programa de instalación de PowerShell más reciente desde la [Galería de PowerShell](http://www.powershellgallery.com/) e importar los módulos del Administrador de recursos de Azure en la sesión de PowerShell. Deberá ejecutar PowerShell como administrador.
@@ -286,7 +290,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
    
         Import-AzureRM
    
-    También puede importar un módulo determinado en dicho intervalo.
+    También puede importar un módulo determinado en dicho intervalo. 
    
         Import-Module AzureRM.Network 
    
@@ -299,7 +303,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
         Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 2. Crear un circuito ExpressRoute.
    
-    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad.
+    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-arm.md) y habilite su aprovisionamiento a través del proveedor de conectividad. 
    
     Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
 3. Compruebe el circuito de ExpressRoute para asegurarse de que está aprovisionado.
@@ -350,7 +354,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-### Obtención de detalles del emparejamiento de Microsoft
+### <a name="to-get-microsoft-peering-details"></a>Obtención de detalles del emparejamiento de Microsoft
 Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 
         $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -358,7 +362,7 @@ Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
         Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 
-### Actualización de la configuración de emparejamiento de Microsoft
+### <a name="to-update-microsoft-peering-configuration"></a>Actualización de la configuración de emparejamiento de Microsoft
 Puede actualizar cualquier parte de la configuración mediante el siguiente cmdlet.
 
         Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -366,18 +370,23 @@ Puede actualizar cualquier parte de la configuración mediante el siguiente cmdl
         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 
-### Eliminación del emparejamiento de Microsoft
+### <a name="to-delete-microsoft-peering"></a>Eliminación del emparejamiento de Microsoft
 Puede quitar el establecimiento de configuración entre pares ejecutando el siguiente cmdlet.
 
     Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Siguiente paso, [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
 * Para más información sobre los flujos de trabajo de ExpressRoute, vea [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 * Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 * Para más información sobre redes virtuales, vea [Información general sobre redes virtuales](../virtual-network/virtual-networks-overview.md).
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Información general de Análisis de Microsoft Azure Data Lake | Microsoft Docs
-description: 'Análisis de Data Lake es un servicio de cálculo de macrodatos de Azure que le permite usar datos para impulsar el negocio con los conocimientos adquiridos de los datos en la nube, independientemente de dónde se encuentren y de su tamaño. Análisis de Data Lake lo permite de la forma más sencilla, escalable y económica posible. '
+title: "Información general de Microsoft Azure Data Lake Analytics | Microsoft Docs"
+description: "Análisis de Data Lake es un servicio de cálculo de macrodatos de Azure que le permite usar datos para impulsar el negocio con los conocimientos adquiridos de los datos en la nube, independientemente de dónde se encuentren y de su tamaño. Análisis de Data Lake lo permite de la forma más sencilla, escalable y económica posible. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a6d2d6365afaecab57a100867a72b9aa2def3745
+
 
 ---
-# Información general de Análisis de Microsoft Azure Data Lake
-## ¿Qué es Análisis de Azure Data Lake?
+# <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Información general de Análisis de Microsoft Azure Data Lake
+## <a name="what-is-azure-data-lake-analytics"></a>¿Qué es Análisis de Azure Data Lake?
 Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el análisis de macrodatos. Este servicio le permite centrarse en escribir, ejecutar y administrar los trabajos, en lugar de en la infraestructura distribuida. En lugar de implementar, configurar y ajustar el hardware, escribirá consultas para transformar los datos y extraer ideas valiosas. El servicio de análisis puede tratar trabajos de cualquier escala al instante, simplemente estableciendo el ajuste adecuado. Solo tiene que pagar por su trabajo cuando se está ejecutando, lo que da lugar a una solución económica. El servicio de análisis admite Azure Active Directory, lo que le permite administrar de forma sencilla el acceso y los roles, que se integran con su sistema de identidad local. También incluye U-SQL, un lenguaje que unifica las ventajas de SQL con el poder expresivo del código del usuario. El tiempo de ejecución distribuido escalable de U-SQL permite analizar de forma eficiente los datos del almacén y entre servidores SQL Server en Azure, Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure.
 
-## Principales capacidades
+## <a name="key-capabilities"></a>Principales capacidades
 * **Escalado dinámico**
   
-    Análisis de Data Lake se ideó desde cero para su escala y rendimiento en la nube. Aprovisiona recursos de forma dinámica y permite analizar terabytes o incluso exabytes de datos. Cuando el trabajo finaliza, reduce los recursos automáticamente y usted solo paga por la capacidad de procesamiento que ha utilizado. Conforme aumenta o disminuye el tamaño de los datos almacenados o la cantidad de proceso utilizado, no tiene que reescribir código. Esto le permite centrarse únicamente en su lógica de negocios y no en cómo procesar y almacenar grandes conjuntos de datos.
+    Análisis de Data Lake se ideó desde cero para su escala y rendimiento en la nube.  Aprovisiona recursos de forma dinámica y permite analizar terabytes o incluso exabytes de datos. Cuando el trabajo finaliza, reduce los recursos automáticamente y usted solo paga por la capacidad de procesamiento que ha utilizado. Conforme aumenta o disminuye el tamaño de los datos almacenados o la cantidad de proceso utilizado, no tiene que reescribir código. Esto le permite centrarse únicamente en su lógica de negocios y no en cómo procesar y almacenar grandes conjuntos de datos.
 * **Desarrollo más rápido, depuración y optimización más inteligentes con herramientas que ya conoce**
   
     Análisis de Data Lake está profundamente integrado con Visual Studio, de forma que puede usar herramientas familiares para ejecutar, depurar y ajustar su código. Las visualizaciones de sus trabajos de U-SQL le permiten ver cómo se ejecuta el código a escala. De este modo, puede identificar fácilmente cuellos de botella en el rendimiento y optimizar los costos.
@@ -40,7 +44,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
   
     Análisis de Data Lake puede funcionar con diversos orígenes de datos de Azure, como almacenamiento de blobs de Azure y Base de datos SQL de Azure, y está especialmente optimizado para trabajar con el almacén de Azure Data Lake, proporcionando el máximo nivel de rendimiento, capacidad de proceso y ejecución en paralelo para las cargas de trabajo de macrodatos.
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * Primeros pasos
   
   * [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
@@ -65,8 +69,13 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
   * [Análisis de registros de sitios web mediante Análisis de Azure Data Lake](data-lake-analytics-analyze-weblogs.md)
 * Díganos su opinión
   
-  * [Deje sus comentarios en nuestro trabajo pendiente de documentación](data-lake-analytics-documentation-backlog.md)
+  <!-- Fixing broken links for Azure content migration from ACOM to DOCS. I can't find a suitable substitute for what appears to be a link that is no longer available. I am commenting out for now. The author can investigate in the future. Hyperlink text: Comment on our documentation backlog. Referenced file: data-lake-analytics-documentation-backlog.md -->
   * [Envíe una solicitud de característica](http://aka.ms/adlafeedback)
   * [Obtenga ayuda en los foros](http://aka.ms/adlaforums)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

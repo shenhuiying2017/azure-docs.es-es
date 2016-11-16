@@ -7,27 +7,35 @@
 ## [Perfiles anidados](traffic-manager-nested-profiles.md)
 ## [Consideraciones de rendimiento sobre Traffic Manager](traffic-manager-performance-considerations.md)
 ## [Soporte técnico de Azure Resource Manager](traffic-manager-powershell-arm.md)
+
 # Introducción
 ## [Administrar puntos de conexión](traffic-manager-manage-endpoints.md)
 ## [Administrar perfiles](traffic-manager-manage-profiles.md)
 ## [Dirigir el dominio de Internet a Traffic Manager](traffic-manager-point-internet-domain.md)
+
 # Procedimientos
 ## [Configuración de un método de enrutamiento](traffic-manager-configure-routing-method.md)
 ## [Prueba de la configuración](traffic-manager-testing-settings.md)
 ## [Solución de problemas de un punto de conexión degradado](traffic-manager-troubleshooting-degraded.md)
-# Referencia
-## [API de Resource Manager](https://msdn.microsoft.com/library/mt163667.aspx)
-## [Cmdlets de PowerShell](https://msdn.microsoft.com/library/mt125941.aspx)
 ## [Uso de recursos de red](../virtual-network/resource-groups-networking.md)
-## [Blog de redes de Azure](https://azure.microsoft.com/blog/topics/networking/)
+
+# Referencia
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell (clásico)](/powershell/servicemanagement/)
+## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
+
 # Temas relacionados
-## [Puerta de enlace de aplicaciones](https://azure.microsoft.com/documentation/services/application-gateway/)
-## [Equilibrador de carga](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [DNS de Azure](https://azure.microsoft.com/documentation/services/dns/)
+## [Puerta de enlace de aplicaciones](/azure/application-gateway/)
+## [Equilibrador de carga](/azure/load-balancer/)
+## [DNS de Azure](/azure/dns/)
+
 # resources
 ##[Precios](https://azure.microsoft.com/pricing/details/traffic-manager/)
 ##[Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
 ##[Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Blog](https://azure.microsoft.com/blog/topics/networking/)
+## [Foro](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=traffic-manager)
 
 
 <!--HONumber=Nov16_HO2-->

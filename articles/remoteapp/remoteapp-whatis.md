@@ -1,12 +1,12 @@
 ---
-title: ¿Qué es Azure RemoteApp? | Microsoft Docs
-description: Obtenga información acerca de cómo compartir aplicaciones y recursos en cualquier dispositivo mediante Azure RemoteApp.
+title: "¿Qué es Azure RemoteApp? | Microsoft Docs"
+description: "Obtenga información acerca de cómo compartir aplicaciones y recursos en cualquier dispositivo mediante Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
+documentationcenter: 
 author: lizap
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: d7a8a311-e70a-4463-ac85-c7f62c500921
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
@@ -14,11 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: elizapo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 95b4e6914de787bb2c25527ce9635f872b4746a6
+
 
 ---
-# ¿Qué es Azure RemoteApp?
+# <a name="what-is-azure-remoteapp"></a>¿Qué es Azure RemoteApp?
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -32,9 +36,9 @@ Siga leyendo para obtener más información sobre Azure RemoteApp o, si ya está
 
 RemoteApp de Azure es parte de la [Infraestructura de Escritorio virtual de Microsoft](http://www.microsoft.com/server-cloud/products/virtual-desktop-infrastructure/explore.aspx).
 
-**¡Nuevo!** ¿Desea obtener más información acerca de RemoteApp de Azure? O bien, ¿está listo para validar Azure RemoteApp a escala? Únase a nuestro [seminario web Pregunte a los expertos](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website) semanal.
+**¡Nuevo!**  ¿Desea obtener más información acerca de RemoteApp de Azure? O bien, ¿está listo para validar Azure RemoteApp a escala? Únase a nuestro [seminario web Pregunte a los expertos](https://azureinfo.microsoft.com/AzureRemoteAppAskTheExperts-Registration-Page.html?ls=Website)semanal.
 
-## Colecciones de Azure RemoteApp
+## <a name="azure-remoteapp-collections"></a>Colecciones de Azure RemoteApp
 Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
 
 * Una **colección en la nube** se hospeda en la nube de Azure y almacena allí todos los datos de los programas. Los usuarios pueden acceder a las aplicaciones mediante el inicio de sesión con sus cuentas de Microsoft o credenciales corporativas sincronizadas o federadas con Azure Active Directory.
@@ -50,9 +54,9 @@ Hay dos tipos de [colecciones de Azure RemoteApp](remoteapp-collections.md):
     
     Esto generalmente resulta más útil en el caso de grandes organizaciones con muchos recursos en sus redes privadas que no se pueden mover a la nube.
 
-Las diferentes colecciones tienen diferentes opciones, incluidas las redes, así que descubra [qué colección](remoteapp-collections.md) responde mejor a sus necesidades.
+Las diferentes colecciones tienen diferentes opciones, incluidas las redes, así que descubra [qué colección](remoteapp-collections.md) responde mejor a sus necesidades. 
 
-### Actualización de la colección
+### <a name="updating-your-collection"></a>Actualización de la colección
 Una de las diferencias clave entre las colecciones híbridas y en la nube es cómo se administran las actualizaciones de software. Con una colección en la nube que usa la imagen de Office 365 ProPlus u Office 2013 preinstalada, no tiene que preocuparse por las actualizaciones. El servicio se mantiene a sí mismo e implementa las actualizaciones de manera continua para aplicaciones y el sistema operativo.
 
 Para colecciones híbridas, así como para las colecciones en la nube que usan una imagen de plantilla personalizada, usted es responsable de mantener la imagen y las aplicaciones. Para imágenes unidas a dominio, puede controlar las actualizaciones mediante herramientas como Windows Update, directiva de grupo o System Center.
@@ -61,23 +65,28 @@ Después de actualizar la imagen de plantilla personalizada, cargue la nueva ima
 
 Vea [Actualización de la colección](remoteapp-update.md) para obtener más información.
 
-## Clientes compatibles con RemoteApp
+## <a name="supported-remoteapp-clients"></a>Clientes compatibles con RemoteApp
 Azure RemoteApp es compatible con las aplicaciones de cliente de RemoteApp para Windows y Windows RT, así como con las aplicaciones de Escritorio remoto de Microsoft para Mac, iOS y Android. Los usuarios pueden usar estas aplicaciones en sus dispositivos móviles o de proceso para acceder a los nuevos programas de Azure RemoteApp.
 
-Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
+Vea [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md) para obtener más información sobre los clientes.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Venga, pruébelo. Estos artículos le ayudarán a comenzar a usar Azure RemoteApp:
 
 * [¿Qué tipo de colección necesita para Azure RemoteApp?](remoteapp-collections.md)
-* [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
-* [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
-* [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
+* [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md)
+* [Creación de una colección en la nube de Azure RemoteApp](remoteapp-create-cloud-deployment.md)
+* [Creación de una colección híbrida de Azure RemoteApp](remoteapp-create-hybrid-deployment.md)
 * [¿Cómo funciona la concesión de licencias de RemoteApp de Azure?](remoteapp-licensing.md)
 * [Prácticas recomendadas para usar RemoteApp de Azure](remoteapp-bestpractices.md)
 * [Preguntas más frecuentes sobre RemoteApp de Azure](remoteapp-faq.md)
 
-### Permítanos ayudarle
+### <a name="help-us-help-you"></a>Permítanos ayudarle
 ¿Sabía que, además de clasificar este artículo y realizar comentarios abajo, puede realizar cambios en el artículo? ¿Falta algo? ¿Algo no es correcto? ¿Algo de lo que he escrito es simplemente confuso? Desplácese hacia arriba y haga clic en **Editar en GitHub** o en **Editar** para realizar cambios que nos llegarán para su revisión; una vez que los aprobemos, verá los cambios y mejoras aquí.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

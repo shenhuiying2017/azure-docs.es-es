@@ -14,7 +14,7 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
    
     d. En el texto de la notificación, escriba el **título** que aparecerá en negrita en la inserción.
    
-    e. Luego escriba su **mensaje**.
+    e. Luego escriba su **mensaje**
 4. Desplácese hacia abajo y en la sección **Contenido**, seleccione **Solo notificación**.
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-content.png)
@@ -23,4 +23,8 @@ Ahora crearemos una campaña de notificación de inserción simple que enviará 
    
     ![](./media/mobile-engagement-windows-push-campaign/campaign-activate.png)
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

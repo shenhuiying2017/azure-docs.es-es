@@ -1,27 +1,32 @@
 ---
-title: Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Docs
-description: Visualización de datos de Almacenamiento de datos SQL con Power BI
+title: "Visualización de datos de Almacenamiento de datos SQL con Power BI | Microsoft Azure"
+description: "Visualización de datos de Almacenamiento de datos SQL con Power BI"
 services: sql-data-warehouse
 documentationcenter: NA
-author: lodipalm
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: d7fb89d1-da1d-4788-a111-68d0e3fda799
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/16/2016
-ms.author: lodipalm;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f498f4546e8c23f2141d8d30160a360fa0fc2514
+
 
 ---
-# Visualización de datos con Power BI
+# <a name="visualize-data-with-power-bi"></a>Visualización de datos con Power BI
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
@@ -31,15 +36,15 @@ Este tutorial muestra cómo usar Power BI para conectar con Almacenamiento de da
 > 
 > 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para seguir paso a paso este tutorial, necesita:
 
-* Una instancia de Almacenamiento de datos SQL cargada previamente con la base de datos de AdventureWorksDW. Para aprovisionarla, consulte [Creación de una instancia de Almacenamiento de datos SQL de Azure][Creación de una instancia de Almacenamiento de datos SQL de Azure] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][cargar manualmente los datos de ejemplo].
+* Una instancia de Almacenamiento de datos SQL cargada previamente con la base de datos de AdventureWorksDW. Para aprovisionarla, consulte [Creación de una instancia de SQL Data Warehouse][Creación de una instancia de SQL Data Warehouse] y seleccione la opción para cargar los datos de ejemplo. Si ya tiene un almacenamiento de datos pero no tiene datos de ejemplo, puede [cargar manualmente los datos de ejemplo][cargar manualmente los datos de ejemplo].
 
-## 1\. Conectarse a la base de datos
+## <a name="1-connect-to-your-database"></a>1. Conectarse a la base de datos
 Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
 
-1. Inicie sesión en el [Portal de Azure][Portal de Azure].
+1. Inicie sesión en [Azure Portal][Azure Portal].
 2. Haga clic en **Bases de datos SQL** y elija su base de datos de Almacenamiento de datos SQL de AdventureWorks.
    
     ![Buscar la base de datos][1]
@@ -56,7 +61,7 @@ Para abrir Power BI y conectarse a la base de datos AdventureWorksDW:
    
     ![Apertura de AdventureWorksDW en Power BI][5]
 
-## 2\. Creación de un informe
+## <a name="2-create-a-report"></a>2. Creación de un informe
 Ahora está listo para usar Power BI para analizar los datos de ejemplo AdventureWorksDW. Para realizar el análisis, AdventureWorksDW tiene una vista denominada AggregateSales. Esta vista contiene algunas de las métricas clave para analizar las ventas de la empresa.
 
 1. Para crear una asignación del importe de ventas según el código postal, en los campos de la derecha, haga clic en la vista AggregateSales para expandirla. A continuación, haga clic en las columnas PostalCode y SalesAmount para seleccionarlas.
@@ -83,7 +88,7 @@ Ahora está listo para usar Power BI para analizar los datos de ejemplo Adventur
 
 Para guardar el progreso en cualquier momento, haga clic en **Archivo** y seleccione **Guardar**.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemplo, consulte cómo puede [desarrollar][desarrollar], [cargar][cargar] o [migrar][migrar]. También puede visitar la [página web de Power BI][página web de Power BI].
 
 <!--Image references-->
@@ -105,11 +110,15 @@ Ahora que le hemos dado algún tiempo para familiarizarse con los datos de ejemp
 [desarrollar]: sql-data-warehouse-overview-develop.md
 [cargar]: sql-data-warehouse-overview-load.md
 [cargar manualmente los datos de ejemplo]: sql-data-warehouse-load-sample-databases.md
-[connecting to SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
+[conexión a SQL Data Warehouse]: sql-data-warehouse-integrate-power-bi.md
 [Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
 
 <!--Other-->
 [Portal de Azure]: https://portal.azure.com/
 [página web de Power BI]: http://www.powerbi.com/
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

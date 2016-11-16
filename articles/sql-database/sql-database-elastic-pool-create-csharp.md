@@ -1,12 +1,12 @@
 ---
-title: Creación de un grupo de bases de datos elásticas con C# | Microsoft Docs
-description: Use técnicas de desarrollo de bases de datos de C# para crear un grupo de bases de datos elásticas escalable en la Base de datos SQL de Azure, para así poder compartir recursos entre muchas bases de datos.
+title: "Creación de un grupo de bases de datos elásticas con C# | Microsoft Docs"
+description: "Use técnicas de desarrollo de bases de datos de C# para crear un grupo de bases de datos elásticas escalable en la Base de datos SQL de Azure, para así poder compartir recursos entre muchas bases de datos."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 28f792cd5afd194445666aeb1d17d5fbf27a835d
+
 
 ---
-# <a name="create-an-elastic-database-pool-with-c&#x23;"></a>Creación de un grupo de bases de datos elásticas con C&#x23;
+# <a name="create-an-elastic-database-pool-with-cx23"></a>Creación de un grupo de bases de datos elásticas con C&#x23;
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,10 +30,10 @@ ms.author: sstein
 
 Este artículo explica cómo usar C# para crear un grupo de bases de datos elásticas de Azure SQL mediante la [Biblioteca de Azure SQL Database para .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). Para crear una base de datos de SQL, consulte [Uso de C# para crear una base de datos SQL con la biblioteca de base de datos SQL para .NET](sql-database-get-started-csharp.md).
 
-La biblioteca de Azure SQL Database para .NET ofrece una API basada en [Azure Resource Manager](../resource-group-overview.md) que encapsula la [API de REST de SQL Database basada en Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
+La biblioteca de Azure SQL Database para .NET ofrece una API basada en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) que encapsula la [API de REST de SQL Database basada en Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
 > [!NOTE]
-> Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las [bibliotecas basadas en el modelo de implementación clásica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) (más antiguas), se admiten por razones de compatibilidad con versiones anteriores, por lo que se recomienda que utilice las bibliotecas basadas en Resource Manager que son más recientes.
+> Muchas de las nuevas características de SQL Database solo se admiten cuando se utiliza el [modelo de implementación de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), por lo que siempre debe usar la **biblioteca de administración más reciente de Azure SQL Database para .NET ([documentos](https://msdn.microsoft.com/library/azure/mt349017.aspx) | [Paquete NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql))**. Las [bibliotecas basadas en el modelo de implementación clásica](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Sql) (más antiguas), se admiten por razones de compatibilidad con versiones anteriores, por lo que se recomienda que utilice las bibliotecas basadas en Resource Manager que son más recientes.
 > 
 > 
 
@@ -55,7 +59,7 @@ Para crear una base de datos SQL con C#, cargue las bibliotecas de administraci�
 > 
 > 
 
-## <a name="create-a-sql-elastic-database-pool---c#-example"></a>Creación de un grupo de bases de datos elásticas de SQL: ejemplo de C
+## <a name="create-a-sql-elastic-database-pool-c-example"></a>Creación de un grupo de bases de datos elásticas de SQL: ejemplo de C#
 En el ejemplo siguiente se crea un grupo de recursos, un servidor, una regla de firewall y un grupo elástico y, a continuación, se crea una base de datos SQL en el grupo. Consulte [Creación de una entidad de servicio para acceder a recursos](#create-a-service-principal-to-access-resources) para obtener las variables `_subscriptionId, _tenantId, _applicationId, and _applicationSecret`.
 
 Reemplace el contenido de **Program.cs** por lo siguiente y actualice `{variables}` con los valores de la aplicación (sin incluir `{}`).
@@ -307,6 +311,9 @@ El siguiente script de PowerShell crea la aplicación de Active Directory (AD) y
 * [Base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 * [API de administración de recursos de Azure](https://msdn.microsoft.com/library/azure/dn948464.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

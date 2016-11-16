@@ -1,12 +1,12 @@
 ---
-title: Introducción a Azure Mobile Engagement para iOS en Swift | Microsoft Docs
-description: Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS.
+title: "Introducción a Azure Mobile Engagement para iOS en Swift | Microsoft Docs"
+description: "Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones iOS."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 196c282d-6f2f-4cbc-aeee-6517c5ad866d
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,6 +14,10 @@ ms.devlang: swift
 ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1011b9823333e79a52cd2d187df4f8d063b1f799
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-swift"></a>Introducción a Azure Mobile Engagement para aplicaciones iOS en Swift
@@ -40,10 +44,10 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Mobi
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación iOS
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 En este tutorial se presenta una "integración básica", que es el conjunto mínimo necesario para recopilar los datos y enviar una notificación de inserción. Toda la información sobre la integración se encuentra en la [Integración del SDK de Mobile Engagement para iOS](mobile-engagement-ios-sdk-overview.md)
 
 Crearemos una aplicación básica con XCode para demostrar la integración:
@@ -87,22 +91,22 @@ Crearemos una aplicación básica con XCode para demostrar la integración:
     
         func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
         {
-            [...]
+              [...]
                 EngagementAgent.init("Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}")
-            [...]
+              [...]
         }
 
-## <a name="<a-id="monitor"></a>enabling-real-time-monitoring"></a><a id="monitor"></a>Habilitar supervisión en tiempo real
+## <a name="a-idmonitoraenabling-realtime-monitoring"></a><a id="monitor"></a>Habilitar supervisión en tiempo real
 Para comenzar a enviar datos y asegurarse de que los usuarios estén activos, debe enviar al menos una pantalla (Actividad) al back-end de Mobile Engagement.
 
 1. Abra el archivo **ViewController.swift** y reemplace la clase base de **ViewController** para que sea **EngagementViewController**:
    
     `class ViewController : EngagementViewController {`
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enabling-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitación de las notificaciones de inserción y mensajería en la aplicación
+## <a name="a-idintegratepushaenabling-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Habilitación de las notificaciones de inserción y mensajería en la aplicación
 Mobile Engagement permite interactuar y llegar a los usuarios mediante notificaciones de inserción y mensajería en la aplicación en el contexto de las campañas. Este módulo se denomina REACH en el portal de Mobile Engagement.
 En las secciones siguientes se instalará la aplicación para recibirlos.
 
@@ -196,6 +200,6 @@ En las secciones siguientes se instalará la aplicación para recibirlos.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

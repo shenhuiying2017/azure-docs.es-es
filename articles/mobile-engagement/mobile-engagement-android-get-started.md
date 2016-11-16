@@ -1,12 +1,12 @@
 ---
-title: Introducción a las aplicaciones Android de Azure Mobile Engagement
-description: Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones Android.
+title: "Introducción a las aplicaciones Android de Azure Mobile Engagement"
+description: "Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones de inserción para aplicaciones Android."
 services: mobile-engagement
 documentationcenter: android
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3c286c6d-cfef-4e3e-9b2c-715429fe82db
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a4b9ab47969c95aa9940e044b426cf2811e23f61
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introducción a Azure Mobile Engagement para aplicaciones Android
@@ -106,10 +110,10 @@ Ahora Android Studio crea la aplicación de demostración en la que integraremos
 2. Agregue este código entre las etiquetas `<application>` y `</application>` para declarar el servicio del agente:
    
         <service
-            android:name="com.microsoft.azure.engagement.service.EngagementService"
-            android:exported="false"
-            android:label="<Your application name>"
-            android:process=":Engagement"/>
+             android:name="com.microsoft.azure.engagement.service.EngagementService"
+             android:exported="false"
+             android:label="<Your application name>"
+             android:process=":Engagement"/>
 3. En el código que pegó, reemplace `"<Your application name>"` en la etiqueta que aparece en el menú **Configuración** donde puede ver los servicios que se ejecutan en el dispositivo. Puede agregar la palabra "Servicio" a la etiqueta, por ejemplo.
 
 ### <a name="send-a-screen-to-mobile-engagement"></a>Enviar una pantalla a Mobile Engagement
@@ -130,10 +134,10 @@ Convierta en comentario la línea siguiente para este escenario de ejemplo simpl
 
 Si desea mantener `ActionBar` en la aplicación, consulte [Opciones de informes con Engagement en Android](mobile-engagement-android-advanced-reporting.md#modifying-your-codeactivitycode-classes).
 
-## <a name="connect-app-with-real-time-monitoring"></a>Conectar la aplicación con la supervisión en tiempo real
+## <a name="connect-app-with-realtime-monitoring"></a>Conectar la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="enable-push-notifications-and-in-app-messaging"></a>Habilitación de las notificaciones push y la mensajería en aplicación
+## <a name="enable-push-notifications-and-inapp-messaging"></a>Habilitación de las notificaciones push y la mensajería en aplicación
 Durante una campaña, Mobile Engagement permite interactuar y llegar por REACH a los usuarios mediante notificaciones push y mensajería en la aplicación. Este módulo se denomina REACH en el portal de Mobile Engagement.
 En la sección siguiente se instala la aplicación para recibirlos.
 
@@ -169,6 +173,6 @@ Vaya a [SDK de Android](mobile-engagement-android-sdk-overview.md) para obtener 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

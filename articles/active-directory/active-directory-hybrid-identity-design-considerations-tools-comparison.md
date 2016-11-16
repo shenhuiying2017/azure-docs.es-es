@@ -1,12 +1,12 @@
 ---
-title: 'Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas | Microsoft Docs'
-description: Esta página proporciona una tabla completa con la comparación de las distintas herramientas que se pueden usar para la integración de directorios.
+title: "Identidades híbridas: comparación de las herramientas para la integración de directorios | Microsoft Docs"
+description: "Esta página proporciona una tabla completa con la comparación de las distintas herramientas que se pueden usar para la integración de directorios."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
 editor: curtand
-
+ms.assetid: 1e62a4bd-4d55-4609-895e-70131dedbf52
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1df15de1c24e80b0692149dfc7cb660f74941886
+
 
 ---
-# Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas
-A lo largo de los años, las herramientas para la integración de directorios han crecido y evolucionado. En este documento, se proporciona una vista consolidada de estas herramientas, además de una comparación de las características disponibles en cada una de ellas.
+# <a name="hybrid-identity-directory-integration-tools-comparison"></a>Identidades híbridas: comparación de las herramientas para la integración de directorios de identidades híbridas
+A lo largo de los años, las herramientas para la integración de directorios han crecido y evolucionado.  En este documento, se proporciona una vista consolidada de estas herramientas, además de una comparación de las características disponibles en cada una de ellas.
 
 <!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
 
@@ -30,9 +34,11 @@ A lo largo de los años, las herramientas para la integración de directorios ha
 
 Utilice la clave siguiente para cada una de las tablas.
 
-● = Disponible ahora VF = Versión futura VP = Versión preliminar pública
+●  = Ya disponible  
+FR = versión futura  
+PP = En versión preliminar pública  
 
-## Sincronización de local a la nube
+## <a name="onpremises-to-cloud-synchronization"></a>Sincronización de local a la nube
 | Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory (Sincronización de AAD) | Herramienta de sincronización de Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Conexión a un bosque de AD local |● |● |● |● |● |
@@ -46,7 +52,7 @@ Utilice la clave siguiente para cada una de las tablas.
 | Conexión a sistemas de recursos humanos locales (es decir, SAP, Oracle eBusiness, PeopleSoft) |VF | | |● |● |
 | Admite reglas de sincronización y conectores de FIM para el aprovisionamiento de sistemas locales. | | | |● |● |
 
-## Sincronización de la nube a local
+## <a name="cloud-to-onpremises-synchronization"></a>Sincronización de la nube a local
 | Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory | Herramienta de sincronización de Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Escritura diferida de dispositivos |● | |● | | |
@@ -54,7 +60,7 @@ Utilice la clave siguiente para cada una de las tablas.
 | Escritura diferida de objetos de grupos y usuarios |● | | | | |
 | Escritura diferida de contraseñas (desde autoservicio de restablecimiento de contraseña [SSPR] y cambio de contraseña) |● |● | | | |
 
-## Compatibilidad con características de autenticación
+## <a name="authentication-feature-support"></a>Compatibilidad con características de autenticación
 | Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory | Herramienta de sincronización de Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Sincronización de contraseñas para bosque de AD local |● |● |● | | |
@@ -62,7 +68,7 @@ Utilice la clave siguiente para cada una de las tablas.
 | Inicio de sesión único con federación |● |● |● |● |● |
 | Escritura diferida de contraseñas (desde SSPR y cambio de contraseña) |● |● | | | |
 
-## Configuración e instalación
+## <a name="setup-and-installation"></a>Configuración e instalación
 | Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory | Herramienta de sincronización de Azure Active Directory (DirSync) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|
 | Admite la instalación de un controlador de dominio |● |● |● | |
@@ -73,7 +79,7 @@ Utilice la clave siguiente para cada una de las tablas.
 | Compatibilidad con Windows Server 2008 y Windows Server 2008 R2 |● para sincronización, no para federación |● |● |● |
 | Compatibilidad con Windows Server 2012 y Windows Server 2012 R2 |● |● |● |● |
 
-## Filtrado y configuración
+## <a name="filtering-and-configuration"></a>Filtrado y configuración
 | Característica | Azure Active Directory Connect | Servicios de sincronización de Azure Active Directory | Herramienta de sincronización de Azure Active Directory (DirSync) | Forefront Identity Manager 2010 R2 (FIM) | Microsoft Identity Manager 2016 (MIM) |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 | Filtrar según dominios y unidades organizativas |● |● |● |● |● |
@@ -83,7 +89,12 @@ Utilice la clave siguiente para cada una de las tablas.
 | Permitir quitar atributos del flujo de AD a Azure AD |● |● | | | |
 | Permitir personalización avanzada para flujos de atributo |● |● | |● |● |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,4 +1,4 @@
-### <a name="noconnection"></a>Adición o eliminación de prefijos (sin conexión de la puerta de enlace)
+### <a name="a-namenoconnectionahow-to-add-or-remove-prefixes-no-gateway-connection"></a><a name="noconnection"></a>Adición o eliminación de prefijos (sin conexión de la puerta de enlace)
 * **Para agregar** prefijos de dirección adicionales a una puerta de enlace de red local que se ha creado, pero que aún no tiene una conexión de puerta de enlace, use el ejemplo siguiente. Asegúrese de cambiar los valores por los suyos.
   
         $local = Get-AzureRmLocalNetworkGateway -Name MyLocalNetworkGWName -ResourceGroupName MyRGName `
@@ -10,7 +10,7 @@
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
         -AddressPrefix @('10.0.0.0/24','30.0.0.0/24')
 
-### <a name="withconnection"></a>Adición o eliminación de prefijos (conexión de la puerta de enlace existente)
+### <a name="a-namewithconnectionahow-to-add-or-remove-prefixes-existing-gateway-connection"></a><a name="withconnection"></a>Adición o eliminación de prefijos (conexión de la puerta de enlace existente)
 Si ha creado una conexión de puerta de enlace y desea agregar o quitar los prefijos de dirección IP contenidos en la puerta de enlace de red local, tendrá que realizar los pasos siguientes en orden. Esto dará como resultado un tiempo de inactividad para la conexión VPN. Al actualizar los prefijos, quite primero la conexión, modifique los prefijos y luego cree una nueva conexión. En los siguientes ejemplos, asegúrese de cambiar los valores por los suyos.
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Si ha creado una conexión de puerta de enlace y desea agregar o quitar los pref
    
         Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $local `
         -AddressPrefix @('10.0.0.0/24','20.0.0.0/24','30.0.0.0/24')
-3. Cree la conexión. En este ejemplo, vamos a configurar un tipo de conexión IPsec. Cuando se vuelva a crear la conexión, use el tipo de conexión que se especifica para la configuración. Para otros tipos de conexión, consulte la página de [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt603611.aspx).
+3. Cree la conexión. En este ejemplo, vamos a configurar un tipo de conexión IPsec. Cuando se vuelva a crear la conexión, use el tipo de conexión que se especifica para la configuración. Para otros tipos de conexión, consulte la página de [cmdlets de PowerShell](https://msdn.microsoft.com/library/mt603611.aspx) .
    
      Establezca la variable para VirtualNetworkGateway.
    
@@ -45,4 +45,7 @@ Si ha creado una conexión de puerta de enlace y desea agregar o quitar los pref
         -ConnectionType IPsec `
         -RoutingWeight 10 -SharedKey 'abc123'
 
-<!---HONumber=AcomDC_0810_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

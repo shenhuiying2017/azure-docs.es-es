@@ -1,12 +1,12 @@
 ---
-title: Conceptos, términos y entidades del programador | Microsoft Docs
-description: Conceptos del Programador de Azure, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos. Proporciona un ejemplo completo de un trabajo programado.
+title: "Conceptos, términos y entidades del programador | Microsoft Docs"
+description: "Conceptos del Programador de Azure, terminología y jerarquía de entidades, incluidos trabajos y colecciones de trabajos.  Proporciona un ejemplo completo de un trabajo programado."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: ''
-
+editor: 
+ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8c0d2b57f7a998ae52a08a5ae0cbc57a0a77f002
+
 
 ---
-# Conceptos, terminología y jerarquía de entidades de Programador
-## Jerarquía de entidades del Programador
+# <a name="scheduler-concepts-terminology-entity-hierarchy"></a>Conceptos, terminología y jerarquía de entidades de Programador
+## <a name="scheduler-entity-hierarchy"></a>Jerarquía de entidades del Programador
 En la tabla siguiente se describen los recursos principales expuestos o utilizados por la API del Programador:
 
 | Recurso | Description |
@@ -26,25 +30,25 @@ En la tabla siguiente se describen los recursos principales expuestos o utilizad
 | **Trabajo** |Un trabajo define una única acción periódica, con estrategias simples o complejas para su ejecución. Las acciones pueden incluir solicitudes HTTP, de cola de almacenamiento, de cola de bus de servicio o de tema de bus de servicio. |
 | **Historial de trabajos** |Un historial de trabajos representa los detalles de una ejecución de un trabajo. Contiene los trabajos realizados correctamente y los errores, así como los detalles de las respuestas. |
 
-## Administración de entidades de Programador
+## <a name="scheduler-entity-management"></a>Administración de entidades de Programador
 En un nivel superior, el Programador y la API de administración de servicio exponen las operaciones siguientes en los recursos:
 
 | Capacidad | Descripción y dirección URI |
 | --- | --- |
 | **Administración de la colección de trabajos** |GET, PUT y DELETE permiten la creación y modificación de las colecciones de trabajos y trabajos que contienen. Una colección de trabajos es un contenedor para trabajos, asignaciones para cuotas y configuración compartida. Ejemplos de cuotas, descritos más adelante, son el número máximo de trabajos y un intervalo menor de periodicidad. <p>PUT y DELETE: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p><p>GET: `https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`</p> |
-| **Administración de trabajos** |GET, PUT, POST, PATCH y DELETE permiten la creación y modificación de trabajos. Todos los trabajos deben pertenecer a una colección de trabajos que ya existe, así que no hay ninguna creación implícita.<p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
+| **Administración de trabajos** |GET, PUT, POST, PATCH y DELETE permiten la creación y modificación de trabajos. Todos los trabajos deben pertenecer a una colección de trabajos que ya existe, así que no hay ninguna creación implícita. <p>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`</p> |
 | **Administración del historial de trabajos** |GET admite la recuperación de 60 días de historial de ejecución de trabajos, como el tiempo de trabajo transcurrido y los resultados de la ejecución del trabajo. Agrega compatibilidad de parámetros de cadena de consulta para filtrar basándose en el estado y la situación. <P>`https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`</p> |
 
-## Tipos de trabajo
+## <a name="job-types"></a>Tipos de trabajo
 Hay varios tipos de trabajos: trabajos HTTP (incluidos trabajos HTTPS que admiten SSL), trabajos de cola de almacenamiento, trabajos de cola de bus de servicio y trabajos de tema de bus de servicio. Los trabajos HTTP son perfectos si dispone de un extremo de una carga de trabajo o servicio existente. Puede usar trabajos de cola de almacenamiento para enviar mensajes a colas de almacenamiento, por lo que dichos trabajos son ideales para cargas de trabajo que utilizan colas de almacenamiento. De forma similar, los trabajos de bus de servicio son ideales para cargas de trabajo que usan temas y colas de bus de servicio.
 
-## La entidad "Trabajo" en detalle
+## <a name="the-job-entity-in-detail"></a>La entidad "Trabajo" en detalle
 En un nivel básico, un trabajo programado cuenta con varias partes:
 
-* La acción que se va a realizar cuando se activa el temporizador de trabajo
-* (Opcional) El tiempo para ejecutar el trabajo
-* (Opcional) Cuándo y con qué frecuencia se debe repetir el trabajo
-* (Opcional) Una acción que se desencadena si se produce un error en la acción principal
+* La acción que se va a realizar cuando se activa el temporizador de trabajo  
+* (Opcional) El tiempo para ejecutar el trabajo  
+* (Opcional) Cuándo y con qué frecuencia se debe repetir el trabajo  
+* (Opcional) Una acción que se desencadena si se produce un error en la acción principal  
 
 Internamente, un trabajo programado contiene también datos proporcionados por el sistema, como la siguiente hora de ejecución programada.
 
@@ -102,19 +106,19 @@ El código siguiente proporciona un ejemplo completo de un trabajo programado. E
 
 Como se muestra en el trabajo programado de ejemplo anterior, una definición de trabajo tiene varias partes:
 
-* Hora de inicio ("startTime")
+* Hora de inicio ("startTime")  
 * Acción ("action"), que incluye la acción del error ("errorAction")
-* Periodicidad ("recurrence")
-* Situación ("state")
-* Estado ("status")
-* Directiva de reintentos (“retryPolicy”)
+* Periodicidad ("recurrence")  
+* Situación ("state")  
+* Estado ("status")  
+* Directiva de reintentos (“retryPolicy”)  
 
 Examinemos cada uno de ellos en detalle:
 
-## startTime
+## <a name="starttime"></a>startTime
 "startTime" es la hora de inicio y permite al que llama especificar un desplazamiento de zona horaria en el cable en [formato ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## action y errorAction
+## <a name="action-and-erroraction"></a>action y errorAction
 "action" es la acción que se invoca en cada repetición y describe un tipo de invocación del servicio. La acción es lo que se ejecutará en la programación especificada. El Programador admite acciones HTTP, de cola de almacenamiento, de cola de bus de servicio y de tema de bus de servicio.
 
 La acción en el ejemplo anterior es una acción http. A continuación se muestra un ejemplo de una acción de cola de almacenamiento:
@@ -133,44 +137,48 @@ La acción en el ejemplo anterior es una acción http. A continuación se muestr
 
 A continuación se muestra un ejemplo de una acción de tema de bus de servicio.
 
-  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
+  "action": { "type": "serviceBusTopic", "serviceBusTopicMessage": { "topicPath": "t1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, }
 
 A continuación se muestra un ejemplo de una acción de cola de bus de servicio.
 
-  "action": { "serviceBusQueueMessage": { "queueName": "q1", "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": { "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message", "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
+  "action": { "serviceBusQueueMessage": { "queueName": "q1",  
+      "namespace": "mySBNamespace", "transportType": "netMessaging", // Can be either netMessaging or AMQP "authentication": {  
+        "sasKeyName": "QPolicy", "type": "sharedAccessKey" }, "message": "Some message",  
+      "brokeredMessageProperties": {}, "customMessageProperties": { "appname": "FromScheduler" } }, "type": "serviceBusQueue" }
 
 "errorAction" es el controlador de errores, la acción que se invoca cuando se produce un error en la acción primaria. Puede usar esta variable para llamar a un extremo de control de errores o para enviar una notificación al usuario. Esto puede usarse para llegar a un extremo secundario en caso de que el principal no esté disponible (por ejemplo, en caso de un desastre en el sitio del extremo) o se puede usar para notificar a un extremo de control de errores. Igual que la acción primaria, la acción de error puede ser una lógica simple o compuesta basada en otras acciones. Para obtener información sobre cómo crear un token de SAS, consulte [Crear y usar una firma de acceso compartido](https://msdn.microsoft.com/library/azure/jj721951.aspx).
 
-## recurrence
+## <a name="recurrence"></a>recurrence
 La periodicidad tiene varias partes:
 
-* Frecuencia: un minuto, hora, día, semana, mes, año
-* Intervalo: el intervalo de frecuencia definido para la periodicidad
-* Programación prescrita: especifique minutos, horas, días de la semana, meses y días de mes para de la periodicidad
-* Recuento: número de repeticiones
-* Hora de finalización: ningún trabajo se ejecutará después de la hora de finalización especificada
+* Frecuencia: un minuto, hora, día, semana, mes, año  
+* Intervalo: el intervalo de frecuencia definido para la periodicidad  
+* Programación prescrita: especifique minutos, horas, días de la semana, meses y días de mes para de la periodicidad  
+* Recuento: número de repeticiones  
+* Hora de finalización: ningún trabajo se ejecutará después de la hora de finalización especificada  
 
 Un trabajo es periódico si tiene un objeto de periodicidad especificado en la definición de JSON. Si se especifican a la vez count y endTime, se respeta la regla de finalización que se produzca primero.
 
-## state
+## <a name="state"></a>state
 La situación del trabajo es una de cuatro valores: habilitado, deshabilitado, completado o con errores. Puede utilizar PUT o PATCH para los trabajos para actualizarlos al estado habilitado o deshabilitado. Si un trabajo se ha completado o tiene errores, es el estado final el que no se puede actualizar (aunque todavía se pueda eliminar el trabajo). Un ejemplo de la propiedad state es la siguiente:
 
         "state": "disabled", // enabled, disabled, completed, or faulted
 Los trabajos completados y con errores se eliminan después de 60 días.
 
-## status
+## <a name="status"></a>status
 Una vez que se inició un trabajo de Programador, se devolverá información sobre el estado actual del trabajo. Este objeto no es configurable por el usuario: lo establece el sistema. Sin embargo, se incluye en el objeto de trabajo (en lugar de un recurso vinculado independiente) para que se pueda obtener fácilmente el estado de un trabajo.
 
 El estado del trabajo incluye el tiempo de la ejecución anterior (si hay alguna), el tiempo de la siguiente ejecución programada (para los trabajos en curso) y el recuento de la ejecución del trabajo.
 
-## retryPolicy
+## <a name="retrypolicy"></a>retryPolicy
 Si se produce un error en un trabajo de Programador, es posible especificar una directiva de reintentos para determinar cuándo y cómo se vuelve a intentar la acción. Esto viene determinado por el objeto **retryType**: está establecido en **none** si no hay ninguna directiva de reintentos, como se mostró anteriormente. Establézcalo en **fixed** si hay una directiva de reintentos.
 
 Para establecer una directiva de reintentos, se pueden especificar dos configuraciones adicionales: un intervalo de reintento (**retryInterval**) y el número de reintentos (**retryCount**).
 
-El intervalo de reintentos, especificado con el objeto **retryInterval**, es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora. Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount**; es el número de veces que se realiza un reintento. Su valor predeterminado es 4 y su valor máximo es 20. Tanto **retryInterval** como **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
+El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora.  Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4, y su valor máximo es 20\.. **retryInterval** y **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
 
-## Otras referencias
+## <a name="see-also"></a>Consulte también
  [¿Qué es Programador?](scheduler-intro.md)
 
  [Introducción al uso de Programador de Azure en el Portal de Azure](scheduler-get-started-portal.md)
@@ -189,4 +197,9 @@ El intervalo de reintentos, especificado con el objeto **retryInterval**, es el 
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

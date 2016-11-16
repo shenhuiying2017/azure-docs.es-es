@@ -1,12 +1,12 @@
 ---
-title: Solución de inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar]| Microsoft Docs
-description: Las soluciones de administración de máquinas virtuales inician y detienen las máquinas virtuales de Azure Resource Manager según una programación y supervisan de forma proactiva la información de Log Analytics.
+title: "Solución de inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar]| Microsoft Docs"
+description: "Las soluciones de administración de máquinas virtuales inician y detienen las máquinas virtuales de Azure Resource Manager según una programación y supervisan de forma proactiva la información de Log Analytics."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/07/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0fec06e4a167e615381fca17def46923d9f0f1b
+
 
 ---
-# <a name="start/stop-vms-during-off-hours-[preview]-solution-in-automation"></a>Inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar] en Automation
+# <a name="startstop-vms-during-offhours-preview-solution-in-automation"></a>Inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar] en Automation
 La solución de inicio y detención de máquinas virtuales fuera de las horas de trabajo (versión preliminar) inicia y detiene las máquinas virtuales de Azure Resource Manager y proporciona información detallada sobre el éxito de los trabajos de Automation que inician y detienen las máquinas virtuales con Log Analytics de OMS.  
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -121,7 +125,7 @@ Al seleccionar la solución se muestra la hoja de la solución **Start-Stop-VM[W
 
 Desde aquí también puede abrir el espacio de trabajo de OMS y realizar análisis adicionales de los registros de trabajos.  Simplemente haga clic en **Toda la configuración** y, en la hoja **Configuración**, seleccione **Inicio rápido** y luego, en la hoja **Inicio rápido**, seleccione **OMS Portal** (Portal de OMS).   Se abrirá una nueva pestaña o una nueva sesión de explorador y se presentará el espacio de trabajo de OMS asociado con la cuenta de Automation y la suscripción.  
 
-### <a name="configuring-e-mail-notifications"></a>Configuración de notificaciones por correo electrónico
+### <a name="configuring-email-notifications"></a>Configuración de notificaciones por correo electrónico
 Para habilitar las notificaciones de correo electrónico cuando finalicen los Runbooks de inicio y detención de máquinas virtuales, deberá modificar la credencial **O365Credential** y al menos las siguientes variables:
 
 * SendMailO365-IsSendEmail-MS-Mgmt
@@ -160,11 +164,11 @@ Automation crea dos tipos de registros en el repositorio de OMS.
 | ResourceGroup |Especifica el nombre del grupo de recursos del trabajo de Runbook. |
 | ResourceProvider |Especifica el servicio de Azure que proporciona los recursos que puede implementar y administrar.  Para Automation, el valor es Azure Automation. |
 | ResourceType |Especifica el tipo de recurso en Azure.  Para Automation, el valor es la cuenta de Automation asociada al Runbook. |
-| resultType |El estado del trabajo de Runbook.  Los valores posibles son:<br>- Iniciado<br>- Detenido<br>- Suspendido<br>- Error<br>- Correcto |
+| resultType |El estado del trabajo de Runbook.  Los valores posibles son:<br>Started<br>Stopped<br>Suspended<br>Con error<br>- Correcto |
 | resultDescription |Describe el estado de resultado del trabajo de Runbook.  Los valores posibles son:<br>- Se inicia el trabajo<br>- Error del trabajo<br>- Trabajo completado |
 | RunbookName |Especifica el nombre del Runbook. |
 | SourceSystem |Especifica el sistema de origen para los datos enviados.  Para Automation, el valor será OpsManager. |
-| StreamType |Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>- Error<br>- Advertencia |
+| StreamType |Especifica el tipo de evento. Los valores posibles son:<br>- Detallado<br>- Salida<br>error<br>Warning (Advertencia) |
 | SubscriptionId |Especifica el identificador de suscripción del trabajo. |
 | Hora |Fecha y hora en que se ejecuta el trabajo de Runbook. |
 
@@ -183,7 +187,7 @@ Automation crea dos tipos de registros en el repositorio de OMS.
 | resultDescription |Incluye la secuencia de salida del Runbook. |
 | RunbookName |El nombre del Runbook. |
 | SourceSystem |Especifica el sistema de origen para los datos enviados.  Para Automation, el valor será OpsManager. |
-| StreamType |El tipo de flujo de trabajo. Los valores posibles son:<br>-Progreso<br>- Salida<br>- Advertencia<br>- Error<br>- Depurar<br>- Detallado |
+| StreamType |El tipo de flujo de trabajo. Los valores posibles son:<br>progreso<br>- Salida<br>Warning (Advertencia)<br>Error<br>DEBUG<br>- Detallado |
 | Hora |Fecha y hora en que se ejecuta el trabajo de Runbook. |
 
 Cuando se realiza cualquier búsqueda de registros que devuelve registros de la categoría **JobLogs** o **JobStreams**, puede seleccionar la vista **JobLogs** o **JobStreams** que muestra un conjunto de iconos que resumen las actualizaciones devueltas en la búsqueda.
@@ -202,6 +206,9 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 * Para más información acerca de la ejecución de un runbook, cómo supervisar trabajos del runbook y otros detalles técnicos, consulte [Ejecución de un runbook en Automatización de Azure](automation-runbook-execution.md)
 * Para más información acerca de Log Analytics de OMS y de los orígenes de recopilación de datos, consulte [Conexión de Almacenamiento de Azure con Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

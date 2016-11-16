@@ -1,11 +1,11 @@
-## Recepción de mensajes con EventProcessorHost en Java
+## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Recepción de mensajes con EventProcessorHost en Java
 EventProcessorHost es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con EventProcessorHost, puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar EventProcessorHost para un solo destinatario.
 
-### Crear una cuenta de almacenamiento
-Para poder usar EventProcessorHost, debe tener una [cuenta de almacenamiento de Azure][cuenta de almacenamiento de Azure]\:
+### <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
+Para poder usar EventProcessorHost, debe tener una [cuenta de Azure Storage][cuenta de Azure Storage]:
 
 1. Inicie sesión en el [Portal de Azure clásico][Portal de Azure clásico] y haga clic en **NUEVO** en la parte inferior de la pantalla.
-2. Haga clic en **Servicios de datos**, **Almacenamiento** y **Creación rápida** y, a continuación, escriba un nombre para la cuenta de almacenamiento. Seleccione la región deseada y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
+2. Haga clic en **Servicios de datos**, **Almacenamiento** y **Creación rápida** y, después, escriba un nombre para la cuenta de almacenamiento. Seleccione la región deseada y, a continuación, haga clic en **Crear cuenta de almacenamiento**.
    
     ![][11]
 3. Haga clic en la cuenta de almacenamiento recién creada y, a continuación, en **Administrar claves de acceso**:
@@ -14,8 +14,8 @@ Para poder usar EventProcessorHost, debe tener una [cuenta de almacenamiento de 
    
     Copie la clave de acceso primaria para utilizarla más adelante en este tutorial.
 
-### Creación de un proyecto de Java mediante EventProcessorHost
-La biblioteca de cliente de Java para Centros de eventos está disponible para su uso en proyectos de Maven en el [repositorio central de Maven][Maven Package], y se puede hacer referencia a ella mediante la siguiente declaración de dependencia en el archivo de proyecto de Maven:
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Creación de un proyecto de Java mediante EventProcessorHost
+La biblioteca de cliente de Java para Event Hubs está disponible para su uso en proyectos de Maven en el [repositorio central de Maven][Maven Package], y se puede hacer referencia a ella mediante la siguiente declaración de dependencia en el archivo de proyecto de Maven:    
 
 ``` XML
 <dependency>
@@ -30,9 +30,9 @@ La biblioteca de cliente de Java para Centros de eventos está disponible para s
 </dependency>
 ```
 
-Para los diferentes tipos de entornos de compilación, puede obtener explícitamente los archivos JAR publicados más recientemente en el [repositorio central de Maven][Maven Package] o en el [punto de distribución de versiones en GitHub](https://github.com/Azure/azure-event-hubs/releases).
+Para los diferentes tipos de entornos de compilación, puede obtener explícitamente los archivos JAR publicados más recientemente en el [repositorio central de Maven][Maven Package] o en el [punto de distribución de versiones en GitHub](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. La clase se llamará ```ErrorNotificationHandler```.
+1. Para el ejemplo siguiente, primero cree un nuevo proyecto de Maven para una aplicación de consola o shell en su entorno de desarrollo de Java favorito. La clase se llamará ```ErrorNotificationHandler```.     
    
     ``` Java
     import java.util.function.Consumer;
@@ -47,7 +47,7 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
         }
     }
     ```
-2. Cree una clase nueva denominada ```EventProcessor``` con el código siguiente.
+2. Cree una clase nueva denominada ```EventProcessor```con el código siguiente.
    
     ```Java
     import com.microsoft.azure.eventhubs.EventData;
@@ -179,13 +179,13 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
     ```
 
 > [!NOTE]
-> Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de EventProcessorHost. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de EventProcessorHost según los equipos (o roles) en que se implementan.
+> Este tutorial usa una sola instancia de EventProcessorHost. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de EventProcessorHost. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup** . Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de EventProcessorHost según los equipos (o roles) en que se implementan.
 > 
 > 
 
 <!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[cuenta de almacenamiento de Azure]: ../storage/storage-create-storage-account.md
+[Información general de los Centros de eventos]: ../articles/event-hubs/event-hubs-overview.md
+[cuenta de Azure Storage]: ../articles/storage/storage-create-storage-account.md
 [Portal de Azure clásico]: http://manage.windowsazure.com
 [Maven Package]: https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22
 
@@ -193,4 +193,8 @@ Para los diferentes tipos de entornos de compilación, puede obtener explícitam
 [11]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp2.png
 [12]: ./media/service-bus-event-hubs-get-started-receive-ephjava/create-eph-csharp3.png
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

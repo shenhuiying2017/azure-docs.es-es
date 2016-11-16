@@ -1,10 +1,11 @@
-# [Información general](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+# Información general
 ## [¿Qué es Mobile Apps?](app-service-mobile-value-prop.md)
 ## [¿Qué es App Service?](../app-service/app-service-value-prop-what-is.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Cómo funciona](../app-service/app-service-how-works-readme.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Planes de App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Introducción
-## Aplicaciones móviles
+# Primeros pasos
+## Create mobile apps (Creación de aplicaciones móviles)
 ### [Android](app-service-mobile-android-get-started.md)
 ### [Cordova](app-service-mobile-cordova-get-started.md)
 ### [iOS](app-service-mobile-ios-get-started.md)
@@ -13,13 +14,13 @@
 ### [Xamarin.Forms](app-service-mobile-xamarin-forms-get-started.md)
 ### [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started.md)
 
-## Aplicaciones de API
+## Create API apps (Creación de aplicaciones de API)
 ### [.NET](../app-service-api/app-service-api-dotnet-get-started.md)
 ### [Java](../app-service-api/app-service-api-java-api-app.md)
 ### [Node.js](../app-service-api/app-service-api-nodejs-api-app.md)
 ### [CORS](../app-service-api/app-service-api-cors-consume-javascript.md)
 
-## Aplicaciones web
+## Creación de Web Apps
 ### [.NET](../app-service-web/web-sites-dotnet-get-started.md)
 ### [Node.js](../app-service-web/app-service-web-nodejs-get-started.md)
 ### [Python](../app-service-web/web-sites-python-ptvs-django-mysql.md)
@@ -95,9 +96,9 @@
 #### [Qué es el SDK de WebJobs de Azure](../app-service-web/websites-dotnet-webjobs-sdk.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Creación de un WebJob .NET en Azure App Service](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 #### [Uso del almacenamiento de blobs de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso de Azure Queue Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso de Azure Service Bus con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Uso de Azure Table Storage con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uso del almacenamiento de colas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uso del Bus de servicio de Azure con el SDK de trabajos web](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Uso del almacenamiento de tablas de Azure con el SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ### Entorno de App Service
 #### [Creación de una aplicación web en un entorno de App Service](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
@@ -206,14 +207,17 @@
 ### [Solución de problemas con Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Referencia
-## [Portal de Azure](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [API de .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## [Azure Portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Referencia de App Service](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [SDK de WebJobs](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
-# Temas relacionados
-
-# resources
-## [Foro de servicios móviles de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
+# Recursos
+## [Precios](https://azure.microsoft.com/en-us/pricing/details/app-service/)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-mobile-services)  
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=mobile-services) 
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=mobile-services)
 ## [Procedimientos recomendados de App Service](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 ## [Lista de recursos de WebJobs](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 

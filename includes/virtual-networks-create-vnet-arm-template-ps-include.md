@@ -1,8 +1,8 @@
-## Implementar la plantilla ARM mediante PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Implementar la plantilla ARM mediante PowerShell
 Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
 
-1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
-2. Si es necesario, ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Central US* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/resource-group-overview.md).
+1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+2. Si es necesario, ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un nuevo grupo de recursos. El siguiente comando crea un grupo de recursos denominado *TestRG* en la región *Centro de EE. UU.* de Azure. Para obtener más información sobre los grupos de recursos, visite [Información general del Administrador de recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md).
    
         New-AzureRmResourceGroup -Name TestRG -Location centralus
    
@@ -67,7 +67,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
         Subnets           : [
                               {
                                 "Name": "FrontEnd",
-                                "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd",
                                 "AddressPrefix": "192.168.1.0/24",
                                 "IpConfigurations": [],
@@ -77,7 +77,7 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
                               },
                               {
                                 "Name": "BackEnd",
-                                "Etag": "W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"",
+                                "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/BackEnd",
                                 "AddressPrefix": "192.168.2.0/24",
                                 "IpConfigurations": [],
@@ -87,4 +87,6 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
                               }
                             ]
 
-<!---HONumber=AcomDC_0323_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

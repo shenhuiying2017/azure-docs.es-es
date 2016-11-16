@@ -1,24 +1,27 @@
 ---
-title: Firewall de aplicaciones web de Application Gateway| Microsoft Docs
-description: En esta página se proporciona una visión general de la funcionalidad del firewall de aplicaciones web de Application Gateway.
+title: "Introducción a Firewall de aplicaciones web (WAF) para Application Gateway| Microsoft Docs"
+description: "En esta página se proporciona información general sobre el firewall de aplicaciones web (WAF) de Application Gateway. "
 documentationcenter: na
 services: application-gateway
 author: amsriva
 manager: rossort
 editor: amsriva
-
+ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 11/10/2016
 ms.author: amsriva
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 69dd0b2d33c93edfa3073ce297d9a3ff948a037e
+
 
 ---
-# <a name="application-gateway-web-application-firewall-(preview)"></a>Firewall de aplicaciones web de Application Gateway (versión preliminar)
-Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos.
-Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Una protección centralizada para los ataques web simplifica la administración de la seguridad y proporciona a la aplicación un mejor control contra las amenazas de intrusiones. Una solución WAF también puede reaccionar más rápido a las amenazas de seguridad al aplicar revisiones a vulnerabilidades conocidas en una ubicación central y proteger cada una de las aplicaciones web de forma individual.
+# <a name="application-gateway-web-application-firewall-preview"></a>Firewall de aplicaciones web de Application Gateway (versión preliminar)
+El firewall de aplicaciones web (WAF) es una característica de Azure Application Gateway diseñada para proteger las aplicaciones web que utilizan la puerta de enlace de aplicaciones para funciones estándar de Application Delivery Control (ADC). El firewall de aplicaciones web ofrece protección contra las diez vulnerabilidades web más comunes identificadas por OWASP. Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Disponer de un firewall de aplicaciones web centralizado que ofrezca protección contra los ataques web facilita enormemente la administración de la seguridad y proporciona mayor protección a la aplicación contra amenazas de intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web.
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/WAF1.png)
 
@@ -54,23 +57,25 @@ WAF de Application Gateway ofrece informes detallados sobre las amenazas detecta
 
 ![imageURLroute](./media/application-gateway-webapplicationfirewall-overview/waf2.png)
 
-    {
-        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
-        "operationName": "ApplicationGatewayFirewall",
-        "time": "2016-09-20T00:40:04.9138513Z",
-        "category": "ApplicationGatewayFirewallLog",
-        "properties":     {
-            "instanceId":"ApplicationGatewayRole_IN_0",
-            "clientIp":"108.41.16.164",
-            "clientPort":1815,
-            "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
-            "ruleId":"OWASP_973336",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "action":"Logged",
-            "site":"Global",
-            "message":"XSS Filter - Category 1: Script Tag Vector",
-            "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
-    }
+```json
+{
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/<applicationGatewayName>",
+    "operationName": "ApplicationGatewayFirewall",
+    "time": "2016-09-20T00:40:04.9138513Z",
+    "category": "ApplicationGatewayFirewallLog",
+    "properties":     {
+        "instanceId":"ApplicationGatewayRole_IN_0",
+        "clientIp":"108.41.16.164",
+        "clientPort":1815,
+        "requestUri":"/wavsep/active/RXSS-Detection-Evaluation-POST/",
+        "ruleId":"OWASP_973336",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "action":"Logged",
+        "site":"Global",
+        "message":"XSS Filter - Category 1: Script Tag Vector",
+        "details":{"message":" Warning. Pattern match "(?i)(<script","file":"/owasp_crs/base_rules/modsecurity_crs_41_xss_attacks.conf","line":"14"}}
+}
+```
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Precios de las SKU de WAF de Application Gateway
 Durante la versión preliminar, no existen cargos adicionales por el uso de WAF de Application Gateway. Se le sigue cobrando según las tarifas de SKU básica existentes. En el momento de disponibilidad con carácter general (GA) se le comunicarán los cargos de la SKU de WAF. Los clientes que hayan decidido implementar Application Gateway en la SKU de WAF comenzarían a acumular los precios de SKU de WAF únicamente tras el anuncio de GA.
@@ -78,6 +83,9 @@ Durante la versión preliminar, no existen cargos adicionales por el uso de WAF 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de conocer más sobre las funcionalidades de WAF, consulte [cómo configurar el firewall de aplicaciones web en Application Gateway](application-gateway-web-application-firewall-portal.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

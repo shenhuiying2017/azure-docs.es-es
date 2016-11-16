@@ -1,24 +1,28 @@
 ---
-title: Administración de contenedores del servicio Contenedor de Azure a través de la API de REST | Microsoft Docs
-description: Implemente contenedores en un clúster de Mesos del servicio Contenedor de Azure mediante la API de REST de Marathon.
+title: "Administración de contenedores de Azure Container Service a través de la API de REST | Microsoft Docs"
+description: "Implemente contenedores en un clúster de Mesos del servicio Contenedor de Azure mediante la API de REST de Marathon."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, contenedores, microservicios, Mesos, Azure
-
+ms.assetid: c7175446-4507-4a33-a7a2-63583e5996e3
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b9358183d884dfeda3d200ef5ae8beb60d3957e
+
 
 ---
-# Administración de contenedores con la API de REST
+# <a name="container-management-through-the-rest-api"></a>Administración de contenedores con la API de REST
 DC/OS proporciona un entorno para implementar y escalar cargas de trabajo agrupadas, al tiempo que reduce el hardware subyacente. Por encima de DC/OS hay un marco que administra la programación y ejecución de cargas de trabajo de proceso.
 
 Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas, en este documento se detalla cómo crear y escalar implementaciones de contenedores mediante Marathon. Antes de trabajar con estos ejemplos, necesita un clúster de DC/OS configurado en el servicio Contenedor de Azure. También debe tener conectividad remota con este clúster. Para más información sobre estos aspectos, consulte los siguientes artículos:
@@ -26,9 +30,9 @@ Aunque hay marcos de trabajo disponibles para muchas cargas de trabajo conocidas
 * [Implementación de un clúster del servicio Contenedor de Azure](container-service-deployment.md)
 * [Conexión a un clúster del servicio Contenedor de Azure](container-service-connect.md)
 
-Una vez conectado al clúster del servicio Contenedor de Azure, puede acceder a DC/OS y a las API de REST relacionadas a través de http://localhost:local-port. Los ejemplos de este documento suponen que está realizando la tunelización en el puerto 80. Por ejemplo, se puede alcanzar el punto de conexión de Marathon en `http://localhost/marathon/v2/`. Para más información sobre las diversas API, consulte la documentación de Mesosphere para la [API de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html) y la [API de Chronos](https://mesos.github.io/chronos/docs/api.html) y la documentación de Apache de la [API del programador de Mesos](http://mesos.apache.org/documentation/latest/scheduler-http-api/)
+Una vez conectado al clúster de Azure Container Service, podrá acceder a DC/OS y a las API de REST relacionadas a través de http://localhost:local-port. Los ejemplos de este documento suponen que está realizando la tunelización en el puerto 80. Por ejemplo, se puede alcanzar el punto de conexión de Marathon en `http://localhost/marathon/v2/`. Para más información sobre las diferentes API, consulte la documentación de Mesosphere sobre [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) y [Chronos API](https://mesos.github.io/chronos/docs/api.html), así como la documentación de Apache sobre [Mesos Scheduler API](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
-## Recopilación de información de DC/OS y Marathon
+## <a name="gather-information-from-dcos-and-marathon"></a>Recopilación de información de DC/OS y Marathon
 Antes de implementar contenedores en el clúster de DC/OS, recopile información sobre dicho clúster, como los nombres y el estado actual de los agentes de DC/OS. Para ello, consulte el punto de conexión `master/slaves` de la API de REST de DC/OS. Si todo va bien, verá una lista de los agentes de DC/OS y varias propiedades de cada uno de ellos.
 
 ```bash
@@ -43,8 +47,8 @@ curl localhost/marathon/v2/apps
 {"apps":[]}
 ```
 
-## Implementación de un contenedor con formato Docker
-Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo JSON que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor Nginx y se enlazará el puerto 80 del agente de DC/OS al puerto 80 del contenedor. Tenga en cuenta que la propiedad 'acceptedResourceRoles' se establece en 'slave\_public'. El contenedor se implementará en un agente del conjunto de escala de agentes públicos.
+## <a name="deploy-a-dockerformatted-container"></a>Implementación de un contenedor con formato Docker
+Los contenedores con formato Docker se implementan a través de Marathon mediante un archivo JSON que describe la implementación deseada. En el ejemplo siguiente, se implementará el contenedor Nginx y se enlazará el puerto 80 del agente de DC/OS al puerto 80 del contenedor. Tenga en cuenta que la propiedad 'acceptedResourceRoles' se establece en 'slave_public'. El contenedor se implementará en un agente del conjunto de escala de agentes públicos.
 
 ```json
 {
@@ -86,7 +90,7 @@ Ahora, si consulta Marathon sobre las aplicaciones, esta nueva aplicación se mo
 curl localhost/marathon/v2/apps
 ```
 
-## Escalado de los contenedores
+## <a name="scale-your-containers"></a>Escalado de los contenedores
 La API de Marathon también se puede utilizar para escalar horizontalmente implementaciones de aplicaciones o reducirlas horizontalmente. En el ejemplo anterior, ha implementado una instancia de una aplicación. Vamos a escalarla horizontalmente a tres instancias de una aplicación. Para ello, cree un archivo JSON mediante el siguiente texto JSON y almacénelo en una ubicación accesible.
 
 ```json
@@ -96,7 +100,7 @@ La API de Marathon también se puede utilizar para escalar horizontalmente imple
 Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 
 > [!NOTE]
-> El identificador URI será http://localhost/marathon/v2/apps/ y deberá agregar luego el identificador de la aplicación que se va a escalar. Si va a utilizar el ejemplo de Nginx aquí proporcionado, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
+> El identificador URI será http://localhost/marathon/v2/apps/, seguido del identificador de la aplicación que se va a escalar. Si utiliza el ejemplo de Nginx que se incluye aquí, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -110,7 +114,7 @@ Por último, consulte el punto de conexión de Marathon para las aplicaciones. V
 curl localhost/marathon/v2/apps
 ```
 
-## Uso de PowerShell para este ejercicio: interacción de la API de REST de Marathon con PowerShell
+## <a name="use-powershell-for-this-exercise-marathon-rest-api-interaction-with-powershell"></a>Uso de PowerShell para este ejercicio: interacción de la API de REST de Marathon con PowerShell
 Puede realizar las mismas acciones mediante comandos de PowerShell en un sistema Windows.
 
 Para recopilar información sobre el clúster de DC/OS, como los nombres y los estados de los agentes, ejecute el siguiente comando.
@@ -155,7 +159,7 @@ La API de Marathon también se puede utilizar para escalar horizontalmente imple
 Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 
 > [!NOTE]
-> El identificador URI será http://localhost/marathon/v2/apps/ y deberá agregar luego el identificador de la aplicación que se va a escalar. Si se utiliza el ejemplo de Nginx aquí proporcionado, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
+> El identificador URI será http://localhost/marathon/v2/apps/, seguido del identificador de la aplicación que se va a escalar. Si utiliza el ejemplo de Nginx que se incluye aquí, el identificador URI sería http://localhost/marathon/v2/apps/nginx.
 > 
 > 
 
@@ -163,8 +167,13 @@ Ejecute el comando siguiente para escalar la aplicación horizontalmente.
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los puntos de conexión HTTP de Mesos](http://mesos.apache.org/documentation/latest/endpoints/).
-* [Más información acerca de la API de REST de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
+* [Más información sobre la API de REST de Marathon](https://mesosphere.github.io/marathon/docs/rest-api.html).
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

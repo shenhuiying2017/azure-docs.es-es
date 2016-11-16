@@ -1,13 +1,13 @@
 ---
-title: Una solución predictiva para el riesgo de crédito con Aprendizaje automático | Microsoft Docs
-description: Un tutorial detallado que muestra cómo crear una solución de análisis predictiva para la evaluación del riesgo de crédito en Estudio de aprendizaje automático de Azure
-keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
+title: "Una solución predictiva para el riesgo de crédito con Machine Learning | Microsoft Docs"
+description: "Un tutorial detallado que muestra cómo crear una solución de análisis predictiva para la evaluación del riesgo de crédito en Estudio de aprendizaje automático de Azure"
+keywords: "riesgo de crédito, solución de análisis predictivo, evaluación de riesgos"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa64dc7f5bb3e928aac30987b0904435c603829c
+
 
 ---
-# Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure
-Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporciona en una solicitud de crédito.
+# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Tutorial: Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure
+Suponga que necesita predecir el riesgo de crédito de un individuo en función de la información que se proporciona en una solicitud de crédito.  
 
-Es cierto que se trata de un problema difícil. Pero vamos a simplificar un poco los parámetros del asunto. Después lo usaremos como ejemplo de cómo podría utilizar el Aprendizaje automático de Microsoft Azure con el Estudio de aprendizaje automático y el servicio web de Aprendizaje automático para crear dicha solución de análisis predictivo.
+Es cierto que se trata de un problema difícil. Pero vamos a simplificar un poco los parámetros del asunto. Después lo usaremos como ejemplo de cómo podría utilizar el Aprendizaje automático de Microsoft Azure con el Estudio de aprendizaje automático y el servicio web de Aprendizaje automático para crear dicha solución de análisis predictivo.  
 
 En este tutorial detallado, seguiremos el proceso de desarrollar un modelo de análisis predictivo en el Estudio de aprendizaje automático y, luego, implementarlo como un servicio web de Aprendizaje automático de Azure. Comenzaremos con los datos de riesgo de crédito que se encuentran disponibles públicamente, desarrollaremos y entrenaremos un modelo predictivo en función de esos datos y luego implementaremos el modelo como un servicio web que otros pueden usar para la evaluación del crédito de riesgo.
 
@@ -33,7 +37,7 @@ En este tutorial detallado, seguiremos el proceso de desarrollar un modelo de an
 > 
 > 
 
-Para crear una solución de evaluación del riesgo de crédito, seguiremos estos pasos:
+Para crear una solución de evaluación del riesgo de crédito, seguiremos estos pasos:  
 
 1. [Creación de un área de trabajo de Aprendizaje automático](machine-learning-walkthrough-1-create-ml-workspace.md)
 2. [Carga de los datos existentes](machine-learning-walkthrough-2-upload-data.md)
@@ -44,4 +48,9 @@ Para crear una solución de evaluación del riesgo de crédito, seguiremos estos
 
 Este tutorial se basa en una versión simplificada del experimento de ejemplo [Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270) (Clasificación binaria: predicción de riesgo de crédito) de la [Galería de Cortana Intelligence](http://gallery.cortanaintelligence.com/).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

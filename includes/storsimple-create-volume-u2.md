@@ -1,13 +1,13 @@
 <!--author=alkohli last changed: 08/16/2016-->
 
-#### Para crear un volumen
+#### <a name="to-create-a-volume"></a>Para crear un volumen
 1. En la página **Inicio rápido** del dispositivo, haga clic en **Agregar un volumen** para que se inicie el asistente correspondiente.
 2. En el Asistente para agregar volúmenes, en **Configuración básica**:
    
    1. Escriba un **Nombre** para el volumen.
-   2. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Para cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un volumen **Localmente anclado**. Para todos los demás datos, seleccione un volumen **En capas**. Si usa este volumen para datos de archivo, seleccione **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**.
+   2. En la lista desplegable, seleccione el **Tipo de uso** para el volumen. Para cargas de trabajo que requieren garantías locales, latencias bajas y un rendimiento más alto, seleccione un volumen **Localmente anclado** . Para todos los demás datos, seleccione un volumen **En capas** . Si usa este volumen para datos de archivo, seleccione **Usar este volumen para los datos de archivo a los que accede con menos frecuencia**. 
       
-       Un volumen localmente anclado se aprovisiona de forma intensa y garantiza que los datos principales del volumen continúen siendo locales en el dispositivo y que no se traspasan a la nube. Si crea un volumen localmente anclado, el dispositivo comprobará el espacio disponible en los niveles locales para aprovisionar el volumen del tamaño solicitado. La operación que consiste en crear un volumen localmente anclado puede implicar traspasar los datos existentes del dispositivo a la nube, por lo que la creación del volumen puede llevar mucho tiempo. El tiempo total depende del tamaño del volumen aprovisionado, el ancho de banda de red disponible y los datos en el dispositivo.
+       Un volumen localmente anclado se aprovisiona de forma intensa y garantiza que los datos principales del volumen continúen siendo locales en el dispositivo y que no se traspasan a la nube.  Si crea un volumen localmente anclado, el dispositivo comprobará el espacio disponible en los niveles locales para aprovisionar el volumen del tamaño solicitado. La operación que consiste en crear un volumen localmente anclado puede implicar traspasar los datos existentes del dispositivo a la nube, por lo que la creación del volumen puede llevar mucho tiempo. El tiempo total depende del tamaño del volumen aprovisionado, el ancho de banda de red disponible y los datos en el dispositivo. 
       
        Un volumen en capas se aprovisiona de manera fina y se puede crear rápidamente. Si utiliza el volumen en capas para los datos de archivo, al seleccionar **Usar este volumen para los datos de archivo a los que accede con menos frecuencia** se cambiará el tamaño del fragmento de desduplicación del volumen a 512 KB. Si este campo no está activado, el volumen correspondiente en capas utilizará un tamaño del fragmento de 64 KB. Un mayor tamaño de fragmento de desduplicación permite que el dispositivo acelere la transferencia de datos de archivado de gran tamaño a la nube.
    3. Especifique la **Capacidad aprovisionada** para el volumen. Tome nota de la capacidad que está disponible en función del tipo de volumen seleccionado. El tamaño del volumen especificado no debe superar el espacio disponible.
@@ -24,8 +24,8 @@
       
         ![Agregar volumen local](./media/storsimple-create-volume-u2/add-tiered-volume-include.png)
    
-   1. Haga clic en el icono de flecha ![icono de flecha](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png) para ir a la página siguiente.
-3. En el cuadro de diálogo **Configuración adicional**, agregue un nuevo registro de control de acceso (ACR):
+   1. Haga clic en el icono de flecha  ![icono de flecha](./media/storsimple-create-volume-u2/HCS_ArrowIcon-include.png)  para ir a la página siguiente.
+3. En el cuadro de diálogo **Configuración adicional** , agregue un nuevo registro de control de acceso (ACR):
    
    1. Proporcione un **Nombre** para el ACR.
    2. En **Nombre del iniciador iSCSI**, proporcione el nombre completo del iSCSI (IQN) del host de Windows. Si no tiene el IQN, vaya a [Obtener el IQN de un host de Windows Server](#get-the-iqn-of-a-windows-server-host).
@@ -37,6 +37,10 @@
       > 
       
       ![Agregar volumen](./media/storsimple-create-volume-u2/AddVolumeAdditionalSettings1.png)
-4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
+4. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-create-volume-u2/HCS_CheckIcon-include.png). Se creará un volumen con la configuración especificada.
 
-<!----HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

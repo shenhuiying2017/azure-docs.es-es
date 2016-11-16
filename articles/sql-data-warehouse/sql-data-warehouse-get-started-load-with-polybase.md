@@ -1,12 +1,12 @@
 ---
-title: Tutorial sobre PolyBase en Almacenamiento de datos SQL | Microsoft Docs
-description: Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos.
+title: Tutorial sobre PolyBase en SQL Data Warehouse | Microsoft Docs
+description: "Obtenga información sobre qué es PolyBase y cómo usarlo en escenarios de almacenamiento de datos."
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 0a0103b4-ddd6-4d1e-87be-4965d6e99f3f
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 936bfcb7d4e7d2a901304f31a58b31e6cd14498a
+
 
 ---
 # <a name="load-data-with-polybase-in-sql-data-warehouse"></a>Carga de datos con PolyBase en Almacenamiento de datos SQL
@@ -40,7 +44,7 @@ Para seguir paso a paso este tutorial, necesita
 
 * Una base de datos de Almacenamiento de datos SQL.
 * Una cuenta de almacenamiento de Azure del tipo Almacenamiento con redundancia local estándar (LRS estándar), Almacenamiento con redundancia geográfica estándar (GRS estándar) o Almacenamiento con redundancia geográfica de acceso de lectura estándar  (RAGRS estándar).
-* La utilidad de línea de comandos AzCopy. Descargue e instale la [versión más reciente de AzCopy][versión más reciente de AzCopy] , que se instala con las herramientas de Almacenamiento de Microsoft Azure.
+* La utilidad de línea de comandos AzCopy. Descargue e instale la [versión más reciente de AzCopy][versión más reciente de AzCopy], que se instala con las herramientas de Almacenamiento de Microsoft Azure.
   
     ![Herramientas de almacenamiento de Azure](./media/sql-data-warehouse-get-started-load-with-polybase/install-azcopy.png)
 
@@ -103,7 +107,7 @@ Para copiar los datos al almacenamiento de blobs de Azure:
     .\AzCopy.exe /Source:C:\Temp\ /Dest:<blob service endpoint URL> /datacontainer/datedimension/ /DestKey:<azure_storage_account_key> /Pattern:DimDate2.txt
     ```
 
-Consulte [Introducción a la utilidad de línea de comandos de AzCopy][Introducción a la utilidad de línea de comandos de AzCopy]
+Consulte también [Introducción a la utilidad de línea de comandos AzCopy][Introducción a la utilidad de línea de comandos AzCopy].
 
 ### <a name="e-explore-your-blob-storage-container"></a>E. Exploración del contenedor de almacenamiento de blobs
 Para ver el archivo cargado en el almacenamiento de blobs:
@@ -207,8 +211,8 @@ En el Explorador de objetos de SQL Server de Visual Studio, se puede ver el form
 ## <a name="step-3-load-data-into-sql-data-warehouse"></a>Paso 3: Carga de datos en Almacenamiento de datos SQL
 Una vez creada la tabla externa, puede cargar los datos en una tabla nueva o insertarlos en una tabla existente.
 
-* Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] . La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
-* Para cargar los datos en una tabla existente, use la instrucción [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)] .
+* Para cargar los datos en una tabla nueva, ejecute la instrucción [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]. La nueva tabla hereda las columnas designadas en la consulta. Los tipos de datos de las columnas coincidirán con los tipos de datos de la definición de la tabla externa.
+* Para cargar los datos en una tabla existente, use la instrucción [INSERT...SELECT (Transact-SQL)][INSERT...SELECT (Transact-SQL)].
 
 ```sql
 -- Load the data from Azure blob storage to SQL Data Warehouse
@@ -223,7 +227,7 @@ AS
 SELECT * FROM [dbo].[DimDate2External];
 ```
 
-## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
+## <a name="step-4-create-statistics-on-your-newly-loaded-data"></a>Paso 4: Crear estadísticas de los datos recién cargados
 Almacenamiento de datos SQL no crea ni actualiza automáticamente las estadísticas. Por lo tanto, para lograr un rendimiento elevado de las consultas, es importante crear estadísticas de todas las columna de cada tabla después de la primera carga. También es importante actualizar las estadísticas si se realizan cambios significativos en los datos.
 
 En este ejemplo se crean estadísticas con una sola columna de la nueva tabla DimDate2.
@@ -274,6 +278,6 @@ Para más información que debe conocer cuando desarrolle una solución que use 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

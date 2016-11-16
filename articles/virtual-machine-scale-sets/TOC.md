@@ -26,11 +26,12 @@
 ### [Solución de problemas de escalado automático](virtual-machine-scale-sets-troubleshoot.md)
 
 # Referencia
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
 ## [CLI de Azure](../virtual-machines/azure-cli-arm-commands.md)
-## [API de REST de conjunto de escalado](/rest/api/compute/virtualmachinescalesets)
-## [API de REST de VM de conjunto de escalado](/rest/api/compute/virtualmachinescalesetvms)
-## [Azure PowerShell](/powershell/resourcemanager/)
-## [Plantillas de Azure](https://azure.microsoft.com/documentation/templates/?term=vmss)
+## [REST](/rest/api/compute/)
+
+# Recursos
+## [Precios](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 
 
 <!--HONumber=Nov16_HO2-->

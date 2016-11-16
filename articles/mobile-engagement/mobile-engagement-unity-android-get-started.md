@@ -1,12 +1,12 @@
 ---
-title: Introducción a Azure Mobile Engagement para la implementación de Unity para Android
-description: Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones de Unity que se implementan en dispositivos de iOS.
+title: "Introducción a Azure Mobile Engagement para la implementación de Unity para Android"
+description: "Aprenda a usar Azure Mobile Engagement con los análisis y las notificaciones push para aplicaciones de Unity que se implementan en dispositivos de iOS."
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-unity-android
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
+
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Introducción a Azure Mobile Engagement para la implementación de Unity para Android
@@ -33,10 +37,10 @@ Este tutorial requiere lo siguiente:
 > 
 > 
 
-## <a name="<a-id="setup-azme"></a>setup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
+## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-android-app"></a><a id="setup-azme"></a>Configuración de Mobile Engagement para una aplicación Android
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="<a-id="connecting-app"></a>connect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
+## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>Conectar la aplicación al backend de Mobile Engagement
 ### <a name="import-the-unity-package"></a>Importación del paquete de Unity
 1. Descargue el [paquete de Unity para Mobile Engagement](https://aka.ms/azmeunitysdk) y guárdelo en el equipo local. 
 2. Vaya a **Assets -> Import Package -> Custom Package** (Recursos -> Importar paquete -> Paquete personalizado) y seleccione el paquete que descargó en el paso anterior. 
@@ -94,10 +98,10 @@ Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar i
 6. Se le pedirá que proporcione un nombre de carpeta para almacenar el paquete de Android. 
 7. Si todo va bien, el paquete se implementará en el dispositivo conectado en su dispositivo conectado y con eso debería ver ya el juego de Unity en el teléfono. 
 
-## <a name="<a-id="monitor"></a>connect-app-with-real-time-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
+## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>Conexión de la aplicación con la supervisión en tiempo real
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="<a-id="integrate-push"></a>enable-push-notifications-and-in-app-messaging"></a><a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
+## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>Habilitación de las notificaciones push y la mensajería en aplicación
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 
 ### <a name="update-the-engagementconfiguration"></a>Actualización de EngagementConfiguration
@@ -133,6 +137,6 @@ Asegúrese de tener instalado el SDK de Android en su equipo antes de intentar i
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

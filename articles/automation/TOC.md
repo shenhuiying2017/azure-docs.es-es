@@ -72,7 +72,12 @@
 ## [API de REST de Resource Manager](https://msdn.microsoft.com/library/azure/mt662285.aspx)
 ## [Rest de implementación clásica](https://msdn.microsoft.com/library/azure/mt163781)
 
-# resources
+# Recursos
+## [Precios](https://azure.microsoft.com/pricing/details/automation/)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=automation) 
 ## [Aprendizaje de Azure Automation](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Vídeo de introducción a Automation](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)

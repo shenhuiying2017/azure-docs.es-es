@@ -37,13 +37,15 @@
 ### [Uso de la vista de ejecución de vértices](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
 # Referencia
-## [.NET SDK](https://msdn.microsoft.com/library/azure/mt572197(Azure.100).aspx)
-## [Cmdlets de PowerShell](https://msdn.microsoft.com/library/azure/mt607124.aspx)
-## [Referencia al lenguaje U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100).aspx)
+
+## [PowerShell](/powershell/resourcemanager/)
+## [Java](/java/api/)
+## [.NET](https://docs.microsoft.com/dotnet/api)
+## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959(Azure.100))
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [REST](/rest/api/datalakeanalytics/)
 
-
-# resources
+# Recursos
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataLake)
 ## [Foro de Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-lake)
 ## [Comentarios sobre UserVoice](https://feedback.azure.com/forums/327234-data-lake)

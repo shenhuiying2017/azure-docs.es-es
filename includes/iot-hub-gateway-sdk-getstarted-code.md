@@ -1,4 +1,4 @@
-## Salida típica
+## <a name="typical-output"></a>Salida típica
 A continuación se muestra un ejemplo de la salida escrita en el archivo de registro mediante el ejemplo Hello World. Se han agregado los caracteres Newline y Tab para facilitar su lectura:
 
 ```
@@ -29,13 +29,13 @@ A continuación se muestra un ejemplo de la salida escrita en el archivo de regi
 }]
 ```
 
-## Fragmentos de código
+## <a name="code-snippets"></a>Fragmentos de código
 En esta sección se describen algunas partes principales del código del ejemplo Hello World.
 
-### Creación de puerta de enlace
-El desarrollador debe escribir el *proceso de puerta de enlace*. Este programa crea la infraestructura interna (el agente), carga los módulos y prepara todo para que funcione correctamente. El SDK proporciona la función **Gateway\_Create\_From\_JSON** que le permite arrancar una puerta de enlace desde un archivo JSON. Para usar la función **Gateway\_Create\_From\_JSON**, debe pasar la ruta de acceso a un archivo JSON que especifique los módulos que se van a cargar.
+### <a name="gateway-creation"></a>Creación de puerta de enlace
+El desarrollador debe escribir el *proceso de puerta de enlace*. Este programa crea la infraestructura interna (el agente), carga los módulos y prepara todo para que funcione correctamente. El SDK proporciona la función **Gateway_Create_From_JSON** que le permite arrancar una puerta de enlace desde un archivo JSON. Para usar la función **Gateway_Create_From_JSON**, debe pasar la ruta de acceso a un archivo JSON que especifique los módulos que se van a cargar. 
 
-Puede encontrar el código para el proceso de puerta de enlace en el ejemplo Hello World del archivo[main.c][lnk-main-c]. Para facilitar la lectura, el siguiente fragmento muestra una versión abreviada del código de proceso de puerta de enlace. Este programa crea una puerta de enlace y luego espera a que el usuario presione la tecla **ENTRAR** antes de anularla.
+Puede encontrar el código para el proceso de puerta de enlace en el ejemplo Hello World del archivo [main.c][lnk-main-c]. Para facilitar la lectura, el siguiente fragmento muestra una versión abreviada del código de proceso de puerta de enlace. Este programa crea una puerta de enlace y luego espera a que el usuario presione la tecla **ENTRAR** antes de anularla. 
 
 ```
 int main(int argc, char** argv)
@@ -58,16 +58,16 @@ int main(int argc, char** argv)
 
 El archivo de configuración JSON contiene una lista de los módulos que se van a cargar. Cada módulo debe especificar:
 
-* **nombre\_del\_módulo**: un nombre único para el módulo.
-* **ruta\_de\_acceso\_del\_módulo**: la ruta de acceso a la biblioteca que contiene el módulo. En Linux es un archivo .so y en Windows un archivo .dll.
+* **module_name**: un nombre único para el módulo.
+* **module_path**: la ruta de acceso a la biblioteca que contiene el módulo. En Linux es un archivo .so y en Windows un archivo .dll.
 * **args**: cualquier información de configuración que necesita el módulo.
 
 El archivo JSON también contiene los vínculos entre los módulos que se pasarán al agente. Los vínculos tienen dos propiedades:
 
-* **source**: un nombre de módulo de la sección `modules` o "*".
-* **sink**: un nombre de módulo de la sección `modules` o "*".
+* **source**: un nombre de módulo de la sección `modules`, o "\*".
+* **sink**: un nombre de módulo de la sección `modules`.
 
-Cada vínculo define la ruta y dirección de un mensaje. Los mensajes del módulo `source` se deben entregar al módulo `sink`. `source` se puede establecer en "*", lo que indica que `sink` recibirá mensajes de cualquier módulo.
+Cada vínculo define la ruta y dirección de un mensaje. Los mensajes del módulo `source` se deben entregar al módulo `sink`. `sink` se puede establecer en "`source`", lo que indica que \* recibirá mensajes de cualquier módulo.
 
 El ejemplo siguiente muestra el archivo de configuración JSON que se usa para configurar el ejemplo Hello World en Linux. Todos los mensajes que genere el módulo `hello_world` los consumirá el módulo `logger`. Que un módulo necesite un argumento depende del diseño del módulo. En este ejemplo, el módulo logger toma un argumento que es la ruta de acceso al archivo de salida y el módulo Hello World no toma ningún argumento:
 
@@ -77,12 +77,16 @@ El ejemplo siguiente muestra el archivo de configuración JSON que se usa para c
     [ 
         {
             "module name" : "logger",
-            "module path" : "./modules/logger/liblogger_hl.so",
+            "loading args": {
+              "module path" : "./modules/logger/liblogger_hl.so"
+            },
             "args" : {"filename":"log.txt"}
         },
         {
             "module name" : "hello_world",
-            "module path" : "./modules/hello_world/libhello_world_hl.so",
+            "loading args": {
+              "module path" : "./modules/hello_world/libhello_world_hl.so"
+            },
             "args" : null
         }
     ],
@@ -96,8 +100,8 @@ El ejemplo siguiente muestra el archivo de configuración JSON que se usa para c
 }
 ```
 
-### Publicación de mensajes del módulo Hello World
-Puede buscar el código que utiliza el módulo "hello world" para publicar mensajes en el archivo ['hello\_world.c'][lnk-helloworld-c]. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
+### <a name="hello-world-module-message-publishing"></a>Publicación de mensajes del módulo Hello World
+Puede buscar el código que utiliza el módulo "hello world" para publicar mensajes en el archivo ['hello_world.c'][lnk-helloworld-c]. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
 
 ```
 int helloWorldThread(void *param)
@@ -145,7 +149,7 @@ int helloWorldThread(void *param)
 }
 ```
 
-### Procesamiento de mensajes del módulo Hello World
+### <a name="hello-world-module-message-processing"></a>Procesamiento de mensajes del módulo Hello World
 El módulo Hello World nunca necesita procesar mensajes que otros módulos publican en el agente. Esto hace que la implementación de la devolución de llamada de mensajes en el módulo Hello World sea una función no operativa.
 
 ```
@@ -155,10 +159,10 @@ static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messag
 }
 ```
 
-### Publicación y procesamiento de mensajes del módulo logger
-El módulo logger recibe mensajes del agente y los escribe en un archivo. Nunca publica ningún mensaje. Por consiguiente, el código del módulo logger nunca llama a la función **Broker\_Publish**.
+### <a name="logger-module-message-publishing-and-processing"></a>Publicación y procesamiento de mensajes del módulo logger
+El módulo logger recibe mensajes del agente y los escribe en un archivo. Nunca publica ningún mensaje. Por consiguiente, el código del módulo logger nunca llama a la función **Broker_Publish**.
 
-La función **Logger\_Recieve** del archivo [logger.c][lnk-logger-c] es la devolución de llamada que invoca el agente para entregar mensajes al módulo logger. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
+La función **Logger_Recieve** del archivo [logger.c][lnk-logger-c] es la devolución de llamada que invoca el agente para entregar mensajes al módulo logger. El siguiente fragmento muestra una versión modificada con comentarios adicionales y algún código de control de errores quitado para facilitar la lectura:
 
 ```
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
@@ -181,17 +185,17 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
     // Start the construction of the final string to be logged by adding
     // the timestamp
-    STRING_HANDLE jsonToBeAppended = STRING_construct(",{"time":"");
+    STRING_HANDLE jsonToBeAppended = STRING_construct(",{\"time\":\"");
     STRING_concat(jsonToBeAppended, timetemp);
 
     // Add the message properties
-    STRING_concat(jsonToBeAppended, "","properties":"); 
+    STRING_concat(jsonToBeAppended, "\",\"properties\":"); 
     STRING_concat_with_STRING(jsonToBeAppended, jsonProperties);
 
     // Add the content
-    STRING_concat(jsonToBeAppended, ","content":"");
+    STRING_concat(jsonToBeAppended, ",\"content\":\"");
     STRING_concat_with_STRING(jsonToBeAppended, contentAsJSON);
-    STRING_concat(jsonToBeAppended, ""}]");
+    STRING_concat(jsonToBeAppended, "\"}]");
 
     // Write the formatted string
     LOGGER_HANDLE_DATA *handleData = (LOGGER_HANDLE_DATA *)moduleHandle;
@@ -199,11 +203,11 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 }
 ```
 
-## Pasos siguientes
-Para más información sobre cómo usar el SDK de puerta de enlace, consulte lo siguiente:
+## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre cómo usar el SDK de puerta de enlace de IoT, consulte lo siguiente:
 
 * [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway-simulated].
-* [Azure IoT Gateway SDK][lnk-gateway-sdk] \(SDK de puerta de enlace de IoT de Azure) en GitHub.
+* [SDK de puerta de enlace de Azure IoT][lnk-gateway-sdk] en GitHub.
 
 <!-- Links -->
 [lnk-main-c]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/hello_world/src/main.c
@@ -212,4 +216,6 @@ Para más información sobre cómo usar el SDK de puerta de enlace, consulte lo 
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
 [lnk-gateway-simulated]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-simulated-device.md
 
-<!---HONumber=AcomDC_0928_2016-->
+<!--HONumber=Nov16_HO2-->
+
+

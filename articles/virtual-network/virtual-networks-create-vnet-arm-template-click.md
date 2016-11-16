@@ -1,13 +1,13 @@
 ---
-title: Creación de una red virtual mediante una plantilla de ARM | Microsoft Docs
-description: Obtenga información sobre cómo crear una red virtual usando una plantilla de ARM | Administrador de recursos.
+title: "Creación de una red virtual mediante una plantilla de ARM | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una red virtual usando una plantilla de ARM | Administrador de recursos."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 69530861-2f97-4a6e-b336-a7baf2690044
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: hero-article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 31b066d85474e781bd282603fceba3fa8ab135d7
+
 
 ---
-# Creación de una red virtual usando una plantilla de ARM
+# <a name="create-a-virtual-network-by-using-an-arm-template"></a>Creación de una red virtual usando una plantilla de ARM
 [!INCLUDE [virtual-networks-create-vnet-selectors-arm-include](../../includes/virtual-networks-create-vnet-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -40,4 +44,9 @@ Si simplemente va a implementar la plantilla de ARM directamente desde GitHub, s
 
 [!INCLUDE [virtual-networks-create-vnet-arm-template-click-include](../../includes/virtual-networks-create-vnet-arm-template-click-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

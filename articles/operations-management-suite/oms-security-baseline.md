@@ -1,12 +1,12 @@
 ---
-title: Línea base de la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs
-description: En este documento se explica cómo utilizar la solución Seguridad y auditoría de OMS para realizar una evaluación de línea base de todos los equipos supervisados para fines de cumplimiento y seguridad.
+title: "Línea base de la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs"
+description: "En este documento se explica cómo utilizar la solución Seguridad y auditoría de OMS para realizar una evaluación de línea base de todos los equipos supervisados para fines de cumplimiento y seguridad."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+
 
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Evaluación de línea base en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a usar las funcionalidades de evaluación de línea base de la [solución Seguridad y auditoría de Operations Management Suite](operations-management-suite-overview.md) para acceder al estado de seguridad de los recursos supervisados.
 
-## <a name="what-is-baseline-assessment?"></a>¿Qué es la evaluación de línea base?
+## <a name="what-is-baseline-assessment"></a>¿Qué es la evaluación de línea base?
 Microsoft, junto con organizaciones gubernamentales y del sector de todo el mundo, define una configuración de Windows que representa implementaciones de servidor muy seguras. Esta configuración es un conjunto de claves del Registro, la configuración de la directiva de auditoría y la configuración de la directiva de seguridad, junto con los valores recomendados de Microsoft para esta configuración. Este conjunto de reglas se conoce como línea base de seguridad. La funcionalidad de evaluación de línea base de Seguridad y auditoría de OMS puede examinar sin problemas todos los equipos para ver el cumplimiento. 
 
 Existen tres tipos de reglas:
@@ -80,6 +84,9 @@ En este documento, ha aprendido acerca de la evaluación de línea base de Segur
 * [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
 * [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

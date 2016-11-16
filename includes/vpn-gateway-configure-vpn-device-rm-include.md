@@ -5,6 +5,10 @@ Para buscar la dirección IP pública de la puerta de enlace de red virtual con 
 
     Get-AzureRmPublicIpAddress -Name GW1PublicIP -ResourceGroupName TestRG
 
-También puede utilizar el Portal de Azure para ver la dirección IP pública de la puerta de enlace de red virtual. Vaya a **Puertas de enlace de red virtual** y, luego, haga clic en el nombre de su puerta de enlace.
+También puede utilizar el Portal de Azure para ver la dirección IP pública de la puerta de enlace de red virtual. Vaya a **Puertas de enlace de red virtual**y, luego, haga clic en el nombre de su puerta de enlace.
 
-<!---HONumber=AcomDC_0406_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

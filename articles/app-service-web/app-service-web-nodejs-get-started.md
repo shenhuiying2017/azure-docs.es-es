@@ -1,12 +1,12 @@
 ---
-title: Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
-description: Obtenga información sobre cómo implementar una aplicación de Node.js en una aplicación web en el Servicio de aplicaciones de Azure.
+title: "Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure"
+description: "Obtenga información sobre cómo implementar una aplicación de Node.js en una aplicación web en el Servicio de aplicaciones de Azure."
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: fb2b90c8-02b6-4700-929b-5de9a35d67cc
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: nodejs
 ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+
 
 ---
 # <a name="get-started-with-nodejs-web-apps-in-azure-app-service"></a>Introducción a las aplicaciones web Node.js en el Servicio de aplicaciones de Azure
@@ -230,7 +234,7 @@ Para habilitar Node-Inspector, siga estos pasos:
 [MEANJS]: http://meanjs.org/
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
-[registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
+[registrarse para una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
 [aplicación web]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
@@ -243,6 +247,6 @@ Para habilitar Node-Inspector, siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 

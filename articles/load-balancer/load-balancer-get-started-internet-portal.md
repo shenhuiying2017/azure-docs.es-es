@@ -1,23 +1,27 @@
 ---
-title: Creación de un equilibrador de carga orientado a Internet en Resource Manager con Azure Portal | Microsoft Docs
-description: Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en Resource Manager con Azure Portal
+title: "Creación de un equilibrador de carga orientado a Internet en Resource Manager con Azure Portal | Microsoft Docs"
+description: "Obtenga información sobre cómo crear un equilibrador de carga orientado a Internet en Resource Manager con Azure Portal"
 services: load-balancer
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: annahar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9e27ce132a837ec26a92de0c38b3e1c23b706c1
+
 
 ---
-# <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
+# <a name="creating-an-internetfacing-load-balancer-using-the-azure-portal"></a>Creación de un equilibrador de carga orientado a Internet mediante Azure Portal
 [!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -30,7 +34,7 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 Aquí se trata la secuencia de tareas individuales que debe realizarse para crear un equilibrador de carga y se explicará con detalle qué se hace para lograr el objetivo.
 
-## <a name="what-is-required-to-create-an-internet-facing-load-balancer?"></a>¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
+## <a name="what-is-required-to-create-an-internetfacing-load-balancer"></a>¿Qué se necesita para crear un equilibrador de carga orientado a Internet?
 Para implementar un equilibrador de carga, debe crear y configurar los objetos siguientes.
 
 * Configuración de direcciones IP de front-end: contiene direcciones IP públicas para el tráfico de red entrante.
@@ -56,14 +60,14 @@ Puede obtener más información sobre los componentes del equilibrador de carga 
 
 ![Actualización de grupo de recursos de equilibrador de carga](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
-## <a name="create-a-back-end-address-pool"></a>Creación del grupo de direcciones de back-end
+## <a name="create-a-backend-address-pool"></a>Creación del grupo de direcciones de back-end
 1. Una vez que se ha implementado correctamente el equilibrador de carga, selecciónelo entre sus recursos. En configuración, seleccione Grupos de back-end. Escriba un nombre para el grupo de back-end. A continuación, haga clic en el botón **Agregar** en la parte superior de la hoja que aparece.
 2. Haga clic en **Agregar máquina virtual** en la hoja **Agregar grupo de back-end**.  Seleccione **Elegir un conjunto de disponibilidad** en **Conjunto de disponibilidad** y seleccione **myAvailSet**. A continuación, seleccione **Elegir las máquinas virtuales** en la sección Virtual Machines de la hoja y haga clic en **web1** y **web2**, las dos máquinas virtuales creadas para el equilibrio de carga. Asegúrese de que las dos tienen marcas de verificación azul a la izquierda, como se muestra en la siguiente imagen. A continuación, haga clic en **Seleccionar** en esa hoja y en Aceptar en la hoja **Elegir las máquinas virtuales**, después, haga clic en **Aceptar** en la hoja **Agregar grupo de back-end**.
    
     ![Incorporación al grupo de direcciones de back-end ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
 3. Compruebe que la lista desplegable de notificaciones tiene una actualización respecto a guardar el grupo de back-end del equilibrador de carga además de actualizar la interfaz de red para las máquinas virtuales **web1** y **web2**.
 
-## <a name="create-a-probe,-lb-rule,-and-nat-rules"></a>Creación de un sondeo, una regla de equilibrador de carga y reglas NAT
+## <a name="create-a-probe-lb-rule-and-nat-rules"></a>Creación de un sondeo, una regla de equilibrador de carga y reglas NAT
 1. Cree un sondeo de estado.
    
     En la sección Configuración del equilibrador de carga, seleccione Sondeos. A continuación, haga clic en **Agregar** en la parte superior de la hoja.
@@ -97,6 +101,9 @@ Para eliminar un equilibrador de carga, seleccione el equilibrador de carga que 
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

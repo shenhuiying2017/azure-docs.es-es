@@ -1,13 +1,13 @@
 ---
-title: 'Azure AD Connect: integración de las identidades locales con Azure Active Directory. | Microsoft Docs'
-description: Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para las aplicaciones de Office 365, Azure y SaaS integradas con Azure AD.
-keywords: introducción a Azure AD Connect, información general de Azure AD Connect, qué es Azure AD Connect, instalación de active directory
+title: "Azure AD Connect: integración de las identidades locales con Azure Active Directory. | Microsoft Docs"
+description: "Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para las aplicaciones de Office 365, Azure y SaaS integradas con Azure AD."
+keywords: "introducción a Azure AD Connect, información general de Azure AD Connect, qué es Azure AD Connect, instalación de active directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,15 +15,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eedb788b2a174d01a2ef661cf4093ff938649bce
+
 
 ---
-# <a name="integrating-your-on-premises-identities-with-azure-active-directory"></a>Integración de las identidades locales con Azure Active Directory
+# <a name="integrating-your-onpremises-identities-with-azure-active-directory"></a>Integración de las identidades locales con Azure Active Directory
 Azure AD Connect integrará sus directorios locales con Azure Active Directory. Esto le permite proporcionar una identidad común para los usuarios de aplicaciones de Office 365, Azure y SaaS integradas con Azure AD. Este tema le guiará a través del planeamiento, implementación y pasos de la operación. Se ofrece una colección de vínculos a temas relacionados con esta área.
 
-<!-- The hardcoded link is a workaround for campaign ids not working in acom links-->
-
 > [!IMPORTANT]
-> Azure AD Connect es la mejor forma de conectar su directorio local con Azure AD y Office 365. Es una ocasión ideal para realizar la actualización a Azure AD Connect desde la sincronización de Microsoft Azure Active Directory (DirSync) o desde Sincronización de Azure AD, ya que estas herramientas ahora están en desuso y el soporte técnico finalizará el 13 de abril de 2017.]active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect es la mejor manera de conectar su directorio local con Azure AD y Office 365. Es una ocasión ideal para actualizar a Azure AD Connect desde la sincronización de Microsoft Azure Active Directory (DirSync) o desde la sincronización de Azure AD, ya que estas herramientas ahora están en desuso y el soporte técnico finalizará el 13 de abril de 2017.](active-directory-aadconnect-dirsync-deprecated.md)
 > 
 > 
 
@@ -52,9 +54,9 @@ Puede encontrar la descarga de Azure AD Connect en el [Centro de descarga de Mic
 | Solución | Escenario |
 | --- | --- |
 | Antes de empezar: [Requisitos previos de Azure AD Connect](active-directory-aadconnect-prerequisites.md) |<li>Pasos que hay que completar antes de iniciar la instalación de Azure AD Connect.</li> |
-| [Configuración rápida](active-directory-aadconnect-get-started-express.md) |<li>Si tiene un único bosque de AD se recomienda que use esta opción.</li> <li>Inicio de sesión de usuario con la misma contraseña mediante la sincronización de contraseñas.</li> |
-| [Configuración personalizada](active-directory-aadconnect-get-started-custom.md) |<li>Se usa cuando se tienen varios bosques. Admite muchas [topologías](active-directory-aadconnect-topologies.md) locales.</li> <li>Personalice la opción de inicio de sesión, como ADFS para la federación, o bien use un proveedor de identidades de terceros.</li> <li>Personalice las características de sincronización, como el filtrado y la escritura diferida.</li> |
-| [Actualización desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Se usa cuando se tiene un servidor de DirSync existente que ya se está ejecutando.</li> |
+| [Configuración rápida](connect/active-directory-aadconnect-get-started-express.md) |<li>Si tiene un único bosque de AD se recomienda que use esta opción.</li> <li>Inicio de sesión de usuario con la misma contraseña mediante la sincronización de contraseñas.</li> |
+| [Configuración personalizada](connect/active-directory-aadconnect-get-started-custom.md) |<li>Se usa cuando se tienen varios bosques. Admite muchas [topologías](active-directory-aadconnect-topologies.md) locales.</li> <li>Personalice la opción de inicio de sesión, como ADFS para la federación, o bien use un proveedor de identidades de terceros.</li> <li>Personalice las características de sincronización, como el filtrado y la escritura diferida.</li> |
+| [Actualización desde DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md) |<li>Se usa cuando se tiene un servidor de DirSync existente que ya se está ejecutando.</li> |
 | [Actualización desde Azure AD Sync o Azure AD Connect](active-directory-aadconnect-upgrade-previous-version.md) |<li>Hay varios métodos diferentes entre los que puede elegir en función de sus preferencias.</li> |
 
 [Después de la instalación](active-directory-aadconnect-whats-next.md) , debe comprobar que funciona según lo previsto y asignar licencias a los usuarios.
@@ -98,7 +100,7 @@ La característica para [evitar eliminaciones accidentales](active-directory-aad
 | Tema. |
 | --- | --- |
 | Configuración del filtrado |
-| sincronización de contraseñas |
+| Sincronización de contraseñas |
 | escritura diferida de contraseñas |
 | reescritura de dispositivos |
 | evitar eliminaciones accidentales |
@@ -154,6 +156,9 @@ Presentación de Ignite 2015 sobre cómo extender los directorios locales a la n
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

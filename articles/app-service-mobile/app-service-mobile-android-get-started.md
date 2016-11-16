@@ -1,12 +1,12 @@
 ---
-title: Create an Android app on Azure App Service Mobile Apps | Microsoft Docs
-description: Follow this tutorial to get started with using Azure mobile app backends for Android development
+title: "Creación de una aplicación de Android en Azure App Service Mobile Apps | Microsoft Docs"
+description: "Siga este tutorial para aprender a usar back-ends de aplicación móvil de Azure para el desarrollo de Android"
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-android
@@ -14,38 +14,42 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e4aa29329242a7397fdb5939fa7b5b04340b53c5
+
 
 ---
-# <a name="create-an-android-app"></a>Create an Android app
+# <a name="create-an-android-app"></a>Creación de una aplicación de Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Overview
-This tutorial shows you how to add a cloud-based backend service to an Android mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* Android app that stores app data in Azure.
+## <a name="overview"></a>Información general
+En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación móvil de Android con un back-end de la aplicación móvil de Azure.  Creará tanto un back-end de aplicación móvil nuevo como una aplicación de Android simple de la *lista de tareas pendientes* que almacene los datos de la aplicación en Azure.
 
-Completing this tutorial is a prerequisite for all other Android tutorials about using the Mobile Apps feature in Azure App Service.
+Completar este tutorial es un requisito previo para todos los demás tutoriales de Android sobre cómo usar la característica Aplicaciones móviles en el Servicio de aplicaciones de Azure.
 
-## <a name="prerequisites"></a>Prerequisites
-To complete this tutorial, you need the following:
+## <a name="prerequisites"></a>Requisitos previos
+Para completar este tutorial, necesitará lo siguiente:
 
-* [Android Developer Tools](https://developer.android.com/sdk/index.html), which includes the Android Studio integrated development environment, and the latest Android platform.
-* Azure Mobile Android SDK, which is automatically referenced as part of the quickstart project you download.
-* An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+* [Herramientas para desarrolladores de Android](https://developer.android.com/sdk/index.html), que incluyen el entorno de desarrollo integrado de Android Studio y la plataforma de Android más reciente.
+* El SDK de Android móvil de Azure, al que se hace automáticamente referencia como parte del proyecto de inicio rápido que puede descargar.
+* Una [cuenta de Azure activa](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="create-a-new-azure-mobile-app-backend"></a>Create a new Azure mobile app backend
+## <a name="create-a-new-azure-mobile-app-backend"></a>Creación de un nuevo back-end de Aplicaciones móviles de Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-the-server-project"></a>Configure the server project
+## <a name="configure-the-server-project"></a>Configuración del proyecto de servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-android-app"></a>Download and run the Android app
+## <a name="download-and-run-the-android-app"></a>Descarga y ejecución de la aplicación de Android
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->
-[Azure portal]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

@@ -1,23 +1,27 @@
 ---
 title: Desarrollo de aplicaciones web de Python Flask con DocumentDB | Microsoft Docs
-description: Vea un tutorial de base de datos sobre el uso de DocumentDB para almacenar datos y acceder a ellos desde una aplicación web de Python Flask hospedada en Azure. Encuentre soluciones de desarrollo de aplicaciones.
-keywords: Desarrollo de aplicaciones, tutorial de base de datos, python flask, aplicación web de python, desarrollo web de python, documentdb, azure, Microsoft azure
+description: "Vea un tutorial de base de datos sobre el uso de DocumentDB para almacenar datos y acceder a ellos desde una aplicación web de Python Flask hospedada en Azure. Encuentre soluciones de desarrollo de aplicaciones."
+keywords: "Desarrollo de aplicaciones, tutorial de base de datos, python flask, aplicación web de python, desarrollo web de python, documentdb, azure, Microsoft azure"
 services: documentdb
 documentationcenter: python
-author: AndrewHoh
+author: syamkmsft
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: documentdb
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 08/25/2016
-ms.author: anhoh
+ms.author: syamk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+
 
 ---
-# Desarrollo de aplicaciones web de Python Flask con DocumentDB
+# <a name="python-flask-web-application-development-with-documentdb"></a>Desarrollo de aplicaciones web de Python Flask con DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-dotnet-application.md)
 > * [Node.js](documentdb-nodejs-application.md)
@@ -39,14 +43,14 @@ Siguiendo este tutorial, podrá compilar una aplicación de votación simple que
 
 ![Captura de pantalla de la aplicación web de lista de tareas pendientes creada con este tutorial](./media/documentdb-python-application/image1.png)
 
-## Requisitos previos del tutorial de base de datos
+## <a name="database-tutorial-prerequisites"></a>Requisitos previos del tutorial de base de datos
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* [Visual Studio 2013](http://www.visualstudio.com/) o versiones posteriores, o [Visual Studio Express](), que es la versión gratis. Las instrucciones de este tutorial están escritas específicamente para Visual Studio 2015.
-* Herramientas de Python para Visual Studio desde [GitHub](http://microsoft.github.io/PTVS/). En este tutorial se usan las herramientas de Python para VS 2015.
+* [Visual Studio 2013](http://www.visualstudio.com/) o versiones posteriores, o [Visual Studio Express](), que es la versión gratis. Las instrucciones de este tutorial están escritas específicamente para Visual Studio 2015. 
+* Herramientas de Python para Visual Studio desde [GitHub](http://microsoft.github.io/PTVS/). En este tutorial se usan las herramientas de Python para VS 2015. 
 * SDK de Azure Python para Visual Studio, versión 2.4 o posteriores disponible en [azure.com](https://azure.microsoft.com/downloads/). Usamos el SDK de Microsoft Azure para Python 2.7.
-* Python 2.7 en [python.org][2]. Usamos Python 2.7.11.
+* Python 2.7 de [python.org][2]. Usamos Python 2.7.11. 
 
 > [!IMPORTANT]
 > Si va a instalar Python 2.7 por primera vez, asegúrese de que en la pantalla Personalizar Python 2.7.11 selecciona **Agregar python.exe a la ruta de acceso**.
@@ -55,26 +59,27 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 > 
 > 
 
-* Compilador de Microsoft Visual C++ para Python 2.7 desde el [Centro de descarga de Microsoft][3].
+* Compilador de Microsoft Visual C++ para Python 2.7 del [centro de descarga de Microsoft][3].
 
-## Paso 1: Creación de una cuenta de base de datos de DocumentDB
+## <a name="step-1-create-a-documentdb-database-account"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
 Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir directamente al [Paso 2: Creación de una nueva aplicación web de Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
-<br/> Ahora veremos cómo crear una nueva aplicación web de Phyton Flask partiendo de cero.
+<br/>
+ Ahora veremos cómo crear una nueva aplicación web de Phyton Flask partiendo de cero.
 
-## Paso 2: Creación de una nueva aplicación web de Phyton Flask
-1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, a continuación, haga clic en **Proyecto**.
+## <a name="step-2-create-a-new-python-flask-web-application"></a>Paso 2: Creación de una nueva aplicación web de Python Flask
+1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego haga clic en **Proyecto**.
    
-    Aparecerá el cuadro de diálogo **Nuevo proyecto**.
-2. En el panel izquierdo, expanda **Plantillas**, **Python** y, después, haga clic en **Web**.
-3. Seleccione **Proyecto web Flask** en el panel central; después en el cuadro **Nombre** escriba **Tutorial** y, finalmente, haga clic en **Aceptar**. Recuerde que los nombres de paquete de Python deben escribirse en minúsculas, tal como se describe en [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
+    Aparecerá el cuadro de diálogo **Nuevo proyecto** .
+2. En el panel izquierdo, expanda **Plantillas**, **Python** y luego haga clic en **Web**. 
+3. Seleccione **Proyecto web Flask** en el panel central; después en el cuadro **Nombre** escriba **tutorial** y, finalmente, haga clic en **Aceptar**. Recuerde que los nombres de paquete de Python deben escribirse en minúsculas, tal como se describe en [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/#package-and-module-names).
    
     Para aquellos que desconozcan Python Flask, se trata de un marco de desarrollo de aplicaciones web que ayuda a compilar aplicaciones web en Python más rápidamente.
    
     ![Captura de pantalla de la ventana Nuevo proyecto en Visual Studio con Python resaltado a la izquierda, el proyecto web de Python Flask seleccionado en el centro y el nombre tutorial en el cuadro Nombre](./media/documentdb-python-application/image9.png)
-4. En la ventana **Herramientas de Python para Visual Studio**, haga clic en **Instalar en un entorno virtual**.
+4. En la ventana **Herramientas de Python para Visual Studio**, haga clic en **Instalar en un entorno virtual**. 
    
     ![Captura de pantalla del tutorial de base de datos: ventana Herramientas de Python para Visual Studio](./media/documentdb-python-application/image10.png)
 5. En la ventana **Agregar entorno virtual**, puede aceptar los valores predeterminados y usar Python 2.7 como entorno de base, ya que PyDocumentDB no admite de momento Python 3.x y, después, haga clic en **Crear**. Esto configura el entorno virtual de Python requerido para el proyecto.
@@ -83,8 +88,8 @@ Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede i
    
     Muestra la ventana de salida `Successfully installed Flask-0.10.1 Jinja2-2.8 MarkupSafe-0.23 Werkzeug-0.11.5 itsdangerous-0.24 'requirements.txt' was installed successfully.` cuando el entorno está instalado correctamente.
 
-## Paso 3: Modificación de la aplicación web de Python Flask
-### Adición de paquetes de Python Flask al proyecto
+## <a name="step-3-modify-the-python-flask-web-application"></a>Paso 3: Modificación de la aplicación web de Python Flask
+### <a name="add-the-python-flask-packages-to-your-project"></a>Adición de paquetes de Python Flask al proyecto
 Después de que el proyecto esté configurado, es preciso agregar el paquete Flask necesario al proyecto, incluido pydocumentdb, el paquete de Python para DocumentDB.
 
 1. En el Explorador de soluciones, abra el archivo llamado **requirements.txt** y reemplace su contenido por lo siguiente:
@@ -100,7 +105,7 @@ Después de que el proyecto esté configurado, es preciso agregar el paquete Fla
         flask-babel==0.8
         flup
         pydocumentdb>=1.0.0
-2. Guarde el archivo **requirements.txt**.
+2. Guarde el archivo **requirements.txt** . 
 3. En el Explorador de soluciones, haga clic con el botón derecho en **env** y haga clic en **Install from requirements.txt**.
    
     ![Captura de pantalla que muestra env (Python 2.7) seleccionado con Instalación desde requirements.txt resaltado en la lista](./media/documentdb-python-application/image11.png)
@@ -114,19 +119,19 @@ Después de que el proyecto esté configurado, es preciso agregar el paquete Fla
    > 
    > 
 
-### Comprobación del entorno virtual
+### <a name="verify-the-virtual-environment"></a>Comprobación del entorno virtual
 Asegurémonos de que todo esté instalado correctamente.
 
-1. Compile la solución presionando **Ctrl**+**MAYÚS**+**B**.
+1. Copile la solución presionando **Ctrl**+**Mayús**+**B**.
 2. Una vez realizada correctamente la compilación, inicie el sitio web presionando **F5**. De este modo se iniciará el servidor de desarrollo de Flask y el explorador web. Debe ver la página siguiente.
    
     ![Proyecto de desarrollo web de Python Flask vacío en un explorador](./media/documentdb-python-application/image12.png)
 3. Detenga la depuración del sitio web presionando **Mayús**+**F5** en Visual Studio.
 
-### Creación de definiciones de base de datos, colección y documento
+### <a name="create-database-collection-and-document-definitions"></a>Creación de definiciones de base de datos, colección y documento
 Ahora vamos a crear la aplicación de votación mediante la adición de archivos nuevos y de la actualización de otros.
 
-1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de **tutorial**, a continuación haga clic en **Agregar **y, por último, en **Nuevo elemento**. Seleccione **Archivo Python vacío** y asigne el nombre **forms.py** al archivo.
+1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto de **tutorial**, a continuación haga clic en **Agregar** y, por último, en **Nuevo elemento**. Seleccione **Archivo Python vacío** y asigne el nombre **forms.py** al archivo.  
 2. Agregue el código siguiente al archivo forms.py y, después, guárdelo.
 
 ```python
@@ -141,9 +146,9 @@ class VoteForm(Form):
 ```
 
 
-### Agregue las importaciones necesarias a views.py.
-1. En el Explorador de soluciones, expanda la carpeta **tutorial** y abra el archivo **views.py**.
-2. Agregue las siguientes instrucciones de importación a la parte superior del archivo **views.py** y, después, guarde el archivo: Dichas instrucciones importarán los paquetes de PythonSDK y Flask de DocumentDB.
+### <a name="add-the-required-imports-to-viewspy"></a>Agregue las importaciones necesarias a views.py.
+1. En el Explorador de soluciones, expanda la carpeta **tutorial** y abra el archivo **views.py**. 
+2. Agregue las siguientes instrucciones de importación a la parte superior del archivo **views.py** y, después, guarde el archivo. Dichas instrucciones importarán los paquetes de PythonSDK y Flask de DocumentDB.
    
     ```python
     from forms import VoteForm
@@ -151,7 +156,7 @@ class VoteForm(Form):
     import pydocumentdb.document_client as document_client
     ```
 
-### Creación de base de datos, colección y documento
+### <a name="create-database-collection-and-document"></a>Creación de base de datos, colección y documento
 * Todavía en **views.py**, agregue el siguiente código al final del archivo. Esta acción se encarga de crear la base de datos que usa el formulario. No elimine el código existente en **views.py**. Solo tiene que incluir esto al final.
 
 ```python
@@ -194,7 +199,7 @@ def create():
 > 
 > 
 
-### Lectura de la base de datos, la colección y el documento, y envío del formulario
+### <a name="read-database-collection-document-and-submit-form"></a>Lectura de la base de datos, la colección y el documento, y envío del formulario
 * Todavía en **views.py**, agregue el siguiente código al final del archivo. Esta acción se encarga de configurar el formulario mediante la lectura de la base de datos, la colección y el documento. No elimine el código existente en **views.py**. Solo tiene que incluir esto al final.
 
 ```python
@@ -245,11 +250,11 @@ def vote():
 ```
 
 
-### Creación de los archivos HTML
-1. En el Explorador de soluciones, en la carpeta **tutorial**, haga clic con el botón derecho en la carpeta **templates**, haga clic en **Agregar** y, después, haga clic en **Nuevo elemento**.
-2. Seleccione **Página HTML** y, a continuación, en el cuadro Nombre escriba **create.html**.
+### <a name="create-the-html-files"></a>Creación de los archivos HTML
+1. En el Explorador de soluciones, en la carpeta **tutorial**, haga clic con el botón derecho en la carpeta **templates**, haga clic en **Agregar** y, después, haga clic en **Nuevo elemento**. 
+2. Seleccione **Página HTML** y luego en el cuadro **Nombre** escriba create.html. 
 3. Repita los pasos 1 y 2 para crear dos archivos HTML adicionales: results.html y vote.html.
-4. Agregue el siguiente código a **create.html** en el elemento `<body>`. Se muestra un mensaje que indica que hemos creado una nueva base de datos, colección y documento.
+4. Agregue el siguiente código a **create.html** in the `<body>` . Se muestra un mensaje que indica que hemos creado una nueva base de datos, colección y documento.
    
     ```html
     {% extends "layout.html" %}
@@ -309,7 +314,7 @@ def vote():
     {% endblock %}
     ```
 
-### Adición de un archivo de configuración y modificación de \_\_init\_\_.py
+### <a name="add-a-configuration-file-and-change-the-initpy"></a>Adición de un archivo de configuración y modificación de \_\_init\_\_.py
 1. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **tutorial**, haga clic en **Agregar**, en **Nuevo elemento**, seleccione **Archivo Python vacío** y, a continuación, asigne al archivo el nombre de **config.py**. Los formularios de Flask requieren este archivo de configuración. También se puede usar para proporcionar una clave secreta. Sin embargo, dicha clave no es necesaria para este tutorial.
 2. Agregue el siguiente código a config.py, deberá modificar los valores de **DOCUMENTDB\_HOST** y **DOCUMENTDB\_KEY** en el paso siguiente.
    
@@ -324,9 +329,9 @@ def vote():
     DOCUMENTDB_COLLECTION = 'voting collection'
     DOCUMENTDB_DOCUMENT = 'voting document'
     ```
-3. En el [Portal de Azure](https://portal.azure.com/), navegue a la hoja **Claves** haciendo clic en **Examinar** y en **Cuentas de DocumentDB**; después haga doble clic en el nombre de la cuenta que desea usar y, a continuación, haga clic en el botón **Claves** en el área **Essentials**. En la hoja **Claves**, copie el valor del identificador **URI** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_HOST**.
-4. De nuevo en el Portal de Azure, en la hoja **Claves**, copie el valor de la **clave principal** o de la **clave secundaria** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_KEY**.
-5. En el archivo **\_\_init\_\_.py**, agregue la siguiente línea.
+3. En [Azure Portal](https://portal.azure.com/), vaya a la hoja **Claves** haciendo clic en **Examinar** y en **Cuentas de DocumentDB**; después haga doble clic en el nombre de la cuenta que desea usar y, a continuación, haga clic en el botón **Claves** en el área **Aspectos básicos**. En la hoja **Claves**, copie el valor del identificador **URI** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_HOST**. 
+4. De nuevo en Azure Portal, en la hoja **Claves**, copie el valor de la **clave principal** o de la **clave secundaria** y péguelo en el archivo **config.py**, como valor de la propiedad **DOCUMENTDB\_KEY**.
+5. En el archivo **\_\_init\_\_.py**, agregue la siguiente línea. 
    
         app.config.from_object('config')
    
@@ -342,8 +347,8 @@ def vote():
    
     ![Captura de pantalla de la ventana del explorador de soluciones de Visual Studio](./media/documentdb-python-application/image15.png)
 
-## Paso 4: Ejecución local de la aplicación web
-1. Compile la solución presionando **Ctrl**+**MAYÚS**+**B**.
+## <a name="step-4-run-your-web-application-locally"></a>Paso 4: Ejecución local de la aplicación web
+1. Copile la solución presionando **Ctrl**+**Mayús**+**B**.
 2. Una vez realizada correctamente la compilación, inicie el sitio web presionando **F5**. Debería ver lo siguiente en la pantalla.
    
     ![Captura de pantalla de la aplicación de voto Python + DocumentDB mostrada en un explorador web](./media/documentdb-python-application/image16.png)
@@ -358,19 +363,19 @@ def vote():
     ![Captura de pantalla de la página Resultados de la votación mostrada](./media/documentdb-python-application/image19.png)
 6. Detenga la depuración del proyecto presionando MAYÚS+F5.
 
-## Paso 5: Implementación de la aplicación en Sitios web Azure
+## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>Paso 5: Implementación de la aplicación en Sitios web Azure
 Ahora que toda la aplicación funciona correctamente con DocumentDB, vamos a implementarla en Sitios web de Azure.
 
-1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones (asegúrese de que no se ejecuta localmente) y seleccione **Publicar**.
+1. Haga clic con el botón derecho en el proyecto en el Explorador de soluciones (asegúrese de que no se ejecuta localmente) y seleccione **Publicar**.  
    
      ![Captura de pantalla del tutorial seleccionado en el Explorador de soluciones, con la opción Publicar resaltada](./media/documentdb-python-application/image20.png)
-2. En la ventana **Publicar web**, seleccione **Aplicaciones web de Microsoft Azure** y después haga clic en **Siguiente**.
+2. En la ventana **Publicación web**, seleccione **Microsoft Azure Web Apps** y después haga clic en **Siguiente**.
    
     ![Captura de pantalla de la ventana de publicación web con Aplicaciones web de Microsoft Azure resaltada](./media/documentdb-python-application/image21.png)
-3. En la ventana **Aplicaciones web de Microsoft Azure**, haga clic en **Nuevo**.
+3. En la ventana **Microsoft Azure Web Apps**, haga clic en **Nuevo**.
    
     ![Captura de pantalla de la ventana Aplicaciones web de Microsoft Azure](./media/documentdb-python-application/select-existing-website.png)
-4. En la ventana **Crear una aplicación web en Microsoft Azure**, escriba un **nombre de la aplicación web**, **Plan de Servicio de aplicaciones**, **Grupo de recursos** y **Región** y, después, haga clic en **Crear**.
+4. En la ventana **Create site on Microsoft Azure** (Crear sitio en Microsoft Azure), escriba un **nombre de aplicación web**, un **plan de App Service**, un **grupo de recursos** y una **región** y luego haga clic en **Crear**.
    
     ![Captura de pantalla de la ventana Crear sitio en Microsoft Azure](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
 5. En la ventana **Publicación web**, haga clic en **Publicar**.
@@ -378,28 +383,32 @@ Ahora que toda la aplicación funciona correctamente con DocumentDB, vamos a imp
     ![Captura de pantalla de la ventana Crear sitio en Microsoft Azure](./media/documentdb-python-application/publish-web.png)
 6. En pocos segundos, Visual Studio terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 Si esta es la primera aplicación de Python que se ejecuta en el equipo, asegúrese de que las carpetas siguientes (o las ubicaciones de instalación equivalentes) se incluyen en la variable PATH:
 
     C:\Python27\site-packages;C:\Python27\;C:\Python27\Scripts;
 
 Si recibe un error en la página de votos y asignó al proyecto otro nombre distinto del de **tutorial**, asegúrese de que **\_\_init\_\_.py** hace referencia al nombre de proyecto correcto en la línea: `import tutorial.view`.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 ¡Enhorabuena! Acaba de completar su primera aplicación web de Phyton con Azure DocumentDB y de publicarla en Sitios web Azure.
 
-Actualizamos y mejoramos este tema con frecuencia en función de los comentarios que recibimos. Una vez completado el tutorial, no olvide incluir sus comentarios sobre las mejoras que quiera que se hagan. Para ello, use los botones de voto de la parte superior e inferior de esta página. Si quiere que nos pongamos en contacto directamente con usted, puede incluir su dirección de correo electrónico en los comentarios.
+Actualizamos y mejoramos este tema con frecuencia en función de los comentarios que recibimos.  Una vez completado el tutorial, no olvide incluir sus comentarios sobre las mejoras que quiera que se hagan. Para ello, use los botones de voto de la parte superior e inferior de esta página. Si quiere que nos pongamos en contacto directamente con usted, puede incluir su dirección de correo electrónico en los comentarios.
 
 Para agregar funcionalidad adicional a la aplicación web, revise las API disponibles en el [SDK de Python de DocumentDB](documentdb-sdk-python.md).
 
-Para más información acerca de Azure, Visual Studio y Python, consulte el [Python Developer Center](https://azure.microsoft.com/develop/python/).
+Para más información acerca de Azure, Visual Studio y Python, consulte el [Python Developer Center](https://azure.microsoft.com/develop/python/). 
 
-Para ver tutoriales adicionales sobre Python Flask, consulte el tutorial [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world).
+Para ver tutoriales adicionales sobre Python Flask, consulte el tutorial [The Flask Mega-Tutorial, Part I: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world). 
 
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com
+[Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
+[Portal de Azure]: http://portal.azure.com
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
