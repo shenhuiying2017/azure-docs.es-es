@@ -37,23 +37,27 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (clásico)](application-gateway-create-probe-classic-ps.md)
-### Administrar
+## Administrar
 ### [Diagnóstico](application-gateway-diagnostics.md)
 ### [Solución de problemas](application-gateway-troubleshooting-502.md)
 # Referencia
-## [API de Resource Manager](https://msdn.microsoft.com/library/azure/mt684941)
-## [Service Management API](https://msdn.microsoft.com/library/azure/mt299393)
-## [Cmdlets de PowerShell](https://go.microsoft.com/fwlink/p/?LinkId=536407)
+## [Cmdlets de PowerShell](https://docs.microsoft.com/powershell/resourcemanager)
+## [REST](https://msdn.microsoft.com/library/mt684941)
+## [REST clásico](https://msdn.microsoft.com/library/azure/mt299393)
+
 # Temas relacionados
-## [ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/)
-## [Red virtual](https://azure.microsoft.com/documentation/services/virtual-network/)
-## [VPN Gateway](https://azure.microsoft.com/documentation/services/vpn-gateway/)
-## [Máquinas virtuales](https://azure.microsoft.com/documentation/services/virtual-machines/)
-## [Equilibrador de carga](https://azure.microsoft.com/documentation/services/load-balancer/)
-## [Administrador de tráfico](https://azure.microsoft.com/documentation/services/traffic-manager/)
+## [ExpressRoute](/azure/expressroute/)
+## [Red virtual](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Máquinas virtuales](/azure/virtual-machines/)
+## [Equilibrador de carga](/azure/load-balancer/)
+## [Administrador de tráfico](/azure/traffic-manager/)
 # resources
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
+
 
 <!--HONumber=Nov16_HO2-->
 

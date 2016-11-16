@@ -43,27 +43,27 @@
 
 
 # Referencia
-## [API - Resource Manager](https://msdn.microsoft.com/library/azure/mt586720)
-## [API - Administración de servicios](https://msdn.microsoft.com/library/azure/dn606310)
-## [Cmdlets de PowerShell: Resource Manager](https://msdn.microsoft.com/library/azure/mt163510(v=azure.300))
-## [Cmdlets de PowerShell: Service Management](https://msdn.microsoft.com/library/azure/dn683813)
+
+## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
 ## [Ejemplos de configuración de enrutador](expressroute-config-samples-routing.md)
 ## [Ejemplos de configuración de enrutador para NAT](expressroute-config-samples-nat.md)
+## [REST](https://msdn.microsoft.com/library/azure/mt586720)
+## [REST clásico](https://msdn.microsoft.com/library/azure/dn606310)
 
-# Temas relacionados 
-## [Virtual Network](../virtual-network/index.md)
-## [VPN Gateway](../vpn-gateway/index.md)
-## [Máquinas virtuales](../virtual-machines/index.md)
-## [Equilibrador de carga](../load-balancer/index.md)
-## [Administrador de tráfico](../traffic-manager/index.md)
+# Temas relacionados
+## [Virtual Network](/azure/virtual-network/)
+## [VPN Gateway](/azure/vpn-gateway/)
+## [Máquinas virtuales](/azure/virtual-machines/)
+## [Equilibrador de carga](/azure/load-balancer/)
+## [Administrador de tráfico](/azure/traffic-manager/)
 
 # resources
+## [Precios](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [Blog de redes](https://azure.microsoft.com/blog/topics/networking/)
 ## [Casos prácticos](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
-## [Precios](https://azure.microsoft.com/pricing/details/expressroute/)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
 ## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md)
-## Vídeos
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute) 
 ### [Creación de un circuito ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit/)
 ### [Configuración del emparejamiento privado para el circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit/)
 ### [Configuración del emparejamiento público para el circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/)
@@ -73,6 +73,7 @@
 ### [Conexión de una puerta de enlace de red virtual a un circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Desarrollo de la infraestructura de red para la conectividad](https://go.microsoft.com/fwlink/p/?LinkId=615124)
 ### [Asociaciones híbridas: habilitación de escenarios locales](https://go.microsoft.com/fwlink/p/?LinkId=615125)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=expressroute) 
 
 <!--HONumber=Nov16_HO2-->
 

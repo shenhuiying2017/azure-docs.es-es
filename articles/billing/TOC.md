@@ -5,8 +5,8 @@
 ## [Países y monedas admitidos](../billing-countries-and-currencies.md)
 ## [Límites y cuotas](../azure-subscription-service-limits.md)
 ## [Preguntas más frecuentes](../billing-subscription-faq.md)
-# Cómo
-## Seguimiento de su uso y costos
+# Procedimientos
+## Supervisión de uso y costos
 ### [Descarga de factura y uso](../billing-download-azure-invoice-daily-usage-date.md)
 ### [Descripción de la factura](billing-understand-your-bill.md)
 ### [Descripción de los cargos de servicios externos](../billing-understand-your-azure-marketplace-charges.md)
@@ -23,16 +23,18 @@
 ### [Edición de perfil](../billing-how-to-change-azure-account-profile.md)
 ### [Actualización de la información de pago](../billing-how-to-change-credit-card.md)
 ### [Vinculación al inquilino de Office 365](../billing-add-office-365-tenant-to-azure-subscription.md)
+## Solución de problemas
+### [Problemas de suscripción](../billing-troubleshoot-azure-sign-up-issues.md)
+### [Tarjeta rechazada](../billing-credit-card-fails-during-azure-sign-up.md)
+### [Problemas de inicio de sesión](../billing-cannot-login-subscription.md)
+
 # Referencia
 ## [Información general acerca de la API](../billing-usage-rate-card-overview.md)
 ## [Referencia de API de REST](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
 ## [Solución de asociado: Cloud Cruiser](../billing-usage-rate-card-partner-solution-cloudcruiser.md)
 ## [Solución de asociado: Cloudyn](../billing-usage-rate-card-partner-solution-cloudyn.md)
-# Solución de problemas
-## [Problemas de suscripción](../billing-troubleshoot-azure-sign-up-issues.md)
-## [Tarjeta rechazada](../billing-credit-card-fails-during-azure-sign-up.md)
-## [Problemas de inicio de sesión](../billing-cannot-login-subscription.md)
-# Soporte técnico
+
+# Recursos
 ## [Ponerse en contacto con soporte técnico](../billing-how-to-create-billing-support-ticket.md)
 
 <!--HONumber=Nov16_HO2-->

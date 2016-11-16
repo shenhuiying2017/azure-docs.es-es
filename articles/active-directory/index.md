@@ -1,10 +1,14 @@
 ---
 layout: LandingPage
+translationtype: Human Translation
+ms.sourcegitcommit: 844e18a1ab702773799cf9045844d982d9ee2581
+ms.openlocfilehash: 0e1d5e7e38aa23c0888e166d584b17fdcbdce40f
+
 ---
 
-# Azure Active Directory Documentation
+# <a name="azure-active-directory-documentation"></a>Documentación de Azure Active Directory
 
-Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based directory and identity management service.  Azure AD offers identity and access capabilities for applications running in Azure as well as on Premises.  
+Azure Active Directory (Azure AD) es el directorio basado en la nube multiempresa y el servicio de administración de identidades de Microsoft.  Azure AD ofrece funcionalidades de identidad y acceso para aplicaciones que se ejecutan tanto en Azure como de forma local.  
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -18,7 +22,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Active Directory</h3>
+                        <h3>Información acerca de Azure Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Active Directory Video Library</h3>
+                        <h3>Biblioteca de vídeos de Azure Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -54,7 +58,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Active Directory</h3>
+                        <h3>Introducción a Azure Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -72,7 +76,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Active Directory Premium</h3>
+                        <h3>Introducción a Azure Active Directory Premium</h3>
                     </div>
                 </div>
             </div>
@@ -83,19 +87,19 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
 
 ---
 
-## Reference
+## <a name="reference"></a>Referencia
 
-###PowerShell
-[Azure PowerShell Reference](/powershell/)
+###<a name="powershell"></a>PowerShell
+[Referencia de Azure PowerShell](/powershell/)
 
-###Azure CLI
-[Azure Active Directory Using Azure CLI](/cli/azure/ad)
+###<a name="azure-cli"></a>CLI de Azure
+[Azure Active Directory mediante la CLI de Azure](/cli/azure/ad)
 
-###.NET
-[Azure Active Directory .NET Reference](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+###<a name="net"></a>.NET
+[Referencia de .NET de Azure Active Directory](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
 
-###Java
-[Azure Java API Reference](/java/api/)
+###<a name="java"></a>Java
+[Referencia de la API de Azure Java](/java/api/)
 
 
 ---
@@ -104,7 +108,12 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Active Directory Documentation
-        </div>
+Descarga de la documentación de Active Directory </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

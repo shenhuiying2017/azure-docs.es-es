@@ -4,14 +4,14 @@
 ## [Elección de una SKU](search-sku-tier.md)
 ## [Creación de un servicio](search-create-service-portal.md)
 ## [Creación de un índice](search-what-is-an-index.md)
-### [Portal de Azure](search-create-index-portal.md)
+### [Azure Portal](search-create-index-portal.md)
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Agregación de datos](search-what-is-data-import.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Búsqueda de un índice](search-query-overview.md)
-### [Portal de Azure](search-explorer.md)
+### [Azure Portal](search-explorer.md)
 ### [.NET](search-query-dotnet.md)
 ### [REST](search-query-rest-api.md)
 ## [Control de los resultados de la búsqueda](search-pagination-page-layout.md)
@@ -30,7 +30,7 @@
 ### [Tipos de datos complejos de modelo](search-howto-complex-data-types.md)
 ## Administrar
 ### Administración de Azure Search
-#### [Portal de Azure](search-manage.md)
+#### [Azure Portal](search-manage.md)
 #### [REST](search-get-started-management-api.md)
 #### [PowerShell](search-manage-powershell.md)
 ### [Supervisión del uso y las estadísticas](search-monitor-usage.md)
@@ -55,14 +55,18 @@
 ### [Búsqueda en varios idiomas](search-language-support.md)
 
 # Referencia
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [API de REST de servicio](https://msdn.microsoft.com/library/azure/dn798935)
-## [API de REST de servicio (versión preliminar)](search-api-2015-02-28-preview.md)
-## [API de REST de administración](https://msdn.microsoft.com/library/azure/dn832684)
 ## [Versiones de API](search-api-versions.md)
+## [Java](/java/api/)
+## [.NET](/dotnet/api/)
 ## [Sintaxis de consulta de Lucene](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Sintaxis de consulta simplificada](https://msdn.microsoft.com/library/azure/dn798920)
-# resources
+## [REST de servicio](/rest/api/searchservice/)
+## [REST de servicio (Versión preliminar)](search-api-2015-02-28-preview.md)
+## [REST de administración](/rest/api/searchmanagement/)
+
+# Recursos
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=search)
+## [Precios](https://azure.microsoft.com/pricing/details/search/)
 ## Sitios de demostración
 ### [Aplicación de listados de trabajos](http://aka.ms/azjobsdemo)
 ### [Aplicaciones de demostración en vivo](https://searchsamples.azurewebsites.net/)
@@ -73,7 +77,7 @@
 ## Partner y comunidad
 ### [Modelado de datos relacionales](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Aplicación de facetas de varios niveles](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [Foros de MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Foro](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Github de Azure Search](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
 

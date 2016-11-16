@@ -48,6 +48,10 @@
 ### [Conmutación por recuperación de VM de VMware y servidores físicos](site-recovery-failback-azure-to-vmware.md)
 ## [Supervisión y solución de problemas](site-recovery-monitoring-and-troubleshooting.md)
 
+# Referencia
+## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell clásico](/powershell/servicemanagement/)
+
 # Temas relacionados
 ## [Azure Automation](/azure/automation/)
 
@@ -56,6 +60,7 @@
 ## [Foro](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 ## [Blog](http://azure.microsoft.com/blog/tag/azure-site-recovery/)
 ## [Precios](https://azure.microsoft.com/pricing/details/site-recovery/)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=site-recovery)
 
 
 <!--HONumber=Nov16_HO2-->

@@ -64,6 +64,12 @@
 ### [Solución de problemas de una colección híbrida](remoteapp-hybridtrouble.md)
 ### [Solución de problemas de una colección en la nube](remoteapp-cloudtrouble.md)
 
+# Recursos
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=remoteapp)
+## [Precios](https://azure.microsoft.com/pricing/details/remoteapp/)
+## [Foro](https://social.msdn.microsoft.com/Forums/home?forum=AzureRemoteApp)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=remoteapp)
+
 
 <!--HONumber=Nov16_HO2-->
 

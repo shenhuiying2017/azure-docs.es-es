@@ -38,7 +38,7 @@
 ### [Aplicaciones web de IIS](multi-factor-authentication-get-started-server-iis.md)
 ### [Puerta de enlace de Escritorio remoto](multi-factor-authentication-get-started-server-rdg.md)
 
-## Desarrollo de aplicaciones
+## Desarrollo 
 ### [Integración en aplicaciones personalizadas (SDK)](multi-factor-authentication-sdk.md)
 
 ## Solución de problemas

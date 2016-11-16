@@ -1,41 +1,35 @@
 # Información general
-## [Introducción a las conexiones híbridas](integration-hybrid-connection-overview.md)
+## [Ediciones](biztalk-editions-feature-chart.md)
+## [Acerca de Conexiones híbridas](integration-hybrid-connection-overview.md)
 
-# Introducción
-## [Creación de BizTalk Services mediante Azure Portal](biztalk-provision-services.md)
+# Primeros pasos
+## [Creación de Biztalk Services](biztalk-provision-services.md)
+
 # Procedimientos
-
 ## Planeamiento y diseño
-### [Gráfico de ediciones](biztalk-editions-feature-chart.md)
 ### [Lista de tareas para desarrolladores y administradores](biztalk-services-administration-and-development-task-list.md)
 
-## Copia de seguridad
-### [Copia de seguridad y restauración](biztalk-backup-restore.md)
+## [Copia de seguridad y restauración](biztalk-backup-restore.md)
 
 ## Configuración
-### [Servicios de BizTalk: limitaciones](biztalk-throttling-thresholds.md)
-### [Revisión de las pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](biztalk-dashboard-monitor-scale-tabs.md)
+### [Limitaciones](biztalk-throttling-thresholds.md)
+### [Configuración del servicio y supervisión](biztalk-dashboard-monitor-scale-tabs.md)
 
 ## Integrate
-### [Creación y administración de conexiones híbridas](integration-hybrid-connection-create-manage.md)
+### [Conexiones híbridas](integration-hybrid-connection-create-manage.md)
 
 ## Migrar
-### [Migración de soluciones EDI de BizTalk Server a BizTalk Services](biztalk-migrating-to-edi-guide.md)
+### [Soluciones EDI de BizTalk Server a BizTalk Services](biztalk-migrating-to-edi-guide.md)
 
 ## Supervisión
-### [BizTalk Services: gráfico del estado del servicio](biztalk-service-state-chart.md)
+### [Tareas que dependen de los estados de servicio](biztalk-service-state-chart.md)
 
 ## Protección
-### [Nombre de emisor y clave de emisor](biztalk-issuer-name-issuer-key.md)
+### [Control de acceso](biztalk-issuer-name-issuer-key.md)
 
-## Solución de problemas
-### [Solución de problemas con la utilización de los registros de operaciones](biztalk-troubleshoot-using-ops-logs.md)
+## [Solución de problemas](biztalk-troubleshoot-using-ops-logs.md)
 
 # Referencia
-
-# Temas relacionados
-
-# resources
 ## [Notas de la versión](biztalk-release-notes.md)
 
 

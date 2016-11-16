@@ -5,7 +5,6 @@
 ## [P+F](../../virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # [Primeros pasos](../../virtual-machines-linux-opensource-links.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-## [Cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/)
 ## [Creación de una máquina virtual Linux mediante el portal](../../virtual-machines-linux-classic-createportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Instalación de la CLI de Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ## [Creación de claves SSH](../../virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -24,7 +23,7 @@
 ### [Creación de un host de Docker mediante el portal](../../virtual-machines-linux-classic-portal-use-docker.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Uso de Docker con Swarm](../../virtual-machines-linux-docker-swarm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Almacenamiento
+## Usar Storage
 ### [Acoplamiento de un disco de datos](../../virtual-machines-linux-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Desacoplamiento de un disco de datos](../../virtual-machines-linux-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
@@ -32,12 +31,12 @@
 ### [Apertura de puertos a la máquina virtual](../../virtual-machines-linux-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Conexión de máquinas virtuales con una red virtual o un servicio en la nube](../../virtual-machines-linux-classic-connect-vms.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Imágenes
+## Implementación de imágenes
 ### [Creación y carga de un disco duro virtual](../../virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Creación y carga de un disco duro virtual de FreeBSD](../../virtual-machines-linux-classic-freebsd-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Lista de imágenes de máquina virtual de Oracle](../../virtual-machines-linux-classic-oracle-images.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Cargas de trabajo
+## Administración de cargas de trabajo
 ### [SAP](../../virtual-machines-linux-classic-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### MySQL y MariaDB
 #### [Tutorial sobre los clústeres de MariaDB](../../virtual-machines-linux-classic-mariadb-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -45,7 +44,7 @@
 #### [Uso de conjuntos de carga equilibrada para crear clústeres en MySQL](../../virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 #### [Optimización del rendimiento de MySQL](../../virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
-## Aplicaciones
+## Ejecución de aplicaciones
 ### [Aplicación web de Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
 ### [Cliente de Cassandra y Node.js](../../virtual-machines-linux-classic-cassandra-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Pila LAMP](../../virtual-machines-linux-classic-lamp-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
@@ -56,29 +55,32 @@
 ### [Uso del complemento esclavo de Azure con Jenkins](../../virtual-machines-azure-slave-plugin-for-jenkins.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## HPC Pack
-### [Clúster de Windows RDMA con HPC Pack para ejecutar aplicaciones MPI](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Clúster de informática de alto rendimiento (HPC) de Windows con el script de implementación de HPC Pack IaaS](../../virtual-machines-linux-classic-hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Clúster de RDMA de Windows para ejecutar aplicaciones MPI](../../virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Clúster de Windows HPC con el script de implementación de HPC Pack IaaS](../../virtual-machines-linux-classic-hpcpack-cluster-starccm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Administración del número y la disponibilidad de los nodos de proceso](../../virtual-machines-linux-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Incorporación de nodos a petición a un clúster de HPC Pack](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-### [Aumento y reducción automáticos de los recursos de clúster de HPC Pack](../../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Incorporación de nodos a petición](../../virtual-machines-linux-classic-hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+### [Escalado automático de recursos](../../virtual-machines-linux-classic-hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## Solución de problemas
 ### [Implementaciones de máquina virtual](../../virtual-machines-linux-classic-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 ### [Reinicio o cambio del tamaño de una máquina virtual](../../virtual-machines-linux-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 # Referencia
-## [CLI de Azure](https://docs.microsoft.com/cli/azure/vm)
-## [SDK de Java](https://azure.microsoft.com/develop/java/)
-## [SDK de Node.js](https://azure.microsoft.com/develop/nodejs/)
-## [SDK de Python](https://azure.microsoft.com/develop/python/)
-## [API de REST de Compute](https://docs.microsoft.com/rest/azure/api/compute/2016-03-30#Virtual-Machines)
-## [API de REST de red](https://docs.microsoft.com/rest/azure/api/network/2016-09-01#)
-## [API de REST de almacenamiento ](https://docs.microsoft.com/rest/azure/api/storage/2016-01-01)
+## [CLI de Azure](/cli/azure/vm)
+## [Java](/java/api/)
+## [Creación de plantillas de Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates/)
+## [REST de Compute](/rest/api/compute/)
+## [REST de Network](/rest/api/)
+## [REST de Storage](/rest/api/storageservices/)
 
-# resources
+
+# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [Disponibilidad regional](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
+
 
 <!--HONumber=Nov16_HO2-->
 

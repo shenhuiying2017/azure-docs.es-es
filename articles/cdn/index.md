@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-#CDN Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
+ms.openlocfilehash: 5cc39b23ab6282ea1c4367fcbdf8c7b095180b51
 
-Azure Content Delivery Network (CDN) provides developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location.  Using the CDN you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location.  The CDN is typically used to deliver static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
+---
+#<a name="cdn-documentation"></a>Documentación de CDN
+
+Azure Content Delivery Network (CDN) ofrece a los desarrolladores una solución global para entregar contenido de alto ancho de banda que se hospeda en Azure o en cualquier otra ubicación.  Mediante CDN puede almacenar en caché objetos disponibles públicamente cargados desde Azure Blob Storage, una aplicación web, una máquina virtual, una carpeta de la aplicación u otra ubicación HTTP/HTTPS.  CDN se suele usar para entregar contenido estático, como imágenes, hojas de estilo, documentos, archivos, scripts de cliente y páginas HTML.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure CDN</h3>
+                        <h3>Información acerca de Azure CDN</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Batch Video Library</h3>
+                        <h3>Biblioteca de vídeos de Azure Batch</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +56,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure CDN</h3>
+                        <h3>Introducción a Azure CDN</h3>
                     </div>
                 </div>
             </div>
@@ -63,20 +67,25 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
 
 ---
 
-##Reference
+##<a name="reference"></a>Referencia
 
-###PowerShell
+###<a name="powershell"></a>PowerShell
 [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
-###REST
-[CDN REST API Reference](/rest/api/CDN)
+###<a name="rest"></a>REST
+[Referencia de API de REST de CDN](/rest/api/CDN)
 
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cdn.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure CDN Documentation
-        </div>
+Descarga de la documentación de CDN de Azure </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+
