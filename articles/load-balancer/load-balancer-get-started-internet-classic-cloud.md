@@ -1,23 +1,28 @@
 ---
-title: Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con servicios en la nube | Microsoft Docs
-description: Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica para servicios en la nube
+title: "Introducción a la creación de un equilibrador de carga orientado a Internet en un modelo de implementación clásica con Cloud Services | Microsoft Docs"
+description: "Obtenga información acerca de cómo crear un equilibrador de carga orientado a Internet en el modelo de implementación clásica para servicios en la nube"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 171d5cd41d900b83c22e1db4bc514471a3d4b556
 
 ---
-# Introducción a la creación de un equilibrador de carga orientado a Internet para servicios en la nube
+
+# <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Introducción a la creación de un equilibrador de carga orientado a Internet para servicios en la nube
+
 [!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
@@ -28,13 +33,15 @@ Este artículo trata sobre el modelo de implementación clásico. También puede
 
 Los servicios en la nube se configuran automáticamente con un equilibrador de carga y se pueden personalizar mediante el modelo de servicio.
 
-## Crear un equilibrador de carga mediante el archivo de definición de servicio
-Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de puntos de conexión para los servicios en la nube se realiza en el archivo de [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx) .csdef.
+## <a name="create-a-load-balancer-using-the-service-definition-file"></a>Crear un equilibrador de carga mediante el archivo de definición de servicio
+
+Puede aprovechar el SDK de Azure para .NET 2.5 para actualizar el servicio en la nube. La configuración de extremos para los servicios en la nube se realiza en el archivo [definición de servicio](https://msdn.microsoft.com/library/azure/gg557553.aspx).csdef.
 
 En el ejemplo siguiente se muestra cómo se configura un archivo servicedefinition.csdef para una implementación en la nube:
 
 Mediante la comprobación del fragmento de código para el archivo .csdef generado por una implementación en la nube, puede ver el extremo externo configurado para usar puertos HTTP en los puertos 10000, 10001 y 10002.
 
+```xml
     <ServiceDefinition name=“Tenant“>
        <WorkerRole name=“FERole” vmsize=“Small“>
     <Endpoints>
@@ -53,16 +60,17 @@ Mediante la comprobación del fragmento de código para el archivo .csdef genera
     </Endpoints>
       </WorkerRole>
     </ServiceDefinition>
+```
 
+## <a name="check-load-balancer-health-status-for-cloud-services"></a>Comprobación del estado de mantenimiento del equilibrador de carga para servicios en la nube
 
-
-
-## Comprobación del estado de mantenimiento del equilibrador de carga para servicios en la nube
 A continuación se muestra un sondeo de estado:
 
-         <LoadBalancerProbes>
+```xml
+    <LoadBalancerProbes>
         <LoadBalancerProbe name=“MyProbe” protocol=“http” path=“Probe.aspx” intervalInSeconds=“5” timeoutInSeconds=“100“ />
-          </LoadBalancerProbes>
+    </LoadBalancerProbes>
+```
 
 El equilibrador de carga combina la información del punto de conexión y la información del sondeo para crear una dirección URL en forma de http://{DIP de VM}:80/Probe.aspx que se puede usar para consultar el estado del servicio.
 
@@ -72,11 +80,17 @@ La definición de sondeo también controla la frecuencia del sondeo. En nuestro 
 
 Compruebe el esquema de definición del [sondeo de estado](https://msdn.microsoft.com/library/azure/jj151530.aspx) para obtener más información.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
+
 [Introducción a la configuración de un equilibrador de carga interno](load-balancer-get-started-ilb-arm-ps.md)
 
 [Configuración de un modo de distribución del equilibrador de carga](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

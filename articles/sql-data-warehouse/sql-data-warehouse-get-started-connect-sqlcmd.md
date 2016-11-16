@@ -1,36 +1,41 @@
 ---
-title: Consulta de Almacenamiento de datos SQL de Azure | Microsoft Docs
-description: Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd.
+title: Consulta de Azure SQL Data Warehouse | Microsoft Docs
+description: "Consulta de Almacenamiento de datos SQL Azure con las utilidades de la línea de comandos sqlcmd."
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6e2b69e5-4806-4e91-9ea1-e2b63bf28c46
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 09/06/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f2cf8003e46a1df30810a2594bc1d380bc13bcf
+
 
 ---
-# Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
+# <a name="query-azure-sql-data-warehouse-sqlcmd"></a>Consulta de Almacenamiento de datos SQL de Azure (sqlcmd)
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 > * [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
+> * [SSMS](sql-data-warehouse-query-ssms.md)
 > 
 > 
 
-En este tutorial se usa la utilidad de línea de comandos [sqlcmd][sqlcmd] para consultar una instancia de Azure SQL Data Warehouse.
+En este tutorial se usa la utilidad de línea de comandos [sqlcmd][sqlcmd] para consultar una instancia de Azure SQL Data Warehouse.  
 
-## 1\. Conectar
-Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de Almacenamiento de datos SQL. La cadena de conexión requiere los siguientes parámetros:
+## <a name="1-connect"></a>1. Conectar
+Para empezar a trabajar con [sqlcmd][sqlcmd], abra el símbolo del sistema y escriba **sqlcmd** seguido de la cadena de conexión de la base de datos de SQL Data Warehouse. La cadena de conexión requiere los siguientes parámetros:
 
-* **Servidor (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
+* **Server (-S):** servidor con el formato `<`Nombre del servidor`>`.database.windows.net
 * **Base de datos (-d):** nombre de la base de datos.
 * **Habilitar identificadores entre comillas (-I):** los identificadores entre comillas deben estar habilitados para poder conectarse a una instancia de SQL Data Warehouse.
 
@@ -60,8 +65,8 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 > 
 > 
 
-## 2\. Consultar
-Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia. En este ejemplo, las consultas se envían en modo interactivo.
+## <a name="2-query"></a>2. Consultar
+Después de la conexión, puede emitir cualquier instrucción Transact-SQL en la instancia.  En este ejemplo, las consultas se envían en modo interactivo.
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -80,7 +85,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Consulte [documentación de sqlcmd][sqlcmd] para más información sobre las opciones disponibles en sqlcmd.
 
 <!--Image references-->
@@ -89,8 +94,12 @@ Consulte [documentación de sqlcmd][sqlcmd] para más información sobre las opc
 
 <!--MSDN references--> 
 [sqlcmd]: https://msdn.microsoft.com/library/ms162773.aspx
-[Azure portal]: https://portal.azure.com
+[portal de Azure]: https://portal.azure.com
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

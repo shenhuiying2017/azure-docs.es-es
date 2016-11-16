@@ -1,12 +1,12 @@
 ---
-title: Definición de la estrategia de Mobile Engagement | Microsoft Docs
-description: Aprenda cómo integrar y optimizar Mobile Engagement con análisis y notificaciones de inserción.
+title: "Definición de la estrategia de Mobile Engagement | Microsoft Docs"
+description: "Aprenda cómo integrar y optimizar Mobile Engagement con análisis y notificaciones de inserción."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 7533e318-81b9-4360-aace-b7be8225985b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+
 
 ---
-# Definición de la estrategia de Mobile Engagement
+# <a name="define-your-mobile-engagement-strategy"></a>Definición de la estrategia de Mobile Engagement
 *Ha editado su aplicación por un motivo: para que la utilicen los usuarios.*
 
 Estamos convencidos de que dedicó mucho esfuerzo para crear una aplicación extraordinaria que apasionará a los usuarios. Probablemente ha invertido una cantidad considerable del presupuesto de marketing para conseguir usuarios. Pero después del emocionante pico inicial de usuarios, puede que observe que poco a poco dejaron de usar la aplicación. *Ahí es donde entra Azure Mobile Engagement*, que consiste en conservar a los usuarios y le permite mejorar la aplicación gradualmente mediante pruebas y aprender.
@@ -25,7 +29,7 @@ Nuestro enfoque para mejorar la retención y el uso se basa en atraer a los usua
 
 Para ello, tendrá que empezar por *entender a los usuarios*, crear grupos según sus acciones o sus características (lo que denominados segmentos) y luego crear comunicaciones relevantes para cada segmento.
 
-## Mobile Engagement cumple sus objetivos
+## <a name="mobile-engagement-serves-your-objectives"></a>Mobile Engagement cumple sus objetivos
 *Hemos mencionado la retención y el uso, pero ¿para qué?*
 
 Para crear la estrategia de Mobile Engagement primero hay que ver los objetivos y los indicadores clave del rendimiento (KPI) de la aplicación.
@@ -45,14 +49,14 @@ Una vez definidos los casos de uso y el segmento, ofrece instrucciones para defi
 
 En función de la integración, una vez publicadas las aplicaciones, usted, como vendedor, podrá ver sus análisis en tiempo real, segmentar la audiencia y, a continuación, comenzar a enviar la notificación de inserción inteligente orientada para atraer a los usuarios finales en la aplicación o fuera de ella.
 
-### Casos de uso para comenzar
+### <a name="usecases-to-get-started"></a>Casos de uso para comenzar
 1. Estrategia de bienvenida: cree varias campañas de notificación de inserción en función del comportamiento del usuario final en el momento del lanzamiento de la aplicación para volver a conseguir la participación de los usuarios el D+2/5/10/15 después de la primera sesión y aumentar la retención de la primera ejecución.
 2. Promocione nuevo contenido (características, artículos y vídeos, productos, etc.) en función del comportamiento del usuario final para enviar la información únicamente a los usuarios finales con más probabilidades de participar.
 3. Valore la aplicación: céntrese en menos del 1 % de la base de usuarios con más probabilidad de asignar a la aplicación una valoración de 5 estrellas en la tienda.
 4. Aumente las suscripciones: promocione contenido valioso a los usuarios finales que aún no hayan visto para aumentar la suscripción.
 5. Tutorial: se acabaron los tutoriales obligatorios para todos los usuarios. ¿Por qué no crear tutoriales extraordinarios en la aplicación y activarlos a través de mensajes en la aplicación solo si el usuario parece que no está acostumbrado a usar una característica o tiene problemas con ella?
 
-## ¿Por qué necesita análisis para atraer la participación?
+## <a name="why-do-you-need-analytics-to-engage"></a>¿Por qué necesita análisis para atraer la participación?
 Como habrá observado en este punto, no basta con realizar una notificación de inserción de difusión. El concepto básico de Mobile Engagement es ayudar a los vendedores y los desarrolladores a relacionarse con el usuario final adecuado a la hora y el lugar adecuados. Para conocer los tres conceptos principales, es esencial recopilar análisis de la aplicación y usarlos para segmentar la audiencia. Esto es incluso más eficaz cuando el comportamiento de los segmentos complementa datos de sus otras bases de datos o de CRM, o bien de un canal cruzado. Mobile Engagement le permite recuperar datos desde cualquier lugar y los usa para dirigirse a la audiencia adecuada.
 
 Para ser lo más contextual posible al atraer la participación de la audiencia, es fundamental conocer el comportamiento de los usuarios finales para conocer su estado en tiempo real. Con la recopilación de datos, los vendedores pueden centrarse realmente en lo importante para reproducir casos de uso y lograr los objetivos de la estrategia de Mobile Engagement. El logro de los objetivos fijados anteriormente también explica el motivo por el que la práctica recomendada no es recopilar cualquier cosa sino solamente aquello que le permita centrarse en lo que quiere saber y en los casos de uso. Esta es una buena manera de empezar, probar y aprender a usar la solución y a abordar la notificación de inserción inteligente y aumentar la retención de una aplicación a tal nivel que se convierta en una historia de éxito.
@@ -62,27 +66,27 @@ Para ser lo más contextual posible al atraer la participación de la audiencia,
 > 
 > 
 
-### Casos de uso y prácticas recomendadas
+### <a name="usecases-and-best-practices"></a>Casos de uso y prácticas recomendadas
 En las secciones siguientes trataremos brevemente algunos casos de uso clave que hemos experimentado con nuestros clientes para que pueda comenzar.
 
-#### Multimedia
+#### <a name="media"></a>Multimedia
 Recopile el tipo de contenido que consume el usuario final y segmente la audiencia en función de ese comportamiento para dirigir un tipo de contenido específico solo a un público con más probabilidad de consumirlo. Esto evita el envío de correo no deseado a toda la base de usuarios y asegura una retención mejor.
 
-#### Comercio móvil
+#### <a name="mcommerce"></a>Comercio móvil
 Recopile las categorías de productos más visitadas en la aplicación y diríjase a la audiencia para promocionar un descuento o un nuevo producto de una de esas categorías que sea más probable que compre el usuario final. Intente aumentar los ingresos. Nuevamente, el objetivo es no enviar correo no deseado.
 
-#### Juegos
+#### <a name="gaming"></a>Juegos
 Recopile el nivel de juego de un usuario final y el tiempo dedicado en un período determinado para dirigirse a la audiencia que podría estar estancada y que probablemente pasaría al siguiente nivel con una oferta exclusiva.
 
 Realice comunicaciones sobre eventos concretos con un incentivo para los usuarios que llevan cierto tiempo sin jugar con el fin de recuperarlos.
 
-#### Minoristas
+#### <a name="retail"></a>Minoristas
 Recopile los productos o marcas que consumirá una audiencia con más probabilidad en función del comportamiento o de gustos y consiga dirigir a la audiencia a la tienda para aumentar los ingresos de ventas.
 
-#### Banca
+#### <a name="banking"></a>Banca
 Recopile datos de los usuarios finales que crearon una cuenta en el momento del lanzamiento de la aplicación. Póngase por objetivo implementar una estrategia de bienvenida con notificación push orientada y aumentar el número de suscripciones de cuenta.
 
-### ¿Cómo crear un plan de etiqueta eficaz?
+### <a name="how-to-create-a-great-tag-plan"></a>¿Cómo crear un plan de etiqueta eficaz?
 Un plan de etiqueta debe ser como una descripción de la ruta del usuario o un tipo de flujo de trabajo de la aplicación, que proporciona todas las etiquetas necesarias (datos) que deben recopilarse para disponer de suficientes análisis para comprender el comportamiento del usuario y segmentar correctamente la base de usuarios. No se trata de un proceso técnico. Por lo tanto, los vendedores son capaces de especificar los datos que desean recopilar en función de su estrategia de Mobile Engagement.
 
 Como mínimo hay que etiquetar todas las pantallas (denominadas *Actividades* en Mobile Engagement) de una aplicación. Esto ayuda a determinar la ruta de acceso de usuario.
@@ -97,7 +101,7 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 
 *Información en la aplicación* son los datos que permiten confirmar el estado de la aplicación o del usuario en tiempo real. Esto también sirve para categorizar una base de audiencia y dirigirse a ella rápidamente. Por ejemplo, puede usar un estado true/false sobre si el usuario inició sesión o no, o sobre la fecha de expiración de la suscripción.
 
-#### Ejemplo de etiquetas
+#### <a name="example-of-tags"></a>Ejemplo de etiquetas
 *Caso de uso: segmente el comportamiento de la audiencia para dirigirse al usuario final adecuado con el contenido correcto de notificación de inserción*
 
 1. Enviar notificación de inserción para promocionar una categoría de productos: recopile datos de comportamiento para segmentar la audiencia según la categoría de producto visitada x veces en un período determinado o un elemento específico agregado a un carro. Los datos recopilados permitirán segmentar y enviar una notificación de inserción a la audiencia adecuada.
@@ -108,14 +112,15 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 *Caso de uso: datos declarativos*
 
 1. Segmente las noticias de alerta: recopile datos declarativos para segmentar la audiencia según sus preferencias. Permite enviar notificaciones push de un tema concreto que realmente le interesa a una audiencia concreta.
-2. Segmente la audiencia según el estado de inicio de sesión. Recopile datos para saber si un usuario está conectado o ha creado una cuenta. Diríjase a usuarios finales que aún no iniciaron sesión y envíe una notificación de inserción para atraer la participación del usuario final. ![][2]
+2. Segmente la audiencia según el estado de inicio de sesión. Recopile datos para saber si un usuario está conectado o ha creado una cuenta. Diríjase a usuarios finales que aún no iniciaron sesión y envíe una notificación de inserción para atraer la participación del usuario final.
+   ![][2]
 
-### Pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 * Visite [Conceptos de Mobile Engagement] para obtener más información sobre conceptos básicos de Mobile Engagement.
 * Visite [Creación de una aplicación de Azure Mobile Engagement](mobile-engagement-create.md) para crear una colección de aplicaciones de Mobile Engagement en Azure y comenzar a administrar las aplicaciones con el portal de Mobile Engagement.
 * Visite [Azure Mobile Engagement - Guía de introducción con procedimientos recomendadas](mobile-engagement-getting-started-best-practices.md) para acceder a los detalles
-* Visite [Implementación de Mobile Engagement con una aplicación de juegos](mobile-engagement-gaming-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación de juegos de ejemplo.
-* Visite [Implementación de Mobile Engagement con una aplicación de medios](mobile-engagement-media-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación multimedia de ejemplo.
+* Visite [Implementación de Mobile Engagement con una aplicación de juegos](mobile-engagement-gaming-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación de juegos de ejemplo. 
+* Visite [Implementación de Mobile Engagement con una aplicación de medios](mobile-engagement-media-scenario.md) para obtener información sobre la implementación de Mobile Engagement con una aplicación multimedia de ejemplo. 
 * Visite [Tutoriales] para obtener más información sobre la implementación.
 
 <!-- Images. -->
@@ -126,4 +131,9 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 [Conceptos de Mobile Engagement]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
 [Tutoriales]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

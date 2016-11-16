@@ -1,12 +1,12 @@
 ---
-title: Introducción a Log Analytics | Microsoft Docs
-description: Puede ponerse en marcha y ejecutar Log Analytics en Microsoft Operations Management Suite (OMS) en cuestión de minutos.
+title: "Introducción a Log Analytics | Microsoft Docs"
+description: "Puede ponerse en marcha y ejecutar Log Analytics en Microsoft Operations Management Suite (OMS) en cuestión de minutos."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 508716de-72d3-4c06-9218-1ede631f23a6
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2f8defce183e61825d9df3397ea1082dbdb4b11a
+
 
 ---
 # <a name="get-started-with-log-analytics"></a>Introducción a Log Analytics
@@ -95,7 +99,7 @@ Para elegir soluciones y conectar los servidores que desea administrar, haga cli
    
     ![recopilar datos](./media/log-analytics-get-started/oms-onboard-logs.png)    
 
-## <a name="optionally,-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>Opcionalmente, instalar un agente para conectar servidores directamente a Operations Management Suite
+## <a name="optionally-connect-servers-directly-to-the-operations-management-suite-by-installing-an-agent"></a>Opcionalmente, instalar un agente para conectar servidores directamente a Operations Management Suite
 El siguiente ejemplo muestra cómo instalar un agente para Windows.
 
 1. Haga clic en el icono **Configuración**, haga clic en la pestaña **Orígenes conectados**, haga clic en la pestaña del tipo de origen que desea agregar y descargue un agente u obtenga más información sobre cómo habilitar un agente. Por ejemplo, haga clic en **Descargar Agente para Windows (64 bits)**. En el caso de los agentes para Windows, el agente solo se puede instalar en Windows Server 2008 SP 1 o posterior, o en Windows 7 SP1 o posterior.
@@ -119,7 +123,7 @@ También puede conectar al agente a System Center Operations Manager 2012 SP1 y 
 
 Puede leer más información sobre cómo conectar agentes a Operations Management Suite en [Conexión de equipos Windows a Log Analytics](log-analytics-windows-agents.md).
 
-## <a name="optionally,-connect-servers-using-system-center-operations-manager"></a>Opcionalmente, conectar servidores con System Center Operations Manager
+## <a name="optionally-connect-servers-using-system-center-operations-manager"></a>Opcionalmente, conectar servidores con System Center Operations Manager
 1. En la consola de Operations Manager, seleccione **Administración**.
 2. Expanda el nodo **Operational Insights** y seleccione **Conexión a Operational Insights**.
    
@@ -133,7 +137,7 @@ Puede leer más información sobre cómo conectar agentes a Operations Managemen
 
 Puede obtener más información sobre cómo conectar Operations Manager con Operations Management Suite en [Conexión de Operations Manager con Log Analytics](log-analytics-om-agents.md).
 
-## <a name="optionally,-analyze-data-from-cloud-services-in-microsoft-azure"></a>Opcionalmente, analizar datos desde los servicios en la nube de Microsoft Azure
+## <a name="optionally-analyze-data-from-cloud-services-in-microsoft-azure"></a>Opcionalmente, analizar datos desde los servicios en la nube de Microsoft Azure
 Con Operations Management Suite puede buscar rápidamente registros de IIS y eventos para servicios en la nube y máquinas virtuales, habilitando los diagnósticos en Servicios en la nube de Azure. También puede instalar Microsoft Monitoring Agent para recibir información adicional sobre sus máquinas virtuales de Azure. Para obtener más información sobre cómo configurar el entorno de Azure para usar Operations Management Suite, consulte [Conexión de Almacenamiento de Azure con Log Analytics](log-analytics-azure-storage.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -141,6 +145,9 @@ Con Operations Management Suite puede buscar rápidamente registros de IIS y eve
 * Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 * Use los [paneles](log-analytics-dashboards.md) para guardar y mostrar sus propias búsquedas personalizadas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

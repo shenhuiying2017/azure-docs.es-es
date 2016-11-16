@@ -1,12 +1,12 @@
 ---
-title: Automatización de la eliminación de grupos de recursos | Microsoft Docs
-description: Versión del flujo de trabajo de PowerShell de un escenario de Azure Automation, que incluye Runbooks para quitar todos los grupos de recursos de su suscripción.
+title: "Automatización de la eliminación de grupos de recursos | Microsoft Docs"
+description: "Versión del flujo de trabajo de PowerShell de un escenario de Azure Automation, que incluye Runbooks para quitar todos los grupos de recursos de su suscripción."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
+ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
+
 
 ---
-# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Escenario de Azure Automation: automatizar la eliminación de grupos de recursos
+# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Escenario de Azure Automation: automatizar la eliminación de grupos de recursos
 Muchos clientes crean más de un grupo de recursos. Algunos se podrían usar para administrar aplicaciones de producción y otros como entornos de desarrollo, pruebas y ensayo. Automatizar la implementación de estos recursos es una cosa, pero poder dar de baja un grupo de recursos con un clic del botón es otra. Esta tarea común de administración se puede optimizar mediante Azure Automation. Esto resulta útil si está trabajando con una suscripción de Azure que tiene un límite de gasto a través de una oferta de miembro como MSDN o el programa Microsoft Partner Network Cloud Essentials, por ejemplo.
 
 Este escenario se basa en un Runbook de PowerShell y está diseñado para quitar uno o más grupos de recursos que especifique en su suscripción. La configuración predeterminada del Runbook es probar antes de continuar. De esta forma se tiene la seguridad de que no se elimina por accidente el grupo de recursos antes de que esté listo para completar este procedimiento.   
@@ -41,7 +45,7 @@ Este escenario consta de un Runbook de PowerShell que puede descargar de la [Gal
 Este Runbook se autentica mediante la [Cuenta de ejecución de Azure](automation-sec-configure-azure-runas-account.md).    
 
 ### <a name="install-and-publish-the-runbooks"></a>Instalar y publicar los Runbooks
-Después de descargar el Runbook, puede importarlo mediante el procedimiento que se describe en los [procedimientos de importación de Runbooks](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-Azure-Automation). Publique el Runbook después de que se hayan importado correctamente en la cuenta de Automation.
+Después de descargar el Runbook, puede importarlo mediante el procedimiento que se describe en los [procedimientos de importación de Runbooks](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation). Publique el Runbook después de que se hayan importado correctamente en la cuenta de Automation.
 
 ## <a name="using-the-runbook"></a>Uso del Runbook
 Los pasos siguientes le guiarán a través de la ejecución de este Runbook y le ayudarán a familiarizarse con su funcionamiento. Solo probaremos el Runbook de este ejemplo, sin eliminar realmente el grupo de recursos.  
@@ -49,11 +53,11 @@ Los pasos siguientes le guiarán a través de la ejecución de este Runbook y le
 1. Desde Azure Portal, abra su cuenta de Automation y haga clic en **Runbooks**.
 2. Seleccione el Runbook **Remove-ResourceGroup** y haga clic en **Iniciar**.
 3. Cuando se inicia el Runbook, se abre la hoja **Iniciar Runbook** y puede configurar los parámetros. Escriba los nombres de los grupos de recursos de su suscripción que puede usar para las pruebas y que no causarán daño si se eliminan por accidente.<br> ![Remove-ResouceGroup parameters](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-input-parameters.png)
-   
+
    > [!NOTE]
    > Asegúrese de que **Previewmode** esté establecido en **true** para evitar eliminar los grupos de recursos seleccionados.  **Tenga en cuenta** que este Runbook no eliminará el grupo de recursos que contiene la cuenta de Automation que ejecuta este Runbook.  
-   > 
-   > 
+   >
+   >
 4. Cuando haya configurado los valores de todos los parámetros, haga clic en **Aceptar** y el Runbook se pondrá en cola para su ejecución.  
 
 Para ver los detalles del trabajo del Runbook **Remove-ResourceGroup** en Azure Portal, seleccione el icono **Trabajos** del Runbook. La opción de resumen del trabajo le mostrará los parámetros de entrada y el flujo de salida, además de información general sobre el trabajo y las excepciones que se hayan producido.<br> ![Estado del trabajo del Runbook Remove-ResourceGroup](media/automation-scenario-remove-resourcegroup/remove-resourcegroup-runbook-job-status.png).
@@ -64,6 +68,8 @@ El **resumen del trabajo** incluye los mensajes de los flujos de salida, adverte
 * Para empezar a crear su propio Runbook, consulte [Creación o importación de un Runbook en Azure Automation](automation-creating-importing-runbook.md).
 * Para empezar a trabajar con Runbooks de flujo de trabajo de PowerShell, consulte [Mi primer Runbook de flujo de trabajo de PowerShell](automation-first-runbook-textual.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
 
 

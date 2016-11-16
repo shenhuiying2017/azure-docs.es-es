@@ -1,13 +1,13 @@
 ---
-title: Introducción a las soluciones preconfiguradas | Microsoft Docs
-description: Siga este tutorial para aprender a implementar una solución preconfigurada del conjunto de IoT de Azure.
-services: ''
+title: "Introducción a las soluciones preconfiguradas | Microsoft Docs"
+description: "Siga este tutorial para aprender a implementar una solución preconfigurada del conjunto de IoT de Azure."
+services: 
 suite: iot-suite
-documentationcenter: ''
+documentationcenter: 
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6ab38d1a-b564-469e-8a87-e597aa51d0f7
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: hero-article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+
 
 ---
-# Tutorial: Introducción a las soluciones preconfiguradas
-## Introducción
+# <a name="tutorial-get-started-with-the-preconfigured-solutions"></a>Tutorial: Introducción a las soluciones preconfiguradas
+## <a name="introduction"></a>Introducción
 Las [soluciones preconfiguradas][lnk-preconfigured-solutions] del Conjunto de aplicaciones de IoT de Azure combinan varios servicios de IoT de Azure para ofrecer soluciones integrales que implementan escenarios de negocio de IoT comunes. La solución preconfigurada de *supervisión remota* permite conectar y supervisar los dispositivos. Puede utilizar la solución para analizar la transmisión de datos de los dispositivos y mejorar los resultados de negocio realizando procesos para responder automáticamente a esa transmisión de datos.
 
 Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervisión remota. También le guía por las características básicas de la solución de supervisión remota. Puede acceder a muchas de estas características a través del panel de soluciones que se implementa junto con la solución preconfigurada:
@@ -28,16 +32,16 @@ Este tutorial muestra cómo aprovisionar la solución preconfigurada de supervis
 Para completar este tutorial, deberá tener una suscripción activa de Azure.
 
 > [!NOTE]
-> En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
+> En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure][lnk_free_trial].
 > 
 > 
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
-## Visualización del panel de soluciones
+## <a name="view-the-solution-dashboard"></a>Visualización del panel de soluciones
 El panel de la solución permite administrar la solución implementada. Por ejemplo, puede ver la telemetría, agregar dispositivos y configurar las reglas.
 
-1. Cuando se complete el aprovisionamiento y el icono de su solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el portal de su solución de supervisión remota en una nueva pestaña.
+1. Cuando se complete el aprovisionamiento y el icono de la solución preconfigurada indique **Listo**, haga clic en **Iniciar** para abrir el portal de la solución de supervisión remota en una nueva pestaña.
    
    ![Iniciar la solución preconfigurada][img-launch-solution]
 2. De forma predeterminada, el portal de la solución muestra el *panel de la solución*. Puede seleccionar otras vistas mediante el menú izquierdo.
@@ -50,7 +54,7 @@ El panel muestra la siguiente información:
 * El panel **Historial de telemetría** traza los datos de telemetría de temperatura y humedad de un dispositivo seleccionado prácticamente en tiempo real y muestra los datos agregados, como la humedad máxima, mínima y media.
 * El panel **Historial de alarmas** muestra los últimos eventos de alarma cuando un valor de telemetría ha superado un umbral. Puede definir sus propias alarmas, además de los ejemplos que crea la solución preconfigurada.
 
-## Visualización de la lista de dispositivos
+## <a name="view-the-device-list"></a>Visualización de la lista de dispositivos
 La lista de dispositivos muestra todos los dispositivos registrados en la solución. Puede ver y editar los metadatos de los dispositivos, agregar o quitar dispositivos y enviar comandos a los dispositivos.
 
 1. Haga clic en **Dispositivos** en el menú izquierdo para mostrar la *lista de dispositivos* para esta solución.
@@ -67,7 +71,7 @@ El panel **Detalles del dispositivo** contiene tres secciones:
 * En la sección **Propiedades de dispositivo** se enumeran los metadatos del dispositivo. Algunos de estos metadatos proceden del propio dispositivo (como por ejemplo, el fabricante), mientras que otros los genera la solución (como la hora de creación). Los metadatos del dispositivo se pueden editar desde aquí.
 * En la sección **Clave de autenticación** se enumeran las claves que puede usar el dispositivo para autenticarse en la solución.
 
-## Envío de un comando a un dispositivo
+## <a name="send-a-command-to-a-device"></a>Envío de un comando a un dispositivo
 El panel de detalles del dispositivo muestra todos los comandos que admite un dispositivo concreto y le permite enviar comandos a un dispositivo. La primera vez que se inicia un dispositivo, este envía a la solución información acerca de los comandos que admite.
 
 1. Haga clic en **Comandos** en el panel de detalles del dispositivo para el dispositivo seleccionado.
@@ -81,8 +85,8 @@ El panel de detalles del dispositivo muestra todos los comandos que admite un di
 
 La solución hace un seguimiento del estado de cada comando que envía. Inicialmente, el resultado es **Pendiente**. Cuando el dispositivo informa de que ha ejecutado el comando, el resultado se establece en **Correcto**.
 
-## Adición de un nuevo dispositivo simulado
-Al implementar la solución preconfigurada, aprovisiona automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si quiere conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
+## <a name="add-a-new-simulated-device"></a>Adición de un nuevo dispositivo simulado
+Al implementar la solución preconfigurada, aprovisiona automáticamente los cuatro dispositivos de ejemplo que se pueden ver en la lista de dispositivos. Estos dispositivos son *dispositivos simulados* que se ejecutan en un WebJob de Azure. Los dispositivos simulados facilitan la experimentación de la solución preconfigurada sin necesidad de implementar dispositivos físicos reales. Si desea conectar un dispositivo real a la solución, consulte el tutorial [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
 
 Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la solución:
 
@@ -90,16 +94,16 @@ Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la s
 2. Haga clic en **+ Agregar un dispositivo** en la esquina inferior izquierda para agregar un nuevo dispositivo.
    
    ![Agregar un dispositivo a la solución preconfigurada][img-adddevice]
-3. Haga clic en **Agregar nuevo** en el icono **Dispositivo simulado**.
+3. Haga clic en **Agregar nuevo** en el icono **Simulated Device** (Dispositivo simulado).
    
    ![Establecer nuevos detalles de los dispositivos en el panel][img-addnew]
    
-   Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información acerca de cómo conectar dispositivos físicos a la solución, consulte [Conexión del dispositivo a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT][lnk-connect-rm].
-4. Seleccione **Permitirme definir mi propio identificador de dispositivo** y escriba un nombre de identificador de dispositivo único como **mydevice\_01**.
+   Si elige crear un **dispositivo personalizado**, además de crear un dispositivo simulado nuevo, también puede agregar un dispositivo físico. Para más información acerca de cómo conectar dispositivos físicos a la solución, consulte [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm].
+4. Seleccione **Let me define my own Device ID** (Permitirme definir mi propio identificador de dispositivo) y escriba un nombre de identificador de dispositivo único como **mydevice_01**.
 5. Haga clic en **Crear**.
    
    ![Guardar un dispositivo nuevo][img-definedevice]
-6. En el paso 3 de **Agregar un dispositivo simulado**, haga clic en **Listo** para volver a la lista de dispositivos.
+6. En el paso 3 de **Add a simulated device** (Agregar un dispositivo simulado), haga clic en **Listo** para volver a la lista de dispositivos.
 7. Puede ver su dispositivo **En ejecución** en la lista de dispositivos.
    
     ![Ver un dispositivo nuevo en la lista de dispositivos][img-runningnew]
@@ -107,7 +111,7 @@ Los pasos siguientes explican cómo agregar un nuevo dispositivo simulado a la s
    
     ![Ver telemetría desde el nuevo dispositivo][img-runningnew-2]
 
-## Edición de los metadatos del dispositivo
+## <a name="edit-the-device-metadata"></a>Edición de los metadatos del dispositivo
 Cuando el dispositivo se conecta por primera vez a la solución envía sus metadatos a esta. Al editar los metadatos del dispositivo mediante el panel de soluciones, envía los nuevos valores de metadatos al dispositivo y los almacena en la base de datos de DocumentDB. Para más información, consulte [Registro de identidades de dispositivo y DocumentDB][lnk-devicemetadata].
 
 1. Vuelva a navegar hasta la lista de dispositivos.
@@ -121,11 +125,11 @@ Cuando el dispositivo se conecta por primera vez a la solución envía sus metad
    
     ![Editar los metadatos del dispositivo][img-editdevice3]
 
-## Adición de una regla para el nuevo dispositivo
+## <a name="add-a-rule-for-the-new-device"></a>Adición de una regla para el nuevo dispositivo
 No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, agregará una regla que desencadenará una alarma cuando la temperatura notificada por el nuevo dispositivo supere los 47 grados. Antes de comenzar, observe que el historial de telemetría del nuevo dispositivo en el panel muestra que la temperatura de dispositivo nunca supera los 45 grados.
 
 1. Vuelva a navegar hasta la lista de dispositivos.
-2. Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Agregar regla** para agregar una regla al dispositivo.
+2. Seleccione el dispositivo nuevo en la **lista de dispositivos** y haga clic en **Add rule** (Agregar regla) para agregar una regla al dispositivo.
 3. Cree una regla que utilice **Temperature** como campo de datos y **AlarmTemp** como resultado cuando la temperatura supere los 47 grados:
    
     ![Agregar una regla de dispositivo][img-adddevicerule]
@@ -133,7 +137,7 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
 5. Haga clic en **Comandos** en el panel de detalles del dispositivo nuevo.
    
    ![Agregar una regla de dispositivo][img-adddevicerule2]
-6. Seleccione **ChangeSetPointTemp** en la lista de comandos y en **SetPointTemp** seleccione 45. Después, haga clic en **Enviar comando**:
+6. Seleccione **ChangeSetPointTemp** en la lista de comandos y establezca **SetPointTemp** en 45. Después, haga clic en **Enviar comando**:
    
    ![Agregar una regla de dispositivo][img-adddevicerule3]
 7. Vuelva a navegar al panel de la solución. Al poco tiempo, verá una entrada nueva en el panel **Historial de alarmas** cuando la temperatura que notifique el nuevo dispositivo supere el umbral de 47 grados:
@@ -147,11 +151,11 @@ No hay reglas para el nuevo dispositivo que acaba de agregar. En esta sección, 
     ![Enumerar acciones de dispositivo][img-actions]
 
 > [!NOTE]
-> Es posible definir las acciones que pueden enviar un mensaje de correo electrónico o un SMS en respuesta a una regla, o bien integrarse en un sistema de línea de negocio a través de una [aplicación lógica][lnk-logic-apps]. Para más información, consulte el tutorial [Conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del conjunto de aplicaciones de IoT de Azure][lnk-logicapptutorial].
+> Es posible definir las acciones que pueden enviar un mensaje de correo electrónico o un SMS en respuesta a una regla, o bien integrarse en un sistema de línea de negocio a través de una [aplicación lógica][lnk-logic-apps]. Para más información, consulte [Tutorial: Connect Logic App to your Azure IoT Suite Remote Monitoring preconfigured solution] (Tutorial: conexión de una aplicación lógica a la solución preconfigurada de supervisión remota del Conjunto de aplicaciones de IoT de Azure)[lnk-logicapptutorial].
 > 
 > 
 
-## Otras características
+## <a name="other-features"></a>Otras características
 Con el portal de soluciones, se puede buscar dispositivos con características específicas, como un número de modelo:
 
 ![Buscar un dispositivo][img-search]
@@ -160,14 +164,14 @@ Puede deshabilitar un dispositivo y, después, quitarlo:
 
 ![Deshabilitar y quitar un dispositivo][img-disable]
 
-## Entre bambalinas
-Al implementar una solución preconfigurada, el proceso de implementación crea varios recursos en la suscripción de Azure seleccionada. Dichos recursos se pueden ver en el [Portal][lnk-portal] de Azure. El proceso de implementación crea un **grupo de recursos** cuyo nombre se basa en el nombre que eligió para la solución preconfigurada:
+## <a name="behind-the-scenes"></a>Entre bambalinas
+Al implementar una solución preconfigurada, el proceso de implementación crea varios recursos en la suscripción de Azure seleccionada. Dichos recursos se pueden ver en Azure [Portal][lnk-portal]. El proceso de implementación crea un **grupo de recursos** cuyo nombre se basa en el nombre que eligió para la solución preconfigurada:
 
 ![Solución preconfigurada en el portal de Azure][img-portal]
 
 Para ver la configuración de cada recurso, selecciónelo en la lista de recursos del grupo de recursos.
 
-También puede ver el código fuente de la solución preconfigurada. El código fuente de la solución preconfigurada de supervisión remota está en el repositorio de GitHub [azure-iot-remote-monitoring][lnk-rmgithub]\:
+También puede ver el código fuente de la solución preconfigurada. El código fuente de la solución preconfigurada de supervisión remota está en el repositorio de GitHub [azure-iot-remote-monitoring][lnk-rmgithub]:
 
 * La carpeta **DeviceAdministration** contiene el código fuente del panel.
 * La carpeta **Simulator** contiene el código fuente del dispositivo simulado.
@@ -176,15 +180,15 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]. Este sitio le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando creó la solución preconfigurada.
 
 > [!NOTE]
-> Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, elimínelo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
+> Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, hágalo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
 > 
 > 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha implementado una solución preconfigurada de trabajo, puede continuar su introducción al Conjunto de aplicaciones de IoT con la lectura de los artículos siguientes:
 
 * [Tutorial de la solución preconfigurada de supervisión remota][lnk-rm-walkthrough]
-* [Conexión del dispositivo a la solución preconfigurada de supervisión remota][lnk-connect-rm]
+* [Conectar el dispositivo a la solución preconfigurada de supervisión remota (Windows)][lnk-connect-rm]
 * [Permisos en el sitio azureiotsuite.com][lnk-permissions]
 
 [img-launch-solution]: media/iot-suite-getstarted-preconfigured-solutions/launch.png
@@ -223,4 +227,8 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 [lnk-connect-rm]: iot-suite-connecting-devices.md
 [lnk-permissions]: iot-suite-permissions.md
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Introducción a la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs
-description: Este documento le ayuda a empezar a trabajar con las funcionalidades de la solución Seguridad y autoría de Operations Management Suite para supervisar la nube híbrida.
+title: "Introducción a la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs"
+description: "Este documento le ayuda a empezar a trabajar con las funcionalidades de la solución Seguridad y autoría de Operations Management Suite para supervisar la nube híbrida."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: 754796ef-a43e-468a-86c9-04a2eda55b5b
 ms.service: operations-management-suite
 ms.topic: get-started-article
 ms.devlang: na
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: fe043cd4438612ada9a31ae895aae75b913b0a37
+
 
 ---
 # <a name="getting-started-with-operations-management-suite-security-and-audit-solution"></a>Introducción a la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a empezar a trabajar rápidamente con las funcionalidades de la solución Seguridad y auditoría de Operations Management Suite (OMS) al guiarle a través de cada opción.
 
-## <a name="what-is-oms?"></a>¿Qué es OMS?
+## <a name="what-is-oms"></a>¿Qué es OMS?
 Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube. Para más información sobre OMS, lea el artículo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="oms-security-and-audit-dashboard"></a>Panel de Seguridad y auditoría de OMS
@@ -139,7 +143,7 @@ El objetivo principal de este grupo de opciones es proporcionar una vista rápid
 
 Puede ver que estos problemas ya explicados en distintas áreas del grupo **Dominios de seguridad** , lo que refuerza la intención de esta vista: visualizar los problemas más importantes en el entorno desde un único lugar.
 
-## <a name="detections-(preview)"></a>Detecciones (vista previa)
+## <a name="detections-preview"></a>Detecciones (vista previa)
 El propósito principal de esta opción es permitir al departamento de TI identificar rápidamente las posibles amenazas a su entorno y su gravedad.
 
 ![Información sobre amenazas](./media/oms-security-getting-started/oms-getting-started-fig12.png)
@@ -179,6 +183,9 @@ En este documento, se presentó la solución Seguridad y auditoría de OMS. Para
 * [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
 * [Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite](oms-security-monitoring-resources.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

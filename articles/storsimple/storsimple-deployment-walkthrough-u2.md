@@ -1,24 +1,28 @@
 ---
-title: Implementación del dispositivo StorSimple (Actualización 2) | Microsoft Docs
-description: Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 2 de StorSimple.
+title: "Implementación del dispositivo StorSimple (Actualización 2) | Microsoft Docs"
+description: "Describe los pasos y procedimientos recomendados para implementar el servicio y el dispositivo de la actualización 2 de StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7dff0612-617b-4fc8-a3fe-994c24bc7c51
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/11/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636b4ca48d242edfad2770a29f73f7a76edca034
+
 
 ---
-# <a name="deploy-your-on-premises-storsimple-device-(update-2)"></a>Implementar el dispositivo StorSimple local (Actualización 2)
+# <a name="deploy-your-onpremises-storsimple-device-update-2"></a>Implementar el dispositivo StorSimple local (Actualización 2)
 > [!div class="op_single_selector"]
-> * [Actualización 2](storsimple-deployment-walkthrough-u2.md)
+> * [Actualización 2 y posteriores ](storsimple-deployment-walkthrough-u2.md)
 > * [Actualización 1](storsimple-deployment-walkthrough-u1.md)
 > * [Versión: disponibilidad general](storsimple-deployment-walkthrough.md)
 > 
@@ -91,10 +95,10 @@ Antes de comenzar, asegúrese de que:
 
 * Se abren los puertos del firewall del centro de datos para permitir el tráfico de iSCSI y de la nube, como se describe en [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
-## <a name="step-by-step-deployment"></a>IMPLEMENTACIÓN PASO A PASO
+## <a name="stepbystep-deployment"></a>IMPLEMENTACIÓN PASO A PASO
 Use las siguientes instrucciones paso a paso para implementar el dispositivo StorSimple en el centro de datos.
 
-## <a name="step-1:-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
+## <a name="step-1-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
 El servicio de Administrador de StorSimple puede administrar varios dispositivos de StorSimple. Siga estos pasos para crear una nueva instancia del servicio de Administrador de StorSimple.
 
 [!INCLUDE [storsimple-create-new-service](../../includes/storsimple-create-new-service.md)]
@@ -107,19 +111,19 @@ El servicio de Administrador de StorSimple puede administrar varios dispositivos
 > 
 > 
 
-## <a name="step-2:-get-the-service-registration-key"></a>Paso 2: Obtener la clave de registro del servicio
+## <a name="step-2-get-the-service-registration-key"></a>Paso 2: Obtener la clave de registro del servicio
 Una vez esté en funcionamiento el servicio de Administrador de StorSimple, necesitará la clave de registro del servicio. Esta clave se usa para registrar y conectar el dispositivo StorSimple con el servicio.
 
 Siga estos pasos en el Portal de administración.
 
 [!INCLUDE [storsimple-get-service-registration-key](../../includes/storsimple-get-service-registration-key.md)]
 
-## <a name="step-3:-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple
+## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Paso 3: Configurar y registrar el dispositivo a través de Windows PowerShell para StorSimple
 Use Windows PowerShell para StorSimple para completar la configuración inicial del dispositivo StorSimple, tal como se explica en el procedimiento siguiente. Deberá usar software de emulación de terminales para completar este paso. Para obtener más información, consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-configure-and-register-device-u1](../../includes/storsimple-configure-and-register-device-u1.md)]
 
-## <a name="step-4:-complete-minimum-device-setup"></a>Paso 4: Completar el programa de instalación mínima del dispositivo
+## <a name="step-4-complete-minimum-device-setup"></a>Paso 4: Completar el programa de instalación mínima del dispositivo 
 Para proceder a la configuración mínima del dispositivo StorSimple, debe hacer lo siguiente: 
 
 * Configurar el servidor DNS secundario.
@@ -130,14 +134,14 @@ Siga estos pasos en el Portal de administración para completar la instalación 
 
 [!INCLUDE [storsimple-complete-minimum-device-setup](../../includes/storsimple-complete-minimum-device-setup-u1.md)]
 
-## <a name="step-5:-create-a-volume-container"></a>Paso 5: Crear un contenedor de volúmenes
+## <a name="step-5-create-a-volume-container"></a>Paso 5: Crear un contenedor de volúmenes
 Un contenedor de volúmenes tiene la configuración de la cuenta de almacenamiento, el ancho de banda y el cifrado de todos los volúmenes que contiene. Deberá crear un contenedor de volúmenes para poder empezar a aprovisionar volúmenes en el dispositivo StorSimple. 
 
 Siga estos pasos en el Portal de administración para crear un contenedor de volúmenes.
 
 [!INCLUDE [storsimple-create-volume-container](../../includes/storsimple-create-volume-container.md)]
 
-## <a name="step-6:-create-a-volume"></a>Paso 6: Crear un volumen
+## <a name="step-6-create-a-volume"></a>Paso 6: Crear un volumen
 Después de crear un contenedor de volúmenes, puede aprovisionar un volumen de almacenamiento en el dispositivo StorSimple para los servidores. Siga estos pasos en el Portal de administración para crear un volumen.
 
 > [!IMPORTANT]
@@ -147,7 +151,7 @@ Después de crear un contenedor de volúmenes, puede aprovisionar un volumen de 
 
 [!INCLUDE [storsimple-create-volume](../../includes/storsimple-create-volume-u2.md)]
 
-## <a name="step-7:-mount,-initialize,-and-format-a-volume"></a>Paso 7: Montar, inicializar y formatear un volumen
+## <a name="step-7-mount-initialize-and-format-a-volume"></a>Paso 7: Montar, inicializar y formatear un volumen
 Los siguientes pasos se realizan en el host de Windows Server. 
 
 > [!IMPORTANT]
@@ -161,7 +165,7 @@ Si decide no configurar MPIO, realice los pasos siguientes para montar, iniciali
 
 [!INCLUDE [storsimple-mount-initialize-format-volume](../../includes/storsimple-mount-initialize-format-volume.md)]
 
-## <a name="step-8:-take-a-backup"></a>Paso 8: Realizar una copia de seguridad
+## <a name="step-8-take-a-backup"></a>Paso 8: Realizar una copia de seguridad
 Las copias de seguridad proporcionan seguridad para los volúmenes a partir de un momento específico y mejoran la capacidad de recuperación al mismo tiempo que reducen los tiempos de restauración. Puede realizar dos tipos de copia de seguridad en el dispositivo StorSimple: instantáneas locales e instantáneas en la nube. Cada uno de estos tipos de copia de seguridad puede ser **Programada** o **Manual**. 
 
 Siga estos pasos en el Portal de administración para crear una copia de seguridad programada.
@@ -217,6 +221,9 @@ Siga estos pasos en el Portal de administración para crear una copia de segurid
 * Configure un [dispositivo virtual](storsimple-virtual-device-u2.md).
 * Use el [servicio de Administrador de StorSimple](storsimple-manager-service-administration.md) para administrar el dispositivo StorSimple.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

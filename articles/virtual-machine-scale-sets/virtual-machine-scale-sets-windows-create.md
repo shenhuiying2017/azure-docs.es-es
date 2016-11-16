@@ -1,20 +1,24 @@
 ---
-title: Creación de un conjunto de escalado de máquinas virtuales mediante PowerShell | Microsoft Docs
-description: Creación de un conjunto de escalado de máquinas virtuales mediante PowerShell
+title: "Creación de un conjunto de escalado de máquinas virtuales mediante PowerShell | Microsoft Docs"
+description: "Creación de un conjunto de escalado de máquinas virtuales mediante PowerShell"
 services: virtual-machine-scale-sets
-documentationcenter: ''
+documentationcenter: 
 author: davidmu1
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 7bb03323-8bcc-4ee4-9a3e-144ca6d644e2
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/10/2016
+ms.date: 10/18/2016
 ms.author: davidmu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+
 
 ---
 # <a name="create-a-windows-virtual-machine-scale-set-using-azure-powershell"></a>Creación de un conjunto de escalado de máquinas virtuales de Windows mediante Azure PowerShell
@@ -22,41 +26,18 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear un conju
 
 Tardará unos 30 minutos en realizar los pasos de este artículo.
 
-## <a name="step-1:-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
+## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
 Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta.
 
-## <a name="step-2:-create-resources"></a>Paso 2: Creación de recursos
+## <a name="step-2-create-resources"></a>Paso 2: Creación de recursos
 Cree los recursos necesarios para su nuevo conjunto de escalado de máquinas virtuales.
 
 ### <a name="resource-group"></a>Grupos de recursos
 Un conjunto de escalado de máquinas virtuales debe estar contenido en un grupo de recursos.
 
-1. Obtenga una lista de ubicaciones y servicios disponibles admitidos:
+1. Obtenga una lista de ubicaciones disponibles donde se pueden colocar recursos:
    
-        Get-AzureLocation | Sort Name | Select Name, AvailableServices
-   
-    Puede ver algo parecido a este ejemplo:
-   
-        Name                AvailableServices
-        ----                -----------------
-        Australia East      {Compute, Storage, PersistentVMRole, HighMemory}
-        Australia Southeast {Compute, Storage, PersistentVMRole, HighMemory}
-        Brazil South        {Compute, Storage, PersistentVMRole, HighMemory}
-        Central India       {Compute, Storage, PersistentVMRole, HighMemory}
-        Central US          {Compute, Storage, PersistentVMRole, HighMemory}
-        East Asia           {Compute, Storage, PersistentVMRole, HighMemory}
-        East US             {Compute, Storage, PersistentVMRole, HighMemory}
-        East US 2           {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan East          {Compute, Storage, PersistentVMRole, HighMemory}
-        Japan West          {Compute, Storage, PersistentVMRole, HighMemory}
-        North Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        North Europe        {Compute, Storage, PersistentVMRole, HighMemory}
-        South Central US    {Compute, Storage, PersistentVMRole, HighMemory}
-        South India         {Compute, Storage, PersistentVMRole, HighMemory}
-        Southeast Asia      {Compute, Storage, PersistentVMRole, HighMemory}
-        West Europe         {Compute, Storage, PersistentVMRole, HighMemory}
-        West India          {Compute, Storage, PersistentVMRole, HighMemory}
-        West US             {Compute, Storage, PersistentVMRole, HighMemory}
+        Get-AzureLocation | Sort Name | Select Name
 2. Elija una ubicación que mejor le convenga, reemplace el valor de **$locName** por ese nombre de ubicación y, a continuación, cree la variable:
    
         $locName = "location name from the list, such as Central US"
@@ -132,36 +113,6 @@ Se requiere una red virtual para las máquinas virtuales del conjunto de escalad
 4. Creación de la red virtual.
    
         $vnet = New-AzureRmVirtualNetwork -Name $netName -ResourceGroupName $rgName -Location $locName -AddressPrefix 10.0.0.0/16 -Subnet $subnet
-
-### <a name="public-ip-address"></a>Dirección IP pública
-Antes de poder crear una interfaz de red, necesita crear una dirección IP pública.
-
-1. Reemplace el valor de **$domName** por la etiqueta de nombre de dominio que desea utilizar para la dirección IP pública y, después, cree la variable:  
-   
-        $domName = "domain name label"
-   
-    La etiqueta puede contener solo letras, números y guiones, y el último carácter debe ser una letra o un número:
-2. Compruebe si el nombre es único:
-   
-        Test-AzureRmDnsAvailability -DomainQualifiedName $domName -Location $locName
-   
-    Si la respuesta es **True**, significa que el nombre propuesto es único.
-3. Reemplace el valor de **$pipName** por el nombre que desee utilizar para la dirección IP pública y, después, cree la variable. 
-   
-        $pipName = "public ip address name"
-4. Creación de la dirección IP pública:
-   
-        $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName -Location $locName -AllocationMethod Dynamic -DomainNameLabel $domName
-
-### <a name="network-interface"></a>Interfaz de red
-Ahora que tiene la dirección IP pública, puede crear la interfaz de red.
-
-1. Reemplace el valor de **$nicName** por el nombre que desee utilizar para la interfaz de red y, después, cree la variable: 
-   
-        $nicName = "network interface name"
-2. Creación de la interfaz de red:
-   
-        $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName -Location $locName -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id
 
 ### <a name="configuration-of-the-scale-set"></a>Configuración del conjunto de escalado
 Tiene todos los recursos que necesita para la configuración del conjunto de escalado, así que creémosla.  
@@ -253,7 +204,7 @@ Por último, puede crear el conjunto de escalado.
         Location              : centralus
         Tags                  :
 
-## <a name="step-3:-explore-resources"></a>Paso 3: Exploración de recursos
+## <a name="step-3-explore-resources"></a>Paso 3: Exploración de recursos
 Use estos recursos para explorar el conjunto de escalado de máquinas virtuales que creó:
 
 * Portal de Azure: Hay disponible una cantidad limitada de información mediante el portal.
@@ -271,6 +222,9 @@ Use estos recursos para explorar el conjunto de escalado de máquinas virtuales 
 * Plantéese configurar el escalado automático del conjunto de escalas mediante la información de [Escalado automático y conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-autoscale-overview.md)
 * Puede obtener más información sobre el escalado si consulta [Autoescala vertical con conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

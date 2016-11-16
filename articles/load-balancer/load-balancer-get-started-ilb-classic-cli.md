@@ -1,23 +1,27 @@
 ---
-title: Creación de un equilibrador de carga interno mediante la CLI de Azure el modelo de implementación clásica | Microsoft Docs
-description: Información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el modelo de implementación clásica
+title: "Creación de un equilibrador de carga interno mediante la CLI de Azure el modelo de implementación clásica | Microsoft Docs"
+description: "Información sobre cómo crear un equilibrador de carga interno mediante la CLI de Azure en el modelo de implementación clásica"
 services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: becbbbde-a118-4269-9444-d3153f00bf34
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4364d3bcdffd278bef35b224a8e22062814ca490
+
 
 ---
-# Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante la CLI de Azure
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Primeros pasos en la creación de un equilibrador de carga interno (clásico) mediante la CLI de Azure
 [!INCLUDE [load-balancer-get-started-ilb-classic-selectors-include.md](../../includes/load-balancer-get-started-ilb-classic-selectors-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
@@ -28,14 +32,14 @@ Obtenga información sobre cómo [realizar estos pasos con el modelo de Resource
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## Para crear un equilibrador de carga interno establecido para máquinas virtuales
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Para crear un equilibrador de carga interno establecido para máquinas virtuales
 Para crear un conjunto con equilibrio de carga interno y los servidores que enviarán su tráfico a él, debe hacer lo siguiente:
 
 1. Crea una instancia de Equilibrio de carga interno que será el extremo del tráfico entrante que su carga se va a equilibrar entre los servidores de un conjunto con equilibrio de carga.
 2. Agregue extremos correspondientes a las máquinas virtuales que van a recibir el tráfico entrante.
 3. Configura los servidores que van a enviar el tráfico cuya carga se va a equilibrar para que lo hagan a la dirección IP virtual (VIP) de la instancia de Equilibrio de carga interno.
 
-## Creación paso a paso de un equilibrador de carga interno mediante la CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Creación paso a paso de un equilibrador de carga interno mediante la CLI
 Esta guía muestra cómo crear un equilibrador de carga interno basado en el escenario anterior.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
@@ -47,23 +51,26 @@ Esta guía muestra cómo crear un equilibrador de carga interno basado en el esc
    
         info:    New mode is asm
 
-## Crear punto de conexión y conjunto de equilibrador de carga
+## <a name="create-endpoint-and-load-balancer-set"></a>Crear punto de conexión y conjunto de equilibrador de carga
 En el escenario se supone la presencia de las máquinas virtuales "DB1" y "DB2" en un servicio en la nube denominado "mytestcloud". Ambas máquinas virtuales usan una red virtual denominada mi "testvnet" con la subred "subnet-1".
 
 Esta guía creará un conjunto de equilibrador de carga interno mediante el puerto 1433 como puerto privado y 1433 como puerto local.
 
 Se trata de un escenario común donde hay máquinas virtuales de SQL en el back-end que usan un equilibrador de carga interno para garantizar que los servidores de base de datos no se exponen directamente mediante una dirección IP pública.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 Crear un conjunto de equilibrador de carga interno mediante `azure network service internal-load-balancer add`.
 
      azure service internal-load-balancer add -r mytestcloud -n ilbset -t subnet-1 -a 192.168.2.7
 
 Parámetros usados:
 
-**-r**: nombre del servicio en la nube<BR> **-n**: nombre del equilibrador de carga interno<BR> **-t**: nombre de la subred (misma subred de las máquinas virtuales que se va a agregar al equilibrador de carga interno)<BR> **-a**: (opcional) agregar una dirección IP privada estática<BR>
+**-r**: nombre de servicio en la nube<BR>
+**-n**: nombre de equilibrador de carga interno<BR>
+**-t**: nombre de subred (la misma subred por las máquinas virtuales que va a agregar al equilibrador de carga interno)<BR>
+**-a**: (opcional) agregue una dirección IP privada estática<BR>
 
-Para obtener más información, consulte `azure service internal-load-balancer --help`.
+Para obtener más información, consulte `azure service internal-load-balancer --help` .
 
 Puede comprobar las propiedades del equilibrador de carga interno mediante el comando `azure service internal-load-balancer list` *nombre de servicio en la nube*.
 
@@ -78,16 +85,21 @@ A continuación se sigue un ejemplo de la salida:
     info:    service internal-load-balancer list command OK
 
 
-## Paso 2
+## <a name="step-2"></a>Paso 2
 Configurar el conjunto del equilibrador de carga interno al agregar el primer punto de conexión. En este paso se asociará el punto de conexión, la máquina virtual y el puerto de sondeo al conjunto del equilibrador de carga interno.
 
     azure vm endpoint create db1 1433 -k 1433 tcp -t 1433 -r tcp -e 300 -f 600 -i ilbset
 
 Parámetros usados:
 
-**-k**: puerto de la máquina virtual local<BR> **-t**: puerto de sondeo<BR> **- r**: protocolo de sondeo<BR> **-e**: intervalo de sondeo en segundos<BR> **-f**: intervalo de tiempo de espera en segundos <BR> **-i**: nombre del equilibrador de carga interno <BR>
+**-k**: puerto de la máquina virtual local<BR>
+**-t**: puerto de sondeo<BR>
+**-r**: protocolo de sondeo<BR>
+**-e**: intervalo de sondeo, en segundos<BR>
+**-f**: intervalo de tiempo de espera, en segundos <BR>
+**-i**: nombre de equilibrador de carga interno <BR>
 
-## Paso 3
+## <a name="step-3"></a>Paso 3
 Comprobar la configuración del equilibrador de carga mediante el `azure vm show` *nombre de la máquina virtual*
 
     azure vm show DB1
@@ -142,13 +154,13 @@ El resultado será:
     info:    vm show command OK
 
 
-## Crear un punto de conexión de escritorio remoto para una máquina virtual
+## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Crear un punto de conexión de escritorio remoto para una máquina virtual
 Puede crear un punto de conexión de escritorio remoto para reenviar el tráfico de red desde un puerto público a un puerto local para una máquina virtual específica mediante `azure vm endpoint create`.
 
     azure vm endpoint create web1 54580 -k 3389
 
 
-## Quitar máquina virtual del equilibrador de carga
+## <a name="remove-virtual-machine-from-load-balancer"></a>Quitar máquina virtual del equilibrador de carga
 Puede quitar una máquina virtual de un equilibrador de carga interno establecido eliminando el punto de conexión asociado. Una vez eliminado el punto de conexión, la máquina virtual deja de pertenecer al conjunto de equilibrador de carga.
 
  En el ejemplo anterior, puede quitar el punto de conexión creado para la máquina virtual "DB1" del equilibrador de carga interno "ilbset" mediante el comando `azure vm endpoint delete`.
@@ -156,11 +168,16 @@ Puede quitar una máquina virtual de un equilibrador de carga interno establecid
     azure vm endpoint delete DB1 tcp-1433-1433
 
 
-Para obtener más información, consulte `azure vm endpoint --help`.
+Para obtener más información, consulte `azure vm endpoint --help` .
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Configurar un modo de distribución del equilibrador de carga mediante la afinidad IP de origen](load-balancer-distribution-mode.md)
 
 [Configuración de opciones de tiempo de espera de inactividad de TCP para el equilibrador de carga](load-balancer-tcp-idle-timeout.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

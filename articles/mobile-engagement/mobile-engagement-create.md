@@ -1,12 +1,12 @@
 ---
-title: Creación de una aplicación de Azure Mobile Engagement | Microsoft Docs
-description: Describe cómo crear una colección de aplicaciones de Mobile Engagement en Azure y comenzar a administrar las aplicaciones con el portal de Mobile Engagement.
+title: "Creación de una aplicación de Azure Mobile Engagement | Microsoft Docs"
+description: "Describe cómo crear una colección de aplicaciones de Mobile Engagement en Azure y comenzar a administrar las aplicaciones con el portal de Mobile Engagement."
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ecffc5a867c1c69354a88a8b7ce29ab67ea29cc1
+
 
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Creación de una aplicación de Azure Mobile Engagement
@@ -44,6 +48,9 @@ En el portal de Mobile Engagement, puede analizar, crear y administrar segmentos
 
 [Introducción a Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (puede seleccionar otras plataformas móviles en la parte superior de la página).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

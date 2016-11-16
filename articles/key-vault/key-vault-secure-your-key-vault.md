@@ -1,12 +1,12 @@
 ---
-title: Secure your key vault | Microsoft Docs
-description: Manage access permissions for key vault for managing vaults and keys and secrets. Authentication and authorization model for key vault and how to secure your key vault
+title: "Protección de un almacén de claves | Microsoft Docs"
+description: "Administrar permisos de acceso al almacén de claves para la administración de almacenes y claves y secretos. Modelo de autenticación y autorización de Key Vault y cómo proteger un almacén de claves"
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
-
+ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,151 +14,155 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+
 
 ---
-# <a name="secure-your-key-vault"></a>Secure your key vault
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords) for your cloud applications. Since this data is sensitive and business critical, you want to secure access to your key vaults so that only authorized applications and users can access key vault. This article provides an overview of key vault access model, explains authentication and authorization, and describes how to secure access to key vault for your cloud applications with an example.
+# <a name="secure-your-key-vault"></a>Protección de un almacén de claves
+Azure Key Vault es un servicio en la nube que protege las claves de cifrado y los secretos (como certificados, cadenas de conexión y contraseñas) de las aplicaciones en la nube. Dado que estos datos son confidenciales y críticos para la empresa, desea proteger el acceso a los almacenes de claves, por lo que solo pueden acceder a él las aplicaciones y los usuarios autorizados. En este artículo se proporciona información general del modelo de acceso a un almacén de claves, se explican la autenticación y la autorización, y se describe cómo proteger el acceso a un almacén de claves de las aplicaciones en la nube con un ejemplo.
 
-## <a name="overview"></a>Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes proper authentication and authorization is required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines what operations the caller is allowed to perform.
+## <a name="overview"></a>Información general
+El acceso a un almacén de claves se controla a través de dos interfaces diferentes: plano de administración y plano de datos. Para ambos planos se requieren una autorización y autenticación correctas antes de que cualquier autor de una llamada (usuario o aplicación) puede pueda obtener acceso a un almacén de claves. La autenticación establece la identidad del autor de la llamada, mientras que la autorización determina las operaciones que puede realizar.
 
-For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
+Para la autenticación tanto del plano de administración como del plano de datos se usa Azure Active Directory. Para la autorización, el plano de administración usa el control de acceso basado en rol (RBAC), mientras que el plano de datos utiliza la directiva de acceso de Key Vault.
 
-Here is a brief overview of the topics covered:
+Esta es una breve descripción general de los temas tratados:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-direcrory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+[Autenticación mediante Azure Active Directory](#authentication-using-azure-active-direcrory): esta sección explica la forma en que el autor de una llamada se autentica con Azure Active Directory para acceder a un almacén de claves a través del plano de administración y del plano de datos. 
 
-[Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
+[Plano de administración y plano de datos](#management-plane-and-data-plane): el plano de administración y el plano de datos son dos planos de acceso que se usan para acceder a un almacén de claves. Cada plano de acceso admite operaciones concretas. En esta sección se describen los puntos de conexión de acceso, las operaciones compatibles y el método de control de acceso que utiliza cada plano. 
 
-[Management plane access control](#management-plane-access-control) - In this section we'll look at allowing access to management plane operations using role-based access control.
+[Control de acceso del plano de administración](#management-plane-access-control): en esta sección examinaremos cómo se permite el acceso a las operaciones del plano de administración mediante un control de acceso basado en roles.
 
-[Data plane access control](#data-plane-access-control) - This section describes how to use key vault access policy to control data plane access.
+[Control de acceso al plano de datos](#data-plane-access-control): en esta sección se describe cómo usar la directiva de acceso de Key Vault para controlar el acceso al plano de datos.
 
-[Example](#example) - This example describes how to setup access control for your key vault to allow three different teams (security team, developers/operators, and auditors) to perform specific tasks to develop, manage and monitor an application in Azure.
+[Ejemplo](#example): en este ejemplo se describe cómo configurar el control de acceso en un almacén de claves para permitir tres equipos distintos (el equipo de seguridad, los desarrolladores y operadores, y los auditores) para realizar tareas específicas para desarrollar, administrar y supervisar una aplicación en Azure.
 
-## <a name="authentication-using-azure-active-directory"></a>Authentication using Azure Active Directory
-When you create a key vault in an Azure subscription, it is automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant to access this key vault. An application or a user must authenticate with Azure Active Directory to access key vault. This applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
+## <a name="authentication-using-azure-active-directory"></a>Autenticación mediante Azure Active Directory
+Cuando se crea un almacén de claves en una suscripción de Azure, se asocia automáticamente al inquilino de Azure Active Directory de dicha suscripción. Todos los autores de llamada (usuarios y aplicaciones) deben estar registrados en este inquilino para acceder al almacén de claves. Para acceder a un almacén de claves, una aplicación o un usuario deben autenticarse con Azure Active Directory. Esto se aplica al acceso tanto al plano de administración como al plano de datos. En ambos casos, una aplicación puede acceder al almacén de claves de dos maneras:
 
-* **user+app access** - usually this is for applications that access key vault on behalf of a signed-in user. Azure PowerShell, Azure Portal are examples of this type of access. There are two ways to grant access to users: one way is to grant access to users so they can access key vault from any application and the other way is to grant a user access to key vault only when they use a specific application (referred to as compound identity). 
-* **app-only access** - for applications that run daemon services, background jobs etc. The application's identity is granted access to the key vault.
+* **acceso a usuario + aplicación**: normalmente es para aplicaciones que acceden al almacén de claves en nombre del usuario que ha iniciado sesión. Algunos ejemplos de este tipo de acceso son Azure PowerShell y Azure Portal. Hay dos maneras de otorgar acceso a los usuarios: una es conceder acceso a los usuarios para que pueden acceder al almacén de claves desde cualquier aplicación y la otra forma es conceder a los usuarios acceso al almacén de claves solo cuando usen una aplicación concreta (denominada identidad compuesta). 
+* **acceso solo a aplicación**: para las aplicaciones que ejecutan servicios de demonio, trabajos en segundo plano, etc. A la identidad de la aplicación se le concede acceso al almacén de claves.
 
-In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/active-directory-authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. In case of management plane access the requests are routed through Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/active-directory-protocols-oauth-code.md). 
+En ambos tipos de aplicaciones, la aplicación se autentica con Azure Active Directory mediante cualquiera de los [métodos de autenticación admitidos](../active-directory/active-directory-authentication-scenarios.md) y adquiere un token. El método de autenticación utilizado depende del tipo de aplicación. Después, la aplicación usa este token y envía la solicitud de la API de REST a Key Vault. En el caso del acceso al plano de administración, las solicitudes se enrutan a través del punto de conexión de Azure Resource Manager. Al acceder al plano de datos, la aplicación se comunica directamente con un punto de conexión del almacén de claves. Consulte más detalles acerca de [todo el flujo de autenticación](../active-directory/active-directory-protocols-oauth-code.md). 
 
-The resource name for which the application requests a token is different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table in a later section, depending on the Azure environment.
+El nombre del recurso para el que la aplicación solicita un token es diferente en función de si la aplicación accede a un plano de administración o a un plano de datos. De ahí que el nombre del recurso sea el punto de conexión del plano de administración o del plano de datos descrito en la tabla de una sección posterior, según el entorno de Azure.
 
-Having one single mechanism for authentication to both management and data plane has its own benefits:
+Tener un solo mecanismo para la autenticación tanto del plano de administración como del de datos tiene sus propias ventajas:
 
-* Organizations can centrally control access to all key vaults in their organization
-* If a user leaves, they instantly lose access to all key vaults in the organization
-* Organizations can customize authentication via the options in Azure Active Directory (for example, enabling multi-factor authentication for added security)
+* Las organizaciones pueden controlar de forma centralizada el acceso a todos sus almacenes de claves
+* Si un usuario abandona la organización, al instante pierde el acceso a todos los almacenes de claves de la organización
+* Las organizaciones pueden personalizar la autenticación mediante las opciones de Azure Active Directory (por ejemplo, la habilitación de Multi-Factor Authentication para aumentar la seguridad)
 
-## <a name="management-plane-and-data-plane"></a>Management plane and data plane
-Azure Key Vault is an Azure service available via Azure Resource Manager deployment model. When you create a key vault, you get a virtual container inside which you can create other objects like keys, secrets, and certificates. Then you access your key vault using management plane and data plane to perform specific operations. Management plane interface is used to manage your key vault itself, such as creating, deleting, updating key vault attributes and setting access policies for data plane. Data plane interface is used to add, delete, modify, and use the keys, secrets, and certificates stored in your key vault.
+## <a name="management-plane-and-data-plane"></a>Plano de administración y plano de datos
+Azure Key Vault es un servicio de Azure disponible a través del modelo de implementación de Azure Resource Manager. Al crear un almacén de claves, se obtiene un contenedor virtual en el que se pueden crear otros objetos como certificados, claves y secretos. Después se puede acceder al almacén de claves mediante el plano de administración y el plano de datos para realizar operaciones específicas. La interfaz del plano de administración se utiliza para administrar el propio almacén de claves, es decir, para crear, eliminar, actualizar sus atributos y para establecer las directivas de acceso del plano de datos. La interfaz del plano de datos se utiliza para agregar, eliminar, modificar y utilizar las claves, los secretos y los certificados almacenados en el almacén de claves.
 
-The management plane and data plane interfaces are accessed through different endpoints (see table). The second column in the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can perform from each access plane. Each access plane also has its own access control mechanism: for management plane access control is set using Azure Resource Manager Role-Based Access Control (RBAC), while for data plane access control is set using key vault access policy.
+A las interfaces del plano de administración y del plano de datos se accede a través de distintos puntos de conexión (consulte la tabla). La segunda columna de la tabla describe los nombres DNS de estos puntos de conexión en diferentes entornos de Azure. La tercera columna describe las operaciones que se pueden realizar desde cada plano de acceso. Cada plano de acceso también tiene su propio mecanismo de control de acceso: el del control de acceso del plano de administración se establece mediante el control de acceso basado en rol (RBAC) de Azure Resource Manager, mientras que el del control de acceso al plano de datos se establece mediante la directiva de acceso del almacén de claves.
 
-| Access plane | Access endpoints | Operations | Access control mechanism |
+| Plano de acceso | Puntos de conexión de acceso | Operaciones | Mecanismo de control de acceso |
 | --- | --- | --- | --- |
-| Management plane |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete key vault <br> Set access policies for key vault<br>Set tags for key vault |Azure Resource Manager Role-Based Access Control (RBAC) |
-| Data plane |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |For Keys: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> For secrets: Get, List, Set, Delete |Key vault access policy |
+| Plano de administración |**Global:**<br> management.azure.com:443<br><br> **Azure China:**<br> management.chinacloudapi.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> management.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br>  management.microsoftazure.de:443 |Crear, leer, actualizar o eliminar un almacén de claves <br> Establecer directivas de acceso para un almacén de claves<br>Establecer etiquetas para un almacén de claves |Control de acceso basado en rol (RBAC) de Azure Resource Manager |
+| Plano de datos |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure Gobierno de EE. UU.:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Alemania:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |Para claves: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> Para secretos: Get, List, Set, Delete |Directiva de acceso de Key Vault |
 
-The management plane and data plane access controls work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access permissions using key vault access policies and no management plane access is needed for this application. And conversely, if you want a user to be able to read vault properties and tags, but not have any access to keys, secrets, or certificates, you can grant this user, 'read' access using RBAC and no access to data plane is required.
+Los controles de acceso del plano de administración y del plano de datos funcionan de forma independiente. Por ejemplo, si desea conceder a una aplicación acceso para usar las claves de un almacén de claves, solo necesita conceder permisos de acceso al plano de datos mediante directivas de acceso del almacén de claves y no se necesita acceso a ningún plano de administración para esta aplicación. Por el contrario, si desea que un usuario pueda leer las propiedades y etiquetas del almacén, pero no tenga acceso a las claves, los secretos o los certificados, puede concederle acceso de 'lectura' mediante RBAC y no se requiere acceso al plano de datos.
 
-## <a name="management-plane-access-control"></a>Management plane access control
-The management plane consists of operations that affect the key vault itself. For example, you can create or delete a key vault. You can get a list of vaults in a subscription. You can retrieve key vault properties (such as SKU, tags) and set key vault access policies that control the users and applications that can access keys and secrets in the key vault. Management plane access control uses RBAC. See the complete list of key vault operations that can be performed via management plane in the table in preceding section. 
+## <a name="management-plane-access-control"></a>Control de acceso del plano de administración
+El plano de la administración se compone de las operaciones que afectan al propio almacén de claves. Por ejemplo, puede crear o eliminar un almacén de claves. Puede obtener una lista de los almacenes de una suscripción. Puede recuperar las propiedades de un almacén de claves (como SKU y etiquetas) y establecer directivas de acceso del almacén de claves que controlan los usuarios y las aplicaciones que pueden acceder a las claves y secretos del almacén de claves. El control de acceso del plano de administración utiliza RBAC. Vea la lista completa de operaciones del almacén de claves que se pueden realizar a través del plano de administración en la tabla de la sección anterior. 
 
-### <a name="role-based-access-control-(rbac)"></a>Role-based Access Control (RBAC)
-Each Azure subscription has an Azure Active Directory. Users, groups, and applications from this directory can be granted access to manage resources in the Azure subscription that use the Azure Resource Manager deployment model. This type of access control is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Resource Manager REST APIs](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="rolebased-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
+Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Este tipo de control de acceso se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, se puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
-With the Azure Resource Manager model, you create your key vault in a resource group and control access to the management plane of this key vault by using Azure Active Directory. For example, you can grant users or a group ability to manage key vaults in a specific resource group.
+Con el modelo de Azure Resource Manager, se crea una instancia de un almacén de claves en un grupo de recursos y se controla el acceso al plano de administración de dicho almacén de claves mediante Azure Active Directory. Por ejemplo, puede conceder a los usuarios o a un grupo la capacidad de administrar los almacenes de claves en un grupo de recursos específico.
 
-You can grant access to users, groups and applications at a specific scope by assigning appropriate RBAC roles. For example, to grant access to a user to manage key vaults you would assign a predefined role 'key vault Contributor' to this user at a specific scope. The scope in this case would be either a subscription, a resource group, or just a specific key vault. A role assigned at subscription level applies to all resource groups and resources within that subscription. A role assigned at resource group level applies to all resources in that resource group. A role assigned for a specific resource only applies to that resource. There are several predefined roles (see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md)), and if the predefined roles do not fit your needs you can also define your own roles.
-
-> [!IMPORTANT]
-> Note that if a user has Contributor permissions (RBAC) to a key vault management plane, she can grant herself access to data plane, by setting key vault access policy, which controls access to data plane. Therefore, it is recommended to tightly control who has 'Contributor' access to your key vaults to ensure only authorized persons can access and manage your key vaults, keys, secrets, and certificates.
-> 
-> 
-
-## <a name="data-plane-access-control"></a>Data plane access control
-The key vault data plane consists of operations that affect the objects in a key vault, such as keys, secrets, and certificates.  This includes key operations such as create, import, update, list, backup, and restore keys, cryptographic operations such as sign, verify, encrypt, decrypt, wrap, and unwrap, and set tags and other attributes for keys. Similarly, for secrets it includes, get, set, list, delete.
-
-Data plane access is granted by setting access policies for a key vault. A user, group, or an application must have Contributor permissions (RBAC) for management plane for a key vault to be able to set access policies for that key vault. A user, group, or application can be granted access to perform specific operations for keys or secrets in a key vault. key vault support up to 16 access policy entries for a key vault. Create an Azure Active Directory security group and add users to that group to grant data plane access to several users to a key vault.
-
-### <a name="key-vault-access-policies"></a>key vault Access Policies
-key vault access policies grant permissions to keys, secrets and certificates separately. For example, you can give a user access to only keys, but no permissions for secrets. However, permissions to access keys or secrets or certificates are at the vault level. In other words, key vault access policy does not support object level permissions. You can use [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx) to set access policies for a key vault.
+Puede conceder acceso a usuarios, grupos y aplicaciones de un ámbito concreto mediante la asignación de los roles de RBAC apropiados. Por ejemplo, para conceder acceso a un usuario para administrar los almacenes de claves se asignaría el rol predefinido 'Colaborador de almacén de claves' a este usuario en un ámbito específico. En este caso, el ámbito caso sería una suscripción, un grupo de recursos o simplemente un almacén de claves específico. Un rol asignado al nivel de suscripción se aplica a todos los recursos y grupos de recursos de esa suscripción. Un rol asignado al nivel de grupo de recursos se aplica a todos los recursos de dicho grupo de recursos. Un rol asignado a un recurso concreto solo se aplica a dicho recurso. Hay varios roles predefinidos (consulte [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)) y si los roles predefinidos no se ajustan a sus necesidades también puede definir sus propios roles.
 
 > [!IMPORTANT]
-> Note that key vault access policies apply at the vault level. For example, when a user is granted permission to create and delete keys, she can perform those operations on all keys in that key vault.
+> Tenga en cuenta que si un usuario tiene permisos de Colaborador (RBAC) en un plano de administración de un almacén de claves, se puede conceder el mismo acceso al plano de datos estableciendo la directiva de acceso al almacén de claves, que controla el acceso al plano de datos. Por consiguiente, se recomienda controlar de forma estricta quién tiene acceso de 'colaborador' a los almacenes de claves, con el fin de garantizar que las personas autorizadas son las únicas que pueden acceder y administrar los almacenes de claves, las claves, los secretos y los certificados.
 > 
 > 
 
-## <a name="example"></a>Example
-Let's say you are developing an application that uses a certificate for SSL, Azure storage for storing data, and uses an RSA 2048-bit key for sign operations. Let's say this application is running in a VM (or a VM Scale Set). You can use a key vault to store all the application secrets, and use key vault to store the bootstrap certificate that is used by the application to authenticate with Azure Active Directory.
+## <a name="data-plane-access-control"></a>Control de acceso al plano de datos
+El plano de datos de un almacén de claves consta de operaciones que afectan a los objetos de una instancia del almacén de claves, como certificados, claves y secretos.  Aquí se incluyen operaciones de claves como crear, importar, actualizar, enumerar, crear una copia de seguridad y restaurar dichas claves, operaciones criptográficas como firmar, comprobar, cifrar, descifrar, encapsular y desencapsular, y establecer etiquetas y otros atributos para las claves. De igual forma, para los secretos incluye obtener, establecer, enumerar o eliminar.
 
-So, here's a summary of all the keys and secrets to be stored in a key vault.
+El acceso al plano de datos se concede mediante el establecimiento de directivas de acceso para un almacén de claves. Un usuario, grupo o aplicación deben tener permisos de colaborador (RBAC) para el plano de administración de una instancia de un almacén de claves para poder establecer directivas de acceso para dicho almacén. Se puede conceder a un usuario, grupo o aplicación acceso para realizar operaciones concretas en las claves o secretos de un almacén de claves. Un almacén de claves admite hasta 16 entradas de directiva de acceso para un almacén de claves. Cree un grupo de seguridad de Azure Active Directory y agregue usuarios a dicho grupo para conceder acceso al plano de datos a varios usuarios a un almacén de claves.
 
-* **SSL Cert** - used for SSL
-* **Storage Key** - used to get access to Storage account
-* **RSA 2048-bit key** - used for sign operations
-* **Bootstrap certificate** - used to authenticate to Azure Active Directory, to get access to key vault to fetch the storage key and use the RSA key for signing.
+### <a name="key-vault-access-policies"></a>Directivas de acceso de almacén de claves
+Las directivas de acceso de un almacén de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la directiva de acceso de un almacén de claves no admite permisos de nivel de objeto. Para establecer las directivas de acceso de un almacén de claves, puede usar [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o las [API de REST de administración de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
-Now let's meet the people who are managing, deploying and auditing this application. We'll use three roles in this example.
+> [!IMPORTANT]
+> Tenga en cuenta que las directivas de acceso de un almacén de claves se aplican en el nivel de almacén. Por ejemplo, cuando se concede a un usuario permiso para crear y eliminar claves, puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
+> 
+> 
 
-* **Security team** - These are typically IT staff from the 'office of the CSO (Chief Security Officer)' or equivalent, responsible for the proper safekeeping of secrets such as SSL certificates, RSA keys used for signing, connection strings for databases, storage account keys.
-* **Developers/operators** - These are the folks who develop this application and then deploy it in Azure. Typically, they are not part of the security team, and hence they should not have access to any sensitive data, such as SSL certificates, RSA keys, but the application they deploy should have access to those.
-* **Auditors** - This is usually a different set of people, isolated from the developers and general IT staff. Their responsibility is to review proper use and maintenance of certificates, keys, etc. and ensure compliance with data security standards. 
+## <a name="example"></a>Ejemplo
+Supongamos que está desarrollando una aplicación que utiliza un certificado para SSL, Azure Storage para almacenar los datos y que usa una clave RSA de 2048 bits para las operaciones de firma. Supongamos que esta aplicación se ejecuta en una VM (o un conjunto de escalado de VM). Puede usar una instancia de Key Vault para almacenar todos los secretos de la aplicación y utilizar Key Vault para almacenar el certificado de arranque que usa la aplicación para realizar la autenticación con Azure Active Directory.
 
-There is one more role that is outside the scope of this application, but relevant here to be mentioned, and that would be the subscription (or resource group) administrator. Subscription administrator sets up initial access permissions for the security team. Here we assume that the subscription administrator has granted access to the security team to a resource group in which all the resources needed for this application reside.
+Por tanto, este es un resumen de todas las claves y secretos que se van a almacenar en Key Vault.
 
-Now let's see what actions each role performs in the context of this application.
+* **Certificado SSL**: se usa para SSL
+* **Clave de almacenamiento**: se usa para obtener acceso a una cuenta de Storage
+* **Clave RSA de 2048 bits**: se usa para las operaciones de firma
+* **Certificado de arranque**: se usa para autenticarse en Azure Active Directory, para obtener acceso al almacén de claves para capturar la clave de almacenamiento y usar la clave RSA para la firma.
 
-* **Security team**
-  * Create key vaults
-  * Turns on key vault logging
-  * Add keys/secrets
-  * Create backup of keys for disaster recovery
-  * Set key vault access policy to grant permissions to users and applications to perform specific operations
-  * Periodically roll keys/secrets
-* **Developers/operators**
-  * Get references to bootstrap and SSL certs (thumbprints), storage key (secret URI) and signing key (Key URI) from security team
-  * Develop and deploy application that accesses keys and secrets programmatically
-* **Auditors**
-  * Review usage logs to confirm proper key/secret use and compliance with data security standards
+Ahora vamos a conocer a las personas que administran, implementan y auditan esta aplicación. En este ejemplo, vamos a usar tres roles.
 
-Now let's see what access permissions to key vault are needed by each role (and the application) to perform their assigned tasks. 
+* **Equipo de seguridad**: suele ser el personal de TI de la 'oficina del director de seguridad', o equivalente, responsable de la protección adecuada de secretos, como los certificados SSL, las claves RSA utilizadas para la firma, las cadenas de conexión de bases de datos y las claves de la cuenta de Storage.
+* **Desarrolladores u operadores**: son las personas que desarrollan esta aplicación y, después, la implementan en Azure. Por lo general, no forman parte del equipo de seguridad, por lo que no deberían tener acceso a datos confidenciales, como certificados SSL o claves de RSA, pero la aplicación que implementan debe tenerlo.
+* **Auditores**: suele ser un conjunto diferente de personas, aisladas de los desarrolladores y del personal general de TI. Su responsabilidad es revisar que los certificados, las claves, etc. se usan y mantienen de forma correcta y garantizar el cumplimiento de los estándares de seguridad de datos. 
 
-| User Role | Management plane permissions | Data plane permissions |
+Hay un rol más que está fuera del ámbito de esta aplicación, pero que es importante mencionar aquí. Nos referimos al administrador de la suscripción (o grupo de recursos). El administrador de la suscripción configura los permisos de acceso iniciales del equipo de seguridad. Aquí se asume que el administrador de la suscripción ha concedido acceso al equipo de seguridad a un grupo de recursos en el que residen todos los recursos que necesita esta aplicación.
+
+Ahora veamos qué acciones realiza cada rol en el contexto de esta aplicación.
+
+* **Equipo de seguridad**
+  * Crear instancias de Key Vault
+  * Activar el registro de Key Vault
+  * Agregar claves y secretos
+  * Crear una copia de seguridad de las claves para la recuperación ante desastres
+  * Establecer una directiva de acceso a un almacén de claves para conceder permisos a usuarios y aplicaciones para realizar operaciones concretas
+  * Rotación periódica las claves y los secretos
+* **Desarrolladores y operadores**
+  * Obtener referencias al arranque y certificados SSL (huellas digitales), clave de almacenamiento (identificador URI de secreto) y la clave de firma (identificador URI de clave) del equipo de seguridad
+  * Desarrollar e implementar una aplicación que acceda a las claves y los secretos por programación
+* **Auditores**
+  * Examinar los registros de uso para confirmar que las claves y los secretos se usan correctamente y cumplen los estándares de seguridad de datos
+
+Ahora veamos qué permisos de acceso a Key Vault necesita cada rol (y la aplicación) para realizar las tareas que tiene asignadas. 
+
+| Rol de usuario | Permisos del plano de administración | Permisos del plano de datos |
 | --- | --- | --- |
-| Security Team |key vault Contributor |Keys: backup, create, delete, get, import, list, restore <br> Secrets: all |
-| Developers/Operator |key vault deploy permission so that the VMs they deploy can fetch secrets from the key vault |None |
-| Auditors |None |Keys: list<br>Secrets: list |
-| Application |None |Keys: sign<br>Secrets: get |
+| Equipo de seguridad |Colaborador de almacén de claves |Claves: copia de seguridad, creación, eliminación, obtención, importación, lista y restauración <br> Secretos: todos |
+| Desarrolladores u operador |Permiso de implementación en un almacén de claves para que las máquinas virtuales que se implementen puedan capturar secretos desde el almacén de claves |None |
+| Auditores |None |Claves: enumeración<br>Secretos: enumeración |
+| Application |None |Claves: firma<br>Secretos: obtención |
 
 > [!NOTE]
-> Auditors need list permission for keys and secrets so they can inspect attributes for keys and secrets that are not emitted in the logs, such as tags, activation and expiration dates.
+> Los auditores necesitan un permiso de enumeración de claves y secretos para poder inspeccionar los atributos de las claves y los secretos que no se emiten en los registros, como las etiquetas y las fechas de activación y expiración.
 > 
 > 
 
-Besides permission to key vault, all three roles also need access to other resources. For example, to be able to deploy VMs (or Web Apps etc.) Developers/Operators also need 'Contributor' access to those resource types. Auditors need read access to the storage account where the key vault logs are stored.
+Además del permiso para el almacén de claves, los tres roles también necesitan tener acceso a otros recursos. Por ejemplo, para poder implementar máquinas virtuales (o Web Apps, etc.) Los desarrolladores y operadores también necesitan acceso de 'Colaborador' a dichos tipos de recursos. Los auditores necesitan acceso de lectura a la cuenta de Storage donde se almacenan los registros del almacén de claves.
 
-Since the focus of this article is securing access to your key vault, we only illustrate the relevant portions pertaining to this topic and skip details regarding deploying certificates, accessing keys and secrets programmatically etc. Those details are already covered elsewhere. Deploying certificates stored in key vault to VMs is covered in a [blog post](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), and there is [sample code](https://www.microsoft.com/download/details.aspx?id=45343) available that illustrates how to use bootstrap certificate to authenticate to Azure AD to get access to key vault.
+Puesto que este artículo se centra en la protección del acceso a un almacén de claves, solo se muestran las partes que pertenecen a este tema y se omiten los detalles relacionados con la implementación de certificados, el acceso a las claves y secretos mediante programación, etc. Dichos detalles ya están explican en otro lugar. La implementación de certificados almacenados en un almacén de claves en máquinas virtuales se trata en una [entrada de un blog](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/), donde encontrará [código de ejemplo](https://www.microsoft.com/download/details.aspx?id=45343) que muestra cómo utilizar el certificado de arranque para autenticarse en Azure AD para obtener acceso a un almacén de claves.
 
-Most of the access permissions can be granted using Azure portal, but to grant granular permissions you may need to use Azure PowerShell (or Azure CLI) to achieve the desired result. 
+La mayoría de los permisos de acceso se pueden conceder desde Azure Portal, pero para conceder permisos exhaustivos, es posible que necesite usar Azure PowerShell (o la CLI de Azure) para lograr el resultado deseado. 
 
-The following PowerShell snippets assume:
+En los siguientes fragmentos de código de PowerShell se asume que:
 
-* The Azure Active Directory administrator has created security groups that represent the three roles, namely Contoso Security Team, Contoso App Devops, Contoso App Auditors. The administrator has also added users to the groups they belong.
-* **ContosoAppRG** is the resource group where all the resources reside. **contosologstorage** is where the logs are stored. 
-* Key vault **ContosoKeyVault** and storage account used for key vault logs **contosologstorage** must be in the same Azure location
+* El administrador de Azure Active Directory ha creado grupos de seguridad que representan las tres funciones, a saber, Contoso Security Team, Contoso App Devops y Contoso App Auditors. El administrador también ha agregado usuarios a los grupos que pertenecen.
+* **ContosoAppRG** es el grupo de recursos en el que residen todos los recursos. **contosologstorage** es el lugar en que se almacenan los registros. 
+* La instancia de Key Vault **ContosoKeyVault** y la cuenta de Storage que se utiliza para los registros del almacén de claves **contosologstorage** deben estar en la misma ubicación de Azure
 
-First the subscription administrator assigns 'key vault Contributor' and 'User Access Administrator' roles to the security team. This allows the security team to manage access to other resources and manage key vaults in the resource group ContosoAppRG.
+En primer lugar el administrador de la suscripción asigna los roles de ' Colaborador de almacén de claves' y 'Administrador de acceso del usuario' al equipo de seguridad. Esto permite al equipo de seguridad administrar no solo el acceso a otros recursos sino también los almacenes de claves en el grupo de recursos ContosoAppRG.
 
 ```
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
-The following script illustrates how the security team can create a key vault, setup logging, and set access permissions for other roles and the application. 
+El siguiente script muestra la forma en que el equipo de seguridad crea un almacén de claves, configura el registro y establece los permisos de acceso tanto de otros roles como de la aplicación. 
 
 ```
 # Create key vault and enable logging
@@ -188,64 +192,67 @@ New-AzureRmRoleAssignment -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso A
 Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureRmADGroup -SearchString 'Contoso App Auditors')[0].Id -PermissionToKeys list -PermissionToSecrets list
 ```
 
-The custom role defined, is only assignable to the subscription where the ContosoAppRG resource group is created. If the same custom roles will be used for other projects in other subscriptions, it's scope could have more subscriptions added.
+El rol personalizado definido solo se puede asignar a la aplicación en la que se crea el grupo de recursos ContosoAppRG. Si se van a usar los mismos roles personalizados para otros proyectos de otras suscripciones, se podrán agregar más suscripciones a su ámbito.
 
-The custom role assignment for the developers/operators for the "deploy/action" permission is scoped to the resource group. This way only the VMs created in the resource group 'ContosoAppRG' will get the secrets (SSL cert and bootstrap cert). Any VMs that a member of dev/ops team creates in other resource group will not be able to get these secrets even if they knew the secret URIs.
+El ámbito de la asignación de roles personalizados a los desarrolladores u operadores para el permiso de "implementación o acción" es el grupo de recursos. De este modo los secretos (certificado SSL y certificado de arranque) solo los obtendrán las máquinas virtuales creadas en el grupo de recursos 'ContosoAppRG'. Las máquinas virtuales que un miembro del equipo de desarrolladores u operadores cree en otro grupo de recursos no podrán obtener dichos secretos, aunque conozcan sus identificadores URI.
 
-This example depicts a simple scenario. Real life scenarios may be more complex and you may need to adjust permissions to your key vault based on your needs. For example, in our example, we assume that security team will provide the key and secret references (URIs and thumbprints) that developers/operators team need to reference in their applications. Hence, they don't need to grant developers/operators any data plane access. Also, note that this example focuses on securing your key vault. Similar consideration should be given to secure [your VMs](https://azure.microsoft.com/services/virtual-machines/security/), [storage accounts](../storage/storage-security-guide.md) and other Azure resources too.
+En este ejemplo se muestra un escenario simple. Los escenarios de la vida real pueden ser más complejos y puede que necesite ajustar los permisos del almacén de claves en función de sus necesidades. Por ejemplo, en nuestro ejemplo, asumimos que el equipo de seguridad proporcionará las referencias de las claves y los secretos (identificadores URI y huellas digitales) que los desarrolladores y operadores necesitan hacer referencia en sus aplicaciones. De ahí que no necesiten conceder a los desarrolladores u operadores acceso al plano de datos. Además, tenga en cuenta que este ejemplo se centra en la protección de un almacén de claves. Debe darse una consideración parecida a la protección de [las máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/security/), [las cuentas de almacenamiento](../storage/storage-security-guide.md) y otros recursos de Azure.
 
 > [!NOTE]
-> Note: This example shows how key vault access will be locked down in production. The developers should have their own subscription or resourcegroup where they have full permissions to manage their vaults, VMs and storage account where they develop the application.
+> Nota: En este ejemplo se muestra cómo se bloqueará el acceso a un almacén de claves en producción. Los desarrolladores deben tener su propia suscripción o grupo de recursos, en el que tengan permisos completos para administrar sus almacenes, máquinas virtuales y la cuenta de Storage donde desarrollan la aplicación.
 > 
 > 
 
-## <a name="resources"></a>Resources
-* [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md)
+## <a name="resources"></a>Recursos
+* [Control de acceso basado en roles de Azure Active Directory](../active-directory/role-based-access-control-configure.md)
   
-  This article explains the Azure Active Directory Role-based Access Control and how it works.
-* [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
+  En este artículo se explica el control de acceso basado en rol de Azure Active Directory y su funcionamiento.
+* [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)
   
-  This article details all the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+  En este artículo se proporciona información detallada de todos los roles integrados disponibles en RBAC.
+* [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md)
   
-  This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups
-* [Manage Role-Based Access Control with Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
+  En este artículo se explica el modelo de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos.
+* [Administración del control de acceso basado en rol con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
   
-  This article explains how to manage role-based access control with Azure PowerShell
-* [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)
+  En este artículo se explica cómo administrar el control de acceso basado en rol con Azure PowerShell
+* [Administración del control de acceso basado en rol con la API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
   
-  This article shows how to use the REST API to manage RBAC.
-* [Role-Based Access Control for Microsoft Azure from Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
+  En este artículo se muestra cómo utilizar la API de REST para administrar el control de acceso basado en rol.
+* [Role-Based Access Control for Microsoft Azure from Ignite (Control de acceso basado en rol para Microsoft Azure de Ignite)](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
-  This is a link to a video on Channel 9 from the 2015 MS Ignite conference. In this session, they talk about access management and reporting capabilities in Azure, and explore best practices around securing access to Azure subscriptions using Azure Active Directory.
-* [Authorize access to web applications using OAuth 2.0 and Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
+  Este es un vínculo a un vídeo de Channel 9 de la conferencia de MS Ignite de 2015. En esta sesión, se abordan las funciones de notificación y administración de acceso en Azure y se exploran los procedimientos recomendados en torno a la protección del acceso a suscripciones de Azure con Azure Active Directory.
+* [Autorización del acceso a aplicaciones web mediante OAuth 2.0 y Azure Active Directory](../active-directory/active-directory-protocols-oauth-code.md)
   
-  This article describes complete OAuth 2.0 flow for authenticating with Azure Active Directory.
-* [key vault Management REST APIs](https://msdn.microsoft.com/library/azure/mt620024.aspx)
+  En este artículo se todo el flujo de OAuth 2.0 para realizar la autenticación con Azure Active Directory.
+* [API de REST de administración de almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx)
   
-  This document is the reference for the REST APIs to manage your key vault programmatically, including setting key vault access policy.
-* [key vault REST APIs](https://msdn.microsoft.com/library/azure/dn903609.aspx)
+  Este documento es la referencia para que las API de REST administren un almacén de claves mediante programación, donde se incluye el establecimiento de la directiva de acceso del almacén de claves.
+* [API de REST de almacén de claves](https://msdn.microsoft.com/library/azure/dn903609.aspx)
   
-  Link to key vault REST API reference documentation.
-* [Key access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
+  Vínculo a la documentación de referencia de la API de REST de almacén de claves.
+* [Control de acceso de claves](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
   
-  Link to Key access control reference documentation.
-* [Secret access control](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
+  Vínculo a la documentación de referencia del control de acceso de claves.
+* [Control de acceso de secretos](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
-  Link to Key access control reference documentation.
-* [Set](https://msdn.microsoft.com/library/mt603625.aspx) and [Remove](https://msdn.microsoft.com/library/mt619427.aspx) key vault access policy using PowerShell
+  Vínculo a la documentación de referencia del control de acceso de claves.
+* [Establecer](https://msdn.microsoft.com/library/mt603625.aspx) y [quitar](https://msdn.microsoft.com/library/mt619427.aspx) una directiva de acceso de Key Vault mediante PowerShell
   
-  Links to reference documentation for PowerShell cmdlets to manage key vault access policy.
+  Vínculos a documentación de referencia de los cmdlets de PowerShell para administrar la directiva de acceso de un almacén de claves.
 
-## <a name="next-steps"></a>Next Steps
-For a getting started tutorial for an administrator, see [Get Started with Azure key vault](key-vault-get-started.md).
+## <a name="next-steps"></a>Pasos siguientes
+Para ver un tutorial de introducción para administradores, consulte [Introducción a Azure Key Vault](key-vault-get-started.md).
 
-For more information about usage logging for key vault, see [Azure key vault Logging](key-vault-logging.md).
+Para más información acerca del registro de uso de Key Vault, consulte [Registro de Azure Key Vault](key-vault-logging.md).
 
-For more information about using keys and secrets with Azure key vault, see [About Keys and Secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx).
+Para más información acerca del uso de claves y secretos con Azure Key Vault, consulte [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623.aspx) (Acerca de claves, secretos y certificados).
 
-If you have questions about key vault, visit the [Azure key vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
+Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

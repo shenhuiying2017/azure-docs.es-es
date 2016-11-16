@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: creación de una canalización mediante el Asistente para copia | Microsoft Docs'
-description: En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Asistente para copia compatible con Data Factory.
+title: "Tutorial: Creación de una canalización mediante el Asistente para copia | Microsoft Docs"
+description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Asistente para copia compatible con Data Factory."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: b87afb8e-53b7-4e1b-905b-0343dd096198
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-data-factory-copy-wizard"></a>Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -53,21 +57,23 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
       > El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.
       > 
       > 
-3. Selección la **suscripción**de Azure.
-4. Para el grupo de recursos, realice uno de los siguientes pasos: 1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
-5. Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
-   
-            Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).
-   1. Seleccione una **ubicación** para la factoría de datos.
-   2. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
-   3. Haga clic en **Crear**.
+   2. Selección la **suscripción**de Azure.
+   3. Para el grupo de recursos, realice uno de los siguientes pasos: 
       
-       ![Hoja Nueva Factoría de datos](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)          
-6. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:
+      1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
+      2. Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
+         
+          En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
+   4. Seleccione una **ubicación** para la factoría de datos.
+   5. Seleccione la casilla **Anclar al panel** en la parte inferior de la hoja.  
+   6. Haga clic en **Crear**.
+      
+       ![Hoja Nueva Factoría de datos](media/data-factory-copy-data-wizard-tutorial/new-data-factory-blade.png)            
+3. Una vez completada la creación, puede ver la hoja **Data Factory** como se muestra en la siguiente imagen:
    
    ![Página principal de Factoría de datos](./media/data-factory-copy-data-wizard-tutorial/getstarted-data-factory-home-page.png)
 
-## <a name="launch-and-use-copy-wizard"></a>Inicio y uso del Asistente para copia
+## <a name="launch-copy-wizard"></a>Inicio del Asistente para copia
 1. En la página principal de Data Factory, haga clic en el icono **Copiar datos** para iniciar el **Asistente para copia**. 
    
    > [!NOTE]
@@ -154,6 +160,9 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

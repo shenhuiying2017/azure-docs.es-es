@@ -1,4 +1,4 @@
-Para crear una memoria caché, primero inicie sesión en el [Portal de Azure](https://portal.azure.com) y haga clic en **Nuevo**, **Datos y almacenamiento** y **Caché en Redis**.
+Para crear una memoria caché, primero inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en **Nuevo**, **Datos y almacenamiento** y **Redis Cache**.
 
 > [!NOTE]
 > Si no tiene una cuenta de Azure, puede [abrir una cuenta de Azure gratis](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) en tan solo un par de minutos.
@@ -16,13 +16,13 @@ Para crear una memoria caché, primero inicie sesión en el [Portal de Azure](ht
 > 
 > 
 
-En la hoja **Nueva caché en Redis**, especifique la configuración que desee para la memoria caché.
+En la hoja **Nueva caché en Redis** , especifique la configuración que desee para la memoria caché.
 
-![Create cache](media/redis-cache-create/redis-cache-cache-create.png)
+![Create cache](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* En **Nombre DNS**, especifique el nombre de la memoria caché que se va a usar para el punto de conexión de la memoria caché. El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-`. El nombre de la memoria caché no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.
-* En **Suscripción**, seleccione la suscripción de Azure que quiera usar para la memoria caché. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y no aparecerá la lista desplegable **Suscripción**.
-* En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../articles/resource-group-overview.md).
+* En **Nombre DNS**, especifique el nombre de la memoria caché que se va a usar para el punto de conexión de la memoria caché. El nombre de la memoria caché debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-` . El nombre de la memoria caché no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.
+* En **Suscripción**, seleccione la suscripción de Azure que quiera usar para la memoria caché. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y no aparecerá la lista desplegable **Suscripción** .
+* En **Grupo de recursos**, seleccione o cree un grupo de recursos para su caché. Para más información, consulte el artículo sobre el [uso de grupos de recursos para administrar los recursos de Azure](../articles/azure-resource-manager/resource-group-overview.md). 
 * Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda su caché. Para optimizar el rendimiento, Microsoft recomienda encarecidamente que cree la memoria caché en la misma región que la aplicación cliente de caché.
 * Use **Nivel de precios** para seleccionar el tamaño y las características de caché que desee.
 * **Redis clúster** le permite crear cachés más grandes de 53 GB y los datos de partición entre varios nodos de Redis. Para obtener más información, consulte [Cómo configurar la agrupación en clústeres para una memoria Caché en Redis de Azure Premium](../articles/redis-cache/cache-how-to-premium-clustering.md).
@@ -33,4 +33,8 @@ Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Cr
 
 ![Cache created](media/redis-cache-create/redis-cache-cache-created.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

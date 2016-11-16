@@ -1,4 +1,4 @@
-## Emparejamiento entre suscripciones
+## <a name="peering-across-subscriptions"></a>Emparejamiento entre suscripciones
 En este escenario creará un emparejamiento entre dos redes virtuales que pertenecen a distintas suscripciones.
 
 ![escenario entre suscripciones](./media/virtual-networks-create-vnetpeering-scenario-crosssub-include/figure01.PNG)
@@ -10,4 +10,8 @@ En el emparejamiento de VNET, la autorización se basa en el control de acceso b
 > 
 > 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

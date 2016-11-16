@@ -1,12 +1,12 @@
 ---
-title: Tutorial de .NET de mensajería asíncrona del Bus de servicio | Microsoft Docs
-description: Tutorial de .NET de mensajería asíncrona.
+title: "Tutorial de .NET de mensajería asincrónica de Service Bus | Microsoft Docs"
+description: "Tutorial de .NET de mensajería asíncrona."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3127a84f4d4cd9881de56a6d199cfb1780cd8189
+
 
 ---
-# <a name="service-bus-brokered-messaging-.net-tutorial"></a>Tutorial de .NET de mensajería asíncrona del Bus de servicio
+# <a name="service-bus-brokered-messaging-net-tutorial"></a>Tutorial de .NET de mensajería asíncrona del Bus de servicio
 El Bus de servicio de Azure ofrece dos soluciones integrales de mensajería: una, mediante un servicio de "retransmisión" centralizado que se ejecuta en la nube y que admite diferentes protocolos de transporte y servicios web estándar, incluidos SOAP, WS-* y REST. El cliente no necesita una conexión directa al servicio local ni necesita saber dónde reside el servicio, y el servicio local no necesita ningún puerto de entrada abierto en el firewall.
 
 La segunda solución de mensajería permite funcionalidades de mensajería "asincrónica". Estos pueden considerarse como características de mensajería asíncrona o desacoplada que admiten la publicación y suscripción, el desacoplamiento temporal y escenarios de equilibrio de carga que usan la infraestructura de mensajería del Bus de servicio. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
 
-Este tutorial está diseñado para ofrecerle una visión general y experiencia práctica con las colas, uno de los componentes principales de la mensajería asíncrona del Bus de servicio. Una vez completada la secuencia de temas de este tutorial, tendrá una aplicación que rellena una lista de mensajes, crea una cola y envía mensajes a dicha cola. Por último, la aplicación recibe y muestra los mensajes de la cola, limpia sus recursos y se cierra. Para obtener un tutorial correspondiente que describe cómo crear una aplicación que usa Service Bus Relay, consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Este tutorial está diseñado para ofrecerle una visión general y experiencia práctica con las colas, uno de los componentes principales de la mensajería asíncrona del Bus de servicio. Una vez completada la secuencia de temas de este tutorial, tendrá una aplicación que rellena una lista de mensajes, crea una cola y envía mensajes a dicha cola. Por último, la aplicación recibe y muestra los mensajes de la cola, limpia sus recursos y se cierra. Para obtener un tutorial correspondiente que describe cómo crear una aplicación que usa Service Bus WCF Relay, consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 ## <a name="introduction-and-prerequisites"></a>Introducción y requisitos previos
 Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero en salir) a uno o más destinatarios de la competencia. FIFO significa que normalmente se espera que los mensajes sean recibidos y procesados por los receptores en el orden temporal en el que se pusieron en cola, y cada mensaje solo será recibido y procesado solo por el consumidor de un mensaje. La principal ventaja del uso de colas es conseguir el *desacoplamiento temporal* de componentes de la aplicación: en otras palabras, los productores y consumidores no necesitan enviar y recibir mensajes al mismo tiempo, ya que los mensajes se almacenan de forma duradera en la cola. Una ventaja relacionada es la *nivelación de la carga*, lo que permite a los productores y consumidores enviar y recibir mensajes con distintas velocidades.
@@ -29,7 +33,7 @@ Las colas ofrecen una entrega de mensajes FIFO (PEPS, primero en entrar, primero
 Los siguientes son algunos pasos administrativos y requisitos previos que deben seguirse antes de comenzar el tutorial. El primero es crear un espacio de nombres de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial con la que el Bus de servicio autentica el acceso a una aplicación.
 
 ### <a name="create-a-service-namespace-and-obtain-a-sas-key"></a>Creación de un espacio de nombres de servicio y obtención de una clave de SAS
-El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](../service-bus/service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
+El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -611,14 +615,17 @@ Ahora que ha completado los pasos anteriores, puede generar y ejecutar la aplica
 En Visual Studio, en el menú **Compilar**, haga clic en **Compilar solución** o presione **Ctrl+Mayús+B**. Si se producen errores, compruebe que el código es correcto de acuerdo con el ejemplo completo al final del paso anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use Service Bus [Relay](service-bus-messaging-overview.md#Relayed-messaging), consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
+Este tutorial ha mostrado cómo crear una aplicación cliente del Bus de servicio y un servicio mediante las capacidades de mensajería asíncrona del Bus de servicio. Para obtener un tutorial similar que use Service Bus [WCF Relay](service-bus-messaging-overview.md#Relayed-messaging), consulte el [tutorial sobre mensajería retransmitida de Service Bus](../service-bus-relay/service-bus-relay-tutorial.md).
 
 Para más información sobre [Service Bus](https://azure.microsoft.com/services/service-bus/), consulte los temas siguientes.
 
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-* [Elementos fundamentales del Bus de servicio](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* [Arquitectura del Bus de servicio](../service-bus/service-bus-architecture.md)
+* [Elementos fundamentales de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
+* [Arquitectura del Bus de servicio](service-bus-architecture.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

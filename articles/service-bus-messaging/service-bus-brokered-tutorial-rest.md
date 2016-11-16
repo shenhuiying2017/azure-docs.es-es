@@ -1,12 +1,12 @@
 ---
-title: Tutorial de REST de mensajería asíncrona del Bus de servicio | Microsoft Docs
-description: Tutorial de REST de mensajería asíncrona.
+title: "Tutorial de REST de mensajería asincrónica de Service Bus | Microsoft Docs"
+description: "Tutorial de REST de mensajería asíncrona."
 services: service-bus
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
 ms.service: service-bus
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/27/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 45b72037e2de01b9201edf3e4ebee7e80d996383
+
 
 ---
 # <a name="service-bus-brokered-messaging-rest-tutorial"></a>Tutorial de REST de mensajería asíncrona del Bus de servicio
@@ -22,7 +26,7 @@ ms.author: sethm
 En este tutorial se muestra cómo crear una cola básica de Azure Service Bus basada en REST y un tema o suscripción.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](../service-bus/service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
+El primer paso es crear un espacio de nombres de servicio y obtener una [clave de firma de acceso compartido](service-bus-sas-overview.md) (SAS). Un espacio de nombres proporciona un límite de aplicación para cada aplicación que se expone a través del Bus de servicio. El sistema genera una clave SAS automáticamente cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -31,7 +35,7 @@ Las colas del Bus de servicio permiten almacenar mensajes en una cola en la que 
 
 El código de este tutorial:
 
-* Usa su espacio de nombres y la clave de [firma de acceso compartido](../service-bus/service-bus-sas-overview.md) (SAS) para obtener acceso a los recursos del espacio de nombres de Service Bus.
+* Usa su espacio de nombres y la clave de [firma de acceso compartido](service-bus-sas-overview.md) (SAS) para obtener acceso a los recursos del espacio de nombres de Service Bus.
 * Crea una cola, envía un mensaje a la cola y lee el mensaje de la cola.
 * Crea un tema, una suscripción a dicho tema y envía y lee el mensaje de la suscripción.
 * Recupera toda la información de la cola, el tema y la suscripción (incluidas las reglas de suscripción) de Service Bus.
@@ -139,7 +143,7 @@ Después de obtener el espacio de nombres del servicio y las credenciales en el 
 ## <a name="create-management-credentials"></a>Creación de credenciales de administración
 El siguiente paso es escribir un método que procesa el espacio de nombres y la clave SAS que especificó en el paso anterior y devuelve un token SAS. En este ejemplo se crea un token SAS es válido durante una hora.
 
-### <a name="create-a-getsastoken()-method"></a>Creación de un método GetSASToken()
+### <a name="create-a-getsastoken-method"></a>Creación de un método GetSASToken()
 Pegue el código siguiente después del método `Main()`, en la clase `Program`:
 
 ```
@@ -594,9 +598,12 @@ namespace Microsoft.ServiceBus.Samples
 Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
-* [Elementos fundamentales de Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
+* [Elementos fundamentales de Azure Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Tutorial de REST Service Bus Relay](../service-bus-relay/service-bus-relay-rest-tutorial.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

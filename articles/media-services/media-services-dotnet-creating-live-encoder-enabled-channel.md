@@ -1,38 +1,42 @@
 ---
-title: Realización de streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET | Microsoft Docs
-description: Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits con .NET SDK.
+title: "Realización de streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple con .NET | Microsoft Docs"
+description: "Este tutorial le guía por los pasos para crear un canal que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits con .NET SDK."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4df5e690-ff63-47cc-879b-9c57cb8ec240
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2016
+ms.date: 10/12/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98498da5a8aaf10e37c355f05d6f6d83fd4df584
+
 
 ---
-# Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple con .NET
+# <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multibitrate-streams-with-net"></a>Cómo realizar el streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple con .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [API DE REST](https://msdn.microsoft.com/library/azure/dn783458.aspx)
 > 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
-## Información general
+## <a name="overview"></a>Información general
 Este tutorial le guía por los pasos para crear un **canal** que reciba una secuencia en directo de una sola velocidad de bits y la codifique como secuencia de varias velocidades de bits.
 
 Para más información sobre los canales habilitados para la codificación en directo, consulte [Uso de canales habilitados para realizar la codificación en directo con Servicios multimedia de Azure](media-services-manage-live-encoder-enabled-channels.md).
 
-## Escenario común de streaming en vivo
+## <a name="common-live-streaming-scenario"></a>Escenario común de streaming en vivo
 En los pasos siguientes se describen las tareas que intervienen en la creación de aplicaciones comunes de streaming en vivo.
 
 > [!NOTE]
@@ -41,35 +45,39 @@ En los pasos siguientes se describen las tareas que intervienen en la creación 
 > 
 
 1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de una sola velocidad de bits en uno de los siguientes protocolos: RTMP, Smooth Streaming o RTP (MPEG-TS). Para obtener más información, consulte [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo](http://go.microsoft.com/fwlink/?LinkId=532824).
-   
-    Este paso también puede realizarse después de crear el canal.
-2. Cree e inicie un canal.
-3. Recupere la URL de ingesta de canales.
-   
-    El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-4. Recupere la URL de vista previa de canal.
-   
-    Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
-5. Cree un recurso.
-6. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
-7. Cree una clave de contenido.
-8. Configure la directiva de autorización de claves de contenido.
-9. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
-10. Cree un programa y especifique que se use el recurso que ha creado.
-11. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
-    
-     Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
-12. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
-13. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-14. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
-15. Elimine el programa (y, opcionalmente, elimine el recurso).
 
-## Temas que se abordarán
+Este paso también puede realizarse después de crear el canal.
+
+1. Cree e inicie un canal.
+2. Recupere la URL de ingesta de canales.
+
+El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
+
+1. Recupere la URL de vista previa de canal.
+
+Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
+
+1. Cree un recurso.
+2. Si desea que el recurso se cifre dinámicamente durante la reproducción, haga lo siguiente:
+3. Cree una clave de contenido.
+4. Configure la directiva de autorización de claves de contenido.
+5. Configure la directiva de entrega de recursos (usada por el empaquetado y el cifrado dinámicos).
+6. Cree un programa y especifique que se use el recurso que ha creado.
+7. Publique el recurso asociado al programa mediante la creación de un localizador a petición.
+
+Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
+
+1. Inicie el programa cuando esté listo para iniciar el streaming y el archivo.
+2. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
+3. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
+4. Elimine el programa (y, opcionalmente, elimine el recurso).
+
+## <a name="what-youll-learn"></a>Temas que se abordarán
 Este tema muestra cómo ejecutar distintas operaciones en los canales y programas mediante el SDK de .NET de Media Services. Dado que la ejecución de muchas de las operaciones es prolongada, se usan las API de .NET que administran operaciones de este tipo.
 
 En el tema se muestra cómo:
 
-1. Crear e iniciar un canal. Se usan las API de ejecución prolongada.
+1. Cree e inicie un canal. Se usan las API de ejecución prolongada.
 2. Obtener el extremo de ingesta (entrada) de los canales. Este extremo debe proporcionarse al codificador que puede enviar una secuencia en directo de una sola velocidad de bits.
 3. Obtener el extremo de vista previa. Este extremo se usa para obtener una vista previa de la secuencia.
 4. Crear un recurso que se usará para almacenar el contenido. También deben configurarse las directivas de entrega de recursos, como se muestra en este ejemplo.
@@ -78,33 +86,34 @@ En el tema se muestra cómo:
 7. Mostrar y ocultar pizarras. Iniciar y detener anuncios. Se usan las API de ejecución prolongada.
 8. Limpiar el canal y todos los recursos asociados.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Para completar este tutorial, deberá tener una cuenta de Azure.
-  
-    En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
-* Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema de [creación de cuenta](media-services-create-account.md).
+
+En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
+
+* Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
 * Debe usar el SDK de Servicios multimedia para .NET versión 3.2.0.0 o posterior.
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
 
-## Consideraciones
+## <a name="considerations"></a>Consideraciones
 * Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante largos períodos de tiempo, póngase en contacto con amslived en Microsoft.com.
 * Asegúrese de tener al menos una unidad de streaming reservada en el extremo de streaming desde el que desea transmitir el contenido.
 
-## Descarga de un ejemplo
+## <a name="download-sample"></a>Descarga de un ejemplo
 Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documentation/samples/media-services-dotnet-encode-live-stream-with-ams-clear/).
 
-## Configuración para el desarrollo con el SDK de Servicios multimedia para .NET
+## <a name="set-up-for-development-with-media-services-sdk-for-net"></a>Configuración para el desarrollo con el SDK de Servicios multimedia para .NET
 1. Cree una aplicación de consola mediante Visual Studio.
 2. Agregue el SDK de Servicios multimedia para .NET a la aplicación de consola mediante el paquete NuGet correspondiente.
 
-## Conexión con Servicios multimedia
+## <a name="connect-to-media-services"></a>Conexión con Servicios multimedia
 Se recomienda usar un archivo app.config para almacenar la clave de cuenta y nombre de Servicios multimedia.
 
 > [!NOTE]
-> Para buscar los valores de nombre y clave, vaya al Portal de Azure clásico, seleccione la cuenta de Servicios multimedia y haga clic en el icono "ADMINISTRAR CLAVES" en la parte inferior de la ventana del portal. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
+> Para buscar el nombre y la clave de valores, vaya a Azure Portal y seleccione la cuenta. Aparecerá la ventana Configuración a la derecha. En la ventana Configuración, seleccione Claves. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
 > 
 > 
 
@@ -119,7 +128,7 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
     </configuration>
 
 
-## Ejemplo de código
+## <a name="code-example"></a>Ejemplo de código
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -507,15 +516,20 @@ Agregue la sección appSettings al archivo app.config y establezca los valores d
     }    
 
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### ¿Busca alguna otra cosa?
+### <a name="looking-for-something-else"></a>¿Busca alguna otra cosa?
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

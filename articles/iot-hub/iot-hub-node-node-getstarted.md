@@ -1,12 +1,12 @@
 ---
-title: Introducción al Centro de IoT de Azure para Node.js | Microsoft Docs
-description: Tutorial de introducción al Centro de IoT de Azure con Node.js Utilice Centro de IoT de Azure y Node.js con los SDK de IoT de Microsoft Azure para implementar una solución de Internet de las cosas.
+title: "Introducción al Azure IoT Hub para Node.js | Microsoft Docs"
+description: "Tutorial de introducción al Centro de IoT de Azure con Node.js Utilice Centro de IoT de Azure y Node.js con los SDK de IoT de Microsoft Azure para implementar una solución de Internet de las cosas."
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 56618522-9a31-42c6-94bf-55e2233b39ac
 ms.service: iot-hub
 ms.devlang: javascript
 ms.topic: hero-article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7ddd9c1ed88e30eaaa200dc6b83d34746da14aa8
+
 
 ---
-# <a name="get-started-with-azure-iot-hub-for-node.js"></a>Introducción al Centro de IoT de Azure para Node.js
+# <a name="get-started-with-azure-iot-hub-for-nodejs"></a>Introducción al Centro de IoT de Azure para Node.js
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 Al final de este tutorial tendrá tres aplicaciones de consola de Node.js:
 
 * **CreateDeviceIdentity.js**, que crea una identidad de dispositivo y una clave de seguridad asociada para conectar el dispositivo simulado.
 * **ReadDeviceToCloudMessages.js**, que muestra los datos de telemetría enviados por el dispositivo simulado.
-* **SimulatedDevice.js**, que se conecta con su Centro de IoT con la identidad del dispositivo creada anteriormente y envía un mensaje de telemetría cada segundo mediante el protocolo AMQPS.
+* **SimulatedDevice.js**, que se conecta con IoT Hub con la identidad del dispositivo creada anteriormente y envía un mensaje de telemetría cada segundo mediante el protocolo AMQP.
 
 > [!NOTE]
 > El artículo [IoT Hub SDKs][lnk-hub-sdks] (SDK de IoT Hub) proporciona información acerca de los SDK que se pueden usar para crear tanto las aplicaciones que se ejecuten en los dispositivos como el back-end de la solución.
@@ -33,14 +37,14 @@ Al final de este tutorial tendrá tres aplicaciones de consola de Node.js:
 Para completar este tutorial, necesitará lo siguiente:
 
 * Node.js versión 0.10.x, o posteriores.
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Cree su cuenta gratuita de Azure hoy mismo][lnk-free-trial].
+* Una cuenta de Azure activa. (Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos).
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 Ahora ha creado su Centro de IoT. Ha creado el nombre de host y la cadena de conexión del Centro de IoT que necesita para completar el resto del tutorial.
 
 ## <a name="create-a-device-identity"></a>Creación de una identidad de dispositivo
-En esta sección, creará una aplicación de consola de Node.js que crea una identidad de dispositivo en el registro de identidades de IoT Hub. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Para más información, consulte la sección **Device identity registry operations** (Operaciones del Registro de identidad del dispositivo) de [Manage device identities in IoT Hub](Administración de identidades de dispositivos en IoT Hub.md)[lnk-devguide-identity]. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
+En esta sección, creará una aplicación de consola de Node.js que crea una identidad de dispositivo en el registro de identidades de IoT Hub. No se puede conectar un dispositivo al Centro de IoT a menos que tenga una entrada en el registro de identidades de dispositivo. Para más información, consulte la sección **Device identity registry operations** (Operaciones del Registro de identidad del dispositivo) de [Manage device identities in IoT Hub] (Administración de identidades de dispositivos en IoT Hub)[lnk-devguide-identity]. Cuando ejecuta esta aplicación de consola, se genera una clave y un identificador de dispositivo únicos con el que el dispositivo puede identificarse cuando envía al Centro de IoT mensajes de dispositivo a la nube.
 
 1. Cree una nueva carpeta vacía denominada **createdeviceidentity**. En la carpeta **createdeviceidentity** , cree un archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
    
@@ -101,11 +105,11 @@ En esta sección, creará una aplicación de consola de Node.js que crea una ide
 > 
 > 
 
-## <a name="receive-device-to-cloud-messages"></a>Recepción de mensajes de dispositivo a nube
-En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube de IoT Hub. Un IoT Hub expone un punto de conexión compatible con [Event Hubs][lnk-event-hubs-overview]que permite leer los mensajes del dispositivo a la nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. En [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub mediante .Net][lnk-process-d2c-tutorial], se muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a Event Hubs][lnk-eventhubs-tutorial] se proporciona más información acerca de cómo procesar los mensajes desde Event Hubs. Dicha información se puede aplicar a los puntos de conexión compatibles con Event Hubs de IoT Hub.
+## <a name="receive-devicetocloud-messages"></a>Recepción de mensajes de dispositivo a nube
+En esta sección, creará una aplicación de consola de Node.js que lee los mensajes de dispositivo a nube de IoT Hub. Un IoT Hub expone un punto de conexión compatible con [Event Hubs][lnk-event-hubs-overview]que permite leer los mensajes del dispositivo a la nube. Para simplificar las cosas, este tutorial crea un lector básico que no es apto para una implementación de alta capacidad de procesamiento. En [Tutorial: procesamiento de mensajes de dispositivo a la nube de IoT Hub mediante .Net][lnk-process-d2c-tutorial], se muestra cómo procesar mensajes de dispositivo a la nube a escala. En el tutorial [Introducción a Event Hubs][lnk-eventhubs-tutorial] se proporciona más información acerca de cómo procesar los mensajes desde Event Hubs. Dicha información se puede aplicar a los puntos de conexión de IoT Hub compatibles con Event Hubs.
 
 > [!NOTE]
-> El punto de conexión compatible con los Centros de eventos para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQPS.
+> El punto de conexión compatible con Event Hubs para leer mensajes de dispositivo a la nube siempre usa el protocolo AMQP.
 > 
 > 
 
@@ -257,7 +261,7 @@ Ahora está preparado para ejecutar las aplicaciones.
     ![Icono Uso de Azure Portal que muestra el número de mensajes enviados a IoT Hub][43]
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, configuró un nuevo Centro de IoT en el portal y después creó una identidad de dispositivo en el registro de identidades del centro. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro los mensajes de dispositivo a la nube. También creó otra aplicación que muestra los mensajes recibidos por el centro. 
+En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro. Usó esta identidad de dispositivo para habilitar la aplicación del dispositivo simulado para enviar al centro los mensajes de dispositivo a la nube. También creó otra aplicación que muestra los mensajes recibidos por el centro. 
 
 Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 
@@ -292,6 +296,6 @@ Para aprender a ampliar una solución IoT y a procesar los mensajes de dispositi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

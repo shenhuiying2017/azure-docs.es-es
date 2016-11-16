@@ -1,12 +1,12 @@
 ---
-title: Enrutamiento asimétrico | Microsoft Docs
-description: Este artículo le guía a través de los problemas a los que se puede enfrentar un cliente con enrutamiento asimétrico en una red que tiene varios vínculos a un destino.
+title: "Enrutamiento asimétrico | Microsoft Docs"
+description: "Este artículo le guía a través de los problemas a los que se puede enfrentar un cliente con enrutamiento asimétrico en una red que tiene varios vínculos a un destino."
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamazia
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cebf1a1712b6ba7f1f6125369703694ba19d0244
+
 
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Enrutamiento asimétrico con varias rutas de acceso de red
@@ -60,7 +64,7 @@ Asegúrese de que las direcciones IP públicas se anuncian en los vínculos de r
 
 Si desea usar ExpressRoute para la autenticación, asegúrese de que va a anunciar direcciones IP públicas de AD FS a través de ExpressRoute sin NAT. De este modo, el tráfico que se origina en Microsoft y se dirige a un servidor local de AD FS se produce a través de ExpressRoute. El tráfico de retorno del cliente a Microsoft utiliza ExpressRoute porque es la ruta preferida en lugar de Internet.
 
-### <a name="source-based-nat"></a>NAT basada en origen
+### <a name="sourcebased-nat"></a>NAT basada en origen
 Otra manera de resolver los problemas de enrutamiento asimétrico es mediante SNAT. Por ejemplo, no ha anunciado la dirección IP pública de un servidor local de Protocolo simple de transferencia de correo (SMTP) en ExpressRoute ya que pretende utilizar Internet para este tipo de comunicación. Una solicitud que se origina con Microsoft y va, a continuación, al servidor SMTP local recorre Internet. Realice una SNAT con la solicitud entrante a una dirección IP interna. El tráfico inverso desde el servidor SMTP va al firewall perimetral (que utiliza para NAT) en lugar de a través de ExpressRoute. El tráfico de retorno vuelve a través de Internet.
 
 ![Configuración de red con NAT basada en origen](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
@@ -68,6 +72,9 @@ Otra manera de resolver los problemas de enrutamiento asimétrico es mediante SN
 ## <a name="asymmetric-routing-detection"></a>Detección de enrutamiento asimétrico
 Traceroute es la mejor manera de asegurarse de que el tráfico de la red recorra la ruta de acceso prevista. Si espera que el tráfico del servidor SMTP local a Microsoft tome la ruta de acceso de Internet, realice el traceroute previsto del servidor SMTP a Office 365. El resultado validará que el tráfico sale de hecho de la red hacia Internet y no hacia ExpressRoute.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

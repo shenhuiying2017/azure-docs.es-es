@@ -1,22 +1,26 @@
 ---
-title: Solución Administración de actualizaciones de OMS | Microsoft Docs
-description: Este artículo está pensado para ayudarle a entender cómo utilizar esta solución para administrar las actualizaciones de los equipos Windows y Linux.
+title: "Solución Administración de actualizaciones de OMS | Microsoft Docs"
+description: "Este artículo está pensado para ayudarle a entender cómo utilizar esta solución para administrar las actualizaciones de los equipos Windows y Linux."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2016
+ms.date: 10/14/2016
 ms.author: magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4bd1e84fd9af1273f95f70d941c3a4535984c8a9
+
 
 ---
-# <a name="![update-management-solution-in-oms](./media/oms-solution-update-management/update-management-solution-icon.png)-update-management-solution-in-oms"></a>![Solución Administración de actualizaciones de OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Solución Administración de actualizaciones de OMS
+# <a name="update-management-solution-in-omsmediaomssolutionupdatemanagementupdatemanagementsolutioniconpng-update-management-solution-in-oms"></a>![Solución Administración de actualizaciones de OMS](./media/oms-solution-update-management/update-management-solution-icon.png) Solución Administración de actualizaciones de OMS
 La solución Administración de actualizaciones de OMS permite administrar las actualizaciones de los equipos Windows y Linux.  Puede evaluar rápidamente el estado de las actualizaciones disponibles en todos los equipos agente e iniciar el proceso de instalación de las actualizaciones necesarias para los servidores. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -35,15 +39,13 @@ Realice los pasos siguientes para agregar la solución Administración de actual
 2. En el portal de OMS, seleccione **Configuración** y, a continuación, **Orígenes conectados**.  Anote el **Identificador del área de trabajo** y la **Clave principal** o la **Clave secundaria**.
 3. Realice los pasos siguientes para cada equipo Linux.
    
-   a.  Instale la versión más reciente del agente de OMS para Linux mediante los comandos siguientes.  Reemplace <Workspace ID> por el identificador del área de trabajo y <Key> por la clave principal o secundaria.
+   a.    Instale la versión más reciente del agente de OMS para Linux mediante los comandos siguientes.  Reemplace <Workspace ID> por el identificador del área de trabajo y <Key> por la clave principal o secundaria.
    
-       cd ~
-       wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
+     cd ~   wget https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/v1.2.0-75/omsagent-1.2.0-75.universal.x64.sh   sudo bash omsagent-1.2.0-75.universal.x64.sh --upgrade -w <Workspace ID> -s <Key>
    
-    b. Para quitar al agente, ejecute el siguiente comando.
+   b. Para quitar al agente, ejecute el siguiente comando.
    
-       sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
+     sudo bash omsagent-1.2.0-75.universal.x64.sh --purge
 
 ## <a name="management-packs"></a>Módulos de administración
 Si el grupo de administración de System Center Operations Manager está conectado al área de trabajo de OMS, se instalarán los siguientes módulos de administración en Operations Manager al agregar esta solución. No es necesario realizar tareas de configuración o mantenimiento de estos módulos de administración. 
@@ -95,7 +97,7 @@ Haga clic en el icono de **Administración de actualizaciones** para abrir el pa
 ![Vista de paquete del panel Administración de actualizaciones](./media/oms-solution-update-management/update-management-assessment-package-view.png)<br>  
 
 ## <a name="installing-updates"></a>Instalación de actualizaciones
-Una vez que se han evaluado las actualizaciones para todos los equipos de su entorno, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*.  Una implementación de actualizaciones es una instalación programada de las actualizaciones necesarias en uno o más equipos Windows.  Especifique la fecha y hora para la implementación, además de un equipo o grupo de equipos que se deben incluir.  
+Una vez que se han evaluado las actualizaciones para todos los equipos Windows de su entorno, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*.  Una implementación de actualizaciones es una instalación programada de las actualizaciones necesarias en uno o más equipos Windows.  Especifique la fecha y hora para la implementación, además de un equipo o grupo de equipos que se deben incluir.  
 
 Los Runbooks instalan las actualizaciones en Azure Automation.  Actualmente, no puede ver estos Runbooks, que no requieren ninguna configuración.  Cuando se crea una implementación de actualizaciones, crea una programación que inicia un Runbook de actualización maestra a la hora especificada para los equipos incluidos.  Este Runbook maestro inicia un Runbook secundario en cada agente de Windows que realiza la instalación de las actualizaciones necesarias.  
 
@@ -152,7 +154,7 @@ Se crea un registro con el tipo **Actualizar** para cada actualización que est�
 | Propiedad | Descripción |
 | --- | --- |
 | Tipo |*Actualizar* |
-| SourceSystem |El origen que ha aprobado la instalación de la actualización.<br>Los valores posibles son:<br>- Microsoft Update<br>-  Windows Update<br>- SCCM<br>- Servidores Linux (recuperado de los administradores de paquetes) |
+| SourceSystem |El origen que ha aprobado la instalación de la actualización.<br>Los valores posibles son:<br>- Microsoft Update<br>-  Windows Update<br>-    SCCM<br>- Servidores Linux (recuperado de los administradores de paquetes) |
 | Aprobado |Especifica si se ha aprobado la actualización para la instalación.<br> Para los servidores Linux, actualmente es opcional, ya que la aplicación de revisiones no está administrada por OMS. |
 | Clasificación para Windows |Clasificación de la actualización.<br>Los valores posibles son:<br>- Aplicaciones<br>- Actualizaciones críticas<br>- Actualizaciones de definiciones<br>- Feature Packs<br>- Actualizaciones de seguridad<br>- Service Packs<br>- Paquetes acumulativos de actualizaciones<br>- Actualizaciones |
 | Clasificación para Linux |Clasificación de la actualización.<br>Los valores posibles son:<br>- Actualizaciones críticas<br>- Actualizaciones de seguridad<br>- Otras actualizaciones |
@@ -237,6 +239,9 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 * [Crear sus propios paneles](../log-analytics/log-analytics-dashboards.md) que muestren el cumplimiento de las actualizaciones de los equipos administrados.
 * [Crear alertas](../log-analytics/log-analytics-alerts.md) cuando se detectan actualizaciones críticas pendientes en equipos, o bien cuando un equipo tiene las actualizaciones automáticas deshabilitadas.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

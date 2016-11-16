@@ -2,4 +2,7 @@ Un equilibrador de carga interno (ILB) de Azure proporciona un equilibrio de car
 
 Para obtener información sobre el uso y la configuración de redes virtuales con un ámbito regional, consulte [Redes virtuales regionales](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md). Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB.
 
-<!---HONumber=AcomDC_0316_2016-->
+
+<!--HONumber=Nov16_HO2-->
+
+

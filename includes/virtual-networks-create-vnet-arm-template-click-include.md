@@ -1,11 +1,11 @@
-## Implementar la plantilla ARM por medio de un solo clic para implementar
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Implementar la plantilla ARM por medio de un solo clic para implementar
 Puede reutilizar plantillas ARM predefinidas que se han cargado en un repositorio github que mantiene Microsoft y está abierto a la comunidad. Estas plantillas pueden implementarse directamente desde github, o pueden descargarse y modificarse para que se ajusten a sus necesidades. Para implementar una plantilla que cree una red virtual con dos subredes, siga estos pasos.
 
 1. Desde un explorador, vaya a [https://github.com/Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates).
-2. Desplácese hacia abajo por la lista de plantillas y haga clic en **101-vnet-two-subnets**. Compruebe el archivo **README.md**, como se muestra a continuación.
+2. Desplácese hacia abajo por la lista de plantillas y haga clic en **101-vnet-two-subnets**. Compruebe el archivo **README.md** , como se muestra a continuación.
    
     ![Archivo README.md en github](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
-3. Haga clic en **Implementar en Azure**. Si es necesario, escriba sus credenciales de inicio de sesión de Azure.
+3. Haga clic en **Implementar en Azure**. Si es necesario, escriba sus credenciales de inicio de sesión de Azure. 
 4. En la hoja **Parámetros**, escriba los valores que desee utilizar para crear la red virtual nueva y, a continuación, haga clic en **Aceptar**. En la siguiente figura se muestran los valores para este escenario.
    
     ![Parámetros de plantilla ARM](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
@@ -22,4 +22,8 @@ Puede reutilizar plantillas ARM predefinidas que se han cargado en un repositori
     
      ![Crear red virtual en el portal de vista previa](./media/virtual-networks-create-vnet-arm-template-click-include/figure5.gif)
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

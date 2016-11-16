@@ -1,13 +1,13 @@
 ---
-title: Conexión de redes virtuales de Azure con Puerta de enlace VPN y PowerShell | Microsoft Docs
-description: Este artículo le guiará para conectar redes virtuales entre sí por medio de PowerShell y el Administrador de recursos de Azure.
+title: "Conexión de redes virtuales de Azure con VPN Gateway y PowerShell | Microsoft Docs"
+description: "Este artículo le guiará para conectar redes virtuales entre sí por medio de PowerShell y el Administrador de recursos de Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: get-started-article
@@ -15,10 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 636606f5f5f651c10d174854de8471b5dd060dce
+
 
 ---
 # <a name="configure-a-vnettovnet-connection-for-resource-manager-using-powershell"></a>Configuración de una conexión de red virtual a red virtual para Resource Manager mediante PowerShell
 > [!div class="op_single_selector"]
+> * [Resource Manager - Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Clásico - Portal clásico](virtual-networks-configure-vnet-to-vnet-connection.md)
 > 
@@ -28,10 +33,10 @@ Este artículo le guiará a través de los pasos necesarios para crear una conex
 
 ![diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-### <a name="deployment-models-and-methods-for-vnettovnet"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+### <a name="deployment-models-and-methods-for-vnettovnet-connections"></a>Modelos de implementación y métodos para conexiones de red virtual a red virtual
+[!INCLUDE [deployment models](../../includes/vpn-gateway-deployment-models-include.md)]
 
-En ambos modelos de implementación se puede configurar una conexión de red virtual a red virtual a través de varias herramientas distintas. La siguiente tabla se actualiza cada vez que hay nuevos artículos y nuevas herramientas disponibles para esta configuración. Cuando aparezca un artículo, creamos un vínculo directo a él desde la tabla.<br><br>
+La siguiente tabla muestra los modelos de implementación disponibles actualmente y los métodos para las configuraciones de red virtual a red virtual. Cuando aparezca algún artículo con pasos de configuración, creamos un vínculo directo a él desde esta tabla.
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
@@ -424,6 +429,9 @@ En este ejemplo, como las puertas de enlace están en suscripciones diferentes, 
 * Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
 * Para más información acerca de BGP, consulte [Información general de BGP](vpn-gateway-bgp-overview.md) y [Configuración de BGP](vpn-gateway-bgp-resource-manager-ps.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

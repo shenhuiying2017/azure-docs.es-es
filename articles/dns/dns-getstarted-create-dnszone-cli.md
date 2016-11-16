@@ -1,12 +1,12 @@
 ---
-title: Creación de una zona DNS con CLI| Microsoft Docs
+title: "Creación de una zona DNS con CLI| Microsoft Docs"
 description: Aprenda a crear zonas DNS para DNS de Azure paso a paso para empezar a hospedar el dominio DNS con la CLI.
 services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
 ms.devlang: na
 ms.topic: hero-article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: sewhee
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e2b93d8788f8f36ff6bc04a33d1f35a86cd49973
+
 
 ---
-# Creación de una zona DNS de Azure con CLI
+# <a name="create-an-azure-dns-zone-using-cli"></a>Creación de una zona DNS de Azure con CLI
 > [!div class="op_single_selector"]
 > * [Portal de Azure](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
@@ -26,35 +30,35 @@ ms.author: sewhee
 
 En este artículo encontrará una guía de los pasos necesarios para crear una zona DNS usando CLI. También puede crear una zona DNS con PowerShell o el Portal de Azure.
 
-[!INCLUDE [crear-zona-DNS-acerca de](../../includes/dns-create-zone-about-include.md)]
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
-## Antes de empezar
+## <a name="before-you-begin"></a>Antes de empezar
 En estas instrucciones se usa la CLI de Microsoft Azure. Asegúrese de actualizar a la CLI de Azure más reciente (0.9.8 o posterior) para utilizar los comandos de DNS de Azure. Escriba `azure -v` para comprobar qué versión de la CLI de Azure está instalada en su equipo.
 
-## Paso 1: Configuración de la CLI de Azure
-### 1\. Instalación de la CLI de Azure
+## <a name="step-1-set-up-azure-cli"></a>Paso 1: Configuración de la CLI de Azure
+### <a name="1-install-azure-cli"></a>1. Instalación de la CLI de Azure
 Puede instalar la CLI de Azure para Windows, Linux o MAC. Para poder administrar DNS de Azure con la CLI de Azure, es necesario completar estos pasos. Puede consultar mas información disponible en [Instalación de la CLI de Azure](../xplat-cli-install.md). Los comandos DNS requieren la CLI de Azure versión 0.9.8 o superior.
 
 Puede encontrar todos los comandos para el proveedor de la red en CLI con el comando siguiente:
 
     azure network
 
-### 2\. Cambio del modo de CLI
+### <a name="2-switch-cli-mode"></a>2. Cambio del modo de CLI
 La DNS de Azure usa el Administrador de recursos de Azure. Asegúrese de cambiar al modo de CLI para usar los comandos ARM.
 
     azure config mode arm
 
-### 3\. Inicio de sesión en la cuenta de Azure.
+### <a name="3-sign-in-to-your-azure-account"></a>3. Inicio de sesión en la cuenta de Azure.
 Se le pedirá que se autentique con sus credenciales. Tenga en cuenta que solo puede usar cuentas de ORGID.
 
     azure login -u "username"
 
-### 4\. Selección de la suscripción
+### <a name="4-select-the-subscription"></a>4. Selección de la suscripción
 Elección de la suscripción de Azure que se va a usar.
 
     azure account set "subscription name"
 
-### 5\. Crear un grupo de recursos
+### <a name="5-create-a-resource-group"></a>5. Crear un grupo de recursos
 El Administrador de recursos de Azure requiere que todos los grupos de recursos especifiquen una ubicación. Esta se utiliza como ubicación predeterminada para los recursos de ese grupo de recursos. Sin embargo, puesto que todos los recursos DNS son globales y no regionales, la elección de la ubicación del grupo de recursos no incide en DNS de Azure.
 
 Puede omitir este paso si utiliza un grupo de recursos existente.
@@ -62,38 +66,39 @@ Puede omitir este paso si utiliza un grupo de recursos existente.
     azure group create -n myresourcegroup --location "West US"
 
 
-### 6\. Registro
+### <a name="6-register"></a>6. Registro
 El proveedor de recursos Microsoft.Network administra el servicio DNS de Azure. La suscripción a Azure debe estar registrada para usar este proveedor de recursos antes de utilizar DNS de Azure. Se trata de una operación única para cada suscripción.
 
     azure provider register --namespace Microsoft.Network
 
 
-## Paso 2: Creación de una zona DNS
-Una zona DNS se crea con el comando `azure network dns zone create`. Opcionalmente, puede crear una zona DNS junto con etiquetas. Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos con fines de facturación o agrupación. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
+## <a name="step-2-create-a-dns-zone"></a>Paso 2: Creación de una zona DNS
+Una zona DNS se crea con el comando `azure network dns zone create` . Opcionalmente, puede crear una zona DNS junto con etiquetas. Las etiquetas son una lista de pares nombre-valor que Azure Resource Manager usa para etiquetar los recursos con fines de facturación o agrupación. Para obtener más información sobre las etiquetas, consulte [Uso de etiquetas para organizar los recursos de Azure](../resource-group-using-tags.md).
 
-En DNS de Azure, deben especificarse nombres de zona sin la terminación **“.”**. Por ejemplo, "**contoso.com**" en lugar de "**contoso.com.**".
+En DNS de Azure, deben especificarse nombres de zona sin un punto de terminación **“.”**. Por ejemplo, "**contoso.com**" en lugar de "**contoso.com.**".
 
-### Creación de una zona DNS
-En el ejemplo siguiente, se crea una zona DNS denominada *contoso.com* en el grupo de recursos denominado *MyResourceGroup*.
+### <a name="to-create-a-dns-zone"></a>Creación de una zona DNS
+En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo de recursos *MyResourceGroup*.
 
 Utilice el ejemplo para crear la zona DNS, sustituyendo los valores por los suyos.
 
     azure network dns zone create myresourcegroup contoso.com
 
-### Creación de una zona DNS y etiquetas.
-La CLI de DNS de Azure es compatible con las etiquetas de las zonas de DNS especificadas usando el parámetro opcional *-Tag*. En el ejemplo siguiente se muestra cómo crear una zona DNS con dos etiquetas, project = demo y env = test.
+### <a name="to-create-a-dns-zone-and-tags"></a>Creación de una zona DNS y etiquetas.
+La CLI de DNS de Azure es compatible con las etiquetas de las zonas de DNS especificadas usando el parámetro opcional *-Tag* . En el ejemplo siguiente se muestra cómo crear una zona DNS con dos etiquetas, project = demo y env = test.
 
 Utilice el ejemplo a continuación para crear una zona DNS y etiquetas, sustituyendo los valores que aquí aparecen por los suyos.
 
     azure network dns zone create myresourcegroup contoso.com -t "project=demo";"env=test"
 
-## Visualización de los registros
+## <a name="view-records"></a>Visualización de los registros
 Al crear una zona DNS, también se crean los siguientes registros DNS:
 
 * El registro “Inicio de autoridad” (SOA). Se encuentra en la raíz de cada zona DNS.
 * Los registros de servidor de nombres (NS) autoritativo. Estos muestran qué servidores de nombres hospedan la zona. DNS de Azure usa un grupo de servidores de nombres, por lo que se pueden asignar diferentes servidores de nombres a zonas distintas en DNS de Azure. Consulte [Delegación de un dominio a DNS de Azure](dns-domain-delegation.md) para obtener más información.
 
-Para ver estos registros, use `azure network dns-record-set show`.<BR> *Uso: network dns record-set show <grupo de recursos><nombre de zona dns><nombre><tipo>*
+Para ver estos registros, use `azure network dns-record-set show`.<BR>
+*Uso: network dns record-set show <grupo de recursos><nombre de zona dns><name> <type>*
 
 En el ejemplo siguiente, al ejecutar el comando con el grupo de recursos *myresourcegroup*, el nombre del conjunto de registros *"@"* (para un registro raíz) y el tipo *SOA* se produce el siguiente resultado:
 
@@ -113,7 +118,8 @@ En el ejemplo siguiente, al ejecutar el comando con el grupo de recursos *myreso
     data:      Refresh time                  : 900
     data:      Retry time                    : 300
     data:                                    :
-<BR> Para ver los registros NS creados con la zona, use el comando siguiente:
+<BR>
+ Para ver los registros NS creados con la zona, use el comando siguiente:
 
     azure network dns record-set show myresourcegroup "contoso.com" "@" NS
     info:    Executing command network dns-record-set show
@@ -136,12 +142,12 @@ En el ejemplo siguiente, al ejecutar el comando con el grupo de recursos *myreso
 > 
 > 
 
-## Prueba
-Puede probar su zona DNS con herramientas DNS, como nslookup, DIG o el cmdlet de PowerShell `Resolve-DnsName`.
+## <a name="test"></a>Prueba
+Puede probar su zona DNS con herramientas DNS, como nslookup, DIG o el cmdlet de PowerShell `Resolve-DnsName` .
 
 Si aún no ha delegado el dominio para usar la nueva zona DNS en Azure, deberá dirigir la consulta de DNS directamente a uno de los servidores de nombres de la zona. Los servidores de nombres de su zona se proporcionan en los registros de NS, como se muestra con el comando "azure network dns-record-set show" mencionado anteriormente. Asegúrese de sustituir los valores correctos de su zona en el comando que aparece a continuación.
 
-En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los servidores de nombres asignados para la zona DNS. La consulta tiene que señalar a un servidor de nombres para el que se usó *@<servidor de nombres para la zona>* y el nombre de zona con DIG.
+En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los servidores de nombres asignados para la zona DNS. La consulta tiene que señalar a un servidor de nombres para el que se usó *@<name server for the zone>* y el nombre de zona con DIG.
 
      <<>> DiG 9.10.2-P2 <<>> @ns1-05.azure-dns.com contoso.com
     (1 server found)
@@ -165,7 +171,12 @@ En el ejemplo siguiente se usa DIG para consultar el dominio contoso.com con los
     WHEN: Tue Jul 21 16:04:51 Pacific Daylight Time 2015
     MSG SIZE  rcvd: 120
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de crear una zona DNS, cree [conjuntos de registros y registros](dns-getstarted-create-recordset-cli.md) para iniciar la resolución de nombres para el dominio de Internet.
 
-<!---HONumber=AcomDC_1005_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

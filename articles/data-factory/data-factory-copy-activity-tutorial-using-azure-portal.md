@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: crear una canalización con la actividad de copia con Azure Portal | Microsoft Docs'
-description: En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Editor de Data Factory en el Portal de Azure.
+title: "Tutorial: Crear una canalización con la actividad de copia con Azure Portal | Microsoft Docs"
+description: "En este tutorial, creará una canalización de Data Factory de Azure con una actividad de copia mediante el Editor de Data Factory en el Portal de Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cee537753b025ed5119c116dfcc644101be3271f
+
 
 ---
-# <a name="tutorial:-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Tutorial: Crear una canalización con la actividad de copia mediante Azure Portal
+# <a name="tutorial-create-a-pipeline-with-copy-activity-using-azure-portal"></a>Tutorial: Crear una canalización con la actividad de copia mediante Azure Portal
 > [!div class="op_single_selector"]
 > * [Introducción y requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Asistente para copia](data-factory-copy-data-wizard-tutorial.md)
@@ -49,12 +53,12 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 
 1. Después de iniciar sesión en [Azure Portal](https://portal.azure.com/), haga clic en **Nuevo**, seleccione **Intelligence + Analytics** y haga clic en **Data Factory**. 
    
-   ![New->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)  
+   ![New->DataFactory](./media/data-factory-copy-activity-tutorial-using-azure-portal/NewDataFactoryMenu.png)    
 2. En la hoja **Nueva factoría de datos** :
    
    1. Escriba **ADFTutorialDataFactory** como **nombre**. 
       
-       ![Hoja Nueva Factoría de datos](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
+         ![Hoja Nueva Factoría de datos](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-new-data-factory.png)
       
        El nombre de Azure Data Factory debe ser **único de forma global**. Si recibe el siguiente error, cambie el nombre de la factoría de datos (por ejemplo, yournameADFTutorialDataFactory) e intente crearlo de nuevo. Consulte el tema [Data Factory: reglas de nomenclatura](data-factory-naming-rules.md) para conocer las reglas de nomenclatura para los artefactos de Data Factory.
       
@@ -67,7 +71,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
       1. Seleccione en primer lugar **Usar existente**y después un grupo de recursos de la lista desplegable. 
       2. Seleccione **Crear nuevo**y escriba el nombre de un grupo de recursos.   
          
-          En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../resource-group-overview.md).  
+          En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
    4. Seleccione la **ubicación** de Data Factory. La lista desplegable solo muestra las regiones que admite el servicio Data Factory.
    5. Seleccione **Anclar a Panel de inicio**.     
    6. Haga clic en **Crear**.
@@ -75,7 +79,7 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
       > [!IMPORTANT]
       > Para crear instancias de Data Factory, es preciso ser miembro del rol [Colaborador de Data Factory](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) en el nivel de grupo de recursos o suscripción.
       > 
-      > El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.              
+      > El nombre de la factoría de datos se puede registrar como un nombre DNS en el futuro y, por lo tanto, hacerse públicamente visible.                
       > 
       > 
 3. Para ver los mensajes de notificación de estado o de notificación, haga clic en el icono de la campana de la barra de herramientas. 
@@ -99,7 +103,7 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
     ![Botón Nuevo almacén de datos del Editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-newdatastore-button.png)    
 3. Reemplace `<accountname>` y `<accountkey>` por los valores de clave y nombre de la cuenta de Azure Storage. 
    
-    ![JSON de almacenamiento de blobs del Editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png) 
+    ![JSON de almacenamiento de blobs del Editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-json.png)    
 4. Haga clic en **Implementar** en la barra de herramientas. Debería ver que **AzureStorageLinkedService** está implementado en la vista de árbol. 
    
     ![Implementar almacenamiento de blobs del editor](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-editor-blob-storage-deploy.png)
@@ -168,7 +172,7 @@ En este paso, se crea un conjunto de datos denominado **InputDataset** que apunt
    * **linkedServiceName** está establecido en **AzureStorageLinkedService**. Este servicio vinculado lo creó en el paso 2.
    * **folderPath** está establecido en el contenedor **adftutorial**. También puede especificar el nombre de un blob en la carpeta mediante la propiedad **fileName** . Puesto que no se especifica el nombre del blob, los datos de todos los blobs del contenedor se consideran datos de entrada.  
    * **type** de formato está establecido en **TextFormat**.
-   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**). 
+   * Hay dos campos en el archivo de texto: **FirstName** y **LastName** separados por un carácter de coma (**columnDelimiter**).    
    * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**). Por consiguiente, Data Factory busca los datos de entrada cada hora en la carpeta raíz del contenedor de blobs (**adftutorial**) que se ha especificado. 
      
      Si no especifica un valor de **fileName** para un conjunto de datos de **entrada**, todos los archivos o blobs de la carpeta de entrada (**folderPath**) se consideran entradas. Si especifica un nombre de archivo en JSON, solo el archivo o blob especificado se consideran una entrada.
@@ -369,7 +373,7 @@ En este paso, usará el Portal de Azure para supervisar lo que está ocurriendo 
     
     ![resultados de la consulta SQL](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-sql-query-results.png)
 
-### <a name="monitor-pipeline-using-monitor-&-manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
+### <a name="monitor-pipeline-using-monitor-manage-app"></a>Supervisión de una canalización con la Aplicación de supervisión y administración
 La Aplicación de supervisión y administración también se puede usar para supervisar las canalizaciones. Para más información acerca del uso de esta aplicación, consulte [Supervisión y administración de canalizaciones de Azure Data Factory mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
 
 1. Haga clic en el icono **Supervisión y administración** en la página principal de Data Factory.
@@ -386,7 +390,7 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 1. Ha creado una **factoría de datos**de Azure.
 2. Ha creado **servicios vinculados**.
-   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.    
+   1. Un servicio vinculado **Almacenamiento de Azure** para vincular la cuenta de almacenamiento de Azure que contiene datos de entrada.     
    2. Un servicio vinculado **SQL Azure** para vincular la base de datos SQL de Azure que contiene los datos de salida. 
 3. Ha creado **conjuntos de datos** que describen los datos de entrada y salida de las canalizaciones.
 4. Ha creado una **canalización** con una **actividad de copia** con un origen **BlobSource** y un receptor **SqlSink**.  
@@ -400,6 +404,9 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 | [Conjuntos de datos](data-factory-create-datasets.md) |Este artículo le ayuda a comprender los conjuntos de datos de Data Factory de Azure. |
 | [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md) |En este artículo se describe cómo supervisar, administrar y depurar las canalizaciones mediante la aplicación de supervisión y administración. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

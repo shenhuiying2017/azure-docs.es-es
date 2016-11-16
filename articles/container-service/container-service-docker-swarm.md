@@ -1,24 +1,28 @@
 ---
-title: Administración de contenedores del servicio Contenedor de Azure con Docker Swarm | Microsoft Docs
-description: Implementación de contenedores en Docker Swarm en el servicio Contenedor de Azure
+title: "Administración de contenedores de Azure Container Service con Docker Swarm | Microsoft Docs"
+description: "Implementación de contenedores en Docker Swarm en el servicio Contenedor de Azure"
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, contenedores, microservicios, Mesos, Azure
-
+ms.assetid: af8f6fb2-13dc-429c-b82a-24a741168d42
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: nepeters
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 99953be1a9d99cc1fdd5cd46522ccd262c09e25b
+
 
 ---
-# Administración de contenedores con Docker Swarm
+# <a name="container-management-with-docker-swarm"></a>Administración de contenedores con Docker Swarm
 Docker Swarm proporciona un entorno para implementar cargas de trabajo en contenedores a través de un conjunto agrupado de hosts de Docker. Docker Swarm usa la API nativa de Docker. El flujo de trabajo para administrar contenedores en un Docker Swarm es casi idéntico al que sería en un host de un solo contenedor. Este documento proporciona ejemplos sencillos de la implementación de cargas de trabajo en contenedores en una instancia de Azure Container Service (servicio Contenedor de Azure) de Docker Swarm. Para obtener documentación más detallada sobre Docker Swarm, consulte [Docker Swarm en Docker.com](https://docs.docker.com/swarm/).
 
 Requisitos previos para los ejercicios de este documento:
@@ -27,8 +31,8 @@ Requisitos previos para los ejercicios de este documento:
 
 [Conectar con el clúster de Swarm en Azure Container Service (servicio Contenedor de Azure)](container-service-connect.md)
 
-## Implementación de un contenedor nuevo
-Para crear un nuevo contenedor en Docker Swarm, use el comando `docker run` (asegúrese de que ha abierto un túnel SSH para los patrones de acuerdo con los requisitos previos anteriores). Este ejemplo crea un contenedor a partir de la imagen `yeasy/simple-web`:
+## <a name="deploy-a-new-container"></a>Implementación de un contenedor nuevo
+Para crear un nuevo contenedor en Docker Swarm, use el comando `docker run` (asegúrese de que ha abierto un túnel SSH para los patrones de acuerdo con los requisitos previos anteriores). Este ejemplo crea un contenedor a partir de la imagen `yeasy/simple-web` :
 
 ```bash
 user@ubuntu:~$ docker run -d -p 80:80 yeasy/simple-web
@@ -45,14 +49,14 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   31 seconds ago      Up 9 seconds        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-Ahora puede acceder a la aplicación que se ejecuta en este contenedor a través del nombre DNS público del equilibrador de carga del agente de Swarm. Puede encontrar esta información en el Portal de Azure:
+Ahora puede acceder a la aplicación que se ejecuta en este contenedor a través del nombre DNS público del equilibrador de carga del agente de Swarm. Puede encontrar esta información en el Portal de Azure:  
 
-![Resultados de la visita real](media/real-visit.jpg)
+![Resultados de la visita real](media/real-visit.jpg)  
 
 De forma predeterminada, el equilibrador de carga tiene los puertos 80, 443 y 8080 abiertos. Si va a conectar en otro puerto debe abrirlo en Azure Load Balancer para el grupo de agentes.
 
-## Implementación de varios contenedores
-Cuando se inician varios contenedores, al ejecutar varias veces "docker run", se puede usar el comando `docker ps` para ver en qué host se ejecutan los contenedores. En el siguiente ejemplo, tres contenedores se propagan uniformemente por los tres agentes de Swarm:
+## <a name="deploy-multiple-containers"></a>Implementación de varios contenedores
+Cuando se inician varios contenedores, al ejecutar varias veces "docker run", se puede usar el comando `docker ps` para ver en qué host se ejecutan los contenedores. En el siguiente ejemplo, tres contenedores se propagan uniformemente por los tres agentes de Swarm:  
 
 ```bash
 user@ubuntu:~$ docker ps
@@ -63,8 +67,8 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 4298d397b9ab        yeasy/simple-web    "/bin/sh -c 'python i"   2 minutes ago       Up 2 minutes        10.0.0.5:80->80/tcp   swarm-agent-34A73819-1/happy_allen
 ```  
 
-## Implementación de contenedores mediante Docker Compose
-Puede usar Docker Compose para automatizar la implementación y configuración de varios contenedores. Para ello, asegúrese de que se ha creado un túnel Secure Shell (SSH) y se ha establecido la variable DOCKER\_HOST (consulte los requisitos previos anteriores).
+## <a name="deploy-containers-by-using-docker-compose"></a>Implementación de contenedores mediante Docker Compose
+Puede usar Docker Compose para automatizar la implementación y configuración de varios contenedores. Para ello, asegúrese de que se ha creado un túnel Secure Shell (SSH) y se ha establecido la variable DOCKER_HOST (consulte los requisitos previos anteriores).
 
 Cree un archivo docker-compose.yml en el sistema local. Para ello, use este [ejemplo](https://raw.githubusercontent.com/rgardler/AzureDevTestDeploy/master/docker-compose.yml).
 
@@ -109,7 +113,12 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 Naturalmente, puede usar `docker-compose ps` para examinar solo los contenedores definidos en su archivo `compose.yml`.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Más información acerca de Docker Swarm.](https://docs.docker.com/swarm/)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO2-->
+
+

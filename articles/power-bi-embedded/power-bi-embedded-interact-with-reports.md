@@ -1,13 +1,13 @@
 ---
-title: Interacción con informes mediante la API de JavaScript | Microsoft Docs
-description: Power BI Embedded, interacción con informes mediante la API de JavaScript
+title: "Interacción con informes mediante la API de JavaScript | Microsoft Docs"
+description: "Power BI Embedded, interacción con informes mediante la API de JavaScript"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: hero-article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 83d997577d3a5854eafd9906bd38d3e703c09f5e
+
 
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interacción con informes de Power BI mediante la API de JavaScript
@@ -30,7 +34,7 @@ El iframe facilita mucho el proceso de integración, pero sin la API de JavaScri
 
 La API de JavaScript de Power BI permite escribir código que puede pasar de forma segura a través del límite del iframe. Esto permite que la aplicación realice una acción en un informe mediante programación y que escuche eventos de acciones que realizan los usuarios dentro del informe.
 
-## <a name="what-can-you-do-with-the-power-bi-javascript-api?"></a>¿Qué se puede hacer con la API de JavaScript de Power BI?
+## <a name="what-can-you-do-with-the-power-bi-javascript-api"></a>¿Qué se puede hacer con la API de JavaScript de Power BI?
 Con la API de JavaScript se pueden administrar informes, navegar a las distintas páginas de un informe, filtrar un informe y controlar eventos de inserción. En el siguiente diagrama se muestra la estructura de la API.
 
 ![Diagrama de la API de JavaScript de Power BI](media\\powerbi-embedded-interact-with-reports\\powerbi-embedded-interact-report-3.png)
@@ -132,6 +136,9 @@ Para más información acerca de la API de JavaScript de Power BI, consulte los 
   * [Ember](https://github.com/Microsoft/powerbi-ember)
 * [Demostración en directo](https://microsoft.github.io/PowerBI-JavaScript/demo/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

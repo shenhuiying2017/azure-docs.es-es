@@ -1,12 +1,12 @@
 ---
-title: Uso del control de acceso basado en rol en el Portal de Azure | Microsoft Docs
-description: Introducción a la administración del acceso con el control de acceso basado en rol en el Portal de Azure. Use las asignaciones de roles para asignar permisos a los recursos.
+title: Uso del control de acceso basado en rol en Azure Portal | Microsoft Docs
+description: "Introducción a la administración del acceso con el control de acceso basado en rol en el Portal de Azure. Use las asignaciones de roles para asignar permisos a los recursos."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b930fe0a4a47cffebb579be43a77e87548549cfd
+
 
 ---
 # <a name="use-role-assignments-to-manage-access-to-your-azure-subscription-resources"></a>Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure
@@ -78,6 +82,9 @@ Puede asignar roles y administrar el acceso con los comandos de RBAC de Azure en
 * Consulte los [roles integrados en RBAC](role-based-access-built-in-roles.md)
 * Defina sus propios [Custom Roles in Azure RBAC](role-based-access-control-custom-roles.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO2-->
 
 

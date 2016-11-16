@@ -1,5 +1,5 @@
-### Conceda acceso al certificado push para Mobile Engagement.
-Para permitir que Mobile Engagement envíe notificaciones push en su nombre, deberá concederle acceso al certificado. Para ello, hay que configurar y registrar su certificado en el portal de Mobile Engagement. Asegúrese de obtener el certificado. p12, tal y como se explica en la [documentación de Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6).
+### <a name="grant-access-to-your-push-certificate-to-mobile-engagement"></a>Conceda acceso al certificado push para Mobile Engagement.
+Para permitir que Mobile Engagement envíe notificaciones push en su nombre, deberá concederle acceso al certificado. Para ello, hay que configurar y registrar su certificado en el portal de Mobile Engagement. Asegúrese de obtener el certificado. p12, tal y como se explica en la [documentación de Apple](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
 
 1. Desplácese hasta el portal de Mobile Engagement. Asegúrese de que se encuentra en el lugar correcto y haga clic en el botón **Interactuar** en la parte inferior:
    
@@ -11,7 +11,7 @@ Para permitir que Mobile Engagement envíe notificaciones push en su nombre, deb
    
     ![](./media/mobile-engagement-ios-send-push/native-push-settings.png)
 
-## <a id="send"></a>Enviar una notificación a su aplicación
+## <a name="a-idsendasend-a-notification-to-your-app"></a><a id="send"></a>Enviar una notificación a su aplicación
 Ahora crearemos una campaña sencilla de notificación push que enviará una inserción a nuestra aplicación:
 
 1. Vaya a la pestaña **Cobertura** en el portal de Mobile Engagement.
@@ -26,11 +26,11 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
    * Especifique la **Hora de entrega** como **Fuera de aplicación solo**: este es el tipo de notificación de inserción sencilla de Apple que incluye texto.
    * En el texto de notificación, escriba primero el **Título** que será la primera línea del anuncio push.
    * A continuación, escriba el **Mensaje** que será la segunda línea.
-4. Desplácese hacia abajo y en la sección de contenido, elija **Solo notificación**.
+4. Desplácese hacia abajo y en la sección de contenido, elija **Solo notificación**
    
     ![](./media/mobile-engagement-ios-send-push/campaign-content.png)
-5. Ya ha terminado de configurar la campaña más básica. Ahora desplácese hacia abajo y haga clic en el botón **Crear** para guardar la notificación de inserción.
-6. Por fin, haga clic en **Activar** para enviar la notificación de inserción.
+5. Ya ha terminado de configurar la campaña más básica. Ahora desplácese hacia abajo y haga clic en el botón **Crear** para guardar la notificación de inserción. 
+6. Por fin, haga clic en **Activar** para enviar la notificación de inserción. 
    
     ![](./media/mobile-engagement-ios-send-push/campaign-activate.png)
 7. Podrá recibir una notificación en el dispositivo iOS en el centro de notificaciones como la siguiente:
@@ -40,4 +40,8 @@ Ahora crearemos una campaña sencilla de notificación push que enviará una ins
    
     ![](./media/mobile-engagement-ios-send-push/apple-watch.png)
 
-<!---HONumber=Nov15_HO2-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

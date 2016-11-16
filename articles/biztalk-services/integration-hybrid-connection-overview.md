@@ -1,25 +1,29 @@
 ---
-title: Información general sobre las conexiones híbridas | Microsoft Docs
-description: Obtenga información acerca de las conexiones híbridas, la seguridad, los puertos TCP y las configuraciones admitidas. MABS, WABS.
+title: "Información general sobre las conexiones híbridas | Microsoft Docs"
+description: "Obtenga información acerca de las conexiones híbridas, la seguridad, los puertos TCP y las configuraciones admitidas. MABS, WABS."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: MandiOhlinger
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
-ms.author: mandia
+ms.date: 10/18/2016
+ms.author: ccompy
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 397a922bf3bf4c39c89f5f69015de4942bda0af9
+
 
 ---
-# Introducción a las conexiones híbridas
+# <a name="hybrid-connections-overview"></a>Introducción a las conexiones híbridas
 En la introducción a las conexiones híbridas, se muestran las configuraciones admitidas y se indican los puertos TCP requeridos.
 
-## ¿Qué es una conexión híbrida?
+## <a name="what-is-a-hybrid-connection"></a>¿Qué es una conexión híbrida?
 Las conexiones híbridas son una característica de los servicios de BizTalk de Azure: Las conexiones híbridas proporcionan una manera fácil y cómoda de conectar la característica de Aplicaciones web en el Servicio de aplicaciones de Azure (denominado anteriormente sitios web) y la característica de Aplicaciones móviles en el Servicio de aplicaciones de Azure (denominado anteriormente Servicios móviles) con recursos locales protegidos por un firewall.
 
 ![conexiones híbridas][HCImage]
@@ -44,7 +48,7 @@ Las conexiones híbridas también ofrecen a los administradores de empresa contr
 * Mediante el uso de la configuración de directiva de grupo, los administradores pueden permitir conexiones híbridas en la red y designar también recursos a los que pueden acceder las aplicaciones híbridas.
 * Los registros de eventos y de auditoría de la red corporativa proporcionan visibilidad sobre los recursos a los que acceden las conexiones híbridas.
 
-## Escenarios de ejemplo
+## <a name="example-scenarios"></a>Escenarios de ejemplo
 Las conexiones híbridas admiten las siguientes combinaciones de aplicaciones y marcos de trabajo:
 
 * Acceso del marco de trabajo .NET a SQL Server
@@ -61,7 +65,7 @@ A la hora de usar conexiones híbridas para acceder a SQL Server local, tenga en
 * Actualmente, el modo `ApplicationIntent=ReadOnly` no se admite.
 * Puede que se requiera la autenticación de SQL como método de autorización completo que se admite en la aplicación de Azure y en el servidor SQL local.
 
-## Seguridad y puertos
+## <a name="security-and-ports"></a>Seguridad y puertos
 Las conexiones híbridas emplean la autorización de firma de acceso compartido (SAS) para proteger las conexiones entre las aplicaciones de Azure y el administrador de conexiones híbridas local y la conexión híbrida. Se crean claves de conexión diferentes para la aplicación y el Administrador de conexiones híbridas local. Estas claves de conexión se pueden sustituir y revocar de manera independiente.
 
 Las conexiones híbridas proporcionan una distribución adecuada y segura de las claves a las aplicaciones y al administrador de conexiones híbridas local.
@@ -70,7 +74,7 @@ Consulte [Creación y administración de conexiones híbridas](integration-hybri
 
 *La autorización de la aplicación es independiente de la conexión híbrida*. Se puede usar cualquier método de autorización adecuado. El método de autorización depende de los métodos de autorización completos que se admitan en la nube de Azure y de los componentes locales. Por ejemplo, su aplicación de Azure accede a un servidor SQL local. En este escenario, la autorización de SQL puede ser el método de autorización que se admita completamente.
 
-#### Puertos TCP
+#### <a name="tcp-ports"></a>Puertos TCP
 Las conexiones híbridas requieren únicamente conectividad TCP o HTTP saliente de su red privada. No es necesario abrir los puertos de firewall ni cambiar la configuración del perímetro de red para permitir la conectividad entrante a la red.
 
 Los siguientes puertos TCP se usan en las conexiones híbridas:
@@ -79,17 +83,26 @@ Los siguientes puertos TCP se usan en las conexiones híbridas:
 | --- | --- |
 | 9350 - 9354 |Estos puertos se usan para la transmisión de datos. El administrador de retransmisiones de bus de servicio sondea el puerto 9350 para determinar si la conectividad TCP está disponible. Si lo está, asume que el puerto 9352 está también disponible. El tráfico de datos pasa por el puerto 9352. <br/><br/>Permitir conexiones salientes a estos puertos. |
 | 5671 |Cuando se usa el puerto 9352 para el tráfico de datos, el puerto 5671 se usa como canal de control. <br/><br/>Permitir conexiones salientes a este puerto. |
-| 80, 443 |Estos puertos se usan para algunas solicitudes de datos en Azure. Igualmente, si los puertos 9352 y 5671 no se pueden usar, *entonces* los puertos 80 y 443 son los puertos de reserva usados para la transmisión de datos y el canal de control.<br/><br/>Permita las conexiones salientes a estos puertos. <br/><br/>**Nota**: No es recomendable usar estos elementos como puertos de reserva en lugar de los demás puertos TCP. HTTP/WebSocket se utiliza como protocolo, en lugar del TCP nativo, para los canales de datos. Podría provocar un rendimiento menor. |
+| 80, 443 |Estos puertos se usan para algunas solicitudes de datos en Azure. Además, si los puertos 9352 y 5671 no se pueden usar, **los puertos 80 y 443 son los puertos de reserva que se usan para la transmisión de datos y el canal de control.<br/><br/>Permitir conexiones salientes a estos puertos. <br/><br/>**Nota** : No es recomendable usar estos elementos como puertos de reserva en lugar de los demás puertos TCP. HTTP/WebSocket se utiliza como protocolo, en lugar del TCP nativo, para los canales de datos. Podría provocar un rendimiento menor. |
 
-## Pasos siguientes
-[Creación y administración de conexiones híbridas](integration-hybrid-connection-create-manage.md)<br/> [Conexión de un sitio web de Azure a un recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/> [Conexión a SQL Server local desde una aplicación web de Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/> [Servicios móviles de Azure y conexiones híbridas](../mobile-services/mobile-services-dotnet-backend-hybrid-connections-get-started.md)
+## <a name="next-steps"></a>Pasos siguientes
+[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)<br/>
+[Conexión de Azure Web Apps a un recurso local](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
+[Conexión a SQL Server local desde una aplicación web de Azure](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
-## Otras referencias
-[API de REST para administrar servicios de BizTalk en Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx) [Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md)<br/> [Creación un servicio de BizTalk mediante el Portal de Azure](biztalk-provision-services.md)<br/> [Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
+## <a name="see-also"></a>Otras referencias
+[API REST para administrar los servicios de BizTalk en Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)
+[Servicios de BizTalk: gráfico de ediciones](biztalk-editions-feature-chart.md)<br/>
+[Crear un Servicio de BizTalk mediante Azure Portal](biztalk-provision-services.md)<br/>
+[Servicios de BizTalk: pestañas Panel, Monitor y Escala](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
 [HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
 [HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
 [HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+

@@ -1,28 +1,32 @@
 ---
-title: Personalización del portal para desarrolladores en Administración de API de Azure | Microsoft Docs
-description: Obtenga información sobre cómo personalizar el portal para desarrolladores en Administración de API de Azure
+title: "Personalización del portal para editores en Azure API Management | Microsoft Docs"
+description: "Obtenga información sobre cómo personalizar el portal para desarrolladores en Administración de API de Azure"
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/24/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 398b845a6549341d6afba101acec9eefd146d810
+
 
 ---
-# Personalización del portal para desarrolladores en Administración de API de Azure
+# <a name="customize-the-developer-portal-in-azure-api-management"></a>Personalización del portal para desarrolladores en Administración de API de Azure
 En esta guía se muestra cómo modificar la apariencia del portal para desarrolladores en Administración de API a fin de unificarlo con su imagen de marca.
 
 ## <a name="change-page-headers"> </a>Cambio del texto o el logotipo en los encabezados de página
 Uno de los aspectos más importantes de la personalización del portal es la sustitución del texto que aparece en la parte superior de todas las páginas por el logotipo o el nombre de su empresa.
 
-El contenido del portal para desarrolladores se modifica mediante el portal para editores, al que se accede desde el Portal de Azure clásico. Para llegar al portal para editores de la API, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
+El contenido del portal para desarrolladores se modifica a través del portal para editores, al que se obtiene acceso desde Azure Portal. Para llegar a él, haga clic en **Portal para editores** desde la barra de herramientas de servicio de la instancia de API Management.
 
 ![Portal del publicador][api-management-management-console]
 
@@ -30,7 +34,7 @@ El portal para desarrolladores se basa en el sistema de administración de conte
 
 ![Widgets header][api-management-widgets-header]
 
-El contenido del encabezado se puede editar desde el campo **Cuerpo**. Cambie el texto a "Portal para desarrolladores Fabrikam" y haga clic en **Guardar** en la parte inferior de la página.
+El contenido del encabezado se puede editar desde el campo **Cuerpo** . Cambie el texto a "Portal para desarrolladores Fabrikam" y haga clic en **Guardar** en la parte inferior de la página.
 
 Ahora debe aparecer el nuevo encabezado en todas las páginas del portal para desarrolladores.
 
@@ -39,19 +43,19 @@ Ahora debe aparecer el nuevo encabezado en todas las páginas del portal para de
 > 
 
 ## <a name="change-headers-styling"> </a>Cambio del estilo de los encabezados
-Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. Para editar los estilos, haga clic en **Apariencia** en el menú **Portal para desarrolladores** del portal para editores y luego haga clic en **Comenzar la personalización** para habilitar el editor de estilo.
+Los colores, las fuentes, los tamaños, los espacios y otros elementos relacionados con el estilo de cualquier página del portal vienen definidos por las reglas de estilo. Para editar los estilos, haga clic en **Apariencia** en el menú **Portal para desarrolladores** del portal para editores y luego haga clic en **Begin customization** (Comenzar la personalización) para habilitar el editor de estilo.
 
 El explorador pasa a una página oculta dentro del portal para desarrolladores que contiene muestras de contenido, con ejemplos de todas las reglas de estilo que se usan en cualquier lugar del sitio. Para abrir el editor de estilo, mueva el cursor sobre la fina línea vertical de color gris que aparece en el extremo izquierdo de la página. En ese momento debería aparecer la barra de herramientas del editor.
 
 ![Customization toolbar][api-management-customization-toolbar]
 
-Existen dos modos principales de edición de reglas de estilo: **Editar todas las reglas**, que muestra una lista de todas las reglas de estilo que se utilizan en cada una de las partes del sitio, y **Seleccionar elemento**, que le permite seleccionar un elemento de la página en la que se encuentra y muestra estilos únicamente para ese elemento.
+Existen dos modos principales de edición de reglas de estilo: **Edit all rules** (Editar todas las reglas), que muestra una lista de todas las reglas de estilo que se utilizan en cada una de las partes del sitio, y **Pick element** (Seleccionar elemento), que le permite seleccionar un elemento de la página en la que se encuentra y muestra estilos únicamente para ese elemento.
 
-En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic en la opción **Seleccionar elemento** de la barra de herramientas del editor de estilo y luego haga clic en **Seleccionar un elemento para personalizarlo**. Los elementos se irán resaltando cuando pase el mouse sobre ellos a fin de indicar qué estilos del elemento empezaría a editar si hiciera clic. Mueva el mouse sobre el texto que representa el nombre de la empresa en el encabezado ("Portal para desarrolladores Fabrikam" si siguió las instrucciones de la sección anterior) y haga clic en él. Aparecerá un conjunto de reglas de estilo con diferentes nombres y categorías dentro del propio editor de estilo.
+En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic en la opción **Pick element** (Seleccionar elemento) de la barra de herramientas del editor de estilo y luego en **Select an element to customize** (Seleccionar un elemento para personalizarlo). Los elementos se irán resaltando cuando pase el mouse sobre ellos a fin de indicar qué estilos del elemento empezaría a editar si hiciera clic. Mueva el mouse sobre el texto que representa el nombre de la empresa en el encabezado ("Portal para desarrolladores Fabrikam" si siguió las instrucciones de la sección anterior) y haga clic en él. Aparecerá un conjunto de reglas de estilo con diferentes nombres y categorías dentro del propio editor de estilo.
 
-Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
+Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family..
 
-> Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap usado por el portal de desarrolladores.
+> Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap usado por el portal para editores.
 > 
 > 
 
@@ -76,19 +80,19 @@ Para ver una lista de todas las páginas de contenido existentes, haga clic en *
 
 Haga clic en la página de **bienvenida** para editar lo que se muestra en la página principal del portal para desarrolladores. Haga los cambios que quiera, obtenga una vista previa de ellos si lo considera necesario y haga clic en **Publicar ahora** para que sean visibles para todos los usuarios.
 
-> La página principal usa un diseño especial que le permite mostrar un banner en la parte superior. Este banner no se puede editar en la sección **Contenido**. Para editarlo, haga clic en **Widgets** en el menú **Portal para desarrolladores**, seleccione **Página principal** en la lista desplegable **Capa actual** y, por último, abra el elemento **Banner** en la sección **Destacados**. Los contenidos de este widget se pueden editar del mismo modo que cualquier otra página.
+> La página principal usa un diseño especial que le permite mostrar un banner en la parte superior. Este banner no se puede editar en la sección **Contenido** . Para editarlo, haga clic en **Widgets** en el menú **Portal para desarrolladores**, seleccione **Home page** (Página principal) en la lista desplegable **Current Layer** (Capa actual) y, por último, abra el elemento **Banner** (Banner) en la sección **Featured section** (Destacados). Los contenidos de este widget se pueden editar del mismo modo que cualquier otra página.
 > 
 > 
 
 ## <a name="next-steps"> </a>Pasos siguientes
 * Obtenga información sobre cómo personalizar el contenido de páginas del portal para desarrolladores con las [plantillas del portal para desarrolladores](api-management-developer-portal-templates.md).
 
-[Change the text/logo in the page headers]: #change-page-headers
-[Change the styling of the headers]: #change-headers-styling
-[Edit the contents of a page]: #edit-page-contents
-[Next steps]: #next-steps
+[Cambio del texto/logotipo en los encabezados de las páginas]: #change-page-headers
+[Cambio del estilo de los encabezados]: #change-headers-styling
+[Edición de los contenidos de una página]: #edit-page-contents
+[Pasos siguientes]: #next-steps
 
-[Azure Classic Portal]: https://manage.windowsazure.com/
+[Portal de Azure clásico]: https://manage.windowsazure.com/
 
 [api-management-management-console]: ./media/api-management-customize-portal/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-customize-portal/api-management-widgets-header.png
@@ -101,4 +105,8 @@ Haga clic en la página de **bienvenida** para editar lo que se muestra en la p�
 [bootstrap]: http://getbootstrap.com/
 [variables LESS]: http://getbootstrap.com/css/
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Nov16_HO2-->
+
+
