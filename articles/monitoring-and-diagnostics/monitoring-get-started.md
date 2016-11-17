@@ -96,6 +96,6 @@ Si sigue estos pasos y ancla todos los iconos pertinentes a un panel, puede crea
 ## <a name="next-steps"></a>Pasos siguientes
 * Lea la [información general sobre Azure Monitor](monitoring-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+<!---HONumber=Oct16_HO2-->
 
 
