@@ -60,6 +60,6 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

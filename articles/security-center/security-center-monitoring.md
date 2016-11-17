@@ -216,6 +216,6 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

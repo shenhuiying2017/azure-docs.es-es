@@ -407,6 +407,6 @@ En este tutorial, ha creado una factoría de datos de Azure para copiar datos de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

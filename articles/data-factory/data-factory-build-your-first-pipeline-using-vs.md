@@ -510,6 +510,6 @@ En este artículo, creó una canalización con una actividad de transformación 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

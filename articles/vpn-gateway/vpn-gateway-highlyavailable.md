@@ -80,4 +80,4 @@ Esto garantiza que siempre haya un par de túneles entre las dos redes virtuales
 ## Pasos siguientes
 Consulte [Configuración activa-activa de puertas de enlace de VPN para conexiones entre locales y de red virtual a red virtual](http://go.microsoft.com/fwlink/?LinkId=828726) para ver los pasos para configurar de modo activo-activo conexiones entre locales y de red virtual a red virtual.
 
-<!---HONumber=AcomDC_0928_2016-->
+<!----HONumber=AcomDC_0928_2016-->

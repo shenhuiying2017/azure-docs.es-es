@@ -140,6 +140,6 @@ La disponibilidad de servicios y características de un servicio en la nube de M
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -163,6 +163,6 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

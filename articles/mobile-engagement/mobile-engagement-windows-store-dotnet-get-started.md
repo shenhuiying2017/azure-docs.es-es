@@ -196,6 +196,6 @@ Si ve una notificación en aplicación, pero no una notificación del sistema, y
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

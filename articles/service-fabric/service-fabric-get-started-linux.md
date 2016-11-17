@@ -168,6 +168,6 @@ El SDK de .NET Core proporciona las bibliotecas y plantillas necesarias para com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 
