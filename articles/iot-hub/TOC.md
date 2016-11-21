@@ -27,17 +27,21 @@
 ### [Solución de problemas](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Introducción al SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introducción al SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
-## Tutoriales
-### [Tutorial sobre el proceso de mensajes de dispositivos a la nube (.NET)](iot-hub-csharp-csharp-process-d2c.md)
-### [Tutorial sobre el proceso de mensajes de dispositivos a la nube (Java)](iot-hub-java-java-process-d2c.md)
-### [Tutorial sobre la carga de archivos desde dispositivos](iot-hub-csharp-csharp-file-upload.md)
-### [Envío de mensajes de nube a dispositivo (.NET)](iot-hub-csharp-csharp-c2d.md)
-### [Envío de mensajes de nube a dispositivo (Java)](iot-hub-java-java-c2d.md)
-### [Envío de mensajes de nube a dispositivo (Node)](iot-hub-node-node-c2d.md)
-### [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md)
-### [Uso de propiedades gemelas](iot-hub-node-node-twin-how-to-configure.md)
 
 # Procedimientos
+## [Tutorial sobre el proceso de mensajes de dispositivos a la nube (.NET)](iot-hub-csharp-csharp-process-d2c.md)
+## [Tutorial sobre el proceso de mensajes de dispositivos a la nube (Java)](iot-hub-java-java-process-d2c.md)
+## [Tutorial sobre la carga de archivos desde dispositivos](iot-hub-csharp-csharp-file-upload.md)
+## [Envío de mensajes de nube a dispositivo (.NET)](iot-hub-csharp-csharp-c2d.md)
+## [Envío de mensajes de nube a dispositivo (Java)](iot-hub-java-java-c2d.md)
+## [Envío de mensajes de nube a dispositivo (Node)](iot-hub-node-node-c2d.md)
+## [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md)
+## [Uso de propiedades gemelas](iot-hub-node-node-twin-how-to-configure.md)
+## [Uso de métodos directos](iot-hub-c2d-methods.md)
+## [Introducción a la administración de dispositivos](iot-hub-device-management-get-started.md)
+## [Uso de trabajos de dispositivos para actualizar el firmware del dispositivo](iot-hub-firmware-update.md)
+## [Programar y difundir trabajos](iot-hub-schedule-jobs.md)
+
 ## Planeamiento de la implementación
 ### [Comparación de IoT Hub con Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Escalado de la solución](iot-hub-scaling.md)
@@ -68,6 +72,10 @@
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+## SDK de puerta de enlace
+### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
+### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Envío de mensajes desde un dispositivo real con el tutorial de SDK de puerta de enlace](iot-hub-gateway-sdk-physical-device.md)
 
 ## Protección
 ### [Seguridad total](iot-hub-security-ground-up.md)
@@ -80,16 +88,14 @@
 ## [CLI de Azure](https://docs.microsoft.com/cli/azure)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API de .NET](https://docs.microsoft.com/dotnet/api)
-## SDK de puerta de enlace
-### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Envío de mensajes desde un dispositivo real con el tutorial de SDK de puerta de enlace](iot-hub-gateway-sdk-physical-device.md)
-## [API de SDK de dispositivos](http://azure.github.io/azure-iot-sdks/)
+## [SDK de IoT de Azure](http://azure.github.io/azure-iot-sdks/)
 ## [API de SDK de puerta de enlace](http://azure.github.io/azure-iot-gateway-sdk)
+## [API de REST del proveedor de recursos](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest)
+## [API de REST de identidades de dispositivos](https://docs.microsoft.com/rest/api/iothub/device-identities-rest)
+## [API de REST de Device Messaging](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis)
 ## [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
 ## [SDK de dispositivo IoT para C: más información sobre IoTHubClient](iot-hub-device-sdk-c-iothubclient.md)
 ## [SDK de dispositivo IoT para C: más información sobre el serializador](iot-hub-device-sdk-c-serializer.md)
-## [REST](https://docs.microsoft.com/en-us/rest/api/iothub/)
 
 # Temas relacionados
 ## [Documentación del Conjunto de aplicaciones de IoT](https://azure.microsoft.com/documentation/suites/iot-suite/)
@@ -109,6 +115,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
