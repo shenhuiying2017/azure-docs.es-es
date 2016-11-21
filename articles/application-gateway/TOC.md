@@ -13,8 +13,8 @@
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (clásico)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell (clásico)](application-gateway-create-gateway.md)
 ### Acceso interno
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (clásico)](application-gateway-ilb.md)
@@ -37,6 +37,7 @@
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (clásico)](application-gateway-create-probe-classic-ps.md)
+## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Administrar
 ### [Diagnóstico](application-gateway-diagnostics.md)
 ### [Solución de problemas](application-gateway-troubleshooting-502.md)
@@ -54,11 +55,12 @@
 ## [Administrador de tráfico](/azure/traffic-manager/)
 # resources
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

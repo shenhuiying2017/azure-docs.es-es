@@ -2,8 +2,8 @@
 layout: LandingPage
 toc_rel: breadcrumb.json
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: ca5d39641a251dcbc650907d08ce11c6c7124f66
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 334336cb8d5da4761d5c1fa53c8c63cfbdb850a6
 
 ---
 #<a name="virtual-machines-documentation"></a>Documentación de Virtual Machines
@@ -51,19 +51,66 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
 
 ---
 
-##<a name="reference"></a>Referencia
+## <a name="reference"></a>Referencia
 
-###<a name="net"></a>.NET 
-[API de referencia administrada de Virtual Machines](/dotnet/api/) 
-
-###<a name="rest"></a>REST 
-[Referencia de la API de REST de Virtual Machines](/rest/api/) 
-
-###<a name="azure-cli"></a>CLI de Azure 
-[CLI de Azure para Virtual Machines](/cli/azure/)
-
-###<a name="java"></a>Java 
-[Cmdlet de PowerShell de Virtual Machines](/java/api/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API de referencia administrada de Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de la API de REST de Máquina virtual</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>CLI de Azure para Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Cmdlet de PowerShell de Virtual Machines</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines.pdf">
@@ -75,6 +122,6 @@ Descarga de documentación de Máquina virtual </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

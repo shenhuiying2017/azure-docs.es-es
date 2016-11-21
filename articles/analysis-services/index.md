@@ -1,36 +1,35 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: ffc70a3aa12afdf1796e2498bce156b13cd6f215
+ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
+ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
 
 ---
-#<a name="expressroute-documentation"></a>Documentación de ExpressRoute
+# <a name="analysis-services-documentation"></a>Documentación de Analysis Services
 
-Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
-
+Azure Analysis Services, que se basa en el motor analítico de eficacia probada de Microsoft SQL Server Analysis Services, ofrece un modelado de datos de categoría empresarial en la nube.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/expressroute-introduction">
+        <a href="/azure/analysis-services/analysis-services-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/expressroute.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Más información acerca de ExpressRoute</h3>
+                        <h3>Más información sobre Analysis Services</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
-     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=expressroute">
+    <li>
+        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -40,7 +39,7 @@ Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biblioteca de vídeos de Azure ExpressRoute</h3>
+                        <h3>Biblioteca de vídeos de Azure</h3>
                     </div>
                 </div>
             </div>
@@ -48,17 +47,51 @@ Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a
         </a>
     </li>
     <li>
-        <a href="/azure/expressroute/expressroute-prerequisites">
+        <a href="/azure/analysis-services/analysis-services-create-server">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introducción a ExpressRoute</h3>
+                        <h3>Creación de un servidor de Analysis Services</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>    
+</ul>
+
+---
+## <a name="reference"></a>Referencia
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>PowerShell con cmdlets de Azure Resource Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/analysisservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST con referencia de API de REST de Azure Analysis Services</p>
                     </div>
                 </div>
             </div>
@@ -69,45 +102,11 @@ Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a
 
 ---
 
-## <a name="reference"></a>Referencia
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Referencia de la API de REST de ExpressRoute</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>
-
 <div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de ExpressRoute </div>
+Descarga de documentación de Analysis Services </div>
     </a>
 </div>
 

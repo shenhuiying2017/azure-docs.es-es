@@ -1,6 +1,5 @@
 # Información general
-## [¿Qué es Azure AD B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-## [Funcionamiento](active-directory-b2c-overview.md)
+## [Información general](active-directory-b2c-overview.md)
 ## [Tipos de aplicaciones](active-directory-b2c-apps.md)
 ## [Inquilinos B2C de producción frente a inquilinos de vista previa](active-directory-b2c-reference-tenant-type.md)
 
@@ -50,11 +49,13 @@
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
-# resources
-## [Soporte técnico](active-directory-b2c-support.md)
+# Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Foro de comentarios de Azure](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Soporte técnico](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

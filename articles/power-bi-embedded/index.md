@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Power BI Embedded Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: d5a00a2035660bfd5c9d1fbf79d630d2a0231f41
 
-Power BI Embedded is an Azure service that enables ISVs and app developers to surface Power BI data experiences within their applications. As a developer, you've built applications, and those applications have their own users and distinct set of features. Those apps may also happen to have some built-in data elements like charts and reports that can now be powered by Microsoft Power BI Embedded. Users don’t need a Power BI account to use your app. They can continue to sign in to your application just like before, and view and interact with the Power BI reporting experience without requiring any additional licensing.
+---
+# <a name="power-bi-embedded-documentation"></a>Documentación de Power BI Embedded
+
+Power BI Embedded es un servicio de Azure que permite a los desarrolladores de aplicaciones agregar informes de Power BI interactivos a sus propias aplicaciones. Power BI Embedded se puede utilizar con las aplicaciones existentes sin necesidad de modificar el diseño ni de cambiar el modo en que los usuarios se conectan.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Power BI Embedded</h3>
+                        <h3>Más información sobre Power BI Embedded</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Power BI Embedded Video Library</h3>
+                        <h3>Biblioteca de vídeos de Azure Power BI Embedded</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Power BI Embedded</h3>
+                        <h3>Introducción a Power BI Embedded</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +71,11 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create Power BI reports with the sample gallery</h3>
+                        <h3>Introducción a la creación de informes de Power BI con la galería de ejemplos</h3>
                     </div>
                 </div>
             </div>
@@ -82,16 +86,52 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
 
 ---
 
-## Reference
+## <a name="reference"></a>Referencia
 
-### PowerShell
-[Power BI Embedded PowerShell Cmdlets](/powershell/resourcemanager/)
-
-### .NET
-[Power BI Embedded Managed Reference](/dotnet/api)
-
-### REST
-[Power BI Embedded REST API Reference](/rest/api/powerbiembedded/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Cmdlets de PowerShell de Power BI Embedded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referencia administrada de Power BI Embedded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de la API de REST de Power BI Embedded</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 
@@ -99,7 +139,11 @@ Power BI Embedded is an Azure service that enables ISVs and app developers to su
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/power-bi-embedded.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Power BI Embedded Documentation
-        </div>
+Descarga de documentación de Power BI Embedded </div>
     </a>
 </div>
+
+
+<!--HONumber=Nov16_HO3-->
+
+

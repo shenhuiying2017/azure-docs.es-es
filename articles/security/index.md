@@ -1,13 +1,17 @@
 ---
 layout: LandingPage
----
-# Security Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: d06c292b36ef6dd6bd4f858603debfe93d498cb6
+ms.openlocfilehash: 622e8ccb62538110991c4f882ada9014ea03ffb4
 
-Azure’s infrastructure is designed from the facility to applications for hosting millions of customers simultaneously, and it provides a trustworthy foundation upon which businesses can meet their security needs. In addition, Azure provides you with a wide array of configurable security options and the ability to control them so that you can customize security to meet the unique requirements of your deployments.
+---
+# <a name="security-documentation"></a>Documentación de Security
+
+La infraestructura de Azure está diseñada desde la instalación hasta las aplicaciones para hospedar millones de clientes simultáneamente, y proporciona una base de confianza en la que las empresas pueden satisfacer sus necesidades de seguridad. Además, Azure ofrece una amplia gama de opciones de seguridad configurables, así como la posibilidad de controlarlas, por lo que puede personalizar la seguridad para satisfacer los requisitos únicos de sus implementaciones.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/security/azure-security-services-technology">
+        <a href="/azure/security/azure-security-services-technologies">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -17,7 +21,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Security</h3>
+                        <h3>Más información sobre Azure Security</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Security</h3>
+                        <h3>Introducción a Azure Security</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Network Security</h3>
+                        <h3>Introducción a Network Security</h3>
                     </div>
                 </div>
             </div>
@@ -71,7 +75,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Storage Security</h3>
+                        <h3>Introducción a Storage Security</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +93,7 @@ Azure’s infrastructure is designed from the facility to applications for hosti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Virtual Machines Security</h3>
+                        <h3>Introducción a Virtual Machines Security</h3>
                     </div>
                 </div>
             </div>
@@ -104,7 +108,12 @@ Azure’s infrastructure is designed from the facility to applications for hosti
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Security Documentation
-        </div>
+Descarga de documentación de Security </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

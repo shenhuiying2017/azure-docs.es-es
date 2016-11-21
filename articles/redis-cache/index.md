@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: cd96f7ea32696ea920cd1622ae6d08692b4f8f4c
-ms.openlocfilehash: a244eaf8dff788354caab1c327a22cb5c5b423cf
+ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
+ms.openlocfilehash: 1253538f479de3dc4200956f85229ee4892cf9a7
 
 ---
 #<a name="redis-cache-documentation"></a>Documentación de Redis Cache
@@ -139,22 +139,80 @@ Azure Redis Cache se basa en el popular Redis Cache de código abierto. Ofrece a
 
 ---
 
-##<a name="reference"></a>Referencia
+## <a name="reference"></a>Referencia
 
-###<a name="powershell"></a>PowerShell
-[Referencia de Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###<a name="azure-cli"></a>CLI de Azure
-[Redis Cache con la CLI de Azure](/cli/azure/redis) 
-
-###<a name="net"></a>.NET 
-[API de referencia administrada de Redis Cache](/dotnet/api/) 
-
-###<a name="java"></a>Java 
-[SDK de Java de Azure](/java/api/)
-
-###<a name="rest"></a>REST 
-[Referencia de API de REST de Redis Cache](/rest/api/)  
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referencia de Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/cli/azure/redis">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>CLI de Azure</h3>
+                        <p>Redis Cache con la CLI de Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API de referencia administrada de Redis Cache</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>SDK de Java de Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de la API de REST de Redis Cache</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 <div class="downloadHolder">
@@ -167,6 +225,6 @@ Descarga de documentación de Redis Cache </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

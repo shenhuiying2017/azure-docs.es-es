@@ -38,9 +38,6 @@
 ## Implementación
 ### [Implementación continua para Azure Functions](functions-continuous-deployment.md)
 
-# Referencia
-## [API de .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/functions/)  
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
@@ -48,6 +45,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

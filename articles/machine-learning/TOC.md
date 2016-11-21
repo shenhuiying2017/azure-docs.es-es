@@ -1,26 +1,11 @@
 # Información general
 ## [¿Qué es Machine Learning?](machine-learning-what-is-machine-learning.md)
-## [Novedades](machine-learning-whats-new.md)
-## [Obtención de ayuda por chat](machine-learning-live-chat.md)
-## Estudio de aprendizaje automático
-### [¿Qué es Studio?](machine-learning-what-is-ml-studio.md)
-### [Funcionalidad de Studio](machine-learning-studio-overview-diagram.md)
-### [Infografía: Introducción a ML](machine-learning-basics-infographic-with-algorithm-examples.md)
-## Proceso de ciencia de los datos en equipos
-### [Información general](http://aka.ms/datascienceprocess)
-### [Ciclo de vida](data-science-process-overview.md)
-### [Herramientas y utilidades](machine-learning-data-science-environment-setup.md)
-### [Tutoriales](data-science-process-walkthroughs.md)
+## [Machine Learning Studio](machine-learning-what-is-ml-studio.md)
 ## [Identificación de escenarios](machine-learning-data-science-plan-your-environment.md)
-## [Visualización de escenarios de ejemplo](machine-learning-data-science-plan-sample-scenarios.md)
 ## Ejemplos
 ### [Experimentos de muestra](machine-learning-sample-experiments.md)
 ### [Conjuntos de datos de ejemplo](machine-learning-use-sample-datasets.md)
 ### [Ejemplo de renovación de un cliente](machine-learning-azure-ml-customer-churn-scenario.md)
-## API existentes
-### [Detección de anomalías](machine-learning-apps-anomaly-detection.md)
-### [Análisis de texto](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 ### Recomendaciones
 #### [Información general](machine-learning-recommendation-api-sample-application.md)
 #### [Inicio rápido](machine-learning-recommendation-api-quick-start-guide.md)
@@ -28,19 +13,12 @@
 #### [Uso de JavaScript](machine-learning-recommendation-api-javascript-integration.md)
 #### [Preguntas más frecuentes](machine-learning-recommendation-api-faq.md)
 ## Cortana Analytics
-### Mantenimiento predictivo
-#### [Información general](cortana-analytics-playbook-predictive-maintenance.md)
+### [Mantenimiento predictivo](cortana-analytics-playbook-predictive-maintenance.md)
 #### [Arquitectura](cortana-analytics-architecture-predictive-maintenance.md)
 #### [Guía técnica](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Telemetría de vehículos
-#### [Información general](cortana-analytics-playbook-vehicle-telemetry.md)
+### [Telemetría de vehículos](cortana-analytics-playbook-vehicle-telemetry.md)
 #### [Guía](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 #### [Configuración](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Proceso de ciencia de los datos
-### [Uso de clústeres de Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
-### [Uso de Hadoop con 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-### [Uso de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 ## SERVICIOS WEB
 ### [Ejemplos con R](machine-learning-r-csharp-web-service-examples.md)
 ### [Clasificador binario](machine-learning-r-csharp-binary-classifier.md)
@@ -56,7 +34,8 @@
 ### [Conjunto de distribución binomial](machine-learning-r-csharp-binomial-distribution.md)
 ### [Preguntas más frecuentes sobre Marketplace](machine-learning-marketplace-faq.md)
 
-# Primeros pasos
+# Introducción
+## [Visualización de escenarios de ejemplo](machine-learning-data-science-plan-sample-scenarios.md)
 ## [Creación de su primer experimento](machine-learning-create-experiment.md)
 ## [Creación de una solución predictiva](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Creación de un área de trabajo](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -72,9 +51,17 @@
 ### [4:Predicción de una respuesta](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copia del trabajo de otras personas](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 ## [Preguntas más frecuentes](machine-learning-faq.md)
+## Proceso de ciencia de los datos en equipos
+### [Ciclo de vida](data-science-process-overview.md)
+### [Herramientas y utilidades](machine-learning-data-science-environment-setup.md)
+### [Tutoriales](data-science-process-walkthroughs.md)
+#### [Uso de clústeres de Hadoop](machine-learning-data-science-process-hive-walkthrough.md)
+#### [Uso de Hadoop con 1 TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [Uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+#### [Uso de SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
 
 # Procedimientos
-## Instalación de herramientas 
+## Instalación de herramientas
 ### [Configuración de entornos](machine-learning-data-science-environment-setup.md)
 ### [Configuración de máquinas virtuales](machine-learning-data-science-virtual-machines.md)
 ### [Personalización de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
@@ -190,11 +177,13 @@
 #### [Uso de una plantilla de aplicaciones web](machine-learning-consume-web-service-with-web-app-template.md)
 
 #Referencia
-## [Inicio rápido de R](machine-learning-r-quickstart.md)
+## [Notas de la versión](machine-learning-whats-new.md)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Introducción a PowerShell](machine-learning-powershell-module.md)
 ## [Uso de PowerShell para crear modelos](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [API de REST del servicio web](https://msdn.microsoft.com/library/azure/dn950030.aspx)
+## [Inicio rápido de R](machine-learning-r-quickstart.md)
 ## [Lenguaje de redes neuronales Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
+## [REST](/rest/api/machinelearning/)
 
 # Temas relacionados
 ## Galería de Cortana Intelligence
@@ -210,10 +199,23 @@
 ### [Módulos personalizados](machine-learning-gallery-custom-modules.md)
 
 # Recursos
+## [Ruta de aprendizaje](http://aka.ms/datascienceprocess)
+## [Precios](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
-## [Foro](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [Obtención de ayuda por chat](machine-learning-live-chat.md)
+## Diagramas descargables
+### [Funcionalidad de Studio](machine-learning-studio-overview-diagram.md)
+### [Infografía: Introducción a ML](machine-learning-basics-infographic-with-algorithm-examples.md)
+## API existentes
+### [Detección de anomalías](machine-learning-apps-anomaly-detection.md)
+### [Análisis de texto](machine-learning-apps-text-analytics.md)
+### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

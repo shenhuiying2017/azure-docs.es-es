@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Active Directory Domain Services Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: a4233cfb578f5671fc16f83aae4531fb8315c1af
+ms.openlocfilehash: bb59158dbbe43a938a638cff3c43ef4ecdae5854
 
-Azure AD Domain Services (DS) provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory.  This service enables users to deploy a wide range of computing solutions in an agile manner.
+---
+# <a name="active-directory-domain-services-documentation"></a>Documentación acerca de Active Directory Domain Services
+
+Azure AD Domain Services (DS) proporciona servicios de dominio administrados como, por ejemplo, unión a un dominio, directiva de grupo, LDAP o autenticación Kerberos/NTLM, que son totalmente compatibles con Windows Server Active Directory.  Este servicio permite a los usuarios implementar una amplia variedad de soluciones informáticas de una manera ágil.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Active Directory Domain Services</h3>
+                        <h3>Información acerca de Active Directory Domain Services</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +39,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Active Directory Video Library</h3>
+                        <h3>Biblioteca de vídeos de Active Directory</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure AD Domain Services</h3>
+                        <h3>Introducción a Azure AD Domain Services</h3>
                     </div>
                 </div>
             </div>
@@ -71,14 +75,13 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create or select a Virtual network</h3>
+                        <h3>Creación o selección de una red virtual</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>
-    <li>
+    </li>    
     <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds">
         <div class="cardSize">
@@ -90,13 +93,14 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enable Azure AD Domain Services</h3>
+                        <h3>Habilitación de Azure AD Domain Services</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
         <div class="cardSize">
             <div class="cardPadding">
@@ -107,7 +111,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Update DNS settings</h3>
+                        <h3>Actualización de la configuración de DNS</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +129,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enable password sync for Cloud-only tenant</h3>
+                        <h3>Habilitación de la sincronización de contraseñas para inquilinos solo en la nube</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +147,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enable password sync for Synced tenant</h3>
+                        <h3>Habilitación de la sincronización de contraseñas para inquilinos sincronizados</h3>
                     </div>
                 </div>
             </div>
@@ -158,7 +162,12 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory-domain-services.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Active Directory Domain Services Documentation
-        </div>
+Descarga de documentación acerca de Active Directory Domain Services </div>
     </a>
 </div>
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

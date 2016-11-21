@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 472f14b049093920b43ef249b0286d78b2fbbece
-ms.openlocfilehash: 48030ab29d18b0963f1770732761a464abaed446
+ms.sourcegitcommit: 54d90fa8d337b95a8bb03938ae6f3ce7c4e2de85
+ms.openlocfilehash: a7eda833f1bbaaa64ebfb1a26925dc42cbf6cb9c
 
 ---
 # <a name="media-services-documentation"></a>Documentación de Media Services
@@ -161,14 +161,50 @@ Sin nada más que Media Services se pueden generar flujos de trabajo de un extre
 
 ## <a name="reference"></a>Referencia
 
-### <a name="powershell"></a>PowerShell
-[Referencia de Azure PowerShell](/powershell/azureps-cmdlets-docs/)
-
-### <a name="net"></a>.NET
-[API de referencia administrada de .NET](/dotnet/api/)
-
-### <a name="rest"></a>REST
-[Referencia de la API de REST de Media Services](/rest/api/media/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referencia de Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>API de referencia administrada de .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/media/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de la API de REST de Media Services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/media-services.pdf">
@@ -180,6 +216,6 @@ Descarga de la documentación de Media Services </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

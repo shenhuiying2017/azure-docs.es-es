@@ -1,11 +1,11 @@
 # Información general
 ## [¿Qué es Azure Backup?](backup-introduction-to-azure-backup.md)
 # Primeros pasos
-## [Preguntas más frecuentes](backup-azure-backup-faq.md)
 ## [Realización de copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
 ## [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look.md)
 ## [Protección de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
-# Procedimientos
+## [Preguntas más frecuentes](backup-azure-backup-faq.md)
+# Cómo
 ## Automatizar la copia de seguridad mediante PowerShell
 ### [Máquinas virtuales de Azure en Azure Portal](backup-azure-vms-automation.md)
 ### [Máquinas virtuales de Azure en el portal clásico](backup-azure-vms-classic-automation.md)
@@ -52,7 +52,13 @@
 ### [Se ha producido un error en la copia de seguridad de VM de Azure: no se pudo comunicar con el agente de VM para el estado de la instantánea: la subtarea de la VM de la instantánea agotó el tiempo de espera](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Lentitud en la copia de seguridad de archivos y carpetas en Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Recursos
+## [Precios](https://azure.microsoft.com/pricing/details/backup/)
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=backup)
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
