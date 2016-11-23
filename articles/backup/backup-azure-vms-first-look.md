@@ -47,7 +47,7 @@ Para realizar una copia de seguridad de una máquina virtual, hay cinco pasos pr
 >
 >
 
-## <a name="step-1-create-a-backup-vault-for-a-vm"></a>Paso 1: creación de un almacén de copia seguridad para una máquina virtual
+## <a name="step-1---create-a-backup-vault-for-a-vm"></a>Paso 1: creación de un almacén de copia seguridad para una máquina virtual
 Un almacén de copia de seguridad es una entidad que almacena todas las copias de seguridad y los puntos de recuperación creados con el tiempo. El almacén de copia de seguridad contiene también las directivas de copia de seguridad que se aplican a las máquinas virtuales cuya copia de seguridad se está realizando.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/).
@@ -86,7 +86,7 @@ Un almacén de copia de seguridad es una entidad que almacena todas las copias d
 
 Tras elegir la opción de almacenamiento del almacén, está listo para asociar la máquina virtual con el almacén. Para comenzar la asociación, es preciso detectar y registrar las máquinas virtuales de Azure.
 
-## <a name="step-2-discover-and-register-azure-virtual-machines"></a>Paso 2: detección y registro de máquinas virtuales de Azure
+## <a name="step-2---discover-and-register-azure-virtual-machines"></a>Paso 2: detección y registro de máquinas virtuales de Azure
 Antes de registrar la máquina virtual con un almacén, ejecute el proceso de detección para identificar nuevas máquinas virtuales. Este proceso devuelve una lista de las máquinas virtuales incluidas en la suscripción, junto con información adicional; por ejemplo, el nombre del servicio en la nube y la región.
 
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com/)
@@ -133,12 +133,12 @@ Antes de registrar la máquina virtual con un almacén, ejecute el proceso de de
 
     ![Registrando estado 2](./media/backup-azure-vms/register-status02.png)
 
-## <a name="step-3-install-the-vm-agent-on-the-virtual-machine"></a>Paso 3: instalación del agente de máquina virtual en la máquina virtual
+## <a name="step-3---install-the-vm-agent-on-the-virtual-machine"></a>Paso 3: instalación del agente de máquina virtual en la máquina virtual
 El agente de máquina virtual de Azure se debe instalar en la máquina virtual de Azure para que funcione la extensión de copia de seguridad. Si la máquina virtual se creó desde la galería de Azure, el agente de máquina virtual ya está presente en la máquina virtual. Puede ir directamente a la sección sobre [protección de máquinas virtuales](backup-azure-vms-first-look.md#step-4---create-the-backup-policy).
 
 Si la máquina virtual se migra desde un centro de datos local, es probable que no tenga instalado el agente de máquina virtual. Debe instalar al agente de máquina virtual en la máquina virtual antes de continuar con su protección. Para más información sobre cómo instalar el agente de máquina virtual, consulte la [sección Agente de máquina virtual del artículo Copia de seguridad de máquinas virtuales](backup-azure-vms-prepare.md#vm-agent).
 
-## <a name="step-4-create-the-backup-policy"></a>Paso 4: Creación de la directiva de copia de seguridad
+## <a name="step-4---create-the-backup-policy"></a>Paso 4: Creación de la directiva de copia de seguridad
 Antes de desencadenar el trabajo de copia de seguridad inicial, establezca la programación de cuándo se van a realizar las instantáneas de copia de seguridad. La programación de cuándo se realizan las instantáneas de copia de seguridad y el período de tiempo durante el que se conservan dichas instantáneas, forman la directiva de copia de seguridad. La información de retención se basa en un esquema de rotación abuelo-padre-hijo (GFS) para las copias de seguridad.
 
 1. Navegue al almacén de copia de seguridad en **Recovery Services** en el Portal de Azure clásico y haga clic en **Elementos registrados**.
@@ -175,7 +175,7 @@ Antes de desencadenar el trabajo de copia de seguridad inicial, establezca la pr
 
     Ahora que ha establecido la directiva, vaya al paso siguiente y ejecute la copia de seguridad inicial.
 
-## <a name="step-5-initial-backup"></a>Paso 5: copia de seguridad inicial
+## <a name="step-5---initial-backup"></a>Paso 5: copia de seguridad inicial
 Una vez que una máquina virtual se ha protegido con una directiva, dicha relación se puede ver en la pestaña **Elementos protegidos** . Hasta que se realiza la copia de seguridad inicial, en **Estado de protección** se muestra el valor **Protegido (copia de seguridad inicial pendiente)**. De forma predeterminada, la primera copia de seguridad programada es la *copia de seguridad inicial*.
 
 ![Copia de seguridad pendiente](./media/backup-azure-vms-first-look/protection-pending-border.png)

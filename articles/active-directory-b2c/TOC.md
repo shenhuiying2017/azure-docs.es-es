@@ -56,6 +56,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Soporte técnico](active-directory-b2c-support.md)
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

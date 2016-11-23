@@ -5,7 +5,7 @@ ms.sourcegitcommit: defa12cb202ce4861a479ac40782248cd50039d3
 ms.openlocfilehash: 2db76cf5af88cc103b0109eb8ead4d63cbae0a0e
 
 ---
-# <a name="multifactor-authentication-documentation"></a>Documentación de Multi-Factor Authentication
+# <a name="multi-factor-authentication-documentation"></a>Documentación de Multi-Factor Authentication
 
 Azure Multi-Factor Authentication (MFA) es la solución de Microsoft de comprobación de dos pasos. Azure MFA ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece una autenticación segura a través de una gran variedad de métodos de comprobación (como la comprobación mediante llamadas telefónicas, mensajes de texto o aplicaciones móviles).
 
@@ -113,6 +113,6 @@ Descargar documentación de Multi-Factor Authentication </div>
 </div>
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

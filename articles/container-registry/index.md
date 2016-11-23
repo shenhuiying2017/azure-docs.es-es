@@ -102,6 +102,6 @@ Azure Container Registry (versión preliminar) es un registro privado para hospe
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
