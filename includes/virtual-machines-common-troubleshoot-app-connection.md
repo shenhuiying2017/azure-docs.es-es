@@ -2,8 +2,8 @@ Hay varios motivos que le pueden impedir iniciar o conectar con una aplicación 
 
 Si tiene problemas para conectarse a la máquina virtual con RDP o SSH, consulte en primer lugar uno de los siguientes artículos:
 
-* [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
-* [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+* [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../articles/resource-manager-deployment-model.md). En este artículo se trata el uso de ambos modelos, pero Microsoft recomienda que la mayoría de las nuevas implementaciones usen el modelo del Administrador de recursos.
@@ -12,7 +12,7 @@ Si tiene problemas para conectarse a la máquina virtual con RDP o SSH, consulte
 
 Si necesita más ayuda en cualquier momento con este artículo, puede ponerse en contacto con los expertos de Azure en [los foros de MSDN Azure y de desbordamiento de pila](https://azure.microsoft.com/support/forums/). Como alternativa, también puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Obtener soporte**.
 
-## Solución rápida de problemas de conectividad de punto de conexión
+## <a name="quick-start-troubleshooting-endpoint-connectivity-problems"></a>Solución rápida de problemas de conectividad de punto de conexión
 Si tiene problemas para conectarse a una aplicación, intente los siguientes pasos de solución de problemas generales. Después de cada paso, vuelva a intentar conectarse a la aplicación:
 
 * Reiniciar la máquina virtual
@@ -21,13 +21,13 @@ Si tiene problemas para conectarse a una aplicación, intente los siguientes pas
   * [Modelo de Resource Manager: administración de grupos de seguridad de red](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 * Conectarse desde otra ubicación, como una red virtual de Azure diferente
 * Volver a implementar la máquina virtual
-  * [Nueva implementación de la máquina virtual de Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md)
-  * [Nueva implementación de la máquina virtual de Linux](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md)
+  * [Nueva implementación de la máquina virtual en Windows](../articles/virtual-machines/virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  * [Nueva implementación de la máquina virtual de Linux](../articles/virtual-machines/virtual-machines-linux-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Volver a crear la máquina virtual
 
-Para obtener más información, consulte [Solución de problemas con la conectividad del punto de conexión (RDP, SSH, HTTP u otros errores)](https://social.msdn.microsoft.com/Forums/azure/es-ES/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
+Para obtener más información, consulte [Solución de problemas con la conectividad del punto de conexión (RDP, SSH, HTTP u otros errores)](https://social.msdn.microsoft.com/Forums/azure/en-US/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows).
 
-## Visión detallada de la solución de problemas
+## <a name="detailed-troubleshooting-overview"></a>Visión detallada de la solución de problemas
 Hay cuatro áreas principales para solucionar el acceso de una aplicación que se ejecuta en una máquina virtual de Azure.
 
 ![solución de problemas no se puede iniciar la aplicación](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
@@ -43,9 +43,10 @@ Hay cuatro áreas principales para solucionar el acceso de una aplicación que s
 4. El dispositivo perimetral de Internet.
    * ¿Hay instauradas reglas de firewall que impidan que el tráfico fluya correctamente?
 
-Para los equipos cliente que tienen acceso a la aplicación a través de una conexión ExpressRoute o de VPN de sitio a sitio, las áreas principales que pueden causar problemas son la aplicación y la máquina virtual de Azure. Para determinar el origen del problema y su corrección, siga estos pasos.
+Para los equipos cliente que tienen acceso a la aplicación a través de una conexión ExpressRoute o de VPN de sitio a sitio, las áreas principales que pueden causar problemas son la aplicación y la máquina virtual de Azure.
+Para determinar el origen del problema y su corrección, siga estos pasos.
 
-## Paso 1: Acceso a la aplicación desde la máquina virtual de destino
+## <a name="step-1-access-application-from-target-vm"></a>Paso 1: Acceso a la aplicación desde la máquina virtual de destino
 Intente obtener acceso a la aplicación con el programa cliente adecuado desde la VM en la que se ejecuta. Use el nombre de host local, la dirección IP local o la dirección de bucle invertido (127.0.0.1).
 
 ![iniciar la aplicación directamente desde la máquina virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access2.png)
@@ -61,7 +62,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 En máquinas virtuales basadas en Windows y Linux, use el comando **netstat -a** para mostrar los puertos de escucha activos. Examine la salida para los puertos esperados en el que debe escuchar su aplicación. Reinicie la aplicación o configúrela para que use los puertos esperados según sea necesario e intente de nuevo el acceso a la aplicación de forma local.
 
-## <a id="step2"></a>Paso 2: Acceso a la aplicación desde otra máquina virtual de la misma red virtual
+## <a name="a-idstep2astep-2-access-application-from-another-vm-in-the-same-virtual-network"></a><a id="step2"></a>Paso 2: Acceso a la aplicación desde otra máquina virtual de la misma red virtual
 Intente obtener acceso a la aplicación desde otra VM (que esté en la misma red virtual) con el nombre de host de la VM o con su dirección IP de proveedor, privada o pública asignada por Azure. Para las máquinas virtuales creadas con el modelo de implementación clásica, no use la dirección IP pública del servicio en la nube.
 
 ![iniciar la aplicación desde una máquina virtual diferente](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access3.png)
@@ -81,7 +82,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
 
 En una máquina virtual basada en Windows, use el Firewall de Windows con seguridad avanzada para determinar si las reglas de firewall excluyen el tráfico entrante y saliente de la aplicación.
 
-## <a id="step3"></a>Paso 3: Acceso a la aplicación desde fuera de la red virtual
+## <a name="a-idstep3astep-3-access-application-from-outside-the-virtual-network"></a><a id="step3"></a>Paso 3: Acceso a la aplicación desde fuera de la red virtual
 Intente acceder a la aplicación desde una máquina de fuera de la red virtual, como la máquina virtual en la que se está ejecutando la aplicación. Use una red diferente como equipo cliente de origen.
 
 ![iniciar la aplicación desde un equipo situado fuera de la red virtual](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access4.png)
@@ -94,7 +95,7 @@ Si no se puede acceder a la aplicación, compruebe la siguiente configuración:
   
   * Que la configuración del punto de conexión de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
   * Que las listas de control de acceso (ACL) en el punto de conexión no impidan el tráfico entrante desde Internet.
-  * Para obtener más información, consulte [Cómo establecer extremos en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md).
+  * Para más información, consulte [Configuración de puntos de conexión en una máquina virtual](../articles/virtual-machines/virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 * Para las máquinas virtuales creadas con el modelo de implementación de Resource Manager:
   
   * Que la configuración de la regla NAT de entrada de la máquina virtual permita el tráfico entrante, sobre todo el protocolo (TCP o UDP) y los números de puerto público y privado.
@@ -113,9 +114,13 @@ Si puede tener acceso a la aplicación, asegúrese de que el dispositivo perimet
 * El tráfico de solicitud saliente de aplicaciones desde el equipo cliente hasta la máquina virtual de Azure.
 * El tráfico de respuesta de aplicación entrante desde la máquina virtual de Azure.
 
-## Recursos adicionales
-[Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows ](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md)
+## <a name="additional-resources"></a>Recursos adicionales
+[Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure con Windows](../articles/virtual-machines/virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md)
+[Solución de problemas de conexiones de Secure Shell (SSH) en una máquina virtual de Azure basada en Linux](../articles/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

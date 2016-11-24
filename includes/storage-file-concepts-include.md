@@ -15,7 +15,7 @@ Almacenamiento de archivos suele usarse para realizar las siguientes tareas:
 ## <a name="file-storage-concepts"></a>Conceptos de Almacenamiento de archivos
 Almacenamiento de archivos contiene los siguientes componentes:
 
-![files-concepts][files-concepts]
+![files-concepts](./media/storage-file-concepts-include/files-concepts.png)
 
 * **Cuenta de almacenamiento:** todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](../articles/storage/storage-scalability-targets.md) para obtener información sobre la capacidad de la cuenta de almacenamiento.
 * **Compartir:** un recurso compartido de Almacenamiento de archivos es un recurso compartido de archivos de SMB en Azure. 
@@ -31,8 +31,7 @@ Almacenamiento de archivos contiene los siguientes componentes:
 
 Para obtener detalles sobre cómo asignar un nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
-[files-concepts]: ./media/storage-file-concepts-include/files-concepts.png
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -16,13 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 86220eabc2625bf8bf1e4d6fac9c0ae41adc962c
+ms.sourcegitcommit: 7d8eb43fea032eb5aa72f448a7c1022be62a7b81
+ms.openlocfilehash: 1591fba6475ba52b6e187ba7ccb14fd2fdfc63c8
 
 ---
 # <a name="creating-an-internal-load-balancer-using-the-azure-cli"></a>Creación de un equilibrador de carga interno mediante la CLI de Azure
 
-[!INCLUDE [load-balancer-get-started-internet-arm-selectors-include.md](../../includes/load-balancer-get-started-internet-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
+> * [CLI de Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Plantilla](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -59,7 +63,7 @@ Para más información, consulte [Compatibilidad de Azure Resource Manager con L
 
         info:    New mode is arm
 
-## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-frontend-ip-pool"></a>Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
+## <a name="create-a-virtual-network-and-a-public-ip-address-for-the-front-end-ip-pool"></a>Creación de una red virtual y una dirección IP pública para el grupo de direcciones IP front-end
 
 1. Cree una red virtual llamada *NRPVnet* en la ubicación este de EE. UU. mediante el uso de un grupo de recursos llamado *NRPRG*.
 
@@ -91,7 +95,7 @@ El comando siguiente crea un equilibrador de carga llamado *NRPlb* en el grupo d
     azure network lb create NRPRG NRPlb eastus
     ```
 
-## <a name="create-a-frontend-ip-pool-and-a-backend-address-pool"></a>Creación de un grupo de direcciones IP de front-end y un grupo de direcciones de back-end
+## <a name="create-a-front-end-ip-pool-and-a-backend-address-pool"></a>Creación de un grupo de direcciones IP de front-end y un grupo de direcciones de back-end
 En este ejemplo se muestra cómo se crea el grupo de direcciones IP de front-end que recibe el tráfico de red que entra al equilibrador de carga y el grupo de direcciones IP de back-end donde el grupo de front-end envía el tráfico de red con equilibrio de carga.
 
 1. Cree un grupo de direcciones IP de front-end mediante la asociación de la dirección IP pública creada en el paso anterior y el equilibrador de carga.

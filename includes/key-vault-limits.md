@@ -4,7 +4,11 @@
 | HSM- CREATE KEY |5 |
 | HSM - otras transacciones |1000 |
 | Clave "débil" - CREATE KEY |10 |
-| Clave "débil" - otras transacciones |1\.500 |
+| Clave "débil" - otras transacciones |1.500 |
 | Todos los secretos, transacciones relacionadas con el almacén |2000 |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

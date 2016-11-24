@@ -1,4 +1,4 @@
-## Uso de Azure Portal
+## <a name="using-azure-portal"></a>Uso de Azure Portal
 1. Seleccione la máquina virtual que quiere volver a implementar y haga clic en el botón Volver a implementar en la hoja Configuración. Desplácese hacia abajo para ver la sección de **soporte técnico y solución de problemas** que contiene el botón Implementar de nuevo, como en el ejemplo siguiente:
    
     ![Hoja Máquina virtual de Azure](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)
@@ -15,4 +15,8 @@
    
     ![Máquina virtual en ejecución](./media/virtual-machines-common-redeploy-to-new-node/vmrunning.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

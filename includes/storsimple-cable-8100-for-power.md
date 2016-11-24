@@ -1,12 +1,12 @@
 <!--author=alkohli last changed: 9/16/15-->
 
-#### Instalación de los cables de alimentación
+#### <a name="to-cable-for-power"></a>Instalación de los cables de alimentación
 1. Asegúrate de que el interruptor de alimentación de todos los módulos de alimentación y refrigeración (PCM) se encuentra en la posición de apagado.
 2. Conecta los cables de alimentación a todos los PCM en el alojamiento principal.
 3. Adjunta los cables de alimentación a las unidades de distribución de energía (PDU) del bastidor tal y como se muestra en la siguiente imagen. Asegúrate de que los dos PCM utilicen fuentes de alimentación independientes.
    
    > [!IMPORTANT]
-   > Para garantizar una alta disponibilidad del sistema, se recomienda cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado.
+   > Para garantizar una alta disponibilidad del sistema, se recomienda cumplir estrictamente el esquema de cableado de potencia que se muestra en el siguiente diagrama de cableado. 
    > 
    > 
    
@@ -23,4 +23,8 @@
    | 5 |PDU |
 4. Para encender el sistema gira el interruptor de alimentación de ambos PCM a la posición de encendido.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

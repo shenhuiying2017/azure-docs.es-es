@@ -1,7 +1,12 @@
 > [!div class="op_single_selector"]
-> * [PowerShell](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)
-> * [CLI de Azure](../articles/virtual-network/virtual-networks-create-nsg-classic-cli.md)
-> 
-> 
+- [Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+- [PowerShell](../articles/virtual-network/virtual-networks-create-nsg-arm-ps.md)
+- [CLI de Azure](../articles/virtual-network/virtual-networks-create-nsg-arm-cli.md)
+- [Plantilla ARM](../articles/virtual-network/virtual-networks-create-nsg-arm-template.md)
+- [PowerShell (clásico)](../articles/virtual-network/virtual-networks-create-nsg-classic-ps.md)
+- [CLI de Azure (clásico)](../articles/virtual-network/virtual-networks-create-nsg-classic-cli.md)
 
-<!---HONumber=AcomDC_0323_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

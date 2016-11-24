@@ -1,13 +1,13 @@
-## Invocación del procedimiento almacenado para el receptor de SQL
-Al copiar datos en SQL Server o en Base de datos SQL de Azure/SQL Server, se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales.
+## <a name="invoking-stored-procedure-for-sql-sink"></a>Invocación del procedimiento almacenado para el receptor de SQL
+Al copiar datos en SQL Server o en Base de datos SQL de Azure/SQL Server, se puede configurar e invocar un procedimiento almacenado especificado por el usuario con parámetros adicionales. 
 
-Cuando los mecanismos de copia integrada no prestan el servicio, se puede aprovechar un procedimiento almacenado. Normalmente, este aprovechamiento se realiza cuando es necesario realizar procesos adicionales (combinación de columnas, buscar valores adicionales, inserción en varias tablas...) antes de la inserción final de datos de origen en la tabla de destino.
+Cuando los mecanismos de copia integrada no prestan el servicio, se puede aprovechar un procedimiento almacenado. Normalmente, este aprovechamiento se realiza cuando es necesario realizar procesos adicionales (combinación de columnas, buscar valores adicionales, inserción en varias tablas...) antes de la inserción final de datos de origen en la tabla de destino. 
 
-Puede invocar un procedimiento almacenado de su elección. En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una inserción simple en una tabla de la base de datos.
+Puede invocar un procedimiento almacenado de su elección. En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una inserción simple en una tabla de la base de datos. 
 
 **Conjunto de datos de salida**
 
-En este ejemplo, el tipo está definido como SqlServerTable. Establézcalo en AzureSqlTable para usarlo con una base de datos de SQL de Azure.
+En este ejemplo, el tipo está definido como SqlServerTable. Establézcalo en AzureSqlTable para usarlo con una base de datos de SQL de Azure. 
 
     {
       "name": "SqlOutput",
@@ -59,4 +59,8 @@ En la base de datos, defina el tipo de tabla con el mismo nombre que SqlWriterTa
 
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/31/2016
 ms.author: jimpark; trinadhk
 translationtype: Human Translation
-ms.sourcegitcommit: e29891dc03f8a864ecacc893fd1cc0d3cc1436cb
-ms.openlocfilehash: c827c37ae4164ebd9cd2a971e94f073de8c59b46
+ms.sourcegitcommit: cf3930f209e84ee9b14b56566ca19d31382946aa
+ms.openlocfilehash: cefb405b4f30ca5fe20f6acfaee5ebba2690990b
 
 
 ---
@@ -44,7 +44,7 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Copia de seguridad coherente con la aplicación**: tanto si va a realizar una copia de seguridad de un servidor de archivos, una máquina virtual o una base de datos SQL, debe saber que un punto de recuperación tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitan correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que le permite volver rápidamente a un estado de ejecución.
 
-**Retención a largo plazo**: puede crear una copia de seguridad de los datos en Azure durante 99 años. En lugar de pasar las copias de seguridad de disco a cinta y luego trasladar la cinta a una ubicación externa para almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo.
+**Retención a largo plazo**: cree una copia de seguridad de los datos en Azure durante 99 años. En lugar de pasar las copias de seguridad de disco a cinta y luego trasladar la cinta a una ubicación externa para almacenamiento a largo plazo, puede usar Azure para la retención a corto y largo plazo.
 
 ## <a name="which-azure-backup-components-should-i-use"></a>¿Qué componentes de Azure Backup debo usar?
 Si no está seguro de qué componentes de Azure Backup vienen bien para sus necesidades, consulte la siguiente tabla para información sobre lo que puede proteger con cada uno. Azure Portal proporciona un asistente, que está integrado en el portal, para guiarle a través de la elección de los componentes para descargar e implementar. El asistente, que forma parte de la creación del almacén de Recovery Services, le lleva por los pasos para seleccionar un objetivo de copia de seguridad y elegir los datos o la aplicación para proteger.
@@ -52,9 +52,9 @@ Si no está seguro de qué componentes de Azure Backup vienen bien para sus nece
 | Componente | Ventajas | límites | ¿Qué se protege? | ¿Dónde se almacenan las copias de seguridad? |
 | --- | --- | --- | --- | --- |
 | Agente de Copia de seguridad de Azure (MARS) |<li>Copia de seguridad de archivos y carpetas en el sistema operativo Windows físico o virtual (las máquinas virtuales pueden estar en el entorno local o en Azure)<li>No se necesita ningún servidor de copia de seguridad independiente. |<li>Copia de seguridad tres veces al día <li>No es compatible con la aplicación; restauración solo a nivel de archivo, carpeta y volumen. <li>  No se admite Linux. |<li>Archivos <li>Carpetas |Almacén de copia de seguridad de Azure |
-| System Center DPM |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux (si se hospeda en Hyper-V) |Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle). |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente<li>  Cinta (solo local) |
+| System Center DPM |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux (si se hospeda en Hyper-V) <li>Protección de máquinas virtuales de VMware con DPM 2012 R2 |No admite copia de seguridad de la carga de trabajo de Oracle |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente<li>  Cinta (solo local) |
 | Servidor de Copia de seguridad de Azure |<li>Instantáneas compatibles con la aplicación (VSS)<li>Total flexibilidad para realizar copias de seguridad<li>Granularidad en la recuperación (todo)<li>Puede usar el almacén de Azure Backup<li>Compatibilidad con Linux (si se hospeda en Hyper-V)<li>No requiere licencia de System Center |<li>Falta de soporte heterogéneo (copia de seguridad de máquina virtual de VMware, copia de seguridad de carga de trabajo de Oracle).<li>Siempre requiere una suscripción de Azure activa<li>No se admite la copia de seguridad en cinta |<li>Archivos <li>Carpetas<li> Volúmenes <li>Máquinas virtuales<li> Aplicaciones<li> Cargas de trabajo |<li>Almacén de Azure Backup<li> Disco conectado localmente |
-| Copia de seguridad de máquina virtual de IaaS de Azure |<li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad |<li>Copia de seguridad/restauración de nivel de disco una vez al día<li>No puede realizar copias de seguridad locales |<li>Máquinas virtuales <li>Todos los discos (con PowerShell) |<p>Almacén de copia de seguridad de Azure</p> |
+| Copia de seguridad de máquina virtual de IaaS de Azure |<li>Copias de seguridad nativas de Windows/Linux<li>No se requiere la instalación de ningún agente específico<li>Copia de seguridad de nivel de tejido sin necesidad de ninguna infraestructura de copia de seguridad |<li>Copia de seguridad de máquinas virtuales una vez al día <li>Restauración de máquinas virtuales solo en el nivel de disco<li>No puede realizar copias de seguridad locales |<li>Máquinas virtuales <li>Todos los discos (con PowerShell) |<p>Almacén de copia de seguridad de Azure</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>¿Cuáles son los escenarios de implementación de cada componente?
 | Componente | ¿Se puede implementar en Azure? | ¿Se puede implementar de forma local? | Almacenamiento de destino admitido |
@@ -122,10 +122,10 @@ En las secciones siguientes se proporcionan tablas que resumen la disponibilidad
 
 ![clave de tabla](./media/backup-introduction-to-azure-backup/table-key.png)
 
-El almacén de Copia de seguridad es el destino de almacenamiento preferido en todos los componentes. System Center DPM y el servidor de Copia de seguridad también proporcionan la opción de tener una copia en el disco local. Sin embargo, solo System Center DPM ofrece la opción de escribir datos en un dispositivo de almacenamiento en cinta.
+El almacén de Copia de seguridad es el destino de almacenamiento preferido en todos los componentes. System Center DPM y el servidor de copia de seguridad de Azure también proporcionan la opción de tener una copia en el disco local. Sin embargo, solo System Center DPM ofrece la opción de escribir datos en un dispositivo de almacenamiento en cinta.
 
 #### <a name="compression"></a>Compresión
-Las copias de seguridad se comprimen para reducir el espacio de almacenamiento necesario. El único componente que no utiliza compresión es la extensión de VM. Con la extensión de VM, todos los datos de copia de seguridad se copian desde su cuenta de almacenamiento hasta el almacén de copia de seguridad de la misma región sin comprimirlos. Al estar sin comprimir, aumenta ligeramente el almacenamiento usado. Sin embargo, el almacenamiento de datos sin compresión permite tiempos de restauración más rápidos.
+Las copias de seguridad se comprimen para reducir el espacio de almacenamiento necesario. El único componente que no utiliza compresión es la extensión de VM. La extensión de máquina virtual copia todos los datos de copia de seguridad desde su cuenta de almacenamiento en el Almacén de copia de seguridad de la misma región. Al transferir los datos, no se usa ningún tipo de compresión. Cuando se transfieren los datos sin comprimir, aumenta ligeramente el almacenamiento usado. Sin embargo, el almacenamiento de datos sin compresión permite tiempos de restauración más rápidos, en caso de que necesite ese punto de recuperación.
 
 #### <a name="incremental-backup"></a>Copia de seguridad incremental
 Cada componente admite la copia de seguridad incremental independientemente del tipo de almacenamiento de destino (disco, cinta, almacén de copia de seguridad). La copia de seguridad incremental garantiza que las copias de seguridad sean eficaces desde el punto de vista del almacenamiento y del tiempo, transfiriendo solo los cambios realizados desde la última copia de seguridad.
@@ -169,7 +169,7 @@ La realización de copias de seguridad de máquinas virtuales de Azure requiere 
 
 Como la extensión de VM (en la máquina virtual IaaS) lee directamente los datos de la cuenta de almacenamiento de Azure a través de la red de almacenamiento, no es necesario comprimir este tráfico.
 
-Si la copia de seguridad de los datos se va a realizar en System Center DPM o en un servidor de copia de seguridad de Azure, comprima los datos que van del servidor principal al servidor de copia de seguridad. De esta forma ahorrará ancho de banda.
+Si la copia de seguridad de los datos se va a realizar en System Center DPM o en un servidor de copia de seguridad de Azure, comprima los datos que van del servidor principal al servidor de copia de seguridad. La compresión de los datos antes de realizar una copia de seguridad en DPM o el servidor de copia de seguridad de Azure ahorra ancho de banda.
 
 #### <a name="network-throttling"></a>Limitación de la red
 El agente de Azure Backup ofrece velocidad moderada de la red, que le permite controlar cómo se usa el ancho de banda de red durante la transferencia de datos. La limitación puede resultar útil si necesita realizar una copia de seguridad de datos durante horas de trabajo, pero no desea que el proceso de copia de seguridad interfiera con otro tráfico de Internet. La limitación en la transferencia de datos se aplica a actividades de copia de seguridad y restauración.
@@ -186,7 +186,7 @@ El agente de Azure Backup ofrece velocidad moderada de la red, que le permite co
 | Puntos de recuperación en cinta |No aplicable |Sin límite |No aplicable |No aplicable |
 
 ## <a name="what-is-the-vault-credential-file"></a>¿Qué es el archivo de credenciales de almacén?
-El archivo de credenciales de almacén es un certificado generado por el portal para cada almacén de copia de seguridad. Luego el portal carga la clave pública en el Servicio de control de acceso (ACS). La clave privada se proporciona al descargar las credenciales, y se usa para registrar los equipos que se protegerán. La clave privada es lo que le permite autenticar los servidores o equipos para enviar datos de copia de seguridad a un determinado almacén de copia de seguridad.
+El archivo de credenciales de almacén es un certificado generado por el portal para cada almacén de copia de seguridad. Luego el portal carga la clave pública en el Servicio de control de acceso (ACS). La clave privada se proporciona al descargar las credenciales, y se usa para registrar los equipos que se protegen. La clave privada es lo que le permite autenticar los servidores o equipos para enviar datos de copia de seguridad a un determinado almacén de copia de seguridad.
 
 La credencial de almacén solo se usa para registrar los servidores o los equipos. Sin embargo, tenga cuidado con las credenciales de almacén; si se pierden o las consiguen otros usuarios, se pueden usar para registrar otras máquinas con el mismo almacén. Puesto que los datos de copia de seguridad se cifran con una frase de contraseña, a la que solo usted puede acceder, los datos de copia de seguridad existentes no pueden estar en peligro. Las credenciales de almacén expiran a las 48 horas. Aunque puede descargar las credenciales de almacén del almacén de copia de seguridad con tanta frecuencia como desee, solo las más recientes se pueden usar para el registro.
 
@@ -207,7 +207,7 @@ Los siguientes conceptos pueden ayudarle a tomar decisiones importantes en torno
 Use uno de los siguientes tutoriales para obtener instrucciones paso a paso para proteger los datos en Windows Server o proteger una máquina virtual (VM) en Azure:
 
 * [Realizar copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
-* [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look.md)
+* [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
 
 Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno de estos artículos:
 
@@ -221,6 +221,6 @@ Para más información sobre cómo proteger otras cargas de trabajo, pruebe uno 
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

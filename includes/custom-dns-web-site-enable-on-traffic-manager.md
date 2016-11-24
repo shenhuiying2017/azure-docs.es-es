@@ -13,7 +13,7 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
 > 
 
 1. En el explorador, abra el [Portal de Azure](https://portal.azure.com).
-2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y elija **Dominios personalizados**.
+2. En la pestaña **Web Apps**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y elija **Dominios personalizados**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. En la hoja **Dominios personalizados**, haga clic en **Agregar nombre de host**.
@@ -21,11 +21,15 @@ Si aún no lo ha agregado a la aplicación web como extremo del Administrador de
    
     ![](./media/custom-dns-web-site/dncmntask-cname-8.png)
 5. Haga clic en **Validar** para guardar la configuración del nombre de dominio.
-6. Al hacer clic en **Validar**, Azure iniciará el flujo de trabajo Verificación de dominio. Este flujo de trabajo comprobará la propiedad del dominio y la disponibilidad del nombre de host, e informará del éxito o del error de forma detallada y con instrucciones para solucionar el error.
-7. Tras una validación correcta, se activará el botón **Agregar nombre de host** y podrá para asignar el nombre del host. Ahora, vaya a su nombre de dominio personalizado en un explorador. Ahora verá la aplicación en ejecución con su nombre de dominio personalizado.
+6. Al hacer clic en **Validar** , Azure iniciará el flujo de trabajo Verificación de dominio. Este flujo de trabajo comprobará la propiedad del dominio y la disponibilidad del nombre de host, e informará del éxito o del error de forma detallada y con instrucciones para solucionar el error.    
+7. Tras una validación correcta, se activará el botón **Agregar nombre de host** y podrá para asignar el nombre del host. Ahora, vaya a su nombre de dominio personalizado en un explorador. Ahora verá la aplicación en ejecución con su nombre de dominio personalizado. 
    
    Una vez completada la configuración, el nombre de dominio personalizado aparecerá en la sección **nombres de dominio** de la aplicación web.
 
 En este punto, debería poder escribir el nombre de dominio del Administrador de tráfico en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,5 +1,6 @@
-### <a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
-Para que Servicios móviles administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en el Servicio de aplicaciones de Azure, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Para obtener más información, consulte el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles].
+### <a name="a-nameserver-authahow-to-authenticate-with-a-provider-server-flow"></a><a name="server-auth"></a>Autenticación con un proveedor (flujo de servidor)
+Para que Mobile Apps administre el proceso de autenticación en su aplicación, debe registrar esta última en el proveedor de identidades. A continuación, en el Servicio de aplicaciones de Azure, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor.
+Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación](../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
 Cuando haya registrado el proveedor de identidades, llame simplemente al método .login() con el nombre de su proveedor. Por ejemplo, para iniciar sesión con Facebook, use el siguiente código:
 
@@ -8,65 +9,57 @@ client.login("facebook").done(function (results) {
      alert("You are now logged in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
-});
-```
+});app-service-mobile
+app-service-mobile-ios-get-started-users value passed to the login method above to one of
+the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
 
-Si usa un proveedor de identidades que no sea Facebook, cambie el valor transferido al método de inicio de sesión anterior por uno de los siguientes: `microsoftaccount`, `facebook`, `twitter`, `google` o `aad`.
+In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
+provider and generating a App Service authentication token after successful login with the identity provider. The login
+function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
+in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
 
-En este caso, el Servicio de aplicaciones de Azure administra el flujo de autenticación de OAuth 2.0: muestra la página de inicio de sesión del proveedor seleccionado y genera un token de autenticación del Servicio de aplicaciones después de que se realice un inicio de sesión correcto con el proveedor de identidades. La función login, cuando se completa, devuelve un objeto JSON (user) que expone el identificador de usuario y el token de autenticación del Servicio de aplicaciones en los campos userId y authenticationToken, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire.
+###<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
 
-### <a name="client-auth"></a>Autenticación con un proveedor (flujo de cliente)
-La aplicación también puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto al Servicio de aplicaciones para la autenticación. Este flujo de cliente le permite proporcionar una experiencia de inicio de sesión único para los usuarios o recuperar datos de usuario adicionales del proveedor de identidades.
+Your app can also independently contact the identity provider and then provide the returned token to your App Service for
+authentication. This client flow enables you to provide a single sign-in experience for users or to retrieve additional
+user data from the identity provider.
 
-#### Ejemplo básico de autenticación social
-Este ejemplo usa el SDK de cliente de Facebook para la autenticación:
+#### Social Authentication basic example
 
-```
-client.login(
-     "facebook",
-     {"access_token": token})
-.done(function (results) {
-     alert("You are now logged in as: " + results.userId);
-}, function (err) {
-     alert("Error: " + err);
-});
-```
-En este ejemplo se asume que el token proporcionado por el SDK del proveedor correspondiente se almacena en la variable token.
-
-#### Ejemplo de Cuenta Microsoft
-El siguiente ejemplo usa el SDK de Live, que admite el inicio de sesión único para aplicaciones de la Tienda Windows mediante la cuenta de Microsoft:
+This example uses Facebook client SDK for authentication:
 
 ```
-WL.login({ scope: "wl.basic"}).then(function (result) {
-      client.login(
-            "microsoftaccount",
-            {"authenticationToken": result.session.authentication_token})
-      .done(function(results){
-            alert("You are now logged in as: " + results.userId);
-      },
-      function(error){
-            alert("Error: " + err);
-      });
-});
-```
-
-En este ejemplo simplificado se obtiene un token de Live Connect, que se suministra al Servicio de aplicaciones mediante la llamada a la función login.
-
-### <a name="auth-getinfo"></a>Obtención de información sobre el usuario autenticado
-Se puede recuperar la información de autenticación del usuario actual desde el punto de conexión `/.auth/me` mediante cualquier método de AJAX. Asegúrese de establecer el encabezado `X-ZUMO-AUTH` en el token de autenticación. El token de autenticación se almacena en `client.currentUser.mobileServiceAuthenticationToken`. Por ejemplo, para usar la API de captura:
+client.login( "facebook", {"access_token": token}) .done(function (results) { alert("You are now logged in as: " + results.userId); }, function (err) { alert("Error: " + err); });
 
 ```
-var url = client.applicationUrl + '/.auth/me';
-var headers = new Headers();
-headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken);
-fetch(url, { headers: headers })
-    .then(function (data) {
-        return data.json()
-    }).then(function (user) {
-        // The user object contains the claims for the authenticated user
-    });
+This example assumes that the token provided by the respective provider SDK is stored in the token variable.
+
+#### Microsoft Account example
+
+The following example uses the Live SDK, which supports single-sign-on for Windows Store apps by using Microsoft Account:
+
+```
+WL.login({ scope: "wl.basic"}).then(function (result) { client.login( "microsoftaccount", {"authenticationToken": result.session.authentication_token}) .done(function(results){ alert("You are now logged in as: " + results.userId); }, function(error){ alert("Error: " + err); }); });
+
 ```
 
-La captura está disponible como un paquete npm o para descarga del explorador desde CDNJS. También podría utilizar jQuery u otra API de AJAX para capturar la información. Los datos se reciben como un objeto JSON.
+This example gets a token from Live Connect, which is supplied to your App Service by calling the login function.
 
-<!---HONumber=AcomDC_0615_2016-->
+###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
+
+The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
+AJAX method.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
+is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
+
+```
+var url = client.applicationUrl + '/.auth/me'; var headers = new Headers(); headers.append('X-ZUMO-AUTH', client.currentUser.mobileServiceAuthenticationToken); fetch(url, { headers: headers }) .then(function (data) { return data.json() }).then(function (user) { // The user object contains the claims for the authenticated user });
+```
+
+Fetch is available as an npm package or for browser download from CDNJS. You could also use
+jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 80606d9fd08a4d5b5845af8ed43fdcef050e47e9
+ms.sourcegitcommit: 0d9d87d0dc26d2fcaa3886a9f8c0849b71b26847
+ms.openlocfilehash: 61ea806ec3ad620d454e2de0910fa2b49de66493
 
 
 ---
@@ -114,10 +114,17 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
    > 
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
+
 1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **Nombre**, la **Ubicación** y el **Nombre de la solución** y, a continuación, haga clic en **Aceptar**.
 2. Use el paquete NuGet [windowsazure.mediaservices.extensions](https://www.nuget.org/packages/windowsazure.mediaservices.extensions) para instalar **Extensiones del SDK de Azure Media Services para .NET**.  Las extensiones del SDK .NET de Servicios multimedia son un conjunto de métodos de extensión y funciones auxiliares que simplificarán su código y facilitarán el desarrollo con Servicios multimedia. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
+
+    Para agregar referencias mediante NuGet, haga lo siguiente: en el Explorador de soluciones, haga clic en el botón secundario del mouse en el nombre del proyecto, seleccione **Administrar paquetes NuGet**. A continuación, busque **windowsazure.mediaservices.extensions** y haga clic en **Instalar**.
+
 3. Agregue una referencia al ensamblado System.Configuration. Este ensamblado contiene la clase **System.Configuration.ConfigurationManager** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
-4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de la cuenta y la información de la clave, vaya a [Azure Portal](https://portal.azure.com/) y seleccione la cuenta de Azure Media Services. A continuación, seleccione **Configuración** > **Claves**. Aparece la ventana Administrar claves que muestra el nombre de la cuenta y la clave principal y la secundaria.
+
+    Para agregar una referencia, haga lo siguiente: en el Explorador de soluciones, haga clic en el botón secundario del mouse en el nombre del proyecto, seleccione **Agregar** > **Referencia...** y escriba la configuración en el cuadro de búsqueda. 
+
+4. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo. Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente. Para obtener el nombre de la cuenta y la información de la clave, vaya a [Azure Portal](https://portal.azure.com/) y seleccione la cuenta de Azure Media Services. A continuación, seleccione **Configuración** > **Claves**. Aparece la ventana Administrar claves que muestra el nombre de la cuenta y la clave principal y la secundaria. Copie los valores del nombre de la cuenta y la clave principal.
    
         <configuration>
         ...
@@ -141,11 +148,16 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
 6. Cree una carpeta nueva en el directorio de proyectos y copie el archivo .mp4 o .wmv que desea codificar y transmítalo o descárguelo progresivamente. En este ejemplo, se usa la ruta de acceso "C:\VideoFiles".
 
 ## <a name="connect-to-the-media-services-account"></a>Conexión a la cuenta de Servicios multimedia
+
 Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
 Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
+
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
+
+> [!NOTE]
+> Recibirá errores de compilación hasta que agregue las definiciones para todas las funciones.
 
     class Program
     {
@@ -193,8 +205,10 @@ La función **Main** llama a métodos que se definirán más adelante en esta se
                 Console.ReadLine();
             }
         }
+    }
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Creación de un nuevo recurso y carga de un archivo de vídeo
+
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. Los archivos del recurso se denominan **archivos de recursos**.
 
 El método **UploadFile** definido a continuación llama a **CreateFromFile** (definido en las extensiones del SDK para .NET). **CreateFromFile** crea un nuevo recurso en el que se carga el archivo de origen especificado.
@@ -281,7 +295,8 @@ Agregue el método siguiente a la clase Program
     }
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicación del recurso y obtención de direcciones URL para streaming y descarga progresiva
-Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores: OnDemandOrigin locators, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
+
+Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Media Services admite dos tipos de localizadores: OnDemandOrigin, que se usan para transmitir contenido multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia (para más información sobre los localizadores SAS, lea [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
 
 Tras crear los localizadores, puede generar las direcciones URL que se utilizan para transmitir o descargar los archivos.
 

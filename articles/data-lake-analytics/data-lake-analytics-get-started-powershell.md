@@ -1,6 +1,6 @@
 ---
 title: "Introducción a Azure Data Lake Analytics mediante Azure PowerShell | Microsoft Docs"
-description: "Aprenda a usar Azure PowerShell para crear una cuenta de Almacén de Data Lake, crear un trabajo de Análisis de Data Lake mediante U-SQL y enviar el trabajo. "
+description: 'Aprenda a usar Azure Portal para crear una cuenta de Data Lake Analytics, crear un trabajo de Data Lake Analytics mediante U-SQL y enviar el trabajo. '
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/21/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
-ms.openlocfilehash: 59efa050944059c737654a3f039a058c50865ea6
+ms.sourcegitcommit: c9440e26a563ed9315225b34709b009d01e065d7
+ms.openlocfilehash: 57c52a8c28e5a87a63fded3db7d0a2a785e47a53
 
 
 ---
@@ -209,6 +209,6 @@ Después de finalizar el trabajo, puede usar los siguientes cmdlets para mostrar
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,8 +1,8 @@
-### Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 El kit de herramientas de Azure para Eclipse requiere los siguientes componentes de software:
 
-* Eclipse IDE para Java EE Developers, Luna o superior. Esto se puede descargar en <http://www.eclipse.org/downloads/>.
-* Un kit para desarrolladores de Java (JDK), v1.8 o superior.
+* Eclipse IDE para Java EE Developers, Luna o superior. Se puede descargar en <http://www.eclipse.org/downloads/>.
+* Un kit para desarrolladores de Java (JDK), v1.8 o superior. 
 * Sistemas operativos: el kit de herramientas de Azure para Eclipse se ha probado en los siguientes sistemas operativos:
   
   * Windows 10, Windows 8 y 8.1, Windows 7
@@ -22,4 +22,8 @@ Encontrará más información en la página [Kit de herramientas de Azure para E
 > 
 > 
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

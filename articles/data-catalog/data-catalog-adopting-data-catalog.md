@@ -16,8 +16,8 @@ ms.workload: data-catalog
 ms.date: 10/11/2016
 ms.author: maroche
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6299c6eaab1e62281e23d2dd43c14fbb9769a316
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 4c6a07c4b3597e357c520bcafde501bc0850e685
 
 
 ---
@@ -102,8 +102,8 @@ El primer proyecto piloto debe tener algunas personas que generen y consuman dat
 
 Uno de los problemas empresariales que **Azure Data Catalog** afronta es conectar los **productores de datos** con los **consumidores de datos**. Para ello actúa como repositorio central de información sobre los orígenes de datos de la empresa. Con el Catálogo de datos, David registra los orígenes de datos de Adventure Works y SQL Server. Mediante el micromecenazgo todos los usuarios que detecten este origen de datos pueden compartir sus opiniones sobre los datos, además de utilizar los datos que han detectado. Por ejemplo, Nancy detecta los orígenes de datos mediante la búsqueda en el catálogo y comparte sus conocimientos especializados sobre los datos.  Ahora, otras personas de la organización se benefician de los conocimientos compartidos, y para ello solo tienen que realizar búsquedas en el catálogo de datos.
 
-* Para más información acerca de cómo registrar orígenes de datos, consulte [Registro de orígenes de datos](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* Para más información acerca de cómo detectar orígenes de datos, consulte [Detección de recursos de datos registrados](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* Para más información acerca de cómo registrar orígenes de datos, consulte [Registro de orígenes de datos](data-catalog-get-started.md).
+* Para más información acerca de cómo detectar orígenes de datos, consulte [Detección de recursos de datos registrados](data-catalog-get-started.md).
 
 ### <a name="start-small-and-focused"></a>Inicio a pequeña escala y centrado
 En la mayoría de los proyectos piloto de la empresa, debe propagar el catálogo con orígenes de datos de gran valor, con el fin de que los usuarios empresariales puedan ver rápidamente el valor del Catálogo de datos. TI es un buen lugar para empezar a identificar los orígenes de datos comunes que podrían ser de interés para el grupo piloto. Para los orígenes de datos compatibles, como SQL Server, se recomienda utilizar la herramienta de registro de orígenes de datos del **Catálogo de datos de Azure** . Con la herramienta de registro de orígenes de datos puede registrar un amplio rango de orígenes de datos, que incluye las bases de datos de SQL Server y Oracle, y los informes de SQL Server Reporting Services. Para obtener una lista completa de los orígenes de datos actuales, consulte [Orígenes de datos compatibles con el Catálogo de datos de Azure](data-catalog-dsr.md).
@@ -123,8 +123,8 @@ Como parte del proyecto piloto, el equipo de Nancy también utiliza orígenes de
 
 > [!NOTE]
 > Hemos creado una herramienta de ejemplo que usa la API de **Catálogo de datos de Azure** para migrar un libro de Excel al Catálogo de datos. Para más información sobre la API de Data Catalog y la herramienta de ejemplo, puede [descargar el código de ejemplo del libro Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) y la documentación de la [API de REST de Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267593.aspx).
-> 
-> 
+>
+>
 
 Cuando el proyecto piloto está en su lugar, es el momento de ejecutar el plan de adopción del Catálogo de datos.
 
@@ -142,9 +142,9 @@ Estas son algunas sugerencias para comenzar:
 Antes de que el equipo piloto salte al uso del Catálogo de datos, programe una reunión de puesta en marcha para debatir las expectativas del proyecto piloto y proporcione una formación inicial.
 
 ### <a name="set-expectations"></a>Definición de las expectativas
-El establecimiento de excepciones y objetivos ayuda a los usuarios empresariales a centrarse en los resultados específicos. Para que proyecto discurra según lo planeado, asigne regularmente (quizás de forma diaria o semanal según el ámbito y la duración del proyecto piloto) tareas para casa. Una de las funcionalidades más valiosas del Catálogo de datos es el micromecenazgo de los activos de datos, con el fin de que los usuarios empresariales puedan beneficiarse del conocimiento de los datos de la empresa. Una asignación de tareas para casa excelente es que cada miembro del equipo piloto registre o anote al menos un origen de datos que se haya utilizado. Consulte [Registro de orígenes de datos](data-catalog-get-started.md#exercise-2-registering-data-sources) y [Anotación de orígenes de datos registrados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+El establecimiento de excepciones y objetivos ayuda a los usuarios empresariales a centrarse en los resultados específicos. Para que proyecto discurra según lo planeado, asigne regularmente (quizás de forma diaria o semanal según el ámbito y la duración del proyecto piloto) tareas para casa. Una de las funcionalidades más valiosas del Catálogo de datos es el micromecenazgo de los activos de datos, con el fin de que los usuarios empresariales puedan beneficiarse del conocimiento de los datos de la empresa. Una asignación de tareas para casa excelente es que cada miembro del equipo piloto registre o anote al menos un origen de datos que se haya utilizado. Consulte [Registro de orígenes de datos](data-catalog-get-started.md) y [Anotación de orígenes de datos registrados](data-catalog-get-started.md).
 
-Reúnase con el equipo con regularidad para revisar algunas de las anotaciones. La esencia de una adopción satisfactoria del Catálogo de datos son unas buenas anotaciones acerca de los orígenes de datos, ya que proporcionan información significativa de los orígenes de datos en una ubicación central. Sin unas buenas anotaciones, el conocimiento acerca de los orígenes de datos permanece disperso por toda la empresa. Consulte [Anotación de orígenes de datos registrados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Reúnase con el equipo con regularidad para revisar algunas de las anotaciones. La esencia de una adopción satisfactoria del Catálogo de datos son unas buenas anotaciones acerca de los orígenes de datos, ya que proporcionan información significativa de los orígenes de datos en una ubicación central. Sin unas buenas anotaciones, el conocimiento acerca de los orígenes de datos permanece disperso por toda la empresa. Consulte [Anotación de orígenes de datos registrados](data-catalog-get-started.md).
 
 Y, por supuesto, la prueba final del proyecto es si los usuarios pueden detectar y conocer los orígenes de datos que necesitan usar. Los usuarios del proyecto piloto deben probar con regularidad el catálogo para asegurarse de que los orígenes de datos que usan para su trabajo diario son relevantes. Cuando un origen de datos requerido falta o no está anotado correctamente, debería servir como recordatorio para registrar orígenes de datos adicionales o para proporcionar anotaciones adicionales. Esta práctica no solo agrega valor al esfuerzo del proyecto piloto, sino que crea hábitos eficaces que se transmitirán a otros equipos una vez que se complete el equipo piloto.
 
@@ -162,11 +162,10 @@ Este artículo versa sobre cómo empezar con el **Catálogo de datos de Azure** 
 * [Página de producto del Catálogo de datos de Azure](https://azure.microsoft.com/services/data-catalog/)
 * [Documentación del Catálogo de datos de Azure](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Escenarios comunes del Catálogo de datos de Azure](data-catalog-common-scenarios.md)
-* [Registrar orígenes de datos](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Búsqueda de orígenes de datos](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Anotación de orígenes de datos registrados](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Metadatos de micromecenazgo](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Registrar orígenes de datos](data-catalog-get-started.md)
+* [Búsqueda de orígenes de datos](data-catalog-get-started.md)
+* [Anotación de orígenes de datos registrados](data-catalog-get-started.md)
+* [Metadatos de micromecenazgo](data-catalog-get-started.md)
 
 
 

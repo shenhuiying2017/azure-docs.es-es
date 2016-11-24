@@ -17,4 +17,8 @@ Al reanudar una base de datos:
 * Sus datos estarán disponibles.
 * Tendrá que reiniciar las consultas de la carga de trabajo.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

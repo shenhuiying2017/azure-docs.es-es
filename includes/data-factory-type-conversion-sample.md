@@ -1,4 +1,4 @@
-### Ejemplo de conversión de tipo
+### <a name="type-conversion-sample"></a>Ejemplo de conversión de tipo
 El siguiente es un ejemplo de la copia de datos de un Blob en SQL de Azure con conversiones de tipo.
 
 Supongamos que el conjunto de datos Blob está en formato CSV y contiene 3 columnas. Una de ellas es una columna de fecha y hora con un formato de fecha y hora personalizado mediante los nombres abreviados de los días de la semana en francés.
@@ -69,4 +69,8 @@ A continuación definirá el conjunto de datos de SQL de Azure como sigue. Nota:
 
 En este caso la factoría de datos realizará automáticamente las conversiones de tipo, incluido el campo de fecha y hora con el formato personalizado de fecha y hora usando la referencia cultural fr-fr, al mover datos de Blob a SQL deAzure.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

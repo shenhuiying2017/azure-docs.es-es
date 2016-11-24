@@ -1,3 +1,7 @@
-Después de crear uno o más grupos de seguridad de red (NSG), tendrá que recuperar información acerca de sus NSG, agregar y eliminar reglas, editar las existentes, así como asociar o desasociar, y eliminar NSG. En este artículo, aprenderá a ejecutar cada una de estas tareas. Antes de poder administrar NSG, es importante saber [cómo funcionan](../articles/virtual-network/virtual-networks-nsg.md).
+Después de crear uno o más grupos de seguridad de red (NSG), tendrá que recuperar información acerca de sus NSG, agregar y eliminar reglas, editar las existentes, así como asociar o desasociar, y eliminar NSG. En este artículo, aprenderá a ejecutar cada una de estas tareas. Para poder administrar grupos de seguridad de red, es importante saber antes [cómo funcionan](../articles/virtual-network/virtual-networks-nsg.md). 
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

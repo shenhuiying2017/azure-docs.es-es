@@ -1,4 +1,4 @@
-## Cómo crear una red virtual con un archivo de configuración de red desde PowerShell
+## <a name="how-to-create-a-vnet-using-a-network-config-file-from-powershell"></a>Cómo crear una red virtual con un archivo de configuración de red desde PowerShell
 Azure utiliza un archivo xml para definir todas las redes virtuales disponibles para una suscripción. Puede descargar este archivo y editarlo para modificar o eliminar las redes virtuales existentes y crear otras nuevas. En este documento, obtendrá información sobre cómo descargar este archivo, denominado archivo de configuración de red (o netcgf) y editarlo para crear una red virtual nueva. Compruebe el [esquema de configuración de red virtual de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx) para obtener más información sobre el archivo de configuración de red.
 
 Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga estos pasos.
@@ -13,8 +13,8 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
         XMLConfiguration                                                                                                     
         ----------------                                                                                                     
         <?xml version="1.0" encoding="utf-8"?>...  
-3. Abra el archivo que guardó en el paso 2 anterior con cualquier aplicación de edición de texto o XML y busque el elemento **<VirtualNetworkSites>**. Si ya tiene otras redes creadas, cada una de las redes se mostrará como su propio elemento **<VirtualNetworkSite>**.
-4. Para crear la red virtual que se describe en este escenario, agregue el siguiente código XML justo debajo del elemento **<VirtualNetworkSites>**:
+3. Abra el archivo que guardó en el paso 2 anterior con cualquier aplicación de edición de texto o XML y busque el elemento **<VirtualNetworkSites>** . Si ya tiene otras redes creadas, cada una de las redes se mostrará como su propio elemento **<VirtualNetworkSite>** .
+4. Para crear la red virtual que se describe en este escenario, agregue el siguiente código XML justo debajo del elemento **<VirtualNetworkSites>** :
    
         <VirtualNetworkSite name="TestVNet" Location="Central US">
           <AddressSpace>
@@ -39,7 +39,7 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
        OperationDescription OperationId                          OperationStatus
        -------------------- -----------                          ---------------
        Set-AzureVNetConfig  49579cb9-3f49-07c3-ada2-7abd0e28c4e4 Succeeded 
-7. Desde la consola de Azure PowerShell, use el cmdlet **Get-AzureVnetSite** para comprobar que se ha agregado la nueva red ejecutando el siguiente comando.
+7. Desde la consola de Azure PowerShell, use el cmdlet **Get-AzureVnetSite** para comprobar que se ha agregado la nueva red ejecutando el siguiente comando. 
    
        Get-AzureVNetSite -VNetName TestVNet
    
@@ -61,4 +61,8 @@ Para crear una red virtual mediante un archivo netcfg desde PowerShell, siga est
        OperationId          : 3f35d533-1f38-09c0-b286-3d07cd0904d8
        OperationStatus      : Succeeded
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

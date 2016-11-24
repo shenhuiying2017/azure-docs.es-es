@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: e7d3c82e235d691c4ab329be3b168dcccc19774f
-ms.openlocfilehash: 2809b7f5367a333a7aac99db890d0aee3bc6667a
+ms.sourcegitcommit: 79a3ba8f0daee5c20f7a05e20e473cfbea384acc
+ms.openlocfilehash: c941628ece0daffba7cb9bfd79fa0ffdda4ecfba
 
 
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
+
 > [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 > * [.NET](cloud-services-dotnet-get-started.md)
->
->
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
 
 En este tutorial se muestra cómo crear una aplicación de Node.js simple con Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal.  Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
 
@@ -196,6 +196,6 @@ Para más información, vea el [Centro para desarrolladores de Node.js].
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

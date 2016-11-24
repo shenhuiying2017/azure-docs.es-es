@@ -1,6 +1,6 @@
 
 
-Una máquina virtual *personalizada* no es más que una máquina virtual que se crea con la opción **Desde la galería** porque ofrece más opciones de configuración que la opción **Creación rápida**. Estas opciones incluyen:
+Una máquina virtual *personalizada* no es más que una máquina virtual que se crea con la opción **De la galería** porque ofrece más opciones de configuración que la opción **Creación rápida**. Estas opciones incluyen:
 
 * Conectar la máquina virtual a una red virtual.
 * Instalar el agente de máquina virtual de Azure y las extensiones de máquina virtual de Azure, como para antimalware.
@@ -13,5 +13,9 @@ Una máquina virtual *personalizada* no es más que una máquina virtual que se 
 > 
 > 
 
-## Para crear la máquina virtual
-<!---HONumber=AcomDC_0330_2016-->
+## <a name="to-create-the-virtual-machine"></a>Para crear la máquina virtual
+
+
+<!--HONumber=Nov16_HO3-->
+
+

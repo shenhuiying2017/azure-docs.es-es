@@ -4,4 +4,8 @@
 | Plantillas |Problemas de código con la plantilla de creación |[Registre un problema](https://github.com/Azure/azure-webjobs-sdk-templates/issues) |
 | Portal |Interfaz de usuario o problema de la experiencia |[Registre un problema](https://github.com/ProjectKudu/AzureFunctionsPortal/issues) |
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

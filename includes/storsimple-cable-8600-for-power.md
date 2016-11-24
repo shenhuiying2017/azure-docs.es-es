@@ -1,7 +1,7 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### Cableado del dispositivo para tener alimentación
+#### <a name="to-cable-your-device-for-power"></a>Cableado del dispositivo para tener alimentación
 > [!NOTE]
 > Los dos alojamientos del dispositivo StorSimple incluyen PCM redundantes. Para los dos alojamientos, los PCM tienen que estar instalados y conectados a diferentes fuentes de alimentación para garantizar una alta disponibilidad.
 > 
@@ -39,4 +39,8 @@
     | 8 |Receptáculo EBOD |
     | 9 |PDU |
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

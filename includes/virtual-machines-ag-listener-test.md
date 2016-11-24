@@ -10,10 +10,14 @@ Un ejemplo sería conectarse al agente de escucha desde una de las máquinas vir
     sqlcmd -S "<ListenerName>,<EndpointPort>" -d "<DatabaseName>" -Q "select @@servername, db_name()" -l 15
 
 > [!NOTE]
-> Si el valor de EndpointPort es 1433, no es necesario especificarlo en la llamada. La llamada anterior también asume que el equipo cliente está unido al mismo dominio y que el llamador tiene concedidos los permisos en la base de datos mediante la autenticación de Windows.
+> Si el valor de EndpointPort es 1433, no es necesario especificarlo en la llamada. La llamada anterior también asume que  el equipo cliente está unido al mismo dominio y que el llamador tiene concedidos los permisos en la base de datos mediante la autenticación de Windows.
 > 
 > 
 
 Al probar el agente de escucha, asegúrate de conmutar por error el grupo de disponibilidad para asegurarte de que los clientes puedan conectarse al agente de escucha a través de las conmutaciones por error.
 
-<!-------HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

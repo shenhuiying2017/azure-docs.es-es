@@ -1,6 +1,6 @@
 ---
-title: "Introducción a Red virtual de Azure (VNet)"
-description: "Más información sobre redes virtuales (VNet) en Azure."
+title: Azure Virtual Networks | Microsoft Docs
+description: "Más información sobre redes virtuales en Azure."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e08966567a8545c1b37ec856f836b976b5a9ab2a
+ms.sourcegitcommit: 6e96471c4f61e1ebe15c23f87ac646001d8e30ee
+ms.openlocfilehash: 47f149fe38dfd238dc2a38fd02ea50fc9c65e469
 
 
 ---
-# <a name="virtual-network-overview"></a>Información general sobre redes virtuales
+# <a name="virtual-networks"></a>Redes virtuales
 Una red virtual de Azure (VNet) es una representación de su propia red en la nube.  Es un aislamiento lógico de la nube de Azure dedicada a su suscripción. Puede controlar por completo los bloques de direcciones IP, la configuración DNS, las directivas de seguridad y las tablas de rutas dentro de esta red. También puede segmentar aún más la red virtual en subredes e iniciar máquinas virtuales de IaaS de Azure (VM) o [Servicios en la nube (instancias de rol de PaaS)](../cloud-services/cloud-services-choose-me.md). Además, puede conectar la red virtual a su red local mediante una de las [opciones de conectividad](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site) disponibles en Azure. En esencia, puede ampliar su red en Azure, con control total sobre bloques de direcciones IP con la ventaja de la escala empresarial que ofrece Azure.
 
 Para entender mejor las redes virtuales, eche un vistazo en la figura siguiente, que muestra una red local simplificada.
@@ -38,9 +38,8 @@ Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le p
 > [!NOTE]
 > Existen dos modos de implementación en Azure: clásica (también conocido como administración de servicios) y Administrador de recursos de Azure (ARM). Las redes virtuales clásicas pueden agregarse a un grupo de afinidad o creare como una red virtual regional. Si tiene una red virtual en un grupo de afinidad, se recomienda [migrarlo a una red virtual regional](virtual-networks-migrate-to-regional-vnet.md).
 > 
-> 
 
-## <a name="virtual-network-benefits"></a>Ventajas de la red virtual
+## <a name="benefits"></a>Ventajas
 * **Aislamiento**. Las redes virtuales están completamente aisladas entre sí. Esto le permite crear redes independientes para el desarrollo, la prueba y la producción que usan los mismos bloques de direcciones de CIDR.
 * **Acceso a Internet público**. Todas las máquinas virtuales de IaaS e instancias de roles de PaaS en una red virtual pueden acceder a Internet público de forma predeterminada. Puede controlar el acceso mediante grupos de seguridad de red (NSG).
 * **Acceso a máquinas virtuales en una red virtual**. Las instancias de rol de Paas y máquinas virtuales de Iaas se pueden iniciaren la misma red virtual y se pueden conectar entre sí con direcciones IP públicas, incluso si están en distintas subredes, sin necesidad de configurar una puerta de enlace o de usar direcciones IP públicas.
@@ -50,8 +49,7 @@ Observe cómo la infraestructura de Azure toma el rol del enrutador, lo que le p
   
   > [!NOTE]
   > Asegúrese de crear una red virtual antes de implementar instancias de rol de Paas o máquinas virtuales de Iaas en el entorno de Azure. Las máquinas virtuales basadas en ARM requieren una red virtual, y si no especifica una red virtual, Azure crea una predeterminada que puede tener un conflicto de bloque de dirección de CIDR con la red local. Esto hace que la conexión de la red virtual con la red local sea imposible.
-  > 
-  > 
+  >
 
 ## <a name="subnets"></a>Subredes
 La subred es un intervalo de direcciones IP en la red virtual; puede dividir una red virtual en varias subredes para la organización y la seguridad. Las instanacias de rol de PaaS y máquinas virtuales implementadas en subredes (iguales o distintas) dentro de una red virtual pueden comunicarse entre sí sin ninguna configuración adicional. También puede configurar tablas de rutas y NSG para una subred.
@@ -69,7 +67,7 @@ Las máquinas virtuales y los servicios en la nube de una red virtual se pueden 
 
 Para más información sobre el equilibrio de carga en Azure, visite [Introducción de equilibrador de carga](../load-balancer/load-balancer-overview.md).
 
-## <a name="network-security-group-nsg"></a>Grupo de seguridad de red (NSG)
+## <a name="network-security-groups-nsg"></a>Grupos de seguridad de red (NSG)
 Puede crear NSG para controlar el acceso de entrada y salida para las interfaces de red (NIC), máquinas virtuales y subredes. Cada NSG contiene una o más reglas que especifican si el tráfico se aprueba o deniega según la dirección IP de origen, el puerto de origen, la dirección IP de destino y el puerto de destino. Para más información sobre los grupos de seguridad de red, visite [Qué es un grupo de seguridad de red](virtual-networks-nsg.md).
 
 ## <a name="virtual-appliances"></a>Dispositivos virtuales
@@ -94,6 +92,6 @@ No hay ningún coste adicional para el uso de redes virtuales en Azure. A las in
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

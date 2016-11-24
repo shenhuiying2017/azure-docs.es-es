@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1b570e66afb7a4d3f7fc9b65600bfa7dc0fcc4b5
+ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
+ms.openlocfilehash: bdf08cad54f4c59bb09988fae0db3699dc5b2bff
 
 
 ---
@@ -28,9 +28,9 @@ La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y Open
 Si no está familiarizado con OAuth2 o con OpenID Connect, es posible que gran parte de esta configuración de ejemplo no tenga mucho sentido para usted. Se recomienda que consulte una breve [información general sobre el protocolo que hemos documentado aquí](active-directory-b2c-reference-protocols.md).
 
 > [!NOTE]
-> Algunas características de nuestra plataforma que tienen una expresión en estos estándares, como el acceso condicional y la administración de directivas de Intune, deben usar nuestras bibliotecas de código abierto de Microsoft Azure Identity. 
-> 
-> 
+> Algunas características de nuestra plataforma que tienen una expresión en estos estándares, como el acceso condicional y la administración de directivas de Intune, deben usar nuestras bibliotecas de código abierto de Microsoft Azure Identity.
+>
+>
 
 No todas las características y escenarios de Azure Active Directory son compatibles con la plataforma B2C.  Para determinar si debe utilizar la plataforma B2C, lea acerca de las [limitaciones de B2C](active-directory-b2c-limitations.md).
 
@@ -46,7 +46,7 @@ A continuación, debe crear una aplicación en su directorio B2C. Esto proporcio
 [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## <a name="create-your-policies"></a>Crear sus directivas
-En Azure AD B2C, cada experiencia de usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Es necesario crear una directiva así de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). Al crear la directiva, tenga en cuenta lo siguiente:
+En Azure AD B2C, cada experiencia de usuario se define mediante una [directiva](active-directory-b2c-reference-policies.md). Esta aplicación contiene una experiencia de identidad: una combinación de inicio de sesión y registro. Es necesario crear una directiva así de cada tipo, como se describe en el [artículo de referencia de las directivas](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Al crear la directiva, tenga en cuenta lo siguiente:
 
 * Elija los atributos de **nombre para mostrar** y de registro de la directiva.
 * Elija las notificaciones de aplicación de **nombre para mostrar** e **id. de objeto** de cada directiva. Puede elegir también otras notificaciones.
@@ -63,7 +63,7 @@ El código de este tutorial se conserva [en GitHub](https://github.com/Azure-Sam
 git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
 ```
 
-Otra alternativa es descargar el código completado y comenzar inmediatamente: 
+Otra alternativa es descargar el código completado y comenzar inmediatamente:
 
 ```
 git clone --branch complete git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-b2c.git
@@ -240,7 +240,7 @@ Necesitamos crear un objeto AccountStore y luego suministrarle los datos que aca
 
 En este punto, hay algunas cosas que debemos tener en cuenta respecto al servicio B2C que harán que este código sea más comprensible:
 
-1. Azure AD B2C utiliza la *directiva* proporcionada por los parámetros de consulta para atender la solicitud. De esta forma, Azure Active Directory puede actuar como un servicio independiente para su aplicación. Para suministrar estos parámetros de consulta adicionales, debemos proporcionar al método `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` nuestros parámetros de directiva personalizados. 
+1. Azure AD B2C utiliza la *directiva* proporcionada por los parámetros de consulta para atender la solicitud. De esta forma, Azure Active Directory puede actuar como un servicio independiente para su aplicación. Para suministrar estos parámetros de consulta adicionales, debemos proporcionar al método `kNXOAuth2AccountStoreConfigurationAdditionalAuthenticationParameters:` nuestros parámetros de directiva personalizados.
 2. Azure AD B2C utiliza ámbitos de forma muy parecida a otros servidores OAuth2. Sin embargo, como el uso de B2C va encaminado tanto a la autenticación de un usuario como al acceso a los recursos, algunos ámbitos son absolutamente necesarios para que el flujo funcione correctamente. Este es el caso del ámbito `openid` . Nuestros SDK de Microsoft Identity proporcionan el ámbito `openid` automáticamente así que no lo verá en nuestra configuración del SDK. Sin embargo, puesto que estamos usando una biblioteca de terceros, debemos especificar este ámbito.
 
 ```objc
@@ -274,7 +274,7 @@ En este punto, hay algunas cosas que debemos tener en cuenta respecto al servici
                                         forAccountType:data.accountIdentifier];
 }
 ```
-A continuación, asegúrese de llamarlo en AppDelegate en el método `didFinishLaunchingWithOptions:` . 
+A continuación, asegúrese de llamarlo en AppDelegate en el método `didFinishLaunchingWithOptions:` .
 
 ```
 [self setupOAuth2AccountStore];
@@ -299,16 +299,16 @@ A continuación, crearemos cada uno de estos métodos.
 
 > [!NOTE]
 > Asegúrese de enlazar `loginView` a la vista web actual que está dentro de su guión gráfico. Si no, no tendrá una vista web que aparezca cuando sea el momento de autenticarse.
-> 
-> 
+>
+>
 
 * Cree una clase `LoginViewController.m` .
 * Agregue algunas variables para que incluyan el estado a medida que nos autenticamos.
 
 ```objc
-NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory 
+NSURL *myRequestedUrl; \\ The URL request to Azure Active Directory
 NSURL *myLoadedUrl; \\ The URL loaded for Azure Active Directory
-bool loginFlow = FALSE; 
+bool loginFlow = FALSE;
 bool isRequestBusy; \\ A way to give status to the thread that the request is still happening
 NSURL *authcode; \\ A placeholder for our auth code.
 ```
@@ -387,7 +387,7 @@ Es necesario indicar a la vista web el comportamiento que queremos cuando un usu
 
 * Escriba el código para controlar el resultado de la solicitud de OAuth2.
 
-Necesitaremos el código que controlará la URL de redirección que proviene de la vista web. Si no se realiza correctamente, volveremos a intentarlo. Mientras tanto, la biblioteca proporcionará el error que se puede ver en la consola o lo controlará de forma asincrónica. 
+Necesitaremos el código que controlará la URL de redirección que proviene de la vista web. Si no se realiza correctamente, volveremos a intentarlo. Mientras tanto, la biblioteca proporcionará el error que se puede ver en la consola o lo controlará de forma asincrónica.
 
 ```objc
 - (void)handleOAuth2AccessResult:(NSURL *)accessResult {
@@ -487,7 +487,7 @@ Vamos a crear un método que se llamará cada vez que tengamos una solicitud de 
 Ahora ha terminado de crear la forma principal en que interactuamos con nuestra aplicación para iniciar sesión. Una vez que hemos iniciado sesión, debemos usar los tokens que hemos recibido. Para ello, crearemos código auxiliar que llamará a las API de REST automáticamente mediante esta biblioteca.
 
 ## <a name="create-a-graphapicaller-class-to-handle-our-requests-to-a-rest-api"></a>Creación de una clase `GraphAPICaller` para administrar nuestras solicitudes a una API de REST
-Tenemos cargada una configuración cada vez que cargamos nuestra aplicación. Ahora debemos hacer algo con ella una vez que tengamos un token. 
+Tenemos cargada una configuración cada vez que cargamos nuestra aplicación. Ahora debemos hacer algo con ella una vez que tengamos un token.
 
 * Cree un archivo `GraphAPICaller.h`.
 
@@ -511,7 +511,7 @@ Ahora que hemos configurado nuestra interfaz, vamos a agregar la implementación
 ```objc
 @implementation GraphAPICaller
 
-// 
+//
 // Gets the tasks from our REST endpoint we specified in settings
 //
 
@@ -564,7 +564,7 @@ Ahora que hemos configurado nuestra interfaz, vamos a agregar la implementación
       }];
 }
 
-// 
+//
 // Adds a task from our REST endpoint we specified in settings
 //
 
@@ -628,7 +628,6 @@ Ahora puede pasar a temas más avanzados de B2C. Puede probar:
 [Llamada a una API web de Node.js desde una aplicación web de Node.js (Llamada a una API web de Node.js desde una aplicación web de Node.js)]()
 
 [Personalización de la experiencia de usuario en una aplicación B2C]()
-
 
 
 

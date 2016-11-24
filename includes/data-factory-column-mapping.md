@@ -1,4 +1,4 @@
-## Asignación de columnas con reglas de traductor
+## <a name="column-mapping-with-translator-rules"></a>Asignación de columnas con reglas de traductor
 La asignación de columnas puede usarse para especificar cómo se asignan las columnas especificadas en "structure" de la tabla de origen a las columnas especificadas en "structure" de la tabla receptora. La propiedad **columnMapping** está disponible en la sección **typeProperties** de la actividad de copia.
 
 La asignación de columnas admite los siguientes escenarios:
@@ -12,13 +12,13 @@ Las siguientes son las condiciones de error, estas condiciones producirán una e
 * Asignación duplicada.
 * El resultado de la consulta SQL no tiene un nombre de columna que esté especificado en la asignación.
 
-## Ejemplos de asignación de columnas
+## <a name="column-mapping-samples"></a>Ejemplos de asignación de columnas
 > [!NOTE]
-> Los ejemplos siguientes son para SQL Azure y Azure Blob, pero son aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente.
+> Los ejemplos siguientes son para SQL Azure y Azure Blob, pero son aplicables a cualquier almacén de datos que admita conjuntos de datos rectangulares. Tendrá que ajustar el conjunto de datos y las definiciones de servicios vinculados en los ejemplos siguientes para que apunten a los datos en el origen de datos correspondiente. 
 > 
 > 
 
-### Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
+### <a name="sample-1-column-mapping-from-azure-sql-to-azure-blob"></a>Ejemplo 1: asignación de columnas de SQL Server a un blob de Azure
 En este ejemplo la tabla de entrada tiene una estructura y apunta a una tabla SQL en una base de datos de SQL de Azure.
 
     {
@@ -114,8 +114,8 @@ A continuación se muestra el JSON para la actividad. Las columnas del origen se
 
 ![Flujo de asignación de columnas](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
 
-### Ejemplo 2: asignación de columnas con una consulta SQL de SQL de Azure a un blob de Azure
-En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en lugar de especificar simplemente el nombre de tabla y los nombres de columna en la sección "structure".
+### <a name="sample-2-column-mapping-with-sql-query-from-azure-sql-to-azure-blob"></a>Ejemplo 2: asignación de columnas con una consulta SQL de SQL de Azure a un blob de Azure
+En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en lugar de especificar simplemente el nombre de tabla y los nombres de columna en la sección "structure". 
 
     {
         "name": "CopyActivity",
@@ -146,10 +146,14 @@ En este ejemplo, se usa una consulta SQL para extraer datos de SQL de Azure en l
             }
     }
 
-En este caso, los resultados de consulta se asignan primero a las columnas especificadas en "structure" del origen. A continuación, las columnas dev"structure" de origen se asignan a columnas "structure" de receptor con las reglas especificadas en columnMappings. Supongamos que la consulta devuelve 5 columnas, dos columnas adicionales y aquellas especificadas en "structure" de origen.
+En este caso, los resultados de consulta se asignan primero a las columnas especificadas en "structure" del origen. A continuación, las columnas dev"structure" de origen se asignan a columnas "structure" de receptor con las reglas especificadas en columnMappings.  Supongamos que la consulta devuelve 5 columnas, dos columnas adicionales y aquellas especificadas en "structure" de origen.
 
 **Flujo de asignación de columnas**
 
 ![Flujo de asignación de columnas 2](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow-2.png)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

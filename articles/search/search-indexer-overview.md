@@ -13,24 +13,25 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 10/17/2016
+ms.date: 10/27/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: 9a8a4454a0676c403356e9989665242978949011
-
+ms.sourcegitcommit: 2cddd262f912efff029bb05f0f3f3551409167ed
+ms.openlocfilehash: 4c969499f562d8cef9c09ebd909508b1c0542c57
 
 ---
+
 # <a name="indexers-in-azure-search"></a>Indexadores de Búsqueda de Azure
 > [!div class="op_single_selector"]
+>
 > * [Información general](search-indexer-overview.md)
 > * [Portal](search-import-data-portal.md)
-> * [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+> * [SQL de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 > * [DocumentDB](../documentdb/documentdb-search-indexer.md)
 > * [Almacenamiento de blobs (vista previa)](search-howto-indexing-azure-blob-storage.md)
 > * [Indexing Azure Table Storage with Azure Search (Indexación de Almacenamiento de tablas de Azure con Búsqueda de Azure)](search-howto-indexing-azure-tables.md)
-> 
-> 
+>
+>
 
 Un **indexador** de Búsqueda de Azure es un rastreador (crawler) que extrae datos y metadatos utilizables en búsquedas de un origen de datos externo y rellena un índice basado en las asignaciones de un campo a otro entre el índice y su origen de datos. Este enfoque se denomina a veces "modelo de extracción", porque el servicio extrae datos sin que sea preciso escribir código que inserte datos en un índice.
 
@@ -45,8 +46,6 @@ Para los indexadores disponibles generalmente, como SQL Azure o DocumentDB, pued
 * [API de REST de servicio](https://msdn.microsoft.com/library/azure/dn946891.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
-Los indexadores en versión preliminar, como Almacenamiento de blobs o de tablas de Azure, requieren código y API en versión preliminar como la [API de REST de Búsqueda de Azure en versión preliminar para indexadores](search-api-indexers-2015-02-28-preview.md). Por lo general, las herramientas de portal no están disponibles para las características en versión preliminar.
-
 ## <a name="basic-configuration-steps"></a>Pasos básicos de configuración
 Los indexadores pueden ofrecer características que son exclusivas del origen de datos. En este sentido, algunos aspectos de la configuración de orígenes de datos o indexadores varían según el tipo de indexador. No obstante, todos los indexadores comparten composición básica y requisitos. Más adelante, se explican los pasos que son comunes a todos los indexadores.
 
@@ -56,12 +55,12 @@ Un indexador automatizará algunas tareas relacionadas con la ingesta de datos, 
 ### <a name="step-2-create-a-data-source"></a>Paso 2: Creación de un origen de datos
 Un indexador extrae datos de un **origen de datos** que contiene información, por ejemplo, una cadena de conexión. Actualmente se admiten los siguientes orígenes de datos:
 
-* [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Almacenamiento de blobs de Azure (versión preliminar)](search-howto-indexing-azure-blob-storage.md), que se usa para extraer texto de PDF, documentos de Office, HTML o XML
-* [Almacenamiento de tablas de Azure (versión preliminar)](search-howto-indexing-azure-tables.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), que se usa para extraer texto de PDF, documentos de Office, HTML o XML
+* [Almacenamiento de tablas de Azure](search-howto-indexing-azure-tables.md)
 
-Los orígenes de datos se configuran y administran independientemente de los indexadores que los usan, lo que significa que varios indexadores pueden usar un origen de datos para cargar más de un índice a la vez. 
+Los orígenes de datos se configuran y administran independientemente de los indexadores que los usan, lo que significa que varios indexadores pueden usar un origen de datos para cargar más de un índice a la vez.
 
 ### <a name="step-3create-and-schedule-the-indexer"></a>Paso 3: Creación y programación del indexador
 La definición del indexador es una construcción que especifica el índice, el origen de datos y una programación. Un indexador puede hacer referencia a un origen de datos desde otro servicio, siempre que ese origen de datos pertenezca a la misma suscripción. Para más información sobre la estructura de un indexador, consulte [Crear el indizador (API de REST de servicios de búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
@@ -69,16 +68,15 @@ La definición del indexador es una construcción que especifica el índice, el 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que tiene el concepto básico, el paso siguiente consiste en revisar los requisitos y las tareas específicos de cada tipo de origen de datos.
 
-* [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers-2015-02-28.md)
+* [Base de datos SQL de Azure o SQL Server en una máquina virtual de Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [DocumentDB](../documentdb/documentdb-search-indexer.md)
-* [Almacenamiento de blobs de Azure (versión preliminar)](search-howto-indexing-azure-blob-storage.md), que se usa para extraer texto de PDF, documentos de Office, HTML o XML
-* [Almacenamiento de tablas de Azure (versión preliminar)](search-howto-indexing-azure-tables.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), que se usa para extraer texto de PDF, documentos de Office, HTML o XML
+* [Almacenamiento de tablas de Azure](search-howto-indexing-azure-tables.md)
 * [Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure (versión preliminar)](search-howto-index-csv-blobs.md)
 * [Indexación de blobs JSON con el indexador de blobs de Búsqueda de Azure (versión preliminar)](search-howto-index-json-blobs.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

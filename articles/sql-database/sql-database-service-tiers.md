@@ -13,16 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/10/2016
+ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9ecbee74bc0559aa632304b0a0428abb36606597
+ms.sourcegitcommit: c7d253dfca8f399527d193f14af12c166157d39d
+ms.openlocfilehash: eaadd5c8d30a522fc05d214620600331d7485485
 
 
 ---
 # <a name="sql-database-options-and-performance-understand-whats-available-in-each-service-tier"></a>Opciones y rendimiento de SQL Database: descripción de lo que está disponible en cada nivel de servicio
-[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio con varios niveles de rendimiento para controlar varias cargas de trabajo. Cada nivel de rendimiento proporciona un conjunto de recursos cada vez mayor, diseñado para proporcionar un mayor rendimiento. Puede administrar cada base de datos en su propio [nivel de servicio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con su propio nivel de rendimiento. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un conjunto compartido de recursos. Los recursos disponibles para las bases de datos independientes se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas o eDTU. Para más información sobre DTU y eDTU, consulte [Qué es una DTU](sql-database-what-is-a-dtu.md). 
+[Azure SQL Database](sql-database-technical-overview.md) ofrece tres niveles de servicio con varios niveles de rendimiento para controlar varias cargas de trabajo. Los niveles de rendimiento más altos proporcionan un conjunto de recursos cada vez mayor, diseñado para proporcionar un mayor rendimiento. Puede cambiar los niveles de servicio y de rendimiento dinámicamente. Para más información, consulte [Cambio del nivel de servicio y del nivel de rendimiento (nivel de precios) de una base de datos SQL](sql-database-scale-up.md) .
+
+Puede administrar cada base de datos en su propio [nivel de servicio](sql-database-service-tiers.md#standalone-database-service-tiers-and-performance-levels) con su propio nivel de rendimiento. También puede administrar varias bases de datos en un [grupo elástico](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) con un conjunto compartido de recursos. Los recursos disponibles para las bases de datos independientes se expresan en términos de unidades de transacción de base de datos (DTU) y para los grupos elásticos en términos de DTU elásticas o eDTU. Para más información sobre DTU y eDTU, consulte [Qué es una DTU](sql-database-what-is-a-dtu.md). 
 
 En ambos casos, los niveles de servicio son: **Básico**, **Estándar** y **Premium**. En estos niveles, las opciones de las bases de datos son similares para las bases de datos independientes y para los grupos elásticos, pero hay consideraciones adicionales para los grupos elásticos. Este artículo proporciona información detallada sobre los niveles de servicio para las bases de datos independientes y los grupos elásticos.
 

@@ -1,20 +1,20 @@
 
 
-## Máquinas virtuales de instancia única o instancias múltiples
+## <a name="multi-and-single-instance-vms"></a>Máquinas virtuales de instancia única o instancias múltiples
 Para muchos clientes que ejecutan Azure es fundamental poder programar cuándo las máquinas virtuales realizarán el mantenimiento planeado, puesto que esto provoca unos 15 minutos de inactividad. Puede aprovechar los conjuntos de disponibilidad para ayudar a controlar cuándo las máquinas virtuales aprovisionadas reciben el mantenimiento planeado.
 
-Hay dos configuraciones posibles para las máquinas virtuales que se ejecutan en Azure. Las máquinas virtuales se pueden configurar como instancia única o instancias múltiples. Si las máquinas virtuales están en un conjunto de disponibilidad, se configuran como instancias múltiples. Tenga en cuenta que incluso las máquinas virtuales únicas se pueden implementar en un conjunto de disponibilidad y se tratarán como instancias múltiples. Si las máquinas virtuales NO están en un conjunto de disponibilidad, se configurarán como una instancia única. Para más información sobre los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales de Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md) o [Administración de la disponibilidad de las máquinas virtuales de Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md).
+Hay dos configuraciones posibles para las máquinas virtuales que se ejecutan en Azure. Las máquinas virtuales se pueden configurar como instancia única o instancias múltiples. Si las máquinas virtuales están en un conjunto de disponibilidad, se configuran como instancias múltiples. Tenga en cuenta que incluso las máquinas virtuales únicas se pueden implementar en un conjunto de disponibilidad y se tratarán como instancias múltiples. Si las máquinas virtuales NO están en un conjunto de disponibilidad, se configurarán como una instancia única.  Para más información sobre los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales Windows](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [Administración de la disponibilidad de las máquinas virtuales Linux](../articles/virtual-machines/virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Las actualizaciones de mantenimiento planeado para máquinas virtuales de instancia única e instancias múltiples se realizan por separado. Si vuelve a configurar las máquinas virtuales para que sean de instancia única (si son de instancias múltiples) o de instancias múltiples (si son de instancia única), puede controlar cuándo las máquinas virtuales recibirán el mantenimiento planeado. Consulte [Mantenimiento planeado de máquinas virtuales de Linux de Azure](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md) o [Mantenimiento planeado de máquinas virtuales de Microsoft Azure](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md) para más detalles sobre el mantenimiento planeado de máquinas virtuales de Azure.
+Las actualizaciones de mantenimiento planeado para máquinas virtuales de instancia única e instancias múltiples se realizan por separado. Si vuelve a configurar las máquinas virtuales para que sean de instancia única (si son de instancias múltiples) o de instancias múltiples (si son de instancia única), puede controlar cuándo las máquinas virtuales recibirán el mantenimiento planeado. Para más detalles sobre el mantenimiento planeado de máquinas virtuales de Azure, consulte [Mantenimiento planeado de máquinas virtuales Linux en Azure](../articles/virtual-machines/virtual-machines-linux-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o [Mantenimiento planeado de máquinas virtuales Windows en Azure](../articles/virtual-machines/virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## Para la configuración de instancias múltiples
+## <a name="for-multi-instance-configuration"></a>Para la configuración de instancias múltiples
 Puede seleccionar la hora del mantenimiento planeado que afecta a las máquinas virtuales que se implementan en una configuración de conjunto de disponibilidad mediante la eliminación de estas máquinas virtuales de los conjuntos de disponibilidad.
 
 1. Se le enviará un correo electrónico 7 días naturales antes del mantenimiento planeado para las máquinas virtuales en una configuración de instancias múltiples. Los identificadores de suscripción y los nombres de las máquinas virtuales de instancias múltiples afectados se incluirán en el cuerpo del correo electrónico.
-2. Durante estos 7 días, puede elegir la hora en la que se actualizarán las instancias mediante la eliminación de las máquinas virtuales de instancias múltiples en esa región de su conjunto de disponibilidad. Este cambio de configuración ocasionará un reinicio, ya que la máquina virtual se traslada desde un host físico, destinado para el mantenimiento, a otro host físico que no está destinado al mantenimiento.
-3. Puede quitar la máquina virtual del conjunto de disponibilidad en el portal clásico.
+2. Durante estos 7 días, puede elegir la hora en la que se actualizarán las instancias mediante la eliminación de las máquinas virtuales de instancias múltiples en esa región de su conjunto de disponibilidad. Este cambio de configuración ocasionará un reinicio, ya que la máquina virtual se traslada desde un host físico, destinado para el mantenimiento, a otro host físico que no está destinado al mantenimiento. 
+3. Puede quitar la máquina virtual del conjunto de disponibilidad en el portal clásico. 
    
-   1. En el portal clásico, haga clic en la máquina virtual y después seleccione “configuración”.
+   1. En el portal clásico, haga clic en la máquina virtual y después seleccione “configuración”. 
    2. En “configuración” puede ver en qué conjunto de disponibilidad se encuentra la máquina virtual.
       
       ![Selección del conjunto de disponibilidad](./media/virtual-machines-planned-maintenance-schedule/availabilitysetselection.png)
@@ -31,13 +31,13 @@ Esto también se puede lograr con Azure PowerShell:
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## Para la configuración de una instancia única
+## <a name="for-single-instance-configuration"></a>Para la configuración de una instancia única
 Puede seleccionar la hora del mantenimiento planeado que afecta a las máquinas virtuales en una configuración de una instancia única mediante la adición de estas máquinas virtuales en conjuntos de disponibilidad.
 
 Paso a paso
 
-1. Se le enviará un correo electrónico 7 días naturales antes del mantenimiento planeado para las máquinas virtuales en una configuración de instancia única. Los identificadores de suscripción y los nombres de las máquinas virtuales de instancia única afectados se incluirán en el cuerpo del correo electrónico.
-2. Durante estos 7 días, puede elegir la hora en la que se reinicia la instancia trasladando las máquinas virtuales de instancia única a un conjunto de disponibilidad en esa misma región. Este cambio de configuración ocasionará un reinicio, ya que la máquina virtual se traslada desde un host físico, destinado para el mantenimiento, a otro host físico que no está destinado al mantenimiento.
+1. Se le enviará un correo electrónico 7 días naturales antes del mantenimiento planeado para las máquinas virtuales en una configuración de instancia única. Los identificadores de suscripción y los nombres de las máquinas virtuales de instancia única afectados se incluirán en el cuerpo del correo electrónico. 
+2. Durante estos 7 días, puede elegir la hora en la que se reinicia la instancia. Para ello, debe mover las máquinas virtuales de instancia única a un conjunto de disponibilidad que se encuentre en la misma región. Este cambio de configuración ocasionará un reinicio, ya que la máquina virtual se traslada desde un host físico, destinado para el mantenimiento, a otro host físico que no está destinado al mantenimiento.
 3. Siga las instrucciones siguientes para agregar las máquinas virtuales existentes a conjuntos de disponibilidad mediante el Portal clásico y Azure PowerShell (consulte el ejemplo de Azure PowerShell en la nota siguiente).
 4. Una vez que se hayan vuelto a configurar estas máquinas virtuales como de instancias múltiples, se excluirán del mantenimiento planeado para máquinas virtuales de instancia única.
 5. Una vez completada la actualización de máquinas virtuales de instancia única (según la programación que se describe en el correo electrónico original), puede quitar las máquinas virtuales de sus conjuntos de disponibilidad y se volverán a configurar como máquinas virtuales de instancia única.
@@ -51,7 +51,10 @@ Esto también se puede lograr con Azure PowerShell:
 
 
 <!--Link references-->
-[Virtual Machines Manage Availability]: virtual-machines-windows-tutorial.md
-[Understand planned versus unplanned maintenance]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
+[Administración de la disponibilidad de las máquinas virtuales]: virtual-machines-windows-tutorial.md
+[Mantenimiento planeado frente a mantenimiento no planeado]: virtual-machines-manage-availability.md#Understand-planned-versus-unplanned-maintenance/
 
-<!---HONumber=AcomDC_0803_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

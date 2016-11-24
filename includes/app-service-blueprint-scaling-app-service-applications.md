@@ -3,7 +3,7 @@
   * Descripción de redundancia y confiabilidad
   * Comparación de aplicaciones con y sin estado
     * [Configuración de una aplicación sin estado](/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/)
-* Aplicaciones de prueba de carga en el Servicio de aplicaciones
+* Aplicaciones de prueba de carga en el Servicio de aplicaciones   
 * Prácticas recomendadas de escalado en el Servicio de aplicaciones
   
   * Agotamiento de puertos y agrupación de conexiones
@@ -14,4 +14,8 @@
   
   * [Sacar provecho de Administrador de tráfico para alcanzar una escala global](../articles/traffic-manager/traffic-manager-overview.md)
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

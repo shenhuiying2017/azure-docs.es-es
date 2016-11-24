@@ -10,22 +10,22 @@ Para especificar la compresión para un conjunto de datos, use la propiedad **co
 
     {  
         "name": "AzureBlobDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureBlob",  
             "linkedServiceName": "StorageLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 La sección **compression** tiene dos propiedades:  
@@ -46,6 +46,8 @@ Cuando se especifica la propiedad compression en un conjunto de datos de entrada
 * Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un blob de Azure. Defina un conjunto de datos de blob de Azure de salida con la propiedad JSON compression en este caso.  
 * Leer datos comprimidos con GZIP de un blob de Azure, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un blob de Azure. Defina el conjunto de datos de blob de Azure de entrada con el tipo de compresión establecido en GZIP y el conjunto de datos de salida con el tipo de compresión establecido en BZIP2 en este caso.   
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

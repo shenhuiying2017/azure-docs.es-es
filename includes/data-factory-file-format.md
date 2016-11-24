@@ -1,10 +1,18 @@
 ## <a name="specifying-formats"></a>Especificación de formatos
+Azure Data Factory admite los siguientes tipos de formato: 
+
+* [Formato de texto](#specifying-textformat)
+* [Formato JSON](#specifying-jsonformat)
+* [Formato Avro](#specifying-avroformat)
+* [Formato ORC](#specifying-orcformat)
+* [Formato Parquet](#specifying-parquetformat)
+
 ### <a name="specifying-textformat"></a>Especificación de TextFormat
 Si se establece el formato en **TextFormat**, puede especificar las siguientes propiedades **opcionales** en la sección **Format**.
 
 | Propiedad | Descripción | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. |Solo se permite un carácter. El valor predeterminado es coma (','). |No |
+| columnDelimiter |El carácter utilizado para separar las columnas en un archivo. |Solo se permite un carácter. El valor predeterminado es coma (','). <br/><br/>Para usar un carácter Unicode, consulte [Caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obtener el código correspondiente. Por ejemplo, puede usar un carácter no imprimible excepcional que probablemente no existe en los datos: especifique "\u0001", que representa el inicio de encabezado (SOH). |No |
 | rowDelimiter |El carácter usado para separar las filas en un archivo. |Solo se permite un carácter. El valor predeterminado es cualquiera de los siguientes en lectura: ["\r\n", "\r", "\n"] y "\r\n" en escritura. |No |
 | escapeChar |El carácter especial que se usa para anular un delimitador de columna en el contenido del archivo de entrada. <br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Ejemplo: si tiene la coma (',') como el delimitador de columna, pero quiere tener el carácter de coma en el texto (ejemplo: "Hello, world"), puede definir '$' como carácter de escape y usar la cadena "Hello$, world" en el origen. |No |
 | quoteChar |El carácter usado para poner entre comillas un valor de cadena. Los delimitadores de columna y fila entre comillas se tratarán como parte del valor de la cadena. Esta propiedad se aplica a conjuntos de datos de entrada y salida.<br/><br/>No se puede especificar escapeChar y quoteChar para una tabla. |Solo se permite un carácter. No hay ningún valor predeterminado. <br/><br/>Por ejemplo, si tiene la coma (',') como delimitador de columna, pero quiere tener el carácter de coma en el texto (por ejemplo: <Hello, world>), puede definir " (comillas dobles) como comillas y usar la cadena "Hello, world" en el origen. |No |
@@ -55,7 +63,13 @@ Si se establece el formato en AvroFormat, no es preciso especificar propiedades 
 
 Para usar el formato Avro en una tabla de Hive, puede consultar [Tutorial de Apache Hive](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
+Tenga en cuenta los siguientes puntos:  
+
+* No se admiten [tipos de datos complejos](http://avro.apache.org/docs/current/spec.html#schema_complex) (registros, enumeraciones, matrices, asignaciones, uniones y fijos)
+
 ### <a name="specifying-jsonformat"></a>Especificación de JsonFormat
+Para importar y exportar archivos JSON tal como están hacia o desde DocumentDB, consulte la sección sobre [la importación y exportación de documentos JSON](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) en el conector de DocumentDB para más información.
+
 Si se establece el formato en **JsonFormat**, puede especificar las siguientes propiedades **opcionales** en la sección **Format**.
 
 | Propiedad | Descripción | Obligatorio |
@@ -114,7 +128,7 @@ Cada archivo contiene un único objeto o bien varios objetos concatenados/delimi
     }
 
 
-#### <a name="arrayofobjects-file-pattern."></a>Patrón de archivos arrayOfObjects
+#### <a name="arrayofobjects-file-pattern"></a>Patrón de archivos arrayOfObjects
 Cada archivo contiene una matriz de objetos. 
 
     [
@@ -264,6 +278,8 @@ Tenga en cuenta los siguientes puntos:
 * No se admiten tipos de daros complejos (MAP, LIST).
 * El archivo Parquet tiene las siguientes opciones relacionadas con la compresión: NONE, SNAPPY, GZIP y LZO. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo Parquet, Data Factory elige SNAPPY que es el valor predeterminado para Parquet. Por el momento, no hay ninguna opción para invalidar este comportamiento. 
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

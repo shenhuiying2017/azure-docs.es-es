@@ -9,6 +9,10 @@ Vamos a usar un ejemplo común de tráfico web en el puerto 80. Una vez que teng
    * Un valor de prioridad inferior a 65 500 (para que tenga mayor prioridad que la regla de entrada predeterminada de denegación de comodín).
 3. Asociar el grupo de seguridad de red con la subred o la interfaz de red de máquina virtual.
 
-Puede crear configuraciones de red complejas para proteger su entorno mediante reglas y grupos de seguridad de red. Nuestro ejemplo solo utiliza una o dos reglas que permiten el tráfico HTTP o la administración remota. Para una información detallada, consulte aquí la sección de [Más información](#more-information-on-network-security-groups) o el artículo [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
+Puede crear configuraciones de red complejas para proteger su entorno mediante reglas y grupos de seguridad de red. Nuestro ejemplo solo utiliza una o dos reglas que permiten el tráfico HTTP o la administración remota. Para más información, consulte la sección [Más información acerca de los grupos de seguridad de red](#more-information-on-network-security-groups) o el artículo [¿Qué es un grupo de seguridad de red?](../articles/virtual-network/virtual-networks-nsg.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/23/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4582e81a0d2e7bf5be401e72885e2ee751087cf5
+ms.sourcegitcommit: 35b0d0e7dd73852900384c34b8b842754434cc93
+ms.openlocfilehash: 4fbdb64918a642dbe899ab8b606fbf58e1fb94d3
 
 
 ---
@@ -33,7 +33,7 @@ El dispositivo virtual StorSimple está disponible en dos modelos: estándar 801
 | **MV de Azure** |Standard_A3 (4 núcleos, 7 GB de memoria) |Standard_DS3 (4 núcleos, 14 GB de memoria) |
 | **Compatibilidad de versión** |Ejecuta las versiones previas a la actualización 2 o posterior |Ejecuta las versiones de la actualización 2 o posterior |
 | **Disponibilidad en regiones** |Todas las regiones de Azure |Regiones de Azure que admiten Almacenamiento premium<br></br>Si desea obtener una lista de las regiones, consulte las [regiones admitidas para 8020](#supported-regions-for-8020) |
-| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar]() |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
+| **Tipo de almacenamiento** |Usa el almacenamiento estándar de Azure para discos locales <br></br> Infórmese de cómo [crear una cuenta de almacenamiento estándar](../storage/storage-create-storage-account.md) |Usa el almacenamiento premium de Azure para discos locales<sup>2</sup> <br></br>Infórmese de cómo [crear una cuenta de Premium Storage ](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk) |
 | **Guía de la carga de trabajo** |Recuperación a nivel de elemento de archivos de copias de seguridad |Escenarios de desarrollo y pruebas en la nube, baja latencia, mayores cargas de trabajo de rendimiento  <br></br>Dispositivo secundario para recuperación ante desastres |
 
 <sup>1</sup> *Anteriormente conocido como 1100*.
@@ -92,7 +92,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 * Para el dispositivo virtual, [configure una red virtual en Azure](../virtual-network/virtual-networks-create-vnet-classic-portal.md). Si usa Almacenamiento premium, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Más información sobre las [regiones que actualmente admiten 8020](#supported-regions-for-8020).
 * Puede usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre del servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver las direcciones IP correctamente, no se podrá crear el dispositivo virtual.
 * Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados. 
-* Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:                             
+* Puede crear [Máquinas virtuales de Azure](../virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo virtual. Estos servidores deben cumplir los siguientes requisitos:                             
   
   * Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
   * Ejecutarse en la misma red virtual como el dispositivo virtual.
@@ -103,7 +103,7 @@ Antes de aprovisionar el dispositivo virtual, deberá realizar los siguientes pr
 Realice las siguientes actualizaciones en su servicio StorSimple de Azure antes de crear un dispositivo virtual:
 
 * Agregue [registros de control de acceso](storsimple-manage-acrs.md) para las máquinas virtuales que vayan a ser servidores de host para el dispositivo virtual.
-* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage]() o una [cuenta de Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+* Utilice una [cuenta de almacenamiento](storsimple-manage-storage-accounts.md#add-a-storage-account) en la misma región que el dispositivo virtual. Las cuentas de almacenamiento en regiones diferentes pueden causar un bajo rendimiento. Puede usar una cuenta de almacenamiento estándar o premium con el dispositivo virtual. Obtenga más información sobre cómo crear una [cuenta de Standard Storage] ((../storage/storage-create-storage-account.md) o una [cuenta de Premium Storage](../storage/storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 * Para crear el dispositivo virtual use una cuenta diferente de la que usa para los datos. Utilizar la misma cuenta de almacenamiento puede causar un bajo rendimiento.
 
 Asegúrese de que tiene la siguiente información antes de empezar:
@@ -127,6 +127,7 @@ Si se produce un error en este paso durante la creación del dispositivo virtual
 Antes de comenzar este procedimiento, asegúrese de que tiene una copia de la clave de cifrado de datos del servicio. La clave de cifrado de datos del servicio se creó cuando se configuró el primer dispositivo de StorSimple y se le pidió que lo guardara en una ubicación segura. Si no tiene una copia de la clave de cifrado de datos del servicio, debe ponerse en contacto con Microsoft Support para obtener ayuda.
 
 Realice los pasos siguientes para configurar y registrar el dispositivo virtual de StorSimple.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### <a name="step-3-optional-modify-the-device-configuration-settings"></a>Paso 3: (Opcional) Modificación de la configuración del dispositivo
@@ -259,6 +260,6 @@ Si no hay ninguna conexión a Internet, se producirá un error durante la creaci
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

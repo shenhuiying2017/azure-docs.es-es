@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: 
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
 ms.service: load-balancer
@@ -16,20 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2016
 ms.author: sewhee
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7344f2c3eeb7d52f8bc60e564d66b2cc51f10f75
+ms.sourcegitcommit: cf1eafc7bca5bddeb32f1e1e05e660d6877ed805
+ms.openlocfilehash: 16ebe82b866565f676fb33bfa915465c08a5ea89
 
 ---
 
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-powershell"></a>Introducción a la creación de un equilibrador de carga orientado a Internet (clásico) en PowerShell
 
-[!INCLUDE [load-balancer-get-started-internet-classic-selectors-include.md](../../includes/load-balancer-get-started-internet-classic-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Portal de Azure clásico](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
+> * [CLI de Azure](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
+> * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
+> [!IMPORTANT]
+> Antes de trabajar con recursos de Azure, es importante comprender que Azure tiene actualmente dos modelos de implementación: Azure Resource Manager y el clásico. Asegúrese de que comprende los [modelos de implementación y las herramientas](../azure-classic-rm.md) antes de trabajar con recursos de Azure. Puede ver la documentación de las distintas herramientas haciendo clic en las fichas en la parte superior de este artículo. Este artículo trata sobre el modelo de implementación clásico. También puede [obtener información sobre cómo crear un equilibrador de carga orientado a Internet con el Administrador de recursos de Azure](load-balancer-get-started-internet-arm-ps.md).
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -47,7 +49,7 @@ En el ejemplo siguiente se agregará un conjunto de equilibrador de carga denomi
 Crear un punto de conexión con equilibrio de carga para la primera máquina virtual "web1"
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
 ### <a name="step-2"></a>Paso 2
@@ -55,7 +57,7 @@ Crear un punto de conexión con equilibrio de carga para la primera máquina vir
 Crear otro punto de conexión para la segunda máquina virtual "web2" con el mismo nombre del conjunto de equilibrador de carga
 
 ```powershell
-    Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
+Get-AzureVM -ServiceName "mytestcloud" -Name "web2" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 80 -LBSetName "WebFarm" -ProbePort 80 -ProbeProtocol "http" -ProbePath '/' | Update-AzureVM
 ```
 
 ## <a name="remove-a-virtual-machine-from-a-load-balancer"></a>Quitar una máquina virtual de un equilibrador de carga
@@ -63,7 +65,7 @@ Crear otro punto de conexión para la segunda máquina virtual "web2" con el mis
 Puede usar Remove-AzureEndpoint para quitar un punto de conexión de la máquina virtual del equilibrador de carga.
 
 ```powershell
-    Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin| Update-AzureVM
+Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name httpin | Update-AzureVM
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -74,6 +76,6 @@ Si la aplicación necesita mantener conexiones activas para servidores detrás d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

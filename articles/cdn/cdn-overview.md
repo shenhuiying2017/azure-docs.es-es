@@ -3,8 +3,8 @@ title: "Información general de CDN de Azure | Microsoft Docs"
 description: "Obtenga información acerca de la Red de entrega de contenido (CDN) de Azure y de cómo usarla para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos."
 services: cdn
 documentationcenter: 
-author: camsoper
-manager: erikre
+author: lichard
+manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
 ms.service: cdn
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 09/30/2016
-ms.author: casoper
+ms.author: rli
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 838a9ca3b77d5cd152ad2b8a54387149eafb6202
+ms.sourcegitcommit: 9a96e297711a949ac6bc464ad9154b4ad924666d
+ms.openlocfilehash: d6f56ed485eedd1e8250448c2c0794a066b11dc4
 
 
 ---
@@ -57,7 +57,7 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 | Pila dual IPv4/IPv6 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Compatibilidad con nombre de dominio personalizado](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Almacenamiento en caché de cadena de consulta](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [Filtrado geográfico](cdn-restrict-access-by-country.md) | |**&#x2713;** |**&#x2713;** |
+| [Filtrado geográfico](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Purga rápida](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Carga previa de activos](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
 | [Análisis esencial](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
@@ -69,6 +69,8 @@ Hay tres productos del servicio CDN de Azure: **Azure CDN Standard de Akamai**, 
 | Configuración de la memoria caché o del encabezado (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Redirección/rescritura de direcciones URL (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
 | Reglas de dispositivos móviles (mediante un [motor de reglas](cdn-rules-engine.md)) | | |**&#x2713;** |
+| [Autenticación de token](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
 
 > [!TIP]
 > ¿Hay una característica que le gustaría ver en CDN de Azure?  [Envíenos sus comentarios](https://feedback.azure.com/forums/169397-cdn). 
@@ -89,6 +91,6 @@ Para más información sobre los precios, consulte [Precios de Red de entrega de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

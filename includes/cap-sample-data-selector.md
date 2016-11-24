@@ -1,9 +1,13 @@
 > [!div class="op_single_selector"]
-> * [Sample data](../articles/machine-learning/machine-learning-data-science-sample-data.md)
-> * [Sample data in Azure blob storage](../articles/machine-learning/machine-learning-data-science-sample-data-blob.md)
-> * [Sample data in SQL Server on Azure](../articles/machine-learning/machine-learning-data-science-sample-data-sql-server.md)
-> * [Sample data in Azure HDInsight Hive tables](../articles/machine-learning/machine-learning-data-science-sample-data-hive.md)
+> * [Datos de ejemplo](../articles/machine-learning/machine-learning-data-science-sample-data.md)
+> * [Datos de ejemplo de Azure Blob Storage](../articles/machine-learning/machine-learning-data-science-sample-data-blob.md)
+> * [Datos de ejemplo de SQL Server en Azure](../articles/machine-learning/machine-learning-data-science-sample-data-sql-server.md)
+> * [Datos de ejemplo de tablas Hive de Azure HDInsight](../articles/machine-learning/machine-learning-data-science-sample-data-hive.md)
 > 
 > 
 
-<!---HONumber=Oct15_HO4-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

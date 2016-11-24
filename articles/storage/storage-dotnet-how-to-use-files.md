@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: minet
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: af7b1c3d302282920ce9b347a7686903d1c6fe03
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: bf8acbd37f717c0e055facde781966665ca67d2d
 
 
 ---
@@ -210,8 +210,8 @@ Cuando un cliente accede al almacenamiento de archivos, la versión SMB que se u
 ### <a name="mount-the-file-share-from-an-azure-virtual-machine-running-windows"></a>Montaje del recurso compartido de archivos desde una máquina virtual de Azure en la que se ejecute Windows
 Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure en la que se ejecuta Windows y accederemos a ella de forma remota para montar el recurso compartido.
 
-1. En primer lugar, cree una nueva máquina virtual de Azure siguiendo las instrucciones que encontrará en [Creación de una máquina virtual Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
-2. Después, acceda de forma remota a la máquina virtual siguiendo las instrucciones que se indican en [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure](../virtual-machines/virtual-machines-windows-connect-logon.md).
+1. En primer lugar, cree una nueva máquina virtual de Azure siguiendo las instrucciones que encontrará en [Creación de una máquina virtual Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+2. Después, acceda de forma remota a la máquina virtual siguiendo las instrucciones que se indican en [Inicio de sesión en una máquina virtual Windows mediante el Portal de Azure](../virtual-machines/virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Abra una ventana de PowerShell en la máquina virtual.
 
 ### <a name="persist-your-storage-account-credentials-for-the-virtual-machine"></a>Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
@@ -242,7 +242,7 @@ Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos des
 
 También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
 
-### <a name="mount-the-file-share-from-an-onpremises-client-running-windows"></a>Montaje del recurso compartido de archivos desde un cliente local con Windows
+### <a name="mount-the-file-share-from-an-on-premises-client-running-windows"></a>Montaje del recurso compartido de archivos desde un cliente local con Windows
 Para montar el recurso compartido de archivos desde un cliente local, es preciso seguir estos pasos:
 
 * Instale una versión de Windows compatible con SMB 3.0. Windows aprovechará el cifrado SMB 3.0 para transferir datos de forma segura entre el cliente local y el recurso compartido de archivos de Azure en la nube.

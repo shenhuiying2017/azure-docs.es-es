@@ -15,18 +15,18 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d13d4a0dd1d6e0b7361a57e167b06f0b717bfb4
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: 7107c64a25b3f60d7789cec57181eec9ce844f6b
 
 
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>Creación de Almacenamiento de datos SQL con Powershell
 > [!div class="op_single_selector"]
-> * [Portal de Azure](sql-data-warehouse-get-started-provision.md)
+> * [Azure Portal](sql-data-warehouse-get-started-provision.md)
 > * [TSQL](sql-data-warehouse-get-started-create-database-tsql.md)
 > * [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
-> 
-> 
+>
+>
 
 En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante PowerShell.
 
@@ -34,29 +34,29 @@ En este artículo se explica cómo crear un Almacenamiento de datos SQL mediante
 Para empezar, necesitará lo siguiente:
 
 * **Cuenta de Azure**: visite las secciones sobre [evaluación gratuita de Azure][evaluación gratuita de Azure] o [Crédito mensual de MSDN Azure][Crédito mensual de MSDN Azure] para crear una cuenta.
-* **Servidor SQL de Azure**: consulte [Creación de un servidor lógico de Azure SQL Database con Azure Portal][Creación de un servidor lógico de Azure SQL Database con Azure Portal] o [Creación de un servidor lógico de Azure SQL Database con PowerShell][Creación de un servidor lógico de Azure SQL Database con PowerShell] para obtener más detalles.
+* **Servidor SQL de Azure**: consulte [Creación de un servidor lógico de Azure SQL Database con Azure Portal][Creación de un servidor lógico de Azure SQL Database con Azure Portal] o [Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell][Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell] para más información.
 * **Nombre del grupo de recursos**: use el mismo grupo de recursos que el servidor SQL Server de Azure o consulte [Creación de un grupo de recursos][Creación de un grupo de recursos].
 * **PowerShell versión 1.0.3 o posterior**: para comprobar la versión, ejecute **Get-Module -ListAvailable -Name Azure**.  Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][Instalador de plataforma web de Microsoft].  Para obtener más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][Cómo instalar y configurar Azure PowerShell].
 
 > [!NOTE]
-> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse ][Precios de SQL Data Warehouse] para más información sobre los precios.
-> 
-> 
+> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][Precios de SQL Data Warehouse] para más información sobre los precios.
+>
+>
 
 ## <a name="create-a-sql-data-warehouse"></a>Creación de Almacenamiento de datos SQL
 1. Abra Windows PowerShell.
 2. Ejecute este cmdlet para iniciar sesión en el Administrador de recursos de Azure.
-   
+
     ```Powershell
     Login-AzureRmAccount
     ```
 3. Seleccione la suscripción que desea utilizar para la sesión actual.
-   
+
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
 4. Cree la base de datos. En este ejemplo se crea una base de datos denominada "mynewsqldw", con el nivel de objetivo de servicio "DW400", en el servidor llamado "sqldwserver1" que se encuentra en el grupo de recursos denominado "mywesteuroperesgp1".
-   
+
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
    ```
@@ -92,9 +92,9 @@ Si está interesado en más información sobre cómo administrar SQL Data Wareho
 [las API de REST y los cmdlets de PowerShell]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [reglas de firewall]: ../sql-database-configure-firewall-settings.md
 
-[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
+[Cómo instalar y configurar Azure PowerShell]: ../powershell-install-configure.md
 [Creación de una instancia de SQL Data Warehouse desde Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Creación de un servidor lógico de Azure SQL Database con Azure Portal]: ../sql-database/sql-database-get-started.md#create-an-azure-sql-database-logical-server
+[Creación de un servidor lógico de Azure SQL Database con Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
 [Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
 [Creación de un grupo de recursos]: ../resource-group-template-deploy-portal.md#create-resource-group
 
@@ -105,9 +105,9 @@ Si está interesado en más información sobre cómo administrar SQL Data Wareho
 
 <!--Other Web references-->
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
-[Precios de Almacenamiento de datos SQL]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Precios de SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[créditos de Azure de MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[Crédito mensual de MSDN Azure]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 

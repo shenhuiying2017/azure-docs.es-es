@@ -4,6 +4,10 @@ Para implementar los recursos en Azure, debe haber iniciado sesión en la cuenta
 * [Uso de Azure PowerShell con Azure Resource Manager](../articles/powershell-azure-resource-manager.md)
 * [Uso de la interfaz de la línea de comandos entre plataformas de Azure con el Administrador de recursos de Azure](../articles/xplat-cli-azure-resource-manager.md)
 
-En los ejemplos siguientes se supone que ya dispone de un grupo de recursos en la cuenta con el nombre especificado.
+En los ejemplos siguientes se supone que ya dispone de un grupo de recursos en la cuenta con el nombre especificado. 
 
-<!---HONumber=AcomDC_0420_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -19,4 +19,8 @@ El archivo *host.json* contiene alguna configuración específica del tiempo de 
 
 Cada función tiene una carpeta que contiene uno o varios archivos de código, la configuración de function.json y otras dependencias.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

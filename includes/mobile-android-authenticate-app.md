@@ -10,7 +10,7 @@
    
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceAuthenticationProvider;
         import com.microsoft.windowsazure.mobileservices.authentication.MobileServiceUser;
-2. Agregue el método siguiente a la clase **TodoActivity**:
+2. Agregue el método siguiente a la clase **TodoActivity** : 
    
         private void authenticate() {
             // Login using the Google provider.
@@ -34,14 +34,14 @@
 
     De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
 
-    > [AZURE.NOTE]Si usa un proveedor de identidades que no sea Google, cambie el valor pasado a **login** a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
+    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Google, cambie el valor pasado al método **login** anterior a uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
 1. En el método **onCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto `MobileServiceClient`.
    
         authenticate();
    
     De este modo se llama al proceso de autenticación.
-2. Mueva el código restante situado detrás de `authenticate();` del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
+2. Mueva el código restante situado después de `authenticate();` en el método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
    
         private void createTable() {
    
@@ -58,8 +58,12 @@
             // Load the items from Azure.
             refreshItemsFromTable();
         }
-3. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido.
+3. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
    
-       Si ha iniciado sesión correctamente, la aplicación debe ejecutarse sin errores, y debería poder consultar el servicio back-end y realizar actualizaciones en los datos.
+       When you are successfully logged-in, the app should run without errors, and you should be able to query the backend service and make updates to data.
 
-<!---HONumber=AcomDC_1210_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

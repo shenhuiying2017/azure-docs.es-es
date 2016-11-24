@@ -1,6 +1,6 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### Para instalar actualizaciones regulares a través de Windows PowerShell para StorSimple
+#### <a name="to-install-regular-updates-via-windows-powershell-for-storsimple"></a>Para instalar actualizaciones regulares a través de Windows PowerShell para StorSimple
 1. Abra la consola serie del dispositivo y seleccione la opción 1, **Iniciar sesión con acceso completo**. Escriba la contraseña. La contraseña predeterminada es *Password1*. 
 2. En el símbolo del sistema, escriba:
    
@@ -19,4 +19,8 @@
 > 
 > 
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

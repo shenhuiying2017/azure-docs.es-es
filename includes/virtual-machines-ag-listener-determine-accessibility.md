@@ -6,9 +6,14 @@ Es importante saber que hay dos formas de configurar un agente de escucha del gr
 | **Interno** |Usa el **Equilibrio de carga interno (ILB)** con una dirección privada del agente de escucha. |Cuando solo accedes al agente de escucha desde la misma red virtual. Esto incluye la VPN de sitio a sitio en escenarios híbridos. |
 
 > [!IMPORTANT]
-> No se le cobrarán cargos de salida por utilizar un agente de escucha que use la VIP del servicio en la nube (equilibrador de carga externo), siempre y cuando el cliente, el agente de escucha y las bases de datos se encuentren en la misma región de Azure. En caso contrario, los datos que devuelve el agente de escucha se consideran de salida y se cobran según las tarifas de transferencia de datos normales.
+> No se le cobrarán cargos de salida por utilizar un agente de escucha que use la VIP del servicio en la nube (equilibrador de carga externo), siempre y cuando el cliente, el agente de escucha y las bases de datos se encuentren en la misma región de Azure. En caso contrario, los datos que devuelve el agente de escucha se consideran de salida y se cobran según las tarifas de transferencia de datos normales. 
 > 
 > 
 
 El ILB solo se puede configurar en redes virtuales con un ámbito regional. Las redes virtuales existentes que se han configurado para un grupo de afinidad no pueden usar ILB. Para obtener más información, consulta el tema [Equilibrador de carga interno](../articles/load-balancer/load-balancer-internal-overview.md).
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

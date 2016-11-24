@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 09/06/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 91942517a481a252d631af15e532389256b64108
+ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
+ms.openlocfilehash: e062d55e990faeb0776f643b297788afd87ac1e3
 
 
 ---
@@ -32,7 +32,7 @@ Una DTU es una unidad de medida de los recursos que se garantiza que estarán di
 Puede [cambiar los niveles de servicio](sql-database-scale-up.md) en cualquier momento con un tiempo de inactividad mínimo para la aplicación (normalmente una media de menos de cuatro segundos). Para muchas empresas y aplicaciones, poder crear bases de datos y aumentar o reducir el rendimiento de una base de datos única a petición es suficiente, especialmente si los patrones de uso son relativamente predecibles. Pero si dichos patrones son impredecibles, pueden dificultar la administración de los costos y del modelo de negocio. Para este escenario, se usará un grupo elástico con un número determinado de eDTU.
 
 ## <a name="what-are-elastic-database-transaction-units-edtus"></a>Qué son las unidades de transacción de base de datos elástica (eDTU)
-Una eDTU es una unidad de medida del conjunto de recursos (DTU) que se pueden compartir entre un conjunto de bases de datos de un servidor de Azure SQL denominado [grupo elástico](sql-database-elastic-pool.png). Los grupos elásticos proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. Consulte [los grupos elásticos y los niveles de servicio](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) para más información.
+Una eDTU es una unidad de medida del conjunto de recursos (DTU) que se pueden compartir entre un conjunto de bases de datos de un servidor de Azure SQL denominado [grupo elástico](sql-database-elastic-pool.md). Los grupos elásticos proporcionan una solución sencilla y rentable para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles. Consulte [los grupos elásticos y los niveles de servicio](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) para más información.
 
 ![Introducción a SQL Database: eDTU por servicio y nivel](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -57,7 +57,6 @@ Los niveles de rendimiento se calibran y rigen para proporcionar los recursos ne
 
 
 
-
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO2-->
 
 

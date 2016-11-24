@@ -1,5 +1,5 @@
 
-Cada punto de conexión cuenta con un *puerto público* y uno *privado*:
+Cada punto de conexión cuenta con un *puerto público* y un *puerto privado*:
 
 * El puerto público que usa el equilibrador de carga de Azure para escuchar el tráfico que entra a la máquina virtual desde Internet.
 * La máquina virtual usa el puerto privado para escuchar el tráfico entrante, normalmente destinado a una aplicación o servicio que se ejecuta en la máquina virtual.
@@ -13,28 +13,28 @@ Tras la creación de un extremo, puede utilizar una lista de control de acceso (
 > 
 > 
 
-## Creación de un extremo
+## <a name="create-an-endpoint"></a>Creación de un extremo
 1. Si no lo ha hecho todavía, inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com).
-2. Haga clic en **Máquinas virtuales** y haga clic en el nombre de la máquina virtual que desea configurar.
+2. Haga clic en **Máquinas virtuales**y haga clic en el nombre de la máquina virtual que desea configurar.
 3. Haga clic en **Extremos**. En la página **Puntos de conexión** se enumeran todos los puntos de conexión actuales de la máquina virtual. (Este ejemplo es una VM Windows. Una VM Linux mostrará de forma predeterminada un punto de conexión para SSH).
    
    ![Extremos](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png)
 4. En la barra de tareas, haga clic en **Agregar**.
-5. En la página **Agregar un extremo a una máquina virtual**, elija el tipo de extremo.
+5. En la página **Agregar un extremo a una máquina virtual** , elija el tipo de extremo.
    
-   * Si está creando un nuevo punto de conexión que no forma parte de un conjunto con equilibrio de carga o es el primer punto de conexión de un nuevo conjunto con equilibrio de carga, elija **Agregar un punto de conexión independiente** y haga clic en la flecha izquierda.
-   * De lo contrario, elija **Agregar un punto de conexión a un conjunto de equilibrio de carga existente**, seleccione el nombre del conjunto con equilibrio de carga y haga clic en la flecha izquierda. En la página **Especifique los detalles del punto de conexión**, escriba un nombre para el punto de conexión y haga clic en la marca de verificación para crearlo.
-6. En la página **Especificar los detalles del extremo**, escriba un nombre para el extremo en **Nombre**. También puede elegir un nombre de protocolo de red de la lista, que rellenará los valores iniciales de **Protocolo**, **Puerto público** y **Puerto privado**.
-7. Para un extremo personalizado, en **Protocolo**, elija **TCP** o **UDP**.
+   * Si está creando un nuevo punto de conexión que no forma parte de un conjunto con equilibrio de carga o es el primer punto de conexión de un nuevo conjunto con equilibrio de carga, elija **Agregar un punto de conexión independiente**y haga clic en la flecha izquierda.
+   * De lo contrario, elija **Agregar un punto de conexión a un conjunto de equilibrio de carga existente**, seleccione el nombre del conjunto con equilibrio de carga y haga clic en la flecha izquierda. En la página **Especificar los detalles del punto de conexión** , escriba un nombre para el punto de conexión y haga clic en la marca de verificación para crearlo.
+6. En la página **Especificar los detalles del punto de conexión**, escriba el nombre del punto de conexión en **Nombre**. También puede elegir un nombre de protocolo de red en la lista, que rellenará los valores iniciales de **Protocolo**, **Puerto público** y **Puerto privado**.
+7. Si desea un punto de conexión personalizado, en **Protocolo**, elija **TCP** o **UDP**.
 8. Para puertos personalizados, en **Puerto público**, escriba el número de puerto para el tráfico entrante desde Internet. En **Puerto privado**, escriba el número de puerto en el que escucha la máquina virtual. Estos números de puerto pueden ser diferentes. Asegúrese de que se ha configurado el firewall en la máquina virtual para permitir el tráfico correspondiente al protocolo (en el paso 7) y el puerto privado.
-9. Si este extremo será el primero en un conjunto con equilibrio de carga, haga clic en **Crear un conjunto con equilibrio de carga** y, a continuación, haga clic en la flecha derecha. En la página **Configurar el conjunto con equilibrio de carga**, especifique un nombre de conjunto de carga equilibrada, un puerto y protocolo de sondeo, y el intervalo de sondeo y el número de sondeos enviados. El equilibrador de carga de Azure envía sondeos a las máquinas virtuales en un conjunto con equilibrio de carga para supervisar su disponibilidad. El equilibrador de carga de Azure no reenvía el tráfico a las máquinas virtuales que no responden al sondeo. Haga clic en la flecha derecha.
+9. Si este extremo será el primero en un conjunto con equilibrio de carga, haga clic en **Crear un conjunto con equilibrio de carga**y, a continuación, haga clic en la flecha derecha. En la página **Configurar el conjunto con equilibrio de carga** , especifique un nombre de conjunto de carga equilibrada, un puerto y protocolo de sondeo, y el intervalo de sondeo y el número de sondeos enviados. El equilibrador de carga de Azure envía sondeos a las máquinas virtuales en un conjunto con equilibrio de carga para supervisar su disponibilidad. El equilibrador de carga de Azure no reenvía el tráfico a las máquinas virtuales que no responden al sondeo. Haga clic en la flecha derecha.
 10. Haga clic en la marca de verificación para crear el extremo.
 
-El nuevo punto de conexión se mostrará en la página **Puntos de conexión**.
+El nuevo punto de conexión se mostrará en la página **Puntos de conexión** .
 
 ![Creación correcta del extremo](./media/virtual-machines-common-classic-setup-endpoints/endpointwindowsnew.png)
 
-## Administración de la ACL en un extremo
+## <a name="manage-the-acl-on-an-endpoint"></a>Administración de la ACL en un extremo
 Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un extremo puede restringir el tráfico en función de la dirección IP de origen. Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
 > [!NOTE]
@@ -45,11 +45,11 @@ Para definir el conjunto de equipos que pueden enviar tráfico, la ACL en un ext
 Si la máquina virtual está en una red virtual de Azure, es recomendable usar grupos de seguridad de red en lugar de ACL. Para obtener más información, consulte [Información sobre los grupos de seguridad de red](../articles/virtual-network/virtual-networks-nsg.md).
 
 1. Si no lo ha hecho todavía, inicie sesión en el Portal de Azure clásico.
-2. Haga clic en **Máquinas virtuales** y haga clic en el nombre de la máquina virtual que desea configurar.
+2. Haga clic en **Máquinas virtuales**y haga clic en el nombre de la máquina virtual que desea configurar.
 3. Haga clic en **Extremos**. Seleccione el extremo apropiado de la lista.
    
    ![Lista de ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.png)
-4. En la barra de tareas, haga clic en **Administrar dirección ACL** para abrir el cuadro de diálogo **Especificar los detalles de ACL**.
+4. En la barra de tareas, haga clic en **Administrar dirección ACL** para abrir el cuadro de diálogo **Specify ACL details** (Especificar detalles de ACL).
    
    ![Especificar los detalles de ACL](./media/virtual-machines-common-classic-setup-endpoints/EndpointACLdetails.png)
 5. Use las filas de la lista para agregar, eliminar o editar las reglas de una ACL y cambiar su orden. El valor de la **Subred remota** es un intervalo de direcciones IP para el tráfico entrante de Internet que el equilibrador de carga de Azure usa para permitir o denegar el tráfico en función de la dirección IP de origen. Asegúrese de especificar el intervalo de direcciones IP en formato CIDR, también conocido como formato de prefijo de dirección. Un ejemplo es 131.107.0.0/16.
@@ -58,4 +58,8 @@ Puede usar reglas para permitir solo el tráfico desde equipos específicos corr
 
 Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben estar ordenadas de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [¿Qué es una lista de control de acceso de red?](../articles/virtual-network/virtual-networks-acl.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

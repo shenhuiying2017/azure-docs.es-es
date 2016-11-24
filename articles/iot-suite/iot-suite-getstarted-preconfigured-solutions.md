@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ec86ebefccaf74c67cb7917ccf7d538bc95ae07
+ms.sourcegitcommit: 1a6dd35278f0a4a4f972642c40a0976986dd79ae
+ms.openlocfilehash: 79c9f2d8c683be493160fffe40992006b039f60f
 
 
 ---
@@ -180,7 +180,7 @@ También puede ver el código fuente de la solución preconfigurada. El código 
 Cuando haya terminado, puede eliminar la solución preconfigurada de la suscripción de Azure en el sitio [azureiotsuite.com][lnk-azureiotsuite]. Este sitio le permite eliminar fácilmente todos los recursos que se aprovisionaron cuando creó la solución preconfigurada.
 
 > [!NOTE]
-> Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, hágalo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine simplemente el grupo de recursos en el portal.
+> Para asegurarse de que elimina todo lo relacionado con la solución preconfigurada, hágalo en el sitio [azureiotsuite.com][lnk-azureiotsuite] y no elimine el grupo de recursos en el portal.
 > 
 > 
 
@@ -229,6 +229,6 @@ Ahora que ha implementado una solución preconfigurada de trabajo, puede continu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
