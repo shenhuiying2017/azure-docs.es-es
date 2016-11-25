@@ -44,7 +44,7 @@ En *Azure App Service*, el código de back-end de la *aplicación móvil* se eje
 * (Para. NET) Aproveche todas las características de ASP.NET, incluido MVC.
 * (Para Node.js) Aproveche cualquier biblioteca puramente de JavaScript del ecosistema de Node, incluidas las bibliotecas comunes de MVC.
 
-## <a name="access-onpremises-data-using-vnet"></a>Acceso a datos locales con red virtual
+## <a name="access-on-premises-data-using-vnet"></a>Acceso a datos locales con red virtual
 Con Servicios móviles ahora puede usar las conexiones híbridas para acceder a los recursos locales. Sin embargo, hay situaciones en las que es preferible una solución de VPN. Con *Servicio de aplicaciones de Azure* puede usar la red virtual de Azure para el código de back-end de la aplicación móvil.
 
 ## <a name="use-your-favorite-backend-language"></a>Uso del lenguaje de back-end favorito
@@ -59,7 +59,7 @@ Reaccione a los problemas en tiempo real gracias a la supervisión y a las alert
 ## <a name="keep-your-assets-safe"></a>Proteja los activos
 Realice una copia de seguridad automática del back-end y la base de datos. El código y los datos están seguros frente a desastres y se restauran fácilmente, por lo que puede llevar a cabo su actividad comercial con confianza.
 
-## <a name="ready-stage-go"></a>Preparado, listo...¡ya!
+## <a name="ready-stage-go"></a>Preparado, listo, ¡ya!
 Con *Servicio de aplicaciones de Azure* ahora puede crear varios entornos de ensayo y prueba privados para las aplicaciones móviles. Úselos para realizar la prueba antes de la implementación. Cambie a una producción sin tiempo de inactividad. Las aplicaciones web se cargan previamente, por lo que se garantiza la mejor experiencia del cliente.
 
 Para comenzar a aprovechar el *Servicio de aplicaciones* en su servicio móvil existente, siga este [tutorial](app-service-mobile-migrating-from-mobile-services.md).
