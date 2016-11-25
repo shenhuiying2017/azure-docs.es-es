@@ -100,7 +100,7 @@ La simulación ejecuta el conjunto de datos completo para 148 ciclos y se establ
 Puede detener la simulación en cualquier punto, pero al hacer clic en **Iniciar simulación** se reproduce la simulación desde el principio del conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, es posible que desee modificarla; consulte para ello [Personalización de soluciones preconfiguradas][lnk-customize]..
+Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, es posible que desee modificarla; consulte para ello [Personalización de soluciones preconfiguradas][lnk-customize].
 
 La entrada de blog de TechNet [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Conjunto de aplicaciones de IoT: Mantenimiento predictivo interno) proporciona información adicional sobre la solución de mantenimiento predictivo preconfigurada.
 

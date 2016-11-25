@@ -48,7 +48,7 @@ La solución preconfigurada de mantenimiento predictivo de IoT de Azure utiliza 
 *\[1\] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de cómo IoT de Azure habilita escenarios de mantenimiento predictivo, lea [Capturar el valor del Internet de las cosas][lnk_capture_value]..
+Para más información acerca de cómo IoT de Azure habilita escenarios de mantenimiento predictivo, lea [Capturar el valor del Internet de las cosas][lnk_capture_value].
 
 Examine el [tutorial][lnk-predictive-walkthrough] de la solución preconfigurada de mantenimiento predictivo.
 
