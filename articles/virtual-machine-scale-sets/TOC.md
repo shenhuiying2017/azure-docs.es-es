@@ -20,7 +20,7 @@
 ### [Escalado automático y conjuntos de escalado](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Escalado vertical en un conjunto de escalado](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Actualizaciones para conjuntos de escalado](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Escalado automático avanzado](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Escalado automático avanzado](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Uso de DSC y conjuntos de escalado](virtual-machine-scale-sets-dsc.md)
 
 ## Solución de problemas
@@ -38,6 +38,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

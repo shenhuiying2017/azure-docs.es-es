@@ -81,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP desde SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Factoría de datos](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Data Factory desde Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Factoría de datos](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Guía de PolyBase](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase desde Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -102,7 +101,7 @@
 ## Pausa y escalado
 
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
+### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API DE REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)

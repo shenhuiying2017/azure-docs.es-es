@@ -24,6 +24,8 @@
 #### [Nivel Premium](cdn-query-string-premium.md)
 ### [Purga de recursos en caché](cdn-purge-endpoint.md)
 ### [Precarga de recursos en caché](cdn-preload-endpoint.md)
+### [Autenticación de token](cdn-token-auth.md)
+### [Supervisión de recursos](cdn-resource-health.md)
 ### [Invalidación del comportamiento con reglas](cdn-rules-engine.md)
 ### [Obtención de alertas en tiempo real](cdn-real-time-alerts.md)
 
@@ -55,6 +57,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=cdn)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

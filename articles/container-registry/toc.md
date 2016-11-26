@@ -9,7 +9,7 @@
 
 # Procedimientos
 
-## [Creación de una entidad de servicio](../resource-group-create-service-principal-portal.md)
+## [Creación de una entidad de servicio](../azure-resource-manager/resource-group-create-service-principal-portal.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 ## [Autenticación con un registro](container-registry-authentication.md)
 
 # Referencia
@@ -27,6 +27,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -9,6 +9,7 @@
 ### [Procedimientos recomendados de seguridad de datos y cifrado](azure-security-data-encryption-best-practices.md)
 ### [Guía de seguridad de Storage](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Seguridad de Compute](security-virtual-machines-overview.md)
+### [Procedimientos recomendados para las cargas de trabajo de IaaS ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Cifrado de disco](azure-security-disk-encryption.md)
 ### [Cifrado de una máquina virtual de Azure](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
@@ -51,6 +52,6 @@
 ## [Cursos sobre seguridad de Academia virtual](security-microsoft-virtual-academy.md)
 ## [Vídeos sobre seguridad de Channel 9](security-channel-nine.md)
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

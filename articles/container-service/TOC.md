@@ -16,6 +16,7 @@
 ### [Habilitación del acceso público a DC/OS](container-service-enable-public-access.md)
 ### [Contenedores de equilibrio de carga en DC/OS](container-service-load-balancing.md)
 ### [Orchestrator específico de usuario o aplicación en DC/OS](container-service-application-specific-marathon.md)
+### [Supervisión con OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Supervisión con Datadog (DC/OS)](container-service-monitoring.md)
 ### [Supervisión con Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ## [Administración con Kubernetes](container-service-kubernetes-walkthrough.md)
@@ -30,6 +31,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=container-service&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

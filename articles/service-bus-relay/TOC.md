@@ -1,24 +1,27 @@
 # Información general
-## [¿Qué es Relay?](service-bus-relay-overview.md)
-## [P+F](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [¿Qué es Relay?](relay-what-is-it.md)
+## [P+F](relay-faq.md)
 
 # Introducción
-## [Uso de Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Creación de un espacio de nombres](relay-create-namespace-portal.md)
+## [Introducción a conexiones híbridas](relay-hybrid-connections-dotnet-get-started.md)
+## [Introducción a la retransmisión de WCF](service-bus-dotnet-how-to-use-relay.md)
 ## [Las firmas de acceso compartido](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Creación de aplicaciones híbridas con Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Tutorial de .NET de Relay](service-bus-relay-tutorial.md)
-## [Tutorial de REST de Relay](service-bus-relay-rest-tutorial.md)
+## [Tutorial híbrido de retransmisiones de WCF](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [Tutorial de .NET de retransmisiones de WCF](service-bus-relay-tutorial.md)
+## [Tutorial de REST de retransmisiones de WCF](service-bus-relay-rest-tutorial.md)
 
 # Procedimientos
 ## [Autenticación y autorización](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Plan de interrupciones y desastres](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Protocolo de conexiones híbridas](relay-hybrid-connections-protocol.md)
+## [Excepciones comunes](relay-exceptions.md)
 
 # Referencia
 ## [Ejemplos](service-bus-relay-samples.md)
-## [Excepciones](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Cuotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [API de .NET de conexiones híbridas](/dotnet/api/microsoft.servicebus)
+## [API de .NET de retransmisiones de WCF](/dotnet/api/microsoft.servicebus)
+
 
 # Recursos
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -30,6 +33,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

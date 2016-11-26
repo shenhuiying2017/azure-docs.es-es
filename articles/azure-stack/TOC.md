@@ -68,20 +68,17 @@
 ## [Administración de actualizaciones](azure-stack-updates.md)
 ## [Desarrollo para Azure Stack](azure-stack-developer.md)
 ## Implementación de un proveedor de recursos de SQL o MySQL
-### [Uso de bases de datos MySQL como PaaS en Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Implementación del adaptador del proveedor de recursos de SQL Server en Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Uso de bases de datos SQL en Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Uso de bases de datos MySQL como PaaS en Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Implementación del adaptador del proveedor de recursos de SQL Server en Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Planeamiento e implementación de Web Apps
-### [Introducción a Web Apps de Azure Stack](azure-stack-webapps-overview.md)
-### [Antes de empezar a trabajar con Web Apps de Azure Stack](azure-stack-webapps-before-you-get-started.md)
-### [Implementación del proveedor de recursos de MySQL en Azure Stack para usarlo con Web Apps](azure-stack-mysql-rp-deploy-long.md)
+## Planeación e implementación de App Service
+### [Introducción a Web Apps de Azure Stack](azure-stack-app-service-overview.md)
+### [Antes de empezar a trabajar con Web Apps de Azure Stack](azure-stack-app-service-before-you-get-started.md)
 ### [Web Apps: incorporación de más roles de trabajo web](azure-stack-webapps-add-worker-roles.md)
-### [Incorporación de un proveedor de recursos de Web Apps a Azure Stack](azure-stack-webapps-deploy.md)
+### [Incorporación de un proveedor de recursos de Web Apps a Azure Stack](azure-stack-app-service-deploy.md)
 
 # Solución de problemas
 ## [Solución problemas de Azure Stack](azure-stack-troubleshooting.md)
-## [Repetición de la ejecución de una implementación desde un paso con errores](azure-stack-rerun-deploy.md)
 ## [Proveedor de recursos de Web Apps](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Recursos
@@ -90,6 +87,6 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

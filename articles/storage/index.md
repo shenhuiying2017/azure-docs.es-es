@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: d299d9b2d08086fa7a5946d8270437f652edd746
-ms.openlocfilehash: d5a866740ed977f091d750767825ab30eda71c64
+ms.sourcegitcommit: 965b96507d66f3880bdf3b38362d1eb026afdb51
+ms.openlocfilehash: e72557a87088ba66a669d37ba0033da951e7fdb8
 
 ---
 #<a name="storage-documentation"></a>Documentación de almacenamiento
 
-Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes.  Es muy escalable, elástico y accesible globalmente, y equilibra automáticamente la carga de los datos en función del tráfico existente.  Azure Storage proporciona cuatro servicios que cubren las necesidades de las aplicaciones: Blob Storage, Table Storage, Queue Storage y File Storage.
+Almacenamiento de Azure es la solución de almacenamiento en la nube para las aplicaciones modernas que dependen de la durabilidad, la disponibilidad y la escalabilidad para satisfacer las necesidades de sus clientes.  Es muy escalable, elástico y accesible globalmente, y equilibra automáticamente la carga de los datos en función del tráfico existente.  Azure Storage proporciona cinco servicios que cubren las necesidades de las aplicaciones: Blob Storage, Table Storage, Queue Storage, Disk Storage y File Storage.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -182,6 +182,6 @@ Descarga de la documentación de Storage </div>
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

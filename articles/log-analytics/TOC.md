@@ -18,6 +18,7 @@
 #### [Almacenamiento de Azure](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Administrador de configuración](log-analytics-sccm.md)
+#### [Puerta de enlace de OMS](log-analytics-oms-gateway.md)
 ### Orígenes de datos
 #### [Introducción a orígenes de datos](log-analytics-data-sources.md)
 #### [Eventos de Windows](log-analytics-data-sources-windows-events.md)
@@ -49,6 +50,7 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
+#### [Evaluación de SCOM](log-analytics-scom-assessment.md)
 ## Análisis
 ### [Paneles](log-analytics-dashboards.md)
 ### [Visualización del diseñador](log-analytics-view-designer.md)

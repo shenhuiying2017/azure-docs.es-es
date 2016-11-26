@@ -10,20 +10,24 @@
 ### [Introducción a IoT Hub (Node)](iot-hub-node-node-getstarted.md)
 ## Introducción a Raspberry Pi
 ### [Introducción a Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
-### [Configuración del dispositivo](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
-### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
-### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
-### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-### [Creación e implementación de la aplicación de intermitencia](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
-### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
-### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
-### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
-### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
-### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
-### [Opcional: cambio del comportamiento de LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
+### Lección 1: Configuración del dispositivo
+#### [Configuración del dispositivo](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
+#### [Obtención de las herramientas (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
+#### [Obtención de las herramientas (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
+#### [Obtención de las herramientas (Mac OS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
+#### [Creación e implementación de la aplicación de intermitencia](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
+### Lección 2: Creación de la instancia de IoT Hub
+#### [Obtención de las herramientas de Azure (Windows 7 o posterior)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
+#### [Obtención de las herramientas de Azure (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
+#### [Obtención de las herramientas de Azure (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
+#### [Creación de la instancia de IoT Hub y registro de Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
+### Lección 3: Envío de mensajes de dispositivo a nube
+#### [Creación de una cuenta de almacenamiento y una aplicación de función de Azure](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
+#### [Ejecución de la aplicación de muestra para enviar mensajes](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
+#### [Lectura de mensajes que se conservan en el almacenamiento](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
+### Lección 4. Envío de mensajes de nube a dispositivo
+#### [Ejecución de la aplicación de muestra para recibir mensajes](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
+#### [Opcional: cambio del comportamiento de LED](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Solución de problemas](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
 ## [Introducción al SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-get-started.md)
 ## [Introducción al SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-get-started.md)
@@ -35,13 +39,18 @@
 ## [Envío de mensajes de nube a dispositivo (.NET)](iot-hub-csharp-csharp-c2d.md)
 ## [Envío de mensajes de nube a dispositivo (Java)](iot-hub-java-java-c2d.md)
 ## [Envío de mensajes de nube a dispositivo (Node)](iot-hub-node-node-c2d.md)
-## [Introducción a los dispositivos gemelos](iot-hub-node-node-twin-getstarted.md)
-## [Uso de propiedades gemelas](iot-hub-node-node-twin-how-to-configure.md)
-## [Uso de métodos directos](iot-hub-c2d-methods.md)
-## [Introducción a la administración de dispositivos](iot-hub-device-management-get-started.md)
-## [Uso de trabajos de dispositivos para actualizar el firmware del dispositivo](iot-hub-firmware-update.md)
-## [Programar y difundir trabajos](iot-hub-schedule-jobs.md)
-
+## [Introducción a los dispositivos gemelos (Node)](iot-hub-node-node-twin-getstarted.md)
+## [Introducción a los dispositivos gemelos (.NET/Node)](iot-hub-csharp-node-twin-getstarted.md)
+## [Uso de métodos directos para Node.js](iot-hub-node-node-direct-methods.md)
+## [Uso de métodos directos para .NET/Node](iot-hub-csharp-node-direct-methods.md)
+## [Introducción a la administración de dispositivos para Node.js](iot-hub-node-node-device-management-get-started.md)
+## [Introducción a la administración de dispositivos para .NET/Node](iot-hub-csharp-node-device-management-get-started.md)
+## [Uso de propiedades gemelas (Node)](iot-hub-node-node-twin-how-to-configure.md)
+## [Uso de propiedades gemelas (.NET/Node)](iot-hub-csharp-node-twin-how-to-configure.md)
+## [Uso de trabajos de dispositivos para actualizar el firmware del dispositivo para Node.js](iot-hub-node-node-firmware-update.md)
+## [Uso de trabajos de dispositivos para actualizar el firmware del dispositivo para .NET/Node](iot-hub-csharp-node-firmware-update.md)
+## [Programación y difusión de trabajos para Node.js](iot-hub-node-node-schedule-jobs.md)
+## [Programación y difusión de trabajos para .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
 ## Planeamiento de la implementación
 ### [Comparación de IoT Hub con Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Escalado de la solución](iot-hub-scaling.md)
@@ -50,6 +59,8 @@
 ## Desarrollo
 ### [Introducción](iot-hub-devguide.md)
 ### [Envío y recepción de mensajes](iot-hub-devguide-messaging.md)
+### [Guía de características de dispositivo a nube](iot-hub-devguide-d2c-guidance.md)
+### [Guía de características de nube a dispositivo](iot-hub-devguide-c2d-guidance.md)
 ### [Carga de archivos desde un dispositivo](iot-hub-devguide-file-upload.md)
 ### [Administración de identidades de dispositivo](iot-hub-devguide-identity-registry.md)
 ### [Control del acceso a IoT Hub](iot-hub-devguide-security.md)
@@ -59,6 +70,7 @@
 ### [Puntos de conexión de IoT Hub](iot-hub-devguide-endpoints.md)
 ### [Lenguaje de consulta](iot-hub-devguide-query-language.md)
 ### [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md)
+### [Ejemplos de precios](iot-hub-devguide-pricing.md)
 ### [SDK de dispositivos y servicios](iot-hub-devguide-sdks.md)
 ### [Soporte para MQTT](iot-hub-mqtt-support.md)
 ### [Glosario](iot-hub-devguide-glossary.md)
@@ -72,17 +84,16 @@
 ### [Administración de identidades de dispositivos de Centro de IoT de forma masiva](iot-hub-bulk-identity-mgmt.md)
 ### [Métricas de uso](iot-hub-metrics.md)
 ### [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+### [Configuración de filtrado de IP](iot-hub-ip-filtering.md)
 ## SDK de puerta de enlace
 ### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Tutorial para simular un dispositivo con el SDK de puerta de enlace (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Envío de mensajes desde un dispositivo real con el tutorial de SDK de puerta de enlace](iot-hub-gateway-sdk-physical-device.md)
-
 ## Protección
 ### [Seguridad total](iot-hub-security-ground-up.md)
 ### [Procedimientos de seguridad recomendados](iot-hub-security-best-practices.md)
 ### [Arquitectura de seguridad](iot-hub-security-architecture.md)
 ### [Protección de su implementación de IoT](iot-hub-security-deployment.md)
-
 
 # Referencia
 ## [CLI de Azure](https://docs.microsoft.com/cli/azure)
@@ -105,16 +116,15 @@
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/iot-hub/)
-## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub) 
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
-## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub) 
-## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=iot-hub) 
+## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=iot-hub)
+## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [Centro para desarrolladores de Azure IoT](https://azure.microsoft.com/develop/iot/)
 ## [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsuite.com/)
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 
