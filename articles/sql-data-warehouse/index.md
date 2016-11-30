@@ -47,7 +47,7 @@ Azure SQL Data Warehouse combina la base de datos relacional de SQL Server con l
         </a>
     </li>
      <li>
-        <a href="/azure/SQL-Data-WArehouse/sql-data-warehouse-get-started-provision/">
+        <a href="/azure/sql-data-WArehouse/sql-data-warehouse-get-started-provision">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
