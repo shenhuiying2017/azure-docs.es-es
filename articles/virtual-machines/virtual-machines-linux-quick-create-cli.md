@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/26/2016
 ms.author: rasquill
 translationtype: Human Translation
-ms.sourcegitcommit: 317d6980d304cc503cc43358c4b91459d4abd1ba
-ms.openlocfilehash: 6b08f27a27a31fcc665ab051438a962ddc711767
+ms.sourcegitcommit: 2bd363e3c22f4cf4daf2e0fa352fd4a131d1675f
+ms.openlocfilehash: 89db2c9f388b8a5496a306ba0a152ab57481ea50
 
 
 ---
 
 # <a name="create-a-linux-vm-using-the-azure-cli-20-preview"></a>Creación de una máquina virtual Linux con la CLI de Azure 2.0 (versión preliminar)
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando [az vm create](/cli/azure/vm?branch=master#create) con la CLI de Azure 2.0 (versión preliminar). 
+En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando [az vm create](/cli/azure/vm#create) con la CLI de Azure 2.0 (versión preliminar). 
 
 > [!NOTE] 
 > La versión preliminar de la CLI de Azure 2.0 es la CLI multiplataforma de próxima generación. Pruébela y cuéntenos su opinión en la [página del proyecto de GitHub](https://github.com/Azure/azure-cli).
@@ -127,6 +127,6 @@ También puede [utilizar el controlador de Azure `docker-machine` con diversos c
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

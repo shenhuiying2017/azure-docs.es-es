@@ -16,6 +16,7 @@
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace para asociados](documentation-government-manage-marketplace-partners.md)
 ### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Suscripción](documentation-government-manage-subscriptions.md)
 
 # Referencia

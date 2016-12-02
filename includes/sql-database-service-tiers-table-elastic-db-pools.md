@@ -1,72 +1,72 @@
 
 ### <a name="basic-elastic-pool-limits"></a>Límites de grupo elástico básico
 
-|   |  |
-|---|:---:|
-| Número máximo de eDTU por grupo | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Almacenamiento máximo por grupo (GB)*| &nbsp;&nbsp;&nbsp;&nbsp;10 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;39 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;73 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;117 |
-| Cantidad máxima de bases de datos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Almacenamiento máximo de OLTP en memoria (GB) por grupo| N/D |
-| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;&nbsp;200 &nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp;&nbsp;2400 |
-| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp;9600 &nbsp; 19200 &nbsp; 28800 &nbsp; 28800 |
-| Cantidad máxima de eDTU por base de datos* | 5 |
-| Cantidad mínima de eDTU por base de datos* | 0,5 |
-| Almacenamiento máximo por base de datos (GB)** | 2 |
-| Restauración a un momento dado | Cualquier momento en los 7 últimos días |
-| Recuperación ante desastres | Replicación geográfica activa |
-|||
-
-* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos 
-
-** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
-
+| Tamaño del grupo (eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | **1200** | **1600** |
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
+| Almacenamiento máximo por grupo* | 5 GB| 10 GB| 20 GB| 29 GB| 39 GB| 78 GB| 117 GB| 156 GB|
+| Máximo número de bases de datos por grupo | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
+| Cantidad máxima de trabajos simultáneos por grupo | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | 100 | 200 | 400 | 600 | 800 | 1600 | 2400 | 3200 |
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
+| Cantidad mínima de eDTU por base de datos | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} | {0, 5} |
+| Cantidad máxima de eDTU por base de datos | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} | {5} |
+||||||||
 
 ### <a name="standard-elastic-pool-limits"></a>Límites de grupo elástico estándar
 
-|   |  |
-|---|:---:|
-| Número máximo de eDTU por grupo | &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Almacenamiento máximo por grupo (GB)*| &nbsp;100 &nbsp;&nbsp;&nbsp; 200 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp;&nbsp;&nbsp; 1200 |
-| Cantidad máxima de bases de datos por grupo | &nbsp;200 &nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;400 |
-| Almacenamiento máximo de OLTP en memoria (GB) por grupo| N/D |
-| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Cantidad máxima de eDTU por base de datos* | 10, 20, 50, 100 |
-| Cantidad mínima de eDTU por base de datos* | 0, 10, 20, 50, 100 |
-| Almacenamiento máximo por base de datos (GB)** | 250 |
-| Restauración a un momento dado | Cualquier momento en los últimos 35 días |
-| Recuperación ante desastres | Replicación geográfica activa |
-|||
+| Tamaño del grupo (eDTU)  | **50** | **100** | **200** | **300** | **400** | **800** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |---: |
+| Almacenamiento máximo por grupo* | 50 GB| 100 GB*| 200 GB | < 300 GB| 400 GB | 800 GB | 
+| Máximo número de bases de datos por grupo | 100 | 200 | 500 | 500 | 500 | 500 | 
+| Cantidad máxima de trabajos simultáneos por grupo | 100 | 200 | 400 | 600 |  800 | 1600 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo | 100 | 200 | 400 | 600 |  800 | 1600 |
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
+| Cantidad mínima de eDTU por base de datos | {0,10,20,<br>50} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Cantidad máxima de eDTU por base de datos | {10,20,<br>50} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
-* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos 
+### <a name="standard-elastic-pool-limits-continued"></a>Límites de grupo elástico estándar (continuación)
 
-** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
+| Tamaño del grupo (eDTU)  |  **1200** | **1600** | **2000** | **2500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Almacenamiento máximo por grupo* | 1,2 TB | 1,6 TB | 2 TB | 2,4 TB | 
+| Máximo número de bases de datos por grupo | 500 | 500 | 500 | 500 | 500 | 
+| Cantidad máxima de trabajos simultáneos por grupo |  2400 | 3200 | 4000 | 5.000 |
+| Cantidad máxima de inicios de sesión simultáneos por grupo |  2400 | 3200 | 4000 | 5.000 | 
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 |30000 | 
+| Cantidad mínima de eDTU por base de datos | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Cantidad máxima de eDTU por base de datos | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
+||||||||
 
 ### <a name="premium-elastic-pool-limits"></a>Límites de grupo elástico premium
 
-|   |  |
-|---|:---:|
-| Número máximo de eDTU por grupo | 125 &nbsp;&nbsp;&nbsp; 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 1000 &nbsp;&nbsp;&nbsp; &nbsp;1500 |
-| Almacenamiento máximo por grupo (GB)*| 250 &nbsp;&nbsp;&nbsp; 500 &nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp; 750 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 750 |
-| Cantidad máxima de bases de datos por grupo | 50 |
-| Almacenamiento máximo de OLTP en memoria (GB) por grupo| &nbsp;&nbsp; 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;12 |
-| Cantidad máxima de trabajos simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Cantidad máxima de inicios de sesión simultáneos por grupo | &nbsp;&nbsp;200 &nbsp;&nbsp;&nbsp; 400 &nbsp;&nbsp;&nbsp; 800 &nbsp;&nbsp; 1600 &nbsp;&nbsp;&nbsp; 2400 |
-| Cantidad máxima de sesiones simultáneas por grupo | 4800 &nbsp; 9600 &nbsp;19200 &nbsp;28800 &nbsp;&nbsp; 28800 |
-| Cantidad máxima de eDTU por base de datos* | 125, 250, 500, 1000 |
-| Cantidad mínima de eDTU por base de datos* | 0, 125, 250, 500, 1000 |
-| Almacenamiento máximo por base de datos (GB)** | 500 |
-| Restauración a un momento dado | Cualquier momento en los últimos 35 días |
-| Recuperación ante desastres | Replicación geográfica activa |
-|||
+| Tamaño del grupo (eDTU)  | **125** | **250** | **500** | **1000** | **1500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Almacenamiento máximo por grupo* | 250 GB| 500 GB| 750 GB| 750 GB| 750 GB| 
+| Máximo número de bases de datos por grupo | 50 | 100 | 100 | 100 | 100 |  
+| Cantidad máxima de trabajos simultáneos por grupo | 200 | 400 | 800 | 1600 |  2400 | 
+| Cantidad máxima de inicios de sesión simultáneos por grupo | 200 | 400 | 800 | 1600 |  2400 |
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Cantidad mínima de eDTU por base de datos | {0,25,50,75,<br>125} | {0,25,50,75,<br>125,250} | {0,25,50,75,<br>125,250,500} | {0,25,50,75,<br>125,250,500,<br>1000} | {0,25,50,75,<br>125,250,500,<br>1000} | 
+| Cantidad máxima de eDTU por base de datos | {25,50,75,<br>125} | {25,50,75,<br>125,250} | {25,50,75,<br>125,250,500} | {25,50,75,<br>125,250,500,<br>1000} | {25,50,75,<br>125,250,500,<br>1000} |  
+||||||||
 
-* Se puede establecer el número máximo y mínimo de eDTU por base de datos en cualquiera de los valores que aparecen siempre que el tamaño seleccionado de DTU del grupo sea al menos tan grande como el número máximo de eDTU por base de datos 
+### <a name="premium-elastic-pool-limits-continued"></a>Límites de grupo elástico premium (continuación)
 
-** Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
+| Tamaño del grupo (eDTU)  |  **2000** | **2500** | **3000** | **3500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Almacenamiento máximo por grupo* | 750 GB| 750 GB| 750 GB| 750 GB| 
+| Máximo número de bases de datos por grupo | 100 | 100 | 100 | 100 | 100 | 
+| Cantidad máxima de trabajos simultáneos por grupo |  3200 | 4000 | 4800 | 5600 | 
+| Cantidad máxima de inicios de sesión simultáneos por grupo |  3200 | 4000 | 4800 | 5600 | 
+| Cantidad máxima de sesiones simultáneas por grupo | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Cantidad mínima de eDTU por base de datos | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | 
+| Cantidad máxima de eDTU por base de datos | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | {25,50,75,<br>125,250,500,<br>1000,1750} | 
+||||||||
+
+\* Las bases de datos elásticas comparten almacenamiento de grupo, por lo que el almacenamiento de base de datos se limita al almacenamiento de grupo restante o al almacenamiento máximo por base de datos, si este es menor.
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

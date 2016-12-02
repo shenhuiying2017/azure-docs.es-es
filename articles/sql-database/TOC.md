@@ -111,7 +111,7 @@
 ### Aprender
 #### [Información general](sql-database-business-continuity.md)
 #### [Copias de seguridad de bases de datos](sql-database-automated-backups.md)
-#### [Retención a largo plazo](sql-database-long-term-retention.md) 
+#### [Retención a largo plazo](sql-database-long-term-retention.md)
 #### [Recuperación de bases de datos a partir de copias de seguridad](sql-database-recovery-using-backups.md)
 #### [Requisitos de autenticación para la recuperación ante desastres](sql-database-geo-replication-security-config.md)
 #### [Escenarios de diseño de la continuidad empresarial](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -220,7 +220,7 @@
 #### [Autenticación de Azure AD](sql-database-aad-authentication.md)
 #### [Multi-Factor Authentication](sql-database-ssms-mfa-authentication.md)
 ### Reglas de firewall
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Portal de Azure](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [API DE REST](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -358,8 +358,6 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
 
 
 <!--HONumber=Nov16_HO4-->
