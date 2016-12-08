@@ -14,10 +14,10 @@ Cada punto de conexión de servicio es opcional, aunque la cadena de conexión d
 
 > [!NOTE]
 > Se recomienda usar HTTPS con SAS.
-> 
+>
 > Si está especificando SAS en una cadena de conexión en un archivo de configuración, debe codificar caracteres especiales en la dirección URL.
-> 
-> 
+>
+>
 
 ### <a name="service-sas-example"></a>Ejemplo de SAS de servicio
 Este es un ejemplo de una cadena de conexión que incluye un SAS de servicio para el almacenamiento de blobs:
@@ -36,17 +36,17 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;SharedAccessSignature=s
 Este es un ejemplo de una cadena de conexión que incluye un SAS de cuenta para el almacenamiento de blobs y archivos: Tenga en cuenta que se especifican los puntos de conexión para ambos servicios:
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&spr=https&st=2016-04-12T03%3A24%3A31Z&se=2016-04-13T03%3A29%3A31Z&srt=s&ss=bf&sp=rwl
 ```
 
 Aquí se muestra un ejemplo de la misma cadena de conexión con codificación de dirección URL:
 
 ```
-    BlobEndpoint=https://storagesample.blob.core.windows.net;
-    FileEndpoint=https://storagesample.file.core.windows.net;
-    SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
+BlobEndpoint=https://storagesample.blob.core.windows.net;
+FileEndpoint=https://storagesample.file.core.windows.net;
+SharedAccessSignature=sv=2015-07-08&amp;sig=iCvQmdZngZNW%2F4vw43j6%2BVz6fndHF5LI639QJba4r8o%3D&amp;spr=https&amp;st=2016-04-12T03%3A24%3A31Z&amp;se=2016-04-13T03%3A29%3A31Z&amp;srt=s&amp;ss=bf&amp;sp=rwl
 ```
 
 
