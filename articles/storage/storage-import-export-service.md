@@ -247,29 +247,41 @@ A continuación, se muestran los comandos para preparar la unidad de disco duro 
 
 Comando PrepImport de la herramienta de importación y exportación de Azure para la primera sesión de copia de un directorio:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **Ejemplo:**
 
 En el ejemplo siguiente, copiamos todos los archivos y subdirectorios de H:\Video en la unidad de disco duro montada en "X:". Los datos se importarán en la cuenta de almacenamiento de destino especificada mediante la clave de la cuenta de almacenamiento y en el contenedor de almacenamiento llamado "video". Si el contenedor de almacenamiento no existe, se creará. Este comando también formatea y cifra la unidad de disco duro de destino.
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:storageaccountkey /t:x /format /encrypt /srcdir:H:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 Comando PrepImport de la herramienta de importación y exportación de Azure para las sucesivas sesiones de copia de un directorio:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 En las sucesivas sesiones de copia en la misma unidad de disco duro, especifique el mismo nombre de archivo del diario e indique un nuevo id. de sesión. No hace falta proporcionar la clave de la cuenta de almacenamiento ni la unidad de destino, ni tampoco formatear y cifrar la unidad. En este ejemplo, vamos a copiar la carpeta H:\Photo y sus subdirectorios en la misma unidad de destino: el contenedor de almacenamiento llamado "photo".
 
-    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
+WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Photo /srcdir:H:\Photo /dstdir:photo/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt
+```
 
 Comando PrepImport de la herramienta de Importación/Exportación de Azure para la primera sesión de copia de un archivo:
 
-    WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 Comando PrepImport de la herramienta de Importación/Exportación de Azure para las sucesivas sesiones de copia de un archivo:
 
-    WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
+WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /srcfile:<SourceFile> /dstblob:<DestinationBlobPath> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>]
+```
 
 **Recordatorio**: De forma predeterminada, los datos se importan como blobs en bloques. Puede utilizar el parámetro /BlobType para importar los datos como un blobs en páginas. Por ejemplo, si va a importar archivos VHD que se van a montar como discos en una máquina virtual de Azure, debe importarlos como blobs en páginas. Si no está seguro de qué tipo de blob debe usar, puede especificar /blobType:auto para que nos ayude a determinar cuál es el correcto. En este caso, todos los archivos vhd y vhdx se importan como blobs en páginas y el resto como blobs en bloques.
 

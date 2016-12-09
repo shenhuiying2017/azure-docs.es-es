@@ -3,8 +3,8 @@ title: "Establecimiento y recuperación de propiedades y metadatos para los obje
 description: "Almacenamiento de metadatos personalizados en los objetos de Almacenamiento de Azure y establecimiento y recuperación de propiedades del sistema."
 services: storage
 documentationcenter: 
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 ms.assetid: 036f9006-273e-400b-844b-3329045e9e1f
 ms.service: storage
@@ -12,8 +12,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
@@ -24,15 +24,15 @@ ms.openlocfilehash: 6e89921509bb273d6d97f829d4867eded20c82bc
 ## <a name="overview"></a>Información general
 Objetos en las propiedades de compatibilidad de sistema de Almacenamiento de Azure y metadatos definidos por el usuario, además de los datos que contienen:
 
-* **Propiedades del sistema.**  En cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. La biblioteca de cliente de almacenamiento de Azure las mantiene automáticamente.  
-* **Metadatos definidos por el usuario.**  Los metadatos definidos por el usuario son los metadatos que se especifican en un recurso determinado, en forma de par nombre-valor. Puede usar metadatos para almacenar valores adicionales con un recurso de almacenamiento; estos valores son únicamente para sus propios fines y no afectan a la manera en que se comporta el recurso.  
+* **Propiedades del sistema.**  En cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. La biblioteca de cliente de almacenamiento de Azure las mantiene automáticamente.
+* **Metadatos definidos por el usuario.**  Los metadatos definidos por el usuario son los metadatos que se especifican en un recurso determinado, en forma de par nombre-valor. Puede usar metadatos para almacenar valores adicionales con un recurso de almacenamiento; estos valores son únicamente para sus propios fines y no afectan a la manera en que se comporta el recurso.
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando el método **FetchAttributes** .
 
 > [!IMPORTANT]
-> Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes** . 
-> 
-> 
+> Los valores de propiedad y los metadatos para un recurso de almacenamiento no se rellenan, a menos que se llame a uno de los métodos **FetchAttributes** .
+>
+>
 
 ## <a name="setting-and-retrieving-properties"></a>Establecer y recuperar propiedades
 Para recuperar valores de propiedad, llame al método **FetchAttributes** en el blob o contenedor para rellenar las propiedades y, a continuación, lea los valores.
@@ -49,7 +49,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString)
 //Create the service client object for credentialed access to the Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve a reference to a container. 
+// Retrieve a reference to a container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 // Create the container if it does not already exist.
@@ -68,8 +68,8 @@ Puede especificar metadatos como uno o más pares nombre-valor en un recurso de 
 
 > [!NOTE]
 > El nombre de los metadatos debe cumplir las convenciones de nomenclatura para los identificadores de C#.
-> 
-> 
+>
+>
 
 El ejemplo de código siguiente establece los metadatos en un contenedor. Un valor se establece mediante el método **Agregar** de la colección. El otro valor se establece mediante la sintaxis implícita de clave/valor. Ambos son válidos.
 
@@ -105,7 +105,7 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 
 ## <a name="see-also"></a>Otras referencias
 * [Documentación de referencia de la biblioteca cliente de Almacenamiento de Azure para .NET](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)
-* [Paquete de la biblioteca cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) 
+* [Paquete de la biblioteca cliente de Almacenamiento de Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
 
 
 
