@@ -1,12 +1,12 @@
 ---
-title: Comunicación para roles en los servicios en la nube | Microsoft Docs
-description: Las instancias de rol de los servicios en la nube pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol.
+title: "Comunicación para roles en Cloud Services | Microsoft Docs"
+description: "Las instancias de rol de los servicios en la nube pueden tener definidos puntos de conexión (http, https, tcp y udp) que se comunican con el exterior o entre otras instancias de rol."
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fe034613c537ce0940f7220e4695727bdc2277c2
+
 
 ---
-# Habilitar la comunicación para instancias de rol en Azure
-Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **extremos de entrada** mientras que las una conexiones internas se denominan **extremos internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
+# <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar la comunicación para instancias de rol en Azure
+Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
 
-## Extremo de entrada
-Los extremos de entrada se usan para exponer un puerto al exterior. Tiene que especificar el tipo de protocolo y el puerto del extremo que se aplicará a los puertos internos y externos del extremo. Si lo desea, puede especificar un puerto interno diferente para el extremo mediante el atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint).
+## <a name="input-endpoint"></a>Extremo de entrada
+Los extremos de entrada se usan para exponer un puerto al exterior. Tiene que especificar el tipo de protocolo y el puerto del extremo que se aplicará a los puertos internos y externos del extremo. Si lo desea, puede especificar un puerto interno diferente para el extremo mediante el atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
 
 El extremo de entrada puede usar los siguientes protocolos: **http, https, tcp y udp**.
 
-Para crear un extremo de entrada, agregue el elemento secundario **InputEndpoint** al elemento **Endpoints** de un rol web o de trabajo.
+Para crear un punto de conexión de entrada, agregue el elemento secundario **InputEndpoint** al elemento **Endpoints** de un rol web o de trabajo.
 
 ```xml
 <Endpoints>
@@ -32,12 +36,12 @@ Para crear un extremo de entrada, agregue el elemento secundario **InputEndpoint
 </Endpoints> 
 ```
 
-## Extremo de entrada de instancia
+## <a name="instance-input-endpoint"></a>Extremo de entrada de instancia
 Los extremos de entrada de instancia son similares a los extremos de entrada, pero los primeros permiten asignar puertos específicos de acceso público a cada instancia de rol individual mediante el enrutamiento de puertos en el equilibrador de carga. Puede especificar un único puerto público o un intervalo de puertos.
 
-Sólo puede utilizar el extremo de entrada de instancia como protocolo **tcp** o **udp**.
+Solo puede utilizar el punto de conexión de entrada de instancia como protocolo **tcp** o **udp**.
 
-Para crear un extremo de entrada de instancia, agregue el elemento secundario **InstanceInputEndpoint** al elemento **Endpoints** del rol web o de trabajo.
+Para crear un punto de conexión de entrada de instancia, agregue el elemento secundario **InstanceInputEndpoint** al elemento **Endpoints** del rol web o de trabajo.
 
 ```xml
 <Endpoints>
@@ -49,12 +53,12 @@ Para crear un extremo de entrada de instancia, agregue el elemento secundario **
 </Endpoints>
 ```
 
-## Extremo interno
+## <a name="internal-endpoint"></a>Extremo interno
 Los extremos internos están disponibles para la comunicación entre instancias. El puerto es opcional y si se omite, se asigna un puerto dinámico al extremo. Además, puede usar un intervalo de puertos. Recuerde que hay un límite de cinco extremos internos por rol.
 
 El extremo interno puede usar los siguientes protocolos: **http, tcp, udp y any**.
 
-Para crear un extremo de entrada interno, agregue el elemento secundario **InternalEndpoint** al elemento **Endpoints** de un rol web o de trabajo.
+Para crear un punto de conexión de entrada interno, agregue el elemento secundario **InternalEndpoint** al elemento **Endpoints** de un rol web o de trabajo.
 
 ```xml
 <Endpoints>
@@ -73,8 +77,8 @@ También puede usar un intervalo de puertos.
 ```
 
 
-## Roles de trabajo en comparación con los Roles web
-Hay una pequeña diferencia entre los extremos cuando se trabaja con roles web y de trabajo. El rol web debe tener como mínimo un extremo de entrada que use el protocolo **HTTP**.
+## <a name="worker-roles-vs-web-roles"></a>Roles de trabajo en comparación con los Roles web
+Hay una pequeña diferencia entre los extremos cuando se trabaja con roles web y de trabajo. El rol web debe tener como mínimo un extremo de entrada que use el protocolo **HTTP** .
 
 ```xml
 <Endpoints>
@@ -83,7 +87,7 @@ Hay una pequeña diferencia entre los extremos cuando se trabaja con roles web y
 </Endpoints>
 ```
 
-## Uso del SDK de .NET para tener acceso a un extremo
+## <a name="using-the-net-sdk-to-access-an-endpoint"></a>Uso del SDK de .NET para tener acceso a un extremo
 La Biblioteca administrada de Azure proporciona métodos a las instancias de rol para que puedan comunicarse en tiempo de ejecución. Mediante el código que se ejecuta en una instancia de rol, puede recuperar información sobre la existencia de otras instancias de rol y sus extremos, así como información sobre la instancia de rol actual.
 
 > [!NOTE]
@@ -124,7 +128,7 @@ foreach (RoleInstance roleInst in RoleEnvironment.CurrentRoleInstance.Role.Insta
 Aquí tiene el ejemplo de un rol de trabajo que obtiene el extremo expuesto a través de la definición de servicio, y que inicia la escucha de conexiones.
 
 > [!WARNING]
-> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de procesos de Azure, los elementos de configuración de servicio que crean extremos de puerto directo (elementos **InstanceInputEndpoint**) se ignoran.
+> Este código solo funcionará en un servicio implementado. Cuando se ejecutan en el Emulador de procesos de Azure, los elementos de configuración de servicio que crean extremos de puerto directo (elementos**InstanceInputEndpoint** ) se ignoran.
 > 
 > 
 
@@ -212,10 +216,10 @@ namespace WorkerRole1
 }
 ```
 
-## Reglas de tráfico de red para controlar la comunicación entre roles
+## <a name="network-traffic-rules-to-control-role-communication"></a>Reglas de tráfico de red para controlar la comunicación entre roles
 Una vez definidos los extremos internos, puede agregar reglas de tráfico de red (basadas en los extremos que haya creado) para controlar el modo en que se comunican las instancias de rol. En el siguiente diagrama verá algunos escenarios comunes para controlar la comunicación entre roles:
 
-![Escenarios de reglas de tráfico de red](./media/cloud-services-enable-communication-role-instances/scenarios.png "Escenarios de reglas de tráfico de red")
+![Escenarios de reglas de tráfico de red](./media/cloud-services-enable-communication-role-instances/scenarios.png "Network Traffic Rules Scenarios")
 
 En el siguiente ejemplo de código verá las definiciones de rol de los roles que se mostraban en el diagrama anterior. Cada definición de rol incluye, al menos, un extremo interno definido:
 
@@ -255,7 +259,7 @@ En el siguiente ejemplo de código verá las definiciones de rol de los roles qu
 
 De forma predeterminada, una vez definido el extremo interno, la comunicación puede fluir sin restricciones desde cualquier rol hasta el extremo interno de otro rol. Para restringir la comunicación, debe agregar un elemento **NetworkTrafficRules** al elemento **ServiceDefinition** que se encuentra en el archivo de definición de servicio.
 
-### Escenario 1.
+### <a name="scenario-1"></a>Escenario 1.
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**.
 
 ```xml
@@ -274,7 +278,7 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**.
 </ServiceDefinition>
 ```
 
-### Escenario 2.
+### <a name="scenario-2"></a>Escenario 2.
 Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRole2**.
 
 ```xml
@@ -293,8 +297,8 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRol
 </ServiceDefinition>
 ```
 
-### Escenario 3.
-Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y de **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-3"></a>Escenario 3.
+Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y **WorkerRole1** a **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -322,8 +326,8 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1** y de **Worker
 </ServiceDefinition>
 ```
 
-### Escenario 4.
-Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, de **WebRole1** a **WorkerRole2** y de **WorkerRole1** a **WorkerRole2**.
+### <a name="scenario-4"></a>Escenario 4.
+Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, **WebRole1** a **WorkerRole2** y **WorkerRole1** a **WorkerRole2**.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -365,7 +369,12 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, de **WebRole
 
 Puede encontrar una referencia del esquema XML de los elementos usados anteriormente [aquí](https://msdn.microsoft.com/library/azure/gg557551.aspx).
 
-## Pasos siguientes
-Obtenga más información sobre el [modelo](cloud-services-model-and-package.md) del servicio en la nube.
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)del servicio en la nube.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

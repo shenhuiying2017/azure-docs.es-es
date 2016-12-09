@@ -1,12 +1,12 @@
 ---
-title: Objetivos de escalabilidad y rendimiento del almacenamiento | Microsoft Docs
-description: Obtenga información sobre los objetivos de escalabilidad y rendimiento para Almacenamiento de Azure, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas de almacenamiento tanto estándar como premium. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Almacenamiento de Azure.
+title: Objetivos de escalabilidad y rendimiento de Azure Storage | Microsoft Docs
+description: "Obtenga información sobre los objetivos de escalabilidad y rendimiento para Almacenamiento de Azure, incluida la capacidad, la velocidad de solicitudes y el ancho de banda entrante y saliente para las cuentas de almacenamiento tanto estándar como premium. Comprenda los objetivos de rendimiento para las particiones en cada uno de los servicios de Almacenamiento de Azure."
 services: storage
 documentationcenter: na
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
 ms.service: storage
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 70f73577fdaf6efa74fe1516a8486c45ef76db31
+
 
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento del almacenamiento de Azure
@@ -32,13 +36,13 @@ Este tema trata cuestiones de rendimiento y escalabilidad de Almacenamiento de M
 
 Si las necesidades de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, puede compilar la aplicación de forma que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento. Para obtener información sobre los precios por volumen, consulte [Precios de Almacenamiento de Azure](https://azure.microsoft.com/pricing/details/storage/) .
 
-## <a name="scalability-targets-for-blobs,-queues,-tables,-and-files"></a>Objetivos de escalabilidad para blobs, colas, tablas y archivos
+## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Objetivos de escalabilidad para blobs, colas, tablas y archivos
 [!INCLUDE [azure-storage-limits](../../includes/azure-storage-limits.md)]
 
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Objetivos de escalabilidad para discos de máquinas virtuales
 [!INCLUDE [azure-storage-limits-vm-disks](../../includes/azure-storage-limits-vm-disks.md)]
 
-Consulte el artículo sobre [tamaños de VM de Windows](../virtual-machines/virtual-machines-windows-sizes.md) o [tamaños de las VM Linux](../virtual-machines/virtual-machines-linux-sizes.md) para obtener más información.
+Consulte el artículo sobre [tamaños de VM de Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) o [tamaños de las VM Linux](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para obtener más información.
 
 ### <a name="standard-storage-accounts"></a>Cuentas de almacenamiento estándar
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../includes/azure-storage-limits-vm-disks-standard.md)]
@@ -75,6 +79,9 @@ Puede obtener recomendaciones detalladas sobre el diseño de la estrategia de pa
 * [Lista de comprobación de rendimiento y escalabilidad de Almacenamiento de Microsoft Azure](storage-performance-checklist.md)
 * [Almacenamiento de Microsoft Azure: un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

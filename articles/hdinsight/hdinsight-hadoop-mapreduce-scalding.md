@@ -1,39 +1,43 @@
 ---
 title: Desarrollo de trabajos de MapReduce de Scalding con Maven | Microsoft Docs
-description: Obtenga información sobre cómo usar Maven para crear un trabajo de MapReduce de Scalding y, a continuación, implemente y ejecute el trabajo en un Hadoop en un clúster de HDInsight.
+description: "Obtenga información sobre cómo usar Maven para crear un trabajo de MapReduce de Scalding y, a continuación, implemente y ejecute el trabajo en un Hadoop en un clúster de HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 26a4d4e8-2623-4fae-a0ca-17792b7a5713
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2016
+ms.date: 10/18/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d83a1f9755d22512834d23b8fd12f740c4198a85
+
 
 ---
-# Desarrollo de trabajos de MapReduce de Scalding con Hadoop Apache en HDInsight
+# <a name="develop-scalding-mapreduce-jobs-with-apache-hadoop-on-hdinsight"></a>Desarrollo de trabajos de MapReduce de Scalding con Hadoop Apache en HDInsight
 Scalding es una biblioteca de Scala que facilita la creación de trabajos de MapReduce de Hadoop. Ofrece una sintaxis concisa, así como la estrecha integración con Scala.
 
 En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapReduce de recuento de palabras básico escrito en Scalding. A continuación, aprenderá a implementar y ejecutar este trabajo en un clúster de HDInsight.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un clúster de Hadoop en HDInsight basado en Windows o Linux**. Vea [Aprovisionamiento de Handoop basado en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o [Aprovisionamiento de Handoop basado en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información.
+* **Un clúster de Hadoop en HDInsight basado en Windows o Linux**. Vea [Aprovisionamiento de Hadoop basado en Linux en HDInsight](hdinsight-hadoop-provision-linux-clusters.md) o [Aprovisionamiento de Hadoop basado en Windows en HDInsight](hdinsight-provision-clusters.md) para obtener más información.
 * **[Maven](http://maven.apache.org/)**
-* **[JDK de la plataforma Java 7](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o posterior**
+* **[JDK de la plataforma Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 7 o posterior**
 
-## Cree y compile el proyecto.
+## <a name="create-and-build-the-project"></a>Cree y compile el proyecto.
 1. Utilice el comando siguiente para crear un nuevo proyecto de Maven:
    
         mvn archetype:generate -DgroupId=com.microsoft.example -DartifactId=scaldingwordcount -DarchetypeGroupId=org.scala-tools.archetypes -DarchetypeArtifactId=scala-archetype-simple -DinteractiveMode=false
    
-    Este comando creará un nuevo directorio denominado **scaldingwordcount** y creará el scaffolding para una aplicación de Scala.
+    Este comando creará un nuevo directorio denominado **scaldingwordcount**y creará  el scaffolding para una aplicación de Scala.
 2. En el directorio **scaldingwordcount**, abra el archivo **pom.xml** y reemplace el contenido por lo siguiente:
    
         <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -132,14 +136,14 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
    
    * **maven.compiler.source** y **maven.compiler.target**: establece la versión de Java para este proyecto.
    * **repositories**: los repositorios que contienen los archivos de dependencia utilizados por este proyecto.
-   * **scalding-core\_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
+   * **scalding-core_2.11** y **hadoop-core**: este proyecto depende de los paquetes principales de Scalding y Hadoop.
    * **maven-scala-plugin**: complemento para compilar aplicaciones de Scala
    * **maven-shade-plugin**: complemento para crear productos sombreados (fat). Este complemento aplica filtros y transformaciones; específicamente:
      
      * **filtros**: los filtros aplicados modifican la información de metadatos incluida con el archivo jar. Para evitar las excepciones de firma en tiempo de ejecución, se excluyen los diversos archivos de firma que se pueden incluir con dependencias.
      * **executions**: la configuración de ejecución de la fase del paquete especifica la clase **com.twitter.scalding.Tool** como la clase principal para el paquete. Sin esto, necesitaría especificar com.twitter.scalding.Tool, así como la clase que contiene la lógica de la aplicación cuando se ejecuta el trabajo con el comando de hadoop.
-3. Elimine el directorio **src/test**, ya que no creará pruebas en este ejemplo.
-4. Abra el archivo **src/main/scala/com/microsoft/example/app.scala** y reemplace el contenido por lo siguiente:
+3. Elimine el directorio **src/test** , ya que no creará pruebas en este ejemplo.
+4. Abra el archivo **src/main/scala/com/microsoft/example/App.scala** y reemplace el contenido por lo siguiente:
    
         package com.microsoft.example
    
@@ -169,7 +173,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
    
     Al finalizar este trabajo, el paquete que contiene la aplicación WordCount puede encontrarse en **target/scaldingwordcount-1.0-SNAPSHOT.jar**.
 
-## Ejecución del trabajo en un clúster basado en Linux
+## <a name="run-the-job-on-a-linux-based-cluster"></a>Ejecución del trabajo en un clúster basado en Linux
 > [!NOTE]
 > Los pasos siguientes usan SSH y el comando de Hadoop. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
 > 
@@ -197,7 +201,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
    
         yarn jar scaldingwordcount-1.0-SNAPSHOT.jar com.microsoft.example.WordCount --hdfs --input wasbs:///example/data/gutenberg/davinci.txt --output wasbs:///example/wordcountout
    
-    De esta forma, se ejecuta la clase de WordCount que implementó anteriormente. `--hdfs` indica al trabajo que utilice HDFS. `--input` Especifica el archivo de texto de entrada y `--output` especifica la ubicación de salida.
+    De esta forma, se ejecuta la clase de WordCount que implementó anteriormente. `--hdfs` indica al trabajo que utilice HDFS. `--input` especifica el archivo de texto de entrada, mientras que `--output`, la ubicación de salida.
 4. Una vez completado el trabajo, utilice lo siguiente para ver el resultado.
    
         hdfs dfs -text wasbs:///example/wordcountout/*
@@ -218,7 +222,7 @@ En este documento, aprenderá a cómo usar Maven para crear un trabajo de MapRed
         wrotefootnote   1
         wrought 7
 
-## Ejecución del trabajo en un clúster basado en Windows
+## <a name="run-the-job-on-a-windows-based-cluster"></a>Ejecución del trabajo en un clúster basado en Windows
 Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución de trabajos de MapReduce, consulte [Uso de MapReduce en Hadoop en HDInsight](hdinsight-use-mapreduce.md).
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
@@ -241,14 +245,14 @@ Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución 
 3. Use el siguiente script para cargar y ejecutar el trabajo WordCount. Reemplace `CLUSTERNAME` por el nombre de su clúster de HDInsight y asegúrese de que `$fileToUpload` sea la ruta de acceso correcta al archivo **scaldingwordcount-1.0-SNAPSHOT.jar**.
    
         #Cluster name, file to be uploaded, and where to upload it
-        $clustername = "CLUSTERNAME"
-        $fileToUpload = "scaldingwordcount-1.0-SNAPSHOT.jar"
+        $clustername = Read-Host -Prompt "Enter the HDInsight cluster name"
+        $fileToUpload = Read-Host -Prompt "Enter the path to the scaldingwordcount-1.0-SNAPSHOT.jar file"
         $blobPath = "example/jars/scaldingwordcount-1.0-SNAPSHOT.jar"
    
         #Login to your Azure subscription
         Login-AzureRmAccount
         #Get HTTPS/Admin credentials for submitting the job later
-        $creds = Get-Credential
+        $creds = Get-Credential -Message "Enter the login credentials for the cluster"
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         $resourceGroup = $clusterInfo.ResourceGroup
@@ -275,10 +279,10 @@ Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución 
             -JarFile wasbs:///example/jars/scaldingwordcount-1.0-SNAPSHOT.jar `
             -ClassName com.microsoft.example.WordCount `
             -arguments "--hdfs", `
-                       "--input", `
-                       "wasbs:///example/data/gutenberg/davinci.txt", `
-                       "--output", `
-                       "wasbs:///example/wordcountout"
+                        "--input", `
+                        "wasbs:///example/data/gutenberg/davinci.txt", `
+                        "--output", `
+                        "wasbs:///example/wordcountout"
         $job = Start-AzureRmHDInsightJob `
             -clustername $clusterName `
             -jobdefinition $jobDef `
@@ -325,11 +329,16 @@ Los pasos siguientes usan Windows PowerShell. Para otros métodos de ejecución 
         wrotefootnote   1
         wrought 7
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe usar Scalding para crear trabajos de MapReduce para HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con Azure HDInsight.
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

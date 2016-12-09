@@ -1,11 +1,11 @@
 ---
-title: Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes | Microsoft Docs
-description: Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft.
+title: "Solución integral de problemas con los registros y métricas de Azure Storage, AzCopy y el analizador de mensajes | Microsoft Docs"
+description: "Tutorial en el que se explica cómo solucionar problemas totalmente por medio del análisis de Almacenamiento de Azure, AzCopy y el analizador de mensajes de Microsoft."
 services: storage
 documentationcenter: dotnet
 author: robinsh
 manager: carmonm
-
+ms.assetid: 6b23cba5-0d53-439e-870b-de8e406107d8
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
+ms.openlocfilehash: 5a07c355259c61cfde9f2c1e5f056a0b7f794861
+
 
 ---
-# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging,-azcopy,-and-message-analyzer"></a>Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes
+# <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solución integral de problemas con los registros y métricas de Almacenamiento de Azure, AzCopy y el analizador de mensajes
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 ## <a name="overview"></a>Información general
@@ -103,29 +107,32 @@ Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y c
 
 1. Use el cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
    
+    ```powershell
+     Add-AzureAccount
     ```
-    Add-AzureAccount
-    ```
+
 2. En la ventana de **inicio de sesión en Microsoft Azure** , escriba la dirección de correo electrónico y contraseña asociadas a su cuenta. Azure autentica y guarda las credenciales y, luego, cierra la ventana.
 3. Ejecute los siguientes comandos en la ventana de PowerShell para establecer la cuenta de almacenamiento predeterminada en la cuenta de almacenamiento que esté usando en este tutorial:
    
-    ```
+    ```powershell
     $SubscriptionName = 'Your subscription name'
     $StorageAccountName = 'yourstorageaccount' 
     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName 
     ```
+
 4. Habilite el registro de almacenamiento para el servicio BLOB: 
    
-    ```
+    ```powershell
     Set-AzureStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0 
     ```
+
 5. Habilite las métricas de almacenamiento del servicio BLOB, procurando establecer **-MetricsType** en `Minute`:
    
-    ```
+    ```powershell
     Set-AzureStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0 
     ```
 
-### <a name="configure-.net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
+### <a name="configure-net-client-side-logging"></a>Configurar el registro del lado cliente de .NET
 Para configurar el registro del lado cliente de una aplicación .NET, habilite los diagnósticos .NET en el archivo de configuración de la aplicación (web.config o app.config). Consulte [Inicio de sesión del lado cliente con la Biblioteca del cliente de almacenamiento de .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) y [Registro del lado cliente con Microsoft Azure Storage SDK para Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) para obtener más información.
 
 El registro del lado cliente incluye información detallada sobre el modo en que el cliente prepara la solicitud y recibe y procesa la respuesta.
@@ -150,10 +157,11 @@ En este tutorial, primero deberá recopilar y guardar un seguimiento de red en e
 4. Seleccione el vínculo **Configure** (Configurar) que está a la derecha del proveedor ETW **Microsoft-Pef-WebProxy**.
 5. En el cuadro de diálogo **Advanced Settings** (Configuración avanzada), haga clic en la pestaña **Provider** (Proveedor).
 6. En el campo **Hostname Filter** (Filtro de nombre de host), especifique los puntos de conexión de almacenamiento, separados por espacios. Por ejemplo, puede especificar los extremos cambiando `storagesample` por el nombre de su cuenta de almacenamiento. Así:
-   
-    ``` 
+
+    ```   
     storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net 
     ```
+   
 7. Salga del cuadro de diálogo y haga clic en **Restart** (Reiniciar) para empezar a recopilar el seguimiento con el filtro de nombre de host activado, de modo que solo se incluya en el seguimiento el tráfico de red de Almacenamiento de Azure.
 
 > [!NOTE]
@@ -188,7 +196,9 @@ Almacenamiento de Azure escribe datos de registro del servidor en blobs, mientra
 
 Puede usar la herramienta de línea de comandos AzCopy para descargar estos archivos de registro del lado servidor en una ubicación de su elección en el equipo local. Por ejemplo, puede usar el siguiente comando para descargar en la carpeta `C:\Temp\Logs\Server` los archivos de registro de las operaciones de blob que tuvieron lugar el 2 de enero de 2015; reemplace `<storageaccountname>` por el nombre de su cuenta de almacenamiento y `<storageaccountkey>`, por su clave de acceso de cuenta:
 
-    AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```azcopy
+AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+```
 
 AzCopy está disponible para su descarga en la página de [descargas de Azure](https://azure.microsoft.com/downloads/) . Para obtener más información sobre cómo usar AzCopy, consulte [Transferencia de datos con la utilidad en línea de comandos AzCopy](storage-use-azcopy.md).
 
@@ -280,8 +290,10 @@ Ahora agruparemos y filtraremos los datos de registro para encontrar todos los e
 2. Tras ello, agrupe por la columna **ClientRequestId** . Verá que los datos de la cuadrícula de análisis están organizados por código de estado y por identificador de solicitud de cliente.
 3. Abra la ventana de la herramienta de filtro de vista si aún no está abierta. En la cinta de opciones de la barra de herramientas, seleccione **Tool Windows** (Ventanas de herramientas) y, luego, **View Filter** (Filtro de vista).
 4. Para filtrar los datos de registro para que solo se muestren los errores del intervalo 400, agregue el siguiente criterio de filtro a la ventana **View Filter** (Filtro de vista) y haga clic en **Apply** (Aplicar):
-   
-        (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+
+    ```   
+    (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
+    ```
 
 En la siguiente imagen puede ver los resultados de la agrupación y filtrado. Si, por ejemplo, expande el campo **ClientRequestID** que se encuentra debajo de la agrupación del código de estado 409, podrá ver la operación resultante de ese código de estado.
 
@@ -306,9 +318,11 @@ Las herramientas de almacenamiento incluyen filtros predefinidos que puede usar 
 3. Vaya de nuevo al menú **Library** (Biblioteca) y localice y seleccione **Global Time Filter** (Filtro de tiempo global).
 4. Edite las marcas de tiempo que se muestran en el filtro del intervalo que quiera ver. Esto servirá para reducir el intervalo de datos que va a analizar.
 5. Su filtro debería ser similar al que aparece en el siguiente ejemplo. Haga clic en **Apply** (Aplicar) para aplicar el filtro a la cuadrícula de análisis.
-   
-        ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
-        (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+
+    ```   
+    ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And 
+    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
+    ```
 
 ![Diseño de vista de Almacenamiento de Azure](./media/storage-e2e-troubleshooting-classic-portal/404-filtered-errors1.png)
 
@@ -325,8 +339,10 @@ Ahora, pondremos en correlación el identificador de solicitud de cliente con lo
 2. En la cinta de opciones de la barra de herramientas, seleccione **New Viewer** (Nuevo visor) y, luego, **Analysis Grid** (Cuadrícula de análisis) para abrir una nueva pestaña. En la nueva ficha se recogen todos los datos de sus archivos de registro sin agrupar ni filtrar o sin reglas de color. 
 3. En la cinta de opciones de la barra de herramientas, seleccione **View Layout** (Vista de diseño) y, después, **All .NET Client Columns** (Todas las columnas de cliente .NET) en la sección correspondiente a **Almacenamiento de Azure**. En este diseño de vista se muestran los datos del registro de cliente, así como los de los registros de servidor y de seguimiento de red. Los datos se ordenan de forma predeterminada por la columna **MessageNumber** .
 4. Ahora, buscaremos el registro de cliente del identificador de solicitud de cliente. En la cinta de opciones de la barra de herramientas, seleccione **Find Messages** (Buscar mensajes) y especifique un filtro personalizado en el identificador de solicitud de cliente en el campo **Find** (Buscar). Use esta sintaxis para el filtro, indicando su propio identificador de solicitud de cliente:
-   
-        *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+
+    ```  
+    *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
+    ```
 
 El analizador de mensajes encuentra y selecciona la primera entrada de registro en la que el criterio de búsqueda coincida con el identificador de solicitud de cliente. En el registro de cliente existen varias entradas por cada identificador de solicitud de cliente, así que puede agruparlas por el campo **ClientRequestId** para que sea más fácil revisarlas. En la siguiente imagen puede ver todos los mensajes del registro de cliente correspondientes al identificador de solicitud de cliente especificado. 
 
@@ -366,6 +382,7 @@ Para más información sobre los escenarios de solución integral de problemas e
 * [Introducción a la utilidad de línea de comandos AzCopy](storage-use-azcopy.md)
 * [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Uso de Pig con Hadoop con SSH en un clúster de HDInsight | Microsoft Docs
-description: Aprenda a conectarse a un clúster de Hadoop basado en Linux con SSH y use luego el comando Pig para ejecutar instrucciones de Pig Latin de forma interactiva o como un trabajo por lotes.
+title: "Uso de Pig en Hadoop con SSH en un clúster de HDInsight | Microsoft Docs"
+description: "Aprenda a conectarse a un clúster de Hadoop basado en Linux con SSH y use luego el comando Pig para ejecutar instrucciones de Pig Latin de forma interactiva o como un trabajo por lotes."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b6a03b5ce95d2bcdf0bd7b3007acedb1e030a379
+
 
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-(ssh)"></a>Ejecución de trabajos de Pig en un clúster basado en Linux con el comando Pig (SSH)
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Ejecución de trabajos de Pig en un clúster basado en Linux con el comando Pig (SSH)
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 En este documento que le guiará a través del proceso de conexión a un clúster de HDInsight de Azure basado en Linux mediante Secure Shell(SSH) y utilizando después el comando Pig para ejecutar instrucciones de Pig Latin de manera interactiva, o como un trabajo por lotes.
@@ -29,13 +33,13 @@ El lenguaje de programación de Pig Latin le permite describir las transformacio
 > 
 > 
 
-## <a name="<a-id="prereq"></a>prerequisites"></a><a id="prereq"></a>Requisitos previos
+## <a name="a-idprereqaprerequisites"></a><a id="prereq"></a>Requisitos previos
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight basado en Linux (Hadoop en HDInsight).
 * Un cliente SSH. Linux, Unix y Mac OS deben incluir un cliente SSH. Los usuarios de Windows deben descargar un cliente similar [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
-## <a name="<a-id="ssh"></a>connect-with-ssh"></a><a id="ssh"></a>Conexión con SSH
+## <a name="a-idsshaconnect-with-ssh"></a><a id="ssh"></a>Conexión con SSH
 Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight mediante el comando SSH. El nombre descriptivo será el nombre que ha asignado al clúster, es decir, **.azurehdinsight.net**. Por ejemplo, lo siguiente debería conectar con un clúster denominado **myhdinsight**.
 
     ssh admin@myhdinsight-ssh.azurehdinsight.net
@@ -48,12 +52,12 @@ Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight 
 
 Para obtener más información sobre el uso de SSH con HDInsight, consulte [Uso de SSH con Hadoop basado en Linux en HDInsight desde Linux, OS X y Unix](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-### <a name="putty-(windows-based-clients)"></a>PuTTY (clientes basados en Windows)
+### <a name="putty-windows-based-clients"></a>PuTTY (clientes basados en Windows)
 Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **PuTTY**, que se puede descargar en [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 Para obtener más información sobre el uso de PuTTY, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X (vista previa) ](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-## <a name="<a-id="pig"></a>use-the-pig-command"></a><a id="pig"></a>Uso del comando Pig
+## <a name="a-idpigause-the-pig-command"></a><a id="pig"></a>Uso del comando Pig
 1. Una vez conectado, inicie la interfaz de línea de comandos (CLI) de Pig mediante el comando siguiente.
    
         pig
@@ -130,10 +134,10 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
         (ERROR,6)
         (FATAL,2)
 
-## <a name="<a-id="summary"></a>summary"></a><a id="summary"></a>Resumen
+## <a name="a-idsummaryasummary"></a><a id="summary"></a>Resumen
 Como puede ver, el comando Pig le permite ejecutar interactivamente operaciones de MapReduce mediante Pig Latin, así como ejecutar instrucciones almacenadas en un archivo por lotes.
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 Para obtener información general sobre Pig en HDInsight.
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
@@ -143,6 +147,9 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](hdinsight-use-hive.md)
 * [Uso de MapReduce con Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

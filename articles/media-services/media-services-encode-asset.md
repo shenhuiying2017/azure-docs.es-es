@@ -1,12 +1,12 @@
 ---
-title: Información general y comparación de codificadores multimedia a petición de Azure | Microsoft Docs
-description: En este tema se proporciona información general y una comparación de los codificadores multimedia a petición de Azure.
+title: "Introducción y comparación de codificadores multimedia a petición de Azure | Microsoft Docs"
+description: "En este tema se proporciona información general y una comparación de los codificadores multimedia a petición de Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,13 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: dc153e837a20f475c0e0b03ac698f9f84a045364
+
 
 ---
-# Información general y comparación de codificadores multimedia a petición de Azure
-## Información general sobre la codificación
+# <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Información general y comparación de codificadores multimedia a petición de Azure
+## <a name="encoding-overview"></a>Información general sobre la codificación
 Servicios multimedia de Azure ofrece varias opciones para la codificación de medios en la nube.
 
-Cuando comience con Servicios multimedia, es importante comprender la diferencia entre códecs y formatos de archivo. Los códecs son el software que implementa los algoritmos de compresión/descompresión, mientras que los formatos de archivo son contenedores que contienen el vídeo comprimido.
+Cuando comience con Servicios multimedia, es importante comprender la diferencia entre códecs y formatos de archivo.
+Los códecs son el software que implementa los algoritmos de compresión/descompresión, mientras que los formatos de archivo son contenedores que contienen el vídeo comprimido.
 
 Servicios multimedia proporciona paquetes dinámicos que permiten entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos de streaming.
 
@@ -38,55 +43,55 @@ En este artículo se ofrece una breve introducción a los codificadores multimed
 
 Tenga en cuenta que, de forma predeterminada, cada cuenta de Servicios multimedia puede tener una tarea de codificación activa a la vez. Puede reservar unidades de codificación que permiten la ejecución simultánea de varias tareas de codificación, una para cada unidad reservada de codificación que ha adquirido. Para obtener información, consulte [Escalado de unidades de codificación](media-services-scale-media-processing-overview.md).
 
-## Media Encoder Estándar
-### Modo de uso
+## <a name="media-encoder-standard"></a>Media Encoder Estándar
+### <a name="how-to-use"></a>Modo de uso
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-### Formatos
+### <a name="formats"></a>Formatos
 [Códecs y formatos](media-services-media-encoder-standard-formats.md)
 
-### Valores preestablecidos
+### <a name="presets"></a>Valores preestablecidos
 Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-### Metadatos de entrada y salida
-[Aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx) se describen los metadatos de entrada de los codificadores.
+### <a name="input-and-output-metadata"></a>Metadatos de entrada y salida
+[Aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx)se describen los metadatos de entrada de los codificadores.
 
-[Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx) se describen los metadatos de salida de los codificadores.
+[Aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx)se describen los metadatos de salida de los codificadores.
 
-### Generación de miniaturas
+### <a name="generate-thumbnails"></a>Generación de miniaturas
 Para más información, consulte [Generación de miniaturas](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
 
-### Recorte de vídeos
+### <a name="trim-videos-clipping"></a>Recorte de vídeos
 Para más información, consulte [Recorte de un vídeo](media-services-custom-mes-presets-with-dotnet.md#trim_video).
 
-### Creación de superposiciones
+### <a name="create-overlays"></a>Creación de superposiciones
 Para más información, consulte [Creación de una superposición](media-services-custom-mes-presets-with-dotnet.md#overlay).
 
-### Otras referencias
+### <a name="see-also"></a>Otras referencias
 [El blog de Servicios multimedia](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## Flujo de trabajo del Codificador multimedia
-### Información general
+## <a name="media-encoder-premium-workflow"></a>Flujo de trabajo del Codificador multimedia
+### <a name="overview"></a>Información general
 [Introducción de la codificación Premium en Servicios multimedia de Azure](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
-### Modo de uso
-El flujo de trabajo del Codificador multimedia Premium se configura mediante flujos de trabajo complejos. Los archivos de flujo de trabajo pueden crearse y actualizarse con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md).
+### <a name="how-to-use"></a>Modo de uso
+El flujo de trabajo del Codificador multimedia Premium se configura mediante flujos de trabajo complejos. Los archivos de flujo de trabajo pueden crearse y actualizarse con la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md) .
 
 [Uso de la codificación Premium en Servicios multimedia de Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
-### Problemas conocidos
-Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío.
+### <a name="known-issues"></a>Problemas conocidos
+Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá conteniendo un archivo TTML vacío. 
 
-## <a id="compare_encoders"></a>Comparación de codificadores
-### <a id="billing"></a>Medidor de facturación usado por cada codificador
+## <a name="a-idcompareencodersacompare-encoders"></a><a id="compare_encoders"></a>Comparación de codificadores
+### <a name="a-idbillingabilling-meter-used-by-each-encoder"></a><a id="billing"></a>Medidor de facturación usado por cada codificador
 | Nombre de procesador multimedia | Precios aplicables | Notas |
 | --- | --- | --- |
-| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función del tamaño de los recursos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR. |
-| **Flujo de trabajo del Codificador multimedia** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función del tamaño de los activos de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM. |
+| **Media Encoder Estándar** |ENCODER |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR. |
+| **Flujo de trabajo premium de codificación de medios** |CODIFICADOR PREMIUM |Las tareas de codificación se cobrarán en función del tamaño del recurso de salida, en GB, a la velocidad especificada [aquí][1], bajo la columna CODIFICADOR PREMIUM. |
 
-En esta sección se comparan las funciones de codificación de **Codificador multimedia estándar** y **Flujo de trabajo Premium de Codificador multimedia**.
+En esta sección se comparan las funcionalidades de codificación de **Media Encoder Standard** y **Flujo de trabajo de Media Encoder premium**.
 
-### Formatos de archivo/contenedor de entrada
+### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo/contenedor de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | Adobe® Flash® F4V |Sí |Sí |
@@ -103,7 +108,7 @@ En esta sección se comparan las funciones de codificación de **Codificador mul
 | Matroska/WebM |Sí |No |
 | QuickTime (.mov) |Sí |No |
 
-### Códecs de vídeo de entrada
+### <a name="input-video-codecs"></a>Códecs de vídeo de entrada
 | Códecs de vídeo de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | AVC 8 bits/10 bits, hasta 4:2:2, incluido AVCIntra |8 bits: 4:2:0 y 4:2:2 |Sí |
@@ -123,7 +128,7 @@ En esta sección se comparan las funciones de codificación de **Codificador mul
 | Apple ProRes 4444 |Sí |No |
 | Apple ProRes 4444 XQ |Sí |No |
 
-### Códecs de audio de entrada
+### <a name="input-audio-codecs"></a>Códecs de audio de entrada
 | Códecs de audio de entrada | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | AES (SMPTE 331M y 302M, AES3-2003) |No |Sí |
@@ -134,12 +139,12 @@ En esta sección se comparan las funciones de codificación de **Codificador mul
 | MPEG Layer 2 |Sí |Sí |
 | MP3 (MPEG-1 Audio Layer 3) |Sí |Sí |
 | Windows Media Audio |Sí |Sí |
-| WAV/PCM |Sí |Sí |
+| WAV/PCM |Sí |yes |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Sí |No |
-| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |Sí |No |
+| [Opus](https://en.wikipedia.org/wiki/Opus_\(audio_format\)) |yes |No |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sí |No |
 
-### Formatos de archivo/contenedor de salida
+### <a name="output-containerfile-formats"></a>Formatos de archivo/contenedor de salida
 | Formatos de archivo/contenedor de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | Adobe® Flash® F4V |No |Sí |
@@ -152,18 +157,17 @@ En esta sección se comparan las funciones de codificación de **Codificador mul
 | AVI (sin comprimir de 8 bits/10 bits) |No |Sí |
 | Formato de archivo de streaming con velocidad de transmisión adaptable (PIFF 1.3) |No |Sí |
 
-### Códecs de vídeo de salida
+### <a name="output-video-codecs"></a>Códecs de vídeo de salida
 | Códecs de vídeo de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | AVC (H.264; 8 bits; hasta Perfil alto, Nivel 5.2; 4K Ultra HD; AVC Intra) |Solo 8 bits 4:2:0 |Sí |
 | Avid DNxHD (en MXF) |No |Sí |
-| DVCPro/DVCProHD (en MXF) |No |Sí |
 | MPEG-2 (hasta 422 Perfil y Nivel alto; incluidas variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs® y D10) |No |Sí |
 | MPEG-1 |No |Sí |
 | Windows Media Video/VC-1 |No |Sí |
 | Creación de miniaturas JPEG |No |Sí |
 
-### Códecs de audio de salida
+### <a name="output-audio-codecs"></a>Códecs de audio de salida
 | Códecs de audio de salida | Media Encoder Estándar | Flujo de trabajo del Codificador multimedia |
 | --- | --- | --- |
 | AES (SMPTE 331M y 302M, AES3-2003) |No |Sí |
@@ -174,8 +178,8 @@ En esta sección se comparan las funciones de codificación de **Codificador mul
 | MP3 (MPEG-1 Audio Layer 3) |No |Sí |
 | Windows Media Audio |No |Sí |
 
-## Códigos de error
-En la tabla siguiente se indican los códigos de error que se podrían devolver en caso de que se encuentre un error durante la ejecución de la tarea de codificación. Para obtener detalles del error en el código .NET, use la clase [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx). Para obtener detalles del error en el código REST, use la API de REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx).
+## <a name="error-codes"></a>Códigos de error
+En la tabla siguiente se indican los códigos de error que se podrían devolver en caso de que se encuentre un error durante la ejecución de la tarea de codificación.  Para obtener detalles del error en el código .NET, use la clase [ErrorDetails](http://msdn.microsoft.com/library/microsoft.windowsazure.mediaservices.client.errordetail.aspx) . Para obtener detalles del error en el código REST, use la API de REST [ErrorDetail](https://msdn.microsoft.com/library/jj853026.aspx) .
 
 | ErrorDetail.Code | Posibles causas de error |
 | --- | --- |
@@ -190,19 +194,23 @@ En la tabla siguiente se indican los códigos de error que se podrían devolver 
 | ErrorCancelingTask |Categoría de errores en la que se incluyen errores al intentar cancelar la tarea. |
 | TransientError |Categoría de errores en la que se incluyen problemas transitorios (p. ej., problemas de red temporales con Almacenamiento de Azure). |
 
-Para obtener ayuda del equipo de **Servicios multimedia**, abra una [incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Para obtener ayuda del equipo de **Servicios multimedia** , abra una [incidencia de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Artículos relacionados
+## <a name="related-articles"></a>Artículos relacionados
 * [Realización de tareas de codificación avanzadas mediante la personalización de valores preestablecidos de Media Encoder Estándar](media-services-custom-mes-presets-with-dotnet.md)
 * [Cuotas y limitaciones](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
 [1]: http://azure.microsoft.com/pricing/details/media-services/
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

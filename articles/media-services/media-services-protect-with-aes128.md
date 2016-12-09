@@ -1,22 +1,26 @@
 ---
-title: Uso del cifrado dinámico AES-128 y del servicio de entrega de claves | Microsoft Docs
-description: Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado con claves de cifrado AES de 128 bits. Servicios multimedia también proporciona el servicio de entrega de claves que distribuye claves de cifrado a los usuarios autorizados. En este tema se muestra cómo cifrar dinámicamente con AES-128 y usar el servicio de entrega de claves.
+title: "Uso del cifrado dinámico AES-128 y del servicio de entrega de claves | Microsoft Docs"
+description: "Servicios multimedia de Microsoft Azure le permite entregar el contenido cifrado con claves de cifrado AES de 128 bits. Servicios multimedia también proporciona el servicio de entrega de claves que distribuye claves de cifrado a los usuarios autorizados. En este tema se muestra cómo cifrar dinámicamente con AES-128 y usar el servicio de entrega de claves."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 274537c60cef2d1f5068b8713e29fc8cf97d9cd2
+
 
 ---
-# Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
+# <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Uso del cifrado dinámico AES-128 y del servicio de entrega de claves
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -24,10 +28,15 @@ ms.author: juliako
 > 
 > 
 
-## Información general
+## <a name="overview"></a>Información general
+> [!NOTE]
+> Vea [este](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) vídeo para obtener información general sobre cómo proteger su contenido multimedia con el cifrado AES.
+> 
+> 
+
 Servicios multimedia de Microsoft Azure le permite entregar secuencias Http-Live-Streaming (HLS) y Smooth Streaming cifradas con el Estándar de cifrado avanzado (AES) (mediante claves de cifrado de 128 bits). Servicios multimedia también proporciona el servicio de entrega de claves que distribuye claves de cifrado a los usuarios autorizados. Si desea que Servicios multimedia cifre un recurso, debe asociar una clave de cifrado con el recurso y, además, configurar directivas de autorización para la clave. Cuando un reproductor solicita una secuencia, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido mediante AES. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato [tokens web simples](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) y en formato [tokens web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para obtener más información, consulte [Configuración de la directiva de autorización de la clave de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: abrir o restricción de token. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en formato [Token de web simple (SWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) y en formato [JSON Web Token (JWT)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3). Para obtener más información, consulte [Configuración de la directiva de autorización de la clave de contenido](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
 Para aprovechar las ventajas del cifrado dinámico, debe disponer de un recurso que contenga un conjunto de archivos MP4 o archivos de origen Smooth Streaming, de varias velocidades de bits. También debe configurar la directiva de entrega para el recurso (se describe más adelante en este tema). Luego, según el formato especificado en la URL de streaming, el servidor de streaming a petición se asegurará de que se reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente.
 
@@ -38,7 +47,7 @@ Este tema será útil para los desarrolladores que trabajan en aplicaciones que 
 > 
 > 
 
-## Flujo de trabajo de cifrado dinámico AES-128 y del servicio de entrega de claves
+## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Flujo de trabajo de cifrado dinámico AES-128 y del servicio de entrega de claves
 Éstos son los pasos generales que deberá realizar al cifrar los recursos con AES, mediante el servicio de entrega claves de Servicios multimedia y también mediante cifrado dinámico.
 
 1. [Creación de un recurso y carga de los archivos en el recurso](media-services-protect-with-aes128.md#create_asset).
@@ -61,40 +70,40 @@ La siguiente imagen muestra el flujo de trabajo que se ha descrito anteriormente
 
 El resto de este tema proporciona explicaciones detalladas, ejemplos de código y vínculos a temas que le muestran cómo lograr las tareas descritas arriba.
 
-## Limitaciones actuales
+## <a name="current-limitations"></a>Limitaciones actuales
 Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente (si hay) y crear uno nuevo.
 
-## <a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
-Para administrar, codificar y transmitir por secuencias sus vídeos, primero debe cargar el contenido en Servicios multimedia de Microsoft Azure. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y transmisión.
+## <a name="a-idcreateassetacreate-an-asset-and-upload-files-into-the-asset"></a><a id="create_asset"></a>Creación de un recurso y carga de los archivos en el recurso
+Para administrar, codificar y transmitir por secuencias sus vídeos, primero debe cargar el contenido en Servicios multimedia de Microsoft Azure. Una vez cargado, el contenido se almacena de forma segura en la nube para su posterior procesamiento y transmisión. 
 
 Para obtener información detallada, consulte [Carga de archivos en una cuenta de Servicios multimedia](media-services-dotnet-upload-files.md).
 
-## <a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
-Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md).
+## <a name="a-idencodeassetaencode-the-asset-containing-the-file-to-the-adaptive-bitrate-mp4-set"></a><a id="encode_asset"></a>Codificación del activo que contiene el archivo con Adaptive Bitrate MP4 Set.
+Con el cifrado dinámico, todo lo que tiene que hacer es crear un recurso que contenga un conjunto de archivos MP4 o archivos Smooth Streaming, de varias velocidades de bits. Luego, según el formato especificado en la solicitud de manifiesto o fragmento, el servidor de streaming a petición se asegurará de que reciba la secuencia en el protocolo elegido. Como resultado, solo tendrá que almacenar y pagar los archivos en formato de almacenamiento único y Servicios multimedia creará y proporcionará la respuesta adecuada en función de las solicitudes de un cliente. Para más información, consulte el tema [Información general sobre el empaquetado dinámico](media-services-dynamic-packaging-overview.md) .
 
 Para obtener instrucciones sobre cómo codificar, consulte [Codificación de un recurso mediante Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md).
 
-## <a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
+## <a name="a-idcreatecontentkeyacreate-a-content-key-and-associate-it-with-the-encoded-asset"></a><a id="create_contentkey"></a>Creación de una clave de contenido y su asociación con el activo codificado
 En Servicios multimedia, la clave de contenido contiene la clave con la que desea cifrar un recurso.
 
 Para obtener más información, consulte [Creación de la clave de contenido](media-services-dotnet-create-contentkey.md).
 
-## <a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
+## <a name="a-idconfigurekeyauthpolicyaconfigure-the-content-keys-authorization-policy"></a><a id="configure_key_auth_policy"></a>Configuración de la directiva de autorización de claves de contenido
 Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. El usuario debe configurar la directiva de autorización de claves y el cliente (reproductor) debe conocerla para que se le entregue la clave. La directiva de autorización de clave de acceso podría tener una o más restricciones de autorización: abrir, restricción de token o restricción de IP.
 
 Para obtener información detallada, consulte [Configuración de la directiva de autorización de claves de contenido](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Configuración de directivas de entrega de recursos
+## <a name="a-idconfigureassetdeliverypolicyaconfigure-asset-delivery-policy"></a><a id="configure_asset_delivery_policy"></a>Configuración de directivas de entrega de recursos
 Configure la directiva de entrega de sus recursos. Algunos de los elementos que incluye la configuración de la directiva de entrega de recursos son:
 
-* La URL de adquisición de clave.
-* El vector de inicialización (IV) que se usará para el cifrado Envelope. AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado.
+* La URL de adquisición de clave. 
+* El vector de inicialización (IV) que se usará para el cifrado Envelope. AES 128 requiere que se suministre el mismo IV en el cifrado y descifrado. 
 * El protocolo de entrega de recursos (por ejemplo, MPEG DASH, HLS, HDS, Smooth Streaming o todos).
-* El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico.
+* El tipo de cifrado dinámico (por ejemplo, AES Envelope) o sin cifrado dinámico. 
 
-Para obtener más información, consulte [Configuración de la directiva de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
+Para obtener más información, consulte [Configuración de la directiva de entrega de recursos ](media-services-rest-configure-asset-delivery-policy.md).
 
-## <a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
+## <a name="a-idcreatelocatoracreate-an-ondemand-streaming-locator-in-order-to-get-a-streaming-url"></a><a id="create_locator"></a>Creación de un localizador de streaming a petición para obtener una URL de streaming
 Deberá suministrar al usuario la URL de streaming para Smooth, DASH o HLS.
 
 > [!NOTE]
@@ -104,7 +113,7 @@ Deberá suministrar al usuario la URL de streaming para Smooth, DASH o HLS.
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
-## Obtención de un token de prueba
+## <a name="get-a-test-token"></a>Obtención de un token de prueba
 Obtenga un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -120,10 +129,10 @@ Obtenga un token de prueba basado en la restricción de token que se usó para l
 
 Puede usar [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para probar la secuencia.
 
-## <a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
+## <a name="a-idclientrequestahow-can-your-client-request-a-key-from-the-key-delivery-service"></a><a id="client_request"></a>Cómo el cliente puede solicitar una clave al servicio de entrega de claves
 En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El cliente debe extraer la información necesaria de los archivos de manifiesto de streaming para realizar una solicitud al servicio de entrega de claves.
 
-### Archivos de manifiesto
+### <a name="manifest-files"></a>Archivos de manifiesto
 El cliente debe extraer el valor de la URL (que también contiene el identificador de la clave de contenido) del archivo de manifiesto. El cliente intentará entonces obtener la clave de cifrado del servicio de entrega de claves. El cliente también debe extraer el valor de IV y usarlo para descifrar la transmisión. El siguiente fragmento de código muestra el elemento <Protection> del manifiesto de Smooth Streaming.
 
     <Protection>
@@ -138,9 +147,9 @@ El cliente debe extraer el valor de la URL (que también contiene el identificad
       </ProtectionHeader>
     </Protection>
 
-En el caso de HLS, el manifiesto raíz se divide en archivos de segmento.
+En el caso de HLS, el manifiesto raíz se divide en archivos de segmento. 
 
-Por ejemplo, el manifiesto raíz es: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) y contiene una lista de nombres de archivo de segmento.
+Por ejemplo, el manifiesto raíz es http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) y contiene una lista de nombres de archivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -149,7 +158,7 @@ Por ejemplo, el manifiesto raíz es: http://test001.origin.mediaservices.windows
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Si abre uno de los archivos de segmento en el editor de texto (por ejemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl)), debe contener #EXT-X-KEY# que indica que el archivo está cifrado.
+Si abre uno de los archivos de segmento en el editor de texto (por ejemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), debe incluir #EXT-X-CLAVE, que indica que el archivo está cifrado.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -165,7 +174,7 @@ Si abre uno de los archivos de segmento en el editor de texto (por ejemplo, http
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
-### Solicitud de la clave al servicio de entrega de claves
+### <a name="request-the-key-from-the-key-delivery-service"></a>Solicitud de la clave al servicio de entrega de claves
 El código siguiente muestra cómo enviar una solicitud al servicio de entrega de claves de Media Services mediante un URI de entrega de claves (que se ha extrajo del manifiesto) y un token (en este tema no se habla de cómo obtener tokens web simples de un servicio de token seguro).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -208,7 +217,7 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
         return key;
     }
 
-## <a id="example"></a>Ejemplo
+## <a name="a-idexampleaexample"></a><a id="example"></a>Ejemplo
 1. Creación de un nuevo proyecto de consola
 2. Use NuGet para instalar y agregar Extensiones del SDK de Servicios multimedia de Azure para .NET. Al instalar este paquete, también se instala el SDK de Servicios multimedia para .NET y agrega todas las demás dependencias necesarias.
 3. Agregue el archivo de configuración que contiene el nombre de cuenta y la información de clave:
@@ -612,10 +621,15 @@ El código siguiente muestra cómo enviar una solicitud al servicio de entrega d
         }
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

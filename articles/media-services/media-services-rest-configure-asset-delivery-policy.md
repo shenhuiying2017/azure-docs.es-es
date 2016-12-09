@@ -1,12 +1,12 @@
 ---
-title: Configuración de directivas de entrega de recursos mediante la API de REST de Media Services | Microsoft Docs
-description: En este tema se muestra cómo configurar distintas directivas de entrega de recursos mediante la API de REST de Media Services.
+title: "Configuración de directivas de entrega de recursos mediante la API de REST de Media Services | Microsoft Docs"
+description: "En este tema se muestra cómo configurar distintas directivas de entrega de recursos mediante la API de REST de Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
+
 
 ---
-# Configuración de directivas de entrega de recursos
+# <a name="configuring-asset-delivery-policies"></a>Configuración de directivas de entrega de recursos
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
 Si tiene pensado entregar recursos cifrados dinámicamente, uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar las directivas de entrega de los recursos. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común).
@@ -56,26 +60,26 @@ HDS
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
-## Consideraciones
+## <a name="considerations"></a>Consideraciones
 * No puede eliminar una entidad AssetDeliveryPolicy asociada a un activo mientras hay un localizador OnDemand (transmisión) para ese activo. Se recomienda quitar la directiva del activo antes de eliminar la directiva.
-* No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos. Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
-* Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado, es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.
-* Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo, desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo. Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión. Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.
+* No se puede crear un localizador de transmisión en un activo cifrado de almacenamiento cuando no se establece ninguna directiva de entrega de activos.  Si el activo no está cifrado para almacenamiento, el sistema le permitirá crear un localizador y transmitir el activo sin cifrar, sin una directiva de entrega de activos.
+* Puede tener varias directivas de entrega de activos asociadas a un único activo, pero solo se puede especificar una forma de controlar un AssetDeliveryProtocol determinado,  es decir, si intenta vincular dos directivas de entrega que especifican el protocolo AssetDeliveryProtocol.SmoothStreaming que producirá un error porque el sistema no sabe cuál quiere que aplique cuando un cliente realiza una solicitud de Smooth Streaming.
+* Si tiene un activo con un localizador de transmisión existente, no puede vincular una nueva directiva al activo, desvincular una directiva existente del activo o actualizar una directiva de entrega asociada al activo.  Primero debe quitar el localizador de transmisión, ajustar las directivas y volver a crear el localizador de transmisión.  Puede usar el mismo locatorId al volver a crear el localizador de transmisión, pero debe asegurarse de que no causará problemas para los clientes ya que se puede almacenar en caché el contenido por el origen o una red CDN de nivel inferior.
 
 > [!NOTE]
 > Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 > 
 > Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración del desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 > 
-> Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
+> Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
 > 
 > 
 
-## Directiva de entrega de recursos sin cifrar
-### <a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
-La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming.
+## <a name="clear-asset-delivery-policy"></a>Directiva de entrega de recursos sin cifrar
+### <a name="a-idcreateassetdeliverypolicyacreate-asset-delivery-policy"></a><a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
+La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos: MPEG DASH, HLS y Smooth Streaming. 
 
-Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
+Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
 
 Solicitud:
 
@@ -121,7 +125,7 @@ Respuesta:
     "Created":"2015-02-08T06:21:27.6908329Z",
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
-### <a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
+### <a name="a-idlinkassetwithassetdeliverypolicyalink-asset-with-asset-delivery-policy"></a><a id="link_asset_with_asset_delivery_policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 La siguiente solicitud HTTP vincula el recurso especificado con la directiva de entrega de recursos.
 
 Solicitud:
@@ -144,11 +148,11 @@ Respuesta:
     HTTP/1.1 204 No Content
 
 
-## Directiva de entrega de recursos DynamicEnvelopeEncryption
-### Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
+## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicEnvelopeEncryption
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
 Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para obtener más información, consulte [Creación de una clave de contenido](media-services-rest-create-contentkey.md).
 
-### <a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
+### <a name="a-idgetdeliveryurlaget-delivery-url"></a><a id="get_delivery_url"></a>Obtención de una dirección URL de entrega
 Obtenga la dirección URL de entrega para el método de entrega especificado de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una clave AES o una licencia de PlayReady para reproducir el contenido protegido.
 
 Especifique el tipo de la dirección URL que se obtendrá en el cuerpo de la solicitud HTTP. Si protege el contenido con PlayReady, solicite una URL de adquisición de licencias PlayReady de Servicios multimedia, con 1 para keyDeliveryType: {"keyDeliveryType":1}. Si protege el contenido con el cifrado de sobre, solicite una dirección URL de adquisición de claves con 2 para keyDeliveryType: {"keyDeliveryType":2}.
@@ -186,10 +190,10 @@ Respuesta:
     {"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-### Creación de directiva de entrega de recursos
-La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado Envelope dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para transmisión).
+### <a name="create-asset-delivery-policy"></a>Creación de directiva de entrega de recursos
+La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado Envelope dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para transmisión). 
 
-Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
+Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
 
 Solicitud:
 
@@ -205,7 +209,7 @@ Solicitud:
     x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
     Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]"}
 
 
 Respuesta:
@@ -224,23 +228,23 @@ Respuesta:
     Strict-Transport-Security: max-age=31536000; includeSubDomains
     Date: Mon, 09 Feb 2015 05:24:38 GMT
 
-    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
+    {"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-### Vincular recurso con la directiva de entrega de recursos
+### <a name="link-asset-with-asset-delivery-policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
-## Directiva de entrega de recursos DynamicCommonEncryption
-### Crear clave de contenido del tipo CommonEncryption y vincularla al recurso
+## <a name="dynamiccommonencryption-asset-delivery-policy"></a>Directiva de entrega de recursos DynamicCommonEncryption
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>Crear clave de contenido del tipo CommonEncryption y vincularla al recurso
 Al especificar la directiva de entrega de DynamicCommonEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo CommonEncryption. Para obtener más información, consulte [Creación de una clave de contenido](media-services-rest-create-contentkey.md).
 
-### Obtención de dirección URL de entrega
+### <a name="get-delivery-url"></a>Obtención de una dirección URL de entrega
 Obtenga la dirección URL de entrega para el método de entrega de PlayReady de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una licencia de PlayReady para reproducir el contenido protegido. Para obtener más información, consulte [Obtención de una dirección URL de entrega](#get_delivery_url)
 
-### Creación de directiva de entrega de recursos
-La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) en el protocolo **Smooth Streaming** (en este ejemplo, se bloquearán otros protocolos para transmisión).
+### <a name="create-asset-delivery-policy"></a>Creación de directiva de entrega de recursos
+La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) en el protocolo **Smooth Streaming** (en este ejemplo, se bloquearán otros protocolos para transmisión). 
 
-Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types).
+Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos usados al definir AssetDeliveryPolicy](#types) .   
 
 Solicitud:
 
@@ -256,25 +260,25 @@ Solicitud:
     x-ms-client-request-id: fff319f6-71dd-4f6c-af27-b675c0066fa7
     Host: media.windows.net
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":2,"Value":"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Si quiere proteger su contenido con DRM de Widevine, actualice los valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tiene el valor de 7) y especifique la dirección URL de un servicio de entrega de licencias. Puede usar los siguientes partners de AMS para ayudarle a entregar licencias de Widevine: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Si quiere proteger su contenido con DRM de Widevine, actualice los valores de AssetDeliveryConfiguration para usar WidevineLicenseAcquisitionUrl (que tiene el valor de 7) y especifique la dirección URL de un servicio de entrega de licencias. Puede usar los siguientes partners de AMS para ayudarle a entregar licencias de Widevine:[Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
-Por ejemplo:
+Por ejemplo: 
 
-    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{"Key":7,"Value":"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
+    {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
 > Al cifrar con Widevine, solo podría entregar con DASH. Asegúrese de especificar DASH (2) en el protocolo de entrega de recursos.
 > 
 > 
 
-### Vincular recurso con la directiva de entrega de recursos
+### <a name="link-asset-with-asset-delivery-policy"></a>Vinculación de un recurso con la directiva de entrega de recursos
 Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
-## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
-### AssetDeliveryProtocol
+## <a name="a-idtypesatypes-used-when-defining-assetdeliverypolicy"></a><a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
+### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
     /// </summary>
@@ -312,7 +316,7 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         All = 0xFFFF
     }
 
-### AssetDeliveryPolicyType
+### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
     /// <summary>
     /// Policy type for dynamic encryption of assets.
     /// </summary>
@@ -345,7 +349,7 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         DynamicCommonEncryption
         }
 
-### ContentKeyDeliveryType
+### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
     /// <summary>
     /// Delivery method of the content key to the client.
     ///
@@ -379,7 +383,7 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
     }
 
 
-### AssetDeliveryPolicyConfigurationKey
+### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
     /// </summary>
@@ -428,10 +432,15 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
     }
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

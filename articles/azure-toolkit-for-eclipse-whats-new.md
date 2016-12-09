@@ -1,12 +1,12 @@
 ---
 title: Novedades del kit de herramientas de Azure para Eclipse
-description: Obtenga información acerca las características más recientes del kit de herramientas de Azure para Eclipse.
-services: ''
+description: "Obtenga información acerca las características más recientes del kit de herramientas de Azure para Eclipse."
+services: 
 documentationcenter: java
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 16b066ea-aae7-4c30-9a12-fa0c3711b93e
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/01/2016
 ms.author: robmcm;asirveda;martinsawicki
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2b572ac3416936b1511a9d267c30b56af714eaf3
+
 
 ---
 # <a name="whats-new-in-the-azure-toolkit-for-eclipse"></a>Novedades del kit de herramientas de Azure para Eclipse
@@ -66,7 +70,7 @@ El kit de herramientas de Azure para Eclipse, versión de enero de 2016, incluye
 
 * **Compatibilidad con las actualizaciones de Zulu de OpenJDK**. Para más información, consulte la [página web de Azul Systems para Zulu de OpenJDK].
 * **Distribuciones actualizadas de Tomcat y Jetty**. Se han actualizado las distribuciones de Jetty y Tomcat que están disponibles en Microsoft Azure para su uso con el kit de herramientas de Azure para Eclipse.
-* **Paridad de características entre Eclipse y kits de herramientas de IntelliJ para Azure**. El kit de herramientas de Azure para Eclipse y el [kit de herramientas de Azure para IntelliJ] ahora admiten el mismo conjunto de características.
+* **Paridad de características entre Eclipse y kits de herramientas de IntelliJ para Azure**. El kit de herramientas de Azure para Eclipse y el [Kit de herramientas de Azure para IntelliJ] ahora admiten el mismo conjunto de características.
 
 ### <a name="september-1-2015"></a>1 de septiembre de 2015
 El kit de herramientas de Azure para Eclipse, versión de septiembre de 2015, incluye las siguientes mejoras:
@@ -165,7 +169,7 @@ El complemento de Azure para Eclipse, versión de abril de 2014. Se trata de una
 ### <a name="february-6-2014"></a>6 de febrero de 2014
 Se ha publicado el complemento de Azure para Eclipse, versión preliminar de febrero de 2014. Esta actualización incluye nuevas características, correcciones de errores y algunas mejoras de facilidad de uso basadas en comentarios que se han producido desde la versión preliminar de octubre de 2013:
 
-* **Compatibilidad con la descarga de SSL.**  La descarga de capa de sockets seguros (SSL) se ha agregado como característica, lo que le permitirá habilitar fácilmente la compatibilidad con el protocolo HTTPS en su implementación de Java en Azure, sin necesidad de configurar SSL en el servidor de aplicaciones Java. Esto es especialmente importante para la afinidad de la sesión o en escenarios de comunicación autenticados. Por ejemplo, cuando se usa el filtro de servicio de control de acceso (ACS), que ya es compatible con el kit de herramientas. Para más información, consulte [Descarga de SSL] y[ Uso de la descarga de SSL].
+* **Compatibilidad con la descarga de SSL.**  La descarga de capa de sockets seguros (SSL) se ha agregado como característica, lo que le permitirá habilitar fácilmente la compatibilidad con el protocolo HTTPS en su implementación de Java en Azure, sin necesidad de configurar SSL en el servidor de aplicaciones Java. Esto es especialmente importante para la afinidad de la sesión o en escenarios de comunicación autenticados. Por ejemplo, cuando se usa el filtro de servicio de control de acceso (ACS), que ya es compatible con el kit de herramientas. Para más información, consulte [SSL Offloading] y[ Uso de la descarga de SSL].
 * **GlassFish 4 es ahora un servidor de aplicaciones reconocido**. Si selecciona un directorio de instalación de GlassFish 4 en el equipo en la pestaña **Servidor** del cuadro de diálogo **Proyecto de implementación de Azure**, el complemento lo detectará automáticamente y podrá implementar GlassFish OSE 4 de forma automática, de manera similar a la versión GlassFish OSE 3 que ya está en la lista.
 * **Actualización 45 del paquete de Zulu de OpenJDK de Azul.**  A partir de esta versión, la actualización 45 de Zulu (paquete Open JDK v7) de Azul System ya está disponible; esta actualización viene a sumarse a las actualizaciones 40 y 25 disponibles anteriormente.
 * **Compatibilidad con modo 'auto' para puertos de punto de conexión privado.**  Puede establecer un puerto privado en automático para los puntos de conexión de entrada y los puntos de conexión internos para permitir que Azure asigne automáticamente un puerto a ese punto de conexión. Anteriormente solo podía asignar un número de puerto específico.
@@ -264,7 +268,7 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de junio de 2012. Las 
 
 * **Nuevo asistente para proyecto de implementación de Azure:** le permite seleccionar el JDK, el servidor de aplicaciones Java y las aplicaciones de Java directamente en la interfaz de usuario mejorada del asistente. Incluidas en la lista de configuraciones del servidor listas para usar, puede elegir Tomcat 6, Tomcat 7, GlassFish OSE 3, Jetty 7, Jetty 8, JBoss 6 y JBoss 7 (independiente). Además, puede personalizar la lista de configuraciones del servidor. Esta mejora de la interfaz de usuario es una alternativa a arrastrar y colocar archivos comprimidos y copiarlos a través de scripts de inicio, que antes era el método principal. Ese método todavía funciona bien, pero es probable que se use solo para escenarios más avanzados.
 * **Página de propiedades de rol de la configuración del servidor:** le permite cambiar fácilmente los JDK, los servidores de aplicaciones de Java y las aplicaciones asociadas con la implementación después de haber creado el proyecto. Para más información, consulte [Propiedades de configuración del servidor].
-* **&quot;Asistente &quot;Publicar en la nube **: proporciona una manera fácil de implementar el proyecto en Azure directamente desde Eclipse, automatizando el pesado proceso manual anterior de obtención de credenciales, inicio de sesión en el portal de administración de Azure, carga de un paquete, etc. Para obtener un ejemplo de cómo implementar el proyecto directamente en Azure, consulte [Creación de una aplicación Hola a todos para Azure en Eclipse.]
+* **&quot;Asistente &quot;Publicar en la nube **: proporciona una manera fácil de implementar el proyecto en Azure directamente desde Eclipse, automatizando el pesado proceso manual anterior de obtención de credenciales, inicio de sesión en el portal de administración de Azure, carga de un paquete, etc. Para obtener un ejemplo de cómo implementar el proyecto directamente en Azure, consulte [Creación de una aplicación Hola a todos para Azure en Eclipse]
 * **Barra de herramientas de Azure:** una barra de herramientas de Azure que está ahora disponible en Eclipse contiene botones que invocan las siguientes características:
   * ![][ic710879] **Ejecutar en emulador de Azure**: ejecuta el proyecto en el emulador.
   * ![][ic710880] **Restablecer emulador de Azure**: restablece el emulador.
@@ -299,7 +303,7 @@ Se ha publicado el complemento de Azure para Eclipse, CTP de diciembre de 2011. 
 Para más información acerca de los kits de herramientas de Azure para los IDE de Java, vea los siguientes vínculos:
 
 * [Kit de herramientas de Azure para Eclipse]
-  * [Instalación del Kit de herramientas de Azure para Eclipse]
+  * [Instalación del kit de herramientas de Azure para Eclipse]
   * [Creación de una aplicación web Hello World para Azure en Eclipse]
   * *Novedades del kit de herramientas de Azure para Eclipse (este artículo)*
 * [Kit de herramientas de Azure para IntelliJ]
@@ -315,7 +319,7 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij.md
 [Creación de una aplicación web Hello World para Azure en Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
 [Creación de una aplicación web Hello World para Azure en IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[Instalación del Kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Instalación del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-installation.md
 [Instalación del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-installation.md
 [Novedades del kit de herramientas de Azure para Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
 [Novedades del kit de herramientas de Azure para IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
@@ -333,12 +337,12 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 [Propiedades de variables de entorno]: http://go.microsoft.com/fwlink/?LinkID=699525#environment_variables_properties
 [Complemento Herramientas de HDInsight para Eclipse]: ./hdinsight/hdinsight-apache-spark-eclipse-tool-plugin.md
 [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: http://go.microsoft.com/fwlink/?LinkID=264703
-[Uso de la descarga de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
-[Instalación del Kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
+[ Uso de la descarga de SSL]: http://go.microsoft.com/fwlink/?LinkID=699545
+[Instalación del kit de herramientas de Azure para Eclipse]: http://go.microsoft.com/fwlink/?LinkId=699546
 [Propiedades de almacenamiento local]: http://go.microsoft.com/fwlink/?LinkID=699525#local_storage_properties
 [API de cliente de Microsoft Azure]: http://go.microsoft.com/fwlink/?LinkId=280397
 [Propiedades de configuración del servidor]: http://go.microsoft.com/fwlink/?LinkID=699525#server_configuration_properties
-[Enable Enable Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
+[Enable Session Affinity]: http://go.microsoft.com/fwlink/?LinkID=699548
 [SSL Offloading]: http://go.microsoft.com/fwlink/?LinkID=699549
 [Creación de una nueva cuenta de almacenamiento]: http://go.microsoft.com/fwlink/?LinkID=699528#create_new
 [Tamaños de máquinas virtuales y servicios en la nube de Azure]: http://go.microsoft.com/fwlink/?LinkId=466520
@@ -358,6 +362,6 @@ Para obtener más información sobre el uso de Azure con Java, vea el [Centro pa
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

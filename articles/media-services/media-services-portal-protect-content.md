@@ -1,19 +1,23 @@
 ---
-title: Configuración de directivas de protección de contenido mediante Azure Portal | Microsoft Docs
-description: En este artículo se muestra cómo usar Azure Portal para configurar las directivas de protección de contenido. El artículo también muestra cómo habilitar el cifrado dinámico para los recursos.
+title: "Configuración de directivas de protección de contenido mediante Azure Portal | Microsoft Docs"
+description: "En este artículo se muestra cómo usar Azure Portal para configurar las directivas de protección de contenido. El artículo también muestra cómo habilitar el cifrado dinámico para los recursos."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0f9b0cf4e88a1ab27546063ae89cde8de7761609
+
 
 ---
 # <a name="configuring-content-protection-policies-using-the-azure-portal"></a>Configuración de directivas de protección de contenido mediante Azure Portal
@@ -39,12 +43,12 @@ En este artículo se muestra cómo configurar las directivas de protección de c
 ## <a name="start-configuring-content-protection"></a>Empezar a configurar la protección de contenido
 Para usar el portal para empezar a configurar la protección de contenido, para su cuenta de AMS, realice lo siguiente:
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. En [Azure Portal](https://portal.azure.com/), seleccione la cuenta de Azure Media Services.
 2. Seleccione **Ajustes** > **Protección de contenido**.
 
 ![Proteger contenido](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
-## <a name="key/license-authorization-policy"></a>directiva de autorización de licencias o claves
+## <a name="keylicense-authorization-policy"></a>directiva de autorización de licencias o claves
 AMS admite varias formas de autenticar a los usuarios que realizan solicitudes de clave o licencia. El usuario debe configurar la directiva de autorización de claves y el cliente debe conocerla para que se le proporcione la clave o licencia. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: **abrir** o restricción de **token**.
 
 Azure Portal le permite crear una **directiva de autorización de licencias o claves** para todos los tipos de cifrado.
@@ -130,6 +134,9 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

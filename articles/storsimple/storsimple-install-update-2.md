@@ -1,12 +1,12 @@
 ---
-title: Instalar Update 2 en el dispositivo de StorSimple | Microsoft Docs
-description: Se explica cómo instalar Update 2 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000.
+title: "Instalación de Update 2 en el dispositivo StorSimple | Microsoft Docs"
+description: "Se explica cómo instalar Update 2 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 8c8981df-75d9-4d19-b137-d6c6ba39dcfb
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e788439608b7122f2bca6b99b832baa5258e472d
+
 
 ---
-# Instalar Update 2 en el dispositivo de StorSimple
-## Información general
+# <a name="install-update-2-on-your-storsimple-device"></a>Instalar Update 2 en el dispositivo de StorSimple
+## <a name="overview"></a>Información general
 En este tutorial se explica cómo instalar Update 2 en un dispositivo de StorSimple ejecutando una versión anterior del software mediante el Portal de Azure clásico. En él también se tratan los pasos necesarios para la actualización cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo de StorSimple y está intentando actualizar desde una versión de software anterior a Update 1.
 
 En Update 2 se incluyen actualizaciones de software del dispositivo, actualizaciones de controladores LSI y actualizaciones del firmware del disco. Las actualizaciones del software y de los controladores LSI no provocan interrupciones y se pueden aplicar a través del Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
@@ -32,7 +36,7 @@ En Update 2 se incluyen actualizaciones de software del dispositivo, actualizaci
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Instalación de Update 2 a través del Portal de Azure clásico
+## <a name="install-update-2-via-the-azure-classic-portal"></a>Instalación de Update 2 a través del Portal de Azure clásico
 Realice los pasos siguientes para actualizar el dispositivo a [Update 2](storsimple-update2-release-notes.md).
 
 > [!NOTE]
@@ -42,13 +46,13 @@ Realice los pasos siguientes para actualizar el dispositivo a [Update 2](storsim
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Compruebe que el dispositivo ejecuta **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. También se debe modificar **Fecha de última actualización:**. También verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
+1. Compruebe que el dispositivo ejecuta **StorSimple 8000 Series Update 2 (6.3.9600.17673)**. También se debe modificar **Fecha de última actualización:** . También verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
    
    Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo. En algunos casos, cuando se ejecuta Update 1.2, es posible que el firmware del disco ya esté actualizado, en cuyo caso no es necesario instalar las actualizaciones en modo de mantenimiento.
 2. Descargue las actualizaciones en modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3121899, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas).
 3. Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento.
 
-## Instalar Update 2 como una revisión
+## <a name="install-update-2-as-a-hotfix"></a>Instalar Update 2 como una revisión
 Debe usar este procedimiento si la comprobación de la puerta de enlace produce un error al intentar instalar las actualizaciones a través del Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1.
 
 Las versiones de software que se pueden actualizar con el método de revisión son Update 0.1, Update 0.2, Update 0.3, Update 1, Update 1.1 y Update 1.2. El método de revisión implica los tres pasos siguientes:
@@ -63,8 +67,8 @@ Para instalar Update 2 como una revisión, debe descargar e instalar las revisio
 | --- | --- | --- | --- |
 | 1 |KB3121901 |Actualización de software |Normal |
 | 2 |KB3121900 |Controlador LSI |Normal |
-| 3 |KB3080728 |Corrección de Storport </br> Windows Server 2012 R2 |Normal |
-| 4 |KB3090322 |Corrección de Spaceport </br> Windows Server 2012 R2 |Normal |
+| 3 |KB3080728 |Revisión de Storport  </br>  Windows Server 2012 R2 |Normal |
+| 4 |KB3090322 |Revisión de Spaceport  </br>  Windows Server 2012 R2 |Normal |
 | 5 |KB3121899 |Firmware del disco |Mantenimiento |
 
 > [!IMPORTANT]
@@ -81,7 +85,12 @@ Realice los pasos siguientes para aplicar esta actualización como una revisión
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [versión Update 2](storsimple-update2-release-notes.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

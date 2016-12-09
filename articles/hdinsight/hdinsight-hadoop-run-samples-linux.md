@@ -1,13 +1,13 @@
 ---
-title: Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Linux | Microsoft Docs
-description: Introducción al uso de ejemplos de MapReduce con HDInsight basado en Linux. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo.
+title: "Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Linux | Microsoft Docs"
+description: "Introducción al uso de ejemplos de MapReduce con HDInsight basado en Linux. Use SSH para conectarse al clúster y, a continuación, use el comando de Hadoop para ejecutar trabajos de ejemplo."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d4b6db263becb722cabfab2160c0a460034eae72
+
 
 ---
 # <a name="run-the-hadoop-samples-in-hdinsight"></a>Ejecución de ejemplos de Hadoop en HDInsight
@@ -61,7 +65,7 @@ Los clústeres de HDInsight basado en Linux proporcionan un conjunto de ejemplos
 **Código fuente**: el código fuente de estos ejemplos se incluye en el clúster de HDInsight en **/usr/hdp/2.2.4.9-1/hadoop/src/hadoop-mapreduce-project/hadoop-mapreduce-examples**.
 
 > [!NOTE]
-> `2.2.4.9-1` en la ruta de acceso es la versión de Hortonworks Data Platform para el clúster de HDInsight y puede cambiar cuando se actualice HDInsight.
+>  `2.2.4.9-1` en la ruta de acceso es la versión de Hortonworks Data Platform para el clúster de HDInsight y puede cambiar cuando se actualice HDInsight.
 > 
 > 
 
@@ -133,7 +137,7 @@ Existe una forma determinada de construir rompecabezas sudoku para que no se rep
     ? ? ? ? 4 5 ? 7 8
 
 > [!NOTE]
-> `2.2.4.9-1` de la ruta de acceso cambie cuando se actualice el clúster de HDInsight.
+>  `2.2.4.9-1` de la ruta de acceso cambie cuando se actualice el clúster de HDInsight.
 > 
 > 
 
@@ -153,7 +157,7 @@ Los resultados deberían parecerse a los siguientes:
     1 8 5 7 3 9 2 6 4
     2 6 3 1 4 5 9 7 8
 
-## <a name="pi-(π)"></a>Pi (π)
+## <a name="pi-"></a>Pi (π)
 El ejemplo pi usa un método estadístico (cuasi Monte Carlo) para calcular el valor de pi. Los puntos colocados en el interior aleatorio de un cuadrado unitario también entran dentro de un círculo inscrito dentro de ese cuadrado con una probabilidad igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 
 El asignador de este ejemplo genera un número de puntos de forma aleatoria en el interior de un cuadrado unitario y, a continuación, cuenta la cantidad de esos puntos que se encuentran dentro del círculo.
@@ -166,10 +170,10 @@ Use el siguiente comando para ejecutar este ejemplo. Se usan 16 asignaciones con
 
 El valor devuelto debería asemejarse a **3,14159155000000000000**. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
 
-## <a name="10gb-greysort"></a>Greysort de 10 GB
-GraySort es un tipo de banco de pruebas cuya métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB como mínimo.
+## <a name="10gb-greysort"></a>Greysort de 10 GB
+GraySort es un tipo de banco de pruebas cuya métrica es la velocidad de ordenación (TB/minuto) que se logra después de ordenar enormes volúmenes de datos, normalmente 100 TB como mínimo.
 
-Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
+Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
@@ -220,6 +224,6 @@ En este artículo, ha obtenido información acerca de cómo ejecutar los ejemplo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Notas de la versión de SDK de Azure para .NET 2.5.1.
-description: Notas de la versión de SDK de Azure para .NET 2.5.1.
+title: "Notas de la versión de SDK de Azure para .NET 2.5.1."
+description: "Notas de la versión de SDK de Azure para .NET 2.5.1."
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -14,12 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
+
 
 ---
-# <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.5.1.
+# <a name="azure-sdk-for-net-251-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.5.1.
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.5.1. 
 
-## <a name="azure-sdk-for-.net-2.5.1-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.5.1.
+## <a name="azure-sdk-for-net-251-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.5.1.
 A continuación se muestran características nuevas y actualizaciones en el SDK de Azure para .NET 2.5.1.
 
 * Nuevas características o escenarios relacionados con **Extensiones de herramientas web**. 
@@ -42,7 +46,7 @@ A continuación se muestran características nuevas y actualizaciones en el SDK 
     
     Para obtener más información, consulte [Introducción al uso de las herramientas de Hadoop de HDInsight para Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-## <a name="<a-id="known_issues_2_5_1"></a>azure-sdk-for-.net-2.5.1-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Problemas y limitaciones conocidos del SDK de Azure para .NET 2.5.1
+## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Problemas y limitaciones conocidos del SDK de Azure para .NET 2.5.1
 * Las aplicaciones de la API de Azure están visibles como un destino de implementación para las aplicaciones móviles. Las aplicaciones web deben ser único destino para las aplicaciones móviles hasta una versión posterior. 
 * El aprovisionamiento de aplicaciones de la API de Azure puede ser correcto pero fallar intermitentemente al actualizar el progreso en la ventana de actividad de servicio de la aplicación de Azure. La solución consiste en comprobar el estado de la nueva aplicación de la API de Azure en el Portal de Azure. 
 * La experiencia de Archivo > Nuevo proyecto > Aplicación de la API > F5 produce un error HTTP porque no existe default/index.html. La solución es dirigirse manualmente a la dirección URL de /api/values. 
@@ -59,6 +63,9 @@ A continuación se muestran características nuevas y actualizaciones en el SDK 
 * Las plantillas de proyecto de la aplicación de la API solo están disponibles en C#.
 * El consumo de la aplicación de la API a través del menú contextual "Agregar cliente de aplicación de la API de Azure" solo es compatible en C#.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

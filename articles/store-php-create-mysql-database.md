@@ -1,20 +1,24 @@
 ---
-title: Creación y conexión de una base de datos MySQL en Azure
-description: Obtenga información sobre cómo usar el Portal de Azure para crear una base de datos MySQL y, después, conectarse a ella desde una aplicación web PHP en Azure.
+title: "Creación y conexión de una base de datos MySQL en Azure"
+description: "Obtenga información sobre cómo usar el Portal de Azure para crear una base de datos MySQL y, después, conectarse a ella desde una aplicación web PHP en Azure."
 documentationcenter: php
 services: app-service\web
 author: cephalin
-manager: wpickett
-editor: ''
+manager: erikre
+editor: 
 tags: mysql
-
+ms.assetid: 55465a9a-7e65-4fd9-8a65-dd83ee41f3e5
 ms.service: multiple
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/01/2016
 ms.author: robmcm;cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b5f828f90c73f5fd0356fde4e71c11d4d27ec794
+
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Creación y conexión de una base de datos MySQL en Azure
@@ -37,7 +41,7 @@ Para restaurar una base de datos MySQL en el Portal de Azure, haga lo siguiente:
    * **Nombre de la base de datos**: escriba un nombre identificable de forma única.
    * **Suscripción**: elija la suscripción que va a utilizar
    * **Tipo de base de datos**: seleccione **Compartido** para los niveles de bajo coste o gratuitos, o bien **Dedicado** si desea obtener recursos específicos. 
-   * **Grupo de recursos**: agregue la base de datos MySQL a un [grupo de recursos](resource-group-overview.md) existente, o bien colóquela en uno nuevo. Los recursos del mismo grupo pueden administrarse juntos de manera sencilla.
+   * **Grupo de recursos**: agregue la base de datos MySQL a un [grupo de recursos](azure-resource-manager/resource-group-overview.md) existente, o bien colóquela en uno nuevo. Los recursos del mismo grupo pueden administrarse juntos de manera sencilla.
    * **Ubicación**: elija una ubicación cercana a usted. Cuando se agrega la base de datos a un grupo de recursos existente, no podrá acceder a la ubicación de este.
    * **Plan de tarifa**: haga clic en **Plan de tarifa**; después, seleccione una opción de precios (el nivel **Mercurio** es gratuito) y, luego, haga clic en **Seleccionar**. 
    * **Condiciones legales**: haga clic en **Condiciones legales**, revise los detalles de la compra y haga clic en **Comprar**.
@@ -64,7 +68,7 @@ Para ver la información de conexión de la nueva base de datos MySQL, haga clic
 
 Ahora puede emplear esa información de conexión en cualquier aplicación web. [Aquí](https://github.com/WindowsAzure/azure-sdk-for-php-samples/tree/master/tasklist-mysql)puede encontrar un ejemplo que muestra cómo utilizar la información de conexión de una aplicación PHP simple.
 
-## <a name="connect-a-laravel-web-app-(from-the-php-get-started-tutorial)"></a>Conexión de una aplicación web de Laravel (del tutorial de introducción de PHP)
+## <a name="connect-a-laravel-web-app-from-the-php-get-started-tutorial"></a>Conexión de una aplicación web de Laravel (del tutorial de introducción de PHP)
 Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a PHP web app to Azure](app-service-web/app-service-web-php-get-started.md) (Creación, configuración e implementación de aplicaciones web PHP en Azure) y tiene una aplicación web de [Laravel](https://www.laravel.com/) que se ejecuta en Azure, podrá agregar fácilmente las funcionalidades de base de datos a la aplicación Laravel. Siga los pasos que se indican a continuación:
 
 > [!NOTE]
@@ -82,12 +86,13 @@ Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a
         DB_PASSWORD=<PASSWORD_from_properties_blade>
    
    > [!NOTE]
-   > En la hoja **Propiedades**, puede que no se muestre el nombre de la base de datos MySQL en el campo **NOMBRE DE LA BASE DE DATOS**. Se recomienda comprobar el parámetro Database del campo **CADENA DE CONEXIÓN** . 
+   > En la hoja **Propiedades**, puede que no se muestre el nombre de la base de datos MySQL en el campo **NOMBRE DE LA BASE DE DATOS**. Se recomienda comprobar el parámetro Database del campo **CADENA DE CONEXIÓN** .    
    > 
    > ![Creación una base de datos MySQL en Azure: en curso](./media/store-php-create-mysql-database/connect-db-1-database-name.png)
    > 
    > 
-2. La forma más rápida de comprobar que ahora tiene acceso a MySQL es usar la técnica [scaffolding de autenticación predeterminada de Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). En el terminal de la línea de comandos, ejecute los siguientes comandos desde el directorio raíz de la aplicación Laravel:
+2. La forma más rápida de comprobar que ahora tiene acceso a MySQL es usar la técnica [scaffolding de autenticación predeterminada de Laravel](https://laravel.com/docs/5.2/authentication#authentication-quickstart). 
+   En el terminal de la línea de comandos, ejecute los siguientes comandos desde el directorio raíz de la aplicación Laravel:
    
          php artisan migrate
          php artisan make:auth
@@ -136,6 +141,9 @@ Si, por ejemplo, acaba de finalizar el tutorial [Create, configure, and deploy a
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

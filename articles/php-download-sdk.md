@@ -1,12 +1,12 @@
 ---
 title: Descarga del SDK de Azure para PHP
-description: Obtenga información acerca de cómo descargar e instalar el SDK de Azure para PHP.
+description: "Obtenga información acerca de cómo descargar e instalar el SDK de Azure para PHP."
 documentationcenter: php
 services: app-service\web
 author: allclark
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: bac355ac-4c25-42f4-8273-c5112eafa8d4
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,33 +14,37 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7bd6eddcdb20e3ea49cd29d46bb4f98d73ee9cc8
+
 
 ---
-# Descarga del SDK de Azure para PHP
-## Información general
+# <a name="download-the-azure-sdk-for-php"></a>Descarga del SDK de Azure para PHP
+## <a name="overview"></a>Información general
 El SDK de Azure para PHP incluye componentes que le permiten desarrollar, implementar y administrar aplicaciones PHP para Azure. Específicamente, el SDK de Azure para PHP incluye lo siguiente:
 
 * **Las bibliotecas de clientes PHP para Azure**. Estas bibliotecas de clases proporcionan una interfaz para tener acceso a características de Azure, como los servicios de administración de datos y los servicios en la nube.  
-* **La interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLIC de Azure).** Este es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. La interfaz de la línea de comandos de Azure funciona en cualquier plataforma, incluidas las plataformas Mac, Linux y Windows.
+* **La interfaz de la línea de comandos de Azure para Mac, Linux y Windows (CLIC de Azure)**. Este es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. La interfaz de la línea de comandos de Azure funciona en cualquier plataforma, incluidas las plataformas Mac, Linux y Windows.
 * **Azure PowerShell (solo Windows)**. Este es un conjunto de cmdlets de PowerShell para implementar y administrar servicios de Azure, como Servicios en la nube y Máquinas virtuales.
 * **Los emuladores de Azure (solo Windows)**. Los emuladores de proceso y almacenamiento son emuladores locales de los servicios en la nube y los servicios de administración de datos que le permiten probar localmente una aplicación. Los emuladores de Azure solo se ejecutan en Windows.
 
 Las secciones que vienen a continuación describen cómo descargar e instalar los componentes descritos.
 
-En las instrucciones de este tema se asume que tiene instalado [PHP][install-php].
+En las instrucciones de este tema se da por hecho que tiene [PHP][install-php] instalado.
 
 > [!NOTE]
 > Debe tener instalado PHP 5.5 o superior con el fin de utilizar las bibliotecas de clientes PHP para Azure.
 > 
 > 
 
-## Bibliotecas de clientes PHP para Azure
+## <a name="php-client-libraries-for-azure"></a>Bibliotecas de clientes PHP para Azure
 Las bibliotecas de clientes PHP para Azure proporcionan una interfaz para tener acceso a características de Azure, como los servicios de administración de datos y los servicios en la nube, desde cualquier sistema operativo. Estas bibliotecas se pueden instalar mediante el Compositor.
 
-Si desea obtener información acerca del uso de las bibliotecas de clientes PHP para Azure, consulte [Uso del servicio BLOB][blob-service], [Uso del servicio Tabla][table-service] y [Uso del servicio Cola][queue-service].
+Si desea obtener información sobrel uso de las bibliotecas de clientes PHP para Azure, consulte los artículos sobre cómo [utilizar Blob Service][blob-service], [Table Service][table-service] y [Queue Service][queue-service].
 
-### Instalación mediante el compositor
-1. [Instalación de Git][install-git].
+### <a name="install-via-composer"></a>Instalación mediante el compositor
+1. [Instalar Git][install-git].
 
     > [AZURE.NOTE] En Windows, también tendrá que agregar el archivo ejecutable Git a la variable de entorno PATH.
 
@@ -56,17 +60,17 @@ Si desea obtener información acerca del uso de las bibliotecas de clientes PHP 
    
         php composer.phar install
 
-## Azure PowerShell y emuladores de Azure
+## <a name="azure-powershell-and-azure-emulators"></a>Azure PowerShell y emuladores de Azure
 Azure PowerShell es un conjunto de cmdlets de PowerShell para implementar y administrar servicios de Azure (como Servicios en la nube y Máquinas virtuales). Los emuladores de Azure son emuladores de servicios en la nube y servicios de administración de datos que le permiten probar localmente una aplicación. Estos componentes solo son compatibles con Windows.
 
 La manera recomendada de instalar Azure PowerShell y los emuladores de Azure es utilizar el [instalador de plataforma web de Microsoft][download-wpi]. Observe que también puede elegir instalar otros componentes de desarrollo, como PHP, SQL Server, los controladores de Microsoft para SQL Server para PHP y WebMatrix.
 
-Para obtener más información acerca del uso de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell][powershell-tools].
+Para obtener más información sobrel uso Azure PowerShell, consulte [Uso de Azure PowerShell][powershell-tools].
 
-## Azure CLI
+## <a name="azure-cli"></a>CLI de Azure
 La interfaz de la línea de comandos de Azure es un conjunto de herramientas que sirve para implementar y administrar servicios de Azure, como Sitios web Azure y Red virtual de Azure. Para obtener información acerca de cómo instalar la CLI de Azure, consulte [Instalar la CLI de Azure](xplat-cli-install.md).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte el [Centro para desarrolladores de PHP](/develop/php/).
 
 [install-php]: http://www.php.net/manual/en/install.php
@@ -84,4 +88,8 @@ Para obtener más información, consulte el [Centro para desarrolladores de PHP]
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

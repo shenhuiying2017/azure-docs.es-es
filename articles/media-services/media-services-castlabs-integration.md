@@ -1,12 +1,12 @@
 ---
 title: Uso de castLabs para proporcionar licencias de Widevine a Azure Media Services | Microsoft Docs
-description: En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs.
+description: "En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Mingfeiy
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: Mingfeiy;willzhan;Juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 30bd93e54da4b8e7fcb58fcdc1f5c1bb5240fa53
+
 
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de castLabs para entregar licencias de Widevine a Servicios multimedia de Azure
@@ -76,7 +80,7 @@ Para usar la aplicación de consola:
 2. Cargue un activo en AMS.
 3. Obtenga el UUID del recurso cargado y cambie la línea 32 del archivo Program.cs:
    
-        var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
+      var objIAsset = _context.Assets.Where(x => x.Id == "nb:cid:UUID:dac53a5d-1500-80bd-b864-f1e4b62594cf").FirstOrDefault();
 4. Use un AssetId para asignar un nombre al activo del sistema castLabs (línea 44 del archivo Program.cs).
    
    Debe establecer AssetId para **castLabs**; debe ser una cadena alfanumérica única.
@@ -108,6 +112,9 @@ Para reproducir un vídeo cifrado con cifrado común (PlayReady o Widevine), pue
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

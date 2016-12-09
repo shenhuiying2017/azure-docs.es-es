@@ -1,12 +1,12 @@
 ---
-title: Filtros y manifiestos dinámicos | Microsoft Docs
-description: En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una transmisión. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo.
+title: "Filtros y manifiestos dinámicos | Microsoft Docs"
+description: "En este tema se describe cómo crear filtros para que su cliente pueda usarlos para el streaming de secciones específicas de una transmisión. Servicios multimedia crea manifiestos dinámicos par lograr este streaming selectivo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: cenkdin
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6b322f69a1b4dec77a1c8c8bcd0e5f231f9617ff
+
 
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
@@ -32,7 +36,7 @@ Cuando codifique un activo para transmisión por secuencias de velocidad de bits
 
 Este es un ejemplo de un archivo de manifiesto: 
 
-    <?xml version="1.0" encoding="UTF-8"?>  
+    <?xml version="1.0" encoding="UTF-8"?>    
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="330187755" TimeScale="10000000">
 
     <StreamIndex Chunks="17" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="8">
@@ -88,7 +92,7 @@ Para obtener más información sobre cómo entregar el contenido y crear URL de 
 > 
 > 
 
-### <a name="<a-id="filters"></a>filters"></a><a id="filters"></a>Filtros
+### <a name="a-idfiltersafilters"></a><a id="filters"></a>Filtros
 Hay dos tipos de filtros de activos: 
 
 * Filtros globales (se pueden aplicar a cualquier activo de la cuenta de Servicios multimedia de Azure, tienen una duración de la cuenta) y 
@@ -96,7 +100,7 @@ Hay dos tipos de filtros de activos:
 
 Los tipos de filtros globales y locales tienen exactamente las mismas propiedades. La diferencia principal entre los dos es para qué escenarios es más adecuado cada tipo de filtro. Los filtros globales suelen ser adecuados para los perfiles de dispositivos (filtrado de representaciones) donde los filtros locales podrían usarse para recortar un activo específico.
 
-## <a name="<a-id="scenarios"></a>common-scenarios"></a><a id="scenarios"></a>Escenarios comunes
+## <a name="a-idscenariosacommon-scenarios"></a><a id="scenarios"></a>Escenarios comunes
 Como se mencionó anteriomente, al entregar su contenido a los clientes (transmisión de eventos en directo o vídeo a la carta bajo demanda), el objetivo es entregar un vídeo de alta calidad a varios dispositivos en condiciones de red diferentes. Además, puede tener otros requisitos que implican el filtrado de los activos y el uso de **manifiestos dinámico**s. En las secciones siguientes se ofrece una breve introducción a los diferentes escenarios de filtrado.
 
 * Especifique solo un subconjunto de representaciones de audio y vídeo que pueden controlar determinados dispositivos (en lugar de todas las representaciones asociadas al activo). 
@@ -124,7 +128,7 @@ En la mayoría de los eventos de streaming en directo, los operadores ejecutan a
 
 ![Inicio de recorte][trim_filter]
 
-## <a name="creating-sub-clips-(views)-from-a-live-archive"></a>Crear clips secundarios (vistas) desde un archivo en directo
+## <a name="creating-sub-clips-views-from-a-live-archive"></a>Crear clips secundarios (vistas) desde un archivo en directo
 Muchos eventos en directo son de larga ejecución y el archivo en directo puede incluir varios eventos. Después de que termine el evento en directo, es posible que los emisores deseen dividir el archivo activo en secuencias de inicio y detención de programa lógicas. Después, publique por separado estos programas virtuales sin procesar posteriormente el archivo activo y sin crear activos separados (que no se beneficiarán de los fragmentos en caché existentes en las CDN). Entre los ejemplos de estos programas virtuales (clips secundarios) se encuentran los cuatro cuartos de un partido de baloncesto o fútbol americano, las entradas en el béisbol o los eventos individuales de una tarde de un programa de las Olimpiadas.
 
 Con el manifiesto dinámico, puede crear filtros mediante las horas inicial y final y crear vistas virtuales encima de su archivo dinámico. 
@@ -135,12 +139,12 @@ Activo filtrado:
 
 ![Esquí][skiing]
 
-## <a name="adjusting-presentation-window-(dvr)"></a>Ajustar la ventana de presentación (DVR)
+## <a name="adjusting-presentation-window-dvr"></a>Ajustar la ventana de presentación (DVR)
 En la actualidad, los Servicios multimedia de Azure ofrecen un archivo circular donde la duración se puede configurar entre 5 minutos y 25 horas. El filtrado de manifiestos se puede usar para crear una ventana de DVR dinámica encima del archivo, sin eliminar medios. Hay muchos escenarios en los que los emisores desean proporcionar una ventana de DVR limitada que se mueve con el borde dinámico y al mismo tiempo mantiene una ventana de archivado más grande. Es posible que un emisor desee usar los datos que están fuera de la ventana de DVR para resaltar clips, o que desee proporcionar diferentes ventanas de DVR para dispositivos diferentes. Por ejemplo, la mayoría de los dispositivos móviles no administran grandes ventanas de DVR (puede tener una ventana de DVR de 2 minutos para dispositivos móviles y 1 hora para clientes de escritorio).
 
 ![Ventana de DVR][dvr_filter]
 
-## <a name="adjusting-livebackoff-(live-position)"></a>Ajustar LiveBackoff (posición en directo)
+## <a name="adjusting-livebackoff-live-position"></a>Ajustar LiveBackoff (posición en directo)
 El filtrado de manifiestos puede usarse para quitar varios segundos del borde directo de un programa activo. Esto permite a los emisores ver la presentación en el punto de publicación de vista previa y crear puntos de inserción de anuncios antes de que los visores reciban la secuencia (normalmente con una interrupción de copia anterior a 30 segundos). Los emisores, entonces, pueden insertar estos anuncios en sus marcos de cliente a tiempo para su recepción y procesar la información antes de la oportunidad de anuncio.
 
 Además de la compatibilidad de anuncio, LiveBackoff se puede usar para ajustar la posición de descarga en directo del cliente para que cuando los clientes se desvíen y lleguen al borde directo puedan obtener todavía fragmentos del servidor en lugar de obtener los errores HTTP 404 o 412.
@@ -157,7 +161,7 @@ En el siguiente tema se describen las entidades de Media Services que están rel
 
 [Crear filtros con las API de REST](media-services-rest-dynamic-manifest.md).
 
-## <a name="combining-multiple-filters-(filter-composition)"></a>Combinar múltiples filtros (composición de filtros)
+## <a name="combining-multiple-filters-filter-composition"></a>Combinar múltiples filtros (composición de filtros)
 También puede combinar varios filtros en una sola dirección URL. 
 
 En el escenario siguiente se muestra para qué puede resultar útil la combinación de filtros:
@@ -209,6 +213,6 @@ Para obtener más información, consulte [este blog](https://azure.microsoft.com
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

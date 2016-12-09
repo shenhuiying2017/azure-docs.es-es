@@ -1,12 +1,12 @@
 ---
 title: Reemplazo de los componentes de hardware de StorSimple | Microsoft Docs
-description: Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple.
+description: "Describe cómo reemplazar de forma segura los PCM, la batería, los módulos de controladores, los controladores EBOD, las unidades de disco y el chasis de un dispositivo de StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: e8087ba7-0b66-4f59-8988-e53aad52ee21
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 50df20f1f84f570cec1261e14028f3a700871dac
+
 
 ---
 # <a name="storsimple-hardware-component-replacement"></a>Reemplazo de los componentes de hardware de StorSimple
@@ -118,8 +122,8 @@ El gabinete principal y el gabinete EBOD tienen módulos transportadores de unid
 Las siguientes unidades reemplazables en campo (FRU) están disponibles para el dispositivo StorSimple:
 
 * Chasis (incluido el panel de operaciones integradas)
-* PCM de 764 W de CA
-* PCM de 580 W de CA
+* PCM de 764 W de CA
+* PCM de 580 W de CA
 * Unidad de disco duro con módulo transportador de unidades
 * Módulos de controladores
 * Módulos de controladores EBOD
@@ -131,6 +135,9 @@ Las siguientes unidades reemplazables en campo (FRU) están disponibles para el 
 ## <a name="next-steps"></a>Pasos siguientes
 Revise toda [la información de seguridad](storsimple-safety.md) antes de intentar reemplazar un componente de hardware de StorSimple.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

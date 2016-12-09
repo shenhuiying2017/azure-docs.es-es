@@ -1,12 +1,12 @@
 ---
-title: Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes | Microsoft Docs
-description: En este tema se explica cómo usar setRuntimeProperties para usar varios archivos de entrada y pasar datos personalizados al procesador de multimedia del flujo de trabajo del Codificador multimedia Premium.
+title: Uso de varios archivos de entrada y propiedades de los componentes con el codificador premium | Microsoft Docs
+description: "En este tema se explica cómo usar setRuntimeProperties para usar varios archivos de entrada y pasar datos personalizados al procesador de multimedia del flujo de trabajo del Codificador multimedia Premium."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xpouyat
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7fb35bdd-9891-4401-a65b-ef3cc8190e8a
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: xpouyat;anilmur;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: f8b0917b6eb0295641360c4e0a80e81100809f6e
+ms.openlocfilehash: 1d7f5aeb5fcdb6b80289bbd77c12957148d03732
+
 
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Uso del codificador Premium con varios archivos de entrada y propiedades de los componentes
@@ -105,8 +109,8 @@ Ejemplo:
 
 > [!NOTE]
 > Asegúrese de no colocar un retorno de carro justo después de `<![CDATA[`.
-> 
-> 
+>
+>
 
 ### <a name="propertypath-value"></a>Valor de propertyPath
 En los ejemplos anteriores, el valor de propertyPath era "/Media File Input/filename", "/inactiveTimeout" o "clipListXml".
@@ -262,8 +266,8 @@ En el ejemplo anterior, el nombre del archivo de vídeo se envía al componente 
 
 > [!NOTE]
 > El nombre de archivo de vídeo se envía a la propiedad primarySourceFile. Esto se hace para usar esta propiedad en el flujo de trabajo para crear el nombre de archivo de salida correcto mediante expresiones, por ejemplo.
-> 
-> 
+>
+>
 
 ### <a name="step-by-step-workflow-creation-that-overlays-a-logo-on-top-of-the-video"></a>Creación paso a paso de un flujo de trabajo que superpone un logotipo en la parte superior del vídeo
 Estos son los pasos para crear un flujo de trabajo que toma como entrada dos archivos: un vídeo y una imagen. Añadirá la imagen en la parte superior del vídeo.
@@ -354,8 +358,8 @@ Este tutorial muestra cómo administrar recursos con AMSE. Hay dos maneras de ag
 
 > [!NOTE]
 > Asegúrese de establecer un archivo principal en el recurso (el archivo de vídeo principal).
-> 
-> 
+>
+>
 
 ![Archivos de recursos en AMSE](./media/media-services-media-encoder-premium-workflow-multiplefilesinput/capture18_assetinamse.png)
 
@@ -399,7 +403,7 @@ Puede descargar el flujo de trabajo de ejemplo desde [GitHub](https://github.com
 ## <a name="see-also"></a>Consulte también
 * [Introducción de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [Uso de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
-* [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md#media_encoder_premium_workflow)
+* [Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md#media-encoder-premium-workflow)
 * [Códecs y formatos de flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md)
 * [Archivos de flujo de trabajo de ejemplo](https://github.com/AzureMediaServicesSamples/Encoding-Presets/tree/master/VoD/MediaEncoderPremiumWorkfows)
 * [Explorador de Servicios multimedia de Azure](http://aka.ms/amse)
@@ -410,6 +414,8 @@ Puede descargar el flujo de trabajo de ejemplo desde [GitHub](https://github.com
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

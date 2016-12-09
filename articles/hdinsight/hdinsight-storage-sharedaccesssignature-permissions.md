@@ -1,12 +1,12 @@
 ---
 title: Restringir el acceso de HDInsight a datos mediante firmas de acceso compartido
-description: Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure.
+description: "Obtener información acerca de cómo usar firmas de acceso compartido para restringir el acceso de HDInsight a datos almacenados en blobs de Almacenamiento de Azure."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7bcad2dd-edea-467c-9130-44cffc005ff3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f2e5bbd2516c0f697084a802d6963c3d1023914
+
 
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-with-hdinsight"></a>Uso de firmas de acceso compartido de Almacenamiento de Azure para restringir el acceso a datos con HDInsight
@@ -59,9 +63,9 @@ Para más información sobre firmas de acceso compartido, consulte [Firmas de ac
 ## <a name="create-a-stored-policy-and-generate-a-sas"></a>Creación de una directiva almacenada y generación de una SAS
 Ahora, debe crear una directiva almacenada mediante programación. Puede encontrar el ejemplo de C# y Python de creación de una directiva almacenada y SAS en [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature).
 
-### <a name="create-a-stored-policy-and-sas-using-c\#"></a>Creación de una directiva almacenada y una SAS mediante C\
+### <a name="create-a-stored-policy-and-sas-using-c"></a>Creación de una directiva almacenada y una SAS mediante C\
 1. Abra la solución en Visual Studio.
-2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASToke__n y seleccione __Propiedades**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **SASToke**n y seleccione **Propiedades**.
 3. Seleccione **Configuración** y agregue valores para las siguientes entradas:
    
    * StorageConnectionString: la cadena de conexión de la cuenta de almacenamiento para la que desea crear una directiva almacenada y una SAS. El formato debe ser `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey` donde `myaccount` es el nombre de la cuenta de almacenamiento y `mykey` es la clave para la cuenta de almacenamiento.
@@ -249,6 +253,6 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

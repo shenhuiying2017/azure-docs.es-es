@@ -1,13 +1,13 @@
 ---
-title: Análisis de datos de retraso de vuelos con Hive en HDInsight basado en Linux | Microsoft Docs
+title: "Análisis de datos de retraso de vuelos con Hive en HDInsight basado en Linux | Microsoft Docs"
 description: Aprenda a usar Hive para analizar datos de vuelos en HDInsight basado en Linux y luego exporte los datos a la Base de datos SQL con Sqoop.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 266891083fa0d2a33ef8fd7e533b036e99b00208
+
 
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Análisis de datos de retraso de vuelos con Hive en HDInsight
@@ -69,7 +73,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
    
         unzip FILENAME.zip
    
-    Así extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
+    Así extrae un archivo .csv que tiene un tamaño aproximado de 60 MB.
 4. Use la instrucción siguiente para crear un nuevo directorio en WASB (el almacén de datos distribuidos que usa HDInsight) y copie el archivo:
    
     hdfs dfs -mkdir -p /tutorials/flightdelays/data hdfs dfs -put FILENAME.csv /tutorials/flightdelays/data/
@@ -166,7 +170,7 @@ Siga estos pasos para importar datos desde el archivo CSV en una tabla de Hive d
 6. Para salir de Beeline, escriba `!quit` en el símbolo del sistema.
 
 ## <a name="create-a-sql-database"></a>una Base de datos SQL
-Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrarlo en el [Portal Azure](https://portal.azure.com) seleccionando **Bases de datos SQL__y, después, filtrando el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna __SERVIDOR** .
+Si ya tiene una base de datos SQL, debe obtener el nombre del servidor. Puede encontrarlo en el [Portal Azure](https://portal.azure.com) seleccionando **Bases de datos SQL**y, después, filtrando el nombre de la base de datos que desee usar. El nombre del servidor aparece en la columna **SERVIDOR** .
 
 Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos](../sql-database/sql-database-get-started.md) . Tiene que guardar el nombre del servidor usado para la base de datos.
 
@@ -200,7 +204,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
         ([origin_city_name] ASC))
         GO
    
-    Cuando se haya especificado la instrucción `GO` , se evaluarán las instrucciones anteriores. Se creará una nueva tabla denominada __delays__con un índice agrupado (que requiere la Base de datos SQL).
+    Cuando se haya especificado la instrucción `GO` , se evaluarán las instrucciones anteriores. Se creará una nueva tabla denominada **delays**con un índice agrupado (que requiere la Base de datos SQL).
    
     Para comprobar que se ha creado la tabla, utilice lo siguiente:
    
@@ -235,7 +239,7 @@ Si no dispone todavía de una base de datos SQL, consulte [Tutorial de Base de d
    
     Debería ver una lista de los datos de la tabla. Escriba `exit` para salir de la utilidad de tsql.
 
-## <a name="<a-id="nextsteps"></a>-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo rellenar una tabla de Hive con los datos del almacenamiento de blobs de Azure, cómo ejecutar consultas de Hive y cómo usar Sqoop para exportar datos de HDFS a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a HDInsight][hdinsight-get-started]
@@ -274,6 +278,6 @@ Ahora sabe cómo cargar un archivo en el almacenamiento de blobs de Azure, cómo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

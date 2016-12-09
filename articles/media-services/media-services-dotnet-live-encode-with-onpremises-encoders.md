@@ -1,12 +1,12 @@
 ---
-title: Realización de streaming en vivo con codificadores locales mediante .NET | Microsoft Docs
-description: En este tema se muestra cómo se usa .NET para realizar una codificación en directo con codificadores locales.
+title: "Realización de streaming en vivo con codificadores locales mediante .NET | Microsoft Docs"
+description: "En este tema se muestra cómo se usa .NET para realizar una codificación en directo con codificadores locales."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/31/2016
 ms.author: cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 46cd4171b4d88aa68386b80471f1e7d05539cdd4
+
 
 ---
-# Realización de streaming en vivo con codificadores locales mediante .NET
+# <a name="how-to-perform-live-streaming-with-on-premise-encoders-using-net"></a>Realización de streaming en vivo con codificadores locales mediante .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -24,13 +28,13 @@ ms.author: cenkdin;juliako
 > 
 > 
 
-Este tutorial le guiará por los pasos para usar el SDK de .NET de Azure Media Services para crear un **Canal** que esté configurado para una entrega de paso a través.
+Este tutorial le guiará por los pasos para usar el SDK de .NET de Azure Media Services para crear un **Canal** que esté configurado para una entrega de paso a través. 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Estos son los requisitos previos para completar el tutorial.
 
 * Una cuenta de Azure.
-* Una cuenta de Servicios multimedia. Para crear una cuenta de Servicios multimedia, consulte el tema [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
+* Una cuenta de Servicios multimedia.    Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
 * Configurar el entorno de desarrollo. Para obtener más información, consulte [Configuración del entorno](media-services-set-up-computer.md).
 * Una cámara web. Por ejemplo, el [codificador Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm).
 
@@ -39,7 +43,7 @@ Se recomienda que revise los artículos siguientes:
 * [Compatibilidad con RTMP de Servicios multimedia de Azure y codificadores en directo.](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Streaming en vivo con codificadores locales que crean secuencias de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md)
 
-## Ejemplo
+## <a name="example"></a>Ejemplo
 En el ejemplo de código siguiente se muestra cómo lograr las tareas siguientes:
 
 * Conexión con Servicios multimedia
@@ -382,12 +386,17 @@ Para obtener información sobre cómo configurar un codificador en directo, cons
         }
     }
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

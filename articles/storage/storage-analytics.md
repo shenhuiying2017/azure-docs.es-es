@@ -1,12 +1,12 @@
 ---
-title: Usar el análisis de almacenamiento para recopilar datos de registros y métricas | Microsoft Docs
-description: El análisis de almacenamiento permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Almacenamiento de blobs, Almacenamiento de colas y Almacenamiento de tablas.
+title: "Uso del análisis de almacenamiento para recopilar datos de registros y métricas | Microsoft Docs"
+description: "El análisis de almacenamiento permite realizar un seguimiento de los datos de métricas para todos los servicios de almacenamiento y recopilar registros de Almacenamiento de blobs, Almacenamiento de colas y Almacenamiento de tablas."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: af5fae5c5153c91fe78bdfb310c407a2c4462e04
+
 
 ---
 # <a name="storage-analytics"></a>Análisis de almacenamiento
@@ -188,6 +192,9 @@ Al examinar los datos de análisis de almacenamiento, puede usar las tablas del 
 * [Esquema de las tablas de métricas del análisis de almacenamiento](https://msdn.microsoft.com/library/hh343264.aspx)
 * [Operaciones y mensajes de estado registrados por el análisis de almacenamiento](https://msdn.microsoft.com/library/hh343260.aspx)  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

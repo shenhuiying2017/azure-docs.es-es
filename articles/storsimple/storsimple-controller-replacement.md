@@ -1,12 +1,12 @@
 ---
-title: Reemplazar un controladores de dispositivo StorSimple | Microsoft Docs
-description: Explica cómo quitar y reemplazar módulos de uno o dos controladores en su dispositivo StorSimple.
+title: Reemplazar un controlador de dispositivo StorSimple | Microsoft Docs
+description: "Explica cómo quitar y reemplazar módulos de uno o dos controladores en su dispositivo StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: e25b52b7-60f5-47f3-bffc-6c157d57ab5d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+
 
 ---
-# Reemplazar un módulos de controladores en el dispositivo StorSimple
-## Información general
+# <a name="replace-a-controller-module-on-your-storsimple-device"></a>Reemplazar un módulos de controladores en el dispositivo StorSimple
+## <a name="overview"></a>Información general
 Este tutorial explica cómo quitar y reemplazar uno o ambos módulos de controladores en un dispositivo StorSimple. También se explica la lógica subyacente para los escenarios de reemplazo de uno o dos controladores.
 
 > [!NOTE]
@@ -26,7 +30,7 @@ Este tutorial explica cómo quitar y reemplazar uno o ambos módulos de controla
 > Para evitar daños en el dispositivo StorSimple, no expulse el controlador hasta que los LED muestren uno de los siguientes:
 > 
 > * Todas las luces están apagadas.
-> * LED 3, ![Icono de marca de verificación verde](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png) y ![Icono de cruz roja](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) están parpadeando, y LED 0 y 7 están **encendidos**.
+> * El LED 3, el ![icono de marca de verificación verde](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png) y el ![icono de cruz roja](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) están parpadeando, y el LED 0 y el LED 7 están **encendidos**.
 > 
 > 
 
@@ -39,7 +43,7 @@ En la tabla siguiente se muestran los escenarios de reemplazo de controladores c
 | 3 |Se intercambian los controladores del mismo dispositivo o de dispositivos diferentes. El chasis, los discos y los gabinetes de discos funcionan. |Aparecerá un mensaje de alerta de error de falta de coincidencia de ranura. |
 | 4 |Falta un controlador y se produce un error en el otro controlador. |[Reemplazo de dos controladores](#replace-both-controllers), que describe la [lógica existente detrás del reemplazo de dos controladores](#dual-controller-replacement-logic), así como los [pasos del reemplazo](#dual-controller-replacement-steps). |
 | 5 |Error de uno o ambos controladores. No se puede acceder al dispositivo a través de la consola en serie o la conexión remota de Windows PowerShell. |[Póngase en contacto con el servicio técnico de Microsoft](storsimple-contact-microsoft-support.md) para un procedimiento de reemplazo manual de los controladores. |
-| 6 |Los controladores tienen una versión de compilación diferente, que puede deberse a:<ul><li>Los controladores tienen una versión de software diferente.</li><li>Los controladores tienen una versión de firmware distinta.</li></ul> |Si las versiones de software del controlador son diferentes, la lógica de sustitución detecta y actualiza la versión del software en el controlador de reemplazo.<br><br>Si las versiones de firmware del controlador son diferentes y la versión de firmware anterior **no** puede actualizarse automáticamente, aparecerá un mensaje de alerta en el Portal de Azure clásico. Debe buscar actualizaciones e instalar las actualizaciones de firmware.</br></br>Si las versiones de firmware del controlador son diferentes y la antigua versión de firmware puede actualizarse automáticamente, la lógica de reemplazo de controladores lo detectará y después de iniciar el controlador, el firmware se actualizará automáticamente. |
+| 6 |Los controladores tienen una versión de compilación diferente, que puede deberse a:<ul><li>Los controladores tienen una versión de software diferente.</li><li>Los controladores tienen una versión de firmware diferente.</li></ul> |Si las versiones de software del controlador son diferentes, la lógica de sustitución detecta y actualiza la versión del software en el controlador de reemplazo.<br><br>Si las versiones de firmware del controlador son diferentes y la versión de firmware anterior **no** puede actualizarse automáticamente, aparecerá un mensaje de alerta en el Portal de Azure clásico. Debe buscar actualizaciones e instalar las actualizaciones de firmware.</br></br>Si las versiones de firmware del controlador son diferentes y la antigua versión de firmware puede actualizarse automáticamente, la lógica de reemplazo de controladores lo detectará y después de iniciar el controlador, el firmware se actualizará automáticamente. |
 
 Debe quitar un módulo del controladores si se ha producido un error. Uno o ambos módulos de controladores pueden producir un error, lo que puede dar lugar a un reemplazo de uno o dos controladores. Para obtener información sobre los procedimientos de reemplazo y la lógica existente detrás de ellos, vea lo siguiente:
 
@@ -54,10 +58,10 @@ Debe quitar un módulo del controladores si se ha producido un error. Uno o ambo
 > 
 > 
 
-## Reemplazar un único controlador
-Cuando uno de los dos controladores en el dispositivo StorSimple de Microsoft Azure ha fallado, funciona mal o falta, necesitará reemplazar un único controlador.
+## <a name="replace-a-single-controller"></a>Reemplazar un único controlador
+Cuando uno de los dos controladores en el dispositivo StorSimple de Microsoft Azure ha fallado, funciona mal o falta, necesitará reemplazar un único controlador. 
 
-### Lógica de reemplazo de un único controlador
+### <a name="single-controller-replacement-logic"></a>Lógica de reemplazo de un único controlador
 Un reemplazo de un controlador único, primero debe quitar el controlador defectuoso. (El controlador restante en el dispositivo es el controlador activo). Cuando se inserta el controlador de reemplazo, se producen las siguientes acciones:
 
 1. El controlador de reemplazo inicia inmediatamente la comunicación con el dispositivo StorSimple.
@@ -66,7 +70,7 @@ Un reemplazo de un controlador único, primero debe quitar el controlador defect
 4. Cuando se hayan completado las modificaciones, el controlador de reemplazo se iniciará como controlador de reserva.
 5. Cuando se ejecutan ambos controladores, el clúster se conecta.
 
-### Pasos de reemplazo de un único controlador
+### <a name="single-controller-replacement-steps"></a>Pasos de reemplazo de un único controlador
 Complete los pasos siguientes si se produce un error en uno de los controladores del dispositivo StorSimple de Microsoft Azure. (El otro controlador debe estar activo y en funcionamiento. Si ambos controladores dan error o no funcionan, vaya a los [pasos de reemplazo de dos controladores](#dual-controller-replacement-steps).)
 
 > [!NOTE]
@@ -74,41 +78,41 @@ Complete los pasos siguientes si se produce un error en uno de los controladores
 > 
 > 
 
-#### Para quitar un módulo de un solo controlador defectuoso
+#### <a name="to-remove-a-single-failed-controller-module"></a>Para quitar un módulo de un solo controlador defectuoso
 1. En el Portal de Azure clásico del servicio StorSimple Manager, haga clic en la pestaña **Dispositivos** y, a continuación, haga clic en el nombre del dispositivo que quiera supervisar.
-2. Vaya a **Mantenimiento > Estado de Hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
+2. Vaya a **Mantenimiento > Estado de hardware**. El estado del Controlador 0 o 1 debe ser rojo, que indica un error.
    
    > [!NOTE]
    > El controlador defectuoso en un reemplazo de un único controlador siempre es un controlador en modo de espera.
    > 
    > 
-3. Utilice la Figura 1 y la tabla siguiente para buscar el módulo del controlador defectuoso.
+3. Utilice la Figura 1 y la tabla siguiente para buscar el módulo del controlador defectuoso.  
    
     ![Backplane de módulos del gabinete principal del dispositivo](./media/storsimple-controller-replacement/IC740994.png)
    
     **Figura 1** Parte posterior del dispositivo StorSimple
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
    | 3 |Controlador 0 |
    | 4 |Controlador 1 |
 4. En el controlador defectuoso, quite todos los cables de red conectados a los puertos de datos. Si utiliza un modelo 8600, quite también los cables SAS que conectan el controlador al controlador EBOD.
-5. Siga los pasos de la sección sobre [cómo quitar un controlador](#remove-a-controller) para quitar el controlador defectuoso.
+5. Siga los pasos de la sección sobre [cómo quitar un controlador](#remove-a-controller) para quitar el controlador defectuoso. 
 6. Instale el reemplazo de fábrica en la misma ranura de la que se quitó el controlador defectuoso. Esto desencadena la lógica de reemplazo de un único controlador. Para más información, consulte la [lógica de reemplazo de un único controlador](#single-controller-replacement-logic).
 7. Mientras que la lógica de reemplazo de un único controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo.
-8. Una vez reiniciado el controlador, compruebe el **Estado del controlador** y el **Estado del clúster** en el Portal de Azure clásico para comprobar que el controlador esté en un estado correcto y en modo de espera.
+8. Una vez reiniciado el controlador, revise el **Estado del controlador** y el **Estado del clúster** en el Portal de Azure clásico para comprobar que el controlador esté en un estado correcto y en modo de espera.
 
 > [!NOTE]
 > Si va a supervisar el dispositivo a través de la consola en serie, pueden producirse varios reinicios mientras se está recuperando el controlador del procedimiento de reemplazo. Cuando se presente el menú de la consola enserie, sabrá que el reemplazo está completo. Si el menú no aparece en un plazo de dos horas de iniciado el reemplazo del controlador, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 > 
 > 
 
-## Reemplazar ambos controladores
-Cuando ambos controladores en el dispositivo StorSimple de Microsoft Azure están defectuosos, funcionan mal o faltan, necesitará reemplazar ambos controladores.
+## <a name="replace-both-controllers"></a>Reemplazar ambos controladores
+Cuando ambos controladores en el dispositivo StorSimple de Microsoft Azure están defectuosos, funcionan mal o faltan, necesitará reemplazar ambos controladores. 
 
-### Lógica de reemplazo de dos controladores
+### <a name="dual-controller-replacement-logic"></a>Lógica de reemplazo de dos controladores
 En un reemplazo de dos controladores, primero extraiga ambos controladores defectuoso y, a continuación, inserte reemplazos. Cuando se insertan los dos controladores de reemplazo, se producen las siguientes acciones:
 
 1. El controlador de reemplazo en la ranura 0 comprueba lo siguiente:
@@ -128,7 +132,7 @@ En un reemplazo de dos controladores, primero extraiga ambos controladores defec
 > 
 > 
 
-### Pasos de reemplazo de dos controladores
+### <a name="dual-controller-replacement-steps"></a>pasos de reemplazo de dos controladores
 Este flujo de trabajo es necesario cuando los dos controladores del dispositivo StorSimple de Microsoft Azure están defectuosos. Esto podría suceder en un centro de datos en el que el sistema de refrigeración deja de funcionar y, como resultado, ambos controladores se dañarán en muy poco tiempo. En función de si el dispositivo StorSimple está desactivado o activado y de si se utiliza un modelo 8600 u 8100, se requiere una serie diferente de pasos.
 
 > [!IMPORTANT]
@@ -136,7 +140,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 > 
 > 
 
-#### Para reemplazar los módulos de dos controladores
+#### <a name="to-replace-both-controller-modules"></a>Para reemplazar los módulos de dos controladores
 1. Si el dispositivo está apagado, omita este paso y continúe con el paso siguiente. Si el dispositivo está activado, desactive el dispositivo.
    
    1. Si utiliza un modelo 8600, apague el gabinete principal primero y después el gabinete EBOD.
@@ -144,7 +148,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
 2. Quite todos los cables de red que están conectados a los puertos de datos. Si utiliza un modelo 8600, quite también los cables SAS que conectan el gabinete principal al gabinete EBOD.
 3. Quite ambos controladores del dispositivo StorSimple. Para más información, consulte la sección sobre [cómo quitar un controlador](#remove-a-controller).
 4. Inserte primero el reemplazo de fábrica del Controlador 0 y, a continuación, instale el Controlador 1. Para más información, consulte la sección sobre [cómo insertar un controlador](#insert-a-controller). Esto desencadena la lógica de reemplazo de dos controladores. Para más información, consulte la [lógica de reemplazo de dos controladores](#dual-controller-replacement-logic).
-5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Consulte las instrucciones detalladas para su modelo en la sección de cableado del dispositivo, las partes sobre [cómo instalar el dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [cómo instalar el dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
+5. Mientras que la lógica de reemplazo del controlador progrese en segundo plano, vuelva a conectar los cables. Preste atención y conecte todos los cables exactamente del mismo modo en que estaban conectados antes del reemplazo. Consulte las instrucciones detalladas para su modelo en la sección de cableado del dispositivo de [Instalación del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Instalación del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
 6. Encienda el dispositivo StorSimple. Si está usando un modelo 8600:
    
    1. Asegúrese de que el gabinete EBOD se active por primera vez.
@@ -157,7 +161,7 @@ Este flujo de trabajo es necesario cuando los dos controladores del dispositivo 
       > 
       > 
 
-## Quitar un controlador
+## <a name="remove-a-controller"></a>Quitar un controlador
 Utilice el siguiente procedimiento para quitar un módulo defectuoso del controlador del dispositivo StorSimple.
 
 > [!NOTE]
@@ -165,11 +169,11 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
 > 
 > 
 
-#### Para quitar un módulo del controlador
+#### <a name="to-remove-a-controller-module"></a>Para quitar un módulo del controlador
 1. Sujete el pestillo del módulo entre el pulgar y el índice.
 2. Apriete suavemente el pulgar y el índice juntos para liberar el pestillo del controlador.
    
-    ![Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![ Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberación del pestillo del controlador
 3. Use el pestillo como asa para deslizar el controlador hacia afuera del chasis.
@@ -178,12 +182,12 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
    
     **Figura 3** Deslizamiento del controlador fuera del chasis
 
-## Insertar un controlador
+## <a name="insert-a-controller"></a>Insertar un controlador
 Utilice el siguiente procedimiento para instalar un módulo del controlador suministrado de fábrica después de quitar un módulo defectuoso del dispositivo StorSimple.
 
-#### Para instalar un módulo del controlador
+#### <a name="to-install-a-controller-module"></a>Para instalar un módulo del controlador
 1. Compruebe si hay algún daño en los conectores de la interfaz. No instale el módulo si cualquiera de las clavijas del conector están dañadas o dobladas.
-2. Deslice el módulo del controlador en el chasis mientras el pestillo está completamente liberado.
+2. Deslice el módulo del controlador en el chasis mientras el pestillo está completamente liberado. 
    
     ![Deslizamiento del controlador hacia el chasis](./media/storsimple-controller-replacement/IC741053.png)
    
@@ -193,15 +197,15 @@ Utilice el siguiente procedimiento para instalar un módulo del controlador sumi
     ![Cierre del pestillo del controlador](./media/storsimple-controller-replacement/IC741054.png)
    
     **Figura 5** Cierre del pestillo del controlador
-4. Ha terminado cuando el pestillo encaje en su lugar. El LED **Aceptar** debe estar encendido ahora.
+4. Ha terminado cuando el pestillo encaje en su lugar. El LED **Aceptar** debe estar encendido ahora.  
    
    > [!NOTE]
    > Puede tardar hasta 5 minutos para que el controlador y el LED se activen.
    > 
    > 
-5. Para comprobar que el reemplazo se realizó correctamente, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** y asegúrese de que los controladores 0 y 1 funcionan correctamente (el estado es verde).
+5. Para comprobar que el reemplazo se realizó correctamente, en el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado de hardware** y asegúrese de que los controladores 0 y 1 funcionan correctamente (el estado es verde).
 
-## Identificar el controlador activo en el dispositivo
+## <a name="identify-the-active-controller-on-your-device"></a>Identificar el controlador activo en el dispositivo
 Hay muchas situaciones, como el registro del dispositivo por primera vez o el reemplazo de controladores, que requieren que localice el controlador activo en un dispositivo StorSimple. El controlador activo procesa todas las operaciones de firmware y redes del disco. Puede utilizar cualquiera de los métodos siguientes para identificar el controlador activo:
 
 * [Usar el Portal de Azure clásico para identificar el controlador activo](#use-the-azure-classic-portal-to-identify-the-active-controller)
@@ -210,14 +214,14 @@ Hay muchas situaciones, como el registro del dispositivo por primera vez o el re
 
 A continuación se describe cada uno de estos procedimientos.
 
-### Usar el Portal de Azure clásico para identificar el controlador activo
+### <a name="use-the-azure-classic-portal-to-identify-the-active-controller"></a>Usar el Portal de Azure clásico para identificar el controlador activo
 En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** y desplácese hasta la sección **Controladores**. Aquí puede comprobar qué controlador está activo.
 
 ![Identificar el controlador activo en el Portal de Azure clásico](./media/storsimple-controller-replacement/IC752072.png)
 
 **Figura 6** El Portal de Azure clásico muestra el controlador activo
 
-### Usar Windows PowerShell para StorSimple para identificar el controlador activo
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>Usar Windows PowerShell para StorSimple para identificar el controlador activo
 Al acceder al dispositivo a través de la consola en serie, se presenta un mensaje de banner. El mensaje de banner contiene información de dispositivos básicos como modelo, el nombre, la versión del software instalado y el estado del controlador al que accede. La imagen siguiente muestra un ejemplo de un mensaje de banner:
 
 ![Mensaje de banner en serie](./media/storsimple-controller-replacement/IC741098.png)
@@ -226,7 +230,7 @@ Al acceder al dispositivo a través de la consola en serie, se presenta un mensa
 
 Puede usar el mensaje de banner para determinar si el controlador que está conectado está activo o pasivo.
 
-### Comprobar el dispositivo físico para identificar el controlador activo
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Comprobar el dispositivo físico para identificar el controlador activo
 Para identificar el controlador activo en el dispositivo, busque el LED azul sobre el puerto de datos 5 en la parte posterior del gabinete principal.
 
 Si este LED parpadea, el controlador está activo y el otro controlador está en modo de espera. Use el diagrama y la tabla siguiente como ayuda.
@@ -240,7 +244,12 @@ Si este LED parpadea, el controlador está activo y el otro controlador está en
 | 1-6 |DATOS 0: 5 puertos de red |
 | 7 |LED azul |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

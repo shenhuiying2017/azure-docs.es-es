@@ -1,13 +1,13 @@
 ---
-title: Orientación sobre escalado automático | Microsoft Docs
-description: Orientación sobre cómo usar el escalado automático para asignar dinámicamente los recursos que requiere una aplicación.
-services: ''
+title: "Orientación sobre escalado automático | Microsoft Docs"
+description: "Orientación sobre cómo usar el escalado automático para asignar dinámicamente los recursos que requiere una aplicación."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 25bba4f9-9ca5-48d1-ac8b-08a3441ba696
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,26 +15,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
+ms.openlocfilehash: 76451c01bccfc96827b57d2bfcbb10d922a3ee19
+
 
 ---
-# Instrucciones de escalado automático
+# <a name="autoscaling-guidance"></a>Instrucciones de escalado automático
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Información general
-Escalado automático es el proceso de asignar dinámicamente los recursos que necesita una aplicación para coincidir con los requisitos de rendimiento y satisfacer los contratos de nivel de servicio (SLA) mientras se minimizan los costos de tiempo de ejecución. A medida que crezca el volumen de trabajo, una aplicación puede requerir recursos adicionales para que pueda realizar sus tareas de manera oportuna. A medida que disminuya la demanda, podrá anularse la asignación de recursos con el fin de minimizar los costos a la vez que se mantiene un rendimiento adecuado y se cumplen los SLA. El escalado automático aprovecha la elasticidad de entornos hospedados en la nube mientras alivia la sobrecarga de administración. Para ello, reduce la necesidad de que un operador tenga que supervisar continuamente el rendimiento de un sistema y tomar decisiones sobre agregar o quitar recursos.
+## <a name="overview"></a>Información general
+Escalado automático es el proceso de asignar dinámicamente los recursos que necesita una aplicación para coincidir con los requisitos de rendimiento y satisfacer los contratos de nivel de servicio (SLA) mientras se minimizan los costos de tiempo de ejecución. A medida que crezca el volumen de trabajo, una aplicación puede requerir recursos adicionales para que pueda realizar sus tareas de manera oportuna. A medida que disminuya la demanda, podrá anularse la asignación de recursos con el fin de minimizar los costos a la vez que se mantiene un rendimiento adecuado y se cumplen los SLA.
+El escalado automático aprovecha la elasticidad de entornos hospedados en la nube mientras alivia la sobrecarga de administración. Para ello, reduce la necesidad de que un operador tenga que supervisar continuamente el rendimiento de un sistema y tomar decisiones sobre agregar o quitar recursos.
 
 > [!NOTE]
 > El escalado automático se aplica a todos los recursos que una aplicación usa, no solo los recursos de proceso. Por ejemplo, si el sistema usa colas de mensajes para enviar y recibir información, podría crear colas adicionales a medida que escale.
-> 
-> 
+>
+>
 
-## Tipos de escalado
+## <a name="types-of-scaling"></a>Tipos de escalado
 El escalado suele adoptar una de las dos formas siguientes:
 
 * **Vertical** (suele denominarse *escalado y reducción vertical*). Esta forma requiere la modificación del hardware (ampliación o reducción de su capacidad y rendimiento) o la reimplementación de la solución con hardware alternativo que tenga la capacidad y el rendimiento adecuados. En un entorno de nube, la plataforma de hardware suele ser un entorno virtualizado. A menos que el hardware original se había sobreaprovisionado considerablemente, con el consiguiente gasto de capital inicial, el escalado vertical en este entorno implica el aprovisionamiento de recursos más eficaces y, a continuación, el traslado del sistema en estos nuevos recursos. El escalado vertical suele ser un proceso perjudicial que requiere que el sistema deje de estar disponible temporalmente mientras se vuelve a implementar. Es posible mantener el sistema original en ejecución mientras se aprovisiona y se pone en línea el nuevo hardware, pero es probable que abra alguna interrupción mientras el procesamiento pasa del entorno antiguo al nuevo. No es habitual usar el escalado automático para implementar una estrategia de escalado vertical.
 * **Horizontal** (suele denominarse *reducción y escalado horizontal*). Esta forma requiere la implementación de la solución en más o menos recursos, que suelen ser recursos básicos en lugar de sistemas de gran potencia. La solución puede seguir ejecutándose sin interrupciones mientras se aprovisionan estos recursos. Una vez completado el proceso de aprovisionamiento, se pueden implementar copias de los elementos que componen la solución en estos recursos adicionales y hacer que estén disponibles. Si disminuye la demanda, se pueden reclamar recursos adicionales después de que los elementos los usan que se hayan cerrado correctamente. Muchos sistemas basados en la nube, incluido Microsoft Azure, admiten la automatización de esta forma de escalado.
 
-## Implementación de una estrategia de escalado automático
+## <a name="implement-an-autoscaling-strategy"></a>Implementación de una estrategia de escalado automático
 La implementación de una estrategia de escalado automático suele implicar los siguientes componentes y procesos:
 
 * Sistemas de instrumentación y supervisión en los niveles de aplicación, servicio e infraestructura. Estos sistemas capturan métricas clave, como tiempos de respuesta, longitudes de cola, uso de CPU y uso de memoria.
@@ -44,7 +49,7 @@ La implementación de una estrategia de escalado automático suele implicar los 
 
 La mayoría de los entornos basados en la nube, como Azure, ofrecen mecanismos de escalado automático integrados que se dirigen a escenarios comunes. Si el entorno o servicio que usa no proporciona la funcionalidad de escalado automatizado necesaria o si tiene requisitos extremos de escalado automático que van más allá de sus capacidades, es posible que se necesite una implementación personalizada. Utilice esta implementación personalizada para recopilar métricas operativas y del sistema, analizarlas para identificar datos pertinentes y luego escalar los recursos en consecuencia.
 
-## Configuración de escalado automático para una solución de Azure
+## <a name="configure-autoscaling-for-an-azure-solution"></a>Configuración de escalado automático para una solución de Azure
 Hay varias opciones para configurar el escalado automático en las soluciones de Azure:
 
 * **Escalado automático de Azure** admite los escenarios de escalado más comunes en función de una programación y, opcionalmente, operaciones de escalado que se desencadenen en función de métricas en tiempo de ejecución (por ejemplo, utilización del procesador, longitud de la cola o contadores personalizados e integrados). Puede configurar directivas sencillas de escalado automático rápida y fácilmente en una solución mediante el portal de Azure. Si desea un control más minucioso puede hacer uso de la [API de REST de Administración de servicios de Azure](https://msdn.microsoft.com/library/azure/ee460799.aspx) o la [API de REST de Azure Resource Manager](https://msdn.microsoft.com//library/azure/dn790568.aspx). La [biblioteca de administración de servicios de supervisión de Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring) y la [biblioteca de Microsoft Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/) (en versión preliminar) son SDK que permiten recopilar métricas de diferentes recursos y realizar escalado automático haciendo uso de las API de REST. En recursos en los que no existe compatibilidad con el Azure Resource Manager, o si se utiliza Servicios en la nube de Azure, puede usar la API de REST de Administración de servicios para escalado automático. En los demás casos, utilice Azure Resource Manager.
@@ -57,7 +62,7 @@ Al elegir qué solución de escalado automático adoptar, tenga en cuenta los si
 * Tenga en cuenta si puede predecir la carga en la aplicación con precisión suficiente como para depender solo en un escalado automático programado (adición y eliminación de instancias para satisfacer los picos de demanda anticipados). Cuando no sea posible, use el escalado automático reactivo en función de las métricas recopiladas en tiempo de ejecución para permitir que la aplicación controle los cambios imprevisibles en la demanda. Normalmente, puede combinar estos métodos. Por ejemplo, cree una estrategia que agregue recursos, tales como proceso, almacenamiento y colas, según una programación de las horas en que sabe que la aplicación está más ocupada. Esto ayuda a garantizar que la capacidad esté disponible cuando se necesite, sin provocar el retraso que se produce al iniciar nuevas instancias. Además, para cada regla programada, defina métricas que permitan el escalado automático reactivo durante ese período para asegurarse de que la aplicación pueda atender picos sostenidos pero imprevisibles en la demanda.
 * A menudo, resulta difícil comprender la relación entre las métricas y los requisitos de capacidad, especialmente durante la implementación inicial de una aplicación. Es preferible aprovisionar un poco de capacidad adicional al principio y luego supervisar y optimizar las reglas de escalado automático para acercar la capacidad a la carga real.
 
-### Uso de escalado automático de Azure
+### <a name="use-azure-autoscale"></a>Uso de escalado automático de Azure
 El escalado automático de Azure le permite configurar las opciones de escalado y reducción horizontal de una solución. El escalado automático puede agregar y quitar automáticamente instancias de roles web y de trabajo de Servicios en la nube de Azure, Servicios móviles de Azure y la característica Aplicaciones web de Servicio de aplicaciones de Azure. Además, puede permitir el escalado automático con el inicio o la detención de las instancias de máquinas virtuales de Azure. Una estrategia de escalado automático de Azure consta de dos conjuntos de factores:
 
 * Un escalado automático basado en programaciones que puedan garantizar la disponibilidad de instancias adicionales para que coincidan con un pico de uso esperado y que puedan reducir horizontalmente una vez que haya transcurrido el tiempo pico. Esto le permite asegurarse de que dispone de suficientes instancias en ejecución sin tener que esperar a que el sistema reaccione ante la carga.
@@ -71,7 +76,7 @@ Al usar el escalado automático de Azure, tenga en cuenta los siguientes puntos:
 * Si configura el escalado automático mediante el SDK en lugar del portal web, puede especificar una programación más detallada durante la que las reglas están activas. También puede crear sus propias métricas y usarlas con o sin las métricas existentes en sus reglas de escalado automático. Por ejemplo, quizás desee usar contadores alternativos, como, por ejemplo, el número de solicitudes por segundo o la disponibilidad media de memoria, o bien usar contadores personalizados que midan procesos empresariales específicos.
 * Al realizar el escalado automático de Máquinas virtuales de Azure, debe implementar un número de instancias de máquina virtual que sea igual al número máximo que permitirá que inicie el escalado automático. Estas instancias deben formar parte del mismo conjunto de disponibilidad. El mecanismo de escalado automático de Máquinas virtuales no crea ni elimina las instancias de la máquina virtual. En cambio, las reglas de escalado automático que configure inician y detienen un número adecuado de estas instancias. Para más información, consulte [Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales](cloud-services/cloud-services-how-to-scale.md).
 * Si no se pueden iniciar nuevas instancias, quizás porque se alcanzó el número máximo para una suscripción o se produce un error durante el inicio, puede que el portal muestre que una operación de escalado automático se realizó correctamente. No obstante, los eventos **ChangeDeploymentConfiguration** posteriores que se muestran en el portal mostrarán únicamente que se solicitó un inicio de servicio y no habrá ningún evento para indicar se completó correctamente.
-* Puede usar la interfaz de usuario del portal web para vincular recursos, tales como colas e instancias de Base de datos SQL, a una instancia de servicio de proceso. Esto permite acceder más fácilmente las opciones separadas de configuración de escalado manual y automático para cada uno de los recursos vinculados. Para más información, consulte [Vinculación de un recurso a un servicio en la nube](cloud-services/cloud-services-how-to-manage.md#linkresources) y [Escalado de una aplicación](cloud-services/cloud-services-how-to-scale.md).
+* Puede usar la interfaz de usuario del portal web para vincular recursos, tales como colas e instancias de Base de datos SQL, a una instancia de servicio de proceso. Esto permite acceder más fácilmente las opciones separadas de configuración de escalado manual y automático para cada uno de los recursos vinculados. Para más información, consulte "Vinculación de un recurso a un servicio en la nube" en la página [Administración de servicios en la nube](./cloud-services/cloud-services-how-to-manage.md) y la página [Escalado de una aplicación](cloud-services/cloud-services-how-to-scale.md).
 * Si configura varias directivas y reglas, podrían producirse conflictos entre ellas. El escalado automático usa las siguientes reglas de resolución de conflictos para garantizar que siempre haya un número suficiente de instancias en ejecución:
   * Las operaciones de escalar horizontalmente siempre tienen prioridad sobre las operaciones de reducir horizontalmente.
   * Cuando se produce un conflicto en las operaciones de escalar horizontalmente, tiene prioridad la regla que inicia el mayor aumento en el número de instancias.
@@ -79,7 +84,7 @@ Al usar el escalado automático de Azure, tenga en cuenta los siguientes puntos:
 
 <a name="the-azure-monitoring-services-management-library"></a>
 
-## Consideraciones de diseño de la aplicación para la implementación del escalado automático
+## <a name="application-design-considerations-for-implementing-autoscaling"></a>Consideraciones de diseño de la aplicación para la implementación del escalado automático
 El escalado automático no es una solución instantánea. La simple adición de recursos a un sistema o la ejecución de instancias adicionales de un proceso no garantiza que mejorará el rendimiento del sistema. Tenga en cuenta lo siguiente a la hora de diseñar una estrategia de escalado automático:
 
 * El sistema debe diseñarse para el escalado horizontal. Evite hacer suposiciones acerca de la afinidad de la instancia; no diseñe soluciones que requieran la ejecución constante del código en una instancia específica de un proceso. Al escalar horizontalmente un servicio en la nube o sitio web, no presuponga que una serie de solicitudes del mismo origen siempre se enrutará a la misma instancia. Por la misma razón, diseñe los servicios sin estado para evitar la necesidad de disponer de una serie de solicitudes de que una aplicación siempre se dirija a la misma instancia de un servicio. Al diseñar un servicio que lee y procesa mensajes de una cola, no haga ninguna suposición sobre qué instancia de servicio controla un mensaje específico. El escalado automático podría iniciar instancias adicionales de un servicio a medida que crezca la longitud de la cola. En el tema [Patrón de consumidores de la competencia](http://msdn.microsoft.com/library/dn568101.aspx) se describe cómo controlar esta situación.
@@ -87,24 +92,24 @@ El escalado automático no es una solución instantánea. La simple adición de 
 * Como alternativa, puede implementar un mecanismo de punto de comprobación que registre información sobre el estado de la tarea en intervalos regulares y que guarde este estado en almacenamiento duradero accesible para cualquier instancia del proceso que ejecute la tarea. De este modo, si el proceso se cierra, el trabajo que estaba realizando puede reanudarse desde el último punto de comprobación con otra instancia.
 * Cuando las aplicaciones en segundo plano se ejecutan en instancias de proceso independientes, como es el caso en los roles de trabajo de una aplicación hospedada en los Servicios en la nube, es posible que necesite escalar diferentes partes de la aplicación con distintas directivas de escalado. Por ejemplo, es posible que tenga que implementar instancias adicionales de proceso de interfaz de usuario sin aumentar el número de instancias de proceso en segundo plano o viceversa. Si ofrece diferentes niveles de servicio (por ejemplo, paquetes de servicio básico y premium), es posible que, para cumplir el SLA, tenga que escalar horizontalmente los recursos de proceso para los paquetes de servicio premium de forma más agresiva que aquellos para los paquetes de servicio básico.
 * Considere la posibilidad de usar la longitud de la cola sobre la que se comunican las instancias de proceso de interfaz de usuario y en segundo plano como criterio para la estrategia de escalado automático. Este es el mejor indicador de la existencia de un desequilibrio o diferencia entre la carga actual y la capacidad de procesamiento de la tarea en segundo plano.
-* Si basa su estrategia de escalado automático en contadores que miden procesos empresariales, tal como el número de pedidos realizados por hora o el tiempo de ejecución promedio de una transacción compleja, asegúrese de comprender a fondo la relación entre los resultados de estos tipos de contadores y los requisitos reales de capacidad de proceso. Es posible que sea necesario escalar más de un componente o unidad de proceso en respuesta a los cambios en los contadores de proceso de negocio.
+* Si basa su estrategia de escalado automático en contadores que miden procesos empresariales, tal como el número de pedidos realizados por hora o el tiempo de ejecución promedio de una transacción compleja, asegúrese de comprender a fondo la relación entre los resultados de estos tipos de contadores y los requisitos reales de capacidad de proceso. Es posible que sea necesario escalar más de un componente o unidad de proceso en respuesta a los cambios en los contadores de proceso de negocio.  
 * Para impedir que un sistema intente escalar horizontalmente de manera excesiva y evitar los costos asociados con la ejecución de varios miles de instancias, considere la posibilidad de limitar el número máximo de instancias que se pueden agregar automáticamente. La mayoría de los mecanismos de escalado automático le permiten especificar el número mínimo y máximo de instancias de una regla. Considere también la posibilidad de degradar correctamente la funcionalidad que brinda el sistema si se implementó el número máximo de instancias y el sistema aún está sobrecargado.
 * Tenga en cuenta que el escalado automático podría no ser el mecanismo más adecuado para controlar una ráfaga súbita de carga de trabajo. Se necesita tiempo para aprovisionar e iniciar nuevas instancias de un servicio o agregar recursos a un sistema. Además, es posible que la máxima demanda se haya superado cuando estos recursos adicionales estén disponibles. En este escenario, es posible que sea mejor limitar el servicio. Para más información, consulte [Patrón de limitación](http://msdn.microsoft.com/library/dn589798.aspx).
 * Por el contrario, si necesita la capacidad para procesar todas las solicitudes cuando el volumen fluctúa rápidamente, y el costo no es un factor de impacto principal, considere la posibilidad de usar una estrategia agresiva de escalado automático en la que las instancias adicionales se inicien con mayor rapidez. También puede usar una directiva programada que inicie un número suficiente de instancias como para satisfacer la carga máxima antes de que se espere esa carga.
 * El mecanismo de escalado automático debe supervisar el proceso de escalado automático y registrar los detalles de cada evento de escalado automático (qué lo desencadenó, qué recursos se agregaron o quitaron y cuándo). Si crea un mecanismo de escalado automático personalizado, asegúrese de que incorpore esta capacidad. Analice la información para ayudar a medir la eficacia de la estrategia de escalado automático y ajustarla según sea necesario. Puede ajustarla tanto a corto plazo, a medida que los patrones de uso se hagan más evidentes, y a largo plazo, a medida que el negocio se expanda o evolucionen los requisitos de la aplicación. Si una aplicación alcanza el límite superior definido para el escalado automático, el mecanismo también podría alertar a un operador que pueda iniciar manualmente recursos adicionales en caso necesario. Tenga en cuenta que, en estas circunstancias, el operador también puede ser responsable de quitar manualmente estos recursos una vez que se reduzca la carga de trabajo.
 
-## Orientación y patrones relacionados
+## <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los siguientes patrones y orientación también pueden ser pertinentes para su escenario al implementar el escalado automático:
 
 * [Patrón de limitación](http://msdn.microsoft.com/library/dn589798.aspx). En este patrón se describe cómo una aplicación puede seguir funcionando y cumplir los contratos de nivel de servicio cuando un aumento en la demanda aplica una carga muy elevada en los recursos. La limitación se puede usar con la escalado automático para impedir que un sistema se vea superado durante la operación de escalar horizontalmente.
 * [Patrón de consumidores de la competencia](http://msdn.microsoft.com/library/dn568101.aspx). En este patrón se describe cómo implementar un grupo de instancias de servicio que puede controlar mensajes de cualquier instancia de la aplicación. El escalado automático se puede usar para iniciar y detener las instancias de servicio para que coincidan con la carga de trabajo anticipada. Este método permite que un sistema procese varios mensajes simultáneamente a fin de optimizar el rendimiento, mejorar la escalabilidad y disponibilidad, y equilibrar la carga de trabajo.
 * [Orientación sobre instrumentación y telemetría](http://msdn.microsoft.com/library/dn589775.aspx). La instrumentación y telemetría son vitales para la recopilación de información que puede impulsar el proceso de escalado automático.
 
-## Más información
+## <a name="more-information"></a>Más información
 * [Escalado de una aplicación](cloud-services/cloud-services-how-to-scale.md)
-* [Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales](cloud-services/cloud-services-how-to-manage.md#linkresources)
-* [Vinculación de un recurso a un servicio en la nube](cloud-services/cloud-services-how-to-manage.md#linkresources)
-* [Escalado de recursos vinculados](cloud-services/cloud-services-how-to-scale.md#scale-link-resources)
+* [Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales](./cloud-services/cloud-services-how-to-manage.md)
+* [Vinculación de un recurso a un servicio en la nube](./cloud-services/cloud-services-how-to-manage.md)
+* [Escalado de recursos vinculados](./cloud-services/cloud-services-how-to-scale.md)
 * [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
 * [API de REST de administración de servicios de Azure](http://msdn.microsoft.com/library/azure/ee460799.aspx)
 * [API de REST del Administrador de recursos de Azure](https://msdn.microsoft.com/library/azure/dn790568.aspx)
@@ -112,4 +117,8 @@ Los siguientes patrones y orientación también pueden ser pertinentes para su e
 * [Operaciones en escalado automático](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 * [Espacio de nombres Microsoft.WindowsAzure.Management.Monitoring.Autoscale](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

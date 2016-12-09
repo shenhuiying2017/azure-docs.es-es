@@ -1,13 +1,13 @@
 ---
 title: Uso de Sqoop de Hadoop en HDInsight | Microsoft Docs
-description: Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de Hadoop y una base de datos SQL de Azure.
+description: "Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de Hadoop y una base de datos SQL de Azure."
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
-
+ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 027ac136d4c4f242c75e8a25605ace646624d64d
+
 
 ---
-# Ejecución de trabajos de Sqoop con el SDK de .NET para Hadoop en HDInsight
+# <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Sqoop con el SDK de .NET para Hadoop en HDInsight
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
 
 Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight en HDInsight para ejecutar trabajos de Sqoop con el fin de llevar a cabo tareas de importación y exportación entre un clúster de HDInsight y una base de datos SQL de Azure o una de SQL Server.
@@ -27,12 +31,12 @@ Obtenga información sobre cómo utilizar el SDK de .NET de HDInsight en HDInsig
 > 
 > 
 
-### Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* **Un clúster de Hadoop en HDInsight.** Consulte el artículo [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
+* **Un clúster de Hadoop en HDInsight**. Consulte el artículo [Creación del clúster y la base de datos SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
-## Ejecutar Sqoop mediante SDK de .NET
+## <a name="run-sqoop-using-net-sdk"></a>Ejecutar Sqoop mediante SDK de .NET
 El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. En esta sección, creará una aplicación de consola de C# para exportar hivesampletable a la tabla de Base de datos SQL que creó anteriormente en este tutorial.
 
 **Para enviar un trabajo de Sqoop**
@@ -104,17 +108,22 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
                 }
             }
         }
-4. Presione **F5** para ejecutar el programa.
+4. Presione **F5** para ejecutar el programa. 
 
-## Limitaciones
+## <a name="limitations"></a>Limitaciones
 * Exportación masiva: con HDInsight basado en Linux, el conector Sqoop que se utiliza para exportar datos a Microsoft SQL Server o Base de datos SQL Azure no es compatible actualmente con las inserciones masivas.
 * Procesamiento por lotes: con HDInsight basado en Linux, cuando se usa `-batch` al realizar inserciones, Sqoop realizará varias inserciones en lugar de procesar por lotes las operaciones de inserción.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Oozie con HDInsight](hdinsight-use-oozie.md): use la acción Sqoop en un flujo de trabajo de Oozie.
 * [Análisis de la información de retraso de vuelos con HDInsight](hdinsight-analyze-flight-delay-data.md): use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos SQL de Azure.
 * [Carga de datos en HDInsight](hdinsight-upload-data.md): busque otros métodos para cargar datos en HDInsight o el almacenamiento de blobs de Azure.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

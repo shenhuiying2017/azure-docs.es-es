@@ -1,12 +1,12 @@
 ---
-title: Configuración de la directiva de autorización de claves de contenido mediante el SDK de .NET de Media Services | Microsoft Docs
-description: Aprenda a configurar una directiva de autorización para una clave de contenido mediante .NET SDK de Servicios multimedia.
+title: "Configuración de la directiva de autorización de claves de contenido mediante el SDK de .NET de Media Services | Microsoft Docs"
+description: "Aprenda a configurar una directiva de autorización para una clave de contenido mediante .NET SDK de Servicios multimedia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Mingfeiy
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1a0aedda-5b87-4436-8193-09fc2f14310c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;mingfeiy
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7a90634ecc8712b7b94567c3b1cea574d544075b
+
 
 ---
-# Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
+# <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Cifrado dinámico: configuración de la directiva de autorización de claves de contenido
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
 
-## Información general
+## <a name="overview"></a>Información general
 Servicios multimedia de Microsoft Azure permute entregar transmisiones MPEG-DASH, Smooth Streaming y HTTP-Live-Streaming (HLS) protegidas con Estándar de cifrado avanzado (AES) (usando claves de cifrado de 128 bits) o [DRM de Microsoft PlayReady](https://www.microsoft.com/playready/overview/). AMS también permite entregar transmisiones DASH cifradas con DRM de Widevine. Tanto PlayReady como Widewine se cifran según la especificación de cifrado común (ISO/IEC 23001-7 CENC).
 
 Servicios multimedia también proporciona un **servicio de entrega de claves/licencias** con el que los clientes pueden obtener claves AES o licencias de PlayReady/Widevine con el fin de reproducir el contenido cifrado.
 
-Si desea que Servicios multimedia cifre un recurso, debe asociar una clave de cifrado (**CommonEncryption** o **EnvelopeEncryption**) con el recurso (tal como se describe [aquí](media-services-dotnet-create-contentkey.md)) y configurar directivas de autorización para la clave (tal como se describe en este artículo).
+Si desea que Media Services cifre un recurso, debe asociar una clave de cifrado (**CommonEncryption** o **EnvelopeEncryption**) con el recurso (como se describe [aquí](media-services-dotnet-create-contentkey.md)) y también configurar directivas de autorización para la clave (como se describe en este artículo).
 
 Cuando un reproductor solicita una transmisión, Servicios multimedia usa la clave especificada para cifrar de forma dinámica el contenido mediante el cifrado AES o DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para decidir si el usuario está o no autorizado para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: **abrir** o restricción de **token**. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Servicios multimedia admite tokens en formato **tokens web simples** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato **tokens web JSON** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
+Servicios multimedia admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de acceso podría tener una o más restricciones de autorización: **abrir** o restricción de **token**. La directiva con restricción token debe ir acompañada de un token emitido por un Servicio de tokens seguros (STS). Media Services admite tokens en los formatos **Token de web simple** ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y **JSON Web Token** ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
 
 Los Servicios multimedia no proporcionan Servicios de tokens seguros. Puede crear un STS personalizado o aprovechar el Servicio de control de acceso (ACS) de Microsoft Azure para emitir tokens. El STS debe configurarse para crear un token firmado con las notificaciones especificadas de clave y el número que especificó en la configuración de restricción de token (como se describe en este artículo). El servicio de entrega de claves de los Servicios multimedia devolverá la clave de cifrado al cliente si el token es válido y las notificaciones del token coinciden con las configuradas para la clave de contenido.
 
@@ -40,22 +44,24 @@ Para obtener más información, consulte
 
 [Uso de ACS de Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
-### Se aplican algunas consideraciones:
+### <a name="some-considerations-apply"></a>Se aplican algunas consideraciones:
 * Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad reservada de streaming. Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 * El recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable. Para obtener más información, consulte [Codificación de un recurso](media-services-encode-asset.md).
-* Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted**.
+* Cargue y codifique sus recursos con la opción **AssetCreationOptions.StorageEncrypted** .
 * Si planea tener varias claves de contenido que requieran la misma configuración de directiva, se recomienda encarecidamente crear una sola directiva de autorización y volverla a utilizar con varias claves de contenido.
-* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos. Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
+* El servicio de entrega de claves almacena en caché ContentKeyAuthorizationPolicy y sus objetos relacionados (opciones y restricciones de directiva) durante 15 minutos.  Si crea una entidad ContentKeyAuthorizationPolicy y especifica el uso de una restricción "Token", pruébela y, a continuación, actualice la directiva a la restricción "Open"; la directiva tardará aproximadamente 15 minutos antes de cambiar a la versión "Open" de la misma.
 * Si agrega o actualiza la directiva de entrega de recursos, debe eliminar un localizador existente (si hay) y crear uno nuevo.
 * En este momento no se puede cifrar el formato de streaming HDS ni las descargas progresivas.
 
-## Cifrado dinámico AES-128
-### Restricción open
+## <a name="aes-128-dynamic-encryption"></a>Cifrado dinámico AES-128
+### <a name="open-restriction"></a>Restricción open
 La restricción open significa que el sistema entregará la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas.
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
 
-static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Crear ContentKeyAuthorizationPolicy con restricciones abiertas // y crear directivas de autorización IContentKeyAuthorizationPolicy policy = \_context. ContentKeyAuthorizationPolicies. CreateAsync("Directiva de autorización abierta").Result;
+static public void AddOpenAuthorizationPolicy(IContentKey contentKey) { // Crear ContentKeyAuthorizationPolicy con restricciones abiertas // y crear directivas de autorización IContentKeyAuthorizationPolicy policy = _context.
+ContentKeyAuthorizationPolicies.
+CreateAsync("Directiva de autorización abierta").Result;
 
 List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>();
 
@@ -85,12 +91,12 @@ List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKe
     }
 
 
-### Restricción de token
+### <a name="token-restriction"></a>Restricción de token
 En esta sección se describe cómo crear una directiva de autorización de claves de contenido y asociarla a la clave de contenido. La directiva de autorización describe los requisitos de autorización que se deben cumplir para determinar si el usuario está autorizado para recibir la clave (por ejemplo, si la lista de "claves de comprobación" contiene la clave con la que se firmó el token).
 
 Para configurar la opción de restricción de token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el siguiente esquema XML.
 
-#### <a id="schema"></a>Esquema de restricción de token
+#### <a name="a-idschemaatoken-restriction-schema"></a><a id="schema"></a>Esquema de restricción de token
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
@@ -138,9 +144,10 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-Al configurar la directiva de restricción de **token**, debe especificar los parámetros de **clave de comprobación principal**, **emisor** y **público**. La **clave de comprobación principal** contiene la clave con la que se firmó el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla.
+Al configurar la directiva de restricción de **token**, debe especificar los parámetros de clave de **verificación principal** (PrimaryVerificationKey), **emisor** (Issuer) y **público** (Audience). La **clave de verificación principal **contiene la clave con la que se firmó el token y el **emisor** es el servicio de token seguro que emite el token. El **público** (a veces denominado **ámbito**) describe la intención del token o del recurso cuyo acceso está autorizado por el token. El servicio de entrega de claves de los Servicios multimedia valida que estos valores del token coincidan con los valores de la plantilla. 
 
-Al usar el **SDK de Servicios multimedia para .NET**, puede utilizar la clase **TokenRestrictionTemplate** para generar el token de restricción. En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tendría que presentar un token que contenga: una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
+Al utilizar el **SDK de Media Services para .NET**, puede usar la clase **TokenRestrictionTemplate** para generar el token de restricción.
+En el ejemplo siguiente se crea una directiva de autorización con una restricción de token. En este ejemplo, el cliente tendría que presentar un token que contenga: una clave de firma (VerificationKey), un emisor de tokens y las notificaciones necesarias.
 
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
     {
@@ -196,7 +203,7 @@ Al usar el **SDK de Servicios multimedia para .NET**, puede utilizar la clase **
         return TokenRestrictionTemplateSerializer.Serialize(template);
     }
 
-#### <a id="test"></a>Token de prueba
+#### <a name="a-idtestatest-token"></a><a id="test"></a>Token de prueba
 Para obtener un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves, haga lo siguiente.
 
     // Deserializes a string containing an Xml representation of a TokenRestrictionTemplate
@@ -216,14 +223,14 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
     Console.WriteLine();
 
 
-## Cifrado dinámico PlayReady.
-Los Servicios multimedia le permiten configurar los derechos y las restricciones que desee para que el tiempo de ejecución de PlayReady DRM las aplique cuando un usuario intente reproducir contenido protegido.
+## <a name="playready-dynamic-encryption"></a>Cifrado dinámico PlayReady.
+Los Servicios multimedia le permiten configurar los derechos y las restricciones que desee para que el tiempo de ejecución de PlayReady DRM las aplique cuando un usuario intente reproducir contenido protegido. 
 
-Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la [plantilla de licencias PlayReady](media-services-playready-license-template-overview.md). En el SDK de Servicios multimedia para. NET, las clases **PlayReadyLicenseResponseTemplate** y **PlayReadyLicenseTemplate** le ayudarán a definir la plantilla de licencia de PlayReady.
+Al proteger su contenido con PlayReady, una de las cosas que debe especificar en la directiva de autorización es una cadena XML que defina la [plantilla de licencia de PlayReady](media-services-playready-license-template-overview.md). En el SDK de Media Services para. NET, las clases **PlayReadyLicenseResponseTemplate** y **PlayReadyLicenseTemplate** lo ayudarán a definir la plantilla de licencia de PlayReady.
 
-En [este tema](media-services-protect-with-drm.md) se muestra cómo cifrar dinámicamente el contenido con **PlayReady** y **Widevine**.
+En [este tema](media-services-protect-with-drm.md) se muestra cómo cifrar el contenido con **PlayReady** y **Widevine**.
 
-### Restricción open
+### <a name="open-restriction"></a>Restricción open
 La restricción open significa que el sistema entregará la clave a cualquier persona que realice una solicitud de clave. Esta restricción puede ser útil para realizar pruebas.
 
 En el ejemplo siguiente se crea una directiva de autorización abierta y se agrega a la clave de contenido.
@@ -265,7 +272,7 @@ En el ejemplo siguiente se crea una directiva de autorización abierta y se agre
         contentKey = contentKey.UpdateAsync().Result;
     }
 
-### Restricción de token
+### <a name="token-restriction"></a>Restricción de token
 Para configurar la opción de restricción de token, debe usar un archivo XML para describir los requisitos de autorización del token. El archivo XML de configuración de restricción de token debe cumplir el esquema XML que se muestra en [esta](#schema) sección.
 
     public static string AddTokenRestrictedAuthorizationPolicy(IContentKey contentKey)
@@ -375,10 +382,10 @@ Para configurar la opción de restricción de token, debe usar un archivo XML pa
     }
 
 
-Para obtener un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves, consulte [esta](#test) sección.
+Para obtener un token de prueba basado en la restricción de token que se usó para la directiva de autorización de claves, consulte [esta](#test) sección. 
 
-## <a id="types"></a>Tipos usados al definir ContentKeyAuthorizationPolicy
-### <a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
+## <a name="a-idtypesatypes-used-when-defining-contentkeyauthorizationpolicy"></a><a id="types"></a>Tipos usados al definir ContentKeyAuthorizationPolicy
+### <a name="a-idcontentkeyrestrictiontypeacontentkeyrestrictiontype"></a><a id="ContentKeyRestrictionType"></a>ContentKeyRestrictionType
     public enum ContentKeyRestrictionType
     {
         Open = 0,
@@ -386,7 +393,7 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
         IPRestricted = 2,
     }
 
-### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### <a name="a-idcontentkeydeliverytypeacontentkeydeliverytype"></a><a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
     public enum ContentKeyDeliveryType
     {
       None = 0,
@@ -395,7 +402,7 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
       Widevine = 3
     }
 
-### <a id="TokenType"></a>TokenType
+### <a name="a-idtokentypeatokentype"></a><a id="TokenType"></a>TokenType
     public enum TokenType
     {
         Undefined = 0,
@@ -405,13 +412,18 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Paso siguiente
-Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
+## <a name="next-step"></a>Paso siguiente
+Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte el tema [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md) .
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

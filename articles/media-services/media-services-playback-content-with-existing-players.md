@@ -1,22 +1,26 @@
 ---
-title: Reproducción del contenido | Microsoft Docs
+title: "Reproducción del contenido | Microsoft Docs"
 description: En este tema se enumeran los reproductores existentes que puede usar para reproducir el contenido.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 10/12/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+
 
 ---
-# Reproducción de contenido con existentes
+# <a name="playing-your-content-with-existing-players"></a>Reproducción de contenido con existentes
 Servicios multimedia de Azure admite muchos formatos de streaming populares como Smooth Streaming, HTTP Live Streaming y MPEG-Dash. Este tema remite a reproductores existentes que puede usar para probar sus transmisiones.
 
 > [!NOTE]
@@ -24,7 +28,7 @@ Servicios multimedia de Azure admite muchos formatos de streaming populares como
 > 
 > 
 
-### Reproductor de contenido de los Servicios multimedia del Portal de Azure clásico
+### <a name="the-azure-portal-media-services-content-player"></a>Reproductor del contenido de Media Services de Azure Portal
 **Azure Portal** proporciona un reproductor de contenido que puede usar para probar el vídeo.
 
 Haga clic en el vídeo deseado (asegúrese de que se ha [publicado](media-services-portal-publish.md)) y haga clic en el botón **Reproducir** situado en la parte inferior del portal.
@@ -35,7 +39,7 @@ Se aplican algunas consideraciones:
 
 ![AMSPlayer][AMSPlayer]
 
-### Reproductor multimedia de Azure
+### <a name="azure-media-player"></a>Reproductor multimedia de Azure
 Use el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para reproducir el contenido (libre o protegido) en cualquiera de los siguientes formatos:
 
 * Smooth Streaming
@@ -43,37 +47,41 @@ Use el [Reproductor multimedia de Azure](http://amsplayer.azurewebsites.net/azur
 * HLS
 * MP4 progresivo
 
-### Flash Player
-#### Cifrado de AES con token
+### <a name="flash-player"></a>Flash Player
+#### <a name="aes-encrypted-with-token"></a>Cifrado de AES con token
 [http://aestoken.azurewebsites.net](http://aestoken.azurewebsites.net)
 
-### Reproductores de Silverlight
-#### Supervisión
+### <a name="silverlight-players"></a>Reproductores de Silverlight
+#### <a name="monitoring"></a>Supervisión
 [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor)
 
-#### PlayReady con token
+#### <a name="playready-with-token"></a>PlayReady con token
 [http://sltoken.azurewebsites.net](http://sltoken.azurewebsites.net)
 
-### Reproductores DASH
+### <a name="dash-players"></a>Reproductores DASH
 [http://dashplayer.azurewebsites.net](http://dashplayer.azurewebsites.net)
 
 [http://dashif.org](http://dashif.org)
 
-### Otros
+### <a name="other"></a>Otros
 Para probar las direcciones URL de HLS también puede utilizar:
 
 * **Safari** en un dispositivo iOS o
 * **3ivx HLS Player** en Windows.
 
-## Desarrollo de reproductores de vídeo
+## <a name="developing-video-players"></a>Desarrollo de reproductores de vídeo
 Para obtener información sobre cómo desarrollar sus propios reproductores, consulte [Desarrollo de reproductores de vídeo](media-services-develop-video-players.md)
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

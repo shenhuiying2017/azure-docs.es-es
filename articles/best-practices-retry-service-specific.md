@@ -1,13 +1,13 @@
 ---
-title: Vuelva a intentar la orientación específica del servicio | Microsoft Docs
-description: Instrucciones específicas de servicios para establecer el mecanismo de reintento.
-services: ''
+title: "Vuelva a intentar la orientación específica del servicio | Microsoft Docs"
+description: "Instrucciones específicas de servicios para establecer el mecanismo de reintento."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 159d6a0b-b929-4e7f-b297-f89b4af8a940
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
+ms.openlocfilehash: 28f0a833ca410a518291c99b308ac52a1318761e
+
 
 ---
-# Vuelva a intentar la orientación específica del servicio
+# <a name="retry-service-specific-guidance"></a>Vuelva a intentar la orientación específica del servicio
 [!INCLUDE [pnp-header](../includes/guidance-pnp-header-include.md)]
 
-## Información general
+## <a name="overview"></a>Información general
 La mayoría de SDK de cliente y de servicios de Azure incluye un mecanismo de reintento. Sin embargo, estos son diferentes porque cada servicio tiene requisitos y características diferentes, por lo que cada mecanismo de reintento se ajusta a un servicio específico. Esta guía resume las características de mecanismo de reintento de la mayoría de los servicios de Azure e incluye información para ayudarle a usar, adaptar o ampliar el mecanismo de reintento para ese servicio.
 
 Para obtener instrucciones generales sobre el control de errores transitorios y reintentar conexiones y operaciones en servicios y recursos, consulte [Guía de reintentos](best-practices-retry-general.md).
@@ -29,35 +33,35 @@ En la tabla siguiente se resumen las características de reintento de los servic
 
 | **Servicio** | **Capacidades de reintento** | **Configuración de directivas** | **Ámbito** | **Características de telemetría** |
 | --- | --- | --- | --- | --- |
-| **[AzureStorage](#azure-storage-retry-guidelines)** |Nativo en el cliente |Programático |Operaciones de cliente e individuales |TraceSource |
-| **[Base de datos SQL con Entity Framework](#sql-database-using-entity-framework-6-retry-guidelines)** |Nativo en el cliente |Programático |Global por AppDomain |None |
-| **[Base de datos SQL con ADO.NET](#sql-database-using-ado-net-retry-guidelines)** |Topaz* |Declarativo y programático |Instrucciones únicas o bloques de código |Personalizado |
-| **[Bus de servicio](#service-bus-retry-guidelines)** |Nativo en el cliente |Programático |Administrador de espacio de nombres, fábrica de mensajería y cliente |ETW |
-| **[Memoria caché](#cache-redis-retry-guidelines)** |Nativo en el cliente |Programático |Cliente |TextWriter |
-| **[DocumentDB](#documentdb-pre-release-retry-guidelines)** |Nativo en servicio |No configurable |Global |TraceSource |
-| **[Búsqueda](#search-retry-guidelines)** |Topaz* (con estrategia de detección personalizada) |Declarativo y programático |Bloques de código |Personalizado |
+| **[Azure Storage](#azure-storage-retry-guidelines)** |Nativo en el cliente |Programático |Operaciones de cliente e individuales |TraceSource |
+| **[SQL Database con Entity Framework](#sql-database-using-entity-framework-6-retry-guidelines)** |Nativo en el cliente |Programático |Global por AppDomain |None |
+| **[SQL Database con ADO.NET](#azure-storage-retry-guidelines)** |Topaz* |Declarativo y programático |Instrucciones únicas o bloques de código |Personalizado |
+| **[Service Bus](#service-bus-retry-guidelines)** |Nativo en el cliente |Programático |Administrador de espacio de nombres, fábrica de mensajería y cliente |ETW |
+| **[Azure Redis Cache](#azure-redis-cache-retry-guidelines)** |Nativo en el cliente |Programático |Cliente |TextWriter |
+| **[DocumentDB](#documentdb-retry-guidelines)** |Nativo en servicio |No configurable |Global |TraceSource |
+| **[Azure Search](#azure-storage-retry-guidelines)** |Nativo en el cliente |Programático |Cliente |ETW o personalizado |
 | **[Active Directory](#azure-active-directory-retry-guidelines)** |Topaz* (con estrategia de detección personalizada) |Declarativo y programático |Bloques de código |Personalizado |
 
-*Topaz en el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en <a href="http://msdn.microsoft.com/library/dn440719.aspx">Enterprise Library 6.0</a>. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
+*Topaz es el nombre descriptivo para el bloque de aplicaciones de manejo de errores transitorios que se incluye en [Enterprise Library 6.0][entlib]. Puede usar una estrategia de detección personalizada con Topaz para la mayoría de los tipos de servicios, como se describe en esta guía. En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para Topaz. Tenga en cuenta que el bloque es ahora un marco de código abierto y no es compatible directamente con Microsoft.
 
 > [!NOTE]
 > Para la mayoría de los mecanismos de reintento integrados de Azure, actualmente no hay ninguna manera de aplicar una directiva de reintento diferente para distintos tipos de error o excepción más allá de la funcionalidad que se incluye en la directiva de reintentos. Por lo tanto, las instrucciones recomendadas disponibles en el momento de la escritura consisten en configurar una directiva que proporcione el rendimiento y la disponibilidad medios óptimos. Una forma de ajustar la directiva consiste en analizar archivos de registro para determinar el tipo de errores transitorios que se están produciendo. Por ejemplo, si la mayoría de los errores está relacionada con problemas de conectividad de red, podría intentar efectuar un reintento inmediato en lugar de esperar mucho tiempo para el primer reintento.
-> 
-> 
+>
+>
 
-## Directrices de reintento de almacenamiento Azure
+## <a name="azure-storage-retry-guidelines"></a>Directrices de reintento de almacenamiento Azure
 Los servicios de almacenamiento de Azure incluyen almacenamiento de tablas y blobs, archivos y colas de almacenamiento.
 
-### Mecanismo de reintento
+### <a name="retry-mechanism"></a>Mecanismo de reintento
 Los reintentos se producen en el nivel de operación REST individual y son parte integral de la implementación de la API de cliente. El SDK de almacenamiento de cliente usa clases que implementan la [Interfaz IExtendedRetryPolicy](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.aspx).
 
 Hay diferentes implementaciones de la interfaz. Los clientes de almacenamiento pueden elegir entre directivas diseñadas específicamente para el acceso a tablas, blobs y colas. Cada implementación utiliza una estrategia de reintento diferente que define el intervalo de reintento y otros detalles.
 
 Las clases integradas proporcionan compatibilidad para intervalos de reintento lineales (retraso constante) y exponenciales de selección aleatoria. También hay una directiva de no realización de reintentos a usar cuando otro proceso está controlando los reintentos a un nivel superior. Sin embargo, puede implementar sus propias clases de reintentos si tiene requisitos específicos no proporcionados por las clases integradas.
 
-Los reintentos alternativos cambian entre ubicación del servicio de almacenamiento principal y secundario si usa almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) y el resultado de la solicitud es un error que se puede reproducir. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx).
+Los reintentos alternativos cambian entre ubicación del servicio de almacenamiento principal y secundario si usa almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) y el resultado de la solicitud es un error que se puede reproducir. Para obtener más información, consulte [Opciones de redundancia de Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx) .
 
-### Configuración de directivas (almacenamiento de Azure)
+### <a name="policy-configuration"></a>Configuración de directivas
 Las directivas de reintento se configuran mediante programación. Un procedimiento típico consiste en crear y rellenar una instancia **TableRequestOptions**, **BlobRequestOptions**, **FileRequestOptions** o **QueueRequestOptions** instancia.
 
 ```csharp
@@ -106,32 +110,32 @@ La siguiente tabla muestra la configuración predeterminada de las directivas de
 
 | **Contexto** | **Configuración** | **Valor predeterminado** | **Significado** |
 | --- | --- | --- | --- |
-| Tabla / Blob / Archivo<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120 segundos<br /><br />Ninguno<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |Tiempo de ejecución máximo para la solicitud, incluidos todos los posibles reintentos.<br />Intervalo de tiempo de espera del servidor para la solicitud (el valor se redondea en segundos). Si no se especifica, usará el valor predeterminado para todas las solicitudes al servidor. Normalmente, la mejor opción es omitir este valor para que se utilice la configuración predeterminada del servidor.<br />Si la cuenta de almacenamiento se crea con la opción de replicación del almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), puede usar el modo de ubicación para indicar qué ubicación debe recibir la solicitud. Por ejemplo, si se especifica **PrimaryThenSecondary**, las solicitudes siempre se envían a la ubicación principal en primer lugar. Si se produce un error en una solicitud, se envía a la ubicación secundaria.<br />Consulte a continuación los detalles de cada opción. |
+| Tabla / Blob / Archivo<br />QueueRequestOptions |MaximumExecutionTime<br /><br />ServerTimeout<br /><br /><br /><br /><br />LocationMode<br /><br /><br /><br /><br /><br /><br />RetryPolicy |120 segundos<br /><br />None<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />ExponentialPolicy |Tiempo de ejecución máximo para la solicitud, incluidos todos los posibles reintentos.<br />Intervalo de tiempo de espera del servidor para la solicitud (el valor se redondea en segundos). Si no se especifica, usará el valor predeterminado para todas las solicitudes al servidor. Normalmente, la mejor opción es omitir este valor para que se utilice la configuración predeterminada del servidor.<br />Si la cuenta de almacenamiento se crea con la opción de replicación del almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS), puede usar el modo de ubicación para indicar qué ubicación debe recibir la solicitud. Por ejemplo, si se especifica **PrimaryThenSecondary** , las solicitudes siempre se envían a la ubicación principal en primer lugar. Si se produce un error en una solicitud, se envía a la ubicación secundaria.<br />Consulte a continuación los detalles de cada opción. |
 | Directiva exponencial |maxAttempt<br />deltaBackoff<br /><br /><br />MinBackoff<br /><br />MaxBackoff |3<br />4 segundos<br /><br /><br />3 segundos<br /><br />30 segundos |Número de reintentos.<br />Intervalo de espera entre reintentos. Se usarán múltiplos de este período de tiempo, incluyendo un elemento aleatorio, para los reintentos posteriores.<br />Agregado a todos los intervalos de reintento calculados a partir de deltaBackoff. No se puede cambiar este valor.<br />MaxBackoff se usa si el intervalo de reintento calculado es mayor que MaxBackoff. No se puede cambiar este valor. |
 | Directiva lineal |maxAttempt<br />deltaBackoff |3<br />30 segundos |Número de reintentos.<br />Intervalo de espera entre reintentos. |
 
-### Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Al obtener acceso a los servicios de almacenamiento de Azure mediante la API de cliente de almacenamiento, tenga en cuenta las siguientes directrices:
 
 * Use las directivas de reintento integradas del espacio de nombres Microsoft.WindowsAzure.Storage.RetryPolicies donde son adecuadas para sus requisitos. En la mayoría de los casos, estas directivas serán suficientes.
 * Use la directiva **ExponentialRetry** en operaciones por lotes, tareas en segundo plano o escenarios no interactivos. En estos escenarios, normalmente puede permitir más tiempo para recuperar el servicio (por consiguiente, con unas mayores posibilidades de que la operación se efectúe correctamente).
 * Considere la posibilidad de especificar la propiedad **MaximumExecutionTime** del parámetro **RequestOptions** para limitar el tiempo de ejecución total, pero tenga en cuenta el tipo y tamaño de la operación al elegir un valor de tiempo de espera.
-* Si necesita implementar un reintento personalizado, evite crear contenedores en torno a las clases de cliente de almacenamiento. En su lugar, use las capacidades para ampliar las directivas existentes a través de la interfaz **IExtendedRetryPolicy**.
+* Si necesita implementar un reintento personalizado, evite crear contenedores en torno a las clases de cliente de almacenamiento. En su lugar, use las capacidades para ampliar las directivas existentes a través de la interfaz **IExtendedRetryPolicy** .
 * Si utiliza almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) puede usar el **LocationMode** para especificar que los reintentos tengan acceso a la copia de solo lectura secundaria de la tienda en caso de error en el acceso principal. Sin embargo, al utilizar esta opción debe asegurarse de que la aplicación pueda trabajar correctamente con datos que pueden ser obsoletos si todavía no ha completado la replicación desde el almacén principal.
 
-Considere la posibilidad de comenzar con la configuración siguiente para volver a intentar las operaciones. Esta es la configuración de propósito general, y debe supervisar las operaciones y ajustar los valores para adaptarlos a su propio escenario.
+Considere la posibilidad de comenzar con la configuración siguiente para volver a intentar las operaciones. Esta es la configuración de propósito general, y debe supervisar las operaciones y ajustar los valores para adaptarlos a su propio escenario.  
 
-| **Contexto** | **Destino de ejemplo E2E<br />máximo de latencia** | **Directiva de reintentos** | **Configuración** | **Valores** | **Cómo funciona** |
+| **Contexto** | **Destino de ejemplo E2E<br />latencia máxima** | **Directiva de reintentos** | **Configuración** | **Valores** | **Cómo funciona** |
 | --- | --- | --- | --- | --- | --- |
 | Interactivo, interfaz de usuario<br />o primer plano |2 segundos |Lineal |maxAttempt<br />deltaBackoff |3<br />500 ms |Intento 1 - retraso de 500 segundos<br />Intento 2 - retraso de 500 ms<br />Intento 3 – retraso de 500 ms |
 | Fondo<br />o proceso por lotes |30 segundos |Exponencial |maxAttempt<br />deltaBackoff |5<br />4 segundos |Intento 1 - retraso de ~3 segundos<br />Intento 2 - retraso de ~7 segundos<br />Intento 3 - retraso de ~15 segundos |
 
-## Telemetría
+### <a name="telemetry"></a>Telemetría
 Los reintentos se registran en un **TraceSource**. Debe configurar un **TraceListener** para capturar los eventos y escribirlos en un registro de destino adecuado. Puede usar el **TextWriterTraceListener** o **XmlWriterTraceListener** para escribir los datos en un archivo de registro, el **EventLogTraceListener** para escribir en el registro de eventos de Windows o el **EventProviderTraceListener** para escribir los datos de seguimiento en el subsistema ETW. También puede configurar automáticamente el vaciado del búfer y el nivel de detalle de los eventos que se registrarán (por ejemplo, Error, Advertencia, Informativo y Detallado). Para obtener más información, consulte [Registro de cliente con biblioteca de cliente de almacenamiento .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx).
 
 Las operaciones pueden recibir una instancia **OperationContext**, que expone un evento de **Reintento** que puede usarse para adjuntar la lógica personalizada de telemetría. Para obtener más información, consulte [Evento OperationContext.Retrying](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx).
 
-## Ejemplos (almacenamiento de Azure)
+### <a name="examples"></a>Ejemplos
 En el ejemplo de código siguiente se muestra cómo crear dos instancias **TableRequestOptions** con diferentes configuraciones de reintento; una para solicitudes interactivas y otra para solicitudes en segundo plano. A continuación, el ejemplo establece estas dos directivas de reintento en el cliente para que puedan aplicarse a todas las solicitudes y también establece la estrategia interactiva en una solicitud concreta para que reemplace la configuración predeterminada que se aplica al cliente.
 
 ```csharp
@@ -207,21 +211,21 @@ namespace RetryCodeSamples
 }
 ```
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Recomendaciones de la directiva de reintento de biblioteca de cliente de almacenamiento de Azure](https://azure.microsoft.com/blog/2014/05/22/azure-storage-client-library-retry-policy-recommendations/)
 * [Biblioteca de cliente de almacenamiento 2.0: implementación de directivas de reintento](http://gauravmantri.com/2012/12/30/storage-client-library-2-0-implementing-retry-policies/)
 
-## Base de datos SQL mediante el uso de las directrices de reintento de Entity Framework 6
+## <a name="sql-database-using-entity-framework-6-retry-guidelines"></a>Base de datos SQL mediante el uso de las directrices de reintento de Entity Framework 6
 Base de datos SQL es una base de datos SQL hospedada que está disponible en una amplia variedad de tamaños y como un servicio estándar (compartido) y premium (no compartido). Entity Framework es un mapeador relacional de objetos que permite a los desarrolladores de .NET trabajar con datos relacionales usando objetos específicos del dominio. Elimina la necesidad de usar la mayoría del código de acceso a datos que los programadores suelen tener que escribir.
 
-## Mecanismo de reintento
+### <a name="retry-mechanism"></a>Mecanismo de reintento
 Se proporciona compatibilidad con los reintentos al obtener acceso a la Base de datos SQL mediante Entity Framework 6.0 y versiones posteriores mediante un mecanismo denominado [Resistencia de la conexión y lógica de reintento](http://msdn.microsoft.com/data/dn456835.aspx). Hay disponible una especificación completa en la [wiki .NET Entity Framework](https://entityframework.codeplex.com/wikipage?title=Connection%20Resiliency%20Spec) en Codeplex. Las características principales del mecanismo de reintento son:
 
-* La abstracción principal es la interfaz **IDbExecutionStrategy**. Esta interfaz:
+* La abstracción principal es la interfaz **IDbExecutionStrategy** . Esta interfaz:
   * Define métodos **Execute*** sincrónicos y asincrónicos.
   * Define las clases que pueden usarse o configurarse directamente en un contexto de base de datos como una estrategia predeterminada, asignada al nombre de un proveedor o asignada a un nombre de proveedor y de servidor. Cuando se configura en un contexto, los reintentos se producen en el nivel de operaciones de base de datos individual, de las que podría haber varias para una operación de contexto especificada.
   * Define cuándo se debe reintentar una conexión fallida y cómo.
-* Incluye varias implementaciones integradas de la interfaz **IDbExecutionStrategy**:
+* Incluye varias implementaciones integradas de la interfaz **IDbExecutionStrategy** :
   * Predeterminado: ningún reintento.
   * Valor predeterminado para la Base de datos SQL (automático): sin reintento, pero inspecciona las excepciones y las ajusta con la recomendación de usar la estrategia de Base de datos SQL.
   * Predeterminado para la Base de datos SQL: exponencial (heredado de la clase base) más la lógica de detección de la Base de datos SQL.
@@ -229,10 +233,10 @@ Se proporciona compatibilidad con los reintentos al obtener acceso a la Base de 
 * Las clases de reintento integradas tienen estado y no están protegidas para subprocesos. Sin embargo, se pueden volver a usar una vez completada la operación actual.
 * Si se supera el número de reintentos especificado, los resultados se encapsulan en una nueva excepción. No se propaga la excepción actual.
 
-## Configuración de directiva (Base de datos SQL mediante Entity Framework 6)
+### <a name="policy-configuration"></a>Configuración de directivas
 Al obtener acceso a la base de datos de SQL mediante Entity Framework 6.0 y versiones posteriors, se proporciona compatibilidad con los reintentos. Las directivas de reintento se configuran mediante programación. No se puede cambiar la configuración en cada operación.
 
-Al configurar una estrategia en el contexto como valor predeterminado, especifique una función que cree una nueva estrategia a petición. El código siguiente muestra cómo puede crear una clase de configuración de reintento que amplíe la clase base **DbConfiguration**.
+Al configurar una estrategia en el contexto como valor predeterminado, especifique una función que cree una nueva estrategia a petición. El código siguiente muestra cómo puede crear una clase de configuración de reintento que amplíe la clase base **DbConfiguration** .
 
 ```csharp
 public class BloggingContextConfiguration : DbConfiguration
@@ -250,7 +254,7 @@ A continuación, puede especificar esto como estrategia de reintento predetermin
 
     DbConfiguration.SetConfiguration(new BloggingContextConfiguration());
 
-Puede especificar la clase de configuración de reintento para un contexto anotando la clase de contexto con un atributo **DbConfigurationType**. Sin embargo, si solo tiene una clase de configuración, EF la usará sin necesidad de anotar el contexto.
+Puede especificar la clase de configuración de reintento para un contexto anotando la clase de contexto con un atributo **DbConfigurationType** . Sin embargo, si solo tiene una clase de configuración, EF la usará sin necesidad de anotar el contexto.
 
     [DbConfigurationType(typeof(BloggingContextConfiguration))]
     public class BloggingContext : DbContext
@@ -258,7 +262,7 @@ Puede especificar la clase de configuración de reintento para un contexto anota
 
 Si necesita usar estrategias de reintento diferentes para operaciones específicas o deshabilitar reintentos para operaciones específicas, puede crear una clase de configuración que permita suspender o intercambiar estrategias estableciendo un indicador en **CallContext**. La clase de configuración puede usar este indicador para cambiar las estrategias o deshabilitar la estrategia proporcionada por usted y usar una estrategia predeterminada. Para obtener más información, consulte [Suspender la estrategia de ejecución](http://msdn.microsoft.com/dn307226#transactions_workarounds) en la página Limitaciones con estrategias de ejecución reintentos (EF6 y versiones posteriores).
 
-Otra técnica para el uso de estrategias de reintento específica para las operaciones individuales es crear una instancia de la clase de estrategia necesaria y proporcionar la configuración deseada a través de parámetros. A continuación, invoque su método **ExecuteAsync**.
+Otra técnica para el uso de estrategias de reintento específica para las operaciones individuales es crear una instancia de la clase de estrategia necesaria y proporcionar la configuración deseada a través de parámetros. A continuación, invoque su método **ExecuteAsync** .
 
     var executionStrategy = new SqlAzureExecutionStrategy(5, TimeSpan.FromSeconds(4));
     var blogs = await executionStrategy.ExecuteAsync(
@@ -280,7 +284,7 @@ La siguiente tabla muestra la configuración predeterminada de las directivas de
 
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable4.png)
 
-## Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Al obtener acceso a la Base de datos SQL mediante EF6, tenga en cuenta las siguientes directrices:
 
 * Elija la opción de servicio adecuada (compartida o premium). Una instancia compartida puede sufrir retrasos en la conexión más largos de lo habitual y limitaciones debido al uso de otros inquilinos del servidor compartido. Si se requieren un rendimiento predecible y operaciones de latencia baja confiable, considere la posibilidad de elegir la opción premium.
@@ -290,17 +294,17 @@ Al obtener acceso a la Base de datos SQL mediante EF6, tenga en cuenta las sigui
 
 Considere la posibilidad de comenzar con la configuración siguiente para volver a intentar las operaciones. No se puede especificar el retraso entre reintentos (es fijo y se genera como una secuencia exponencial). Puede especificar solo los valores máximos, como se muestra aquí, a menos que cree una estrategia de reintento personalizada. Esta es la configuración de propósito general, y debe supervisar las operaciones y ajustar los valores para adaptarlos a su propio escenario.
 
-| **Contexto** | **Destino de ejemplo E2E<br />máximo de latencia** | **Directiva de reintentos** | **Configuración** | **Valores** | **Cómo funciona** |
+| **Contexto** | **Destino de ejemplo E2E<br />latencia máxima** | **Directiva de reintentos** | **Configuración** | **Valores** | **Cómo funciona** |
 | --- | --- | --- | --- | --- | --- |
 | Interactivo, interfaz de usuario<br />o primer plano |2 segundos |Exponencial |MaxRetryCount<br />MaxDelay |3<br />750 ms |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 750 ms<br />Intento 3 – retraso de 750 ms |
-| Segundo plano<br /> o proceso por lotes |30 segundos |Exponencial |MaxRetryCount<br />MaxDelay |5<br />12 segundos |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~1 segundos<br />Intento 3 - retraso de ~3 segundos<br />Intento 4 - retraso de ~7 segundos<br />Intento 5 - retraso de 12 segundos |
+| Fondo<br /> o proceso por lotes |30 segundos |Exponencial |MaxRetryCount<br />MaxDelay |5<br />12 segundos |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~1 segundos<br />Intento 3 - retraso de ~3 segundos<br />Intento 4 - retraso de ~7 segundos<br />Intento 5 - retraso de 12 segundos |
 
 > [!NOTE]
 > Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
-> 
-> 
+>
+>
 
-## Ejemplos (Base de datos SQL mediante Entity Framework 6)
+### <a name="examples"></a>Ejemplos
 En el ejemplo de código siguiente se define una solución de acceso de datos simple que utiliza Entity Framework. Establece una estrategia de reintento específica mediante la definición de una instancia de una clase denominada **BlogConfiguration** que extiende **DbConfiguration**.
 
 ```csharp
@@ -348,20 +352,20 @@ namespace RetryCodeSamples
 
 Más ejemplos de uso del mecanismo de reintento de Entity Framework se pueden encontrar en [Resistencia de la conexión/lógica de reintento](http://msdn.microsoft.com/data/dn456835.aspx).
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Guía sobre rendimiento y elasticidad de la Base de datos SQL de Azure](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 
-## Base de datos SQL mediante directrices de reintento ADO.NET
+## <a name="sql-database-using-adonet-retry-guidelines"></a>Base de datos SQL mediante directrices de reintento ADO.NET
 Base de datos SQL es una base de datos SQL hospedada que está disponible en una amplia variedad de tamaños y como un servicio estándar (compartido) y premium (no compartido).
 
-### Mecanismo de reintento
+### <a name="retry-mechanism"></a>Mecanismo de reintento
 Base de datos SQL no tiene soporte integrado para reintentos cuando se tiene acceso mediante ADO.NET. Sin embargo, los códigos de retorno de solicitudes pueden usarse para determinar el motivo del error de una solicitud. La página [Limitación de base de datos de SQL Azure](http://msdn.microsoft.com/library/dn338079.aspx) explica cómo puede la limitación impedir las conexiones, los códigos de retorno para situaciones específicas y cómo puede controlar estos y las operaciones de reintento.
 
 Puede usar el bloque de aplicaciones de manejo de errores transitorios (Topaz) con el paquete de Nuget EnterpriseLibrary.TransientFaultHandling.Data (clase **SqlAzureTransientErrorDetectionStrategy**) para implementar un mecanismo de reintento para Base de datos SQL.
 
 El bloque también proporciona la clase **ReliableSqlConnection**, que implementa la API 1.0 de ADO.NET anterior (**IDbConnection** en lugar de **DbConnection**) y realiza internamente reintentos y administración de conexiones. Aunque resulta útil, esto requiere usar un conjunto diferente de métodos para invocar operaciones con reintentos y no es un simple reemplazo directo. No admite la ejecución asincrónica, que se recomienda al implementar y usar los servicios de Azure. Además, dado que esta clase usa ADO.NET 1.0, no se beneficia de las recientes mejoras y actualizaciones de ADO.NET.
 
-### Configuración de directivas (Base de datos SQL mediante ADO.NET)
+### <a name="policy-configuration-sql-database-using-adonet"></a>Configuración de directivas (Base de datos SQL mediante ADO.NET)
 El bloque de aplicaciones de control de errores transitorios admite la configuración basada en archivos y mediante programación. En general, debe usar la configuración mediante programación para obtener la máxima flexibilidad (vea las notas de la siguiente sección para obtener más información). El código siguiente, que se ejecutaría una vez al iniciarse la aplicación, crea y rellena un **RetryManager** con una lista de cuatro estrategias de reintento adecuadas para su uso con la Base de datos SQL Azure. También establece las estrategias predeterminadas para el **RetryManager**. Estas son las estrategias que se usarán para las conexiones y comandos si no se especifica una alternativa al crear una conexión o un comando.
 
 ```csharp
@@ -396,11 +400,11 @@ RetryManager.SetDefault(new RetryManager(
         }));
 ```
 
-Para obtener información acerca de cómo puede usar las directivas de reintento que ha configurado al acceder a la Base de datos SQL de Azure, consulte la sección [ejemplos](#examples-sql-database-using-ado-net-) siguiente.
+Para obtener información acerca de cómo puede usar las directivas de reintento que ha configurado al acceder a la Base de datos SQL de Azure, consulte la sección [ejemplos](#examples) siguiente.
 
 En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para bloques de aplicaciones de manejo de errores transitorios.
 
-### Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Al obtener acceso a la Base de datos SQL mediante ADO.NET, tenga en cuenta las siguientes directrices:
 
 * Elija la opción de servicio adecuada (compartida o premium). Una instancia compartida puede sufrir retrasos en la conexión más largos de lo habitual y limitaciones debido al uso de otros inquilinos del servidor compartido. Si se requieren más operaciones de rendimiento predecible y de latencia baja confiable, considere la posibilidad de elegir la opción premium.
@@ -409,27 +413,27 @@ Al obtener acceso a la Base de datos SQL mediante ADO.NET, tenga en cuenta las s
 * Elija un valor adecuado para los tiempos de espera de conexión y comando a la hora de definir las conexiones. Un tiempo de espera demasiado corto puede provocar errores prematuros en las conexiones cuando la base de datos está ocupada. Un tiempo de espera demasiado largo puede impedir que la lógica de reintento funcione correctamente esperando demasiado tiempo antes de detectar un error en la conexión. El valor de tiempo de espera es un componente de la latencia de extremo a extremo; se agrega eficazmente al intervalo entre reintentos especificado en la directiva de reintento para cada reintento.
 * Cierre la conexión después de un cierto número de reintentos, incluso cuando se usa una lógica de reintentos de interrupción exponencial y vuelva a intentar la operación en una conexión nueva. Reintentar la misma operación varias veces en la misma conexión puede ser un factor que contribuya a ocasionar problemas de conexión. Para obtener un ejemplo de esta técnica, consulte [Capa de acceso a datos de fundamentos del servicio de nube: tratamiento de errores transitorios](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx).
 * Cuando la agrupación de conexiones está en uso (valor predeterminado) es probable que se elija la misma conexión de la agrupación, incluso después de cerrar y volver a abrir una conexión. Si este es el caso, una técnica para resolverlo es llamar al método **ClearPool** de la clase **SqlConnection** para marcar la conexión como no reutilizable. Sin embargo, debería hacerlo solo después de que fallen varios intentos de conexión y solo al encontrar la clase específica de errores transitorios como tiempos de espera SQL (código de error -2) relacionados con conexiones erróneas.
-* Si el código de acceso de datos usa las transacciones iniciadas como instancias **TransactionScope**, la lógica de reintento debe volver a abrir la conexión e iniciar un nuevo ámbito de transacción. Por este motivo, el bloque de código que se puede reintentar debe abarcar todo el ámbito de la transacción.
+* Si el código de acceso de datos usa las transacciones iniciadas como instancias **TransactionScope** , la lógica de reintento debe volver a abrir la conexión e iniciar un nuevo ámbito de transacción. Por este motivo, el bloque de código que se puede reintentar debe abarcar todo el ámbito de la transacción.
 * El bloque de aplicaciones de manejo de errores transitorios admite configuraciones de reintento definidas completamente en archivos de configuración. Sin embargo, para obtener la máxima flexibilidad en Azure puede crear la configuración mediante programación dentro de la aplicación. Los parámetros específicos para las directivas de reintento, como el número de reintentos y los intervalos de reintento, se pueden almacenar en el archivo de configuración del servicio y usar en tiempo de ejecución para crear las directivas apropiadas. Esto permite cambiar la configuración, requiriendo que la aplicación se reinicie.
 
 Considere la posibilidad de comenzar con la configuración siguiente para volver a intentar las operaciones. Esta es la configuración de propósito general, y debe supervisar las operaciones y ajustar los valores para adaptarlos a su propio escenario.
 
-| **Contexto** | **Destino de ejemplo E2E<br />máximo de latencia** | **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
+| **Contexto** | **Destino de ejemplo E2E<br />latencia máxima** | **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
 | --- | --- | --- | --- | --- | --- |
 | Interactivo, interfaz de usuario<br />o primer plano |2 segundos |FixedInterval |Número de reintentos<br />Intervalo de reintento<br />Primer reintento rápido |3<br />500 ms<br />true |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 500 ms<br />Intento 3 – retraso de 500 ms |
-| Fondo<br />o proceso por lotes |30 segundos |ExponentialBackoff |Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />primer reintento rápido |5<br />0 segundos<br />60 segundos<br />2 segundos<br />false |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
+| Fondo<br />o proceso por lotes |30 segundos |ExponentialBackoff |Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />Primer reintento rápido |5<br />0 segundos<br />60 segundos<br />2 segundos<br />false |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
 
 > [!NOTE]
 > Los destinos de latencia de extremo a extremo suponen el tiempo de espera predeterminado para las conexiones con el servicio. Si especifica tiempos de espera de conexión más largos, la latencia de extremo a extremo se extenderá este tiempo adicional en cada reintento.
-> 
-> 
+>
+>
 
-### Ejemplos (Base de datos SQL mediante ADO.NET)
-Esta sección describe cómo puede usar el bloque de aplicaciones de manejo de errores transitorios para tener acceso a la Base de datos SQL de Azure mediante un conjunto de directivas de reintento configurado en el **RetryManager** (como se muestra en la sección anterior [Configuración de directivas](#policy-configuration-sql-database-using-ado-net-). La manera más sencilla de usar el bloque es a través de la clase **ReliableSqlConnection** o al llamar a los métodos de extensión como **OpenWithRetry** en una conexión (consulte [Bloque de aplicaciones de control de errores transitorios](http://msdn.microsoft.com/library/hh680934.aspx) para obtener más información).
+### <a name="examples"></a>Ejemplos
+Esta sección describe cómo puede usar el bloque de aplicaciones de manejo de errores transitorios para tener acceso a la Base de datos SQL de Azure mediante un conjunto de directivas de reintento configurado en el **RetryManager** (como se muestra en la sección anterior [Configuración de directivas](#policy-configuration). La manera más sencilla de usar el bloque es a través de la clase **ReliableSqlConnection** o al llamar a los métodos de extensión como **OpenWithRetry** en una conexión (consulte [The Transient Fault Handling Application Block](http://msdn.microsoft.com/library/hh680934.aspx) (Bloque de aplicaciones de control de errores transitorios) para obtener más información).
 
 Sin embargo, en la versión actual del bloque de aplicaciones de control de errores transitorios estos enfoques no admiten las operaciones asincrónicas en la Base de datos SQL de manera nativa. Una buena práctica requiere usar solamente técnicas asincrónicas para tener acceso a servicios de Azure como Base de datos SQL, y por lo tanto debe tener en cuenta las siguientes técnicas para usar el bloque de aplicaciones de control de errores transitorios con la Base de datos SQL.
 
-Puede usar la compatibilidad asincrónica simplificada en la versión 5 del lenguaje C# para crear versiones asincrónicas de los métodos proporcionados por el bloque. Por ejemplo, el código siguiente muestra cómo es posible crear una versión asincrónica del método de extensión **ExecuteReaderWithRetry**. Se resaltan los cambios e incorporaciones al código original. El código fuente de Topaz está disponible en Codeplex en [Transient Fault Handling Application Block ("Topaz")](http://topaz.codeplex.com/SourceControl/latest) (Bloque de aplicación de control de errores transitorios ("Topaz")).
+Puede usar la compatibilidad asincrónica simplificada en la versión 5 del lenguaje C# para crear versiones asincrónicas de los métodos proporcionados por el bloque. Por ejemplo, el código siguiente muestra cómo es posible crear una versión asincrónica del método de extensión **ExecuteReaderWithRetry** . Se resaltan los cambios e incorporaciones al código original. El código fuente de Topaz está disponible en Codeplex en [Transient Fault Handling Application Block ("Topaz")](http://topaz.codeplex.com/SourceControl/latest)(Bloque de aplicación de control de errores transitorios ("Topaz")).
 
 ```csharp
 public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlCommand command, RetryPolicy cmdRetryPolicy,
@@ -475,7 +479,7 @@ using (var reader = await sqlCommand.ExecuteReaderWithRetryAsync(retryPolicy))
 
 Sin embargo, este enfoque se ocupa solo de operaciones o comandos individuales y no bloques de instrucciones en los que puede haber límites transaccionales correctamente definidos. Además, no trata la situación de quitar las conexiones erróneas de la agrupación de conexiones para que no se seleccionen para los intentos posteriores. Puede encontrar un ejemplo sincrónico para resolver estos problemas en [Capa de acceso a datos de fundamentos del servicio de nube: tratamiento de errores transitorios](http://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx#Timeouts_amp_Connection_Management). Además de volver a intentar secuencias arbitrarias de instrucciones de la base de datos, borra la agrupación de conexiones para quitar las conexiones no válidas e instrumenta todo el proceso. Mientras que el código mostrado en este ejemplo es sincrónico, es relativamente fácil convertirlo en código asincrónico.
 
-### Más información
+### <a name="more-information"></a>Más información
 Para obtener información detallada acerca de cómo usar el bloque de aplicaciones de control de errores transitorios, consulte:
 
 * [Uso del bloque de aplicaciones de control de errores transitorios con SQL Azure](http://msdn.microsoft.com/library/hh680899.aspx)
@@ -487,21 +491,21 @@ Para obtener instrucciones generales sobre cómo obtener el máximo partido de l
 * [Guía sobre rendimiento y elasticidad de la Base de datos SQL de Azure](http://social.technet.microsoft.com/wiki/contents/articles/3507.windows-azure-sql-database-performance-and-elasticity-guide.aspx)
 * [Minimización de los errores de la agrupación de conexiones en SQL Azure](http://blogs.msdn.com/b/adonet/archive/2011/11/05/minimizing-connection-pool-errors-in-sql-azure.aspx)
 
-## Directrices de reintento de Bus de servicio
+## <a name="service-bus-retry-guidelines"></a>Directrices de reintento de Bus de servicio
 Bus de servicio es una plataforma de mensajería de nube que proporciona el intercambio de mensajes de acoplamiento flexible con mejor escala y resistencia para los componentes de una aplicación, ya esté hospedada en la nube o localmente.
 
-### Mecanismo de reintento
-Bus de servicio implementa reintentos mediante implementaciones de la clase base [RetryPolicy](http://msdn.microsoft.com/library/microsoft.servicebus.retrypolicy.aspx). Todos los clientes de Bus de servicio exponen una propiedad **RetryPolicy** que puede establecerse en una de las implementaciones de la clase base **RetryPolicy**. Las implementaciones integradas son:
+### <a name="retry-mechanism"></a>Mecanismo de reintento
+Bus de servicio implementa reintentos mediante implementaciones de la clase base [RetryPolicy](http://msdn.microsoft.com/library/microsoft.servicebus.retrypolicy.aspx) . Todos los clientes de Service Bus exponen una propiedad **RetryPolicy** que puede establecerse en una de las implementaciones de la clase base **RetryPolicy**. Las implementaciones integradas son:
 
 * La [clase RetryExponential](http://msdn.microsoft.com/library/microsoft.servicebus.retryexponential.aspx). Esto expone las propiedades que controlan el intervalo de interrupción, el número de reintentos y la propiedad **TerminationTimeBuffer** que se utiliza para limitar el tiempo total para que se complete la operación.
 * La [clase NoRetry](http://msdn.microsoft.com/library/microsoft.servicebus.noretry.aspx). Se utiliza cuando los reintentos en el nivel de la API de Bus de servicio no son necesarios, como cuando otro proceso administra los reintentos como parte de una operación en lotes o de múltiples pasos.
 
 Las acciones del Bus de servicio pueden devolver una amplia gama de excepciones, como se muestra en [Apéndice: excepciones de mensajería](http://msdn.microsoft.com/library/hh418082.aspx). La lista proporciona información sobre si estas indican que la operación de reintento es adecuada. Por ejemplo, un [ServerBusyException](http://msdn.microsoft.com/library/microsoft.servicebus.messaging.serverbusyexception.aspx) indica que el cliente debe esperar durante un período de tiempo y, a continuación, volver a intentar la operación. La aparición de una **ServerBusyException** también hace que el Bus de servicio cambie a un modo diferente, en el que se agrega un retraso adicional de 10 segundos a los retrasos de reintento calculados. Este modo se restablece tras un breve período.
 
-Las excepciones devueltas del Bus de servicio exponen la propiedad **IsTransient** propiedad que indica si el cliente debería reintentar la operación. La directiva **RetryExponential** se basa en la propiedad **IsTransient** de la clase **MessagingException**, que es la clase base para todas las excepciones de Bus de servicio. Si crea implementaciones personalizadas de la clase de base **RetryPolicy**, podría usar una combinación del tipo de excepción y la propiedad **IsTransient** para proporcionar un control más fino sobre las acciones de reintento. Por ejemplo, se podría detectar una **QuotaExceededException** y tomar medidas para vaciar la cola antes de volver a intentar enviar un mensaje.
+Las excepciones devueltas del Bus de servicio exponen la propiedad **IsTransient** propiedad que indica si el cliente debería reintentar la operación. La directiva **RetryExponential** se basa en la propiedad **IsTransient** de la clase **MessagingException**, que es la clase base para todas las excepciones de Service Bus. Si crea implementaciones personalizadas de la clase de base **RetryPolicy**, podría usar una combinación del tipo de excepción y la propiedad **IsTransient** para proporcionar un control más fino sobre las acciones de reintento. Por ejemplo, se podría detectar una **QuotaExceededException** y tomar medidas para vaciar la cola antes de volver a intentar enviar un mensaje.
 
-### Configuración de directivas (Bus de servicio)
-Las directivas de reintento se establecen mediante programación y se pueden establecer como una directiva predeterminada para un **NamespaceManager** y una **MessagingFactory**, o por separado para cada cliente de mensajería. Para establecer la directiva de reintentos predeterminada para una sesión de mensajería, establezca la **RetryPolicy** del **NamespaceManager**.
+### <a name="policy-configuration"></a>Configuración de directivas
+Las directivas de reintento se establecen mediante programación y se pueden establecer como una directiva predeterminada para un **NamespaceManager** y una **MessagingFactory**, o por separado para cada cliente de mensajería. Para establecer la directiva de reintentos predeterminada para una sesión de mensajería, establezca **RetryPolicy** de **NamespaceManager**.
 
     namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
                                                                  maxBackoff: TimeSpan.FromSeconds(30),
@@ -512,7 +516,7 @@ Tenga en cuenta que este código usa parámetros con nombre para obtener una may
     namespaceManager.Settings.RetryPolicy = new RetryExponential(TimeSpan.FromSeconds(0.1),
                      TimeSpan.FromSeconds(30), TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(5), 3);
 
-Para establecer la directiva de reintentos predeterminada para todos los clientes creada a partir de una fábrica de mensajería, establezca la **RetryPolicy** de la **MessagingFactory**.
+Para establecer la directiva de reintentos predeterminada para todos los clientes creada a partir de una fábrica de mensajería, establezca **RetryPolicy** de **MessagingFactory**.
 
     messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
                                                         maxBackoff: TimeSpan.FromSeconds(30),
@@ -526,11 +530,12 @@ client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
                                             maxRetryCount: 3);
 ```
 
-No se puede establecer la directiva de reintentos en el nivel de operación individual. Se aplica a todas las operaciones para el cliente de mensajería. La siguiente tabla muestra la configuración predeterminada de la directiva de reintento integrada.
+No se puede establecer la directiva de reintentos en el nivel de operación individual. Se aplica a todas las operaciones para el cliente de mensajería.
+La siguiente tabla muestra la configuración predeterminada de la directiva de reintento integrada.
 
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable7.png)
 
-### Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Cuando se usa el Bus de servicio, tenga en cuenta las siguientes directrices:
 
 * Al utilizar la implementación **RetryExponential** integrada, no implemente una operación de reserva, ya que la directiva reacciona a las excepciones de servidor ocupado y automáticamente cambia a un modo de reintentos adecuado.
@@ -540,7 +545,7 @@ Considere la posibilidad de comenzar con la configuración siguiente para volver
 
 ![](media/best-practices-retry-service-specific/RetryServiceSpecificGuidanceTable8.png)
 
-### Telemetría
+### <a name="telemetry"></a>Telemetría
 Bus de servicio registra reintentos como eventos ETW mediante un **EventSource**. Debe asociar un **EventListener** al origen de eventos para capturar los eventos y verlos en el Visor de rendimiento o escribirlos en un registro de destino adecuado. Puede usar el [Bloque de aplicación de registro semántico](http://msdn.microsoft.com/library/dn775006.aspx) para ello. Los eventos de reintento tienen la forma siguiente:
 
 ```text
@@ -556,7 +561,7 @@ lastExceptionType="Microsoft.ServiceBus.Messaging.MessagingCommunicationExceptio
 exceptionMessage="The remote name could not be resolved: 'retry-guidance-tests.servicebus.windows.net'.TrackingId:6a26f99c-dc6d-422e-8565-f89fdd0d4fe3,TimeStamp:9/5/2014 10:00:13 PM"
 ```
 
-### Ejemplos (Bus de servicio)
+### <a name="examples"></a>Ejemplos
 En el siguiente ejemplo de código se muestra cómo establecer la directiva de reintentos para:
 
 * Un administrador de espacio de nombres. La directiva se aplica a todas las operaciones de ese administrador y no se puede reemplazar para las operaciones individuales.
@@ -649,20 +654,20 @@ namespace RetryCodeSamples
 }
 ```
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Patrones de mensajería asincrónica y alta disponibilidad.](http://msdn.microsoft.com/library/azure/dn292562.aspx)
 
-## Directrices de reintento de caché (Redis)
+## <a name="azure-redis-cache-retry-guidelines"></a>Directrices de reintento de Azure Redis Cache
 Caché en Redis de Azure es un servicio de caché de acceso rápido a datos y de baja latencia basado en la caché en Redis de código abierto popular. Es segura, está administrada por Microsoft y es accesible desde cualquier aplicación en Azure.
 
 Las instrucciones de esta sección se basan en el uso del cliente StackExchange.Redis para tener acceso a la memoria caché. Puede encontrar una lista de otros clientes adecuados en el [sitio web de Redis](http://redis.io/clients), y estos pueden tener mecanismos de reintento diferentes.
 
 Tenga en cuenta que el cliente StackExchange.Redis usa multiplexación a través de una sola conexión. El uso recomendado es crear una instancia del cliente al iniciar la aplicación y usar esta instancia para todas las operaciones en la memoria caché. Por este motivo, la conexión a la memoria caché se realiza solo una vez y todas las instrucciones de esta sección están relacionadas con la directiva de reintentos de esta conexión inicial y no para cada operación que tiene acceso a la memoria caché.
 
-### Mecanismo de reintento
+### <a name="retry-mechanism"></a>Mecanismo de reintento
 El cliente StackExchange.Redis usa una clase de administrador de conexiones que se configura a través de un conjunto de opciones. Estas opciones incluyen una propiedad **ConnectRetry** que especifica el número de veces que se reintentará un error en la conexión a la memoria caché. Sin embargo, la directiva de reintentos solo se usa para la acción de conexión inicial, y no para esperar entre reintentos.
 
-### Configuración de directivas (Caché en Redis de Azure)
+### <a name="policy-configuration"></a>Configuración de directivas
 Las directivas de reintento se configuran mediante programación, estableciendo las opciones para el cliente antes de conectarse a la memoria caché. Esto puede hacerse mediante la creación de una instancia de la clase **ConfigurationOptions**, rellenando sus propiedades y pasándola al método **Conectar**.
 
 ```csharp
@@ -674,7 +679,7 @@ ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 
 Tenga en cuenta que la propiedad **ConnectTimeout** especifica el tiempo de espera máximo en milisegundos), no el intervalo entre reintentos.
 
-Como alternativa, puede especificar las opciones como una cadena y pasar esto al método **Conectar**.
+Como alternativa, puede especificar las opciones como una cadena y pasar esto al método **Conectar** .
 
 ```csharp
     var options = "localhost,connectRetry=3,connectTimeout=2000";
@@ -695,17 +700,17 @@ La siguiente tabla muestra la configuración predeterminada de la directiva de r
 
 > [!NOTE]
 > SyncTimeout contribuye a la latencia de extremo a extremo de una operación. Sin embargo, en general, no es recomendable usar operaciones sincrónicas. Para obtener más información, consulte [Canalizaciones y multiplexores](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/PipelinesMultiplexers.md).
-> 
-> 
+>
+>
 
-## Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Tenga en cuenta las siguientes directrices cuando use la Caché en Redis de Azure:
 
 * El cliente Redis StackExchange administra sus propios reintentos, pero solo al establecer una conexión a la memoria caché cuando la aplicación se inicia por primera vez. Puede configurar el tiempo de espera de conexión y el número de reintentos para establecer esta conexión, pero la directiva de reintentos no se aplica a las operaciones en la memoria caché.
 * El mecanismo de reintento no tiene ningún retraso entre reintentos. Simplemente reintenta una conexión incorrecta una vez transcurrido el tiempo de espera de conexión especificado y el número de veces especificado.
 * En lugar de usar un gran número de reintentos, considere la posibilidad de recurrir a obtener acceso a un origen de datos original en su lugar.
 
-## Telemetría
+### <a name="telemetry"></a>Telemetría
 Puede recopilar información acerca de las conexiones (pero no otras operaciones) con un **TextWriter**.
 
 ```csharp
@@ -734,7 +739,7 @@ retrying; attempts left: 2...
 ...
 ```
 
-## Ejemplos (Caché en Redis de Azure)
+### <a name="examples"></a>Ejemplos
 En el ejemplo de código siguiente se muestra cómo configurar el valor de tiempo de espera de conexión y el número de reintentos al inicializar el cliente StackExchange.Redis para tener acceso a la Caché en Redis de Azure al iniciarse la aplicación. Tenga en cuenta que el tiempo de espera de conexión es el período de tiempo que está dispuesto a esperar para la conexión a la memoria caché; no es el retardo entre los reintentos.
 
 Este ejemplo muestra cómo establecer la configuración mediante una instancia de las **ConfigurationOptions**.
@@ -821,55 +826,75 @@ namespace RetryCodeSamples
 
 Para obtener más ejemplos, consulte [Configuración](http://github.com/StackExchange/StackExchange.Redis/blob/master/Docs/Configuration.md#configuration) en el sitio web del proyecto.
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Sitio web de Redis](http://redis.io/)
 
-## Directrices de reintento de DocumentDB (versión preliminar)
+## <a name="documentdb-retry-guidelines"></a>Directrices de reintento de DocumentDB
 DocumentDB es una base de datos como servicio de documentos totalmente administrada con capacidades de indización y consulta completa sobre un modelo de datos JSON sin esquema. Ofrece un rendimiento confiable y configurable, procesamiento transaccional de JavaScript nativo y se ha creado para la nube con la escala elástica.
 
-## Mecanismo de reintento
-La versión preliminar del cliente DocumentDB incluye un mecanismo de reintento interno y no configurable (esto puede cambiar en versiones posteriores). La configuración predeterminada para esto varía dependiendo del contexto de su uso. Algunas operaciones usan una estrategia de retroceso exponencial con parámetros codificados de forma rígida. Otros usuarios especifican solo los reintentos que deben efectuarse y usan el intervalo entre reintentos de la instancia [DocumentClientException](http://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx) que se devuelve desde el servicio. Si no se especifica ningún retraso, se usa un retraso de cinco segundos.
+### <a name="retry-mechanism"></a>Mecanismo de reintento
+La clase `DocumentClient` reintenta automáticamente los intentos con error. Para establecer el número de reintentos y el tiempo de espera máximo, configure [ConnectionPolicy.RetryOptions]. Las excepciones que genera el cliente se encuentran más allá de la directiva de reintentos o no son errores transitorios.
 
-## Configuración de directivas (DocumentDB)
-Ninguno. Todas las clases que se usan para implementar los reintentos son internas. Los parámetros de reintento son constantes o se establecen usando parámetros de los constructores de clase.
+Si DocumentDB limita al cliente, devuelve un error HTTP 429. Compruebe el código de estado en `DocumentClientException`.
 
-La siguiente tabla muestra la configuración predeterminada de la directiva de reintento integrada.
+### <a name="policy-configuration"></a>Configuración de directivas
+La siguiente tabla muestra la configuración predeterminada de la clase `RetryOptions`.
 
-| **Contexto** | **Configuración** | **Valores** | **Cómo funciona** |
-| --- | --- | --- | --- |
-| RetryPolicy (interno) |MaxRetryAttemptsOnQuery<br /><br />MaxRetryAttemptsOnRequest |3<br /><br />0 |Número de reintentos para las consultas de documento. No se puede cambiar este valor.<br />Número de reintentos para otras solicitudes. No se puede cambiar este valor. |
+| Configuración | Valor predeterminado | Description |
+| --- | --- | --- |
+| MaxRetryAttemptsOnThrottledRequests |9 |El número máximo de reintentos si se produce un error en la solicitud porque DocumentDB aplicó limitación de velocidad en el cliente. |
+| MaxRetryWaitTimeInSeconds |30 |El tiempo de reintentos máximo en segundos. |
 
-## Instrucciones de uso del reintento
-Cuando se usa DocumentDB, tenga en cuenta las siguientes directrices:
+### <a name="example"></a>Ejemplo
+```csharp
+DocumentClient client = new DocumentClient(new Uri(endpoint), authKey); ;
+var options = client.ConnectionPolicy.RetryOptions;
+options.MaxRetryAttemptsOnThrottledRequests = 5;
+options.MaxRetryWaitTimeInSeconds = 15;
+```
 
-* No se puede cambiar la directiva de reintentos predeterminada.
-* Para obtener más información sobre la configuración predeterminada, consulte [TBD].
-
-## Telemetría
+### <a name="telemetry"></a>Telemetría
 Los reintentos se registran como mensajes de seguimiento no estructurados a través de .NET **TraceSource**. Debe configurar un **TraceListener** para capturar los eventos y escribirlos en un registro de destino adecuado.
 
-## Directrices de reintento de búsqueda
+Por ejemplo, si agrega lo siguiente al archivo App.config, se generarán seguimientos en un archivo de texto en la misma ubicación que el archivo ejecutable:
+
+```
+<configuration>
+  <system.diagnostics>
+    <switches>
+      <add name="SourceSwitch" value="Verbose"/>
+    </switches>
+    <sources>
+      <source name="DocDBTrace" switchName="SourceSwitch" switchType="System.Diagnostics.SourceSwitch" >
+        <listeners>
+          <add name="MyTextListener" type="System.Diagnostics.TextWriterTraceListener" traceOutputOptions="DateTime,ProcessId,ThreadId" initializeData="DocumentDBTrace.txt"></add>
+        </listeners>
+      </source>
+    </sources>
+  </system.diagnostics>
+</configuration>
+```
+
+
+## <a name="azure-search-retry-guidelines"></a>Directrices de reintento de Azure Search
 Búsqueda de Azure puede usarse para agregar capacidades de búsqueda eficaces y sofisticadas a un sitio web o aplicación, ajustar de manera rápida y fácil los resultados de la búsqueda y construir modelos de clasificación enriquecidos y optimizados.
 
-### Mecanismo de reintento
-No hay ningún mecanismo de reintento integrado para la búsqueda, ya que el uso normal se efectúa a través de solicitudes HTTP. Para implementar los reintentos puede usar una implementación genérica de un cliente REST y tomar decisiones sobre cuándo y si reintentar la operación en función de la respuesta del servicio. Para obtener más información, consulte la sección [Directrices generales de REST y de reintento](#general-rest-and-retry-guidelines) más adelante en esta guía.
+### <a name="retry-mechanism"></a>Mecanismo de reintento
+El comportamiento de reintento en el SDK de Azure Search se controla mediante el método `SetRetryPolicy` en las clases [SearchServiceClient] y [SearchIndexClient]. Los reintentos de directiva predeterminada con interrupción exponencial cuando Azure Search devuelve una respuesta 5xx o 408 (tiempo de espera de solicitud).
 
-### Instrucciones de uso del reintento
-Tenga en cuenta las siguientes directrices cuando use la Búsqueda de Azure:
+### <a name="telemetry"></a>Telemetría
+Realice un seguimiento con ETW o mediante el registro de un proveedor de seguimiento personalizado. Para más información, vea [Seguimiento][autorest-tracing] en la documentación de AutoRest.
 
-* Use el código de estado devuelto por el servicio para determinar el tipo de error. Los códigos de estado se definen en [Códigos de estado HTTP (Búsqueda de Azure)](http://msdn.microsoft.com/library/dn798925.aspx). El código de estado 503 (servicio no disponible) indica que el servicio está sobrecargado y no se puede procesar la solicitud de inmediato. La acción apropiada es volver a intentar la operación únicamente tras dejar tiempo para que se recupere el servicio. Es probable que efectuar el reintento tras un intervalo demasiado corto prolongue la no disponibilidad.
-* Consulte la sección [Directrices generales de REST y de reintento](#general-rest-and-retry-guidelines) más adelante en esta guía para obtener información general acerca del reintento de las operaciones REST.
+### <a name="more-information"></a>Más información
+* [Reintentos automáticos][autorest-retry] en la documentación de AutoRest
 
-## Más información
-* [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/library/dn798935.aspx)
-
-## Directrices de reintento de Azure Active Directory
+## <a name="azure-active-directory-retry-guidelines"></a>Directrices de reintento de Azure Active Directory
 Azure Active Directory (AD) es una solución de nube de administración de identidades y accesos integral que combina servicios de directorio de núcleo, gobierno de identidades avanzado, seguridad y administración de acceso a aplicaciones. Azure AD también ofrece a los desarrolladores una plataforma de administración de identidades para proporcionar control de acceso a sus aplicaciones, según las reglas y directivas centralizadas.
 
-### Mecanismo de reintento
+### <a name="retry-mechanism"></a>Mecanismo de reintento
 No hay ningún mecanismo de reintento integrado para Azure Active Directory en la biblioteca de autenticación de Active Directory (ADAL). Puede usar el bloque de aplicaciones de control de errores transitorios para implementar una estrategia de reintento que contiene un mecanismo de detección personalizado para las excepciones devueltas por Active Directory.
 
-### Configuración de directivas (Azure Active Directory)
+### <a name="policy-configuration-azure-active-directory"></a>Configuración de directivas (Azure Active Directory)
 Cuando se usa el bloque de aplicaciones de control de errores transitorios con Azure Active Directory crea una instancia de **RetryPolicy** basada en una clase que define la estrategia de detección que desea usar.
 
 ```csharp
@@ -885,25 +910,25 @@ A continuación, llame al método **ExecuteAction** o **ExecuteAsync** de la dir
 var result = await policy.ExecuteAsync(() => authContext.AcquireTokenAsync(resourceId, clientId, uc));
 ```
 
-La clase de estrategia de detección recibe excepciones cuando se produce un error y debe detectar si es probable que sea un error transitorio o un error más permanente. Normalmente lo hará examinando el código de estado y el tipo de excepción. Por ejemplo, una respuesta de servicio no disponible indica que debe realizarse un reintento. El bloque de aplicaciones de control de errores transitorios no incluye una clase de estrategia de detección que sea adecuada para su uso con el cliente AAL, pero se proporciona un ejemplo de una estrategia de detección personalizada en la sección [Ejemplos](#examples-azure-active-directory-) disponible a continuación. Usar una estrategia de detección personalizada no es diferente de usar una suministrada con el bloque.
+La clase de estrategia de detección recibe excepciones cuando se produce un error y debe detectar si es probable que sea un error transitorio o un error más permanente. Normalmente lo hará examinando el código de estado y el tipo de excepción. Por ejemplo, una respuesta de servicio no disponible indica que debe realizarse un reintento. El bloque de aplicaciones de control de errores transitorios no incluye una clase de estrategia de detección que sea adecuada para su uso con el cliente AAL, pero se proporciona un ejemplo de una estrategia de detección personalizada en la sección [Ejemplos](#examples) disponible a continuación. Usar una estrategia de detección personalizada no es diferente de usar una suministrada con el bloque.
 
 En la sección [Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)](#transient-fault-handling-application-block-topaz-strategies) del final de esta guía se muestran estrategias predeterminadas para bloques de aplicaciones de manejo de errores transitorios.
 
-## Instrucciones de uso del reintento
+### <a name="retry-usage-guidance"></a>Instrucciones de uso del reintento
 Tenga en cuenta las siguientes directrices cuando use Azure Active Directory:
 
 * Si está usando la API de REST para Azure Active Directory, debe reintentar la operación solo si el resultado es un error en el intervalo de 5xx (por ejemplo, Error de servidor interno 500, Puerta de enlace incorrecta 502, Servicio no disponible 503 y Tiempo de espera de puerta de enlace 504). No lo intente de nuevo para cualquier otro error.
-* Si está usando la biblioteca de autenticación de Active Directory (ADAL), los códigos HTTP no serán de fácil acceso. Necesitará crear una estrategia de detección personalizada que incluya la lógica para comprobar las propiedades de las excepciones específicas de ADAL. Consulte la sección de [ejemplos](#examples-azure-active-directory-) disponible a continuación.
+* Si está usando la biblioteca de autenticación de Active Directory (ADAL), los códigos HTTP no serán de fácil acceso. Necesitará crear una estrategia de detección personalizada que incluya la lógica para comprobar las propiedades de las excepciones específicas de ADAL. Consulte la sección de [ejemplos](#examples) disponible a continuación.
 * Se recomienda una directiva de retroceso exponencial para su uso en escenarios de lotes con Azure Active Directory.
 
 Considere la posibilidad de comenzar con la configuración siguiente para volver a intentar las operaciones. Esta es la configuración de propósito general, y debe supervisar las operaciones y ajustar los valores para adaptarlos a su propio escenario.
 
-| **Contexto** | **Destino de ejemplo E2E<br />máximo de latencia** | **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
+| **Contexto** | **Destino de ejemplo E2E<br />latencia máxima** | **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
 | --- | --- | --- | --- | --- | --- |
 | Interactivo, interfaz de usuario<br />o primer plano |2 segundos |FixedInterval |Número de reintentos<br />Intervalo de reintento<br />Primer reintento rápido |3<br />500 ms<br />true |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de 500 ms<br />Intento 3 – retraso de 500 ms |
-| Segundo plano o<br />proceso por lotes |60 segundos |ExponentialBackoff |Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />primer reintento rápido |5<br />0 segundos<br />60 segundos<br />2 segundos<br />false |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
+| Segundo plano o<br />proceso por lotes |60 segundos |ExponentialBackoff |Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />Primer reintento rápido |5<br />0 segundos<br />60 segundos<br />2 segundos<br />false |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
 
-## Ejemplos (Azure Active Directory)
+### <a name="examples"></a>Ejemplos
 En el ejemplo de código siguiente se muestra cómo puede usar el bloque de aplicaciones de manejo de errores transitorios (Topaz) para definir una estrategia de detección de errores transitorios personalizada apropiada para su uso con el cliente ADAL. El código crea una nueva instancia **RetryPolicy** basada en una estrategia de detección personalizada de tipo **AdalDetectionStrategy**, tal como se define en la lista de código siguiente. Las estrategias de detección personalizadas para Topaz implementan la interfaz **ITransientErrorDetectionStrategy** y devuelven el valor true si debe realizarse un reintento, o **false** si el error parece no transitorio y no se debe intentar un reintento.
 
     using System;
@@ -1004,12 +1029,12 @@ Para obtener información acerca de cómo reintentar las operaciones de la API G
 * [Ejemplo de código: Lógica de reintento](http://msdn.microsoft.com/library/azure/dn448547.aspx)
 * [Códigos de error de Graph de Azure AD](http://msdn.microsoft.com/library/azure/hh974480.aspx)
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Implementación de una estrategia de detección personalizada](http://msdn.microsoft.com/library/hh680940.aspx) (Topaz)
 * [Implementación de una estrategia de reintento personalizada](http://msdn.microsoft.com/library/hh680943.aspx) (Topaz)
 * [Emisión de tokens y directrices de reintento](http://msdn.microsoft.com/library/azure/dn168916.aspx)
 
-## Directrices generales de REST y de reintento
+## <a name="general-rest-and-retry-guidelines"></a>Directrices generales de REST y de reintento
 Al obtener acceso a los servicios de Azure o de terceros, tenga en cuenta lo siguiente:
 
 * Use un enfoque sistemático para administrar reintentos, quizás como código reutilizable, para que pueda aplicar una metodología coherente en todos los clientes y todas las soluciones.
@@ -1030,13 +1055,13 @@ Al obtener acceso a los servicios de Azure o de terceros, tenga en cuenta lo sig
 * No intente de nuevo los códigos de estado que representan errores de cliente (errores en el intervalo 4xx) excepto un Tiempo de espera de solicitud 408.
 * Pruebe las estrategias y mecanismos de reintento a fondo en una amplia variedad de condiciones, como diferentes estados de red diferente y diferentes cargas de sistema.
 
-## Estrategia de reintento
+### <a name="retry-strategies"></a>Estrategia de reintento
 Estos son los tipos típicos de intervalos de estrategia de reintento:
 
 * **Exponencial**: directiva de reintentos que realiza un número especificado de reintentos, usando un enfoque de retroceso exponencial aleatorio para determinar el intervalo entre reintentos. Por ejemplo:
-  
+
         var random = new Random();
-  
+
         var delta = (int)((Math.Pow(2.0, currentRetryCount) - 1.0) *
                     random.Next((int)(this.deltaBackoff.TotalMilliseconds * 0.8),
                     (int)(this.deltaBackoff.TotalMilliseconds * 1.2)));
@@ -1044,25 +1069,38 @@ Estos son los tipos típicos de intervalos de estrategia de reintento:
                        this.maxBackoff.TotalMilliseconds);
         retryInterval = TimeSpan.FromMilliseconds(interval);
 * **Incremental**: estrategia de reintentos con un número especificado de reintentos y un intervalo de tiempo incremental entre los reintentos. Por ejemplo:
-  
+
         retryInterval = TimeSpan.FromMilliseconds(this.initialInterval.TotalMilliseconds +
                        (this.increment.TotalMilliseconds * currentRetryCount));
 * **LinearRetry**: directiva de reintentos que realiza un número especificado de reintentos, usando un intervalo de tiempo fijo especificado entre los reintentos. Por ejemplo:
-  
+
         retryInterval = this.deltaBackoff;
 
-## Más información
+### <a name="more-information"></a>Más información
 * [Estrategias de disyuntor](http://msdn.microsoft.com/library/dn589784.aspx)
 
-## Estrategias del bloque de aplicación de control de errores transitorios (Topaz).
+## <a name="transient-fault-handling-application-block-topaz-strategies"></a>Estrategias de bloques de aplicaciones de manejo de errores transitorios (Topaz)
 El bloque de aplicaciones de control de errores transitorios tiene las siguientes estrategias predeterminadas.
 
 | **Estrategia** | **Configuración** | **Valor predeterminado** | **Significado** |
 | --- | --- | --- | --- |
-| **Exponencial** |retryCount<br />minBackoff<br /><br />maxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />true |Número de reintentos.<br />Tiempo de interrupción mínimo. Se usará como intervalo entre reintentos el máximo de este valor o la interrupción procesada.<br />El tiempo de interrupción mínimo. Se usará el mínimo de este valor o la interrupción calculada como intervalo entre reintentos.<br />Valor usado para calcular un delta aleatorio para el intervalo exponencial entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
-| **Incremental** |retryCount<br />initialInterval<br />increment<br /><br />fastFirstRetry<br /> |10<br />1 segundo<br />1 segundo<br /><br />true |Número de reintentos.<br />Intervalo inicial que se aplicará al primer reintento.<br />Valor de tiempo incremental que se usará para calcular el intervalo entre reintentos progresivo.<br />Si el primer reintento se realizará inmediatamente. |
-| **Lineal (intervalo fijo)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 segundo<br />true |Número de reintentos.<br />Intervalo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
+| **Exponencial** |retryCount<br />minBackoff<br /><br />MaxBackoff<br /><br />deltaBackoff<br /><br />fastFirstRetry |10<br />1 segundo<br /><br />30 segundos<br /><br />10 segundos<br /><br />true |Número de reintentos.<br />Tiempo de interrupción mínimo. Se usará como intervalo entre reintentos el máximo de este valor o la interrupción procesada.<br />Tiempo de interrupción mínimo. Se usará el mínimo de este valor o la interrupción calculada como intervalo entre reintentos.<br />El valor utilizado para calcular una diferencia aleatoria para el retraso exponencial entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
+| **Incremental** |retryCount<br />initialInterval<br />incremento<br /><br />fastFirstRetry<br /> |10<br />1 segundo<br />1 segundo<br /><br />true |Número de reintentos.<br />El intervalo inicial que se aplicará para el primer reintento.<br />El valor de tiempo incremental que se usará para calcular el retraso progresivo entre reintentos.<br />Si el primer reintento se realizará inmediatamente. |
+| **Lineal (intervalo fijo)** |retryCount<br />retryInterval<br />fastFirstRetry<br /> |10<br />1 segundo<br />true |Número de reintentos.<br />El retraso entre los reintentos.<br />Si el primer reintento se realizará inmediatamente. |
 
 Para obtener ejemplos del uso del bloque de aplicaciones de control de errores transitorios, consulte las secciones de ejemplos mostradas anteriormente en esta guía para la Base de datos SQL de Azure mediante ADO.NET y Azure Active Directory.
 
-<!---HONumber=AcomDC_0720_2016-->
+<!-- links -->
+
+[autorest-retry]: https://github.com/Azure/autorest/blob/master/Documentation/clients-retry.md
+[autorest-tracing]: https://github.com/Azure/autorest/blob/master/Documentation/clients-tracing.md
+[ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
+[entlib]: http://msdn.microsoft.com/library/dn440719.aspx
+[SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
+[SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,28 +1,67 @@
 ---
-title: Notas de la versión de SDK de Azure para .NET 2.9
-description: Notas de la versión de SDK de Azure para .NET 2.9
+title: "Notas de la versión de SDK de Azure para .NET 2.9"
+description: "Notas de la versión de SDK de Azure para .NET 2.9"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: c83d815b-fc19-4260-821e-7d2a7206dffc
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 10/17/2016
-ms.author: juliako
+ms.date: 11/16/2016
+ms.author: juliako;mikhegn
+translationtype: Human Translation
+ms.sourcegitcommit: 52ae631ad516767682122b0b5c05efb19e462209
+ms.openlocfilehash: a8be2c34358c817ca35ccfe46c97409a57ed539a
+
 
 ---
-# <a name="azure-sdk-for-.net-2.9-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.9
+# <a name="azure-sdk-for-net-29-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.9
+
+Este tema incluye notas de la versión para las versiones 2.9 y 2.9.6 del SDK de Azure para. NET.
+
+##<a name="azure-sdk-for-net-296-release-summary"></a>Resumen de la versión de SDK de Azure para .NET 2.9.6.
+
+Fecha de lanzamiento: 16/11/2016
+ 
+En esta versión no se han hecho cambios importantes en el SDK de Azure 2.9. Tampoco es necesario ningún proceso de actualización para aprovechar este SDK con proyectos de Cloud Services existentes.
+
+### <a name="visual-studio-2017-release-candidate"></a>Versión candidata para lanzamiento de Visual Studio 2017
+
+- En Visual Studio de 2017 RC, esta versión del SDK de Azure para .NET se basa en la carga de trabajo de Azure. Todas las herramientas que necesita para que el desarrollo de Azure forme parte de Visual Studio de 2017 RC y las versiones posteriores. Para Visual Studio 2015 y Visual Studio 2013, el SDK estará disponible a través de WebPI. Cuando la versión de Visual Studio 2017 sea definitiva, se interrumpirán las versiones del SDK de Azure para .NET para Visual Studio 2013l. Siga este vínculo para descargar Visual Studio 2017 RC: https://www.visualstudio.com/vs/visual-studio-2017-rc/
+
+### <a name="azure-diagnostics"></a>Diagnóstico de Azure
+
+- Ha cambiado el comportamiento para almacenar solo una cadena de conexión parcial con la clave sustituida por un token de cadena de conexión de almacenamiento de diagnóstico de Cloud Services. La clave de almacenamiento real ahora se almacena en la carpeta del perfil de usuario para poder controlar el acceso. Visual Studio leerá la clave de almacenamiento de la carpeta del perfil de usuario para los procesos de publicación y depuración local. 
+- En respuesta al cambio descrito anteriormente, el equipo de Visual Studio Online ha mejorado la plantilla de tareas de implementación de Azure Cloud Services para que los usuarios puedan especificar la clave de almacenamiento para configurar la extensión de diagnósticos al publicar en Azure en la integración e implementación continuas.
+- Ahora es posible almacenar la cadena de conexión segura y la tokenización para diagnósticos de Azure (WAD), para ayudarle a solucionar problemas con la configuración entre entornos.
+ 
+### <a name="windows-server-2016-virtual-machines"></a>Máquinas virtuales Windows Server 2016
+
+- Visual Studio ahora admite la implementación de Cloud Services en máquinas virtuales con la familia del SO 5 (Windows Server 2016). Para servicios en la nube existentes, puede cambiar la configuración para la nueva familia del SO. Al crear servicios en la nube, si decide crear el servicio con .Net 4.6 o posterior, el servicio usará la familia del SO 5 de forma predeterminada.  Para más información, puede consultar la tabla de [compatibilidad de la familia del SO invitado](https://azure.microsoft.com/en-us/documentation/articles/cloud-services-guestos-update-matrix/).
+
+ 
+### <a name="azure-in-role-cache"></a>Caché en rol de Azure 
+
+- La compatibilidad con Azure In-Role Cache finaliza el 30 de noviembre de 2016. Para más detalles, haga clic [aquí](https://azure.microsoft.com/en-us/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/).
+
+### <a name="azure-resource-manager-templates-for-azure-stack"></a>Plantillas de Azure Resource Manager para Azure Stack
+
+- Hemos introducido Azure Stack como un destino de implementación para las plantillas de Azure Resource Manager.
+
+
+## <a name="azure-sdk-for-net-29-summary"></a>Resumen del SDK de Azure para .NET 2.9
+
 ## <a name="overview"></a>Información general
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.9. 
 
 Para obtener información detallada sobre las actualizaciones de esta publicación, consulte [Announcing the Visual Studio Azure Tools and SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)(Presentación de Visual Studio Azure Tools y el SDK 2.9).
 
-## <a name="azure-sdk-2.9-for-visual-studio-2015-update-2-and-visual-studio-"15"-preview"></a>SDK de Azure 2.9 para Visual Studio 2015 Update 2 y vista previa de Visual Studio "15"
+## <a name="azure-sdk-29-for-visual-studio-2015-update-2-and-visual-studio-15-preview"></a>SDK de Azure 2.9 para Visual Studio 2015 Update 2 y vista previa de Visual Studio "15"
 Esta actualización incluye las correcciones de errores siguientes:
 
 * Problema relacionado con la generación de clientes de la API de REST, en el que la cadena "Tipo desconocido" aparecía como nombre de la carpeta de generación de código o como nombre del espacio de nombres que se coloca en el código generado.
@@ -49,6 +88,9 @@ Esta versión agrega compatibilidad de [KeyVault](../resource-manager-keyvault-p
 ## <a name="see-also"></a>Consulte también
 [Announcing the Visual Studio Azure Tools and SDK 2.9](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

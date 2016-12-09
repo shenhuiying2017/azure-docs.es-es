@@ -1,12 +1,12 @@
 ---
-title: Métricas de Azure Monitor - Métricas admitidas por tipo de recurso | Microsoft Docs
-description: Lista de métricas disponibles para cada tipo de recurso con Azure Monitor.
+title: "Métricas de Azure Monitor admitidas por tipo de recurso | Microsoft Docs"
+description: "Lista de métricas disponibles para cada tipo de recurso con Azure Monitor."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd07342dad07e70a09f372c9c6c116376630e6f8
+
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
@@ -24,7 +28,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 > 
 > 
 
-## <a name="microsoft.batch/batchaccounts"></a>Microsoft.Batch/batchAccounts
+## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | CoreCount |Recuento de núcleos |Recuento |Total |Número total de núcleos de la cuenta de Batch |
@@ -49,7 +53,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | PoolDeleteStartEvent |Eventos de inicio de eliminación de grupo |Recuento |Total |Número total de eliminaciones de grupo que se han iniciado |
 | PoolDeleteCompleteEvent |Eventos de finalización de eliminaciones de grupo |Recuento |Total |Número total de eliminaciones de grupo que se han completado |
 
-## <a name="microsoft.cache/redis"></a>Microsoft.Cache/redis
+## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | connectedclients |Clientes conectados |Recuento |Máxima | |
@@ -218,13 +222,13 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | cacheRead9 |Lectura de caché (partición 9) |BytesPerSecond |Máxima | |
 | percentProcessorTime9 |CPU (partición 9) |Percent |Máxima | |
 
-## <a name="microsoft.cognitiveservices/accounts"></a>Microsoft.CognitiveServices/accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Descripción |
 | --- | --- | --- | --- | --- |
 | NumberOfCalls |Número total de llamadas a API |Recuento |Total |Número total de llamadas a API. |
 | NumberOfFailedCalls |Número total de llamadas a API erróneas |Recuento |Total |Número total de llamadas a API erróneas. |
 
-## <a name="microsoft.compute/virtualmachines"></a>Microsoft.Compute/virtualMachines
+## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | Porcentaje de CPU |Porcentaje de CPU |Percent |Media |El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente |
@@ -235,7 +239,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | Operaciones de lectura de disco por segundo |Operaciones de lectura de disco por segundo |CountPerSecond |Media |E/S por segundo de lectura de disco |
 | Operaciones de escritura por segundo en disco |Operaciones de escritura por segundo en disco |CountPerSecond |Media |E/S por segundo de escritura en disco |
 
-## <a name="microsoft.compute/virtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
+## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | Porcentaje de CPU |Porcentaje de CPU |Percent |Media |El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente |
@@ -246,7 +250,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | Operaciones de lectura de disco por segundo |Operaciones de lectura de disco por segundo |CountPerSecond |Media |E/S por segundo de lectura de disco |
 | Operaciones de escritura por segundo en disco |Operaciones de escritura por segundo en disco |CountPerSecond |Media |E/S por segundo de escritura en disco |
 
-## <a name="microsoft.compute/virtualmachinescalesets/virtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
+## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | Porcentaje de CPU |Porcentaje de CPU |Percent |Media |El porcentaje de unidades de proceso asignadas que las máquinas virtuales usan actualmente |
@@ -257,7 +261,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | Operaciones de lectura de disco por segundo |Operaciones de lectura de disco por segundo |CountPerSecond |Media |E/S por segundo de lectura de disco |
 | Operaciones de escritura por segundo en disco |Operaciones de escritura por segundo en disco |CountPerSecond |Media |E/S por segundo de escritura en disco |
 
-## <a name="microsoft.devices/iothubs"></a>Microsoft.Devices/IotHubs
+## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Intentos de envío de mensaje de telemetría |Recuento |Total |Número de mensajes de telemetría de dispositivo a la nube que se han intentado enviar a IoT Hub |
@@ -268,7 +272,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | devices.totalDevices |Número total de dispositivos |Recuento |Total |Número de dispositivos registrados en IoT Hub |
 | devices.connectedDevices.allProtocol |Dispositivos conectados |Recuento |Total |Número de dispositivos conectados a IoT Hub |
 
-## <a name="microsoft.eventhub/namespaces"></a>Microsoft.EventHub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | INREQS |Solicitudes entrantes |Recuento |Total |Rendimiento de mensajes entrantes del centro de eventos para un espacio de nombres |
@@ -285,7 +289,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | EHAMSGS |Mensajes de archivado |Recuento |Total |Mensajes archivados del centro de eventos en un espacio de nombres |
 | EHAMBS |Rendimiento de mensajes de archivado |BytesPerSecond |Total |Rendimiento de mensajes archivados del centro de eventos en un espacio de nombres |
 
-## <a name="microsoft.logic/workflows"></a>Microsoft.Logic/workflows
+## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | RunsStarted |Ejecuciones iniciadas |Recuento |Total |Número de ejecuciones de flujo de trabajo iniciadas |
@@ -319,25 +323,25 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | BillableTriggerExecutions |Ejecuciones del desencadenador facturable |Recuento |Total |Número de ejecuciones del desencadenador de flujo de trabajo que se factura. |
 | TotalBillableExecutions |Total de ejecuciones facturables |Recuento |Total |Número de ejecuciones de flujo de trabajo que se factura. |
 
-## <a name="microsoft.network/applicationgateways"></a>Microsoft.Network/applicationGateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.Network/applicationGateways
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | Rendimiento |Rendimiento |BytesPerSecond |Media | |
 
-## <a name="microsoft.search/searchservices"></a>Microsoft.Search/searchServices
+## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Descripción |
 | --- | --- | --- | --- | --- |
 | SearchLatency |Latencia de búsqueda |Segundos |Media |Promedio de latencia de búsqueda para el servicio de búsqueda |
 | SearchQueriesPerSecond |Consultas de búsqueda por segundo |CountPerSecond |Media |Consultas de búsqueda por segundo para el servicio de búsqueda |
 | ThrottledSearchQueriesPercentage |Porcentaje de consultas de búsqueda limitadas |Percent |Media |Porcentaje de consultas de búsqueda limitadas para el servicio de búsqueda |
 
-## <a name="microsoft.servicebus/namespaces"></a>Microsoft.ServiceBus/namespaces
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | CPUXNS |Uso de CPU por espacio de nombres |Percent |Máxima |Métrica de uso de CPU de espacio de nombres premium de Service Bus |
 | WSXNS |Uso de tamaño de memoria por espacio de nombres |Percent |Máxima |Métrica de uso de memoria de espacio de nombres premium de Service Bus |
 
-## <a name="microsoft.sql/servers/databases"></a>Microsoft.Sql/servers/databases
+## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Porcentaje de CPU |Percent |Media |Porcentaje de CPU |
@@ -360,7 +364,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | dwu_consumption_percent |Porcentaje de DWU |Percent |Media |Porcentaje de DWU |
 | dwu_used |DWU utilizada |Recuento |Media |DWU utilizada |
 
-## <a name="microsoft.sql/servers/elasticpools"></a>Microsoft.Sql/servers/elasticPools
+## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | cpu_percent |Porcentaje de CPU |Percent |Media |Porcentaje de CPU |
@@ -375,7 +379,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | eDTU_used |eDTU utilizada |Recuento |Media |eDTU utilizada |
 | storage_used |Almacenamiento utilizado |Bytes |Media |Almacenamiento utilizado |
 
-## <a name="microsoft.streamanalytics/streamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
+## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | ResourceUtilization |SU % uso |Percent |Máxima |SU % uso |
@@ -390,7 +394,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | AMLCalloutFailedRequests |Solicitudes de función con errores |Recuento |Total |Solicitudes de función con errores |
 | AMLCalloutInputEvents |Eventos de función |Recuento |Total |Eventos de función |
 
-## <a name="microsoft.web/serverfarms"></a>Microsoft.Web/serverfarms
+## <a name="microsoftwebserverfarms"></a>Microsoft.Web/serverfarms
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | CpuPercentage |Porcentaje de CPU |Percent |Media |Porcentaje de CPU |
@@ -400,7 +404,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | BytesReceived |Entrada de datos |Bytes |Total |Entrada de datos |
 | BytesSent |Salida de datos |Bytes |Total |Salida de datos |
 
-## <a name="microsoft.web/sites"></a>Microsoft.Web/sites
+## <a name="microsoftwebsites"></a>Microsoft.Web/sites
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | CpuTime |Tiempo de CPU |Segundos |Total |Tiempo de CPU |
@@ -419,7 +423,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 | AverageMemoryWorkingSet |Espacio de trabajo de memoria promedio |Bytes |Media |Espacio de trabajo de memoria promedio |
 | AverageResponseTime |Tiempo de respuesta promedio |Segundos |Media |Tiempo de respuesta promedio |
 
-## <a name="microsoft.web/sites/slots"></a>Microsoft.Web/sites/slots
+## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 | Métrica | Nombre de métrica para mostrar | Unidad | Tipo de agregación | Description |
 | --- | --- | --- | --- | --- |
 | CpuTime |Tiempo de CPU |Segundos |Total |Tiempo de CPU |
@@ -440,9 +444,12 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Lea información sobre las métricas en Azure Monitor](monitoring-overview.md#monitoring-sources)
-* [Creación de alertas basadas en métricas](../azure-portal/insights-receive-alert-notifications.md)
+* [Creación de alertas basadas en métricas](insights-receive-alert-notifications.md)
 * [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](monitoring-overview-of-diagnostic-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

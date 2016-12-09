@@ -5,9 +5,9 @@ services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: Blackmist
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
-
+ms.assetid: 9ee6384c-cb61-4087-8273-fb53fa27c1c3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e22d28c76902fbfe549f2a7aeb22b62eb0a540fb
+
 
 ---
 # <a name="develop-java-mapreduce-programs-for-hadoop-on-hdinsight-linux"></a>Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
 Estos documentos le ayudarán a usar Apache Maven para crear una aplicación de MapReduce e implementarla y ejecutarla en el marco de trabajo basado en Linux Hadoop, en el clúster de HDInsight.
 
-## <a name="<a-name="prerequisites"></a>prerequisites"></a><a name="prerequisites"></a>Requisitos previos
+## <a name="a-nameprerequisitesaprerequisites"></a><a name="prerequisites"></a>Requisitos previos
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 7 o posterior (o un equivalente como OpenJDK)
@@ -62,15 +66,15 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-mapreduce-client-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-mapreduce-client-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
         <dependency>
-          <groupId>org.apache.hadoop</groupId>
-          <artifactId>hadoop-common</artifactId>
-          <version>2.5.1</version>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.5.1</version>
           <scope>provided</scope>
         </dependency>
    
@@ -80,26 +84,26 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
 2. Agregue lo siguiente al archivo **pom.xml** . Esto debe estar dentro de las etiquetas `<project>...</project>` en el archivo; por ejemplo, entre `</dependencies>` y `</project>`.
    
         <build>
-          <plugins>
+            <plugins>
             <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-shade-plugin</artifactId>
-              <version>2.3</version>
-              <configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
                 <transformers>
-                  <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
+                    <transformer implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer">
                   </transformer>
                 </transformers>
-              </configuration>
-              <executions>
+                </configuration>
+                <executions>
                 <execution>
-                  <phase>package</phase>
-                    <goals>
+                    <phase>package</phase>
+                      <goals>
                       <goal>shade</goal>
-                    </goals>
+                      </goals>
                 </execution>
-              </executions>
-            </plugin>
+                </executions>
+              </plugin>
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-compiler-plugin</artifactId>
@@ -108,7 +112,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
                <target>1.7</target>
               </configuration>
             </plugin>
-          </plugins>
+            </plugins>
         </build>
    
     El primer complemento configura el [complemento Maven Shade](http://maven.apache.org/plugins/maven-shade-plugin/)que se usará para compilar un uberjar (en ocasiones denominado fatjar), que contiene todas las dependencias que necesita la aplicación. Asimismo, se evita que se dupliquen licencias en el paquete JAR, lo que suele causar problemas en algunos sistemas.
@@ -206,7 +210,7 @@ Pueden establecer las siguientes variables de entorno al instalar Java y el JDK.
    > 
    > 
 
-## <a name="<a-id="upload"></a>upload-the-jar"></a><a id="upload"></a>Carga del archivo .jar
+## <a name="a-iduploadaupload-the-jar"></a><a id="upload"></a>Carga del archivo .jar
 Use el siguiente comando para cargar el archivo .jar al nodo principal de HDInsight:
 
     scp wordcountjava-1.0-SNAPSHOT.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:
@@ -220,7 +224,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
 > 
 > 
 
-## <a name="<a-name="run"></a>run-the-mapreduce-job"></a><a name="run"></a>Ejecute el trabajo MapReduce
+## <a name="a-namerunarun-the-mapreduce-job"></a><a name="run"></a>Ejecute el trabajo MapReduce
 1. Conéctese a HDInsight con SSH, tal y como se describe en los siguientes artículos:
    
    * [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -240,7 +244,7 @@ De esta manera, se copiarán los archivos del sistema local al nodo principal.
         zelus   1
         zenith  2
 
-## <a name="<a-id="nextsteps"></a>next-steps"></a><a id="nextsteps"></a>Pasos siguientes
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 Gracias a este documento, ha aprendido a desarrollar un trabajo MapReduce de Java. Consulte los siguientes documentos para obtener información acerca de otras formas de trabajar con HDInsight.
 
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
@@ -268,6 +272,6 @@ Para más información, consulte también el [Centro de desarrolladores de Java]
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

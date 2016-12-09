@@ -1,34 +1,38 @@
 ---
-title: Escalado automático y entorno del Servicio de aplicaciones | Microsoft Docs
-description: Escalado automático y entorno del Servicio de aplicaciones
+title: "Escalado automático y entorno de App Service | Microsoft Azure"
+description: "Escalado automático y entorno del Servicio de aplicaciones"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2016
+ms.date: 10/24/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c02e030b442cc150f87945a48660a5ba2987a309
+
 
 ---
-# Escalado automático y entorno del Servicio de aplicaciones
+# <a name="autoscaling-and-app-service-environment"></a>Escalado automático y entorno del Servicio de aplicaciones
 Los entornos del Servicio de aplicaciones de Azure admiten el *escalado automático*. Puede usar el escalado automático basado en métricas o programación grupos de trabajo individuales.
 
 ![Opciones de escalado automático para un grupo de trabajo.][intro]
 
 El escalado automático optimiza el uso de recursos gracias al crecimiento y reducción automáticos de un entorno del Servicio de aplicaciones para ajustarse a su presupuesto o a su perfil de carga.
 
-## Configuración del escalado automático de grupo de trabajo
+## <a name="configure-worker-pool-autoscale"></a>Configuración del escalado automático de grupo de trabajo
 Puede acceder a la funcionalidad de escalado automático desde la pestaña **Configuración** del grupo de trabajo.
 
 ![Pestaña Configuración del grupo de trabajo.][settings-scale]
 
-A partir de ahí, la interfaz debe resultar bastante familiar ya que se trata de la misma experiencia que ve al escala un plan del Servicio de aplicaciones. Podrá especificar manualmente un valor de escala.
+A partir de ahí, la interfaz debe resultar bastante familiar ya que se trata de la misma experiencia que ve al escala un plan de App Service. 
 
 ![Configuración de la escala manual.][scale-manual]
 
@@ -46,24 +50,24 @@ Después de definir un perfil, puede agregar reglas de escalado automático para
 
  Se puede usar cualquier grupo de trabajo o métrica de front-end para definir las reglas de escalado automático. Son las mismas métricas que puede supervisar en los gráficos de la hoja de recursos o para las que puede configurar alertas.
 
-## Ejemplo de escalado automático
+## <a name="autoscale-example"></a>Ejemplo de escalado automático
 La mejor manera de ilustrar el escalado automático de un entorno del Servicio de aplicaciones es mediante un escenario.
 
-En este artículo veremos todas las consideraciones que se deben tener en cuenta al configurar el escalado automático y todas las interacciones que entran en juego cuando se aplica el escalado automático en entornos del Servicio de aplicaciones que se hospedan en un entorno del Servicio de aplicaciones.
+Este artículo explica todas las consideraciones necesarias para configurar el escalado automático. En este artículo veremos todas las interacciones que entran en juego cuando se aplica el escalado automático en los App Service Environment que se hospedan en un App Service Environment.
 
-### Introducción al escenario
+### <a name="scenario-introduction"></a>Introducción al escenario
 Frank es administrador de sistemas de una empresa y ha migrado parte de las cargas de trabajo que administra a un entorno del Servicio de aplicaciones.
 
 El entorno del Servicio de aplicaciones está configurado a escala manual de la siguiente manera:
 
-* **Servidores front-end**: 3
+* **Servidores front-end** : 3
 * **Grupo de trabajo 1**: 10
 * **Grupo de trabajo 2**: 5
 * **Grupo de trabajo 3**: 5
 
 El grupo de trabajo 1 se usa para las cargas de trabajo de producción, en tanto que los grupos de trabajo 2 y 3 se usan para las cargas de trabajo de control de calidad y desarrollo.
 
-Los planes del Servicio de aplicaciones usados para el control de calidad y el desarrollo están configurados en escalado manual, pero el plan del Servicio de aplicaciones de producción está configurado en escalado automático, para adaptarse a las variaciones en la carga y el tráfico.
+Los planes de App Service de QA y desarrollo están configurados para la escala manual. El plan de App Service de producción se establece en escalado automático para tratar con las variaciones de carga y el tráfico.
 
 Frank está muy familiarizado con la aplicación. Sabe que las horas pico de carga están entre las 9:00 y 6:00 porque se trata de una aplicación de línea de negocio (LOB) que los empleados usan mientras están en la oficina. El uso cae después, una vez que los usuarios han terminado la jornada. Fuera de las horas punta, sigue habiendo cierta carga porque los usuarios pueden acceder de forma remota a la aplicación mediante sus dispositivos móviles o equipos domésticos. El plan del servicio de Aplicaciones de producción ya está configurado para el escalado automático en función del uso de CPU con las reglas siguientes:
 
@@ -98,8 +102,8 @@ Frank está muy familiarizado con la aplicación. Sabe que las horas pico de car
 | **Acción:** Reducir recuento en 1 |**Acción:** Reducir recuento en 1 |
 | **Tiempo de finalización (minutos):** 20 |**Tiempo de finalización (minutos):** 10 |
 
-### Tasa de inflación del plan del Servicio de aplicaciones
-Los planes del Servicio de aplicaciones configurados para el escalado automático lo realizarán a una tasa máxima por hora. Esta tasa se puede calcular en función de los valores indicados en la regla de escalado automático.
+### <a name="app-service-plan-inflation-rate"></a>Tasa de inflación del plan del Servicio de aplicaciones
+Los planes de App Service configurados para el escalado automático se realizan a una tasa máxima por hora. Esta tasa se puede calcular en función de los valores indicados en la regla de escalado automático.
 
 Comprender y calcular la *tasa de inflación del plan del Servicio de aplicaciones* es importante para el escalado automático del entorno del Servicio de aplicaciones, ya que los cambios en el escalado de un grupo de trabajo no son instantáneos.
 
@@ -107,7 +111,7 @@ La tasa de inflación del plan del Servicio de aplicaciones se calcula del sigui
 
 ![Cálculo de la tasa de inflación del plan del Servicio de aplicaciones.][ASP-Inflation]
 
-De acuerdo con la regla Escalado automático: escalar verticalmente del perfil Días laborables del plan del Servicio de aplicaciones de producción, sería:
+De acuerdo con la regla Escalado automático: escalar verticalmente del perfil Días laborables del plan de App Service de producción:
 
 ![Tasa de inflación del plan del Servicio de aplicaciones para los días laborables basándose en el escalado automático: regla escalar verticalmente.][Equation1]
 
@@ -121,18 +125,18 @@ De acuerdo con la regla Escalado automático: reducir verticalmente del perfil D
 
 ![Tasa de inflación del plan del Servicio de aplicaciones para los días laborables basándose en el escalado automático: regla reducir verticalmente.][Equation3]
 
-En el caso de la regla Escalado automático: reducir verticalmente del perfil Fines de semana del plan del Servicio de aplicaciones de producción, la fórmula daría como resultado:
+En el caso de la regla Escalado automático: reducir verticalmente del perfil Fines de semana del plan del Servicio de aplicaciones de producción, la fórmula daría como resultado:  
 
 ![Tasa de inflación del plan del Servicio de aplicaciones para los fines de semana basado en el escalado automático: regla reducir verticalmente.][Equation4]
 
-Esto significa que el plan del Servicio de aplicaciones de producción puede crecer a una tasa máxima de ocho instancias por hora durante la semana y de cuatro instancias por hora durante los fines de semana. Además, puede liberar las instancias a una tasa máxima de cuatro instancias por hora durante la semana y seis instancias por hora durante los fines de semana.
+El plan de App Service de producción puede crecer a una tasa máxima de ocho instancias por hora durante la semana y de cuatro instancias por hora durante los fines de semana. Puede liberar las instancias a una tasa máxima de cuatro instancias por hora durante la semana y seis instancias por hora durante los fines de semana.
 
 Si se hospedan varios planes del Servicio de aplicaciones en un grupo de trabajo, debe calcular la *tasa de inflación total* como la suma de la tasa de inflación de todos los planes del Servicio de aplicaciones que se hospedan en dicho grupo de trabajo.
 
 ![Cálculo de la tasa de inflación total para varios planes del Servicio de aplicaciones hospedados en un grupo de trabajo.][ASP-Total-Inflation]
 
-### Uso de la tasa de inflación del plan del Servicio de aplicaciones para definir reglas de escalado automático del grupo de trabajo
-Los grupos de trabajo que hospedan planes del Servicio de aplicaciones que están configurados para el escalado automático tendrán que asignar un búfer de capacidad. El búfer permite que las operaciones de escalado automático aumenten y reduzcan el plan del Servicio de aplicaciones según sea necesario. El búfer mínimo será la tasa de inflación total del plan del Servicio de aplicaciones calculada.
+### <a name="use-the-app-service-plan-inflation-rate-to-define-worker-pool-autoscale-rules"></a>Uso de la tasa de inflación del plan del Servicio de aplicaciones para definir reglas de escalado automático del grupo de trabajo
+Los grupos de trabajo que hospedan planes del App Service que están configurados para el escalado automático tendrán que asignar un búfer de capacidad. El búfer permite que las operaciones de escalado automático aumenten y reduzcan el plan del Servicio de aplicaciones según sea necesario. El búfer mínimo será la tasa de inflación total del plan del Servicio de aplicaciones calculada.
 
 Puesto que las operaciones de escalado del entorno del Servicio de aplicaciones tardan algún tiempo en aplicarse, deben tenerse en cuenta los cambios de demanda adicionales que se pueden producir mientras están en curso una operación de escalado. Para dar cabida a esta latencia, se recomienda usar la tasa de inflación total del plan del Servicio de aplicaciones calculada como el número mínimo de instancias que se agregan para cada operación de escalado automático.
 
@@ -177,10 +181,11 @@ El recuento de aumento de las reglas de escalado vertical se debe configurar al 
 
 El recuento de reducción se puede ajustar en un valor situado entre 1/2X y 1X de la tasa de inflación del plan del Servicio de aplicaciones para la reducción vertical.
 
-### Escalado automático para un grupo de servidores front-end
-Las reglas de escalado automático de front-end son más sencillas que las de los grupos de trabajo. En primer lugar, debe asegurarse de que dicha duración de la medida y los temporizadores de enfriamiento tienen en cuenta que las operaciones de escala no son instantáneas en un plan del Servicio de aplicaciones.
+### <a name="autoscale-for-front-end-pool"></a>Escalado automático para un grupo de servidores front-end
+Las reglas de escalado automático de front-end son más sencillas que las de los grupos de trabajo. En primer lugar, debe  
+asegurarse de que dicha duración de la medida y los temporizadores de enfriamiento tienen en cuenta que las operaciones de escala no son instantáneas en un plan de App Service.
 
-En este escenario, Frank sabe que la tasa de errores aumenta cuando los servidores front-end alcanzan el 80 % de la CPU. Para evitarlo, establece la regla de escalado automático para aumentar las instancias como sigue:
+En este escenario, Frank sabe que la tasa de errores aumenta una vez que los servidores front-end alcanzan el 80 % de uso de CPU y configura la regla de escalado automático para que aumente las instancias como sigue:
 
 ![Configuración del escalado automático para un grupo de servidores front-end.][Front-End-Scale]
 
@@ -230,4 +235,8 @@ En este escenario, Frank sabe que la tasa de errores aumenta cuando los servidor
 [Worker-Pool-Scale]: ./media/app-service-environment-auto-scale/wp-scale.png
 [Front-End-Scale]: ./media/app-service-environment-auto-scale/fe-scale.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Notas de la versión de la actualización 0.1 de StorSimple 8000 | Microsoft Docs
-description: Describe las nuevas características y soluciones, problemas abiertos y soluciones alternativas de la versión de Microsoft Azure StorSimple de octubre de 2014 (Actualización 0.1).
+title: "Notas de la versión de StorSimple 8000, actualización 0.1 | Microsoft Docs"
+description: "Describe las nuevas características y soluciones, problemas abiertos y soluciones alternativas de la versión de Microsoft Azure StorSimple de octubre de 2014 (Actualización 0.1)."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: fd35e3c3-4770-460c-999d-f72ab7053a20
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,39 +14,43 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6d3f4908fd8e245960ba1b1b1244aafeb06922eb
+
 
 ---
-# Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014
-## Información general
-Las siguientes notas de la versión identifican los problemas críticos abiertos de la actualización 0.1 de la serie StorSimple 8000 publicada en octubre de 2014. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Esta es la primera versión que aparece después de que la versión de lanzamiento de la serie StorSimple 8000 Series se pusiera a disposición general en julio de 2014 y corresponde a la versión de software 6.3.9600.17312.
+# <a name="storsimple-8000-series-update-01-release-notes-october-2014"></a>Notas de la versión 0.1 de la actualización de la serie StorSimple 8000: octubre de 2014
+## <a name="overview"></a>Información general
+Las siguientes notas de la versión identifican los problemas críticos abiertos de la actualización 0.1 de la serie StorSimple 8000 publicada en octubre de 2014. También contienen una lista de las actualizaciones de software y firmware de StorSimple incluidas en esta versión. Esta es la primera versión que aparece después de que la versión de lanzamiento de la serie StorSimple 8000 Series se pusiera a disposición general en julio de 2014 y corresponde a la versión de software 6.3.9600.17312.  
 
-Se recomienda buscar y aplicar las actualizaciones disponibles inmediatamente después de instalar el dispositivo. También puede activar las actualizaciones automáticas para descargar e instalar actualizaciones de alta prioridad de Microsoft en cuanto se publiquen. Para obtener más información, consulte [Actualización del dispositivo StorSimple](storsimple-update-device.md).
+Se recomienda buscar y aplicar las actualizaciones disponibles inmediatamente después de instalar el dispositivo. También puede activar las actualizaciones automáticas para descargar e instalar actualizaciones de alta prioridad de Microsoft en cuanto se publiquen. Para obtener más información, consulte [Actualización del dispositivo StorSimple](storsimple-update-device.md).  
 
-Revise la información contenida en las notas de la versión antes de implementar las actualizaciones de la solución de StorSimple.
+Revise la información contenida en las notas de la versión antes de implementar las actualizaciones de la solución de StorSimple.  
 
 > [!IMPORTANT]
-> * Para instalar las actualizaciones de octubre, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.
-> * Las actualizaciones suelen tardar unas 3 horas en completarse.
-> * La versión de octubre de StorSimple no contiene actualizaciones para el dispositivo virtual de StorSimple. Puede aplicar cualquier actualización disponible de Windows, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo virtual.
+> * Para instalar las actualizaciones de octubre, use el servicio de Administrador de StorSimple y no Windows PowerShell para StorSimple.  
+> * Las actualizaciones suelen tardar unas 3 horas en completarse.  
+> * La versión de octubre de StorSimple no contiene actualizaciones para el dispositivo virtual de StorSimple. Puede aplicar cualquier actualización disponible de Windows, incluidas revisiones de seguridad recientes, pero no verá un cambio de versión en el dispositivo virtual.  
 > 
 > 
 
-Asegúrese de que se cumplen los siguientes requisitos previos antes de actualizar el dispositivo StorSimple.
+Asegúrese de que se cumplen los siguientes requisitos previos antes de actualizar el dispositivo StorSimple.  
 
-* Asegúrese de que ambos controladores de dispositivo se están ejecutando antes de buscar actualizaciones. Si no se está ejecutando uno de los controladores, se producirá un error en la búsqueda. Para comprobar que los controladores están en buen estado, vaya a **Estado del Hardware** en la página **Mantenimiento**. Si algún componente **Requiere atención**, póngase en contacto con el soporte técnico de Microsoft antes de continuar.
-* Asegúrese de que las IP fijas del Controlador 0 y el Controlador 1 sean enrutables y puedan conectarse a Internet, ya que se usan para el mantenimiento de las actualizaciones del dispositivo. Puede usar el [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para hacer ping a una dirección conocida fuera de la red, como outlook.com, para comprobar que el controlador tiene conectividad a la red externa.
-* Asegúrese de que los puertos de salida necesarios estén disponibles en el dispositivo StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
-* Si la versión del software de dispositivo es anterior a 6.3.9600.17312 (actualización de octubre de 2014), deshabilite los puertos Data 2 y Data 3, en caso de que estén habilitados, antes de iniciar la actualización. Si deja los puertos Data 2 o Data 3 habilitados durante la aplicación de la actualización, el controlador del dispositivo podría entrar en modo de recuperación. Tenga en cuenta que, al deshabilitar las interfaces de red, todos los volúmenes asociados pasarán a estar sin conexión y se interrumpirá la E/S mientras dure la actualización.
+* Asegúrese de que ambos controladores de dispositivo se están ejecutando antes de buscar actualizaciones. Si no se está ejecutando uno de los controladores, se producirá un error en la búsqueda. Para comprobar que los controladores están en buen estado, vaya a **Estado de hardware** en la página **Mantenimiento**. Si algún componente **Requiere atención**, póngase en contacto con el soporte técnico de Microsoft antes de continuar.  
+* Asegúrese de que las IP fijas del Controlador 0 y el Controlador 1 sean enrutables y puedan conectarse a Internet, ya que se usan para el mantenimiento de las actualizaciones del dispositivo. Puede usar el [cmdlet Test-Connection](https://technet.microsoft.com/library/hh849808.aspx) para hacer ping a una dirección conocida fuera de la red, como outlook.com, para comprobar que el controlador tiene conectividad a la red externa.  
+* Asegúrese de que los puertos de salida necesarios estén disponibles en el dispositivo StorSimple para la comunicación saliente. Para obtener más información, consulte [Requisitos de red para el dispositivo StorSimple](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).  
+* Si la versión del software de dispositivo es anterior a 6.3.9600.17312 (actualización de octubre de 2014), deshabilite los puertos Data 2 y Data 3, en caso de que estén habilitados, antes de iniciar la actualización. Si deja los puertos Data 2 o Data 3 habilitados durante la aplicación de la actualización, el controlador del dispositivo podría entrar en modo de recuperación. Tenga en cuenta que, al deshabilitar las interfaces de red, todos los volúmenes asociados pasarán a estar sin conexión y se interrumpirá la E/S mientras dure la actualización.  
 
-## Novedades de la versión de octubre
+## <a name="whats-new-in-the-october-release"></a>Novedades de la versión de octubre
 Esta actualización incluye las mejoras siguientes:
 
-* Ahora puede usar el interfaz de usuario del servicio de Administrador de StorSimple para administrar los controladores del dispositivo. Las acciones de administración incluyen reiniciar, apagar o activar un controlador. Para obtener más información, vaya a [Administrar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).
-* Puede programar la asignación de ancho de banda WAN según las combinaciones del día de la semana y la hora del día. Esto permite hacer un mejor uso del ancho de banda WAN fuera de horas pico. Se admiten plantillas diferentes de ancho de banda para distintos contenedores de volúmenes. Para obtener más información, vaya a [Administrar las plantillas de ancho de banda de StorSimple](storsimple-manage-bandwidth-templates.md).
-* Puede configurar notificaciones de correo electrónico para informar a los administradores y a otras personas sobre los problemas existentes o que podrían producirse. Para obtener más información, vaya a [Configurar las alertas](storsimple-manage-alerts.md#configure-alert-settings).
+* Ahora puede usar el interfaz de usuario del servicio de Administrador de StorSimple para administrar los controladores del dispositivo. Las acciones de administración incluyen reiniciar, apagar o activar un controlador. Para obtener más información, vaya a [Administrar controladores de dispositivo StorSimple](storsimple-manage-device-controller.md).  
+* Puede programar la asignación de ancho de banda WAN según las combinaciones del día de la semana y la hora del día. Esto permite hacer un mejor uso del ancho de banda WAN fuera de horas pico. Se admiten plantillas diferentes de ancho de banda para distintos contenedores de volúmenes. Para obtener más información, vaya a [Administrar las plantillas de ancho de banda de StorSimple](storsimple-manage-bandwidth-templates.md).  
+* Puede configurar notificaciones de correo electrónico para informar a los administradores y a otras personas sobre los problemas existentes o que podrían producirse. Para obtener más información, vaya a [Configurar las alertas](storsimple-manage-alerts.md#configure-alert-settings).  
 
-## Problemas corregidos en la versión de octubre
-La tabla siguiente contiene un resumen de los problemas corregidos en esta actualización.
+## <a name="issues-fixed-in-the-october-release"></a>Problemas corregidos en la versión de octubre
+La tabla siguiente contiene un resumen de los problemas corregidos en esta actualización.  
 
 | Nº | Característica | Problema | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- |
@@ -62,7 +66,7 @@ La tabla siguiente contiene un resumen de los problemas corregidos en esta actua
 | 10 |Rotación de claves de cuentas de almacenamiento |El cmdlet **Invoke-HcsmServiceDataEncryptionKeyChange** que se usa para rotar las claves de la cuenta de almacenamiento ahora le solicita al usuario que escriba la clave de cifrado de datos de servicio. Se trata de un cambio respecto de la versión anterior, donde la clave de cifrado de datos de servicio se pasaba como un parámetro en línea. |Sí |No |
 | 11 |Conmutación por recuperación en 24 horas |Durante la recuperación ante desastres, la limpieza del dispositivo de origen no se realizó correctamente, lo que hizo que la conmutación por recuperación produjese un error. Esto se corrigió en esta versión. |Sí |No |
 
-## Problemas conocidos de la versión de octubre
+## <a name="known-issues-in-the-october-release"></a>Problemas conocidos de la versión de octubre
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
 | Nº | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
@@ -80,15 +84,20 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 11 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |No |
 | 12 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |No |
 
-## Actualizaciones del dispositivo físico en la versión de octubre
-Cuando estas actualizaciones se aplican a un dispositivo físico, la versión del software cambiará a 6.3.9600.17312. A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Para obtener más información sobre estas actualizaciones, consulte [Actualización de software del dispositivo físico de octubre de 2014 para el dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2986997).
+## <a name="physical-device-updates-in-the-october-release"></a>Actualizaciones del dispositivo físico en la versión de octubre
+Cuando estas actualizaciones se aplican a un dispositivo físico, la versión del software cambiará a 6.3.9600.17312. A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Para obtener más información sobre estas actualizaciones, consulte [Actualización de software del dispositivo físico de octubre de 2014 para el dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2986997).  
 
-## Controlador SCSI conectado en serie (SAS) y actualizaciones de firmware en la versión de octubre
-Esta versión actualiza el controlador y el firmware del controlador SAS del dispositivo físico. Para obtener más información sobre la actualización del controlador SAS, vea [Actualización de octubre de 2014 para los controladores SAS LSI del dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2987020).
+## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-the-october-release"></a>Controlador SCSI conectado en serie (SAS) y actualizaciones de firmware en la versión de octubre
+Esta versión actualiza el controlador y el firmware del controlador SAS del dispositivo físico. Para obtener más información sobre la actualización del controlador SAS, vea [Actualización de octubre de 2014 para los controladores SAS LSI del dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2987020).   
 
-Esta versión también aplica una actualización de firmware acumulativa que soluciona problemas de confiabilidad de los componentes de hardware del dispositivo. Para obtener más información sobre la actualización de firmware, consulte [Actualización de firmware de octubre de 2014 para el dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2987015).
+Esta versión también aplica una actualización de firmware acumulativa que soluciona problemas de confiabilidad de los componentes de hardware del dispositivo. Para obtener más información sobre la actualización de firmware, consulte [Actualización de firmware de octubre de 2014 para el dispositivo de Microsoft Azure StorSimple](http://support.microsoft.com/kb/2987015).  
 
-## Actualizaciones del dispositivo virtual en la versión de octubre
+## <a name="virtual-device-updates-in-the-october-release"></a>Actualizaciones del dispositivo virtual en la versión de octubre
 Esta versión no contiene actualizaciones para el dispositivo virtual. La aplicación de esta actualización no cambiará la versión de software de un dispositivo virtual.
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

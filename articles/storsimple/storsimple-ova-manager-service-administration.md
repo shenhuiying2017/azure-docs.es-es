@@ -1,12 +1,12 @@
 ---
-title: Administración de matrices virtuales de StorSimple Manager | Microsoft Docs
-description: Obtenga información sobre cómo administrar la matriz virtual local de StorSimple mediante el servicio StorSimple Manager en el Portal de Azure clásico.
+title: "Administración de matrices virtuales de StorSimple Manager | Microsoft Docs"
+description: "Obtenga información sobre cómo administrar la matriz virtual local de StorSimple mediante el servicio StorSimple Manager en el Portal de Azure clásico."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: f0ae362c-dffd-4a14-bbcf-c304bfb93268
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d90864501485344d93c1f3bd32237683c2abb4ab
+
 
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-virtual-array"></a>Uso del servicio StorSimple Manager para administrar la matriz virtual de StorSimple
@@ -92,6 +96,9 @@ Para obtener más información sobre cada flujo de trabajo, haga clic en el proc
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea obtener información sobre la interfaz de usuario web y cómo usarla, vaya a [Uso de la interfaz de usuario web de StorSimple para administrar la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

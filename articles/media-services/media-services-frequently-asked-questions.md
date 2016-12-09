@@ -1,12 +1,12 @@
 ---
-title: Preguntas más frecuentes | Microsoft Docs
-description: Preguntas más frecuentes (P+F)
+title: "Preguntas más frecuentes | Microsoft Docs"
+description: "Preguntas más frecuentes (P+F)"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5374f7f4-c189-43ef-8b7f-f2f4141e2748
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ea1ec9bddff60d91bdd47d7d9e5312563386ae4
+
 
 ---
-# Preguntas más frecuentes
-## Preguntas más frecuentes generales sobre AMS
+# <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+## <a name="general-ams-faqs"></a>Preguntas más frecuentes generales sobre AMS
 P: ¿Cómo se escala la indización?
 
-R: las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalación de unidades reservadas de codificación](media-services-scale-media-processing-overview.md) **Tenga en cuenta** que el rendimiento del indizador no se ve afectado por tipo de unidad reservada.
+R: las unidades reservadas son las mismas para las tareas de codificación y de indización. Siga las instrucciones de [Escalado de unidades reservadas de codificación](media-services-scale-media-processing-overview.md). **Tenga en cuenta** que el rendimiento del indexador no se ve afectado por el tipo de unidad reservada.
 
 P: He cargado, codificado y publicado un vídeo. ¿Cuál es el motivo por el que el vídeo no se reproduce cuando intento transmitirlo?
 
-R: uno de los motivos más habituales es que no dispone de al menos una unidad de streaming reservada asignada en el extremo de streaming desde el que está intentando reproducir. Siga las instrucciones de [Escalación de unidades reservadas de streaming](media-services-portal-scale-streaming-endpoints.md)
+R: uno de los motivos más habituales es que no dispone de al menos una unidad de streaming reservada asignada en el extremo de streaming desde el que está intentando reproducir.  Siga las instrucciones de [Escalación de unidades reservadas de streaming](media-services-portal-scale-streaming-endpoints.md)
 
 P: ¿Puedo realizar una composición en una secuencia en directo?
 
@@ -32,7 +36,7 @@ R: no se ofrece actualmente la composición en secuencias en vivo en Servicios m
 
 P: ¿Puedo usar CDN de Azure con secuencia en directo?
 
-R: servicios multimedia admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)). Puede usar el streaming en vivo con CDN. Servicios multimedia de Azure proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
+R: servicios multimedia admite la integración con CDN de Azure (para obtener más información, consulte [Administración de extremos de streaming en una cuenta de Servicios multimedia](media-services-portal-manage-streaming-endpoints.md)).  Puede usar el streaming en vivo con CDN. Servicios multimedia de Azure proporciona salidas de Smooth Streaming, HLS y MPEG-DASH. Todos estos formatos usan HTTP para transferir datos y obtener beneficios del almacenamiento en caché de HTTP. En la transmisión en vivo, los datos de audio/vídeo reales se dividen en fragmentos y los fragmentos individuales se almacenan en caché en CDN. Solo tienen que actualizarse los datos de manifiesto. CDN actualiza periódicamente los datos de manifiesto.
 
 P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 
@@ -40,15 +44,15 @@ R: si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Almacen
 
 P: ¿Cómo puedo copiar recursos de una cuenta de Servicios multimedia a otra?
 
-R: Para copiar recursos de una cuenta de Servicios multimedia a otro, use el método de extensión [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible en el repositorio [Extensiones del SDK de .NET para Servicios multimedia de Azure](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Para obtener más información, consulte [esta](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) conversación del foro.
+R: Para copiar recursos de una cuenta de Media Services a otra mediante .NET, use el método de extensión [IAsset.Copy](https://github.com/Azure/azure-sdk-for-media-services-extensions/blob/dev/MediaServices.Client.Extensions/IAssetExtensions.cs#L354) disponible en el repositorio de [extensiones del SDK de .NET para Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/). Para obtener más información, consulte [esta](https://social.msdn.microsoft.com/Forums/azure/28912d5d-6733-41c1-b27d-5d5dff2695ca/migrate-media-services-across-subscription?forum=MediaServices) conversación del foro.
 
 P: ¿Cuáles son los caracteres admitidos para nombrar los archivos cuando se trabaja con AMS?
 
-R: Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.). Por este motivo, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". También puede haber solo un ".". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 P: ¿Cómo se realiza la conexión con REST?
 
-R: Después de conectarse correctamente a https://media.windows.net, recibirá un redireccionamiento 301 especificando otro URI de Servicios multimedia. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
+R: Después de conectarse correctamente a https://media.windows.net, recibirá un redireccionamiento 301 que especifica otro URI de Media Services. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
 
 P: ¿Cómo puedo girar un vídeo durante el proceso de codificación?
 
@@ -70,10 +74,15 @@ R: [Media Encoder Estándar](media-services-dotnet-encode-with-media-encoder-sta
 
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

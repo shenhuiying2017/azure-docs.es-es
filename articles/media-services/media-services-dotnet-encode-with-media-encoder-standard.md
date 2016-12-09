@@ -1,12 +1,12 @@
 ---
-title: Codificación de un recurso con el Codificador mediante .NET | Microsoft Docs
-description: En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar.
+title: "Codificación de un recurso con Media Encoder Standard mediante .NET | Microsoft Docs"
+description: "En este tema se muestra cómo usar .NET para codificar sus recursos con Codificador multimedia estándar."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 03431b64-5518-478a-a1c2-1de345999274
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6031391dddc9f5c283974bd22ad22d60d0697a4d
+
 
 ---
-# Codificación de un recurso mediante Estándar de codificador multimedia
-Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace.
+# <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificación de un recurso mediante Estándar de codificador multimedia
+Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. 
 
 En este tema se muestra cómo usar .NET para codificar sus recursos con el Codificador multimedia estándar (MES). Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
@@ -26,35 +30,35 @@ Se recomienda codificar siempre los archivos intermedios en un conjunto de archi
 Si el recurso de salida tiene el almacenamiento cifrado, asegúrese de configurar la directiva de entrega de recursos. Para más información, consulte [Configuración de la directiva de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
 
 > [!NOTE]
-> MES genera un archivo de salida con un nombre que contiene los 32 primeros caracteres del nombre del archivo de entrada. El nombre se basa en lo que se especifica en el archivo de valores preestablecidos. Por ejemplo, "FileName": "{Basename}\_{Index}{Extension}". {Basename} se reemplaza por los 32 primeros caracteres del nombre del archivo de entrada.
+> MES genera un archivo de salida con un nombre que contiene los 32 primeros caracteres del nombre del archivo de entrada. El nombre se basa en lo que se especifica en el archivo de valores preestablecidos. Por ejemplo, "FileName": "{nombreBase}_{índice}{extensión}". {Basename} se reemplaza por los 32 primeros caracteres del nombre del archivo de entrada.
 > 
 > 
 
-### Formatos de MES
+### <a name="mes-formats"></a>Formatos de MES
 [Códecs y formatos](media-services-media-encoder-standard-formats.md)
 
-### Valores preestablecidos de MES
-El Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+### <a name="mes-presets"></a>Valores preestablecidos de MES
+Codificador multimedia estándar se configura mediante uno de los valores preestablecidos descritos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
-### Metadatos de entrada y salida
+### <a name="input-and-output-metadata"></a>Metadatos de entrada y salida
 Al codificar un recurso de entrada (o recursos) con MES, obtendrá un recurso de salida en la correcta realización de dicha tarea de codificación. El recurso de salida contiene vídeo, audio, miniaturas, manifiestos, etc., basados en el valor predeterminado de codificación que utilice.
 
-El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: <asset\_id>\_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4\_metadata.xml), donde <asset\_id> es el valor AssetId del recurso de entrada. El esquema de este archivo XML de metadatos de entrada se describe [aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx).
+El recurso de salida también contiene un archivo con metadatos sobre el recurso de entrada. El nombre del archivo XML de metadatos tiene el formato siguiente: <asset_id>_metadata.xml (por ejemplo, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), donde <asset_id> es el valor AssetId del recurso de entrada. El esquema de este archivo XML de metadatos de entrada se describe [aquí](http://msdn.microsoft.com/library/azure/dn783120.aspx).
 
-El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo XML de metadatos tiene el formato siguiente: <source_file_name>\_manifest.xml (por ejemplo, BigBuckBunny\_manifest.xml). El esquema de este archivo XML de metadatos de salida se describe [aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx).
+El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo XML de metadatos tiene el formato siguiente: <nombre_de_archivo_de_origen>_manifest.xml (por ejemplo, BigBuckBunny_manifest.xml). El esquema de este archivo XML de metadatos de salida se describe [aquí](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 Si desea examinar cualquiera de los dos archivos de metadatos, puede crear un localizador de SAS y descargar el archivo en el equipo local. Puede encontrar un ejemplo sobre cómo crear un localizador SAS y descargar un archivo con extensiones del SDK de .NET de Servicios multimedia.
 
-## Descarga de un ejemplo
+## <a name="download-sample"></a>Descarga de un ejemplo
 Obtenga y ejecute un ejemplo desde [aquí](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Ejemplo
+## <a name="example"></a>Ejemplo
 En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios multimedia para realizar las siguientes tareas:
 
 * Crear un trabajo de codificación.
 * Obtener una referencia al codificador Codificador multimedia estándar.
-* Especifique que se use el valor preestablecido "H264 Multiple Bitrate 720p". Puede ver todos los valores preestablecidos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). También puede examinar el esquema con el que se deben cumplir estos valores preestablecidos [aquí](https://msdn.microsoft.com/library/mt269962.aspx).
-* Agregar una única tarea de codificación al trabajo.
+* Especifique que se use el valor preestablecido "H264 Multiple Bitrate 720p". Puede ver todos los valores preestablecidos [aquí](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409). También puede examinar el esquema con el que se deben cumplir estos valores preestablecidos [aquí](https://msdn.microsoft.com/library/mt269962.aspx) .
+* Agregar una única tarea de codificación al trabajo. 
 * Especificar el recurso de entrada que se va a codificar.
 * Crear un recurso de salida que contendrá el recurso codificado.
 * Agregar un controlador de eventos para comprobar el progreso del trabajo.
@@ -133,13 +137,19 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
         }
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Otras referencias
-[Cómo generar la miniatura mediante Media Encoder Estándar con .NET](media-services-dotnet-generate-thumbnail-with-mes.md) [Información general de la codificación de Servicios multimedia](media-services-encode-asset.md)
+## <a name="see-also"></a>Otras referencias
+[Cómo generar vistas en miniatura mediante Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+[Introducción a Media Services Encoding](media-services-encode-asset.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

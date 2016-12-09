@@ -1,12 +1,12 @@
 ---
 title: Servicios en la nube de Microsoft y seguridad de red | Microsoft Docs
-description: Obtenga información sobre las características clave disponibles en Azure para crear entornos de red seguros
+description: "Obtenga información sobre las características clave disponibles en Azure para crear entornos de red seguros"
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: d169387a-1243-4867-a602-01d6f2d8a2a1
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,17 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jonor;sivae
+translationtype: Human Translation
+ms.sourcegitcommit: f5bdbd801107650f87993b395338adfb1b26d17e
+ms.openlocfilehash: 634f0c28c833612fdd1a6cd656c364eb3f5e43e5
+
 
 ---
-# Servicios en la nube de Microsoft y seguridad de red
+# <a name="microsoft-cloud-services-and-network-security"></a>Servicios en la nube de Microsoft y seguridad de red
 Servicios en la nube de Microsoft ofrece servicios e infraestructura a gran escala, funcionalidades de calidad empresarial y numerosas opciones de conectividad híbrida. Los clientes pueden elegir tener acceso a estos servicios a través de Internet o con Azure ExpressRoute, que proporciona conectividad de red privada. La plataforma Microsoft Azure permite a los clientes ampliar su infraestructura en la nube sin problemas y crear arquitecturas de varios niveles. Además, otros fabricantes pueden habilitar funcionalidades mejoradas mediante servicios de seguridad y dispositivos virtuales. En este documento se proporciona una visión general de los problemas de seguridad y de arquitectura que los clientes deben tener en cuenta al usar Servicios en la nube de Microsoft con acceso a través de ExpressRoute. También se describe la creación de servicios más seguros en redes virtuales de Azure.
 
-## Inicio rápido
-El gráfico de lógica siguiente puede dirigirle a un ejemplo específico de las numerosas técnicas de seguridad disponibles con la plataforma Azure. Para obtener una referencia rápida, busque el ejemplo que mejor se adapte a su caso. Si necesita una explicación más completa, siga leyendo el documento. ![Diagrama de flujo de opciones de seguridad][0]
+## <a name="fast-start"></a>Inicio rápido
+El gráfico de lógica siguiente puede dirigirle a un ejemplo específico de las numerosas técnicas de seguridad disponibles con la plataforma Azure. Para obtener una referencia rápida, busque el ejemplo que mejor se adapte a su caso. Si necesita una explicación más completa, siga leyendo el documento.
+![Diagrama de flujo de opciones de seguridad][0]
 
-[Ejemplo 1: Creación de una red perimetral (también conocida como subred filtrada) para proteger las aplicaciones con grupos de seguridad de red (NSG).](#example-1-build-a-simple-dmz-with-nsgs)</br> [Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y grupos de seguridad de red.](#example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs)</br> [Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario (UDR) y grupo de seguridad de red (NSG).](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg)</br> [Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual (VPN) de dispositivo virtual de sitio a sitio.](#example-4-adding-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br> [Ejemplo 5: Incorporación de una conexión híbrida con una VPN de puerta de enlace de Azure de sitio a sitio.](#example-5-adding-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br> [Ejemplo 6: Incorporación de una conexión híbrida con ExpressRoute.](#example-6-adding-a-hybrid-connection-with-expressroute)</br> Durante los próximos meses se agregarán a este documento ejemplos para incorporar conexiones entre redes virtuales, alta disponibilidad y encadenamiento de servicios.
+[Ejemplo 1: Creación de una red perimetral (también conocida como subred filtrada) para proteger las aplicaciones con grupos de seguridad de red (NSG).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
+[Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y grupos de seguridad de red.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
+[Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, enrutamiento definido por el usuario (UDR) y grupo de seguridad de red (NSG).](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual (VPN) de dispositivo virtual de sitio a sitio.](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network)</br>
+[Ejemplo 5: Incorporación de una conexión híbrida con una VPN de puerta de enlace de Azure de sitio a sitio.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn)</br>
+[Ejemplo 6: Incorporación de una conexión híbrida con ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
+ Durante los próximos meses se agregarán a este documento ejemplos para incorporar conexiones entre redes virtuales, alta disponibilidad y encadenamiento de servicios.
 
-## Protección de infraestructura y cumplimiento normativo de Microsoft
+## <a name="microsoft-compliance-and-infrastructure-protection"></a>Protección de infraestructura y cumplimiento normativo de Microsoft
 Microsoft ha adoptado una posición de liderazgo al apoyar las iniciativas de cumplimiento normativo requeridas por los clientes de empresa. Estas son algunas de las certificaciones de cumplimiento normativo para Azure: ![Notificaciones de cumplimiento de Azure][1]
 
 Para obtener más detalles, consulte la información de cumplimiento normativo en el [Centro de confianza de Microsoft](https://azure.microsoft.com/support/trust-center/compliance/).
@@ -35,7 +46,7 @@ Microsoft tiene un enfoque integral para proteger la infraestructura en la nube 
 
 Este enfoque proporciona una base más segura para que los clientes implementen los servicios en la nube de Microsoft. El siguiente paso es que los clientes diseñen y creen una arquitectura de seguridad para proteger estos servicios.
 
-## Arquitecturas de seguridad tradicionales y redes perimetrales
+## <a name="traditional-security-architectures-and-perimeter-networks"></a>Arquitecturas de seguridad tradicionales y redes perimetrales
 Aunque Microsoft realiza importantes inversiones en la protección de la infraestructura en la nube, los clientes también deben proteger los servicios en la nube y los grupos de recursos. Un enfoque de varios niveles de seguridad proporciona la mejor defensa. Una zona de seguridad de red perimetral protege los recursos de red internos de una red que no sea de confianza. Una red perimetral hace referencia a los bordes o partes de la red que se encuentran entre Internet y la infraestructura de TI protegida de la empresa.
 
 En las redes de empresa típicas, la infraestructura principal está considerablemente fortalecida en los perímetros, con varios niveles de dispositivos de seguridad. El límite de cada nivel consta de dispositivos y puntos de aplicación de directivas. Los dispositivos pueden incluir lo siguiente: firewalls, prevención de denegación de servicio distribuido (DDoS), sistemas de detección o prevención de intrusiones (IDS/IPS) y dispositivos de VPN. La aplicación de directivas puede adoptar la forma de directivas de firewall, listas de control de acceso (ACL) o enrutamiento específico. La primera línea de defensa de la red, que acepta directamente el tráfico entrante desde Internet, consta de una combinación de estos mecanismos para bloquear los ataques y el tráfico perjudicial mientras permite que las solicitudes legítimas avancen por la red. Este tráfico se enruta directamente a los recursos de la red perimetral. A continuación, ese recurso puede "hablar" con recursos más profundos de la red, pasando primero el siguiente límite para la validación. El nivel exterior se denomina red perimetral porque esta parte de la red está expuesta a Internet, normalmente con algún tipo de protección a ambos lados. En la siguiente ilustración se muestra un ejemplo de una sola red perimetral de subred en una red corporativa con dos límites de seguridad.
@@ -61,7 +72,7 @@ DDoS de Azure, entrante desde Internet, protege frente a ataques a gran escala c
 
 En la siguiente sección se proporciona información general sobre las redes virtuales de Azure. Los clientes crean estas redes virtuales, que son a las que están conectadas las cargas de trabajo implementadas. Las redes virtuales constituyen la base de todas las características de seguridad de red necesarias para establecer una red perimetral con el fin de proteger las implementaciones de clientes en Azure.
 
-## Información general sobre las redes virtuales de Azure
+## <a name="overview-of-azure-virtual-networks"></a>Información general sobre las redes virtuales de Azure
 Antes de que el tráfico de Internet llegue a las redes virtuales de Azure, hay dos niveles de seguridad inherentes a la plataforma Azure:
 
 1. **Protección de DDoS**: la protección de DDoS es un nivel de la red física de Azure que protege la plataforma Azure contra ataques a gran escala basados en Internet. Estos ataques usan varios nodos de "bot" en un intento de sobrecargar un servicio de Internet. Azure ofrece una sólida malla de protección de DDoS en toda la conectividad de Internet entrante. Este nivel de protección de DDoS no tiene ningún atributo que pueda configurar el usuario y no es accesible para el cliente. Esto protege a Azure como plataforma de los ataques a gran escala, pero no protegerá directamente las aplicaciones de cliente individuales. El cliente puede configurar niveles adicionales de resistencia contra un ataque localizado. Por ejemplo, si se ataca al cliente A con un ataque de DDoS a gran escala en un punto de conexión público, Azure bloqueará las conexiones a ese servicio. El cliente A puede conmutar a otra red virtual o a un punto de conexión de servicio no implicado en el ataque para restaurar el servicio. Se debe tener en cuenta que, aunque el cliente A podría verse afectado en ese punto de conexión, no se vería afectado ningún otro servicio fuera de ese punto de conexión. Además, otros clientes y servicios no verían impacto alguno de este ataque.
@@ -80,10 +91,10 @@ A continuación se muestra un ejemplo de cómo se puede construir una arquitectu
 
 ![Una red perimetral en una red virtual de Azure][5]
 
-## Características y requisitos de una red perimetral
+## <a name="perimeter-network-characteristics-and-requirements"></a>Características y requisitos de una red perimetral
 La red perimetral está diseñada para ser el front-end de la red y crear una interfaz directamente con la comunicación desde Internet. Los paquetes entrantes deben fluir a través de los dispositivos de seguridad, como el firewall, IDS e IPS, antes de llegar a los servidores back-end. Los paquetes enlazados a Internet desde las cargas de trabajo también pueden fluir a través de los dispositivos de seguridad de la red perimetral para fines de auditoría, inspección y aplicación de directivas antes de salir de la red. Además, la red perimetral puede hospedar puertas de enlace de VPN entre locales entre redes virtuales del cliente y redes locales.
 
-### Características de una red perimetral
+### <a name="perimeter-network-characteristics"></a>Características de una red perimetral
 Haciendo referencia a la ilustración anterior, algunas de las características de una buena red perimetral son las siguientes:
 
 * Accesible desde Internet:
@@ -100,7 +111,7 @@ Haciendo referencia a la ilustración anterior, algunas de las características 
   * Las cargas de trabajo no deben almacenar información crítica de la empresa.
   * El acceso y las actualizaciones de las configuraciones e implementaciones de red perimetral se limitan solo a los administradores autorizados.
 
-### Requisitos de red perimetral
+### <a name="perimeter-network-requirements"></a>Requisitos de red perimetral
 Para habilitar estas características, siga estas instrucciones relativas a los requisitos de red virtual para implementar una red perimetral correcta:
 
 * **Arquitectura de subred:** especifique la red virtual de modo que se dedique una subred completa como red perimetral, separada de otras subredes en la misma red virtual. Esto garantiza que el tráfico entre la red perimetral y otros niveles de subred interna o privada fluya a través de un firewall o dispositivo virtual IDS/IPS en los límites de la subred con rutas definidas por el usuario.
@@ -119,17 +130,17 @@ Para habilitar estas características, siga estas instrucciones relativas a los 
 
 > [!TIP]
 > Mantener separados los dos grupos siguientes: las personas autorizadas a acceder al engranaje de seguridad de la red perimetral y las personas autorizadas como administradores de desarrollo, implementación u operaciones de aplicaciones. Mantener estos grupos separados permite una separación de funciones y evita que una sola persona omita la seguridad de las aplicaciones y los controles de seguridad de red.
-> 
-> 
+>
+>
 
-### Preguntas que se deben plantear al crear límites de red
+### <a name="questions-to-be-asked-when-building-network-boundaries"></a>Preguntas que se deben plantear al crear límites de red
 En esta sección, salvo que se especifique de otro modo, el término "redes" hace referencia a las redes virtuales privadas de Azure creadas por un administrador de la suscripción. El término no hace referencia a las redes físicas subyacentes dentro de Azure.
 
 Además, las redes virtuales de Azure a menudo se usan para extender las redes locales tradicionales. Es posible incorporar soluciones de redes híbridas de sitio a sitio o de ExpressRoute con arquitecturas de redes perimetrales. Esta es una consideración importante a la hora de crear límites de seguridad de red.
 
 Es fundamental que conteste a las tres preguntas siguientes al crear una red con una red perimetral y varios límites de seguridad.
 
-#### 1) ¿Cuántos límites se necesitan?
+#### <a name="1-how-many-boundaries-are-needed"></a>1) ¿Cuántos límites se necesitan?
 La primera decisión consiste en decidir cuántos límites de seguridad son necesarios en un escenario determinado:
 
 * Un solo límite: uno en la red perimetral front-end entre la red virtual e Internet.
@@ -141,14 +152,14 @@ El número y el tipo de límites necesarios variarán en función de la toleranc
 
 > [!TIP]
 > Use el menor número posible de límites que cumplan los requisitos de seguridad para una situación determinada. Cuanto mayor sea el número de límites, más difíciles pueden ser las operaciones y la solución de problemas, así como la sobrecarga de administración implicada en la administración de varias directivas de límites con el tiempo. Sin embargo, unos límites insuficientes aumentan el riesgo. Encontrar el equilibrio es fundamental.
-> 
-> 
+>
+>
 
 ![Red híbrida con tres límites de seguridad][6]
 
 En la ilustración anterior se muestra una vista de alto nivel de una red con tres límites de seguridad. Los límites se encuentran entre la red perimetral e Internet, las subredes privadas de front-end y back-end de Azure, y la subred de back-end de Azure y la red corporativa local.
 
-#### 2) ¿Dónde se encuentran los límites?
+#### <a name="2-where-are-the-boundaries-located"></a>2) ¿Dónde se encuentran los límites?
 Una vez decidido el número de límites, la siguiente decisión es saber dónde se implementan. Generalmente, hay tres opciones:
 
 * Uso de un servicio intermedio basado en Internet (por ejemplo, un firewall de aplicaciones web basado en la nube, que no se trata en este documento).
@@ -163,7 +174,7 @@ En la ilustración anterior, los límites entre Internet y red perimetral y entr
 
 Por ejemplo, el uso del engranaje de seguridad físico existente en el lado de la red local tiene la ventaja de que no se necesita ningún engranaje nuevo. Simplemente hay que volver a configurarlo. La desventaja es que todo el tráfico debe ir desde Azure a la red local para que lo pueda ver el engranaje de seguridad. Por lo tanto, el tráfico de Azure a Azure puede sufrir una latencia considerable y afectar a la experiencia de usuario y al rendimiento de las aplicaciones si se obligó a dirigirlo a la red local para la aplicación de directivas de seguridad.
 
-#### 3) ¿Cómo se implementan los límites?
+#### <a name="3-how-are-the-boundaries-implemented"></a>3) ¿Cómo se implementan los límites?
 Cada límite de seguridad probablemente tendrá requisitos de capacidad diferentes (por ejemplo, IDS y reglas de firewall en el lado de Internet de la red perimetral, pero solo listas de control de acceso entre la red perimetral y la subred back-end). La decisión sobre los dispositivos que se van a usar depende de los requisitos de seguridad y del escenario. En la sección siguiente, los ejemplos 1, 2 y 3 describen algunas opciones que se podrían usar. La revisión de las características de red nativa de Azure y los dispositivos disponibles en Azure en el ecosistema de socios muestra las innumerables opciones disponibles para resolver prácticamente cualquier escenario.
 
 Otro punto de decisión de implementación clave es cómo conectar la red local con Azure. ¿Debería usar la puerta de enlace virtual de Azure o un dispositivo virtual de red? Estas opciones se tratan con más detalle en la sección siguiente (ejemplos 4, 5 y 6).
@@ -172,13 +183,13 @@ Además, podría ser necesario el tráfico entre redes virtuales dentro de Azure
 
 Cuando sepa las respuestas a las preguntas anteriores, la sección [Inicio rápido](#fast-start) le ayudará a identificar qué ejemplos son más adecuados para un escenario determinado.
 
-## Ejemplos: Creación de límites de seguridad con redes virtuales de Azure
-### Ejemplo 1: Creación de una red perimetral para proteger las aplicaciones con grupos de seguridad de red
-[Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Example1]
+## <a name="examples-building-security-boundaries-with-azure-virtual-networks"></a>Ejemplos: Creación de límites de seguridad con redes virtuales de Azure
+### <a name="example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs"></a>Ejemplo 1: Creación de una red perimetral para proteger las aplicaciones con grupos de seguridad de red
+[Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Ejemplo 1]
 
 ![Red perimetral de entrada con grupo de seguridad de red][7]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 * Dos servicios en la nube: "FrontEnd001" y "BackEnd001"
@@ -188,15 +199,15 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 * Dos servidores Windows que representan servidores back-end de aplicaciones ("AppVM01", "AppVM02")
 * Un servidor Windows que representa un servidor DNS ("DNS01")
 
-Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Example1].
+Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Ejemplo 1].
 
-#### Descripción del grupo de seguridad de red
+#### <a name="nsg-description"></a>Descripción del grupo de seguridad de red
 En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
 > [!TIP]
 > Por lo general, debe crear primero las reglas específicas de "Permitir" y después las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
-> 
-> 
+>
+>
 
 De forma declarativa, se compilan las reglas siguientes para el tráfico entrante:
 
@@ -211,18 +222,20 @@ Con estas reglas enlazadas a cada subred, si entrase una solicitud HTTP desde In
 
 Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario (vea el ejemplo 3).
 
-#### Conclusión
-Se trata de una manera relativamente sencilla y directa de aislar la subred back-end del tráfico entrante. Para obtener más información, consulte las [instrucciones de compilación detalladas][Example1]. Estas instrucciones incluyen lo siguiente:
+#### <a name="conclusion"></a>Conclusión
+Se trata de una manera relativamente sencilla y directa de aislar la subred back-end del tráfico entrante. Para más información, consulte las [instrucciones de compilación detalladas][Ejemplo 1]. Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral con scripts de PowerShell.
 * Creación de esta red perimetral con una plantilla de Azure Resource Manager.
 * Descripciones detalladas de cada comando de grupo de seguridad de red.
 * Escenarios de flujo de tráfico detallados, que muestran cómo se permite o se deniega el tráfico en cada nivel.
 
-### Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y grupos de seguridad de red [Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Example2]
+### <a name="example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y grupos de seguridad de red.
+[Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Ejemplo 2]
+
 ![Red perimetral de entrada con dispositivo virtual de red y grupo de seguridad de red][8]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 * Dos servicios en la nube: "FrontEnd001" y "BackEnd001"
@@ -233,15 +246,15 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 * Dos servidores Windows que representan servidores back-end de aplicaciones ("AppVM01", "AppVM02")
 * Un servidor Windows que representa un servidor DNS ("DNS01")
 
-Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Example2].
+Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Ejemplo 2].
 
-#### Descripción del grupo de seguridad de red
+#### <a name="nsg-description"></a>Descripción del grupo de seguridad de red
 En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
 > [!TIP]
 > Por lo general, debe crear primero las reglas específicas de "Permitir" y después las reglas de "Denegar" más genéricas. La prioridad asignada indica qué reglas se evalúan primero. Una vez que se encuentra el tráfico para aplicar a una regla específica, no se evalúa ninguna otra regla. Se pueden aplicar reglas de grupo de seguridad de red en cualquier dirección, entrante o saliente (desde la perspectiva de la subred).
-> 
-> 
+>
+>
 
 De forma declarativa, se compilan las reglas siguientes para el tráfico entrante:
 
@@ -256,25 +269,25 @@ Con estas reglas enlazadas a cada subred, si entrase una solicitud HTTP desde In
 
 Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario (vea el ejemplo 3).
 
-#### Descripción de reglas de firewall
+#### <a name="firewall-rule-description"></a>Descripción de reglas de firewall
 En el firewall, deben crearse reglas de reenvío. Como en este ejemplo solo se enruta el tráfico entrante de Internet al firewall y después al servidor web, únicamente se necesita un regla de traducción de direcciones de red (NAT) de reenvío.
 
 La regla de enrutamiento acepta cualquier dirección de origen entrante que alcance el firewall al intentar llegar a HTTP (puerto 80 o 443 para HTTPS). Se envía fuera de la interfaz local del firewall y se redirige al servidor web con la dirección IP de 10.0.1.5.
 
-#### Conclusión
-Se trata de una manera relativamente sencilla de proteger la aplicación con un firewall y de aislar la subred back-end del tráfico entrante. Para obtener más información, consulte las [instrucciones de compilación detalladas][Example2]. Estas instrucciones incluyen lo siguiente:
+#### <a name="conclusion"></a>Conclusión
+Se trata de una manera relativamente sencilla de proteger la aplicación con un firewall y de aislar la subred back-end del tráfico entrante. Para más información, consulte las [instrucciones de compilación detalladas][Ejemplo 2]. Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral con scripts de PowerShell.
 * Creación de este ejemplo con una plantilla de Azure Resource Manager.
 * Descripciones detalladas de cada comando de grupo de seguridad de red y regla de firewall.
 * Escenarios de flujo de tráfico detallados, que muestran cómo se permite o se deniega el tráfico en cada nivel.
 
-### Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, UDR y NSG
-[Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Example3]
+### <a name="example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, UDR y NSG
+[Volver a inicio rápido](#fast-start) | [Instrucciones de compilación detalladas para este ejemplo][Ejemplo 3]
 
 ![Red perimetral bidireccional con dispositivo de red virtual, grupo de seguridad de red y enrutamiento definido por el usuario][9]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 En este ejemplo hay una suscripción que contiene lo siguiente:
 
 * Tres servicios en la nube: “SecSvc001”, “FrontEnd001” y “BackEnd001”
@@ -284,12 +297,12 @@ En este ejemplo hay una suscripción que contiene lo siguiente:
 * Dos servidores Windows que representan servidores back-end de aplicaciones ("AppVM01", "AppVM02")
 * Un servidor Windows que representa un servidor DNS ("DNS01")
 
-Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Example3].
+Para ver los scripts y una plantilla de Azure Resource Manager, consulte las [instrucciones de compilación detalladas][Ejemplo 3].
 
-#### Descripción de UDR
+#### <a name="udr-description"></a>Descripción de UDR
 De forma predeterminada, las siguientes rutas de sistema se definen como:
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
          {10.0.0.0/16}     VNETLocal                            Active   Default    
@@ -309,34 +322,34 @@ En este ejemplo, se crean dos tablas de enrutamiento para las subredes front-end
 
 > [!TIP]
 > No disponer de la entrada de la subred local en el UDR hará que se interrumpan las comunicaciones de la subred local.
-> 
+>
 > * En el ejemplo, 10.0.1.0/24 que está apuntando a VNETLocal resulta crítico ya que, de lo contrario, el paquete que sale del servidor web (10.0.1.4) con destino a otro servidor local (por ejemplo) 10.0.1.25 producirá un error ya que se enviará a NVA, que a su vez lo enviará a la subred y ésta lo reenviará nuevamente a NVA y así sucesivamente.
 > * Las posibilidades de que se produzca un bucle de enrutamiento son normalmente mayores en aplicaciones con varias NIC que están conectadas directamente a cada subred con la que se comunican, lo cual suele suceder en el caso de las aplicaciones tradicionales locales.
-> 
-> 
+>
+>
 
 Una vez creadas las tablas de enrutamiento, se enlazan a sus subredes. Una vez creada la tabla de enrutamiento de la subred front-end y enlazada a la subred, debe tener el siguiente aspecto:
 
-        Effective routes : 
+        Effective routes :
          Address Prefix    Next hop type    Next hop IP address Status   Source     
          --------------    -------------    ------------------- ------   ------     
-         {10.0.1.0/24}     VNETLocal                            Active 
+         {10.0.1.0/24}     VNETLocal                            Active
          {10.0.0.0/16}     VirtualAppliance 10.0.0.4            Active    
          {0.0.0.0/0}       VirtualAppliance 10.0.0.4            Active
 
 > [!NOTE]
 > El enrutamiento definido por el usuario se puede aplicar ahora a la subred de puerta de enlace en la que está conectado el circuito de ExpressRoute.
-> 
+>
 > En los ejemplos 3 y 4 se muestra cómo habilitar la red perimetral con ExpressRoute o redes de sitio a sitio.
-> 
-> 
+>
+>
 
-#### Descripción de reenvío IP
+#### <a name="ip-forwarding-description"></a>Descripción de reenvío IP
 El reenvío IP es una característica complementaria del enrutamiento definido por el usuario. Es una opción de configuración de los dispositivos virtuales que les permite recibir tráfico no dirigido específicamente al dispositivo y, después, reenviar ese tráfico a su destino final.
 
 Por ejemplo, si el tráfico de AppVM01 realiza una solicitud al servidor DNS01, el enrutamiento definido por el usuario lo enrutará al firewall. Con el reenvío IP habilitado, el dispositivo (10.0.0.4) acepta el tráfico dirigido a DNS01 (10.0.2.4) y, a continuación, se reenvía a su destino final (10.0.2.4). Sin el reenvío IP habilitado en el firewall, el dispositivo no aceptaría el tráfico aunque la tabla de enrutamiento tuviese el firewall como próximo salto. Para usar un dispositivo virtual, es fundamental acordarse de habilitar el reenvío IP junto con el enrutamiento definido por el usuario.
 
-#### Descripción del grupo de seguridad de red
+#### <a name="nsg-description"></a>Descripción del grupo de seguridad de red
 En este ejemplo, se crea un grupo de seguridad de red y se carga después con una única regla. Este grupo se enlaza solo a las subredes front-end y back-end (no el SecNet). Mediante declaración se genera la siguiente regla:
 
 * Se deniega todo el tráfico (todos los puertos) desde Internet a toda la red virtual (todas las subredes).
@@ -349,17 +362,17 @@ Aunque en este ejemplo se usan grupos de seguridad de red, su principal objetivo
 
 Un punto interesante sobre el grupo de seguridad de red de este ejemplo es que contiene solo una regla, que consiste en denegar el tráfico de Internet a toda la red virtual, incluida la subred de seguridad. Sin embargo, como el grupo de seguridad de red solo está enlazado a las subredes front-end y back-end, la regla no se procesa en el tráfico entrante a la subred de seguridad. Como resultado, el tráfico fluirá a la subred de seguridad.
 
-#### Reglas de firewall
+#### <a name="firewall-rules"></a>Reglas de firewall
 En el firewall, deben crearse reglas de reenvío. Dado que el firewall bloquea o reenvía todo el tráfico entrante, saliente y entre redes virtuales, se necesitan muchas reglas de firewall. Además, todo el tráfico entrante llegará a la dirección IP pública del servicio de seguridad (en puertos diferentes) para ser procesado por el firewall. El procedimiento recomendado es crear un diagrama de los flujos lógicos antes de configurar las subredes y las reglas de firewall para evitar las modificaciones más adelante. La siguiente ilustración es una vista lógica de las reglas de firewall para este ejemplo:
 
 ![Vista lógica de las reglas de firewall][10]
 
 > [!NOTE]
 > Según el dispositivo virtual de red usado, los puertos de administración varían. En este ejemplo se hace referencia a un firewall Barracuda NextGen que usa los puertos 22, 801 y 807. Consulte la documentación del proveedor del dispositivo para buscar los puertos exactos usados para la administración del dispositivo que se va a usar.
-> 
-> 
+>
+>
 
-#### Descripción de reglas de firewall
+#### <a name="firewall-rules-description"></a>Descripción de reglas de firewall
 En el diagrama lógico anterior, no se muestra la subred de seguridad. Esto se debe a que el firewall es el único recurso de la subred y este diagrama muestra las reglas de firewall y cómo permiten o deniegan lógicamente los flujos de tráfico, no la ruta enrutada real. Además, los puertos externos seleccionados para el tráfico RDP están en un intervalo más alto (8014-8026) y se han seleccionado para que se correspondan en cierto modo con los dos últimos octetos de la dirección IP local y facilitar así su legibilidad (por ejemplo, la dirección de servidor local 10.0.1.4 está asociada al puerto externo 8014). Sin embargo, podría usarse cualquier puerto superior que no planteara conflictos.
 
 En este ejemplo, necesitamos siete tipos de reglas:
@@ -379,33 +392,33 @@ En este ejemplo, necesitamos siete tipos de reglas:
 
 > [!TIP]
 > En la segunda regla de tráfico de aplicación, para simplificar el ejemplo, se permite cualquier puerto. En un escenario real, deben usarse el puerto y los intervalos de direcciones más específicos para reducir la superficie expuesta a ataques de esta regla.
-> 
-> 
+>
+>
 
 Una vez creadas todas las reglas anteriores, es importante revisar la prioridad de cada una para asegurarse de que el tráfico se permitirá o se denegará según se desee. En este ejemplo, las reglas están en orden de prioridad.
 
-#### Conclusión
-Se trata de una manera más compleja pero más completa de proteger y aislar la red que los ejemplos anteriores. (En el ejemplo 2 solo se protege la aplicación y en el ejemplo 1 solo se aíslan las subredes). Este diseño permite supervisar el tráfico en ambas direcciones y protege no solo el servidor de aplicaciones de entrada, sino que aplica la directiva de seguridad de red a todos los servidores de esta red. Además, según el dispositivo que se usa, se pueden lograr el reconocimiento y la auditoría de todo el tráfico. Para más información, consulte las [instrucciones de compilación detalladas][Example3]. Estas instrucciones incluyen lo siguiente:
+#### <a name="conclusion"></a>Conclusión
+Se trata de una manera más compleja pero más completa de proteger y aislar la red que los ejemplos anteriores. (En el ejemplo 2 solo se protege la aplicación y en el ejemplo 1 solo se aíslan las subredes). Este diseño permite supervisar el tráfico en ambas direcciones y protege no solo el servidor de aplicaciones de entrada, sino que aplica la directiva de seguridad de red a todos los servidores de esta red. Además, según el dispositivo que se usa, se pueden lograr el reconocimiento y la auditoría de todo el tráfico. Para más información, consulte las [instrucciones de compilación detalladas][Ejemplo 3]. Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral de ejemplo con scripts de PowerShell.
 * Creación de este ejemplo con una plantilla de Azure Resource Manager.
 * Descripciones detalladas de cada enrutamiento definido por el usuario, comando de grupo de seguridad de red y regla de firewall.
 * Escenarios de flujo de tráfico detallados, que muestran cómo se permite o se deniega el tráfico en cada nivel.
 
-### Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual (VPN) de dispositivo virtual de sitio a sitio
+### <a name="example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-virtual-private-network"></a>Ejemplo 4: Incorporación de una conexión híbrida con una red privada virtual de dispositivo virtual de sitio a sitio.
 [Volver a inicio rápido](#fast-start) | Instrucciones de compilación disponibles pronto
 
 ![Red perimetral con red híbrida conectada a un dispositivo virtual de red][11]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 Las redes híbridas que usan un dispositivo virtual de red (NVA) pueden agregarse a cualquiera de los tipos de red perimetral descritos en el ejemplo 1, 2 o 3.
 
 Como se muestra en la ilustración anterior, se usa una conexión VPN a través de Internet (sitio a sitio) para conectar una red local a una red virtual de Azure a través de un dispositivo virtual de red.
 
 > [!NOTE]
 > Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, debe crear una ruta estática. Esta debe enrutar a la dirección IP de VPN del dispositivo de red virtual con Internet corporativo, y no con la WAN de ExpressRoute. La NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure puede interrumpir la sesión de VPN.
-> 
-> 
+>
+>
 
 Una vez implementada la conexión VPN, el dispositivo virtual de red se convierte en el concentrador central para todas las redes y subredes. Las reglas de reenvío de firewall determinan qué flujos de tráfico se permiten, se traducen a través de NAT, se redirigen o se descartan (incluso para los flujos de tráfico entre la red local y Azure).
 
@@ -421,27 +434,27 @@ Según la lógica del dispositivo virtual de red, la red parece estar constituid
 
 ![Red lógica desde la perspectiva del dispositivo virtual de red][13]
 
-#### Conclusión
+#### <a name="conclusion"></a>Conclusión
 La incorporación de una conexión de red híbrida VPN de sitio a sitio a una red virtual de Azure puede ampliar la red local a Azure de forma segura. Al usar una conexión VPN, el tráfico se cifra y se enruta a través de Internet. El dispositivo virtual de red de este ejemplo proporciona una ubicación central para aplicar y administrar la directiva de seguridad. Para obtener más información, consulte las instrucciones de compilación detalladas (próximamente). Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral de ejemplo con scripts de PowerShell.
 * Creación de este ejemplo con una plantilla de Azure Resource Manager.
 * Escenarios de flujo de tráfico detallados, que muestran cómo fluye el tráfico en este diseño.
 
-### Ejemplo 5: Incorporación de una conexión híbrida con una VPN de puerta de enlace de Azure de sitio a sitio
+### <a name="example-5-add-a-hybrid-connection-with-a-site-to-site-azure-gateway-vpn"></a>Ejemplo 5: Incorporación de una conexión híbrida con una VPN de puerta de enlace de Azure de sitio a sitio.
 [Volver a inicio rápido](#fast-start) | Instrucciones de compilación disponibles pronto
 
 ![Red perimetral con red híbrida conectada a una puerta de enlace][14]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 Las redes híbridas que usan una puerta de enlace de VPN de Azure se pueden agregar a cualquier tipo de red perimetral descrito en los ejemplos 1 y 2.
 
 Como se muestra en la ilustración anterior, se usa una conexión VPN a través de Internet (de sitio a sitio) para conectar una red local a una red virtual de Azure a través de una puerta de enlace de VPN de Azure.
 
 > [!NOTE]
 > Si usa ExpressRoute con la opción de configuración entre pares públicos de Azure habilitada, debe crear una ruta estática. Esta debe enrutar a la dirección IP de VPN del dispositivo de red virtual con Internet corporativo, y no con la WAN de ExpressRoute. La NAT requerida en la opción de configuración entre pares públicos de ExpressRoute de Azure puede interrumpir la sesión de VPN.
-> 
-> 
+>
+>
 
 En la siguiente ilustración se muestran los dos bordes de red de esta opción. En el primer borde, el dispositivo virtual de red y los grupos de seguridad de red controlan los flujos de tráfico para redes internas de Azure y entre Azure e Internet. El segundo borde es la puerta de enlace de VPN de Azure, que es un borde de red totalmente independiente y aislado entre la instalación local y Azure.
 
@@ -451,35 +464,35 @@ Si usa el entorno creado en el ejemplo 1 e incorpora posteriormente una conexió
 
 ![Red perimetral con puerta de enlace conectada mediante una conexión de ExpressRoute][15]
 
-#### Conclusión
+#### <a name="conclusion"></a>Conclusión
 La incorporación de una conexión de red híbrida VPN de sitio a sitio a una red virtual de Azure puede ampliar la red local a Azure de forma segura. Mediante una puerta de enlace nativa de VPN de Azure, el tráfico está cifrado con IPSec y se enruta a través de Internet. Asimismo, mediante la puerta de enlace de VPN de Azure, se proporciona una opción menos costosa (sin costes de licencias adicionales como ocurre con dispositivos virtuales de red de terceros). Donde resulta más económico es en el ejemplo 1, en el que no se usa ningún dispositivo virtual de red. Para obtener más información, consulte las instrucciones de compilación detalladas (próximamente). Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral de ejemplo con scripts de PowerShell.
 * Creación de este ejemplo con una plantilla de Azure Resource Manager.
 * Escenarios de flujo de tráfico detallados, que muestran cómo fluye el tráfico en este diseño.
 
-### Ejemplo 6: Incorporación de una conexión híbrida con ExpressRoute
+### <a name="example-6-add-a-hybrid-connection-with-expressroute"></a>Ejemplo 6: Incorporación de una conexión híbrida con ExpressRoute.
 [Volver a inicio rápido](#fast-start) | Instrucciones de compilación disponibles pronto
 
 ![Red perimetral con red híbrida conectada a una puerta de enlace][16]
 
-#### Descripción del entorno
+#### <a name="environment-description"></a>Descripción del entorno
 Las redes híbridas que usan una conexión de configuración entre pares privados de ExpressRoute se pueden agregar a cualquier tipo de red perimetral descrito en el ejemplo 1 o 2.
 
 Como se muestra en la ilustración anterior, la configuración entre pares privados de ExpressRoute proporciona una conexión directa entre la red local y la red virtual de Azure. El tráfico transita solo por la red del proveedor de servicio y la red de Microsoft Azure sin tocar nunca Internet.
 
 > [!NOTE]
 > Hay determinadas restricciones en el uso del enrutamiento definido por el usuario con ExpressRoute debido a la complejidad del enrutamiento dinámico que se usa en la puerta de enlace virtual de Azure. Se trata de las siguientes:
-> 
+>
 > * El enrutamiento definido por el usuario no se debe aplicar a la subred de la puerta de enlace en la que está conectada la puerta de enlace virtual de Azure vinculada a ExpressRoute.
 > * La puerta de enlace virtual de Azure vinculada a ExpressRoute no puede ser el dispositivo NextHop para otras subredes enlazadas con enrutamiento definido por el usuario.
-> 
+>
 > <br />
-> 
+>
 > [!TIP]
 > Mediante ExpressRoute, se mantiene el tráfico de la red corporativa fuera de Internet para una mayor seguridad y se aumenta significativamente el rendimiento. Además, se permiten los contratos de nivel de servicio del proveedor de ExpressRoute. La puerta de enlace de Azure puede pasar a 2 Gbps con ExpressRoute, mientras que con la puerta de enlace de Azure de VPN de sitio a sitio, el rendimiento máximo es de 200 Mbps.
-> 
-> 
+>
+>
 
 Como se muestra en el diagrama siguiente, con esta opción el entorno tiene ahora dos bordes de red. El dispositivo virtual de red y el grupo de seguridad de red controlan los flujos de tráfico para redes internas de Azure y entre Azure e Internet, mientras que la puerta de enlace es un borde de red totalmente independiente y aislado entre la instalación local y Azure.
 
@@ -489,15 +502,15 @@ Si usa el entorno creado en el ejemplo 1 e incorpora posteriormente una conexió
 
 ![Red perimetral con puerta de enlace conectada mediante una conexión de ExpressRoute][17]
 
-#### Conclusión
+#### <a name="conclusion"></a>Conclusión
 La incorporación de una conexión de red de configuración entre pares privados de ExpressRoute puede ampliar la red local a Azure de un modo seguro, con una latencia inferior y con un rendimiento mayor. Asimismo, mediante la puerta de enlace nativa de Azure, como en este ejemplo, se proporciona una opción menos costosa (sin necesidad de licencias adicionales como ocurre con dispositivos virtuales de red de terceros). Para obtener más información, consulte las instrucciones de compilación detalladas (próximamente). Estas instrucciones incluyen lo siguiente:
 
 * Creación de esta red perimetral de ejemplo con scripts de PowerShell.
 * Creación de este ejemplo con una plantilla de Azure Resource Manager.
 * Escenarios de flujo de tráfico detallados, que muestran cómo fluye el tráfico en este diseño.
 
-## Referencias
-### Documentación y sitios web útiles
+## <a name="references"></a>Referencias
+### <a name="helpful-websites-and-documentation"></a>Documentación y sitios web útiles
 * Acceder a Azure con Azure Resource Manager:
 * Acceso a Azure con PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
 * Documentación de red virtual: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
@@ -513,7 +526,7 @@ La incorporación de una conexión de red de configuración entre pares privados
 [2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Características de seguridad de Azure"
 [3]: ./media/best-practices-network-security/dmzcorporate.png "Red perimetral en una red corporativa"
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Arquitectura de seguridad de Azure"
-[5]: ./media/best-practices-network-security/dmzazure.png "Red perimetral en una red virtual de Azure"
+[5]: ./media/best-practices-network-security/dmzazure.png "Red perimetral en una instancia de Azure Virtual Network"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Red híbrida con tres límites de seguridad"
 [7]: ./media/best-practices-network-security/example1design.png "Red perimetral de entrada con grupo de seguridad de red"
 [8]: ./media/best-practices-network-security/example2design.png "Red perimetral de entrada con dispositivo virtual de red y grupo de seguridad de red"
@@ -528,13 +541,17 @@ La incorporación de una conexión de red de configuración entre pares privados
 [17]: ./media/best-practices-network-security/example6designexpressroute.png "Red perimetral con puerta de enlace de Azure mediante una conexión de ExpressRoute"
 
 <!--Link References-->
-[Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
-[Example2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
-[Example3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
-[Example4]: ./virtual-network/virtual-networks-hybrid-s2s-nva-asm.md
-[Example5]: ./virtual-network/virtual-networks-hybrid-s2s-agw-asm.md
-[Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
-[Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
-[Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
+[Ejemplo 1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
+[Ejemplo 2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
+[Ejemplo 3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
+[Ejemplo 4]: ./virtual-network/virtual-networks-hybrid-s2s-nva-asm.md
+[Ejemplo 5]: ./virtual-network/virtual-networks-hybrid-s2s-agw-asm.md
+[Ejemplo 6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
+[Ejemplo 7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
+[Ejemplo 8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

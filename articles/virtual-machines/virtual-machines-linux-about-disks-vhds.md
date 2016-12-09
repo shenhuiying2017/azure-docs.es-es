@@ -1,13 +1,13 @@
 ---
-title: Acerca de los discos y los VHD para máquinas virtuales Linux | Microsoft Docs
-description: Conozca los aspectos básicos de los discos y los VHD para las máquinas virtuales Linux en Azure.
+title: "Acerca de los discos y los VHD para máquinas virtuales Linux | Microsoft Docs"
+description: "Conozca los aspectos básicos de los discos y los VHD para las máquinas virtuales Linux en Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,38 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: b39a1959496a6705e3ca8c7a86b9ce8072eb768e
+
 
 ---
-# Acerca de los discos y los discos duros virtuales para máquinas virtuales de Azure
-Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen, como mínimo, dos discos: un disco del sistema operativo Linux (en el caso de máquinas virtuales Linux) y un disco temporal. El disco del sistema operativo se crea a partir de una imagen y el disco del sistema operativo y la imagen son discos duros en realidad virtuales (VHD) almacenados en una cuenta de almacenamiento de Azure. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales. Este artículo también está disponible para [máquinas virtuales Windows](virtual-machines-windows-about-disks-vhds.md).
+# <a name="about-disks-and-vhds-for-azure-virtual-machines"></a>Acerca de los discos y los discos duros virtuales para máquinas virtuales de Azure
+Como cualquier otro equipo, las máquinas virtuales de Azure usan discos como un lugar para almacenar un sistema operativo, aplicaciones y datos. Todas las máquinas virtuales de Azure tienen, como mínimo, dos discos: un disco del sistema operativo Linux (en el caso de máquinas virtuales Linux) y un disco temporal. El disco del sistema operativo se crea a partir de una imagen y el disco del sistema operativo y la imagen son discos duros en realidad virtuales (VHD) almacenados en una cuenta de almacenamiento de Azure. Las máquinas virtuales también pueden tener uno o más discos de datos que también se almacenan en discos duros virtuales. Este artículo también está disponible para [máquinas virtuales Windows](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-> [!NOTE]
-> Si tiene unos momentos, ayúdenos a mejorar la documentación para máquinas virtuales Linux de Azure respondiendo a esta [encuesta rápida](https://aka.ms/linuxdocsurvey) sobre sus experiencias. Cada respuesta nos ayuda a facilitarle el trabajo.
-> 
-> 
+## <a name="operating-system-disk"></a>Disco del sistema operativo
+Cada máquina virtual tiene un disco de sistema operativo acoplado. Está registrado como unidad SATA y etiquetado de forma predeterminada como la unidad C:. Este disco tiene una capacidad máxima de 1023 gigabytes (GB). 
 
-## Disco del sistema operativo
-Cada máquina virtual tiene un disco de sistema operativo acoplado. Está registrado como unidad SATA y etiquetado de forma predeterminada como la unidad C:. Este disco tiene una capacidad máxima de 1023 gigabytes (GB).
-
-## Disco temporal
+## <a name="temporary-disk"></a>Disco temporal
 El disco temporal se crea automáticamente. En las máquinas virtuales de Linux, el disco es normalmente /dev/sdb y es formateado y montado en /mnt/resource por el agente de Linux de Azure.
 
-El tamaño del disco temporal varía, según el tamaño de la máquina virtual. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md).
+El tamaño del disco temporal varía, según el tamaño de la máquina virtual. Para más información, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!WARNING]
-> No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio.
+> No almacene datos en el disco temporal. Proporciona almacenamiento temporal para aplicaciones y procesos y está destinado únicamente a almacenar datos como archivos de páginas o de intercambio. 
 > 
 > 
 
-Para más información sobre cómo usa Azure el disco temporal, consulte [Understanding the temporary drive on Microsoft Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/) (Descripción de la unidad temporal en máquinas virtuales de Microsoft Azure).
+Para más información sobre cómo usa Azure el disco temporal, consulte [Understanding the temporary drive on Windows Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)
 
-## Disco de datos
-Un disco de datos es un disco duro virtual que se adjunta a una máquina virtual para almacenar los datos de la aplicación u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 1023 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
+## <a name="data-disk"></a>Disco de datos
+Un disco de datos es un disco duro virtual que se adjunta a una máquina virtual para almacenar los datos de la aplicación u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted.  Cada disco de datos tiene una capacidad máxima de 1023 GB. El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
 
 > [!NOTE]
-> Para ver más detalles acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md).
+> Para ver más detalles acerca de las capacidades de las máquinas virtuales, consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
@@ -54,10 +53,10 @@ Azure crea un disco del sistema operativo cuando se crea una máquina virtual de
 
 Puede agregar discos de datos a una máquina virtual en cualquier momento **conectando** el disco a la máquina virtual. Puede usar un disco duro virtual cargado o copiado por usted en su cuenta de almacenamiento o uno creado por Azure para usted. Al acoplar un disco de datos se asocia el archivo VHD de la cuenta de almacenamiento a la máquina virtual, y se coloca una "concesión" en el disco duro virtual para que no pueda eliminarse del almacenamiento mientras esté todavía acoplado.
 
-## Acerca de los discos duros virtuales
+## <a name="about-vhds"></a>Acerca de los discos duros virtuales
 Los discos duros virtuales usados en Azure son archivos .vhd almacenados como blobs en páginas en una cuenta de almacenamiento estándar o premium de Azure. Para obtener información detallada sobre blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](https://msdn.microsoft.com/library/ee691964.aspx). Para obtener más información acerca del Almacenamiento premium, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](../storage/storage-premium-storage.md).
 
-Azure admite el formato VHD de disco fijo. El formato fijo coloca el disco lógico linealmente dentro del archivo, de manera que el desplazamiento de disco X se almacena en el desplazamiento de blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. El formato fijo a menudo desaprovecha el espacio porque la mayoría de discos contienen grandes rangos sin utilizar. Sin embargo, Azure almacena los archivos .vhd en un formato disperso; así pues, se beneficia de las ventajas de los discos fijos y dinámicos al mismo tiempo. Para obtener más información, consulte [Introducción a discos duros virtuales](https://technet.microsoft.com/library/dd979539.aspx).
+Azure admite el formato VHD de disco fijo. El formato fijo coloca el disco lógico linealmente dentro del archivo, de manera que el desplazamiento de disco X se almacena en el desplazamiento de blob X. Un pequeño pie de página al final del blob describe las propiedades del VHD. El formato fijo a menudo desaprovecha el espacio porque la mayoría de discos contienen grandes rangos sin utilizar. Sin embargo, Azure almacena los archivos .vhd en un formato disperso; así pues, se beneficia de las ventajas de los discos fijos y dinámicos al mismo tiempo. Para obtener más información, consulte [Introducción a los discos duros virtuales](https://technet.microsoft.com/library/dd979539.aspx).
 
 Todos los archivos .vhd de Azure que desea usar como origen para crear discos o imágenes son de solo lectura. Cuando se crea un disco o una imagen, Azure hace copias de los archivos .vhd. Estas copias pueden ser de solo lectura o de lectura y escritura, en función de cómo use el disco duro virtual.
 
@@ -70,12 +69,17 @@ Para poder eliminar un archivo .vhd de origen, deberá quitar la concesión elim
 > 
 > 
 
-## Solución de problemas
+## <a name="troubleshooting"></a>Solución de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]
 
-## Pasos siguientes
-* [Conecte un disco](virtual-machines-linux-add-disk.md) para agregar almacenamiento adicional para la máquina virtual.
-* [Configure el RAID de software](virtual-machines-linux-configure-raid.md) para la redundancia.
-* [Capture una máquina virtual Linux](virtual-machines-linux-classic-capture-image.md) para poder implementar rápidamente máquinas virtuales adicionales.
+## <a name="next-steps"></a>Pasos siguientes
+* [Conecte un disco](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para agregar almacenamiento adicional para la máquina virtual.
+* [Configure el RAID de software](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para la redundancia.
+* [Capture una máquina virtual Linux](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) para poder implementar rápidamente máquinas virtuales adicionales.
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

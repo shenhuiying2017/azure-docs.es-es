@@ -1,12 +1,12 @@
 ---
-title: Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps | Microsoft Docs
-description: Overview of autoscale in Microsoft Azure. Applies to Virtual Machines, Cloud Services and Web Apps.
+title: "Información general de la funcionalidad de escalado automático en Microsoft Azure Virtual Machines, Cloud Services y Web Apps | Microsoft Docs"
+description: "Información general sobre el escalado automático en Microsoft Azure. Esta funcionalidad se utiliza en Microsoft Azure Virtual Machines, Cloud Services y Web Apps."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,101 +14,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: e4ea8b18a9aba44906ed9085fa046859cc186aa1
+
 
 ---
-# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines,-cloud-services,-and-web-apps"></a>Overview of autoscale in Microsoft Azure Virtual Machines, Cloud Services, and Web Apps
-This article describes what Microsoft Azure autoscale is, its benefits, and how to get started using it.  
+# <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Información general de la funcionalidad de escalado automático de Microsoft Azure Virtual Machines, Cloud Services y Web Apps
+En este artículo se explican el concepto del escalado automático de Microsoft Azure y las ventajas que aporta, y se realiza una introducción para empezar a usarlo.  
 
-Azure Insights autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). 
+El escalado automático de Azure Monitor solo se aplica a los [conjuntos de escalado de máquinas virtuales](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) y [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 > [!NOTE]
-> Azure has two autoscale methods. An older version of autoscale applies to Virtual Machines (availability sets). This feature has limited support and we recommend migrating to VM Scale Sets for faster and more reliable autoscale support. A link on how to use the older technology is included in this article.  
+> Azure tiene dos métodos de escalado automático. Una versión anterior del escalado automático se aplica a Virtual Machines (conjuntos de disponibilidad). Esta característica tiene una compatibilidad limitada, por lo que, para poder utilizar el escalado automático de manera más rápida y fiable, recomendamos la migración a los conjuntos de escalado de máquina virtual. En este artículo, se incluye un vínculo sobre cómo utilizar la tecnología antigua.  
 > 
 > 
 
-## <a name="what-is-autoscale?"></a>What is autoscale?
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources which are sitting idle. You specify a minimum and maximum number of instances to run and add or remove VMs automatically based on a set of rules. Having a minimum makes sure your application is always running even under no load. Having a maximum limits your total possible hourly cost. You automatically scale between these two extremes using rules you create. 
+## <a name="what-is-autoscale"></a>¿Qué es el escalado automático?
+Gracias al escalado automático, puede ejecutar la cantidad correcta de recursos para administrar la carga de la aplicación. Permite agregar recursos para controlar el aumento de la carga y ahorrar dinero mediante la eliminación de recursos inactivos. Especifique un número mínimo y máximo de instancias para ejecutar y agregue o quite máquinas virtuales automáticamente en función de un conjunto de reglas. Tener un mínimo garantiza la ejecución de la aplicación aunque no exista carga. Tener un máximo limita el posible costo total por hora. Se escala automáticamente entre estos dos extremos en función de las reglas que se creen.
 
- ![Autoscale explained. Add and remove VMs](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
+ ![Explicación del escalado automático. Agregar y quitar máquinas virtuales](./media/monitoring-autoscale-overview/AutoscaleConcept.png)
 
-When rule conditions are met, one or more autoscale actions is triggered. You can add and remove VMs, or perform other actions. The following conceptual diagram shows this process.  
+Cuando se cumplen las condiciones de las reglas, se desencadenan una o varias acciones de escalado automático. Puede agregar y quitar máquinas virtuales o realizar otras acciones. En el siguiente diagrama conceptual se muestra este proceso.  
 
- ![Conceptual Autoscale Flow Diagram](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
+ ![Flujograma conceptual del escalado automático](./media/monitoring-autoscale-overview/AutoscaleOverview3.png)
 
-## <a name="autoscale-process-explained"></a>Autoscale Process Explained
-The following explanation apply to the pieces of the previous diagram.   
+## <a name="autoscale-process-explained"></a>Explicación del proceso de escalado automático
+La explicación siguiente se aplica a las partes del diagrama anterior.   
 
-### <a name="resource-metrics"></a>Resource metrics
-Resources emit metrics, which are later processed by rules. Metrics come via different methods.
-VM Scale Sets uses telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](insights-autoscale-common-metrics.md). 
+### <a name="resource-metrics"></a>Métricas de los recursos
+Los recursos generan métricas, que procesan posteriormente las reglas. Las métricas proceden de métodos diferentes.
+Los conjuntos de escala de máquina virtual utilizan datos de telemetría de los agentes de Diagnósticos de Azure, mientras que la telemetría de Web Apps y Cloud Services proviene directamente de la infraestructura de Azure. Algunas de las estadísticas que se utilizan frecuentemente son el uso de CPU, el uso de memoria, el número de subprocesos, la longitud de la cola y el uso del disco. Para ver una lista de los datos de telemetría que se pueden utilizar, consulte [Métricas comunes de escalado automático de Azure Insights](insights-autoscale-common-metrics.md).
 
-### <a name="time"></a>Time
-Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
+### <a name="time"></a>Hora
+Las reglas basadas en programaciones emplean el huso horario UTC. Debe establecer la zona horaria correctamente al configurar las reglas.  
 
-### <a name="rules"></a>Rules
-The diagram shows only one autoscale rule, but you can have many of them. You can create complex overlapping rules as needed for your situation.  Rule types include  
+### <a name="rules"></a>Reglas
+El diagrama solo muestra una única regla de escalado automático, pero puede tener muchas. Puede crear reglas complejas de superposición según su situación.  Estos son algunos de los tipos de reglas:  
 
-* **Metric-based** - For example, do this action when CPU usage is above 50%. 
-* **Time-based** - For example, trigger a webhook every 8am on Saturday in a given time zone.
+* **Basadas en métricas** : por ejemplo, realizar esta acción cuando el uso de CPU sea superior al 50 %.
+* **Basadas en tiempo** : por ejemplo, desencadenar un webhook todos los sábados a las 8:00 en una zona horaria determinada.
 
-Metric-based rules measure application load and add or remove VMs based on that load. Schedule-based rules allow you to scale when you see time patterns in your load and want to scale before a possible load increase or decrease occurs.  
+Las reglas basadas en métricas miden la carga de la aplicación y agregan o quitan máquinas virtuales en función de ella. Las reglas de programación permiten escalar al ver los modelos de tiempo de la carga, si quiere escalar antes de un posible aumento de carga o si esta disminuye.  
 
-### <a name="actions-and-automation"></a>Actions and automation
-Rules can trigger one or more types of actions.
+### <a name="actions-and-automation"></a>Acciones y escalado automático
+Las reglas pueden desencadenar uno o varios tipos de acciones.
 
-* **Scale** - Scale VMs in or out
-* **Email** - Send email to subscription admins, co-admins, and/or additional email address you specify
-* **Automate via webhooks** - Call webhooks, which can trigger multiple complex actions inside or outside Azure. Inside Azure, you can start an Azure Automation runbook, Azure Function, or Azure Logic App. Example 3rd party URL outside Azure include services like Slack and Twilio. 
+* **Escalar** : escalar o reducir horizontalmente máquinas virtuales
+* **Enviar correo electrónico** : enviar correo electrónico a los administradores y coadministradores de la suscripción, así como a otras direcciones de correo electrónico que especifique
+* **Automate via webhooks** (Automatizar mediante webhooks): llamar a webhooks, que pueden desencadenar varias acciones dentro o fuera de Azure. Dentro de Azure, puede iniciar runbooks de Azure Automation, Azure Function o Azure Logic Apps. La URL de terceros de ejemplo fuera de Azure incluye servicios como Slack y Twilio.
 
-## <a name="autoscale-settings"></a>Autoscale Settings
-Autoscale use the following terminology and structure. 
+## <a name="autoscale-settings"></a>Configuración de escalado automático
+El escalado automático utiliza la siguiente terminología y estructura.
 
-* An **autoscale setting** is read by the autoscale engine to determine whether to scale up or down. It contains one or more profiles, information about the target resource, and notification settings.
-  * An **autoscale profile** is a combination of a capacity setting, a set of rules governing the triggers, and scale actions for the profile, and a recurrence. You can have multiple profiles, which allow you to take care of different overlapping requirements. 
-    * A **capacity setting** indicates the minimum, maximum, and default values for number of instances. [appropriate place to use fig 1]
-    * A **rule** includes a trigger—either a metric trigger or a time trigger—and a scale action, indicating whether autoscale should scale up or down when that rule is satisfied. 
-    * A **recurrence** indicates when autoscale should put this profile into effect. You can have different autoscale profiles for different times of day or days of the week, for example.
-* A **notification setting** defines what notifications should occur when an autoscale event occurs based on satisfying the criteria of one of the autoscale setting’s profiles. Autoscale can notify one or more email addresses or make calls to one or more webhooks.
+* El motor de escalado automático lee la **configuración de escalado automático** para determinar si se debe escalar hacia arriba o hacia abajo. Contiene uno o más perfiles, información sobre el recurso de destino y la configuración de las notificaciones.
+  * Un **perfil de escalado automático** es una combinación de una configuración de capacidad, un conjunto de reglas que rigen los desencadenadores, acciones de escalado para el perfil y una periodicidad. Puede tener varios perfiles, lo cual le permitirá ocuparse de diferentes requisitos coincidentes.
+    * La **configuración de capacidad** indica el los valores mínimo, máximo y predeterminados para el número de instancias. [lugar adecuado para utilizar la fig. 1]
+    * Las **reglas** incluyen desencadenadores (ya sea de métricas o de tiempo) y una acción de escalado, que indican si el escalado automático debe dirigirse hacia arriba o hacia abajo cuando se cumpla esta regla.
+    * La **periodicidad** indica cuándo el escalado automático debe hacer entrar en vigor el perfil. Puede tener perfiles de escalado automático diferentes, por ejemplo, para distintos momentos del día o días de la semana.
+* La **configuración de las notificaciones** define qué notificaciones deben aparecer cuando se produce un evento de escalado automático en función de los criterios de los perfiles de configuración de escalado automático que cumpla. Con el escalado automático se pueden notificar a una o más direcciones de correo electrónico o realizar llamadas a uno o más webhooks.
 
-![Azure autoscale setting, profile, and rule structure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
+![Configuración, perfil y estructura de las reglas de escalado automático de Azure](./media/monitoring-autoscale-overview/AzureResourceManagerRuleStructure3.png)
 
-The full list of configurable fields and descriptions is available in the [Autoscale REST API](https://msdn.microsoft.com/library/dn931928.aspx).
+La lista íntegra de campos y descripciones configurables se encuentra en la [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931928.aspx).
 
-For code examples, see
+Para ver ejemplos de código, consulte los siguientes artículos:
 
-* [Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx) 
+* [Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escala de máquina virtual](insights-advanced-autoscale-virtual-machine-scale-sets.md)  
+* [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
 
-## <a name="horizontal-vs-vertical-scaling"></a>Horizontal vs vertical scaling
-Autoscale increases resources in only scales horizontally, which is an increase ("out") or decrease ("in") in the number of VM instances.  Horizontal scaling, which is more flexible in a cloud situation as it allows you to run potentially thousands of VMs to handle load. Vertical scaling is different. It keeps the same number of VMs, but makes the VM more ("up") or less ("down") powerful. Power is measured in memory, CPU speed, disk space, etc.  Vertical scaling has more limitations. It's dependent on the availability of larger hardware, which can vary by region and quickly hits and upper limit. Vertical scaling also usually requires a VM stop and start. For more information, see [Vertically scale Azure virtual machine with Azure Automation](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md). 
+## <a name="horizontal-vs-vertical-scaling"></a>Escalado horizontal frente a escalado vertical
+El escalado automático aumenta los recursos únicamente en horizontal, lo que supone el aumento o la reducción del número de instancias de máquina virtual.  El escalado horizontal (más flexible en un entorno en la nube) permite ejecutar miles de máquinas virtuales para administrar la carga. El escalado vertical es diferente. Mantiene el mismo número de máquinas virtuales, pero hace que sean más o menos potentes. La potencia se mide en memoria, velocidad de CPU, espacio en disco, etc.  El escalado vertical tiene más limitaciones, ya que depende de la disponibilidad de hardware de mayor tamaño, que puede variar según la región y que supera el límite rápidamente. El escalado vertical también suele requerir que se detenga e inicie una máquina virtual. Para obtener más información, consulte [Escalado vertical de máquinas virtuales de Azure con Automatización de Azure](../virtual-machines/virtual-machines-linux-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-## <a name="methods-of-access"></a>Methods of access
-You can set up autoscale via 
+## <a name="methods-of-access"></a>Métodos de acceso
+Puede configurar el escalado automático en los siguientes lugares:
 
-* [Azure portal](../azure-portal/insights-how-to-scale.md)
-* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings) 
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md#autoscale)
-* [Insights REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
+* [Portal de Azure](insights-how-to-scale.md)
+* [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md#autoscale)
+* [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
-## <a name="supported-services-for-autoscale"></a>Supported services for autoscale
-| Service | Schema & Docs |
+## <a name="supported-services-for-autoscale"></a>Servicios compatibles con el escalado automático
+| Servicio | Esquema y documentos |
 | --- | --- |
-| Web Apps |[Scaling Web Apps](../azure-portal/insights-how-to-scale.md) |
-| Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale.md) |
-| Virtual Machines : Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines : Windows Scale Sets |[Scaling VM Scale Sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines : Linux Scale Sets |[Scaling VM Scale Sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
-| Virtual Machines : Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
+| Aplicaciones web |[Escalado en Web Apps](insights-how-to-scale.md) |
+| Servicios en la nube |[Escalado automático de un servicio en la nube](../cloud-services/cloud-services-how-to-scale.md) |
+| Virtual Machines: clásico |[Escalado de conjuntos de disponibilidad clásicos de máquina virtual](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtual Machines: conjuntos de escalado de Windows |[Escalado de conjuntos de disponibilidad de máquina virtual en Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Virtual Machines : conjuntos de escalado de Linux |[Escalado de conjuntos de disponibilidad de máquina virtual en Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: ejemplo de Windows |[Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escala de máquina virtual](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
-## <a name="next-steps"></a>Next steps
-To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources: 
+## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre el escalado automático, consulte los tutoriales de escalado automático anteriores o los siguientes recursos:
 
-* [Azure Insights autoscale common metrics](insights-autoscale-common-metrics.md)
-* [Best practices for Azure Insights autoscale](insights-autoscale-best-practices.md)
-* [Use autoscale actions to send email and webhook alert notifications](insights-autoscale-to-webhook-email.md)
-* [Autoscale REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [Troubleshooting Virtual Machine Scale Sets Autoscale](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md) 
+* [Métricas comunes de escalado automático de Azure Monitor](insights-autoscale-common-metrics.md)
+* [Procedimientos recomendados de escalado automático en Azure Monitor](insights-autoscale-best-practices.md)
+* [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](insights-autoscale-to-webhook-email.md)
+* [API de REST de escalado automático](https://msdn.microsoft.com/library/dn931953.aspx)
+* [Solución de problemas de escalado automático de conjuntos de escalado de máquinas virtuales](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

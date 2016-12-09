@@ -1,12 +1,12 @@
 ---
-title: Patrón de aplicación web multiempresa | Microsoft Docs
-description: Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure.
-services: ''
+title: "Patrón de aplicación web multiinquilino | Microsoft Docs"
+description: "Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure."
+services: 
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c1614eeac922a4fc496be77b4d1d1588f28b4284
+
 
 ---
-# Aplicaciones multiempresa en Azure
+# <a name="multitenant-applications-in-azure"></a>Aplicaciones multiempresa en Azure
 Una aplicación multiempresa es un recurso compartido que permite a usuarios independientes, o "inquilinos", ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiempresa es aquel en que todos los usuarios de la aplicación pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.
 
 Desde la perspectiva del proveedor de una aplicación, los beneficios de la arquitectura multiempresa se relacionan principalmente con la eficacia operativa y de costes. Una versión de la aplicación puede satisfacer las necesidades de muchos inquilinos/clientes, de manera que se permita la consolidación de las tareas de administración del sistema, como la supervisión, el ajuste del rendimiento, el mantenimiento del software y las copias de seguridad de los datos.
 
 A continuación se ofrece una lista de los objetivos y los requisitos más importantes desde la perspectiva de un proveedor.
 
-* **Aprovisionamiento**: debe tener la capacidad de aprovisionar nuevos inquilinos para la aplicación. En aplicaciones multiempresa con un gran número de inquilinos, suele ser necesario automatizar este proceso mediante la habilitación del aprovisionamiento de autoservicio.
+* **Aprovisionamiento**: debe tener la capacidad de aprovisionar nuevos inquilinos para la aplicación.  En aplicaciones multiempresa con un gran número de inquilinos, suele ser necesario automatizar este proceso mediante la habilitación del aprovisionamiento de autoservicio.
 * **Mantenimiento**: bebe tener la capacidad de actualizar la aplicación y ejecutar otras tareas de mantenimiento mientras varios inquilinos la utilizan.
 * **Supervisión**: debe tener la capacidad de supervisar la aplicación en todo momento para identificar todos los problemas y solucionarlos. Esto comprende supervisar el uso que cada inquilino hace de la aplicación.
 
@@ -33,11 +37,11 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 * **Disponibilidad**: los inquilinos individuales desean que la aplicación esté constantemente disponible, quizá con garantías definidas en un contrato de nivel de servicio. De nuevo, las actividades de otros inquilinos no deben afectar a la disponibilidad de la aplicación.
 * **Escalabilidad**: la aplicación se escala para satisfacer la demanda de cada uno de los inquilinos. La presencia y las acciones de otros inquilinos no deben afectar al rendimiento de la aplicación.
 * **Costes**: los costes son más bajos en comparación con la ejecución de una aplicación dedicada de un solo inquilino, ya que la arquitectura multiempresa permite compartir recursos.
-* **Personalización**: la capacidad de personalizar la aplicación para un inquilino individual de varias formas, como agregar o eliminar características, cambiar el color y los logotipos o incluso agregar su propio código o script.
+* **Personalización**. la capacidad de personalizar la aplicación para un inquilino individual de varias formas, como agregar o eliminar características, cambiar el color y los logotipos o incluso agregar su propio código o script.
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de las consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hospedaje de una aplicación multiempresa en Azure][Hospedaje de una aplicación multiempresa en Azure]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md).
+Para más información sobre las consideraciones de diseño adicionales de una aplicación multiinquilino, consulte [Hospedaje de una aplicación multiempresa en Azure][Hospedaje de una aplicación multiempresa en Azure]. Para obtener información sobre los patrones comunes de la arquitectura de datos de aplicaciones de base de datos de software como servicio (SaaS) multiinquilino, consulte [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -46,7 +50,7 @@ Azure ofrece muchas características que le permiten solucionar los principales 
 * Segmentación de inquilinos de sitios web mediante encabezados host con o sin comunicación de SSL
 * Segmentar inquilinos de sitio web según parámetros de consulta
 * Servicios web en roles de trabajo
-  * Roles de trabajo que suelen procesar datos en el back-end de una aplicación
+  * Roles de trabajo que suelen procesar datos en el back-end de una aplicación.
   * Roles web que suelen actuar como el front-end de las aplicaciones
 
 **Almacenamiento**
@@ -87,6 +91,10 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 <!--links-->
 
 [Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
+[Diseño de aplicaciones multiinquilino en Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

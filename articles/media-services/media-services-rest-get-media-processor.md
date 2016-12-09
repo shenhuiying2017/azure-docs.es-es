@@ -1,12 +1,12 @@
 ---
-title: Creación de un procesador de multimedia | Microsoft Docs
+title: "Creación de un procesador de multimedia | Microsoft Docs"
 description: Aprenda a crear un componente de procesador de multimedia para codificar, cifrar, descifrar o convertir el formato de contenido multimedia para Servicios multimedia de Azure.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 60458091f8c60eb1d726508724fc96eb0145e3bc
+
 
 ---
-# <a name="how-to:-get-a-media-processor-instance"></a>Obtención de una instancia de procesador multimedia
+# <a name="how-to-get-a-media-processor-instance"></a>Obtención de una instancia de procesador multimedia
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
@@ -91,6 +95,9 @@ Respuesta:
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que sabe cómo obtener una instancia de procesador multimedia, consulte el tema sobre la [codificación de un recurso](media-services-rest-get-started.md) , que le mostrará cómo utilizar el servicio Media Encoder estándar para codificar un recurso.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

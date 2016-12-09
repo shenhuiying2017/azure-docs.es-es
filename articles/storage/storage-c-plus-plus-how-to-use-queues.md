@@ -1,12 +1,12 @@
 ---
-title: Cómo usar el almacenamiento de colas (C++) | Microsoft Docs
-description: Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++.
+title: Udo de Queue Storage (C++) | Microsoft Docs
+description: "Aprenda a usar el servicio de almacenamiento de colas en Azure. Los ejemplos están escritos en C++."
 services: storage
 documentationcenter: .net
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
-
+ms.assetid: c8a36365-29f6-404d-8fd1-858a7f33b50a
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: dineshm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b0feed16040d0243138b632a192335f30c888e22
+
 
 ---
-# <a name="how-to-use-queue-storage-from-c++"></a>Uso del almacenamiento de colas de C++
+# <a name="how-to-use-queue-storage-from-c"></a>Uso del almacenamiento de colas de C++
 [!INCLUDE [storage-selector-queue-include](../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -33,7 +37,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 [!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
 
-## <a name="create-a-c++-application"></a>Creación de una aplicación de C++
+## <a name="create-a-c-application"></a>Creación de una aplicación de C++
 En esta guía, usará las características de almacenamiento que se pueden ejecutar en una aplicación C++.
 
 Para ello, deberá instalar la biblioteca de cliente de almacenamiento de Azure para C++ y crear una cuenta de almacenamiento de Azure en su suscripción de Azure.
@@ -43,7 +47,7 @@ Para instalar la biblioteca de cliente de almacenamiento de Azure para C++, pued
 * **Linux:** siga las instrucciones indicadas en la página [Léame de la biblioteca de cliente de almacenamiento de Azure para C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) .
 * **Windows:** en Visual Studio, haga clic en **Herramientas > Administrador de paquetes de NuGet > Consola del Administrador de paquetes**. Escriba el siguiente comando en la [Consola del Administrador de paquetes de NuGet](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) y presione **ENTRAR**.
   
-      Install-Package wastorage
+     Install-Package wastorage
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configuración de la aplicación para obtener acceso al almacenamiento en cola
 Agregue las siguientes instrucciones include en la parte superior del archivo C++ en el que desea usar las API de almacenamiento de Azure para obtener acceso a las colas:  
@@ -72,7 +76,7 @@ Puede usar la clase **cloud_storage_account** para representar la información d
     // Retrieve storage account from connection string.
     azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 
-## <a name="how-to:-create-a-queue"></a>Creación de una cola
+## <a name="how-to-create-a-queue"></a>Creación de una cola
 Los objetos **cloud_queue_client** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **cloud_queue_client**.
 
     // Retrieve storage account from connection string.
@@ -87,9 +91,9 @@ Use el objeto **cloud_queue_client** para obtener una referencia a la cola que d
     azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sample-queue"));
 
     // Create the queue if it doesn't already exist.
-    queue.create_if_not_exists();  
+     queue.create_if_not_exists();  
 
-## <a name="how-to:-insert-a-message-into-a-queue"></a>Cómo insertar un mensaje en una cola
+## <a name="how-to-insert-a-message-into-a-queue"></a>Cómo insertar un mensaje en una cola
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **cloud_queue_message**. A continuación, llame al método **add_message**. Se puede crear un **cloud_queue_message** a partir de una cadena o de una matriz de **byte**. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo":
 
     // Retrieve storage account from connection-string.
@@ -108,7 +112,7 @@ Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **
     azure::storage::cloud_queue_message message1(U("Hello, World"));
     queue.add_message(message1);  
 
-## <a name="how-to:-peek-at-the-next-message"></a>Cómo ojear el siguiente mensaje
+## <a name="how-to-peek-at-the-next-message"></a>Cómo ojear el siguiente mensaje
 Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, llamando al método **peek_message**.
 
     // Retrieve storage account from connection-string.
@@ -126,7 +130,7 @@ Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo d
     // Output the message content.
     std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 
-## <a name="how-to:-change-the-contents-of-a-queued-message"></a>Cómo cambiar el contenido de un mensaje en cola
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Cómo cambiar el contenido de un mensaje en cola
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede usar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de n veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
     // Retrieve storage account from connection-string.
@@ -150,7 +154,7 @@ Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje represe
     // Output the message content.
     std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 
-## <a name="how-to:-de-queue-the-next-message"></a>Cómo extraer el siguiente mensaje de la cola
+## <a name="how-to-de-queue-the-next-message"></a>Cómo extraer el siguiente mensaje de la cola
 El código quita un mensaje de una cola en dos pasos. Si se llama a **get_message**, obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **get_message** se hace invisible a cualquier otro código que lea mensajes de esta cola. Para terminar quitando el mensaje de la cola, también debe llamar a **delete_message**. Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **delete_message** justo después de que se haya procesado el mensaje.
 
     // Retrieve storage account from connection-string.
@@ -169,8 +173,8 @@ El código quita un mensaje de una cola en dos pasos. Si se llama a **get_messag
     // Delete the message.
     queue.delete_message(dequeued_message);
 
-## <a name="how-to:-leverage-additional-options-for-de-queuing-messages"></a>Cómo usar las opciones adicionales para quitar mensajes de la cola
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **get_messages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for** . También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de que pasen los 5 minutos desde la llamada a **get_messages**, todos los mensajes que no se han eliminado volverán a estar visibles.
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Cómo usar las opciones adicionales para quitar mensajes de la cola
+Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **get_messages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for** . También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de que pasen los 5 minutos desde la llamada a **get_messages**, todos los mensajes que no se han eliminado volverán a estar visibles.
 
     // Retrieve storage account from connection-string.
     azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -195,7 +199,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
         std::wcout << U("Get: ") << it->content_as_string() << std::endl;
     }
 
-## <a name="how-to:-get-the-queue-length"></a>Cómo obtener la longitud de la cola
+## <a name="how-to-get-the-queue-length"></a>Cómo obtener la longitud de la cola
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **download_attributes** solicita a Queue service la recuperación de los atributos de la cola, incluido el número de mensajes. El método **approximate_message_count** obtiene el número aproximado de mensajes en la cola.
 
     // Retrieve storage account from connection-string.
@@ -216,7 +220,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
     // Display number of messages.
     std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 
-## <a name="how-to:-delete-a-queue"></a>Cómo eliminar una cola
+## <a name="how-to-delete-a-queue"></a>Cómo eliminar una cola
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete_queue_if_exists** en el objeto de cola.
 
     // Retrieve storage account from connection-string.
@@ -240,6 +244,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de co
 * [Referencia de la biblioteca de clientes de almacenamiento para C++](http://azure.github.io/azure-storage-cpp)
 * [Documentación de Almacenamiento de Azure](https://azure.microsoft.com/documentation/services/storage/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

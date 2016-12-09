@@ -1,12 +1,12 @@
 ---
-title: Clonación de aplicaciones web con PowerShell
+title: "Clonación de aplicaciones web con PowerShell"
 description: Aprenda a clonar sus aplicaciones web en nuevas aplicaciones web con PowerShell.
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: ahmedelnably
 manager: stefsch
-editor: ''
-
+editor: 
+ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: ahmedelnably
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
+
 
 ---
-# Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante PowerShell
+# <a name="azure-app-service-app-cloning-using-powershell"></a>Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante PowerShell
 Con el lanzamiento de Microsoft Azure PowerShell versión 1.1.0, se ha agregado una nueva opción a New-AzureRMWebApp que podría proporcionar al usuario la capacidad para clonar una aplicación web existente en una aplicación recién creada de una región diferente o de la misma. Esto permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
 
 La clonación de aplicaciones actualmente solo se admite para los planes de Servicio de aplicaciones de nivel Premium. La nueva característica cuenta con las mismas limitaciones que la característica de copia de seguridad de aplicaciones web; consulte [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-Para obtener información acerca del uso de cmdlets de Azure PowerShell basados en Azure Resource Manager para administrar aplicaciones web, consulte [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps](app-service-web-app-azure-resource-manager-powershell.md) (Uso de Powershell basado en Azure Resource Manager para administrar aplicaciones web de Microsoft Azure)
+Para obtener información acerca del uso de cmdlets de Azure PowerShell basados en Azure Resource Manager para administrar aplicaciones web, consulte [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps](app-service-web-app-azure-resource-manager-powershell.md)
 
-## Clonación de una aplicación existente
+## <a name="cloning-an-existing-app"></a>Clonación de una aplicación existente
 Escenario: Una aplicación web existente en la región centro-sur de EE. UU.; el usuario desea clonar el contenido en una nueva aplicación web en la región centro-norte de EE. UU. Esto puede realizarse mediante la versión Azure Resource Manager del cmdlet de PowerShell para crear una nueva aplicación web con la opción -SourceWebApp.
 
 Conociendo el nombre del grupo de recursos que contiene la aplicación web de origen, podemos usar el siguiente comando de PowerShell para obtener la información de la aplicación web de origen (en este caso, llamada source-webapp):
@@ -48,7 +52,7 @@ Para clonar una aplicación web existente en la misma región, el usuario deber�
 
     $destapp = New-AzureRmWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan NewAppServicePlan -SourceWebApp $srcap
 
-## Clonación de una aplicación existente en un entorno de Servicio de aplicaciones
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonación de una aplicación existente en un entorno de Servicio de aplicaciones
 Escenario: Una aplicación web existente en la región centro-sur de EE. UU.; el usuario desea clonar el contenido en una nueva aplicación web en un entorno de Servicio de aplicaciones (ASE) existente.
 
 Conociendo el nombre del grupo de recursos que contiene la aplicación web de origen, podemos usar el siguiente comando de PowerShell para obtener la información de la aplicación web de origen (en este caso, llamada source-webapp):
@@ -59,9 +63,9 @@ Conociendo el nombre del ASE y el nombre del grupo de recursos al que este perte
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -ASEName DestinationASE -ASEResourceGroupName DestinationASEResourceGroupName -SourceWebApp $srcapp
 
-El parámetro Location es necesario por un motivo heredado, pero se pasará por alto cuando se cree una aplicación en un ASE.
+El parámetro Location es necesario por un motivo heredado, pero se pasará por alto cuando se cree una aplicación en un ASE. 
 
-## Clonación de una ranura de aplicación existente
+## <a name="cloning-an-existing-app-slot"></a>Clonación de una ranura de aplicación existente
 Escenario: El usuario desea clonar una ranura de aplicación web existente en una nueva aplicación web o una nueva ranura de aplicación web. La nueva aplicación web puede estar en la misma región que la ranura de aplicación web original o en una distinta.
 
 Conociendo el nombre del grupo de recursos que contiene la aplicación web de origen, podemos usar el siguiente comando de PowerShell para obtener la información de la ranura de aplicación web de origen (en este caso, llamada source-webappslot) vinculada a la aplicación web source-webapp:
@@ -72,15 +76,15 @@ A continuación, se muestra la creación de un clon de la aplicación web de ori
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcappslot
 
-## Configuración del Administrador de tráfico durante la clonación de una aplicación
+## <a name="configuring-traffic-manager-while-cloning-a-app"></a>Configuración del Administrador de tráfico durante la clonación de una aplicación
 La creación de aplicaciones web de varias regiones y la configuración del Administrador de tráfico de Azure para enrutar el tráfico a todas estas aplicaciones web son escenarios importantes para asegurarse de que las aplicaciones de los clientes son de alta disponibilidad; al clonar una aplicación web existente, tiene la opción de conectar ambas aplicaciones web a un perfil nuevo del Administrador de tráfico nuevo, o a uno existente. Tenga en cuenta que solo se admite la versión de Azure Resource Manager del Administrador de tráfico.
 
-### Creación de un nuevo perfil del Administrador de tráfico durante la clonación de una aplicación
+### <a name="creating-a-new-traffic-manager-profile-while-cloning-a-app"></a>Creación de un nuevo perfil del Administrador de tráfico durante la clonación de una aplicación
 Escenario: el usuario desea clonar una aplicación web en otra región, al mismo tiempo que configura un perfil del Administrador de tráfico de Azure Resource Manager que incluya ambas aplicaciones web. Lo siguiente demuestra la creación de un clon de la aplicación web de origen en una nueva aplicación web al tiempo que se configura un nuevo perfil del Administrador de tráfico:
 
     $destapp = New-AzureRmWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileName newTrafficManagerProfile
 
-### Incorporación de una nueva aplicación web clonada a un perfil del Administrador de tráfico existente
+### <a name="adding-new-cloned-web-app-to-an-existing-traffic-manager-profile"></a>Incorporación de una nueva aplicación web clonada a un perfil del Administrador de tráfico existente
 Escenario: el usuario ya tiene un perfil de Administrador de tráfico de Azure Resource Manager al que quiere agregar tanto aplicaciones web como puntos de conexión. Para hacerlo, primero es necesario ensamblar el identificador del perfil del Administrador de tráfico existente; se necesitará el identificador de la suscripción, el nombre del grupo de recursos y el nombre del perfil del Administrador de tráfico existente.
 
     $TMProfileID = "/subscriptions/<Your subscription ID goes here>/resourceGroups/<Your resource group name goes here>/providers/Microsoft.TrafficManagerProfiles/ExistingTrafficManagerProfileName"
@@ -89,7 +93,7 @@ Después de obtener el identificador del Administrador de tráfico, lo siguiente
 
     $destapp = New-AzureRmWebApp -ResourceGroupName <Resource group name> -Name dest-webapp -Location "South Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -TrafficManagerProfileId $TMProfileID
 
-## Restricciones actuales
+## <a name="current-restrictions"></a>Restricciones actuales
 Esta característica se encuentra actualmente en versión preliminar y estamos trabajando para agregar nueva funcionalidad con el tiempo. En la siguiente lista, se incluyen las restricciones conocidas de la versión actual de la clonación de aplicaciones:
 
 * No se clona la configuración de escalado automático.
@@ -101,12 +105,17 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 * No se clonan las reglas de TiP.
 * No se clona el contenido de la base de datos
 
-### Referencias
+### <a name="references"></a>Referencias
 * [Comandos de PowerShell basados en Azure Resource Manager para aplicación web de Azure](app-service-web-app-azure-resource-manager-powershell.md)
 * [Clonación de aplicaciones web con el Portal de Azure](app-service-web-app-cloning-portal.md)
 * [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
-* [Compatibilidad del Administrador de recursos de Azure con la vista previa del Administrador de tráfico de Azure](../traffic-manager/traffic-manager-powershell-arm.md)
+* [Compatibilidad de Azure Resource Manager con Traffic Manager (versión preliminar)](../traffic-manager/traffic-manager-powershell-arm.md)
 * [Introducción al entorno del Servicio de aplicaciones](app-service-app-service-environment-intro.md)
-* [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
+* [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

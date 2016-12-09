@@ -1,12 +1,12 @@
 ---
-title: Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady | Microsoft Docs
-description: Este tema ofrece información general y muestra cómo usar Azure Media Services para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes.
+title: "Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady | Microsoft Docs"
+description: "Este tema ofrece información general y muestra cómo usar Azure Media Services para cifrar dinámicamente el contenido HTTP Live Streaming (HLS) con Apple FairPlay. También muestra cómo utilizar el servicio de entrega de licencias de Servicios multimedia para entregar licencias de FairPlay a los clientes."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+
 
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-and/or-microsoft-playready"></a>Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady
+# <a name="protect-your-hls-content-with-apple-fairplay-andor-microsoft-playready"></a>Protección del contenido HLS con Apple FairPlay o Microsoft PlayReady
 Servicios multimedia de Azure permite cifrar dinámicamente el contenido HTTP Live Streaming (HLS) mediante los siguientes formatos:  
 
-* **Clave sin cifrado de sobre AES-128** 
-  
+* **Clave sin cifrado de sobre AES-128**
+
     El fragmento completo se cifra mediante el modo **AES-128 CBC** . El reproductor de OSX e iOS admite el descifrado de la transmisión de forma nativa. Para obtener más información, consulte [este artículo](media-services-protect-with-aes128.md).
-* **Apple FairPlay** 
-  
+* **Apple FairPlay**
+
     Las muestras de audio y vídeo individuales se cifran mediante el modo **AES-128 CBC** . **FairPlay Streaming** (FPS) se integra en los sistemas operativos de dispositivos, con compatibilidad nativa en iOS y TV de Apple. Safari en OS X permite FPS mediante la compatibilidad con la interfaz Encrypted Media Extensions (EME).
 * **Microsoft PlayReady**
 
@@ -35,89 +39,90 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 
 > [!NOTE]
 > Si también quiere cifrar el contenido HLS con PlayReady, debe crear una clave de contenido común y asociarla con el recurso. También debe configurar la directiva de autorización de la clave de contenido, como se describe en el tema [Uso de cifrado dinámico común de PlayReady](media-services-protect-with-drm.md) .
-> 
-> 
+>
+>
 
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones
 * Se necesita lo siguiente para usar AMS para proporcionar HLS cifrado con FairPlay y entregar licencias de FairPlay.
-  
+
   * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
   * Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
   * Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
-  * En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay. 
+  * En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay.
   * Versión **3.6.0** del SDK .NET de Servicios multimedia de Azure.
 * En la entrega de claves de AMS se debe establecer lo siguiente:
-  
-  * **Certificación de aplicaciones (AC)** : archivo .pfx que contiene la clave privada. Este archivo lo crea el cliente y lo cifra el mismo cliente mediante una contraseña+. 
-    
-      Cuando el cliente configura la directiva de entrega de claves, debe proporcionar esa contraseña y el archivo .pfx en formato base64.
-    
+
+  * **Certificación de aplicaciones (AC)** : archivo .pfx que contiene la clave privada. Este archivo lo crea el cliente y lo cifra el mismo cliente mediante una contraseña+.
+
+       Cuando el cliente configura la directiva de entrega de claves, debe proporcionar esa contraseña y el archivo .pfx en formato base64.
+
       En los pasos siguientes se describe cómo generar un certificado pfx para FairPlay.
-    
+
     1. Instalación de OpenSSL desde https://slproweb.com/products/Win32OpenSSL.html
-       
+
         Vaya a la carpeta donde están los certificados FairPlay y otros archivos cuyo emisor sea Apple.
     2. Línea de comandos para convertir archivos CER en PEM:
-       
+
         "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
     3. Línea de comandos para convertir archivos PEM en PFX con la clave privada (OpenSSL solicita la contraseña del archivo pfx).
-       
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt 
+
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
   * **Contraseña de certificación de aplicaciones** : contraseña del cliente para crear el archivo .pfx.
   * **Identificador de contraseña de certificación de aplicaciones**: el cliente debe cargar la contraseña de forma similar a otras claves de AMS y mediante el valor de enumeración **ContentKeyType.FairPlayPfxPassword**. Como resultado se obtendrá el identificador de AMS, que es lo que se necesita usar dentro de la opción de directiva de entrega de claves.
-  * **iv**: valor aleatorio de 16 bytes que debe coincidir con el IV de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves. 
-  * **ASK** : la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante. 
+  * **iv**: valor aleatorio de 16 bytes que debe coincidir con el IV de la directiva de entrega de recursos. El cliente genera el IV y lo pone en ambos lugares: en la directiva de entrega de recursos y en la opción de directiva de entrega de claves.
+  * **ASK** : la clave secreta de la aplicación (ASK, Application Secret Key) se recibe cuando se genera la certificación mediante el portal para desarrolladores de Apple (Apple Developer). Cada equipo de desarrollo recibirá una única ASK. Guarde una copia de la ASK y almacénela en un lugar seguro. Debe configurar ASK como FairPlayAsk en Servicios multimedia de Azure más adelante.
   * **Identificador de ASK** : se obtiene cuando el cliente carga ASk en AMS. El cliente debe cargar ASk mediante el valor de enumeración **ContentKeyType.FairPlayASk** . Como resultado, se obtiene el identificador de AMS, que debe utilizarse al establecer la opción de directiva de entrega de claves.
 * En el lado cliente FPS se debe establecer lo siguiente:
-  
+
   * **Certificación de aplicaciones (AC)** : archivo .cer o .der que contiene la clave pública que utiliza el SO para cifrar algunas cargas. AMS necesita tener información sobre él porque lo necesita el reproductor. El servicio de entrega de claves lo descifra utilizando la clave privada correspondiente.
 * Para reproducir una transmisión cifrada FairPlay, necesita obtener primero la ASK real y luego generar un certificado real. Este proceso crea todas las tres partes:
-  
-  * .der, 
-  * .pfx y 
+
+  * .der,
+  * .pfx y
   * la contraseña para el archivo .pfx.
 * Clientes compatibles con HLS con cifrado **AES-128 CBC** : Safari en OS X, TV Apple e iOS.
 
 ## <a name="steps-for-configuring-fairplay-dynamic-encryption-and-license-delivery-services"></a>Pasos para configurar el cifrado dinámico y los servicios de entrega de licencias de FairPlay
 Estos son los pasos generales que deberá realizar cuando proteja los recursos con FairPlay, mediante el servicio de entrega de licencias de Servicios multimedia y también mediante cifrado dinámico.
 
-1. Creación de un recurso y carga de los archivos en el recurso. 
+1. Creación de un recurso y carga de los archivos en el recurso.
 2. Codificación del recurso que contiene el archivo con Adaptive Bitrate MP4 Set.
 3. Creación de una clave de contenido y su asociación con el recurso codificado.  
-4. Configuración de la directiva de autorización de la clave de contenido. Al crear la directiva de autorización de claves de contenido, necesita especificar lo siguiente: 
-   
-   * Método de entrega (en este caso, FairPlay) 
+4. Configuración de la directiva de autorización de la clave de contenido. Al crear la directiva de autorización de claves de contenido, necesita especificar lo siguiente:
+
+   * Método de entrega (en este caso, FairPlay)
    * Configuración de opciones de directiva de FairPlay. Para más detalles sobre cómo configurar FairPlay, consulte el método ConfigureFairPlayPolicyOptions() en el siguiente ejemplo.
-     
+
      > [!NOTE]
      > En general, lo más seguro es que desee configurar las opciones de directiva de FairPlay solo una vez, ya que solo tendrá un conjunto de certificados y ASK.
-     > 
-     > 
-5. restricciones (abiertas y token) y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente. 
-6. Configure la directiva de entrega de recursos. La configuración de directiva de entrega incluye: 
-   
-   * Protocolo de entrega (HLS), 
-   * El tipo de cifrado dinámico (cifrado CBC común), 
-   * Direcciones URL de adquisición de licencias. 
-     
-     > [!NOTE]
-     > Si desea entregar una transmisión que se cifra con FairPlay + otro DRM, tiene que configurar directivas de entrega independientes: 
-     > 
-     > * Una IAssetDeliveryPolicy para configurar DASH con CENC (PlayReady + WideVine) y Smooth con PlayReady. 
-     > * Otra IAssetDeliveryPolicy para configurar FairPlay para HLS
-     > 
-     > 
-7. Creación de un localizador a petición para obtener una URL de streaming.
+     >
+     >
+   * Restricciones (abiertas o token),
+   * Y la información específica del tipo de entrega de claves que define cómo se entrega la clave al cliente.
+5. Configure la directiva de entrega de recursos. La configuración de directiva de entrega incluye:
 
-## <a name="using-fairplay-key-delivery-by-player/client-apps"></a>Uso de la entrega de la clave FairPlay de aplicaciones cliente/reproductor
-Los clientes podían desarrollar aplicaciones de reproductor con el SDK de iOS. Para poder reproducir el contenido de FairPlay, los clientes deben implementar el protocolo de intercambio de licencias. Apple no especifica el protocolo de intercambio de licencias. Depende de cada aplicación decidir cómo enviar las solicitudes de entrega de claves. Los servicios de entrega de claves de AMS FairPlay esperan que SPC funcione como mensaje de publicación codificado www-form-url con el formato siguiente: 
+   * Protocolo de entrega (HLS),
+   * El tipo de cifrado dinámico (cifrado CBC común),
+   * Direcciones URL de adquisición de licencias.
+
+     > [!NOTE]
+     > Si desea entregar una transmisión que se cifra con FairPlay + otro DRM, tiene que configurar directivas de entrega independientes:
+     >
+     > * Una IAssetDeliveryPolicy para configurar DASH con CENC (PlayReady + WideVine) y Smooth con PlayReady.
+     > * Otra IAssetDeliveryPolicy para configurar FairPlay para HLS
+     >
+     >
+6. Creación de un localizador a petición para obtener una URL de streaming.
+
+## <a name="using-fairplay-key-delivery-by-playerclient-apps"></a>Uso de la entrega de la clave FairPlay de aplicaciones cliente/reproductor
+Los clientes podían desarrollar aplicaciones de reproductor con el SDK de iOS. Para poder reproducir el contenido de FairPlay, los clientes deben implementar el protocolo de intercambio de licencias. Apple no especifica el protocolo de intercambio de licencias. Depende de cada aplicación decidir cómo enviar las solicitudes de entrega de claves. Los servicios de entrega de claves de AMS FairPlay esperan que SPC funcione como mensaje de publicación codificado www-form-url con el formato siguiente:
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Reproductor multimedia de Azure no admite la reproducción de FairPlay de fábrica. Los clientes tienen que obtener el reproductor de ejemplo de la cuenta de desarrollador de Apple para obtener la reproducción de FairPlay en MAC OSX. 
-> 
-> 
+> Reproductor multimedia de Azure no admite la reproducción de FairPlay de fábrica. Los clientes tienen que obtener el reproductor de ejemplo de la cuenta de desarrollador de Apple para obtener la reproducción de FairPlay en MAC OSX.
+>
+>
 
 ## <a name="streaming-urls"></a>Direcciones URL de streaming
 Si el recurso se cifró con más de un DRM, debe usar una etiqueta de cifrado en la dirección URL de streaming: (formato = 'm3u8-aapl', cifrado = 'xxx').
@@ -132,7 +137,7 @@ Se aplican las siguientes consideraciones:
   * **cbcs-aapl**: Fairplay
   * **cbc**: cifrado de sobre AES.
 
-## <a name=".net-example"></a>Ejemplo de .NET
+## <a name="net-example"></a>Ejemplo de .NET
 El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Servicios multimedia de Azure para la versión 3.6.0 de .Net (la capacidad de usar Servicios multimedia de Azure para entregar el contenido cifrado con FairPlay). El siguiente comando del paquete de Nuget se usó para instalar el paquete:
 
     PM> Install-Package windowsazure.mediaservices -Version 3.6.0
@@ -142,22 +147,22 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 2. Use NuGet para instalar y agregar el SDK de Servicios multimedia de Azure para .NET.
 3. Agregue referencias adicionales: System.Configuration.
 4. Agregue el archivo de configuración que contiene el nombre de cuenta y la información de clave:
-   
+
         <?xml version="1.0" encoding="utf-8"?>
         <configuration>
-            <startup> 
+            <startup>
                 <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
             </startup>
               <appSettings>
-   
+
                 <add key="MediaServicesAccountName" value="AccountName"/>
                 <add key="MediaServicesAccountKey" value="AccountKey"/>
-   
+
                 <add key="Issuer" value="http://testacs.com"/>
                 <add key="Audience" value="urn:test"/>
               </appSettings>
         </configuration>
-5. Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para obtener más información, consulte [Configuración de puntos de conexión de streaming](media-services-dotnet-get-started.md#configure-streaming-endpoint-using-the-portal).
+5. Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. Para obtener más información, consulte [Configuración de puntos de conexión de streaming](media-services-dotnet-get-started.md#configure-streaming-endpoints-using-the-azure-portal).
 6. Sobrescriba el código del archivo Program.cs con el código mostrado en esta sección.
 
         using System;
@@ -241,7 +246,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
                             TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
                         // Generate a test token based on the the data in the given TokenRestrictionTemplate.
-                        // Note, you need to pass the key id Guid because we specified 
+                        // Note, you need to pass the key id Guid because we specified
                         // TokenClaim.ContentKeyIdentifierClaim in during the creation of TokenRestrictionTemplate.
                         Guid rawkey = EncryptionUtils.GetKeyIdAsGuid(key.Id);
                         string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate, null, rawkey,
@@ -305,7 +310,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
                     ITask encodeTask = job.Tasks.AddNew("Encoding", latestMediaProcessor, encodingPreset, TaskOptions.None);
                     encodeTask.InputAssets.Add(inputAsset);
-                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),    AssetCreationOptions.StorageEncrypted);
+                    encodeTask.OutputAssets.AddNew(String.Format("{0} as {1}", inputAsset.Name, encodingPreset),     AssetCreationOptions.StorageEncrypted);
 
                     job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
                     job.Submit();
@@ -335,7 +340,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
                 static public void AddOpenAuthorizationPolicy(IContentKey contentKey)
                 {
-                    // Create ContentKeyAuthorizationPolicy with Open restrictions 
+                    // Create ContentKeyAuthorizationPolicy with Open restrictions
                     // and create authorization policy          
 
                     List<ContentKeyAuthorizationPolicyRestriction> restrictions = new List<ContentKeyAuthorizationPolicyRestriction>
@@ -411,7 +416,7 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
                 private static string ConfigureFairPlayPolicyOptions()
                 {
-                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK. 
+                    // For testing you can provide all zeroes for ASK bytes together with the cert from Apple FPS SDK.
                     // However, for production you must use a real ASK from Apple bound to a real prod certificate.
                     byte[] askBytes = Guid.NewGuid().ToByteArray();
                     var askId = Guid.NewGuid();
@@ -475,11 +480,11 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
                     Uri acquisitionUrl = key.GetKeyDeliveryUrl(ContentKeyDeliveryType.FairPlay);
 
                     // The reason the below code replaces "https://" with "skd://" is because
-                    // in the IOS player sample code which you obtained in Apple developer account, 
-                    // the player only recognizes a Key URL that starts with skd://. 
-                    // However, if you are using a customized player, 
-                    // you can choose whatever protocol you want. 
-                    // For example, "https". 
+                    // in the IOS player sample code which you obtained in Apple developer account,
+                    // the player only recognizes a Key URL that starts with skd://.
+                    // However, if you are using a customized player,
+                    // you can choose whatever protocol you want.
+                    // For example, "https".
 
                     Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
                         new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
@@ -509,23 +514,23 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
                 {
 
                     // Get a reference to the streaming manifest file from the  
-                    // collection of files in the asset. 
+                    // collection of files in the asset.
 
                     var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                                                  EndsWith(".ism")).
                                                  FirstOrDefault();
 
-                    // Create a 30-day readonly access policy. 
+                    // Create a 30-day readonly access policy.
                     IAccessPolicy policy = _context.AccessPolicies.Create("Streaming policy",
                         TimeSpan.FromDays(30),
                         AccessPermissions.Read);
 
-                    // Create a locator to the streaming content on an origin. 
+                    // Create a locator to the streaming content on an origin.
                     ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
                         policy,
                         DateTime.UtcNow.AddMinutes(-5));
 
-                    // Create a URL to the manifest file. 
+                    // Create a URL to the manifest file.
                     return originLocator.Path + assetFile.Name;
                 }
 
@@ -553,12 +558,14 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
         }
 
 
-## <a name="next-steps:-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
+## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

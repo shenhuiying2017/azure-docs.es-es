@@ -1,12 +1,12 @@
 ---
-title: Usar Hudson con Almacenamiento de blobs | Microsoft Docs
-description: Describe cómo usar Hudson con almacenamiento de blobs de Azure como un repositorio para artefactos de compilación.
+title: Uso de Hudson con Blob Storage | Microsoft Docs
+description: "Describe cómo usar Hudson con almacenamiento de blobs de Azure como un repositorio para artefactos de compilación."
 services: storage
 documentationcenter: java
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 119becdd-72c4-4ade-a439-070233c1e1ac
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: dinesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 37ad86ce34d7f9ed6642e6f0fa98cf5fbf26e8bc
+
 
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Uso del almacenamiento de Azure con una solución de integración continua Hudson
@@ -46,6 +50,7 @@ Para usar el servicio BLOB con la solución de integración continua Hudson, nec
   2. En un símbolo del sistema que se abre en la carpeta que contiene Hudson WAR, ejecute Hudson WAR. Por ejemplo, si ha descargado la versión 3.1.2:
      
       `java -jar hudson-3.1.2.war`
+
   3. En el explorador, abra `http://localhost:8080/`. Con esta acción se abre el panel de Hudson.
   4. Tras el primer uso de Hudson, realice la configuración inicial en `http://localhost:8080/`.
   5. Después de terminar la configuración inicial, cancele la instancia en ejecución de Hudson WAR, vuelva a iniciar Hudson WAR y vuelva a abrir el panel de Hudson, `http://localhost:8080/`, que usará para instalar y configurar el complemento de Almacenamiento de Azure.
@@ -91,12 +96,15 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 2. Asigne al trabajo el nombre **MyJob**, haga clic en **Build a free-style software job** (Compilar un trabajo de software de estilo libre) y, a continuación, haga clic en **OK** (Aceptar).
 3. En la sección **Build** (Compilar) de la configuración del trabajo, haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute Windows batch command** (Ejecutar comando por lotes de Windows).
 4. En **Command**(Comando), use los comandos siguientes:
-   
+
+    ```   
         md text
         cd text
         echo Hello Azure Storage from Hudson > hello.txt
         date /t > date.txt
         time /t >> date.txt
+    ```
+
 5. En la sección **Post-build Actions** (Acciones posteriores a la compilación) de la configuración del trabajo, haga clic en **Upload artifacts to Microsoft Azure Blob storage** (Cargar artefactos en el almacenamiento de blobs de Microsoft Azure).
 6. En **Storage account name**(Nombre de cuenta de almacenamiento), seleccione la cuenta de almacenamiento que desea usar.
 7. En **Container Name**(Nombre de contenedor), especifique el nombre del contenedor. (El contenedor se creará si aún no existe cuando se carguen los artefactos de compilación). Puede usar las variables de entorno, así que, para este ejemplo, escriba **${JOB_NAME}** como nombre del contenedor.
@@ -140,9 +148,9 @@ Después de ejecutar una compilación, puede comprobar la salida de la consola d
 ## <a name="components-used-by-the-blob-service"></a>Componentes usados por el servicio BLOB
 A continuación se ofrece información general acerca de los componentes del servicio BLOB.
 
-* **Cuenta de almacenamiento:**todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
+* **Cuenta de almacenamiento:**todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
 * **Contenedor**: un contenedor proporciona una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
-* **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **Blob**: archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para más información sobre los blobs, consulte [Descripción de los blobs en bloques, en anexos y en páginas](http://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **Formato de dirección URL**: los blobs son direccionables con el siguiente formato de dirección URL:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -162,6 +170,7 @@ A continuación se ofrece información general acerca de los componentes del ser
 
 Para obtener más información, consulte también el [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

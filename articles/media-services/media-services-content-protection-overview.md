@@ -1,12 +1,12 @@
 ---
-title: Información general de protección del contenido | Microsoft Docs
-description: En este artículo se ofrece información general de protección de contenido con Media Services.
+title: "Introducción a la protección de contenido | Microsoft Docs"
+description: "En este artículo se ofrece información general de protección de contenido con Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 81bc00e1-dcda-4d69-b9ab-8768b793422b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+
 
 ---
 # <a name="protecting-content-overview"></a>Información general de protección del contenido
@@ -51,7 +55,7 @@ Utilice el cifrado de almacenamiento para cifrar el contenido no cifrado de mane
 
 Para entregar a un recurso cifrado de almacenamiento, debe configurar la directiva de entrega del recurso para que Servicios multimedia sepa cómo desea entregar el contenido. Antes de poder transmitir el activo, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada (por ejemplo, AES, cifrado común o sin cifrado).
 
-## <a name="common-encryption-(cenc)"></a>Cifrado común (CENC)
+## <a name="common-encryption-cenc"></a>Cifrado común (CENC)
 El cifrado común se utiliza al cifrar el contenido con PlayReady o Widewine.
 
 ## <a name="using-cbcs-aapl-encryption"></a>Uso del cifrado cbcs-aapl
@@ -115,6 +119,6 @@ Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,143 +1,151 @@
 ---
-title: Overview of Monitoring in Microsoft Azure | Microsoft Docs
-description: Top level overview of monitoring and diagnostics in Microsoft Azure including alerts, webhooks, autoscale and more.
+title: "Información general sobre la supervisión en Microsoft Azure | Microsoft Docs"
+description: "Información general de la supervisión y los diagnósticos de Microsoft Azure, incluidas las alertas, los webhooks, el escalado automático, etc."
 author: rboucher
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
 ms.service: monitoring-and-diagnostics
-l: ''
+l: 
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: robb
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4a9e92330081bcf56b7e3755597f76d3530a823d
+
 
 ---
-# <a name="overview-of-monitoring-in-microsoft-azure"></a>Overview of Monitoring in Microsoft Azure
-This article provides a conceptual overview of monitoring Azure resources. It provides pointers to information on specific types of resources.  For high-level information on monitoring your application from non-Azure point of view, see [Monitoring and diagnostics guidance](../best-practices-monitoring.md).
+# <a name="overview-of-monitoring-in-microsoft-azure"></a>Información general sobre la supervisión en Microsoft Azure
+En este artículo se proporciona información general conceptual de la supervisión de recursos de Azure. Proporciona punteros a la información sobre determinados tipos de recursos.  Para obtener información detallada sobre la supervisión de las aplicaciones desde el punto de vista no de Azure, consulte [Guía de supervisión y diagnóstico](../best-practices-monitoring.md).
 
-Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones. In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
+Las aplicaciones de nube son complejas y tienen muchas partes móviles. La supervisión proporciona datos para garantizar que la aplicación permanece en funcionamiento en un estado correcto. También ayuda a evitar posibles problemas o a solucionar los existentes. Además, puede usar datos de supervisión para obtener un conocimiento más profundo sobre su aplicación. Este conocimiento puede ayudarle a mejorar el rendimiento o mantenimiento de la aplicación, o a automatizar acciones que de lo contrario requerirían intervención manual.
 
-The following diagram shows a conceptual view of Azure monitoring, including the type of logs you can collect and what you can do with that data.   
+En el siguiente diagrama se muestra una vista conceptual de la supervisión de Azure, incluido el tipo de registros que puede recopilar y lo que puede hacer con esos datos.   
 
-![Logical Model for monitoring and diagnostics for non-compute resources](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
+![Modelo lógico para la supervisión y el diagnóstico de recursos que no son de proceso](./media/monitoring-overview/MonitoringAzureResources-non-compute_v3.png)
 
-Figure 1: Conceptual Model for monitoring and diagnostics for non-compute resources
+Figura 1: Modelo conceptual para la supervisión y el diagnóstico de recursos que no son de proceso
 
 <br/>
 
-![Logical Model for monitoring and diagnostics for compute resources](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
+![Modelo lógico para la supervisión y el diagnóstico de recursos de proceso](./media/monitoring-overview/MonitoringAzureResources-compute_v3.png)
 
-Figure 2: Conceptual Model for monitoring and diagnostics for compute resources
+Figura 2: Modelo conceptual para la supervisión y el diagnóstico de recursos de proceso
 
-## <a name="monitoring-sources"></a>Monitoring Sources
-### <a name="activity-logs"></a>Activity Logs
-You can search the Activity Log (previously called Operational or Audit Logs) for information about your resource as seen by the Azure infrastructure. The log contains information such as times when resources are created or destroyed.  
+## <a name="monitoring-sources"></a>Orígenes de supervisión
+### <a name="activity-logs"></a>Registros de actividad
+Puede buscar el registro de actividad (anteriormente llamado registro operativo o de actividad) para obtener información sobre los recursos, tal y como se ven en la infraestructura de Azure. El registro contiene información tal como el número de veces que se crean o se destruye recursos.  
 
-### <a name="host-vm"></a>Host VM
-**Compute Only**
+### <a name="host-vm"></a>Máquina virtual host
+**Solo proceso**
 
-Some compute resources like Cloud Services, Virtual Machines, and Service Fabric have a dedicated Host VM they interact with. The Host VM is the equivalent of Root VM in the Hyper-V hypervisor model. In this case, you can collect metrics on just the Host VM in addition to the Guest OS.  
+Algunos recursos de proceso, tales como Cloud Services, Virtual Machines y Service Fabric, tienen una máquina virtual host dedicada con la que interactúan. La máquina virtual host es el equivalente a la máquina virtual de raíz del modelo de hipervisor de Hyper-V. En este caso, puede recopilar métricas en la máquina virtual host además de en el SO invitado.  
 
-For other Azure services, there is not necessarily a 1:1 mapping between your resource and a particular Host VM so host VM metrics are not available. 
+Para otros servicios de Azure, no hay necesariamente una asignación 1:1 entre los recursos y una máquina virtual host específica, por tanto las métricas de la máquina virtual host no están disponibles.
 
-### <a name="resource---metrics-and-diagnostics-logs"></a>Resource - Metrics and Diagnostics Logs
-Collectable metrics vary based on the resource type. For example, Virtual Machines provides statistics on the Disk IO and Percent CPU. But those stats don't exist for a Service Bus queue, which instead provides metrics like queue size and message throughput.
+### <a name="resource---metrics-and-diagnostics-logs"></a>Recurso: métricas y registros de diagnóstico
+Las métricas que se pueden recopilar varían según el tipo de recurso. Por ejemplo, Virtual Machines proporciona estadísticas sobre la E/S de disco y % de CPU. Pero esas estadísticas no existen para una cola de Service Bus, sino métricas como el tamaño de cola y el rendimiento de mensajes.
 
-For compute resources you can obtain metrics on the Guest OS and diagnostics modules like Azure Diagnostics. Azure Diagnostics helps gather and route gather diagnostic data to other locations, including Azure storage.
+En el caso de los recursos de proceso, puede obtener métricas sobre el SO invitado y los módulos de diagnóstico como Diagnósticos de Diagnostics. Diagnósticos de Azure ayuda a recopilar y enrutar los datos de diagnóstico recopilados a otras ubicaciones, como el almacenamiento de Azure.
 
-A list of currently collectable metrics is available at [supported metrics](monitoring-supported-metrics.md).
+Una lista de métricas que se pueden recopilar está disponible en [métricas admitidas](monitoring-supported-metrics.md).
 
-### <a name="application---diagnostics-logs,-application-logs,-and-metrics"></a>Application - Diagnostics Logs, Application Logs, and Metrics
-**Compute Only**
+### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Aplicación: registros de diagnóstico, registros de aplicación y métricas
+**Solo proceso**
 
-Applications can run on top of the Guest OS in the compute model. They emit their own set of logs and metrics.
+Las aplicaciones se pueden ejecutar sobre el SO invitado en el modelo de proceso. Emiten su propio conjunto de registros y métricas.
 
-Types of metrics include
+Los tipos de métricas son:
 
-* Performance counters
-* Application Logs
-* Windows Event Logs
-* .NET Event Source
-* IIS Logs
-* Manifest based ETW
-* Crash Dumps
-* Customer Error Logs
+* Contadores de rendimiento
+* Registros de aplicación
+* Registros de eventos de Windows
+* Origen de eventos de .NET
+* Registros IIS
+* ETW basado en manifiesto
+* Volcados de memoria
+* Registros de errores personalizados
 
-## <a name="uses-for-monitoring-data"></a>Uses for Monitoring Data
-### <a name="visualize"></a>Visualize
-Visualizing your monitoring data in graphics and charts helps you find trends far more quickly than looking through the data itself.  
+## <a name="uses-for-monitoring-data"></a>Usos de los datos de supervisión
+### <a name="visualize"></a>Visualizar
+Ver los datos de supervisión en gráficos y diagramas ayuda a encontrar tendencias mucho más rápidamente que si se busca en los propios datos.  
 
-A few visualization methods include:
+Algunos métodos de visualización incluyen:
 
-* Use the Azure portal
-* Route data to Azure Application Insights
-* Route data to Microsoft PowerBI
-* Route the data to a third-party visualization tool using either live streaming or by having the tool read from an archive in Azure storage
+* Uso del Portal de Azure
+* Enrutamiento de datos a Azure Application Insights
+* Enrutamiento de datos a Microsoft PowerBI
+* Enrutamiento de datos a una herramienta de visualización de terceros mediante streaming en vivo o haciendo que la herramienta lea un archivo de almacenamiento de Azure
 
-### <a name="archive"></a>Archive
-Monitoring data is typically written to Azure storage and kept there until you delete it.
+### <a name="archive"></a>Archivar
+Normalmente, los datos de supervisión se escriben en Almacenamiento de Azure y se conservan ahí hasta que se eliminan.
 
-A few ways to use this data:
+Algunas formas de usar estos datos:
 
-* Once written, you can have other tools within or outside of Azure read it and process it.
-* You download the data locally for a local archive or change your retention policy in the cloud to keep data for extended periods of time.  
-* You leave the data in Azure storage indefinitely, though you have to pay for Azure storage based on the amount of data you keep.
-* 
-### <a name="query"></a>Query
-You can use the Azure Monitor REST API, cross platform Command-Line Interface (CLI) commands, PowerShell cmdlets, or the .NET SDK to access the data in the system or Azure storage
+* Una vez escritos, puede hacer que otras herramientas, dentro o fuera de Azure, los lean y los procesen.
+* Los datos se descargan localmente para un archivo local o se cambia su directiva de retención en la nube para conservar los datos durante largos períodos de tiempo.  
+* <a name="you-leave-the-data-in-azure-storage-indefinitely-though-you-have-to-pay-for-azure-storage-based-on-the-amount-of-data-you-keep"></a>Puede dejar los datos en el almacenamiento de Azure indefinidamente, aunque tiene que pagar por el almacenamiento en función de la cantidad de datos que mantenga.
+  -
 
-Examples include:
+### <a name="query"></a>Consultar
+Puede usar la API de REST de Azure Monitor, comandos de la interfaz de la línea de comandos (CLI) multiplataforma, cmdlets de PowerShell o el SDK de .NET para acceder a los datos en el sistema o en Azure Storage.
 
-* Getting data for a custom monitoring application you have written
-* Creating custom queries and sending that data to a third-party application.
+Algunos ejemplos son: 
 
-### <a name="route"></a>Route
-You can stream monitoring data to other locations in real time.
+* Obtener datos para una aplicación de supervisión personalizada que ha escrito.
+* Crear consultas personalizadas y enviar los datos a una aplicación de terceros.
 
-Examples include:
+### <a name="route"></a>Enrutar
+Puede transmitir los datos de supervisión a otras ubicaciones en tiempo real.
 
-* Send to Application Insights so you can use the visualization tools there.
-* Send to Event Hubs so you can route to third-party tools to perform real-time analysis.
+Algunos ejemplos son:
 
-### <a name="automate"></a>Automate
-You can use monitoring data to trigger events or even whole processes Examples include:
+* Enviarlos a Application Insights para poder usar sus herramientas de visualización.
+* Enviarlas a Event Hubs para poder enrutarlos a herramientas de terceros y realizar el análisis en tiempo real.
 
-* Use data to autoscale compute instances up or down based on application load.
-* Send emails when a metric crosses a predetermined threshold.
-* Call a web URL (webhook) to execute an action in a system outside of Azure
-* Start a runbook in Azure automation to perform any variety of tasks
+### <a name="automate"></a>Automatizar
+Puede usar los datos de supervisión para desencadenar eventos o incluso procesos completos. Algunos ejemplos son:
 
-## <a name="methods-of-use"></a>Methods of Use
-In general, you can manipulate data tracking, routing, and retrieval using one of the following methods. Not all methods are available for all actions or data types.
+* Usar los datos para aumentar o reducir automáticamente el número de instancias de proceso según la carga de la aplicación.
+* Enviar mensajes de correo electrónico cuando una métrica cruza un umbral predeterminado.
+* Llamar a una dirección URL web (webhook) para ejecutar una acción en un sistema externo a Azure.
+* Iniciar un runbook en Automatización de Azure para realizar diversas tareas.
 
-* [Azure portal](https://portal.azure.com)
+## <a name="methods-of-use"></a>Métodos de uso
+En general, puede manipular el seguimiento, el enrutamiento y la recuperación de los datos mediante uno de los métodos siguientes. No todos los métodos están disponibles para todas las acciones o tipos de datos.
+
+* [Portal de Azure](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
-* [Cross-platform Command Line Interface (CLI)](insights-cli-samples.md)
-* [REST API](https://msdn.microsoft.com/library/dn931943.aspx)
+* [Interfaz de línea de comandos (CLI) multiplataforma](insights-cli-samples.md)
+* [API DE REST](https://msdn.microsoft.com/library/dn931943.aspx)
 * [.NET SDK](https://msdn.microsoft.com/library/dn802153.aspx)
 
-## <a name="azure’s-monitoring-offerings"></a>Azure’s Monitoring Offerings
-Azure has offerings available for monitoring your services from bare-metal infrastructure to application telemetry. The best monitoring strategy combines use of all three to gain comprehensive, detailed insight into the health of your services.
+## <a name="azures-monitoring-offerings"></a>Ofertas de supervisión de Azure
+Azure tiene diversas ofertas disponibles para supervisar sus servicios, desde la infraestructura sin sistema operativo a la telemetría de las aplicaciones. La mejor estrategia de supervisión combina el uso de las tres para obtener información detallada y completa sobre el mantenimiento de los servicios.
 
-* [Azure Monitor](http://aka.ms/azmondocs) – Offers visualization, query, routing, alerting, autoscale, and automation on data both from the Azure infrastructure (Activity Log) and each individual Azure resource (Diagnostic Logs). This article is part of the Azure Monitor documentation. The Azure Monitor name was released September 27 at Ignite 2016.  The previous name was "Azure Insights."  
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) – Provides rich detection and diagnostics for issues at the application layer of your service, well-integrated on top of data from Azure Monitoring. It's the default diagnostics platform for App Service Web Apps.  You can route data from other services to it.  
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) part of [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) – Provides a holistic IT management solution for both on-premises and third-party cloud-based infrastructure (such as AWS) in addition to Azure resources.  Data from Azure Monitor can be routed directly to Log Analytics so you can see metrics and logs for your entire environment in one place.     
+* [Azure Monitor](http://aka.ms/azmondocs): ofrece funciones de visualización, consulta, enrutamiento, alertas, escalado automático y automatización de los datos tanto de la infraestructura de Azure (registros de actividad) como de cada recurso individual de Azure (registros de diagnóstico). Este artículo forma parte de la documentación de Azure Monitor. El nombre de Azure Monitor se publicó el 25 de septiembre en Ignite 2016.  El nombre anterior era "Azure Insights".  
+* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : ofrece detección y diagnóstico de problemas en la capa de aplicación del servicio, y se encuentra perfectamente integrado encima de los datos de supervisión de Azure. Es la plataforma de diagnóstico predeterminada para App Service Web Apps.  Puede enrutar los datos de otros servicios en ella.  
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) parte de [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), proporciona una solución integral de administración de TI tanto para infraestructura local como basada en la nube de terceros (como AWS), además de recursos de Azure.  Los datos de Azure Monitor se pueden enrutar directamente a Log Analytics para poder ver los registros y las métricas de todo el entorno en un único lugar.     
 
-## <a name="next-steps"></a>Next steps
-Learn more about
+## <a name="next-steps"></a>Pasos siguientes
+Más información acerca de
 
-* [Azure Monitor in a video from Ignite 2016](https://myignite.microsoft.com/videos/4977) 
-* [Getting Started with Azure Monitor](monitoring-get-started.md) 
-* [Azure Diagnostics](../azure-diagnostics.md) if you are attempting to diagnose problems in your Cloud Service, Virtual Machine, or Service Fabric application.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) if you are trying to diagnostic problems in your App Service Web app.
-* [Troubleshooting Azure Storage](../storage/storage-e2e-troubleshooting.md) when using Storage Blobs, Tables, or Queues
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) and the [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
+* [Azure Monitor en un vídeo de Ignite 2016](https://myignite.microsoft.com/videos/4977)
+* [Introducción a Azure Monitor](monitoring-get-started.md)
+* [Diagnósticos de Azure](../azure-diagnostics.md) : si está intentando diagnosticar problemas en su aplicación de Cloud Services, Virtual Machines o Service Fabric.
+* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) : si está intentando diagnosticar problemas en su aplicación web de Servicio de aplicaciones.
+* [Solución de problemas de Azure Storage](../storage/storage-e2e-troubleshooting.md) : si usa Blob Storage, Table Storage o Queue Storage.
+* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) y [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
