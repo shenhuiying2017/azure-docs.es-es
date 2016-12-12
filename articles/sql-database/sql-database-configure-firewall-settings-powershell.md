@@ -1,12 +1,12 @@
 ---
-title: Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell| Microsoft Docs
+title: "Configuración de reglas de firewall de nivel de servidor en Azure SQL Database mediante PowerShell| Microsoft Azure"
 description: Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure.
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 30dcea72-61c1-48b6-8e1d-b1db2eb61567
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/09/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f6fd8c6c96f32b7306b44b17a56559808434e3d9
+
 
 ---
-# Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell
+# <a name="configure-azure-sql-database-server-level-firewall-rules-by-using-powershell"></a>Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Información general](sql-database-firewall-configure.md)
 > * [Portal de Azure](sql-database-configure-firewall-settings.md)
@@ -33,33 +37,33 @@ Base de datos SQL de Azure usa reglas de firewall para permitir conexiones con s
 > 
 > 
 
-[!INCLUDE [Inicio de una sesión de PowerShell](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
-## Creación de reglas de firewall del servidor
+## <a name="create-server-firewall-rules"></a>Creación de reglas de firewall del servidor
 Se pueden crear, actualizar y eliminar reglas de firewall de nivel de servidor mediante Azure PowerShell.
 
-Para crear una nueva regla de firewall de nivel de servidor, ejecute el cmdlet New-AzureRmSqlServerFirewallRule. El ejemplo siguiente habilita un intervalo de direcciones IP en el servidor Contoso.
+Para crear una regla de firewall de nivel de servidor, ejecute el cmdlet [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx). El ejemplo siguiente habilita un intervalo de direcciones IP en el servidor Contoso.
 
     New-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' -ServerName 'Contoso' -FirewallRuleName "ContosoFirewallRule" -StartIpAddress '192.168.1.1' -EndIpAddress '192.168.1.10'        
 
-Para modificar una regla de firewall de nivel de servidor existente, ejecute el cmdlet Set-AzureSqlDatabaseServerFirewallRule cmdlet. En el ejemplo siguiente se cambia el intervalo de direcciones IP aceptables para la regla llamada ContosoFirewallRule.
+Para modificar una regla de firewall de nivel de servidor existente, ejecute el cmdlet [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx). En el ejemplo siguiente se cambia el intervalo de direcciones IP aceptables para la regla llamada ContosoFirewallRule.
 
-    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Set-AzureRmSqlServerFirewallRule -ResourceGroupName 'resourcegroup1' –StartIPAddress 192.168.1.4 –EndIPAddress 192.168.1.10 –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
-Para eliminar una regla de firewall de nivel de servidor existente, ejecute el cmdlet Remove-AzureSqlDatabaseServerFirewallRule cmdlet. En el ejemplo siguiente se elimina la regla llamada ContosoFirewallRule.
+Para eliminar una regla de firewall de nivel de servidor existente, ejecute el cmdlet [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx). En el ejemplo siguiente se elimina la regla llamada ContosoFirewallRule.
 
-    Remove-AzureRmSqlServerFirewallRule –RuleName 'ContosoFirewallRule' –ServerName 'Contoso'
+    Remove-AzureRmSqlServerFirewallRule –FirewallRuleName 'ContosoFirewallRule' –ServerName 'Contoso'
 
 
-## Administración de reglas de firewall mediante PowerShell
+## <a name="manage-firewall-rules-by-using-powershell"></a>Administración de reglas de firewall mediante PowerShell
 También puede usar PowerShell para administrar las reglas de firewall. Para obtener más información, consulte los temas siguientes:
 
-* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603860.aspx)
-* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603588.aspx)
-* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603789.aspx)
-* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/mt603586.aspx)
+* [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx)
+* [Remove-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603588\(v=azure.300\).aspx)
+* [Set-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603789\(v=azure.300\).aspx)
+* [Get-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603586\(v=azure.300\).aspx)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo utilizar Transact-SQL para crear reglas de firewall de nivel de servidor y base de datos, consulte [Configuración de reglas de firewall de nivel de servidor y base de datos en Base de datos SQL de Azure mediante T-SQL](sql-database-configure-firewall-settings-tsql.md).
 
 Para obtener información sobre cómo crear reglas de firewall de nivel de servidor con otros métodos, visite:
@@ -67,9 +71,11 @@ Para obtener información sobre cómo crear reglas de firewall de nivel de servi
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md)
 * [Configuración de reglas de firewall de nivel de servidor en Base de datos SQL de Azure mediante la API de REST](sql-database-configure-firewall-settings-rest.md)
 
-Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md). Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx). Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx) (Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
+Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de Base de datos SQL: creación de una Base de datos SQL en cuestión de minutos con datos de ejemplo y el Portal de Azure](sql-database-get-started.md).
+Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para Base de datos SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 * [Protección de bases de datos](sql-database-security.md)
 * [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
@@ -78,4 +84,8 @@ Para ver un tutorial sobre cómo crear una base de datos, consulte [Tutorial de 
 [2]: ./media/sql-database-configure-firewall-settings/AzurePortalFirewallSettings.png
 <!--anchors-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
