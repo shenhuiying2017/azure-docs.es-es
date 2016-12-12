@@ -1,5 +1,5 @@
 ---
-title: Uso del complemento subordinado de Azure con Hudson Continuous Integration | Microsoft Docs
+title: "Uso del complemento para máquinas subordinadas de Azure con Hudson Continuous Integration | Microsoft Docs"
 description: "Describe cómo usar el complemento esclavo de Azure con Hudson Continuous Integration."
 services: virtual-machines-linux
 documentationcenter: 
@@ -29,7 +29,7 @@ El complemento esclavo de Azure para Hudson le permite aprovisionar los nodos su
 3. Haga clic en la pestaña **Available** (Disponible).
 4. Haga clic en **Buscar** y escriba **Azure** para limitar la lista de complementos pertinentes.
    
-    Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento secundario de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
+    Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento para máquinas subordinadas de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida) de la pestaña **Others** (Otros).
 5. Active la casilla **Azure Slave Plugin**(Complemento esclavo de Azure).
 6. Haga clic en **Instalar**.
 7. Reinicie Hudson.
@@ -151,7 +151,7 @@ En esta sección, creará una tarea de Hudson que se ejecutará en un nodo subor
 5. En la página de configuración del trabajo, seleccione **Restrict where this project can be run**(Restringir dónde se puede ejecutar este proyecto).
 6. Seleccione **Node and label menu** (Menú de nodo y etiqueta) y seleccione **linux** (esta etiqueta se especificó al crear la plantilla de máquina virtual en la sección anterior).
 7. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).
-8. Edite el siguiente script; para ello, sustituya **(el nombre de la cuenta de github)**, **(el nombre del proyecto)** y **(el directorio del proyecto)** por los valores adecuados y pegue el script editado en el área de texto que aparece.
+8. Edite el siguiente script; para ello, sustituya **{your github account name}**, **{your project name}** y **{your project directory}** por los valores adecuados y pegue el script editado en el área de texto que aparece.
    
         # Clone from git repo
    

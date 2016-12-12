@@ -1,6 +1,6 @@
 ---
-title: Uso del complemento subordinado de Azure con Jenkins Continuous Integration | Microsoft Docs
-description: Describe el uso del complemento subordinado de Azure con Jenkins Continuous Integration.
+title: "Uso del complemento para máquinas subordinadas de Azure con Jenkins Continuous Integration | Microsoft Docs"
+description: "Describe el uso del complemento para máquinas subordinadas de Azure con Jenkins Continuous Integration."
 services: virtual-machines-linux
 documentationcenter: 
 author: rmcmurray
@@ -20,14 +20,14 @@ ms.openlocfilehash: 8a40d829c65067dba90a212390e858b7995452b6
 
 
 ---
-# <a name="how-to-use-the-azure-slave-plugin-with-jenkins-continuous-integration"></a>Uso del complemento subordinado de Azure con Jenkins Continuous Integration
-El complemento subordinado de Azure para Jenkins facilita el aprovisionamiento de los nodos subordinados en Azure cuando se ejecutan compilaciones distribuidas, y admite la creación de lo siguiente:
+# <a name="how-to-use-the-azure-slave-plugin-with-jenkins-continuous-integration"></a>Uso del complemento para máquinas subordinadas de Azure con Jenkins Continuous Integration
+El complemento para máquinas subordinadas de Azure para Jenkins facilita el aprovisionamiento de los nodos de máquinas subordinadas en Azure cuando se ejecutan compilaciones distribuidas, y admite la creación de lo siguiente:
 
-* Elementos subordinados de Windows en la nube de Azure mediante SSH y el protocolo de inicio de red de Java (JNLP)
+* Máquinas subordinadas Windows en la nube de Azure mediante SSH y el protocolo de inicio de red de Java (JNLP)
   
   * Para iniciar una imagen de Windows a través de SSH, es necesario haberla configurado previamente con SSH.
   * Para obtener información acerca de cómo preparar una imagen de Windows personalizada, vea [How to capture a Linux virtual machine to use as a Resource Manager template] (Captura de una máquina virtual con Windows en el modelo de implementación de Resource Manager)[windows-image-capture].
-* Elementos subordinados de Linux en la nube de Azure mediante SSH
+* Máquinas subordinadas Linux en la nube de Azure mediante SSH
   
   * Para obtener información acerca de cómo preparar una imagen de Linux personalizada, vea [Captura de una máquina virtual con Linux para usarla como plantilla de Resource Manager][linux-image-capture].
 
@@ -37,30 +37,30 @@ Antes de comenzar con los pasos descritos en este artículo, tendrá que registr
 * [Integración de aplicaciones con Azure Active Directory][integrate-apps-with-AAD]
 * [Register a Client App](Registro de una aplicación cliente)[register-client-app]
 
-Además, para completar los pasos descritos en la sección [Creación de un trabajo de Jenkins que se ejecute en un nodo subordinado en Azure](#create-jenkins-project) de este artículo, debe tener una configuración de proyecto en GitHub.
+Además, para completar los pasos descritos en la sección [Creación de un trabajo de Jenkins que se ejecute en un nodo de máquina subordinada en Azure](#create-jenkins-project) de este artículo, debe tener una configuración de proyecto en GitHub.
 
 <a name="install-azure-slave-plugin"></a>
 
-## <a name="install-the-azure-slave-plugin"></a>Instalación del complemento subordinado de Azure
+## <a name="install-the-azure-slave-plugin"></a>Instalación de Azure Slave Plugin
 1. En el panel de Jenkins, haga clic en **Manage Jenkins**(Administrar Jenkins).
    
     ![Administración de Jenkins][jenkins-dashboard-manage]
 2. En la página **Manage Jenkins** (Administrar Jenkins), haga clic en **Manage Plugins** (Administrar complementos).
    
     ![Administración de complementos][jenkins-manage-plugins]
-3. Haga clic en la pestaña **Available** (Disponible) y escriba "Azure" como filtro; a continuación, seleccione **Azure Slave Plugin** (Complemento subordinado de Azure). 
+3. Haga clic en la pestaña **Available** (Disponible) y escriba "Azure" como filtro; a continuación, seleccione **Azure Slave Plugin**. 
    
-    ![Complemento subordinado de Azure][search-plugins]
+    ![Azure Slave Plugin][search-plugins]
    
-    Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento subordinado de Azure en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida).
+    Si opta por desplazarse por la lista de complementos disponibles, encontrará el complemento Azure Slave Plugin en la sección **Cluster Management and Distributed Build** (Administración de clústeres y compilación distribuida).
 4. Haga clic en **Install without restart** (Instalar sin reiniciar) o **Download now and install after restart** (Descargar ahora e instalar después de reiniciar).
    
     ![Instalación del complemento][install-plugin]
 
-Ahora que está instalado el complemento, los siguientes pasos son configurarlo con el perfil de suscripción de Azure y crear una plantilla que se usará en la creación de la máquina virtual para el nodo subordinado.
+Ahora que está instalado el complemento, los siguientes pasos son configurarlo con el perfil de suscripción de Azure y crear una plantilla que se usará en la creación de la máquina virtual para el nodo de la máquina subordinada.
 
-## <a name="configure-the-azure-slave-plugin-to-use-your-subscription-profile"></a>Configuración del complemento subordinado de Azure para usar el perfil de suscripción
-Un perfil de suscripción, también conocido como configuración de publicación, es un archivo XML que contiene credenciales seguras y alguna información adicional que necesitará para trabajar con Azure en el entorno de desarrollo. Para configurar el complemento subordinado de Azure, necesitará:
+## <a name="configure-the-azure-slave-plugin-to-use-your-subscription-profile"></a>Configuración de Azure Slave Plugin para usar el perfil de suscripción
+Un perfil de suscripción, también conocido como configuración de publicación, es un archivo XML que contiene credenciales seguras y alguna información adicional que necesitará para trabajar con Azure en el entorno de desarrollo. Para configurar Azure Slave Plugin, necesitará:
 
 * Su id. de suscripción
 * Un certificado de administración para la suscripción
@@ -78,7 +78,7 @@ Estos pueden encontrarse en su [perfil de suscripción], que puede ser similar a
             </PublishProfile>
         </PublishData>
 
-Una vez que tenga el perfil de suscripción, siga estos pasos para configurar el complemento subordinado de Azure:
+Una vez que tenga el perfil de suscripción, siga estos pasos para configurar Azure Slave Plugin:
 
 1. En el panel de Jenkins, haga clic en **Manage Jenkins**(Administrar Jenkins).
    
@@ -99,8 +99,8 @@ Una vez que tenga el perfil de suscripción, siga estos pasos para configurar el
     Al copiar el certificado de administración y el id. de suscripción, no incluya las comillas que delimitan los valores.
 6. Haga clic en **Verify Configuration** (Comprobar configuración) para comprobar si los parámetros especificados son válidos y, a continuación, haga clic en **Save** (Guardar).
 
-## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plugin"></a>Configuración de una plantilla de máquina virtual para el complemento subordinado de Azure
-En esta sección agregará una plantilla de máquina virtual que define los parámetros que usará el complemento subordinado de Azure para crear un nodo subordinado en Azure. En los pasos siguientes, creará una plantilla para una máquina virtual de Ubuntu.
+## <a name="set-up-a-virtual-machine-template-for-the-azure-slave-plugin"></a>Configuración de una plantilla de máquina virtual para Azure Slave Plugin
+En esta sección agregará una plantilla de máquina virtual que define los parámetros que usará Azure Slave Plugin para crear un nodo de máquina subordinada en Azure. En los pasos siguientes, creará una plantilla para una máquina virtual de Ubuntu.
 
 1. En el panel de Jenkins, haga clic en **Manage Jenkins**(Administrar Jenkins).
    
@@ -124,14 +124,14 @@ En esta sección agregará una plantilla de máquina virtual que define los par�
    4. En la lista **Region** (Región), haga clic en la región de Azure donde se creará la máquina virtual.
    5. En la lista **Virtual Machine Size** (Tamaño de máquina virtual), elija el tamaño adecuado en el menú desplegable.
    6. En el cuadro **Storage Account Name** (Nombre de cuenta de almacenamiento), especifique una cuenta de almacenamiento donde se creará la máquina virtual. Si desea que Jenkins cree una cuenta de almacenamiento mediante el valor predeterminado "jenkinsarmst", puede dejar este cuadro en blanco.
-   7. **Retention Time** (Tiempo de retención) especifica el número de minutos antes de que Jenkins elimine un subordinado inactivo; deje este campo en el valor predeterminado de 60.
+   7. **Retention Time** (Tiempo de retención) especifica el número de minutos antes de que Jenkins elimine una máquina subordinada inactiva; deje este campo en el valor predeterminado de 60.
       
       * También puede optar por apagar el subordinado en lugar de eliminarlo cuando está inactivo. Para ello, seleccione la casilla **Shutdown Only (Do Not Delete) After Retention Time** (Solo apagar [no eliminar] después del tiempo de retención).
-      * También puede especificar 0 si no desea que los elementos subordinados inactivos se eliminen automáticamente.
+      * También puede especificar 0 si no desea que las máquinas suborinadas inactivas se eliminen automáticamente.
    8. En la lista **Usage** (Uso), puede elegir entre las siguientes opciones:
       
-      * **Utilize this node as much as possible** (Usar este nodo tanto como sea posible): Jenkins puede ejecutar cualquier trabajo en el elemento subordinado siempre que esté disponible.
-      * **Leave this node for tied jobs only** (Dejar este nodo solo para los trabajos relacionados): Jenkins solo creará un proyecto (o trabajo) en este nodo cuando ese proyecto se relacione específicamente con ese nodo, lo que permite reservar un elemento subordinado para determinados tipos de trabajos.
+      * **Utilize this node as much as possible** (Usar este nodo tanto como sea posible): Jenkins puede ejecutar cualquier trabajo en la máquina subordinada siempre que esté disponible.
+      * **Leave this node for tied jobs only** (Dejar este nodo solo para los trabajos relacionados): Jenkins solo creará un proyecto (o trabajo) en este nodo cuando ese proyecto se relacione específicamente con ese nodo, lo que permite reservar una máquina subordinada para determinados tipos de trabajos.
       
       Por ahora, haga clic en **Utilize this node as much as possible** (Usar este nodo tanto como sea posible).
       
@@ -142,21 +142,21 @@ En esta sección agregará una plantilla de máquina virtual que define los par�
    
    1. Para la familia de imágenes, tiene dos opciones:
       
-      * **Custom User Image** (Imagen de usuario personalizada): esta opción requiere que proporcione la dirección URL a una imagen personalizada que se encuentra en la misma cuenta de almacenamiento donde va a crear nodos subordinados.
+      * **Custom User Image** (Imagen de usuario personalizada): esta opción requiere que proporcione la dirección URL a una imagen personalizada que se encuentra en la misma cuenta de almacenamiento donde va a crear nodos de máquinas subordiandas.
       * **Image Reference** (Referencia de imagen): esta opción requiere que especifique los valores *Publisher* (Publicador), *Offer* (Oferta) y *SKU* para una imagen, que encontrará en [Catálogo de Máquinas virtuales][azure-images].
         
-        Para este tutorial, elija **Image Reference** y utilice los siguientes valores:
+        Para este tutorial, elija **Image Reference** (Referencia de imagen) y utilice los siguientes valores:
       * **Image Publisher** (Publicador de imagen): Canonical
       * **Image Offer** (Oferta de imagen): UbuntuServer
       * **Image Sku** (SKU de imagen): 14.04.4-LTS
    2. Para la lista **Launch Method** (Método de inicio), tiene dos opciones: **SSH** o **JNLP**. Para este tutorial, elija **SSH**. Sin embargo, existen algunas advertencias que debe tener en cuenta al elegir el método de inicio:
       
-      * Los elementos subordinados de Linux solo pueden iniciarse mediante SSH.
-      * Los elementos subordinados de Windows puede usar SSH o JNLP; no obstante, si se utiliza SSH, la imagen debe estar preparada de manera personalizada con un servidor SSH.
+      * Las máquinas subordinadas Linux solo pueden iniciarse mediante SSH.
+      * Las máquinas subordinadas Windows puede usar SSH o JNLP; no obstante, si se utiliza SSH, la imagen debe estar preparada de manera personalizada con un servidor SSH.
         
         Si utiliza JNLP como método de inicio, debe asegurarse de que se configuran los siguientes elementos:
-      * Es necesario que el elemento subordinado de Azure llegue a la dirección URL de Jenkins, por lo que necesita configurar los firewalls en consecuencia. Puede encontrar la dirección URL de Jenkins haciendo clic en **Manage Jenkins** (Administrar Jenkins) luego en **Configure System** (Configurar sistema) y buscando la sección **Jenkins Location** (Ubicación de Jenkins).
-   3. Es necesario que el elemento subordinado de Azure que se inicia mediante JNLP alcance el puerto TCP de Jenkins; por esta razón, se recomienda que utilice un puerto TCP fijo para que pueda configurar los firewalls en consecuencia. Para especificar el puerto TCP de Jenkins, haga clic en **Manage Jenkins** (Administrar Jenkins), luego en **Configure Global Security** (Configurar seguridad global), active las opciones para **Enable security** (Habilitar seguridad) y usar un puerto de tipo **Fixed** (Fijo) y, por último, especifique el puerto que se va a utilizar.
+      * Es necesario que la máquina subordinada de Azure llegue a la dirección URL de Jenkins, por lo que necesita configurar los firewalls en consecuencia. Puede encontrar la dirección URL de Jenkins haciendo clic en **Manage Jenkins** (Administrar Jenkins) luego en **Configure System** (Configurar sistema) y buscando la sección **Jenkins Location** (Ubicación de Jenkins).
+   3. Es necesario que la máquina subordinada de Azure que se inicia mediante JNLP alcance el puerto TCP de Jenkins; por esta razón, se recomienda que utilice un puerto TCP fijo para que pueda configurar los firewalls en consecuencia. Para especificar el puerto TCP de Jenkins, haga clic en **Manage Jenkins** (Administrar Jenkins), luego en **Configure Global Security** (Configurar seguridad global), active las opciones para **Enable security** (Habilitar seguridad) y usar un puerto de tipo **Fixed** (Fijo) y, por último, especifique el puerto que se va a utilizar.
    4. Para el **Init Script** (Script de inicialización), debe proporcionar un script de inicialización que se ejecutará después de crear la máquina virtual, teniendo en cuenta lo siguiente:
       
       * Como mínimo, el script debe instalar Java.
@@ -189,7 +189,7 @@ En esta sección agregará una plantilla de máquina virtual que define los par�
 
 <a name="create-jenkins-project"></a>
 
-## <a name="create-a-jenkins-job-which-runs-on-a-slave-node-on-azure"></a>Creación de un trabajo de Jenkins que se ejecute en un nodo subordinado en Azure
+## <a name="create-a-jenkins-job-which-runs-on-a-slave-node-on-azure"></a>Creación de un trabajo de Jenkins que se ejecute en un nodo de máquina subordinada en Azure
 En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subordinado en Azure. Para completar estos pasos, debe tener un proyecto en GitHub.
 
 1. En el panel de Jenkins, haga clic en **New Item**(Nuevo elemento).
@@ -198,13 +198,13 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
 2. Escriba un nombre para la tarea que está creando, haga clic en **Freestyle project** (Proyecto de estilo libre) para el tipo de proyecto y, a continuación, haga clic en **OK** (Aceptar).
    
     ![Crear nuevo elemento de Jenkins][jenkins-create-new-item]
-3. En la página de configuración de la tarea, seleccione **Restrict where this project can be run** (Restringir dónde se puede ejecutar este proyecto) y escriba "**linux**" en el cuadro **Label Expression** (Expresión de etiqueta); este valor coincide con la etiqueta de la plantilla del elemento subordinado que creó en la sección anterior.
+3. En la página de configuración de la tarea, seleccione **Restrict where this project can be run** (Restringir dónde se puede ejecutar este proyecto) y escriba "**linux**" en el cuadro **Label Expression** (Expresión de etiqueta); este valor coincide con la etiqueta de la plantilla de la máquina subordinada que creó en la sección anterior.
    
     ![Restringir nuevo elemento de Jenkins][jenkins-new-item-restrict]
 4. En la sección **Build** (Compilar), haga clic en **Add build step** (Agregar paso de compilación) y seleccione **Execute shell** (Ejecutar shell).
    
     ![Nueva compilación de elemento de Jenkins][jenkins-new-item-build]
-5. Edite el siguiente script; para ello, sustituya **(el nombre de la cuenta de github)**, **(el nombre del proyecto)** y **(el directorio del proyecto)** por los valores adecuados y pegue el script editado en el área de texto que aparece.
+5. Edite el siguiente script; para ello, sustituya **(your GitHub account name)**, **(your project name)** y **(your project directory)** por los valores adecuados y pegue el script editado en el área de texto que aparece.
    
             # Clone from git repo
             currentDir="$PWD"
@@ -229,7 +229,7 @@ En esta sección, creará una tarea de Jenkins que se ejecutará en un nodo subo
    
     ![Compilar ahora de Jenkins][jenkins-build-now]
 
-Jenkins creará un nodo subordinado con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
+Jenkins creará un nodo de máquina subordinada con la plantilla que creó en la sección anterior y ejecutará el script especificado en el paso de compilación de esta tarea.
 
 <a name="image-template-considerations"></a>
 
@@ -255,10 +255,10 @@ Las secciones siguientes contienen información útil para configurar varias pla
 ### <a name="when-you-are-using-windows-image-templates-and-jnlp-launch-method"></a>Si se utilizan plantillas de imagen de Windows y el método de inicio de JNLP
 * Si el patrón Jenkins no tiene configurada la seguridad:
   
-  * Deje el campo **Init Script** (Script de inicialización) en blanco para que el script predeterminado se ejecute en el elemento subordinado.
+  * Deje el campo **Init Script** (Script de inicialización) en blanco para que el script predeterminado se ejecute en la máquina subordinada.
 * Si el maestro de Jenkins tiene configurada la seguridad: 
   
-  * Copie el script de [Windows Slaves Setup] (Programa de instalación de elementos subordinados de Windows)[windows-slaves-setup] y modifíquelo con sus credenciales de Jenkins.
+  * Copie el script de [Windows Slaves Setup] (Programa de instalación de máquinas subordinadas Windows)[windows-slaves-setup] y modifíquelo con sus credenciales de Jenkins.
   * Como mínimo, el script debe modificarse con un identificador de usuario de Jenkins y el token de API. Para recuperar el token de API de un usuario, siga estos pasos:
     
     1. En el panel de Jenkins, haga clic en **People** (Personas).
@@ -271,7 +271,7 @@ Las secciones siguientes contienen información útil para configurar varias pla
 ## <a name="see-also"></a>Otras referencias
 Para obtener más información sobre el uso de Azure con Java, vea el [Centro para desarrolladores de Java de Azure].
 
-Para más información sobre el complemento subordinado de Jenkins, consulte el proyecto [Azure Slave Plugin] en GitHub.
+Para más información sobre Azure Slave Plugin de Jenkins, consulte el proyecto [Azure Slave Plugin] en GitHub.
 
 <!-- URL List -->
 
