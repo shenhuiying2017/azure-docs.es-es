@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
-ms.author: jolevy
+ms.author: timlt
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 47307ed521201b462730a2ea4cb8d0ca665b6d72
@@ -44,7 +44,6 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 * [Información general sobre Automatización de Azure](../automation/automation-intro.md)
 * [Mi primer runbook](../automation/automation-first-runbook-graphical.md)
 * [Mapa de aprendizaje de Automatización de Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)
-
 
 
 
