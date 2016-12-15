@@ -16,18 +16,18 @@ ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 40b0d0660f4693d5ebedf847734ffe037c4ec7ca
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ff45fa2abc0f77f133491e9ee9695c69a79eea33
 
 
 ---
-# <a name="an-introduction-to-domainjoined-hdinsight-clusters-preview"></a>Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar)
+# <a name="an-introduction-to-domain-joined-hdinsight-clusters-preview"></a>Introducción a los clústeres de HDInsight unidos a dominio (versión preliminar)
 Hasta hoy, Azure HDInsight solo admite un único usuario administrador local. Esto funcionaba muy bien para departamentos o equipos de aplicaciones menores. A medida que las cargas de trabajo basadas en Hadoop adquirieron más popularidad en el sector empresarial, la necesidad de funcionalidades de tipo empresarial, como la autenticación basada en Active Directory, la compatibilidad de múltiples usuarios y el control de acceso basado en roles, se hizo cada vez más importante. Mediante los clústeres de HDInsight unidos a dominio, puede crear un clúster de HDInsight unido a un dominio de Active Directory y configurar una lista de empleados de la empresa que pueden autenticarse mediante Azure Active Directory para iniciar sesión en el clúster de HDInsight. Ninguna persona fuera de la empresa puede iniciar sesión o acceder al clúster de HDInsight. El administrador de la empresa puede configurar el control de acceso basado en roles para la seguridad de Hive con [Apache Ranger](http://hortonworks.com/apache/ranger/), que restringe el acceso a datos solo en la medida que sea necesario. Por último, el administrador puede auditar el acceso a los datos por parte de los empleados, y los cambios realizados en las directivas de control de acceso, con lo que se consigue un alto grado de control de los recursos corporativos.
 
 > [!NOTE]
-> Las nuevas características descritas en esta versión preliminar solo están disponibles en los clústeres de HDInsight basados en Linux para cargas de trabajo de Hive. Las demás cargas de trabajo, como HBase, Spark, Storm y Kafka, se habilitarán en futuras versiones. 
-> 
-> 
+> Las nuevas características descritas en esta versión preliminar solo están disponibles en los clústeres de HDInsight basados en Linux para cargas de trabajo de Hive. Las demás cargas de trabajo, como HBase, Spark, Storm y Kafka, se habilitarán en futuras versiones.
+>
+>
 
 ## <a name="benefits"></a>Ventajas
 La seguridad de la empresa contiene cuatro grandes pilares; seguridad del perímetro, autenticación, autorización y cifrado.
@@ -53,11 +53,10 @@ La protección de los datos es importante para cubrir los requisitos de cumplimi
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para administrar los clústeres de HDInsight unidos a dominio, consulte [Manage Domain-joined HDInsight clusters](hdinsight-domain-joined-manage.md) (Administración de clústeres de HDInsight unidos a un dominio).
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
-* Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,19 +12,19 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
     Visual Studio descarga, instala y agrega una referencia al [paquete NuGet de la biblioteca del Bus de servicio de Azure](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
 4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
-    ```
+    ```csharp
     using System.Threading;
     using Microsoft.ServiceBus.Messaging;
     ```
 5. Agregue los siguientes campos a la clase **Program** ; para ello, sustituya los valores del marcador de posición por el nombre del Centro de eventos creado en la sección anterior y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente.
    
-    ```
+    ```csharp
     static string eventHubName = "{Event Hub name}";
     static string connectionString = "{send connection string}";
     ```
 6. Agregue el método siguiente a la clase **Program** :
    
-    ```
+    ```csharp
     static void SendingRandomMessages()
     {
         var eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, eventHubName);
@@ -51,7 +51,7 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
     Este método envía continuamente los eventos al Centro de eventos con un retraso de 200 ms.
 7. Por último, agregue las líneas siguientes al método **Main** :
    
-    ```
+    ```csharp
     Console.WriteLine("Press Ctrl-C to stop the sender process");
     Console.WriteLine("Press Enter to start now");
     Console.ReadLine();
@@ -60,6 +60,6 @@ En esta sección se escribirá una aplicación de consola Windows que envía eve
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

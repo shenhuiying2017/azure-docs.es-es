@@ -123,7 +123,7 @@ Asimismo, también puede usar el Portal de Azure clásico o Azure PowerShell par
 Para proporcionar redundancia, coloque dos o más máquinas virtuales configuradas de manera similar en el mismo conjunto de disponibilidad. Esto ayuda a asegurarse de que haya al menos una máquina virtual esté disponible durante el mantenimiento, sea este planeado o no. Azure garantiza determinados niveles de disponibilidad de la máquina virtual para esta configuración. Para más información, consulte [Administración de la disponibilidad de las máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-[Acerca de Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Acerca de Azure Virtual Machines](../articles/virtual-machines/virtual-machines-linux-about.md)
 
 [Diferentes formas de crear una máquina virtual Linux](../articles/virtual-machines/virtual-machines-linux-creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
@@ -131,6 +131,6 @@ Para proporcionar redundancia, coloque dos o más máquinas virtuales configurad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

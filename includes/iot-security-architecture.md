@@ -144,7 +144,7 @@ En cada una de las categorías esbozadas en la arquitectura de IoT de Azure, int
 | Dispositivo |S |Asignación de identidad para el dispositivo y autenticación del dispositivo |Reemplazo de dispositivo, o parte del dispositivo, por otro dispositivo. ¿Cómo sabemos que hablamos al dispositivo correcto? |Autenticación del dispositivo mediante Seguridad de capa de transporte (TLS) o IPSec. La infraestructura debe admitir el uso de una clave precompartida (PSK) en los dispositivos que no pueden controlar la criptografía asimétrica completa. Aprovechamiento de Azure AD, [OAuth](http://www.rfc-editor.org/in-notes/internet-drafts/draft-ietf-ace-oauth-authz-01.txt) |
 | TRID |Aplicar mecanismos a prueba de manipulaciones al dispositivo, por ejemplo, haciendo que sea casi Imposible extraer claves y otro material criptográfico del dispositivo. |El riesgo es que alguien altere el dispositivo (interferencias físicas). ¿Cómo tenemos la certeza de que el dispositivo no se ha alterado? |La mitigación más eficaz es una funcionalidad de Módulo de plataforma segura (TPM) que permita almacenar claves en el conjunto de circuitos del procesador desde el que no se pueden leer las claves, solo se pueden usar para las operaciones criptográficas que utilizan la clave, pero nunca la revelan. Cifrado de la memoria del dispositivo. Administración de claves para el dispositivo. Firma del código. | |
 | E |Tener el control de acceso del dispositivo. Esquema de autorización. |Si el dispositivo permite que se realicen acciones individuales con los comandos de un origen externo. o incluso sensores en peligro, permitirá que el ataque realice operaciones a las que no podría acceder de otra forma. |Tener el esquema de autorización del dispositivo | |
-| Puerta de enlace de campo |S |Autenticación de la puerta de enlace de campo en la puerta de enlace en la nube (basada en certificado, PSK, basada en notificación, etc.). |Si alguien puede suplantar la identidad de la puerta de enlace de campo, puede presentarse como cualquier dispositivo. |TLS RSA/PSK, IPSe, [RFC 4279](https://tools.ietf.org/html/rfc4279). Los mismos problemas de almacenamiento de claves y atestación de los dispositivos en general (lo mejor es usar TPM). Extensión de 6LowPAN para IPSec para admitir redes de sensores inalámbricas (WSN). |
+| Puerta de enlace de campo |S |Autenticación de la puerta de enlace de campo en la puerta de enlace en la nube (basada en certificado, PSK, basada en notificación, etc.). |Si alguien puede suplantar la identidad de la puerta de enlace de campo, puede presentarse como cualquier dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Los mismos problemas de almacenamiento de claves y atestación de los dispositivos en general (lo mejor es usar TPM). Extensión de 6LowPAN para IPSec para admitir redes de sensores inalámbricas (WSN). |
 | TRID |Proteger la puerta de enlace de campo contra la manipulación (¿TPM?) |Los ataques de suplantación de identidad que hacen creer a la puerta de enlace en la nube que habla con la puerta de enlace de campo pueden provocar la divulgación de información y la manipulación de datos |Cifrado de memoria, TPM y autenticación. | |
 | E |Mecanismo de control de acceso de una puerta de enlace de campo | | | |
 
@@ -202,7 +202,7 @@ Estos son algunos ejemplos de las amenazas de esta categoría:
 **Divulgación de información**: un atacante puede interceptar una difusión y obtener información sin autorización. **Denegación de servicio**: un atacante puede bloquear la señal de difusión y denegar la distribución de la información.
 
 #### <a name="storage"></a>Almacenamiento
-Todos los dispositivos y puertas de enlace de campo tienen algún tipo de almacenamiento (temporal para poner en cola los datos, almacenamiento de imágenes de sistema operativo).
+Todos los dispositivos y puertas de enlace de campo tienen algún tipo de almacenamiento (temporal para poner en cola los datos, almacenamiento de imágenes del sistema operativo).
 
 | **Componente** | **Amenaza** | **Mitigación** | **Riesgo** | **Implementación** |
 | --- | --- | --- | --- | --- |
@@ -229,6 +229,6 @@ Para más información, consulte los artículos siguientes:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

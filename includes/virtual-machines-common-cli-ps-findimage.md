@@ -127,7 +127,7 @@ Ahora puede elegir con precisión la imagen que desea utilizar. Para crear una m
 
 ## <a name="powershell"></a>PowerShell
 > [!NOTE]
-> Instale y configure la [versión más reciente de Azure PowerShell](../articles/powershell-install-configure.md). Si usa módulos de Azure PowerShell anteriores a la versión 1.0, seguirá usando estos comandos, pero primero debe `Switch-AzureMode AzureResourceManager`. 
+> Instale y configure la [versión más reciente de Azure PowerShell](/powershell/azureps-cmdlets-docs). Si usa módulos de Azure PowerShell anteriores a la versión 1.0, seguirá usando estos comandos, pero primero debe `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 
@@ -229,6 +229,6 @@ En esta lista, copie el nombre de SKU elegido, y ya tiene toda la información p
 [yah]: http://search.yahoo.com/  
 [msn]: http://search.msn.com/
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

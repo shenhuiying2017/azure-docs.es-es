@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f0321c71655f1b023862aeeef4615544135adb5a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
 
 
 ---
@@ -32,13 +32,13 @@ Las correcciones de compatibilidad (shim) de Memcache de Aplicaciones web se pue
 
 Siga los pasos descritos en estos artículos:
 
-* [Aprovisionamiento de una instancia de Azure Redis Cache Service][0]
-* [Implementación de un sitio de WordPress escalable en Azure][1]
+* [Aprovisionamiento de una entrada de Azure Redis Cache Service][0]
+* [Implementación de un sitio escalable de WordPress en Azure][1]
 
 Una vez que se implementa el sitio web escalable de WordPress y que se aprovisiona una instancia de Caché en Redis, estará preparado para proceder con la habilitación de las correcciones de compatibilidad (shim) de Memcache en Aplicaciones web del Servicio de aplicaciones de Azure.
 
 ## <a name="enable-the-web-apps-memcache-shim"></a>Habilitación de las correcciones de compatibilidad de Memcache de Aplicaciones web
-Para configurar las correcciones de compatibilidad (shim) de Memcache, debe crear tres ajustes de aplicaciones. Puede hacerlo mediante varios métodos, entre los que se incluyen [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), el [portal clásico][3], los [cmdlets de Azure PowerShell][5] o la [interfaz de la línea de comandos de Azure][5]. En esta publicación se va a usar [Azure Portal][4] para establecer la configuración de la aplicación. Los valores siguientes se pueden recuperar de la hoja **Configuración** de la instancia de Caché en Redis.
+Para configurar las correcciones de compatibilidad (shim) de Memcache, debe crear tres ajustes de aplicaciones. Puede hacerlo mediante una variedad de métodos, entre los que se incluyen [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715), el [Portal clásico][3], los [cmdlets de Azure PowerShell][5] o la [interfaz de la línea de comandos de Azure][5]. En lo que respecta a esta publicación, usaremos [Azure Portal][4] para establecer los ajustes de la aplicación. Los valores siguientes se pueden recuperar de la hoja **Configuración** de la instancia de Caché en Redis.
 
 ![Hoja de configuración de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/1-azure-redis-cache-settings.png)
 
@@ -71,7 +71,7 @@ Una vez que agrega las tres (3) configuraciones de aplicación, haga clic en **G
 A fin de que la aplicación se comunique con el protocolo Memcache, es necesario instalar la extensión Memcache en PHP (el marco de lenguaje para el sitio de WordPress).
 
 ### <a name="download-the-phpmemcache-extension"></a>Descarga de la extensión php_memcache
-Desplácese hasta [PECL][6]. En la categoría de almacenamiento en caché, haga clic en [memcache][7]. Haga clic en el vínculo DLL en la columna de descargas.
+Acceda a [PECL][6]. En la categoría de almacenamiento en caché, haga clic en [memcache][7]. Haga clic en el vínculo DLL en la columna de descargas.
 
 ![Sitio web de PHP PECL](./media/web-sites-connect-to-redis-using-memcache-protocol/7-php-pecl-website.png)
 
@@ -111,7 +111,7 @@ Busque **Memcached Object Cache** (Caché de objeto Memcached) en la lista y hag
 
 ### <a name="enable-the-memcache-wordpress-plugin"></a>Habilitar el complemento WordPress para Memcache
 > [!NOTE]
-> Siga las instrucciones de este blog [How to enable a Site Extension in Web Apps] (Habilitación de una extensión de sitio en Aplicaciones web)[8] para instalar Visual Studio Team Services.
+> Siga las instrucciones que aparecen en la entrada del blog [How to enable a Site Extension in Web Apps][8] (Habilitación de una extensión de sitio en Aplicaciones web) para instalar Visual Studio Team Services.
 > 
 > 
 
@@ -136,7 +136,7 @@ Ahora que el archivo **object-cache.php** está en la carpeta **wp-content**, Me
 ## <a name="verify-the-memcache-object-cache-plugin-is-functioning"></a>Comprobación de que el complemento Memcache Object Cache funciona
 Todos los pasos para habilitar las correcciones de compatibilidad (shim) de Memcache de Aplicaciones web ahora están completos. Lo único que queda es comprobar que los datos rellenan la instancia de Caché en Redis.
 
-### <a name="enable-the-nonssl-port-support-in-azure-redis-cache"></a>Habilitar la compatibilidad de puertos no SSL en Caché en Redis de Azure
+### <a name="enable-the-non-ssl-port-support-in-azure-redis-cache"></a>Habilitar la compatibilidad de puertos no SSL en Caché en Redis de Azure
 > [!NOTE]
 > En el momento de la redacción del presente artículo, la CLI de Redis no es compatible con la conectividad SSL, por lo que los siguientes pasos resultan necesarios.
 > 
@@ -158,9 +158,9 @@ Verá que ahora está definido el valor Puerto NO SSL. Haga clic en **Guardar**.
 
 ![Portal de acceso no SSL de Redis de Caché en Redis de Azure](./media/web-sites-connect-to-redis-using-memcache-protocol/18-azure-redis-cache-access-port-non-ssl.png)
 
-### <a name="connect-to-azure-redis-cache-from-rediscli"></a>Conectarse a Caché en Redis de Azure desde redis-cli
+### <a name="connect-to-azure-redis-cache-from-redis-cli"></a>Conectarse a Caché en Redis de Azure desde redis-cli
 > [!NOTE]
-> En este paso se supone que Redis está instalado localmente en su equipo de desarrollo. [Siga estas instrucciones9 para instalar Redis localmente][9].
+> En este paso se supone que Redis está instalado localmente en su equipo de desarrollo. [Siga estas instrucciones para instalar Redis localmente][9].
 > 
 > 
 
@@ -177,10 +177,10 @@ Reemplace **&lt;hostname-for-redis-cache&gt;** por el nombre de host xxxxx.redis
 La llamada para enumerar las claves debe devolver un valor. Si no es así, intente ir a la aplicación web y vuelva a intentarlo.
 
 ## <a name="conclusion"></a>Conclusión
-¡Enhorabuena! La aplicación de WordPress ahora tiene una caché en memoria centralizada para ayudar a aumentar el rendimiento. Recuerde, las Correcciones de compatibilidad (shim) de Memcache de Aplicaciones web se puede usar con cualquier cliente Memcache, independientemente del lenguaje de programación o del marco de aplicaciones. Para enviar comentarios o formular preguntas acerca de las correcciones de compatibilidad (shim) de Memcache de Web Apps, publique en los [foros de MSDN][10] o en [Stackoverflow][11].
+¡Enhorabuena! La aplicación de WordPress ahora tiene una caché en memoria centralizada para ayudar a aumentar el rendimiento. Recuerde, las Correcciones de compatibilidad (shim) de Memcache de Aplicaciones web se puede usar con cualquier cliente Memcache, independientemente del lenguaje de programación o del marco de aplicaciones. Si desea enviar comentarios o formular preguntas acerca de las correcciones de compatibilidad (shim) de Memcache de Web Apps, publique en los [Foros de MSDN][10] o en [Stackoverflow][11].
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -191,7 +191,7 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 [1]: http://bit.ly/1t0KxBQ
 [2]: http://manage.windowsazure.com
 [3]: http://portal.azure.com
-[4]: ../powershell-install-configure.md
+[4]: /powershell/azureps-cmdlets-docs
 [5]: /downloads
 [6]: http://pecl.php.net
 [7]: http://pecl.php.net/package/memcache
@@ -204,6 +204,6 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

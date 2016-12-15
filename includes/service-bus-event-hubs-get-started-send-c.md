@@ -7,7 +7,7 @@ En esta sección se escribirá una aplicación C para enviar eventos al Centro d
     ```
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Descargue la [biblioteca de Qpid Proton](http://qpid.apache.org/proton/index.html) y extráigala, por ejemplo:
+3. Descargue la [biblioteca de Qpid Proton](http://qpid.apache.org/proton/index.html) y extráigala; por ejemplo:
    
     ```
     wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
@@ -109,13 +109,11 @@ En esta sección se escribirá una aplicación C para enviar eventos al Centro d
     gcc sender.c -o sender -lqpid-proton
     ```
 
-> [!NOTE]
-> En este código, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general, la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Vea la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
-> 
-> 
+    > [!NOTE]
+    > En este código, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general, la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Vea la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

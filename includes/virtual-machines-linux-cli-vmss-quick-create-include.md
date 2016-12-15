@@ -4,12 +4,20 @@ Si no lo ha hecho todavía, puede obtener una [evaluación gratuita de susscripc
 azure config mode arm
 ```
 
-Ahora cree un conjunto de escalado mediante el comando `azure vmss quick-create`. En el ejemplo siguiente se crea un conjunto de escalado denominado `myVMSS` con 5 instancias de máquina virtual en el grupo de recursos denominado `myResourceGroup`:
+Ahora cree un conjunto de escalado mediante el comando `azure vmss quick-create`. En el ejemplo siguiente se crea un conjunto de escalado de Linux denominado `myVMSS` con 5 instancias de máquina virtual en el grupo de recursos denominado `myResourceGroup`:
 
 ```azurecli
 azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
     -u ops -p P@ssw0rd! \
-    -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+En el ejemplo siguiente se crea un conjunto de escalado de Windows con la misma configuración:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Si desea personalizar la ubicación o el URN de la imagen, use los comandos `azure location list` y `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

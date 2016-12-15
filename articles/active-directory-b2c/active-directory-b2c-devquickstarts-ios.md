@@ -3,7 +3,7 @@ title: "Azure Active Directory B2C: llamada a una API web desde una aplicación 
 description: "Este artículo le mostrará cómo crear una aplicación iOS de &quot;lista de tareas pendientes&quot; que llama a una API web de Node.js con tokens de portador de OAuth 2.0 mediante una biblioteca de terceros."
 services: active-directory-b2c
 documentationcenter: ios
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: 
 ms.assetid: d818a634-42c2-4cbd-bf73-32fa0c8c69d3
@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 07/26/2016
 ms.author: brandwe
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: bdf08cad54f4c59bb09988fae0db3699dc5b2bff
+ms.sourcegitcommit: 0175f4e83aace12d8e4607f2ad924893093c6734
+ms.openlocfilehash: cc5e199816668a5a0f936019ab8096e93a7a2f5a
 
 
 ---
@@ -631,6 +631,6 @@ Ahora puede pasar a temas más avanzados de B2C. Puede probar:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

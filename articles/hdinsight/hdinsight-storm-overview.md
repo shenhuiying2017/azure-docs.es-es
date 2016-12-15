@@ -16,12 +16,12 @@ ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e2fa11046adf828497b142e1043ac1c2a15443ef
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: e0353fe07c98060c88f8fefdcc3c1052437f23ab
 
 
 ---
-# <a name="introduction-to-apache-storm-on-hdinsight-realtime-analytics-for-hadoop"></a>Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop
+# <a name="introduction-to-apache-storm-on-hdinsight-real-time-analytics-for-hadoop"></a>Introducción a Apache Storm en HDInsight: análisis en tiempo real de Hadoop
 Apache Storm en HDInsight le permite crear soluciones de análisis en tiempo real distribuidas en el entorno de Azure mediante [Apache Hadoop](http://hadoop.apache.org).
 
 ## <a name="what-is-apache-storm"></a>¿Qué es Apache Storm?
@@ -47,13 +47,13 @@ Apache Storm en HDInsight es un clúster administrado integrado en el entorno de
 
 Para obtener una lista de empresas que usan Apache Storm con sus soluciones de análisis en tiempo real, consulte [Compañías que usan Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Para empezar a usar Storm, consulte [Tutorial de Apache Storm: introducción a las muestras de Inicio de Storm para análisis de grandes cantidades de datos en HDInsight][gettingstarted].
+Para ver una introducción al uso de Storm, consulte [Introducción a Storm en HDInsight][gettingstarted].
 
 ### <a name="ease-of-provisioning"></a>Facilidad de aprovisionamiento
 Puede aprovisionar un nuevo clúster de Storm en HDInsight en minutos. Especifique el nombre del clúster, su tamaño, la cuenta del administrador y la cuenta de almacenamiento. Azure creará el clúster, incluyendo las topologías de ejemplo y un panel de administración web.
 
 > [!NOTE]
-> También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](../powershell-install-configure.md).
+> También puede aprovisionar clústeres de Storm mediante la [CLI de Azure](../xplat-cli-install.md) o [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 > 
 > 
 
@@ -107,7 +107,7 @@ Aunque puede especificar el número de nodos del clúster durante la creación, 
 ### <a name="support"></a>Soporte técnico
 Storm en HDInsight incluye soporte técnico completo ininterrumpido de nivel de empresa. Storm en HDInsight también tiene un SLA del 99,9 %. Eso significa que está garantizado que el clúster dispondrá de conectividad externa como mínimo el 99,9 % del tiempo.
 
-## <a name="common-use-cases-for-realtime-analytics"></a>Casos de uso comunes del análisis en tiempo real
+## <a name="common-use-cases-for-real-time-analytics"></a>Casos de uso comunes del análisis en tiempo real
 A continuación se indican algunos de los escenarios comunes en los que se podría usar Apache Storm. Para obtener información sobre escenarios del mundo real, lea [Cómo usan Storm las empresas](https://storm.apache.org/documentation/Powered-By.html).
 
 * Internet de las cosas (IoT)
@@ -138,7 +138,7 @@ Apache Storm ejecuta **topologías** en lugar de los trabajos de MapReduce con l
   
   * **Nimbus** es un servicio de Thrift y una **topología** es una definición de Thrift, por lo que es posible desarrollar topologías mediante diversos lenguajes de programación.
 
-Para más información sobre los componentes de Storm, consulte el [tutorial de Storm][apachetutorial] en apache.org.
+Para más información sobre los componentes de Storm, consulte el [Tutorial de Storm][apachetutorial] en apache.org.
 
 ## <a name="what-programming-languages-can-i-use"></a>¿Qué lenguajes de programación se pueden usar?
 El clúster de Storm en HDInsight ofrece compatibilidad con C#, Java y Python.
@@ -196,7 +196,7 @@ Para ver una topología de ejemplo que muestre cómo configurar el registro, con
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre las soluciones de análisis en tiempo real con Apache Storm en HDInsight:
 
-* [Introducción a Storm con HDInsight][gettingstarted]
+* [Introducción a Storm en HDInsight][gettingstarted]
 * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
@@ -206,6 +206,6 @@ Obtenga más información sobre las soluciones de análisis en tiempo real con A
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

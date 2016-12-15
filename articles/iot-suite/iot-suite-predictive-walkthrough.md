@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba48381f2c16a56e2e3f187017fbdbae09544e77
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6d80f266730701dc4e678f4365a2166be72c9143
 
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Tutorial de la solución preconfigurada de mantenimiento predictivo
 ## <a name="introduction"></a>Introducción
-La solución preconfigurada de mantenimiento predictivo del Conjunto aplicaciones de IoT es una solución de un extremo a otro para un escenario empresarial, que predice el punto en el que es probable que se produzca un error. Puede utilizar esta solución preconfigurada de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios clave de Conjunto de aplicaciones de IoT de Azure, incluido un área de trabajo de [Azure Machine Learning][lnk_machine_learning]. Esta área de trabajo contiene experimentos, basados en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
+La solución preconfigurada de mantenimiento predictivo del Conjunto aplicaciones de IoT es una solución de un extremo a otro para un escenario empresarial, que predice el punto en el que es probable que se produzca un error. Puede utilizar esta solución preconfigurada de forma proactiva para actividades como, por ejemplo, la optimización del mantenimiento. La solución combina servicios clave del Conjunto de aplicaciones de IoT de Azure, incluido un área de trabajo de [Azure Machine Learning][lnk_machine_learning]. Esta área de trabajo contiene experimentos, basados en un conjunto público de datos de ejemplo para predecir la vida útil restante (RUL) de un motor de avión. La solución proporciona una implementación completa del escenario empresarial como punto de partida para planear e implementar una solución que satisfaga sus propios requisitos empresariales específicos.
 
 ## <a name="logical-architecture"></a>Arquitectura lógica
 El diagrama siguiente describe los componentes lógicos de la solución preconfigurada:
@@ -36,14 +36,14 @@ Algunos recursos no están disponibles en las regiones donde se ha aprovisionado
 
 El elemento verde es un dispositivo simulado que representa un motor de avión. Puede obtener más información acerca de estos dispositivos simulados en la sección siguiente.
 
-Los elementos de color gris representan los componentes que implementan capacidades de *administración de dispositivos* . La versión actual de la solución preconfigurada de mantenimiento predictivo no aprovisiona estos recursos. Para obtener más información acerca de la administración de dispositivos, consulte el [Tutorial de la solución preconfigurada de supervisión remota][lnk-remote-monitoring].
+Los elementos de color gris representan los componentes que implementan capacidades de *administración de dispositivos* . La versión actual de la solución preconfigurada de mantenimiento predictivo no aprovisiona estos recursos. Para más información acerca de la administración de dispositivos, consulte el [tutorial de la solución preconfigurada de supervisión remota][lnk-remote-monitoring].
 
 ## <a name="simulated-devices"></a>Dispositivos simulados
 En la solución preconfigurada, un dispositivo simulado representa un motor de avión. La solución se aprovisiona con dos motores que se asignan a un avión único. Cada motor emite cuatro tipos de telemetría: Sensor 9, Sensor 11, Sensor 14 y Sensor 15 que proporcionan los datos necesarios para el modelo de Aprendizaje automático a fin de calcular la vida útil restante (RUL) de dicho motor. Cada dispositivo simulado envía los siguientes mensajes de telemetría al Centro de IoT:
 
 *Recuento de ciclos*. Un ciclo representa un vuelo completado con una longitud variable entre 2-10 horas en el que se capturan datos de telemetría cada media hora durante el vuelo.
 
-*Telemetría*. Existen cuatro sensores que representan atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores representan la telemetría suficiente para obtener resultados útiles del modelo de Aprendizaje automático en lo referente a la vida útil restante. Este modelo se crea a partir de un conjunto de datos público que incluye datos de sensor de un motor real. Para obtener más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
+*Telemetría*. Existen cuatro sensores que representan atributos de motor. Los sensores se etiquetan genéricamente Sensor 9, Sensor 11, Sensor 14 y Sensor 15. Estos cuatro sensores representan la telemetría suficiente para obtener resultados útiles del modelo de Aprendizaje automático en lo referente a la vida útil restante. Este modelo se crea a partir de un conjunto de datos público que incluye datos de sensor de un motor real. Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
 
 Los dispositivos simulados pueden controlar los siguientes comandos enviados desde un Centro de IoT:
 
@@ -61,7 +61,7 @@ Centro de IoT proporciona la confirmación de los comandos del dispositivo.
 El **procesador de eventos** toma los valores promedio de los sensores para un ciclo completado. Pasa esos valores a una API que muestra el modelo entrenado de Aprendizaje automático para calcular la vida útil restante de un motor.
 
 ## <a name="azure-machine-learning"></a>Aprendizaje automático de Azure
-Para obtener más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
+Para más información sobre cómo se creó el modelo del conjunto de datos original, consulte [Predictive Maintenance Template (Plantilla de mantenimiento predictivo) en la Galería de Cortana Intelligence][lnk-cortana-analytics].
 
 ## <a name="lets-start-walking"></a>Primeros pasos
 Esta sección le guiará por los componentes de la solución, describe el caso práctico previsto y ofrece ejemplos.
@@ -100,14 +100,14 @@ La simulación ejecuta el conjunto de datos completo para 148 ciclos y se establ
 Puede detener la simulación en cualquier punto, pero al hacer clic en **Iniciar simulación** se reproduce la simulación desde el principio del conjunto de datos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, es posible que desee modificarla; consulte para ello [Personalización de soluciones preconfiguradas][lnk-customize].
+Ahora que ha ejecutado la solución preconfigurada de mantenimiento predictivo, es posible que desee modificarla; consulte para ello la [guía para la personalización de soluciones preconfiguradas][lnk-customize].
 
 La entrada de blog de TechNet [IoT Suite - Under The Hood - Predictive Maintenance](http://social.technet.microsoft.com/wiki/contents/articles/33527.iot-suite-under-the-hood-predictive-maintenance.aspx) (Conjunto de aplicaciones de IoT: Mantenimiento predictivo interno) proporciona información adicional sobre la solución de mantenimiento predictivo preconfigurada.
 
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 * [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
-* [Seguridad de IoT desde el principio][lnk-security-groundup]
+* [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 [img-resource-group]: media/iot-suite-predictive-walkthrough/resource-group.png
@@ -127,6 +127,6 @@ También puede explorar algunas de las demás características y funcionalidades
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

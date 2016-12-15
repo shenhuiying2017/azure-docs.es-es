@@ -8,7 +8,7 @@ Para obtener información general acerca de cómo planear un clúster de HPC Pac
 
 ## <a name="prerequisites"></a>Requisitos previos
 * **Suscripción de Azure** : puede usar una suscripción en el servicio Azure Global o Azure China. Los límites de su suscripción afectarán al número y al tipo de nodos de clúster que puede implementar. Para obtener información, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../articles/azure-subscription-service-limits.md).
-* **Equipo cliente de Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado** : consulte [Cómo instalar y configurar Azure PowerShell](../articles/powershell-install-configure.md) para ver instrucciones de instalación y pasos para conectarse a su suscripción de Azure.
+* **Equipo cliente de Windows con Azure PowerShell 0.8.7 o posterior instalado y configurado** : consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para ver instrucciones de instalación y pasos para conectarse a su suscripción de Azure.
 * **Script de implementación de IaaS de HPC Pac** : descargue y desempaquete la versión más reciente del script desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Compruebe la versión del script ejecutando `New-HPCIaaSCluster.ps1 –Version`. Este artículo se basa en la versión 4.4.1 del script.
 * **Archivo de configuración del script** : necesitará crear un archivo XML que el script usará para configurar el clúster de HPC. Para más información, junto con ejemplos, vea las secciones más adelante en este artículo y el archivo Manual.rtf que acompaña al script de implementación.
 
@@ -57,6 +57,6 @@ El archivo de configuración para el script de implementación es un archivo XML
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

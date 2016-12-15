@@ -6,13 +6,8 @@ Las puertas de enlace de red virtual de ExpressRoute pueden utilizar las SKU sig
 * HighPerformance
 * UltraPerformance
 
-> [!IMPORTANT]
-> La puerta de enlace de ExpressRoute UltraPerformance está disponible en las regiones de Centro-Oeste de EE. UU. y Centro de EE. UU. y se puede vincular a los circuitos ExpressRoute ubicados en Chicago y Dallas. En las próximas semanas estarán disponibles más ubicaciones de ExpressRoute y regiones de Azure. 
-> 
-> 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

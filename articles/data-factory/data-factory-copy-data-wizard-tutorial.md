@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47c43201b15a3452871d662038a1246ea403f02
+ms.sourcegitcommit: 3205077236dd44253b3fa36d6eace36fb307871e
+ms.openlocfilehash: 11754bbe534638d8321f509d7d82e025c667176c
 
 
 ---
@@ -60,8 +60,8 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
    2. Selección la **suscripción**de Azure.
    3. Para el grupo de recursos, realice uno de los siguientes pasos: 
       
-      1. Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
-      2. Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
+      - Seleccione en primer lugar **Usar existente** y después un grupo de recursos existente.
+      - Seleccione **Crear nuevo** y escriba un nombre para un grupo de recursos.
          
           En algunos de los pasos de este tutorial se supone que se usa el nombre: **ADFTutorialResourceGroup** para el grupo de recursos. Para obtener más información sobre los grupos de recursos, consulte [Uso de grupos de recursos para administrar los recursos de Azure](../azure-resource-manager/resource-group-overview.md).
    4. Seleccione una **ubicación** para la factoría de datos.
@@ -163,6 +163,6 @@ En este paso, utilizará el Portal de Azure para crear una factoría de datos de
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 09/27/2016
 ms.author: markgal;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 900967975694a688b6d5054cb351746819b65f16
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8ac37244d1e691a2f075116f3d78b89923cfb845
 
 
 ---
@@ -78,7 +78,7 @@ Al crear un almacén de Servicios de recuperación se determina cómo se replica
 
 Ahora que ya ha creado un almacén, prepare su infraestructura para realizar la copia de seguridad de archivos y carpetas mediante la descarga de las credenciales del almacén y agente de Servicios de recuperación de Microsoft Azure.
 
-## <a name="step-3-download-files"></a>Paso 3: Descarga de los archivos
+## <a name="step-3---download-files"></a>Paso 3: Descarga de los archivos
 1. Haga clic en **Configuración** en el panel del almacén de Servicios de recuperación.
    
     ![Abrir hoja de objetivo de copia de seguridad](./media/backup-try-azure-backup-in-10-mins/settings-button.png)
@@ -102,7 +102,7 @@ Ahora que ya ha creado un almacén, prepare su infraestructura para realizar la 
    
     ![Prepare infrastructure](./media/backup-try-azure-backup-in-10-mins/prepare-infrastructure-download.png)
 
-## <a name="step-4-install-and-register-the-agent"></a>Paso 4: Instalación y registro del agente
+## <a name="step-4--install-and-register-the-agent"></a>Paso 4: Instalación y registro del agente
 > [!NOTE]
 > La habilitación de la copia de seguridad a través del portal de Azure estará pronto disponible. En este momento, se usa el agente de Servicios de recuperación de Microsoft Azure local para hacer copia de seguridad de archivos y carpetas.
 > 
@@ -142,7 +142,7 @@ Para realizar la copia de seguridad inicial use el agente de Servicios de recupe
 3. En la página de introducción del Asistente para programar copias de seguridad, haga clic en **Siguiente**.
 4. En la página Seleccionar elementos de los que realizar copia de seguridad, haga clic en **Agregar elementos**.
 5. Seleccione los archivos y las carpetas de los que desea crear la copia de seguridad y, luego, haga clic en **Aceptar**.
-6. Haga clic en **Next**.
+6. Haga clic en **Siguiente**.
 7. En la página **Especifique la programación de copia de seguridad**, indique la **programación de copia de seguridad** y haga clic en **Siguiente**.
    
     Puede programar copias de seguridad diarias (con una frecuencia máxima de tres veces al día) o semanales.
@@ -184,6 +184,6 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

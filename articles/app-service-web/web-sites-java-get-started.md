@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: acacfbead6cf0d68ccfeb5e818a2b04f2be9b902
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e2785d007aa30d3ef70ce2ca6049cdd4e9733099
 
 
 ---
@@ -37,7 +37,7 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
 
 1. Cree una aplicación y después configure **Configuración de la aplicación**.
    
-    El Servicio de aplicaciones proporciona varias versiones de Tomcat y Jetty, con la configuración predeterminada. Si la aplicación que va a hospedar funcionará con una de las versiones integradas, este método de configuración de un contenedor web es el más sencillo y cumple su función si todo lo que necesita es cargar un archivo WAR en un contenedor web. Para este método, creará una aplicación en el Portal de Azure e irá a la hoja **Configuración de la aplicación** de la aplicación para elegir la versión de Java, junto con el contenedor web de Java deseado. Cuando se usa este método, tanto el código Java como el contenedor web se ejecutan desde Archivos de programa. Los demás métodos colocan el contenedor web y posiblemente el código JVM en espacio del disco. Cuando se usa este modelo, no tiene acceso para editar archivos en esta parte del sistema de archivos. Esto significa que no puede hacer cosas como configurar el archivo *server.xml* o colocar los archivos de la biblioteca en la carpeta */lib*. Para obtener más información, consulte la sección [Creación y configuración de una aplicación web de Java](#appsettings) más adelante en este tutorial.
+    El Servicio de aplicaciones proporciona varias versiones de Tomcat y Jetty, con la configuración predeterminada. Si la aplicación que va a hospedar funcionará con una de las versiones integradas, este método de configuración de un contenedor web es el más sencillo y cumple su función si todo lo que necesita es cargar un archivo WAR en un contenedor web. Para este método, creará una aplicación en el Portal de Azure e irá a la hoja **Configuración de la aplicación** de la aplicación para elegir la versión de Java, junto con el contenedor web de Java deseado. Cuando se usa este método, tanto el código Java como el contenedor web se ejecutan desde Archivos de programa. Los demás métodos colocan el contenedor web y posiblemente el código JVM en espacio del disco. Cuando se usa este modelo, no tiene acceso para editar archivos en esta parte del sistema de archivos. Esto significa que no puede hacer cosas como configurar el archivo *server.xml* o colocar los archivos de la biblioteca en la carpeta */lib*. Para obtener más información, consulte la sección [Creación y configuración de una aplicación web de Java](#portal) más adelante en este tutorial.
 2. Use una plantilla en Azure Marketplace.
    
     Azure Marketplace incluye plantillas que crean y configuran automáticamente aplicaciones web de Java con contenedores web de Tomcat o Jetty. Los contenedores web creados por las plantillas son configurables. Para obtener más información, consulte la sección [Uso de una plantilla de Java en Azure Marketplace](#marketplace) de este tutorial.
@@ -55,7 +55,7 @@ Hay varias maneras de configurar una aplicación de Java en una aplicación web 
 ## <a name="a-nameportala-create-and-configure-a-java-web-app"></a><a name="portal"></a> Creación y configuración de una aplicación web de Java
 En esta sección se muestra cómo crear una aplicación web y configurarla para Java mediante la hoja **Configuración de la aplicación** del portal.
 
-1. Inicie sesión en el [Portal de Azure].
+1. Inicie sesión en el [Azure Portal].
 2. Haga clic en **Nuevo > Web y móvil > Aplicación web**.
    
     ![Nueva aplicación web][newwebapp]
@@ -64,7 +64,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
     Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será {nombre}.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
 4. Seleccione un **Grupo de recursos** o cree uno nuevo.
    
-    Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure].
+    Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager].
 5. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
    
     Para más información sobre los planes del Servicio de aplicaciones, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure].
@@ -92,7 +92,7 @@ En esta sección se muestra cómo crear una aplicación web y configurarla para 
 ## <a name="a-namemarketplacea-use-a-java-template-from-the-azure-marketplace"></a><a name="marketplace"></a> Uso de una plantilla Java en Azure Marketplace
 En esta sección se muestra cómo usar Azure Marketplace para crear una aplicación web de Java. También puede usarse el mismo flujo general para crear una aplicación de API o una aplicación móvil basada en Java. 
 
-1. Inicie sesión en el [Portal de Azure]
+1. Inicie sesión en el [Azure Portal]
 2. Haga clic en **Nuevo > Marketplace**.
    
     ![Nuevo Marketplace][newmarketplace]
@@ -111,7 +111,7 @@ En esta sección se muestra cómo usar Azure Marketplace para crear una aplicaci
     Este nombre debe ser único en el dominio azurewebsites.net porque la dirección URL de la aplicación web será {nombre}.azurewebsites.net. Si el nombre especificado no es único, se muestra un signo de exclamación rojo en el cuadro de texto.
 8. Seleccione un **Grupo de recursos** o cree uno nuevo.
    
-    Para obtener más información acerca de los grupos de recursos, consulte [Uso del Portal de Azure para administrar los recursos de Azure].
+    Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager].
 9. Seleccione un **Plan de servicio de aplicaciones/Ubicación** o cree uno nuevo.
    
     Para más información sobre los planes del Servicio de aplicaciones, consulte [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure].
@@ -144,13 +144,13 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 
 [Incorporación de una aplicación o página web a la aplicación web de Java]: ./web-sites-java-add-app.md
 [Introducción detallada sobre los planes del Servicio de aplicaciones de Azure]: ../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md
-[Portal de Azure]: https://portal.azure.com/
-[activar las ventajas de suscriptor de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
+[Azure Portal]: https://portal.azure.com/
+[activar los beneficios de suscripción a Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=623901
 [registrarse para obtener una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[Prueba del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
-[Aplicación web en Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
+[prueba gratuita del Servicio de aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=523751
+[aplicación web de Java en Azure App Service]: http://go.microsoft.com/fwlink/?LinkId=529714
 [Centro de desarrolladores de Java]: /develop/java/
-[Uso del Portal de Azure para administrar los recursos de Azure]: ../azure-portal/resource-group-portal.md
+[Información general de Azure Resource Manager]: ../azure-resource-manager/resource-group-overview.md
 [Carga de una aplicación web de Java personalizada en Azure]: ./web-sites-java-custom-upload.md
 
 <!-- IMG List -->
@@ -169,6 +169,6 @@ Para obtener más información sobre el desarrollo de aplicaciones Java en Azure
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

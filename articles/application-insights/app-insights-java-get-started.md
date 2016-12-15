@@ -1,5 +1,5 @@
 ---
-title: "Análisis de aplicaciones web de Java con Application Insights | Microsoft Docs"
+title: "Análisis de aplicaciones web de Java con Azure Application Insights | Microsoft Docs"
 description: "Supervisión del rendimiento de aplicaciones web de Java con Application Insights. "
 services: application-insights
 documentationcenter: java
@@ -11,18 +11,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
-ms.openlocfilehash: 2c3c0c79e62631a42249ea6dc3865e59f26cad53
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: f7dc72299665a5324de7b9320eb9876c61ced123
 
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introducción a Application Insights en un proyecto web de Java
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Puede utilizarlo para [detectar y diagnosticar excepciones y problemas de rendimiento](app-insights-detect-triage-diagnose.md) y [escribir código][api] para hacer un seguimiento de lo que los usuarios hacen con la aplicación.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) es un servicio de análisis extensible para desarrolladores web que ayuda a comprender el rendimiento y el uso de la aplicación activa. Úselo para [detectar y diagnosticar problemas de rendimiento y excepciones](app-insights-detect-triage-diagnose.md), y [escribir código][api] para realizar un seguimiento de lo que los usuarios hacen con su aplicación.
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,7 +31,7 @@ Application Insights es compatible con aplicaciones Java que se ejecutan en Linu
 Necesita:
 
 * Oracle JRE 1.6 o posterior, o Zulu JRE 1.6 o posterior
-* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/). (Puede empezar con la [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/)).
+* Una suscripción a [Microsoft Azure](https://azure.microsoft.com/).
 
 *Si tiene una aplicación web que ya está en funcionamiento, puede seguir el procedimiento alternativo para [agregar el SDK en tiempo de ejecución en el servidor web](app-insights-java-live.md). Esa alternativa evita volver a generar el código, pero no incluye la opción de escribir código para realizar un seguimiento de la actividad del usuario.*
 
@@ -48,7 +48,7 @@ Necesita:
 *Elija la forma adecuada para su proyecto.*
 
 #### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Si usa Eclipse para crear un proyecto web dinámico o de Maven...
-Utilice el [complemento del SDK de Application Insights para Java en][Eclipse].
+Use el [complemento SDK de Application Insights para Java][eclipse].
 
 #### <a name="if-youre-using-maven"></a>Si está usando Maven...
 Si su proyecto ya se ha configurado para usar Maven para la compilación, combine el siguiente código en el archivo pom.xml.
@@ -148,7 +148,7 @@ Sustituya la clave de instrumentación que obtuvo en el portal de Azure.
 
 * La clave de instrumentación se envía junto con todos los elementos de telemetría e indica a Application Insights que se muestre en el recurso.
 * El componente de la solicitud HTTP es opcional. Envía automáticamente telemetría sobre las solicitudes y tiempos de respuesta en el portal.
-* La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y agrega este identificador como propiedad a todos los elementos de telemetría como la propiedad 'Operation.Id'. Le permite relacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnóstico].
+* La correlación de eventos es un complemento del componente de la solicitud HTTP. Asigna un identificador a cada solicitud recibida por el servidor y agrega este identificador como propiedad a todos los elementos de telemetría como la propiedad 'Operation.Id'. Le permite correlacionar la telemetría asociada a cada solicitud estableciendo un filtro en la [búsqueda de diagnóstico][diagnostic].
 * La clave de Application Insights se puede pasar dinámicamente desde el Portal de Azure como una propiedad del sistema (-DAPPLICATION_INSIGHTS_IKEY = your_ikey). Si no hay ninguna propiedad definida, busca la variable de entorno (APPLICATION_INSIGHTS_IKEY) en la configuración de las aplicaciones de Azure. Si las propiedades no están definidas, se usa el valor predeterminado de InstrumentationKey de ApplicationInsights.xml. Esta secuencia le ayuda a administrar dinámicamente distintas instancias InstrumentationKeys para entornos diferentes.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>Alternativas para establecer la clave de instrumentación
@@ -213,7 +213,7 @@ Los datos de las solicitudes HTTP aparecen en la hoja de información general. (
 
 ![datos de ejemplo](./media/app-insights-java-get-started/5-results.png)
 
-[Más información acerca de las métricas.][métricas]
+[Más información acerca de las métricas.][metrics]
 
 Haga clic en cualquier gráfico para ver métricas agregadas más detalladas.
 
@@ -261,7 +261,7 @@ Las excepciones no controladas se recopilan automáticamente:
 
 Para recopilar datos de otras excepciones, tiene dos opciones:
 
-* [Insertar llamadas a TrackException en el código][apiexceptions].. 
+* [Insertar llamadas a TrackException en el código][apiexceptions]. 
 * [Instalar el agente de Java en el servidor](app-insights-java-agent.md). Debe especificar los métodos que desee ver.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Supervisión de llamadas a métodos y dependencias externas
@@ -313,7 +313,7 @@ Cada [contador de rendimiento de Windows](https://msdn.microsoft.com/library/win
 * counterName: el nombre del contador de rendimiento.
 * instanceName: el nombre de la instancia de categoría del contador de rendimiento o una cadena vacía (""), si la categoría contiene una sola instancia. Si categoryName es Proceso, y el contador de rendimiento que desea recopilar está en el proceso de JVM actual en que se ejecuta la aplicación, especifique `"__SELF__"`.
 
-Los contadores de rendimiento están visibles como métricas personalizadas en el [Explorador de métricas][métricas].
+Los contadores de rendimiento están visibles como métricas personalizadas en el [Explorador de métricas][metrics].
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
@@ -323,20 +323,20 @@ Los contadores de rendimiento están visibles como métricas personalizadas en e
 ## <a name="get-user-and-session-data"></a>Obtención de datos de usuario y sesión
 Bien, va a enviar telemetría desde el servidor web. Ahora, para obtener la visión completa de 360 grados de la aplicación, puede agregar mayor supervisión:
 
-* [Agregue telemetría a las páginas web][uso] para supervisar las vistas de página y las métricas de usuario.
-* [Configure las pruebas web][disponibilidad] para comprobar que la aplicación permanece activa y responde adecuadamente.
+* [Agregue telemetría a las páginas web][usage] para supervisar las vistas de páginas y las métricas de usuario.
+* [Configure las pruebas web][availability] para comprobar que la aplicación efectivamente está activa y responde adecuadamente.
 
 ## <a name="capture-log-traces"></a>Captura de seguimiento de registros
-Application Insights se puede utilizar para segmentar y desglosar los registros desde Log4J, Logback u otras plataformas de registro. Puede correlacionar los registros con solicitudes HTTP y otra telemetría. [Descubra cómo][javalogs].
+Application Insights se puede utilizar para segmentar y desglosar los registros desde Log4J, Logback u otras plataformas de registro. Puede correlacionar los registros con solicitudes HTTP y otra telemetría. [Vea cómo][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Envío de su propia telemetría
 Ahora que ha instalado el SDK, puede utilizar la API para enviar su propia telemetría.
 
-* [Haga un seguimiento de las métricas y eventos personalizados][api] para saber qué hacen los usuarios con la aplicación.
-* [Busque eventos y registros][diagnóstico] para ayudar a diagnosticar problemas.
+* [Realice el seguimiento de eventos y métricas personalizados][api] para saber qué hacen los usuarios con su aplicación.
+* [Busque eventos y registros][diagnostic] para ayudar a diagnosticar problemas.
 
 ## <a name="availability-web-tests"></a>Pruebas web de disponibilidad
-Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para establecer la configuración][disponibilidad], haga clic en Pruebas web.
+Application Insights puede probar su sitio web a intervalos regulares para comprobar que está activo y que responde correctamente. [Para configurarlo][availability], haga clic en Pruebas web.
 
 ![Haga clic en Pruebas web y luego en Agregar prueba web](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -344,7 +344,7 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 ![Ejemplo de prueba web](./media/app-insights-java-get-started/appinsights-10webtestresult.png)
 
-[Más información acerca de las pruebas web de disponibilidad.][disponibilidad] 
+[Más información acerca de las pruebas web de disponibilidad.][availability] 
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
 [Solución de problemas de Java](app-insights-java-troubleshoot.md)
@@ -362,15 +362,15 @@ Obtendrá gráficos de tiempos de respuesta, junto con notificaciones por correo
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[disponibilidad]: app-insights-monitor-web-app-availability.md
-[diagnóstico]: app-insights-diagnostic-search.md
-[Eclipse]: app-insights-java-eclipse.md
+[availability]: app-insights-monitor-web-app-availability.md
+[diagnostic]: app-insights-diagnostic-search.md
+[eclipse]: app-insights-java-eclipse.md
 [javalogs]: app-insights-java-trace-logs.md
-[métricas]: app-insights-metrics-explorer.md
-[uso]: app-insights-web-track-usage.md
+[metrics]: app-insights-metrics-explorer.md
+[usage]: app-insights-web-track-usage.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

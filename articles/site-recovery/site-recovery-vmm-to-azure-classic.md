@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 11/01/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: cab275a71c7ae1048dd6bc315ed1114e0cf81e8b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 069a8619ccec30bb2a575ffd8faf3e6acf60da4a
 
 
 ---
@@ -352,6 +352,6 @@ Aprenda sobre la [configuración de los planes de recuperación](site-recovery-c
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

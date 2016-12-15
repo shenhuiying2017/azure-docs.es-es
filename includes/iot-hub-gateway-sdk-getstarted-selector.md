@@ -4,7 +4,7 @@
 > 
 > 
 
-En este artículo se ofrece un tutorial detallado sobre el código de ejemplo [Hello World][lnk-helloworld-sample] para ilustrar los componentes fundamentales de la arquitectura del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk]. En el ejemplo se usa el SDK de puerta de enlace de IoT Hub para crear una puerta de enlace simple que registra un mensaje "hello world" en un archivo cada cinco segundos.
+En este artículo se ofrece un tutorial detallado sobre el [ejemplo de código Hello World][lnk-helloworld-sample] para ilustrar los componentes fundamentales de la arquitectura del [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk]. En el ejemplo se usa el SDK de puerta de enlace de Azure IoT para crear una puerta de enlace simple que registra un mensaje "hello world" en un archivo cada cinco segundos.
 
 En este tutorial, se describen los siguientes procedimientos:
 
@@ -72,6 +72,6 @@ La ilustración anterior muestra la arquitectura del ejemplo Hello World y las r
 [lnk-helloworld-sample]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/hello_world
 [lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

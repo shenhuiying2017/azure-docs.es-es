@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 10/31/2016
 ms.author: araguila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2d44af03b8e16a2bd936fc805ed4f0c4e6c5fbfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 32da7abc3263e1d76f3f08ccae7ce159ead58bee
 
 
 ---
@@ -38,17 +38,17 @@ Los motores de los aviones de Fabrikam están equipados con sensores que supervi
 
 Al predecir el punto en el que se requiere mantenimiento, Fabrikam puede optimizar sus operaciones para reducir los costos. Los coordinadores de mantenimiento trabajan con programadores para planear que el mantenimiento coincida con la parada de una aeronave en una ubicación concreta y para garantizar tiempo suficiente para que el avión esté fuera de servicio sin causar interrupciones en la programación. Fabrikam puede programar a los técnicos según corresponda, asegurando que el servicio a los aviones se presta de manera eficaz sin tiempo de espera. Los administradores del control de inventario reciben planes de mantenimiento para poder optimizar su proceso de realización de pedidos y el inventario de las piezas de repuesto. Todo esto permite a Fabrikam minimizar el tiempo de inoperatividad de los aviones y reducir los costos operativos a la vez que se garantizan la seguridad de los pasajeros y de la tripulación.
 
-Para entender la manera en que el [Conjunto de aplicaciones de IoT de Azure][lnk_iot_suite] ofrece las capacidades que los clientes necesitan para obtener el potencial del mantenimiento predictivo, revise esta[infografía][lnk_infographic].
+Para entender la manera en que el [Conjunto de aplicaciones de IoT de Azure][lnk_iot_suite] ofrece las funcionalidades que los clientes necesitan para alcanzar el potencial del mantenimiento predictivo, consulte esta [infografía][lnk_infographic].
 
 ## <a name="how-the-predictive-maintenance-solution-is-built"></a>Cómo se crea la solución de un mantenimiento predictivo
-La solución aprovecha un modelo de aprendizaje automático de Azure existente disponible como plantilla para mostrar cómo funcionan estas capacidades a partir de la telemetría del dispositivo recopilada a través de los servicios del Conjunto de aplicaciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión y ha publicado la plantilla completa, datos<sup>\[1\]</sup> e instrucciones paso a paso sobre cómo utilizar el modelo.
+La solución aprovecha un modelo de aprendizaje automático de Azure existente disponible como plantilla para mostrar cómo funcionan estas capacidades a partir de la telemetría del dispositivo recopilada a través de los servicios del Conjunto de aplicaciones de IoT. Microsoft ha creado un [modelo de regresión][lnk_regression_model] de un motor de avión y ha publicado la plantilla completa, los datos<sup>\[1\]</sup> y las instrucciones paso a paso sobre cómo utilizar el modelo.
 
 La solución preconfigurada de mantenimiento predictivo de IoT de Azure utiliza el modelo de regresión creado a partir de esta plantilla; se implementa en su suscripción de Azure y se expone a través de una API generada automáticamente. La solución incluye un subconjunto de los datos de prueba que representa 4 (del total de 100) motores y 4 (del total de 21) flujos de datos de sensor que ofrecen un resultado exacto del modelo entrenado.
 
 *\[1\] A. Saxena and K. Goebel (2008). "Conjunto de datos de simulación de degradación del motor de turbofán", NASA Ames Prognostics Data Repository (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de cómo IoT de Azure habilita escenarios de mantenimiento predictivo, lea [Capturar el valor del Internet de las cosas][lnk_capture_value].
+Para más información acerca de cómo IoT de Azure habilita escenarios de mantenimiento predictivo, lea el documento sobre [Captura del valor de Internet de las cosas][lnk_capture_value].
 
 Examine el [tutorial][lnk-predictive-walkthrough] de la solución preconfigurada de mantenimiento predictivo.
 
@@ -63,13 +63,13 @@ Examine el [tutorial][lnk-predictive-walkthrough] de la solución preconfigurada
 También puede explorar algunas de las demás características y funcionalidades de las soluciones preconfiguradas del conjunto de aplicaciones de IoT:
 
 * [Preguntas más frecuentes sobre el Conjunto de aplicaciones de IoT][lnk-faq]
-* [Seguridad de IoT desde el principio][lnk-security-groundup]
+* [Seguridad de Internet de las cosas desde el principio][lnk-security-groundup]
 
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

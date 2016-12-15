@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
+ms.date: 11/23/2016
 ms.author: piotrci
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6dcadbfb99d4d111ab9ddde9d74db65b5542a8f5
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 07cadd332edc4c55d87ca76aabeaba824d1e2673
 > 
 > 
 
-En este artículo se explica cómo publicar aplicaciones para usuarios individuales en una colección de Azure RemoteApp. Esta es una nueva funcionalidad de Azure RemoteApp, actualmente en estado de "versión preliminar privada" disponible solo para seleccionar usuarios pioneros con fines de evaluación.
+En este artículo se explica cómo publicar aplicaciones para usuarios individuales en una colección de Azure RemoteApp. Esta es una nueva funcionalidad de Azure RemoteApp, actualmente en estado de "versión preliminar privada" disponible solo para usuarios pioneros seleccionados con fines de evaluación.
 
 Originalmente Azure RemoteApp solo permitía una manera de "publicar"aplicaciones: el administrador publicaba las aplicaciones a partir de la imagen y estas eran visibles para todos los usuarios de la colección.
 
@@ -36,8 +36,8 @@ Ahora, esto es posible en Azure RemoteApp: actualmente solo como una caracterís
 
 1. Una colección se puede establecer de uno de estos dos modos:
    
-   * el "modo de recopilación" original, en el que todos los usuarios de una colección pueden ver todas las aplicaciones publicadas. Este es el modo predeterminado.
-   * el nuevo "modo de aplicación", en el que los usuarios solo ven las aplicaciones que se han asignado explícitamente a ellos
+   * el modo de recopilación original, en el que todos los usuarios de una colección pueden ver todas las aplicaciones publicadas. Este es el modo predeterminado.
+   * el nuevo modo de aplicación, en el que los usuarios solo ven las aplicaciones que se han asignado explícitamente a ellos
 2. Por el momento, el modo de aplicación solo se puede habilitar mediante cmdlets de PowerShell de Azure RemoteApp.
    
    * Si se establece en modo de aplicación, la asignación de usuario en la colección no se puede administrar a través del Portal de Azure. La asignación de usuario se debe administrar mediante cmdlets de PowerShell.
@@ -49,7 +49,7 @@ Ahora, esto es posible en Azure RemoteApp: actualmente solo como una caracterís
 ## <a name="how-to-get-azure-remoteapp-powershell-cmdlets"></a>Obtención de los cmdlets de PowerShell de Azure RemoteApp
 Para probar la nueva funcionalidad de la versión preliminar, debe usar los cmdlets de Azure PowerShell. Actualmente no se puede usar el Portal de administración de Azure para habilitar el modo de publicación de nueva aplicación.
 
-En primer lugar, asegúrese de tener el [módulo de Azure PowerShell](../powershell-install-configure.md) instalado.
+En primer lugar, asegúrese de tener el [módulo de Azure PowerShell](/powershell/azureps-cmdlets-docs) instalado.
 
 A continuación, inicie la consola de PowerShell en modo de administrador y ejecute el siguiente cmdlet:
 
@@ -106,6 +106,6 @@ Si no ha participado aún en la versión preliminar, use esta [encuesta](http://
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

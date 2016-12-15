@@ -1,27 +1,27 @@
 ---
 title: Arquitectura de Service Bus | Microsoft Docs
 description: "Describe la arquitectura de procesamiento de Retransmisión y mensajes del Bus de servicio de Azure."
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: 
 ms.assetid: baf94c2d-0e58-4d5d-a588-767f996ccf7f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3c69783341eaed67ac29ab63d2127a4038bc0f6d
+ms.sourcegitcommit: 0b1f6f7ec47e47f39407cdbfd5efef2a18944ecc
+ms.openlocfilehash: 6a2e59f9366e411d322b8560f03b115638619966
 
 
 ---
 # <a name="service-bus-architecture"></a>Arquitectura del Bus de servicio
-En este artículo se describe la arquitectura de procesamiento de Retransmisión y mensajes del Bus de servicio de Azure.
+En este artículo se describe la arquitectura de procesamiento de mensajes del Bus de servicio de Azure.
 
 ## <a name="service-bus-scale-units"></a>Unidades de escala del Bus de servicio
 El Bus de servicio se organizada por *unidades de escala*. Una unidad de escalado es una unidad de implementación y contiene todos los componentes necesarios para ejecutar el servicio. Cada región implementa una o más unidades de escala del Bus de servicio.
@@ -49,7 +49,7 @@ Cuando se establece la conexión de retransmisión, los clientes pueden intercam
 ![Procesamiento de solicitudes entrantes de retransmisión WCF](./media/service-bus-architecture/IC690645.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha leído la información general sobre la arquitectura del Bus de servicio, visite los siguientes vínculos para empezar:
+Ahora que ha leído una introducción sobre la arquitectura de Service Bus, visite los siguientes vínculos para más información:
 
 * [Introducción a la mensajería del Bus de servicio](service-bus-messaging-overview.md)
 * [Elementos fundamentales del Bus de servicio](service-bus-fundamentals-hybrid-solutions.md)
@@ -58,6 +58,6 @@ Ahora que ha leído la información general sobre la arquitectura del Bus de ser
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

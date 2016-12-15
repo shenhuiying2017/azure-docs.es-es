@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/11/2016
 ms.author: cgronlun;olgali
 translationtype: Human Translation
-ms.sourcegitcommit: 35579eda8b92a481525ad987e99e7d9c9ed6b942
-ms.openlocfilehash: 7c712cb20d9e008c74436fc602326afa00250c63
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9c710e6f959afd8a4f4b965931ed4868d94c6d25
 
 
 ---
@@ -42,8 +42,8 @@ Para examinar todos los experimentos:
 2. En **Refine by** (Refinar por), seleccione **Experiment** (Experimento) para ver todos los experimentos de la galería.
 3. Puede encontrar los experimentos que cumplan con sus requisitos de las siguientes maneras:
    * **Seleccione los filtros de la izquierda.** Por ejemplo, para examinar los experimentos que utilizan un algoritmo de detección de anomalías basado en PCA, seleccione **Experiment** (Experimento) en **Categories** (Categorías), y **PCA-Based Anomaly Detection** (Detección de anomalías basada en PCA) en **Algorithms Used** (Algoritmos usados). Si no ve ese algoritmo, haga clic en **Show all** (Mostrar todo) en la parte inferior de la lista.<br></br>
-     ![](./media/machine-learning-sample-experiments/refine-the-view.png)
-   * **Utilice el cuadro de búsqueda.**  Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine**: ![](./media/machine-learning-sample-experiments/search-for-experiments.png) (Máquina de vectores de soporte de dos clases)
+     ![Filtros de selección](./media/machine-learning-sample-experiments/refine-the-view.png)
+   * **Utilice el cuadro de búsqueda.**  Por ejemplo, para buscar experimentos aportados por Microsoft relacionados con el reconocimiento de dígitos que usen un algoritmo de máquina de vectores de soporte de dos clases, escriba "digit recognition" (reconocimiento de dígitos) en el cuadro de búsqueda. A continuación, seleccione **Experiment** (Experimento), **Microsoft content only** (Solo contenido de Microsoft) y **Two-Class Support Vector Machine** (Máquina de vectores de soporte de dos clases): ![Use el cuadro de búsqueda](./media/machine-learning-sample-experiments/search-for-experiments.png)
 4. Haga clic en un experimento para obtener más información.
 5. Para ejecutar o modificar el experimento, haga clic en **Open in Studio** (Abrir en Estudio) en la página del experimento.
 
@@ -52,7 +52,7 @@ Para examinar todos los experimentos:
    >
    >
 
-    ![](./media/machine-learning-sample-experiments/example-experiment.png)
+    ![Experimento de ejemplo](./media/machine-learning-sample-experiments/example-experiment.png)
 
 ## <a name="use-a-template-in-machine-learning-studio"></a>Uso de una plantilla en Estudio de aprendizaje automático
 También puede crear un nuevo experimento en Estudio de aprendizaje automático si usa un ejemplo de la galería como plantilla.
@@ -70,6 +70,6 @@ Se crea un nuevo experimento en el área de trabajo con el experimento de ejempl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

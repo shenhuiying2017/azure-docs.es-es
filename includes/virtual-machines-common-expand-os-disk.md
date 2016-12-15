@@ -10,7 +10,7 @@ Cuando cree una nueva máquina virtual (VM) en un grupo de recursos mediante la 
 > 
 
 ## <a name="resize-the-os-drive"></a>Cambio del tamaño de la unidad del sistema operativo
-En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad del sistema operativo con módulos de Resource Manager de [Azure Powershell](../articles/powershell-install-configure.md). Abra la ventana de Powershell o Powershell ISE en el modo administrativo y siga estos pasos:
+En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad del sistema operativo con módulos de Resource Manager de [Azure Powershell](/powershell/azureps-cmdlets-docs). Abra la ventana de Powershell o Powershell ISE en el modo administrativo y siga estos pasos:
 
 1. Inicie sesión en su cuenta de Microsoft Azure en el modo de administración de recursos y seleccione su suscripción de la siguiente manera:
    
@@ -84,6 +84,6 @@ Si desea averiguar cómo conectar discos a una máquina virtual de Azure Resourc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

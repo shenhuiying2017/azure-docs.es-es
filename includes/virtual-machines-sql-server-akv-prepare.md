@@ -8,7 +8,7 @@ Para usar la Integración de Almacén de claves de Azure para configurar la máq
 Las secciones siguientes describen estos requisitos previos y la información que necesita recopilar para ejecutar más adelante los cmdlets de PowerShell.
 
 ### <a name="install-azure-powershell"></a>Instalar Azure Powershell
-Asegúrese de que ha instalado el SDK más reciente de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md).
+Asegúrese de que ha instalado el SDK más reciente de Azure PowerShell. Para más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### <a name="create-an-azure-active-directory"></a>Crear un directorio de Azure Active Directory
 En primer lugar, tiene que tener un [directorio de Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) en la suscripción. Entre otras muchas ventajas, esto le permite conceder permiso para Almacén de claves a determinados usuarios y aplicaciones.
@@ -34,6 +34,6 @@ La URL del Almacén de claves se asigna posteriormente al parámetro **$akvURL**
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

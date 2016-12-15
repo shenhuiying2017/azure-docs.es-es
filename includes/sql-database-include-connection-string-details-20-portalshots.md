@@ -15,7 +15,7 @@ Utilice el [Portal de Azure](https://portal.azure.com/) para obtener la cadena d
     ![Seleccionar SQL][1-select-sql]
 2. Escriba el nombre de la base de datos en el cuadro de texto de filtro situado en la esquina superior izquierda de la hoja **Bases de datos SQL** .
    
-    ![Selección de la base de datos][2-select-database]]
+    ![Selección de la base de datos][2-select-database]
 3. Haga clic en la fila correspondiente a la base de datos.
 4. Cuando aparezca la hoja de su base de datos, para una mayor comodidad visual puede hacer clic en los controles estándar para minimizar para contraer las hojas que utilizó para examinar y filtrar la base de datos.
 5. Anote tanto el nombre de la **base de datos SQL** como el **nombre del servidor**.  El nombre de usuario será yourusername@yourserver.
@@ -48,6 +48,6 @@ includes/sql-database-include-connection-string-40-config.md
 -->
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

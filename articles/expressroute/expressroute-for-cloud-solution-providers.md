@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f2c2253132d2c0ca8eefd975af2ac23f196afd0
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
 
 
 ---
@@ -38,7 +38,7 @@ Microsoft proporciona a los CSP las API para administrar las suscripciones de cl
 ## <a name="microsoft-azure-resource-management"></a>Administración de recursos de Microsoft Azure
 La forma en que se administre la suscripción dependerá del contrato que haya firmado con su cliente. El CSP puede administrar directamente la creación y el mantenimiento de los recursos o el cliente puede mantener el control sobre la suscripción de Microsoft Azure y crear los recursos de Azure cuando los necesite. Si el cliente administra la creación de recursos en su suscripción de Microsoft Azure usará uno de estos modelos: "Conexión a través" o "Conexión directa". Estos modelos se describen con más detalle en las secciones siguientes.  
 
-### <a name="connectthrough-model"></a>Modelo Conexión a través
+### <a name="connect-through-model"></a>Modelo Conexión a través
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
 
 En el modelo Conexión a través, el CSP crea una conexión directa entre el centro de datos y suscripción de Azure del cliente. La conexión directa se realiza mediante ExpressRoute, entre Azure y su red, a la que después se conecta el cliente. En este escenario, es necesario que el cliente pase a través de la red del CSP para acceder a los servicios de Azure. 
@@ -49,7 +49,7 @@ En el caso de los CSP que administran servicios de Azure, se da por supuesto que
 
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
-### <a name="connectto-model"></a>Modelo Conexión directa
+### <a name="connect-to-model"></a>Modelo Conexión directa
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/connect-to.png)
 
 En el modelo Conexión directa, el proveedor de servicios crea una conexión directa entre el centro de datos de su cliente y la suscripción de Azure aprovisionada por CSP mediante ExpressRoute a través de la red del cliente (cliente).
@@ -82,10 +82,10 @@ ExpressRoute admite la conexión de varias redes virtuales a un solo circuito Ex
 ## <a name="configuring-expressroute"></a>Configuración de ExpressRoute
 ExpressRoute se puede configurar para admitir tres tipos de tráfico ([dominios de enrutamiento](#ExpressRoute-routing-domains)) en un único circuito ExpressRoute. Este tráfico se divide entre emparejamiento de Microsoft, pares públicos de Azure y pares privados. Puede elegir que uno de los tipos de tráfico o todos ellos se envíen a través de un solo circuito ExpressRoute, o bien usar varios circuitos ExpressRoute según el tamaño del circuito ExpressRoute y el aislamiento que requiera el cliente. Es posible que la posición del cliente en cuanto a la seguridad no permita que el tráfico público y el privado recorran el mismo circuito.
 
-### <a name="connectthrough-model"></a>Modelo Conexión a través
+### <a name="connect-through-model"></a>Modelo Conexión a través
 En una configuración de conexión a través, como proveedor, será responsable de todos los elementos fundamentales de la red necesarios para conectar los recursos del centro de datos del cliente a las suscripciones hospedadas en Azure. Cada uno de los clientes que vaya a usar las funcionalidades de Azure contará con su propia conexión ExpressRoute, de la que usted será el administrador. Usará los mismos métodos que utilizaría el cliente para conseguir el circuito ExpressRoute. Seguirá los mismos pasos que se describen en el artículo [Flujos de trabajo de ExpressRoute](expressroute-workflows.md) para aprovisionar el circuito y los estados de circuitos. Después, configurará las rutas de Border Gateway Protocol (BGP) para controlar el tráfico que fluye entre la red local y la red virtual de Azure.
 
-### <a name="connectto-model"></a>Modelo Conexión directa
+### <a name="connect-to-model"></a>Modelo Conexión directa
 En una configuración de conexión directa, el cliente ya posee una conexión con Azure o iniciará una conexión al proveedor de acceso a Internet que vincula ExpressRoute desde el centro de datos propiedad del cliente directamente con Azure, y no desde el centro de datos del proveedor. Para comenzar el proceso de aprovisionamiento, el cliente seguirá los pasos descritos antes para el modelo Conexión a través. Una vez establecido el circuito, su cliente tendrá que configurar los enrutadores locales para poder acceder tanto a la red del proveedor como a las redes virtuales de Azure.
 
 Puede ayudar a establecer la conexión y configurar las rutas para permitir que los recursos en su centro o centros de datos propios se comuniquen con los recursos del cliente también en su centro de datos, o con los recursos hospedados en Azure.
@@ -116,7 +116,7 @@ La tabla de enrutamiento predeterminada incluye las siguientes rutas:
 
 ![texto alternativo](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
-### <a name="userdefined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
+### <a name="user-defined-routing-udr"></a>Enrutamiento definido por el usuario (UDR)
 Las rutas definidas por el usuario permiten controlar el tráfico saliente de la subred asignada a otras subredes de la red virtual o a través de una de las otras puertas de enlace predefinidas (ExpressRoute; Internet o VPN). La tabla de enrutamiento predeterminado del sistema se puede reemplazar por una definida por el usuario que contiene rutas personalizadas. Con el enrutamiento definido por el usuario, los clientes pueden crear rutas específicas hacia dispositivos como firewalls o dispositivos de detección de intrusiones, o bien bloquear el acceso a subredes específicas desde la subred que hospeda la ruta definida por el usuario. Para ver información general sobre las rutas definidas por el usuario, lea [este artículo](../virtual-network/virtual-networks-udr-overview.md). 
 
 ## <a name="security"></a>Seguridad
@@ -141,6 +141,6 @@ Puede encontrar más información en los vínculos siguientes:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

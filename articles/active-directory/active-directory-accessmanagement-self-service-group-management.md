@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 255670335151443445e5ea4a87614b904915e76f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fda0b3c6c3f262c0f4b2f3ad5f37c4ce44cc0e3
 
 
 ---
-# <a name="setting-up-azure-active-directory-for-selfservice-group-management"></a>Configuración de Azure Active Directory para la administración de grupos de autoservicio
+# <a name="setting-up-azure-active-directory-for-self-service-group-management"></a>Configuración de Azure Active Directory para la administración de grupos de autoservicio
 La administración de grupos de autoservicio permite a los usuarios crear y administrar grupos de seguridad o grupos de Office 365 en Azure Active Directory (Azure AD). Los usuarios también pueden solicitar la pertenencia a grupos de seguridad o a grupos de Office 365; a continuación, el propietario del grupo puede aprobarla o rechazarla. De esta forma, el control diario de la pertenencia a grupos se puede delegar a personas que conocen el contexto empresarial de dicha pertenencia. Las características de administración de grupos de autoservicio solo están disponibles para grupos de seguridad y de Office 365, no para grupos de seguridad universal habilitados para correo electrónico ni listas de distribución.
 
 La administración de grupos de autoservicio actualmente está formada por dos escenarios esenciales: la administración de grupos delegados y la administración de grupos de autoservicio.
@@ -30,7 +30,7 @@ La administración de grupos de autoservicio actualmente está formada por dos e
 * **Administración de grupos de autoservicio**
    Por ejemplo, dos usuarios tienen sitios de SharePoint Online configurados de forma independiente. Ellos desean que los equipos del otro puedan acceder a sus sitios. Para ello, pueden crear un grupo en Azure AD, y en SharePoint Online cada uno de ellos selecciona dicho grupo para proporcionar acceso a sus sitios. Cuando alguien desea tener acceso, lo solicita en el Panel de acceso, y tras la aprobación obtiene acceso a ambos sitios de SharePoint Online automáticamente. Posteriormente, uno de ellos decide que todas las personas que accedan a su sitio también deben obtener acceso a una aplicación SaaS concreta. El administrador de la aplicación SaaS puede agregar derechos de acceso a la aplicación en el sitio de SharePoint Online. Desde ese momento, todas las solicitudes aprobadas darán acceso tanto a los dos sitios de SharePoint Online como a la aplicación SaaS.
 
-## <a name="making-a-group-available-for-end-user-selfservice"></a>Puesta a disposición de un grupo para el autoservicio del usuario final
+## <a name="making-a-group-available-for-end-user-self-service"></a>Puesta a disposición de un grupo para el autoservicio del usuario final
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), abra el directorio de Azure AD.
 2. En la pestaña **Configurar**, en **Administración de grupos delegados** seleccione Habilitado.
 3. En **Los usuarios pueden crear grupos de seguridad** o **Los usuarios pueden crear grupos de Office** seleccione Habilitado.
@@ -53,6 +53,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
