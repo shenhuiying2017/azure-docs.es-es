@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 9bff89b6bb049e4a5ca1fa54950f67a7cb2eb150
-ms.openlocfilehash: a1b3dd4445ea1dd3ccecc2fd7cfc2d74bdfb0d4d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b241d70ab7c7e8468a3f358fef5af47a89d42e56
 
 
 ---
@@ -103,7 +103,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 |:---:|:---:|:---:|:---:|
 | Hasta 500.000 objetos |Sin límite de objetos |Sin límite de objetos |Sin límite de objetos para las cuentas de usuario de Office 365 |
 
-#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Administración de usuarios y grupos (agregar, actualizar y eliminar)/aprovisionamiento basado en el usuario, registro de dispositivos
+#### <a name="usergroup-management-addupdatedelete-user-based-provisioning-device-registration"></a>Administración de usuarios y grupos (agregar, actualizar y eliminar), aprovisionamiento basado en el usuario, registro de dispositivos
 **Tipo:** características comunes
 
 **Disponibilidad:**
@@ -180,7 +180,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Comprobar][12] | ![Comprobar][12] | |
+| &nbsp; |![Comprobar][12] | ![Comprobar][12] | &nbsp; |
 
 **Más detalles:**
 
@@ -193,7 +193,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
+| &nbsp; |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
 
 **Más detalles:**
 
@@ -206,7 +206,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
+| &nbsp; |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
 
 **Más detalles:**
 
@@ -219,7 +219,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Comprobar][12] | ![Comprobar][12] | |
+| &nbsp; |![Comprobar][12] | ![Comprobar][12] | &nbsp; |
 
 **Más detalles:**
 
@@ -232,7 +232,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-| |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
+| &nbsp; |![Comprobar][12] |![Comprobar][12] | ![Comprobar][12] |
 
 **Más detalles:**
 
@@ -248,7 +248,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12]|  |
+| &nbsp; | &nbsp; | ![Comprobar][12]| &nbsp; |
 
 #### <a name="self-service-password-resetchangeunlock-with-on-premises-write-back"></a>Restablecimiento de contraseñas de autoservicio/cambio/desbloqueo con escritura diferida local
 **Tipo:** Características de la edición Premium
@@ -257,7 +257,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 #### <a name="multi-factor-authentication-cloud-and-on-premises-mfa-server"></a>Multi-Factor Authentication (en la nube y local (servidor MFA))
 **Tipo:** Características de la edición Premium
@@ -266,7 +266,7 @@ La cuota de uso predeterminada es de 150.000 objetos. Un objeto es una entrada d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Comprobar][12] |Se limita a la nube solo para aplicaciones de Office 365 |
+| &nbsp; | &nbsp; |![Comprobar][12] |Se limita a la nube solo para aplicaciones de Office 365 |
 
 **Más detalles:**
 
@@ -282,7 +282,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-| | |![Comprobar][12] | |
+| &nbsp; | &nbsp; |![Comprobar][12] | &nbsp; |
 
 #### <a name="cloud-app-discovery"></a>Detección de aplicaciones de nube
 **Tipo:** Características de la edición Premium
@@ -291,7 +291,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 **Más detalles:**
 
@@ -304,7 +304,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 **Más detalles:**
 
@@ -317,21 +317,21 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 #### <a name="identity-protection"></a>Identity Protection
 **Tipo:** Características de la edición Premium
 
 | Edición gratuita | Edición básica | Edición Premium P2 | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 **Tipo:** Características de la edición Premium
 
 | Edición gratuita | Edición básica | Edición Premium P2 | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 ## <a name="azure-active-directory-join-windows-10-only-related-features"></a>Azure Active Directory Join: solo características relacionadas con Windows 10
 #### <a name="join-a-device-to-azure-ad-desktop-sso-microsoft-passport-for-azure-ad-administrator-bitlocker-recovery"></a>Conectar un dispositivo a Azure AD, SSO de escritorio, Microsoft Passport para Azure AD, recuperación de Bitlocker de administrador
@@ -351,7 +351,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  |  | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 #### <a name="enterprise-state-roaming"></a>Enterprise State Roaming
 **Tipo:** Azure Active Directory Join: solo características relacionadas con Windows 10
@@ -360,7 +360,7 @@ Con las licencias de Windows Server (cualquier edición), se conceden derechos d
 
 | Edición gratuita | Edición básica | Ediciones Premium (P1 y P2) | Solo aplicaciones de Office 365 |
 |:---:|:---:|:---:|:---:|
-|  | | ![Comprobar][12] | |
+| &nbsp; | &nbsp; | ![Comprobar][12] | &nbsp; |
 
 **Más detalles:**
 
@@ -387,6 +387,6 @@ Además de las características disponibles normalmente en las ediciones Free, B
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
