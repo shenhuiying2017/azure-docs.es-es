@@ -117,7 +117,7 @@ az acs scale -g acsrg1 -n acs-cluster --new-agent-count 4
 ![Imagen del comando scale de ACS](media/container-service-create-acs-cluster-cli/acs-scale.png)
 
 ## <a name="delete-a-container-service-cluster"></a>Eliminación de un clúster del servicio de contenedor
-```
+```azurecli
 az acs delete -g acsrg1 -n acs-cluster 
 ```
 *Tenga en cuenta que este comando delete no elimina todos los recursos (red y almacenamiento) creados al crear el servicio de contenedor. Para eliminar todos los recursos, se recomienda crea un único clúster de ACS por grupo de recursos; en ese caso, el grupo de recursos se puede eliminar cuando el clúster de ACS ya no es necesario para asegurarse de que todos los recursos relacionados se eliminen y no se cobra por ellos.*
