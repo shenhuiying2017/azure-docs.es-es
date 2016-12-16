@@ -1,31 +1,35 @@
 ---
-title: Uso del servicio de administración de API para generar solicitudes HTTP
-description: Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API
+title: "Uso del servicio de administración de API para generar solicitudes HTTP"
+description: "Aprenda a usar las directivas de solicitud y respuesta en Administración de API para llamar a servicios externos de su API"
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: darrelmiller
-manager: ''
-editor: ''
-
+manager: erikre
+editor: 
+ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: darrmi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5bb92f427a07949d6057553ac8dde309e1a0aa11
+
 
 ---
-# Uso de servicios externos del servicio de administración de API de Azure
+# <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio de administración de API de Azure pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de Administración de API brinda muchas más oportunidades.
 
 Anteriormente hemos visto cómo podemos interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-log-to-eventhub-sample.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio basado en HTTP externo. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utilizará para manipular en cierto modo la solicitud y respuesta originales.
 
-## Send-One-Way-Request
-Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. Se puede usar la directiva de flujo de control `choose` para detectar cualquier tipo de condición que suscite interés y después, si se cumple esta, se puede realizar una solicitud HTTP externa mediante la directiva [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar fácilmente.
+## <a name="send-one-way-request"></a>Send-One-Way-Request
+Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. Se puede usar la directiva de flujo de control `choose` para detectar cualquier tipo de condición que suscite interés y después, si se cumple esta, se puede realizar una solicitud HTTP externa mediante la directiva [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest) . Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar fácilmente.
 
-### Alerta con Slack
-En el siguiente ejemplo puede ver cómo enviar un mensaje a un salón de chat de Slack si el código de estado de respuesta HTTP es mayor o igual que 500. Un error de intervalo 500 indica un problema con nuestra API de back-end que el cliente de la misma no puede resolver por sí mismo. Normalmente requiere algún tipo de intervención por nuestra parte.
+### <a name="alerting-with-slack"></a>Alerta con Slack
+En el siguiente ejemplo puede ver cómo enviar un mensaje a un salón de chat de Slack si el código de estado de respuesta HTTP es mayor o igual que 500. Un error de intervalo 500 indica un problema con nuestra API de back-end que el cliente de la misma no puede resolver por sí mismo. Normalmente requiere algún tipo de intervención por nuestra parte.  
 
     <choose>
         <when condition="@(context.Response.StatusCode >= 500)">
@@ -54,24 +58,24 @@ Slack tiene la noción de enlaces web entrantes. Al configurar un enlace web ent
 
 ![Enlace web de Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
-### ¿Es fire and forget lo suficientemente bueno?
+### <a name="is-fire-and-forget-good-enough"></a>¿Es fire and forget lo suficientemente bueno?
 Existen ciertos compromisos cuando se usa un estilo de fire and forget de solicitud. Si por algún motivo se produce un error en la solicitud, este no se notificará. En esta situación concreta, no se garantizan la complejidad de tener un sistema de informe de errores secundario ni el costo de rendimiento adicional de esperar la respuesta. En aquellos escenarios donde sea esencial comprobar la respuesta, la directiva [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constituye una mejor opción.
 
-## Send-Request
+## <a name="send-request"></a>send-request
 La directiva `send-request` permite usar un servicio externo para realizar funciones complejas de procesamiento y devolver datos al servicio de Administración de API que pueden usarse para un posterior procesamiento de directivas.
 
-### Autorización de tokens de referencia
-Una de las funciones principales de Administración de API es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](http://jwt.io/) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/active-directory-aadconnect.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Pero algunos servidores de autorización crean lo que se denomina [tokens de referencia](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/), que no se pueden comprobar sin llamar de vuelta al servidor de autorización.
+### <a name="authorizing-reference-tokens"></a>Autorización de tokens de referencia
+Una de las funciones principales de Administración de API es proteger los recursos de back-end. Si el servidor de autorización que usa su API crea [tokens de JWT](http://jwt.io/) como parte de su flujo de OAuth2, igual que hace [Azure Active Directory](../active-directory/active-directory-aadconnect.md), puede usar la directiva `validate-jwt` para comprobar la validez del token. Pero algunos servidores de autorización crean lo que se denomina [tokens de referencia](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/) , que no se pueden comprobar sin llamar de vuelta al servidor de autorización.
 
-### Introspección estandarizada
-En el pasado no existía una forma estandarizada de comprobar un token de referencia con un servidor de autorización. Pero IETF publicó un estándar propuesto recientemente, [RFC 7662](https://tools.ietf.org/html/rfc7662), que define cómo un servidor de recursos puede comprobar la validez de un token.
+### <a name="standardized-introspection"></a>Introspección estandarizada
+En el pasado no existía una forma estandarizada de comprobar un token de referencia con un servidor de autorización. Pero IETF publicó un estándar propuesto recientemente, [RFC 7662](https://tools.ietf.org/html/rfc7662) , que define cómo un servidor de recursos puede comprobar la validez de un token.
 
-### Extracción del token
-El primer paso es extraer el token del encabezado de autorización. El formato del valor de encabezado debe constar del esquema de autorización `Bearer`, un espacio y el token de autorización según [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Desafortunadamente, hay casos donde se omite el esquema de autorización. Para tener esto en cuenta cuando se analiza, se divide el valor de encabezado en un espacio y se selecciona la última cadena en la matriz de cadenas devuelta. Esto proporciona una solución alternativa para los encabezados de autorización con formato incorrecto.
+### <a name="extracting-the-token"></a>Extracción del token
+El primer paso es extraer el token del encabezado de autorización. El formato del valor de encabezado debe constar del esquema de autorización `Bearer` , un espacio y el token de autorización según [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1). Desafortunadamente, hay casos donde se omite el esquema de autorización. Para tener esto en cuenta cuando se analiza, se divide el valor de encabezado en un espacio y se selecciona la última cadena en la matriz de cadenas devuelta. Esto proporciona una solución alternativa para los encabezados de autorización con formato incorrecto.
 
     <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
 
-### Realización de la solicitud de validación
+### <a name="making-the-validation-request"></a>Realización de la solicitud de validación
 Una vez que tenemos el token de autorización, podemos realizar la solicitud para validarlo. RFC 7662 llama introspección a este proceso y requiere que `POST` un formulario HTML en el recurso de introspección. El formulario HTML debe contener al menos un par clave-valor con la clave `token`. Esta solicitud para el servidor de autorización también debe autenticarse a fin de garantizar que los clientes malintencionados no puedan rastrear tokens válidos.
 
     <send-request mode="new" response-variable-name="tokenstate" timeout="20" ignore-error="true">
@@ -86,12 +90,12 @@ Una vez que tenemos el token de autorización, podemos realizar la solicitud par
       <set-body>@($"token={(string)context.Variables["token"]}")</set-body>
     </send-request>
 
-### Comprobación de la respuesta
+### <a name="checking-the-response"></a>Comprobación de la respuesta
 El atributo `response-variable-name` sirve para proporcionar acceso a la respuesta devuelta. El nombre definido en esta propiedad se puede usar como clave en el diccionario `context.Variables` para acceder al objeto `IResponse`.
 
-En el objeto de respuesta, se puede recuperar el cuerpo, y RFC 7622 indica que la respuesta debe ser un objeto JSON que contenga al menos una propiedad denominada `active`, que es un valor booleano. Cuando `active` es true, el token se considera válido.
+En el objeto de respuesta, se puede recuperar el cuerpo, y RFC 7622 indica que la respuesta debe ser un objeto JSON que contenga al menos una propiedad denominada `active` , que es un valor booleano. Cuando `active` es true, el token se considera válido.
 
-### Notificación de error
+### <a name="reporting-failure"></a>Notificación de error
 Se usa una directiva `<choose>` para detectar si el token no es válido y, en caso de no serlo, devolver una respuesta 401.
 
     <choose>
@@ -107,7 +111,7 @@ Se usa una directiva `<choose>` para detectar si el token no es válido y, en ca
 
 Según [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3), que describe cómo se deben usar los tokens de `bearer`, también se devuelve un encabezado `WWW-Authenticate` con la respuesta 401. WWW-Authenticate está pensado para indicar a un cliente cómo crear una solicitud debidamente autorizada. Debido a la gran variedad de enfoques posibles con el marco OAuth2, es difícil comunicar toda la información necesaria. Por fortuna, se están adoptando medidas para enseñar a los [clientes a autorizar debidamente las solicitudes a un servidor de recursos](http://tools.ietf.org/html/draft-jones-oauth-discovery-00).
 
-### Solución final
+### <a name="final-solution"></a>Solución final
 Al unir todas las piezas, se obtiene la siguiente directiva:
 
     <inbound>
@@ -144,19 +148,19 @@ Al unir todas las piezas, se obtiene la siguiente directiva:
 
 Este ejemplo es solo uno de los muchos que hay sobre cómo puede usarse la directiva `send-request` para integrar servicios externos útiles en el proceso de solicitudes y respuestas que fluyen a través del servicio de Administración de API.
 
-## Composición de respuesta
+## <a name="response-composition"></a>Composición de respuesta
 La directiva `send-request` se puede emplear para mejorar una solicitud principal a un sistema de back-end, como vimos en el ejemplo anterior, o bien se puede usar como una sustitución íntegra de la llamada de back-end. Gracias a esta técnica se pueden crear fácilmente recursos compuestos que se agregan desde varios sistemas diferentes.
 
-### Creación de un panel
-A veces le gustaría exponer información existente en varios sistemas de back-end, por ejemplo, para realizar un panel. Los KPI proceden de los distintos back-end, pero prefiere no proporcionarles acceso directo y sería mejor si se pudiera recuperar toda la información en una única solicitud. Es posible que parte de la información de back-end deba segmentarse, desglosarse y corregirse un poco primero. Poder almacenar en caché ese recurso compuesto sería útil para reducir la carga de back-end, pues ya sabe que los usuarios tienen la costumbre de recurrir a la tecla F5 para ver si pueden cambiar sus métricas de déficit de rendimiento.
+### <a name="building-a-dashboard"></a>Creación de un panel
+A veces le gustaría exponer información existente en varios sistemas de back-end, por ejemplo, para realizar un panel. Los KPI proceden de los distintos back-end, pero prefiere no proporcionarles acceso directo y sería mejor si se pudiera recuperar toda la información en una única solicitud. Es posible que parte de la información de back-end deba segmentarse, desglosarse y corregirse un poco primero. Poder almacenar en caché ese recurso compuesto sería útil para reducir la carga de back-end, pues ya sabe que los usuarios tienen la costumbre de recurrir a la tecla F5 para ver si pueden cambiar sus métricas de déficit de rendimiento.    
 
-### Emulación del recurso
+### <a name="faking-the-resource"></a>Emulación del recurso
 El primer paso para crear nuestro recurso del panel es configurar una nueva operación en el portal del publicador de Administración de API. Será una operación de marcador de posición usada para configurar nuestra directiva de composición a fin de crear nuestro recurso dinámico.
 
 ![Operación del panel](./media/api-management-sample-send-request/api-management-dashboard-operation.png)
 
-### Realización de las solicitudes
-Una vez creada la operación de `dashboard`, se puede configurar una directiva para esa operación en concreto.
+### <a name="making-the-requests"></a>Realización de las solicitudes
+Una vez creada la operación de `dashboard` , se puede configurar una directiva para esa operación en concreto. 
 
 ![Operación del panel](./media/api-management-sample-send-request/api-management-dashboard-policy.png)
 
@@ -189,8 +193,8 @@ Una vez que se tiene esta información, se pueden realizar solicitudes a todos l
 
 Estas solicitudes se ejecutarán en secuencia, que no es lo ideal. En una próxima versión, se introducirá una nueva directiva llamada `wait` que permitirá la ejecución en paralelo de todas estas solicitudes.
 
-### Respuesta
-Para construir la respuesta compuesta, se puede usar la directiva [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
+### <a name="responding"></a>Respuesta
+Para construir la respuesta compuesta, se puede usar la directiva [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) . El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
 
     <return-response response-variable-name="existing response variable">
       <set-status code="200" reason="OK" />
@@ -258,14 +262,19 @@ Este es el aspecto de la directiva completa:
 
 En la configuración de la operación de marcador de posición se puede configurar el recurso del panel que se va a almacenar en caché durante al menos una hora porque conocemos la naturaleza de los datos, que aunque lleven una hora sin actualizarse seguirán siendo lo suficientemente efectivos para transmitir información valiosa a los usuarios.
 
-## Resumen
+## <a name="summary"></a>Resumen
 El servicio de administración de API de Azure proporciona directivas flexibles que se pueden aplicar de forma selectiva al tráfico HTTP y permite la composición de servicios de back-end. Si desea mejorar la puerta de enlace de la API con funciones de alerta, comprobación, capacidades de validación o crear nuevos recursos compuestos basados en varios servicios de back-end, la directiva `send-request` y otras relacionadas ofrecen todo un mundo de posibilidades.
 
-## Ver un vídeo de información general de estas directivas
+## <a name="watch-a-video-overview-of-these-policies"></a>Ver un vídeo de información general de estas directivas
 Para más información sobre las directivas [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest), [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) y [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse) que se describen en este artículo, vea el siguiente vídeo.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Send-Request-and-Return-Response-Policies/player]
 > 
 > 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

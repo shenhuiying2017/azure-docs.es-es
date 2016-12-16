@@ -1,25 +1,29 @@
 ---
-title: Predicción de respuestas con un modelo simple - modelo de regresión | Microsoft Docs
-description: Cómo crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal básica con los datos de destino.
-keywords: crear un modelo, modelo simple, modelo de datos simple, predicción del precio, modelo de regresión simple
+title: "Predicción de respuestas con un modelo simple - modelo de regresión | Microsoft Docs"
+description: "Descubra cómo crear un modelo de regresión simple para predecir un precio en el vídeo 4 de Ciencia de datos para principiantes. Incluye una regresión lineal con los datos de destino."
+keywords: "crear un modelo, modelo simple, predicción del precio, modelo de regresión simple"
 services: machine-learning
 documentationcenter: na
-author: brohrer-ms
+author: cjgronlund
 manager: jhubbard
 editor: cjgronlund
-
+ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2016
-ms.author: cgronlun;brohrer;garye
+ms.date: 10/20/2016
+ms.author: cgronlun;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 27a9ee1b170f090e626ce332eb518028877fd0d4
+
 
 ---
-# Predicción de respuestas con un modelo sencillo
-## Vídeo 4: serie Ciencia de datos para principiantes
-Aprenda a crear un modelo simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
+# <a name="predict-an-answer-with-a-simple-model"></a>Predicción de respuestas con un modelo sencillo
+## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: serie Ciencia de datos para principiantes
+Aprenda a crear un modelo de regresión simple para predecir el precio de un diamante en el vídeo 4 de Ciencia de datos para principiantes. Dibujaremos un modelo de regresión con los datos de destino.
 
 Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de vídeos](#other-videos-in-this-series)
 
@@ -27,7 +31,7 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 > 
 > 
 
-## Otros vídeos de la serie
+## <a name="other-videos-in-this-series"></a>Otros vídeos de la serie
 *Ciencia de datos para principiantes* es una introducción rápida a la ciencia de datos en cinco vídeos de corta duración.
 
 * Vídeo 1: [Las cinco preguntas a las que responde la ciencia de datos](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 minutos y 14 segundos)*
@@ -36,12 +40,12 @@ Para obtener el máximo partido de la serie, véalos en orden. [Ir a la lista de
 * Vídeo 4: Predicción de respuestas con un modelo sencillo
 * Vídeo 5: [Copia del trabajo de otras personas para realizar ciencia de datos](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 minutos y 18 segundos)*
 
-## Transcripción: Predicción de respuestas con un modelo sencillo
+## <a name="transcript-predict-an-answer-with-a-simple-model"></a>Transcripción: Predicción de respuestas con un modelo sencillo
 Este es el cuarto vídeo de la serie "Ciencia de datos para principiantes". En este caso, crearemos un modelo simple y realizaremos una predicción.
 
 Un *modelo* es un caso simplificado sobre nuestros datos. Le mostraré lo que quiero decir.
 
-## Recopilación de datos pertinentes, precisos, conectados y suficientes
+## <a name="collect-relevant-accurate-connected-enough-data"></a>Recopilación de datos pertinentes, precisos, conectados y suficientes
 Supongamos que deseo comprar un diamante. Tengo un anillo que pertenecía a mi abuela con un engarce para un diamante de 1,35 quilates, y quiero tener una idea de cuánto costará. Tomo un lápiz y un cuaderno en la joyería y escribo el precio de todos los diamantes de la vitrina y cuántos quilates tienen. Empiezo por el primer diamante: tiene 1,01 quilates y cuesta 7366 USD.
 
 Ahora hago lo mismo para todos los diamantes de la joyería.
@@ -52,17 +56,17 @@ Observe que nuestra lista tiene dos columnas. Cada columna tiene un atributo dif
 
 En realidad, hemos creado un pequeño conjunto de datos aquí: una tabla. Observe que cumple los criterios de calidad:
 
-* Los datos son **pertinentes**: sin duda el peso está relacionado con el precio.
-* Son **precisos**: hemos comprobado dos veces los precios que escribimos.
-* Están **conectados**: no hay ningún espacio en blanco en ninguna de estas columnas.
+* Los datos son **pertinentes** : sin duda el peso está relacionado con el precio.
+* Son **precisos** : hemos comprobado dos veces los precios que escribimos.
+* Están **conectados** : no hay ningún espacio en blanco en ninguna de estas columnas.
 * Y, como veremos, hay **suficientes** datos para responder a nuestra pregunta.
 
-## Formulación de una pregunta directa
+## <a name="ask-a-sharp-question"></a>Formulación de una pregunta directa
 Ahora platearemos nuestra pregunta de forma directa: "¿cuánto costará comprar un diamante 1,35 quilates?"
 
 Nuestra lista no contiene ningún diamante de 1,35 quilates, por lo que debemos utilizar el resto de nuestros datos para obtener una respuesta a la pregunta.
 
-## Trazado de los datos existentes
+## <a name="plot-the-existing-data"></a>Trazado de los datos existentes
 Lo primero que haremos es dibujar una línea horizontal de números, denominada un eje, para colocar los pesos. El intervalo de peso es de 0 a 2, por lo que dibujaremos una línea que cubra ese intervalo y colocaremos marcas para cada medio quilate.
 
 A continuación, dibujaremos un eje vertical para registrar el precio y conectarlo al eje horizontal de peso. Utilizaremos unidades en dólares. Ahora tenemos un conjunto de ejes de coordenadas.
@@ -75,9 +79,9 @@ Para el primer punto de datos, dibujamos mentalmente una línea vertical en 1,01
 
 Ahora podemos hacer lo mismo con cada diamante de esta lista. Cuando hayamos terminado, esto es lo que obtenemos: una serie de puntos, uno para cada diamante.
 
-![Gráfico de dispersión](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![gráfico de dispersión](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
-## Dibujado del modelo siguiendo los puntos de datos
+## <a name="draw-the-model-through-the-data-points"></a>Dibujado del modelo siguiendo los puntos de datos
 Si observa los puntos con los ojos entrecerrados, la colección parece una línea gruesa y difuminada. Podemos tomar nuestro marcador y dibujar una línea recta a través de ellos.
 
 Al dibujar una línea, hemos creado un *modelo*. Piense en esto como tomar el mundo real y hacer un cómic simplista de él. Ahora el cómic es incorrecto: la línea no pasa por todos los puntos de datos. Pero es una simplificación útil.
@@ -88,21 +92,21 @@ El hecho de que todos los puntos no pasen exactamente por la línea es correcto.
 
 Dado que estamos intentando responder a la pregunta *¿cuánto?*, esto se denomina una *regresión*. Y puesto que estamos usando una línea recta, es una *regresión lineal*.
 
-## Uso del modelo para encontrar la respuesta
+## <a name="use-the-model-to-find-the-answer"></a>Uso del modelo para encontrar la respuesta
 Ahora ya tenemos un modelo y le planteamos nuestra pregunta: ¿cuánto costará un diamante de 1,35 quilates?
 
 Para responder a la pregunta, calculamos la posición de 1,35 quilates y dibujamos una línea vertical. Donde cruza la línea del modelo, dibujamos una línea horizontal hasta el eje de dólares. Se encuentra justo en 10 000. ¡Bum! Esa es la respuesta: un diamante de 1,35 quilates cuesta aproximadamente 10 000 USD.
 
 ![Encontrar la respuesta en el modelo](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
-## Creación de un intervalo de confianza
+## <a name="create-a-confidence-interval"></a>Creación de un intervalo de confianza
 Es natural preguntarse si es muy precisa esta predicción. Resulta útil saber si el precio del diamante de 1,35 quilates estará muy cerca de los 10 000 USD, o será mucho mayor o menor. Para averiguarlo, marcaremos una zona alrededor de la línea de regresión que incluya la mayoría de los puntos. Esta zona es nuestro *intervalo de confianza*: estamos bastante seguros de que los precios estarán dentro de esta zona, porque en el pasado, la mayoría de ellos lo han estado. Podemos dibujar dos líneas horizontales más donde la línea de 1,35 quilates cruza la parte superior e inferior de dicha zona.
 
-![Intervalo de confianza](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
+![intervalo de confianza](./media/machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
-Ahora podemos decir algo acerca de nuestro intervalo de confianza: podemos decir con seguridad que el precio de un diamante de 1,35 quilates es aproximadamente de 10 000 USD, con un mínimo de 8000 USD y un máximo de 12 000 USD.
+Ahora podemos decir algo sobre nuestro intervalo de confianza: podemos decir con seguridad que el precio de un diamante de 1,35 quilates es aproximadamente de 10 000 USD, con un mínimo de 8000 USD y un máximo de 12 000 USD.
 
-## Hemos terminado, sin matemáticas ni equipos informáticos.
+## <a name="were-done-with-no-math-or-computers"></a>Hemos terminado, sin matemáticas ni equipos informáticos.
 Hemos hecho lo que hacen los científicos de datos, y lo hemos hecho simplemente con un dibujo:
 
 * Hemos planteado una pregunta a la que hemos podido responder con datos.
@@ -125,8 +129,13 @@ Hoy, hemos hablado sobre cómo realizar la regresión lineal y hemos realizado u
 
 Asegúrese de ver los otros cuatro vídeos de "Ciencia de datos para principiantes" en Aprendizaje automático de Microsoft Azure.
 
-## Pasos siguientes
-* [Prueba de su primer experimento de ciencia de datos con Aprendizaje automático de Azure](machine-learning-create-experiment.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Prueba de su primer experimento de ciencia de datos con Machine Learning Studio](machine-learning-create-experiment.md)
 * [Introducción a Aprendizaje automático en Microsoft Azure](machine-learning-what-is-machine-learning.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

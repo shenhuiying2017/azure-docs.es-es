@@ -1,12 +1,12 @@
 ---
-title: 'Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo | Microsoft Docs'
-description: Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect.
+title: "Sincronización de Azure AD Connect: descripción del aprovisionamiento declarativo | Microsoft Docs"
+description: "Explica el modelo de configuración de aprovisionamiento declarativo en Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a52714e1b549452929827edd5bf77bfc64d405c3
+
 
 ---
-# <a name="azure-ad-connect-sync:-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
+# <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Sincronización de Azure AD Connect: conocimiento del aprovisionamiento declarativo
 Este tema explica el modelo de configuración de Azure AD Connect. El modelo se denomina aprovisionamiento declarativo y permite cambiar una configuración con facilidad. Muchas cosas descritas en este tema son avanzadas y no son necesarias para la mayoría de los escenarios de los clientes.
 
 ## <a name="overview"></a>Información general
@@ -121,7 +125,7 @@ En la regla *Out to AD - User Exchange hybrid* se puede encontrar el siguiente f
 
 ### <a name="importedvalue"></a>ImportedValue
 La función ImportedValue es diferente de todas las demás funciones, ya que el nombre del atributo debe incluirse entre comillas, en lugar de corchetes:   
-`ImportedValue("proxyAddresses")`(Unión permanente)(Unión permanente).
+`ImportedValue("proxyAddresses")`.
 
 Normalmente, un atributo usa el valor esperado durante la sincronización, incluso si no se ha exportado todavía o se recibió un error durante la exportación ("parte superior de la torre"). Una sincronización entrante supone que un atributo que todavía no ha llegado a un directorio conectado lo alcanzará en algún momento. En algunos casos, es importante sincronizar únicamente un valor confirmado por el directorio conectado ("torre de importación delta y holograma").
 
@@ -159,6 +163,9 @@ En este escenario, debe cambiar el ámbito de las reglas de sincronización para
 
 * [Azure AD Connect Sync: referencia de funciones](active-directory-aadconnectsync-functions-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Preparación y limpieza del trabajo en Lote | Microsoft Docs
-description: Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo.
+title: "Preparación y limpieza de trabajos en Batch| Microsoft Docs"
+description: "Utilice las tareas de preparación en el nivel de trabajo para minimizar la transferencia de datos a los nodos de proceso de Azure Batch y las tareas de liberación para la limpieza del nodo tras la finalización del trabajo."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,24 +14,28 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/16/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7a9d6586471e776ca5a7e70312c0ac8c97b048a7
+
 
 ---
-# Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
- A menudo, Azure Batch requiere algún tipo de configuración antes de ejecutar sus tareas y un mantenimiento posterior al trabajo una vez completadas sus tareas. Puede ser necesario descargar los datos de entrada de tareas comunes en los nodos de proceso, o bien cargar datos de salida de tareas en Azure Storage una vez completado el trabajo. Puede usar las tareas de **preparación del trabajo** y ** liberación del trabajo** para realizar estas operaciones.
+# <a name="run-job-preparation-and-completion-tasks-on-azure-batch-compute-nodes"></a>Ejecución de tareas de preparación y finalización de trabajos en nodos de ejecución de Lote de Azure
+ A menudo, Azure Batch requiere algún tipo de configuración antes de ejecutar sus tareas y un mantenimiento posterior al trabajo una vez completadas sus tareas. Puede ser necesario descargar los datos de entrada de tareas comunes en los nodos de proceso, o bien cargar datos de salida de tareas en Azure Storage una vez completado el trabajo. Puede usar las tareas de **preparación del trabajo** y **liberación del trabajo** para realizar estas operaciones.
 
-## Tareas de preparación y liberación de trabajos
+## <a name="what-are-job-preparation-and-release-tasks"></a>Tareas de preparación y liberación de trabajos
 Antes de ejecutar las tareas de un trabajo, la tarea de preparación del trabajo se ejecuta en todos los nodos de proceso programados para ejecutar al menos una tarea. Cuando el trabajo se ha completado, la tarea de liberación del trabajo se ejecuta en cada nodo del grupo que ejecutó al menos una tarea. Al igual que con las tareas normales de Batch, puede especificar una línea de comandos para que se invoque cuando se ejecute una tarea de preparación o liberación.
 
-Las tareas de preparación y liberación ofrecen características de tareas de Batch familiares, como la descarga de archivos ([archivos de recursos][net_job_prep_resourcefiles]), la ejecución con elevación de privilegios, las variables de entorno personalizadas, la duración máxima de ejecución, el número de reintentos y el tiempo de retención de archivos.
+Las tareas de preparación y liberación del trabajo ofrecen características de tareas de Batch familiares, como la descarga de archivos ([archivos de recursos][net_job_prep_resourcefiles]), la ejecución con elevación de privilegios, las variables de entorno personalizadas, la duración máxima de ejecución, el número de reintentos y el tiempo de retención de archivos.
 
-En las siguientes secciones, aprenderá cómo utilizar las clases [JobPreparationTask][net_job_prep] y [JobReleaseTask][net_job_release]que se encuentran en la biblioteca [.NET de lote][api_net].
+En las siguientes secciones, aprenderá cómo utilizar las clases [JobPreparationTask][net_job_prep] y [JobReleaseTask][net_job_release] que se encuentran en la biblioteca [.NET de Batch][api_net].
 
 > [!TIP]
 > Las tareas de preparación y liberación de trabajos son especialmente útiles en entornos de "grupo compartido", en los que un grupo de nodos de proceso persiste entre ejecuciones de trabajo y muchos trabajos lo usan.
 > 
 > 
 
-## Uso de las tareas de preparación y liberación de trabajos
+## <a name="when-to-use-job-preparation-and-release-tasks"></a>Uso de las tareas de preparación y liberación de trabajos
 Las tareas de preparación y liberación de trabajos son una buena opción en las situaciones siguientes:
 
 **Descarga de datos de tareas comunes**
@@ -44,32 +48,32 @@ En un entorno de "grupo compartido", cuando no se dan de baja los nodos de proce
 
 **Retención de registro**
 
-Puede que desee conservar una copia de los archivos de registro generados por las tareas o quizás los archivos de volcado de memoria generados por aplicaciones con errores. Puede usar una **tarea de liberación del trabajo** en estos casos para comprimir y cargar estos datos en una cuenta de [Almacenamiento de Azure][azure_storage].
+Puede que desee conservar una copia de los archivos de registro generados por las tareas o quizás los archivos de volcado de memoria generados por aplicaciones con errores. Puede usar una **tarea de liberación del trabajo** en estos casos para comprimir y cargar estos datos en una cuenta de [Azure Storage][azure_storage].
 
 > [!TIP]
 > Otra manera de conservar los registros y otros datos de salida de los trabajos y las tareas es usar la biblioteca [Azure Batch File Conventions](batch-task-output.md) (Convenciones de archivos de Azure Batch).
 > 
 > 
 
-## Tarea de preparación del trabajo
+## <a name="job-preparation-task"></a>tarea de preparación del trabajo
 Antes de ejecutar las tareas de un trabajo, Batch ejecuta la tarea de preparación del trabajo en cada nodo de proceso programado para ejecutar una tarea. De forma predeterminada, el servicio Batch esperará hasta que la tarea de preparación del trabajo se complete antes de ejecutar las tareas programadas para ejecutarse en el nodo. Sin embargo, puede configurar el servicio para que no espere. Si se reinicia el nodo, la tarea de preparación del trabajo se ejecutará de nuevo, pero también puede deshabilitar este comportamiento.
 
 La tarea de preparación del trabajo solo se ejecuta en los nodos programados para ejecutar una tarea. Esto impide la ejecución innecesaria de una tarea de preparación en caso de que un nodo no tenga una tarea asignada. Esto puede ocurrir cuando el número de tareas de un trabajo es menor que el número de nodos de un grupo. También se aplica cuando la [ejecución de tareas simultáneas](batch-parallel-node-tasks.md) está habilitada, lo que deja algunos nodos inactivos si el número de tareas es menor que el total de posibles tareas simultáneas. Si no ejecuta la tarea de preparación del trabajo en nodos inactivos, puede ahorrar dinero en gastos de transferencia de datos.
 
 > [!NOTE]
-> [JobPreparationTask][net\_job\_prep\_cloudjob] difiere de [CloudPool.StartTask][pool_starttask] en que JobPreparationTask se ejecuta al principio de cada trabajo, mientras que StartTask solo se ejecuta cuando un nodo de proceso se une por primera vez a un grupo o se reinicia.
+> [JobPreparationTask][net_job_prep_cloudjob] difiere de [CloudPool.StartTask][pool_starttask] en que JobPreparationTask se ejecuta al principio de cada trabajo, mientras que StartTask solo se ejecuta cuando un nodo de proceso se une por primera vez a un grupo o se reinicia.
 > 
 > 
 
-## Tarea de liberación del trabajo
-Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación del trabajo en cada nodo del grupo que ejecutó al menos una tarea. El trabajo se marca como completado mediante la emisión de una solicitud de finalización. A continuación, el servicio Batch establece el estado del trabajo en *terminando*, finaliza las tareas activas o en ejecución asociadas al trabajo y ejecuta la tarea de liberación del trabajo. A continuación, el trabajo se mueve al estado *completado*.
+## <a name="job-release-task"></a>tarea de liberación del trabajo
+Cuando un trabajo se marca como completado, se ejecuta la tarea de liberación del trabajo en cada nodo del grupo que ejecutó al menos una tarea. El trabajo se marca como completado mediante la emisión de una solicitud de finalización. A continuación, el servicio Batch establece el estado del trabajo en *terminando*, finaliza las tareas activas o en ejecución asociadas al trabajo y ejecuta la tarea de liberación del trabajo. A continuación, el trabajo se mueve al estado *completado* .
 
 > [!NOTE]
 > La eliminación de un trabajo también ejecuta la tarea de liberación del trabajo. Sin embargo, si un trabajo ya se ha terminado, la tarea no se ejecuta una segunda vez si el trabajo se va a eliminar más adelante.
 > 
 > 
 
-## Tareas de preparación y liberación de trabajos con Lote para .NET
+## <a name="job-prep-and-release-tasks-with-batch-net"></a>Tareas de preparación y liberación de trabajos con Lote para .NET
 Para usar una tarea de preparación del trabajo, asigne un objeto [JobPreparationTask][net_job_prep] a la propiedad [CloudJob.JobPreparationTask][net_job_prep_cloudjob] del trabajo. De forma similar, para establecer la tarea de liberación del trabajo, se inicializa [JobReleaseTask][net_job_release] y se asigna a la propiedad [CloudJob.JobReleaseTask][net_job_prep_cloudjob] del trabajo.
 
 En este fragmento de código, `myBatchClient` es una instancia de [BatchClient][net_batch_client] y `myPool` es un grupo existente en la cuenta de Batch.
@@ -108,7 +112,7 @@ Como se mencionó antes, la tarea de liberación se ejecuta cuando se finaliza o
 await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
 ```
 
-## Código de ejemplo en GitHub
+## <a name="code-sample-on-github"></a>Código de ejemplo en GitHub
 Para ver cómo funcionan las tareas de preparación y liberación del trabajo, consulte el proyecto de ejemplo [JobPrepRelease][job_prep_release_sample] en GitHub. Esta aplicación de consola hace lo siguiente:
 
 1. Crea un grupo con dos nodos "pequeños".
@@ -170,21 +174,21 @@ Sample complete, hit ENTER to exit...
 > 
 > 
 
-### Inspección de las tareas de preparación y liberación en Azure Portal
+### <a name="inspect-job-preparation-and-release-tasks-in-the-azure-portal"></a>Inspección de las tareas de preparación y liberación en Azure Portal
 Cuando ejecute la aplicación de ejemplo, puede usar [Azure Portal][portal] para ver las propiedades del trabajo y sus tareas, o incluso descargar el archivo de texto compartido modificado por las tareas del trabajo.
 
 La captura de pantalla siguiente muestra la **hoja de tareas de preparación** en Azure Portal después de una ejecución de la aplicación de ejemplo. Vaya a las propiedades *JobPrepReleaseSampleJob* después de que sus tareas se hayan completado (pero antes de eliminar el trabajo y el grupo) y haga clic en **Tareas de preparación** o **Tareas de liberación** para ver sus propiedades.
 
 ![Propiedades de preparación del trabajo en el Portal de Azure][1]
 
-## Pasos siguientes
-### Paquetes de aplicación
+## <a name="next-steps"></a>Pasos siguientes
+### <a name="application-packages"></a>Paquetes de aplicación
 Además de la tarea de preparación del trabajo, puede usar la característica de [paquetes de aplicación](batch-application-packages.md) de Batch para preparar los nodos de proceso de cara a la ejecución de tareas. Esta característica es especialmente útil para implementar aplicaciones que no requieren que se ejecute un instalador, aplicaciones que contienen muchos archivos (más de 100) o aplicaciones que requieren un control estricto de la versión.
 
-### Instalación de aplicaciones y datos de ensayo
+### <a name="installing-applications-and-staging-data"></a>Instalación de aplicaciones y datos de ensayo
 Este foro de MSDN proporciona información general de varios métodos de preparación de los nodos para la ejecución de tareas:
 
-[Installing applications and staging data on Batch compute nodes][forum_post] \(Instalación de aplicaciones y dato de almacenamiento provisional en nodos de proceso de Batch).
+[Installing applications and staging data on Batch compute nodes][forum_post] (Instalación de aplicaciones y dato de almacenamiento provisional en nodos de proceso de Batch)
 
 Escrito por uno de los miembros del equipo de Azure Batch, describe varias técnicas que puede utilizar para implementar aplicaciones y datos en los nodos de proceso.
 
@@ -194,12 +198,11 @@ Escrito por uno de los miembros del equipo de Azure Batch, describe varias técn
 [azure_storage]: https://azure.microsoft.com/services/storage/
 [portal]: https://portal.azure.com
 [job_prep_release_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/JobPrepRelease
-[forum_post]: https://social.msdn.microsoft.com/Forums/es-ES/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
+[forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
 [net_batch_client]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
-[net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
+[net_cloudjob]:https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_job_prep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
 [net_job_prep_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
-[net\_job\_prep\_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobpreparationtask.aspx
 [net_job_prep_resourcefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.resourcefiles.aspx
 [net_job_delete]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.deletejobasync.aspx
 [net_job_terminate]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.terminatejobasync.aspx
@@ -220,4 +223,8 @@ Escrito por uno de los miembros del equipo de Azure Batch, describe varias técn
 
 [1]: ./media/batch-job-prep-release/portal-jobprep-01.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

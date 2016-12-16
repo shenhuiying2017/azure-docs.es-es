@@ -1,12 +1,12 @@
 ---
-title: Información general sobre la versión 2.0 de los puntos de conexión | Microsoft Docs
-description: Introducción a la creación de aplicaciones con inicio de sesión de cuentas de Microsoft y de Azure Active Directory.
+title: "Introducción a la versión 2.0 de los puntos de conexión | Microsoft Docs"
+description: "Introducción a la creación de aplicaciones con inicio de sesión de cuentas de Microsoft y de Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dstrockis
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 2dee579f-fdf6-474b-bc2c-016c931eaa27
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: dastrock
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
+
 
 ---
-# <a name="sign-in-microsoft-account-&-azure-ad-users-in-a-single-app"></a>Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
+# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
 Antes, un desarrollador de aplicaciones que deseara admitir cuentas de Microsoft y Azure Active Directory debía realizar la integración con dos sistemas independientes.  Hemos incorporado una nueva versión de API de autenticación que permite el inicio de sesión de los usuarios con ambos tipos de cuentas mediante el sistema de Azure AD.  Este sistema de autenticación convergente se conoce como **punto de conexión v2.0**.  Con el punto de conexión v2.0, una integración sencilla le permite llegar a una audiencia que abarca millones de usuarios con cuentas personales, así como profesionales y educativas.
 
 Las aplicaciones que usan el punto de conexión v2.0 también pueden usar las API de REST de [Microsoft Graph](https://graph.microsoft.io) y [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con cualquier tipo de cuenta.
@@ -32,7 +36,7 @@ Elija su plataforma favorita de la lista siguiente para compilar una aplicación
 <!-- TODO: Finalize this table  -->
 [!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
-## <a name="what's-new"></a>Novedades
+## <a name="whats-new"></a>Novedades
 La información conceptual que aquí se describe será útil para entender qué se puede y no se puede hacer con el punto de conexión v2.0.
 
 * Obtenga información sobre los [tipos de aplicaciones que puede compilar con la versión 2.0 del punto de conexión](active-directory-v2-flows.md).
@@ -48,10 +52,13 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 * [Referencia de los tokens de v2.0](active-directory-v2-tokens.md)
 * [Referencia de la biblioteca de la versión 2.0](active-directory-v2-libraries.md)
 * [Ámbitos y consentimiento en el punto de conexión v2.0](active-directory-v2-scopes.md)
-* [Portal de registro para aplicaciones de Microsoft](https://apps.dev.microsoft.com)
+* [Portal de registro para aplicaciones de Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)
 * [Referencia de API de REST de Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)
 * [Microsoft Graph](https://graph.microsoft.io)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

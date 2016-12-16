@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Benefitsolver | Microsoft Docs'
-description: Aprenda cómo usar Benefitsolver con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Benefitsolver | Microsoft Docs"
+description: "Aprenda cómo usar Benefitsolver con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: cf4529b1-3fb6-4475-82b7-2ceedcb70b3c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eb7dce1c0664e34c4946bb08f5b412e1e01c715d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integración de Azure Active Directory con Benefitsolver
+# <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integración de Azure Active Directory con Benefitsolver
 El objetivo de este tutorial es mostrar la integración de Azure y Benefitsolver.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-benefitsolver"></a>Habilitación de la integración de aplicaciones para Benefitsolver
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para Benefitsolver.
 
-### <a name="to-enable-the-application-integration-for-benefitsolver,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones en Benefitsolver:
+### <a name="to-enable-the-application-integration-for-benefitsolver-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones en Benefitsolver:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-benefitsolver-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ La siguiente captura de pantalla muestra un ejemplo.
 
 ![Atributos](./media/active-directory-saas-benefitsolver-tutorial/IC804823.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Benefitsolver**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-benefitsolver-tutorial/IC804824.png "Configure Single Sign-On")
@@ -124,7 +128,7 @@ En el caso de Benefitsolver, los datos de empleados en la aplicación se rellena
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe asignar los usuarios de Azure AD que quiera que usen su aplicación para concederles acceso a ella.
 
-### <a name="to-assign-users-to-benefitsolver,-perform-the-following-steps:"></a>Para asignar usuarios a Benefitsolver, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-benefitsolver-perform-the-following-steps"></a>Para asignar usuarios a Benefitsolver, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Benefitsolver** haga clic en **Asignar usuarios**.
    
@@ -135,6 +139,9 @@ Para probar la configuración, debe asignar los usuarios de Azure AD que quiera 
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

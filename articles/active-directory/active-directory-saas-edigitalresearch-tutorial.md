@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con eDigitalResearch | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y eDigitalResearch.
+title: "Tutorial: Integración de Azure Active Directory con eDigitalResearch | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y eDigitalResearch."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce449d6a64b4ef9022939f0487a30157f7014673
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: integración de Azure Active Directory con eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: integración de Azure Active Directory con eDigitalResearch
 El objetivo de este tutorial es mostrar cómo integrar eDigitalResearch con Azure Active Directory (Azure AD).
 
 La integración de eDigitalResearch con Azure AD proporciona las siguientes ventajas:
@@ -125,9 +129,11 @@ En esta sección, habilitará el inicio de sesión único de Microsoft Azure AD 
     b. Haga clic en **Next**.
 5. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de eDigitalResearch y proporcione lo siguiente: 
    
-   * El archivo de **certificado descargado**
-   * El **identificador de entidad**
-   * La **dirección URL del servicio de cierre de sesión único**
+      - El archivo de **certificado descargado**
+   
+      - El **identificador de entidad**
+   
+      - La **dirección URL del servicio de cierre de sesión único**
 6. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -211,7 +217,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Microsoft Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de eDigitalResearch en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación eDigitalResearch.
@@ -240,6 +246,6 @@ Al hacer clic en el icono de eDigitalResearch en el Panel de acceso, debería in
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

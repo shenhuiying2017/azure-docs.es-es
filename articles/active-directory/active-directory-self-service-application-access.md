@@ -1,12 +1,12 @@
 ---
-title: Acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory | Microsoft Docs
-description: En este artículo se describe cómo habilitar el acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory
+title: "Acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory | Microsoft Docs"
+description: "En este artículo se describe cómo habilitar el acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 448a7fe8-a162-475e-9ba2-2e3ab59302bc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c14be0292b08419ebaf4270d7e451e930d43810b
+
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Acceso a aplicaciones de autoservicio y administración delegada con Azure Active Directory
@@ -83,7 +87,7 @@ El icono **Agregar usuarios** permite a los aprobadores conceder directamente ac
 ### <a name="manage-users"></a>Administrar usuarios
 El icono **Administrar usuarios** permite a los aprobadores actualizar o quitar directamente los usuarios que tienen acceso a la aplicación. 
 
-### <a name="configure-password-sso-credentials-(if-applicable)"></a>Configuración de credenciales de SSO con contraseña (si corresponde)
+### <a name="configure-password-sso-credentials-if-applicable"></a>Configuración de credenciales de SSO con contraseña (si corresponde)
 El icono **Configurar** solo se muestra si el administrador de TI ha configurado la aplicación para que use el inicio de sesión único basado en contraseña y el administrador ha concedido al aprobador la capacidad de establecer las credenciales de SSO con contraseña como se describió anteriormente. Cuando se selecciona, se presentan varias opciones al aprobador para establecer cómo se propagarán las credenciales a los usuarios asignados:
 
 ![][3]
@@ -102,6 +106,6 @@ El icono **Configurar** solo se muestra si el administrador de TI ha configurado
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

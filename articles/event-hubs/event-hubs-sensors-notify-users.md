@@ -1,12 +1,12 @@
 ---
-title: Notificación a los usuarios sobre los datos recibidos de los sensores o de otros sistemas | Microsoft Docs
-description: Se describe cómo usar centros de eventos para notificar a los usuarios de los datos de los sensores.
+title: "Notificación a los usuarios sobre los datos recibidos de los sensores o de otros sistemas | Microsoft Docs"
+description: "Se describe cómo usar centros de eventos para notificar a los usuarios de los datos de los sensores."
 services: event-hubs
 documentationcenter: na
 author: spyrossak
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: a4c0d679-2cac-4ac6-ad48-26cf9a6d8627
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2016
 ms.author: spyros;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8de8710d3de16c9b239af6c07c4f73e60e5a182b
+
 
 ---
 # <a name="notify-users-of-data-received-from-sensors-or-other-systems"></a>Notificación a los usuarios sobre los datos recibidos de los sensores o de otros sistemas
@@ -25,7 +29,7 @@ En otro escenario, imagine que dirige un centro de alojamiento de mascotas y que
 
 ![][2]
 
-El problema radica en cómo obtener información crítica cuando se cumplen determinadas condiciones, y no cuando consulta un informe estático. Si utiliza un [Centro de eventos de Azure][Centro de eventos de Azure] o [Azure IoT Hub][] para recibir datos de dispositivos o aplicaciones empresariales como [Dynamics AX][Dynamics AX], tiene varias opciones para procesarlos. Puede consultarlos en un sitio web, analizarlos, almacenarlos y usarlos para desencadenar los comandos para realizar alguna acción. Para ello, puede usar herramientas eficaces como [Azure Websites][Azure Websites], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [Conjunto de aplicaciones de IoT][Conjunto de aplicaciones de IoT], [Logic Apps][Logic Apps] o [Azure Notification Hubs][]. Pero a veces lo único que desea hacer es enviar datos a alguien con una sobrecarga mínima. Para mostrarle cómo hacerlo con el uso mínimo de código, hemos proporcionado nuevo ejemplo, [AppToNotifyUsers][AppToNotifyUsers]. Las opciones incluidas son el correo electrónico (SMTP), los SMS y el teléfono.
+El problema radica en cómo obtener información crítica cuando se cumplen determinadas condiciones, y no cuando consulta un informe estático. Si utiliza un [Centro de eventos de Azure][Centro de eventos de Azure] o [Centro de IoT de Azure][Centro de IoT de Azure] para recibir datos de dispositivos o aplicaciones empresariales como [Dynamics AX][Dynamics AX], tiene varias opciones para procesarlos. Puede consultarlos en un sitio web, analizarlos, almacenarlos y usarlos para desencadenar los comandos para realizar alguna acción. Para ello, puede utilizar herramientas eficaces como [Azure Websites][Azure Websites], [SQL Azure][SQL Azure], [HDInsight][HDInsight], [Cortana Intelligence Suite][Cortana Intelligence Suite], [Conjunto de aplicaciones de IoT][Conjunto de aplicaciones de IoT], [Logic Apps][Logic Apps] o [Centros de notificaciones de Microsoft Azure][Centros de notificaciones de Microsoft Azure]. Pero a veces lo único que desea hacer es enviar datos a alguien con una sobrecarga mínima. Para mostrarle cómo hacerlo con el uso mínimo de código, hemos proporcionado un nuevo ejemplo, [AppToNotifyUsers][AppToNotifyUsers]. Las opciones incluidas son el correo electrónico (SMTP), los SMS y el teléfono.
 
 ## <a name="application-structure"></a>Estructura de la aplicación
 La aplicación está escrita en C# y el archivo Léame del ejemplo contiene toda la información que necesita para modificar, crear y publicar la aplicación. En las secciones siguientes se proporciona información general de alto nivel sobre lo que la aplicación hace.
@@ -78,6 +82,7 @@ Si desea implementar la solución para notificar a los usuarios sobre los datos 
 [2]: ./media/event-hubs-sensors-notify-users/event-hubs-erp-alert.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

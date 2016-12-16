@@ -1,23 +1,27 @@
 ---
 title: Uso de Azure DNS con otros servicios de Azure | Microsoft Docs
-description: Descripción de cómo usar Azure DNS para resolver el nombre de otros servicios de Azure
+description: "Descripción de cómo usar Azure DNS para resolver el nombre de otros servicios de Azure"
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
+editor: 
 tags: azure dns
-
+ms.assetid: e9b5eb94-7984-4640-9930-564bb9e82b78
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
-ms.author: sewhee
+ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 42d47741e414b2de177f1fd75b3e1ac3fde96579
+ms.openlocfilehash: 15412e67b6785812d00438e1819f24a6cb4fd0a8
 
 ---
 # <a name="using-azure-dns-with-other-azure-services"></a>Uso de Azure DNS con otros servicios de Azure
+
 Azure DNS es un servicio de resolución de nombres y administración de DNS hospedado. Esto le permite crear nombres DNS públicos para las otras aplicaciones y servicios que tiene implementados en Azure. Crear el nombre para un servicio de Azure en el dominio personalizado es tan simple como agregar un registro del tipo correcto del servicio.
 
 * Para las direcciones IP asignadas dinámicamente, debe crear un registro CNAME de DNS que se asigna al nombre DNS que Azure creó para el servicio. Los estándares DNS evitan que use un registro CNAME para el vértice de la zona.
@@ -35,6 +39,9 @@ En la tabla siguiente se describen los tipos de registro compatibles que se pued
 | Máquinas virtuales de Resource Manager |Dirección IP pública |Las máquinas virtuales de Resource Manager pueden tener direcciones IP públicas. Una máquina virtual con una dirección IP pública también puede encontrarse detrás de un equilibrador de carga. Puede crear un registro CNAME o D de DNS para la dirección pública. Este nombre personalizado se puede usar para omitir el VIP en el equilibrador de carga. |
 | Máquinas virtuales clásicas |Dirección IP pública |Las máquinas virtuales clásicas creadas con PowerShell o la CLI se pueden configurar con una dirección virtual dinámica o estática (reservada). Puede crear un registro CNAME o D de DNS, respectivamente. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

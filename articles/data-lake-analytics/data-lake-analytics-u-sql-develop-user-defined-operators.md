@@ -1,12 +1,12 @@
 ---
-title: Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake | Microsoft Docs
-description: 'Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. '
+title: Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Azure Data Lake Analytics | Microsoft Docs
+description: "Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,33 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 73d3e5577d0702a93b7f4edf3bf4e29f55a053ed
+ms.openlocfilehash: 88a00c2b0a5aac85bbcaef5b21b10f44121c7d38
+
 
 ---
-# Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake
+# <a name="develop-u-sql-user-defined-operators-for-azure-data-lake-analytics-jobs"></a>Desarrollo de operadores U-SQL definidos por el usuario para trabajos de Análisis de Azure Data Lake
 Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse a usar en trabajos de Análisis de Data Lake. Desarrollará un operador personalizado para convertir los nombres de los países.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Visual Studio 2015, Visual Studio 2013 Update 4 o Visual Studio 2012 con Visual C++ instalado
-* SDK de Microsoft Azure para .NET versión 2.5 o posterior. Instálelo usando el instalador de plataforma web.
-* Una cuenta de Análisis de Data Lake. Consulte [Introducción a Análisis de Azure Data Lake mediante el portal de Azure](data-lake-analytics-get-started-portal.md).
+* SDK de Microsoft Azure para .NET versión 2.5 o posterior.  Instálelo usando el instalador de plataforma web.
+* Una cuenta de Análisis de Data Lake.  Consulte [Introducción a Análisis de Azure Data Lake mediante el portal de Azure](data-lake-analytics-get-started-portal.md).
 * Realice el tutorial [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md)
-* Conéctese a Azure y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#connect-to-azure).
-* Descargue los datos de origen y consulte [Introducción al lenguaje U-SQL de Análisis de Azure Data Lake](data-lake-analytics-u-sql-get-started.md#upload-source-data-files).
+* Conéctese a Azure.
+* Descargue los datos de origen y consulte [Introducción al lenguaje U-SQL de Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md). 
 
-## Definición y uso del operador definido por el usuario en U-SQL
+## <a name="define-and-use-user-defined-operator-in-u-sql"></a>Definición y uso del operador definido por el usuario en U-SQL
 **Para crear y enviar un trabajo de U-SQL**
 
-1. En el menú **Archivo**, haga clic en **Nuevo** y, después, en **Proyecto**.
-2. Seleccione el tipo de **proyecto U-SQL**.
-   
+1. En el menú **Archivo**, haga clic en **Nuevo** y en **Proyecto**.
+2. Seleccione el tipo de **proyecto U-SQL** .
+
     ![nuevo proyecto de Visual Studio U-SQL](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Haga clic en **Aceptar**. Visual Studio crea una solución con un archivo Script.usql.
 4. En el **Explorador de soluciones**, expanda Script.usql y haga doble clic en **Script.usql.cs**.
 5. Pegue el código siguiente en el archivo:
-   
+
         using Microsoft.Analytics.Interfaces;
         using System.Collections.Generic;
-   
+
         namespace USQL_UDO
         {
             public class CountryName : IProcessor
@@ -63,10 +67,10 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
                         "中国", "PR China"
                     }
                 };
-   
+
                 public override IRow Process(IRow input, IUpdatableRow output)
                 {
-   
+
                     string UserID = input.Get<string>("UserID");
                     string Name = input.Get<string>("Name");
                     string Address = input.Get<string>("Address");
@@ -75,7 +79,7 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
                     string PostalCode = input.Get<string>("PostalCode");
                     string Country = input.Get<string>("Country");
                     string Phone = input.Get<string>("Phone");
-   
+
                     if (CountryTranslation.Keys.Contains(Country))
                     {
                         Country = CountryTranslation[Country];
@@ -88,13 +92,13 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
                     output.Set<string>(5, PostalCode);
                     output.Set<string>(6, Country);
                     output.Set<string>(7, Phone);
-   
+
                     return output.AsReadOnly();
                 }
             }
         }
 6. Abra Script.usql y pegue el siguiente script de U-SQL:
-   
+
         @drivers =
             EXTRACT UserID      string,
                     Name        string,
@@ -106,7 +110,7 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
                     Phone       string
             FROM "/Samples/Data/AmbulanceData/Drivers.txt"
             USING Extractors.Tsv(Encoding.Unicode);
-   
+
         @drivers_CountryName =
             PROCESS @drivers
             PRODUCE UserID string,
@@ -118,24 +122,28 @@ Aprenda a desarrollar operadores definidos por el usuario para usarse y volverse
                     Country string,
                     Phone string
             USING new USQL_UDO.CountryName();    
-   
+
         OUTPUT @drivers_CountryName
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
-7. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Compilar script**.
-8. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Enviar script**.
+7. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Build Script** (Compilar script).
+8. En el **Explorador de soluciones**, haga clic con el botón derecho en **Script.usql** y después haga clic en **Submit Script** (Enviar script).
 9. Si no se ha conectado a su suscripción de Azure, se le avisará que especifique sus credenciales de la cuenta de Azure.
 10. Haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados cuando se completa el envío.
 11. Puede hacer clic en el botón Actualizar para ver el estado de trabajo más reciente y actualizar la pantalla.
 
 **Para ver la salida del trabajo**
 
-1. En el **Explorador de servidores**, expanda **Azure**, **Análisis de Data Lake**, su cuenta de Análisis de Data Lake y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**.
+1. En el **Explorador de servidores**, expanda **Azure**, **Data Lake Analytics**, su cuenta de Data Lake Analytics y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**.
 2. Expanda Ejemplos, expanda Salidas y, finalmente, haga doble clic en **Drivers.csv**.
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Introducción a Análisis de Data Lake mediante PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 * [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

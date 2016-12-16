@@ -1,12 +1,12 @@
 ---
-title: Administración de aprovisionamiento de usuarios para aplicaciones empresariales en la versión preliminar de Azure Active Directory | Microsoft Docs
-description: Aprenda a administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales con la versión preliminar de Azure Active Directory.
+title: "Administración de aprovisionamiento de usuarios para aplicaciones empresariales en la versión preliminar de Azure Active Directory | Microsoft Docs"
+description: "Aprenda a administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales con la versión preliminar de Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cecfdee4af934e68412699ce3166514c5521bb0
+
 
 ---
-# <a name="preview:-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Versión preliminar: Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el nuevo Azure Portal
+# <a name="preview-managing-user-account-provisioning-for-enterprise-apps-in-the-new-azure-portal"></a>Versión preliminar: Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales en el nuevo Azure Portal
 En este artículo se describe cómo utilizar [Azure Portal](https://portal.azure.com) para administrar el aprovisionamiento automático de cuentas de usuario y el desaprovisionamiento para las aplicaciones que lo admiten, especialmente aquellas que se han agregado en la categoría "destacada" de la Galería de aplicaciones de [Azure Active Directory](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Esta experiencia de administración en el nuevo Azure Portal está actualmente en versión preliminar pública y en este artículo se describen las nuevas características, así como algunas limitaciones temporales que tienen lugar durante el período de versión preliminar. [¿Qué hay en la versión preliminar?](active-directory-preview-explainer.md)
 
 Para más información sobre el aprovisionamiento automático de cuentas de usuario, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](active-directory-saas-app-provisioning.md).
@@ -81,6 +85,6 @@ Se proporcionan vínculos al **informe de actividad de aprovisionamiento**, que 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 
