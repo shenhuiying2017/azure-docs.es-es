@@ -1,13 +1,13 @@
 ---
-title: Servicios de federación de Active Directory y personalización con Azure AD Connect | Microsoft Docs
-description: Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell.
-keywords: AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza
+title: "Servicios de federación de Active Directory y personalización con Azure AD Connect | Microsoft Docs"
+description: "Administración de AD FS con Azure AD Connect y personalización del inicio de sesión de AD FS del usuario con Azure AD Connect y PowerShell."
+keywords: "AD FS, ADFS, administración de AD FS, AAD Connect, Connect, inicio de sesión, personalización de AD FS, reparación de la confianza, Office 365, federación, usuario de confianza"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: anandyadavmsft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: 6f305ca57e6133be6af684186a8c49d9915734fb
+
 
 ---
 # <a name="active-directory-federation-services-management-and-customization-with-azure-ad-connect"></a>Servicios de federación de Active Directory y personalización con Azure AD Connect
@@ -44,26 +48,26 @@ Azure AD Connect puede comprobar el estado actual de la confianza de AD FS y de 
    ![Conectarse a Azure](media\\active-directory-aadconnect-federation-management\\RepairADTrust2.PNG)
 3. En la página **Credenciales de acceso remoto** , proporcione las credenciales del administrador de dominio.
    ![Credenciales de acceso remoto](media\\active-directory-aadconnect-federation-management\\RepairADTrust3.PNG)
-   
+
     Cuando haga clic en **Siguiente**, Azure AD Connect comprobará el estado del certificado y mostrará los problemas que existan.
-   
+
     ![Estado de los certificados](media\\active-directory-aadconnect-federation-management\\RepairADTrust4.PNG)
-   
+
     La página **Listo para configurar** mostrará la lista de acciones que se llevarán a cabo para reparar la confianza.
-   
+
     ![Listo para configurar](media\\active-directory-aadconnect-federation-management\\RepairADTrust5.PNG)
 4. Haga clic en **Instalar** para reparar la confianza.
 
 > [!NOTE]
 > Azure AD Connect solo puede reparar o actuar en los certificados autofirmados. Azure AD Connect no puede reparar certificados de terceros.
-> 
-> 
+>
+>
 
 ### <a name="add-an-ad-fs-server-a-nameaddadfsservera"></a>Adición de un servidor de AD FS <a name=addadfsserver></a>
 > [!NOTE]
 > Azure AD Connect requiere el archivo de certificado PFX para agregar un servidor de AD FS. Por lo tanto, puede realizar esta operación solamente si ha configurado la granja de servidores de AD FS con Azure AD Connect.
-> 
-> 
+>
+>
 
 1. Seleccione **Implementar un servidor de federación adicional** y haga clic en **Siguiente**.
    ![Servidor de federación adicional](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer1.PNG)
@@ -73,20 +77,20 @@ Azure AD Connect puede comprobar el estado actual de la confianza de AD FS y de 
    ![Credenciales del administrador de dominio](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer3.PNG)
 4. Azure AD Connect le pedirá la contraseña del archivo PFX que proporcionó al configurar la nueva granja de servidores de AD FS con Azure AD Connect. Haga clic en **Escribir contraseña** para proporcionar la contraseña del archivo PFX.
    ![Contraseña del certificado](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer4.PNG)
-   
+
     ![Especificar certificado SSL](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer5.PNG)
 5. En la página **Servidores de AD FS** , escriba el nombre del servidor o la dirección IP que se agregarán a la granja de servidores de AD FS.
    ![AD FS servers](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer6.PNG)
 6. Haga clic en **Siguiente** y recorra la página **Configurar** final. Una vez que Azure AD Connect haya terminado de agregar los servidores a la granja de servidores de AD FS, se le ofrecerá la opción de comprobar la conectividad.
    ![Listo para configurar](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer7.PNG)
-   
+
     ![Instalación completada](media\\active-directory-aadconnect-federation-management\\AddNewADFSServer8.PNG)
 
 ### <a name="add-an-ad-fs-web-application-proxy-server-a-nameaddwapservera"></a>Adición de un servidor proxy de aplicación web de AD FS <a name=addwapserver></a>
 > [!NOTE]
 > Azure AD Connect requiere el archivo de certificado PFX para agregar un servidor proxy de aplicación web. Por lo tanto, podrá realizar esta operación solamente si ha configurado la granja de servidores de AD FS con Azure AD Connect.
-> 
-> 
+>
+>
 
 1. Seleccione **Implementar proxy de aplicación web** en la lista de tareas disponibles.
    ![Deploy web application proxy](media\\active-directory-aadconnect-federation-management\\WapServer1.PNG)
@@ -94,7 +98,7 @@ Azure AD Connect puede comprobar el estado actual de la confianza de AD FS y de 
    ![Conectar con Azure AD](media\\active-directory-aadconnect-federation-management\\wapserver2.PNG)
 3. En la página **Especificar el certificado SSL**, indique la contraseña para el archivo PFX que proporcionó durante la configuración de la granja de servidores de AD FS con Azure AD Connect.
    ![Contraseña del certificado](media\\active-directory-aadconnect-federation-management\\WapServer3.PNG)
-   
+
     ![Especificar certificado SSL](media\\active-directory-aadconnect-federation-management\\WapServer4.PNG)
 4. Incluya el servidor que se agregará como proxy de aplicación web. Como el servidor proxy de aplicación web puede no estar unido al dominio, se le pedirán credenciales administrativas para el servidor que se va a agregar.
    ![Credenciales administrativas del servidor](media\\active-directory-aadconnect-federation-management\\WapServer5.PNG)
@@ -116,7 +120,7 @@ Es fácil agregar un dominio para la federación con Azure AD mediante Azure AD 
    ![Credenciales de acceso remoto](media\\active-directory-aadconnect-federation-management\\additionaldomain3.PNG)
 4. En la siguiente página del asistente, aparecerá una lista de dominios de Azure AD con los que puede federar su directorio local. Elija el dominio en la lista.
    ![Dominio de Azure AD](media\\active-directory-aadconnect-federation-management\\AdditionalDomain4.PNG)
-   
+
     Después de elegir el dominio, se le proporcionará información adecuada sobre otras acciones que el asistente vaya a llevar a cabo y cómo afectarán a la configuración. En algunos casos, si selecciona un dominio que aún no esté comprobado en Azure AD, se le proporcionará información para comprobarlo. Consulte [Incorporación de su nombre de dominio personalizado a Azure Active Directory](active-directory-add-domain.md) para más información.
 5. Haga clic en **Siguiente** y en la página **Listo para configurar** se mostrará la lista de acciones que realizará Azure AD Connect. Haga clic en **Instalar** para finalizar la configuración.
    ![Listo para configurar](media\\active-directory-aadconnect-federation-management\\AdditionalDomain5.PNG)
@@ -129,17 +133,17 @@ Para cambiar el logotipo de la compañía que se muestra en la página de **inic
 
 > [!NOTE]
 > Las dimensiones recomendadas para el logotipo son 260 × 35 @ 96 ppp con un tamaño de archivo no superior a 10 kB.
-> 
-> 
+>
+>
 
     Set-AdfsWebTheme -TargetName default -Logo @{path="c:\Contoso\logo.PNG"}
 
 > [!NOTE]
 > Se requiere el parámetro *TargetName* . El tema predeterminado que se incluyó con AD FS se llama Default.
-> 
-> 
+>
+>
 
-### <a name="add-a-signin-description-a-nameaddsignindescriptiona"></a>Adición de la descripción de inicio de sesión <a name=addsignindescription></a>
+### <a name="add-a-sign-in-description-a-nameaddsignindescriptiona"></a>Adición de la descripción de inicio de sesión <a name=addsignindescription></a>
 Para agregar una descripción de la **página de inicio de sesión**a dicha página, use el siguiente cmdlet de Windows PowerShell y la sintaxis.
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
@@ -185,11 +189,11 @@ En esta regla, simplemente va a comprobar el atributo **idflag**temporal. Decida
 
 > [!NOTE]
 > La secuencia de estas reglas es importante.
-> 
-> 
+>
+>
 
 #### <a name="sso-with-a-subdomain-upn"></a>SSO con un UPN de subdominio
-Puede agregar más de un dominio para federarlo mediante Azure AD Connect, tal como se describe en [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#add-a-new-federated-domain). Debe modificar la notificación de UPN para que el identificador de emisor se corresponda con el dominio raíz y no con el subdominio, ya que el dominio raíz federado cubre también el elemento secundario.
+Puede agregar más de un dominio para federarlo mediante Azure AD Connect, tal como se describe en [Incorporación de un nuevo dominio federado](active-directory-aadconnect-federation-management.md#addfeddomain). Debe modificar la notificación de UPN para que el identificador de emisor se corresponda con el dominio raíz y no con el subdominio, ya que el dominio raíz federado cubre también el elemento secundario.
 
 De forma predeterminada, la regla de notificaciones para el identificador de emisor se establece como:
 
@@ -218,6 +222,8 @@ Para tener solo el dominio raíz en el valor de notificación del emisor, cambie
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre las [opciones de inicio de sesión del usuario](active-directory-aadconnect-user-signin.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

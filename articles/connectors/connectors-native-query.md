@@ -1,13 +1,13 @@
 ---
-title: Adición de la acción de consulta a las aplicaciones lógicas | Microsoft Docs
-description: En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como Filter array (Filtrar matriz).
-services: ''
-documentationcenter: ''
+title: "Adición de la acción de consulta a Logic Apps | Microsoft Docs"
+description: "En este artículo se muestra información general sobre las acciones de consulta para realizar acciones como Filter array (Filtrar matriz)."
+services: 
+documentationcenter: 
 author: jeffhollan
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d45ada934ad9211dbe8534b210ff06653c40afd1
+
 
 ---
-# Introducción a la acción de consulta
+# <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
 
 * Crear una tarea para todos los registros de alta prioridad desde una base de datos.
@@ -25,16 +29,16 @@ Mediante la acción de consulta puede utilizar lotes y matrices para realizar fl
 
 Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Uso de la acción de consulta
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).
+## <a name="use-the-query-action"></a>Uso de la acción de consulta
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).  
 
 En estos momentos, la acción de consulta tiene una operación expuesta en el diseñador que se denomina Filter array (Filtrar matriz). Gracias a ella, podrá consultar una matriz y devolver un conjunto de resultados filtrados.
 
 Este es el procedimiento para agregarlo en una aplicación lógica:
 
-1. Seleccione el botón **Nuevo paso**.
-2. Elija **Agregar una acción**.
-3. En el cuadro de búsqueda de acciones, escriba **Filter** para mostrar la acción **Filter array**.
+1. Seleccione el botón **Nuevo paso** .
+2. Elija **Add an action**(Agregar una acción).
+3. En el cuadro de búsqueda de la acción, escriba **Filtrar** para mostrar la acción **Filtrar matriz**.
    
     ![Seleccione la acción de consulta](./media/connectors-native-query/using-action-1.png)
 4. Seleccione la matriz que se va a filtrar. (La captura de pantalla siguiente muestra la matriz de resultados de búsqueda de Twitter).
@@ -45,18 +49,19 @@ Este es el procedimiento para agregarlo en una aplicación lógica:
     La acción generará una nueva matriz que contiene solo los resultados que cumplen los requisitos de filtro.
 6. Haga clic en la esquina superior izquierda de la barra de herramientas para guardarla; la aplicación lógica se guardará y se publicará (activará).
 
-## Acción de consulta
+## <a name="query-action"></a>Acción de consulta
 Aquí se muestran los detalles de la acción que admite este conector. El conector tiene una acción posible.
 
 | Acción | Description |
 | --- | --- |
 | Filter array |Evalúa una condición de cada elemento de una matriz y devuelve los resultados |
 
-## Detalles de la acción
+## <a name="action-details"></a>Detalles de la acción
 La acción de consulta incluye una acción posible. Las tablas siguientes describen los campos de entrada obligatorios y opcionales para la acción y los detalles de salida correspondientes asociados a su uso.
 
-### Filter array
-Los siguientes son los campos de entrada para la acción que realiza una solicitud de salida HTTP. Un * significa que es un campo obligatorio.
+### <a name="filter-array"></a>Filter array
+Los siguientes son los campos de entrada para la acción que realiza una solicitud de salida HTTP.
+Un * significa que es un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | Description |
 | --- | --- | --- |
@@ -65,14 +70,19 @@ Los siguientes son los campos de entrada para la acción que realiza una solicit
 
 <br>
 
-### Detalles de salida
+### <a name="output-details"></a>Detalles de salida
 Los detalles de la salida de la respuesta HTTP son los siguientes.
 
 | Nombre de propiedad | Tipo de datos | Description |
 | --- | --- | --- |
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

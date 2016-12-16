@@ -1,23 +1,27 @@
 ---
 title: Ejemplo de NoSQL de .NET para DocumentDB | Microsoft Docs
-description: Encontrará ejemplos de NoSQL de C# .NET en github sobre tareas comunes en DocumentDB, por ejemplo, operaciones CRUD para documentos JSON en bases de datos NoSQL.
+description: "Encontrará ejemplos de NoSQL de C# .NET en github sobre tareas comunes en DocumentDB, por ejemplo, operaciones CRUD para documentos JSON en bases de datos NoSQL."
 keywords: Ejemplo de NoSQL
 services: documentdb
-author: AndrewHoh
+author: rnagpal
 manager: jhubbard
 editor: monicar
 documentationcenter: .net
-
+ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
-ms.author: anhoh
+ms.author: rnagpal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f47d5d7ae446845dc07669111c234a5c60fc7724
+
 
 ---
-# Ejemplos de .NET de DocumentDB
+# <a name="documentdb-net-examples"></a>Ejemplos de .NET de DocumentDB
 > [!div class="op_single_selector"]
 > * [Ejemplos de .NET](documentdb-dotnet-samples.md)
 > * [Ejemplos de Node.js](documentdb-nodejs-samples.md)
@@ -28,22 +32,22 @@ ms.author: anhoh
 
 En el repositorio de GitHub [azure-documentdb-net](https://github.com/Azure/azure-documentdb-net/tree/master/samples/code-samples) se incluyen soluciones de ejemplo que realizan operaciones CRUD y otras comunes en recursos de Azure DocumentDB. Este artículo ofrece:
 
-* Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de C#.
+* Vínculos a las tareas de cada uno de los archivos de proyecto de ejemplo de C#. 
 * Vínculos al contenido de referencia de la API relacionada.
 
 **Requisitos previos**
 
 1. Para usar estos ejemplos de NoSQL, necesita una cuenta de Azure:
-   * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) - Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
+   * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/)- Obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este, podrá mantener la cuenta y usar servicios gratuitos de Azure, como Sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
      * Puede [activar los beneficios de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/): su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
-2. También necesita el [paquete NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+2. También necesita el [paquete NuGet Microsoft.Azure.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.DocumentDB/). 
 
 > [!NOTE]
-> Cada ejemplo es independiente, es decir, se configura a sí mismo y posteriormente se limpia solo. Por tanto, los ejemplos emiten varias llamadas a CreateDocumentCollectionAsync(). Cada vez que esto ocurre, se cobra a la suscripción una hora de uso de acuerdo con el nivel de rendimiento de la colección que se va a crear.
+> Cada ejemplo es independiente, es decir, se configura a sí mismo y posteriormente se limpia solo. Por tanto, los ejemplos emiten varias llamadas a CreateDocumentCollectionAsync(). Cada vez que esto ocurre, se cobra a la suscripción una hora de uso de acuerdo con el nivel de rendimiento de la colección que se va a crear. 
 > 
 > 
 
-## Ejemplos de base de datos
+## <a name="database-examples"></a>Ejemplos de base de datos
 El método [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L72-L121) del ejemplo del proyecto DatabaseManagement muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -54,7 +58,7 @@ El método [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/bl
 | [Enumeración de las bases de datos de una cuenta](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L108-L113) |[DocumentClient.ReadDatabaseFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdatabasefeedasync.aspx) |
 | [Eliminación de una base de datos](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/DatabaseManagement/Program.cs#L118) |[DocumentClient.DeleteDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedatabaseasync.aspx) |
 
-## Ejemplos de colección
+## <a name="collection-examples"></a>Ejemplos de colección
 El método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/530c8d9cf7c99df7300246da05206c57ce654233/samples/code-samples/CollectionManagement/Program.cs#L96-L185) del proyecto CollectionManagement de ejemplo muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -66,7 +70,7 @@ El método [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/
 | [Lectura de una lista de todas las colecciones de una base de datos](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L162) |[DocumentClient.ReadDocumentCollectionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readdocumentcollectionfeedasync.aspx) |
 | [Eliminación de un colección](https://github.com/Azure/azure-documentdb-dotnet/blob/89670bc8aefd9bdd932db7f9b6d2fcb9b6acf35e/samples/code-samples/CollectionManagement/Program.cs#L175) |[DocumentClient.DeleteDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync.aspx) |
 
-## Ejemplos de documento
+## <a name="document-examples"></a>Ejemplos de documento
 El método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/f374cc601f4cf08d11c88f0c3fa7dcefaf7ecfe8/samples/code-samples/DocumentManagement/Program.cs#L97-L102) del proyecto DocumentManagement de ejemplo muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -82,7 +86,7 @@ El método [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/b
 | [Reemplazo de documento con la comprobación de ETag condicional](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L398-L440) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 | [Lectura de documento únicamente si ha cambiado](https://github.com/Azure/azure-documentdb-dotnet/blob/f2b11dec45a195ddeed333560ebba63055f5ed09/samples/code-samples/DocumentManagement/Program.cs#L442-L470) |[DocumentClient.AccessCondition](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accesscondition.aspx)<br>[Documents.Client.AccessConditionType](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.accessconditiontype.aspx) |
 
-## Ejemplos de indización
+## <a name="indexing-examples"></a>Ejemplos de indización
 El método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ea8c977b9c2f37ddc2894911ec239907ab60e40a/samples/code-samples/IndexManagement/Program.cs#L89-L117) del proyecto IndexManagement de ejemplo muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -97,38 +101,38 @@ El método [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/
 
 Para obtener más información sobre la indexación, consulte [Directivas de indexación de DocumentDB](documentdb-indexing-policies.md).
 
-## Ejemplos de creación de particiones
+## <a name="partitioning-examples"></a>Ejemplos de creación de particiones
 El archivo de ejemplo de creación de particiones, [azure-documentdb-net/samples/code-samples/Partitioning/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Partitioning/Program.cs), muestra cómo realizar las tareas siguientes. En algunos casos, se utilizan archivos auxiliares adicionales para completar la tarea.
 
 | Tarea | Referencia de API |
 | --- | --- |
 | [Uso de HashPartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L144-L160) |[HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) |
-| [Uso de RangePartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L162-L186) |[Range](https://msdn.microsoft.com/library/azure/mt126048.aspx) con<br>[RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx) |
+| [Uso de RangePartitionResolver](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L162-L186) |[Intervalo](https://msdn.microsoft.com/library/azure/mt126048.aspx) con<br>[RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx) |
 | [Implementación de resoluciones de partición personalizadas](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L285) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
 | [Implementación de una tabla de búsqueda simple](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L115-L119) con<br>[LookupPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/LookupPartitionResolver.cs) |[RangePartitionResolver](https://msdn.microsoft.com/library/azure/mt126047.aspx) |
 | [Implementación de una resolución de partición que crea o clona colecciones](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L121-L126) con<br> [ManagedHashPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/ManagedHashPartitionResolver.cs) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
-| [Implementación de un esquema de excedentes](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L128-L134) con <br>[SpilloverPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/SpilloverPartitionResolver.cs) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
-| [Guardado y carga de configuraciones de resolución](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L136-L137) con <br>[RunSerializeDeserializeSample](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L295-L311) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
+| [Implementación de un esquema de excedentes](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L128-L134) con<br>[SpilloverPartitionResolver.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/SpilloverPartitionResolver.cs) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
+| [Guardado y carga de configuraciones de resolución](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L136-L137) con<br>[RunSerializeDeserializeSample](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L295-L311) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
 | [Adición, eliminación y reequilibrado de datos entre particiones](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L139-L141) con <br>[RepartitionDataSample](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Partitioning/Program.cs#L313-L345) y<br>[DocumentClientHashPartitioningManager.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Util/DocumentClientHashPartitioningManager.cs) |[HashPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) |
 | [Implementación de a una resolución de partición para el enrutamiento durante el reparticionamiento](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Partitioning/Partitioners/TransitionHashPartitionResolver.cs) |[IPartitionResolver](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.ipartitionresolver.aspx) |
 
 Para obtener más información sobre la creación de particiones, consulte [Partición y escalado de datos en DocumentDB](documentdb-partition-data.md).
 
-## Ejemplos de geoespacialidad
-El archivo de ejemplo geoespacial, [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), muestra cómo realizar las tareas siguientes.
+## <a name="geospatial-examples"></a>Ejemplos de geoespacialidad
+El archivo de ejemplo geoespacial, [azure-documentdb-net/samples/code-samples/Geospatial/Program.cs](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs), muestra cómo realizar las tareas siguientes.  
 
 | Tarea | Referencia de API |
 | --- | --- |
 | [Habilitación de la indexación geoespacial en una colección nueva](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L45-L63) |[IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpolicy.aspx)<br>[IndexKind.Spatial](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexkind.aspx)<br>[DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
 | [Inserción de documentos con puntos GeoJSON](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L116-L126) |[DocumentClient.CreateDocumentAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx)<br>[DataType.Point](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.datatype.aspx) |
-| [Búsqueda de puntos dentro de una distancia especificada](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST\_DISTANCE](documentdb-sql-query.md#built-in-functions) o<br>[GeometryOperationExtensions.Distance](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.distance.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Distance(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) |
-| [Búsqueda de puntos dentro de un polígono](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST\_WITHIN](documentdb-sql-query.md#built-in-functions) o<br>[GeometryOperationExtensions.Within](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.within.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Within(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) y<br>[Polygon](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.polygon.aspx) |
+| [Búsqueda de puntos dentro de una distancia especificada](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L152-L194) |[ST_DISTANCE](documentdb-sql-query.md#built-in-functions) o<br>[GeometryOperationExtensions.Distance](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.distance.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Distance(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) |
+| [Búsqueda de puntos dentro de un polígono](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L196-L221) |[ST_WITHIN](documentdb-sql-query.md#built-in-functions) o<br>[GeometryOperationExtensions.Within](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.within.aspx#M:Microsoft.Azure.Documents.Spatial.GeometryOperationExtensions.Within(Microsoft.Azure.Documents.Spatial.Geometry,Microsoft.Azure.Documents.Spatial.Geometry) y<br>[Polygon](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.polygon.aspx) |
 | [Habilitación de la indexación geoespacial en una colección existente](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L312-L336) |[DocumentClient.ReplaceDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replacedocumentcollectionasync.aspx)<br>[DocumentCollection.IndexingPolicy](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.documentcollection.indexingpolicy.aspx#P:Microsoft.Azure.Documents.DocumentCollection.IndexingPolicy) |
-| [Validación de datos de puntos y polígonos](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST\_ISVALID](documentdb-sql-query.md#built-in-functions)<br>[ST\_ISVALIDDETAILED](documentdb-sql-query.md#built-in-functions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
+| [Validación de datos de puntos y polígonos](https://github.com/Azure/azure-documentdb-dotnet/blob/7b09c085817e850d683bc59bd864c2f6b552d275/samples/code-samples/Geospatial/Program.cs#L223-L265) |[ST_ISVALID](documentdb-sql-query.md#built-in-functions)<br>[ST_ISVALIDDETAILED](documentdb-sql-query.md#built-in-functions)<br>[GeometryOperationExtensions.IsValid](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvalid.aspx)<br>[GeometryOperationExtensions.IsValidDetailed](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.spatial.geometryoperationextensions.isvaliddetailed.aspx) |
 
-Para obtener más información sobre cómo usar datos geoespaciales, consulte [Trabajo con datos geoespaciales en Azure DocumentDB](documentdb-geospatial.md).
+Para obtener más información sobre cómo usar datos geoespaciales, consulte [Trabajo con datos geoespaciales en Azure DocumentDB](documentdb-geospatial.md).  
 
-## Ejemplos de consultas
+## <a name="query-examples"></a>Ejemplos de consultas
 El archivo de documentos de consultas [azure-documentdb-net/samples/code-samples/Queries/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/Queries/Program.cs), muestra cómo realizar las siguientes tareas con la gramática de consultas SQL, el proveedor LINQ con consulta y con Lambda.
 
 | Tarea | Referencia de API |
@@ -136,7 +140,7 @@ El archivo de documentos de consultas [azure-documentdb-net/samples/code-samples
 | [Consulta de todos los documentos](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L122-L138) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Consulta de igualdad mediante ==](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L251-L268) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Consulta de desigualdad mediante != y NOT](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L270-L276) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
-| [Consulta mediante operadores de intervalo como >, <>, =, < =](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L305-L325) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
+| [Consulta mediante operadores de intervalo como >, <, >= o <=](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L305-L325) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Consulta con operadores de intervalo en cadenas](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L337-L346) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Consulta con Order by](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L370-L392) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
 | [Uso de subdocumentos](https://github.com/Azure/azure-documentdb-dotnet/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/Queries/Program.cs#L394-L419) |[DocumentQueryable.CreateDocumentQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createdocumentquery.aspx) |
@@ -149,7 +153,7 @@ El archivo de documentos de consultas [azure-documentdb-net/samples/code-samples
 
 Para obtener más información sobre cómo escribir consultas, consulte [Consulta SQL en DocumentDB](documentdb-sql-query.md).
 
-## Ejemplos de programación en el servidor
+## <a name="server-side-programming-examples"></a>Ejemplos de programación en el servidor
 El archivo de programación en el servidor, [azure-documentdb-net/samples/code-samples/ServerSideScripts/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs), muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -164,7 +168,7 @@ El archivo de programación en el servidor, [azure-documentdb-net/samples/code-s
 
 Para obtener más información sobre la programación en el servidor, consulte [Programación en el servidor de DocumentDB: procedimientos almacenados, desencadenadores de base de datos y UDF](documentdb-programming.md).
 
-## Ejemplos de administración de usuarios
+## <a name="user-management-examples"></a>Ejemplos de administración de usuarios
 El archivo de administración de usuarios, [azure-documentdb-net/samples/code-samples/UserManagement/Program.cs](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs), muestra cómo realizar las tareas siguientes.
 
 | Tarea | Referencia de API |
@@ -173,4 +177,9 @@ El archivo de administración de usuarios, [azure-documentdb-net/samples/code-sa
 | [Establecimiento de permisos en una colección o en un documento](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L85) |[DocumentClient.CreatePermissionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createpermissionasync.aspx) |
 | [Obtención de una lista de permisos de un usuario](https://github.com/Azure/azure-documentdb-net/blob/d17c0ca5be739a359d105cf4112443f65ca2cb72/samples/code-samples/UserManagement/Program.cs#L218) |[DocumentClient.ReadUserAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readuserasync.aspx)<br>[DocumentClient.ReadPermissionFeedAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.readpermissionfeedasync.aspx) |
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
