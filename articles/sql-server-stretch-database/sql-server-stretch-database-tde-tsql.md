@@ -1,57 +1,61 @@
 ---
-title: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL | Microsoft Docs
-description: Enable Transparent Data Encryption (TDE) for SQL Server Stretch Database on Azure TSQL
+title: "Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure TSQL | Microsoft Docs"
+description: "Habilitación del cifrado de datos transparente (TDE) para SQL Server Stretch Database en Azure TSQL"
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 27753d91-9ca2-4d47-b34d-b5e2c2f029bb
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
-ms.author: douglaslMS
+ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7fa035f87c257458c3784c7746fd0df8600b5ca0
+
 
 ---
-# <a name="enable-transparent-data-encryption-(tde)-for-stretch-database-on-azure-(transact-sql)"></a>Enable Transparent Data Encryption (TDE) for Stretch Database on Azure (Transact-SQL)
+# <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure (Transact-SQL)
 > [!div class="op_single_selector"]
-> * [Azure portal](sql-server-stretch-database-encryption-tde.md)
+> * [Portal de Azure](sql-server-stretch-database-encryption-tde.md)
 > * [TSQL](sql-server-stretch-database-tde-tsql.md)
 > 
 > 
 
-Transparent Data Encryption (TDE) helps protect against the threat of malicious activity by performing real-time encryption and decryption of the database, associated backups, and transaction log files at rest without requiring changes to the application.
+El cifrado de datos transparente (TDE) facilita la protección contra la amenaza de actividades malintencionadas, ya que la base de datos se cifra y descifra en tiempo real, se realizan copias de seguridad asociadas y archivos de registro de transacciones en reposo sin requerir cambios en la aplicación.
 
-TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. The database encryption key is protected by a built-in server certificate. The built-in server certificate is unique for each Azure server. Microsoft automatically rotates these certificates at least every 90 days. For a general description of TDE, see [Transparent Data Encryption (TDE)].
+TDE cifra el almacenamiento de una base de datos completa mediante el uso de una clave simétrica denominada clave de cifrado de base de datos. La clave de cifrado de base de datos está protegida por un certificado de servidor integrado. El certificado de servidor integrado es único para cada servidor de Azure. Microsoft alterna automáticamente estos certificados al menos cada 90 días. Para obtener una descripción general de TDE, vea [Cifrado de datos transparente (TDE)].
 
-## <a name="enabling-encryption"></a>Enabling Encryption
-To enable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+## <a name="enabling-encryption"></a>Habilitar el cifrado
+Para habilitar TDE para una base de datos de Azure que almacena los datos migrados desde una base de datos SQL Server habilitada para Stretch, haga lo siguiente:
 
-1. Connect to the *master* database on the Azure server hosting the database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Conéctese a la base de datos *maestra* en el servidor que hospeda la base de datos mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
+2. Ejecute la siguiente instrucción para cifrar la base de datos.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION ON;
 ```
 
-## <a name="disabling-encryption"></a>Disabling Encryption
-To disable TDE for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+## <a name="disabling-encryption"></a>Deshabilitar el cifrado
+Para deshabilitar TDE para una base de datos de Azure que almacena los datos migrados desde una base de datos SQL Server habilitada para Stretch, haga lo siguiente:
 
-1. Connect to the *master* database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Conéctese a la base de datos *maestra* mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
+2. Ejecute la siguiente instrucción para cifrar la base de datos.
 
 ```sql
 ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ```
 
-## <a name="verifying-encryption"></a>Verifying Encryption
-To verify encryption status for an Azure database that's storing the data migrated from a Stretch-enabled SQL Server database, do the following things:
+## <a name="verifying-encryption"></a>Comprobación del cifrado
+Para comprobar el estado de cifrado de una base de datos de Azure que almacena los datos migrados desde una base de datos de SQL Server habilitada para Stretch, haga lo siguiente:
 
-1. Connect to the *master* or instance database using a login that is an administrator or a member of the **dbmanager** role in the master database
-2. Execute the following statement to encrypt the database.
+1. Conéctese a la base de datos *maestra* o de instancia mediante un inicio de sesión que es un administrador o un miembro del rol **dbmanager** en la base de datos maestra.
+2. Ejecute la siguiente instrucción para cifrar la base de datos.
 
 ```sql
 SELECT
@@ -61,10 +65,10 @@ FROM
     sys.databases;
 ```
 
-A result of ```1``` indicates an encrypted database, ```0``` indicates a non-encrypted database.
+Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una base de datos no cifrada.
 
 <!--Anchors-->
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[Cifrado de datos transparente (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->
@@ -73,6 +77,6 @@ A result of ```1``` indicates an encrypted database, ```0``` indicates a non-enc
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

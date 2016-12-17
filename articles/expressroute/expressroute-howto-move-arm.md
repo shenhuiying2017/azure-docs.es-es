@@ -1,13 +1,13 @@
 ---
-title: Transición de circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs
-description: En esta página se describe cómo mover un circuito clásico al modelo de implementación de Resource Manager
+title: "Transición de circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager | Microsoft Docs"
+description: "En esta página se describe cómo mover un circuito clásico al modelo de implementación de Resource Manager"
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 08152836-23e7-42d1-9a56-8306b341cd91
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1c3bd8e01e02fb66bf5e04c307863bbe54176128
+
 
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>Transición de los circuitos ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager
@@ -28,7 +32,7 @@ ms.author: ganesr
 ## <a name="move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Transición del circuito ExpressRoute al modelo de implementación de Resource Manager
 Debe mover un circuito ExpressRoute al modelo de implementación de Resource Manager para poder usarlo en ambos modelos de implementación. Para hacerlo, ejecute los siguientes comandos de PowerShell.
 
-### <a name="step-1:-gather-circuit-details-from-the-classic-deployment-model"></a>Paso 1: Recopile detalles del circuito desde el modelo de implementación clásica
+### <a name="step-1-gather-circuit-details-from-the-classic-deployment-model"></a>Paso 1: Recopile detalles del circuito desde el modelo de implementación clásica
 Debe recopilar primero información sobre su circuito ExpressRoute.
 
 Inicie sesión en el entorno clásico de Azure y recopile la clave de servicio. Puede usar el siguiente fragmento de código de PowerShell para recopilar la información:
@@ -48,7 +52,7 @@ Inicie sesión en el entorno clásico de Azure y recopile la clave de servicio. 
 
 Copie la **clave de servicio** del circuito que desea mover al modelo de implementación de Resource Manager.
 
-### <a name="step-2:-sign-in-to-the-resource-manager-environment,-and-create-a-new-resource-group"></a>Paso 2: Inicie sesión en el entorno de Resource Manager y cree un grupo de recursos nuevo
+### <a name="step-2-sign-in-to-the-resource-manager-environment-and-create-a-new-resource-group"></a>Paso 2: Inicie sesión en el entorno de Resource Manager y cree un grupo de recursos nuevo
 Puede crear un grupo de recursos nuevo mediante el siguiente fragmento de código:
 
     # Sign in to your Azure Resource Manager environment
@@ -62,7 +66,7 @@ Puede crear un grupo de recursos nuevo mediante el siguiente fragmento de códig
 
 También puede usar un grupo de recursos existente si lo tiene.
 
-### <a name="step-3:-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Paso 3: Mover el circuito ExpressRoute al modelo de implementación de Resource Manager
+### <a name="step-3-move-the-expressroute-circuit-to-the-resource-manager-deployment-model"></a>Paso 3: Mover el circuito ExpressRoute al modelo de implementación de Resource Manager
 Ya está listo para mover el circuito ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager. Revise la información que se proporciona en [Transición de un circuito ExpressRoute desde el modelo de implementación clásica al modelo de implementación de Resource Manager](expressroute-move.md) antes de continuar.
 
 Para ello, ejecute el siguiente fragmento de código:
@@ -119,6 +123,9 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

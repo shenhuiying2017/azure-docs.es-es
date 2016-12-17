@@ -1,12 +1,12 @@
 ---
-title: Unity Roll a Ball tutorial
-description: Steps to create the classic Unity Roll a Ball game which is a pre-requisite for all Mobile Engagement Unity tutorials
+title: juego de Rodar la bola de Unity
+description: "Pasos para crear el juego clásico de Rodar una bola, que es un requisito previo de todos los tutoriales de Unity para Mobile Engagement."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0afd0eca-f74a-43aa-bba8-436a0265c312
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,68 +14,72 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
+
 
 ---
-# <a name="<a-id="unity-roll-a-ball"></a>create-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Create Unity Roll a Ball game
-This tutorial walks through the main steps for a slightly modified [Unity Roll a Ball tutorial](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). This sample game consists of a spherical 'player' object which is controlled by the app user and the objective of the game is to 'collect' collectible objects by colliding the player object with these collectible objects. This assumes basic familiarity with Unity editor environment. If you run into any issues then you should refer to the full tutorial. 
+# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>Creación de un juego de Rodar la bola de Unity
+Este tutorial le lleva por los pasos principales de un tutorial ligeramente modificado del [juego de Rodar la bola de Unity](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial). Este juego de ejemplo consta de un objeto esférico, el "jugador", que controla el usuario de la aplicación, y el objetivo del juego consiste en ir recopilando los objetos recopilables al chocar con ellos. Se supone que está familiarizado con los aspectos básicos del entorno del Editor de Unity. Si se tropieza con algún problema, consulte el tutorial completo. 
 
-### <a name="setting-up-the-game"></a>Setting up the game
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
+### <a name="setting-up-the-game"></a>Configuración del juego
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
 
-1. Open **Unity Editor** and click **New**. 
+1. Abra el **Editor de Unity** y haga clic en **New** (Nuevo). 
    
     ![][51] 
-2. Provide a **Project name** & **Location**, select **3D** and click **Create project**.
+2. Proporcione datos para **Project name** (Nombre del proyecto) y  & **Location** (Ubicación) seleccione **3D** y haga clic en **Create project** (Crear proyecto).
    
     ![][52]
-3. Save the default scene just created as part of the new project as with the name **MiniGame** within a new **\_Scenes** folder under **Assets** folder:
+3. Guarde la escena predeterminada que acaba de crear como parte del nuevo proyecto con el nombre **MiniGame** (MiniJuego) en una nueva carpeta **\_Scenes** (Escenas) en la carpeta **Assets** (Activos):
    
     ![][53]
-4. Create a **3D Object -> Plane** as the playing field and rename this plane object as **Ground**
+4. En **3D Object (Objeto 3D) -> Plane (Plano)**, cree un objeto 3D plano como campo de juego y llame a este objeto plano **Ground** (Terreno).
    
     ![][1]
-5. Reset the transform component for this **Ground** object so that it is at the Origin. 
+5. Restablezca el componente de transformación de este objeto **Ground** (Terreno) de modo que esté en el origen. 
    
     ![][3]
-6. Uncheck **Show Grid** from **Gizmos menu** for the **Ground** object.
+6. Desactive **Show Grid** (Mostrar cuadrícula) en **Gizmos menu** (Menú Gizmos) para el objeto **Ground** (Terreno).
    
     ![][4]
-7. Update the **Scale** component for the **Ground** object to be [X = 2,Y = 1, Z = 2]. 
+7. Actualice el componente **Scale** (Escala) del objeto **Ground** (Terreno) a [X = 2,Y = 1, Z = 2]. 
    
     ![][5]
-8. Add a new **3D Object -> Sphere** to the project and rename this sphere object as **Player**. 
+8. En **3D Object (Objeto 3D) -> Sphere (Esfera)**, agregue un nuevo objeto 3D esférico y llame a este objeto esférico **Player** (Jugador). 
    
     ![][6]
-9. Select the **Player** object and click **Reset Transform** similar to the Plane object. 
-10. Update **Transform -> Position -> Y Coordinate** component for the Player Y as 0.5.  
+9. Seleccione el objeto **Player** (Jugador) y haga clic en **Reset Transform** (Restablecer transformación) igual que hizo con el objeto plano. 
+10. Actualice el componente **Transform (Transformación) -> Position (Posición) -> Y Coordinate (Coordenada Y)** para Player Y (Jugador Y) a 0.5.  
     
     ![][7]
-11. Create a new folder called **Materials** in the project where we will create the material to color the player. 
-12. Create a new **Material** called **Background** in this folder. 
+11. Cree una nueva carpeta llamada **Materials** (Materiales) en el proyecto donde vamos a crear el material para colorear el jugador. 
+12. Cree un nuevo **material** llamado **Background** (Fondo) en esta carpeta. 
     
     ![][8]
-13. Update the color of the material by updating the **Albedo** property of it. You can select the RGB values of [0,32,64]. 
+13. Actualice el color del material actualizando su propiedad **Albedo** . Puede seleccionar los valores RGB de [0,32,64]. 
     
     ![][9]
-14. Drag this material into the scene view to apply color to the **Ground** object. 
+14. Arrastre este material a la vista de escena para aplicar el color al objeto **Ground** (Terreno). 
     
     ![][10]
-15. Finally update the **Transform -> Rotation -> Y** to 60 on the Directional Light object for clarity. 
+15. Finalmente, actualice los valores de **Transform (Transformación)-> Rotation (Rotación) -> Y** a 60 en el objeto Directional Light (Luz direccional) para definir la claridad. 
     
     ![][12]
 
-### <a name="moving-the-player"></a>Moving the player
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)
+### <a name="moving-the-player"></a>Movimiento del jugador
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-player?playlist=17141)
 
-1. Add a **RigidBody** component to the **Player** object. 
+1. Agregue un componente **RigidBody** al objeto **Player** (Jugador). 
    
     ![][13]
-2. Create a new folder called **Scripts** in the Project. 
-3. Click **Add Component-> New Script -> C# Script**. Name it **PlayerController**, and click **Create and Add**. This will create and attach a script to the Player object.  
+2. Cree una carpeta nueva llamada **Scripts** en el proyecto. 
+3. Haga clic en **Add Component (Agregar componente)-> New Script (Nuevo script) -> C# Script (Script de C#)**. Asígnele el nombre **PlayerController** y haga clic en **Create and Add** (Crear y agregar). De esta forma se creará y adjuntará un script al objeto Player (Jugador).  
    
     ![][14]
-4. Move this script under the **Scripts** folder in the project. 
-5. Open the script for editing in your favorite script editor, update the script code with the following code and save it. 
+4. Mueva este script a la carpeta **Scripts** del proyecto. 
+5. Abra el script para editarlo en su editor de scripts preferido, actualice el código del script con el siguiente código y guárdelo. 
    
         using UnityEngine;
         using System.Collections;
@@ -96,22 +100,22 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 rb.AddForce (movement * speed);
             }
         }
-6. Note that the script above uses a **Speed** property. In the Unity editor, update the speed property to 10.  
+6. Tenga en cuenta que el script anterior usa una propiedad **Speed** . En el Editor de Unity, actualice esta propiedad a 10.  
    
     ![][15]
-7. Hit **Play** in the Unity Editor. Now you should be able to control the ball using the keyboard and it should rotate and move around. 
+7. Presione **Play** (Reproducir) en el Editor de Unity. Ahora la bola debe poder controlarse mediante el teclado y debe girar y moverse. 
 
-### <a name="moving-the-camera"></a>Moving the camera
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141) and will tie the **Main Camera** to the **Player** object. 
+### <a name="moving-the-camera"></a>Movimiento de la cámara
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/moving-the-camera?playlist=17141) y en ellos se asociará el objeto **Main Camera** (Cámara principal) al objeto **Player** (Jugador). 
 
-1. Update the **Transform.Position** to be X = 0,  Y = 10.5, Z=-10.  
-2. Update the **Transform.Rotation** to be X = 45, Y = 0, Z = 0.  
+1. Actualice **Transform.Position** a X = 0, Y = 10.5, Z=-10.  
+2. Actualice **Transform.Rotation** a X = 45, Y = 0, Z = 0.  
    
     ![][16]
-3. Add a new script called **CameraController** to the **MainCamera** and move it under the Scripts folder. 
+3. Agregue un nuevo script llamado **CameraController** a **MainCamera** y muévalo a la carpeta Scripts. 
    
     ![][17]
-4. Open up the script for editing and add the following code in it:
+4. Abra el script para editarlo y agréguele el siguiente código:
    
         using UnityEngine;
         using System.Collections;
@@ -132,44 +136,44 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 transform.position = player.transform.position + offset;
             }
         }
-5. In Unity environment - drag the Player variable into the Player slot for the Main Camera object so that the two are associated with one another. 
+5. En el entorno de Unity, arrastre la variable Player a la ranura Player del objeto Main Camera (Cámara principal) de modo que los dos queden asociados. 
    
     ![][18]
-6. Now if you hit Play in the Unity editor and rotate the Player Ball object then you will see the Camera following it in the movement.  
+6. Ahora, si hace clic en Play (Reproducir) en el Editor de Unity y gira el objeto Player Ball (Bola jugador), verá cómo la cámara sigue su movimiento.  
 
-### <a name="setting-up-the-play-area"></a>Setting up the Play area
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/setting-up-the-play-area?playlist=17141). We will create the Walls surrounding the Ground so that the Player Ball object doesn't drop off the play area in its movement. 
+### <a name="setting-up-the-play-area"></a>Configuración del área de juego
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/setting-up-the-play-area?playlist=17141). Vamos a crear las paredes que rodean el terreno para que el objeto Player Ball (Bola jugador) no se salga del área de juego en su movimiento. 
 
-1. Click **Create -> Create Empty -> Game Object** and name it **Walls**
+1. Haga clic en **Create (Crear) -> Create Empty (Crear vacío) -> Game Object (Objeto de juego)** y asigne el nombre **Walls** (Paredes).
    
     ![][19]
-2. Under this Walls object - create a new **3D Object -> Cube** and name it "West wall". 
+2. En este objeto Walls (Paredes), cree un nuevo objeto 3D cúbico en **3D Object (Objeto 3D) -> Cube (Cubo)** y llámelo "West Wall" (Pared oeste). 
    
     ![][20]
-3. Update the **Transform -> Position** and **Transform -> Scale** for this West Wall object. 
+3. Actualice los datos de **Transform (Transformación) -> Position (Posición)** y **Transform (Transformación) -> Scale (Escala)** de este objeto. 
    
     ![][21]
-4. Duplicate the West wall to create an **East wall** with the updated transform position and scale. 
+4. Duplique el objeto West Wall (Pared oeste) para crear un objeto **East Wall** (Pared este) con la posición y la escala de transformación actualizadas. 
    
     ![][22]
-5. Duplicate the East wall to create a **North wall** with the updated transform position & scale. 
+5. Duplique el objeto East Wall (Pared este) para crear un objeto **North Wall** (Pared norte) con la posición y la escala de transformación actualizadas. 
    
     ![][23]
-6. Duplicate the North wall and create a **South wall** with the updated transform position & scale. 
+6. Duplique el objeto North Wall (Pared norte) y cree un objeto **South Wall** (Pared sur) con la posición y la escala de transformación actualizadas. 
    
     ![][24]
 
-### <a name="creating-collectible-objects"></a>Creating Collectible objects
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). We will create some attractive looking objects which will form the set of collectible objects which the Player Ball object needs to 'collect' by colliding with them. 
+### <a name="creating-collectible-objects"></a>Creación de objetos recopilables
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/creating-collectables?playlist=17141). Crearemos algunos objetos atractivos que constituirán el conjunto de objetos recopilables que el objeto Player Ball (Bola jugador) debe recopilar chocando con ellos. 
 
-1. Create a new **3D Cube object** and name it Pickup. 
-2. Adjust the **Transform -> Rotation** & **Transform -> Scale** of the Pickup object. 
+1. Cree un nuevo **objeto cubo 3D** y llámelo Pickup (Recogida). 
+2. Ajuste los valores de **Transform (Transformación) -> Rotation (Rotación)** &  y **Transform (Transformación) -> Scale (Escala)** del objeto Pickup (Recogida). 
    
     ![][25]
-3. Create and attach a **new C# Script** called **Rotator** to the Pickup object. Make sure to put the script under the Scripts folder. 
+3. Cree y asocie un **nuevo script de C#** denominado **Rotator** al objeto Pickup (Recogida). Asegúrese de colocar el script en la carpeta Scripts. 
    
     ![][26]
-4. Open this script for editing and update it to be the following: 
+4. Abra este script para editarlo y actualizarlo a lo siguiente: 
    
         using UnityEngine;
         using System.Collections;
@@ -181,30 +185,30 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 transform.Rotate (new Vector3 (15, 30, 45) * Time.deltaTime);
             }
         }
-5. Now hit the Play mode in the Unity Editor and your Pickup object show be rotating on its axis.
-6. Create a new folder called **Prefabs** 
+5. Ahora, presione el modo Play (Reproducir) del Editor de Unity y el objeto Pickup (Recogida) se mostrará girando sobre su eje.
+6. Cree una nueva carpeta llamada **Prefabs** 
    
     ![][27]
-7. Drag the **Pickup** object and put it in the Prefabs folder.
+7. Arrastre el objeto **Pickup** (Recogida) y colóquelo en la carpeta Prefabs (Prefabricados).
    
     ![][28]
-8. Create a new **Empty Game object** called **Pickups**. Reset its position to origin and then drag the Pickup object under this game object.  
+8. Cree un nuevo **objeto de juego vacío** llamado **Pickups** (Recogidas). Restablezca su posición al origen y arrastre el objeto Pickup (Recogida) a este objeto de juego.  
    
     ![][29]
-9. Duplicate the **Pickup** object and spread it on the **Ground** object around the **Player** object by updating the **Transform.Position's X & Z** values appropriately. 
+9. Duplique el objeto **Pickup** (Recogida) y distribúyalo por el objeto **Ground** (Terreno) alrededor del objeto **Player** (Jugador) actualizando los valores X y Z de **Transform.Position** de forma adecuada. 
    
     ![][30]
-10. Create a **new material** called **Pickup** and update it to be Red in color by updating the **Albedo property** similar to what we did for updating the Ground object. 
+10. Cree un **nuevo material** llamado **Pickup** (Recogida) y actualícelo para que sea de color rojo; para ello, actualice la **propiedad Albedo** de manera parecida a como lo hicimos para actualizar el objeto Ground (Terreno). 
     
     ![][31]
-11. Apply the material to all the 4 pickup objects.
+11. Aplique el material a los 4 objetos de recogida.
     
     ![][32]
 
-### <a name="collecting-the-pickup-objects"></a>Collecting the Pickup objects
-The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). We will update the Player so that it is able to 'collect' the pickup objects by colliding with them. 
+### <a name="collecting-the-pickup-objects"></a>Recopilación de objetos de recogida
+Los pasos siguientes son del [tutorial de Unity](https://unity3d.com/learn/tutorials/projects/roll-a-ball/collecting-pick-up-objects?playlist=17141). Actualizaremos el objeto Player (Jugador) para que pueda recopilar los objetos Pickup (Recogida) al chocar con ellos. 
 
-1. Open up the **PlayerController** script attached to the Player object for editing and update it to the following:  
+1. Abra el script **Playercontroller** asociado al objeto Player (Jugador) para editarlo y actualizarlo a lo siguiente:  
    
         using UnityEngine;
         using System.Collections;
@@ -238,29 +242,29 @@ The steps below are from the [Unity tutorial](https://unity3d.com/learn/tutorial
                 }
             }
         }
-2. Create a new **Tag** called **Pick Up** (it must match what is in the script)  
+2. Cree una nueva **etiqueta** llamada **Pick up** (Recogida) (debe coincidir con lo que está en el script).  
    
     ![][33]
    
     ![][34]
-3. Apply this **Tag** to the Prefab Pickup object. 
+3. Aplique esta **etiqueta** al objeto Prefab Pickup (Recogida prefabricados). 
    
     ![][35]
-4. Enable **IsTrigger** checkbox for the Prefab object.
+4. Active la casilla **IsTrigger** para el objeto Prefab (Prefabricado).
    
     ![][36]
-5. Add a Rigid body to Pickup Prefab object. For performance optimization we will update the static collider that we used to a Dynamic collider. 
+5. Agregue un componente Rigid Body al objeto Pickup Prefab (Recogida prefabricados). Para optimizar el rendimiento, actualizaremos el colisionador estático que hemos usado a colisionador dinámico. 
    
     ![][37]
-6. Finally check the **IsKinematic** property for the prefab object. 
+6. Finalmente, marque la propiedad **IsKinematic** del objeto Prefab (Prefabricado). 
    
     ![][38]
-7. Hit **Play** in the Unity editor and you will be able to play this **Roll a Ball** game by moving the Player object using your keyboard keys for direction input. 
+7. Presione **Play** (Reproducir) en el Editor de Unity y podrá jugar a este juego de **Rodar la bola** moviendo el objeto Player (Jugador) con las teclas del teclado para indicar la dirección. 
 
-### <a name="updating-the-game-for-mobile-play"></a>Updating the game for mobile play
-The sections above concluded the basic tutorial from Unity. Now we will modify the game to make it mobile device friendly. Note that we used keyboard input for the game so far for testing. Now we will modify it so that we can control the player by using the motion of the phone i.e. using Accelerometer as the input. 
+### <a name="updating-the-game-for-mobile-play"></a>Actualización del juego para dispositivos móviles
+En las secciones anteriores hemos concluido el tutorial básico de Unity. Ahora modificaremos el juego para que pueda usarse en dispositivos móviles. Tenga en cuenta que hasta ahora hemos usado la entrada del teclado para probar el juego. Ahora vamos a cambiar eso de modo que podamos controlar el jugador con el movimiento del teléfono, por ejemplo, usando el acelerómetro como entrada. 
 
-Open up the **PlayerController** script for editing and update the **FixedUpdate** method to use the motion from the accelerometer to move the Player object. 
+Abra el script **PlayerController** para editarlo y actualice el método **FixedUpdate** para usar el movimiento del acelerómetro para mover el objeto Player (Jugador). 
 
         void FixedUpdate()
         {
@@ -270,10 +274,10 @@ Open up the **PlayerController** script for editing and update the **FixedUpdate
             rb.AddForce(Input.acceleration.x * Speed, 0, -Input.acceleration.z * Speed);
         }
 
-This tutorial concludes a basic game creation with Unity and you can deploy this on a device of your choice to play the game. 
+Con este tutorial concluye la creación de un juego básico con Unity, que puede implementar para jugar en el dispositivo de su elección. 
 
 <!-- Images -->
-[1]: ./media/mobile-engagement-unity-roll-a-ball/1.png  
+[1]: ./media/mobile-engagement-unity-roll-a-ball/1.png    
 [2]: ./media/mobile-engagement-unity-roll-a-ball/2.png
 [3]: ./media/mobile-engagement-unity-roll-a-ball/3.png
 [4]: ./media/mobile-engagement-unity-roll-a-ball/4.png
@@ -281,7 +285,7 @@ This tutorial concludes a basic game creation with Unity and you can deploy this
 [6]: ./media/mobile-engagement-unity-roll-a-ball/6.png
 [7]: ./media/mobile-engagement-unity-roll-a-ball/7.png
 [8]: ./media/mobile-engagement-unity-roll-a-ball/8.png
-[9]: ./media/mobile-engagement-unity-roll-a-ball/9.png  
+[9]: ./media/mobile-engagement-unity-roll-a-ball/9.png    
 [10]: ./media/mobile-engagement-unity-roll-a-ball/10.png    
 [11]: ./media/mobile-engagement-unity-roll-a-ball/11.png    
 [12]: ./media/mobile-engagement-unity-roll-a-ball/12.png
@@ -330,6 +334,6 @@ This tutorial concludes a basic game creation with Unity and you can deploy this
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,44 +1,46 @@
 ---
-title: Protección total de la solución de IoT | Microsoft Docs
-description: En este artículo se describen las características de seguridad integradas del conjunto de aplicaciones de IoT de Microsoft Azure
+title: "Protección total de la solución de IoT | Microsoft Docs"
+description: "En este artículo se describen las características de seguridad integradas del conjunto de aplicaciones de IoT de Microsoft Azure"
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: YuriDio
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1a30c2d5-ad82-4980-8203-5ce275184964
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 10/17/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 896cec2befa3f8f681ecb4e14687300a90b5fc24
+
 
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 
-## Pasos siguientes
+## <a name="see-also"></a>Consulte también
 Para obtener más información sobre cómo proteger la solución de IoT, consulte:
 
-* [Procedimientos de seguridad de IoT recomendados][lnk-security-best-practices]
-* [Arquitectura de seguridad de IoT][lnk-security-architecture]
-* [Proteger su implementación de IoT][lnk-security-deployment]
+* [IoT Security Best Practices (Procedimientos recomendados de seguridad de IoT)][lnk-security-best-practices]
+* [IoT Security Architecture (Arquitectura de seguridad de IoT)][lnk-security-architecture]
+* [Secure your IoT deployment (Protección de la implementación de IoT)][lnk-security-deployment]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Diseño de la solución][lnk-design]
-* [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-* [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-* [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+* [Simulating a device with the IoT Gateway SDK (Simulación de un dispositivo con el SDK de puerta de enlace de IoT)][lnk-gateway]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

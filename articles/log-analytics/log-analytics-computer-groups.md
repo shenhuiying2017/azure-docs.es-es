@@ -1,19 +1,23 @@
 ---
-title: Grupos de equipos en búsquedas de registros en Log Analytics | Microsoft Docs
-description: Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros.
+title: "Grupos de equipos en búsquedas de registros en Log Analytics | Microsoft Docs"
+description: "Los grupos de equipos en Log Analytics permiten delimitar las búsquedas de registros a un conjunto concreto de equipos.  En este artículo se describen los distintos métodos que puede utilizar para crear grupos de equipos y cómo usar estos grupos en una búsqueda de registros."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c0affd0f5ea600f979cfcc87e2435658c8dab14
+
 
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de equipos en búsquedas de registros en Log Analytics
@@ -103,6 +107,9 @@ En el repositorio de OMS se crea un registro para cada pertenencia a grupos de e
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para analizar los datos recopilados desde soluciones y orígenes de datos.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

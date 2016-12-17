@@ -1,13 +1,13 @@
 ---
-title: Autenticación a Almacenamiento de datos SQL de Azure | Microsoft Docs
-description: Autenticación de Azure Active Directory (AAD) y SQL Server a Almacenamiento de datos SQL de Azure
+title: "Autenticación a Azure SQL Data Warehouse | Microsoft Docs"
+description: "Autenticación de Azure Active Directory (AAD) y SQL Server a Almacenamiento de datos SQL de Azure"
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: byham
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
 ms.service: sql-data-warehouse
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/24/2016
 ms.author: rickbyh;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b08b48713e98eedfd93b290491fee59729d2dcc
+
 
 ---
 # <a name="authentication-to-azure-sql-data-warehouse"></a>Autenticación a Almacenamiento de datos SQL de Azure
@@ -28,7 +32,7 @@ ms.author: rickbyh;barbkess
 
 Para conectarse a Almacenamiento de datos SQL, debe transmitir las credenciales de seguridad para realizar la autenticación. Después de establecer una conexión, determinados valores de conexión se configuran como parte del establecimiento de la sesión de la consulta.  
 
-Para obtener más información sobre la seguridad y cómo habilitar las conexiones a su almacenamiento de datos, consulte [Proteger una base de datos en Almacenamiento de datos SQL][Proteger una base de datos en Almacenamiento de datos SQL].
+Para más información sobre la seguridad y cómo habilitar las conexiones a su almacenamiento de datos, vea [Proteger una base de datos en Almacenamiento de datos SQL][Proteger una base de datos en Almacenamiento de datos SQL].
 
 ## <a name="sql-authentication"></a>Autenticación de SQL
 Para conectarse a Almacenamiento de datos SQL, debe proporcionar la información siguiente:
@@ -45,7 +49,7 @@ De forma predeterminada, su conexión se realiza a la base de datos *maestra* y 
 * Resalte la base de datos de usuario antes de crear una sesión en SSDT.
 
 > [!NOTE]
-> La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para instrucciones sobre cómo conectarse a Almacenamiento de datos SQL con SSDT, consulte el artículo [Query with Visual Studio][Query with Visual Studio] (Realización de consultas con Visual Studio).
+> La instrucción **USE MyDatabase;** de Transact-SQL no se admite para cambiar la base de datos de una conexión. Para obtener instrucciones sobre cómo conectarse a SQL Data Warehouse con SSDT, vea el artículo [Query with Visual Studio][Query with Visual Studio].
 > 
 > 
 
@@ -65,7 +69,7 @@ Entre las ventajas de Azure Active Directory, se incluyen:
 * Admite Multi-Factor Authentication mediante autenticación universal de Active Directory para SQL Server Management Studio. Para una descripción de Multi-Factor Authentication, consulte [Compatibilidad de SSMS con Azure AD MFA con Base de datos SQL y Almacenamiento de datos SQL](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 > [!NOTE]
-> Azure Active Directory todavía es relativamente nuevo y tiene algunas limitaciones. Para asegurarse de que Azure Active Directory sea una buena elección para su entorno, consulte [Características y limitaciones de Azure AD][Características y limitaciones de Azure AD], específicamente las consideraciones adicionales.
+> Azure Active Directory todavía es relativamente nuevo y tiene algunas limitaciones. Para asegurarse de que Azure Active Directory es una buena elección para su entorno, vea [Características y limitaciones de Azure AD][Características y limitaciones de Azure AD], concretamente las consideraciones adicionales.
 > 
 > 
 
@@ -86,7 +90,7 @@ Actualmente los usuarios de Azure Active Directory no se muestran en el Explorad
 * Cree roles de base de datos personalizados y agrégueles usuarios. A continuación, conceda permisos específicos a los roles. Para obtener más información, consulte [Introducción a los permisos de los motores de bases de datos](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, consulte [Query with Visual Studio][Query with Visual Studio](Realización de consultas con Visual Studio).
+Para empezar a realizar consultas en el almacenamiento de datos con Visual Studio y otras aplicaciones, vea [Query with Visual Studio][Query with Visual Studio].
 
 <!-- Article references -->
 [Proteger una base de datos en Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-manage-security.md
@@ -96,6 +100,6 @@ Para empezar a realizar consultas en el almacenamiento de datos con Visual Studi
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

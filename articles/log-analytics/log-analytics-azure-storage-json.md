@@ -1,12 +1,12 @@
 ---
-title: Análisis de los registros de diagnóstico de Azure mediante Log Analytics | Microsoft Docs
-description: Log Analytics lee los registros de servicios de Azure que escriben registros de diagnóstico de Azure en formato JSON en Blob Storage.
+title: "Análisis de los registros de diagnóstico de Azure mediante Log Analytics | Microsoft Docs"
+description: "Log Analytics lee los registros de servicios de Azure que escriben registros de diagnóstico de Azure en formato JSON en Blob Storage."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Análisis de los registros de diagnóstico de Azure mediante Log Analytics
@@ -80,7 +84,7 @@ Hemos proporcionado un módulo de script de PowerShell que exporta dos cmdlets p
 4. El módulo AzureDiagnosticsAndLogAnalytics de PowerShell
    * Descargue el módulo [AzureDiagnosticsAndLogAnalytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/) de la Galería de PowerShell
 
-### <a name="option-1:-run-the-interactive-configuration-scripts"></a>Opción 1: Ejecución de los scripts de configuración interactivos
+### <a name="option-1-run-the-interactive-configuration-scripts"></a>Opción 1: Ejecución de los scripts de configuración interactivos
 Abra PowerShell y ejecute:
 
 ```
@@ -106,7 +110,7 @@ Se le pedirá que elija sus opciones para:
 
 Tras ejecutar este script, deberá ver registros en Log Analytics unos 30 minutos después de que se escriban nuevos datos de diagnóstico en el almacenamiento. Si los registros no están disponibles después de ese tiempo, consulte la sección de solución de problemas más abajo.
 
-### <a name="option-2:-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Opción 2: Creación de una lista de recursos para transferirlos al cmdlet de configuración
+### <a name="option-2-build-a-list-of-resources-and-pass-them-to-the-configuration-cmdlet"></a>Opción 2: Creación de una lista de recursos para transferirlos al cmdlet de configuración
 Puede crear una lista de recursos que tengan el diagnóstico de Azure habilitado para transferirlos después al cmdlet de configuración.
 
 Para ver más información sobre el cmdlet, puede ejecutar `Get-Help Add-AzureDiagnosticsToLogAnalytics`.
@@ -233,6 +237,9 @@ Para buscar el nombre de visión de almacenamiento, use el cmdlet `Get-AzureRmOp
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

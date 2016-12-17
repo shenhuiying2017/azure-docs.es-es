@@ -1,26 +1,30 @@
 ---
-title: Uso de colas del Bus de servicio con Java | Microsoft Docs
-description: Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Java.
-services: service-bus
+title: Usar colas de Service Bus con Java | Microsoft Docs
+description: "Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en Java."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-
-ms.service: service-bus
+ms.assetid: f701439c-553e-402c-94a7-64400f997d59
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 29cab1dff7ffc0f42ee8c605e3817b855967eb53
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Utilización de las colas del Bus de servicio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Java y utilizan el [Azure SDK para Java][]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
+Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Java y usan el [SDK de Azure para Java][SDK de Azure para Java]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
 
-## <a name="what-are-service-bus-queues?"></a>¿Qué son las colas del Bus de servicio?
+## <a name="what-are-service-bus-queues"></a>¿Qué son las colas del Bus de servicio?
 Las colas del Bus de servicio son compatibles con el modelo de comunicación de **mensajería asíncrona** . Cuando se usan colas, los componentes de una aplicación distribuida no se comunican directamente entre sí, sino que intercambian mensajes a través de una cola, que actúa como un intermediario (agente). El productor del mensaje (remitente) manda un mensaje a la cola y, a continuación sigue con su procesamiento.
 De forma asíncrona, el destinatario del mensaje (receptor) extrae el mensaje de la cola y lo procesa. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes. Las colas ofrecen una entrega de mensajes según el modelo **El primero en entrar es el primero en salir (FIFO)** a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
@@ -42,7 +46,7 @@ Para crear un espacio de nombres:
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
-Asegúrese de que ha instalado [Azure SDK para Java][] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][Kit de herramientas de Azure para Eclipse], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
+Asegúrese de que ha instalado el [SDK de Azure para Java][SDK de Azure para Java] antes de compilar este ejemplo. Si usa Eclipse, puede instalar el [Kit de herramientas de Azure para Eclipse][Kit de herramientas de Azure para Eclipse], que incluye el SDK de Azure para Java. Después puede agregar las **Bibliotecas de Microsoft Azure para Java** al proyecto:
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -84,7 +88,7 @@ catch (ServiceException e)
 }
 ```
 
-En **QueueInfo** hay métodos que permiten ajustar las propiedades de la cola, por ejemplo, establecer el valor de período de vida (TTL) predeterminado que se aplicará a los mensajes enviados a la cola. El ejemplo siguiente muestra cómo crear una cola llamada `TestQueue` con un tamaño máximo de 5 GB:
+En **QueueInfo** hay métodos que permiten ajustar las propiedades de la cola, por ejemplo, establecer el valor de período de vida (TTL) predeterminado que se aplicará a los mensajes enviados a la cola. El ejemplo siguiente muestra cómo crear una cola llamada `TestQueue` con un tamaño máximo de 5 GB:
 
 ````
 long maxSizeInMegabytes = 5120;
@@ -112,7 +116,7 @@ catch (ServiceException e)
 }
 ```
 
-Los mensajes enviados a las colas del bus de servicio y recibidos en ellas son instancias de la clase [BrokeredMessage][BrokeredMessage] . Los objetos [BrokeredMessage][BrokeredMessage] cuentan con un conjunto de propiedades estándar (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) y [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un conjunto de datos arbitrarios de aplicaciones. Una aplicación puede configurar el cuerpo del mensaje pasando todos los objetos serializables al constructor de [BrokeredMessage][BrokeredMessage] y, a continuación, se usará el serializador pertinente para serializar el objeto. También puede especificar un objeto **java.IO.InputStream**.
+Los mensajes enviados a las colas de Service Bus y recibidos en ellas son instancias de la clase [BrokeredMessage][BrokeredMessage]. Los objetos [BrokeredMessage][BrokeredMessage] tienen un conjunto de propiedades estándar (como [Label](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx) y [TimeToLive](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.timetolive.aspx)), un diccionario que se usa para mantener las propiedades personalizadas específicas de la aplicación y un cuerpo de datos de aplicaciones arbitrarios. Una aplicación puede configurar el cuerpo del mensaje si pasa todos los objetos serializables al constructor de [BrokeredMessage][BrokeredMessage] (después, se usará el serializador correspondiente para serializar el objeto). También puede especificar un objeto **java.IO.InputStream**.
 
 En el ejemplo siguiente se muestra cómo enviar cinco mensajes de prueba a `TestQueue` **MessageSender** obtenido en el fragmento de código anterior:
 
@@ -128,7 +132,7 @@ for (int i=0; i<5; i++)
 }
 ```
 
-El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
+El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 La forma principal de recibir mensajes desde una cola es usando un objeto **ServiceBusContract**. Los mensajes recibidos pueden funcionar en dos modos distintos: **ReceiveAndDelete** y **PeekLock**.
@@ -148,7 +152,7 @@ try
 
     while(true)  {
          ReceiveQueueMessageResult resultQM =
-                service.receiveQueueMessage("TestQueue", opts);
+                 service.receiveQueueMessage("TestQueue", opts);
         BrokeredMessage message = resultQM.getValue();
         if (message != null && message.getMessageId() != null)
         {
@@ -201,7 +205,7 @@ También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y,
 En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Colas, temas y suscripciones], donde encontrará más información.
+Ahora que ya conoce los aspectos básicos de las colas de Service Bus, vea [Colas, temas y suscripciones][Colas, temas y suscripciones] para más información.
 
 Para obtener más información, consulte el [Centro para desarrolladores de Java](/develop/java/).
 
@@ -213,6 +217,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Java
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

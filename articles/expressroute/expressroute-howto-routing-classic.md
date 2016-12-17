@@ -1,13 +1,13 @@
 ---
-title: Cómo configurar el enrutamiento para un circuito ExpressRoute para el modelo de implementación clásica mediante PowerShell | Microsoft Docs
-description: Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito.
+title: "Cómo configurar el enrutamiento para un circuito ExpressRoute para el modelo de implementación clásica mediante PowerShell | Microsoft Docs"
+description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar las configuraciones entre pares privados, públicos y de Microsoft de un circuito ExpressRoute. Este artículo también muestra cómo comprobar el estado, actualizar, o eliminar configuraciones entre pares en el circuito."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: a4bd39d2-373a-467a-8b06-36cfcc1027d2
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 1442295477760e7f528621be42b72f1c02625c50
+
 
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit"></a>Creación y modificación del enrutamiento de un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Clásico](expressroute-howto-routing-classic.md)
+> * [Portal de Azure: Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell: administrador de recursos](expressroute-howto-routing-arm.md)
+> * [PowerShell: clásico](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -268,7 +272,7 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
      
        New-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************" -PrimaryPeerSubnet "131.107.0.0/30" -SecondaryPeerSubnet "131.107.0.4/30" -VlanId 300 -PeerAsn 1234 -CustomerAsn 2245 -AdvertisedPublicPrefixes "123.0.0.0/30" -RoutingRegistryName "ARIN" -SharedKey "A1B2C3D4"
 
-### <a name="to-view-microsoft-peering-details"></a>Para ver los detalles del emparejamiento de Microsoft
+### <a name="to-view-microsoft-peering-details"></a>Visualización de detalles del emparejamiento de Microsoft
 Puede obtener detalles sobre la configuración mediante el siguiente cmdlet.
 
     Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
@@ -303,6 +307,9 @@ A continuación, [Vinculación de una red virtual a un circuito ExpressRoute](ex
 * Para obtener más información sobre los flujos de trabajo, consulte [Flujos de trabajo de ExpressRoute](expressroute-workflows.md).
 * Para más información sobre el emparejamiento de circuitos, vea [Circuitos y dominios de enrutamiento de ExpressRoute](expressroute-circuit-peerings.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Reciclaje de un servicio web nuevo mediante los cmdlets de PowerShell para administración de aprendizaje automático | Microsoft Docs
-description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático.
+title: "Reciclaje de un servicio web nuevo mediante los cmdlets de PowerShell para administración de Machine Learning | Microsoft Docs"
+description: "Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web para utilizar el modelo recién entrenado en Azure Machine Learning con los cmdlets de PowerShell para administración de aprendizaje automático."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondlaghaeian
-editor: ''
-
+editor: 
+ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,13 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f6747a80773cd76b0821edfd2ebcd6af84bed233
+
 
 ---
-# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reciclaje de un servicio web nuevo mediante los cmdlets de PowerShell para administración de aprendizaje automático
-Al reciclar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.  
+# <a name="retrain-a-new-web-service-using-the-machine-learning-management-powershell-cmdlets"></a>Reentranamiento de un servicio web nuevo mediante los cmdlets de PowerShell para administración de aprendizaje automático
+Al volver a entrenar un servicio web nuevo, actualice la definición del servicio web predictiva para hacer referencia al nuevo modelo entrenado.  
 
 ## <a name="prerequisites"></a>Requisitos previos
-Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los modelos de reciclaje de Machine Learning mediante programación. Para obtener información sobre la creación de experimentos de entrenamiento y predictivos, consulte [Reentrenamiento mediante programación de modelos de Machine Learning](machine-learning-retrain-models-programmatically.md).
+Debe haber configurado un experimento de entrenamiento y un experimento predictivo tal como se muestra en los [modelos de reciclaje de Machine Learning mediante programación](machine-learning-retrain-models-programmatically.md). 
+
+> [!IMPORTANT]
+> El experimento predictivo debe implementarse como un servicio web Machine Learning basado en Azure Resource Manager (nuevo). 
+> 
+> 
+
+Para obtener más información sobre la implementación de servicios web, vea el artículo sobre [implementación de un servicio web Azure Machine Learning](machine-learning-publish-a-machine-learning-web-service.md).
 
 Este proceso requiere haber instalado los cmdlets de Azure Machine Learning. Para obtener información de instalación de los cmdlets de Machine Learning, vea la referencia sobre los [cmdlets de Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) en MSDN.
 
@@ -32,7 +43,7 @@ La siguiente información se copia desde la salida reentrenamiento:
 Los pasos son:
 
 1. Inicie sesión en la cuenta de Azure Resource Manager
-2. Obtenga la definición de servicio web
+2. Obtención de la definición de servicio web
 3. Exporte la definición de servicio web como JSON
 4. Actualice la referencia al blob ilearner en JSON
 5. Importe JSON en una definición de servicio web
@@ -65,7 +76,7 @@ Para modificar la definición para el modelo entrenado para usar el modelo reci�
 
     Export-AzureRmMlWebService -WebService $wsd -OutputFile "C:\temp\mlservice_export.json"
 
-## <a name="update-the-reference-to-the-ilearner-blob-in-the-json."></a>Actualice la referencia al blob ilearner en JSON
+## <a name="update-the-reference-to-the-ilearner-blob-in-the-json"></a>Actualice la referencia al blob ilearner en JSON
 En los recursos, busque [modelo entrenado], actualice el valor de *uri* en el nodo *locationInfo* con el identificador URI del blob ilearner. El identificador URI se genera mediante la combinación de *BaseLocation* y *RelativeLocation* a partir del resultado de la llamada de reentrenamiento de BES.
 
      "asset3": {
@@ -98,6 +109,9 @@ Con el uso de los cmdlets de administración de PowerShell para Machine Learning
 * Reentrenamiento de modelos periódicos con nuevos datos.
 * Distribución de un modelo entre los clientes con el fin de permitirles reentrenar el modelo mediante sus propios datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
