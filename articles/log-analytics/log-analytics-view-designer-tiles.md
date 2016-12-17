@@ -1,19 +1,23 @@
 ---
-title: Referencia de los iconos del Diseñador de vistas de Log Analytics | Microsoft Docs
-description: El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas.
+title: "Referencia de los iconos del Diseñador de vistas de Log Analytics | Microsoft Docs"
+description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo se proporciona una referencia de la configuración de cada uno de los iconos que hay disponibles para usarse en las vistas personalizadas."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8629719d2a8532b7dc579bd2fc184ac8542035cf
+
 
 ---
 # <a name="log-analytics-view-designer-tile-reference"></a>Referencia de los iconos del Diseñador de vistas de Log Analytics
@@ -127,7 +131,7 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 | Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
 | Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
 
-## <a name="line-chart-&-callout-tile"></a>Icono de Llamada de gráfico de líneas
+## <a name="line-chart-callout-tile"></a>Icono de Llamada de gráfico de líneas
 El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas con varias series de una consulta de registro en un periodo y una llamada con un valor resumido.  
 
 ![Icono de Llamada de gráfico de líneas](media/log-analytics-view-designer/tile-line-chart-callout.png)
@@ -139,7 +143,7 @@ El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas co
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecutará en el gráfico de líneas.  La primera propiedad debe ser un valor de texto, y la segunda, un valor numérico.  Normalmente, se trata de una consulta que usa la palabra clave **measure** para resumir los resultados.  Si la consulta utiliza la palabra clave **interval**, el eje X del gráfico empleará este intervalo de tiempo.  Si la consulta no incluye la palabra clave **interva**, se usarán intervalos horarios en el eje X. |
 | **Gráfico de líneas** |**> Llamada** |
-| Llamada |Título   Texto que se muestra arriba del valor de la llamada. |
+| Llamada |Título: texto que se muestra encima del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se va a utilizar para el valor de la llamada.  Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
 | Operación |Operación que se va a realizar en la propiedad value para resumir los resultados de la llamada en un solo valor.<br>- Average: promedio del valor de todos los registros.<br><br>- Count: cantidad total de los registros que devuelve la consulta.<br>- Last Sample: valor del último intervalo incluido en el gráfico.<br>- Max: valor máximo de los intervalos incluidos en el gráfico.<br>- Min: valor mínimo de los intervalos incluidos en el gráfico.<br>- Sum: suma del valor de todos los registros. |
 | **Gráfico de líneas** |**> Eje Y** |
@@ -185,6 +189,9 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en iconos.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

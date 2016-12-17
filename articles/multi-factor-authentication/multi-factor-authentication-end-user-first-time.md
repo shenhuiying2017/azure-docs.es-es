@@ -1,20 +1,24 @@
 ---
-title: Configuración de la comprobación en dos pasos para mi cuenta profesional o educativa
-description: 'Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar. '
+title: "Configuración de la comprobación en dos pasos para mi cuenta profesional o educativa"
+description: "Si su empresa configura Azure Multi-Factor Authentication, deberá registrarse para la comprobación en dos pasos. Aprenda a configurar. "
 services: multi-factor-authentication
-keywords: cómo usar azure directory, active directory en la nube, tutorial de active directory
-documentationcenter: ''
+keywords: "cómo usar azure directory, active directory en la nube, tutorial de active directory"
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: pblachar
-
+ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/23/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 98869aa8c05b849e9d487838823afb04d9a89907
+
 
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configuración de mi cuenta para la comprobación en dos pasos
@@ -42,17 +46,17 @@ Con este método se requiere que instale una aplicación de autenticador en el t
 
 1. Seleccione **Aplicación móvil** en la lista desplegable.
 2. Seleccione **Recibir notificaciones de comprobación** o **Usar código de comprobación** y, luego, seleccione **Configurar**.
-   
-    ![Pantalla Comprobación de seguridad adicional](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+
+    ![Pantalla Comprobación de seguridad adicional](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 3. En el teléfono o tableta, abra la aplicación y seleccione **+** para agregar una cuenta. (En dispositivos Android, seleccione los tres puntos y, luego **Agregar cuenta**).
 4. Especifique que quiere agregar una cuenta profesional o educativa. Se abre el analizador de código QR en su teléfono. Si la cámara no funciona correctamente, puede seleccionar escribir la información de su compañía manualmente. Para más información, consulte [Incorporación manual de una cuenta](#add-an-account-manually).  
 5. Digitalice la imagen de código QR que apareció con la pantalla para configurar la aplicación móvil.  Seleccione **Listo** para cerrar la pantalla de código QR.  
-   
-    ![Pantalla de código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+
+    ![Pantalla de código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 6. Cuando termine la activación por teléfono, seleccione **Contact me**(Contacto).  Con este paso se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.  
 7. Si su empresa requiere un PIN para aprobar la comprobación de inicio de sesión, escríbalo.
-   
-    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+
+    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 8. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
 9. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación móvil. Especifique el país en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país. Seleccione **Siguiente**.
 10. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
@@ -64,14 +68,14 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 
 1. Seleccione el botón **Especificar cuenta manualmente** .  
 2. Especifique el código y la URL que se ofrece en la misma página que le muestra el código de barras. Esta información aparece en los cuadros **Código** y **Dirección URL** en la aplicación móvil.
-   
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
+
+    ![Configuración](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. Cuando termine la activación, seleccione **Contact me**(Contacto). Con este paso se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Usar el teléfono móvil como método de contacto
 1. Seleccione **Teléfono de autenticación** en la lista desplegable.  
-   
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)  
+
+    ![Configuración](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Seleccione el país en la lista desplegable y escriba su número de teléfono móvil.
 3. Seleccione el modo que desea usar con su teléfono móvil: texto o llamada.
 4. Seleccione **Contactar** para comprobar el número de teléfono. Según el modo seleccionado, le escribiremos o le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
@@ -81,8 +85,8 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Usar el teléfono de la oficina como método de contacto
 1. Seleccione **Teléfono de la oficina** en la lista desplegable  
-   
-    ![Configuración](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)  
+
+    ![Configuración](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. El cuadro de número de teléfono se rellena automáticamente con la información de contacto de su empresa. Si el falta el número o es incorrecto, consulte al administrador para realizar cambios.
 3. Seleccione **Contactar** para comprobar el número de teléfono y le llamaremos. Siga las instrucciones proporcionadas en la pantalla y, luego, seleccione **Comprobar**.
 4. En este momento, deberá configurar contraseñas de aplicación para las aplicaciones sin explorador como Outlook 2010 o anterior, o la aplicación de correo electrónico nativa en dispositivos de Apple. Esto es porque algunas aplicaciones no admiten la comprobación en dos pasos. Si no utiliza estas aplicaciones, haga clic en **Hecho** y omita el resto de los pasos.
@@ -94,6 +98,8 @@ Si desea agregar una cuenta a la aplicación móvil manualmente, en lugar de usa
 * Configure las [contraseñas de aplicación](multi-factor-authentication-end-user-app-passwords.md) para las aplicaciones de dispositivos nativos que no admiten la comprobación en dos pasos.
 * Consulte la [aplicación Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md) para una autenticación segura rápida incluso cuando no tiene el servicio de celda.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

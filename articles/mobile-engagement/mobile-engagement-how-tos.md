@@ -1,12 +1,12 @@
 ---
-title: Interfaz de usuario de Azure Mobile Engagement - Guía práctica de Cobertura
-description: Introducción de la interfaz de usuario de Azure Mobile Engagement
+title: "Interfaz de usuario de Azure Mobile Engagement - Guía práctica de Cobertura"
+description: "Introducción de la interfaz de usuario de Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 30af87e6-c816-4cce-8609-6cbd3e83de14
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: ae5a946be74131d52d25e9d7d36c116e707a4be3
+
 
 ---
-# Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
-Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.
+# <a name="how-to-get-started-using-and-managing-pushes-to-reach-out-to-your-end-users"></a>Cómo empezar a usar y administrar inserciones para llegar a los usuarios finales
+Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a usar la sección Cobertura de la interfaz de usuario para enviar notificaciones a los usuarios de la aplicación.  
 
-## Creación de la primera campaña de notificación de inserción
-* Confirme que tiene integrado Reach en la aplicación con el SDK.
+## <a name="do-your-first-push-notification-campaign"></a>Creación de la primera campaña de notificación de inserción
+* Confirme que tiene integrado Reach en la aplicación con el SDK. 
 * Seleccione la aplicación.
 
 ![First1][1]
@@ -31,7 +35,8 @@ Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a
 
 * Cree una campaña nueva y asígnele un nombre.
   
-  ![First3][3]
+![First3][3]
+
 * Seleccione cómo se debe entregar la notificación, por ejemplo, si es solo en la aplicación.
 
 ![First4][4]
@@ -52,7 +57,7 @@ Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a
 
 ![First7][7]
 
-## Prueba de la campaña de notificación de inserción
+## <a name="test-your-push-notification-campaign"></a>Prueba de la campaña de notificación de inserción
 ![Test1][8]
 
 * Registre el dispositivo.
@@ -67,22 +72,22 @@ Una vez que el SDK está totalmente integrado en la aplicación, puede empezar a
 
 * Ahora que ha creado la campaña, basta con activarla para insertar la notificación para los usuarios.
 
-## Envío de inserciones personalizadas
+## <a name="send-personalized-pushes"></a>Envío de inserciones personalizadas
 * En este ejemplo se crea una inserción donde se introduce un código de descuento personalizado en la notificación de inserción.
 
 ![Personalize1][11]
 
-La personalización funciona mediante la sustitución del marcador de una etiqueta de información de la aplicación, por lo que antes tendrá que asegúrese de que el usuario tiene definida la información de la aplicación adecuada. En este ejemplo, los usuarios de destino tienen una etiqueta definida de información de la aplicación que se denomina rebate\_code. Como puede ver, el contenido de la notificación de inserción incluye el marcador ${rebate\_code}, que indica que se tiene que reemplazar por el contenido real de la etiqueta de información de la aplicación.
+La personalización funciona mediante la sustitución del marcador de una etiqueta de información de la aplicación, por lo que antes tendrá que asegúrese de que el usuario tiene definida la información de la aplicación adecuada. En este ejemplo, los usuarios de destino tienen una etiqueta definida de información de la aplicación que se denomina rebate_code.
+Como puede ver, el contenido de la notificación de inserción incluye el marcador ${rebate_code}, que indica que se tiene que reemplazar por el contenido real de la etiqueta de información de la aplicación.
 
-> Advertencia: si el usuario no define la etiqueta de información de la aplicación, no recibirá la inserción.
-> 
-> 
+> [!WARNING]
+> Si el usuario no define la etiqueta de información de la aplicación, no recibirá la inserción.
 
 * Resultado
 
 ![Personalize2][12]
 
-### Puede personalizar aún más el texto de la notificación,
+### <a name="you-can-further-personalize-the-text-your-notification"></a>Puede personalizar aún más el texto de la notificación,
 ![Personalize3][13]
 
 * incluido el título dela notificación
@@ -91,67 +96,74 @@ La personalización funciona mediante la sustitución del marcador de una etique
 
 ![Personalize4][14]
 
-### También se puede personalizar el cuerpo de un anuncio con:
+### <a name="the-body-of-an-announcement-may-also-be-personalized-with"></a>También se puede personalizar el cuerpo de un anuncio con:
 * la URL de acción, en caso de que quiera personalizar la página de inicio;
 * el título y
 * el cuerpo del mensaje.
 
-## Diferenciación de la notificación de inserción (en la aplicación o fuera de ella)
+## <a name="differentiate-your-push-notification-in-or-out-of-app"></a>Diferenciación de la notificación de inserción (en la aplicación o fuera de ella)
 * Elija el tipo de notificación que insertará, seleccione la aplicación, vaya a la sección "Reach", seleccione o cree una campaña de inserción y vaya a la sección "Notificación".
 * Haga clic en el "modo de entrega" que desee.
 * Haga clic en la casilla "Restringir actividades" cuando quiera que la notificación se produzca en actividades concretas (pantallas).
 
 ![Differentiate1][15]
 
-### Modo de entrega "Solo fuera de la aplicación"
+### <a name="out-of-app-only-delivery-mode"></a>Modo de entrega "Solo fuera de la aplicación"
 ![Differentiate2][16]
 
-El modo de entrega "Solo fuera de la aplicación sólo" proporciona una notificación de inserción cuando se cierra la aplicación. Se trata de la notificación de inserción estándar. Al seleccionar "Solo fuera de la aplicación", debe haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
+El modo de entrega "Solo fuera de la aplicación sólo" proporciona una notificación de inserción cuando se cierra la aplicación. Se trata de la notificación de inserción estándar.
+Al seleccionar "Solo fuera de la aplicación", debe haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
 
-### Otras referencias
-* [Servicio de notificaciones de inserción de Apple: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Servicio de mensajería en la nube de Google: certificado](http://developer.android.com/google/gcm/index.html)
+### <a name="see-also"></a>Consulte también
+* [Apple Push Notification Service: certificados](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW9), Google Cloud Messaging: certificado] (http://developer.android.com/google/gcm/index.html) 
 
-### Modo de entrega "Solo en la aplicación"
+### <a name="in-app-only-delivery-mode"></a>Modo de entrega "Solo en la aplicación"
 ![Differentiate3][17]
 
-El modo de entrega "Solo en la aplicación" proporciona notificaciones de inserción cuando la aplicación se está ejecutando. En el caso de esta notificación, es necesario pasar por el sistema de APNS y GCM. Puede usar el sistema de entrega en la aplicación para llegar a los usuarios finales. Puede personalizar totalmente la notificación y decidir en que actividad (pantalla) aparecerá la notificación.
+El modo de entrega "Solo en la aplicación" proporciona notificaciones de inserción cuando la aplicación se está ejecutando.
+En el caso de esta notificación, es necesario pasar por el sistema de APNS y GCM.
+Puede usar el sistema de entrega en la aplicación para llegar a los usuarios finales.
+Puede personalizar totalmente la notificación y decidir en que actividad (pantalla) aparecerá la notificación.
 
-### Modo de entrega "En cualquier momento"
-Si elige el modo de entrega "En cualquier momento", se asegurará de llegar a los usuarios finales tanto si la aplicación se está ejecutando como si no. Al seleccionar "En cualquier momento", deben haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM).
+### <a name="anytime-delivery-mode"></a>Modo de entrega "En cualquier momento"
+Si elige el modo de entrega "En cualquier momento", se asegurará de llegar a los usuarios finales tanto si la aplicación se está ejecutando como si no.
+Al seleccionar "En cualquier momento", deben haber proporcionado antes los certificados de la plataforma en la que se basa la aplicación (APN o GCM). 
 
-## Programación una campaña de inserción
-### Planeación del inicio de una campaña
+## <a name="schedule-a-push-campaign"></a>Programación una campaña de inserción
+### <a name="plan-to-start-a-campaign"></a>Planeación del inicio de una campaña
 ![Shedule1][18]
 
 Es 21 de marzo y tiene un anuncio que hacer, planeado para el 22 de marzo a medianoche. No es necesario que esté delante de la interfaz para realizar una inserción. Puede planear de antemano el minuto exacto en que se enviarán las notificaciones.
 
-* Desactive la casilla "Ninguna" y seleccione una hora de inicio.
+* Desactive la casilla "Ninguna" y seleccione una hora de inicio. 
 * Elija la fecha y la hora en que desea iniciar la campaña de inserción.
 
-### Planeación del fin de una campaña
+### <a name="plan-to-end-a-campaign"></a>Planeación del fin de una campaña
 ![Shedule2][19]
 
-Desea que la campaña finalice el 25 de marzo a las 15:00 h pero sabe que no estará presente para hacerlo. No es necesario que esté delante de la interfaz para realizar la inserción. Puede planear de antemano el minuto exacto en que se detendrá la campaña.
+Desea que la campaña finalice el 25 de marzo a las 15:00 h pero sabe que no estará presente para hacerlo.
+No es necesario que esté delante de la interfaz para realizar la inserción. Puede planear de antemano el minuto exacto en que se detendrá la campaña.
 
 * Haga clic en la casilla "Ninguna" o seleccione una hora de finalización.
 * Elija la fecha y la hora en que desea finalizar la campaña de inserción.
 
-### Finalización de una campaña manualmente
+### <a name="end-a-campaign-manually"></a>Finalización de una campaña manualmente
 ![Shedule3][20]
 
-De forma predeterminada, las casillas "Ninguna" están seleccionadas. Esto significa que la campaña comenzará en cuanto la active en la sección "Reach" y finalizará cuando la detenga en dicha sección.
+De forma predeterminada, las casillas "Ninguna" están seleccionadas.
+Esto significa que la campaña comenzará en cuanto la active en la sección "Reach" y finalizará cuando la detenga en dicha sección.
 
-> Nota: Las campañas creadas sin una fecha de finalización almacenan la inserción de forma local en el dispositivo y la muestran la próxima vez que se abre la aplicación incluso si la campaña ha finalizado manualmente.
-> 
-> 
+> [!NOTE]
+> Las campañas creadas sin una fecha de finalización almacenan la inserción de forma local en el dispositivo y la muestran la próxima vez que se abre la aplicación incluso si la campaña ha finalizado manualmente.
 
-## Mejora de una notificación de inserción con una vista de texto
-### ¿Qué es una vista de texto?
+## <a name="enhance-a-push-notification-with-a-text-view"></a>Mejora de una notificación de inserción con una vista de texto
+### <a name="what-is-a-text-view"></a>¿Qué es una vista de texto?
 ![TextView1][21]
 
-Una vista de texto es un elemento emergente con contenido de texto. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción. Una vista de texto permite presentar más contenido al usuario final. Esto también es una oportunidad de presentar una llamada a la acción, como saltar a una página de la aplicación, redirigir a una Tienda, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
+Una vista de texto es un elemento emergente con contenido de texto. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción.
+Una vista de texto permite presentar más contenido al usuario final. Esto también es una oportunidad de presentar una llamada a la acción, como saltar a una página de la aplicación, redirigir a una Tienda, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
 
-### Ejemplo: vista de texto
+### <a name="example-text-view"></a>Ejemplo: vista de texto
 * Cree la campaña de notificación de inserción en la sección "Reach" y asígnele un nombre.
 
 ![TextView2][22]
@@ -161,9 +173,8 @@ Una vista de texto es un elemento emergente con contenido de texto. Este element
 
 ![TextView3][23]
 
-> Nota: cuando inserta una vista de texto, siempre va acompañada de una notificación en primer lugar.
-> 
-> 
+> [!NOTE]
+> Cuando inserta una vista de texto, siempre va acompañada de una notificación en primer lugar. 
 
 * Defina el texto (después de seleccionar el contenido del anuncio de texto, aparecerá la subsección, que le permite definir el texto que desea que se muestre).
 
@@ -188,13 +199,15 @@ Una vista de texto es un elemento emergente con contenido de texto. Este element
 * El usuario recibe la notificación y hace clic en ella.
 * La vista de texto aparece como un elemento emergente que permite al usuario interactuar con él.
 
-## Mejora de una notificación de inserción con una vista web
-### ¿Qué es una vista web?
+## <a name="enhance-a-push-notification-with-a-web-view"></a>Mejora de una notificación de inserción con una vista web
+### <a name="what-is-a-web-view"></a>¿Qué es una vista web?
 ![WebView1][28]
 
-Una vista web es un elemento emergente con contenido web. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción. Una vista web le permite interactuar más con el usuario final. Esto también es una oportunidad de presentar una llamada a la acción, como redirigir a una tienda de aplicaciones, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
+Una vista web es un elemento emergente con contenido web. Este elemento emergente aparece cuando el usuario final hace clic en la notificación de inserción.
+Una vista web le permite interactuar más con el usuario final.
+Esto también es una oportunidad de presentar una llamada a la acción, como redirigir a una tienda de aplicaciones, abrir una página web, enviar un correo electrónico, iniciar una búsqueda localizada geográficamente, etc.
 
-### Ejemplo: vista web
+### <a name="example-web-view"></a>Ejemplo: vista web
 * Cree la campaña de inserción en la sección "Reach" y asígnele un nombre.
 
 ![WebView2][29]
@@ -204,14 +217,14 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 
 ![WebView3][30]
 
-### Acerca de los tipos de anuncio:
+### <a name="about-announcement-types"></a>Acerca de los tipos de anuncio:
 * Solo notificación: es una notificación estándar simple. Lo que significa que si un usuario hace clic en él, no aparecerá ninguna vista adicional, pero se producirá solo la acción asociada a él.
 * Anuncio de texto: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
-* Anuncio web: es una notificación que compromete al usuario a echar un vistazo a una vista de texto. Seleccione el contenido de "Anuncio web".
+* Anuncio web: es una notificación que compromete al usuario a echar un vistazo a una vista de texto.
+  Seleccione el contenido de "Anuncio web".
 
-> Nota: Cuando inserta una vista de web, siempre va acompañada de una notificación en primer lugar.
-> 
-> 
+> [!NOTE]
+> cuando inserta una vista de web, siempre va acompañada de una notificación en primer lugar.
 
 * Defina el contenido web (después de seleccionar el contenido del anuncio de web, aparecerá la subsección, que le permite definir el contenido de la vista web que desea que se muestre).
 
@@ -264,39 +277,43 @@ Una vista web es un elemento emergente con contenido web. Este elemento emergent
 [32]: ./media/mobile-engagement-how-tos/WebView5.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
+[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
+[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

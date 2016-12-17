@@ -1,22 +1,26 @@
 ---
 title: Colas, temas y suscripciones de Service Bus | Microsoft Docs
-description: Información general de las entidades de mensajería del Bus de servicio.
-services: service-bus
+description: "Información general de las entidades de mensajería del Bus de servicio."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: edee84938bddf28ac4dbf4152ccf9d7ab6afe6c3
+
 
 ---
-# <a name="service-bus-queues,-topics,-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
+# <a name="service-bus-queues-topics-and-subscriptions"></a>Colas, temas y suscripciones de Service Bus
 El Bus de servicio de Microsoft Azure admite un conjunto de tecnologías basadas en la nube, middleware orientado a mensajes, incluidos una cola de mensajes de confianza y una mensajería de publicación/suscripción duradera. Estas capacidades de mensajería asíncrona pueden considerarse como características de mensajería desacopladas que admiten la publicación-suscripción, el desacoplamiento temporal y los escenarios de equilibrio de carga mediante el tejido de la mensajería del Bus de servicio. La comunicación desacoplada ofrece muchas ventajas; por ejemplo, los clientes y servidores pueden conectarse según sea necesario y realizar sus operaciones de forma asincrónica.
 
 Las entidades de mensajería que forman el núcleo de las funcionalidades de mensajería asincrónica de Service Bus son las colas, los temas o suscripciones y las reglas o acciones.
@@ -162,6 +166,9 @@ Para más información y ejemplos del uso de las entidades de mensajería asincr
 * [Ejemplo de filtros de tema](https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/TopicFilters)
 * [Mensajería asincrónica: ejemplo de filtros avanzados](http://code.msdn.microsoft.com/Brokered-Messaging-6b0d2749)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

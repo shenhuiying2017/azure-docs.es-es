@@ -1,13 +1,13 @@
 ---
 title: GitHub | Microsoft Docs
-description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece toda la funcionalidad de administración de código fuente (SCM) y control de revisiones distribuidas de Git, además de agregar sus propias características.
+description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece toda la funcionalidad de administración de código fuente (SCM) y control de revisiones distribuidas de Git, además de agregar sus propias características."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 8f873e6c-f4c0-4c2e-a5bd-2e953efe5e2b
 ms.service: logic-apps
 ms.devlang: multiple
 ms.topic: article
@@ -15,31 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6468b7e9cde47ca4caf9be14d0ad780a431e6f2
+
 
 ---
-# Introducción al conector GitHub
+# <a name="get-started-with-the-github-connector"></a>Introducción al conector GitHub
 GitHub es un servicio de hospedaje del repositorio Git basado en la Web. Ofrece toda la funcionalidad de administración de código fuente (SCM) y control de revisiones distribuidas de Git, además de agregar sus propias características.
 
 > [!NOTE]
-> Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de las aplicaciones lógicas.
+> Esta versión del artículo se aplica a la versión de esquema 2015-08-01-preview de aplicaciones lógicas. 
 > 
 > 
 
 Puede empezar creando una aplicación lógica ahora. Para ello, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Desencadenadores y acciones
-El conector GitHub se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML.
+## <a name="triggers-and-actions"></a>Desencadenadores y acciones
+El conector GitHub se puede usar como acción; tiene desencadenadores. Todos los conectores admiten datos en formato JSON y XML. 
 
  El conector GitHub tiene las siguientes acciones y desencadenadores disponibles:
 
-### Acciones de GitHub
+### <a name="github-actions"></a>Acciones de GitHub
 Puede realizar estas acciones:
 
-| Acción | Description |
+| Acción | Descripción |
 | --- | --- |
 | [CreateIssue](connectors-create-api-github.md#createissue) |Crea un problema |
 
-### Desencadenadores de GitHub
+### <a name="github-triggers"></a>Desencadenadores de GitHub
 Se pueden escuchar estos eventos:
 
 | Desencadenador | Description |
@@ -48,37 +52,37 @@ Se pueden escuchar estos eventos:
 | Cuando se cierra un problema |Se cierra un problema |
 | Cuando se asigna un problema |Se asigna un problema |
 
-## Creación de una conexión a GitHub
-Para crear aplicaciones lógicas con GitHub, primero debe crear una **conexión** y, después, especificar los detalles de las siguientes propiedades:
+## <a name="create-a-connection-to-github"></a>Creación de una conexión a GitHub
+Para crear Logic Apps con GitHub, primero necesita crear una **conexión** y, después, especificar los detalles de las siguientes propiedades: 
 
-| Propiedad | Obligatorio | Description |
+| Propiedad | Obligatorio | Descripción |
 | --- | --- | --- |
-| SWT |Sí |Proporcionar las credenciales de GitHub |
+| Se necesita el cifrado de tokens |Sí |Proporcionar las credenciales de GitHub |
 
-Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo.
+Después de crear la conexión, puede usarla para ejecutar las acciones y escuchar los desencadenadores descritos en este artículo. 
 
-> [!INCLUDE [Pasos para crear una conexión a GitHub](../../includes/connectors-create-api-github.md)]
+> [!INCLUDE [Steps to create a connection to GitHub](../../includes/connectors-create-api-github.md)]
 > 
 > [!TIP]
 > Puede usar esta conexión en otras aplicaciones lógicas.
 > 
 > 
 
-## Referencia de GitHub
+## <a name="reference-for-github"></a>Referencia de GitHub
 Se aplica a la versión: 1.0
 
-## CreateIssue
-Crear un problema: se crea un problema
+## <a name="createissue"></a>CreateIssue
+Crear un problema: se crea un problema 
 
-```POST: /repos/{repositoryOwner}/{repositoryName}/issues```
+```POST: /repos/{repositoryOwner}/{repositoryName}/issues``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Description |
 | --- | --- | --- | --- | --- | --- |
-| repositoryOwner |string |yes |path |Ninguna |Propietario del repositorio |
-| repositoryName |string |yes |path |Ninguna |Nombre del repositorio |
+| repositoryOwner |string |Sí |path |Ninguna |Propietario del repositorio |
+| repositoryName |string |Sí |path |Ninguna |Nombre del repositorio |
 | issueBasicDetails | |yes |body |Ninguna |Detalles del problema |
 
-#### Response
+#### <a name="response"></a>Response
 | Nombre | Descripción |
 | --- | --- |
 | 200 |OK |
@@ -89,14 +93,14 @@ Crear un problema: se crea un problema
 | 500 |Error interno del servidor. Error desconocido |
 | default |Error en la operación. |
 
-## IssueOpened
-Cuando se abre un problema: se abre un problema
+## <a name="issueopened"></a>IssueOpened
+Cuando se abre un problema: se abre un problema 
 
-```GET: /trigger/issueOpened```
+```GET: /trigger/issueOpened``` 
 
 No hay parámetros para esta llamada
 
-#### Response
+#### <a name="response"></a>Response
 | Nombre | Descripción |
 | --- | --- |
 | 200 |OK |
@@ -107,14 +111,14 @@ No hay parámetros para esta llamada
 | 500 |Error interno del servidor. Error desconocido |
 | default |Error en la operación. |
 
-## IssueClosed
-Cuando se cierra un problema: se cierra un problema
+## <a name="issueclosed"></a>IssueClosed
+Cuando se cierra un problema: se cierra un problema 
 
-```GET: /trigger/issueClosed```
+```GET: /trigger/issueClosed``` 
 
 No hay parámetros para esta llamada
 
-#### Response
+#### <a name="response"></a>Response
 | Nombre | Descripción |
 | --- | --- |
 | 200 |OK |
@@ -125,14 +129,14 @@ No hay parámetros para esta llamada
 | 500 |Error interno del servidor. Error desconocido |
 | default |Error en la operación. |
 
-## IssueAssigned
-Cuando se asigna un problema: se asigna un problema
+## <a name="issueassigned"></a>IssueAssigned
+Cuando se asigna un problema: se asigna un problema 
 
-```GET: /trigger/issueAssigned```
+```GET: /trigger/issueAssigned``` 
 
 No hay parámetros para esta llamada
 
-#### Response
+#### <a name="response"></a>Response
 | Nombre | Descripción |
 | --- | --- |
 | 200 |OK |
@@ -143,15 +147,15 @@ No hay parámetros para esta llamada
 | 500 |Error interno del servidor. Error desconocido |
 | default |Error en la operación. |
 
-## Definiciones de objeto
-### IssueBasicDetailsModel
+## <a name="object-definitions"></a>Definiciones de objeto
+### <a name="issuebasicdetailsmodel"></a>IssueBasicDetailsModel
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 | --- | --- | --- |
 | título |string |Sí |
 | body |string |Sí |
 | assignee |string |Sí |
 
-### IssueDetailsModel
+### <a name="issuedetailsmodel"></a>IssueDetailsModel
 | Nombre de propiedad | Tipo de datos | Obligatorio |
 | --- | --- | --- |
 | título |string |Sí |
@@ -159,10 +163,15 @@ No hay parámetros para esta llamada
 | assignee |string |Sí |
 | número |string |No |
 | state |string |No |
-| created\_at |string |No |
-| repository\_url |string |No |
+| created_at |string |No |
+| repository_url |string |No |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

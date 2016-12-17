@@ -1,12 +1,12 @@
 ---
-title: Preparación de la asignación de red para la protección de la máquina virtual de Hyper-V con VMM en Azure Site Recovery| Microsoft Docs
-description: Configure la asignación de red para la replicación de máquinas virtuales de Hyper-V desde un centro de datos local a Azure, o a un sitio secundario.
+title: "Preparación de la asignación de red para la protección de la máquina virtual de Hyper-V con VMM en Azure Site Recovery| Microsoft Docs"
+description: "Configure la asignación de red para la replicación de máquinas virtuales de Hyper-V desde un centro de datos local a Azure, o a un sitio secundario."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: a798580b-b166-426b-bdca-573167b0e451
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8023643345812a9bc18dcca43cfc0ecff31a5007
+
 
 ---
 # <a name="prepare-network-mapping-for-hyper-v-virtual-machine-protection-with-vmm-in-azure-site-recovery"></a>Preparación de la asignación de red para la protección de la máquina virtual de Hyper-V con VMM en Azure Site Recovery
@@ -106,6 +110,9 @@ Con esta configuración, revisemos lo que ocurre en un par de escenarios posible
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que dispone de más información sobre la asignación de red, [comience con la implementación de Site Recovery](site-recovery-best-practices.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

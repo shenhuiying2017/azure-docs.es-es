@@ -1,12 +1,12 @@
 ---
-title: Volver a entrenar modelos de aprendizaje automático mediante programación | Microsoft Docs
-description: Obtenga información sobre cómo reciclar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en Azure Machine Learning.
+title: "Repetición del entrenamiento de los modelos de Machine Learning mediante programación | Microsoft Docs"
+description: "Obtenga información acerca de cómo volver a entrenar un modelo y actualizar el servicio web mediante programación para utilizar el modelo recién entrenado en el Aprendizaje automático de Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: raymondlaghaeian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: raymondl;garye;v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+
 
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Volver a entrenar modelos de aprendizaje automático mediante programación
@@ -28,7 +32,7 @@ Para obtener información general sobre el proceso de reentrenamiento, consulte 
 
 Si desea comenzar por el servicio web existente basado en el nuevo Azure Resource Manager, consulte [Retrain an existing Predictive Web service](machine-learning-retrain-existing-resource-manager-based-web-service.md) (Reentrenamiento de un servicio web predictivo existente).
 
-## <a name="create-a-training-experiment"></a>Creación de un experimento de entrenamiento
+## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 En este ejemplo, usará "Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset" (Ejemplo 5: Entrenar, probar, evaluar para clasificación binaria: Conjunto de datos para adultos) de entre los ejemplos de Aprendizaje automático de Microsoft Azure. 
 
 Para crear el experimento:
@@ -61,7 +65,7 @@ Para reciclar el modelo entrenado, debe implementar el experimento de entrenamie
 4. Arrastre dos módulos de *salida de servicio web* al lienzo de experimentos. Conecte la salida del módulo *Entrenar modelo* a uno y la salida del módulo *Evaluate Model* (Evaluar modelo), al otro. La salida del servicio web para **Entrenar modelo** nos ofrecerá el nuevo modelo entrenado. La salida conectada a **Evaluate Model** (Evaluar modelo) devuelve los resultados de ese módulo, que son los resultados de rendimiento.
 5. Haga clic en **Ejecutar**. 
 
-Después debe implementar el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo. Para lograr esto, el siguiente conjunto de acciones depende de si está trabajando con un servicio web clásico o un servicio web nuevo.  
+Después, debe implementar el experimento de entrenamiento como un servicio web que genera un modelo entrenado y resultados de evaluación del modelo. Para lograr esto, el siguiente conjunto de acciones depende de si está trabajando con un servicio web clásico o un servicio web nuevo.  
 
 **Servicio web clásico**
 
@@ -160,11 +164,11 @@ Revise los resultados para determinar si el modelo recientemente entrenado funci
 Copie *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de salida, ya que se usarán durante el proceso de reentrenamiento.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Reciclaje de un servicio web clásico](machine-learning-retrain-a-classic-web-service.md)
+Si implementa el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web clásico](machine-learning-retrain-a-classic-web-service.md).
 
-[Reciclaje de un servicio web nuevo mediante los cmdlets de administración de aprendizaje automático](machine-learning-retrain-new-web-service-using-powershell.md)
+Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]), consulte [Reentrenamiento de un servicio web nuevo mediante los cmdlets de administración de Machine Learning](machine-learning-retrain-new-web-service-using-powershell.md).
 
-<!-- Retrain a New Web service using the Machine Learning Management REST API -->
+<!-- Retrain a New web service using the Machine Learning Management REST API -->
 
 
 [1]: ./media/machine-learning-retrain-models-programmatically/machine-learning-retrain-models-programmatically-IMAGE01.png
@@ -180,6 +184,7 @@ Copie *BaseLocation*, *RelativeLocation* y *SasBlobToken* de los resultados de s
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 
