@@ -1,13 +1,13 @@
 ---
-title: Creación de grupos de seguridad de red en el modo clásico mediante la CLI de Azure | Microsoft Docs
-description: Aprenda a crear e implementar grupos de seguridad de red en modo clásico mediante la CLI de Azure
+title: "Creación de grupos de seguridad de red en el modo clásico mediante la CLI de Azure | Microsoft Docs"
+description: "Aprenda a crear e implementar grupos de seguridad de red en modo clásico mediante la CLI de Azure"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 17d98950-5fbb-4653-bef6-d822ab37541e
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d3ea05a1f98dbec4adc9ceea17ece00b19200107
+
 
 ---
-# Creación de grupos de seguridad de red (modo clásico) en la CLI de Azure
+# <a name="how-to-create-nsgs-classic-in-the-azure-cli"></a>Creación de grupos de seguridad de red (modo clásico) en la CLI de Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Este artículo trata sobre el modelo de implementación clásico. También puede
 
 En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, compile primero el entorno de prueba mediante la [creación de una red virtual](virtual-networks-create-vnet-classic-cli.md).
 
-## Creación del grupo de seguridad de red para la subred front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el escenario anterior, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
@@ -141,7 +145,7 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
         info:    Creating a network security group "NSG-FrontEnd"
         info:    network nsg subnet add command OK
 
-## Creación del grupo de seguridad de red para la subred back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Creación del grupo de seguridad de red para la subred back-end
 Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escenario anterior, siga estos pasos.
 
 1. Ejecute el comando **`azure network nsg create`** para crear un grupo de seguridad de red.
@@ -231,4 +235,9 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
         info:    Creating a network security group "NSG-BackEndX"
         info:    network nsg subnet add command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

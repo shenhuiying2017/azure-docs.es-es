@@ -1,20 +1,24 @@
 ---
-title: 'Análisis de transmisiones: Giro de las credenciales de inicio de sesión para entradas y salidas | Microsoft Docs'
-description: Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Análisis de transmisiones.
-keywords: credenciales de inicio de sesión
+title: "Stream Analytics: Giro de las credenciales de inicio de sesión para entradas y salidas | Microsoft Docs"
+description: "Obtenga información acerca de cómo actualizar las credenciales para las entradas y salidas de Análisis de transmisiones."
+keywords: "credenciales de inicio de sesión"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 11/11/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 0b82ffed4b09dcde3f04282d3d0ce368eb2d614f
+ms.openlocfilehash: 45156a48c24192bdfe76585891b7fbd0176efc8b
+
 
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-in-stream-analytics-jobs"></a>Giro de las credenciales de inicio de sesión para entradas y salidas de los trabajos de Análisis de transmisiones
@@ -23,7 +27,7 @@ En la actualidad, Análisis de transmisiones de Azure no permite reemplazar las 
 
 Aunque Análisis de transmisiones de Azure permite reanudar un trabajo desde la última salida, queríamos compartir todo el proceso para minimizar el retraso entre la detención y el inicio del trabajo y el giro de credenciales.
 
-## <a name="part-1---prepare-the-new-set-of-credentials:"></a>Parte 1: preparación del nuevo conjunto de credenciales:
+## <a name="part-1---prepare-the-new-set-of-credentials"></a>Parte 1: preparación del nuevo conjunto de credenciales:
 Esta parte es aplicable a las siguientes entradas/salidas:
 
 * Almacenamiento de blobs
@@ -33,7 +37,7 @@ Esta parte es aplicable a las siguientes entradas/salidas:
 
 Para otras entradas/salidas, vaya a la Parte 2.
 
-### <a name="blob-storage/table-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
+### <a name="blob-storagetable-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
 1. Vaya a la extensión Storage en el Portal de administración de Azure:   
    ![graphic1][graphic1]
 2. Busque el almacenamiento utilizado por su trabajo y vaya a él:   
@@ -65,13 +69,13 @@ Para otras entradas/salidas, vaya a la Parte 2.
 9. Presione regenerar:   
    ![graphic12][graphic12]
 10. Copie la clave recién generada:   
-    ![graphic13][graphic13]
+   ![graphic13][graphic13]
 11. Vaya a la parte 2.  
 
 ### <a name="sql-database"></a>Base de datos SQL
 > [!NOTE]
 > Nota: deberá conectarse al servicio de base de datos SQL. Vamos a mostrar cómo hacerlo con la experiencia de administración en el Portal de administración de Azure, pero también puede utilizar alguna herramienta de cliente como SQL Server Management Studio.
-> 
+>
 > 
 
 1. Vaya a la extensión SQL Databases en el Portal de administración de Azure:   
@@ -93,19 +97,19 @@ Para otras entradas/salidas, vaya a la Parte 2.
 9. Vuelva al paso 2 y esta vez haga clic en la base de datos:   
    ![graphic21][graphic21]
 10. Haga clic en el comando Administrar:   
-    ![graphic22][graphic22]
+   ![graphic22][graphic22]
 11. escriba su nombre de usuario y contraseña, y haga clic en Iniciar sesión:   
-    ![graphic23][graphic23]
+   ![graphic23][graphic23]
 12. Haga clic en Nueva consulta:   
-    ![graphic24][graphic24]
+   ![graphic24][graphic24]
 13. Escriba la siguiente consulta reemplazando <user_name> por un nombre por el que desee identificar este inicio de sesión en el contexto de esta base de datos (puede proporcionar el mismo valor que asignó para <login_name>, por ejemplo) y reemplazar <login_name> por su nuevo nombre de usuario:  
-    `CREATE USER <user_name> FROM LOGIN <login_name>`
+   `CREATE USER <user_name> FROM LOGIN <login_name>`
 14. Haga clic en Ejecutar:   
-    ![graphic25][graphic25]
+   ![graphic25][graphic25]
 15. Ahora debe proporcionar el nuevo usuario con los mismos roles y privilegios del usuario original.
 16. Vaya a la parte 2.
 
-## <a name="part-2:-stopping-the-stream-analytics-job"></a>Parte 2: Parada del trabajo de Análisis de transmisiones
+## <a name="part-2-stopping-the-stream-analytics-job"></a>Parte 2: Parada del trabajo de Análisis de transmisiones
 1. Vaya a la extensión Stream Analytics en el Portal de administración de Azure:   
    ![graphic26][graphic26]
 2. Busque su trabajo y vaya a él:   
@@ -118,8 +122,8 @@ Para otras entradas/salidas, vaya a la Parte 2.
    ![graphic30][graphic30]
 6. Vaya a la parte 3.
 
-## <a name="part-3:-editing-the-credentials-on-the-stream-analytics-job"></a>Parte 3: Edición de las credenciales en el trabajo de Análisis de transmisiones
-### <a name="blob-storage/table-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
+## <a name="part-3-editing-the-credentials-on-the-stream-analytics-job"></a>Parte 3: Edición de las credenciales en el trabajo de Análisis de transmisiones
+### <a name="blob-storagetable-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
 1. Busque el Clave de cuenta de almacenamiento y pegue la clave recién generada:   
    ![graphic31][graphic31]
 2. Haga clic en el comando Guardar y confirme que desea guardar los cambios:   
@@ -137,13 +141,15 @@ Para otras entradas/salidas, vaya a la Parte 2.
 
 ### <a name="power-bi"></a>Power BI
 1. Haga clic en la autorización de renovación:  
-2. ![graphic35][graphic35]
-3. Obtendrá la siguiente confirmación:  
-4. ![graphic36][graphic36]
-5. Haga clic en el comando Guardar y confirme que desea guardar los cambios:   
+
+   ![graphic35][graphic35]
+2. Obtendrá la siguiente confirmación:  
+
+   ![graphic36][graphic36]
+3. Haga clic en el comando Guardar y confirme que desea guardar los cambios:   
    ![graphic37][graphic37]
-6. Al guardar los cambios se iniciará automáticamente una prueba de conexión ; asegúrese de que haya pasado correctamente.
-7. Vaya a la parte 4.
+4. Al guardar los cambios se iniciará automáticamente una prueba de conexión ; asegúrese de que haya pasado correctamente.
+5. Vaya a la parte 4.
 
 ### <a name="sql-database"></a>Base de datos SQL
 1. Busque los campos Nombre de usuario y Contraseña y pegue en ellos el conjunto de credenciales recién creado:   
@@ -153,7 +159,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
 3. Una prueba de conexión se iniciará automáticamente al guardar los cambios; asegúrese de que haya pasado correctamente.  
 4. Vaya a la parte 4.
 
-## <a name="part-4:-starting-your-job-from-last-stopped-time"></a>Parte 4: Inicio del trabajo desde la última vez que se detuvo
+## <a name="part-4-starting-your-job-from-last-stopped-time"></a>Parte 4: Inicio del trabajo desde la última vez que se detuvo
 1. Salga de la entrada/salida:   
    ![graphic40][graphic40]
 2. Haga clic en el comando Iniciar:   
@@ -162,7 +168,7 @@ Para otras entradas/salidas, vaya a la Parte 2.
    ![graphic42][graphic42]
 4. Vaya a la parte 5.  
 
-## <a name="part-5:-removing-the-old-set-of-credentials"></a>Parte 5: Eliminación del antiguo conjunto de credenciales
+## <a name="part-5-removing-the-old-set-of-credentials"></a>Parte 5: Eliminación del antiguo conjunto de credenciales
 Esta parte es aplicable a las siguientes entradas/salidas:
 
 * Almacenamiento de blobs
@@ -170,7 +176,7 @@ Esta parte es aplicable a las siguientes entradas/salidas:
 * Base de datos SQL
 * Almacenamiento de tablas
 
-### <a name="blob-storage/table-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
+### <a name="blob-storagetable-storage"></a>Almacenamiento de blobs/almacenamiento de tablas
 Repita la Parte 1 para la clave de acceso usada previamente por su trabajo para renovar la clave de acceso ahora no utilizada.
 
 ### <a name="event-hubs"></a>Centros de eventos
@@ -243,6 +249,6 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

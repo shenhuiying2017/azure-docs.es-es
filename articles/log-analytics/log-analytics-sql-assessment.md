@@ -1,19 +1,23 @@
 ---
-title: Optimización del entorno con la solución de evaluación de SQL en Log Analytics | Microsoft Docs
-description: Puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor.
+title: "Optimización del entorno con la solución de evaluación de SQL en Log Analytics | Microsoft Docs"
+description: "Puede usar periódicamente la solución de evaluación de SQL para evaluar el riesgo y el estado de los entornos de servidor."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 0b0c739f1d89b83c43314d8ace794d26abf10054
+
 
 ---
 # <a name="optimize-your-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Optimización del entorno con la solución de evaluación de SQL en Log Analytics
@@ -39,17 +43,17 @@ Utilice la siguiente información para instalar y configurar la solución.
 * Deben instalarse agentes en servidores con SQL Server instalado.
 * La solución de evaluación de SQL requiere que .NET Framework 4 esté instalado en cada equipo que tenga un agente de OMS.
 * Cuando use el agente de Operations Manager con la evaluación de SQL, debe utilizar una cuenta de ejecución de Operations Manager. Para más información, consulte [Cuentas de ejecución de Operations Manager para OMS](#operations-manager-run-as-accounts-for-oms) más adelante.
-  
+
   > [!NOTE]
   > El agente de MMA no admite cuentas de ejecución de Operations Manager.
-  > 
-  > 
+  >
+  >
 * Agregue la solución de evaluación de SQL al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md). No es necesario realizar ninguna configuración más.
 
 > [!NOTE]
 > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían al servicio de OMS en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
-> 
-> 
+>
+>
 
 ## <a name="sql-assessment-data-collection-details"></a>Detalles de la recopilación de datos de la evaluación de SQL
 La evaluación de SQL recopila datos WMI, datos del registro, datos de rendimiento y resultados de la vista de administración dinámica de SQL Server con los agentes habilitados.
@@ -71,18 +75,18 @@ Utilice la siguiente información para establecer la cuenta de ejecución de Ope
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar la cuenta de ejecución de SQL en la consola de Operations, siga estos pasos:
 > [!NOTE]
 > Si usa el agente directo de OMS en lugar del agente de SCOM, el módulo de administración siempre se ejecuta en el contexto de seguridad de la cuenta de sistema local. Omita los pasos 1 a 5 siguientes y ejecute el código T-SQL o Powershell de ejemplo, especificando NT AUTHORITY\SYSTEM como nombre de usuario.
-> 
-> 
+>
+>
 
 1. En Operations Manager, abra la Consola del operador y haga clic en **Administración**.
 2. En **Run As Configuration** (Configuración de ejecución), haga clic en **Perfiles** y abra **OMS SQL Assessment Run As Profile** (Perfil de ejecución de evaluación de SQL para OMS).
 3. En la página **Cuentas de ejecución**, haga clic en **Agregar**.
 4. Seleccione una cuenta de ejecución de Windows que contenga las credenciales necesarias para SQL Server o haga clic en **Nuevo** para crear una.
-   
+
    > [!NOTE]
    > El tipo de cuenta de ejecución debe ser Windows. La cuenta de ejecución también debe ser parte del grupo de administradores locales en todos los servidores de Windows que hospedan instancias de SQL Server.
-   > 
-   > 
+   >
+   >
 5. Haga clic en **Guardar**.
 6. Modifique y luego ejecute el siguiente ejemplo de T-SQL en cada instancia de SQL Server para conceder los permisos mínimos que necesita la cuenta de ejecución para realizar la evaluación de SQL. Sin embargo, este paso no es necesario si una cuenta de ejecución ya forma parte del rol de servidor sysadmin en las instancias de SQL Server.
 
@@ -127,7 +131,7 @@ Las ponderaciones son valores agregados en función de tres factores principales
 * El *impacto* del asunto en su organización en caso de que se produzca un problema. Un mayor impacto equivale a una puntuación total mayor para la recomendación.
 * El *esfuerzo* necesario para implementar la recomendación. Un mayor esfuerzo equivale a una puntuación total menor para la recomendación.
 
-La ponderación de cada recomendación se expresa como un porcentaje de la puntuación total disponible para cada área de enfoque. Por ejemplo, si una recomendación en el área de enfoque de seguridad y cumplimiento tiene una puntuación del 5 %, la implementación de esa recomendación aumentará la puntuación total de seguridad y cumplimiento en un 5 %.
+La ponderación de cada recomendación se expresa como un porcentaje de la puntuación total disponible para cada área de enfoque. Por ejemplo, si una recomendación en el área de enfoque de seguridad y cumplimiento tiene una puntuación del 5 %, la implementación de esa recomendación aumentará la puntuación total de seguridad y cumplimiento en un 5 %.
 
 ### <a name="focus-areas"></a>Áreas de enfoque
 **Seguridad y cumplimiento** : este apartado muestra recomendaciones en caso de posibles amenazas e infracciones de seguridad, directivas corporativas y requisitos de cumplimiento técnico, legal y reglamentario.
@@ -142,7 +146,7 @@ La ponderación de cada recomendación se expresa como un porcentaje de la puntu
 
 **Administración de cambios y configuración**. Esta área de enfoque muestra recomendaciones para ayudar a proteger las operaciones diarias, garantizar que los cambios no afectan de manera negativa a su infraestructura, establecer procedimientos de control de cambios y realizar un seguimiento y auditar las configuraciones del sistema.
 
-### <a name="should-you-aim-to-score-100%-in-every-focus-area?"></a>¿Debe tratar de conseguir una puntuación del 100 % en cada área de enfoque?
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>¿Debe tratar de conseguir una puntuación del 100 % en cada área de enfoque?
 No necesariamente. Las recomendaciones se basan en los conocimientos y las experiencias adquiridos por los ingenieros de Microsoft producto de miles de visitas de clientes. Sin embargo, no hay dos infraestructuras de servidores que sean iguales, y es posible que determinadas recomendaciones puedan ser más o menos relevantes para usted. Por ejemplo, algunas recomendaciones de seguridad pueden ser menos pertinentes si las máquinas virtuales no están expuestas a Internet. Algunas recomendaciones de disponibilidad pueden ser menos relevantes para los servicios que proporcionan informes y recopilaciones de datos ad hoc de baja prioridad. Los problemas que son importantes para un negocio maduro pueden no serlo para otro que esté en sus inicios. Puede que desee identificar qué áreas de enfoque son prioritarias para usted y, posteriormente, observar cómo cambian las puntuaciones con el tiempo.
 
 Cada recomendación incluye pautas que indican por qué es importante. Debe utilizar estas directrices para evaluar si es adecuado o no para usted implementar la recomendación, en función de la naturaleza de los servicios de TI y las necesidades empresariales de su organización.
@@ -164,15 +168,15 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
 1. Inicie sesión en su área de trabajo y abra Búsqueda de registros. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Captura de pantalla que muestra la consulta de Búsqueda de registros: ![recomendaciones fallidas](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
 2. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
-### <a name="to-create-and-use-an-ignorerecommendations.txt-text-file"></a>Para crear y usar un archivo de texto IgnoreRecommendations.txt
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Para crear y usar un archivo de texto IgnoreRecommendations.txt
 1. Cree un archivo llamado IgnoreRecommendations.txt.
 2. Pegue o escriba cada RecommendationId de cada recomendación que desee que OMS omita en una línea independiente y luego guarde y cierre el archivo.
 3. Coloque el archivo en la carpeta siguiente en cada equipo donde desea que OMS omita las recomendaciones.
@@ -182,7 +186,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para comprobar que se omiten las recomendaciones
 1. Después de que se ejecute la siguiente evaluación programada, de forma predeterminada cada 7 días, las recomendaciones especificadas se marcan como omitidas y no aparecerán en el panel de evaluación.
 2. Puede usar las consultas de búsqueda de registros siguientes para enumerar todas las recomendaciones omitidas.
-   
+
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
@@ -240,6 +244,8 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver recomendaciones y datos de evaluación de SQL detallados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

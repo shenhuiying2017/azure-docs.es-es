@@ -1,19 +1,23 @@
 ---
-title: Solución Datos de conexión en Log Analytics | Microsoft Docs
-description: Datos de conexión son datos consolidados de red y rendimiento de los equipos con agentes de OMS, como agentes conectados con Windows y Operations Manager. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos.
+title: "Solución Datos de conexión en Log Analytics | Microsoft Docs"
+description: "Datos de conexión son datos consolidados de red y rendimiento de los equipos con agentes de OMS, como agentes conectados con Windows y Operations Manager. Los datos de red se combinan con los datos de registro para ayudar a correlacionar datos."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: fc3d7127-0baa-4772-858a-5ba995d1519b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: be00cb9b1e8ba5d9d8368695ca8d448d466e8f47
+
 
 ---
 # <a name="wire-data-solution-in-log-analytics"></a>Solución Datos de conexión en Log Analytics
@@ -21,8 +25,8 @@ Datos de conexión son datos consolidados de red y rendimiento de los equipos co
 
 > [!NOTE]
 > La solución Datos de conexión no está actualmente disponible para agregarse a áreas de trabajo. Los clientes que ya tienen la solución Datos de conexión habilitada pueden continuar utilizándola.
-> 
-> 
+>
+>
 
 De forma predeterminada, OMS recopila datos registrados de CPU, memoria, disco y los datos de rendimiento de red de contadores integrados en Windows. La recopilación de datos de red y de otros datos se realiza en tiempo real para cada agente, incluidas las subredes y los protocolos de nivel de aplicación utilizados por el equipo. Puede agregar otros contadores de rendimiento en la página Configuración de la pestaña Registros.
 
@@ -76,7 +80,7 @@ Requisitos: Para poder utilizar el ejemplo siguiente, debe tener instalada la so
 2. En la lista de **Common WireData Queries** (Consultas comunes de WireData), haga clic en **Amount of Network Traffic (in Bytes) by Process** (Cantidad de tráfico de red (en bytes) por proceso) para ver la lista de procesos devueltos.
     ![consultas de datos de conexión](./media/log-analytics-wire-data/oms-wiredata-01.png)
 3. Si la lista de procesos es demasiado grande para verla fácilmente, puede modificar la consulta de búsqueda a algo similar a lo siguiente:
-   
+
     ```
     Type WireData | measure count() by ProcessName | where AggregatedValue <40
     ```
@@ -85,24 +89,26 @@ Requisitos: Para poder utilizar el ejemplo siguiente, debe tener instalada la so
 4. Con los datos devueltos en la lista, haga clic en un proceso con nombre. En este ejemplo, se hizo clic en DancingPigs.exe. Los resultados que se muestran a continuación describen el tipo de tráfico de red, como la comunicación saliente sobre diversos protocolos.
     ![resultados de datos de conexión que muestran un proceso con nombre](./media/log-analytics-wire-data/oms-wiredata-03.png)
 5. Dado que se instala la solución Seguridad y auditoría, puede investigar los eventos de seguridad que tienen el mismo valor de campo ProcessName modificando la consulta de búsqueda mediante los operadores de consulta de búsqueda IN y DISTINCT. Puede hacer eso cuando tanto los datos de conexión como otros registros de soluciones tienen valores con el mismo formato. Modifique la consulta de búsqueda para que sea similar a lo siguiente:
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName}
     ```    
-   
+
     ![resultados de datos de conexión que muestran datos combinados](./media/log-analytics-wire-data/oms-wiredata-04.png)
 6. En los resultados anteriores, verá que se muestra la información de la cuenta. Ahora puede refinar la consulta de búsqueda para averiguar con qué frecuencia el proceso utiliza la cuenta, mostrando datos de Seguridad y auditoría, con una consulta parecida a lo siguiente:        
-   
+
     ```
     Type=SecurityEvent ProcessName IN {Type:WireData "DancingPigs.exe" | distinct ProcessName} | measure count() by Account
     ```
-   
+
     ![resultados de datos de conexión que muestran datos de cuenta](./media/log-analytics-wire-data/oms-wiredata-05.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.
 * Consulte la [entrada de blog Using Wire Data in Operations Management Suite Log Search](http://blogs.msdn.com/b/dmuscett/archive/2015/09/09/using-wire-data-in-operations-management-suite.aspx) (Uso de Datos de conexión en la búsqueda de registros de Operations Management Suite) donde encontrará información adicional sobre la frecuencia con la que se recopilan los datos y cómo puede modificar las propiedades de la colección de agentes de Operations Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
