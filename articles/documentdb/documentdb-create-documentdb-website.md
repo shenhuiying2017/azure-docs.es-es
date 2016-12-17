@@ -1,12 +1,12 @@
 ---
-title: Implementación de DocumentDB y aplicaciones web del Servicio de aplicaciones de Azure mediante una plantilla del Administrador de recursos de Azure | Microsoft Docs
-description: Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure.
+title: Implementar DocumentDB y Azure App Service Web Apps con una plantilla de Azure Resource Manager | Microsoft Docs
+description: "Aprenda a implementar una cuenta de DocumentDB, aplicaciones web del Servicio de aplicaciones de Azure y una aplicación web de ejemplo mediante una plantilla del Administrador de recursos de Azure."
 services: documentdb, app-service\web
 author: h0n
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea624ffc9a33fe89aea065de8c96efd79d6c2b9a
+
 
 ---
 # <a name="deploy-documentdb-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Implementación de DocumentDB y aplicaciones web de servicio de aplicación de Azure mediante una plantilla del Administrador de recursos de Azure
@@ -38,7 +42,7 @@ Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo 
 
 * Una suscripción de Azure. Azure es una plataforma basada en suscripción.  Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra](https://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](https://azure.microsoft.com/pricing/member-offers/) o [Evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="<a-id="createdb"></a>step-1:-download-the-template-files"></a><a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla
+## <a name="a-idcreatedbastep-1-download-the-template-files"></a><a id="CreateDB"></a>Paso 1: Descarga de los archivos de plantilla
 Para comenzar, vamos a descargar los archivos de plantilla que usaremos en este tutorial.
 
 1. Descargue la plantilla [Create a DocumentDB account, Web Apps, and deploy a demo application sample](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json) en una carpeta local (por ejemplo, C:\DocumentDBTemplates). Con esta plantilla se implementará una cuenta de DocumentDB, una aplicación web del Servicio de aplicaciones y una aplicación web.  También se configurará automáticamente la aplicación web para conectar con la cuenta de DocumentDB.
@@ -46,7 +50,7 @@ Para comenzar, vamos a descargar los archivos de plantilla que usaremos en este 
 
 <a id="Build"></a>
 
-## <a name="step-2:-deploy-the-documentdb-account,-app-service-web-app-and-demo-application-sample"></a>Paso 2: Implementación de la cuenta de DocumentDB, la aplicación web del Servicio de aplicaciones y el ejemplo de aplicación de demostración
+## <a name="step-2-deploy-the-documentdb-account-app-service-web-app-and-demo-application-sample"></a>Paso 2: Implementación de la cuenta de DocumentDB, la aplicación web del Servicio de aplicaciones y el ejemplo de aplicación de demostración
 Ahora vamos a implementar nuestra primera plantilla.
 
 > [!TIP]
@@ -86,7 +90,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 
 <a id="Build"></a> 
 
-## <a name="step-3:-deploy-the-document-account-and-web-app-sample"></a>Paso 3: Implementación de la cuenta de documentos y del ejemplo de aplicación web
+## <a name="step-3-deploy-the-document-account-and-web-app-sample"></a>Paso 3: Implementación de la cuenta de documentos y del ejemplo de aplicación web
 Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para mostrar cómo insertar información de conexión de DocumentDB, por ejemplo, el punto de conexión y la clave maestra en una aplicación web, como configuración de la aplicación o como cadena de conexión personalizada. Por ejemplo, si tiene su propia aplicación web, quizás prefiera realizar la implementación con una cuenta de DocumentDB y que la información de conexión se rellene automáticamente durante dicha operación.
 
 > [!TIP]
@@ -129,7 +133,7 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para m
 * Para obtener más información acerca de aplicaciones de servicio web de la aplicación de Azure, haga clic en [aquí](http://go.microsoft.com/fwlink/?LinkId=325362).
 * Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-## <a name="what's-changed"></a>Lo que ha cambiado
+## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 * Para obtener una guía del cambio del portal anterior al nuevo, consulte: [Referencia para navegar en el Portal de Azure clásico](http://go.microsoft.com/fwlink/?LinkId=529715)
 
@@ -138,6 +142,9 @@ Ahora implementaremos nuestra segunda plantilla.  Esta plantilla es útil para m
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Copia de datos en y desde el Almacenamiento de blobs de Azure | Microsoft Docs
+title: Copiar datos hacia y desde Azure Blob Storage | Microsoft Docs
 description: 'Aprenda a copiar datos de blob en Data Factory de Azure. Use nuestro ejemplo: Copia de datos entre Almacenamiento de blobs de Azure y Base de datos SQL de Azure.'
 keywords: datos de blob, copia de blobs de azure
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: bec8160f-5e07-47e4-8ee1-ebb14cfb805d
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/12/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
+ms.openlocfilehash: 69b530c085cc99959e66e75f2c8ebb391c9d26f4
+
 
 ---
 # <a name="move-data-to-and-from-azure-blob-using-azure-data-factory"></a>Movimiento de datos hacia y desde Blob de Azure mediante Factoría de datos de Azure
@@ -23,7 +27,7 @@ En este artículo se explica cómo usar la actividad de copia en Data Factory de
 ## <a name="supported-sources-and-sinks"></a>Orígenes y receptores compatibles
 Consulte la tabla [Almacenes de datos compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats) para ver la lista de almacenes de datos admitidos como orígenes o receptores por actividad de copia. Puede mover datos de cualquier almacén de datos de origen compatible a Azure Blob Storage o de Azure Blob Storage a cualquier almacén de datos del receptor compatible.
 
-La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente. La actividad admite leer desde blobs en bloques, en anexos o en páginas, pero solo permite escribir en blobs en bloques. 
+La actividad de copia es compatible con la copia de datos desde y hacia cuentas de Azure Storage de propósito general y el almacenamiento de blobs en frío y en caliente. La actividad admite leer desde blobs en bloques, en anexos o en páginas, pero solo permite escribir en blobs en bloques.
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 Puede crear una canalización con actividad de copia que mueva los datos desde Azure Blob Storage o hacia él mediante el uso de diferentes herramientas o API.  
@@ -38,11 +42,11 @@ Puede crear una canalización con actividad de copia que mueva los datos desde A
 Consulte el [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia de diferentes formas.
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más sencilla de crear una canalización que copie datos a o desde el Almacenamiento de blobs de Azure es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+La manera más sencilla de crear una canalización que copie datos a o desde el Almacenamiento de blobs de Azure es usar el Asistente para copiar datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre el Almacenamiento de blobs de Azure y la Base de datos SQL de Azure. Sin embargo, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) con la actividad de copia de Data Factory de Azure.
+En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre el Almacenamiento de blobs de Azure y la Base de datos SQL de Azure. En cambio, los datos pueden copiarse **directamente** desde cualquiera de los orígenes a cualquiera de los receptores admitidos. Para más información, vea la sección "Almacenes de datos y formatos que se admiten" del artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-sql"></a>Ejemplo: copia de datos de un blob de Azure a SQL de Azure
+## <a name="sample-copy-data-from-azure-blob-to-azure-sql"></a>Ejemplo: copia de datos de un blob de Azure a SQL de Azure 
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
@@ -51,7 +55,7 @@ El ejemplo siguiente muestra:
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 5. Una [canalización](data-factory-create-pipelines.md) con una actividad de copia que usa [BlobSource](#azure-blob-copy-activity-type-properties) y [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-El ejemplo copia los datos de la serie temporal desde un blob de Azure a una tabla de SQL de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos. 
+El ejemplo copia los datos de la serie temporal desde un blob de Azure a una tabla de SQL de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado SQL de Azure:**
 
@@ -167,7 +171,7 @@ El ejemplo copia los datos a una tabla denominada "MyTable" en una base de datos
 
 **Canalización con actividad de copia:**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlSink**. 
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **BlobSource** y el tipo **sink**, en **SqlSink**.
 
     {  
         "name":"SamplePipeline",
@@ -213,7 +217,7 @@ La canalización contiene una actividad de copia que está configurada para usar
        }
     }
 
-## <a name="sample:-copy-data-from-azure-sql-to-azure-blob"></a>Ejemplo: copia de datos SQL de Azure a un blob de Azure
+## <a name="sample-copy-data-from-azure-sql-to-azure-blob"></a>Ejemplo: copia de datos SQL de Azure a un blob de Azure
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
@@ -222,7 +226,7 @@ El ejemplo siguiente muestra:
 4. Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](#azure-blob-dataset-type-properties).
 5. Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [SqlSource](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties) y [BlobSink](#azure-blob-copy-activity-type-properties).
 
-El ejemplo copia los datos de la serie temporal desde una tabla de SQL de Azure a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos. 
+El ejemplo copia los datos de la serie temporal desde una tabla de SQL de Azure a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado SQL de Azure:**
 
@@ -252,7 +256,7 @@ Azure Data Factory admite dos tipos de servicios vinculados de Azure Storage: **
 
 **Conjunto de datos de entrada SQL de Azure:**
 
-El ejemplo supone que ha creado una tabla "MyTable" en SQL de Azure y que contiene una columna denominada "timestampcolumn" para los datos de series temporales. 
+El ejemplo supone que ha creado una tabla "MyTable" en SQL de Azure y que contiene una columna denominada "timestampcolumn" para los datos de series temporales.
 
 Si se establece "external": "true", se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
@@ -349,7 +353,7 @@ La canalización contiene una actividad de copia que está configurada para usar
             "end":"2014-06-01T19:00:00",
             "description":"pipeline for copy activity",
             "activities":[  
-                {
+                  {
                     "name": "AzureSQLtoBlob",
                     "description": "copy activity",
                     "type": "Copy",
@@ -367,22 +371,22 @@ La canalización contiene una actividad de copia que está configurada para usar
                         "source": {
                             "type": "SqlSource",
                             "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
              ]
         }
     }
@@ -395,7 +399,7 @@ Hay dos tipos de servicios vinculados que puede usar para vincular un almacenami
 [!INCLUDE [data-factory-azure-storage-linked-services](../../includes/data-factory-azure-storage-linked-services.md)]
 
 ## <a name="azure-blob-dataset-type-properties"></a>Propiedades de tipo del conjunto de datos de Blob de Azure
-En los ejemplos se ha usado un conjunto de datos de tipo **AzureBlob** para representar un contenedor de blob y una carpeta en un Azure Blob Storage. 
+En los ejemplos se ha usado un conjunto de datos de tipo **AzureBlob** para representar un contenedor de blob y una carpeta en un Azure Blob Storage.
 
 Para obtener una lista completa de las secciones y propiedades JSON disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
 
@@ -412,13 +416,11 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos 
 ### <a name="using-partitionedby-property"></a>Uso de la propiedad partitionedBy
 Tal como se mencionó en la sección anterior, puede especificar un valor folderPath dinámico y un nombre de archivo para los datos de series temporales con la sección **partitionedBy** , macros de Data Factory y las variables del sistema SliceStart y SliceEnd, que indican las horas de inicio y de finalización de un segmento de datos especificado.
 
-Consulte [Variables del sistema de Data Factory](data-factory-scheduling-and-execution.md#data-factory-system-variables) y [Referencia de las funciones de Data Factory](data-factory-scheduling-and-execution.md#data-factory-functions-reference) para obtener información sobre las funciones y las variables del sistema de Data Factory que puede usar en la sección partitionedBy.   
-
 Para más información sobre los conjuntos de datos de series temporales, la programación y los segmentos, consulte los artículos [Creación de conjuntos de datos](data-factory-create-datasets.md) y [Programación y ejecución](data-factory-scheduling-and-execution.md).
 
 #### <a name="sample-1"></a>Ejemplo 1
     "folderPath": "wikidatagateway/wikisampledataout/{Slice}",
-    "partitionedBy": 
+    "partitionedBy":
     [
         { "name": "Slice", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyyMMddHH" } },
     ],
@@ -428,12 +430,12 @@ En este ejemplo, {Slice} se reemplaza por el valor de la variable del sistema Sl
 #### <a name="sample-2"></a>Ejemplo 2
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
     "fileName": "{Hour}.csv",
-    "partitionedBy": 
+    "partitionedBy":
      [
         { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
     ],
 
 En este ejemplo, year, month, day y time de SliceStart se extraen en variables independientes que se usan en las propiedades folderPath y fileName.
@@ -447,7 +449,7 @@ Para ver una lista completa de las secciones y propiedades disponibles para defi
 
 Por otra parte, las propiedades disponibles en la sección typeProperties de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
-Si va a mover datos desde un Azure Blob Storage, establezca el tipo de origen en la actividad de copia en **BlobSource**. De igual forma, si va a mover datos desde un Azure Blob Storage, establezca el tipo de receptor en la actividad de copia en **BlobSink**. Esta sección proporciona una lista de propiedades admitidas por BlobSource y BlobSink. 
+Si va a mover datos desde un Azure Blob Storage, establezca el tipo de origen en la actividad de copia en **BlobSource**. De igual forma, si va a mover datos desde un Azure Blob Storage, establezca el tipo de receptor en la actividad de copia en **BlobSink**. Esta sección proporciona una lista de propiedades admitidas por BlobSource y BlobSink.
 
 **BlobSource** admite las siguientes propiedades en la sección **typeProperties**:
 
@@ -461,18 +463,18 @@ Si va a mover datos desde un Azure Blob Storage, establezca el tipo de origen en
 | --- | --- | --- | --- |
 | copyBehavior |Define el comportamiento de copia cuando el origen es BlobSource o FileSystem. |**PreserveHierarchy:** conserva la jerarquía de archivos en la carpeta de destino. La ruta de acceso relativa del archivo de origen que apunta a la carpeta de origen es idéntica a la ruta de acceso relativa del archivo de destino que apunta a la carpeta de destino.<br/><br/>**FlattenHierarchy:** todos los archivos de la carpeta de origen están en el primer nivel de la carpeta de destino. Los archivos de destino tienen un nombre generado automáticamente. <br/><br/>**MergeFiles: (valor predeterminado)** combina todos los archivos de la carpeta de origen en un solo archivo. Si se especifica el nombre de archivo/blob, el nombre de archivo combinado sería el nombre especificado; de lo contrario, sería el nombre de archivo generado automáticamente. |No |
 
-**BlobSource** también admite estas dos propiedades para ofrecer compatibilidad con versiones anteriores. 
+**BlobSource** también admite estas dos propiedades para ofrecer compatibilidad con versiones anteriores.
 
 * **treatEmptyAsNull**: especifica si se debe tratar una cadena nula o vacía como un valor nulo.
 * **skipHeaderLineCount** : especifica cuántas líneas deben omitirse. Es aplicable únicamente cuando el conjunto de datos de entrada usa TextFormat.
 
 De forma similar, **BlobSink** admite la siguiente propiedad para ofrecer compatibilidad con versiones anteriores.
 
-* **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida. 
+* **blobWriterAddHeader**: especifica si se debe agregar un encabezado de definiciones de columna al escribir en un conjunto de datos de salida.
 
 Los conjuntos de datos ahora son compatibles con las siguientes propiedades que implementan la misma funcionalidad: **treatEmptyAsNull**, **skipLineCount**, **firstRowAsHeader**.
 
-En la tabla siguiente se proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de estas propiedades de origen/receptor de blob. 
+En la tabla siguiente se proporciona orientación sobre cómo utilizar las nuevas propiedades de conjunto de datos en lugar de estas propiedades de origen/receptor de blob.
 
 | Propiedad de la actividad de copia | Propiedad de conjunto de datos |
 |:--- |:--- |
@@ -483,7 +485,7 @@ En la tabla siguiente se proporciona orientación sobre cómo utilizar las nueva
 Consulte la sección [Especificación de TextFormat](#specifying-textformat) para obtener información detallada acerca de estas propiedades.    
 
 ### <a name="recursive-and-copybehavior-examples"></a>Ejemplos de recursive y copyBehavior
-En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior. 
+En esta sección se describe el comportamiento resultante de la operación de copia para diferentes combinaciones de valores recursive y copyBehavior.
 
 | recursive | copyBehavior | Comportamiento resultante |
 | --- | --- | --- |
@@ -503,6 +505,8 @@ En esta sección se describe el comportamiento resultante de la operación de co
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

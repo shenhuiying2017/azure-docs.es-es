@@ -1,25 +1,39 @@
 ---
 title: Actividad de Pig
-description: Aprenda cómo puede usar la actividad de Pig en Factoría de datos de Azure para ejecutar scripts de Pig en un clúster de HDInsight suyo propio o a petición.
+description: "Aprenda cómo puede usar la actividad de Pig en Factoría de datos de Azure para ejecutar scripts de Pig en un clúster de HDInsight suyo propio o a petición."
 services: data-factory
-documentationcenter: ''
-author: spelluru
+documentationcenter: 
+author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/31/2016
-ms.author: spelluru
+ms.date: 11/15/2016
+ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: ab5923ffeac5e86eaf643ba79c56fb57a34f9f87
+ms.openlocfilehash: 3ee61c0a1bb3ff72017768337773373df50ef927
+
 
 ---
-# Actividad de Pig
-La actividad de Pig de HDInsight en una [canalización](data-factory-create-pipelines.md) de Factoría de datos ejecuta consultas de Pig en [su propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) clúster de HDInsight o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) basado en Windows/Linux. Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md), que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+# <a name="pig-activity"></a>Actividad de Pig
+> [!div class="op_single_selector"]
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
+> * [.NET personalizado](data-factory-use-custom-activities.md)
 
-## Sintaxis
+La actividad de Pig para HDInsight en una [canalización](data-factory-create-pipelines.md) de Data Factory ejecuta consultas de Pig en un clúster de HDInsight basado en Windows/Linux [propio](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o en uno [a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+
+## <a name="syntax"></a>Sintaxis
     {
         "name": "HiveActivitySamplePipeline",
           "properties": {
@@ -55,11 +69,11 @@ La actividad de Pig de HDInsight en una [canalización](data-factory-create-pipe
       }
     }
 
-## Detalles de la sintaxis
+## <a name="syntax-details"></a>Detalles de la sintaxis
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | name |Nombre de la actividad |Sí |
-| description |Texto que describe para qué se usa la actividad. |No |
+| Descripción |Texto que describe para qué se usa la actividad. |No |
 | type |HDinsightPig |Sí |
 | inputs |Una o varias entradas consumidas por la actividad de Pig |No |
 | outputs |Una o varias salidas producidas por la actividad de Pig |Sí |
@@ -68,7 +82,7 @@ La actividad de Pig de HDInsight en una [canalización](data-factory-create-pipe
 | ruta de acceso de script |Almacena el script de Pig en un almacenamiento de blobs de Azure y proporciona la ruta de acceso al archivo. Use la propiedad 'script' o 'scriptPath'. No se pueden usar las dos juntas. El nombre del archivo distingue mayúsculas de minúsculas. |No |
 | define los campos |Especifique parámetros como pares de clave y valor para referencia en el script de Pig |No |
 
-## Ejemplo
+## <a name="example"></a>Ejemplo
 Veamos un ejemplo de análisis de registros de juegos en el que desea identificar el tiempo dedicado por los usuarios a los juegos de su compañía.
 
 El registro de juegos de ejemplo siguiente es un archivo separado por comas (,), que contiene los siguientes campos: ProfileID, SessionStart, Duration, SrcIPAddress y GameType.
@@ -93,11 +107,11 @@ Para ejecutar este script de Pig en una canalización de Factoría de datos, tie
 
 1. Crear un servicio vinculado para registrar [su propio clúster de proceso de HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) o configurar un [clúster de proceso de HDInsight a petición](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Llamaremos a este servicio vinculado **HDInsightLinkedService**.
 2. Crear un [servicio vinculado](data-factory-azure-blob-connector.md) para configurar la conexión al almacenamiento de blobs de Azure que hospeda los datos. Llamaremos a este servicio vinculado **StorageLinkedService**.
-3. Crear [conjuntos de datos](data-factory-create-datasets.md)que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada **PigSampleIn** y al conjunto de datos de salida **PigSampleOut**.
-4. Copie la consulta de Pig en un archivo de almacenamiento de blobs de Azure configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de almacenamiento de Azure independiente. Consulte el servicio vinculado en la configuración de la actividad. Utilice **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**.
+3. Crear [conjuntos de datos](data-factory-create-datasets.md) que apuntan a los datos de entrada y salida. Llamaremos al conjunto de datos de entrada **PigSampleIn** y al conjunto de datos de salida **PigSampleOut**.
+4. Copie la consulta de Pig en un archivo de almacenamiento de blobs de Azure configurado en el paso 2. Si el almacenamiento de Azure que hospeda los datos es diferente del que hospeda el archivo de consulta, cree un servicio vinculado de almacenamiento de Azure independiente. Consulte el servicio vinculado en la configuración de la actividad. Use **scriptPath** para especificar la ruta de acceso al archivo de script de Pig y **scriptLinkedService**. 
    
    > [!NOTE]
-   > También puede proporcionar el script de Pig en línea en la definición de actividad mediante la propiedad **script**. Sin embargo, no se recomienda este enfoque cuando todos los caracteres especiales del script tienen que ser caracteres de escape y pueden provocar problemas de depuración. La práctica recomendada es seguir el paso 4.
+   > También puede proporcionar el script de Pig en línea en la definición de actividad mediante la propiedad **script** . Sin embargo, no se recomienda este enfoque cuando todos los caracteres especiales del script tienen que ser caracteres de escape y pueden provocar problemas de depuración. La práctica recomendada es seguir el paso 4.
    > 
    > 
 5. Cree la canalización con la actividad HDInsightPig. Esta actividad procesa los datos de entrada mediante la ejecución de script de Pig en clúster de HDInsight.
@@ -132,10 +146,10 @@ Para ejecutar este script de Pig en una canalización de Factoría de datos, tie
             ]
           }
         } 
-6. Implemente la canalización. Consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md) para obtener más información.
+6. Implemente la canalización. Consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md) para obtener más información. 
 7. Supervise la canalización mediante las vistas de supervisión y administración de Factoría de datos. Consulte el artículo [Supervisión y administración de las canalizaciones de Factoría de datos](data-factory-monitor-manage-pipelines.md) para obtener más información.
 
-## Especificación de parámetros para un script de Pig
+## <a name="specifying-parameters-for-a-pig-script"></a>Especificación de parámetros para un script de Pig
 Tenga en cuenta el siguiente ejemplo en el que los registros de juegos se introducen diariamente en el almacenamiento de blobs de Azure y se almacenan en una carpeta en función de la fecha y hora. Desea parametrizar el script de Pig y pasar la ubicación de la carpeta de entrada dinámicamente en tiempo de ejecución y también generar la salida dividida con fecha y hora.
 
 Para usar un script de Pig parametrizado, haga lo siguiente:
@@ -183,11 +197,16 @@ Para usar un script de Pig parametrizado, haga lo siguiente:
         PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);        
         Store PigSampleOut into '$Output' USING PigStorage (','); 
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)
 * [Actividad de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 * [Invocar programas Spark](data-factory-spark.md)
 * [Invocar scripts de R](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

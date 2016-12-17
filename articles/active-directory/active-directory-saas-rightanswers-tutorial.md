@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con RightAnswers | Microsoft Docs'
-description: Aprenda cómo usar RightAnswers con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con RightAnswers | Microsoft Docs"
+description: "Aprenda cómo usar RightAnswers con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 7f09e25a-a716-41e1-8ca3-fd00e3d1b8cc
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6c08e0b1349a3eb1bb4876958e36172e87729330
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integración de Azure Active Directory con RightAnswers
+# <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integración de Azure Active Directory con RightAnswers
 El objetivo de este tutorial es mostrar la integración de Azure y RightAnswers. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
@@ -35,7 +39,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-rightanswers"></a>Habilitación de la integración de aplicaciones para RightAnswers
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para RightAnswers.
 
-### <a name="to-enable-the-application-integration-for-rightanswers,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para RightAnswers:
+### <a name="to-enable-the-application-integration-for-rightanswers-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para RightAnswers:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-rightanswers-tutorial/IC700993.png "Active Directory")
@@ -58,7 +62,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en RightAnswers con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **RightAnswers**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-rightanswers-tutorial/IC802927.png "Configure Single Sign-On")
@@ -98,17 +102,20 @@ Los usuarios se crean automáticamente si es necesario durante el primer intento
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-rightanswers,-perform-the-following-steps:"></a>Para asignar usuarios a RightAnswers, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-rightanswers-perform-the-following-steps"></a>Para asignar usuarios a RightAnswers, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **RightAnswers**, haga clic en **Asignar usuarios**.
    
    ![Asignar usuarios](./media/active-directory-saas-rightanswers-tutorial/IC802932.png "Assign Users")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![yes](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "Yes")
+   ![Sí](./media/active-directory-saas-rightanswers-tutorial/IC767830.png "Yes")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

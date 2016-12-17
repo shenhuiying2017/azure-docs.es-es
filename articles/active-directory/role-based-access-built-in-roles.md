@@ -2,11 +2,11 @@
 title: 'RBAC: roles integrados | Microsoft Docs'
 description: En este tema se describen los roles integrados para el control de acceso basado en roles (RBAC).
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/25/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 386e8479a64af20469e3e03180348f674b08ef8f
+
 
 ---
-# RBAC: Roles integrados
+# <a name="rbac-built-in-roles"></a>RBAC: Roles integrados
 El control de acceso basado en roles de Azure (RBAC) dispone de los siguientes roles integrados que se pueden asignar a usuarios, grupos y servicios. Las definiciones de los roles integrados no se puede modificar. Sin embargo, puede crear [roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md) para satisfacer las necesidades específicas de su organización.
 
-## Roles de Azure
-En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** del rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
+## <a name="roles-in-azure"></a>Roles de Azure
+En la tabla siguiente se proporcionan breves descripciones de los roles integrados. Haga clic en el nombre de rol para ver una lista detallada de las propiedades **actions** y **notactions** de dicho rol. La propiedad **acciones** especifica las acciones permitidas en los recursos de Azure. Las cadenas de acciones pueden utilizar caracteres comodín. La propiedad **notactions** especifica las acciones que se excluyen de las acciones permitidas.
 
 > [!NOTE]
 > Las definiciones de rol de Azure están en constante evolución. Este artículo se mantiene tan actualizado como sea posible, pero las últimas definiciones de roles puede encontrarlas en Azure PowerShell. Use los cmdlets de `(get-azurermroledefinition "<role name>").actions` o `(get-azurermroledefinition "<role name>").notactions` como corresponda.
@@ -37,6 +41,7 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador](#contributor) |Puede administrar todo el contenido, excepto el acceso |
 | [Colaborador de Factoría de datos](#data-factory-contributor) |Puede crear y administrar factorías de datos y recursos secundarios dentro de ellos. |
 | [Usuario de DevTest Labs](#devtest-labs-user) |Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales |
+| [Colaborador de zona DNS](#dns-zone-contributor) |Puede administrar registros y zonas DNS |
 | [Colaborador de cuenta de DocumentDB](#documentdb-account-contributor) |Puede administrar cuentas de DocumentDB |
 | [Colaborador de la cuenta de Sistemas inteligentes](#intelligent-systems-account-contributor) |Puede administrar cuentas de Sistemas inteligentes |
 | [Colaborador de la red](#network-contributor) |Puede administrar todos los recursos de red |
@@ -59,10 +64,10 @@ En la tabla siguiente se proporcionan breves descripciones de los roles integrad
 | [Colaborador de plan web](#web-plan-contributor) |Puede administrar planes web |
 | [Colaborador de sitio web](#website-contributor) |Puede administrar sitios web, pero no los planes web a los que están conectados |
 
-## Permisos de los roles
+## <a name="role-permissions"></a>Permisos de los roles
 Las tablas siguientes describen los permisos específicos concedidos a cada rol. En ellas, se incluyen elementos correspondientes a las categorías **Actions** (para conceder permisos) y **NotActions** (para restringir dichos permisos).
 
-### Colaborador de servicio de administración de API
+### <a name="api-management-service-contributor"></a>Colaborador de servicio de administración de API
 Puede administrar servicios de administración de API
 
 | **Acciones** |  |
@@ -75,7 +80,7 @@ Puede administrar servicios de administración de API
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer roles y asignaciones de roles |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de componente de Application Insights
+### <a name="application-insights-component-contributor"></a>Colaborador de componentes de Application Insights
 Puede administrar los componentes de Application Insights
 
 | **Acciones** |  |
@@ -89,7 +94,7 @@ Puede administrar los componentes de Application Insights
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Operador de automatización
+### <a name="automation-operator"></a>Operador de automatización
 Puede iniciar, detener, suspender y reanudar trabajos
 
 | **Acciones** |  |
@@ -113,7 +118,7 @@ Puede iniciar, detener, suspender y reanudar trabajos
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de BizTalk
+### <a name="biztalk-contributor"></a>Colaborador de BizTalk
 Puede administrar los servicios de BizTalk
 
 | **Acciones** |  |
@@ -126,7 +131,7 @@ Puede administrar los servicios de BizTalk
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de ClearDB MySQL DB
+### <a name="cleardb-mysql-db-contributor"></a>Colaborador de ClearDB MySQL DB
 Puede administrar bases de datos ClearDB MySQL
 
 | **Acciones** |  |
@@ -139,7 +144,7 @@ Puede administrar bases de datos ClearDB MySQL
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 | successbricks.cleardb/databases/* |Crear y administrar bases de datos ClearDB MySQL |
 
-### Colaborador
+### <a name="contributor"></a>Colaborador
 Puede administrar todo el contenido, excepto el acceso
 
 | **Acciones** |  |
@@ -151,7 +156,7 @@ Puede administrar todo el contenido, excepto el acceso
 | Microsoft.Authorization/*/Delete |No puede eliminar roles ni asignaciones de roles |
 | Microsoft.Authorization/*/Write |No puede crear roles ni asignaciones de roles |
 
-### Colaborador de factoría de datos
+### <a name="data-factory-contributor"></a>Colaborador de Factoría de datos
 Crear y administrar factorías de datos y recursos secundarios dentro de ellos.
 
 | **Acciones** |  |
@@ -164,7 +169,7 @@ Crear y administrar factorías de datos y recursos secundarios dentro de ellos.
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Usuario de DevTest Labs
+### <a name="devtest-labs-user"></a>Usuario de DevTest Labs
 Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las máquinas virtuales
 
 | **Acciones** |  |
@@ -197,7 +202,20 @@ Puede ver todo el contenido así como conectar, iniciar, reiniciar y apagar las 
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Storage/storageAccounts/listKeys/action |Enumerar claves de cuentas de almacenamiento |
 
-### Colaborador de cuenta de DocumentDB
+### <a name="dns-zone-contributor"></a>Colaborador de zona DNS
+Puede administrar registros y zonas DNS.
+
+| **Acciones** |  |
+| --- | --- |
+| Microsoft.Authorization/\*/read |Leer roles y asignaciones de roles |
+| Microsoft.Insights/alertRules/\* |Crear y administrar reglas de alertas |
+| Microsoft.Network/dnsZones/\* |Crear y administrar registros y zonas DNS |
+| Microsoft.ResourceHealth/availabilityStatuses/read |Leer el estado de los recursos |
+| Microsoft.Resources/deployments/\* |Crear y administrar implementaciones de grupos de recursos |
+| Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
+| Microsoft.Support/\* |Crear y administrar vales de soporte técnico |
+
+### <a name="documentdb-account-contributor"></a>Colaborador de cuenta de DocumentDB
 Puede administrar cuentas de DocumentDB
 
 | **Acciones** |  |
@@ -210,7 +228,7 @@ Puede administrar cuentas de DocumentDB
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la cuenta de sistemas inteligentes
+### <a name="intelligent-systems-account-contributor"></a>Colaborador de la cuenta de Sistemas inteligentes
 Puede administrar cuentas de Sistemas inteligentes
 
 | **Acciones** |  |
@@ -223,7 +241,7 @@ Puede administrar cuentas de Sistemas inteligentes
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la red
+### <a name="network-contributor"></a>Colaborador de la red
 Puede administrar todos los recursos de red
 
 | **Acciones** |  |
@@ -236,7 +254,7 @@ Puede administrar todos los recursos de red
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la cuenta de NewRelic APM
+### <a name="new-relic-apm-account-contributor"></a>Colaborador de la cuenta de NewRelic APM
 Puede administrar aplicaciones y cuentas de New Relic Application Performance Management
 
 | **Acciones** |  |
@@ -249,21 +267,21 @@ Puede administrar aplicaciones y cuentas de New Relic Application Performance Ma
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 | NewRelic.APM/accounts/* |Crear y administrar cuentas de administración del rendimiento de la aplicación New Relic |
 
-### Propietario
+### <a name="owner"></a>Propietario
 Puede administrar todo el contenido, incluido el acceso
 
 | **Acciones** |  |
 | --- | --- |
 | * |Crear y administrar recursos de todos los tipos |
 
-### Lector
+### <a name="reader"></a>Lector
 Puede ver todo el contenido, pero no puede realizar cambios
 
 | **Acciones** |  |
 | --- | --- |
 | */read |Leer recursos de todos los tipos, excepto secretos. |
 
-### Colaborador de la memoria caché de Redis
+### <a name="redis-cache-contributor"></a>Colaborador de la memoria caché de Redis
 Puede administrar memorias caché en Redis
 
 | **Acciones** |  |
@@ -276,7 +294,7 @@ Puede administrar memorias caché en Redis
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de colecciones de trabajos de Scheduler
+### <a name="scheduler-job-collections-contributor"></a>Colaborador de colecciones de trabajos de Scheduler
 Puede administrar las colecciones de trabajo de Programador
 
 | **Acciones** |  |
@@ -289,7 +307,7 @@ Puede administrar las colecciones de trabajo de Programador
 | Microsoft.Scheduler/jobcollections/* |Crear y administrar colecciones de trabajos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador del servicio de búsqueda
+### <a name="search-service-contributor"></a>Colaborador del servicio de búsqueda
 Puede administrar los servicios de búsqueda
 
 | **Acciones** |  |
@@ -302,7 +320,7 @@ Puede administrar los servicios de búsqueda
 | Microsoft.Search/searchServices/* |Crear y administrar servicios de búsqueda |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Administrador de seguridad
+### <a name="security-manager"></a>Administrador de seguridad
 Puede administrar los componentes y las directivas de seguridad, además de las máquinas virtuales
 
 | **Acciones** |  |
@@ -318,7 +336,7 @@ Puede administrar los componentes y las directivas de seguridad, además de las 
 | Microsoft.Security/* |Crear y administrar las directivas y los componentes de seguridad |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la base de datos de SQL
+### <a name="sql-db-contributor"></a>Colaborador de Base de datos de SQL
 Puede administrar bases de datos SQL, pero no las directivas relacionadas con la seguridad.
 
 | **Acciones** |  |
@@ -342,7 +360,7 @@ Puede administrar bases de datos SQL, pero no las directivas relacionadas con la
 | Microsoft.Sql/servers/databases/securityAlertPolicies/* |No puede editar las directivas de alerta de seguridad |
 | Microsoft.Sql/servers/databases/securityMetrics/* |No puede editar las métricas de seguridad |
 
-### Administrador de seguridad SQL
+### <a name="sql-security-manager"></a>Administrador de seguridad SQL
 Puede administrar las directivas relacionadas con la seguridad de las bases de datos y los servidores SQL.
 
 | **Acciones** |  |
@@ -369,7 +387,7 @@ Puede administrar las directivas relacionadas con la seguridad de las bases de d
 | Microsoft.Sql/servers/securityAlertPolicies/* |Crear y administrar directivas de alerta de seguridad de SQL Server |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de SQL Server
+### <a name="sql-server-contributor"></a>Colaborador de SQL Server
 Puede administrar las bases de datos y los servidores SQL, pero no las directivas relacionadas con su seguridad
 
 | **Acciones** |  |
@@ -395,7 +413,7 @@ Puede administrar las bases de datos y los servidores SQL, pero no las directiva
 | Microsoft.Sql/servers/databases/securityMetrics/* |No puede editar las métricas de seguridad de bases de datos de SQL Server |
 | Microsoft.Sql/servers/securityAlertPolicies/* |No puede editar las directivas de alerta de seguridad de SQL Server |
 
-### Colaborador de cuentas de almacenamiento clásico
+### <a name="classic-storage-account-contributor"></a>Colaborador de cuentas de almacenamiento clásico
 Puede administrar las cuentas de almacenamiento clásico
 
 | **Acciones** |  |
@@ -408,7 +426,7 @@ Puede administrar las cuentas de almacenamiento clásico
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la cuenta de almacenamiento
+### <a name="storage-account-contributor"></a>Colaborador de la cuenta de almacenamiento
 Puede administrar cuentas de almacenamiento, pero no acceder a ellas.
 
 | **Acciones** |  |
@@ -422,7 +440,7 @@ Puede administrar cuentas de almacenamiento, pero no acceder a ellas.
 | Microsoft.Storage/storageAccounts/* |Crear y administrar cuentas de almacenamiento |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Administrador de acceso de usuario
+### <a name="user-access-administrator"></a>Administrador de acceso de usuario
 Puede administrar el acceso de usuarios a los recursos de Azure
 
 | **Acciones** |  |
@@ -431,7 +449,7 @@ Puede administrar el acceso de usuarios a los recursos de Azure
 | Microsoft.Authorization/* |Administrar la autorización |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la máquina virtual clásica
+### <a name="classic-virtual-machine-contributor"></a>Colaborador de la máquina virtual clásica
 Puede administrar máquinas virtuales clásicas, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas
 
 | **Acciones** |  |
@@ -454,7 +472,7 @@ Puede administrar máquinas virtuales clásicas, pero no la cuenta de almacenami
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la máquina virtual
+### <a name="virtual-machine-contributor"></a>Colaborador de la máquina virtual
 Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la red virtual a la que están conectadas
 
 | **Acciones** |  |
@@ -485,7 +503,7 @@ Puede administrar máquinas virtuales, pero no la cuenta de almacenamiento o la 
 | Microsoft.Storage/storageAccounts/read |Leer cuentas de almacenamiento |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de la red clásica
+### <a name="classic-network-contributor"></a>Colaborador de la red clásica
 Puede administrar IP reservadas y redes virtuales clásicas
 
 | **Acciones** |  |
@@ -498,7 +516,7 @@ Puede administrar IP reservadas y redes virtuales clásicas
 | Microsoft.Resources/subscriptions/resourceGroups/read |Leer grupos de recursos |
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 
-### Colaborador de plan web
+### <a name="web-plan-contributor"></a>Colaborador de plan web
 Puede administrar planes web
 
 | **Acciones** |  |
@@ -511,7 +529,7 @@ Puede administrar planes web
 | Microsoft.Support/* |Crear y administrar incidencias de soporte técnico |
 | Microsoft.Web/serverFarms/* |Crear y administrar granjas de servidores |
 
-### Colaborador de sitio web
+### <a name="website-contributor"></a>Colaborador de sitio web
 Puede administrar sitios web, pero no los planes web a los que están conectados
 
 | **Acciones** |  |
@@ -527,12 +545,17 @@ Puede administrar sitios web, pero no los planes web a los que están conectados
 | Microsoft.Web/listSitesAssignedToHostName/read |Leer sitios asignados a un nombre de host |
 | Microsoft.Web/serverFarms/join/action |Unir granjas de servidores |
 | Microsoft.Web/serverFarms/read |Leer las granjas de servidores |
-| Microsoft.Web/sites/* |Crear y administrar sitios web |
+| Microsoft.Web/sites/* |Crear y administrar sitios web (la creación de sitios también requiere permisos de escritura para el plan de App Service asociado) |
 
-## Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](role-based-access-control-configure.md): introducción a RBAC en el Portal de Azure.
 * [Roles personalizados en RBAC de Azure](role-based-access-control-custom-roles.md): aprenda a crear roles personalizados para satisfacer sus necesidades de acceso.
 * [Creación de un informe del historial de cambios de acceso](role-based-access-control-access-change-history-report.md): seguimiento del cambio de asignaciones de roles en RBAC.
 * [Solución de problemas del control de acceso basado en roles](role-based-access-control-troubleshooting.md): sugerencias para resolver problemas frecuentes.
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

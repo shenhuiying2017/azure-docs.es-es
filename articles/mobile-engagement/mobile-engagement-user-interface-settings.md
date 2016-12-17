@@ -1,12 +1,12 @@
 ---
-title: 'Interfaz de usuario de Azure Mobile Engagement: configuración'
-description: Obtenga información acerca de cómo administrar la configuración global de la aplicación mediante Azure Mobile Engagement
+title: "Interfaz de usuario de Azure Mobile Engagement: configuración"
+description: "Obtenga información acerca de cómo administrar la configuración global de la aplicación mediante Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,81 +14,85 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+
 
 ---
-# Cómo administrar la configuración global de la aplicación
-Las opciones del menú **Configuración** disponibles para una aplicación varían, dependiendo de la plataforma de la aplicación y de los permisos que se le hayan concedido para la aplicación. En la configuración se incluyen lo siguiente: Detalles, Proyectos, Inserción nativa, Velocidad de inserción, Etiquetas de información de la aplicación y Presión comercial. La opción de menú Etiquetas de información de la aplicación de la sección de Configuración puede administrarse mediante la aplicación (con el SDK) o mediante el back-end (con la API del dispositivo).
+# <a name="how-to-manage-the-global-settings-of-your-application"></a>Cómo administrar la configuración global de la aplicación
+Las opciones del menú **Configuración** disponibles para una aplicación varían, dependiendo de la plataforma de la aplicación y de los permisos que se le hayan concedido para la aplicación. En la configuración se incluyen lo siguiente: Detalles, Proyectos, Inserción nativa, Velocidad de inserción, Etiquetas de información de la aplicación y Presión comercial. La opción de menú Etiquetas de información de la aplicación de la sección de Configuración puede administrarse mediante la aplicación (con el SDK) o mediante el back-end (con la API del dispositivo). 
 
 > [!NOTE]
-> Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> Muchas de las secciones de la interfaz de usuario del portal de **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 > 
 > 
 
-## Detalles
-Le permite cambiar el nombre y la descripción de la aplicación, ver el propietario de la aplicación y los permisos de rol.
+## <a name="details"></a>Detalles
+Le permite cambiar el nombre y la descripción de la aplicación, ver el propietario de la aplicación y los permisos de rol. 
 
 La configuración de análisis permite ver o cambiar el día en que empieza la semana y el tiempo de retención en días.
 
   ![settings1][46]
 
-## Proyectos
-Le permite seleccionar todos los proyectos en los que desea que aparezca la aplicación.
+## <a name="projects"></a>Proyectos
+Le permite seleccionar todos los proyectos en los que desea que aparezca la aplicación. 
 
 También puede buscar un proyecto y ver el nombre, descripción, propietario y los permisos del rol de cualquier proyecto del que forme parte la aplicación.
 
-Para obtener más información, consulte [Documentación de la interfaz de usuario - Inicio][Link 13].
+Para más información, consulte [Documentación de la interfaz de usuario - Inicio][Vínculo 13].
 
   ![settings3][48]
 
-## Inserción nativa:
-Permite registrar un nuevo certificado o la eliminación de un certificado existente para usar con la inserción nativa. Inserción nativa permite a Azure Mobile Engagement insertar en su aplicación en cualquier momento, aunque no se esté ejecutando.
+## <a name="native-push"></a>Inserción nativa:
+Permite registrar un nuevo certificado o la eliminación de un certificado existente para usar con la inserción nativa. Inserción nativa permite a Azure Mobile Engagement insertar en su aplicación en cualquier momento, aunque no se esté ejecutando. 
 
 Después de proporcionar las credenciales o certificados para al menos un servicio de inserción nativa, se puede seleccionar "Cualquier hora" al crear campañas de cobertura y también usar el parámetro "notifier" en la API de INSERCIÓN.
 
-### Servicio de notificaciones de inserción de Apple (APNS)
+### <a name="apple-push-notification-service-apns"></a>Servicio de notificaciones de inserción de Apple (APNS)
 Para habilitar la inserción nativa mediante el servicio de notificación de inserción de Apple deberá registrar su certificado. Deberá especificar el tipo de certificado como de desarrollo (DEV) o de producción (PROD). A continuación, necesitará cargar su certificado y la contraseña.
 
-Para obtener más información, consulte [Documentación del SDK - iOS - Cómo preparar la aplicación para las notificaciones de inserción de Apple][Link 5]
+Para más información, consulte [Documentación del SDK - iOS - Cómo preparar la aplicación para las notificaciones de inserción de Apple][Vínculo 5].
 
 ![settings4][49]
 
-### Servicio de notificación de inserción de Windows (WPNS)
+### <a name="windows-push-notification-service-wpns"></a>Servicio de notificación de inserción de Windows (WPNS)
 Para habilitar la inserción nativa mediante el servicio de notificación de Windows, debe proporcionar las credenciales de la aplicación. Necesitará el identificador de seguridad del paquete (SID) y la clave secreta.
 
 ![settings5][50]
 
-### Mensajería en la nube de Google para Android (GCM)
+### <a name="google-cloud-messaging-for-android-gcm"></a>Mensajería en la nube de Google para Android (GCM)
 Para habilitar la inserción nativa mediante GCM, deberá seguir las instrucciones de Google. A continuación, debe pegar una clave de API simple de servidor configurada sin restricciones de IP. Requiere la integración con el SDK de Android v1.12.0 +.
 
-Para más información, consulte:
+Para más información, consulte: 
 
-* [Documentación del SDK - Android - Cómo integrar GCM][Link 5]
+* [Documentación del SDK - Android - Cómo integrar GCM][Vínculo 5]
 * [Guía sobre GCM de Google Developers](http://developer.android.com/guide/google/gcm/gs.html)
 
-### Mensajería de dispositivos de Amazon para Android (ADM)
-Para habilitar la inserción nativa con ADM, debe proporcionar las <credenciales de OAuth> de Amazon compuesta de un identificador de cliente y el secreto del cliente (requiere la integración con el SDK de Android v2.1.0+).
+### <a name="amazon-device-messaging-for-android-adm"></a>Mensajería de dispositivos de Amazon para Android (ADM)
+Para habilitar la inserción nativa con ADM, debe proporcionar <OAuth credentials> de Amazon compuesta de un identificador de cliente y el secreto del cliente (requiere la integración con el SDK de Android v2.1.0+).
 
-Para más información, consulte:
+Para más información, consulte: 
 
-* [Documentación del SDK - Android - Cómo integrar ADM][Link 5]
+* [Documentación del SDK - Android - Cómo integrar ADM][Vínculo 5]
 * [Documentación sobre ADM para desarrolladores de Amazon](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
-## Velocidad de inserción
+## <a name="push-speed"></a>Velocidad de inserción
 Muestra la velocidad de inserción actual de la aplicación y le permite definir la velocidad de inserción de la aplicación.
 
   ![settings7][52]
 
-## Etiqueta de información de aplicación
+## <a name="tag-app-info"></a>Etiqueta de información de aplicación
 ![settings11][56]
 
-## Presión comercial
+## <a name="commercial-pressure"></a>Presión comercial
 ![settings12][57]
 
-## Otras referencias
-* [Conceptos][Link 6]
-* [Guía de solución de problemas de servicios][Link 24]
+## <a name="see-also"></a>Consulte también
+* [Conceptos][Vínculo 6]
+* [Guía de solución de problemas de servicio][Vínculo 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -151,39 +155,43 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
+[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
+[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

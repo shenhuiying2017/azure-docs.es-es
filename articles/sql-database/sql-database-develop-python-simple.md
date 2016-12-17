@@ -1,19 +1,24 @@
 ---
-title: Conexión a Base de datos SQL mediante Python | Microsoft Docs
-description: Este tema muestra un ejemplo de código Pyton que puede usar para conectarse a la base de datos SQL de Azure.
+title: "Conexión a SQL Database mediante Python | Microsoft Docs"
+description: "Este tema muestra un ejemplo de código Pyton que puede usar para conectarse a la base de datos SQL de Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: meet-bhagdev
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
+ms.custom: development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: meetb
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5f3a4e49646063b41af5a9941f27291762f5336e
+
 
 ---
 # <a name="connect-to-sql-database-by-using-python"></a>Conexión a Base de datos SQL mediante Python
@@ -21,27 +26,27 @@ ms.author: meetb
 
 En este tema se muestra cómo conectarse a una instancia de Azure SQL Database y consultarla mediante Python. Puede ejecutar esta muestra desde las plataformas Windows, Ubuntu Linux o Mac.
 
-## <a name="step-1:-create-a-sql-database"></a>Paso 1: Creación de una base de datos SQL
+## <a name="step-1-create-a-sql-database"></a>Paso 1: Creación de una base de datos SQL
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Es importante seguir las directrices para crear una **plantilla de base de datos de AdventureWorks**. Los ejemplos que se muestran a continuación solo funcionan con el **esquema de AdventureWorks**. Una vez creada la base de datos, asegúrese de habilitar el acceso a su dirección IP mediante la habilitación de las reglas de firewall como se describe en la [página de introducción](sql-database-get-started.md).
 
-## <a name="step-2:-configure-development-environment"></a>Paso 2: Configuración del entorno de desarrollo
-### <a name="**mac-os**"></a>**Mac OS**
+## <a name="step-2-configure-development-environment"></a>Paso 2: Configuración del entorno de desarrollo
+### <a name="mac-os"></a>**Mac OS**
 ### <a name="install-the-required-modules"></a>Instalación de los módulos necesarios
 Abra el terminal e instale
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install FreeTDS
-    sudo -H pip install pymssql=2.1.1
+    sudo -H pip install pymssql==2.1.1
 
-### <a name="**linux-(ubuntu)**"></a>**Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Abra el terminal y desplácese hasta el directorio donde planea crear secuencias de comandos de Python. Escriba los comandos siguientes para instalar **FreeTDS** y **pymssql**. pymssql usa FreeTDS para conectarse a las bases de datos SQL.
 
     sudo apt-get --assume-yes update
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     sudo apt-get --assume-yes install python-dev python-pip
-    sudo pip install pymssql=2.1.1
+    sudo pip install pymssql==2.1.1
 
-### <a name="**windows**"></a>**Windows**
+### <a name="windows"></a>**Windows**
 Instale pymssql desde [**aquí**](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
 
 Asegúrese de elegir el archivo whl correcto. Por ejemplo: si va a usar Python 2.7 en un equipo de 64 bits, elija pymssql‑2.1.1‑cp27‑none‑win_amd64.whl. Una vez descargado el archivo .whl, colóquelo en la carpeta C:/Python27.
@@ -52,7 +57,7 @@ Instale ahora el controlador pymssql con pip desde la línea de comandos. cd int
 
 Se pueden encontrar instrucciones para habilitar el uso de pip [aquí](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows).
 
-## <a name="step-3:-run-sample-code"></a>Paso 3: Ejecución del código de ejemplo
+## <a name="step-3-run-sample-code"></a>Paso 3: Ejecución del código de ejemplo
 Cree un archivo llamado **sql_sample.py** y pegue dentro de él el código siguiente. Puede ejecutar esto desde la línea de comandos mediante:
 
     python sql_sample.py
@@ -73,11 +78,11 @@ La función [cursor.execute](http://pymssql.org/en/latest/ref/pymssql.html#pymss
     cursor.execute('SELECT c.CustomerID, c.CompanyName,COUNT(soh.SalesOrderID) AS OrderCount FROM SalesLT.Customer AS c LEFT OUTER JOIN SalesLT.SalesOrderHeader AS soh ON c.CustomerID = soh.CustomerID GROUP BY c.CustomerID, c.CompanyName ORDER BY OrderCount DESC;')
     row = cursor.fetchone()
     while row:
-        print str(row[0]) + " " + str(row[1]) + " " + str(row[2])   
+        print str(row[0]) + " " + str(row[1]) + " " + str(row[2])     
         row = cursor.fetchone()
 
 
-### <a name="insert-a-row,-pass-parameters,-and-retrieve-the-generated-primary-key"></a>Inserción de filas, paso de parámetros y recuperación de la clave principal generada
+### <a name="insert-a-row-pass-parameters-and-retrieve-the-generated-primary-key"></a>Inserción de filas, paso de parámetros y recuperación de la clave principal generada
 En SQL Database, la propiedad [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) y el objeto [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) pueden usarse para generar automáticamente los valores de [clave principal](https://msdn.microsoft.com/library/ms179610.aspx). 
 
     import pymssql
@@ -115,6 +120,9 @@ Pegar el código siguiente dentro de sql_sample.py.
 * [Modelos de diseño para las aplicaciones SaaS multiinquilino con base de datos SQL de Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Descubra todas las [funcionalidades de Base de datos SQL](https://azure.microsoft.com/services/sql-database/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
