@@ -52,17 +52,25 @@ Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure m
 * Inicie **PowerShell** y ejecute el comando siguiente. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
   
   1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en el Portal de Azure.
-     
-          Login-AzureRmAccount   
+    
+    ```PowerShell 
+    Login-AzureRmAccount
+    ```   
   2. Ejecute el siguiente comando para ver todas las suscripciones para esta cuenta.
-     
-          Get-AzureRmSubscription 
+
+    ```PowerShell     
+    Get-AzureRmSubscription
+    ``` 
   3. Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **&lt;NameOfAzureSubscription**&gt; por el nombre de su suscripción de Azure. 
      
-          Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```PowerShell
+    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    ```
   4. Cree un grupo de recursos de Azure con el nombre **ADFTutorialResourceGroup** ejecutando el siguiente comando en PowerShell.  
-     
-          New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+
+    ```PowerShell     
+      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
      
       Si ya existe el grupo de recursos, especifique si desea actualizarlo (Y) o mantenerlo como está (N). 
      
@@ -77,10 +85,12 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 > 
 > 
 
-    {  
-        "name": "ADFCopyTutorialDF",  
-        "location": "WestUS"
-    }  
+```JSON
+{  
+    "name": "ADFCopyTutorialDF",  
+    "location": "WestUS"
+}  
+```
 
 ### <a name="azurestoragelinkedservicejson"></a>azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -88,15 +98,17 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 > 
 > 
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorage",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
         }
     }
+}
+```
 
 ### <a name="azuersqllinkedservicejson"></a>azuersqllinkedservice.json
 > [!IMPORTANT]
@@ -104,49 +116,53 @@ Cree los siguientes archivos JSON en la carpeta en la que se encuentra curl.exe.
 > 
 > 
 
-    {
-        "name": "AzureSqlLinkedService",
-        "properties": {
-            "type": "AzureSqlDatabase",
-            "description": "",
-            "typeProperties": {
-                "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-            }
+```JSON
+{
+    "name": "AzureSqlLinkedService",
+    "properties": {
+        "type": "AzureSqlDatabase",
+        "description": "",
+        "typeProperties": {
+            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
         }
     }
-
+}
+```
 
 ### <a name="inputdatasetjson"></a>inputdataset.json
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureBlob",
-        "linkedServiceName": "AzureStorageLinkedService",
-        "typeProperties": {
-          "folderPath": "adftutorial/",
-          "fileName": "emp.txt",
-          "format": {
-            "type": "TextFormat",
-            "columnDelimiter": ","
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
+
+```JSON
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
       }
+    ],
+    "type": "AzureBlob",
+    "linkedServiceName": "AzureStorageLinkedService",
+    "typeProperties": {
+      "folderPath": "adftutorial/",
+      "fileName": "emp.txt",
+      "format": {
+        "type": "TextFormat",
+        "columnDelimiter": ","
+      }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 La definición de JSON define un conjunto de datos denominado **AzureBlobInput**, que representa los datos de entrada de una actividad en la canalización. Además, especifica que los datos de entrada se encuentran en el archivo **emp.txt** que está en el contenedor de blobs **adftutorial**. 
 
@@ -165,43 +181,46 @@ Si no especifica un valor **fileName** para una **tabla de salida**, los archivo
 
 Para establecer **folderPath** y **fileName** de forma dinámica según la hora de **SliceStart**, use la propiedad **partitionedBy**. En el ejemplo siguiente, folderPath usa Year, Month y Day de SliceStart (hora de inicio del segmento que se está procesando) y fileName usa Hour de SliceStart. Por ejemplo, si se está produciendo una división de 2014-10-20T08:00:00, el nombre de carpeta se establece en wikidatagateway/wikisampledataout/2014/10/20 y el nombre de archivo se establece en 08.csv. 
 
-      "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-    "fileName": "{Hour}.csv",
-    "partitionedBy": 
-    [
-        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-    ],
-
+```JSON
+  "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+"fileName": "{Hour}.csv",
+"partitionedBy": 
+[
+    { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+    { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+    { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+    { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+],
+```
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
-    {
-      "name": "AzureSqlOutput",
-      "properties": {
-        "structure": [
-          {
-            "name": "FirstName",
-            "type": "String"
-          },
-          {
-            "name": "LastName",
-            "type": "String"
-          }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": "AzureSqlLinkedService",
-        "typeProperties": {
-          "tableName": "emp"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
-    }
 
+```JSON
+{
+  "name": "AzureSqlOutput",
+  "properties": {
+    "structure": [
+      {
+        "name": "FirstName",
+        "type": "String"
+      },
+      {
+        "name": "LastName",
+        "type": "String"
+      }
+    ],
+    "type": "AzureSqlTable",
+    "linkedServiceName": "AzureSqlLinkedService",
+    "typeProperties": {
+      "tableName": "emp"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    }
+  }
+}
+```
 
 La definición de JSON define un conjunto de datos denominado **AzureBlobOutput**, que representa los datos de salida de una actividad en la canalización. Además, especifica que los resultados se almacenan en la tabla **emp** en la base de datos representada por AzureSqlLinkedService. La sección **disponibilidad** especifica que el conjunto de datos de salida se genere cada hora (frequency: hour e interval: 1).
 
@@ -214,48 +233,50 @@ Tenga en cuenta los siguientes puntos:
 * **availability** está establecido en **hourly** (**frequency** está establecido en **hour** e **interval** está establecido en **1**).  El servicio Data Factory generará un segmento de datos de salida cada hora en la tabla **emp** de la base de datos SQL de Azure.
 
 ### <a name="pipelinejson"></a>pipeline.json
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+
+```JSON
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "description": "Push Regional Effectiveness Campaign data to Azure SQL database",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "AzureBlobInput"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureSqlOutput"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "AzureBlobInput"
           }
         ],
-        "start": "2016-08-12T00:00:00Z",
-        "end": "2016-08-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "AzureSqlOutput"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-08-12T00:00:00Z",
+    "end": "2016-08-13T00:00:00Z"
+  }
+}
+```
 
 Tenga en cuenta los siguientes puntos:
 
@@ -284,22 +305,26 @@ En Azure PowerShell, ejecute los comandos siguientes después de reemplazar los 
 > 
 > 
 
-    $client_id = "<client ID of application in AAD>"
-    $client_secret = "<client key of application in AAD>"
-    $tenant = "<Azure tenant ID>";
-    $subscription_id="<Azure subscription ID>";
+```JSON
+$client_id = "<client ID of application in AAD>"
+$client_secret = "<client key of application in AAD>"
+$tenant = "<Azure tenant ID>";
+$subscription_id="<Azure subscription ID>";
 
-    $rg = "ADFTutorialResourceGroup"
-    $adf = "ADFCopyTutorialDF"
+$rg = "ADFTutorialResourceGroup"
+$adf = "ADFCopyTutorialDF"
+```
 
 ## <a name="authenticate-with-aad"></a>Autenticación con AAD
 Ejecute el siguiente comando para autenticarse con Azure Active Directory (AAD). 
 
-    $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
-    $responseToken = Invoke-Command -scriptblock $cmd;
-    $accessToken = (ConvertFrom-Json $responseToken).access_token;
+```PowerShell
+$cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
+$responseToken = Invoke-Command -scriptblock $cmd;
+$accessToken = (ConvertFrom-Json $responseToken).access_token;
 
-    (ConvertFrom-Json $responseToken) 
+(ConvertFrom-Json $responseToken) 
+```
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
 En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTutorialDF**. Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Por ejemplo, una actividad de copia para copiar datos de un almacén de datos de origen a uno de destino. Una actividad de Hive de HDInsight para ejecutar un script de Hive y convertir los datos de entrada en datos de salida del producto. Ejecute los siguientes comandos para crear la factoría de datos: 
@@ -308,13 +333,19 @@ En este paso, creará una instancia de Data Factory de Azure llamada **ADFCopyTu
    
     Confirme que el nombre de la factoría de datos que especifique aquí (ADFCopyTutorialDF) coincide con el nombre especificado en el archivo **datafactory.json**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/ADFCopyTutorialDF?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si la factoría de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.  
    
-        Write-Host $results
+    ```
+    Write-Host $results
+    ```
 
 Tenga en cuenta los siguientes puntos:
 
@@ -330,12 +361,15 @@ Tenga en cuenta los siguientes puntos:
 * Si recibe el error: "**La suscripción no está registrada para usar el espacio de nombres Microsoft.DataFactory**", realice una de las acciones siguientes e intente publicarla de nuevo: 
   
   * En Azure PowerShell, ejecute el siguiente comando para registrar el proveedor de Data Factory. 
+
+    ```PowerShell    
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+    Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory. 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      Puede ejecutar el comando siguiente para confirmar que se ha registrado el proveedor de Data Factory. 
-    
-          Get-AzureRmResourceProvider
+    ```PowerShell
+    Get-AzureRmResourceProvider
+    ```
   * Inicie sesión mediante la suscripción de Azure en el [Portal de Azure](https://portal.azure.com) y vaya a una hoja de Data Factory (o) cree una factoría de datos en el Portal de Azure. Esta acción registra automáticamente el proveedor.
 
 Antes de crear una canalización, debe crear algunas entidades de factoría de datos primero. Cree unos servicios vinculados para vincular almacenes de datos de origen y destino a su almacén de datos. A continuación, defina los conjuntos de datos de entrada y salida para representar datos en almacenes de datos vinculados. Por último, cree la canalización con una actividad que utilice estos conjuntos de datos.
@@ -349,27 +383,38 @@ En este paso, creará dos servicios vinculados: **AzureStorageLinkedService** y 
 En este paso, vinculará su cuenta de Almacenamiento de Azure con su factoría de datos. Con este tutorial, usará la cuenta de almacenamiento de Azure para almacenar los datos de entrada. 
 
 1. Asigne el comando a la variable denominada **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@azurestoragelinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 ### <a name="create-azure-sql-linked-service"></a>Creación de un servicio vinculado SQL de Azure
 En este paso, vinculará su cuenta de Base de datos SQL de Azure con su factoría de datos. Con este tutorial, usará la misma Base de datos SQL de Azure para almacenar los datos de salida.
 
 1. Asigne el comando a la variable denominada **cmd**. 
    
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```PowerShell
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azuresqllinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureSqlLinkedService?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si el servicio vinculado se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ## <a name="create-datasets"></a>Creación de conjuntos de datos
 En el paso anterior, creó los servicios vinculados **AzureStorageLinkedService** y **AzureSqlLinkedService** para vincular una cuenta de Azure Storage y Azure SQL Database a la factoría de datos **ADFTutorialDataFactory**. En este paso, creará conjuntos de datos que representan los datos de entrada y salida de la actividad de copia en la canalización que va a crear en el paso siguiente. 
@@ -384,23 +429,27 @@ Realice los siguientes pasos para preparar Almacenamiento de blobs de Azure y Ba
 * Cree una tabla llamada **emp** en Azure SQL Database a la que apunta **AzureSqlLinkedService**.
 
 1. Inicie el Bloc de notas, pegue el texto siguiente y guárdelo como **emp.txt** en la carpeta **C:\ADFGetStartedPSH** de su disco duro. 
-   
-        John, Doe
-        Jane, Doe
+
+    ```   
+    John, Doe
+    Jane, Doe
+    ```
 2. Use herramientas como el [Explorador de Azure Storage](https://azurestorageexplorer.codeplex.com/) para crear el contenedor **adftutorial** y cargar el archivo **emp.txt** en el contenedor.
    
     ![Explorador de almacenamiento de Azure](media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png)
 3. Use el siguiente script de SQL para crear la tabla **emp** en su Base de datos SQL de Azure.  
 
-        CREATE TABLE dbo.emp 
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.emp 
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID); 
+    ```
 
     Si tiene SQL Server 2014 instalado en el equipo: siga las instrucciones del artículo [Paso 2: Conexión con SQL Database de la base de datos de Azure SQL Database con SQL Server Management Studio][sql-management-studio] para conectarse al servidor SQL de Azure y ejecutar el script de SQL.
 
@@ -410,58 +459,83 @@ Realice los siguientes pasos para preparar Almacenamiento de blobs de Azure y Ba
 En este paso, creará un conjunto de datos denominado **AzureBlobInput** que apunta a un contenedor de blobs en Azure Storage que está representado por el servicio vinculado **AzureStorageLinkedService**. Este contenedor de blobs (**adftutorial**) contiene los datos de entrada en el archivo: **emp.txt**. 
 
 1. Asigne el comando a la variable denominada **cmd**. 
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+
+    ```PowerSHell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
    
-        $results = Invoke-Command -scriptblock $cmd;
+    ```PowerShell
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
    
-        Write-Host $results
+    ```PowerShell
+    Write-Host $results
+    ```
 
 ### <a name="create-output-dataset"></a>Creación del conjunto de datos de salida
 En este paso, creará una tabla de salida denominada **AzureSqlOutput**. Este conjunto de datos apunta a una tabla SQL (**emp**) de Azure SQL Database representada por **AzureSqlLinkedService**. La canalización copia los datos del blob de entrada a la tabla **emp** . 
 
 1. Asigne el comando a la variable denominada **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureSqlOutput?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+    
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.
    
-        Write-Host $results 
+    ```PowerShell
+    Write-Host $results
+    ``` 
 
 ## <a name="create-pipeline"></a>Creación de una canalización
 En este paso, creará una canalización con una **actividad de copia** que utiliza **AzureBlobInput** como entrada y **AzureSqlOutput** como salida.
 
 1. Asigne el comando a la variable denominada **cmd**.
-   
-        $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+
+    ```PowerShell   
+    $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
+    ```
 2. Ejecute el comando con **Invoke-Command**.
-   
-        $results = Invoke-Command -scriptblock $cmd;
+
+    ```PowerShell   
+    $results = Invoke-Command -scriptblock $cmd;
+    ```
 3. Vea los resultados. Si el conjunto de datos se ha creado correctamente, verá su JSON en los **resultados**; de lo contrario, verá un mensaje de error.  
-   
-        Write-Host $results
+
+    ```PowerShell   
+    Write-Host $results
+    ```
 
 **¡Enhorabuena!**  Ha creado correctamente una factoría de datos de Azure, con una canalización que copia datos desde Almacenamiento de blobs de Azure a Base de datos SQL de Azure.
 
 ## <a name="monitor-pipeline"></a>Supervisión de la canalización
 En este paso, utilizará la API de REST de Data Factory para supervisar los segmentos que la canalización está produciendo.
 
-    $ds ="AzureSqlOutput"
+```PowerShell
+$ds ="AzureSqlOutput"
+```
 
-    $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```PowerShell
+$cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};
+```
 
-    $results2 = Invoke-Command -scriptblock $cmd;
+```PowerShell
+$results2 = Invoke-Command -scriptblock $cmd;
+```
 
-
-    IF ((ConvertFrom-Json $results2).value -ne $NULL) {
-        ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
-    } else {
-            (convertFrom-Json $results2).RemoteException
-    }
+```PowerShell
+IF ((ConvertFrom-Json $results2).value -ne $NULL) {
+    ConvertFrom-Json $results2 | Select-Object -Expand value | Format-Table
+} else {
+        (convertFrom-Json $results2).RemoteException
+}
+```
 
 Ejecute estos comandos hasta que vea un segmento en estado **Listo** o **Error**. Cuando el segmento está en estado Listo, compruebe la tabla **emp** en Base de datos SQL de Azure para los datos de salida. 
 

@@ -23,7 +23,7 @@ ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre la puerta de enlace de VPN
 ## <a name="connecting-to-virtual-networks"></a>Conexión a redes virtuales
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>¿Puedo conectar redes virtuales en diferentes regiones de Azure?
-Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red virtual a otra red virtual en la misma región o en una región distinta de Azure.
+Sí. De hecho, no hay ninguna restricción de región. Puede conectar una red virtual a otra red virtual en la misma región o en una región distinta de Azure. 
 
 ### <a name="can-i-connect-virtual-networks-in-different-subscriptions"></a>¿Puedo conectar redes virtuales en diferentes suscripciones?
 Sí.
