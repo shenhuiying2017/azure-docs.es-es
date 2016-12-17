@@ -1,37 +1,40 @@
 ---
-title: Ver registros de diagnóstico de Azure Data Lake Store | Microsoft Docs
-description: 'Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Store '
+title: "Ver registros de diagnóstico de Azure Data Lake Store | Microsoft Docs"
+description: "Sepa cómo configurar registros de diagnóstico y tener acceso a ellos para Azure Data Lake Store  "
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: f6e75eb1-d0ae-47cf-bdb8-06684b7c0a94
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2016
+ms.date: 10/05/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 276033907d454a54b2d9d5354f8e1dc48a7b01d4
+
 
 ---
-# Acceso a los registros de diagnóstico de Azure Data Lake Store
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Acceso a los registros de diagnóstico de Azure Data Lake Store
 Sepa cómo habilitar el registro de diagnósticos en su cuenta de Data Lake Store y cómo ver los registros recopilados relativos a su cuenta.
 
 Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas de Azure Data Lake Store para recopilar trazas de auditoría de acceso a datos que proporcionan información como, por ejemplo, la lista de usuarios que tienen acceso a los datos, con qué frecuencia se tiene acceso a ellos, qué cantidad de datos se almacena en la cuenta, etc.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Habilite su suscripción de Azure** para la versión preliminar pública de Azure Data Lake Store. Consulte las [instrucciones](data-lake-store-get-started-portal.md#signup).
 * **Cuenta del Almacén de Azure Data Lake**. Siga las instrucciones que se describen en [Introducción al Almacén de Azure Data Lake mediante el Portal de Azure](data-lake-store-get-started-portal.md).
 
-## Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
+## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Habilitar el registro de diagnósticos en la cuenta de Data Lake Store
 1. Inicie sesión en el nuevo [Portal de Azure](https://portal.azure.com).
 2. Abra la cuenta de Data Lake Store y, en la hoja de la cuenta de Data Lake Store, haga clic en **Configuración** y en **Configuración de diagnóstico**.
-3. En la hoja **Diagnóstico**, realice los siguientes cambios para configurar el registro de diagnósticos.
+3. En la hoja **Diagnóstico** , realice los siguientes cambios para configurar el registro de diagnósticos.
    
-    ![Activación del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Habilitar registros de diagnóstico")
+    ![Activación del registro de diagnóstico](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Enable diagnostic logs")
    
    * Establezca el **Estado** en **Activado** para habilitar el registro de diagnósticos.
    * Puede optar por almacenar o procesar los datos de dos maneras diferentes.
@@ -41,43 +44,43 @@ Las organizaciones pueden habilitar el registro de diagnósticos en sus cuentas 
    * Especifique el número de días durante los que deben conservarse los datos.
    * Haga clic en **Guardar**.
 
-Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico**.
+Una vez habilitada la configuración de diagnóstico, puede ver los registros en la pestaña **Registros de diagnóstico** .
 
-## Ver registros de diagnóstico de la cuenta de Data Lake Store
+## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>Ver registros de diagnóstico de la cuenta de Data Lake Store
 Existen dos formas de ver los datos de registro para la cuenta de Data Lake Store.
 
 * Desde la vista de configuración de la cuenta de Data Lake Store
 * Desde la cuenta de Almacenamiento de Azure donde se almacenan los datos
 
-### Uso de la vista de configuración de Data Lake Store
+### <a name="using-the-data-lake-store-settings-view"></a>Uso de la vista de configuración de Data Lake Store
 1. En la hoja **Configuración** de su cuenta de Data Lake Store, haga clic en **Registros de diagnóstico**.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Ver registros de diagnósticos")
+    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "View diagnostic logs") 
 2. En la hoja **Registros de diagnóstico**, debería ver los registros clasificados por **Registros de auditoría** y **Request Logs** (Registros de solicitudes).
    
    * Los registros de solicitudes capturan todas las solicitudes API realizadas en la cuenta de Data Lake Store.
    * Los registros de auditoría son parecidos a los de solicitud, pero proporcionan un desglose mucho más detallado de las operaciones que tienen lugar en la cuenta de Data Lake Store. Por ejemplo, una llamada de API de carga única en los registros de solicitud podría producir varias operaciones "Append" en los registros de auditoría.
 3. Haga clic en el vínculo **Descargar** de cada entrada de registro para descargar los registros.
 
-### En la cuenta de Almacenamiento de Azure que contiene los datos de registro
+### <a name="from-the-azure-storage-account-that-contains-log-data"></a>En la cuenta de Almacenamiento de Azure que contiene los datos de registro
 1. Abra la hoja de la cuenta de Almacenamiento de Azure asociada con Data Lake Store para el registro y haga clic en Blobs. La hoja **Servicio Blob** muestra dos contenedores.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Ver registros de diagnósticos")
+    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "View diagnostic logs")
    
    * El contenedor **insights-logs-audit** contiene los registros de auditoría.
    * El contenedor **insights-logs-requests** contiene los registros de solicitudes.
 2. Dentro de estos contenedores, los registros se almacenan con la siguiente estructura.
    
-    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Ver registros de diagnósticos")
+    ![Visualización del registro de diagnósticos](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "View diagnostic logs")
    
     Por ejemplo, la ruta de acceso completa a un registro de auditoría sería `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
     De forma similar, la ruta de acceso completa a un registro de solicitudes sería `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`
 
-## Comprender la estructura de los datos de registro
+## <a name="understand-the-structure-of-the-log-data"></a>Comprender la estructura de los datos de registro
 Los registros de auditoría y de solicitud tienen un formato JSON. En esta sección, veremos la estructura de JSON de los registros de auditoría y de solicitud.
 
-### Registros de solicitud
+### <a name="request-logs"></a>Request Logs
 Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro.
 
     {
@@ -101,7 +104,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
       ]
     }
 
-#### Esquema de un registro de solicitud
+#### <a name="request-log-schema"></a>Esquema de un registro de solicitud
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
@@ -114,7 +117,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
-#### Esquema de propiedades de un registro de solicitud
+#### <a name="request-log-properties-schema"></a>Esquema de propiedades de un registro de solicitud
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | HttpMethod |String |Método HTTP usado en la operación. Por ejemplo, GET. |
@@ -124,7 +127,7 @@ Este es un ejemplo de una entrada en el registro de solicitud con formato JSON. 
 | StartTime |String |Hora a la que el servidor ha recibido la solicitud. |
 | EndTime |String |Hora a la que el servidor ha enviado una respuesta. |
 
-### Registros de auditoría
+### <a name="audit-logs"></a>Registros de auditoría
 Este es un ejemplo de una entrada en el registro de auditoría con formato JSON. Cada blob tiene un objeto raíz llamado **registros** que contiene una matriz de objetos de registro
 
     {
@@ -147,7 +150,7 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
       ]
     }
 
-#### Esquema de un registro de auditoría
+#### <a name="audit-log-schema"></a>Esquema de un registro de auditoría
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | Twitter en tiempo |String |Marca de tiempo (en UTC) del registro. |
@@ -159,16 +162,21 @@ Este es un ejemplo de una entrada en el registro de auditoría con formato JSON.
 | identidad |Objeto |Identidad que ha generado el registro. |
 | propiedades |JSON |Vea más abajo para obtener más información. |
 
-#### Esquema de propiedades de un registro de auditoría
+#### <a name="audit-log-properties-schema"></a>Esquema de propiedades de un registro de auditoría
 | Nombre | Tipo | Description |
 | --- | --- | --- |
 | StreamName |String |Ruta de acceso en la que se ha realizado la operación. |
 
-## Ejemplos para procesar los datos de registro
-Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+## <a name="samples-to-process-the-log-data"></a>Ejemplos para procesar los datos de registro
+Azure Data Lake Store proporciona un ejemplo de cómo procesar y analizar los datos de registro. Puede encontrar el ejemplo en [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 * [Protección de los datos en el Almacén de Data Lake](data-lake-store-secure-data.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

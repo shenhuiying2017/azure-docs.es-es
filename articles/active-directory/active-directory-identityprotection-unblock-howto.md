@@ -1,13 +1,13 @@
 ---
-title: Azure Active Directory Identity Protection - How to unblock users | Microsoft Docs
-description: Learn how unblock users that were blocked by an Azure Active Directory Identity Protection policy.
+title: 'Azure Active Directory Identity Protection: desbloqueo de usuarios | Microsoft Docs'
+description: Aprenda a desbloquear usuarios bloqueados por una directiva de Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, unblock user
-documentationcenter: ''
+keywords: 'azure active directory identity protection: desbloquear usuario'
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,44 +15,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
+ms.openlocfilehash: d17fa0ffb0c55d49487804cd28d8903107069f06
+
 
 ---
-# <a name="azure-active-directory-identity-protection-how-to-unblock-users"></a>Azure Active Directory Identity Protection - How to unblock users
-With Azure Active Directory Identity Protection, you can configure policies to block users if the configured conditions are satisfied. Typically, a blocked user contacts help desk to become unblocked. This topics explains the steps you can perform to unblock a blocked user.
+# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection: desbloqueo de usuarios
+Con Azure Active Directory Identity Protection se pueden configurar directivas para bloquear a los usuarios si se cumplen las condiciones configuradas. Normalmente, los usuarios bloqueados se ponen en contacto con el departamento de soporte técnico para que se desbloqueen. En este tema se explican los pasos que puede dar para desbloquear un usuario bloqueado.
 
-## <a name="determine-the-reason-for-blocking"></a>Determine the reason for blocking
-As a first step to unblock a user, you need to determine the type of policy that has blocked the user because your next steps are depending on it. With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy. 
+## <a name="determine-the-reason-for-blocking"></a>Determinación del motivo de bloqueo
+Como primer paso para desbloquear un usuario, es preciso que determine el tipo de directiva que ha bloqueado al usuario, ya que los siguientes pasos dependen de él.
+Con Azure Active Directory Identity Protection, se puede bloquear a un usuario con una directiva de riesgo de inicio de sesión o con una directiva de riesgo de usuario.
 
-You can get the type of policy that has blocked a user from the heading in the dialog that was presented to the user during a sign-in attempt:
+Puede obtener el tipo de directiva que ha bloqueado un usuario del título del cuadro de diálogo que se presentó al usuario en un intento de inicio de sesión:
 
-| Policy | User dialog |
+| Directiva | Cuadro de diálogo usuario |
 | --- | --- |
-| Sign-in risk |![Blocked sign-in](./media/active-directory-identityprotection-unblock-howto/02.png) |
-| User risk |![Blocked account](./media/active-directory-identityprotection-unblock-howto/104.png) |
+| Riesgo de inicio de sesión |![Inicio de sesión bloqueado](./media/active-directory-identityprotection-unblock-howto/02.png) |
+| Riesgo de usuario |![Cuenta bloqueada](./media/active-directory-identityprotection-unblock-howto/104.png) |
 
-A user that is blocked by:
+Un usuario que está bloqueado por:
 
-* A sign-in risk policy is also known as suspicious sign-in
-* A user risk policy is also known as an account at risk
+* Una directiva de riesgo de inicio de sesión también es conocida como inicio de sesión sospechoso
+* Una directiva de riesgo de usuario también es conocida como una cuenta en riesgo
 
-## <a name="unblocking-suspicious-signins"></a>Unblocking suspicious sign-ins
-To unblock a suspicious sign-in, you have the following options:
+## <a name="unblocking-suspicious-sign-ins"></a>Desbloqueo de inicios de sesión sospechosos
+Para desbloquear un inicio de sesión sospechoso, tiene las siguientes opciones:
 
-1. **Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices. Your users can quickly determine whether this is the blocking reason by trying to sign-in from a familiar location or device.
-2. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
-3. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [sign-in risk policy](active-directory-identityprotection.md#sign-in-risk-policy) for more details.
+1. **Iniciar sesión desde una ubicación o dispositivo conocidos**: una razón común para el bloqueo de inicios de sesión sospechosos es que se intente iniciar sesión desde ubicaciones o dispositivos desconocidos. Los usuarios pueden determinar rápidamente si esta es la razón del bloqueo. Para ello, deben intentar iniciar sesión desde una ubicación o dispositivo conocidos.
+2. **Excluir de la directiva** : si piensa que la configuración actual de la directiva de inicio de sesión provoca problemas a usuarios concretos, puede excluir los usuarios de ella. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+3. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
-## <a name="unblocking-accounts-at-risk"></a>Unblocking accounts at risk
-To unblock an account at risk, you have the following options:
+## <a name="unblocking-accounts-at-risk"></a>Desbloqueo de cuentas en riesgo
+Para desbloquear una cuenta en riesgo, tiene las siguientes opciones:
 
-1. **Reset password** - You can reset the user's password. See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.
-2. **Dismiss all risk events** - The user risk policy blocks a user if the configured user risk level for blocking access has been reached. You can reduce a user's risk level by manually closing reported risk events. For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).
-3. **Exclude from policy** - If you think that the current configuration of your sign-in policy is causing issues for specific users, you can exclude the users from it. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
-4. **Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable the policy. See [user risk policy](active-directory-identityprotection.md#user-risk-policy) for more details.
+1. **Restablecer contraseña** : puede restablecer la contraseña del usuario. Para más información, consulte [Restablecimiento manual de una contraseña segura](active-directory-identityprotection.md#manual-secure-password-reset) .
+2. **Descartar todos los eventos de riesgo** : la directiva de riesgo de usuario bloquea un usuario si se ha alcanzado el nivel de riesgo del usuario configurado para bloquear el acceso. Para reducir el nivel de riesgo de un usuario, cierre manualmente los eventos de riesgo notificados. Para más información, consulte [Cierre manual de eventos de riesgo](active-directory-identityprotection.md#closing-risk-events-manually).
+3. **Excluir de la directiva** : si piensa que la configuración actual de la directiva de inicio de sesión provoca problemas a usuarios concretos, puede excluir los usuarios de ella. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+4. **Deshabilitar directiva** : si piensa que la configuración de la directiva provoca problemas a todos los usuarios, puede deshabilitar la directiva. Para más información, consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
-## <a name="next-steps"></a>Next steps
- Do you want to know more about Azure AD Identity Protection? Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
+## <a name="next-steps"></a>Pasos siguientes
+ ¿Desea más información acerca de Azure AD Identity Protection? Consulte [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

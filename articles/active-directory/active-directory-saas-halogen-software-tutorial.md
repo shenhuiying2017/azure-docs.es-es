@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Halogen Software'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Halogen Software.
+title: "Tutorial: Integración de Azure Active Directory con Halogen Software"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Halogen Software."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21d31eb33a838d42b4ba8f4191b89e6094206f6e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integración de Azure Active Directory con Halogen Software
+# <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integración de Azure Active Directory con Halogen Software
 El objetivo de este tutorial es mostrar cómo integrar Halogen Software con Azure Active Directory (Azure AD).
 
 La integración de Halogen Software con Azure AD proporciona las siguientes ventajas: 
@@ -63,7 +67,7 @@ Para configurar la integración de Halogen Software en Azure AD, deberá agregar
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
     ![Applications][2]
-4. Haga clic en **Agregar** en la parte inferior de la página. 
+4. Haga clic en **Agregar** en la parte inferior de la página.    
    
     ![Aplicaciones][3]
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
@@ -233,7 +237,7 @@ El objetivo de esta sección es permitir que Britta Simon utilice el inicio de s
    
     ![Qué es Azure AD Connect][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Halogen Software en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de Halogen Software.
@@ -276,6 +280,7 @@ Al hacer clic en el icono de Halogen Software en el Panel de acceso, debería in
 [301]: ./media/active-directory-saas-halogen-software-tutorial/tutorial_halogen_301.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

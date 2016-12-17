@@ -1,12 +1,12 @@
 ---
-title: Ejemplos de configuración de enrutadores de cliente ExpressRoute | Microsoft Docs
-description: Esta página ofrece ejemplos de configuración de enrutamiento para enrutadores Cisco y Juniper.
+title: "Ejemplos de configuración de enrutadores de cliente ExpressRoute | Microsoft Docs"
+description: "Esta página ofrece ejemplos de configuración de enrutamiento para enrutadores Cisco y Juniper."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: d6ea716f-d5ee-4a61-92b0-640d6e7d6974
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: b77a20274e22827aaa8aa4d354b62d086a19b206
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+
 
 ---
-# <a name="router-configuration-samples-to-setup-and-manage-nat"></a>Ejemplos de configuración de enrutadores para configurar y administrar NAT
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>Ejemplos de configuración de enrutadores para configurar y administrar NAT
 En esta página se proporcionan ejemplos de configuración de NAT para enrutadores Cisco serie ASA y Juniper serie SRX. Solo pretenden ser ejemplos de carácter informativo y no se deben usar tal cual. Puede trabajar con el proveedor para elaborar las configuraciones adecuadas para la red. 
 
 > [!IMPORTANT]
@@ -24,9 +28,10 @@ En esta página se proporcionan ejemplos de configuración de NAT para enrutador
 > 
 > 
 
-Los ejemplos de configuración de enrutadores siguientes se aplican a emparejamientos públicos de Azure y Microsoft. No debe configurar NAT para emparejamiento privado de Azure. Si desea más información, consulte [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-nat.md).
+* Los ejemplos de configuración de enrutadores siguientes se aplican a emparejamientos públicos de Azure y Microsoft. No debe configurar NAT para emparejamiento privado de Azure. Si desea más información, consulte [Emparejamientos de ExpressRoute](expressroute-circuit-peerings.md) y [Requisitos de NAT de ExpressRoute](expressroute-nat.md).
 
-**Nota:** tiene que usar grupos de direcciones IP de NAT independientes para la conectividad a internet y ExpressRoute. Si usa el mismo grupo de direcciones IP de NAT a través de Internet y ExpressRoute se traducirá en enrutamiento asimétrico y pérdida de conectividad.
+* Tiene que usar grupos de direcciones IP de NAT independientes para la conectividad a internet y ExpressRoute. Si usa el mismo grupo de direcciones IP de NAT a través de Internet y ExpressRoute se traducirá en enrutamiento asimétrico y pérdida de conectividad.
+
 
 ## <a name="cisco-asa-firewalls"></a>Firewalls de Cisco ASA
 ### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Configuración de PAT para el tráfico de red de cliente a Microsoft
@@ -50,11 +55,14 @@ Los ejemplos de configuración de enrutadores siguientes se aplican a emparejami
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
 ### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Configuración de PAT para el tráfico de Microsoft a la red de cliente
-#### <a name="interfaces-and-direction:"></a>Interfaces y dirección:
+
+**Interfaces y dirección:**
+
     Source Interface (where the traffic enters the ASA): inside
     Destination Interface (where the traffic exits the ASA): outside
 
-#### <a name="configuration:"></a>Configuración:
+**Configuración:**
+
 Grupo NAT:
 
     object network outbound-PAT
@@ -79,7 +87,7 @@ Comandos NAT:
 
 
 ## <a name="juniper-srx-series-routers"></a>Enrutadores Juniper serie SRX
-### <a name="1.-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Creación de interfaces Ethernet redundantes para el clúster
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Creación de interfaces Ethernet redundantes para el clúster
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -111,15 +119,15 @@ Comandos NAT:
     }
 
 
-### <a name="2.-create-two-security-zones"></a>2. Creación de dos zonas de seguridad
+### <a name="2-create-two-security-zones"></a>2. Creación de dos zonas de seguridad
 * Zona de confianza para la red interna y Zona de no confianza para la red externa que soporta enrutadores de borde
 * Asignación de interfaces adecuadas a las zonas
 * Autorización de servicios en las interfaces
 
-    security {      zones {          security-zone Trust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth0.100;              }          }          security-zone Untrust {              host-inbound-traffic {                  system-services {                      ping;                  }                  protocols {                      bgp;                  }              }              interfaces {                  reth1.100;              }          }      }  }
+    security {       zones {           security-zone Trust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth0.100;               }           }           security-zone Untrust {               host-inbound-traffic {                   system-services {                       ping;                   }                   protocols {                       bgp;                   }               }               interfaces {                   reth1.100;               }           }       }   }
 
 
-### <a name="3.-create-security-policies-between-zones"></a>3. Creación de directivas de seguridad entre zonas
+### <a name="3-create-security-policies-between-zones"></a>3. Creación de directivas de seguridad entre zonas
     security {
         policies {
             from-zone Trust to-zone Untrust {
@@ -150,7 +158,7 @@ Comandos NAT:
     }
 
 
-### <a name="4.-configure-nat-policies"></a>4. Configuración de directivas de NAT
+### <a name="4-configure-nat-policies"></a>4. Configuración de directivas de NAT
 * Creación de dos grupos de NAT. Uno se utilizará para el tráfico saliente de NAT a Microsoft y otro de Microsoft al cliente.
 * Creación de reglas para NAT del tráfico correspondiente
   
@@ -209,10 +217,10 @@ Comandos NAT:
            }
        }
 
-### <a name="5.-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configuración de BGP para anunciar prefijos selectivos en cada dirección
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Configuración de BGP para anunciar prefijos selectivos en cada dirección
 Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](expressroute-config-samples-routing.md) .
 
-### <a name="6.-create-policies"></a>6. Creación de directivas
+### <a name="6-create-policies"></a>6. Creación de directivas
     routing-options {
                   autonomous-system <Customer-ASN>;
     }
@@ -310,6 +318,9 @@ Consulte ejemplos en la página [Ejemplos de configuración de enrutamiento ](ex
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte [P+F de ExpressRoute](expressroute-faqs.md) para obtener más detalles.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

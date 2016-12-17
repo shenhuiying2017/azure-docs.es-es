@@ -1,20 +1,24 @@
 ---
-title: Adding a VNet gateway to a virtual network for ExpressRoute using Resource Manager and PowerShell (Incorporación de una puerta de enlace de red virtual en ExpressRoute con Resource Manager y PowerShell) | Microsoft Docs
-description: En este artículo se indican los pasos para agregar una puerta de enlace de red virtual a una red virtual de Resource Manager ya creada para ExpressRoute.
+title: "Adición de una puerta de enlace de red virtual para ExpressRoute con Resource Manager y PowerShell | Microsoft Docs"
+description: "En este artículo se indican los pasos para agregar una puerta de enlace de red virtual a una red virtual de Resource Manager ya creada para ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: charwen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61817e1bd5b4af9aa9e3fda2043acc1036b7268a
+
 
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-resource-manager-and-powershell"></a>Configure a virtual network gateway for ExpressRoute using Resource Manager and PowerShell (Configuración de una puerta de enlace de red virtual en ExpressRoute con Resource Manager y PowerShell)
@@ -38,6 +42,9 @@ Compruebe que ha instalado los cmdlets de Azure PowerShell necesarios para esta 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de crear la puerta de enlace de red virtual, puede vincular la red virtual a un circuito ExpressRoute. Consulte el artículo [Vinculación de la red virtual a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

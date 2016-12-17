@@ -1,14 +1,14 @@
 ---
-title: Habilitación de Windows Hello para empresas en la organización | Microsoft Docs
-description: Instrucciones de implementación para habilitar Microsoft Passport en su organización.
+title: "Habilitación de Microsoft Windows Hello para empresas en la organización | Microsoft Docs"
+description: "Instrucciones de implementación para habilitar Microsoft Passport en su organización."
 services: active-directory
-documentationcenter: ''
-keywords: configurar Microsoft Passport, implementación de Windows Hello para empresas
+documentationcenter: 
+keywords: "configurar Microsoft Passport, implementación de Windows Hello para empresas"
 author: MarkusVi
 manager: femila
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 7dbbe3c6-1cd7-429c-a9b2-115fcbc02416
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,6 +16,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 115fbee1990b20f6a7186e5f36d0b618cf2e3b7b
+
 
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Habilitación de Windows Hello para empresas en su organización
@@ -110,6 +114,9 @@ En la página **Inscripción de SCEP** del perfil de certificado, tiene que sele
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

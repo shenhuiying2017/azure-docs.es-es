@@ -1,12 +1,12 @@
 ---
-title: Administración de inicio de sesión único para aplicaciones empresariales en la versión preliminar de Azure Active Directory | Microsoft Docs
-description: Aprenda a administrar el inicio de sesión único para aplicaciones empresariales con la versión preliminar de Azure Active Directory.
+title: "Administración de inicio de sesión único para aplicaciones empresariales en la versión preliminar de Azure Active Directory | Microsoft Docs"
+description: "Aprenda a administrar el inicio de sesión único para aplicaciones empresariales con la versión preliminar de Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bcc954d3-ddbe-4ec2-96cc-3df996cbc899
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/30/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0d523630e39d2dbeba2b3c11e19fc775032b23e7
+
 
 ---
-# <a name="preview:-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Versión preliminar: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal
+# <a name="preview-managing-single-sign-on-for-enterprise-apps-in-the-new-azure-portal"></a>Versión preliminar: Administración de inicio de sesión único para aplicaciones empresariales en el nuevo Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](active-directory-enterprise-apps-manage-sso.md)
 > * [Portal de Azure clásico](active-directory-sso-integrate-saas-apps.md)
@@ -41,9 +45,9 @@ Para administrar la configuración de inicio de sesión único, seleccione **Ini
 ## <a name="single-sign-on-modes"></a>Modos de inicio de sesión único
 La hoja **Inicio de sesión único** comienza con un menú **Modo**, que permite la configuración del modo de inicio de sesión único. Las opciones disponibles incluyen:
 
-* **SAML-based sign on** (Inicio de sesión basado en SAML): esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0. Este
+* **SAML-based sign on** (Inicio de sesión basado en SAML): esta opción está disponible si la aplicación admite el inicio de sesión único federado completo con Azure Active Directory mediante el protocolo SAML 2.0.
 * **Password-based sign on** (Inicio de sesión basado en contraseña): esta opción está disponible si Azure AD admite el rellenado de formularios de contraseña para esta aplicación.
-* **Linked sign on** (Inicio de sesión vinculado): anteriormente conocido como "Inicio de sesión único existente", esta opción permite a los administradores agregar un vínculo a esta aplicación en el iniciador de aplicaciones de Panel de acceso de Azure AD o de Office 365 de los usuarios.
+* **Inicio de sesión vinculado**: antes conocida como "Inicio de sesión único existente", esta opción permite a los administradores agregar un vínculo a esta aplicación en el Panel de acceso de Azure AD o el iniciador de aplicaciones de Office 365 del usuario.
 
 Para más información acerca de estos modos, consulte la sección [¿Cómo funciona el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work).
 
@@ -100,6 +104,6 @@ Si se admite para la aplicación, la selección del modo de inicio de sesión ú
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Flujo de trabajo para configurar un circuito ExpressRoute | Microsoft Docs
-description: Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares
+description: "Esta página le guiará a través de los flujos de trabajo para configurar el circuito ExpressRoute y las configuraciones entre pares"
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 570a98aafca6babc5a7089880d4120c2a8f4a0d8
+ms.openlocfilehash: 5a275620639a801d7e60ef9ada1af29062dfe440
+
 
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute
@@ -53,21 +57,24 @@ El estado de aprovisionamiento del proveedor de conectividad representa el estad
 ### <a name="possible-states-of-an-expressroute-circuit"></a>Posibles estados de un circuito ExpressRoute
 En esta sección se enumeran los posibles estados de un circuito ExpressRoute.
 
-#### <a name="at-creation-time"></a>En tiempo de creación
+**En tiempo de creación**
+
 Verá el circuito ExpressRoute en el estado siguiente en cuanto ejecute el cmdlet de PowerShell para crear el circuito ExpressRoute.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-is-in-the-process-of-provisioning-the-circuit"></a>Cuando el proveedor de conectividad está en el proceso de aprovisionamiento del circuito
+**Cuando el proveedor de conectividad está en el proceso de aprovisionamiento del circuito**
+
 Verá el circuito ExpressRoute en el estado siguiente en cuanto pase la clave de servicio al proveedor de conectividad y hayan iniciado el proceso de aprovisionamiento.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-#### <a name="when-connectivity-provider-has-completed-the-provisioning-process"></a>Cuando el proveedor de conectividad haya completado el proceso de aprovisionamiento
+**Cuando el proveedor de conectividad haya completado el proceso de aprovisionamiento**
+
 Verá el circuito ExpressRoute en el estado siguiente en cuanto el proveedor de conectividad haya completado el proceso de aprovisionamiento.
 
     ServiceProviderProvisioningState : Provisioned
@@ -75,7 +82,8 @@ Verá el circuito ExpressRoute en el estado siguiente en cuanto el proveedor de 
 
 Aprovisionado y habilitado es el único estado en que puede estar el circuito para poder usarlo. Si usa un proveedor de nivel 2, puede configurar el enrutamiento para el circuito solo cuando se encuentre en este estado.
 
-#### <a name="when-connectivity-provider-is-deprovisioning-the-circuit"></a>Cuando el proveedor de conectividad está desaprovisionando el circuito
+**Cuando el proveedor de conectividad está desaprovisionando el circuito**
+
 Si solicitó al proveedor de servicios que desaprovisione el circuito ExpressRoute, verá el circuito establecido en el estado siguiente una vez que el proveedor de servicios haya completado el proceso de desaprovisionamiento.
 
     ServiceProviderProvisioningState : NotProvisioned
@@ -108,6 +116,9 @@ Si el estado de los prefijos públicos anunciados se establece en el estado de *
   * [Configuración del enrutamiento](expressroute-howto-routing-arm.md)
   * [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
