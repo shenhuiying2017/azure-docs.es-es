@@ -1,12 +1,12 @@
 ---
-title: Ejemplo de aplicación para su uso con entornos de límite de seguridad | Microsoft Docs
-description: Implemente esta sencilla aplicación web después de crear una red perimetral para probar los escenarios de flujo de tráfico.
+title: "Aplicación de ejemplo para su uso con entornos de límite de seguridad | Microsoft Docs"
+description: "Implemente esta sencilla aplicación web después de crear una red perimetral para probar los escenarios de flujo de tráfico."
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: ''
-
+editor: 
+ms.assetid: 60340ab7-b82b-40e0-bd87-83e41fe4519c
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4d3f5e759f46bd4c4998c5d4bf70d64190ad972e
+
 
 ---
-# Aplicación de ejemplo para su uso con entornos de límite de seguridad
-[Volver a la página de procedimientos recomendados para límite de seguridad][HOME]
+# <a name="sample-application-for-use-with-security-boundary-environments"></a>Aplicación de ejemplo para su uso con entornos de límite de seguridad
+[Volver a la página de procedimientos de límites de seguridad recomendados][HOME]
 
 Estos scripts de PowerShell se pueden ejecutar localmente en los servidores IIS01 y AppVM01 para instalar y configurar una aplicación web muy sencilla que muestra una página html del servidor front-end IIS01 con el contenido del servidor back-end AppVM01.
 
 Esta aplicación proporciona un entorno de prueba sencillo para muchos de los ejemplos de la red perimetral y muestra el modo en que los cambios en las reglas de extremos, grupos de seguridad de red, UDR y firewall pueden afectar a los flujos de tráfico.
 
-## Regla de firewall para habilitar ICMP
+## <a name="firewall-rule-to-allow-icmp"></a>Regla de firewall para habilitar ICMP
 Esta instrucción simple de PowerShell se puede ejecutar en cualquier máquina virtual de Windows para permitir el tráfico ICMP (Ping). Esto hará posible un proceso de prueba y solución de problemas más sencillo al permitir al protocolo ping que pase a través del Firewall de windows (en la mayoría de las distribuciones de Linux, la característica ICMP está activada de forma predeterminada).
 
     # Turn On ICMPv4
@@ -32,7 +36,7 @@ Esta instrucción simple de PowerShell se puede ejecutar en cualquier máquina v
 
 **Nota:** si usa los siguientes scripts, esta adición de regla de firewall es la primera instrucción.
 
-## Iis01: script de instalación de aplicación web
+## <a name="iis01---web-application-installation-script"></a>Iis01: script de instalación de aplicación web
 Este script le permitirá hacer lo siguiente:
 
 1. Abrir IMCPv4 (Ping) en el Firewall de Windows del servidor local para facilitar el proceso de pruebas.
@@ -138,7 +142,7 @@ Este script de PowerShell debe ejecutarse localmente mientras el RDP tiene lugar
         Write-Host
 
 
-## AppVM01: script instalación de servidor de archivos
+## <a name="appvm01---file-server-installation-script"></a>AppVM01: script instalación de servidor de archivos
 Este script configura el back-end para esta aplicación simple. Este script le permitirá hacer lo siguiente:
 
 1. Abrir IMCPv4 (Ping) en el firewall para facilitar el proceso de pruebas.
@@ -184,10 +188,14 @@ Este script de PowerShell debe ejecutarse localmente mientras RDP tiene lugar en
         Write-Host
 
 
-## DNS01: script de instalación del servidor DNS
+## <a name="dns01---dns-server-installation-script"></a>DNS01: script de instalación del servidor DNS
 No hay ningún script incluido en esta aplicación de ejemplo para configurar el servidor DNS. Si las pruebas de las reglas de firewall, el grupo de seguridad de red o UDR deben incluir el tráfico DNS, el servidor DNS01 deberá configurarse manualmente. El archivo xml de configuración de red para ambos ejemplos incluye DNS01 como el servidor DNS principal y el servidor DNS público hospedado por el nivel 3 como el servidor DNS de copia de seguridad. El servidor DNS de nivel 3 podría ser el servidor DNS real utilizado para el tráfico no local, y si DNS01 no está configurado, no se produciría ningún DNS local.
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

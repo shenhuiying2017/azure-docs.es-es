@@ -1,5 +1,5 @@
 ---
-title: Creación de grupos de seguridad de red en el modo ARM mediante la CLI de Azure | Microsoft Docs
+title: "Creación de grupos de seguridad de red en el modo ARM mediante la CLI de Azure | Microsoft Docs"
 description: Aprenda a crear e implementar grupos de seguridad de red en ARM mediante la CLI de Azure
 services: virtual-network
 documentationcenter: na
@@ -7,7 +7,7 @@ author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 9ea82c09-f4a6-4268-88bc-fc439db40c48
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d740926f6e372e46001b5a093c7fb25b47bc4f36
+
 
 ---
-# Creación de grupos de seguridad de red en la CLI de Azure
+# <a name="how-to-create-nsgs-in-the-azure-cli"></a>Creación de grupos de seguridad de red en la CLI de Azure
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 En los siguientes comandos de CLI de Azure de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, cree primero el entorno de prueba mediante la implementación de [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y, a continuación, siga las instrucciones del portal.
 
-## Creación del grupo de seguridad de red para la subred front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el escenario anterior, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
@@ -69,7 +73,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
    
     Parámetros:
    
-   * **-g (or --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
+   * **-g (o --resource-group)**. Nombre del grupo de recursos donde se creará el grupo de seguridad de red En este escenario, *TestRG*.
    * **-l (o --location)**. Región de Azure donde se creará la red virtual. En este escenario, *TestRG*.
    * **-n (o --name)**. Nombre del nuevo grupo de seguridad de red. En este escenario, *NSG-FrontEnd*.
 4. Ejecute el comando **azure network nsg rule create** para crear una regla que permita el acceso al puerto 3389 (RDP) desde Internet.
@@ -100,11 +104,11 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
    
     Parámetros:
    
-   * **-a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
+   * **- a (o --nsg-name)**. Nombre del grupo de seguridad de red en el que se creará la regla. En este escenario, *NSG-FrontEnd*.
    * **-n (o --name)**. Nombre de la nueva regla. En este escenario, *rdp-rule*.
    * **-c (o--access)**. Nivel de acceso de la regla (Denegar o Permitir).
    * **-p (o --protocol)**. Protocolo (Tcp, Udp o *) para la regla.
-   * **-r (o --direction)**. Dirección de conexión (Entrante o Saliente).
+   * **- r (o --direction)**. Dirección de conexión (Entrante o Saliente).
    * **-y (o --priority)**. Prioridad de la regla.
    * **-f (o --source-address-prefix)**. Prefijo de dirección de origen en CIDR o con las etiquetas predeterminadas.
    * **-o (o --source-port-range)**. Puerto de origen, o intervalo de puertos.
@@ -160,7 +164,7 @@ Para crear un grupo de seguridad de red denominado *NSG-FrontEnd* según el esce
         data:    
         info:    network vnet subnet set command OK
 
-## Creación del grupo de seguridad de red para la subred back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Creación del grupo de seguridad de red para la subred back-end
 Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escenario anterior, siga estos pasos.
 
 1. Ejecute el comando **azure network nsg create** para crear un grupo de seguridad de red.
@@ -263,4 +267,9 @@ Para crear un grupo de seguridad de red denominado *NSG-BackEnd* según el escen
         data:    
         info:    network vnet subnet set command OK
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

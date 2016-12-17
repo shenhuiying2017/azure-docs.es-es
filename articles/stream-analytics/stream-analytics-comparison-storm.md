@@ -1,13 +1,13 @@
 ---
-title: 'Plataformas de análisis: Comparación de Apache Storm con Análisis de transmisiones | Microsoft Docs'
-description: Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias.
-keywords: plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm
+title: "Plataformas de Analytics: Comparación de Apache Storm con Stream Analytics | Microsoft Docs"
+description: "Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante una comparación de Apache Storm con Análisis de transmisiones. Comprenda las características y diferencias."
+keywords: "plataforma de análisis, plataformas de análisis, plataforma de análisis de la nube, comparación de storm"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 528266346733fff72113104d585540d75512b3a6
+
 
 ---
-# <a name="help-choosing-a-streaming-analytics-platform:-apache-storm-comparison-to-azure-stream-analytics"></a>Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
+# <a name="help-choosing-a-streaming-analytics-platform-apache-storm-comparison-to-azure-stream-analytics"></a>Ayuda para seleccionar una plataforma de Análisis de transmisiones: comparación de Apache Storm con Análisis de transmisiones de Azure
 Obtenga instrucciones para seleccionar una plataforma de análisis en la nube mediante esta comparación de Apache Storm con Análisis de transmisiones de Azure. Comprenda las diferencias entre las propuestas de valor de Análisis de transmisiones y Apache Storm como servicio administrado en HDInsight de Azure, para que pueda elegir la solución adecuada para los casos de uso de su empresa.
 
 Ambas plataformas ofrecen las ventajas de una solución PaaS, aunque hay algunas importantes capacidades distintivas que diferencian estos servicios. Las capacidades, así como las limitaciones, de estos servicios se enumeran a continuación para ayudarle a llegará a la solución que necesita para lograr sus objetivos.
 
-## <a name="storm-comparison-to-stream-analytics:-general-features"></a>Comparación de Storm con Análisis de transmisiones: características generales
+## <a name="storm-comparison-to-stream-analytics-general-features"></a>Comparación de Storm con Análisis de transmisiones: características generales
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -584,6 +588,6 @@ Disponible a través de Storm Bolts.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,29 +1,33 @@
 ---
-title: Acción de la capacidad de prueba | Microsoft Docs
-description: En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric.
+title: "Acción de la capacidad de prueba | Microsoft Docs"
+description: "En este artículo se habla sobre las acciones de capacidad de prueba que se encuentra en el servicio de Microsoft Azure Fabric."
 services: service-fabric
 documentationcenter: .net
 author: motanv
 manager: timlt
 editor: toddabel
-
+ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/08/2016
+ms.date: 10/03/2016
 ms.author: motanv;heeldin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 958be567a5e73eb52b6f99dee357ca97c7742677
+
 
 ---
-# Acciones de Testability
+# <a name="testability-actions"></a>Acciones de Testability
 Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.
 
 Service Fabric proporciona varios escenarios de prueba comunes que constan de estas acciones. Recomendamos encarecidamente usar estos escenarios integrados, que se seleccionan meticulosamente, para probar las transiciones de estado comunes y los casos de error. Sin embargo, las acciones se pueden utilizar para crear escenarios de prueba personalizados cuando desee agregar cobertura a aquellos escenarios que no aún estén cubiertos por los escenarios integrados o adaptados de manera personalizada a su aplicación.
 
 Las implementaciones en C# de las acciones se encuentran en el ensamblado System.Fabric.dll. El módulo System Fabric PowerShell se encuentra en el ensamblado Microsoft.ServiceFabric.Powershell.dll. Como parte de la instalación en tiempo de ejecución, se instala el módulo ServiceFabric PowerShell para facilitar su uso.
 
-## Acciones de errores estables frente a inestables
+## <a name="graceful-vs-ungraceful-fault-actions"></a>Acciones de errores estables frente a inestables
 Las acciones de Testability se clasifican en dos cubos principales:
 
 * Errores inestables: simulan errores como reinicios de equipos y bloqueos de procesos. En tales casos, el contexto de ejecución del proceso se detiene abruptamente, lo que significa que no se puede ejecutar ninguna limpieza de estado antes de que se vuelva a iniciar la aplicación.
@@ -31,7 +35,7 @@ Las acciones de Testability se clasifican en dos cubos principales:
 
 Para mejorar la calidad de la validación, ejecute la carga de trabajo del servicio y del negocio mientras provoca varios errores estables e inestables. Los errores inestables crean escenarios en que el proceso se cierra abruptamente en medio de algún flujo de trabajo. Así se prueba la ruta de recuperación una vez que Service Fabric restaura la réplica del servicio. Esto facilitará la comprobación de la coherencia de los datos y de si el estado del servicio se mantiene correctamente después de los errores. El otro conjunto de errores (los errores estables) prueban que el servicio reacciona correctamente al hecho de que Service Fabric mueva las réplicas. Así se prueba el control de la cancelación en el método RunAsync. El servicio debe comprobar si se ha establecido el token de cancelación, guardar correctamente su estado y salir del método RunAsync.
 
-## Lista de acciones de Testability
+## <a name="testability-actions-list"></a>Lista de acciones de Testability
 | Acción | Descripción | API administrada | Cmdlet de PowerShell | Errores estables o no estables |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Quita todo el estado de prueba del clúster en caso de un cierre incorrecto del controlador de prueba. |CleanTestStateAsync |Remove-ServiceFabricTestState |No aplicable |
@@ -49,7 +53,7 @@ Para mejorar la calidad de la validación, ejecute la carga de trabajo del servi
 | ValidateApplication |Valida la disponibilidad y mantenimiento de todos los servicios de Service Fabric de una aplicación, normalmente después de provocar algunos errores en el sistema. |ValidateApplicationAsync |Test-ServiceFabricApplication |No aplicable |
 | ValidateService |Valida la disponibilidad y mantenimiento de todos un servicios de Service Fabric, normalmente después de provocar algunos errores en el sistema. |ValidateServiceAsync |Test-ServiceFabricService |No aplicable |
 
-## Ejecución de una acción de Testability con PowerShell
+## <a name="running-a-testability-action-using-powershell"></a>Ejecución de una acción de Testability con PowerShell
 Este tutorial muestra cómo ejecutar una acción de Testability con PowerShell. Aprenderá a ejecutar una acción de Testability en un clúster local (one-box) o un clúster de Azure. Microsoft.Fabric.Powershell.dll, el módulo Service Fabric PowerShell, se instala automáticamente al instalar el MSI de Microsoft Service Fabric. El módulo se carga automáticamente al abrir un aviso de PowerShell.
 
 Secciones del tutorial:
@@ -57,8 +61,8 @@ Secciones del tutorial:
 * [Ejecución de una acción en un clúster one-box](#run-an-action-against-a-one-box-cluster)
 * [Ejecución de una acción en un clúster de Azure](#run-an-action-against-an-azure-cluster)
 
-### Ejecución de una acción en un clúster one-box
-Para ejecutar una acción de Testability en un clúster local, primero es preciso conectarse al clúster y, a continuación, abrir el aviso de PowerShell en modo de administrador. Examinemos la acción **Restart-ServiceFabricNode**.
+### <a name="run-an-action-against-a-one-box-cluster"></a>Ejecución de una acción en un clúster one-box
+Para ejecutar una acción de Testability en un clúster local, primero es preciso conectarse al clúster y, a continuación, abrir el aviso de PowerShell en modo de administrador. Examinemos la acción **Restart-ServiceFabricNode** .
 
 ```powershell
 Restart-ServiceFabricNode -NodeName Node1 -CompletionMode DoNotVerify
@@ -87,11 +91,12 @@ La siguiente captura de pantalla muestra el comando **Restart-ServiceFabricNode*
 
 El resultado del primer **Get ServiceFabricNode** (un cmdlet del módulo de PowerShell de Service Fabric) muestra que el clúster local tiene cinco nodos: de Node.1 a Node.5. Una vez que la acción de Testability (cmdlet) **Restart-ServiceFabricNode** se ejecute en el nodo, denominado Node.4, veremos que se ha restablecido el tiempo de actividad del nodo.
 
-### Ejecución de una acción en un clúster de Azure
+### <a name="run-an-action-against-an-azure-cluster"></a>Ejecución de una acción en un clúster de Azure
 La ejecución de una acción de Testability (mediante el uso de PowerShell) en un clúster de Azure es similar a la ejecución de la acción en un clúster local. La única diferencia es que, para poder ejecutar la acción, en lugar de conectarse al clúster local, debe conectarse primero al clúster de Azure.
 
-## Ejecución de una acción de Testability con C&#35;
-Para ejecutar una acción de Testability con C#, primero es preciso conectarse al clúster mediante FabricClient. A continuación, hay que obtener los parámetros necesarios para ejecutar la acción. Se pueden usar distintos parámetros para ejecutar la misma acción. Examinando la acción RestartServiceFabricNode, una forma de ejecutarla es usar la información (nombre del nodo e Id. de instancia de nodo) del nodo en el clúster.
+## <a name="running-a-testability-action-using-c35"></a>Ejecución de una acción de Testability con C&#35;
+Para ejecutar una acción de Testability con C#, primero es preciso conectarse al clúster mediante FabricClient. A continuación, hay que obtener los parámetros necesarios para ejecutar la acción. Se pueden usar distintos parámetros para ejecutar la misma acción.
+Examinando la acción RestartServiceFabricNode, una forma de ejecutarla es usar la información (nombre del nodo e Id. de instancia de nodo) del nodo en el clúster.
 
 ```csharp
 RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, CancellationToken.None)
@@ -99,9 +104,9 @@ RestartNodeAsync(nodeName, nodeInstanceId, completeMode, operationTimeout, Cance
 
 Explicación de parámetros:
 
-* **CompleteMode** especifica que el modo no debe comprobar si la acción de reinicio se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente.
-* **OperationTimeout**: establece la cantidad de tiempo que falta para que la operación finalice antes de que se inicie una excepción TimeoutException.
-* **CancellationToken**: permite cancelar una llamada pendiente.
+* **CompleteMode** especifica que el modo no debe comprobar si la acción de reinicio se realizó correctamente. La especificación del modo de finalización como comprobación provocará que se compruebe si la acción de reinicio se realizó correctamente.  
+* **OperationTimeout** : establece la cantidad de tiempo que falta para que la operación finalice antes de que se inicie una excepción TimeoutException.
+* **CancellationToken** : permite cancelar una llamada pendiente.
 
 En lugar de especificar directamente el nodo por su nombre, se puede especificar a través de una clave de partición y el tipo de réplica.
 
@@ -173,8 +178,8 @@ class Test
 }
 ```
 
-## PartitionSelector y ReplicaSelector
-### PartitionSelector
+## <a name="partitionselector-and-replicaselector"></a>PartitionSelector y ReplicaSelector
+### <a name="partitionselector"></a>PartitionSelector
 PartitionSelector es una aplicación auxiliar que se expone en Testability y que se utiliza para seleccionar una partición concreta en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una partición concreta si se conoce de antemano el Id. de la partición. O bien, se puede proporcionar la clave de partición y la operación resolverá internamente el Id. de la partición. También existe la opción de seleccionar una partición aleatoria.
 
 Para usar esta aplicación auxiliar, cree el objeto PartitionSelector y seleccione la partición mediante uno de los métodos Select*. A continuación, pase el objeto PartitionSelector a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una partición aleatoria.
@@ -198,7 +203,7 @@ PartitionSelector namedPartitionSelector = PartitionSelector.PartitionKeyOf(serv
 PartitionSelector uniformIntPartitionSelector = PartitionSelector.PartitionKeyOf(serviceName, partitionKeyUniformInt64);
 ```
 
-### ReplicaSelector
+### <a name="replicaselector"></a>ReplicaSelector
 ReplicaSelector es una aplicación auxiliar que se expone en Testability y que se utiliza para ayudar a seleccionar una réplica en la que se va a realizar cualquiera de las acciones de Testability. Se puede usar para seleccionar una réplica concreta si se conoce de antemano el identificador de la réplica. Además, existe la opción de seleccionar una réplica principal o secundaria aleatoria. ReplicaSelector se deriva de PartitionSelector, por lo que es preciso seleccionar tanto la réplica como la partición en la que se desea realizar la operación de la Testability.
 
 Para esta aplicación auxiliar, cree un objeto ReplicaSelector y establezca la forma en que desea seleccionar la réplica y la partición. A continuación, puede pasarlo a la API que lo requiera. Si no se selecciona ninguna opción, el valor predeterminado es una réplica aleatoria y una partición aleatoria.
@@ -221,10 +226,15 @@ ReplicaSelector replicaByIdSelector = ReplicaSelector.ReplicaIdOf(partitionSelec
 ReplicaSelector secondaryReplicaSelector = ReplicaSelector.RandomSecondaryOf(partitionSelector);
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Escenarios de Testability](service-fabric-testability-scenarios.md)
 * Procedimientos para probar un servicio
   * [Simulación de errores durante las cargas de trabajo del servicio](service-fabric-testability-workload-tests.md)
   * [Errores de comunicación entre servicios](service-fabric-testability-scenarios-service-communication.md)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

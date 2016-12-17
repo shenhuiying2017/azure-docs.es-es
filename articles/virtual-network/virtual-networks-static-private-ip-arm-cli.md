@@ -1,13 +1,13 @@
 ---
-title: Establecimiento de una IP privada estática en el modo ARM mediante la CLI | Microsoft Docs
-description: Descripción de las IP estáticas (DIP) y su administración en el modo ARM mediante la CLI
+title: "Establecimiento de una dirección IP privada estática en el modo ARM mediante la CLI | Microsoft Docs"
+description: "Descripción de las IP estáticas (DIP) y su administración en el modo ARM mediante la CLI"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 782f4260b00fed11921da97fed8a98452f91ba08
+
 
 ---
-# Configuración de una dirección IP privada estática en la CLI de Azure
+# <a name="how-to-set-a-static-private-ip-address-in-azure-cli"></a>Configuración de una dirección IP privada estática en la CLI de Azure
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -30,8 +34,8 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 En los siguientes comandos de ejemplo de la CLI de Azure se presupone que ya se creó un entorno simple. Si desea ejecutar los comandos que aparecen en este documento, cree primero el entorno de prueba descrito en [creación de una red virtual](virtual-networks-create-vnet-arm-cli.md).
 
-## Especificación de una dirección IP privada estática al crear una VM
-Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una Red virtual denominada *TestVNet* con una IP privada estática de *192.168.1.101*, sigue estos pasos:
+## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Especificación de una dirección IP privada estática al crear una VM
+Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una red virtual denominada *TestVNet* con una dirección IP privada estática de *192.168.1.101*, siga los siguientes pasos:
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecuta el comando **azure config mode** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
@@ -115,14 +119,14 @@ Para crear una VM denominada *DNS01* en la subred de *FrontEnd* de una Red virtu
         + Creating VM "DNS01"
         info:    vm create command OK
    
-   * **-y (or --os-type)**. Tipo de sistema de operativo para la máquina virtual, ya sea *Windows* o *Linux*.
+   * **-y (or --os-type)**. Tipo de sistema operativo para la VM, ya sea *Windows* o *Linux*.
    * **-f (or --nic-name)**. Nombre de la NIC que usará la máquina virtual.
    * **-i (or --public-ip-name)**. Nombre de la dirección IP pública que usará la máquina virtual.
    * **-F (or --vnet-name)**. Nombre de la red virtual donde se creará la VM.
    * **-j (or --vnet-subnet-name)**. Nombre de la subred donde se creará la VM.
 
-## Recuperación de la información de la dirección IP privada estática para una VM
-Para ver la información de la dirección IP privada estática para la VM que se creó con el script anterior, ejecuta el siguiente comando de la CLI de Azure y observa los valores para *Método de asignación de dirección IP privada* y *Dirección IP privada*:
+## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Recuperación de la información de la dirección IP privada estática para una VM
+Para ver la información de la dirección IP privada estática para la VM que se ha creado con el script anterior, ejecute el siguiente comando de la CLI de Azure y observe los valores para *Método de asignación de dirección IP privada* y *Dirección IP privada*:
 
     azure vm show -g TestRG -n DNS01
 
@@ -174,10 +178,10 @@ Resultado esperado:
     data:            Public IP address       :40.122.213.159
     info:    vm show command OK
 
-## Eliminación de una dirección IP privada estática de una VM
+## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Eliminación de una dirección IP privada estática de una VM
 No se puede eliminar una dirección IP privada estática de una NIC de la CLI de Azure para el Administrador de recursos. Tienes que crear una nueva NIC que use una dirección IP dinámica, eliminar la NIC anterior de la VM y después agregar la nueva a la VM. Para cambiar la NIC para la VM usada en los comandos anteriores, sigue estos pasos.
 
-1. Ejecuta el comando**azure network nic create** para crear una nueva NIC con la asignación de IP dinámica. Observa cómo no tienes que especificar la dirección IP en este momento.
+1. Ejecuta el comando **azure network nic create** para crear una nueva NIC con la asignación de IP dinámica. Observa cómo no tienes que especificar la dirección IP en este momento.
    
         azure network nic create -g TestRG -n TestNIC2 -l centralus -m TestVNet -k FrontEnd
    
@@ -224,7 +228,7 @@ No se puede eliminar una dirección IP privada estática de una NIC de la CLI de
         + Deleting network interface "TestNIC"
         info:    network nic delete command OK
 
-## Adición de una dirección IP privada estática a una VM existente
+## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Adición de una dirección IP privada estática a una VM existente
 Para agregar una dirección IP privada estática a la NIC que usó la VM y creada con el script anterior, ejecuta el siguiente comando:
 
     azure network nic set -g TestRG -n TestNIC2 -a 192.168.1.101
@@ -252,9 +256,14 @@ Resultado esperado:
     data:
     info:    network nic set command OK
 
-## Pasos siguientes
-* Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md).
-* Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md).
-* Consulta las [API de REST de IP reservadas](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga más información acerca de las [direcciones IP públicas reservadas](virtual-networks-reserved-public-ip.md) .
+* Obtenga información sobre las [direcciones IP públicas a nivel de instancia (ILPIP)](virtual-networks-instance-level-public-ip.md) .
+* Consulte las [API de REST de IP reservada](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
