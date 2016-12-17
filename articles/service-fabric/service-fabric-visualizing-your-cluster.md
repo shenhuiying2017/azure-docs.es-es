@@ -1,12 +1,12 @@
 ---
-title: Visualización del clúster mediante el Explorador de Service Fabric | Microsoft Docs
-description: El Explorador de Service Fabric es una herramienta basada en web para inspeccionar y administrar aplicaciones y nodos en la nube en un clúster de Service Fabric de Microsoft Azure.
+title: "Visualización del clúster mediante el Explorador de Service Fabric | Microsoft Docs"
+description: "El Explorador de Service Fabric es una herramienta basada en web para inspeccionar y administrar aplicaciones y nodos en la nube en un clúster de Service Fabric de Microsoft Azure."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: c875b993-b4eb-494b-94b5-e02f5eddbd6a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,30 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b97cd5d2f9a29d3fa8f13363b937ace276e556ff
+
 
 ---
-# Visualización del clúster mediante el Explorador de Service Fabric
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualización del clúster mediante el Explorador de Service Fabric
 El Explorador de Service Fabric es una herramienta web para inspeccionar y administrar aplicaciones y nodos en un clúster de Azure Service Fabric. El Explorador de Service Fabric se hospeda directamente en el clúster para que siempre esté disponible, independientemente de dónde se ejecuta el clúster.
 
-## Conexión al Explorador de Service Fabric
-Si ha seguido las instrucciones para [preparar el entorno de desarrollo](service-fabric-get-started.md), puede iniciar el explorador de Service Fabric en el clúster local en http://localhost:19080/Explorer.
+## <a name="connect-to-service-fabric-explorer"></a>Conexión al Explorador de Service Fabric
+Si ha seguido las instrucciones para [preparar el entorno de desarrollo](service-fabric-get-started.md), puede iniciar el Explorador de Service Fabric en el clúster local en http://localhost:19080/Explorer.
 
 > [!NOTE]
 > Si usa Internet Explorer con el Explorador de Service Fabric para administrar un clúster remoto, deberá configurar algunas opciones de Internet Explorer. Vaya a **Herramientas** > **Configuración de Vista de compatibilidad** y desactive la casilla **Mostrar sitios de la intranet en Vista de compatibilidad** para asegurarse de que toda la información se cargue correctamente.
 > 
 > 
 
-## Información sobre el diseño del Explorador de Service Fabric
+## <a name="understand-the-service-fabric-explorer-layout"></a>Información sobre el diseño del Explorador de Service Fabric
 Puede desplazarse por el Explorador de Service Fabric desde el árbol situado a la izquierda. En la raíz del árbol, el panel del clúster proporciona información general del clúster, incluido un resumen de la aplicación y del estado del nodo.
 
 ![Panel de clúster del Explorador de Service Fabric][sfx-cluster-dashboard]
 
-### Visualización del diseño del clúster
+### <a name="view-the-clusters-layout"></a>Visualización del diseño del clúster
 Los nodos de un clúster de Service Fabric se colocan en una cuadrícula bidimensional de dominios de error y dominios de actualización. Esta colocación garantiza que las aplicaciones permanecen disponibles en presencia de errores de hardware y actualizaciones de aplicaciones. Puede ver cómo se dispone el clúster actual mediante el mapa del clúster.
 
 ![Mapa de clúster del Explorador de Service Fabric][sfx-cluster-map]
 
-### Visualización de aplicaciones y servicios
+### <a name="view-applications-and-services"></a>Visualización de aplicaciones y servicios
 El clúster contiene dos subárboles: uno para las aplicaciones y otro para los nodos.
 
 Puede usar la vista de aplicaciones para navegar por la jerarquía lógica de Service Fabric: aplicaciones, servicios, particiones y réplicas.
@@ -50,10 +54,10 @@ En cada nivel del árbol, el panel principal muestra la información pertinente 
 
 ![Panel Essentials del explorador de Service Fabric][sfx-service-essentials]
 
-### Visualización de los nodos del clúster
+### <a name="view-the-clusters-nodes"></a>Visualización de los nodos del clúster
 En la vista de nodos se muestra el diseño físico del clúster. Para un nodo determinado, puede comprobar qué aplicaciones tienen el código implementado en ese nodo. Más específicamente, puede ver qué réplicas están en ejecución.
 
-## Acciones
+## <a name="actions"></a>Acciones
 El explorador de Service Fabric ofrece una forma rápida de invocar acciones en nodos, aplicaciones y servicios dentro del clúster.
 
 Por ejemplo, para eliminar una instancia de la aplicación, solo hay que elegir la aplicación en el árbol de la izquierda y luego elegir **Acciones** > **Eliminar aplicación**.
@@ -94,22 +98,22 @@ También puede utilizar el Service Fabric Explorer a fin de crear nuevas instanc
 > 
 > 
 
-## Conexión a un clúster de Service Fabric remoto
+## <a name="connect-to-a-remote-service-fabric-cluster"></a>Conexión a un clúster de Service Fabric remoto
 Como el explorador de Service Fabric está basado en web y se ejecuta dentro del clúster, es accesible desde cualquier explorador, siempre que conozca el punto de conexión del clúster y tenga permisos suficientes para tener acceso a él.
 
-### Detección del punto de conexión del Explorador de Service Fabric para un clúster remoto
+### <a name="discover-the-service-fabric-explorer-endpoint-for-a-remote-cluster"></a>Detección del punto de conexión del Explorador de Service Fabric para un clúster remoto
 Para acceder al explorador de Service Fabric para un clúster determinado, simplemente dirija el explorador a:
 
-http://&lt;your-cluster-endpoint&gt;:19080/Explorer
+http://&lt;su-punto-de-conexión-de-clúster&gt;:19080/Explorer
 
 La dirección URL completa también está disponible en el panel de elementos esenciales del clúster del portal de Azure.
 
-### Conexión a un clúster seguro
+### <a name="connect-to-a-secure-cluster"></a>Conexión a un clúster seguro
 Puede controlar el acceso de cliente a su clúster de Service Fabric con certificados o mediante Azure Active Directory (AAD).
 
 Si intenta conectarse a Service Fabric Explorer en un clúster seguro, deberá presentar un certificado de cliente o iniciar sesión con AAD, según la configuración del clúster.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Información general sobre Testability](service-fabric-testability-overview.md)
 * [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Implementación de aplicaciones de Service Fabric con PowerShell](service-fabric-deploy-remove-applications.md)
@@ -122,4 +126,8 @@ Si intenta conectarse a Service Fabric Explorer en un clúster seguro, deberá p
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,25 +1,31 @@
 ---
-title: Configuración del método de enrutamiento del tráfico de rendimiento | Microsoft Docs
-description: Este artículo le ayudará a configurar el método de enrutamiento del tráfico de rendimiento en el Administrador de tráfico
+title: "Configuración del método de enrutamiento del tráfico de rendimiento | Microsoft Docs"
+description: "Este artículo le ayudará a configurar el método de enrutamiento del tráfico de rendimiento en el Administrador de tráfico"
 services: traffic-manager
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+documentationcenter: 
+author: kumudd
+manager: timlt
 editor: tysonn
-
+ms.assetid: 6dd23b8e-0ed5-4ea4-b5ae-018f42e72688
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/17/2016
-ms.author: sewhee
+ms.date: 10/18/2016
+ms.author: kumud
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 51a3f970059f4b83240cb61411dbf612209d9293
+
 
 ---
-# Configuración del método de enrutamiento del tráfico de rendimiento
+<!-- repub for nofollow -->
+
+# <a name="configure-performance-traffic-routing-method"></a>Configuración del método de enrutamiento del tráfico de rendimiento
 Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos) que se encuentran en distintos centros de datos de todo el mundo (también conocidos como regiones), puede dirigir el tráfico entrante al extremo con la latencia más baja desde el cliente que realiza la solicitud. Normalmente, el centro de datos con la latencia más baja corresponde a la distancia geográfica más cercana. El método de enrutamiento del tráfico de rendimiento le permitirá realizar la distribución según la latencia inferior, pero no puede tener en cuenta los cambios en tiempo real en la carga o la configuración de red. Para más información sobre los distintos métodos de enrutamiento de tráfico que proporciona el Administrador de tráfico de Azure, vea [Acerca de la supervisión del Administrador de tráfico](traffic-manager-routing-methods.md).
 
-## Redirija el tráfico en función de la latencia más baja en un conjunto de extremos:
+## <a name="route-traffic-based-on-lowest-latency-across-a-set-of-endpoints"></a>Redirija el tráfico en función de la latencia más baja en un conjunto de extremos:
 1. En el Portal de Azure clásico, en el panel izquierdo, haga clic en el icono **Administrador de tráfico** para abrir el panel del Administrador de tráfico. Si aún no ha creado su perfil de Administrador de tráfico, consulte [Administración de perfiles del Administrador de tráfico](traffic-manager-manage-profiles.md) para conocer el procedimiento de creación de un perfil básico del Administrador de tráfico.
 2. En el panel Administrador de tráfico del Portal de Azure clásico, localice el perfil del Administrador de tráfico que contiene la configuración que desea modificar y haga clic en la flecha situada a la derecha del nombre del perfil. Se abrirá la página de configuración del perfil.
 3. En la página del perfil,haga clic en **Extremos** y compruebe que están presentes los extremos del servicio que desea incluir en la configuración. Para saber cómo agregar o quitar extremos del perfil, consulte [Administración de extremos en el Administrador de tráfico](traffic-manager-endpoints.md).
@@ -30,7 +36,7 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 8. Pruebe los cambios de la configuración. Para obtener más información, consulte [Comprobación de la configuración del Administrador de tráfico](traffic-manager-testing-settings.md).
 9. Una vez que el perfil del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el nombre de dominio de la empresa al nombre de dominio del Administrador de tráfico. Para obtener más información acerca del procedimiento, consulte [Seleccionar un dominio de la compañía en Internet para un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Hacer que un dominio de Internet de la empresa indique un dominio del Administrador de tráfico](traffic-manager-point-internet-domain.md)
 
 [Métodos de enrutamiento del Administrador de tráfico](traffic-manager-routing-methods.md)
@@ -45,4 +51,9 @@ Para redirigir el tráfico a los servicios en la nube y los sitios web (extremos
 
 [Administrador de tráfico: deshabilitación o habilitación de un extremo](disable-or-enable-an-endpoint.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

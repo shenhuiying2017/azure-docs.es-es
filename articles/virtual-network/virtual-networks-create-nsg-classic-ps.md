@@ -1,13 +1,13 @@
 ---
-title: Creación de grupos de seguridad de red en el modo clásico mediante PowerShell | Microsoft Docs
-description: Obtenga información acerca de cómo crear e implementar grupos de seguridad de red en modo clásico mediante PowerShell
+title: "Creación de grupos de seguridad de red en el modo clásico mediante PowerShell | Microsoft Docs"
+description: "Obtenga información acerca de cómo crear e implementar grupos de seguridad de red en modo clásico mediante PowerShell"
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: 86810b0d-0240-46a2-8548-fca22daa56f3
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bbd1bcba9a56f4cee01101b333c11823d9bd30a0
+
 
 ---
-# Creación de grupos de seguridad de red (clásicos) en PowerShell
+# <a name="how-to-create-nsgs-classic-in-powershell"></a>Creación de grupos de seguridad de red (clásicos) en PowerShell
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -30,7 +34,7 @@ Este artículo trata sobre el modelo de implementación clásico. También puede
 
 En los siguientes comandos de PowerShell de ejemplo se presupone que ya se ha creado un entorno simple según el escenario anterior. Si desea ejecutar los comandos tal y como aparecen en este documento, compile primero el entorno de prueba mediante la [creación de una red virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
-## Creación del grupo de seguridad de red para la subred front-end
+## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Creación del grupo de seguridad de red para la subred front-end
 Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el escenario anterior, siga estos pasos:
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
@@ -118,7 +122,7 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-## Creación del grupo de seguridad de red para la subred back-end
+## <a name="how-to-create-the-nsg-for-the-back-end-subnet"></a>Creación del grupo de seguridad de red para la subred back-end
 1. Cree un grupo de seguridad de red denominado **NSG-BackEnd**.
    
         New-AzureNetworkSecurityGroup -Name "NSG-BackEnd" -Location uswest `
@@ -202,4 +206,8 @@ Para crear un grupo de seguridad de red denominado **NSG-FrontEnd** según el es
                    OUTBOUND                                                                                                      
                    DENY ALL OUTBOUND    65500     Deny     *               *             *                *              *   
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
