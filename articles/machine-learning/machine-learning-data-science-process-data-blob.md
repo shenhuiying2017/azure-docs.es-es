@@ -1,12 +1,12 @@
 ---
-title: Proceso de datos del blob de Azure con análisis avanzado | Microsoft Docs
+title: "Proceso de datos del blob de Azure con análisis avanzado | Microsoft Docs"
 description: Proceso de datos en Almacenamiento de blobs de Azure.
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,15 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3a8bf79ca39effaa19518ade7ff392530ef29475
+
 
 ---
-# <a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
-En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure.
+# <a name="a-nameheadingaprocess-azure-blob-data-with-advanced-analytics"></a><a name="heading"></a>Proceso de datos del blob de Azure con análisis avanzado
+En este documento se trata la exploración de datos y generación de características a partir de los datos almacenados en Almacenamiento de blobs de Azure. 
 
-## Carga de los datos en una trama de datos Pandas
+## <a name="load-the-data-into-a-pandas-data-frame"></a>Carga de los datos en una trama de datos Pandas
 Para explorar y manipular un conjunto de datos, se debe descargar desde el origen de blob en un archivo local que se pueda cargar en una trama de datos de Pandas. Estos son los pasos a seguir para realizar este procedimiento:
 
-1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos:
+1. Descargue los datos del blob de Azure con el siguiente código de Python de ejemplo mediante el servicio BLOB. Reemplace la variable en el código siguiente por sus valores específicos: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -46,10 +50,10 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="blob-dataexploration"></a>Exploración de datos
+## <a name="a-nameblob-dataexplorationadata-exploration"></a><a name="blob-dataexploration"></a>Exploración de datos
 A continuación, se muestran algunos ejemplos de formas de explorar datos mediante Pandas:
 
-1. Inspeccionar el número de filas y columnas
+1. Inspeccionar el número de filas y columnas 
    
         print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 2. Inspeccionar las primeras o las últimas filas del conjunto de datos, como se indica a continuación:
@@ -73,13 +77,12 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         print miss_num
 7. Si hay valores que faltan para una columna determinada en los datos, puede quitarlos como se indica:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+     dataframe_blobdata_noNA = dataframe_blobdata.dropna()   dataframe_blobdata_noNA.shape
    
    Otra forma de reemplazar los valores que faltan es a través de la función de modo:
    
      dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
-8. Crear un gráfico de histograma con un número variable de discretizaciones para trazar la distribución de una variable
+8. Crear un gráfico de histograma con un número variable de discretizaciones para trazar la distribución de una variable    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
    
@@ -92,10 +95,10 @@ A continuación, se muestran algunos ejemplos de formas de explorar datos median
         #correlation between column_a and column_b
         dataframe_blobdata[['<column_a>', '<column_b>']].corr()
 
-## <a name="blob-featuregen"></a>Generación de características
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Generación de características
 Es posible generar características con Python de la siguiente manera:
 
-### <a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
 Las características de categorías se pueden crear como sigue:
 
 1. Inspeccione la distribución de la columna de categorías:
@@ -105,7 +108,7 @@ Las características de categorías se pueden crear como sigue:
    
         #generate the indicator column
         dataframe_blobdata_identity = pd.get_dummies(dataframe_blobdata['<categorical_column>'], prefix='<categorical_column>_identity')
-3. Combine la columna de indicador con la trama de datos original
+3. Combine la columna de indicador con la trama de datos original 
    
             #Join the dummy variables back to the original data frame
             dataframe_blobdata_with_identity = dataframe_blobdata.join(dataframe_blobdata_identity)
@@ -114,7 +117,7 @@ Las características de categorías se pueden crear como sigue:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="blob-binningfeature"></a>Generación de características de discretización
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Generación de características de discretización
 Para generar características discretizadas, se procede de la siguiente manera:
 
 1. Agregue una secuencia de columnas para discretizar una columna numérica
@@ -128,8 +131,8 @@ Para generar características discretizadas, se procede de la siguiente manera:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
-## <a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
-Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Aprendizaje automático de Azure, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Estudio de aprendizaje automático de Azure
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
+Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Aprendizaje automático de Azure, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Estudio de aprendizaje automático de Azure 
 
 1. Escriba la trama de datos en el archivo local
    
@@ -155,7 +158,7 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Ahora se pueden leer los datos del blob mediante el módulo [Importar datos][import-data] de Aprendizaje automático de Azure, como se muestra en la pantalla siguiente:
+3. Ahora se pueden leer los datos del blob mediante el módulo [Importar datos][import-data] de Azure Machine Learning, como se muestra en la pantalla siguiente:
 
 ![lector de blobs][1]
 
@@ -166,4 +169,8 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

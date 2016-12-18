@@ -1,12 +1,12 @@
 ---
-title: Templates
-description: This topic explains Templates for Azure notification hubs.
+title: Plantillas
+description: En este tema se explican las plantillas para los Centros de notificaciones de Azure.
 services: notification-hubs
 documentationcenter: .net
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,25 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d47f493d0ec80318805303c8192477d7002533eb
+
 
 ---
-# <a name="templates"></a>Templates
-## <a name="overview"></a>Overview
-Templates enable a client application to specify the exact format of the notifications it wants to receive. Using templates, an app can realize several different benefits, including the following :
+# <a name="templates"></a>Plantillas
+## <a name="overview"></a>Información general
+Las plantillas permiten que una aplicación cliente especifique el formato exacto de la notificación que desea recibir. Con las plantillas, una aplicación puede obtener muchos beneficios distintos, incluidos los siguientes:
 
-* A platform-agnostic backend
-* Personalized notifications
-* Client-version independence
-* Easy localization
+* Un back-end independiente de la plataforma
+* Notificaciones personalizadas
+* Independencia de la versión del cliente
+* Localización sencilla
 
-This section provides two in-depth examples of how to use templates to send platform-agnostic notifications targeting all your devices across platforms, and to personalize broadcast notification to each device.
+Esta sección proporciona ejemplos detallados sobre cómo usar las plantillas para enviar notificaciones independientes de la plataforma orientadas a todos los dispositivos en todas las plataformas y para personalizar la notificación de difusión a cada dispositivo.
 
-## <a name="using-templates-cross-platform"></a>Using templates cross-platform
-The standard way to send push notifications is to send, for each notification that is to be sent, a specific payload to platform notification services (WNS, APNS). For example, to send an alert to APNS, the payload is a Json object of the following form:
+## <a name="using-templates-cross-platform"></a>Uso de plantillas multiplataforma
+La forma estándar de enviar notificaciones push es enviar una carga específica a los servicios de notificación de plataforma (WNS, APNS) para cada notificación que se debe enviar. Por ejemplo, para enviar una alerta a APNS, la carga es un objeto JSON con el formato siguiente:
 
     {"aps": {"alert" : "Hello!" }}
 
-To send a similar toast message on a Windows Store application, the XML payload is as follows:
+Para enviar un mensaje de notificación del sistema similar en una aplicación de la Tienda Windows, la carga XML es la siguiente:
 
     <toast>
       <visual>
@@ -42,21 +46,21 @@ To send a similar toast message on a Windows Store application, the XML payload 
       </visual>
     </toast>
 
-You can create similar payloads for MPNS (Windows Phone) and GCM (Android) platforms.
+Puede crear cargas similares para plataformas MPNS (Windows Phone) y GCM (Android).
 
-This requirement forces the app backend to produce different payloads for each platform, and effectively makes the backend responsible for part of the presentation layer of the app. Some concerns include localization and graphical layouts (especially for Windows Store apps that include notifications for various types of tiles).
+Este requisito obliga al back-end de la aplicación a generar cargas distintas para cada plataforma y, de manera efectiva, hace que el back-end sea responsable de parte del nivel de presentación de la aplicación. Algunos problemas incluye diseños gráficos y de localización (especialmente para las aplicaciones de la Tienda Windows que incluyen notificaciones para varios tipos de iconos).
 
-The Notification Hubs template feature enables a client app to create special registrations, called template registrations, which include, in addition to the set of tags, a template. The Notification Hubs template feature enables a client app to associate devices with templates whether you are working with Installations (preferred) or Registrations. Given the preceding payload examples, the only platform-independent information is the actual alert message (Hello!). A template is a set of instructions for the Notification Hub on how to format a platform-independent message for the registration of that specific client app. In the preceding example, the platform independent message is a single property: **message = Hello!**.
+La característica de plantilla de Centros de notificaciones permite que una aplicación cliente cree registros especiales, llamados registros de plantilla, que, además del conjunto de etiquetas, incluye una plantilla. La característica de plantilla de Centros de notificaciones permite que una aplicación cliente asocie los dispositivos con plantillas, ya sea que trabaje con Instalaciones (la opción de preferencia) o con Registros. Dados los ejemplos de carga anteriores, la única información independiente de la plataforma es el mensaje de alerta mismo (Hello!). Una plantilla es un conjunto de instrucciones para el Centro de notificaciones sobre cómo dar formato a un mensaje independiente de la plataforma para el registro de esa aplicación cliente específica. En el ejemplo anterior, el mensaje independiente de la plataforma es una propiedad única: **message = Hello!**.
 
-The following picture illustrates the above process:
+La siguiente ilustración muestra el proceso anterior:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-The template for the iOS client app registration is as follows:
+La plantilla para el registro de una aplicación cliente de iOS es la siguiente:
 
     {"aps": {"alert": "$(message)"}}
 
-The corresponding template for the Windows Store client app is:
+La plantilla correspondiente a una aplicación cliente de la Tienda Windows es:
 
     <toast>
         <visual>
@@ -66,16 +70,16 @@ The corresponding template for the Windows Store client app is:
         </visual>
     </toast>
 
-Notice that the actual message is substituted for the expression $(message). This expression instructs the Notification Hub, whenever it sends a message to this particular registration, to build a message that follows it and switches in the common value.
+Observe que la expresión $(message) sustituye al mensaje mismo. Esta expresión indica al Centro de notificaciones, cada vez que envía un mensaje a este registro en especial, que cree un mensaje que lo siga y cambia el valor común.
 
-If you are working with Installation model, the installation “templates” key holds a JSON of multiple templates. If you are working with Registration model, the client application can create multiple registrations in order to use multiple templates; for example, a template for alert messages and a template for tile updates. Client applications can also mix native registrations (registrations with no template) and template registrations.
+Si trabaja con el modelo de Instalación, la clave "plantillas" de la instalación contiene el código JSON de varias plantillas. Si trabaja con el modelo de Registro, la aplicación cliente puede crear varios registros para usar varias plantillas; por ejemplo, una plantilla para los mensajes de alerta y una plantilla para las actualizaciones de icono. Las aplicaciones cliente también pueden combinar los registros nativos (registros sin plantilla) y los registros de plantilla.
 
-The Notification Hub sends one notification for each template without considering whether they belong to the same client app. This behavior can be used to translate platform-independent notifications into more notifications. For example, the same platform independent message to the Notification Hub can be seamlessly translated in a toast alert and a tile update, without requiring the backend to be aware of it. Note that some platforms (for example, iOS) might collapse multiple notifications to the same device if they are sent in a short period of time.
+El Centro de notificaciones envía una notificación para cada plantilla sin considerar si pertenecen a la misma aplicación cliente. Este comportamiento se puede usar para traducir las notificaciones independientes de la plataforma en más notificaciones. Por ejemplo, el mismo mensaje independiente de la plataforma al Centro de notificaciones se puede traducir sin problemas en una alerta de notificación del sistema y una actualización de icono, sin requerir que el back-end lo sepa. Tenga en cuenta que algunas plataformas (por ejemplo, iOS) puede contraer las diversas notificaciones en el mismo dispositivo si se envían en un período breve.
 
-## <a name="using-templates-for-personalization"></a>Using templates for personalization
-Another advantage to using templates is the ability to use Notification Hubs to perform per-registration personalization of notifications. For example, consider a weather app that displays a tile with the weather conditions at a specific location. A user can choose between Celsius or Fahrenheit degrees, and a single or five-day forecast. Using templates, each client app installation can register for the format required (1-day Celsius, 1-day Fahrenheit, 5-days Celsius, 5-days Fahrenheit), and have the backend send a single message that contains all the information required to fill those templates (for example, a five-day forecast with Celsius and Fahrenheit degrees).
+## <a name="using-templates-for-personalization"></a>Uso de plantillas para personalización
+Otra ventaja de usar plantillas es la capacidad de usar Centros de notificaciones para ejecutar la personalización por registro de las notificaciones. Por ejemplo, considere una aplicación para el clima que muestra un icono con las condiciones climáticas de una ubicación específica. Un usuario puede elegir entre grados Celsius o Fahrenheit, además de un pronóstico de un día o de cinco días. Con las plantillas, cada instalación de aplicación cliente puede registrar el formato requerido (pronóstico de 1 día en grados Celsius, pronóstico de 1 día en grados Fahrenheit, pronóstico de 5 días en grados Celsius, pronóstico de 5 días en grados Fahrenheit) y hacer que el back-end envíe un mensaje único con toda la información necesaria para rellenar esas plantillas (por ejemplo, un pronóstico de 5 días con grados Celsius y Fahrenheit).
 
-The template for the one-day forecast with Celsius temperatures is as follows:
+La plantilla para un pronóstico de 1 día con temperaturas expresadas en Celsius es la siguiente:
 
     <tile>
       <visual>
@@ -87,7 +91,7 @@ The template for the one-day forecast with Celsius temperatures is as follows:
       </visual>
     </tile>
 
-The message sent to the Notification Hub contains all the following properties:
+El mensaje enviado al Centro de notificaciones contiene todas las propiedades siguientes:
 
 <table border="1">
 
@@ -98,33 +102,33 @@ The message sent to the Notification Hub contains all the following properties:
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
-By using this pattern, the backend only sends a single message without having to store specific personalization options for the app users. The following picture illustrates this scenario:
+Con este patrón, el back-end solo envía un mensaje único sin tener que almacenar opciones de personalización específicas para los usuarios de la aplicación. La siguiente ilustración muestra este escenario:
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
-## <a name="how-to-register-templates"></a>How to register templates
-To register with templates using the Installation model (preferred), or the Registration model, see [Registration Management](notification-hubs-push-notification-registration-management.md).
+## <a name="how-to-register-templates"></a>Registro de las plantillas
+Para registrar las plantillas con el modelo de Instalación (la opción de preferencia) o el modelo de Registro, consulte [Administración de registros](notification-hubs-push-notification-registration-management.md).
 
-## <a name="template-expression-language"></a>Template expression language
-Templates are limited to XML or JSON document formats. Also, you can only place expressions in particular places; for example, node attributes or values for XML, string property values for JSON.
+## <a name="template-expression-language"></a>Lenguaje de expresión de plantilla
+Las plantillas se limitan a los formatos de documento XML o JSON. Además, solo puede ubicar expresiones en lugares específicos; por ejemplo, valores o atributos de nodo para XML, valores de propiedad de cadena para JSON.
 
-The following table shows the language allowed in templates:
+La tabla siguiente muestra el lenguaje que se permite en las plantillas:
 
-| Expression | Description |
+| Expresión | Descripción |
 | --- | --- |
-| $(prop) |Reference to an event property with the given name. Property names are not case-sensitive. This expression resolves into the property’s text value or into an empty string if the property is not present. |
-| $(prop, n) |As above, but the text is explicitly clipped at n characters, for example $(title, 20) clips the contents of the title property at 20 characters. |
-| .(prop, n) |As above, but the text is suffixed with three dots as it is clipped. The total size of the clipped string and the suffix does not exceed n characters. .(title, 20) with an input property of “This is the title line” results in **This is the title...** |
-| %(prop) |Similar to $(name) except that the output is URI-encoded. |
-| #(prop) |Used in JSON templates (for example, for iOS and Android templates).<br><br>This function works exactly the same as $(prop) previously specified, except when used in JSON templates (for example, Apple templates). In this case, if this function is not surrounded by “{‘,’}” (for example, ‘myJsonProperty’ : ‘#(name)’), and it evaluates to a number in Javascript format, for example, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, then the output JSON is a number.<br><br>For example, ‘badge : ‘#(name)’ becomes ‘badge’ : 40 (and not ‘40‘). |
-| ‘text’ or “text” |A literal. Literals contain arbitrary text enclosed in single or double quotes. |
-| expr1 + expr2 |The concatenation operator joining two expressions into a single string. |
+| $(prop) |Referencia a una propiedad de evento con el nombre especificado. Los nombres de propiedad no distinguen mayúsculas de minúsculas. Esta expresión se resuelve en el valor de texto de la propiedad o en una cadena vacía, si la propiedad no está presente. |
+| $(prop, n) |Igual que el caso anterior, pero el texto se recorta explícitamente en n caracteres, por ejemplo, $(title, 20) recorta el contenido de la propiedad title en 20 caracteres. |
+| .(prop, n) |Igual que el caso anterior, pero se agregan tres puntos como sufijo al texto debido a que se recorta. El tamaño total de la cadena recortada y el sufijo no exceden los n caracteres. .(title, 20) con una propiedad de entrada de "Esta es la línea del título", con lo que queda como **Esta es la línea ...** |
+| %(prop) |Similar a $(name), salvo en que la salida está codificada en URI. |
+| #(prop) |Se usa en las plantillas JSON (por ejemplo, para plantillas de iOS y Android).<br><br>Esta función se comporta igual que $(prop) especificada anteriormente, salvo cuando se usa en plantillas de JSON (por ejemplo, plantillas de Apple). En este caso, si esta función no está entre “{‘,’}” (por ejemplo, ‘myJsonProperty’ : ‘#(name)’) y se evalúa en un número en formato JavaScript, por ejemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, el JSON de salida es un número.<br><br>Por ejemplo, ‘badge : ‘#(name)’ se convierte en ‘badge’ : 40 (y no ‘40‘). |
+| ‘texto’ o “texto” |Un literal. Los literales contienen texto arbitrario encerrado entre comillas simples o dobles. |
+| expr1 + expr2 |El operador de concatenación que une dos expresiones en una sola cadena. |
 
-The expressions can be any of the preceding forms.
+Las expresiones pueden estar en cualquiera de los formatos anteriores.
 
-When using concatenation, the entire expression must be surrounded with {}. For example, {$(prop) + ‘ - ’ + $(prop2)}. |
+Cuando se usa la concatenación, toda la expresión debe estar entre {}. Por ejemplo, {$(prop) + ‘ - ’ + $(prop2)}. |
 
-For example, the following is not a valid XML template:
+El siguiente ejemplo no es una plantilla XML válida:
 
     <tile>
       <visual>
@@ -135,7 +139,7 @@ For example, the following is not a valid XML template:
     </tile>
 
 
-As explained above, when using concatenation, expressions must be wrapped in curly brackets. For example:
+Como se explicó anteriormente, cuando se usa la concatenación, las expresiones deben ir entre llaves. Por ejemplo:
 
     <tile>
       <visual>
@@ -148,6 +152,6 @@ As explained above, when using concatenation, expressions must be wrapped in cur
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

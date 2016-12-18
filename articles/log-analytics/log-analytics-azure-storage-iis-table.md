@@ -1,19 +1,23 @@
 ---
 title: Uso de Blob Storage para IIS y Table Storage para eventos | Microsoft Docs
-description: Log Analytics puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS Blob Storage.
+description: "Log Analytics puede leer los registros de los servicios de Azure que escriben los diagnósticos en Table Storage o los registros de IIS Blob Storage."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/25/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 950b6de5b579cac1a2b10db299e6f7bcfd8c7b04
+
 
 ---
 # <a name="using-blob-storage-for-iis-and-table-storage-for-events"></a>Uso de Blob Storage para IIS y Table Storage para eventos
@@ -46,17 +50,17 @@ Para que Log Analytics recopile estos registros de Diagnóstico de Azure, deben 
 > 
 > 
 
-Para máquinas virtuales, también tiene la opción de instalar el [Microsoft Monitoring Agent](http://go.microsoft.com/fwlink/?LinkId=517269) en la máquina virtual para permitir información adicional. Además de poder analizar registros de IIS y registros de eventos, también podrá realizar análisis adicionales, como seguimiento de cambios de configuración, evaluación de SQL y evaluación de actualizaciones.
+Para máquinas virtuales, también tiene la opción de instalar el [agente de Log Analytics](log-analytics-azure-vm-extension.md) en la máquina virtual para permitir información adicional. Además de poder analizar registros de IIS y registros de eventos, también podrá realizar análisis adicionales, como seguimiento de cambios de configuración, evaluación de SQL y evaluación de actualizaciones.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Habilitación de Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos
-Use el siguiente procedimiento para habilitar Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos mediante el Portal de administración de Microsoft Azure.
+Use el siguiente procedimiento para habilitar Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos mediante Microsoft Azure Portal.
 
-### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-management-portal"></a>Para habilitar Diagnósticos de Azure en una máquina virtual con el Portal de administración de Azure
+### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Pasos para habilitar Diagnósticos de Azure en una máquina virtual con Azure Portal
 1. Instale al agente de máquina virtual cuando cree una máquina virtual. Si la máquina virtual ya existe, compruebe que el agente de máquina virtual ya está instalado.
    
-   * Si usa el nuevo Portal de administración de Azure para crear una máquina virtual, seleccione **Configuración opcional**, luego **Diagnósticos** y establezca **Estado** en **Activado**.
+   * En Azure Portal, acceda a la máquina virtual, seleccione **Configuración opcional**, luego **Diagnósticos** y establezca **Estado** en **Activado**.
      
-     Tras la finalización, la máquina virtual tendrá automáticamente la extensión de Diagnósticos de Azure instalada y en ejecución que será la responsable de la recopilación de datos de diagnóstico.
+     Tras la finalización, la máquina virtual tendrá la extensión de Diagnósticos de Azure instalada y ejecutándose. Esta extensión se encarga de recopilar datos de diagnóstico.
 2. Habilite la supervisión y configure el registro de eventos en una máquina virtual existente. Puede habilitar el diagnóstico en el nivel de máquina virtual. Para activar el diagnóstico y, a continuación, configurar el registro de eventos, realice los siguientes pasos:
    
    1. Seleccione la máquina virtual.
@@ -69,7 +73,7 @@ Use el siguiente procedimiento para habilitar Diagnósticos de Azure en una máq
 Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Almacenamiento de Azure. Consulte el artículo sobre la [recopilación de datos mediante Diagnóstico de Azure que se escriben en Table Storage o registros IIS en Blob Storage](log-analytics-azure-storage-json.md).
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>Activación de Diagnósticos de Azure en un rol web para la recopilación de eventos y registros de IIS
-Consulte el artículo sobre la [Habilitación de diagnósticos en un servicio en la nube](../cloud-services/cloud-services-dotnet-diagnostics.md). Usará la información básica de ahí y personalizará los pasos para usarlos con Log Analytics.
+Consulte [Cómo habilitar diagnósticos en un servicio en la nube](../cloud-services/cloud-services-dotnet-diagnostics.md) para conocer los pasos generales para habilitar Diagnósticos de Azure. Las instrucciones siguientes utilizan esta información y la personalizan para utilizarse con Log Analytics.
 
 Con el diagnóstico de Azure habilitado:
 
@@ -111,7 +115,7 @@ Asegúrese de que ConfigurationSettings especifica una cuenta de almacenamiento,
     </ConfigurationSettings>
 ```
 
-Los valores de **AccountName** y **AccountKey** se encuentran en el panel de cuentas de almacenamiento de Azure Management Portal, en Administrar claves de acceso. El protocolo de la cadena de conexión debe ser **https**.
+Los valores de **AccountName** y **AccountKey** se encuentran en el panel de cuentas de almacenamiento de Azure Portal, en Administrar claves de acceso. El protocolo de la cadena de conexión debe ser **https**.
 
 Una vez que se aplica la configuración de diagnóstico actualizada al servicio en la nube y se escribe el diagnóstico en Azure Storage, está preparado para configurar Log Analytics.
 
@@ -127,9 +131,9 @@ En Azure Portal, vaya hasta el área de trabajo de Log Analytics y realice las s
 1. Haga clic en *Storage accounts logs* (Registros de las cuentas de almacenamiento)
 2. Haga clic en la tarea *Agregar*
 3. Seleccione la cuenta de almacenamiento que contenga los registros de diagnóstico
-   * Puede ser una cuenta de almacenamiento clásico o una cuenta de almacenamiento de Azure Resource Manager
+   * Esta cuenta puede ser una cuenta de almacenamiento clásico o una cuenta de almacenamiento de Azure Resource Manager
 4. Seleccione el tipo de datos de los cuales desea recopilar registros
-   * Serán registros de IIS; eventos; Syslog (Linux); registros de ETW; eventos de Service Fabric
+   * Las opciones serán registros de IIS; eventos; Syslog (Linux); registros de ETW; eventos de Service Fabric
 5. El valor de origen se rellenará automáticamente según el tipo de datos y no se puede cambiar
 6. Haga clic en Aceptar para guardar la configuración
 
@@ -143,12 +147,14 @@ En aproximadamente 30 minutos podrá ver los datos de la cuenta de almacenamient
 > 
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Habilitación de Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos con PowerShell
-Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Almacenamiento de Azure.
-Para más información, consulte [Habilitación de diagnósticos en máquinas virtuales de Azure](../virtual-machines-dotnet-diagnostics.md) .
+Siga los pasos de [Configuración de Log Analytics para indizar Diagnósticos de Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para usar PowerShell con el fin de leer datos desde los diagnósticos de Azure que se escribe en Table Storage.
 
-Puede habilitar y actualizar el agente mediante el siguiente script de PowerShell.
+Con PowerShell de Azure puede especificar con mayor precisión los eventos que se escriben en Almacenamiento de Azure.
+Para obtener más información, vea[Habilitación de Diagnósticos en Azure](../virtual-machines-dotnet-diagnostics.md).
+
+Puede habilitar y actualizar Diagnósticos de Azure mediante el siguiente script de PowerShell.
 También puede utilizar este script con una configuración de registro personalizada.
-Necesitará modificar el script para establecer la cuenta de almacenamiento, el nombre del servicio y el nombre de máquina virtual.
+Modifique el script para establecer la cuenta de almacenamiento, el nombre del servicio y el nombre de máquina virtual.
 El script usa cmdlets para máquinas virtuales clásicas.
 
 Revise el siguiente ejemplo de script, cópielo, modifíquelo según sea necesario, guarde el ejemplo como un archivo de script de PowerShell y, a continuación, ejecute el script.
@@ -184,11 +190,15 @@ Revise el siguiente ejemplo de script, cópielo, modifíquelo según sea necesar
     (Get-AzureVM -ServiceName $service_name -Name $vm_name) | Set-AzureVMExtension -ExtensionName $wad_extension_name -Publisher $wad_publisher -PublicConfiguration $wad_public_config -PrivateConfiguration $wad_private_config -Version $wad_version | Update-AzureVM
 ```
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Use archivos JSON de Blob Storage](log-analytics-azure-storage-json.md) para leer los registros de los servicios de Azure que escriban diagnósticos en Blob Storage en formato JSON.
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Opciones avanzadas de informes para el SDK de Android para Azure Mobile Engagement
-description: Describe cómo realizar los informes avanzados para capturar el análisis para el SDK de Android para Azure Mobile Engagement
+description: "Describe cómo realizar los informes avanzados para capturar el análisis para el SDK de Android para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
+
 
 ---
-# Informes avanzados con Engagement en Android
+# <a name="advanced-reporting-with-engagement-on-android"></a>Informes avanzados con Engagement en Android
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -25,15 +29,15 @@ ms.author: piyushjo;ricksal
 > 
 > 
 
-Este tema describe los escenarios de informes adicionales en la aplicación Android. Puede aplicar estas opciones a la aplicación creada en el tutorial [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md).
+Este tema describe los escenarios de informes adicionales en la aplicación Android. Puede aplicar estas opciones a la aplicación creada en el tutorial [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md) .
 
-## Requisitos previos
-[!INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 El tutorial realizado era deliberadamente directo y sencillo, pero hay una serie de opciones avanzadas entre las que elegir.
 
-## Modificación de sus clases `Activity`
-En la [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile-engagement-android-get-started.md), todo lo que tenía que hacer era conseguir que las subclases `*Activity` heredaran las clases `Engagement*Activity` correspondientes. Por ejemplo, si su actividad heredada amplía `ListActivity`, se ampliaría `EngagementListActivity` también.
+## <a name="modifying-your-activity-classes"></a>Modificación de sus clases `Activity`
+En el [tutorial de introducción](mobile-engagement-android-get-started.md), todo lo que ha tenido que hacer que sus subclases `*Activity` heredaran de las clases `Engagement*Activity` correspondientes. Por ejemplo, si su actividad heredada amplía `ListActivity`, se ampliaría `EngagementListActivity` también.
 
 > [!IMPORTANT]
 > Al usar `EngagementListActivity` o `EngagementExpandableListActivity`, asegúrese de que cualquier llamada a `requestWindowFeature(...);` se realice antes que la llamada a `super.onCreate(...);`. De lo contrario, se producirá un bloqueo.
@@ -42,7 +46,7 @@ En la [Introducción a Azure Mobile Engagement para aplicaciones Android](mobile
 
 Puede encontrar estas clases en la carpeta `src` y puede copiarlas en su proyecto. Las clases también están en **JavaDoc**.
 
-## Método alternativo: llamar a `startActivity()` y `endActivity()` manualmente
+## <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Método alternativo: llamar a `startActivity()` y `endActivity()` manualmente
 Si no puede o no quiere sobrecargar sus clases `Activity`, puede iniciar y finalizar sus actividades llamando a los métodos `EngagementAgent` directamente.
 
 > [!IMPORTANT]
@@ -72,7 +76,7 @@ Este es un ejemplo:
 
 Este ejemplo es parecido a la clase `EngagementActivity` y sus variantes, cuyo código fuente se proporciona en la carpeta `src`.
 
-## Uso de Application.onCreate()
+## <a name="using-applicationoncreate"></a>Uso de Application.onCreate()
 Cualquier código que coloque en `Application.onCreate()` y en otras devoluciones de llamada de aplicaciones se ejecutará para todos los procesos de la aplicación, incluido el servicio Engagement. Esto puede tener efectos secundarios no deseados, como asignaciones innecesarias de memoria y subprocesos en el proceso de Engagement o receptores o servicios de difusión duplicados.
 
 Si anula `Application.onCreate()`, se recomienda que agregue el siguiente fragmento de código al comienzo de su función `Application.onCreate()`:
@@ -89,12 +93,12 @@ Puede hacer lo mismo para `Application.onTerminate()`, `Application.onLowMemory(
 
 También puede ampliar `EngagementApplication` en lugar de `Application`: la devolución de llamada `Application.onCreate()` solo realiza el proceso y llama a `Application.onApplicationProcessCreate()` si el proceso actual no es el que hospeda el servicio Engagement; las mismas reglas se aplican para las demás devoluciones de llamada.
 
-## Etiquetas del archivo AndroidManifest.xml
+## <a name="tags-in-the-androidmanifestxml-file"></a>Etiquetas del archivo AndroidManifest.xml
 En la etiqueta de servicio del archivo AndroidManifest.xml, el atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla Servicios en ejecución de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
 
 La especificación del atributo `android:process` garantiza que el servicio Engagement se ejecuta en su propio proceso (al ejecutarse Engagement en el mismo proceso que su aplicación, el subproceso principal y de interfaz de usuario podría tener menos capacidad de respuesta).
 
-## Compilación con ProGuard
+## <a name="building-with-proguard"></a>Compilación con ProGuard
 Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clases. Puede usar el siguiente snippet de configuración:
 
     -keep public class * extends android.os.IInterface
@@ -102,4 +106,8 @@ Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clas
     <methods>;
      }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
