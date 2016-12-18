@@ -1,12 +1,12 @@
 ---
-title: Azure Multi-Factor Authentication - Cómo funciona
-description: Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona seguridad adicional al requerir una segunda forma de autenticación y ofrece autenticación segura a través de una gama de opciones de comprobación sencillas.
+title: "Azure Multi-Factor Authentication - Cómo funciona"
+description: "Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona seguridad adicional al requerir una segunda forma de autenticación y ofrece autenticación segura a través de una gama de opciones de comprobación sencillas."
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: curtland
-
+ms.assetid: d14db902-9afe-4fca-b3a5-4bd54b3d8ec5
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,14 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80bd6265c991eb7bf91f92fbe69c902c1e1d0a0b
+
 
 ---
-# Cómo funciona Azure Multi-Factor Authentication
+# <a name="how-azure-multi-factor-authentication-works"></a>Cómo funciona Azure Multi-Factor Authentication
 La seguridad de la autenticación mediante varias fases se basa en el enfoque por niveles. El uso de varias fases de autenticación supone un reto importante para los atacantes. Incluso si un atacante consigue descifrar la contraseña de usuario, no sirve de nada si no dispone también del dispositivo de confianza. Si el usuario pierde el dispositivo, la persona que lo encuentre no podrá usarlo a no ser que conozca la contraseña de usuario.
 
 ![Página de proofup](./media/multi-factor-authentication-how-it-works/howitworks.png)
 
-Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple. Proporciona seguridad adicional al requerir una segunda forma de autenticación y ofrece autenticación segura a través de una gama de opciones de comprobación sencillas:
+Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, además de satisfacer la demanda de los usuarios de un proceso de inicio de sesión simple.  Proporciona seguridad adicional al requerir una segunda forma de autenticación y ofrece autenticación segura a través de una gama de opciones de comprobación sencillas:
 
 * llamada de teléfono
 * mensaje de texto
@@ -35,26 +39,26 @@ Para obtener información adicional sobre cómo funciona, vea el vídeo siguient
 > 
 > 
 
-## Métodos disponibles para la autenticación multifactor
-Cuando un usuario inicia sesión, se envía una comprobación adicional al usuario. Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
+## <a name="methods-available-for-multi-factor-authentication"></a>Métodos disponibles para la autenticación multifactor
+Cuando un usuario inicia sesión, se envía una comprobación adicional al usuario.  Lo siguiente es una lista de métodos que pueden usarse para esta segunda comprobación.
 
 | Método de comprobación | Description |
 | --- | --- |
-| Llamada de teléfono |Se realiza una llamada al smartphone del usuario para solicitarle que compruebe que ha iniciado sesión presionando el signo #. Esto completará el proceso de comprobación. Esta opción es configurable y puede cambiarse por un código que especifique. |
-| Mensaje de texto |Se enviará un mensaje de texto al smartphone del usuario con un código de 6 dígitos. Escriba este código para completar el proceso de comprobación. |
-| Notificación de aplicación móvil |Se enviará al smartphone del usuario una solicitud de comprobación solicitándole que complete la comprobación mediante la selección de Comprobar en la aplicación móvil. Esto ocurrirá si ha seleccionado la notificación de aplicación como su método de comprobación principal. Si los usuarios lo reciben cuando no han iniciado sesión, pueden notificarlo como fraude. |
-| Código de comprobación con la aplicación móvil |Se enviará un código de comprobación a la aplicación móvil que se ejecuta en el smartphone del usuario. Esto ocurrirá si ha seleccionado un código de verificación como su método de comprobación principal. |
+| llamada de teléfono |Se realiza una llamada al smartphone del usuario para solicitarle que compruebe que ha iniciado sesión presionando el signo #.  Esto completará el proceso de comprobación.  Esta opción es configurable y puede cambiarse por un código que especifique. |
+| mensaje de texto |Se enviará un mensaje de texto al smartphone del usuario con un código de 6 dígitos.  Escriba este código para completar el proceso de comprobación. |
+| Notificación de aplicación móvil |Se enviará al smartphone del usuario una solicitud de comprobación solicitándole que complete la comprobación mediante la selección de Comprobar en la aplicación móvil. Esto ocurrirá si ha seleccionado la notificación de aplicación como su método de comprobación principal.  Si los usuarios lo reciben cuando no han iniciado sesión, pueden notificarlo como fraude. |
+| Código de comprobación con la aplicación móvil |Se enviará un código de comprobación a la aplicación móvil que se ejecuta en el smartphone del usuario.  Esto ocurrirá si ha seleccionado un código de verificación como su método de comprobación principal. |
 
-## Versiones disponibles de Azure Multi-Factor Authentication
-Azure Multi-Factor Authentication está disponible en tres versiones diferentes. En la tabla siguiente se describe cada una de ellas con más detalle.
+## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versiones disponibles de Azure Multi-Factor Authentication
+Azure Multi-Factor Authentication está disponible en tres versiones diferentes.  En la tabla siguiente se describe cada una de ellas con más detalle.
 
 | Versión | Description |
 | --- | --- |
-| Multi-Factor Authentication para Office 365 |Esta versión funciona exclusivamente con aplicaciones de Office 365 y se administra desde el portal de Office 365. De este modo, los administradores pueden proteger ahora sus recursos de Office 365 con la autenticación multifactor. Esta versión incluye una suscripción a Office 365. |
+| Multi-Factor Authentication para Office 365 |Esta versión funciona exclusivamente con aplicaciones de Office 365 y se administra desde el portal de Office 365. De este modo, los administradores pueden proteger ahora sus recursos de Office 365 con la autenticación multifactor.  Esta versión incluye una suscripción a Office 365. |
 | Multi-Factor Authentication para administradores de Azure |La misma subred de capacidades Multi-Factor Authentication para Office 365 estará disponible sin que suponga ningún coste para los administradores de Azure. Las cuentas administrativas de la suscripción de Azure pueden obtener ahora una protección adicional mediante la habilitación de esta funcionalidad de autenticación a través de varias fases. Por lo tanto, un administrador que desee obtener acceso al portal de Azure para crear una VM o un sitio web, o administrar almacenamiento, servicios móviles o cualquier otro servicio de Azure, puede agregar la autenticación mediante varias fases a su cuenta de administrador. |
 | Azure Multi-Factor Authentication |Azure Multi-Factor Authentication ofrece el mayor conjunto de capacidades. <br><br>Proporciona opciones de configuración adicionales mediante el Portal de administración de Azure, avanzadas capacidades de informe y soporte técnico para una amplia variedad de aplicaciones locales y en la nube. Azure Multi-Factor Authentication se puede comprar como una licencia independiente y se incluye en Azure Active Directory Premium y Enterprise Mobility Suite. <br><br>También se puede comprar según el consumo creando un proveedor de Azure Multi-Factor Authentication en una suscripción a Azure. |
 
-## Comparación de características de las versiones
+## <a name="feature-comparison-of-versions"></a>Comparación de características de las versiones
 En la tabla siguiente se proporciona una lista de las características que están disponibles en las distintas versiones de Azure Multi-Factor Authentication.
 
 | Característica | Multi-Factor Authentication para Office 365 (incluido en la SKU de Office 365) | Multi-Factor Authentication para administradores de Azure (incluido con la suscripción a Azure) | Azure Multi-Factor Authentication (incluido en Azure AD Premium y Enterprise Mobility Suite) |
@@ -77,7 +81,7 @@ En la tabla siguiente se proporciona una lista de las características que está
 | SDK de MFA | | |* |
 | MFA para aplicaciones locales mediante servidor MFA | | |* |
 
-## Cómo conseguir Azure Multi-Factor Authentication
+## <a name="how-to-get-azure-multi-factor-authentication"></a>Cómo conseguir Azure Multi-Factor Authentication
 Si desea disponer de todas las funcionalidades que ofrece Azure Multi-Factor Authentication, en lugar de solo las que se proporcionan para los usuarios de Office 365 y administradores de Azure, hay varias opciones para obtenerlas:
 
 1. Comprar licencias de Azure Multi-Factor Authentication y asignarlas a los usuarios.
@@ -91,6 +95,11 @@ Al usar un proveedor de Azure Multi-Factor Authentication, existen dos modelos d
 
 Para obtener información detallada sobre los precios, consulte [Precios de Azure MFA.](https://azure.microsoft.com/pricing/details/multi-factor-authentication/)
 
-Elija el modelo por puesto o según el consumo que mejor funcione para su organización. Para comenzar, consulte [Introducción](multi-factor-authentication-get-started.md)
+Elija el modelo por puesto o según el consumo que mejor funcione para su organización.   Para comenzar, consulte [Introducción](multi-factor-authentication-get-started.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Guía de solución de problemas de Azure Mobile Engagement - Servicio
-description: Guías de solución de problemas de Azure Mobile Engagement
+title: "Guía de solución de problemas de Azure Mobile Engagement - Servicio"
+description: "Guías de solución de problemas de Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 8b4275da-c0b4-4690-824a-48e9d7a1fc6e
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
+
 
 ---
-# Guía de solución de problemas de servicio
+# <a name="troubleshooting-guide-for-service-issues"></a>Guía de solución de problemas de servicio
 Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobile Engagement se ejecuta.
 
-## Interrupciones del servicio
-### Problema
+## <a name="service-outages"></a>Interrupciones del servicio
+### <a name="issue"></a>Problema
 * Problemas que parecen deberse a interrupciones del servicio de Azure Mobile Engagement.
 
-### Causas
+### <a name="causes"></a>Causas
 * Los problemas que parecen deberse a interrupciones del servicio de Azure Mobile Engagement pueden deberse a diversos problemas:
   * Problemas aislados que originalmente parecen sistémicos de todo Azure Mobile Engagement
   * Problemas conocidos causados por interrupciones de los servidores (no siempre se muestran en el estado del servidor):
@@ -32,7 +36,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
   * Interrupciones de dependencia de los servicios de notificación de inserción (PNS)
   * Interrupciones de la tienda de aplicaciones
 
-1) Para comprobar si el problema es sistémico, puede probar la misma función desde otro:
+1) Para comprobar si el problema es sistémico, puede probar la misma función desde uno de estos elementos diferentes:
 
 * Aplicación integrada de Azure Mobile Engagement
 * Dispositivo de prueba
@@ -54,8 +58,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 4) Para probar si el problema está relacionado con el dispositivo:
 
 * Compruebe que el dispositivo puede conectarse a Azure Mobile Engagement con otra aplicación integrada en Azure Mobile Engagement.
-* Compruebe que puede generar eventos, trabajos y bloqueos desde el teléfono que se puede ver en la interfaz de usuario de Azure Mobile Engagement.
-* Compruebe que puede enviar notificaciones push desde la interfaz de usuario de Azure Mobile Engagement al dispositivo según su identificador de dispositivo.
+* Compruebe que puede generar eventos, trabajos y bloqueos desde el teléfono que se puede ver en la interfaz de usuario de Azure Mobile Engagement. 
+* Compruebe que puede enviar notificaciones push desde la interfaz de usuario de Azure Mobile Engagement al dispositivo según su identificador de dispositivo. 
 
 5) Para probar si el problema está relacionado con la aplicación:
 
@@ -66,8 +70,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Pruebe la aplicación en diferentes dispositivos con distintas versiones del sistema operativo.
 * Confirme que está utilizando la versión más reciente del SDK.
 
-## Problemas de conectividad e información incorrecta
-### Problema
+## <a name="connectivity-and-incorrect-information-issues"></a>Problemas de conectividad e información incorrecta
+### <a name="issue"></a>Problema
 * Problemas para iniciar sesión en la interfaz de usuario de Azure Mobile Engagement.
 * Errores de conexión con la API de Azure Mobile Engagement.
 * Problemas al cargar etiquetas de información de aplicación a través de la API del dispositivo.
@@ -75,7 +79,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Información incorrecta que se muestra en la interfaz de usuario de Azure Mobile Engagement.
 * Información incorrecta que se muestra en los registros de Azure Mobile Engagement.
 
-### Causas
+### <a name="causes"></a>Causas
 * Confirme que su cuenta de usuario tiene permisos suficientes para realizar la tarea.
 * Confirme que el problema no se limita a un equipo o a la red local.
 * Confirme que el servicio de Azure Mobile Engagement no tiene interrupciones registradas.
@@ -85,4 +89,9 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
   * Use minúsculas para los valores booleanos "true" y "false".
   * Use un archivo que de tamaño inferior al tamaño máximo de archivo de 35 MB.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

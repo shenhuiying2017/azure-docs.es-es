@@ -1,12 +1,12 @@
 ---
-title: 'Sincronización de Azure AD Connect: Extensiones de directorio | Microsoft Docs'
-description: En este tema se describe la característica de extensiones de directorio en Azure AD Connect.
+title: "Sincronización de Azure AD Connect: Extensiones de directorio | Microsoft Docs"
+description: "En este tema se describe la característica de extensiones de directorio en Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/19/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 78fa8bc1394f98c6aa90a75ba17ec36106f09290
+
 
 ---
-# <a name="azure-ad-connect-sync:-directory-extensions"></a>Sincronización de Azure AD Connect: Extensiones de directorio
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Sincronización de Azure AD Connect: Extensiones de directorio
 Las extensiones de directorio le permiten ampliar el esquema de Azure AD con sus propios atributos desde Active Directory local. Esta característica permite crear aplicaciones de LOB mediante el consumo de atributos que se siguen administrando de forma local. Estos atributos se pueden consumir mediante [extensiones de directorio de Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) o [Microsoft Graph](https://graph.microsoft.io/). Puede ver los atributos disponibles mediante el [explorador de Azure AD Graph](https://graphexplorer.cloudapp.net) y el [explorador de Microsoft Graph](https://graphexplorer2.azurewebsites.net/), respectivamente.
 
 En la actualidad, ninguna carga de trabajo de Office 365 consume estos atributos.
@@ -45,6 +49,9 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

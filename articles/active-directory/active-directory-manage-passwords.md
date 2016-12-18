@@ -1,19 +1,23 @@
 ---
-title: Administración de contraseñas en Azure Active Directory | Microsoft Docs
-description: Cómo administrar contraseñas en Azure Active Directory.
+title: "Administración de contraseñas en Azure Active Directory | Microsoft Docs"
+description: "Cómo administrar contraseñas en Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a7679724-0ed5-4973-92e2-bd1285a6ef93
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: 0006818063724e50e2febb02e5ebaa0e2f688ea1
+
 
 ---
 # <a name="manage-passwords-in-azure-active-directory"></a>Administración de contraseñas en Azure Active Directory
@@ -29,8 +33,8 @@ El resto de este tema abarca el conjunto completo de funcionalidades de administ
 
 > [!NOTE]
 > Azure AD Premium está disponible para los clientes chinos con la instancia de todo el mundo de Azure AD. Azure AD Premium no es compatible actualmente en el servicio de Microsoft Azure operado por 21Vianet en China. Para obtener más información, póngase en contacto con nosotros en el [foro de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
-> 
-> 
+>
+>
 
 Utilice los siguientes vínculos para ir a la documentación en la que esté más interesado:
 
@@ -43,11 +47,13 @@ Utilice los siguientes vínculos para ir a la documentación en la que esté má
 * [Solución de problemas de la administración de contraseñas de Azure AD](active-directory-passwords-troubleshoot.md)
 * [Preguntas más frecuentes para la administración de contraseñas de Azure AD](active-directory-passwords-faq.md)
 
-## <a name="what's-next"></a>Pasos siguientes
+## <a name="whats-next"></a>Pasos siguientes
 * [Administración de Azure AD](active-directory-administer.md)
 * [Creación o edición de usuarios en Azure AD](active-directory-create-users.md)
 * [Administración de grupos en Azure AD](active-directory-manage-groups.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 
