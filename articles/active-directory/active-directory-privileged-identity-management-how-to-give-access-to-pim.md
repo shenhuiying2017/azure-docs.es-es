@@ -1,12 +1,12 @@
 ---
-title: Concesión de acceso a PIM | Microsoft Docs
-description: Aprenda a agregar roles a los usuarios con la extensión Privileged Identity Management de Azure Active Directory para que así puedan administrar PIM.
+title: "Concesión de acceso a PIM | Microsoft Docs"
+description: "Aprenda a agregar roles a los usuarios con la extensión Privileged Identity Management de Azure Active Directory para que así puedan administrar PIM."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d4c53b53-2b37-41e6-813c-96ec08a1c897
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 42273f2e20be65cc794d078fb4c3ba4585d2aa79
+
 
 ---
 # <a name="how-to-give-access-to-manage-azure-ad-privileged-identity-management"></a>Concesión de acceso para administrar Privileged Identity Management de Azure AD
@@ -40,7 +44,7 @@ Asegúrese de que siempre haya al menos dos usuarios en un rol de administrador 
    * Cuando asigne un nuevo rol a alguien, esta persona se configura automáticamente como apto para activar este rol. Si quiere establecer el rol como permanente para este usuario, haga clic en él en la lista. Seleccione **convertir en permanente** en el menú de información de usuario.
 6. Envíe al usuario un vínculo a [Introducción a Privileged Identity Management de Azure AD](active-directory-privileged-identity-management-getting-started.md).
 
-## <a name="remove-another-user's-access-rights-for-managing-pim"></a>Eliminación de los derechos de acceso de otro usuario para administrar PIM
+## <a name="remove-another-users-access-rights-for-managing-pim"></a>Eliminación de los derechos de acceso de otro usuario para administrar PIM
 Antes de eliminar a alguien del rol de administrador de roles con privilegios, asegúrese siempre de que haya dos usuarios asignados a él.
 
 1. En el panel de PIM, haga clic en el rol **Administrador de roles con privilegios**.  Se mostrará la lista de usuarios que tienen actualmente ese rol.
@@ -59,6 +63,6 @@ Antes de eliminar a alguien del rol de administrador de roles con privilegios, a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: Cómo obtener soporte técnico del equipo de desarrollo de Application Insights | Microsoft Docs
-description: Cuando tenga un caso que requiera un soporte técnico especial por parte del equipo de desarrollo de Application Insights, este es el modo de enviar los detalles para obtenerlo.
+title: "Obtención de soporte técnico del equipo de desarrollo de Application Insights | Microsoft Docs"
+description: Obtenga ayuda si tiene problemas con Application Insights.
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alexbulankou
 manager: douge
-
+ms.assetid: 39035206-c836-4dca-93df-5013b7753aed
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,31 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: albulank
+translationtype: Human Translation
+ms.sourcegitcommit: 7dbcc3b11b744361113d4dba100407ee85c40cac
+ms.openlocfilehash: 330fab68efedee0e6e56459289f94beb88a5fdd5
+
 
 ---
-# Cómo obtener soporte técnico del equipo de desarrollo de Application Insights
-Si aparece un problema técnico con [Visual Studio Application Insights](app-insights-overview.md), aquí encontrará las opciones para obtener ayuda:
+# <a name="get-help-with-application-insights"></a>Obtención de ayuda con Application Insights
+Si aparece un problema técnico con [Application Insights de Azure](app-insights-overview.md), aquí encontrará las opciones para obtener ayuda:
 
-## 1\. Consulta de los documentos
-* ¿Faltan datos? Consulte: [muestreo](app-insights-sampling.md), [administración de precios y cuotas](app-insights-pricing.md).
+## <a name="1-check-the-documents"></a>1. Consulta de los documentos
+* ¿Faltan datos? Consulte: [Muestreo](app-insights-sampling.md) y [Cuotas y limitación](app-insights-pricing.md).
 * Solución de problemas: [ASP.NET](app-insights-troubleshoot-faq.md) | [Java](app-insights-java-troubleshoot.md)
 
-## 2\. Búsqueda en los foros
+## <a name="2-search-the-forums"></a>2. Búsqueda en los foros
 * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
 * [Stackoverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
 
-## 3\. ¿Plan de soporte técnico de Azure?
-Existen situaciones donde desea que los desarrolladores investiguen su caso concreto.
+## <a name="3-azure-support-plan"></a>3. ¿Plan de soporte técnico de Azure?
+Existen situaciones donde desea que los desarrolladores investiguen su caso concreto. 
 
-Si tiene un [plan de soporte técnico con Microsoft Azure](https://azure.microsoft.com/support/plans/) puede [abrir una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Si tiene un [plan de soporte técnico con Microsoft Azure](https://azure.microsoft.com/support/plans/), puede [abrir una incidencia de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## 4\. Póngase en contacto con el equipo de Application Insights
-Si no tiene ningún plan de soporte técnico, nuestro equipo de desarrollo está encantado de ofrecer la mejor asistencia a los clientes de Application Insights mientras se prepara para el hito de disponibilidad general. Hay **una nueva opción de compatibilidad**: puede describirnos su caso enviando un formulario de comentarios en el Portal de Azure; un desarrollador del equipo de Application Insights se pondrá en contacto con usted para ayudar a resolver el problema.
+## <a name="4-feedback-to-the-application-insights-team"></a>4. Envío de comentarios al equipo de Application Insights
+Nuestro equipo de desarrollo estará encantado de conocer los problemas que podrían surgirle, especialmente si las soluciones anteriores no resuelven el problema. Envíe el formulario de comentarios en Azure Portal. De este modo, se informará a un desarrollador del equipo de Application Insights.
 
 1. En el [portal de Application Insights](https://portal.azure.com), haga clic en la cara sonriente en la esquina superior derecha:  
    
-    ![Botón de comentarios](./media/app-insights-get-dev-support/01.png)
-2. En el cuadro de comentarios, asegúrese de especificar **AppInsights** en la primera línea y, después, incluya la siguiente información:
+    ![Botón de comentarios](./media/app-insights-get-dev-support/01.png)   
+2. En el cuadro de comentarios, asegúrese de especificar **AppInsights** en la primera línea y, después, incluya la siguiente información:   
    
     ```
    
@@ -48,11 +52,16 @@ Si no tiene ningún plan de soporte técnico, nuestro equipo de desarrollo está
    
     ```   
    
-    ![Cuadro de diálogo de comentarios](./media/app-insights-get-dev-support/02.png)
-3. Seleccione "Sí, estoy de acuerdo con que me envíen mensajes de correo electrónico sobre mis comentarios.".
+    ![Cuadro de diálogo de comentarios](./media/app-insights-get-dev-support/02.png)   
+3. Seleccione "Sí, estoy de acuerdo con que me envíen mensajes de correo electrónico sobre mis comentarios.". 
    
-    ![Sección de envío](./media/app-insights-get-dev-support/03.png)
+    ![Sección de envío](./media/app-insights-get-dev-support/03.png)  
 
-Un ingeniero del equipo de Application Insights se pondrá en contacto con usted pronto. Hacemos el máximo esfuerzo para proporcionar este servicio, pero no se puede proporcionar ningún acuerdo de nivel de servicio formal en este momento.
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

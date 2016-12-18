@@ -1,19 +1,23 @@
 ---
-title: Adición y administración de varios directorios de Azure Active Directory | Microsoft Docs
+title: "Adición y administración de varios directorios de Azure Active Directory | Microsoft Docs"
 description: Instrucciones y procedimientos recomendados para agregar y administrar directorios de Azure Active Directory, explicando los directorios como recursos totalmente independientes
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 2b862b75-14df-45f2-a8ab-2a3ff1e2eb08
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: ba3690084439aac83c91a1b4cfb7171b74c814f8
+ms.openlocfilehash: fff714765508285f4c074b3a7287701a538fbf95
+
 
 ---
 # <a name="add-and-manage-multiple-azure-active-directory-directories"></a>Adición y administración de varios directorios de Azure Active Directory
@@ -40,11 +44,13 @@ Para agregar un directorio de Azure AD en el Portal de Azure clásico, seleccion
 
 > [!NOTE]
 > A diferencia de otros recursos de Azure, los directorios no son recursos secundarios de una suscripción a Azure. Si cancela su suscripción a Azure o deja que esta caduque, aún podrá tener acceso a los datos de su directorio mediante Azure PowerShell, la API Graph de Azure u otras interfaces, como el Centro de administración de Office 365. También puede asociar otra suscripción con el directorio.
-> 
-> 
+>
+>
 
 Para obtener una amplia visión general de los problemas de licencias de Azure AD y prácticas recomendadas, consulte [¿Qué es la licencia de Azure Active Directory?](active-directory-licensing-what-is.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

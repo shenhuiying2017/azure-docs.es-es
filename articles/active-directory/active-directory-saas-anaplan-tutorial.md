@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Anaplan | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Anaplan.
+title: "Tutorial: integración de Azure Active Directory con Anaplan | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Anaplan."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 57a2c9e4a48239dfb0f2a3bcf98adade4f5f7dc9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integración de Azure Active Directory con Anaplan
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Tutorial: Integración de Azure Active Directory con Anaplan
 El objetivo de este tutorial es mostrar cómo integrar Anaplan con Azure Active Directory (Azure AD).
 
 Integrar Anaplan con Azure AD le proporciona las siguientes ventajas:
@@ -207,7 +211,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Anaplan en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Anaplan.
@@ -236,6 +240,6 @@ Al hacer clic en el icono de Anaplan en el panel de acceso, debería iniciar ses
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

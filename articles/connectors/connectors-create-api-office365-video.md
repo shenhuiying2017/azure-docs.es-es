@@ -1,13 +1,13 @@
 ---
-title: Uso del conector de Office 365 Video en las aplicaciones lógicas | Microsoft Docs
-description: Introducción al uso del conector de Office 365 Video en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure
-services: ''
-documentationcenter: ''
+title: Uso del conector de Office 365 Video en Logic Apps | Microsoft Docs
+description: "Introducción al uso del conector de Office 365 Video en las aplicaciones lógicas del Servicio de aplicaciones de Microsoft Azure"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 738e5aa7-2523-4116-8b65-211b9063852d
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 959eaca7aafd8516cfc6f3b5dd2a44ce21ec4825
+
 
 ---
-# Introducción al conector de Office 365 Video
+# <a name="get-started-with-the-office365-video-connector"></a>Introducción al conector de Office 365 Video
 Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. El conector de Office 365 Video puede usarse desde:
 
 * Aplicaciones lógicas 
@@ -34,19 +38,19 @@ Con Office 365 Video puede:
 
 Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Desencadenadores y acciones
+## <a name="triggers-and-actions"></a>Desencadenadores y acciones
 El conector de Office 365 Video tiene las siguientes acciones disponibles. No hay desencadenadores.
 
 | Desencadenadores | Acciones |
 | --- | --- |
-| None |<ul><li>Comprueba el estado de portal de vídeo</li><li>Obtiene todos los canales visibles</li><li>Obtiene la dirección URL de la reproducción del manifiesto de los Servicios multimedia de Azure para un vídeo</li><li>Obtiene el token de portador para conseguir acceso para descifrar el vídeo</li><li>Obtiene información sobre un determinado vídeo de Office365 </li><li>Ofrece una lista de todos los vídeos de Office365 que están presentes en un canal</li></ul> |
+| None |<ul><li>Comprueba el estado del portal de vídeo</li><li>Obtiene todos los canales visibles</li><li>Obtiene la dirección URL de reproducción del manifiesto de Servicios multimedia de Azure para un vídeo</li><li>Obtener el token de portador para obtener acceso para descifrar el vídeo</li><li>Obtiene información sobre un determinado vídeo de Office365 </li><li>Enumera todos los vídeos de Office365 presentes en un canal</li></ul> |
 
-Todos los conectores admiten datos en formato JSON y XML.
+Todos los conectores admiten datos en formato JSON y XML. 
 
-## Creación de una conexión al conector de Office 365 Video
+## <a name="create-a-connection-to-office365-video-connector"></a>Creación de una conexión al conector de Office 365 Video
 Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Video y permitir que estas se conecten a su cuenta.
 
-> [!INCLUDE [Pasos para crear una conexión a Office 365 Video](../../includes/connectors-create-api-office365video.md)]
+> [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
 > 
 > 
 
@@ -57,17 +61,18 @@ Después de crear la conexión, especifique las propiedades del vídeo de Office
 > 
 > 
 
-## Referencia de la API de REST de Swagger
+## <a name="swagger-rest-api-reference"></a>Referencia de la API de REST de Swagger
 Se aplica a la versión: 1.0.
 
-### Comprueba el estado del portal de vídeo
-Comprueba el estado del portal de vídeo para ver si los servicios de vídeo están habilitados.```GET: /{tenant}/IsEnabled```
+### <a name="checks-video-portal-status"></a>Comprueba el estado del portal de vídeo
+Comprueba el estado del portal de vídeo para ver si los servicios de vídeo están habilitados.  
+```GET: /{tenant}/IsEnabled``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -77,14 +82,15 @@ Comprueba el estado del portal de vídeo para ver si los servicios de vídeo est
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-### Obtiene todos los canales visibles
-Obtiene todos los canales para los que el usuario tiene acceso de visión.```GET: /{tenant}/Channels```
+### <a name="get-all-viewable-channels"></a>Obtiene todos los canales visibles
+Obtiene todos los canales para los que el usuario tiene acceso de visión.  
+```GET: /{tenant}/Channels``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -94,15 +100,16 @@ Obtiene todos los canales para los que el usuario tiene acceso de visión.```GET
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-### Enumera todos los vídeos de Office365 presentes en un canal
-Enumera todos los vídeos de Office365 presentes en un canal.```GET: /{tenant}/Channels/{channelId}/Videos```
+### <a name="lists-all-the-office365-videos-present-in-a-channel"></a>Enumera todos los vídeos de Office365 presentes en un canal
+Enumera todos los vídeos de Office365 presentes en un canal.  
+```GET: /{tenant}/Channels/{channelId}/Videos``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
-| channelId |cadena |yes |path |Ninguna |El identificador de canal desde el que necesitan recuperarse los vídeos |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
+| channelId |cadena |Sí |path |None |El identificador de canal desde el que necesitan recuperarse los vídeos |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -112,16 +119,17 @@ Enumera todos los vídeos de Office365 presentes en un canal.```GET: /{tenant}/C
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-### Obtiene información sobre un determinado vídeo de Office365
-Obtiene información sobre un determinado vídeo de Office365.```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}```
+### <a name="gets-information-about-a-particular-office365-video"></a>Obtiene información sobre un determinado vídeo de Office365 
+Obtiene información sobre un determinado vídeo de Office365.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
-| channelId |cadena |yes |path |Ninguna |El identificador de canal |
-| videoId |cadena |yes |path |Ninguna |El identificador de vídeo |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
+| channelId |cadena |Sí |path |None |El identificador de canal |
+| videoId |cadena |Sí |path |None |El identificador de vídeo |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -131,17 +139,18 @@ Obtiene información sobre un determinado vídeo de Office365.```GET: /{tenant}/
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-### Obtiene la dirección URL de reproducción del manifiesto de Servicios multimedia de Azure para un vídeo
-Obtiene la dirección URL de reproducción del manifiesto de los Servicios multimedia de Azure para un vídeo. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl```
+### <a name="get-playback-url-of-the-azure-media-services-manifest-for-a-video"></a>Obtiene la dirección URL de reproducción del manifiesto de Servicios multimedia de Azure para un vídeo
+Obtiene la dirección URL de reproducción del manifiesto de los Servicios multimedia de Azure para un vídeo.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/playbackurl``` 
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
-| channelId |cadena |yes |path |Ninguna |El identificador de canal |
-| videoId |cadena |yes |path |Ninguna |El identificador de vídeo |
-| streamingFormatType |cadena |yes |query |Ninguna |Tipo de formato de streaming. 1 - Smooth Streaming o MPEG-DASH. 0 - Streaming HLS |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
+| channelId |cadena |Sí |path |None |El identificador de canal |
+| videoId |cadena |Sí |path |None |El identificador de vídeo |
+| streamingFormatType |cadena |yes |query |None |Tipo de formato de streaming. 1 - Smooth Streaming o MPEG-DASH. 0 - Streaming HLS |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -151,16 +160,17 @@ Obtiene la dirección URL de reproducción del manifiesto de los Servicios multi
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-### Obtener el token de portador para obtener acceso para descifrar el vídeo
-Obtiene el token de portador para conseguir acceso con el fin de descifrar el vídeo. ```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
+### <a name="get-the-bearer-token-to-get-access-to-decrypt-the-video"></a>Obtener el token de portador para obtener acceso para descifrar el vídeo
+Obtiene el token de portador para conseguir acceso con el fin de descifrar el vídeo.  
+```GET: /{tenant}/Channels/{channelId}/Videos/{videoId}/token```
 
 | Nombre | Tipo de datos | Obligatorio | Ubicado en | Valor predeterminado | Descripción |
 | --- | --- | --- | --- | --- | --- |
-| tenant |cadena |yes |path |Ninguna |El nombre del inquilino para el directorio del que el usuario forma parte |
-| channelId |cadena |yes |path |Ninguna |El identificador de canal |
-| videoId |cadena |yes |path |Ninguna |El identificador de vídeo |
+| tenant |cadena |Sí |path |None |El nombre del inquilino para el directorio del que el usuario forma parte |
+| channelId |cadena |Sí |path |None |El identificador de canal |
+| videoId |cadena |Sí |path |None |El identificador de vídeo |
 
-#### Respuesta
+#### <a name="response"></a>Respuesta
 | Nombre | Descripción |
 | --- | --- |
 | 200 |Operación realizada correctamente |
@@ -170,18 +180,18 @@ Obtiene el token de portador para conseguir acceso con el fin de descifrar el v�
 | 500 |Internal Server Error |
 | default |Error en la operación. |
 
-## Definiciones de objeto
-#### Canal: Clase de canal
+## <a name="object-definitions"></a>Definiciones de objeto
+#### <a name="channel-channel-class"></a>Canal: Clase de canal
 | Nombre | Tipo de datos | Obligatorio |
 | --- | --- | --- |
-| Id |cadena |no |
+| id |cadena |no |
 | Título |cadena |no |
 | Descripción |cadena |no |
 
-#### Vídeo
+#### <a name="video"></a>Vídeo
 | Nombre | Tipo de datos | Obligatorio |
 | --- | --- | --- |
-| Id |cadena |no |
+| id |cadena |no |
 | Título |cadena |no |
 | Descripción |cadena |no |
 | CreationDate |cadena |no |
@@ -192,7 +202,12 @@ Obtiene el token de portador para conseguir acceso con el fin de descifrar el v�
 | VideoProcessingStatus |integer |no |
 | ViewCount |integer |no |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-<!---HONumber=AcomDC_0525_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
