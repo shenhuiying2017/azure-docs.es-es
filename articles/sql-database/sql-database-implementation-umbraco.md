@@ -1,19 +1,24 @@
 ---
-title: 'Caso práctico de Azure SQL Database: Umbraco | Microsoft Docs'
-description: Sepa cómo Umbraco utiliza SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube.
+title: "Caso práctico de Azure SQL Database: Umbraco | Microsoft Docs"
+description: "Sepa cómo Umbraco utiliza SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube."
 services: sql-database
-documentationcenter: ''
-author: carlrabeler
+documentationcenter: 
+author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5243d31e-3241-4cb0-9470-ad488ff28572
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0800f04034410c3734ef0a97afd9d41cf850381b
+
 
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco utiliza Azure SQL Database para aprovisionar y escalar rápidamente servicios para miles de inquilinos en la nube
@@ -113,18 +118,21 @@ Morten también está satisfecho con las funcionalidades de escalado que proporc
 
 Tal y como resume Mikkel Madsen: "Hemos adoptado el eficaz algoritmo de Azure que conecta un escenario SaaS común (incorporando a escala nuevos clientes en tiempo real) a nuestro patrón de aplicaciones (aprovisionando previamente bases de datos de los entornos de desarrollo y producción) en la tecnología subyacente (mediante las colas de Azure Service Bus y Azure SQL Database)".
 
-## <a name="with-azure,-uaas-is-exceeding-customer-expectations"></a>Con Azure, UaaS supera las expectativas de los clientes
+## <a name="with-azure-uaas-is-exceeding-customer-expectations"></a>Con Azure, UaaS supera las expectativas de los clientes
 Desde que Umbraco eligió Azure como asociado de soluciones en la nube, ha podido brindar a los clientes de UaaS un rendimiento optimizado de administración de contenido, sin invertir en los recursos de TI que se necesitaría con una solución autohospedada. Como Morten explica: "Nos encanta la mayor escalabilidad y comodidad de desarrollo que nos ofrece Azure, y nuestros clientes están entusiasmados con las características y la confiabilidad que brinda. En líneas generales, nos ha aportado un sinfín de ventajas".
 
 ## <a name="more-information"></a>Más información
 * Si quiere obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
-* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute). 
+* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Para aprender más sobre las redes virtuales en Azure, revise [este artículo](https://azure.microsoft.com/documentation/services/virtual-network/).    
-* Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).  
-* Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md). 
+* Para conocer más detalles sobre la copia de seguridad y recuperación, vea [este artículo](sql-database-business-continuity.md).    
+* Si quiere obtener más información sobre los grupos de supervisión, consulte [este artículo](sql-database-elastic-pool-manage-portal.md).    
 * Si necesita más detalles sobre Umbraco as a Service, lea [este artículo](https://umbraco.com/cloud).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

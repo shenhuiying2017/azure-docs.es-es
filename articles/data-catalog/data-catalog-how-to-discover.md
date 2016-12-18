@@ -1,13 +1,13 @@
 ---
-title: Detección de orígenes de datos | Microsoft Docs
-description: Artículo de procedimientos que indica cómo detectar recursos de datos registrados con el Catálogo de datos de Azure, incluidos la búsqueda y el filtrado, y mediante las capacidades de resaltado de referencias del portal del Catálogo de datos de Azure.
+title: "Detección de orígenes de datos | Microsoft Docs"
+description: "Artículo de procedimientos que indica cómo detectar recursos de datos registrados con el Catálogo de datos de Azure, incluidos la búsqueda y el filtrado, y mediante las capacidades de resaltado de referencias del portal del Catálogo de datos de Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: steelanddata
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/04/2016
 ms.author: maroche
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c90aff38ebe33e8c26f9e46db7e61786ea9a7dd
+
 
 ---
 # <a name="how-to-discover-data-sources"></a>Detección de orígenes de datos
@@ -63,6 +67,9 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure** se facili
 ## <a name="see-also"></a>Consulte también
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo detectar orígenes de datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

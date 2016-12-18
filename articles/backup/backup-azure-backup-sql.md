@@ -1,12 +1,12 @@
 ---
-title: Copia de seguridad de Azure para cargas de trabajo SQL Server con DPM | Microsoft Docs
-description: Introducción a copia de seguridad de bases de datos SQL Server mediante el servicio Copia de seguridad de Azure
+title: Azure Backup para cargas de trabajo SQL Server con DPM | Microsoft Docs
+description: "Introducción a copia de seguridad de bases de datos SQL Server mediante el servicio Copia de seguridad de Azure"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: ''
-
+editor: 
+ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adigan;giridham; jimpark;markgal;trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39dcc11dfae33fe85cfbd11dec402e23289103fc
+
 
 ---
 # <a name="azure-backup-for-sql-server-workloads-using-dpm"></a>Copia de seguridad de Azure para cargas de trabajo de SQL Server con DPM
@@ -150,9 +154,12 @@ Los pasos siguientes son necesarios para recuperar una entidad protegida (base d
    
     Una vez completada la recuperación, la base de datos restaurada será coherente con la aplicación.
 
-### <a name="next-steps:"></a>Pasos siguientes:
+### <a name="next-steps"></a>Pasos siguientes:
 •   [Preguntas más frecuentes de Azure Backup](backup-azure-backup-faq.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

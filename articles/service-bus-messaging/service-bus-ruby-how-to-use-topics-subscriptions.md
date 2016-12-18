@@ -1,22 +1,26 @@
 ---
 title: Uso de temas de Service Bus (Ruby) | Microsoft Docs
-description: Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby.
-services: service-bus
+description: "Aprenda a usar los temas y las suscripciones del Bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones Ruby."
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a033aee05db1a837e0891256db26d63fe80e05a2
+
 
 ---
-# <a name="how-to-use-service-bus-topics/subscriptions"></a>Uso de temas/suscripciones del Bus de servicio
+# <a name="how-to-use-service-bus-topicssubscriptions"></a>Uso de temas/suscripciones del Bus de servicio
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
 En este artículo se describe cómo usar los temas y las suscripciones de Service Bus desde aplicaciones Ruby. Entre los escenarios tratados se incluyen la **creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, la **recepción de mensajes de una suscripción** y la **eliminación de temas y suscripciones**. Para más información sobre los temas y las suscripciones, vea la sección [Pasos siguientes](#next-steps).
@@ -33,7 +37,7 @@ Una suscripción al tema funciona de forma similar a una cola virtual que recibe
 Las suscripciones y temas de Service Bus le permiten escalar para realizar el procesamiento de un número elevado de mensajes en una serie amplia de usuarios y aplicaciones.
 
 ## <a name="create-a-namespace"></a>Creación de un espacio de nombres
-Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque [Azure Portal][] no crea el espacio de nombres con una conexión ACS.
+Para empezar a usar colas del Bus de servicio en Azure, primero hay que crear un espacio de nombres. Un espacio de nombres proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación. Debe crear el espacio de nombres a través de la interfaz de línea de comandos porque [Portal de Azure][Portal de Azure] no crea el espacio de nombres con una conexión ACS.
 
 Para crear un espacio de nombres:
 
@@ -54,12 +58,12 @@ El cmdlet de PowerShell que ejecutó para crear el espacio de nombres del Bus de
 ![Copiar clave](./media/service-bus-ruby-how-to-use-topics-subscriptions/defaultkey.png)
 
 > [!NOTE]
-> También puede encontrar esta clave si inicia sesión en [Azure Portal][] y va a la información de conexión para el espacio de nombres.
+> También puede encontrar esta clave si inicia sesión en [Portal de Azure][Portal de Azure] y navega a la información de conexión del espacio de nombres.
 > 
 > 
 
 ## <a name="create-a-ruby-application"></a>Creación de una aplicación de Ruby
-Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../virtual-machines/virtual-machines-linux-classic-ruby-rails-web-app.md).
+Para obtener instrucciones, vea cómo [crear una aplicación de Ruby en Azure](../virtual-machines/linux/classic/virtual-machines-linux-classic-ruby-rails-web-app.md).
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
 Para usar el Bus de servicio, descargue y use el paquete Ruby Azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
@@ -112,7 +116,7 @@ Las suscripciones a temas también se crean con el objeto **Azure::ServiceBusSer
 
 Las suscripciones son permanentes y seguirán existiendo hasta que se eliminen, o se elimine el tema al que están asociadas. Si la aplicación contiene lógica para crear una suscripción, primero debe comprobar si esta ya existe utilizando el método getSubscription.
 
-### <a name="create-a-subscription-with-the-default-(matchall)-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
+### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Creación de una suscripción con el filtro predeterminado (MatchAll)
 El filtro predeterminado **MatchAll** se usa en caso de que no se haya especificado ninguno al crear una suscripción. Al usar el filtro **MatchAll**, todos los mensajes publicados en el tema se colocan en la cola virtual de la suscripción. En el ejemplo siguiente se crea una suscripción llamada "all-messages" que usa el filtro predeterminado **MatchAll**.
 
 ```
@@ -198,7 +202,7 @@ También hay un tiempo de espera asociado con un mensaje bloqueado en la suscrip
 En caso de que la aplicación sufra un error después de procesar el mensaje y antes de llamar al método **delete\_subscription\_message()**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esta lógica se consigue usando la propiedad **message\_id** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Eliminación de temas y suscripciones
-Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Azure Portal][] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
+Los temas y las suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de Azure][Portal de Azure] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
 
 ```
 azure_service_bus_service.delete_topic("test-topic")
@@ -221,6 +225,6 @@ Ahora que conoce los fundamentos de los temas del Bus de servicio, siga estos v�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

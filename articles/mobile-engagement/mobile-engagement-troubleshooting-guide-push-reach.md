@@ -1,12 +1,12 @@
 ---
-title: Guía de solución de problemas de Azure Mobile Engagement - Inserción/Cobertura
-description: Solución de problemas de interacción de usuario y notificación en Azure Mobile Engagement
+title: "Guía de solución de problemas de Azure Mobile Engagement - Inserción/Cobertura"
+description: "Solución de problemas de interacción de usuario y notificación en Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 3f1886b7-1fdd-47f4-b6b0-d79f158d5ef3
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,16 +14,20 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d59fcba3467e1739c1782a896fc9b5542422e884
+
 
 ---
-# Guía de solución de problemas de inserción y cobertura
+# <a name="troubleshooting-guide-for-push-and-reach-issues"></a>Guía de solución de problemas de inserción y cobertura
 Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobile Engagement envía información a los usuarios.
 
-## Errores de inserción
-### Problema
+## <a name="push-failures"></a>Errores de inserción
+### <a name="issue"></a>Problema
 * Las inserciones no funcionan (en la aplicación, fuera de la aplicación, o en ambos ámbitos).
 
-### Causas
+### <a name="causes"></a>Causas
 * Muchas veces, un error de inserción es una indicación de que Azure Mobile Engagement, la cobertura u otra función avanzada de Azure Mobile Engagement no está integrado correctamente o que se requiere una actualización en el SDK para solucionar un problema conocido con una nueva plataforma de sistema operativo o del dispositivo.
 * Pruebe simplemente una inserción en la aplicación y una inserción fuera de la aplicación para determinar si algo es un problema dentro o fuera de la aplicación.
 * Realice pruebas desde dentro de la interfaz de usuario y la API como paso de solución de problemas para ver qué información de error adicional está disponible en ambos lugares.
@@ -42,23 +46,23 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Para los problemas con la API de inserción, confirme que realmente desea utilizar la API de inserción en lugar de la API de cobertura (ya que esta se usa con más frecuencia) y que no se confunda los parámetros "carga" y "notificador".
 * Pruebe su campaña de inserción con ambos dispositivos conectados a través de Wi-Fi y 3G para eliminar la conexión de red como posible fuente de problemas.
 
-## Pruebas de inserción
-### Problema
+## <a name="push-testing"></a>Pruebas de inserción
+### <a name="issue"></a>Problema
 * Las inserciones pueden enviarse a un dispositivo específico en función de un identificador de dispositivo.
 
-### Causas
+### <a name="causes"></a>Causas
 * Los dispositivos de prueba se configuran de manera diferente para cada plataforma, pero provocar un evento en la aplicación en un dispositivo de prueba y buscar el identificador del dispositivo en el portal debería funcionar para encontrar el identificador del dispositivo para todas las plataformas.
 * Los dispositivos de prueba funcionan de manera diferente con IDFA frente a IDFV (únicamente en iOS).
 
-## Personalización de inserción
-### Problema
+## <a name="push-customization"></a>Personalización de inserción
+### <a name="issue"></a>Problema
 * El elemento de contenido de inserción avanzada no funciona (distintivo, anillo, vibración, imagen, etc.).
 * No funcionan los vínculos de inserciones (fuera de la aplicación, en la aplicación, a un sitio web, a una ubicación de la aplicación).
 * Las estadísticas de inserción muestran que no se ha enviado una inserción a tantas personas como se esperaba (demasiadas o no suficientes).
 * Inserción duplicada y recibida dos veces.
 * No se puede registrar el dispositivo de prueba para inserciones de Azure Mobile Engagement (con su propia aplicación de producción o desarrollo).
 
-### Causas
+### <a name="causes"></a>Causas
 * Para vincular a una ubicación específica de la aplicación se requieren "categorías" (solo Android).
 * Esquemas de vinculación profundos para redirigir a los usuarios a una ubicación alternativa después de hacer clic en una notificación push que necesite crearse en y ser administrada por la aplicación y el sistema operativo del dispositivo, no por Mobile Engagement directamente. (**Nota:** las notificaciones fuera de la aplicación no se pueden vincular directamente a ubicaciones de aplicación con iOS del mismo modo que lo hacen con Android.)
 * Los servidores de imágenes externas tienen que poder usar HTTP "GET" y "HEAD" para que funcionen inserciones generales (solo Android).
@@ -67,27 +71,27 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * No hay datos en el servidor registrados cuando usa el botón para "probar" inserciones. Los datos solo se registran para campañas de inserción real.
 * Para ayudar a aislar el problema, solucione problemas con: prueba, simular y una campaña real, ya que cada uno de ellos funciona de forma ligeramente diferente.
 * El período de tiempo en el que las campañas "en la aplicación" y "en cualquier momento" están programadas para ejecutarse puede afectar a los números de entrega, ya que una campaña solo se entregará a los usuarios "en la aplicación" mientras se ejecuta la campaña (y los usuarios que tienen la configuración del dispositivo establecida para recibir notificaciones "fuera de la aplicación").
-* Las diferencias entre cómo controlan Android y iOS las notificaciones "fuera de la aplicación" hace difícil comparar directamente las estadísticas de inserción entre la versión iOS y Android de la aplicación. Android proporciona más información de notificación a nivel de sistema operativo que iOS. Android informa cuando se recibe, se elimina o se hace clic en una notificación nativa en el centro de notificaciones, pero iOS no indica esta información a menos que se haga clic en la notificación.
+* Las diferencias entre cómo controlan Android y iOS las notificaciones "fuera de la aplicación" hace difícil comparar directamente las estadísticas de inserción entre la versión iOS y Android de la aplicación. Android proporciona más información de notificación a nivel de sistema operativo que iOS. Android informa cuando se recibe, se elimina o se hace clic en una notificación nativa en el centro de notificaciones, pero iOS no indica esta información a menos que se haga clic en la notificación. 
 * La razón principal por la cual los números de "inserciones" y los números de "entregas" son diferentes en las campañas de cobertura es que las notificaciones "en la aplicación" y "fuera de la aplicación" se contabilizan de manera diferente. Las notificaciones "en la aplicación" las controla Mobile Engagement, pero las notificaciones "fuera de la aplicación" las controla el centro de notificaciones en el sistema operativo del dispositivo.
 
-## Orientación de la inserción
-### Problema
+## <a name="push-targeting"></a>Orientación de la inserción
+### <a name="issue"></a>Problema
 * El destino integrado no funciona según lo esperado.
 * La orientación de la etiqueta de información de la aplicación no funciona como se esperaba.
 * La orientación de geolocalización no funcionan según lo esperado.
 * Las opciones de idioma no funcionan según lo esperado.
 
-### Causas
+### <a name="causes"></a>Causas
 * Asegúrese de que ha cargado etiquetas de información de aplicación a través de la interfaz de usuario o la API de Azure Mobile Engagement.
-* La limitación de la velocidad de inserción o la cuota de inserción en el nivel de la aplicación o la limitación de la audiencia en el nivel de campaña puede evitar que una persona reciba una inserción específica, incluso si cumple sus otros criterios de orientación.
+* La limitación de la velocidad de inserción o la cuota de inserción en el nivel de la aplicación o la limitación de la audiencia en el nivel de campaña puede evitar que una persona reciba una inserción específica, incluso si cumple sus otros criterios de orientación. 
 * Establecer un "idioma" es diferente de orientar en función del país o la configuración regional, que también es diferente a orientar según la geolocalización basada en una ubicación de teléfono o de GPS.
 * El mensaje en el "idioma predeterminado" se envía a los clientes que no tienen su dispositivo establecido en uno de los idiomas alternativos que especifica.
 
-## Programación de la inserción
-### Problema
+## <a name="push-scheduling"></a>Programación de la inserción
+### <a name="issue"></a>Problema
 * La programación de la inserción no funciona como se esperaba (envío demasiado tiempo o retrasado).
 
-### Causas
+### <a name="causes"></a>Causas
 * Las zonas horarias puede generar problemas con la programación, especialmente cuando se usa la zona horaria de los usuarios finales.
 * Las funciones avanzadas de inserción pueden retrasar las inserciones.
 * La orientación basada en la configuración del teléfono (en lugar de en etiquetas de información de la aplicación) puede retrasar las inserciones debido a que Azure Mobile Engagement puede tener que solicitar datos del teléfono en tiempo real antes de enviar una inserción.
@@ -96,4 +100,9 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Si utiliza la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
 * Si usa una categoría personalizada en cobertura para mostrar las notificaciones de la aplicación, deberá seguir el ciclo de vida correcto de una notificación, o puede que la notificación no se borre cuando el usuario la descarte.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

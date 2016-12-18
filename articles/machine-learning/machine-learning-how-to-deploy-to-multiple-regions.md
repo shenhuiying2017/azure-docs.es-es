@@ -2,11 +2,11 @@
 title: Procedimiento para implementar un servicio web en varias regiones | Microsoft Docs
 description: Pasos para implementar (copiar) un servicio web nuevo en otras regiones
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
 editor: cgronlun
-
+ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 0b7c4c95328eb3ca573694b8eca0b0abda646fc5
+ms.openlocfilehash: ba27d4adf73b4d5d3747567b54aeb5f0d06f8243
+
 
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>Procedimiento para implementar un servicio web en varias regiones
@@ -27,7 +31,7 @@ Los precios dependen de la región, por lo tanto, debe definir un plan de factur
 3. En la página de información general de Planes, haga clic en **Nuevo**.
 4. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el nuevo plan.
 5. En el menú desplegable **Región** , seleccione una región para el nuevo plan. Las opciones de planes de la región seleccionada se mostrarán en la sección de la página **Plan Options** (Opciones de planes).
-6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para obtener más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-portal/resource-group-portal.md).
+6. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el plan. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 7. En **Nombre del plan** , escriba el nombre del plan.
 8. En **Plan Options**(Opciones de planes), haga clic en el nivel de facturación del nuevo plan.
 9. Haga clic en **Crear**.
@@ -39,12 +43,15 @@ Los precios dependen de la región, por lo tanto, debe definir un plan de factur
 4. En **Nombre de servicio web**, escriba un nombre nuevo del servicio web.
 5. En **Descripción del servicio web**, escriba una descripción del servicio web.
 6. En el menú desplegable **Suscripción** , seleccione la suscripción en que residirá el servicio web nuevo.
-7. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el servicio web. Para obtener más información sobre los grupos de recursos, consulte [Administración de los recursos de Azure a través del Portal](../azure-portal/resource-group-portal.md).
+7. En el menú desplegable **Grupo de recursos** , seleccione un grupo de recursos para el servicio web. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 8. En el menú desplegable **Región** , seleccione la región en la que se va a implementar el servicio web.
 9. En el menú desplegable **Cuenta de almacenamiento** , seleccione la cuenta de almacenamiento en la que se va a almacenar el servicio web.
 10. En el menú desplegable **Price Plan** (Plan de precios), seleccione un plan en la región que seleccionó en el paso 8.
 11. Haga clic en **Copiar**.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
