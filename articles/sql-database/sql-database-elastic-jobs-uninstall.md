@@ -1,39 +1,43 @@
 ---
-title: Desinstalación de componentes de Trabajos de base de datos elástica
-description: Desinstalación de componentes de Trabajos de base de datos elástica
+title: "Desinstalación de componentes de Trabajos de base de datos elástica"
+description: "Desinstalación de componentes de Trabajos de base de datos elástica"
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: bfc9d820-edbd-4fca-bfbf-1f339cfcc448
 ms.service: sql-database
 ms.workload: sql-database
+ms.custom: multiple databases
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
+
 
 ---
-# Desinstalación de componentes de Trabajos de base de datos elástica.
-Los componentes de **Trabajos de base de datos elástica** se pueden desinstalar mediante el Portal o PowerShell.
+# <a name="uninstall-elastic-database-jobs-components"></a>Desinstalación de componentes de Trabajos de base de datos elástica.
+**Trabajos de base de datos elástica** se pueden desinstalar mediante el Portal o PowerShell.
 
-## Desinstalación de componentes de Trabajos de base de datos elástica mediante el Portal de Azure
+## <a name="uninstall-elastic-database-jobs-components-using-the-azure-portal"></a>Desinstalación de componentes de Trabajos de base de datos elástica mediante el Portal de Azure
 1. Abra el [Portal de Azure](https://portal.azure.com/).
-2. Navegue hasta la suscripción que contiene componentes de **Trabajos de base de datos elástica**, es decir, la suscripción en la que se instalaron los componentes de Trabajos de base de datos elástica.
-3. Haga clic en **Examinar** y haga clic en **Grupos de recursos**.
-4. Seleccione el grupo de recursos denominado "\_\_ElasticDatabaseJob".
+2. Navegue hasta la suscripción que contiene componentes de **Trabajos de base de datos elástica** , es decir, la suscripción en la que se instalaron los componentes de Trabajos de base de datos elástica.
+3. Haga clic en **Examinar** y luego en **Grupos de recursos**.
+4. Seleccione el grupo de recursos denominado "__ElasticDatabaseJob".
 5. Elimine el grupo de recursos.
 
-## Desinstalación de componentes de Trabajos de base de datos elástica mediante PowerShell
+## <a name="uninstall-elastic-database-jobs-components-using-powershell"></a>Desinstalación de componentes de Trabajos de base de datos elástica mediante PowerShell
 1. Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: escriba **cd tools**.
    
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
-2. Ejecute el script .\\UninstallElasticDatabaseJobs.ps1 de PowerShell.
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+2. Ejecute el script .\UninstallElasticDatabaseJobs.ps1 de PowerShell.
    
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1
-     PS C:*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
 
 O simplemente, ejecute el siguiente script, suponiendo que se usaron valores predeterminados en la instalación de los componentes:
 
@@ -51,8 +55,8 @@ O simplemente, ejecute el siguiente script, suponiendo que se usaron valores pre
         Remove-AzureResourceGroup -Name $ResourceGroupName -Force
         Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job compoennts are now uninstalled."
 
-## Pasos siguientes
-Para reinstalar Trabajos de base de datos elástica, vea [Instalación del servicio Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md).
+## <a name="next-steps"></a>Pasos siguientes
+Para reinstalar Trabajos de base de datos elástica, vea [Instalación del servicio Trabajos de base de datos elástica](sql-database-elastic-jobs-service-installation.md)
 
 Si desea obtener más información sobre Trabajos de base de datos elástica, vea [Información general de Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
 
@@ -60,4 +64,8 @@ Si desea obtener más información sobre Trabajos de base de datos elástica, ve
 
 
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

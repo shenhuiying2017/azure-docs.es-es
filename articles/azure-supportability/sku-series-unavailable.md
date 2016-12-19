@@ -1,12 +1,12 @@
 ---
 title: Serie de SKU no disponibles | Microsoft Docs
-description: Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región.
+description: "Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región."
 services: Azure Supportability
-documentationcenter: ''
+documentationcenter: 
 author: ganganarayanan
 manager: scotthit
-editor: ''
-
+editor: 
+ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0f41aac0512e78039e6038795c72c07251bbcf76
+
 
 ---
-# Serie de SKU no disponibles
-En algunas regiones, ciertas SKU no están disponibles de forma automática en las nuevas suscripciones. Esto puede ocurrir cuando [se presentan SKU más eficaces en una región](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) y disminuye la popularidad de las SKU heredadas. El mensaje "*Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región*" aparece cuando se crea una solicitud de soporte técnico para aumentar la cuota de núcleos de proceso.
+# <a name="sku-series-unavailable"></a>Serie de SKU no disponibles
+En algunas regiones, ciertas SKU no están disponibles de forma automática en las nuevas suscripciones.  Esto puede ocurrir cuando [se presentan SKU más eficaces en una región](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) y disminuye la popularidad de las SKU heredadas.
+El mensaje "*Algunas series de SKU no están disponibles para la suscripción seleccionada para esta región*" aparece cuando se crea una solicitud de soporte técnico para aumentar la cuota de núcleos de proceso.
 
-Puede revisar la disponibilidad de SKU en la página de [servicios por región de Azure](https://azure.microsoft.com/regions/#services).
+Puede revisar la disponibilidad de SKU en la página de [servicios por región de Azure](https://azure.microsoft.com/regions/#services) . 
 
 Para solicitar acceso a una SKU que se ha restringido de su suscripción, cree una solicitud de soporte técnico de "Administración de la suscripción".
 
@@ -27,7 +32,8 @@ Para solicitar acceso a una SKU que se ha restringido de su suscripción, cree u
 
 ![Hoja Básico](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* En la página Problema, seleccione "Otras preguntas generales" en Tipo de problema y escriba la región y la SKU exactas que no está viendo. Así se ayuda a acelerar el proceso de soporte técnico.
+* En la página Problema, seleccione "Otras preguntas generales" en Tipo de problema y escriba la región y la SKU exactas que no está viendo.
+  Así se ayuda a acelerar el proceso de soporte técnico.
 
 ![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
@@ -35,10 +41,15 @@ Para solicitar acceso a una SKU que se ha restringido de su suscripción, cree u
 
 ![Información de contacto](./media/SKU-series-unavailable/ContactInformation.png)
 
-## Comentarios
+## <a name="feedback"></a>Comentarios
 Siempre estamos abiertos a todo tipo de comentarios y sugerencias. No dude en enviarnos sus [sugerencias](https://feedback.azure.com/forums/266794-support-feedback). Además, puede ponerse en contacto con nosotros a través de [Twitter](https://twitter.com/azuresupport) o los [foros de MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
-## Más información
+## <a name="learn-more"></a>Más información
 [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

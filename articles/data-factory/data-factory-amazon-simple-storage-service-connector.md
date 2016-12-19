@@ -2,18 +2,22 @@
 title: Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory | Microsoft Docs
 description: Aprenda a mover datos desde Amazon Simple Storage Service (S3) mediante Azure Data Factory.
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 10/24/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: c2350ae447ccebf1a6b85a563e7fa1d7c12b16d7
+ms.openlocfilehash: 05a9466ba2a2d4a495d2e9a4f3ca4c9d08ddcadb
+
 
 ---
 # <a name="move-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Movimiento de datos desde Amazon Simple Storage Service mediante Azure Data Factory
@@ -21,23 +25,31 @@ En este artículo se describe cómo puede usar la actividad de copia en una fact
 
 Data Factory solo admite actualmente el movimiento de datos de Amazon S3 a otros almacenes de datos, pero no de otros almacenes de datos a Amazon S3.
 
+## <a name="required-permissions"></a>Permisos necesarios
+Para copiar datos de Amazon S3, asegúrese de que se han concedido los siguientes permisos:
+
+* **S3:GetObject** y **s3:GetObjectVersion** para operaciones de objeto de Amazon S3.
+* **S3:ListBucket** y **s3:ListAllMyBuckets** (se usa solo en el asistente para copiar) para las operaciones de depósito de Amazon S3.
+
+Encontrará la lista completa de los permisos de Amazon S3 en [Specifying Permissions in a Policy](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) (Especificación de permisos en una directiva).
+
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más sencilla de crear una canalización que copie datos de Amazon S3 es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+La manera más sencilla de crear una canalización que copie datos de Amazon S3 es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos de Amazon S3 a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores).
+En el siguiente ejemplo, se proporcionan definiciones JSON de ejemplo que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Se muestra cómo copiar datos de Amazon S3 a Azure Blob Storage. Sin embargo, los datos se pueden copiar en cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 
-## <a name="sample:-copy-data-from-amazon-s3-to-azure-blob"></a>Ejemplo: copia de datos de Amazon S3 a Azure Blob
-En este ejemplo se muestra cómo copiar datos de Amazon S3 a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.  
+## <a name="sample-copy-data-from-amazon-s3-to-azure-blob"></a>Ejemplo: copia de datos de Amazon S3 a Azure Blob
+En este ejemplo se muestra cómo copiar datos de Amazon S3 a Azure Blob Storage. Sin embargo, se pueden copiar datos **directamente** a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores-and-formats) mediante la actividad de copia en Data Factory de Azure.  
 
 El ejemplo consta de las siguientes entidades de factoría de datos:
 
 * Un servicio vinculado de tipo [AwsAccessKey](#linked-service-properties).
-* Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties)
+* Un servicio vinculado de tipo [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service)
 * Un [conjunto de datos](data-factory-create-datasets.md) de tipo [AmazonS3](#dataset-type-properties).
 * Un [conjunto de datos](data-factory-create-datasets.md) de salida de tipo [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * Una [canalización](data-factory-create-pipelines.md) con la actividad de copia que usa [FileSystemSource](#copy-activity-type-properties) y [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-En el ejemplo se copian datos de Amazon S3 a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos. 
+En el ejemplo se copian datos de Amazon S3 a un blob de Azure cada hora. Las propiedades JSON usadas en estos ejemplos se describen en las secciones que aparecen después de los ejemplos.
 
 **Servicio vinculado de Amazon S3**
 
@@ -152,7 +164,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 
 **Canalización con actividad de copia**
 
-La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**. 
+La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de JSON de canalización, el tipo **source** se establece en **FileSystemSource** y el tipo **sink** se establece en **BlobSink**.
 
     {
         "name": "CopyAmazonS3ToBlob",
@@ -224,8 +236,8 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 > [!NOTE]
 > bucketName + key especifica la ubicación del objeto S3, donde bucket es el contenedor raíz de los objetos S3 y key es la ruta de acceso completa al objeto S3.
-> 
-> 
+>
+>
 
 ### <a name="sample-dataset-with-prefix"></a>Conjunto de datos de ejemplo con prefijo
     {
@@ -248,7 +260,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
         }
     }
 
-### <a name="sample-data-set-(with-version)"></a>Conjunto de datos de ejemplo (con versión)
+### <a name="sample-data-set-with-version"></a>Conjunto de datos de ejemplo (con versión)
     {
         "name": "dataset-s3",
         "properties": {
@@ -272,7 +284,7 @@ La sección **typeProperties** es diferente en cada tipo de conjunto de datos y 
 
 
 ### <a name="dynamic-paths-for-s3"></a>Rutas de acceso dinámicas para S3
-En el ejemplo, usamos valores fijos para las propiedades key y bucketName en el conjunto de datos de Amazon S3. 
+En el ejemplo, usamos valores fijos para las propiedades key y bucketName en el conjunto de datos de Amazon S3.
 
     "key": "testFolder/test.orc",
     "bucketName": "testbucket",
@@ -282,14 +294,14 @@ Puede hacer que Data Factory calcule estas propiedades dinámicamente en tiempo 
     "key": "$$Text.Format('{0:MM}/{0:dd}/test.orc', SliceStart)"
     "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 
-Y lo mismo puede hacer para la propiedad prefix de un conjunto de datos de Amazon S3. Consulte [Azure Data Factory: funciones y variables del sistema](data-factory-functions-variables.md) para ver una lista de funciones y variables admitidas. 
+Y lo mismo puede hacer para la propiedad prefix de un conjunto de datos de Amazon S3. Consulte [Azure Data Factory: funciones y variables del sistema](data-factory-functions-variables.md) para ver una lista de funciones y variables admitidas.
 
 [!INCLUDE [data-factory-file-format](../../includes/data-factory-file-format.md)]
 
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## <a name="copy-activity-type-properties"></a>Propiedades de tipo de actividad de copia
-Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades. 
+Para ver una lista completa de las secciones y propiedades disponibles para definir actividades, consulte el artículo [Creación de canalizaciones](data-factory-create-pipelines.md). Las propiedades (como nombre, descripción, tablas de entrada y salida, y directivas) están disponibles para todos los tipos de actividades.
 
 Por otra parte, las propiedades disponibles en la sección **typeProperties** de la actividad varían con cada tipo de actividad. Para la actividad de copia, varían en función de los tipos de orígenes y receptores.
 
@@ -309,10 +321,12 @@ Si el origen en la actividad de copia es de tipo **FileSystemSource** (lo que in
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los artículos siguientes: 
+Consulte los artículos siguientes:
 
-* [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia. 
+* [Tutorial de actividad de copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obtener instrucciones paso a paso para la creación de una canalización con una actividad de copia.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

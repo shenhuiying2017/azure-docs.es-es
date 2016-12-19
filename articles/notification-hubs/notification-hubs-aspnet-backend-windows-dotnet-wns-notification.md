@@ -1,22 +1,26 @@
 ---
 title: Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
-description: Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET.
+description: "Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en C# con la API de .NET."
 documentationcenter: windows
-author: wesmc7777
+author: ysxu
 manager: erikre
 services: notification-hubs
-editor: ''
-
+editor: 
+ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
-ms.author: wesmc
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
+
 
 ---
-# <a name="azure-notification-hubs-notify-users-with-.net-backend"></a>Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
+# <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Los Centros de notificaciones de Azure notifican a los usuarios con back-end de .NET
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
 ## <a name="overview"></a>Información general
@@ -35,9 +39,11 @@ Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales 
 * [Introducción a los Centros de notificaciones]<br/>Cree el Centro de notificaciones, reserve el nombre de la aplicación y regístrese para recibir notificaciones en este tutorial. En este tutorial se asume que ya ha completado estos pasos. En caso contrario, siga los pasos de [Introducción a los Notification Hubs (Tienda Windows)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), especialmente las secciones [Registro de la aplicación para la Tienda Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#register-your-app-for-the-windows-store) y [Configuración del Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). En concreto, asegúrese de que ha especificado los valores de **SID del paquete** y **Secreto del cliente** en el portal, en la pestaña **Configurar** correspondiente a su Centro de notificaciones. Este procedimiento de configuración se describe en la sección [Configuración de su Centro de notificaciones](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md#configure-your-notification-hub). Este es un paso importante: si las credenciales del portal no coinciden con las especificadas para el nombre de la aplicación que elija, la notificación de inserción no tendrá lugar.
 
 > [!NOTE]
-> Si usa Mobile Apps como su servicio back-end en App Service, consulte la [versión de Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) de este tutorial.
+> Si usa Mobile Apps como su servicio back-end en Azure App Service, consulte la [versión de Mobile Apps](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md) de este tutorial.
 > 
 > 
+
+&nbsp;
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -337,11 +343,11 @@ En esta sección, se actualiza el código del proyecto que se ha completado para
 <!-- URLs. -->
 [Introducción a los Centros de notificaciones]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Inserción segura]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
-[Uso de Notification Hubs para enviar noticias de último minuto]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Información general acerca de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

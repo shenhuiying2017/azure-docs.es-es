@@ -1,12 +1,12 @@
 ---
-title: Cómo paginar los resultados de la búsqueda en Búsqueda de Azure | Microsoft Docs
-description: Paginación de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure.
+title: "Paginación de los resultados de Azure Search | Microsoft Docs"
+description: "Paginación de Búsqueda de Azure, un servicio de búsqueda hospedado en la nube en Microsoft Azure."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: a0a1d315-8624-4cdf-b38e-ba12569c6fcc
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -14,9 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 282ef32a9682866936e9833b83188279ad7ee858
+
 
 ---
-# Cómo paginar los resultados de la búsqueda en Búsqueda de Azure
+# <a name="how-to-page-search-results-in-azure-search"></a>Cómo paginar los resultados de la búsqueda en Búsqueda de Azure
 Este artículo proporciona orientación sobre la forma de usar la API de REST del servicio Búsqueda de Azure para implementar los elementos habituales de una página de resultados de búsqueda, como recuentos totales, recuperación de documentos, criterios de ordenación y navegación.
 
 En todos los casos que se mencionan a continuación, las opciones relacionadas con la página que aportan datos o información a la página de resultados de búsqueda se especifican a través de solicitudes [Buscar documento](http://msdn.microsoft.com/library/azure/dn798927.aspx) que se envían a su servicio Búsqueda de Azure. Las solicitudes incluyen un comando GET, ruta de acceso y parámetros de consulta que informan el servicio de lo que se solicita y de cómo formular la respuesta.
@@ -26,7 +30,7 @@ En todos los casos que se mencionan a continuación, las opciones relacionadas c
 > 
 > 
 
-## Total de resultados y recuentos de página
+## <a name="total-hits-and-page-counts"></a>Total de resultados y recuentos de página
 Muestra el número total de resultados devueltos por una consulta y, a continuación, devolver los resultados en bloques más pequeños, es fundamental para casi todas las páginas de búsqueda.
 
 ![][1]
@@ -39,7 +43,7 @@ Recuperar documentos en grupos de 15 y mostrar también el total de resultados, 
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-Paginar resultados requiere `$top` y `$skip`, donde `$top` especifica cuántos elementos se devuelven en un lote y `$skip` especifica cuántos elementos se omiten. En el ejemplo siguiente, cada página muestra los siguientes 15 elementos, indicado por los saltos incrementales en el parámetro `$skip`.
+Paginar resultados requiere `$top` y `$skip`, donde `$top` especifica cuántos elementos se devuelven en un lote y `$skip` especifica cuántos elementos se omiten. En el ejemplo siguiente, cada página muestra los siguientes 15 elementos, indicado por los saltos incrementales en el parámetro `$skip` .
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -47,7 +51,7 @@ Paginar resultados requiere `$top` y `$skip`, donde `$top` especifica cuántos e
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
-## Diseño
+## <a name="layout"></a>Diseño
 En una página de resultados de búsqueda, puede ser deseable mostrar una imagen en miniatura, un subconjunto de campos y un vínculo a una página de producto completa.
 
  ![][2]
@@ -60,11 +64,11 @@ Para devolver un subconjunto de campos con un diseño en mosaico:
 
 Las imágenes y los archivos multimedia no se pueden buscar directamente y se deben almacenar en otra plataforma de almacenamiento, como Almacenamiento de blobs de Azure, para reducir los costes. En el índice y los documentos, defina un campo que almacene la dirección URL del contenido externo. Después puede utilizar el campo como referencia de imagen. La dirección URL de la imagen debe estar en el documento.
 
-Para recuperar una página de descripción de producto para un evento **onClick**, use [Buscar documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para pasar la clave del documento que se va a recuperar. El tipo de datos de la clave es `Edm.String`. En este ejemplo, es *246810*.
+Para recuperar una página de descripción de producto para un evento **onClick** , use [Buscar documento](http://msdn.microsoft.com/library/azure/dn798929.aspx) para pasar la clave del documento que se va a recuperar. El tipo de datos de la clave es `Edm.String`. En este ejemplo, es *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
-## Ordenar por relevancia, clasificación o precio
+## <a name="sort-by-relevance-rating-or-price"></a>Ordenar por relevancia, clasificación o precio
 A menudo, el orden predeterminado se basa en la relevancia, pero es habitual poner a disposición de los clientes otros criterios de ordenación para que puedan reorganizar rápidamente los resultados existentes en un orden diferente.
 
  ![][3]
@@ -82,23 +86,23 @@ Deberá crear un método que acepte la opción de ordenación seleccionada como 
  ![][5]
 
 > [!NOTE]
-> Aunque la puntuación predeterminada es suficiente para muchos escenarios, se recomienda basar la relevancia en un perfil de puntuación personalizado. Un perfil personalizado de puntuación le ofrece una forma de aumentar los elementos que son más útiles para su negocio. Consulte [Incorporación de un perfil de puntuación](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obtener más información.
+> Aunque la puntuación predeterminada es suficiente para muchos escenarios, se recomienda basar la relevancia en un perfil de puntuación personalizado. Un perfil personalizado de puntuación le ofrece una forma de aumentar los elementos que son más útiles para su negocio. Consulte [Incorporación de un perfil de puntuación](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obtener más información. 
 > 
 > 
 
-## Navegación por facetas
+## <a name="faceted-navigation"></a>Navegación por facetas
 La navegación de búsqueda es habitual en una página de resultados; a menudo se encuentra en un lado o en la parte superior de una página. En Búsqueda de Azure, la navegación por facetas proporciona una búsqueda autodirigida basándose en filtros predefinidos. Consulte [Navegación por facetas en Búsqueda de Azure](search-faceted-navigation.md) para obtener más detalles
 
-## Filtros en el nivel de página
-Si el diseño de la solución incluye páginas de búsqueda dedicadas para determinados tipos de contenido (por ejemplo, una aplicación comercial en línea que enumera los departamentos en la parte superior de la página), puede insertar una expresión de filtro junto con un evento **onClick** para abrir una página en un estado prefiltrado.
+## <a name="filters-at-the-page-level"></a>Filtros en el nivel de página
+Si el diseño de la solución incluye páginas de búsqueda dedicadas para determinados tipos de contenido (por ejemplo, una aplicación comercial en línea que enumera los departamentos en la parte superior de la página), puede insertar una expresión de filtro junto con un evento **onClick** para abrir una página en un estado prefiltrado. 
 
 Puede enviar un filtro con o sin expresión de búsqueda. Por ejemplo, la siguiente solicitud filtrará por el nombre de la marca y devolverá solamente los documentos que coincidan con él.
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
-Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener más información acerca de las expresiones `$filter`.
+Consulte [Search Documents (Azure Search API)](http://msdn.microsoft.com/library/azure/dn798927.aspx) (Búsqueda de documentos [API de Azure Search]) para más información sobre las expresiones `$filter`.
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [API de REST del Servicio Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx)
 * [Operaciones de índice](http://msdn.microsoft.com/library/azure/dn798918.aspx)
 * [Operaciones del documento](http://msdn.microsoft.com/library/azure/dn800962.aspx)
@@ -110,6 +114,10 @@ Consulte [Buscar documentos (API de Búsqueda de Azure)](http://msdn.microsoft.c
 [2]: ./media/search-pagination-page-layout/Pages-2-Tiled.PNG
 [3]: ./media/search-pagination-page-layout/Pages-3-SortBy.png
 [4]: ./media/search-pagination-page-layout/Pages-4-SortbyRelevance.png
-[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png
+[5]: ./media/search-pagination-page-layout/Pages-5-BuildSort.png 
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

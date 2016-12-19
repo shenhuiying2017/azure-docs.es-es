@@ -1,21 +1,23 @@
 ---
-title: Transacciones del Bus de servicio | Microsoft Docs
-description: 'Información general sobre las transacciones atómicas del Bus de servicio de Azure y la característica '
-enviar: ''
-por"": ''
-services: service-bus
+title: Transacciones de Service Bus | Microsoft Docs
+description: "Información general sobre las transacciones atómicas del Bus de servicio de Azure y la característica &quot;enviar por&quot;"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: clemensv;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 926eeec8186b8136f41355030e5382911bfc0322
+
 
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Información general sobre el procesamiento de transacciones del Bus de servicio
@@ -38,7 +40,7 @@ Las operaciones de recepción no se incluyen, porque se supone que la aplicació
 
 La disposición del mensaje (completar, abandonar, correo devuelto, aplazar), se produce entonces dentro del ámbito del resultado general de la transacción y depende de este.
 
-## <a name="transfers-and-"send-via""></a>Transferencias y "enviar por"
+## <a name="transfers-and-send-via"></a>Transferencias y "enviar por"
 Para permitir la entrega transaccional de datos de una cola a un procesador y luego a otra cola, Service Bus admite *transferencias*. En una operación de transferencia, un remitente envía primero un mensaje a una "cola de transferencia" y esta mueve inmediatamente el mensaje a la cola de destino deseada usando la misma implementación de transferencias sólida que la funcionalidad de reenvío automático en la que se basa. El mensaje nunca se confirma en el registro de la cola de transferencia de forma que se vuelve visible para los consumidores de dicha cola.
 
 La eficacia de esta funcionalidad transaccional se hace evidente cuando la propia cola de transferencia es el origen de los mensajes de entrada del remitente. En otras palabras, el Bus de servicio puede transferir el mensaje a la cola de destino "mediante" la cola de transferencia y al mismo tiempo realizar una operación completa (o de aplazamiento o correo devuelto) en el mensaje de entrada, todo en una operación atómica. 
@@ -78,6 +80,9 @@ Consulte los siguientes artículos para más información sobre las colas de Bus
 * [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,26 @@
 ---
 title: Centro de confianza de Microsoft | Microsoft Docs
-description: El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura.
+description: "El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8da0e117c206bfcec2f343c6d250de74fd886b02
+
 
 ---
-# Centro de confianza de Microsoft
+# <a name="microsoft-trust-center"></a>Centro de confianza de Microsoft
 El sitio de información de seguridad de Azure en Azure.com proporciona la información que necesita para planear, diseñar, implementar, configurar y administrar soluciones en la nube de forma segura. El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura.
 
 Sabemos que cuando confía sus aplicaciones y datos a Azure, se planteará algunas preguntas. ¿Dónde están? ¿Quién puede acceder a ellos? ¿Qué hace Microsoft para protegerlos? ¿Cómo puedo comprobar que Microsoft está haciendo lo que dice?
@@ -36,4 +40,8 @@ Estas son las secciones que encontrará en el Centro de confianza de Microsoft:
 
 El [Centro de confianza de Microsoft](https://www.microsoft.com/trustcenter) tiene lo que necesita para comprender qué debemos hacer para proteger la nube de Microsoft.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

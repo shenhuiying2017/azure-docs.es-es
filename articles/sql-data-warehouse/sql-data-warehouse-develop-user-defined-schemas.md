@@ -1,22 +1,26 @@
 ---
-title: Esquemas definidos por el usuario en el Almacenamiento de datos SQL | Microsoft Docs
+title: Esquemas definidos por el usuario en SQL Data Warehouse | Microsoft Docs
 description: Sugerencias para usar los esquemas Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 52af5bd5-d5d3-4f9b-8704-06829fb924e3
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9d59ffe4b0f0d858af18f30f848a63a28ac5f9b8
+
 
 ---
-# Esquemas definidos por el usuario en el Almacenamiento de datos SQL
+# <a name="user-defined-schemas-in-sql-data-warehouse"></a>Esquemas definidos por el usuario en el Almacenamiento de datos SQL
 Los almacenamientos de datos tradicionales suelen utilizar bases de datos independientes para crear los límites de la aplicación en función de la carga de trabajo, el dominio o la seguridad. Por ejemplo, un almacenamiento de datos de SQL Server tradicional podría incluir una base de datos provisional, una base de datos de almacenamiento de datos y algunas bases de datos data mart. En esta topología, cada base de datos funciona como una carga de trabajo y el límite de seguridad de la arquitectura.
 
 Por el contrario, el Almacenamiento de datos SQL ejecuta la carga de trabajo completa del almacenamiento de datos dentro de una base de datos. No se permiten las combinaciones entre bases de datos. Por lo tanto, el Almacenamiento de datos SQL espera que todas las tablas que el almacenamiento utiliza se almacenen en una base de datos.
@@ -26,7 +30,7 @@ Por el contrario, el Almacenamiento de datos SQL ejecuta la carga de trabajo com
 > 
 > 
 
-## Recomendaciones
+## <a name="recommendations"></a>Recomendaciones
 Se trata de recomendaciones para consolidar los límites de cargas de trabajo, seguridad, dominio y funcionales con esquemas definidos por el usuario.
 
 1. Use una base de datos de Almacenamiento de datos SQL para ejecutar la carga de trabajo completa del almacenamiento de datos.
@@ -46,7 +50,7 @@ Si ya se han utilizado los esquemas, tienen algunas opciones:
 > 
 > 
 
-### Ejemplos:
+### <a name="examples"></a>Ejemplos:
 Implementar los esquemas definidos por el usuario en función de los nombres de base de datos.
 
 ```sql
@@ -115,16 +119,20 @@ FROM    [edw].customer
 > 
 > 
 
-## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

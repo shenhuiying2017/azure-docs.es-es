@@ -1,12 +1,12 @@
 ---
-title: Informes de ubicación para el SDK de Android para Azure Mobile Engagement
-description: Describe cómo configurar los informes de ubicación para el SDK de Android para Azure Mobile Engagement
+title: "Informes de ubicación para el SDK de Android para Azure Mobile Engagement"
+description: "Describe cómo configurar los informes de ubicación para el SDK de Android para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6cab5ed1-b767-46ac-9f0b-48a4e249d88c
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 777d5719cce505b55dfb61c91dcac7e713b077a9
+
 
 ---
-# Informes de ubicación para el SDK de Android para Azure Mobile Engagement
+# <a name="location-reporting-for-azure-mobile-engagement-android-sdk"></a>Informes de ubicación para el SDK de Android para Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Android](mobile-engagement-android-integrate-engagement.md)
 > 
@@ -24,13 +28,13 @@ ms.author: piyushjo;ricksal
 
 Este tema describe cómo realizar informes de ubicación para la aplicación de Android.
 
-## Requisitos previos
-[!INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## Informes de ubicación
+## <a name="location-reporting"></a>Informes de ubicación
 Si desea que se notifiquen las ubicaciones, deberá agregar algunas líneas de configuración (entre las etiquetas `<application>` y `</application>`).
 
-### Informes de ubicaciones de áreas diferidas
+### <a name="lazy-area-location-reporting"></a>Informes de ubicaciones de áreas diferidas
 Los informes diferidos de ubicación permiten notificar el país, la región y la localidad asociados con los dispositivos. Este tipo de informe de ubicación sólo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI). El área del dispositivo se notifica como máximo una vez por sesión. El GPS no se utiliza nunca y, por tanto, este tipo de informe de ubicación tiene muy poco impacto en la batería.
 
 Las áreas notificadas se utilizan para elaborar estadísticas geográficas acerca de los usuarios, las sesiones, los eventos y los errores. También se pueden usar como criterios en campañas de cobertura.
@@ -42,16 +46,16 @@ Los informes diferidos de ubicación se habilitan mediante la configuración men
     engagementConfiguration.setLazyAreaLocationReport(true);
     EngagementAgent.getInstance(this).init(engagementConfiguration);
 
-También necesita especificar un permiso de ubicación. Este código usa el permiso ``COARSE``:
+También necesita especificar un permiso de ubicación. Este código usa el permiso ``COARSE`` :
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
 Si la aplicación lo requiere, puede usar ``ACCESS_FINE_LOCATION`` en su lugar.
 
-### Informes de ubicación en tiempo real
+### <a name="real-time-location-reporting"></a>Informes de ubicación en tiempo real
 Los informes de ubicación en tiempo real permiten notificar la latitud y la longitud asociadas con los dispositivos. Este tipo de informe de ubicación solo emplea ubicaciones de red basadas en el identificador del teléfono móvil o WiFi. Los informes solo están activos cuando la aplicación se ejecuta en primer plano (es decir, durante una sesión).
 
-Las ubicaciones en tiempo real *NO* se usan para calcular estadísticas. Su único objetivo es permitir el uso de criterios de geovallas en tiempo real <Reach-audiencia-geovallas> en las campañas de cobertura.
+Las ubicaciones en tiempo real *NO* se usan para calcular estadísticas. Su único objetivo es permitir el uso de criterios de geovallas en tiempo real \<Reach-Audience-geofencing\> en las campañas de cobertura.
 
 Para habilitar los informes de ubicación en tiempo real, agregue una línea de código en la que establece la cadena de conexión de Engagement en la actividad del iniciador. El resultado será similar al siguiente:
 
@@ -66,7 +70,7 @@ Para habilitar los informes de ubicación en tiempo real, agregue una línea de 
 
         If your app requires it, you can use ``ACCESS_FINE_LOCATION`` instead.
 
-#### Informes basados en GPS
+#### <a name="gps-based-reporting"></a>Informes basados en GPS
 De forma predeterminada, los informes de ubicación en tiempo real solo emplean ubicaciones de red. Para habilitar el uso de ubicaciones basadas en GPS, que son mucho más precisas, use el objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -79,7 +83,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-#### Informes en segundo plano
+#### <a name="background-reporting"></a>Informes en segundo plano
 De forma predeterminada, los informes de ubicación en tiempo real solo están activos cuando la aplicación se ejecuta en primer plano (por ejemplo, durante una sesión). Para habilitar los informes también en segundo plano, use este objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -106,7 +110,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-## Permisos de Android M
+## <a name="android-m-permissions"></a>Permisos de Android M
 A partir de Android M, algunos permisos se administran en tiempo de ejecución y necesitan la aprobación del usuario.
 
 Si su objetivo es la API de Android nivel 23, los permisos en tiempo de ejecución se desactivan de manera predeterminada para las nuevas instalaciones de aplicaciones. De lo contrario, se activan de forma predeterminada.
@@ -156,4 +160,8 @@ Este es un ejemplo de código para usar en una actividad de la aplicación para 
         getEngagementAgent().refreshPermissions();
     }
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
 title: 'Interfaz de usuario de Azure Mobile Engagement: panel'
-description: Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement
+description: "Obtenga información acerca de cómo ver y administrar gráficos de datos acerca de su aplicación mediante Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,21 +14,25 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 835cc39ebe7cc3a6ee8fafdaad6a36ebb301a615
+
 
 ---
-# Cómo ver y administrar los gráficos de datos de la aplicación
+# <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Cómo ver y administrar los gráficos de datos de la aplicación
 La sección del panel de la interfaz de usuario permite a los clientes crear gráficos personalizados para maximizar su tiempo al proporcionar la información exacta que desean en lugar de buscar en la sección de análisis. Un panel muestra las tendencias de la aplicación y los recuentos de usuarios activos para las distintas versiones de la aplicación durante un momento dado (hora/día/semana/mes/personalizado). Las tendencias mostradas se basan en los últimos 7 días.
 
-### Otras referencias
-* [Guía de resolución de problemas - Análisis][Link 21]
+### <a name="see-also"></a>Consulte también
+* [Guía de solución de problemas - Análisis][Vínculo 21]
 
-## Panel
+## <a name="dashboard"></a>Panel
 * Puede agregar gráficos a un panel vacía seleccionando la acción "Enviar al panel" en el menú de engranaje de cualquier gráfico de la sección de análisis de la interfaz de usuario que le gustaría ver en un panel.
 
-## + (Agregar un panel)
+## <a name="-add-a-dashboard"></a>+ (Agregar un panel)
 * Puede utilizar el elemento de menú de la cinta de opciones "+" para crear un nuevo panel que se mostrará en el menú de la cinta de opciones.
 
-## Menú de engranaje
+## <a name="gear-menu"></a>Menú de engranaje
 * Puede utilizar el menú de engranaje de un panel para eliminar, cambiar el nombre, compartir o programar (recepción por correo electrónico) de su panel. Puede utilizar la opción de programación para definir la programación en la que le gustaría recibir su panel personalizado por correo electrónico. Puede programar recibirlo diaria, semanal o mensualmente. Puede elegir la hora del día y el día de la semana o el día del mes en el que le gustaría recibir el correo electrónico. Su dirección de correo electrónico y la zona horaria se basan en los valores configurados en la sección Mi cuenta de la interfaz de usuario.
   
   ![dashboard1][34]
@@ -94,39 +98,43 @@ La sección del panel de la interfaz de usuario permite a los clientes crear gr�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
+[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
+[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

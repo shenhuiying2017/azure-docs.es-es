@@ -1,12 +1,12 @@
 ---
-title: Security Center pricing | Microsoft Docs
-description: This article provides information on pricing for Azure Security Center.
+title: Precios de Security Center | Microsoft Docs
+description: "En este artículo se ofrece información sobre los precios de Azure Security Center."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,65 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/12/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a39a8aaeb2bc3603e5fd2404f061697c98c0ff2f
+
 
 ---
-# <a name="azure-security-center-pricing"></a>Azure Security Center pricing
-Azure Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+# <a name="azure-security-center-pricing"></a>Precios de Azure Security Center
+El Centro de seguridad de Azure ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en sus recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
-## <a name="pricing-tiers"></a>Pricing tiers
-Security Center is offered in two tiers:
+## <a name="pricing-tiers"></a>Planes de tarifa
+Security Center se ofrece en dos niveles:
 
-* The **Free tier** is automatically enabled on all Azure subscriptions. The Free tier provides visibility into the security state of your Azure resources, basic security policy, security recommendations, and integration with security products and services from partners.
-* The **Standard tier** adds advanced threat detection capabilities, including threat intelligence, behavioral analysis, anomaly detection, security incidents, and threat assessment reports. A **90 day free trial** is available for the Standard tier.
+* El **nivel gratuito** está habilitado automáticamente en todas las suscripciones de Azure. El nivel gratuito permite ver el estado de seguridad de los recursos de Azure, la directiva de seguridad básica, recomendaciones de seguridad y la integración con productos y servicios de seguridad de asociados.
+* En el **nivel Estándar** se agregan funciones de detección de amenazas avanzada, como inteligencia de amenazas, análisis del comportamiento, detección de anomalías, incidentes de seguridad e informes de evaluación de amenazas. Hay disponible una **prueba gratuita de 90 días** para el nivel Estándar.
 
-For more information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+Para más información, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
 
 > [!NOTE]
-> Security Center uses Azure storage to save security data generated from your protected nodes. Costs associated with this storage are not included in the price of the service and are charged separately at regular [Azure storage rates](https://azure.microsoft.com/pricing/details/storage/blobs/). Storage charges apply even during the trial.
+> Security Center usa Azure Storage para guardar los datos de seguridad generados en los nodos protegidos. Los costos asociados con este almacenamiento no se incluyen en el precio del servicio y se cobrarán por separado según las [tarifas normales de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/). Se aplicarán cargos de almacenamiento incluso durante la prueba.
 > 
 > 
 
-## <a name="try-standard-free-for-90-days"></a>Try Standard free for 90 days
-A 90 day free trial is available for the Standard tier. To get the free trial of the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard – Free Trial**.
+## <a name="try-standard-free-for-90-days"></a>Pruebe el nivel Estándar de forma gratuita durante 90 días
+Hay disponible una prueba gratuita de 90 días para el nivel Estándar. Para obtener la prueba gratuita del nivel Estándar, seleccione el icono **Directiva** en la hoja **Security Center**. Seleccione la suscripción que quiera actualizar al nivel Estándar. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**. En la hoja **Seleccione su plan de tarifa**, seleccione **Estándar: prueba gratuita**.
 
-![Free trial][1]
+![Evaluación gratuita][1]
 
-At the end of 90 days, should you choose to continue using the service, we will automatically start charging for usage.
+Después de 90 días, si decide continuar usando el servicio, empezaremos a cobrar automáticamente el uso.
 
-## <a name="upgrade-to-standard"></a>Upgrade to Standard
-Upgrade to the Standard tier to add advanced threat detection. To get the Standard tier, select the **Policy** tile on the **Security Center** blade. Select the subscription that you want to upgrade to Standard. On the **Security policy** blade, select **Pricing tier**. On the **Choose your pricing tier** blade, select **Standard**.
+## <a name="upgrade-to-standard"></a>Actualización al nivel Estándar
+Actualice al nivel Estándar para agregar la detección de amenazas avanzada. Para obtener el nivel Estándar, seleccione el icono **Directiva** en la hoja **Security Center**. Seleccione la suscripción que quiera actualizar al nivel Estándar. En la hoja **Directiva de seguridad**, seleccione **Plan de tarifa**. En la hoja **Elegir su plan de tarifa**, seleccione **Estándar**.
 
-![Standard tier][2]
+![Nivel Standard][2]
 
-## <a name="why-upgrade-to-standard?"></a>Why upgrade to Standard?
-The Standard tier of Security Center provides all features of the Free tier plus advanced threat detection. Advanced threat detection helps identify active threats targeting your Azure resources and provides you with the insights needed to respond quickly.
+## <a name="why-upgrade-to-standard"></a>¿Por qué actualizar al nivel Estándar?
+El nivel Estándar de Security Center ofrece todas las características del nivel gratuito, además de la detección de amenazas avanzada. La detección de amenazas avanzada ayuda a identificar amenazas activas dirigidas a sus recursos de Azure y le ofrece la información necesaria para responder rápidamente.
 
-Security Center employs advanced security analytics, which go far beyond signature-based approaches. Breakthroughs in big data and machine learning technologies are leveraged to evaluate events across the entire cloud fabric – detecting threats that would be impossible to identify using manual approaches and predicting the evolution of attacks.
+Security Center utiliza análisis avanzados que superan con creces los enfoques basados en firmas. Los grandes avances registrados en las tecnologías de macrodatos y aprendizaje automático se usan para evaluar eventos en todo el tejido de la nube, lo que permite identificar amenazas que no se podrían identificar con métodos manuales, así como predecir la evolución de los ataques.
 
-Security analytics that come with the Standard tier are:
+Las funciones de análisis de seguridad que se incluyen con el nivel Estándar son las siguientes:
 
-* **Threat intelligence** - Looks for known bad actors by using global threat intelligence from Microsoft products and services, the Microsoft Digital Crimes Unit, the Microsoft Security Response Center, and external feeds
-* **Behavioral analysis** - Applies known patterns to discover malicious behavior
-* **Anomaly detection** - Uses statistical profiling to build a historical baseline. It alerts on deviations from established baselines that conform to a potential attack vector
+* **Inteligencia de amenazas**: busca actores malintencionados conocidos con la inteligencia de amenazas global de los productos y servicios de Microsoft, la Unidad de delitos informáticos de Microsoft (DCU), el Centro de respuestas de seguridad de Microsoft (MSRC) y otras fuentes externas.
+* **Análisis del comportamiento**: aplica patrones conocidos para identificar comportamientos malintencionados.
+* **Detección de anomalías**: usa la generación de perfiles estadísticos para crear un historial de línea de base. Envía alertas sobre las desviaciones de las líneas de base establecidas que se ajustan a un posible vector de ataque.
 
-In the **Security alerts** blade below, Security Center has detected a security **incident**. A security incident is an aggregation of all alerts for a resource that align with kill chain patterns. Selecting the security incident reveals more details about the incident and lists the related alerts. Selecting an alert provides more information about that occurrence.
+En la hoja **Alertas de seguridad** siguiente, Security Center ha encontrado un **incidente** de seguridad. Un incidente de seguridad es la suma de todas las alertas de un recurso que se alinean con patrones de cadenas de eliminación. Al seleccionar el incidente de seguridad, se muestran más detalles sobre el incidente y una lista de las alertas relacionadas. Al seleccionar una alerta, se muestra más información sobre esa repetición.
 
-![Security incident][3]
+![Incidente de seguridad][3]
 
-The **Network communication** alert below provides details about the alert. Details include its full description, its severity, its current state (which in this case is dismissed, meaning the user took action to dismiss it), the attacked resource, and remediation steps. There is also a list of links to Microsoft Threat Intelligence reports. These reports can be used for security remediation and defensive purposes.
+En la alerta siguiente de **Comunicación de red** se muestran los detalles de la alerta. Los detalles son la descripción completa, la gravedad, el estado actual (que en este caso es descartado, lo que significa que el usuario lo descartó), el recurso atacado y los pasos para la corrección. También se muestra una lista de vínculos a informes de Inteligencia de amenazas de Microsoft. Estos informes se pueden usar con fines de corrección de seguridad y de defensa.
 
-![Security alert details][4]
+![Detalles de alertas de seguridad][4]
 
-## <a name="enable-data-collection"></a>Enable data collection
-To enable virtual machine behavioral analytics, data collection must be turned on. You may have to enable data collection when you first access Security Center or when you are creating a security policy.
+## <a name="enable-data-collection"></a>Habilitación de recolección de datos
+Para habilitar el análisis de comportamiento de máquinas virtuales, es necesario activar la recopilación de datos. Es posible que tenga que habilitar la recopilación de datos la primera vez que acceda al Security Center o al crear una directiva de seguridad.
 
-To validate that data collection is enabled, select the **Policy** tile. The **Security policy** blade opens listing your Azure subscriptions. Select a subscription. If **Data collection** is off, change it to on and save the change. See [Enable data collection in Azure Security Center](security-center-enable-data-collection.md).
+Para comprobar que la recopilación de datos está habilitada, seleccione el icono **Directiva**. Se abrirá la hoja **Directiva de seguridad** con una lista de sus suscripciones de Azure. Seleccione una suscripción. Si la opción **Recopilación de datos** está desactivada, actívela y guarde los cambios. Vea [Habilitar la recopilación de datos en Azure Security Center](security-center-enable-data-collection.md).
 
-## <a name="next-steps"></a>Next steps
-* In this document, you were introduced to pricing for Security Center. For additional pricing information, see the Security Center [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
-* To learn more about Security Center’s advanced detection capabilities, see [Azure Security Center detection capabilities](security-center-detection-capabilities.md).
-* If you have questions about using Security Center, see the [Azure Security Center FAQ](security-center-faq.md).
-* If you still have questions about using Security Center, or Azure, visit the [Azure Forums](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
+## <a name="next-steps"></a>Pasos siguientes
+* En este documento se han presentado los precios de Security Center. Para más información sobre precios, vea la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
+* Para más información sobre las funciones avanzadas de detección de Security Center, vea [Funciones de detección de Azure Security Center](security-center-detection-capabilities.md).
+* Si tiene preguntas acerca de cómo usar Security Center, consulte las [P+F de Azure Security Center](security-center-faq.md).
+* Si aún tiene preguntas sobre el uso de Security Center o sobre Azure, visite los [foros de Azure](https://social.msdn.microsoft.com/Forums/home?forum=AzureSecurityCenter&filter=alltypes&sort=lastpostdesc).
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/free-trial.png
@@ -82,6 +86,6 @@ To validate that data collection is enabled, select the **Policy** tile. The **S
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

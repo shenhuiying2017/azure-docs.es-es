@@ -1,12 +1,12 @@
 ---
-title: Especificación de los puntos de conexión de servicio de Service Fabric | Microsoft Docs
-description: Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS
+title: "Especificación de los puntos de conexión de servicio de Service Fabric | Microsoft Docs"
+description: "Cómo describir los recursos de punto de conexión en un manifiesto de servicio, incluida la configuración de puntos de conexión HTTPS"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/14/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 193bbedca440302ead00eaac0df62fb7fe767515
+
 
 ---
-# Especificación de los recursos en un manifiesto de servicio
-## Información general
-El manifiesto de servicio permite que los recursos que utilizará el servicio sean declarados o modificados sin cambiar el código compilado. Service Fabric de Azure admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+# <a name="specify-resources-in-a-service-manifest"></a>Especificación de los recursos en un manifiesto de servicio
+## <a name="overview"></a>Información general
+El manifiesto de servicio permite que los recursos que utilizará el servicio sean declarados o modificados sin cambiar el código compilado. Service Fabric de Azure admite la configuración de recursos de puntos de conexión para el servicio. El acceso a los recursos especificados en el manifiesto de servicio puede controlarse a través de SecurityGroup en el manifiesto de aplicación. La declaración de recursos permite cambiar estos recursos durante la implementación, lo que significa que no es necesario que el servicio introduzca un nuevo mecanismo de configuración. La definición de esquema para el archivo ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-## Extremos
+## <a name="endpoints"></a>Extremos
 Cuando se define un recurso de punto de conexión en el manifiesto de servicio, Service Fabric asigna puertos desde el intervalo de puertos reservados de aplicación cuando un puerto no se especifica expresamente. Por ejemplo, analice el punto de conexión *ServiceEndpoint1* especificado en el fragmento de manifiesto que encontrará después de este párrafo. Además, los servicios también pueden solicitar un puerto específico en un recurso. Es posible asignar números de puerto diferentes a réplicas de servicio que se ejecutan en nodos de clúster, mientras que las réplicas del mismo servicio que se ejecuta en el mismo nodo comparten el mismo puerto. Las réplicas de servicio pueden usar estos puertos según sea necesario para la replicación y procesar solicitudes de cliente.
 
 ```xml
@@ -35,7 +39,7 @@ Cuando se define un recurso de punto de conexión en el manifiesto de servicio, 
 
 Vea [Configuración de Reliable Services con estado](service-fabric-reliable-services-configuration.md) para obtener más información sobre cómo hacer referencia a los puntos de conexión del archivo de configuración del paquete de configuración (settings.xml).
 
-## Ejemplo: Especificación de un punto de conexión HTTP para el servicio
+## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Ejemplo: Especificación de un punto de conexión HTTP para el servicio
 El siguiente manifiesto de servicio define un recurso de punto de conexión TCP y dos recursos de punto de conexión HTTP en el elemento &lt;Recursos&gt;.
 
 Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
@@ -84,7 +88,7 @@ Service Fabric hace ACL automáticamente en los puntos de conexión HTTP.
 </ServiceManifest>
 ```
 
-## Ejemplo: Especificación de un punto de conexión HTTPS para el servicio
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a>Ejemplo: Especificación de un punto de conexión HTTPS para el servicio
 El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifrar la comunicación entre cliente y servidor. Para habilitar HTTPS en el servicio Service Fabric, especifique el protocolo en la sección *Recursos -> Puntos de conexión -> Punto de conexión* del manifiesto de servicio, como se mostró anteriormente para el punto de conexión *ServiceEndpoint3*.
 
 > [!NOTE]
@@ -92,7 +96,7 @@ El protocolo HTTPS ofrece autenticación de servidor y también se usa para cifr
 > 
 > 
 
-Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitará proporcionar la huella digital para el certificado. EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado EndpointCertificate.
+Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitará proporcionar la huella digital para el certificado. EndpointRef es una referencia a EndpointResource en ServiceManifest, para la que establece el protocolo HTTPS. Puede agregar más de un certificado EndpointCertificate.  
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -134,4 +138,8 @@ Este es un ejemplo ApplicationManifest que debe establecer para HTTPS. Necesitar
 </ApplicationManifest>
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+
