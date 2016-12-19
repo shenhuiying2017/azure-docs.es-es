@@ -457,7 +457,7 @@ Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es cre
             }
         }
 3. Necesitaremos una interfaz de usuario web que mostrar al usuario. Vamos volver a escribir el archivo index.jsp que creamos anteriormente:
-   
+    ```html
         <html>
         <head>
           <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -544,6 +544,7 @@ Ahora que hemos terminado la parte divertida, todo lo que queda por hacer es cre
           <script src="assets/todo.js"></script>
         </body>
         </html>
+    ```
 4. Y por último, escriba algo de Javascript del lado del cliente para vincular juntos la interfaz de usuario web y el servlet:
    
         var todoApp = {

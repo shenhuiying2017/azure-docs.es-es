@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -123,7 +123,7 @@ Esto es difícil de medir. Básicamente, debe instrumentar el código del client
 #### <a name="problem"></a>Problema
 Esperaba que ciertos datos estuvieran en la instancia de Caché en Redis de Azure, pero no parecen estar ahí.
 
-##### <a name="resolution"></a>Resolución
+#### <a name="resolution"></a>Resolución
 Consulte [¿Qué ha ocurrido con mis datos en Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) para ver posibles causas y soluciones.
 
 ## <a name="server-side-troubleshooting"></a>Solución de problemas de lado servidor
@@ -152,7 +152,7 @@ Hay varios cambios posibles que puede hacer para ayudar a mantener un uso de mem
 4. [Escalar](cache-how-to-scale.md) a un tamaño de memoria caché mayor.
 5. Si usa una [memoria caché Premium con un clúster de Redis habilitado](cache-how-to-premium-clustering.md), puede [aumentar el número de particiones](cache-how-to-premium-clustering.md#change-the-cluster-size-on-a-running-premium-cache).
 
-### <a name="high-cpu-usage-server-load"></a>Uso elevado de la CPU/carga de servidor
+### <a name="high-cpu-usage--server-load"></a>Uso elevado de la CPU/carga de servidor
 #### <a name="problem"></a>Problema
 El uso elevado de la CPU puede significar que el lado cliente no puede procesar una respuesta de Redis de manera puntual, aunque Redis envió la respuesta muy rápidamente.
 
@@ -194,20 +194,21 @@ Este mensaje de error contiene métricas que pueden indicarle la causa y la posi
 ### <a name="steps-to-investigate"></a>Pasos para investigar
 1. Como procedimiento recomendado, asegúrese de usar el patrón siguiente para conectarse al usar al cliente de StackExchange.Redis.
 
-        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    ```c#
+    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
+    {
+        return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+    
+    });
+    
+    public static ConnectionMultiplexer Connection
+    {
+        get
         {
-            return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
-        });
-
-        public static ConnectionMultiplexer Connection
-        {
-            get
-            {
-                return lazyConnection.Value;
-            }
+            return lazyConnection.Value;
         }
-
+    }
+    ````
 
     Para más información, consulte [Uso de Caché en Redis de Azure](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
