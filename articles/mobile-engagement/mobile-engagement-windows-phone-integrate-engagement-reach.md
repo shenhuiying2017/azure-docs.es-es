@@ -1,12 +1,12 @@
 ---
-title: Integración del SDK de cobertura de Windows Phone Silverlight
-description: Cómo integrar Cobertura de Azure Mobile Engagement con aplicaciones Windows Phone Silverlight
+title: "Integración del SDK de cobertura de Windows Phone Silverlight"
+description: "Cómo integrar Cobertura de Azure Mobile Engagement con aplicaciones Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,20 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 39ebfe20f957b6e211eb5caebe4e064432876d20
+
 
 ---
-# Integración del SDK de cobertura de Windows Phone Silverlight
+# <a name="windows-phone-silverlight-reach-sdk-integration"></a>Integración del SDK de cobertura de Windows Phone Silverlight
 Debe seguir el procedimiento de integración descrito en el documento [Integración del SDK de Windows Phone Silverlight Engagement](mobile-engagement-windows-phone-integrate-engagement.md) antes de seguir con esta guía.
 
-## Integrar el SDK de Engagement Reach en el proyecto de Windows Phone Silverlight
-No hace falta agregar nada. Las referencias `EngagementReach` y los recursos de ya están en el proyecto.
+## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Integrar el SDK de Engagement Reach en el proyecto de Windows Phone Silverlight
+No hace falta agregar nada. `EngagementReach` ya están en el proyecto.
 
 > [!TIP]
 > Puede personalizar las imágenes que se encuentran en la carpeta `Resources` del proyecto, especialmente el icono de marca (el valor predeterminado para el icono Engagement).
 > 
 > 
 
-## Agregar las capacidades
+## <a name="add-the-capabilities"></a>Agregar las capacidades
 El SDK de Engagement Reach necesita algunas capacidades adicionales.
 
 Abra el archivo `WMAppManifest.xml` y asegúrese de que en el panel se han declarado las siguientes capacidades:
@@ -42,17 +46,17 @@ Edite el archivo `WMAppManifest.xml` y agréguelo dentro de la etiqueta `<Capabi
     <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
     <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
 
-## Habilitar el Servicio de notificaciones push de Microsoft
+## <a name="enable-the-microsoft-push-notification-service"></a>Habilitar el Servicio de notificaciones push de Microsoft
 Para poder usar el **Servicio de notificaciones de inserción de Microsoft** (conocido como MPNS), el archivo `WMAppManifest.xml` debe tener una etiqueta `<App />` con un atributo `Publisher` establecido en el nombre del proyecto.
 
-## Inicializar el SDK de Engagement Reach
-### Configuración de Engagement
+## <a name="initialize-the-engagement-reach-sdk"></a>Inicializar el SDK de Engagement Reach
+### <a name="engagement-configuration"></a>Configuración de Engagement
 La configuración de Engagement se centraliza en el archivo `Resources\EngagementConfiguration.xml` del proyecto.
 
 Edite este archivo para especificar la configuración de Reach:
 
-* *Opcional*, indique si se debe activar la inserción nativa (MPNS) o no entre las etiquetas `<enableNativePush>`y `</enableNativePush>`, (`true` de forma predeterminada).
-* *Opcional*, indique el nombre del canal de inserción entre las etiquetas `<channelName>` y `</channelName>` y proporcione el mismo nombre que usa la aplicación o deje el valor en blanco.
+* *Opcional*: indique si se debe activar la inserción nativa (MPNS) o no entre las etiquetas `<enableNativePush>` y `</enableNativePush>`, (`true` de forma predeterminada).
+* *Opcional*: indique el nombre del canal de inserción entre las etiquetas `<channelName>` y `</channelName>` y proporcione el mismo nombre que usa la aplicación o deje el valor en blanco.
 
 Si, en cambio, quiere especificarlo en tiempo de ejecución, puede llamar al método siguiente antes de la inicialización del agente de Engagement:
 
@@ -75,7 +79,7 @@ Si, en cambio, quiere especificarlo en tiempo de ejecución, puede llamar al mé
 > 
 > 
 
-### Inicialización de Engagement
+### <a name="engagement-initialization"></a>Inicialización de Engagement
 Modifique `App.xaml.cs`:
 
 * Agregue las instrucciones `using`:
@@ -101,7 +105,7 @@ Modifique `App.xaml.cs`:
 > 
 > 
 
-## Consideraciones de envío de la tienda de aplicaciones
+## <a name="app-store-submission-considerations"></a>Consideraciones de envío de la tienda de aplicaciones
 Microsoft impone algunas reglas al usar las notificaciones de inserción:
 
 De la documentación sobre las [directivas de aplicación] de Microsoft, sección 2.9:
@@ -110,27 +114,27 @@ De la documentación sobre las [directivas de aplicación] de Microsoft, secció
 
 En el objeto EngagementReach se proporcionan dos métodos para administrar la participación o no participación, `EnableNativePush()` y `DisableNativePush()`. Por ejemplo, podría crear una opción en la configuración con un control que permite deshabilitar o habilitar MPNS.
 
-También puede decidir desactivar MPNS a través de la configuración de Engagement<windows-phone-sdk-reach-configuration>.
+También puede decidir desactivar MPNS a través de la configuración de Engagement \<windows-phone-sdk-reach-configuration\>.
 
-> 2\.9.1) La aplicación primero debe describir las notificaciones que se proporcionarán y **obtener el permiso explícito del usuario (participar)**. Además, **debe proporcionar un mecanismo a través del cual el usuario puede optar por dejar de recibir las notificaciones de inserción**. Todas las notificaciones que se proporcionan mediante el Servicio de notificaciones de inserción de Microsoft deben ser coherentes con la descripción que se proporciona al usuario y deben cumplir con todas las [directivas de aplicación][Content Policies] y [requisitos adicionales para tipos específicos de aplicación vigentes].
+> 2.9.1) La aplicación primero debe describir las notificaciones que se proporcionarán y **obtener el permiso explícito del usuario (participar)**. Además, **debe proporcionar un mecanismo a través del cual el usuario puede optar por dejar de recibir las notificaciones de inserción**. Todas las notificaciones que se proporcionan mediante el Servicio de notificaciones push de Microsoft deben ser coherentes con la descripción que se proporciona al usuario y deben cumplir con todas las [directivas de aplicación], [directivas de contenido] y [requisitos adicionales para tipos específicos de aplicación] vigentes.
 > 
 > 
 
-2) No debería usar demasiadas notificaciones de inserción. Engagement controlará las notificaciones por usted.
+2) No debería usar demasiadas notificaciones push. Engagement controlará las notificaciones por usted.
 
-> 2\.9.2) La aplicación y el uso que hace del Servicio de notificaciones de inserción de Microsoft no deben usar excesivamente la capacidad de la red o el ancho de banda del Servicio de notificaciones de inserción de Microsoft. Tampoco deben sobrecargar innecesariamente un dispositivo Windows Phone u otro dispositivo o servicio de Microsoft con notificaciones de inserción excesivas, según determine Microsoft bajo su razonable criterio, ni dañar las redes o los servidores de Microsoft, los servidores de terceros o las redes conectadas al Servicio de notificaciones de inserción de Microsoft, ni interferir con ellos.
+> 2.9.2) La aplicación y el uso que hace del Servicio de notificaciones de inserción de Microsoft no deben usar excesivamente la capacidad de la red o el ancho de banda del Servicio de notificaciones de inserción de Microsoft. Tampoco deben sobrecargar innecesariamente un dispositivo Windows Phone u otro dispositivo o servicio de Microsoft con notificaciones de inserción excesivas, según determine Microsoft bajo su razonable criterio, ni dañar las redes o los servidores de Microsoft, los servidores de terceros o las redes conectadas al Servicio de notificaciones de inserción de Microsoft, ni interferir con ellos.
 > 
 > 
 
-3) No dependa de MPNS para enviar información crítica. Engagement usa MPNS, por lo que esta regla también se aplica a las campañas que se crean en el front-end de Engagement.
+3) No confíe en MPNS para enviar información crítica. Engagement usa MPNS, por lo que esta regla también se aplica a las campañas que se crean en el front-end de Engagement.
 
-> 2\.9.3) El Servicio de notificaciones de inserción de Microsoft no se puede usar para enviar notificaciones de misión crítica o que de otro modo podrían afectar a asuntos de vida o muerte, incluidas, sin limitación, las notificaciones críticas relacionadas con un dispositivo o condición médicos. MICROSOFT RENUNCIA A TODA GARANTÍA QUE EL USO DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT O LA ENTREGA DE NOTIFICACIONES DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT SE HARÁN SIN INTERRUPCIONES, SEAN LIBRE DE ERRORES O DE OTRO MODO SE GARANTICE QUE SE PRODUCIRÁN EN TIEMPO REAL.
+> 2.9.3) El Servicio de notificaciones de inserción de Microsoft no se puede usar para enviar notificaciones de misión crítica o que de otro modo podrían afectar a asuntos de vida o muerte, incluidas, sin limitación, las notificaciones críticas relacionadas con un dispositivo o condición médicos. MICROSOFT RENUNCIA A TODA GARANTÍA QUE EL USO DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT O LA ENTREGA DE NOTIFICACIONES DEL SERVICIO DE NOTIFICACIONES PUSH DE MICROSOFT SE HARÁN SIN INTERRUPCIONES, SEAN LIBRE DE ERRORES O DE OTRO MODO SE GARANTICE QUE SE PRODUCIRÁN EN TIEMPO REAL.
 > 
 > 
 
 **No podemos garantizar que la aplicación aprobará el proceso de validación si no se respetan estas recomendaciones.**
 
-## Control de la inserción de datos (opcional)
+## <a name="handle-data-push-optional"></a>Control de la inserción de datos (opcional)
 Si desea que la aplicación pueda recibir inserciones de datos Reach, debe implementar dos eventos de la clase EngagementReach:
 
     EngagementReach.Instance.DataPushStringReceived += (body) =>
@@ -146,18 +150,18 @@ Si desea que la aplicación pueda recibir inserciones de datos Reach, debe imple
        return true;
     };
 
-Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit`. De lo contrario, será `action`. Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
+Puede ver que la devolución de llamada de cada método devuelve un valor booleano. Engagement envía un comentario a su back-end después de enviar la inserción de datos. Si la devolución de llamada devuelve un valor falso, se enviará el comentario `exit` . De lo contrario, será `action`. Si no se establece ninguna devolución de llamada para los eventos, el comentario `drop` se devolverá a Engagement.
 
 > [!WARNING]
 > Engagement no puede recibir varios comentarios para la inserción de datos. Si tiene previsto establecer varios controladores en un evento, tenga en cuenta que los comentarios corresponderán al último controlador enviado. En este caso, es recomendable devolver siempre el mismo valor para evitar tener comentarios confusos en el front-end.
 > 
 > 
 
-## Personalizar la interfaz de usuario (opcional)
-### Primer paso
+## <a name="customize-ui-optional"></a>Personalizar la interfaz de usuario (opcional)
+### <a name="first-step"></a>Primer paso
 Puede personalizar la interfaz de usuario de Reach.
 
-Para ello, debe crear una subclase de la clase `EngagementReachHandler`.
+Para ello, debe crear una subclase de la clase `EngagementReachHandler` .
 
 **Código de ejemplo:**
 
@@ -187,7 +191,7 @@ A continuación, establezca el contenido del campo `EngagementReach.Instance.Han
 > 
 > 
 
-### Diseños
+### <a name="layouts"></a>Diseños
 De forma predeterminada, Reach usará los recursos integrados del archivo DLL para mostrar las notificaciones y páginas.
 
 Sin embargo, puede decidir usar sus propios recursos para reflejar su marca en estos componentes.
@@ -230,7 +234,7 @@ Para simplificar la implementación del diseño, también proporcionamos nuestro
 > 
 > 
 
-### Posición de notificación
+### <a name="notification-position"></a>Posición de notificación
 De forma predeterminada, una notificación de la aplicación se muestra en la parte inferior izquierda de la aplicación. Puede cambiar este comportamiento al invalidar el método `GetNotificationPosition` del objeto `EngagementReachHandler`.
 
     // In your subclass of EngagementReachHandler
@@ -242,7 +246,7 @@ De forma predeterminada, una notificación de la aplicación se muestra en la pa
 
 Actualmente, puede elegir entre las posiciones `BOTTOM` (valor predeterminado) y `TOP`.
 
-### Iniciar el mensaje
+### <a name="launch-message"></a>Iniciar el mensaje
 Cuando un usuario hace clic en una notificación del sistema, Engagement inicia la aplicación, carga el contenido de los mensajes de inserción y muestra la página de la campaña correspondiente.
 
 Hay un retraso entre el inicio de la aplicación y la presentación de la página (según la velocidad de la red).
@@ -275,9 +279,13 @@ Puede establecer la devolución de llamada en el método `Application_Launching`
 > 
 > 
 
-[directivas de aplicación]: http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
-[Content Policies]: http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
-[requisitos adicionales para tipos específicos de aplicación vigentes]: http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
+[directivas de aplicación]:http://msdn.microsoft.com/library/windows/apps/hh184841(v=vs.105).aspx
+[Directivas de contenido]:http://msdn.microsoft.com/library/windows/apps/hh184842(v=vs.105).aspx
+[requisitos adicionales para tipos específicos de aplicación]:http://msdn.microsoft.com/library/windows/apps/hh184838(v=vs.105).aspx
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

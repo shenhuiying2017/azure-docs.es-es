@@ -1,12 +1,12 @@
 ---
-title: Implementación de servicios web nuevos
-description: Flujo de trabajo de la implementación de un servicio web basado en ARM
+title: "Implementación de servicios web nuevos"
+description: "Flujo de trabajo de la implementación de un servicio web basado en ARM"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: raymondl
-editor: ''
-
+editor: 
+ms.assetid: a358b04f-0d08-4d50-820e-eeac971854cf
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7941bdbf2b6a00b14ad589bd90c7169cebd296c6
+
 
 ---
 # <a name="deploy-a-new-web-service"></a>Implementación de servicios web nuevos
-Ahora, Microsoft Azure Machine Learning proporciona servicios web basados en [Azure Resource Manager](../resource-group-overview.md) , con lo que se pueden usar nuevas opciones de planes de facturación e implementar el servicio web en varias regiones.
+Ahora, Microsoft Azure Machine Learning proporciona servicios web basados en [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) , con lo que se pueden usar nuevas opciones de planes de facturación e implementar el servicio web en varias regiones.
 
 El flujo de trabajo general para implementar un servicio web mediante el portal de servicios web de Aprendizaje automático de Microsoft Azure Machine es el siguiente:
 
@@ -99,6 +103,6 @@ Para más información sobre el consumo de servicios web, consulte:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,34 +1,38 @@
 ---
 title: Uso de la API de REST para acceder a las API del servicio Azure Mobile Engagement
-description: Describe cómo usar las API de REST de Mobile Engagement para acceder a las API del servicio Azure Mobile Engagement
+description: "Describe cómo usar las API de REST de Mobile Engagement para acceder a las API del servicio Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: wesmc7777
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: e8df4897-55ee-45df-b41e-ff187e3d9d12
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/07/2016
+ms.date: 10/05/2016
 ms.author: wesmc;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: 512276d151833ab5c65b663d8f2af43153e1d55b
+
 
 ---
-# Uso de REST para acceder a las API del servicio Azure Mobile Engagement
-Azure Mobile Engagement proporciona la [API de REST Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx) para administrar dispositivos, campañas de cobertura e inserción, etc. En este ejemplo se usan las API de REST directamente para crear una campaña de anuncio y después se activa e inserta en un conjunto de dispositivos.
+# <a name="using-rest-to-access-azure-mobile-engagement-service-apis"></a>Uso de REST para acceder a las API del servicio Azure Mobile Engagement
+Azure Mobile Engagement proporciona la [API de REST Azure Mobile Engagement](https://msdn.microsoft.com/library/azure/mt683754.aspx) para administrar dispositivos, campañas de cobertura e inserción, etc. En este ejemplo se usan las API de REST directamente para crear una campaña de anuncio y después se activa e inserta en un conjunto de dispositivos. 
 
-Si no desea usar las API de REST directamente, también proporcionamos un [archivo de Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que puede utilizar con las herramientas para generar los SDK para su idioma preferido. Se recomienda usar la herramienta [AutoRest](https://github.com/Azure/AutoRest) para generar el SDK a partir de nuestro archivo de Swagger. De forma similar, hemos creado un SDK para .NET que permite interactuar con estas API con un contenedor de C# sin tener que realizar la negociación de token de autenticación y la actualización usted mismo. Si desea recorrer un ejemplo similar con este contenedor, vea el [ejemplo del SDK de .NET de la API del servicio](mobile-engagement-dotnet-sdk-service-api.md).
+Si no desea usar las API de REST directamente, también proporcionamos un [archivo de Swagger](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) que puede utilizar con las herramientas para generar los SDK para su idioma preferido. Se recomienda usar la herramienta [AutoRest](https://github.com/Azure/AutoRest) para generar el SDK a partir de nuestro archivo de Swagger. De forma similar, hemos creado un SDK para .NET que permite interactuar con estas API con un contenedor de C# sin tener que realizar la negociación de token de autenticación y la actualización usted mismo. Si desea recorrer un ejemplo similar con este contenedor, vea el [ejemplo del SDK de .NET de la API del servicio](mobile-engagement-dotnet-sdk-service-api.md)
 
-En este ejemplo se usan las API de REST directamente para crear y activar una campaña de anuncio.
+En este ejemplo se usan las API de REST directamente para crear y activar una campaña de anuncio. 
 
-## Adición de una appInfo user\_name a la aplicación Mobile Engagement
-Este ejemplo necesitará una tag app-info agregada a la aplicación Mobile Engagement. En el portal de Engagement para la aplicación, puede agregar la tag haciendo clic en **Configuración** > **Tag (app-info)** > **Nueva tag (app-info)**. Agregue la nueva tag nueva llamada **user\_name** como tipo **Cadena**.
+## <a name="adding-a-username-appinfo-to-the-mobile-engagement-app"></a>Adición de una appInfo user_name a la aplicación Mobile Engagement
+Este ejemplo necesitará una tag app-info agregada a la aplicación Mobile Engagement. En el portal de Engagement para la aplicación, puede agregar la tag haciendo clic en **Configuración** > **Tag (app-info)** > **Nueva tag (app-info)**. Agregue la nueva tag llamada **user_name** como tipo **Cadena**.
 
 ![](./media/mobile-engagement-dotnet-rest-service-api/user-name-app-info.png)
 
-Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones universales de Windows](mobile-engagement-windows-store-dotnet-get-started.md), puede probar a enviar la tag **user\_name** simplemente invalidando `OnNavigatedTo()` en su clase `MainPage` para enviar la tag app-info similar al siguiente código:
+Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones universales de Windows](mobile-engagement-windows-store-dotnet-get-started.md), puede probar a enviar la tag **user_name** simplemente invalidando `OnNavigatedTo()` en su clase `MainPage` para enviar la tag app-info similar al siguiente código:
 
     protected override void OnNavigatedTo(NavigationEventArgs e)
     {
@@ -43,9 +47,9 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
 
 
 
-## Creación de la aplicación de API de servicio
-1. En primer lugar, necesitará cuatro parámetros de autenticación para usar con este ejemplo. Estos parámetros son **SubscriptionId**, **TenantId**, **ApplicationId** y **Secret**. Para obtener estos parámetros de autenticación, se recomienda usar el enfoque de script de PowerShell mencionado en la sección *Instalación única (mediante script)* del tutorial [Autenticación](mobile-engagement-api-authentication.md#authentication).
-2. Usaremos una sencilla aplicación de consola de Windows para mostrar cómo trabajar con las API del servicio REST para crear y activar una nueva campaña de anuncio. Por tanto, abra Visual Studio y cree una nueva **aplicación de consola**.
+## <a name="creating-the-service-api-app"></a>Creación de la aplicación de API de servicio
+1. En primer lugar, necesitará cuatro parámetros de autenticación para usar con este ejemplo. Estos parámetros son **SubscriptionId**, **TenantId**, **ApplicationId** y **Secret**. Para obtener estos parámetros de autenticación, se recomienda usar el enfoque de script de PowerShell mencionado en la sección *Instalación única (mediante script)* del tutorial [Autenticación](mobile-engagement-api-authentication.md#authentication) . 
+2. Usaremos una sencilla aplicación de consola de Windows para mostrar cómo trabajar con las API del servicio REST para crear y activar una nueva campaña de anuncio. Por tanto, abra Visual Studio y cree una nueva **aplicación de consola**.   
 3. A continuación, agregue el paquete NuGet **Newtonsoft.Json** al proyecto.
 4. En el archivo `Program.cs`, agregue las siguientes instrucciones `using` para los espacios de nombres siguientes:
    
@@ -53,7 +57,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
         using System.Net;
         using Newtonsoft.Json.Linq;
         using Newtonsoft.Json;
-5. Después debe definir las siguientes constantes en la clase `Program`. Se usarán para la autenticación e interacción con la aplicación de Mobile Engagement en la que está creando la campaña de anuncio:
+5. Después debe definir las siguientes constantes en la clase `Program` . Se usarán para la autenticación e interacción con la aplicación de Mobile Engagement en la que está creando la campaña de anuncio:
 
         // Parameters needed for authentication of API calls.
         // These are returned from the PowerShell script in the authentication tutorial. 
@@ -67,7 +71,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
         static String Token = null;
 
         // This is the Azure Resource group concept for grouping together resources 
-        // See: https://azure.microsoft.com/es-ES/documentation/articles/resource-group-portal/
+        // See: https://azure.microsoft.com/en-us/documentation/articles/resource-group-portal/
         static String ResourceGroup = "MobileEngagement";
 
         // For Mobile Engagement operations
@@ -86,7 +90,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
         static List<String> deviceList = new List<String>();
 
 
-1. Agregue los dos métodos siguientes a la clase `Program`: Se utilizarán para ejecutar las API de REST y mostrar respuestas a la consola.
+1. Agregue los dos métodos siguientes a la clase `Program`. Se utilizarán para ejecutar las API de REST y mostrar respuestas a la consola.
    
         private static async Task<HttpWebResponse> ExecuteREST(string httpMethod, string uri, string authToken, WebHeaderCollection headers = null, string body = null, string contentType = "application/json")
         {
@@ -182,11 +186,11 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
             Console.WriteLine("*** Failed to get authorization token. Check your parameters for API calls.\n");
             return;
         }
-2. Ahora que tenemos un token de autenticación válido podemos crear una nueva campaña de cobertura mediante la API de REST [Crear campaña](https://msdn.microsoft.com/library/azure/mt683742.aspx). La nueva campaña será una campaña de anuncio sencilla **AnyTime** y **Notification-only** con un título y un mensaje. Se tratará de una campaña de inserción manual tal y como se muestra en la siguiente captura de pantalla. Esto significa que solo se insertará mediante las API.
+2. Ahora que tenemos un token de autenticación válido podemos crear una nueva campaña de cobertura mediante la API de REST [Crear campaña](https://msdn.microsoft.com/library/azure/mt683742.aspx) . La nueva campaña será una campaña de anuncio sencilla **AnyTime** & **Notification-only** con un título y un mensaje. Se tratará de una campaña de inserción manual tal y como se muestra en la siguiente captura de pantalla. Esto significa que solo se insertará mediante las API.
 
     ![](./media/mobile-engagement-dotnet-rest-service-api/manual-push.png)
 
-    Agregue el siguiente código al método `Main` para crear la campaña de anuncio:
+    Agregue el siguiente código al método `Main` para crear la campaña de anuncio: 
 
         //*****************************************************************************
         //*** Create a campaign to send a notification using the user-name app-info ***
@@ -196,13 +200,13 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
                "resourcegroups/" + ResourceGroup + "/providers/Microsoft.MobileEngagement/appcollections/" +
                Collection + "/apps/" + AppName + "/campaigns/announcements?api-version=2014-12-01";
 
-        String campaignRequestBody = "{ "name": "BirthdayCoupon", " +
-                                        ""type": "only_notif", " +
-                                        ""deliveryTime": "any", " +
-                                        ""notificationType": "popup", " +
-                                        ""pushMode":"manual", " +
-                                        ""notificationTitle": "Happy Birthday ${user_name}", " +
-                                        ""notificationMessage": "Take extra 10% off on your orders today!"}";
+        String campaignRequestBody = "{ \"name\": \"BirthdayCoupon\", " +
+                                        "\"type\": \"only_notif\", " +
+                                        "\"deliveryTime\": \"any\", " +
+                                        "\"notificationType\": \"popup\", " +
+                                        "\"pushMode\":\"manual\", " +
+                                        "\"notificationTitle\": \"Happy Birthday ${user_name}\", " +
+                                        "\"notificationMessage\": \"Take extra 10% off on your orders today!\"}";
 
         Console.WriteLine("Creating new campaign...\n");
         HttpWebResponse newCampaignResponse = ExecuteREST("POST", newCampaignMethodUrl, Token, null, campaignRequestBody).Result;
@@ -226,9 +230,9 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
         }
 
 
-1. La campaña se debe activar antes de que se pueda insertar en cualquier dispositivo. Hemos guardado el identificador para la nueva campaña en la variable `NewCampaignID`. Utilizaremos esto como un parámetro de ruta de acceso URI para activar la campaña utilizando la API de REST [Activate campaign (Activar campaña)](https://msdn.microsoft.com/library/azure/mt683745.aspx). Esto debería cambiar el estado de la campaña a **programada** aunque solo se insertará manualmente con las API.
+1. La campaña se debe activar antes de que se pueda insertar en cualquier dispositivo. Hemos guardado el identificador para la nueva campaña en la variable `NewCampaignID` . Utilizaremos esto como un parámetro de ruta de acceso URI para activar la campaña utilizando la API de REST [Activate campaign (Activar campaña)](https://msdn.microsoft.com/library/azure/mt683745.aspx) . Esto debería cambiar el estado de la campaña a **programada** aunque solo se insertará manualmente con las API.
    
-    Agregue el siguiente código al método `Main` para activar la campaña de anuncio:
+    Agregue el siguiente código al método `Main` para activar la campaña de anuncio: 
    
         //******************************************
         //*** Activate the new birthday campaign ***
@@ -258,7 +262,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
             Console.WriteLine("*** Failed to activate birthday campaign.\n");
             return;
         }
-2. Para insertar la campaña necesitamos proporcionar los identificadores de dispositivo para los usuarios que queremos que reciban la notificación. Usaremos la API de REST [Query devices (Consultar dispositivos)](https://msdn.microsoft.com/library/azure/mt683826.aspx) para obtener todos los identificadores de dispositivo. Agregaremos cada identificador de dispositivo a la lista si tiene la appInfo **user\_name** asociada.
+2. Para insertar la campaña necesitamos proporcionar los identificadores de dispositivo para los usuarios que queremos que reciban la notificación. Usaremos la API de REST [Query devices (Consultar dispositivos)](https://msdn.microsoft.com/library/azure/mt683826.aspx) para obtener todos los identificadores de dispositivo. Agregaremos cada identificador de dispositivo a la lista si tiene la appInfo **user_name** asociada.
    
    Agregue el siguiente código al método `Main` para obtener todos los identificadores de dispositivo y rellenar deviceList:
    
@@ -301,7 +305,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
            Console.WriteLine("*** Failed to get devices.\n");
            return;
        }
-3. Por último, insertaremos la campaña en todos los identificadores de dispositivo en nuestra lista utilizando la API de REST[Push campaign (Campaña de inserción)](https://msdn.microsoft.com/library/azure/mt683734.aspx). Se trata de una notificación **en aplicación**. Por tanto, la aplicación tendrá que estar ejecutándose en el dispositivo para que la reciba el usuario.
+3. Por último, insertaremos la campaña en todos los identificadores de dispositivo en nuestra lista utilizando la API de REST [Push campaign (Campaña de inserción)](https://msdn.microsoft.com/library/azure/mt683734.aspx) . Se trata de una notificación **en aplicación** . Por tanto, la aplicación tendrá que estar ejecutándose en el dispositivo para que la reciba el usuario.
    
    Agregue el siguiente código al método `Main` para insertar la campaña en los dispositivos en deviceList:
    
@@ -315,7 +319,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
                   "/push?api-version=2014-12-01";
    
        Console.WriteLine("Triggering push for new campaign (ID : " + NewCampaignID + ")...\n");
-       String deviceIds = "{"deviceIds":" + JsonConvert.SerializeObject(deviceList) + "}";
+       String deviceIds = "{\"deviceIds\":" + JsonConvert.SerializeObject(deviceList) + "}";
        Console.WriteLine("\n" + deviceIds + "\n");
        HttpWebResponse pushDevicesResponse = ExecuteREST("POST", pushCampaignUrl, Token, null, deviceIds).Result;
        Stream pushDevicesStream = pushDevicesResponse.GetResponseStream();
@@ -425,8 +429,7 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
         user_name    : Wesley
 
         Triggering push for new campaign (ID : 24)...
-
-
+        
         {"deviceIds":["1d6208b8f281203ecb49431e2e5ce6b3","302486644890e26045884ee5aa0619ec"]}
 
         HTTP Status 200 : OK
@@ -442,4 +445,8 @@ Si ha seguido [Introducción a Azure Mobile Engagement para aplicaciones univers
 
 [1]: ./media/mobile-engagement-dotnet-sdk-service-api/include-prerelease.png
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

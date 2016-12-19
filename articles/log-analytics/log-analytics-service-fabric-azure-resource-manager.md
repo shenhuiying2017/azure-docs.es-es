@@ -1,12 +1,12 @@
 ---
-title: Optimización del entorno con la solución de Service Fabric en Log Analytics | Microsoft Docs
-description: Puede usar la solución de Service Fabric para evaluar el riesgo y el estado de las aplicaciones, los microservicios, los nodos y los clústeres de Service Fabric.
+title: "Optimización del entorno con la solución de Service Fabric en Log Analytics | Documentos de Microsoft"
+description: "Puede usar la solución de Service Fabric para evaluar el riesgo y el estado de las aplicaciones, los microservicios, los nodos y los clústeres de Service Fabric."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: niniikhena
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: nini
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2fe6c2b23c816a5ec5bb00199725cdf0b29b31f0
+
 
 ---
 # <a name="service-fabric-solution-in-log-analytics"></a>Solución Datos de Service Fabric en Log Analytics
@@ -33,7 +37,7 @@ Para empezar a trabajar con la solución, debe conectar su clúster de Service F
 2. Si tiene que recopilar contadores de rendimiento de los hosts para usar otras soluciones de OMS como la de seguridad en su clúster de Service Fabric, siga los pasos del artículo sobre cómo ***implementar un clúster de Service Fabric conectado a un área de trabajo OMS con la extensión de máquina virtual instalada***.
 3. Si ya ha implementado el clúster de Service Fabric y quiere conectarse a Log Analytics, siga los pasos del artículo sobre cómo ***agregar una cuenta de almacenamiento existente a Log Analytics***.
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace."></a>Implemente un clúster de Service Fabric conectado a un área de trabajo de Log Analytics.
+## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Implemente un clúster de Service Fabric conectado a un área de trabajo de Log Analytics.
 Esta plantilla hace lo siguiente:
 
 1. Implementa un clúster de Service Fabric de Azure ya conectado a un área de trabajo de Log Analytics. Tiene la opción de crear una nueva área de trabajo durante la implementación de la plantilla, o especificar el nombre de un área de trabajo de Log Analytics ya existente.
@@ -50,7 +54,7 @@ Acepte los términos legales y haga clic en Crear para iniciar la implementació
 
 ![Service Fabric](./media/log-analytics-service-fabric/4.png)
 
-## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed."></a>Implemente un clúster de Service Fabric conectado a un área de trabajo OMS con la extensión de máquina virtual instalada.
+## <a name="deploy-a-service-fabric-cluster-connected-to-an-oms-workspace-with-vm-extension-installed"></a>Implemente un clúster de Service Fabric conectado a un área de trabajo OMS con la extensión de máquina virtual instalada.
 Esta plantilla hace lo siguiente:
 
 1. Implementa un clúster de Service Fabric de Azure ya conectado a un área de trabajo de Log Analytics. Puede crear una tabla o usar una existente.
@@ -146,6 +150,9 @@ La siguiente tabla muestra los métodos de recolección de datos y otros detalle
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los datos de eventos de Service Fabric.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

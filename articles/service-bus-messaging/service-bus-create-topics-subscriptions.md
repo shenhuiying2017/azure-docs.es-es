@@ -1,19 +1,23 @@
 ---
-title: Creación de aplicaciones que usan temas y suscripciones de Service Bus | Microsoft Docs
-description: Introducción a las funcionalidades de publicación-suscripción que ofrecen los temas y suscripciones de Service Bus.
-services: service-bus
+title: "Creación de aplicaciones que usan temas y suscripciones de Service Bus | Microsoft Docs"
+description: "Introducción a las funcionalidades de publicación-suscripción que ofrecen los temas y suscripciones de Service Bus."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: a48fc9b0-b7b0-464e-8187-a517bf8b4eb4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 75f2cddad471c89fd826097831362d9d51a6dccf
+
 
 ---
 # <a name="create-applications-that-use-service-bus-topics-and-subscriptions"></a>Creación de aplicaciones que usan temas y suscripciones de Service Bus
@@ -48,7 +52,7 @@ Con esta configuración, cada mensaje de los terminales de PDV queda a disposici
 En el artículo [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md) se describe cómo registrarse en una cuenta de Azure y crear un espacio de nombres del servicio. Para usar un espacio de nombres de Bus de servicio, una aplicación debe hacer referencia el ensamblado del Bus de servicio, en concreto Microsoft.ServiceBus.dll. La manera más fácil de hacer referencia a las dependencias de Service Bus es instalar el [paquete Nuget](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) de Service Bus. El ensamblado también se puede encontrar como parte del SDK de Azure. La descarga está disponible en la [página de descarga del SDK de Azure](https://azure.microsoft.com/downloads/).
 
 ### <a name="create-the-topic-and-subscriptions"></a>Creación del tema y de las suscripciones
-Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Se requieren credenciales apropiadas para crear una instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](../service-bus/service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
+Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Se requieren credenciales apropiadas para crear una instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) para un espacio de nombres concreto. Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
 
 La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. El siguiente código muestra cómo se crea la instancia [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) y se usa para crear el tema **DataCollectionTopic**.
 
@@ -139,6 +143,9 @@ Todas las razones para usar las colas que se describen [Creación de aplicacione
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información cómo usar las colas en el escenario minorista de PDV, consulte [Creación de aplicaciones que usan colas de Service Bus](service-bus-create-queues.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

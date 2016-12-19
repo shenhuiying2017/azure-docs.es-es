@@ -1,12 +1,12 @@
 ---
-title: Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásico | Microsoft Docs
+title: "Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica | Microsoft Docs"
 description: Use este tutorial para aprender a administrar almacenes y servidores de Copia de seguridad de Azure.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: markgalioto
 manager: jwhit
 editor: tysonn
-
+ms.assetid: f175eb12-0905-437f-91fd-eaee03ab6e81
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
+ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Administración de almacenes y servidores de Copia de seguridad de Azure mediante el modelo de implementación clásica
@@ -26,8 +30,6 @@ ms.author: jimpark;markgal
 En este artículo encontrará información general sobre las tareas de administración de copias de seguridad que tiene disponibles en el Portal de Azure clásico y el agente de Copia de seguridad de Microsoft Azure.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Modelo de implementación del Administrador de recursos.
 
 ## <a name="management-portal-tasks"></a>Tareas del Portal de administración
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
@@ -190,6 +192,9 @@ Para habilitar la limitación, siga estos pasos:
 * Para obtener más información sobre Copia de seguridad de Azure, consulte [Información general de Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 * Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 
