@@ -9,54 +9,60 @@ Puede invocar un procedimiento almacenado de su elección. En el ejemplo siguien
 
 En este ejemplo, el tipo está definido como SqlServerTable. Establézcalo en AzureSqlTable para usarlo con una base de datos de SQL de Azure. 
 
-    {
-      "name": "SqlOutput",
-      "properties": {
-        "type": "SqlServerTable",
-        "linkedServiceName": "SqlLinkedService",
-        "typeProperties": {
-          "tableName": "Marketing"
-        },
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
-      }
+```json
+{
+  "name": "SqlOutput",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlLinkedService",
+    "typeProperties": {
+      "tableName": "Marketing"
+    },
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
+  }
+}
+```
 
 Defina la sección SqlSink en el JSON de actividad de copia como se indica a continuación. Llame a un procedimiento almacenado al insertar datos, las propiedades SqlWriterStoredProcedureName y SqlWriterTableType son necesarias.
 
-    "sink":
-    {
-        "type": "SqlSink",
-        "SqlWriterTableType": "MarketingType",
-        "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
-        "storedProcedureParameters":
+```json
+"sink":
+{
+    "type": "SqlSink",
+    "SqlWriterTableType": "MarketingType",
+    "SqlWriterStoredProcedureName": "spOverwriteMarketing", 
+    "storedProcedureParameters":
+            {
+                "stringData": 
                 {
-                    "stringData": 
-                    {
-                        "value": "str1"     
-                    }
+                    "value": "str1"     
                 }
-    }
+            }
+}
+```
 
 En la base de datos, defina el procedimiento almacenado con el mismo nombre que SqlWriterStoredProcedureName. De este modo, se administran los datos de entrada desde el origen especificado y se insertan en la tabla de salida. Tenga en cuenta que el nombre del parámetro del procedimiento almacenado tiene que ser el mismo que el de TableName definido en el archivo JSON de la tabla.
 
-    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
-    AS
-    BEGIN
-        DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
-        INSERT [dbo].[Marketing](ProfileID, State)
-        SELECT * FROM @Marketing
-    END
-
+```sql
+CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @stringData varchar(256)
+AS
+BEGIN
+    DELETE FROM [dbo].[Marketing] where ProfileID = @stringData
+    INSERT [dbo].[Marketing](ProfileID, State)
+    SELECT * FROM @Marketing
+END
+```
 En la base de datos, defina el tipo de tabla con el mismo nombre que SqlWriterTableType. Tenga en cuenta que el esquema del tipo de tabla debe ser el mismo que el esquema devuelto por los datos de entrada.
 
-    CREATE TYPE [dbo].[MarketingType] AS TABLE(
-        [ProfileID] [varchar](256) NOT NULL,
-        [State] [varchar](256) NOT NULL
-    )
-
+```sql
+CREATE TYPE [dbo].[MarketingType] AS TABLE(
+    [ProfileID] [varchar](256) NOT NULL,
+    [State] [varchar](256) NOT NULL
+)
+```
 La característica de procedimiento almacenado aprovecha los [parámetros con valores de tabla](https://msdn.microsoft.com/library/bb675163.aspx).
 
 

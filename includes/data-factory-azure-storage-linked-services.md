@@ -10,16 +10,17 @@ Consulte el siguiente artículo para conocer los pasos para ver o copiar la clav
 
 **Ejemplo:**  
 
-    {  
-        "name": "StorageLinkedService",  
-        "properties": {  
-            "type": "AzureStorage",  
-            "typeProperties": {  
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
-            }  
+```json
+{  
+    "name": "StorageLinkedService",  
+    "properties": {  
+        "type": "AzureStorage",  
+        "typeProperties": {  
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"  
         }  
     }  
-
+}  
+```
 
 ## <a name="azure-storage-sas-linked-service"></a>Servicio vinculado de SAS de Almacenamiento de Azure
 Una Firma de acceso compartido (SAS) ofrece acceso delegado a los recursos en la cuenta de almacenamiento. Esto significa que puede conceder permisos limitados de los clientes a objetos en su cuenta de almacenamiento durante un período específico y con un conjunto determinado de permisos sin tener que compartir las claves de acceso a las cuentas. La SAS es un URI que incluye en sus parámetros de consulta toda la información necesaria para el acceso autenticado a un recurso de almacenamiento. Para obtener acceso a los recursos de almacenamiento con la SAS, el cliente solo tiene que pasar la SAS al método o constructor adecuados. Para obtener información detallada acerca de SAS, consulte [Firmas de acceso compartido: Descripción del modelo SAS](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
@@ -33,15 +34,17 @@ El servicio vinculado de SAS de Almacenamiento de Azure le permite vincular una 
 
 **Ejemplo:**
 
-    {  
-        "name": "StorageSasLinkedService",  
-        "properties": {  
-            "type": "AzureStorageSas",  
-            "typeProperties": {  
-                "sasUri": "<storageUri>?<sasToken>"   
-            }  
+```json
+{  
+    "name": "StorageSasLinkedService",  
+    "properties": {  
+        "type": "AzureStorageSas",  
+        "typeProperties": {  
+            "sasUri": "<storageUri>?<sasToken>"   
         }  
     }  
+}  
+```
 
 Al crear un **URI de SAS**, tenga en cuenta lo siguiente:  
 
