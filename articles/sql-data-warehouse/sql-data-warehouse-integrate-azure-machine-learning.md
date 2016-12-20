@@ -1,48 +1,53 @@
 ---
-title: Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL | Microsoft Docs
-description: Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
+title: Uso de Azure Machine Learning con SQL Data Warehouse | Microsoft Docs
+description: "Tutorial para usar Aprendizaje automático de Azure con Almacenamiento de datos SQL de Azure para el desarrollo de soluciones."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: ac6bc731-6add-47a9-b3fe-68996e656f4d
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: kevin;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: kevin;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f30cfab50407e31ccad61888d7de40e4f0fcba24
+
 
 ---
-# Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
-Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, lea [Introducción a Aprendizaje automático en Azure][Introducción a Aprendizaje automático en Azure]. Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Tutorial para crear un experimento].
+# <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>Uso de Aprendizaje automático de Azure con Almacenamiento de datos SQL
+Aprendizaje automático de Azure es un servicio de análisis predictivo completamente administrado que puede usar para crear modelos predictivos con sus datos en Almacenamiento de datos SQL y publicarlos después como servicios web listos para su consumo. Para aprender los conceptos básicos del análisis predictivo y el aprendizaje automático, consulte la [introducción a Machine Learning en Azure][introducción a Machine Learning en Azure].  Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Tutorial para crear un experimento].
 
-En este artículo, aprenderá cómo hacer lo siguiente utilizando [Estudio de aprendizaje automático de Azure][Estudio de aprendizaje automático de Azure]\:
+En este artículo, aprenderá cómo hacer lo siguiente utilizando el [Estudio de aprendizaje automático de Azure][Estudio de aprendizaje automático de Azure]:
 
 * Leer datos de la base de datos para crear, entrenar y puntuar un modelo predictivo
 * Escribir datos en la base de datos
 
-## Lectura de datos desde Almacenamiento de datos SQL
+## <a name="read-data-from-sql-data-warehouse"></a>Lectura de datos desde Almacenamiento de datos SQL
 Leeremos datos desde la tabla Producto en la base de datos AdventureWorksDW.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 Inicie un experimento nuevo haciendo clic en +NUEVO en la parte inferior de la ventana de Estudio de aprendizaje automático, seleccione EXPERIMENTO y luego Experimento en blanco. Seleccione el nombre del experimento predeterminado en la parte superior del lienzo y cámbielo por uno significativo, por ejemplo, Predicción del precio de bicicletas.
 
-### Paso 2
-Busque el módulo Lector en la paleta de conjuntos de datos y módulos que aparece a la izquierda del lienzo de experimentos. Arrastre el módulo al lienzo de experimentos. ![][drag_reader]
+### <a name="step-2"></a>Paso 2
+Busque el módulo Lector en la paleta de conjuntos de datos y módulos que aparece a la izquierda del lienzo de experimentos. Arrastre el módulo al lienzo de experimentos.
+![][drag_reader]
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
 Seleccione el módulo Lector y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el origen de datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][Portal de Azure].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Portal de Azure][Portal de Azure].
 
 ![][server_name]
 
 1. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
-2. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de acceso para la base de datos.
+2. Nombre de la cuenta de usuario del servidor: escriba el nombre de usuario de una cuenta con permisos de acceso a la base de datos.
 3. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
 4. Aceptar cualquier certificado de servidor: use esta opción (menos segura) si desea omitir la revisión del certificado de sitio antes de leer los datos.
 5. Consulta de base de datos: escriba una instrucción SQL que describa los datos que desea leer. En este caso, leeremos datos desde la tabla Producto con la siguiente consulta.
@@ -56,7 +61,7 @@ FROM dbo.DimProduct;
 
 ![][reader_properties]
 
-### Paso 4
+### <a name="step-4"></a>Paso 4
 1. Ejecute el experimento; para ello, haga clic en Ejecutar bajo el lienzo de experimentos.
 2. Cuando el experimento finalice, el módulo Lector tendrá una marca de verificación verde para indicar que se completó correctamente. Observe también el estado Ejecución finalizada en la esquina superior derecha.
 
@@ -64,7 +69,7 @@ FROM dbo.DimProduct;
 
 1. Para ver los datos importados, haga clic en el puerto de salida en la parte inferior del conjunto de datos de automóvil y seleccione Visualizar.
 
-## Creación, entrenamiento y puntuación de un modelo
+## <a name="create-train-and-score-a-model"></a>Creación, entrenamiento y puntuación de un modelo
 Ahora puede utilizar este conjunto de datos para:
 
 * Crear un modelo: procesar datos y definir características
@@ -73,23 +78,23 @@ Ahora puede utilizar este conjunto de datos para:
 
 ![][model]
 
-Puede aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático con el [Tutorial para crear un experimento][Tutorial para crear un experimento].
+Para aprender a crear, entrenar, puntuar y probar un modelo de aprendizaje automático, siga el [Tutorial para crear un experimento][Tutorial para crear un experimento].
 
-## Escritura de datos en Almacenamiento de datos SQL de Azure
+## <a name="write-data-to-azure-sql-data-warehouse"></a>Escritura de datos en Almacenamiento de datos SQL de Azure
 Escribiremos el conjunto de resultados en la tabla ProductPriceForecast de la base de datos AdventureWorksDW.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
 Busque el módulo Redactor en la paleta de conjuntos de datos y módulos que aparece a la izquierda del lienzo de experimentos. Arrastre el módulo al lienzo de experimentos.
 
 ![][drag_writer]
 
-### Paso 2
+### <a name="step-2"></a>Paso 2
 Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 1. Seleccione Base de datos SQL de Azure como el destino de los datos.
-2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar el [Portal de Azure][Portal de Azure].
+2. Nombre del servidor de base de datos: escriba el nombre del servidor. Para encontrarlo, puede usar [Portal de Azure][Portal de Azure].
 3. Nombre de la base de datos: escriba el nombre de la base de datos en el servidor que acaba de especificar.
-4. El nombre de la cuenta de usuario de servidor: escriba el nombre de usuario de una cuenta que tiene permisos de escritura para la base de datos.
+4. Nombre de la cuenta de usuario del servidor: escriba el nombre de usuario de una cuenta con permisos de escritura para la base de datos.
 5. Contraseña de la cuenta de usuario de servidor: proporcione la contraseña de la cuenta de usuario especificada.
 6. Aceptar cualquier certificado de servidor (no seguro): seleccione esta opción si no desea ver el certificado.
 7. Lista separada por comas de las columnas que se guardarán: proporcione una lista de las columnas de resultados o conjuntos de datos que desea obtener.
@@ -99,11 +104,11 @@ Seleccione el módulo Redactor y rellene el panel de propiedades.
 
 ![][writer_properties]
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
 1. Ejecute el experimento; para ello, haga clic en Ejecutar bajo el lienzo de experimentos.
 2. Cuando el experimento finalice, todos los módulos tendrán una marca de verificación verde para indicar que se han implementado correctamente.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
 
 <!--Image references-->
@@ -120,7 +125,7 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 [información general sobre desarrollo de Almacenamiento de datos SQL]: ./sql-data-warehouse-overview-develop.md
 [Tutorial para crear un experimento]: https://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/
-[Introducción a Aprendizaje automático en Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction to machine learning on Azure]: https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [Estudio de aprendizaje automático de Azure]: https://studio.azureml.net/Home
 [Portal de Azure]: https://portal.azure.com/
 
@@ -128,6 +133,10 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-[Azure Machine Learning documentation]: http://azure.microsoft.com/documentation/services/machine-learning/
+[Documentación de Azure Machine Learning]: http://azure.microsoft.com/documentation/services/machine-learning/
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

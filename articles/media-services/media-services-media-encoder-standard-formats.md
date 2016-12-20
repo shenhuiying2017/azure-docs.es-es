@@ -1,12 +1,12 @@
 ---
-title: Códecs y formatos de Media Encoder Standard
-description: En este tema se ofrece información general sobre los códecs y formatos de Estándar de codificador multimedia.
+title: "Códecs y formatos de Media Encoder Standard"
+description: "En este tema se ofrece información general sobre los códecs y formatos de Estándar de codificador multimedia."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 382913f0501c692cc1ee460d2264118414ad20c3
+
 
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Códecs y formatos de Media Encoder Standard
 Este documento contiene una lista de los formatos de archivo de importación y exportación más comunes que puede usar con Media Encoder Standard.
 
-## <a name="input-container/file-formats"></a>Formatos de archivo/contenedor de entrada
+## <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 | Formatos de archivo (extensiones de archivo) | Compatible |
 | --- | --- | --- | --- |
-| FLV (con códecs H.264 y AAC) (.flv) |Sí |
-| MXF (.mxf) |Sí |
-| GXF (.gxf) |Sí |
+| FLV (con códecs H.264 y AAC) (.flv) |yes |
+| MXF    (.mxf) |Sí |
+| GXF    (.gxf) |Sí |
 | MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sí |
 | Windows Media Video (WMV)/ASF (.wmv, .asf) |Sí |
 | AVI (sin comprimir de 8 bits/10 bits) (.avi) |Sí |
@@ -108,6 +112,9 @@ La siguiente tabla enumera los códecs y los formatos de archivo compatibles par
 
 [Codificación con Codificador multimedia estándar](media-services-dotnet-encode-with-media-encoder-standard.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

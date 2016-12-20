@@ -2,11 +2,11 @@
 title: Latencias de informes de Azure Active Directory | Microsoft Docs
 description: Cantidad de tiempo necesaria para que los eventos de informes aparezcan en su directorio de Azure Active Directory
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 346b14f8-d16d-4b07-8211-e6c5eec07062
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e15c82330ac27f58f3faec3a224123cb45c9b28b
+
 
 ---
-# Latencias de informes de Azure Active Directory
+# <a name="azure-active-directory-report-latencies"></a>Latencias de informes de Azure Active Directory
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 | Informe | Mínima | Media | Máxima |
@@ -51,4 +55,9 @@ ms.author: dhanyahk
 | **Informes de vista previa privada** | | | |
 | Actividad de inicio de sesión de todos los usuarios |2 horas |4 horas |8 horas |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

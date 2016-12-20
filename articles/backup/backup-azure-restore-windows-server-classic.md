@@ -1,22 +1,26 @@
 ---
-title: Restauración de datos en Windows Server o un cliente de Windows desde Azure mediante el modelo de implementación clásica| Microsoft Docs
+title: "Restauración de datos en Windows Server o un cliente de Windows desde Azure mediante el modelo de implementación clásica| Microsoft Docs"
 description: Aprenda a restaurar desde Windows Server o desde el Cliente de Windows.
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-
+editor: 
+ms.assetid: 85585dfc-c764-4e8c-8f0e-40b969640ac2
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 11/01/2016
 ms.author: trinadhk; jimpark; markgal;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b22f1a70c516ae2b1a9d095670d1b6719590eaa
+
 
 ---
-# Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de clásica
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>Restauración de archivos en un equipo de Windows Server o cliente de Windows mediante el modelo de implementación de clásica
 > [!div class="op_single_selector"]
 > * [Portal clásico](backup-azure-restore-windows-server-classic.md)
 > * [Portal de Azure](backup-azure-restore-windows-server.md)
@@ -32,24 +36,24 @@ En ambos casos, los datos se recuperan del almacén de Copia de seguridad de Azu
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-## Recuperar los datos en la misma máquina
+## <a name="recover-data-to-the-same-machine"></a>Recuperar los datos en la misma máquina
 Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máquina (desde la que se realizó la copia de seguridad), los pasos siguientes le ayudarán a recuperar esos datos.
 
-1. Abra el complemento **Copia de seguridad de Microsoft Azure**.
+1. Abra el complemento **Copia de seguridad de Microsoft Azure** .
 2. Haga clic en **Recuperar datos** para iniciar el flujo de trabajo.
    
     ![Recuperar datos](./media/backup-azure-restore-windows-server-classic/recover.png)
-3. Seleccione la opción **Este servidor (*nombredesumáquina*)**, para restaurar en la misma máquina.el archivo del que ha creado una copia de seguridad.
+3. Seleccione la opción **Este servidor (*nombreDeLaMáquina*)**, para restaurar en la misma máquina el archivo del que ha creado una copia de seguridad.
    
     ![Misma máquina](./media/backup-azure-restore-windows-server-classic/samemachine.png)
 4. Elija entre **Examinar archivos** o **Buscar archivos**.
    
-    Deje la opción predeterminada si va a restaurar uno o varios archivos cuya ruta de acceso se conoce. Si no está seguro de la estructura de carpetas pero desea buscar un archivo, escoja la opción **Buscar archivos**. En esta sección, se continuará con la opción predeterminada.
+    Deje la opción predeterminada si va a restaurar uno o varios archivos cuya ruta de acceso se conoce. Si no está seguro de la estructura de carpetas pero desea buscar un archivo, escoja la opción **Buscar archivos** . En esta sección, se continuará con la opción predeterminada.
    
     ![Examinar archivos](./media/backup-azure-restore-windows-server-classic/browseandsearch.png)
 5. Seleccione el volumen desde el que desea restaurar el archivo.
    
-    Puede realizar la restauración a un momento dado. Las fechas que aparecen en **negrita** en el control del calendario indican la disponibilidad de un punto de restauración. Una vez seleccionada una fecha, según su programación de copia de seguridad (y el éxito que haya tenido al realizar una operación de copia de seguridad), puede seleccionar un momento dato en el menú desplegable **Tiempo**.
+    Puede realizar la restauración a un momento dado. Las fechas que aparecen en **negrita** en el control del calendario indican la disponibilidad de un punto de restauración. Una vez seleccionada una fecha, según su programación de copia de seguridad (y el éxito que haya tenido al realizar una operación de copia de seguridad), puede seleccionar un momento dato en el menú desplegable **Tiempo** .
    
     ![Fecha y volumen](./media/backup-azure-restore-windows-server-classic/volanddate.png)
 6. Seleccione los elementos que desea recuperar. Puede seleccionar varias carpetas y archivos para restaurar.
@@ -64,13 +68,13 @@ Si ha eliminado accidentalmente un archivo y desea restaurarlo en la misma máqu
    * Se recomienda que deje la opción predeterminada de la restauración de las ACL en los archivos que se está recuperando.
 8. Una vez proporcionadas estas entradas, haga clic en **Siguiente**. El flujo de trabajo de recuperación que se encarga de restaurar los archivos de la máquina, se iniciará.
 
-## Recuperar en una máquina alternativa
-Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.
+## <a name="recover-to-an-alternate-machine"></a>Recuperar en una máquina alternativa
+Si ha perdido todo el servidor, todavía puede recuperar los datos de la Copia de seguridad de Azure en una máquina diferente. Los pasos siguientes muestran el flujo de trabajo.  
 
 La terminología usada en estos pasos incluye:
 
-* *Máquina de origen*: es la máquina original desde la que se realizó la copia de seguridad y que no está disponible actualmente.
-* *Máquina de destino*: es la máquina en la que se recuperan los datos.
+* *Máquina de origen* : es la máquina original desde la que se realizó la copia de seguridad y que no está disponible actualmente.
+* *Máquina de destino* : es la máquina en la que se recuperan los datos.
 * *Almacén de ejemplo*: almacén de copia de seguridad en el que se registran la *máquina de origen* y la *máquina de destino*. <br/>
 
 > [!NOTE]
@@ -90,7 +94,7 @@ La terminología usada en estos pasos incluye:
 6. Seleccione la *Máquina de origen* en la lista de máquinas mostradas.
    
     ![Lista de máquinas](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. Seleccione la opción **Buscar archivos** o **Examinar archivos**. En esta sección, usaremos la opción **Buscar archivos**.
+7. Seleccione la opción **Buscar archivos** o **Examinar archivos**. En esta sección, usaremos la opción **Buscar archivos** .
    
     ![Search](./media/backup-azure-restore-windows-server-classic/search.png)
 8. Seleccione el volumen y la fecha en la pantalla siguiente. Busque el nombre de la carpeta o el archivo que desea restaurar.
@@ -104,13 +108,18 @@ La terminología usada en estos pasos incluye:
     ![Cifrado](./media/backup-azure-restore-windows-server-classic/encryption.png)
 11. Una vez especificada la entrada, haga clic en **Recuperar**, para desencadenar la restauración de los archivos con copia de seguridad en el destino proporcionado.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Preguntas más frecuentes de Copia de seguridad de Azure](backup-azure-backup-faq.md)
 * Visite el [Foro de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933).
 
-## Más información
+## <a name="learn-more"></a>Más información
 * [Información general de Copia de seguridad de Azure](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-introduction.md)
 * [Copia de seguridad de las cargas de trabajo de Microsoft](backup-azure-dpm-introduction.md)
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

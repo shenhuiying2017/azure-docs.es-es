@@ -1,12 +1,12 @@
 ---
-title: Administración del control de acceso basado en rol (RBAC) con la CLI de Azure | Microsoft Docs
-description: Obtenga información sobre cómo administrar el control de acceso basado en rol (RBAC) con la interfaz de la línea de comandos de Azure a través de la enumeración de roles y acciones de roles y de la asignación de roles a los ámbitos de aplicación y suscripción.
+title: "Administración del control de acceso basado en rol (RBAC) con la CLI de Azure | Microsoft Docs"
+description: "Obtenga información sobre cómo administrar el control de acceso basado en rol (RBAC) con la interfaz de la línea de comandos de Azure a través de la enumeración de roles y acciones de roles y de la asignación de roles a los ámbitos de aplicación y suscripción."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3483ee01-8177-49e7-b337-4d5cb14f5e32
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d853e2ea005eea99d7ea461e21c51c89c6e4aca3
+
 
 ---
-# Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure
+# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Administración del control de acceso basado en rol con la interfaz de la línea de comandos de Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](role-based-access-control-manage-access-powershell.md)
 > * [CLI de Azure](role-based-access-control-manage-access-azure-cli.md)
@@ -29,10 +33,10 @@ Puede usar el control de acceso basado en rol (RBAC) del Portal de Azure y la AP
 Para poder usar la interfaz de la línea de comandos (CLI) de Azure y administrar RBAC, necesita lo siguiente:
 
 * CLI de Azure versión 0.8.8 o posterior. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md).
-* Azure Resource Manager en la CLI de Azure Para obtener más información, consulte [Uso de la interfaz de la línea de comandos de Azure con Resource Manager](../xplat-cli-azure-resource-manager.md).
+* Azure Resource Manager en la CLI de Azure Para más información, consulte [Uso de la CLI de Azure con Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-## Lista de roles
-### Lista de todos los roles disponibles
+## <a name="list-roles"></a>Lista de roles
+### <a name="list-all-available-roles"></a>Lista de todos los roles disponibles
 Para enumerar todos los roles disponibles, use:
 
         azure role list
@@ -45,7 +49,7 @@ azure role list --json | jq '.[] | {"roleName":.properties.roleName, "descriptio
 
 ![Línea de comandos de Azure RBAC: lista de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-list.png)
 
-### Lista de las acciones de un rol
+### <a name="list-actions-of-a-role"></a>Lista de las acciones de un rol
 Para enumerar las acciones de un rol, use:
 
     azure role show "<role name>"
@@ -60,13 +64,13 @@ azure role show "virtual machine contributor" --json | jq '.[] | .properties.per
 
 ![Línea de comandos de Azure RBAC: vista de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/1-azure-role-show.png)
 
-## Lista de acceso
-### Lista de las asignaciones de rol vigentes en un grupo de recursos
+## <a name="list-access"></a>Lista de acceso
+### <a name="list-role-assignments-effective-on-a-resource-group"></a>Lista de las asignaciones de rol vigentes en un grupo de recursos
 Para mostrar las asignaciones de roles de un grupo de recursos, utilice:
 
     azure role assignment list --resource-group <resource group name>
 
-En el ejemplo siguiente, se muestran las asignaciones de roles del grupo *pharma-sales-projecforcast*.
+En el ejemplo siguiente, se muestran las asignaciones de roles del grupo *pharma-sales-projecforcast* .
 
 ```
 azure role assignment list --resource-group pharma-sales-projecforcast --json | jq '.[] | {"DisplayName":.properties.aADObject.displayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -74,7 +78,7 @@ azure role assignment list --resource-group pharma-sales-projecforcast --json | 
 
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-1.png)
 
-### Lista de las asignaciones de rol de un usuario
+### <a name="list-role-assignments-for-a-user"></a>Lista de las asignaciones de rol de un usuario
 Para enumerar las asignaciones de rol de un usuario específico y las asignaciones de los grupos de un usuario, use:
 
     azure role assignment list --signInName <user email>
@@ -83,7 +87,7 @@ También puede ver las asignaciones de roles que se heredan de grupos modificand
 
     azure role assignment list --expandPrincipalGroups --signInName <user email>
 
-En el ejemplo siguiente, se muestran las asignaciones de rol concedidas al usuario *sameert@aaddemo.com*. Entre ellas, los roles asignados directamente al usuario y los roles que se heredan de los grupos.
+En el ejemplo siguiente, se muestran las asignaciones de rol concedidas al usuario *sameert@aaddemo.com* . Entre ellas, los roles asignados directamente al usuario y los roles que se heredan de los grupos.
 
 ```
 azure role assignment list --signInName sameert@aaddemo.com --json | jq '.[] | {"DisplayName":.properties.aADObject.DisplayName,"RoleDefinitionName":.properties.roleName,"Scope":.properties.scope}'
@@ -93,12 +97,12 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 
 ![Línea de comandos de Azure RBAC: lista de asignación de roles de Azure por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-assignment-list-2.png)
 
-## Conceder acceso
+## <a name="grant-access"></a>Conceder acceso
 Para conceder acceso después de haber identificado el rol que desea asignar, use:
 
     azure role assignment create
 
-### Asignación de un rol a un grupo en el ámbito de la suscripción
+### <a name="assign-a-role-to-group-at-the-subscription-scope"></a>Asignación de un rol a un grupo en el ámbito de la suscripción
 Para asignar un rol a un grupo en el ámbito de la suscripción, use:
 
     azure role assignment create --objectId  <group object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
@@ -107,7 +111,7 @@ En el ejemplo siguiente se asigna el rol *Lector* al *equipo de Christine Koch* 
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-1.png)
 
-### Asignación de un rol a una aplicación en el ámbito de la suscripción
+### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Asignación de un rol a una aplicación en el ámbito de la suscripción
 Para asignar un rol a una aplicación en el ámbito de la suscripción, use:
 
     azure role assignment create --objectId  <applications object id> --roleName <name of role> --subscription <subscription> --scope <subscription/subscription id>
@@ -116,7 +120,7 @@ En el ejemplo siguiente, se concede el rol *Colaborador* a una aplicación de *A
 
  ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por aplicación (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-2.png)
 
-### Asignación de un rol a un usuario en el ámbito del grupo de recursos
+### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Asignación de un rol a un usuario en el ámbito del grupo de recursos
 Para asignar un rol a un usuario en el ámbito del grupo de recursos, use:
 
     azure role assignment create --signInName  <user email address> --roleName "<name of role>" --resourceGroup <resource group name>
@@ -125,7 +129,7 @@ En el ejemplo siguiente, se concede el rol *Colaborador de la máquina virtual* 
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por usuario (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-3.png)
 
-### Asignación de un rol a un grupo en el ámbito del recurso
+### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Asignación de un rol a un grupo en el ámbito del recurso
 Para asignar un rol a un grupo en el ámbito del recurso, use:
 
     azure role assignment create --objectId <group id> --role "<name of role>" --resource-name <resource group name> --resource-type <resource group type> --parent <resource group parent> --resource-group <resource group>
@@ -134,16 +138,17 @@ En el ejemplo siguiente, se concede el rol *Colaborador de la máquina virtual* 
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure creada por grupo (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-assignment-create-4.png)
 
-## Quitar acceso
+## <a name="remove-access"></a>Quitar acceso
 Para quitar una asignación de rol, use:
 
     azure role assignment delete --objectId <object id to from which to remove role> --roleName "<role name>"
 
-En el ejemplo siguiente, se quita la asignación de rol *Colaborador de la máquina virtual* del usuario *sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*. Luego, se quita la asignación de rol de un grupo de la suscripción.
+En el ejemplo siguiente, se quita la asignación de rol *Colaborador de la máquina virtual* del usuario *sammert@aaddemo.com* en el grupo de recursos *Pharma-Sales-ProjectForcast*.
+Luego, se quita la asignación de rol de un grupo de la suscripción.
 
 ![Línea de comandos de Azure RBAC: asignación de roles de Azure eliminada (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-assignment-delete.png)
 
-## Crear un rol personalizado
+## <a name="create-a-custom-role"></a>Crear un rol personalizado
 Para crear un rol personalizado, use:
 
     azure role create --inputfile <file path>
@@ -154,7 +159,7 @@ En el ejemplo siguiente, se crea un rol personalizado llamado *Operador de máqu
 
 ![Línea de comandos de Azure RBAC: creación de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
-## Modificación de un rol personalizado
+## <a name="modify-a-custom-role"></a>Modificación de un rol personalizado
 Para modificar un rol personalizado, use en primer lugar el comando `azure role show` para recuperar la definición de rol. Después, haga los cambios que desee en el archivo de definición de rol. Por último, use `azure role set` para guardar la definición de rol modificada.
 
     azure role set --inputfile <file path>
@@ -165,15 +170,15 @@ En el ejemplo siguiente, se agrega la operación *Microsoft.Insights/diagnosticS
 
 ![Línea de comandos de Azure RBAC: establecimiento de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
-## Eliminación de un rol personalizado
+## <a name="delete-a-custom-role"></a>Eliminación de un rol personalizado
 Para eliminar un rol personalizado, use primero el comando `azure role show` para determinar el **id.** del rol. Luego, use el comando `azure role delete` para eliminar el rol especificando el **id**.
 
-En el ejemplo siguiente se quita el rol personalizado *Operador de máquina virtual*.
+En el ejemplo siguiente se quita el rol personalizado *Operador de máquina virtual* .
 
 ![Línea de comandos de Azure RBAC: eliminación de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/4-azure-role-delete.png)
 
-## Lista de roles personalizados
-Para enumerar los roles que están disponibles para la asignación en un ámbito, use el comando `azure role list`.
+## <a name="list-custom-roles"></a>Lista de roles personalizados
+Para enumerar los roles que están disponibles para la asignación en un ámbito, use el comando `azure role list` .
 
 En el ejemplo siguiente se enumeran todos los roles disponibles para la asignación en la suscripción seleccionada.
 
@@ -183,7 +188,7 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 
 ![Línea de comandos de Azure RBAC: lista de roles de Azure (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
 
-En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no está disponible en la suscripción *Production4* debido a que la suscripción no se encuentra entre los **AssignableScopes** del rol.
+En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no está disponible en la suscripción *Production4* debido a que la suscripción no se encuentra entre los valores de **AssignableScopes** del rol.
 
 ```
 azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
@@ -191,7 +196,12 @@ azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .pro
 
 ![Línea de comandos de Azure RBAC: lista de roles de Azure para roles personalizados (captura de pantalla)](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
-## Temas de RBAC
+## <a name="rbac-topics"></a>Temas de RBAC
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Docs
-description: Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
+title: "Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL | Microsoft Docs"
+description: "Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e63da27c70ed171251cef21a361e04c6c0641fc8
+
 
 ---
-# Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
-En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*.
+# <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importación paralela de conjuntos masivos de datos mediante tablas de partición de SQL
+En este documento se describe cómo se pueden crear tablas con particiones para la importación paralela masiva de datos en una base de datos de SQL Server. Para cargar o transferir macrodatos a SQL Database, es posible mejorar la importación de datos en SQL Database y las consultas posteriores mediante *tablas y vistas con particiones*. 
 
-## Crear una nueva base de datos y un conjunto de grupos de archivos
+## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Crear una nueva base de datos y un conjunto de grupos de archivos
 * [Crear una nueva base de datos](https://technet.microsoft.com/library/ms176061.aspx) (si no existe)
 * Agregar grupos de archivos de base de datos a la base de datos que contendrá los archivos físicos con particiones
   
-  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nuevo o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
+  Nota: Esto puede hacerse con [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) si es nueva o [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) si ya existe la base de datos
 * Agregar uno o varios archivos (según sea necesario) a cada grupo de archivos de base de datos
   
   > [!NOTE]
@@ -52,7 +56,7 @@ En el ejemplo siguiente se crea una nueva base de datos con tres grupos de archi
         ( NAME = ''LogFileGroup'', FILENAME = ''' + @data_path + '<log_file_name>.ldf'' , SIZE = 1024KB , FILEGROWTH = 10%)
     ')
 
-## Crear una tabla con particiones
+## <a name="create-a-partitioned-table"></a>Crear una tabla con particiones
 Crear tablas con particiones según el esquema de datos, que se asignan a los grupos de archivos de base de datos que se crearon en el paso anterior. Cuando se importan datos de forma masiva en las tablas con particiones, los registros se distribuirán entre los grupos de archivos según un esquema de partición, tal y como se describe a continuación.
 
 **Para crear una tabla de partición, debe:**
@@ -81,19 +85,19 @@ Crear tablas con particiones según el esquema de datos, que se asignan a los gr
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Crear tablas con particiones](https://msdn.microsoft.com/library/ms174979.aspx) según el esquema de datos y especifique el esquema de partición y el campo de restricción que se usó para crear las particiones de la tabla; por ejemplo:
+* [Crear tablas con particiones](https://msdn.microsoft.com/library/ms174979.aspx)según el esquema de datos y especifique el esquema de partición y el campo de restricción que se usó para crear las particiones de la tabla; por ejemplo:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
 
 Para obtener más información, consulte [Crear tablas e índices con particiones](https://msdn.microsoft.com/library/ms188730.aspx).
 
-## Importación masiva de datos para cada tabla de partición individual
+## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importación masiva de datos para cada tabla de partición individual
 * Puede usar BCP, BULK INSERT u otros métodos como el [Asistente para migración de SQL Server](http://sqlazuremw.codeplex.com/). En el ejemplo que se incluye, se usa el método BCP.
-* [Modifique la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK\_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
+* [Modificar la base de datos](https://msdn.microsoft.com/library/bb522682.aspx) para cambiar el esquema de registro de transacciones a BULK_LOGGED y así minimizar la sobrecarga del inicio de sesión; por ejemplo:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Para acelerar la carga de datos, inicie las operaciones de importación masiva en paralelo. Para obtener sugerencias sobre la aceleración de la importación masiva de big data en las bases de datos de SQL Server, consulte [Cargar 1 TB en menos de 1 hora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 El siguiente script de PowerShell es un ejemplo de carga paralela de datos mediante BCP.
 
@@ -128,13 +132,13 @@ El siguiente script de PowerShell es un ejemplo de carga paralela de datos media
     # BCP example using Windows authentication
     $ScriptBlock1 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num)
-       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -T -b 2500 -t "," -r \n
     }
 
     # BCP example using SQL authentication
     $ScriptBlock2 = {
        param($dbname, $tbname, $basename, $fmtfile, $indir, $logdir, $num, $sqlusr, $server, $pass)
-       bcp ($dbname + ".." + $tbname) in ($indir + "" + $basename + "_" + $num + ".csv") -o ($logdir + "" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
+       bcp ($dbname + ".." + $tbname) in ($indir + "\" + $basename + "_" + $num + ".csv") -o ($logdir + "\" + $tbname + "_" + $num + ".txt") -h "TABLOCK" -F 2 -C "RAW" -f ($fmtfile) -U $sqlusr -S $server -P $pass -b 2500 -t "," -r \n
     }
 
     # Background processing of all partitions
@@ -159,7 +163,7 @@ El siguiente script de PowerShell es un ejemplo de carga paralela de datos media
     date
 
 
-## Crear índices para optimizar el rendimiento de las combinaciones y consultas
+## <a name="create-indexes-to-optimize-joins-and-query-performance"></a>Crear índices para optimizar el rendimiento de las combinaciones y consultas
 * Si se extraerán datos para el modelado de varias tablas, cree índices en las claves de combinación para mejorar el rendimiento de las combinaciones.
 * [Cree índices](https://technet.microsoft.com/library/ms188783.aspx) (agrupados o no agrupados) que tengan como destino el mismo grupo de archivos de cada partición; por ejemplo:
   
@@ -175,7 +179,12 @@ El siguiente script de PowerShell es un ejemplo de carga paralela de datos media
   > 
   > 
 
-## Ejemplo de Tecnología y procesos de análisis avanzado en acción
+## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Ejemplo de Tecnología y procesos de análisis avanzado en acción
 Para ver un tutorial de ejemplo completo del proceso de análisis de Cortana con un conjunto de datos público, consulte [Proceso de análisis de Cortana en acción: uso de SQL Server](machine-learning-data-science-process-sql-walkthrough.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 4d6fd9344eaee31de4ee1e614ae558ce159c9245
-ms.openlocfilehash: 926beb8579ccdb1b0ed502ecb1892063ba976025
+ms.sourcegitcommit: 9a3c37b481761af546060e36b4a51e7d96dd4646
+ms.openlocfilehash: 7814791b5308152fa2b7d6d640401079b1a46107
 
 ---
 #<a name="load-balancer-documentation"></a>Documentación de Load Balancer
@@ -86,23 +86,84 @@ Azure Load Balancer proporciona una alta disponibilidad y un elevado rendimiento
 
 ---
 
-##<a name="reference"></a>Referencia
+## <a name="reference"></a>Referencia
 
-###<a name="powershell"></a>PowerShell
-[Referencia de PowerShell de Load Balancer](/powershell/azureps-cmdlets-doc)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referencia de PowerShell de Load Balancer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="azure-cli"></a>CLI de Azure
-[CLI de Azure de Load Balancer] (/cli/azure/network/lb)
+<li>
+        <a href="/cli/azure/network/lb">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>CLI de Azure</h3>
+                        <p>CLI de Azure del equilibrador de carga</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[Referencia de la API de .NET](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referencia de la API de .NET</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java
-[Referencia de la API de Java](/java/api)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Referencia de la API de Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="rest"></a>REST
-[Referencia de la API de REST de Load Balancer](https://msdn.microsoft.com/library/azure/mt163651.aspx)
-
+    <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt163651.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de la API de REST de Load Balancer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/load-balancer.pdf">
@@ -114,6 +175,6 @@ Descarga de la documentación de Load Balancer </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

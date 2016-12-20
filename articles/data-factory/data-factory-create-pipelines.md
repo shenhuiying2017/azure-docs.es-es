@@ -1,20 +1,24 @@
 ---
-title: Creación y programación de canalizaciones, actividades en cadena en Data Factory| Microsoft Docs
-description: Aprenda a crear una canalización de datos en Data Factory de Azure para mover y transformar datos. Crear un flujo de trabajo controlado por datos para producir información lista para usar.
-keywords: canalización de datos, flujo de trabajo controlado por datos
+title: "Creación y programación de canalizaciones, actividades en cadena en Data Factory | Microsoft Docs"
+description: "Aprenda a crear una canalización de datos en Data Factory de Azure para mover y transformar datos. Crear un flujo de trabajo controlado por datos para producir información lista para usar."
+keywords: "canalización de datos, flujo de trabajo controlado por datos"
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: sharonlo101
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 13b137c7-1033-406f-aea7-b66f25b313c0
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 11/01/2016
 ms.author: shlo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d841c57dc736f7d690a6dc97863b7568365fd01a
+
 
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Data Factory de Azure
@@ -25,10 +29,10 @@ Este artículo ayuda a conocer las canalizaciones y actividades de Azure Data Fa
 > 
 > 
 
-## <a name="what-is-a-data-pipeline?"></a>¿Qué es una canalización de datos?
+## <a name="what-is-a-data-pipeline"></a>¿Qué es una canalización de datos?
 **Canalización** es una agrupación de **actividades** relacionadas lógicamente. Se usa para agrupar actividades en una unidad que realiza una tarea. Para entender mejor las canalizaciones, deberá entender primero qué es una actividad. 
 
-## <a name="what-is-an-activity?"></a>¿Qué es una actividad?
+## <a name="what-is-an-activity"></a>¿Qué es una actividad?
 Las actividades definen las acciones que se van a realizar en los datos. Cada actividad tiene cero o más [conjuntos de datos](data-factory-create-datasets.md) como entradas y genera uno o varios conjuntos de datos como salida. 
 
 Por ejemplo, puede utilizar una actividad de copia para organizar la copia de datos de un almacén de datos a otro. De manera similar, puede usar una actividad de Hive de HDInsight que ejecute una consulta de Hive en un clúster de HDInsight de Azure para transformar los datos. Azure Data Factory ofrece una amplia gama de actividades de [transformación de datos](data-factory-data-transformation-activities.md) y de [movimiento de datos](data-factory-data-movement-activities.md). También puede crear una actividad personalizada de .NET para ejecutar su propio código. 
@@ -36,46 +40,48 @@ Por ejemplo, puede utilizar una actividad de copia para organizar la copia de da
 ## <a name="sample-copy-pipeline"></a>Canalización de copia de ejemplo
 En la canalización de ejemplo siguiente, hay una actividad del tipo **Copy** in the **actividades** . En este ejemplo, [Copiar actividad](data-factory-data-movement-activities.md) copia datos desde un Azure Blob Storage en una Azure SQL Database. 
 
-    {
-      "name": "CopyPipeline",
-      "properties": {
-        "description": "Copy data from a blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "CopyPipeline",
+  "properties": {
+    "description": "Copy data from a blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputDataset"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputDataset"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputDataset"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    } 
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+} 
+```
 
 Tenga en cuenta los siguientes puntos:
 
@@ -88,48 +94,50 @@ Para obtener un tutorial completo de creación de esta canalización, vea [Tutor
 ## <a name="sample-transformation-pipeline"></a>Canalización de transformación de ejemplo
 En la canalización de ejemplo siguiente, hay una actividad del tipo **HDInsightHive** in the **actividades** . En este ejemplo, el [actividad de HDInsight Hive](data-factory-hive-activity.md) transforma los datos de Azure Blob Storage mediante la ejecución de un archivo de script de Hive en un clúster de Azure HDInsight Hadoop. 
 
-    {
-        "name": "TransformPipeline",
-        "properties": {
-            "description": "My first Azure Data Factory pipeline",
-            "activities": [
-                {
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
-                        "scriptLinkedService": "AzureStorageLinkedService",
-                        "defines": {
-                            "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
-                            "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
-                        }
-                    },
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "policy": {
-                        "concurrency": 1,
-                        "retry": 3
-                    },
-                    "scheduler": {
-                        "frequency": "Month",
-                        "interval": 1
-                    },
-                    "name": "RunSampleHiveActivity",
-                    "linkedServiceName": "HDInsightOnDemandLinkedService"
-                }
-            ],
-            "start": "2016-04-01T00:00:00Z",
-            "end": "2016-04-02T00:00:00Z",
-            "isPaused": false
-        }
+```json
+{
+    "name": "TransformPipeline",
+    "properties": {
+        "description": "My first Azure Data Factory pipeline",
+        "activities": [
+            {
+                "type": "HDInsightHive",
+                "typeProperties": {
+                    "scriptPath": "adfgetstarted/script/partitionweblogs.hql",
+                    "scriptLinkedService": "AzureStorageLinkedService",
+                    "defines": {
+                        "inputtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/inputdata",
+                        "partitionedtable": "wasb://adfgetstarted@<storageaccountname>.blob.core.windows.net/partitioneddata"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureBlobInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                "policy": {
+                    "concurrency": 1,
+                    "retry": 3
+                },
+                "scheduler": {
+                    "frequency": "Month",
+                    "interval": 1
+                },
+                "name": "RunSampleHiveActivity",
+                "linkedServiceName": "HDInsightOnDemandLinkedService"
+            }
+        ],
+        "start": "2016-04-01T00:00:00Z",
+        "end": "2016-04-02T00:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 Tenga en cuenta los siguientes puntos: 
 
@@ -180,11 +188,13 @@ Puede usar Visual Studio para crear e implementar canalizaciones en Factoría de
 ### <a name="using-azure-powershell"></a>Uso de Azure PowerShell
 Puede usar Azure PowerShell para crear canalizaciones en Factoría de datos de Azure. Digamos que ha definido la canalización JSON en un archivo c:\DPWikisample.json. Puede cargarlo en su instancia de Factoría de datos de Azure, tal como se muestra en el ejemplo siguiente:
 
-    New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```PowerShell
+New-AzureRmDataFactoryPipeline -ResourceGroupName ADF -Name DPWikisample -DataFactoryName wikiADF -File c:\DPWikisample.json
+```
 
 Consulte [Introducción a Azure Data Factory (Azure PowerShell)](data-factory-build-your-first-pipeline-using-powershell.md) , un tutorial completo para crear una factoría de datos con una canalización. 
 
-### <a name="using-.net-sdk"></a>Uso del SDK de .NET
+### <a name="using-net-sdk"></a>Uso del SDK de .NET
 También puede crear e implementar la canalización mediante el SDK de .NET. Este mecanismo se puede usar para crear canalizaciones mediante programación. Para más información, vea [Creación, administración y supervisión de factorías de datos mediante programación](data-factory-create-data-factories-programmatically.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Uso de la plantilla de Azure Resource Manager
@@ -199,40 +209,44 @@ Una vez implementada una canalización, puede administrar y supervisar las canal
 ## <a name="pipeline-json"></a>JSON de canalización
 Vamos a fijarnos un poco más en cómo se define una canalización en formato JSON. La estructura genérica de una canalización tiene el aspecto siguiente:
 
+```json
+{
+    "name": "PipelineName",
+    "properties": 
     {
-        "name": "PipelineName",
-        "properties": 
-        {
-            "description" : "pipeline description",
-            "activities":
-            [
+        "description" : "pipeline description",
+        "activities":
+        [
 
-            ],
-            "start": "<start date-time>",
-            "end": "<end date-time>"
-        }
+        ],
+        "start": "<start date-time>",
+        "end": "<end date-time>"
     }
+}
+```
 
 La sección **activities** puede contener una o más actividades definidas. Cada actividad tiene la siguiente estructura de nivel superior:
 
+```json
+{
+    "name": "ActivityName",
+    "description": "description", 
+    "type": "<ActivityType>",
+    "inputs":  "[]",
+    "outputs":  "[]",
+    "linkedServiceName": "MyLinkedService",
+    "typeProperties":
     {
-        "name": "ActivityName",
-        "description": "description", 
-        "type": "<ActivityType>",
-        "inputs":  "[]",
-        "outputs":  "[]",
-        "linkedServiceName": "MyLinkedService",
-        "typeProperties":
-        {
 
-        },
-        "policy":
-        {
-        }
-        "scheduler":
-        {
-        }
+    },
+    "policy":
+    {
     }
+    "scheduler":
+    {
+    }
+}
+```
 
 En la tabla siguiente se describen las propiedades dentro de las definiciones de actividad y la canalización JSON:
 
@@ -261,7 +275,7 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 | --- | --- | --- | --- |
 | simultaneidad |Entero  <br/><br/>Valor máximo: 10 |1 |Número de ejecuciones simultáneas de la actividad.<br/><br/>Determina el número de ejecuciones paralelas de la actividad que pueden tener lugar en distintos segmentos. Por ejemplo, si una actividad tiene que recorrer un gran conjunto de datos disponibles, tener un valor mayor de simultaneidad acelera el procesamiento de datos. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Determina el orden de los segmentos de datos que se están procesando.<br/><br/>Por ejemplo, si tiene 2 segmentos (que tienen lugar uno a las 4 p.m. y el otro a las 5 p.m.) y ambos están pendientes de ejecución. Si establece que executionPriorityOrder sea NewestFirst, se procesará primero el segmento de las 5 p.m. De forma similar, si establece que executionPriorityORder sea OldestFIrst, se procesará el segmento de las 4 p.m. |
-| retry |Entero <br/><br/>El valor máximo permitido es 10 |3 |Número de reintentos antes de que el procesamiento de datos del segmento se marque como error. La ejecución de la actividad de un segmento de datos se vuelve a intentar hasta el número de reintentos especificado. El reintento se realiza tan pronto como sea posible después del error. |
+| retry |Entero <br/><br/>El valor máximo permitido es 10 |0 |Número de reintentos antes de que el procesamiento de datos del segmento se marque como error. La ejecución de la actividad de un segmento de datos se vuelve a intentar hasta el número de reintentos especificado. El reintento se realiza tan pronto como sea posible después del error. |
 | timeout |TimeSpan |00:00:00 |Tiempo de espera para la actividad. Ejemplo: 00:10:00 (implica un tiempo de espera de 10 minutos)<br/><br/>Si un valor no se especifica o es 0, el tiempo de espera es infinito.<br/><br/>Si el tiempo de procesamiento de los datos en un segmento supera el valor de tiempo de espera, se cancela y el sistema vuelve a intentar el procesamiento. El número de reintentos depende de la propiedad retry. Si se excede el tiempo de espera, el estado será TimedOut. |
 | delay |TimeSpan |00:00:00 |Especifica el retraso antes de iniciar el procesamiento de los datos del segmento.<br/><br/>La ejecución de la actividad de un segmento de datos se inicia una vez que transcurra el retraso más allá del tiempo de ejecución esperado.<br/><br/>Ejemplo: 00:10:00 (implica un retraso de 10 minutos) |
 | longRetry |Entero <br/><br/>Valor máximo: 10 |1 |Número de reintentos largos antes de que la ejecución de los segmentos produzca error.<br/><br/>Los intentos de longRetry se espacian de acuerdo a longRetryInterval. Por tanto, si necesita especificar un tiempo entre reintentos, utilice longRetry. Si se especifican Retry y longRetry, cada intento de longRetry incluirá el número de intentos de Retry y el número máximo de intentos será Retry * longRetry.<br/><br/>Por ejemplo, si tenemos la siguiente configuración en la directiva de la actividad:<br/>Retry: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Se supone que existe un solo segmento para ejecutar (el estado es En espera) y la ejecución de la actividad no se puede realizar nunca. Inicialmente habría tres intentos consecutivos de ejecución. Después de cada intento, el estado del segmento sería Retry. Después de los 3 primeros intentos, el estado del segmento sería LongRetry.<br/><br/>Después de una hora (es decir, el valor de longRetryInteval), se produciría otro conjunto de 3 intentos consecutivos de ejecución. Después de eso, el estado del segmento sería Failed y ya no se realizarían más intentos. Por tanto, en total se realizaron 6 intentos.<br/><br/>Si una ejecución se realiza correctamente, el estado del segmento sería Ready y no se realizaría ningún otro reintento.<br/><br/>longRetry puede usarse en situaciones donde llegan datos dependientes a horas no deterministas o el entorno general en el que se produce el procesamiento de datos es poco confiable. En esos casos es posible que realizar reintentos uno tras otro no ayude, mientras que hacerlo después de un intervalo de tiempo puede generar el resultado deseado.<br/><br/>Advertencia: No establezca valores altos para longRetry o longRetryInterval. Normalmente, los valores más altos implican otros problemas sistémicos. |
@@ -273,6 +287,9 @@ Las directivas afectan al comportamiento en tiempo de ejecución de una activida
 * Conozca [Administración y supervisión Factoría de datos de Azure](data-factory-monitor-manage-pipelines.md).
 * [Creación e implementación de su primera canalización](data-factory-build-your-first-pipeline.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

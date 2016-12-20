@@ -1,12 +1,12 @@
 ---
-title: Adición de informes de mantenimiento de Service Fabric personalizados | Microsoft Docs
-description: Describe cómo enviar informes de estado personalizados a entidades de estado de Azure Service Fabric. Proporciona recomendaciones para diseñar e implementar informes de estado de calidad.
+title: "Adición de informes de mantenimiento de Service Fabric personalizados | Microsoft Docs"
+description: "Describe cómo enviar informes de estado personalizados a entidades de estado de Azure Service Fabric. Proporciona recomendaciones para diseñar e implementar informes de estado de calidad."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d986275612b3e5c97636936a5e448dd6d0fcfc4e
+
 
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
@@ -156,7 +160,7 @@ Se puede traducir la condición supervisada como Advertencia si la tarea no se r
 
 Sin embargo, los informes se crean en los casos que se han descrito anteriormente y se capturan en el mantenimiento de la aplicación cuando se evalúe el mantenimiento.
 
-## <a name="report-periodically-vs.-on-transition"></a>Informar periódicamente frente a en transiciones
+## <a name="report-periodically-vs-on-transition"></a>Informar periódicamente frente a en transiciones
 Con el modelo de informes de mantenimiento, los guardianes pueden enviar informes periódicamente o en las transiciones. Se recomienda que los informes guardián sean periódicos, ya que el código es mucho más sencillo y menos propenso a errores. Los guardianes deben esforzarse por ser los más simples posible para evitar errores que desencadenen informes incorrectos. Los informes de *mal estado* incorrectos afectarán a los escenarios y las evaluaciones de mantenimiento en función del estado, como las actualizaciones. Los informes de *buen estado* incorrectos ocultan problemas en el clúster, lo cual no es deseable.
 
 Para los informes periódicos, el guardián puede implementarse con un temporizador. En la devolución de llamada del temporizador, el guardián puede comprobar el estado y enviar un informe según el estado actual. No es necesario comprobar qué informe se ha enviado anteriormente ni realizar ninguna optimización en términos de mensajería. El cliente de mantenimiento tiene una lógica de procesamiento por lotes para ayudarle con el rendimiento. Mientras el cliente de mantenimiento se mantenga activo, vuelve a intentarlo internamente hasta que el informe sea confirmado por parte del Almacén de estado o que el guardián genere un informe más reciente con la misma entidad, propiedad y origen.
@@ -303,6 +307,9 @@ Según los datos del estado, los escritores del servicio y los administradores d
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Vinculación de una red virtual a un circuito ExpressRoute a través de PowerShell | Microsoft Docs
-description: Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación de Resource Manager y PowerShell.
+title: "Vinculación de una red virtual a un circuito ExpressRoute a través de PowerShell | Microsoft Docs"
+description: "Este documento proporciona información general sobre cómo vincular redes virtuales a circuitos ExpressRoute mediante el modelo de implementación de Resource Manager y PowerShell."
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 99d5facce236b82ea84c708edf5e934a0d69919c
+ms.openlocfilehash: e362ef6d35316df0410ae84933df27639ab8c562
+
 
 ---
 # <a name="link-a-virtual-network-to-an-expressroute-circuit"></a>Vinculación de una red virtual a un circuito ExpressRoute
@@ -69,7 +73,9 @@ El *propietario del circuito* es un usuario avanzado autorizado del recurso de c
 El *propietario del circuito* tiene la capacidad de modificar y revocar las autorizaciones en cualquier momento. La revocación de una autorización dará como resultado la eliminación de todas las conexiones de vínculos de la suscripción cuyo acceso se haya revocado.
 
 ### <a name="circuit-owner-operations"></a>Operaciones del propietario del circuito
-#### <a name="creating-an-authorization"></a>Creación de una autorización
+
+**Creación de una autorización**
+
 El propietario del circuito crea una autorización. Esto da lugar a la creación de una clave de autorización que puede usar un usuario del circuito para conectar sus puertas de enlace de red virtual al circuito ExpressRoute. Una autorización solo es válida para una conexión.
 
 El fragmento de código del cmdlet siguiente muestra cómo crear una autorización:
@@ -93,14 +99,16 @@ La respuesta a esta contendrá la clave y el estado de la autorización:
 
 
 
-#### <a name="reviewing-authorizations"></a>Revisión de las autorizaciones
+**Revisión de las autorizaciones**
+
 El propietario del circuito puede revisar todas las autorizaciones emitidas en un circuito concreto ejecutando el siguiente cmdlet:
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="adding-authorizations"></a>Adición de autorizaciones
+**Adición de autorizaciones**
+
 El propietario del circuito puede agregar las autorizaciones mediante el siguiente cmdlet:
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -111,32 +119,39 @@ El propietario del circuito puede agregar las autorizaciones mediante el siguien
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### <a name="deleting-authorizations"></a>Eliminación de autorizaciones
+**Eliminación de autorizaciones**
+
 El propietario del circuito puede revocar o eliminar las autorizaciones al usuario ejecutando el siguiente cmdlet:
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### <a name="circuit-user-operations"></a>Operaciones del usuario del circuito
+**Operaciones del usuario del circuito**
+
 El usuario del circuito necesita el Id. de mismo nivel y una clave de autorización del propietario del circuito. la clave de autorización es un GUID.
 
 El id. de mismo nivel se puede comprobar con el siguiente comando.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### <a name="redeeming-connection-authorizations"></a>Canjear autorizaciones de conexión
+**Canjear autorizaciones de conexión**
+
 El usuario del circuito puede ejecutar el siguiente cmdlet para canjear una autorización de vínculo:
 
-    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"  
+    $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### <a name="releasing-connection-authorizations"></a>Liberación de autorizaciones de conexión
+**Liberación de autorizaciones de conexión**
+
 Puede liberar una autorización eliminando la conexión que vincula el circuito ExpressRoute a la red virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información acerca de ExpressRoute, consulte [P+F de ExpressRoute](expressroute-faqs.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

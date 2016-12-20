@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7d7516dd2fa2ddc23d381ade52c53115a8af7231
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 111975ba10aaafb97673f4e8b813ba3523b76ffb
 
 
 ---
@@ -101,7 +101,7 @@ Se admiten hasta 4000 prefijos cuyo anuncio se ha recibido a través de la confi
 
 Si el número de prefijos supera el límite, se eliminará la sesión BGP. Aceptaremos las rutas predeterminadas solo en el vínculo de la configuración de pares privados. El proveedor debe eliminar la ruta predeterminada y las direcciones IP privadas (RFC 1918) de las rutas de acceso de la configuración de pares públicos de Azure y de Microsoft. 
 
-## <a name="transit-routing-and-crossregion-routing"></a>Enrutamiento de tránsito y enrutamiento entre regiones
+## <a name="transit-routing-and-cross-region-routing"></a>Enrutamiento de tránsito y enrutamiento entre regiones
 ExpressRoute no puede configurarse como los enrutadores de tránsito. Tendrá que confiar en su proveedor de conectividad para los servicios de enrutamiento de tránsito.
 
 ## <a name="advertising-default-routes"></a>Anuncio de rutas predeterminadas
@@ -130,37 +130,39 @@ Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener v
 
 Microsoft etiquetará los prefijos anunciados a través de la configuración de pares públicos y de la configuración de pares de Microsoft con los valores de comunidad de BGP adecuados que indican la región en que se hospedan. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un [enrutamiento óptimo a los clientes](expressroute-optimize-routing.md).
 
-| **Región geopolítica** | **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
-| --- | --- | --- |
-| **Norteamérica** | | |
-| Este de EE. UU. |12076:51004 | |
-| Este de EE. UU. 2 |12076:51005 | |
-| Oeste de EE. UU. |12076:51006 | |
-| Oeste de EE. UU. 2 |12076:51026 | |
-| Centro occidental de EE.UU. |12076:51027 | |
-| Centro-Norte de EE. UU |12076:51007 | |
-| Centro-Sur de EE. UU |12076:51008 | |
-| Central EE. UU.: |12076:51009 | |
-| Centro de Canadá |12076:51020 | |
-| Este de Canadá |12076:51021 | |
-| **Sudamérica** | | |
-| Sur de Brasil |12076:51014 | |
-| **Europa** | | |
-| Europa del Norte |12076:51003 | |
-| Europa occidental |12076:51002 | |
-| **Asia Pacífico** | | |
-| Asia oriental |12076:51010 | |
-| Sudeste asiático |12076:51011 | |
-| **Japón** | | |
-| Este de Japón |12076:51012 | |
-| Oeste de Japón |12076:51013 | |
-| **Australia** | | |
-| Australia Oriental |12076:51015 | |
-| Sudeste de Australia |12076:51016 | |
-| **India** | | |
-| Sur de India |12076:51019 | |
-| India occidental |12076:51018 | |
-| India central |12076:51017 | |
+| **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
+| --- | --- |
+| **Norteamérica** | |
+| Este de EE. UU. |12076:51004 |
+| Este de EE. UU. 2 |12076:51005 |
+| Oeste de EE. UU. |12076:51006 |
+| Oeste de EE. UU. 2 |12076:51026 |
+| Centro occidental de EE.UU. |12076:51027 |
+| Centro-Norte de EE. UU |12076:51007 |
+| Centro-Sur de EE. UU |12076:51008 |
+| Central EE. UU.: |12076:51009 |
+| Centro de Canadá |12076:51020 |
+| Este de Canadá |12076:51021 |
+| **Sudamérica** | |
+| Sur de Brasil |12076:51014 |
+| **Europa** | |
+| Europa del Norte |12076:51003 |
+| Europa occidental |12076:51002 |
+| Sur del Reino Unido 2 | 12076:51024 |
+| Oeste de Reino Unido | 12076:51025 |
+| **Asia Pacífico** | |
+| Asia oriental |12076:51010 |
+| Sudeste asiático |12076:51011 |
+| **Japón** | |
+| Este de Japón |12076:51012 |
+| Oeste de Japón |12076:51013 |
+| **Australia** | |
+| Australia Oriental |12076:51015 |
+| Sudeste de Australia |12076:51016 |
+| **India** | |
+| Sur de India |12076:51019 |
+| India occidental |12076:51018 |
+| India central |12076:51017 |
 
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado. 
 
@@ -173,16 +175,32 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 | **Servicio** | **Valor de comunidad de BGP** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype Empresarial** |12076:5030 |
-| **CRM en línea** |12076:5040 |
-| **Otros servicios de Office 365** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype Empresarial Online |12076:5030 |
+| CRM en línea |12076:5040 |
+| Otros servicios en línea de Office 365 |12076:5100 |
 
 > [!NOTE]
 > Microsoft no admite los valores de las comunidades de BGP que defina en las rutas anunciadas a Microsoft.
 > 
 > 
+
+| **Nubes nacionales Región de Azure**| **Valor de comunidad de BGP** |
+| --- | --- |
+| **Gobierno de Estados Unidos** |  |
+| Gobierno de EE. UU. - Iowa | 12076:51109 |
+| Gobierno de EE. UU. - Virginia | 12076:51105 |
+
+
+| **Servicios en nubes nacionales** | **Valor de comunidad de BGP** |
+| --- | --- |
+| **Gobierno de Estados Unidos** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype Empresarial Online |12076:5130 |
+| CRM en línea |12076:5140 |
+| Otros servicios en línea de Office 365 |12076:5200 |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Configure su conexión ExpressRoute.
@@ -194,6 +212,6 @@ Además, Microsoft también etiquetará los prefijos en función del servicio al
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

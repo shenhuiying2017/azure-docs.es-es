@@ -1,4 +1,4 @@
-#### Tipo de VPN: modelo de implementación de Resource Manager
+#### <a name="vpn-type---resource-manager-deployment-model"></a>Tipo de VPN: modelo de implementación de Resource Manager
 |  | **RouteBased** | **PolicyBased** |
 | --- | --- | --- |
 | **De sitio a sitio** |Compatible |Compatible |
@@ -8,7 +8,7 @@
 | **De punto a sitio** |Compatible |No compatible |
 | **Clásico a Resource Manager** |Compatible |No compatible |
 
-#### Tipo de VPN: modelo de implementación clásica
+#### <a name="vpn-type---classic-deployment-model"></a>Tipo de VPN: modelo de implementación clásica
 |  | **Dinámica** | **Estática** |
 | --- | --- | --- |
 | **De sitio a sitio** |Compatible |Compatible |
@@ -18,4 +18,8 @@
 | **De punto a sitio** |Compatible |No compatible |
 | **Clásico a Resource Manager** |Compatible |No compatible |
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

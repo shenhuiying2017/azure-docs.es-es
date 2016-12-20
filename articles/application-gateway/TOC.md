@@ -5,38 +5,39 @@
 ## [Enrutamiento de direcciones URL](application-gateway-url-route-overview.md)
 ## [Multisitio](application-gateway-multi-site-overview.md)
 ## [SSL de un extremo a otro](application-gateway-backend-ssl.md)
-## [Websocket](application-gateway-websocket.md)
-## [Límites del servicio y la suscripción](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [WebSocket](application-gateway-websocket.md)
+## [Límites de servicio](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Primeros pasos
 ## Creación de una instancia de Application Gateway
 ### Acceso público
 #### [Portal](application-gateway-create-gateway-portal.md)
 #### [PowerShell](application-gateway-create-gateway-arm.md)
 #### [Plantilla de Resource Manager](application-gateway-create-gateway-arm-template.md)
-#### [CLI](application-gateway-create-gateway-arm-template.md)
-#### [PowerShell (clásico)](application-gateway-create-gateway-arm-template.md)
+#### [CLI](application-gateway-create-gateway-cli.md)
+#### [PowerShell (clásico)](application-gateway-create-gateway.md)
 ### Acceso interno
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (clásico)](application-gateway-ilb.md)
 # Cómo
-## Creación con firewall de aplicaciones web
+## Configuración de firewall de aplicación web
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Configuración para SSL
+## Configuración de la descarga de SSL
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (clásico)](application-gateway-ssl.md)
 ### [Directiva y extremo a extremo](application-gateway-end-to-end-ssl-powershell.md)
-## Creación del enrutamiento basado en URL
+## Configuración de enrutamiento basado en ruta de acceso de URL
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
 ## Configuración del hospedaje de varios sitios
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Crear sondeos de estado
+## Configuración de sondeos de mantenimiento
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (clásico)](application-gateway-create-probe-classic-ps.md)
+## [Combinación de servicios de equilibrio de carga](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Administrar
 ### [Diagnóstico](application-gateway-diagnostics.md)
 ### [Solución de problemas](application-gateway-troubleshooting-502.md)
@@ -54,11 +55,12 @@
 ## [Administrador de tráfico](/azure/traffic-manager/)
 # resources
 ## [Precios](https://azure.microsoft.com/pricing/details/application-gateway/)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)  
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-application-gateway)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=application-gateway)
 ## [CONTRATO DE NIVEL DE SERVICIO](https://azure.microsoft.com/support/legal/sla/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

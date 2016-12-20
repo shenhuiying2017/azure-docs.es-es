@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/21/2016
 ms.author: cgronlun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cefda0778fed4ab8d502955dd8eae4bdac70a48e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 66200ad8688928c368146a177130f6e2fad4849b
 
 
 ---
@@ -74,7 +74,7 @@ Se incluyen los siguientes componentes y utilidades en clústeres de HDInsight.
 * **[ZooKeeper](#zookeeper)**: coordinación de procesos en sistemas distribuidos.
 
 > [!NOTE]
-> Para información sobre los componentes específicos y sus versiones, consulte el artículo sobre [componentes, versiones y ofertas de servicios de Hadoop en HDInsight][component-versioning]
+> Para más información sobre los componentes específicos y sus versiones, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?][component-versioning]
 > 
 > 
 
@@ -148,7 +148,7 @@ Estos lenguajes basados en JVM son compatibles con clústeres de HDInsight:
 * Jython (Python para Java)
 * Scala
 
-### <a name="hadoopspecific-languages"></a>Lenguajes específicos de Hadoop
+### <a name="hadoop-specific-languages"></a>Lenguajes específicos de Hadoop
 Los clústeres de HDInsight son compatibles con los siguientes lenguajes específicos del ecosistema de Hadoop:
 
 * Pig Latin para trabajos de Pig
@@ -158,11 +158,11 @@ Los clústeres de HDInsight son compatibles con los siguientes lenguajes especí
 Como parte del ecosistema de la nube de Azure, Hadoop en HDInsight ofrece varias ventajas, entre otras:
 
 * El aprovisionamiento automático de clústeres de Hadoop. La creación de los clústeres de HDInsight es mucho más simple que la configuración manual de los clústeres de Hadoop. Para obtener información detallada, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-* Componentes de Hadoop de última generación. Para más información, consulte el artículo sobre [componentes, versiones y ofertas de servicios de Hadoop en HDInsight][component-versioning].
+* Componentes de Hadoop de última generación. Para más información, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?][component-versioning]
 * Alta disponibilidad y confiabilidad de los clústeres. Si desea obtener información detallada, consulte [Disponibilidad y confiabilidad de clústeres de Hadoop en HDInsight](hdinsight-high-availability-linux.md) .
 * Almacenamiento de datos eficiente y económico con el almacenamiento de blobs de Azure, opción compatible con Hadoop. Si desea obtener información detallada, consulte [Uso del almacenamiento de blobs de Azure con Hadoop en HDInsight](hdinsight-hadoop-use-blob-storage.md) .
 * Integración con otros servicios de Azure, como [Web Apps](https://azure.microsoft.com/documentation/services/app-service/web/) y [SQL Database](https://azure.microsoft.com/documentation/services/sql-database/).
-* Tamaños y tipos de máquinas virtuales adicionales para la ejecución de clústeres de HDInsight. Consulte el artículo sobre [componentes, versiones y ofertas de servicios de Hadoop en HDInsight][component-versioning] para más detalles.
+* Tamaños y tipos de máquinas virtuales adicionales para la ejecución de clústeres de HDInsight. Para una información más detallada, consulte [¿Cuáles son los diferentes componentes de Hadoop disponibles con HDInsight?][component-versioning]
 * Escalado de clústeres. El escalado de clústeres permite cambiar el número de nodos de un clúster de HDInsight en ejecución sin tener que eliminarlo o volverlo a crear.
 * Compatibilidad con redes virtuales. Los clústeres de HDInsight se pueden usar con Red virtual de Azure para permitir el aislamiento de recursos en la nube o escenarios híbridos que vinculen recursos en la nube con los de su centro de datos.
 * Coste inicial bajo. Inicie una [prueba gratuita](https://azure.microsoft.com/free/) o consulte el artículo sobre los [detalles de los precios de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
@@ -172,7 +172,7 @@ Para más información sobre las ventajas de Hadoop en HDInsight, consulte la [p
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard y HDInsight Premium
 HDInsight proporciona ofertas en la nube de macrodatos en dos categorías, Estándar y Premium. HDInsight Estándar proporciona un clúster de escala empresarial que las organizaciones pueden usar para ejecutar sus cargas de trabajo de macrodatos. HDInsight Premium va más allá y proporciona funcionalidades avanzadas de análisis y seguridad para un clúster de HDInsight. Para más información, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md#hdinsight-standard-and-hdinsight-premium)
 
-## <a name="a-idresourcesaresources-for-learning-more-about-bigdata-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Recursos para obtener más información sobre el análisis de Big Data, Hadoop y HDInsight
+## <a name="a-idresourcesaresources-for-learning-more-about-big-data-analysis-hadoop-and-hdinsight"></a><a id="resources"></a>Recursos para obtener más información sobre el análisis de Big Data, Hadoop y HDInsight
 Básese en esta introducción a Hadoop en la nube y en el análisis de macrodatos con los recursos que aparecen a continuación.
 
 ### <a name="hadoop-documentation-for-hdinsight"></a>Documentación de Hadoop para HDInsight
@@ -204,6 +204,6 @@ Estas herramientas de BI pueden ayudarle en el análisis de Big Data:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Comandos de la CLI de Azure en el modo de administración de servicios | Microsoft Docs
-description: Comandos de la interfaz de la línea de comandos (CLI) de Azure en el modo de administración de servicios para administrar implementaciones en el modelo de implementación clásica
+title: "Comandos de la CLI de Azure en el modo de administración de servicios | Microsoft Docs"
+description: "Comandos de la interfaz de la línea de comandos (CLI) de Azure en el modo de administración de servicios para administrar implementaciones en el modelo de implementación clásica"
 services: virtual-machines-linux,virtual-machines-windows,mobile-services, cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: b9ccdeed-0ab8-4de2-937f-4046c7918bd8
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
@@ -15,12 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+
 
 ---
-# <a name="azure-cli-commands-in-azure-service-management-(asm)-mode"></a>Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
+# <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
 [!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
 
-También puede[ leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
+También puede [leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos CLI de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación clásico. Para acceder a estos comandos, ejecute la CLI en el modo de Administración de servicios de Azure (asm). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. 
 
@@ -921,7 +925,7 @@ Este comando permite ver una lista de certificados de la aplicación web.
     Web site name: mydemosite
     + Getting sites
     + Getting site information
-    data:    Subject                       Expiration Date                    Thumbprint
+    data:    Subject                       Expiration Date                      Thumbprint
     data:    ----------------------------  -----------------------------------------
     ----------------  ----------------------------------------
     data:    *.msopentech.com              Fri Nov 28 2014 09:49:57 GMT-0800 (Pacific Standard Time)  A40E82D3DC0286D1F58650E570ECF8224F69A148
@@ -1144,7 +1148,7 @@ Las opciones siguientes se aplican a la mayor parte de los comandos de Servicios
 * **-v** o **--verbose**: permite escribir el resultado detallado.
 * **--json**: permite escribir el resultado de JSON.
 
-### <a name="<a-name="mobile_services"></a>commands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Comandos para administrar instancias de servicios móviles
+### <a name="a-namemobileservicesacommands-to-manage-mobile-service-instances"></a><a name="Mobile_Services"></a>Comandos para administrar instancias de servicios móviles
 **mobile locations [options]**
 
 Este comando permite ver las ubicaciones geográficas compatibles con Servicios móviles.
@@ -1300,7 +1304,7 @@ Los tipos de clave son `master` y `application`.
 
 Este comando establece la clave de servicio móvil en un valor específico.
 
-### <a name="<a-name="mobile_configuration"></a>commands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Comandos para administrar la configuración de servicios móviles
+### <a name="a-namemobileconfigurationacommands-to-manage-mobile-service-configuration"></a><a name="Mobile_Configuration"></a>Comandos para administrar la configuración de servicios móviles
 **mobile config list [options] [servicename]**
 
 Este comando permite ver las opciones de configuración para un servicio móvil.
@@ -1341,7 +1345,7 @@ Este comando permite establecer una opción de configuración específica para u
     info:    mobile config set command OK
 
 
-### <a name="<a-name="mobile_tables"></a>commands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Comandos para administrar tablas de servicios móviles
+### <a name="a-namemobiletablesacommands-to-manage-mobile-service-tables"></a><a name="Mobile_Tables"></a>Comandos para administrar tablas de servicios móviles
 **mobile table list [options] [servicename]**
 
 Este comando permite ver todas las tablas del servicio móvil.
@@ -1453,8 +1457,8 @@ Este comando permite quitar todas las filas de datos de la tabla.
     info:    mobile data truncate command OK
 
 
-### <a name="<a-name="mobile_scripts"></a>commands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Comandos para administrar scripts
-Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para más información, consulte [Uso de scripts del servidor en Mobile Services](mobile-services/mobile-services-how-to-use-server-scripts.md).
+### <a name="a-namemobilescriptsacommands-to-manage-scripts"></a><a name="Mobile_Scripts"></a>Comandos para administrar scripts
+Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para más información, consulte [Uso de scripts del servidor en Mobile Services](https://github.com/Azure/azure-mobile-services/blob/master/docs/mobile-services-how-to-use-server-scripts.md).
 
 **mobile script list [options] [servicename]**
 
@@ -1510,7 +1514,7 @@ Este comando permite eliminar el script de inserción existente de la tabla Todo
     info:    Executing command mobile script delete
     info:    mobile script delete command OK
 
-### <a name="<a-name="mobile_jobs"></a>commands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Comandos para administrar trabajos programados
+### <a name="a-namemobilejobsacommands-to-manage-scheduled-jobs"></a><a name="Mobile_Jobs"></a>Comandos para administrar trabajos programados
 Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para más información, consulte [Programación de trabajos](http://msdn.microsoft.com/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
@@ -1585,7 +1589,7 @@ Este comando quita el trabajo programado getUpdates del servidor TodoList.
 > 
 > 
 
-### <a name="<a-name="mobile_scale"></a>commands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Comandos para escalar un servicio móvil
+### <a name="a-namemobilescaleacommands-to-scale-a-mobile-service"></a><a name="Mobile_Scale"></a>Comandos para escalar un servicio móvil
 Los comandos de esta sección se usan para escalar un servicio móvil. Para más información, consulte [Escalar un servicio móvil](http://msdn.microsoft.com/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
@@ -2047,7 +2051,7 @@ Este comando es compatible con las siguientes opciones adicionales:
 ## <a name="commands-to-manage-sql-databases"></a>Comandos para administrar bases de datos SQL
 Use estos comandos para administrar sus bases de datos SQL de Azure.
 
-### <a name="commands-to-manage-sql-servers."></a>Comandos para administrar servidores SQL.
+### <a name="commands-to-manage-sql-servers"></a>Comandos para administrar servidores SQL.
 Use estos comandos para administrar sus servidores SQL.
 
 **sql server create &lt;administratorLogin> &lt;administratorPassword> &lt;location>**
@@ -2350,6 +2354,6 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

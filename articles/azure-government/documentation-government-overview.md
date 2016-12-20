@@ -1,13 +1,13 @@
 ---
-title: Documentación de Azure Government | Microsoft Docs
-description: Esto proporciona una comparación de funciones e instrucciones sobre cómo desarrollar aplicaciones para la administración de Azure
+title: "Documentación de Azure Government | Microsoft Docs"
+description: "Esto proporciona una comparación de funciones e instrucciones sobre cómo desarrollar aplicaciones para la administración de Azure"
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: 56d84e26-947e-4f3b-8e33-18247f1c7944
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 08/25/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 628536e90ee682a1a1e64444f490fdaace6b125f
+
 
 ---
 # <a name="azure-government-documentation-overview"></a>Información general sobre la documentación de Azure Government
@@ -46,22 +50,22 @@ Los principios generales para proteger los datos del cliente son los siguientes:
 ## <a name="protecting-customer-data-using-encryption"></a>Protección de datos del cliente mediante cifrado
 La mitigación de los riesgos y el cumplimiento de las obligaciones normativas están fomentando cada vez más la atención y la importancia del cifrado de datos. Utilice una implementación de cifrado eficaz para mejorar las medidas de seguridad actuales de red y aplicación, y reducir el riesgo general de su entorno en la nube.
 
-### <a name="<a-name="overview"></a>encryption-at-rest"></a><a name="Overview"></a>Cifrado en reposo
+### <a name="a-nameoverviewaencryption-at-rest"></a><a name="Overview"></a>Cifrado en reposo
 Cifrado de datos en reposo se aplica a la protección del contenido del cliente, incluido en el almacenamiento en disco. Hay varias maneras de hacerlo:
 
-### <a name="<a-name="overview"></a>storage-service-encryption"></a><a name="Overview"></a>Cifrado del servicio de almacenamiento
+### <a name="a-nameoverviewastorage-service-encryption"></a><a name="Overview"></a>Cifrado del servicio de almacenamiento
 Cifrado del servicio de Almacenamiento de Azure se habilita en el nivel de cuenta de almacenamiento, lo que conlleva que los blobs en bloques y los blobs en páginas se cifren automáticamente al escribir en Almacenamiento de Azure. Cuando se lean los datos desde el Almacenamiento de Azure, el servicio de almacenamiento los descifrará antes de devolverlos. Utilice este método para proteger los datos sin tener que modificar o agregar código a las aplicaciones.
 
-### <a name="<a-name="overview"></a>azure-disk-encryption"></a><a name="Overview"></a>Cifrado de discos de Azure
+### <a name="a-nameoverviewaazure-disk-encryption"></a><a name="Overview"></a>Cifrado de discos de Azure
 El uso de Cifrado de discos de Azure permite cifrar los discos de datos y del sistema operativo usados por una máquina virtual de Azure. La integración con Almacén de claves de Azure le proporciona control y le ayuda a administrar las claves de cifrado del disco.
 
-### <a name="<a-name="overview"></a>client-side-encryption"></a><a name="Overview"></a>Cifrado de cliente
+### <a name="a-nameoverviewaclient-side-encryption"></a><a name="Overview"></a>Cifrado de cliente
 Cifrado de cliente está integrado en las bibliotecas de cliente de almacenamiento de Java y de .NET, que pueden utilizar las API de Almacén de claves de Azure, por lo que su implementación resulta sencilla. Utilice el Almacén de claves de Azure para obtener acceso a los secretos del Almacén de claves de Azure para usuarios específicos mediante Azure Active Directory.
 
-### <a name="<a-name="overview"></a>encryption-in-transit"></a><a name="Overview"></a>Cifrado en tránsito
+### <a name="a-nameoverviewaencryption-in-transit"></a><a name="Overview"></a>Cifrado en tránsito
 El cifrado básico disponible para la conectividad con Azure Government es compatible con el protocolo de seguridad de nivel de transporte (TLS) 1.2 y los certificados X.509. Los algoritmos criptográficos del Estándar federal de procesamiento de información (FIPS) 140-2 de nivel 1 también se utilizan para las conexiones de red de infraestructura entre centros de datos de Azure Government.  Las máquinas virtuales de Windows Server 2012 R2 y Windows 8-plus y los recursos compartidos de archivos de Azure pueden usar SMB 3.0 para el cifrado entre la máquina virtual y el recurso compartido de archivos. Utilice Cifrado de cliente para cifrar los datos antes de transferirlos al almacenamiento en una aplicación cliente y descifrarlos una vez transferidos desde este servicio.
 
-### <a name="<a-name="overview"></a>best-practices-for-encryption"></a><a name="Overview"></a>Procedimientos recomendados para el cifrado
+### <a name="a-nameoverviewabest-practices-for-encryption"></a><a name="Overview"></a>Procedimientos recomendados para el cifrado
 * Máquinas virtuales de IaaS: utilice Cifrado de discos de Azure. Active el cifrado del servicio de Almacenamiento para cifrar los archivos VHD que se usan para hacer una copia de seguridad de estos discos en el Almacenamiento de Azure, pero esto solo cifra datos recién escritos. Esto significa que si crea una máquina virtual y habilita el cifrado del servicio de Almacenamiento en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
 * Cifrado de cliente: es el método más seguro para cifrar los datos, porque estos se cifran antes del tránsito y en reposo. Sin embargo, requiere que agregue código a sus aplicaciones mediante el almacenamiento y quizá no desee hacerlo. En esos casos, puede utilizar HTTPS para los datos en tránsito y el Cifrado del servicio de almacenamiento para cifrar los datos en reposo. Cifrado de cliente supone también más carga en el cliente; así pues, debe tener en cuenta este factor en los planes de escalabilidad, especialmente si está cifrando y transfiriendo una gran cantidad de datos.
 
@@ -70,7 +74,7 @@ Para más información acerca de las opciones de cifrado en Azure, consulte la [
 ## <a name="protecting-customer-data-by-managing-secrets"></a>Protección de datos de cliente mediante la administración de secretos
 Una administración de claves segura es fundamental para proteger los datos en la nube. Los clientes deben esforzarse por simplificar la administración de claves y mantener el control de las claves usadas por los servicios y aplicaciones en la nube para cifrar los datos.
 
-### <a name="<a-name="overview"></a>best-practices-for-managing-secrets"></a><a name="Overview"></a>Procedimientos recomendados para la administración de secretos
+### <a name="a-nameoverviewabest-practices-for-managing-secrets"></a><a name="Overview"></a>Procedimientos recomendados para la administración de secretos
 * Use el Almacén de claves para minimizar los riesgos de los secretos expuestos mediante archivos de configuración codificados de forma rígida, scripts o en código fuente. El Almacén de claves de Azure cifra claves (por ejemplo, claves de cifrado para Cifrado de discos de Azure) y secretos (por ejemplo, contraseñas) almacenándolas en módulos de seguridad de hardware (HSM) validados de FIPS 140-2 nivel 2. Para tener mayor seguridad, puede importar o generar las claves en estos HSM.
 * Las plantillas y el código de aplicación solo deben contener referencias URI a los secretos (lo que significa que los secretos reales no están en los repositorios de código, configuración o código fuente). Esto impide ataques de suplantación de identidad de claves en repositorios internos o externos, como los robots de recolección de GitHub.
 * Utilice controles RBAC seguros dentro del Almacén de claves. Si un trabajador de confianza deja la empresa o se traslada a un nuevo grupo dentro de la empresa, se le debería impedir el acceso a los secretos.  
@@ -80,10 +84,10 @@ Para más información, consulte [Almacén de claves de Azure Government](/azure
 ## <a name="isolation-to-restrict-data-access"></a>Aislamiento para restringir el acceso a datos
 El aislamiento consiste en usar límites, segmentación y contenedores para restringir el acceso a datos solo para usuarios, servicios y aplicaciones autorizados. Por ejemplo, la separación entre los inquilinos es un mecanismo de seguridad esencial para plataformas multiinquilino en la nube como Microsoft Azure. El aislamiento lógico ayuda a impedir que un inquilino interfiera en las operaciones de cualquier otro inquilino.
 
-### <a name="<a-name="overview"></a>environment-isolation"></a><a name="Overview"></a>Aislamiento de entorno
+### <a name="a-nameoverviewaenvironment-isolation"></a><a name="Overview"></a>Aislamiento de entorno
 El entorno de Azure Government es una instancia física independiente del resto de la red de Microsoft. Esto se logra mediante una serie de controles físicos y lógicos, entre los que se incluyen la protección de barreras físicas con cámaras y dispositivos biométricos.  Uso de credenciales específicas y autenticación multifactor por parte del personal de Microsoft, lo que requiere un acceso lógico al entorno de producción.  Toda la infraestructura de servicios de Azure Government se encuentra en Estados Unidos.
 
-#### <a name="<a-name="overview"></a>per-customer-isolation"></a><a name="Overview"></a>Aislamiento por cliente
+#### <a name="a-nameoverviewaper-customer-isolation"></a><a name="Overview"></a>Aislamiento por cliente
 Azure implementa el control de acceso de red y la segregación mediante aislamiento de VLAN, ACL, equilibradores de carga y filtros IP.
 
 Los clientes pueden aislar aún más sus recursos mediante suscripciones, grupos de recursos, redes virtuales y subredes.
@@ -92,6 +96,9 @@ Para más información acerca del aislamiento en Microsoft Azure, consulte la [s
 
 Para información complementaria y actualizaciones, suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

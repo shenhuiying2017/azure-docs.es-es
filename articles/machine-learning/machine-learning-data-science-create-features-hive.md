@@ -1,19 +1,23 @@
 ---
-title: Crear características para datos en un clúster de Hadoop mediante consultas de Hive | Microsoft Docs
-description: Ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure.
+title: "Crear características para datos en un clúster de Hadoop mediante consultas de Hive | Microsoft Docs"
+description: "Ejemplos de consultas de Hive que generan características en datos almacenados en un clúster de Hadoop de HDInsight de Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8a94c71-979b-4707-b8fd-85b47d309a30
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: hangzh;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f34a63acf5720ef880193b08f3a90d1f904774d
+
 
 ---
 # <a name="create-features-for-data-in-an-hadoop-cluster-using-hive-queries"></a>Crear características para datos en un clúster de Hadoop mediante consultas de Hive
@@ -35,7 +39,7 @@ En este artículo se supone que ha:
 * Se han cargado los datos en tablas de subárbol en clústeres de Hadoop de HDInsight de Azure. De no ser así, siga [Crear y cargar datos en tablas de Hive](machine-learning-data-science-move-hive-tables.md) para cargar los datos en tablas de Hive primero.
 * Habilitado el acceso remoto al clúster. Si necesita instrucciones, consulte [Acceso al nodo principal del clúster de Hadoop](machine-learning-data-science-customize-hadoop-cluster.md#headnode).
 
-## <a name="a-namehivefeatureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Generación de características
+## <a name="a-namehive-featureengineeringafeature-generation"></a><a name="hive-featureengineering"></a>Generación de características
 En esta sección se describen varios ejemplos de las maneras en que se pueden generar características mediante consultas de Hive. Una vez que haya generado características adicionales, puede agregarlas como columnas a la tabla existente o crear una nueva tabla con las características adicionales y la clave principal, que se pueden combinar a continuación con la tabla original. Estos son los ejemplos presentados:
 
 1. [Generación de características basada en frecuencia](#hive-frequencyfeature)
@@ -44,7 +48,7 @@ En esta sección se describen varios ejemplos de las maneras en que se pueden ge
 4. [Extraer características del campo de texto](#hive-textfeatures)
 5. [Calcular distancia entre las coordenadas GPS](#hive-gpsdistance)
 
-### <a name="a-namehivefrequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
+### <a name="a-namehive-frequencyfeatureafrequency-based-feature-generation"></a><a name="hive-frequencyfeature"></a>Generación de características basada en frecuencia
 A menudo resulta útil calcular las frecuencias de los niveles de una variable de categoría o las frecuencias de determinadas combinaciones de niveles desde varias variables de categorías. Los usuarios pueden usar el siguiente script para calcular estas frecuencias:
 
         select
@@ -58,7 +62,7 @@ A menudo resulta útil calcular las frecuencias de los niveles de una variable d
         order by frequency desc;
 
 
-### <a name="a-namehiveriskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
+### <a name="a-namehive-riskfeaturearisks-of-categorical-variables-in-binary-classification"></a><a name="hive-riskfeature"></a>Riesgos de las variables de categorías en la clasificación binaria
 En la clasificación binaria, necesitamos convertir las variables de categorías no numéricas en características numéricas cuando los modelos que se utilizan solo toman características numéricas. Para ello, reemplace cada nivel no numérico por un riesgo numérico. En esta sección mostramos algunas consultas de subárbol genéricas que calculan los valores de riesgo (probabilidades de registro) de una variable de categoría.
 
         set smooth_param1=1;
@@ -83,7 +87,7 @@ En este ejemplo, las variables `smooth_param1` y `smooth_param2` se establecen p
 
 Después de calcularse la tabla de riesgos, los usuarios pueden asignar valores de riesgo a una tabla uniéndola a la tabla de riesgo. La consulta de combinación de subárbol se ha proporcionado en la sección anterior.
 
-### <a name="a-namehivedatefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
+### <a name="a-namehive-datefeaturesaextract-features-from-datetime-fields"></a><a name="hive-datefeatures"></a>Extraer características de campos de fecha y hora
 El subárbol se incluye con un conjunto de UDF para el procesamiento de campos de fecha y hora. En el subárbol, el formato de fecha y hora predeterminado es 'aaaa-MM-dd 00:00:00 ' ('1970-01-01 12:21:32' por ejemplo). En esta sección mostramos ejemplos que extraen el día de un mes, el mes de un campo de fecha y hora, y otros ejemplos que convierten una cadena de fecha y hora en un formato distinto del predeterminado en una cadena de fecha y hora en el formato predeterminado.
 
         select day(<datetime field>), month(<datetime field>)
@@ -103,13 +107,13 @@ En esta consulta, si *&#60;datetime field>* sigue un patrón de tipo *03/26/2015
 
 La tabla *hivesampletable* de esta consulta viene preinstalada en todos los clústeres de Hadoop de HDInsight de Azure de forma predeterminada cuando se aprovisionan los clústeres.
 
-### <a name="a-namehivetextfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extracción de características de campos de texto
+### <a name="a-namehive-textfeaturesaextract-features-from-text-fields"></a><a name="hive-textfeatures"></a>Extracción de características de campos de texto
 Cuando la tabla de subárbol tiene un campo de texto que contiene una cadena de palabras delimitadas por espacios, la consulta siguiente extrae la longitud de la cadena y el número de palabras de la cadena.
 
         select length(<text field>) as str_len, size(split(<text field>,' ')) as word_num
         from <databasename>.<tablename>;
 
-### <a name="a-namehivegpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
+### <a name="a-namehive-gpsdistanceacalculate-distances-between-sets-of-gps-coordinates"></a><a name="hive-gpsdistance"></a>Cálculo de la distancia entre conjuntos de coordenadas de GPS
 La consulta proporcionada en esta sección puede aplicarse directamente a los datos de carreras de taxi de Nueva York. El propósito de esta consulta es mostrar cómo aplicar una función matemática incrustada en el subárbol para generar características.
 
 Los campos que se usan en esta consulta son las coordenadas GPS de ubicaciones de recogida y entrega, denominadas *pickup\_longitude*, *pickup\_latitude*, *dropoff\_longitude* y *dropoff\_latitude*. Las consultas que calculan la distancia directa entre las coordenadas de recogida y entrega son:
@@ -144,9 +148,9 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Este parámetro asigna 4 GB de memoria al espacio de montón de Java y también hace que la ordenación sea más eficiente al asignar más memoria para él. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
+    Este parámetro asigna 4 GB de memoria al espacio de montón de Java y también hace que la ordenación sea más eficiente al asignar más memoria para él. Es buena idea jugar con estas asignaciones si no hay ningún error de trabajo relacionado con el espacio en el montón.
 
-1. **Tamaño de bloque de DFS** : este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, a continuación, los datos de un tamaño menor que 128 MB, que también será el tamaño máximo, se almacenará en un solo bloque, mientras que a los datos mayores de 128 MB se les asignará bloques adicionales. Al elegir un tamaño de bloque muy pequeño se producirán grandes sobrecargas en Hadoop puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque relevante relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
+1. **Tamaño de bloque de DFS** : este parámetro establece la unidad más pequeña de datos que el sistema de archivos almacena. Por ejemplo, si el tamaño de bloque DFS es 128 MB, a continuación, los datos de un tamaño menor que 128 MB, que también será el tamaño máximo, se almacenará en un solo bloque, mientras que a los datos mayores de 128 MB se les asignará bloques adicionales. Al elegir un tamaño de bloque muy pequeño se producirán grandes sobrecargas en Hadoop puesto que el nodo de nombre tiene que procesar muchas más solicitudes para buscar el bloque relevante relacionado con el archivo. Una configuración recomendada al tratar con datos de gigabytes (o mayores) es:
    
         set dfs.block.size=128m;
 2. **Optimización de la operación de unión en Hive** : Aunque las operaciones de unión en el marco de asignación/reducción suelen tener lugar en la fase de reducción, en ocasiones se pueden obtener ganancias enormes mediante la programación de uniones en la fase de asignación (también denominada "mapjoins"). Para indicar al subárbol que haga esto siempre que sea posible, podemos establecer:
@@ -165,6 +169,9 @@ La configuración de parámetros predeterminados del clúster de subárbol podr�
         set mapred.reduce.tasks=128;
         set mapred.tasktracker.reduce.tasks.maximum=128;
 
-<!---HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,12 +2,12 @@
 title: Uso de Pig de Hadoop en HDInsight | Microsoft Docs
 description: Aprenda a usar Pig con Hadoop en HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,16 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/14/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+
 
 ---
-# Uso de Pig con Hadoop en HDInsight
+# <a name="use-pig-with-hadoop-on-hdinsight"></a>Uso de Pig con Hadoop en HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 [Apache Pig](http://pig.apache.org/) es una plataforma para crear programas de Hadoop mediante un lenguaje de procedimientos que se conoce como *Pig Latin*. Pig es una alternativa a Java para crear soluciones *MapReduce* y se incluye con HDInsight de Azure.
 
 En este artículo, aprenderá a usar Pig con HDInsight.
 
-## <a id="why"></a>¿Por qué usar Pig?
+## <a name="a-idwhyawhy-use-pig"></a><a id="why"></a>¿Por qué usar Pig?
 Uno de los desafíos del procesamiento de datos mediante el uso de MapReduce en Hadoop es la implementación de la lógica de procesamiento únicamente con un mapa y una función de reducción. Para el procesamiento complejo, a menudo debe interrumpir el procesamiento en varias operaciones de MapReduce que están encadenadas para lograr el resultado deseado.
 
 En lugar de obligarle a usar solo las funciones de asignación y reducción, Pig permite definir los procesos como una serie de transformaciones por la que fluyen los datos para producir el resultado deseado.
@@ -37,7 +41,7 @@ El lenguaje de Pig Latin le permite describir el flujo de datos desde entrada si
 
 Pig Latin también admite las funciones definidas por el usuario (UDF), que le permiten invocar componentes externos que implementan la lógica que es difícil de modelar en Pig Latin.
 
-Para obtener más información acerca de Pig Latin, consulte el [manual de referencia de Pig Latin 1 (en inglés)](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) y el [manual de referencia de Pig Latin 2 (en inglés)](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Para más información sobre Pig Latin, consulte el [manual de referencia de Pig Latin 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) y el [manual de referencia de Pig Latin 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
 
 Para obtener un ejemplo del uso de UDF con Pig, vea los siguientes documentos:
 
@@ -45,8 +49,8 @@ Para obtener un ejemplo del uso de UDF con Pig, vea los siguientes documentos:
 * [Uso de Python con Pig y Hive en HDInsight](hdinsight-python.md)
 * [Uso de C# con Hive y Pig en HDInsight](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-## <a id="data"></a>Acerca de los datos de ejemplo
-Este ejemplo usa un archivo de ejemplo *log4j*, que se almacena en **/example/data/sample.log** en el contenedor de almacenamiento de blobs. Cada registro del archivo consta de una línea de campos que contiene un campo `[LOG LEVEL]` para mostrar el tipo y la gravedad, por ejemplo:
+## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Acerca de los datos de ejemplo
+Este ejemplo usa un archivo de ejemplo *log4j* , que se almacena en **/example/data/sample.log** en el contenedor de almacenamiento de blobs. Cada registro del archivo consta de una línea de campos que contiene un campo `[LOG LEVEL]` para mostrar el tipo y la gravedad, por ejemplo:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
@@ -57,18 +61,18 @@ En el ejemplo anterior, el nivel de registro es ERROR.
 > 
 > 
 
-Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado para clústeres de Hadoop. HDInsight puede acceder a archivos almacenados en blobs mediante el prefijo **wasb**. Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
+Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado para clústeres de Hadoop. HDInsight puede acceder a archivos almacenados en blobs mediante el prefijo **wasb** . Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
 
     wasbs:///example/data/sample.log
 
 Dado que WASB es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/sample.log** desde Pig Latin.
 
 > [!NOTE]
-> La sintaxis, **wasbs:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
+> La sintaxis, **wasbs:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y quiere acceder a los archivos almacenados en estas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento, por ejemplo: **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/sample.log**.
 > 
 > 
 
-## <a id="job"></a>Acerca del trabajo de ejemplo
+## <a name="a-idjobaabout-the-sample-job"></a><a id="job"></a>Acerca del trabajo de ejemplo
 El siguiente trabajo de Pig Latin carga el archivo **sample.log** desde el almacenamiento predeterminado para el clúster de HDInsight. A continuación, realiza una serie de transformaciones que generan un recuento de cuántas veces se ha producido cada nivel de registro en los datos de entrada. Los resultados se vuelcan en STDOUT.
 
     LOGS = LOAD 'wasbs:///example/data/sample.log';
@@ -83,10 +87,10 @@ En la siguiente imagen se muestra un desglose de lo que hace cada transformació
 
 ![Representación gráfica de las transformaciones][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Ejecutar el trabajo de Pig Latin
+## <a name="a-idrunarun-the-pig-latin-job"></a><a id="run"></a>Ejecutar el trabajo de Pig Latin
 HDInsight puede ejecutar trabajos de Pig Latin mediante una variedad de métodos. Use la tabla siguiente para decidir cuál es el método adecuado para usted luego siga el vínculo para ver un tutorial.
 
-| **Utilícelo** si desea... | ...un shell **interactivo** | ...procesamiento por **lotes** | ...con este **sistema operativo de clúster** | ...desde este **sistema operativo de cliente** |
+| **Utilícelo** si desea... | ...un shell **interactivo** | ...procesamiento por**lotes** | ...con este **sistema operativo de clúster** | ...desde este **sistema operativo de cliente** |
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](hdinsight-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X o Windows |
 | [Curl](hdinsight-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux o Windows |Linux, Unix, Mac OS X o Windows |
@@ -94,15 +98,15 @@ HDInsight puede ejecutar trabajos de Pig Latin mediante una variedad de métodos
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
-## Ejecución de trabajos de Pig en Azure HDInsight mediante SQL Server Integration Services local
+## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Ejecución de trabajos de Pig en Azure HDInsight mediante SQL Server Integration Services local
 También puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Pig. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Pig en HDInsight.
 
-* [Tarea de Pig de Azure HDInsight][pigtask]
+* [Tarea de PIg de Azure HDInsight][pigtask]
 * [Administrador de conexiones de suscripción de Azure][connectionmanager]
 
-Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
+Más información sobre el paquete Azure Feature Pack para SSIS [aquí][ssispack].
 
-## <a id="nextsteps"></a>Pasos siguientes
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
 
 * [Carga de datos en HDInsight][hdinsight-upload-data]
@@ -140,4 +144,8 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

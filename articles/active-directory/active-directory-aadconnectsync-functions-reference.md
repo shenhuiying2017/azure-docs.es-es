@@ -1,12 +1,12 @@
 ---
 title: 'Azure AD Connect Sync: referencia de funciones | Microsoft Docs'
-description: Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect
+description: "Referencia de expresiones declarativas de aprovisionamiento en la sincronización de Azure AD Connect"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: andkjell;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8fbffc0de5964a89fe2e0f9059c2f48b29fba2b9
+
 
 ---
-# <a name="azure-ad-connect-sync:-functions-reference"></a>Azure AD Connect Sync: referencia de funciones
+# <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referencia de funciones
 En Azure AD Connect, las funciones se usan para manipular un valor de atributo durante la sincronización.  
 La sintaxis de las funciones se expresa con el siguiente formato:   
 `<output type> FunctionName(<input type> <position name>, ..)`
@@ -1070,6 +1074,9 @@ Si la cadena contiene menos palabras o si la cadena no contiene palabras identif
 * [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](active-directory-aadconnectsync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Configuración de los puntos de conexión de Aprendizaje automático de Azure en Análisis de transmisiones | Microsoft Docs
-description: Funciones definidas por el usuario de Aprendizaje automático de Azure en Análisis de transmisiones
-keywords: ''
-documentationcenter: ''
+title: "Configuración de puntos de conexión de Azure Machine Learning en Stream Analytics | Microsoft Docs"
+description: "Funciones definidas por el usuario de Aprendizaje automático de Azure en Análisis de transmisiones"
+keywords: 
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ce7dd546ce534ede6901444d5fe441493ac2fc45
+
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Integración de Aprendizaje automático en Análisis de transmisiones
 Stream Analytics proporciona compatibilidad con las funciones definidas por el usuario que llamen a puntos de conexión de Azure Machine Learning. La compatibilidad con la API de REST para esta característica se detalla en la [biblioteca API de REST de Análisis de transmisiones](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artículo proporciona información adicional necesaria para una implementación correcta de esta capacidad en Análisis de transmisiones. También se ha publicado un tutorial, que está disponible [aquí](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview:-azure-machine-learning-terminology"></a>Información general: terminología de Aprendizaje automático de Azure
+## <a name="overview-azure-machine-learning-terminology"></a>Información general: terminología de Aprendizaje automático de Azure
 Aprendizaje automático de Microsoft Azure proporciona una herramienta colaborativa de arrastrar y colocar, que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Esta herramienta de denomina *Estudio de aprendizaje automático de Azure*. El estudio se usará para interactuar con los recursos de Machine Learning, así como para compilar, probar e iterar fácilmente en su diseño. A continuación, se proporcionan estos recursos y sus definiciones.
 
 * **Área de trabajo**: el *área de trabajo* es un contenedor con todos los demás recursos de Aprendizaje automático en un solo lugar para la administración y el control.
@@ -30,7 +34,7 @@ Aprendizaje automático de Microsoft Azure proporciona una herramienta colaborat
 
 Cada punto de conexión tiene varias API para la ejecución de lotes y la ejecución sincrónica. Análisis de transmisiones usa la ejecución sincrónica. El servicio específico se denomina un [servicio de solicitud/respuesta](../machine-learning/machine-learning-consume-web-services.md#request-response-service-rrs) en Estudio de aprendizaje automático de Azure.
 
-## <a name="machine-learning-resources-that-needed-for-stream-analytics-jobs"></a>Recursos de Aprendizaje automático necesarios para trabajos de Análisis de transmisiones
+## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de Machine Learning necesarios para trabajos de Stream Analytics
 Para el procesamiento de trabajos de Stream Analytics, para la correcta ejecución se necesitan un punto de conexión de solicitud/respuesta, una [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md#get-an-azure-machine-learning-authorization-key)y una definición de Swagger. Análisis de transmisiones tiene un punto de conexión adicional que construye la dirección URL de Swagger, busca en la interfaz y devuelve una definición de función definida por el usuario predeterminada al usuario.
 
 ## <a name="configure-a-stream-analytics-and-machine-learning-udf-via-rest-api"></a>Configuración de un Análisis de transmisiones y funciones definidas por el usuario de Aprendizaje automático mediante la API de REST
@@ -200,6 +204,9 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

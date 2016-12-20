@@ -1,12 +1,12 @@
 ---
-title: Procedimientos de actualización del SDK de Windows Phone Silverlight
-description: Procedimientos de actualización de SDK de Windows Phone Silverlight para Azure Mobile Engagement
+title: "Procedimientos de actualización del SDK de Windows Phone Silverlight"
+description: "Procedimientos de actualización de SDK de Windows Phone Silverlight para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 87130026-9759-4659-9184-788a3627a165
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,22 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 06b2a8b5e12d33c3ade469491b2694dd4a342cf1
+
 
 ---
-# Procedimientos de actualización del SDK de Windows Phone Silverlight
+# <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedimientos de actualización del SDK de Windows Phone Silverlight
 Si ya integró una versión anterior de nuestro SDK en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK. Por ejemplo, si migra desde 0.10.1 a 0.11.0, primero debe seguir el procedimiento "de 0.9.0 a 0.10.1" y luego el procedimiento "de 0.10.1 a 0.11.0".
 
-## De 2.0.0 a 3.3.0
-### Registros de prueba
+## <a name="from-200-to-330"></a>De 2.0.0 a 3.3.0
+### <a name="test-logs"></a>Registros de prueba
 Los registros de consola generados por el SDK ahora se pueden habilitar, deshabilitar o filtrar. Para personalizar esto, actualice la propiedad `EngagementAgent.Instance.TestLogEnabled` a uno de los valores disponibles en la enumeración `EngagementTestLogLevel`, por ejemplo:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-## De 1.1.1 a 2.0.0
-A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement.
+## <a name="from-111-to-200"></a>De 1.1.1 a 2.0.0
+A continuación se describe cómo migrar una integración del SDK desde el servicio Capptain que ofrece Capptain SAS en una aplicación con la tecnología de Azure Mobile Engagement. 
 
 > [!IMPORTANT]
 > Capptain y Mobile Engagement no son los mismos servicios, y el procedimiento que se indica a continuación destaca únicamente cómo migrar la aplicación cliente. La migración del SDK en la aplicación NO migrará los datos desde los servidores Capptain a los servidores Mobile Engagement.
@@ -38,10 +42,10 @@ A continuación se describe cómo migrar una integración del SDK desde el servi
 
 Si va a migrar desde una versión anterior, consulte el sitio web de Capptain para migrar a 1.1.1 en primer lugar luego aplique el siguiente procedimiento.
 
-### Paquete de NuGet
+### <a name="nuget-package"></a>Paquete de NuGet
 Reemplace **Capptain.WindowsPhone** por el paquete Nuget **MicrosoftAzure.MobileEngagement**.
 
-### Aplicar Mobile Engagement
+### <a name="applying-mobile-engagement"></a>Aplicar Mobile Engagement
 El SDK usa el término `Engagement`. Debe actualizar el proyecto para que coincida con este cambio.
 
 Debe desinstalar el paquete NuGet de Capptain actual. Tenga en cuenta que se van a quitar todos los cambios de la carpeta recursos de Capptain. Si desea conservar los archivos, haga una copia de ellos.
@@ -106,14 +110,14 @@ Una vez completados estos pasos, solo tendrá que reemplazar las referencias de 
         </engagement:EngagementPage>
 4. En el caso de otros recursos, como imágenes Capptain, tenga en cuenta que su nombre también habrá cambiado para usar "Engagement".
 
-### Identificador de aplicación o clave SDK
+### <a name="application-id-sdk-key"></a>Identificador de aplicación o clave SDK
 Engagement usa una cadena de conexión. No es necesario especificar un identificador de aplicación y una clave SDK con Mobile Engagement, solo tiene que especificar una cadena de conexión. Esta se puede configurar en el archivo EngagementConfiguration.
 
 La configuración de Engagement se puede establecer en el archivo `Resources\EngagementConfiguration.xml` del proyecto.
 
 Edite este archivo para especificar lo siguiente:
 
-* La cadena de conexión de la aplicación entre las etiquetas `<connectionString>` y `<\connectionString>`.
+* La cadena de conexión de la aplicación entre las etiquetas `<connectionString>` and `<\connectionString>`.
 
 Si desea especificarla en tiempo de ejecución, puede llamar al método siguiente antes de la inicialización del agente de Engagement:
 
@@ -126,7 +130,7 @@ Si desea especificarla en tiempo de ejecución, puede llamar al método siguient
 
 La cadena de conexión de la aplicación se muestra en el Portal de Azure clásico.
 
-### Cambio de nombre de elementos
+### <a name="items-name-change"></a>Cambio de nombre de elementos
 Todos los elementos con el nombre *capptain* han cambiado a *engagement*. De forma similar, *Capptain* cambió a *Engagement*.
 
 Ejemplos de elementos Capptain que se usan habitualmente:
@@ -139,4 +143,9 @@ Ejemplos de elementos Capptain que se usan habitualmente:
 
 Tenga en cuenta que el cambio de nombre también afecta a los métodos invalidados.
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

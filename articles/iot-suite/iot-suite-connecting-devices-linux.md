@@ -1,34 +1,38 @@
 ---
 title: Conectar un dispositivo mediante C en Linux | Microsoft Docs
-description: Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante una aplicación creada en C que se ejecuta en Linux.
-services: ''
+description: "Se describe cómo conectar un dispositivo a la solución de supervisión remota preconfigurada del Conjunto de IoT de Azure mediante una aplicación creada en C que se ejecuta en Linux."
+services: 
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2016
+ms.date: 10/05/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 6fdcdc323cff07d7debd46ab10b17ba7e9d8781a
+ms.openlocfilehash: d1a6ffe59c5cb4fd0575ba02aa9768548461b869
+
 
 ---
-# Conectar el dispositivo a la solución preconfigurada de supervisión remota (Linux)
+# <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-linux"></a>Conectar el dispositivo a la solución preconfigurada de supervisión remota (Linux)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-## Compilación y ejecución de una aplicación cliente de C de ejemplo (Linux)
-En los siguientes procedimientos se explica cómo crear una aplicación cliente simple sencilla (escrita en C y creada y ejecutada en Ubuntu Linux) que se comunique con la solución preconfigurada de supervisión remota mediante un programa de C que se haya . Para completar estos pasos, necesita un dispositivo que ejecute la versión 15.04 o 15.10 de Ubuntu. Antes de continuar, instale los paquetes de requisitos previos en el dispositivo Ubuntu ejecutando el siguiente comando:
+## <a name="build-and-run-a-sample-c-client-linux"></a>Compilación y ejecución de una aplicación cliente de C de ejemplo (Linux)
+En los siguientes procedimientos se muestra cómo crear una aplicación cliente, escrita en C y compilada y ejecutada en Ubuntu Linux, que se comunique con la solución preconfigurada de supervisión remota. Para completar estos pasos, necesita un dispositivo que ejecute la versión 15.04 o 15.10 de Ubuntu. Antes de continuar, instale los paquetes de requisitos previos en el dispositivo Ubuntu ejecutando el siguiente comando:
 
 ```
 sudo apt-get install cmake gcc g++
 ```
 
-## Instalación de las bibliotecas de cliente en el dispositivo
-Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get**. Complete los pasos siguientes para instalar el paquete que contiene la biblioteca del Centro de IoT y los archivos de encabezado de su máquina Ubuntu:
+## <a name="install-the-client-libraries-on-your-device"></a>Instalación de las bibliotecas de cliente en el dispositivo
+Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un paquete que puede instalar en su dispositivo Ubuntu ejecutando el comando **apt-get** . Complete los pasos siguientes para instalar el paquete que contiene la biblioteca del Centro de IoT y los archivos de encabezado de su máquina Ubuntu:
 
 1. Agregue el repositorio AzureIoT a la máquina:
    
@@ -42,12 +46,12 @@ Las bibliotecas de cliente del Centro de IoT de Azure están disponibles como un
     sudo apt-get install -y azure-iot-sdk-c-dev
     ```
 
-## Adición de código para especificar el comportamiento del dispositivo
-En la máquina Ubuntu, cree una carpeta llamada "**remote\_monitoring**". En la carpeta **remote\_monitoring**, cree cuatro archivos: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** y **CMakeLists.txt**.
+## <a name="add-code-to-specify-the-behavior-of-the-device"></a>Adición de código para especificar el comportamiento del dispositivo
+En la máquina Ubuntu, cree una carpeta denominada **remote\_monitoring**. En la carpeta **remote\_monitoring**, cree cuatro archivos: **main.c**, **remote\_monitoring.c**, **remote\_monitoring.h** y **CMakeLists.txt**.
 
-Las bibliotecas de cliente del serializador del Centro de IoT utilizan un modelo para especificar el formato de los mensajes que el dispositivo envía al Centro de IoT y los comandos de este último a los que responde dicho dispositivo.
+Las bibliotecas de cliente del serializador de IoT Hub usan un modelo para especificar el formato de los mensajes que el dispositivo envía a IoT Hub y los comandos que recibe de este.
 
-1. En un editor de texto, abra el archivo **remote\_monitoring.c**. Agregue las instrucciones siguientes `#include`:
+1. En un editor de texto, abra el archivo **remote\_monitoring.c**. Agregue las instrucciones siguientes `#include` :
    
     ```
     #include "iothubtransportamqp.h"
@@ -58,7 +62,7 @@ Las bibliotecas de cliente del serializador del Centro de IoT utilizan un modelo
     #include "azure_c_shared_utility/threadapi.h"
     #include "azure_c_shared_utility/platform.h"
     ```
-2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include`. Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host del Centro de IoT es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
+2. Agregue las siguientes declaraciones de variable después de las instrucciones `#include` . Sustituya los valores de marcador de posición [Device Id] y [Device Key] por valores para el dispositivo en el panel de la solución de supervisión remota. Utilice el nombre de host del Centro de IoT en el panel para sustituir [IoTHub Name]. Por ejemplo, si el nombre de host de IoT Hub es **contoso.azure-devices.net**, sustituya [IoTHub Name] por **contoso**:
    
     ```
     static const char* deviceId = "[Device Id]";
@@ -105,10 +109,10 @@ Las bibliotecas de cliente del serializador del Centro de IoT utilizan un modelo
     END_NAMESPACE(Contoso);
     ```
 
-### Adición de código para implementar el comportamiento del dispositivo
+### <a name="add-code-to-implement-the-behavior-of-the-device"></a>Adición de código para implementar el comportamiento del dispositivo
 Agregue las funciones que se ejecutarán cuando el dispositivo reciba un comando del Centro de IoT y un código para enviar telemetría simulada a dicho Centro.
 
-1. Agregue las siguientes funciones que se ejecutarán cuando el dispositivo recibe los comandos **SetTemperature** y **SetHumidity** definidos en el modelo:
+1. Agregue las siguientes funciones que se ejecutarán cuando el dispositivo reciba los comandos **SetTemperature** y **SetHumidity** definidos en el modelo:
    
     ```
     EXECUTE_COMMAND_RESULT SetTemperature(Thermostat* thermostat, int temperature)
@@ -188,7 +192,7 @@ Agregue las funciones que se ejecutarán cuando el dispositivo reciba un comando
       return result;
     }
     ```
-4. Agregue la siguiente función para conectarse al Centro de IoT, enviar y recibir mensajes, y desconectarse del Centro. Observe cómo el dispositivo envía metadatos sobre sí mismo, incluidos los comandos que admite, al Centro de IoT en cuanto que se conecta. Esto permite a la solución actualizar el estado del dispositivo a **En ejecución** en el panel:
+4. Agregue la siguiente función para conectarse al Centro de IoT, enviar y recibir mensajes, y desconectarse del Centro. Tenga en cuenta cómo el dispositivo envía los metadatos sobre él mismo, incluidos los comandos que admite, a IoT Hub cuando se conecta. Estos metadatos permiten que la solución actualice el estado del dispositivo a **Ejecutando** en el panel:
    
     ```
     void remote_monitoring_run(void)
@@ -314,7 +318,7 @@ Agregue las funciones que se ejecutarán cuando el dispositivo reciba un comando
     }
     ```
    
-    Como referencia, este es un mensaje de **información del dispositivo** de ejemplo enviado al Centro de IoT durante el inicio:
+    Como referencia, este es un mensaje de **información del dispositivo** de ejemplo enviado a IoT Hub durante el inicio:
    
     ```
     {
@@ -350,14 +354,14 @@ Agregue las funciones que se ejecutarán cuando el dispositivo reciba un comando
     }
     ```
 
-### Adición de código para invocar la función remote\_monitoring\_run
-En un editor de texto, abra el archivo **remote\_monitoring.h**. Agregue el siguiente código:
+### <a name="add-code-to-invoke-the-remotemonitoringrun-function"></a>Adición de código para invocar la función remote_monitoring_run
+En un editor de texto, abra el archivo **remote_monitoring.h**. Agregue el siguiente código:
 
 ```
 void remote_monitoring_run(void);
 ```
 
-En un editor de texto, abra el archivo **main.c**. Agregue el siguiente código:
+En un editor de texto, abra el archivo **main.c** . Agregue el siguiente código:
 
 ```
 #include "remote_monitoring.h"
@@ -370,10 +374,10 @@ int main(void)
 }
 ```
 
-## Uso de CMake para compilar la aplicación cliente
+## <a name="use-cmake-to-build-the-client-application"></a>Uso de CMake para compilar la aplicación cliente
 En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar la aplicación cliente.
 
-1. En un editor de texto, abra el archivo **CMakeLists.txt** de la carpeta **remote\_monitoring**.
+1. En un editor de texto, abra el archivo **CMakeLists.txt** de la carpeta **remote_monitoring**.
 2. Agregue las siguientes instrucciones para definir cómo compilar la aplicación cliente:
    
     ```
@@ -404,9 +408,10 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
         curl
         ssl
         crypto
+        m
     )
     ```
-3. En la carpeta **remote\_monitoring**, cree una otra para almacenar los archivos *make* que genera CMake y vuelva a ejecutar los comandos **cmake** y **make**, tal y como se muestra a continuación:
+3. En la carpeta **remote_monitoring**, cree otra para almacenar los archivos *make* que genera CMake y, después, ejecute los comandos **cmake** y **make**, tal y como se muestra a continuación:
    
     ```
     mkdir cmake
@@ -422,4 +427,9 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

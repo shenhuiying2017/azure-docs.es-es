@@ -5,3 +5,8 @@ La tabla siguiente enumera la posibles combinaciones de carga y captura de imág
 | Windows gen. |N<sup>1</sup> |Y |N<sup>3</sup> |Y |
 | Windows espec. |Y |N<sup>2</sup> |Y |N<sup>4</sup> |
 
+
+
+<!--HONumber=Nov16_HO3-->
+
+

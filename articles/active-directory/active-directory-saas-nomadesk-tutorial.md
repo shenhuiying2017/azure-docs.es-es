@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Nomadesk | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Nomadesk.
+title: "Tutorial: Integración de Azure Active Directory con Nomadesk | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Nomadesk."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3be980b1428c19c7f1f6eb2c165758281d6e46b2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-nomadesk"></a>Tutorial: integración de Azure Active Directory con Nomadesk
+# <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: integración de Azure Active Directory con Nomadesk
 El objetivo de este tutorial es mostrar cómo integrar Nomadesk con Azure Active Directory (Azure AD).
 
 La integración de Nomadesk con Azure AD le proporciona las siguientes ventajas:
@@ -44,7 +48,7 @@ Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
 * Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descripción del escenario
-El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba. 
+El objetivo de este tutorial es permitirle probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 La situación descrita en este tutorial consta de dos bloques de creación principales:
 
@@ -56,7 +60,7 @@ Para configurar la integración de Nomadesk en Azure AD, será preciso que agreg
 
 **Para agregar Nomadesk desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
+1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
    
     ![Active Directory][1]
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
@@ -98,23 +102,23 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
 1. En el Portal de Azure clásico, en la página de integración de la aplicación **Nomadesk**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-    ![Configurar inicio de sesión único][6] 
+    ![Configurar inicio de sesión único][6]
 2. En la página **¿Cómo desea que los usuarios inicien sesión en Nomadesk?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_03.png)
 3. En la página de diálogo **Configurar las opciones de la aplicación** , realice los pasos siguientes:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_04.png)
    
     a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL de inicio de sesión de los usuarios en la aplicación Nomadesk con el siguiente patrón: **“https://mynomadesk.com/logon/saml/TENANTID”**. Cuando se hace referencia a un nombre genérico, **TENANTID** debe reemplazarse por un identificador de inquilino real.
 4. En la página **Configure single sign-on at Nomadesk** (Configurar inicio de sesión único en Nomadesk), siga estos pasos:
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_05.png)
    
     a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
    
     b. Haga clic en **Siguiente**.
-5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte de Nomadesk a través de [mailto:support@nomadesk.com](support@nomadesk.com). Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de los metadatos (identidad de entidad, dirección URL de inicio de sesión de SSO y dirección URL de cierre de sesión de SSO) con el equipo de Nomadesk para configurar SSO en su lado.
+5. Para configurar SSO para la aplicación, póngase en contacto con el equipo de soporte técnico de Nomadesk con support@nomadesk.com.. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de los metadatos (id. de entidad, dirección URL de inicio de sesión de SSO y dirección URL de cierre de sesión de SSO) con el equipo de Nomadesk para configurar SSO en su lado.
 6. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -131,17 +135,17 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_09.png)
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para mostrar la lista de usuarios, en el menú de la parte superior, haga clic en **Usuarios**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_03.png)
 4. Para abrir el cuadro de diálogo **Agregar usuario**, en la barra de herramientas de la parte inferior, haga clic en **Agregar usuario**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_04.png)
 5. En la página de diálogo **Proporcione información sobre este usuario** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_05.png)
    
     a. En Tipo de usuario, seleccione Nuevo usuario de la organización.
    
@@ -150,7 +154,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     c. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png) 
+   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_06.png)
    
    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
@@ -163,10 +167,10 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    e. Haga clic en **Siguiente**.
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_07.png)
 8. En la página de diálogo **Obtener contraseña temporal** , realice los pasos siguientes:
    
-    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-nomadesk-tutorial/create_aaduser_08.png)
    
     a. Anote el valor del campo **Nueva contraseña**.
    
@@ -185,25 +189,25 @@ No hay ningún elemento de acción para usted en esta sección. Durante un inten
 ### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 El objetivo de esta sección es permitir que Britta Simon use el inicio de sesión único de Azure concediéndole acceso a Nomadesk.
 
-![Asignar usuario][200] 
+![Asignar usuario][200]
 
 **Para asignar Britta Simon a Nomadesk, realice los pasos siguientes:**
 
 1. En el Portal de Azure clásico, para abrir la vista de aplicaciones, en la vista del directorio, haga clic en **Aplicaciones** en el menú superior.
    
-    ![Asignar usuario][201] 
+    ![Asignar usuario][201]
 2. En la lista de aplicaciones, seleccione **Nomadesk**.
    
-    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png) 
+    ![Configurar inicio de sesión único](./media/active-directory-saas-nomadesk-tutorial/tutorial_nomadesk_50.png)
 3. En el menú de la parte superior, haga clic en **Usuarios**.
    
-    ![Asignar usuario][203] 
+    ![Asignar usuario][203]
 4. En la lista Usuarios, seleccione **Britta Simon**.
 5. En la barra de herramientas de la parte inferior, haga clic en **Asignar**.
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Nomadesk en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Nomadesk.
@@ -232,6 +236,6 @@ Al hacer clic en el icono de Nomadesk en el panel de acceso, debería iniciar se
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

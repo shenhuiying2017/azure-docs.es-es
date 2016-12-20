@@ -1,13 +1,13 @@
 ---
-title: 'Patrón de diseño de DocumentDB: Aplicaciones de redes sociales | Microsoft Docs'
-description: Obtenga información sobre un patrón de diseño para redes sociales con la flexibilidad de almacenamiento de DocumentDB y otros servicios de Azure.
+title: "Patrón de diseño de DocumentDB: Aplicaciones de redes sociales | Microsoft Docs"
+description: "Obtenga información sobre un patrón de diseño para redes sociales con la flexibilidad de almacenamiento de DocumentDB y otros servicios de Azure."
 keywords: aplicaciones de redes sociales
 services: documentdb
 author: ealsur
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6c9e285834707b668086ceab7fdde582f0cd87cc
+
 
 ---
 # <a name="going-social-with-documentdb"></a>Redes sociales y DocumentDB
@@ -131,7 +135,7 @@ Para solucionar esto, podemos adoptar un enfoque mixto. Como parte del documento
 
 Asimismo, el gráfico real de seguidores puede almacenarse en tablas de almacenamiento de Azure con una [extensión](https://github.com/richorama/AzureStorageExtensions#azuregraphstore) que posibilite unos procesos de almacenamiento y recuperación sencillos tipo "A sigue a B". De este modo, se puede delegar el proceso de recuperación de la lista de seguidores exacta (cuando se necesite) en las tablas de almacenamiento de Azure; sin embargo, para realizar una búsqueda rápida de números, seguimos utilizando DocumentDB.
 
-## <a name="the-“ladder”-pattern-and-data-duplication"></a>El modelo "Escalera" y la duplicación de datos
+## <a name="the-ladder-pattern-and-data-duplication"></a>El modelo "Escalera" y la duplicación de datos
 Como habrá observado en el documento JSON que hace referencia a una publicación, hay varias apariciones de un usuario. Y, como ya habrá imaginado, esto significa que la información que representa a un usuario, dada esta desnormalización, puede existir en más de un lugar.
 
 Para permitir consultas más rápidas, incurrimos en duplicación de datos. El problema con este efecto secundario es que si, por alguna acción, cambian los datos de un usuario, necesitaremos buscar todas las actividades que ha hecho y actualizarlas. Lo cierto es que no parece muy práctico.
@@ -227,6 +231,9 @@ Obtenga más información sobre el modelado de datos en el artículo [Modelado d
 
 También puede obtener más información sobre DocumentDB siguiendo la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Archive the Azure Activity Log | Microsoft Docs
-description: Learn how to archive your Azure Activity Log for long-term retention in a storage account.
+title: Archivo del registro de actividades de Azure | Microsoft Docs
+description: "Aprenda a archivar el registro de actividades de Azure para su retención a largo plazo en una cuenta de almacenamiento."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,71 +14,75 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c95e39904a84fab021d625835bdf9686b2323c52
+
 
 ---
-# <a name="archive-the-azure-activity-log"></a>Archive the Azure Activity Log
-In this article, we show how you can use the Azure portal, PowerShell Cmdlets, or Cross-Platform CLI to archive your [**Azure Activity Log**](monitoring-overview-activity-logs.md) in a storage account. This option is useful if you would like to retain your Activity Log longer than 90 days (with full control over the retention policy) for audit, static analysis, or backup. If you only need to retain your events for 90 days or less you do not need to set up archival to a storage account, since Activity Log events are retained in the Azure platform for 90 days without enabling archival.
+# <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
+En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](monitoring-overview-activity-logs.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin, you need to [create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) to which you can archive your Activity Log. We highly recommend that you do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. However, if you are also archiving Diagnostic Logs and metrics to a storage account, it may make sense to use that storage account for your Activity Log as well to keep all monitoring data in a central location. The storage account you use must be a general purpose storage account, not a blob storage account.
+## <a name="prerequisites"></a>Requisitos previos
+Antes de comenzar, necesita [crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) en la que poder archivar el registro de actividades. Le recomendamos encarecidamente que no utilice una cuenta de almacenamiento existente que tenga otros datos sin supervisión almacenados en ella, para que pueda controlar mejor el acceso a los datos de supervisión. Sin embargo, si también va a archivar los registros y las métricas de Diagnóstico en una cuenta de almacenamiento, puede que tenga sentido utilizar esa cuenta de almacenamiento para el registro de actividades para mantener todos los datos de supervisión en una ubicación central. La cuenta de almacenamiento que use debe ser una cuenta de almacenamiento de propósito general no una cuenta de almacenamiento de blobs.
 
-## <a name="log-profile"></a>Log Profile
-To archive the Activity Log using any of the methods below, you set the **Log Profile** for a subscription. The Log Profile defines the type of events that are stored or streamed and the outputs—storage account and/or event hub. It also defines the retention policy (number of days to retain) for events stored in a storage account. If the retention policy is set to zero, events are stored indefinitely. Otherwise, this can be set to any value between 1 and 2147483647. [You can read more about log profiles here](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
+## <a name="log-profile"></a>Perfil de registro
+Para archivar el registro de actividades mediante cualquiera de los métodos siguientes, debe establecer el **perfil de registro** para una suscripción. El perfil de registro define el tipo de eventos que se almacenan o transmiten y las salidas: cuenta de almacenamiento y/o centro de eventos. También define la directiva de retención (el número de días que deben conservarse) para los eventos almacenados en una cuenta de almacenamiento. Si la directiva de retención se establece en cero los eventos se almacenan indefinidamente. De lo contrario, se puede establecer en cualquier valor entre 1 y 2147483647. [Puede leer más acerca de los perfiles de registro aquí](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles).
 
-## <a name="archive-the-activity-log-using-the-portal"></a>Archive the Activity Log using the portal
-1. In the portal, click the **Activity Log** link on the left-side navigation. If you don’t see a link for the Activity Log, click the **More Services** link first.
+## <a name="archive-the-activity-log-using-the-portal"></a>Archivo del registro de actividades mediante el portal
+1. En el portal, haga clic en el vínculo **Registro de actividades** situado en el lado izquierdo. Si no ve un vínculo para el registro de actividades, haga clic primero en el vínculo **Más servicios** .
    
-    ![Navigate to Activity Log blade](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. At the top of the blade, click **Export**.
+    ![Ir a la hoja del registro de actividades](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. En la parte superior de la hoja, haga clic en **Exportar**.
    
-    ![Click the Export button](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. In the blade that appears, check the box for **Export to a storage account** and select a storage account.
+    ![Hacer clic en el botón Exportar](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. En la hoja que aparece, seleccione la casilla para **exportar a una cuenta de almacenamiento** y seleccione una cuenta de almacenamiento.
    
-    ![Set a storage account](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Using the slider or text box, define a number of days for which Activity Log events should be kept in your storage account. If you prefer to have your data persisted in the storage account indefinitely, set this number to zero.
-5. Click **Save**.
+    ![Establecer una cuenta de almacenamiento](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
+4. Con el control deslizante o el cuadro de texto, defina el número de días que deben conservarse los eventos del registro de actividades en la cuenta de almacenamiento. Si prefiere que los datos se conserven en la cuenta de almacenamiento indefinidamente establezca este número en cero.
+5. Haga clic en **Save**.
 
-## <a name="archive-the-activity-log-via-powershell"></a>Archive the Activity Log via PowerShell
+## <a name="archive-the-activity-log-via-powershell"></a>Archivo del registro de actividades a través de PowerShell
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Propiedad | Obligatorio | Description |
 | --- | --- | --- |
-| StorageAccountId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| RetentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero stores the logs indefinitely (forever). |
-| Categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| StorageAccountId |No |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
+| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/en-us/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
+| Categorías |Sí |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
-## <a name="archive-the-activity-log-via-cli"></a>Archive the Activity Log via CLI
+## <a name="archive-the-activity-log-via-cli"></a>Archivo del registro de actividades a través de CLI
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
 
-| Property | Required | Description |
+| Propiedad | Obligatorio | Description |
 | --- | --- | --- |
-| name |Yes |Name of your log profile. |
-| storageId |No |Resource ID of the Storage Account to which Activity Logs should be saved. |
-| locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions [by visiting this page](https://azure.microsoft.com/en-us/regions) or by using [the Azure Management REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Yes |Number of days for which events should be retained, between 1 and 2147483647. A value of zero will store the logs indefinitely (forever). |
-| categories |Yes |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
+| name |Sí |Nombre de su perfil de registro. |
+| storageId |No |Identificador de recurso de la cuenta de almacenamiento donde se deben guardar los registros de actividades. |
+| Ubicaciones |Sí |Lista separada por comas de las regiones para las que desea recopilar eventos del registro de actividad. Puede ver una lista de todas las regiones [si visita esta página](https://azure.microsoft.com/en-us/regions) o mediante [la API de REST de administración de Azure](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| RetentionInDays |Sí |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenarán los registros indefinidamente (de manera indefinida). |
+| Categorías |Sí |Lista separada por comas de las categorías de eventos que deben recopilarse. Los valores posibles son Write, Delete y Action. |
 
-## <a name="storage-schema-of-the-activity-log"></a>Storage schema of the Activity Log
-Once you have set up archival, a storage container will be created in the storage account as soon as an Activity Log event occurs. The blobs within the container follow the same format across the Activity Log and Diagnostic Logs. The structure of these blobs is:
+## <a name="storage-schema-of-the-activity-log"></a>Esquema de almacenamiento del registro de actividades
+Una vez que haya configurado el archivado, se creará un contenedor de almacenamiento en la cuenta de almacenamiento en cuanto se produzca un evento del registro de actividades. Los blobs dentro del contenedor siguen el mismo formato en el registro de actividades y en los registros de diagnóstico. La estructura de estos blobs es:
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={año con cuatro dígitos}/m={mes con dos dígitos}/d={día con dos dígitos}/h={hora en formato de 24 horas con dos dígitos}/m=00/PT1H.json
 > 
 > 
 
-For example, a blob name might be:
+Por ejemplo, un nombre de blob podría ser:
 
 > insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 > 
 > 
 
-Each PT1H.json blob contains a JSON blob of events that occurred within the hour specified in the blob URL (e.g. h=12). During the present hour, events are appended to the PT1H.json file as they occur. The minute value (m=00) is always 00, since Activity Log events are broken into individual blobs per hour.
+Cada blob PT1H.json contiene un blob JSON de eventos que se produjeron en la hora especificada en la dirección URL del blob (por ejemplo h = 12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor de los minutos (m = 00) siempre es 00, ya que los eventos del registro de actividades se dividen en blobs individuales por hora.
 
-Within the PT1H.json file, each event is stored in the “records” array, following this format:
+En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con este formato:
 
 ```
 {
@@ -137,33 +141,36 @@ Within the PT1H.json file, each event is stored in the “records” array, foll
 ```
 
 
-| Element name | Description |
+| Nombre del elemento | Description |
 | --- | --- |
-| time |Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
-| resourceId |Resource ID of the impacted resource. |
-| operationName |Name of the operation. |
-| category |Category of the action, eg. Write, Read, Action. |
-| resultType |The type of the result, eg. Success, Failure, Start |
-| resultSignature |Depends on the resource type. |
-| durationMs |Duration of the operation in milliseconds |
-| callerIpAddress |IP address of the user who has performed the operation, UPN claim, or SPN claim based on availability. |
-| correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
-| identity |JSON blob describing the authorization and claims. |
-| authorization |Blob of RBAC properties of the event. Usually includes the “action”, “role” and “scope” properties. |
-| level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, “Informational” and “Verbose” |
-| location |Region in which the location occurred (or global). |
-| properties |Set of `<Key, Value>` pairs (i.e. Dictionary) describing the details of the event. |
+| Twitter en tiempo |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
+| ResourceId |Identificador de recurso del recurso afectado. |
+| operationName |Nombre de la operación. |
+| categoría |Categoría de la acción, p. ej. Write, Read, Action. |
+| resultType |Tipo del resultado, p. ej. Success, Failure, Start |
+| resultSignature |Depende del tipo de recurso. |
+| durationMs |Duración de la operación en milisegundos |
+| callerIpAddress |La dirección IP del usuario que ha realizado la operación, la notificación de UPN o la notificación de SPN basada en la disponibilidad. |
+| correlationId |Normalmente, un GUID en formato de cadena. Los eventos que comparten correlationId pertenecen a la misma acción general. |
+| identidad |Blob JSON que describe la autorización y las notificaciones. |
+| authorization |Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
+| level |Nivel del evento. Uno de los siguientes valores: "Critical", "Error", "Warning", "Informational" y "Verbose" |
+| location |Región en la que se ha producido la ubicación (o global). |
+| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
 
 > [!NOTE]
-> The properties and usage of those properties can vary depending on the resource.
+> Las propiedades y el uso de estas propiedades pueden variar según el recurso.
 > 
 > 
 
-## <a name="next-steps"></a>Next steps
-* [Download blobs for analysis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Stream the Activity Log to Event Hubs](monitoring-stream-activity-logs-event-hubs.md)
-* [Read more about the Activity Log](monitoring-overview-activity-logs.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Descargar blobs para el análisis](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [Transmitir el registro de actividades a Centros de eventos](monitoring-stream-activity-logs-event-hubs.md)
+* [Obtener más información acerca del registro de actividades](monitoring-overview-activity-logs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

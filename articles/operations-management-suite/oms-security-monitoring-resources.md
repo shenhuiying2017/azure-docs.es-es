@@ -1,25 +1,30 @@
 ---
-title: Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs
-description: Este documento le ayuda a usar las capacidades de Seguridad y auditoría de OMS para supervisar los recursos e identificar los problemas de seguridad.
+title: "Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite | Microsoft Docs"
+description: "Este documento le ayuda a usar las capacidades de Seguridad y auditoría de OMS para supervisar los recursos e identificar los problemas de seguridad."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
 manager: swadhwa
-editor: ''
-
+editor: 
+ms.assetid: d6752120-821f-4aa7-a049-25bf5a653b95
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 12/01/2016
 ms.author: yurid
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
+
 
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>Supervisión de los recursos en la solución Seguridad y auditoría de Operations Management Suite
 Este documento le ayuda a usar las capacidades de Seguridad y auditoría de OMS para supervisar los recursos e identificar los problemas de seguridad.
 
-## <a name="what-is-oms?"></a>¿Qué es OMS?
+## <a name="what-is-oms"></a>¿Qué es OMS?
 Microsoft Operations Management Suite (OMS) es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura en la nube y local. Para más información sobre OMS, lea el artículo [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
 ## <a name="monitoring-resources"></a>Supervisión de recursos
@@ -107,6 +112,9 @@ En este documento, aprendió a utilizar la solución Seguridad y auditoría de O
 * [Introducción a la solución Seguridad y auditoría de Operations Management Suite](oms-security-getting-started.md)
 * [Supervisión de las alertas de seguridad y su respuesta en la solución Seguridad y auditoría de Operations Management Suite](oms-security-responding-alerts.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

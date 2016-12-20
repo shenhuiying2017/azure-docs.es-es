@@ -1,78 +1,97 @@
 ---
-title: 'Copia de seguridad de Azure: copia de seguridad de máquinas virtuales de IaaS de Azure con discos cifrados | Microsoft Docs'
-description: Averigüe cómo Copia de seguridad de Azure controla los datos cifrados con BitLocker o dmcrypt durante la copia de seguridad de máquinas virtuales de IaaS. Este artículo le prepara para las diferencias en las experiencias de copia de seguridad y restauración al trabajar con discos cifrados.
+title: "Copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Backup"
+description: "Este artículo trata sobre la experiencia de copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Disk Encryption."
 services: backup
-documentationcenter: ''
-author: pallavijoshi
+documentationcenter: 
+author: JPallavi
 manager: vijayts
-editor: ''
-
+editor: 
+ms.assetid: 8387f186-7d7b-400a-8fc3-88a85403ea63
 ms.service: backup
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/16/2016
+ms.date: 10/25/2016
 ms.author: markgal; jimpark; trinadhk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fd65e7acc10b3e750025279820bddbdef5de5498
+
 
 ---
-# Tratar con discos cifrados durante la copia de seguridad de máquina virtual
-Para las empresas que desean cifrar sus datos de máquina virtual en Azure, la solución que se debe usar es [Cifrado de discos de Azure](../security/azure-security-disk-encryption.md) o Bitlocker en Windows y dmcrypt en equipos Linux.
+# <a name="backup-and-restore-encrypted-vms-using-azure-backup"></a>Copia de seguridad y restauración de máquinas virtuales cifradas mediante Azure Backup
+Este artículo trata sobre los pasos para realizar la copia de seguridad y restauración de máquinas virtuales mediante Azure Backup. También proporciona detalles acerca de los escenarios admitidos, requisitos previos y pasos para solucionar problemas en los casos de error.
 
+## <a name="supported-scenarios"></a>Escenarios admitidos
 > [!NOTE]
-> Copia de seguridad de Azure admite la copia de seguridad y restauración de máquinas virtuales cifradas mediante Cifrado de discos de Azure (ADE). <br>
-> 
-> 1. Esto es posible gracias al uso de PowerShell si la máquina virtual se cifra mediante BEK y KEK. <br>
-> 2. Estas operaciones no se admiten si la máquina virtual está cifrada solo con BEK. <br> Consulte la documentación de [PowerShell con Copia de seguridad de Azure](backup-azure-vms-automation.md) para realizar tareas de copia de seguridad y restauración de máquinas virtuales cifradas con ADE.
+> 1. La copia de seguridad y restauración de máquinas virtuales cifradas solo se admite para máquinas virtuales implementadas con el modelo de Resource Manager. No se admite para máquinas virtuales implementadas con el modelo clásico. <br>
+> 2. Solo se admite para máquinas virtuales cifradas mediante la clave de cifrado de BitLocker y la clave de cifrado de clave. No se admite para máquinas virtuales cifradas solo mediante la clave de cifrado de BitLocker. <br>
 > 
 > 
 
-Este artículo trata sobre las máquinas virtuales de Azure cifradas con CloudLink.
+## <a name="pre-requisites"></a>Requisitos previos
+1. Máquina virtual cifrada mediante [Azure Disk Encryption](../security/azure-security-disk-encryption.md). Se deben cifrar las máquinas virtuales mediante la clave de cifrado de BitLocker y la clave de cifrado de clave (ambas).
+2. Se ha creado el almacén de Recovery Services y se ha establecido la replicación de almacenamiento mediante los pasos mencionados en el artículo [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md).
 
-## Cómo funciona la copia de seguridad
-La solución consta de dos niveles: el nivel de máquina virtual y el nivel de almacenamiento.
+## <a name="backup-encrypted-vm"></a>Copia de seguridad cifrada de máquina virtual
+Utilice los pasos siguientes para establecer el objetivo de copia de seguridad, definir directivas, configurar elementos y desencadenar la copia de seguridad.
 
-1. El nivel de máquina virtual trata con los datos como se ven por el sistema operativo invitado y las aplicaciones que se ejecutan en la máquina virtual. También es la capa que ejecuta el software de cifrado (Bitlocker o dmcrypt), cifrando de forma transparente datos en los volúmenes antes de escribir los datos en los discos.
-2. La capa de almacenamiento se ocupa de los blobs de páginas y de los discos conectados a la máquina virtual. No conoce los datos que se escriben en el disco, y si está cifrado o no. Se trata de la capa en la que opera la funcionalidad de copia de seguridad de la máquina virtual.
+### <a name="configure-backup"></a>Configuración de la copia de seguridad
+1. Si ya tiene abierto un almacén de Recovery Services, vaya al siguiente paso. Si no tiene abierto un almacén de Servicios de recuperación, pero está en el Portal de Azure, en el menú del concentrador, haga clic en **Examinar**.
+   
+   * En la lista de recursos, escriba **Servicios de recuperación**.
+   * Cuando comience a escribir, la lista se filtrará en función de la entrada. Haga clic en **Almacenes de servicios de recuperación**cuando lo vea.
+     
+      ![Creación del almacén de Servicios de recuperación, paso 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+     
+     Aparece la lista de almacenes de Servicios de recuperación. En la lista de almacenes de Servicios de recuperación, seleccione un almacén.
+     
+     Se abre el panel del almacén seleccionado.
+2. En la lista de elementos que aparece en el almacén, haga clic en **Copia de seguridad** para abrir la hoja Copia de seguridad.
+   
+      ![Hoja Copia de seguridad abierta](./media/backup-azure-vms-encryption/select-backup.png) 
+3. En la hoja Copia de seguridad, haga clic en **Objetivo de copia de seguridad** para abrir la hoja del mismo nombre.
+   
+      ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/select-backup-goal-one.png) 
+4. En la hoja Objetivo de copia de seguridad, establezca **¿Dónde se ejecuta su carga de trabajo?** en Azure y **What do you want to backup** (¿De qué desea realizar copias de seguridad?) en Máquina virtual. A continuación, haga clic en **Aceptar**.
+   
+   La hoja Backup Goal (Objetivo de la copia de seguridad) se cierra y se abre la hoja Directiva de copia de seguridad.
+   
+   ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/select-backup-goal-two.png) 
+5. En la hoja Directiva de copia de seguridad, seleccione la que quiera aplicar al almacén y haga clic en **Aceptar**.
+   
+      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png) 
+   
+    En los detalles se muestran los datos de la directiva predeterminada. Si desea crear una directiva, seleccione **Crear nuevo** en el menú desplegable. Al hacer clic en **Aceptar**, la directiva de copia de seguridad se asocia con el almacén.
+   
+    A continuación, elija las máquinas virtuales que se asociarán con el almacén.
+6. Elija las máquinas virtuales cifradas que se asociarán con la directiva especificada y haga clic en **Aceptar**.
+   
+      ![Selección de las máquinas virtuales cifradas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
+7. Esta página muestra un mensaje sobre el almacén de claves asociado a las máquinas virtuales cifradas seleccionadas. El servicio de copia de seguridad requiere acceso de solo lectura a las claves y secretos del almacén de claves. Este utiliza estos permisos para la copia de seguridad de la clave y el secreto, junto con la de las máquinas virtuales asociadas. 
+   
+      ![Mensaje de máquinas virtuales cifradas](./media/backup-azure-vms-encryption/encrypted-vm-message.png)
+   
+      Ahora que ha definido toda la configuración del almacén, en la hoja Copia de seguridad, haga clic en Habilitar copia de seguridad en la parte inferior de la página. Habilitar copia de seguridad permite implementar la directiva en el almacén y en las máquinas virtuales.
+8. La siguiente fase de la preparación es instalar el agente de máquina virtual o comprobar que esté instalado. Para ello, utilice los pasos mencionados en el artículo [Preparación del entorno para la copia de seguridad de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md). 
 
-![Cómo coexisten el cifrado de Bitlocker y la copia de seguridad de máquinas virtuales de Azure](./media/backup-azure-vms-encryption/how-it-works.png)
+### <a name="triggering-backup-job"></a>Desencadenamiento del trabajo de copia de seguridad
+Utilice los pasos mencionados en el artículo [Copia de seguridad de máquinas virtuales de Azure en un almacén de servicios de recuperación](backup-azure-arm-vms.md) para desencadenar el trabajo de copia de seguridad.
 
-El cifrado completo de datos se produce de forma transparente y sin problemas en el nivel de máquina virtual. Por tanto, los datos escritos en los blobs de página conectados a la máquina virtual son los datos cifrados. Cuando la [Copia de seguridad de Azure toma una instantánea de los discos de la máquina virtual y transfiere los datos](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines), copia los datos cifrados presentes en los blobs de página.
+## <a name="restore-encrypted-vm"></a>Restauración de máquinas virtuales cifradas
+La experiencia de restauración para máquinas virtuales cifradas y sin cifrar es la misma. Utilice los pasos mencionados en [Uso de Azure Portal para restaurar máquinas virtuales](backup-azure-arm-restore-vms.md) para restaurar la máquina virtual cifrada. En caso de que necesite restaurar las claves y secretos, debe asegurarse de que el almacén de claves para restaurarlos ya existe.
 
-## Componentes de soluciones
-Hay muchos elementos de esta solución que se tienen que configurar y administrar correctamente para que funcione:
-
-| Función | Software usado | Notas adicionales |
+## <a name="troubleshooting-errors"></a>Solución de errores
+| Operación | Detalles del error | Resolución |
 | --- | --- | --- |
-| Cifrado |BitLocker o dmcrypt |Como el cifrado se produce en una capa *diferentes* en comparación con la Copia de seguridad de Azure, no importa qué software de cifrado se usa. Dicho eso, esta experiencia se ha validado solo con CloudLink mediante Bitlocker y dmcrypt.<br><br> Para cifrar los datos, se necesita una clave. La clave también se tiene que mantener segura para garantizar el acceso autorizado a los datos. |
-| Administración de claves |CloudLink SecureVM |La clave es esencial para cifrar o descifrar los datos. Sin la clave correcta, no se pueden recuperar los datos. Esto resulta *increíblemente* importante con:<br><li>Sustituciones clave<li>Retención a largo plazo<br><br>Por ejemplo, es posible que la clave usada para hacer copias de seguridad de datos hace 7 años no sea la misma clave que se usa en la actualidad. Sin la clave de hace 7 años, será imposible usar los datos restaurados de ese momento. |
-| Copia de seguridad de datos |Copia de seguridad de Azure |Use la Copia de seguridad de Azure para hacer una copia de seguridad de una de las máquinas virtuales de IaaS de Azure a través del [portal de administración de Azure](http://manage.windowsazure.com) o con PowerShell |
-| Restauración de datos |Copia de seguridad de Azure |Use la Copia de seguridad de Azure para restaurar discos o una máquina virtual completa desde un punto de recuperación. Los datos no se descifran por la Copia de seguridad de Azure como parte de la operación de restauración. |
-| Descifrado |BitLocker o dmcrypt |Para leer datos de un disco de datos restaurada o una máquina virtual restaurada, el software necesita la clave desde el software de administración de claves. Sin la clave correcta, no se pueden descifrar los datos. |
+| Copia de seguridad |La validación produjo un error debido a que la máquina virtual se ha cifrado solo con BEK. Las copias de seguridad se pueden habilitar únicamente para las máquinas virtuales cifradas con BEK y KEK. |Las máquinas virtuales deben cifrarse mediante BEK y KEK. Después de eso, debe habilitarse la copia de seguridad. |
+| Restauración |No se puede restaurar esta máquina virtual cifrada porque no existe el almacén de claves asociado con esta máquina virtual. |Cree el almacén de claves mediante los pasos descritos en [Introducción a Azure Key Vault](../key-vault/key-vault-get-started.md). Consulte el artículo [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Restauración de la clave y secreto del almacén de claves mediante Azure Backup) para restaurar la clave y el secreto si estos no existen. |
+| Restauración |No se puede restaurar esta máquina virtual cifrada porque no existe la clave y el secreto asociados con esta máquina virtual. |Consulte el artículo [Restore key vault key and secret using Azure Backup](backup-azure-restore-key-secret.md) (Restauración de la clave y secreto del almacén de claves mediante Azure Backup) para restaurar la clave y el secreto si estos no existen. |
 
-> [!IMPORTANT]
-> La administración de claves, incluida la sustitución de claves, no forma parte de la Copia de seguridad de Azure. Este aspecto debe administrarse de forma independiente, pero es muy importante para el funcionamiento general de la copia de seguridad o la restauración.
-> 
-> 
 
-### Escenarios admitidos
-| &nbsp; | Almacén de copia de seguridad | Almacén de Servicios de recuperación |
-|:--- |:--- |:--- |
-| Máquinas virtuales de Azure IaaS V1 |Sí |No |
-| Máquinas virtuales de Azure IaaS V2 |N/D |No |
 
-## CloudLink SecureVM
-[CloudLink SecureVM](http://www.cloudlinktech.com/choose-your-cloud/microsoft-azure/) es una solución de cifrado de máquina virtual que se puede usar para proteger los datos de la máquina virtual de IaaS de Azure. CloudLink SecureVM es compatible con el uso de la Copia de seguridad de Azure.
 
-### Información de compatibilidad
-* CloudLink SecureVM versión 4.0 (versión 21536.121 o superior)
-* Azure PowerShell versión 0.9.8 o posterior
+<!--HONumber=Nov16_HO3-->
 
-### Administración de claves
-Cuando necesite sustituir o cambiar claves para máquinas virtuales que tienen copias de seguridad existentes, debe asegurarse de que las claves usadas en el momento de la copia de seguridad están disponibles. Una sugerencia para hacerlo es realizar una copia de seguridad del almacén de claves o de todo el sistema SecureVM.
 
-### Documentación y recursos
-* [Guía de implementación - PDF](http://www.cloudlinktech.com/Azure/CL_SecureVM_4_0_DG_EMC_Azure_R2.pdf)
-* [Implementación y uso de SecureVM - vídeo](https://www.youtube.com/watch?v=8AIRe92UDNg)
-
-<!---HONumber=AcomDC_0817_2016-->

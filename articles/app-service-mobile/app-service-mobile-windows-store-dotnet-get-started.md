@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a9e01c161b0c81d4a2fd079824a427f7f135476
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 88f9a6b7e1f49ad58e91165a772e8453163d224c
 
 
 ---
@@ -79,18 +79,18 @@ Una vez configurado el back-end de aplicación móvil, puede crear una nueva apl
    Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 * [Incorporación de notificaciones push a su aplicación](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   : aprenda a agregar a la aplicación compatibilidad con notificaciones push y a configurar su back-end de aplicación móvil para usar centros de notificaciones de Azure para enviar notificaciones push.
-* [Activación de la sincronización sin conexión para la aplicación de Windows](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
+* [Habilitación de la sincronización sin conexión para su aplicación](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   : aprenda a agregar compatibilidad sin conexión a su aplicación con un back-end de aplicación móvil. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos) aun cuando no haya conexión de red.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
-[SDK de aplicación móvil]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Portal de Azure]: https://portal.azure.com/
+[Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
+[Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

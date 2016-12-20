@@ -1,32 +1,37 @@
 ---
-title: Administración de credenciales en la biblioteca de cliente de bases de datos elásticas | Microsoft Docs
-description: Cómo configurar el nivel correcto de las credenciales (de administrador a solo lectura) de las aplicaciones de bases de datos elásticas.
+title: "Administración de credenciales en la biblioteca de cliente de bases de datos elásticas | Microsoft Docs"
+description: "Cómo configurar el nivel correcto de las credenciales (de administrador a solo lectura) de las aplicaciones de bases de datos elásticas."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: 72e0edaf-795e-4856-84a5-6594f735fb7e
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bbe3370442ad4117a1a08d0b23595dd98aaba5b5
+
 
 ---
-# Credenciales usadas para acceder a la biblioteca de cliente de bases de datos elásticas
-La [biblioteca de cliente de base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tres tipos diferentes de credenciales para acceder al [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Según lo que necesite, use la credencial que posea el nivel más bajo de acceso posible.
+# <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciales usadas para acceder a la biblioteca de cliente de bases de datos elásticas
+La [biblioteca de cliente de base de datos elástica](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) usa tres variantes de credenciales para acceder al [administrador de mapas de particiones](sql-database-elastic-scale-shard-map-management.md). Según lo que necesite, use la credencial con el menor nivel de acceso posible.
 
 * **Credenciales de administración**: se usan para crear o manipular un administrador de mapas de particiones. (Consulte el [glosario](sql-database-elastic-scale-glossary.md)). 
 * **Credenciales de acceso**: se usan para obtener acceso a un administrador de mapas de particiones ya existente, para así obtener información acerca de las particiones.
 * **Credenciales de conexión**: se usan para conectarse a las particiones. 
 
-Consulte, asimismo, [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](sql-database-manage-logins.md).
+Consulte, asimismo, [Administrar bases de datos e inicios de sesión en la Base de datos SQL de Azure](sql-database-manage-logins.md). 
 
-## Acerca de las credenciales de administración
-Las credenciales de administración se usan cuando se crea un objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aquellas aplicaciones que manipulan mapas de particiones. (Por ejemplo, consulte [Incorporación de una partición con herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md) y [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)) El usuario de la biblioteca de cliente de escalado elástico debe crear los usuarios e inicios de sesión de SQL que sean necesarios; asimismo, debe asegurarse de que estos tienen permisos de lectura y escritura para poder usar la base de datos de mapa de particiones global y todas las bases de datos de particiones. Estas credenciales se usan para mantener el mapa de particiones global y los mapas de particiones locales cuando se realizan cambios en el mapa de particiones. Por ejemplo, use las credenciales de administración para crear un objeto de administrador de mapas de particiones, mediante el elemento [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx):
+## <a name="about-management-credentials"></a>Acerca de las credenciales de administración
+Las credenciales de administración se usan cuando se crea un objeto [**ShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) para aquellas aplicaciones que manipulan mapas de particiones. (Por ejemplo, consulte [Incorporación de una partición con herramientas de bases de datos elásticas](sql-database-elastic-scale-add-a-shard.md) y [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md)). El usuario de la biblioteca de cliente de escalado elástico debe crear los usuarios e inicios de sesión de SQL necesarios; asimismo, debe asegurarse de que estos tienen permisos de lectura y escritura para poder usar la base de datos de mapa de particiones global y todas las bases de datos de particiones. Estas credenciales se usan para mantener el mapa de particiones global y los mapas de particiones locales cuando se realizan cambios en el mapa de particiones. Por ejemplo, use las credenciales de administración para crear un objeto de administrador de mapas de particiones, mediante el elemento [**GetSqlShardMapManager**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx): 
 
     // Obtain a shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -38,10 +43,10 @@ La variable **smmAdminConnectionString** es una cadena de conexión que contiene
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-No use valores que tengan el formato "username@server"; use simplemente el valor que tenga el formato "username". Le recomendamos esto, ya que las credenciales deben funcionar tanto con la base de datos del administrador de mapas de particiones, como con las particiones individuales, las cuales pueden estar en distintos servidores.
+No use valores con el formato "username@server"—instead; use simplemente el valor con formato "username".  Le recomendamos esto, ya que las credenciales deben funcionar tanto con la base de datos del administrador de mapas de particiones, como con las particiones individuales, las cuales pueden estar en distintos servidores.
 
-## Credenciales de acceso
-Si desea crear un administrador de mapas de particiones en una aplicación que no va a administrar mapas de particiones, use credenciales que tengan permisos de solo lectura en el mapa de particiones global. La información recuperada del mapa de particiones global que tenga estas credenciales se usa para el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y para rellenar la caché del mapa de particiones del cliente. Las credenciales se proporcionan a través del mismo patrón de llamada al elemento **GetSqlShardMapManager**, como se ha mostrado anteriormente:
+## <a name="access-credentials"></a>Credenciales de acceso
+Si desea crear un administrador de mapas de particiones en una aplicación que no va a administrar mapas de particiones, use credenciales que tengan permisos de solo lectura en el mapa de particiones global. La información recuperada del mapa de particiones global que tenga estas credenciales se usa para el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) y para rellenar la caché del mapa de particiones del cliente. Las credenciales se proporcionan a través del mismo patrón de llamada al elemento **GetSqlShardMapManager** , como se ha mostrado anteriormente: 
 
     // Obtain shard map manager. 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager( 
@@ -49,21 +54,21 @@ Si desea crear un administrador de mapas de particiones en una aplicación que n
             ShardMapManagerLoadPolicy.Lazy
     );  
 
-Recuerde que puede usar el elemento **smmReadOnlyConnectionString** para reflejar la utilización de diferentes credenciales de este acceso en nombre de usuarios **no administradores**: estas credenciales no deben proporcionar permiso de escritura para el mapa de particiones global.
+Recuerde que puede usar el elemento **smmReadOnlyConnectionString** para reflejar la utilización de diferentes credenciales de este acceso en nombre de usuarios **que no sean administradores**: estas credenciales no deben proporcionar permiso de escritura para el mapa de particiones global. 
 
-## Credenciales de conexión
-Cuando use el método [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) para obtener acceso a una partición asociada a una clave de particionamiento, necesitará tener credenciales adicionales. Estas credenciales deben proporcionar los permisos de acceso de solo lectura a las tablas de mapa de particiones local que residen en la partición. Esto es necesario para realizar la validación de la conexión para el enrutamiento dependiente de los datos en la partición. Este fragmento de código le permitirá obtener acceso a los datos, según el contexto de enrutamiento dependiente de los datos:
+## <a name="connection-credentials"></a>Credenciales de conexión
+Cuando use el método [**OpenConnectionForKey**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx) para obtener acceso a una partición asociada a una clave de particionamiento, necesitará tener credenciales adicionales. Estas credenciales deben proporcionar los permisos de acceso de solo lectura a las tablas de mapa de particiones local que residen en la partición. Esto es necesario para realizar la validación de la conexión para el enrutamiento dependiente de los datos en la partición. Este fragmento de código le permitirá obtener acceso a los datos, según el contexto de enrutamiento dependiente de los datos: 
 
     using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>( 
     targetWarehouse, smmUserConnectionString, ConnectionOptions.Validate)) 
 
-En este ejemplo, el elemento **smmUserConnectionString** contiene la cadena de conexión para las credenciales de usuario. En el caso de Base de datos SQL de Azure, la siguiente es una cadena de conexión típica para las credenciales de usuario:
+En este ejemplo, el elemento **smmUserConnectionString** contiene la cadena de conexión para las credenciales de usuario. En el caso de Base de datos SQL de Azure, la siguiente es una cadena de conexión típica para las credenciales de usuario: 
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-Al igual que con las credenciales de administración, no use valores que tengan el formato "username@server". En su lugar, use aquellos que tengan el formato "username". Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirigirá automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor.
+Al igual que con las credenciales de administración, no use valores con el formato "username@server".; use solo "username".  Tenga en cuenta también que la cadena de conexión no contiene un nombre de servidor y de base de datos. Esto se debe a que la llamada **OpenConnectionForKey** dirigirá automáticamente la conexión a la partición correcta según la clave. Por lo tanto, no se proporcionan ni el nombre de la base de datos ni el del servidor. 
 
-## Consulte también
+## <a name="see-also"></a>Consulte, asimismo, 
 [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](sql-database-manage-logins.md)
 
 [Protección de bases de datos SQL](sql-database-security.md)
@@ -72,4 +77,9 @@ Al igual que con las credenciales de administración, no use valores que tengan 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

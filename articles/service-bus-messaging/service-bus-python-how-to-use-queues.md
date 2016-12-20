@@ -1,30 +1,34 @@
 ---
-title: Uso de colas del Bus de servicio con Python | Microsoft Docs
+title: Uso de colas de Service Bus con Python | Microsoft Docs
 description: Aprenda a usar las colas de del Bus de servicio de Azure desde Python.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: python
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/21/2016
 ms.author: sethm;lmazuel
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6a162dc04f8eb5002cae3bf708ae2fcd4c2aa694
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Utilización de las colas del Bus de servicio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Python y usan el [paquete de Azure Service Bus para Python][paquete de Azure Service Bus para Python]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**.
+Este artículo describe cómo usar las colas del Bus de servicio. Los ejemplos están escritos en Python y usan el paquete [Python Azure Service Bus ][Paquete de Azure Service Bus para Python]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 > [!NOTE]
-> Para instalar Python o el [paquete de Azure Service Bus para Python][paquete de Azure Service Bus para Python], consulte la [Guía de instalación de Python](../python-how-to-install.md).
+> Para instalar Python o el [Paquete de Azure Service Bus para Python][Paquete de Azure Service Bus para Python], consulte la [guía de instalación de Python](../python-how-to-install.md).
 > 
 > 
 
@@ -70,7 +74,7 @@ msg = Message(b'Test Message')
 bus_service.send_queue_message('taskqueue', msg)
 ```
 
-El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][Cuotas de Service Bus].
+El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para más información sobre las cuotas, consulte [Cuotas de Service Bus][Cuotas de Service Bus].
 
 ## <a name="receive-messages-from-a-queue"></a>mensajes de una cola
 Los mensajes se reciben de una cola utilizando el método **receive\_queue\_message** del objeto **ServiceBusService**:
@@ -103,7 +107,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos vínculos para obtener más información.
 
-* Vea [Colas, temas y suscripciones][Colas, temas y suscripciones].
+* Consulte [Colas, temas y suscripciones][Colas, temas y suscripciones].
 
 [Portal de Azure clásico]: https://manage.windowsazure.com
 [Paquete de Azure Service Bus para Python]: https://pypi.python.org/pypi/azure-servicebus  
@@ -113,6 +117,6 @@ Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos v�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

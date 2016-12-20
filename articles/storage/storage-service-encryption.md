@@ -1,12 +1,12 @@
 ---
-title: Cifrado del servicio Azure Storage para datos en reposo| Microsoft Docs
-description: Use la característica Cifrado del servicio Almacenamiento de Azure para cifrar el Almacenamiento de blobs de Azure en el servicio cuando almacene los datos y descífrelos cuando los recupere.
+title: Cifrado del servicio Azure Storage para datos en reposo | Microsoft Docs
+description: "Use la característica Cifrado del servicio Almacenamiento de Azure para cifrar el Almacenamiento de blobs de Azure en el servicio cuando almacene los datos y descífrelos cuando los recupere."
 services: storage
 documentationcenter: .net
 author: robinsh
 manager: carmonm
 editor: tysonn
-
+ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: bdb016af2c21b06c6abf5af607e703e5f898f8f4
+
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Cifrado del servicio Almacenamiento de Azure para datos en reposo (versión preliminar)
@@ -56,8 +60,8 @@ SEE tiene las siguientes limitaciones:
 * No se cifrarán los datos de tabla, colas y archivos.
 
 ## <a name="getting-started"></a>Introducción
-### <a name="step-1:-[create-a-new-storage-account](storage-create-storage-account.md)."></a>Paso 1: [Crear una cuenta de almacenamiento nueva](storage-create-storage-account.md).
-### <a name="step-2:-enable-encryption."></a>Paso 2: Habilitar el cifrado.
+### <a name="step-1-create-a-new-storage-accountstorage-create-storage-accountmd"></a>Paso 1: [Crear una cuenta de almacenamiento nueva](storage-create-storage-account.md).
+### <a name="step-2-enable-encryption"></a>Paso 2: Habilitar el cifrado.
 Puede habilitar el cifrado mediante el [Portal de Azure](https://portal.azure.com).
 
 > [!NOTE]
@@ -65,7 +69,7 @@ Puede habilitar el cifrado mediante el [Portal de Azure](https://portal.azure.co
 > 
 > 
 
-### <a name="step-3:-copy-data-to-storage-account"></a>Paso 3: Copiar datos en una cuenta de almacenamiento
+### <a name="step-3-copy-data-to-storage-account"></a>Paso 3: Copiar datos en una cuenta de almacenamiento
 Si habilita SSE en una cuenta de almacenamiento y, a continuación, escribe blobs en esa cuenta de almacenamiento, se cifrarán los blobs. No se cifrarán los blobs que ya se encuentren en esa cuenta de almacenamiento hasta que se vuelvan a escribir. Puede copiar los datos de una cuenta de almacenamiento a una con SSE cifrado, o incluso habilitar SSE y copiar los blobs de un contenedor a otro para asegurarse de que se cifran los datos anteriores. Puede utilizar cualquiera de las siguientes herramientas para lograr esto.
 
 #### <a name="using-azcopy"></a>Uso de AzCopy
@@ -83,7 +87,7 @@ Puede usar un explorador de almacenamiento para crear cuentas de almacenamiento,
 
 Si desea obtener más información, visite [Exploradores de almacenamiento de Azure](storage-explorers.md).
 
-### <a name="step-4:-query-the-status-of-the-encrypted-data"></a>Paso 4: Consultar el estado de los datos cifrados
+### <a name="step-4-query-the-status-of-the-encrypted-data"></a>Paso 4: Consultar el estado de los datos cifrados
 Se ha implementado una versión actualizada de las bibliotecas de cliente de almacenamiento que le permite consultar el estado de un objeto para determinar si está cifrado o no. Los ejemplos se agregarán a este documento en un futuro próximo.
 
 Mientras tanto, puede llamar a [Obtener propiedades de la cuenta](https://msdn.microsoft.com/library/azure/mt163553.aspx) para comprobar que la cuenta de almacenamiento tenga habilitado el cifrado o consultar las propiedades de la cuenta de almacenamiento en el Portal de Azure.
@@ -175,6 +179,9 @@ R: Envíe un correo electrónico a [ssediscussions@microsoft.com](mailto:ssedisc
 ## <a name="next-steps"></a>Pasos siguientes
 Almacenamiento de Azure pone a su disposición diferentes funciones de seguridad que, al usarlas en conjunto, permiten a los desarrolladores compilar aplicaciones seguras. Para obtener más detalles, visite la [Guía de seguridad para almacenamiento](storage-security-guide.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
 title: Modelado de datos en Azure DocumentDB | Microsoft Docs
-description: Más información sobre el modelado de datos para DocumentDB, una base de datos de documentos NoSQL.
+description: "Más información sobre el modelado de datos para DocumentDB, una base de datos de documentos NoSQL."
 keywords: modelado de datos
 services: documentdb
 author: kiratp
 manager: jhubbard
 editor: mimig1
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 69521eb9-590b-403c-9b36-98253a4c88b5
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: kipandya
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+
 
 ---
-# <a name="modeling-data-in-documentdb#"></a>Modelado de datos en DocumentDB
+# <a name="modeling-data-in-documentdb"></a>Modelado de datos en DocumentDB
 Mientras que las bases de datos libres de esquemas, como Azure DocumentDB, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 
 
 ¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación realiza muchas operaciones de lectura o escritura? 
@@ -30,7 +34,7 @@ Después de leer este artículo, podrá responder a las siguientes preguntas:
 * ¿Cómo expreso relaciones de datos en una base de datos no relacional?
 * ¿Cuándo se incrustan datos y cuándo realizo vinculaciones a los datos?
 
-## <a name="embedding-data##"></a>Incrustación de datos
+## <a name="embedding-data"></a>Incrustación de datos
 Al comenzar a modelar datos en un almacén de documentos, como DocumentDB, intente tratar las entidades como **documentos independientes** representados en JSON.
 
 Antes de adentrarnos demasiado, nos gustaría volver a realizar algunos pasos y echar un vistazo a cómo podríamos modelar algo en una base de datos relacional, un asunto con el que muchos de nosotros ya estamos familiarizados. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional. 
@@ -182,7 +186,7 @@ Esto podría representar la cartera de acciones de una persona. Hemos elegido in
 
 Es posible negociar con la acción *zaza* cientos de veces en un solo día y miles de usuarios pueden tener *zaza* en su cartera. Con un modelo de datos como el anterior, tendríamos que actualizar miles de documentos de cartera varias veces al día, por lo que daría lugar a una escalación del sistema no muy buena. 
 
-## <a name="<a-id="refer"></a>referencing-data##"></a><a id="Refer"></a>Datos de referencia
+## <a name="a-idreferareferencing-data"></a><a id="Refer"></a>Datos de referencia
 Por lo tanto, la incrustación de datos funciona bien en muchos casos, pero está claro que hay escenarios en los que la desnormalización de los datos provocará más problemas que ventajas. ¿Qué hacemos ahora? 
 
 Las bases de datos relacionales no son el único lugar donde puede crear relaciones entre entidades. En una base de datos de documentos puede tener información en un documento que realmente se relacione con los datos en otros documentos. No soy partidario ahora de dedicar ni un solo minuto a crear sistemas que podrían ser más adecuados para una base de datos relacional en DocumentDB o cualquier otra base de datos de documentos, ya que las relaciones simples son correctas y pueden ser muy útiles. 
@@ -230,7 +234,7 @@ Sin embargo, una desventaja de este enfoque inmediato es si la aplicación es ne
 > 
 > 
 
-### <a name="what-about-foreign-keys?"></a>¿Qué sucede con las claves externas?
+### <a name="what-about-foreign-keys"></a>¿Qué sucede con las claves externas?
 Puesto que actualmente no hay ningún concepto de restricción, clave externa o de otra índole, las relaciones entre documentos que tienen en los documentos son efectivamente "puntos débiles" y la base de datos no los comprobará. Si desea asegurarse de que los datos a los que hace referencia un documento existen realmente, debe hacerlo en la aplicación o mediante el uso de desencadenadores de servidor o procedimientos almacenados en DocumentDB.
 
 ### <a name="when-to-reference"></a>Cuándo se debe establecer referencias
@@ -246,7 +250,7 @@ Por lo general, se deben utilizar modelos de datos normalizados cuando:
 > 
 > 
 
-### <a name="where-do-i-put-the-relationship?"></a>¿Dónde coloco la relación?
+### <a name="where-do-i-put-the-relationship"></a>¿Dónde coloco la relación?
 El crecimiento de la relación le ayudará a determinar en qué documento almacenar la referencia.
 
 Si observamos el JSON siguiente que sirve como modelo para los publicadores y los libros.
@@ -288,7 +292,7 @@ Cambiar las cosas un poco provocaría la creación de un modelo que seguiría re
 
 En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento del publicador. En su lugar, solo tenemos una referencia al publicador en cada documento del libro.
 
-### <a name="how-do-i-model-many:many-relationships?"></a>¿Cómo se puede modelar las relaciones de varios a varios?
+### <a name="how-do-i-model-manymany-relationships"></a>¿Cómo se puede modelar las relaciones de varios a varios?
 En una base de datos relacional, las relaciones *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas. 
 
 ![Combinar tablas](./media/documentdb-modeling-data/join-table.png)
@@ -329,7 +333,7 @@ Tenga en cuenta lo siguiente.
 
 Ahora, si tuviera un autor, sabría de inmediato qué libros ha escrito y, a la inversa, si tuviera un documento del libro cargado sabría los identificadores de los autores. Esto ahorra la consulta intermedia de la tabla de unión, por lo que se reduce el número de viajes de ida y vuelta al servidor que tiene que realizar la aplicación. 
 
-## <a name="<a-id="wrapup"></a>hybrid-data-models##"></a><a id="WrapUp"></a>Modelos de datos híbridos
+## <a name="a-idwrapupahybrid-data-models"></a><a id="WrapUp"></a>Modelos de datos híbridos
 Ya hemos observado la incrustación (o desnormalización) y el establecimiento de referencias (o normalización). Cada opción tiene sus ventajas y compromisos, como hemos visto. 
 
 No tiene por qué ser siempre una u otra. No tenga miedo de mezclarlas un poco. 
@@ -342,9 +346,9 @@ Considere el siguiente JSON.
     {
         "id": "a1",
         "firstName": "Thomas",
-        "lastName": "Andersen",     
+        "lastName": "Andersen",        
         "countOfBooks": 3,
-        "books": ["b1", "b2", "b3"],
+         "books": ["b1", "b2", "b3"],
         "images": [
             {"thumbnail": "http://....png"}
             {"profile": "http://....png"}
@@ -389,7 +393,7 @@ En el ejemplo hay valores de **adiciones calculadas previamente** para ahorrar u
 
 La capacidad de tener un modelo con campos calculados previamente es posible porque DocumentDB admite **transacciones de varios documentos**. Muchos almacenes NoSQL no pueden realizar transacciones en documentos y, por lo tanto, recomiendan las decisiones de diseño, por ejemplo, "siempre incrustar todo", debido a esa limitación. Con DocumentDB, puede utilizar los desencadenadores del servidor o los procedimientos almacenados que insertan los libros y actualizan los autores dentro de una transacción ACID. Ahora no **tiene** que incrustar todo en un documento para asegurarse de que los datos sigan siendo coherentes.
 
-## <a name="<a-name="nextsteps"></a>next-steps"></a><a name="NextSteps"></a>Pasos siguientes
+## <a name="a-namenextstepsanext-steps"></a><a name="NextSteps"></a>Pasos siguientes
 Lo más importante de este artículo es comprender que el modelado de datos en un mundo sin esquemas es más importante que nunca. 
 
 Como no hay ninguna manera única de representar un elemento de datos en una pantalla, no hay una única forma de modelar los datos. Necesita comprender la aplicación y saber cómo producirá, consumirá y procesará los datos. A continuación, mediante la aplicación de algunas directrices presentadas aquí, puede crear un modelo que aborde las necesidades inmediatas de la aplicación. Cuando las aplicaciones necesitan cambiar, puede aprovechar la flexibilidad de una base de datos sin esquemas para adoptar ese cambio y que el modelo de datos evolucione con facilidad. 
@@ -402,6 +406,9 @@ Para comprender cómo particionar los datos en varias particiones, consulte [Par
 
 Y por último, para obtener información sobre el particionamiento y el modelado de datos en aplicaciones multiempresa, consulte [Scaling a Multi-Tenant Application with Azure DocumentDB](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)(Escalación de una aplicación multiempresa con Azure DocumentDB).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

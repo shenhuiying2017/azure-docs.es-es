@@ -1,13 +1,13 @@
 ---
-title: Restablecer una Puerta de enlace de VPN de Azure | Microsoft Docs
-description: Este artículo te guía a través del restablecimiento de la Puerta de enlace de VPN de Azure. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager.
+title: Restablecimiento de una instancia de Azure VPN Gateway | Microsoft Docs
+description: "Este artículo te guía a través del restablecimiento de la Puerta de enlace de VPN de Azure. El artículo se aplica a puertas de enlace VPN en y los modelos de implementación clásico y de Resource Manager."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 79d77cb8-d175-4273-93ac-712d7d45b1fe
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97ee3599f2eded9800dbb441af7299547c502397
+
 
 ---
 # <a name="reset-an-azure-vpn-gateway-using-powershell"></a>Restablecer una Puerta de enlace de VPN de Azure con PowerShell
@@ -63,6 +67,9 @@ Resultado:
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte la [referencia de cmdlets de la administración de servicios de PowerShell ](https://msdn.microsoft.com/library/azure/mt617104.aspx) y la [referencia de cmdlets de PowerShell Resource Manager](http://go.microsoft.com/fwlink/?LinkId=828732) para obtener más información.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

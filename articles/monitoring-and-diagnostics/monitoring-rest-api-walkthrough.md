@@ -1,12 +1,12 @@
 ---
-title: Tutorial sobre la API de REST de supervisión de Azure | Microsoft Docs
-description: Cómo autenticar las solicitudes y usar la API de REST de supervisión de Azure.
+title: "Tutorial sobre la API de REST de supervisión de Azure | Microsoft Docs"
+description: "Cómo autenticar las solicitudes y usar la API de REST de supervisión de Azure."
 author: mcollier
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: mcollier
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 81564726dd03dbbb93629ebd296e288290d37778
+
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Tutorial sobre la API de REST de supervisión de Azure
@@ -26,7 +30,7 @@ Además de trabajar con varios puntos de datos de métrica, como se muestra en e
 ## <a name="authenticating-azure-monitor-requests"></a>Autenticación de solicitudes de Azure Monitor
 El primer paso consiste en autenticar la solicitud.
 
-Todas las tareas ejecutadas en la API de Azure Monitor utilizan el modelo de autenticación de Azure Resource Manager. Por lo tanto, todas las solicitudes deben autenticarse con Azure Active Directory (Azure AD). Un enfoque para autenticar la aplicación cliente consiste en crear una entidad de servicio de Azure y recuperar el token de autenticación (JWT). El script de ejemplo siguiente muestra cómo crear una entidad de servicio de Azure AD a través de PowerShell. Para obtener un tutorial más detallado, vea la documentación sobre el [uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-password—powershell). También es posible [crear una entidad de servicio a través de Azure Portal](../resource-group-create-service-principal-portal.md).
+Todas las tareas ejecutadas en la API de Azure Monitor utilizan el modelo de autenticación de Azure Resource Manager. Por lo tanto, todas las solicitudes deben autenticarse con Azure Active Directory (Azure AD). Un enfoque para autenticar la aplicación cliente consiste en crear una entidad de servicio de Azure y recuperar el token de autenticación (JWT). El script de ejemplo siguiente muestra cómo crear una entidad de servicio de Azure AD a través de PowerShell. Para obtener un tutorial más detallado, vea la documentación sobre el [uso de Azure PowerShell para crear una entidad de servicio para acceder a recursos](../resource-group-authenticate-service-principal.md#create-service-principal-with-password). También es posible [crear una entidad de servicio a través de Azure Portal](../resource-group-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -41,7 +45,7 @@ $pwd = "{service-principal-password}"
 
 # Create a new Azure AD application
 $azureAdApplication = New-AzureRmADApplication `
-                        -DisplayName "My Azure Insights" `
+                        -DisplayName "My Azure Monitor" `
                         -HomePage "https://localhost/azure-monitor" `
                         -IdentifierUris "https://localhost/azure-monitor" `
                         -Password $pwd
@@ -55,7 +59,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-Para consultar la API de Azure Monitor, la aplicación cliente debe utilizar la entidad de servicio creada anteriormente para la autenticación. El script de PowerShell de ejemplo siguiente muestra un enfoque, basado en utilizar la [Biblioteca de autenticación de Active Directory](../active-directory/active-directory-authentication-libraries.md) (ADAL) para ayudar a obtener el token de autenticación JWT. El token de JWT se pasa como parte de un parámetro de autorización HTTP en las solicitudes a la API de Insights para Azure.
+Para consultar la API de Azure Monitor, la aplicación cliente debe utilizar la entidad de servicio creada anteriormente para la autenticación. El script de PowerShell de ejemplo siguiente muestra un enfoque, basado en utilizar la [Biblioteca de autenticación de Active Directory](../active-directory/active-directory-authentication-libraries.md) (ADAL) para ayudar a obtener el token de autenticación JWT. El token de JWT se pasa como parte de un parámetro de autorización HTTP en las solicitudes a la API de REST de Azure Monitor.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -71,7 +75,7 @@ $cred = New-Object -TypeName Microsoft.IdentityModel.Clients.ActiveDirectory.Cli
 
 $result = $AuthContext.AcquireToken("https://management.core.windows.net/", $cred)
 
-# Build an array of HTTP header values 
+# Build an array of HTTP header values
 $authHeader = @{
 'Content-Type'='application/json'
 'Accept'='application/json'
@@ -87,8 +91,8 @@ Una vez completado el paso de configuración de autenticación, las consultas se
 ## <a name="retrieve-metric-definitions"></a>Recuperación de las definiciones de métricas
 > [!NOTE]
 > Para recuperar las definiciones de métricas usando la API de REST de Azure Monitor, use "2016-03-01" como la versión de API.
-> 
-> 
+>
+>
 
 ```PowerShell
 $apiVersion = "2016-03-01"
@@ -110,8 +114,8 @@ Una vez que se conocen las definiciones de métricas disponibles, es posible rec
 
 > [!NOTE]
 > Para recuperar los valores de métricas usando la API de REST de Azure Monitor, use "2016-06-01" como la versión de API.
-> 
-> 
+>
+>
 
 **Método**: GET
 
@@ -195,7 +199,7 @@ Para recuperar el identificador de recurso mediante la CLI de Azure, ejecute el 
 ![Alt "Identificador de recurso obtenido a través de PowerShell"](./media\\monitoring-rest-api-walkthrough\\resourceid_azurecli.png)
 
 ## <a name="retrieve-activity-log-data"></a>Recuperación de datos del registro de actividades
-Además de trabajar con definiciones de métrica y valores relacionados, también es posible recuperar información adicional interesante relacionada con recursos de Azure. Por ejemplo, es posible consultar los datos del [registro de actividades](https://msdn.microsoft.com/library/azure/dn931934.aspx) . En el ejemplo siguiente se muestra cómo usar la API de REST de Azure Monitor para consultar los datos del registro de actividades dentro de un intervalo de fechas específico para una suscripción de Azure: 
+Además de trabajar con definiciones de métrica y valores relacionados, también es posible recuperar información adicional interesante relacionada con recursos de Azure. Por ejemplo, es posible consultar los datos del [registro de actividades](https://msdn.microsoft.com/library/azure/dn931934.aspx) . En el ejemplo siguiente se muestra cómo usar la API de REST de Azure Monitor para consultar los datos del registro de actividades dentro de un intervalo de fechas específico para una suscripción de Azure:
 
 ```PowerShell
 $apiVersion = "2014-04-01"
@@ -213,6 +217,8 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/provide
 * Revise la [referencia de la API de REST de Microsoft Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Revise la [biblioteca de administración de Azure](https://msdn.microsoft.com/library/azure/mt417623.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

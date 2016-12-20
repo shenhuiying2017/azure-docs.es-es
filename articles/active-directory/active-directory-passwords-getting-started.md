@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 77ca34a56a827e8a69ab9a2b60d14cc7c7a71bfc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
 
 
 ---
@@ -126,7 +126,7 @@ Si desea obtener más información sobre qué datos se usan para el restablecimi
 ### <a name="step-3-reset-your-azure-ad-password-as-a-user"></a>Paso 3: restablecer la contraseña de Azure AD como usuario
 Ahora que configuró una directiva de restablecimiento de usuario y especificó los detalles de contacto del usuario, este puede realizar un restablecimiento de contraseña de autoservicio.
 
-#### <a name="to-perform-a-selfservice-password-reset"></a>Para realizar un restablecimiento de contraseña de autoservicio
+#### <a name="to-perform-a-self-service-password-reset"></a>Para realizar un restablecimiento de contraseña de autoservicio
 1. Si va a un sitio como [**portal.microsoftonline.com**](http://portal.microsoftonline.com), verá una pantalla de inicio de sesión similar a la siguiente.  Haga clic en el vínculo **¿No puede tener acceso a su cuenta?** para probar la interfaz de usuario del restablecimiento de contraseña.
    
    ![][011]
@@ -365,6 +365,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

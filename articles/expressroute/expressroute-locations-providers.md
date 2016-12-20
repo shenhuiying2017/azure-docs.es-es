@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/28/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 86b7d396307761acb8baee5761f08a3e1120cddc
+ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
+ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
 
 
 ---
@@ -28,7 +28,10 @@ ExpressRoute es compatible con todas las ubicaciones y regiones de Azure. El sig
 
 ![Mapa de ubicación][0]
 
-Tendrá acceso a los servicios de Azure en todas las regiones dentro de una región geopolítica si se conectó al menos a una ubicación de ExpressRoute dentro de la región geopolítica. La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
+Tendrá acceso a los servicios de Azure en todas las regiones dentro de una región geopolítica si se conectó al menos a una ubicación de ExpressRoute dentro de la región geopolítica. 
+
+### <a name="azure-regions-to-expressroute-locations-within-a-geopolitical-region"></a>Regiones de Azure para ubicaciones de ExpressRoute dentro de una región geopolítica
+La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaciones de ExpressRoute dentro de una región geopolítica.
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- |
@@ -40,6 +43,7 @@ Tendrá acceso a los servicios de Azure en todas las regiones dentro de una regi
 | **Australia** |Este de Australia y Sudeste de Australia |Melbourne, Sidney |
 | **India** |India occidental, India central, India del Sur |Chennai, Mumbai |
 
+### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiones y límites geopolíticos para nubes nacionales
 En la tabla siguiente se proporciona información sobre las regiones y los límites geopolíticos para nubes nacionales.
 
 | **Región geopolítica** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
@@ -50,10 +54,10 @@ En la tabla siguiente se proporciona información sobre las regiones y los lími
 
 No se admite la conectividad entre las regiones geopolíticas en el SKU de ExpressRoute estándar. Debe habilitar el complemento premium de ExpressRoute para admitir conectividad global. No se admite la conectividad con entornos de nube nacionales. Puede trabajar con su proveedor de conectividad si surge tal necesidad.
 
-## <a name="connectivity-provider-locations"></a>Ubicaciones de proveedor de conectividad
+## <a name="a-namelocationsaconnectivity-provider-locations"></a><a name="locations"></a>Ubicaciones del proveedor de conectividad
 > [!div class="op_single_selector"]
-> [Ubicaciones por proveedor](expressroute-locations.md#connectivity-provider-locations)
-> [Proveedores por ubicación](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Ubicaciones por proveedor](expressroute-locations.md#locations)
+> * [Proveedores por ubicación](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -72,7 +76,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Los Ángeles** |CoreSite, Equinix, Megaport, NTT y Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC y Telstra Corporation |
 | **Nueva York** |Equinix, Megaport y Zayo Group |
-| **Newport(Wales)+** |Datos de última generación+ |
+| **Newport (Gales)** |Datos de última generación |
 | **Montreal** |Cologix+ |
 | **Mumbai (Bombay)** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications y Softbank |
@@ -83,13 +87,14 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet iniciativa Japón Inc. - IIJ, NTT comunicaciones, Softbank y Verizon |
-| **Toronto** |Cologix, Equinix y Zayo Group |
+| **Toronto** |Cologix, Equinix, Megaport y Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** indica próximamente
 
 ### <a name="national-cloud-environments"></a>Entornos de nube nacionales
-#### <a name="us-government-cloud"></a>Nube del gobierno de Estados Unidos
+
+### <a name="us-government-cloud"></a>Nube del gobierno de Estados Unidos
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
@@ -97,7 +102,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **Nueva York** |Equinix, Level 3 Communications+ y Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications y Verizon |
 
-#### <a name="china"></a>China
+### <a name="china"></a>China
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
 | **Beijing** |China Telecom |
@@ -105,7 +110,7 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 
 Para más información, consulte [ExpressRoute en China](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### <a name="germany"></a>Alemania
+### <a name="germany"></a>Alemania
 | **Ubicación** | **Proveedores de servicios** |
 | --- | --- |
 | **Berlín** |Colt+, e-shelter |
@@ -115,13 +120,13 @@ Para más información, consulte [ExpressRoute en China](http://www.windowsazure
 Si su proveedor de conectividad no aparece en la lista de las secciones anteriores, puede crear una conexión.
 
 * Consulte con el proveedor de conectividad para ver si existe una conexión con cualquiera de los intercambios de la tabla anterior. Puede comprobar los vínculos siguientes para recopilar más información sobre los servicios ofrecidos por proveedores de Exchange. Varios proveedores de conectividad ya están conectados a los intercambios de Ethernet.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Haga que el proveedor de conectividad amplíe su red a la ubicación de emparejamiento que elija.
   * Asegúrese de que su proveedor de conectividad amplíe la conectividad con una alta disponibilidad para que no haya ningún punto único de error.
 * Solicitar un circuito ExpressRoute con el intercambio como proveedor de conectividad para conectarse a Microsoft.
@@ -153,6 +158,6 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

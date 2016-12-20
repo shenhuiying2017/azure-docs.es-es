@@ -1,12 +1,12 @@
 ---
 title: Uso de asociados para proporcionar licencias de Widevine a Azure Media Services | Microsoft Docs
-description: En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs.
+description: "En este artículo se describe cómo puede usar Servicios multimedia de Azure (AMS) para entregar una secuencia que se cifra dinámicamente por AMS con DRM tanto de PlayReady como Widevine. La licencia de PlayReady procede del servidor de licencias PlayReady de Servicios multimedia y la licencia de Widevine se entrega al servidor de licencias de castLabs."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5bcad5a4-c0bb-4871-9cce-808a913c53e6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b4211cef3b4f3ffa2c0c97fd7650606f3eef7008
+
 
 ---
 # <a name="using-partners-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso de partners para entregar licencias de Widevine a Servicios multimedia de Azure
@@ -39,6 +43,9 @@ Puede usar [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/) para entregar
 
 [Blog de Mingfei](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

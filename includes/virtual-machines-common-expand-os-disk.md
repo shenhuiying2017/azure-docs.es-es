@@ -1,4 +1,4 @@
-## Información general
+## <a name="overview"></a>Información general
 Cuando cree una nueva máquina virtual (VM) en un grupo de recursos mediante la implementación de una imagen desde [Azure Marketplace](https://azure.microsoft.com/marketplace/), la unidad del sistema operativo predeterminada es de 127 GB. Aunque es posible agregar discos de datos a la máquina virtual (la cantidad depende de la SKU que haya elegido) y, además, se recomienda instalar aplicaciones y cargas de trabajo intensivas de CPU en estos discos de anexo, a menudo los clientes necesitan expandir la unidad del sistema operativo para admitir determinados escenarios, como los siguientes:
 
 1. Compatibilidad con aplicaciones heredadas que instalan componentes en la unidad del sistema operativo.
@@ -9,8 +9,8 @@ Cuando cree una nueva máquina virtual (VM) en un grupo de recursos mediante la 
 > 
 > 
 
-## Cambio del tamaño de la unidad del sistema operativo
-En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad del sistema operativo con módulos de Resource Manager de [Azure Powershell](../articles/powershell-install-configure.md). Abra la ventana de Powershell o Powershell ISE en el modo administrativo y siga estos pasos:
+## <a name="resize-the-os-drive"></a>Cambio del tamaño de la unidad del sistema operativo
+En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad del sistema operativo con módulos de Resource Manager de [Azure Powershell](/powershell/azureps-cmdlets-docs). Abra la ventana de Powershell o Powershell ISE en el modo administrativo y siga estos pasos:
 
 1. Inicie sesión en su cuenta de Microsoft Azure en el modo de administración de recursos y seleccione su suscripción de la siguiente manera:
    
@@ -53,7 +53,7 @@ En este artículo se va a realizar la tarea de cambiar el tamaño de la unidad d
 
 Eso es todo. Ahora RDP en la máquina virtual, abra Administración de equipos (o Administración de discos) y expanda la unidad utilizando el espacio recién asignado.
 
-## Resumen
+## <a name="summary"></a>Resumen
 En este artículo, hemos usado los módulos de Azure Resource Manager de Powershell para expandir la unidad del sistema operativo de una máquina virtual de IaaS. El script completo se muestra a continuación para su referencia:
 
 ```Powershell
@@ -68,18 +68,22 @@ Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## Pasos siguientes
-Aunque en este artículo nos centramos principalmente en expandir el disco del sistema operativo de la máquina virtual, también puede utilizarse el script desarrollado para expandir los discos de datos conectados a la máquina virtual mediante el cambio de una sola línea de código. Por ejemplo, para expandir el primer disco de datos conectado a la máquina virtual, reemplace el objeto ```OSDisk``` de ```StorageProfile``` con la matriz ```DataDisks``` y utilice un índice numérico para obtener una referencia al primer disco de datos conectado, como se muestra a continuación:
+## <a name="next-steps"></a>Pasos siguientes
+Aunque en este artículo nos centramos principalmente en expandir el disco del sistema operativo de la máquina virtual, también puede utilizarse el script desarrollado para expandir los discos de datos conectados a la máquina virtual mediante el cambio de una sola línea de código. Por ejemplo, para expandir el primer disco de datos conectado a la máquina virtual, reemplace el objeto ```OSDisk``` de ```StorageProfile``` por la matriz ```DataDisks``` y utilice un índice numérico para obtener una referencia al primer disco de datos conectado, como se muestra a continuación:
 
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
-Del mismo modo, puede hacer referencia a otros discos de datos conectados a la máquina virtual, ya sea mediante un índice, como se muestra arriba o con la propiedad del disco ```Name```, como se muestra a continuación:
+Del mismo modo, puede hacer referencia a otros discos de datos conectados a la máquina virtual, ya sea mediante un índice, como se muestra arriba o con la propiedad del disco ```Name``` , como se muestra a continuación:
 
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where {$_.Name -eq 'my-second-data-disk'})[0].DiskSizeGB = 1023
 ```
 
-Si desea descubrir cómo conectar discos a una máquina virtual de Azure Resource Manager, vea este [artículo](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md).
+Si desea averiguar cómo conectar discos a una máquina virtual de Azure Resource Manager, consulte este [artículo](../articles/virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

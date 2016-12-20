@@ -1,19 +1,23 @@
 ---
 title: Integraciones de asociados de Azure Monitor | Microsoft Docs
-description: Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos.
+description: "Obtenga información sobre los asociados de Azure Monitor y sobre cómo puede acceder a documentación para integrarlos."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/31/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
@@ -25,17 +29,19 @@ ms.author: johnkem
 | [![Partner Logo][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |[![Partner Logo][splunk-logo]<br/>**Splunk**][splunk-anchor] |[![Partner Logo][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
-AlertLogic Log Manager recopila registros de la plataforma de Azure, aplicaciones y máquinas virtuales a efectos de retención y análisis de seguridad. Esto incluye los registros de auditoría de Azure mediante la API de Insights para Azure.  Esta información se utiliza para detectar conductas indebidas y satisfacer los requisitos de cumplimiento.
+AlertLogic Log Manager recopila registros de la plataforma de Azure, aplicaciones y máquinas virtuales a efectos de retención y análisis de seguridad. Esto incluye los registros de auditoría de Azure mediante la API de Azure Monitor.  Esta información se utiliza para detectar conductas indebidas y satisfacer los requisitos de cumplimiento.
 
 [Vaya a la documentación.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-Application Performance Management (APM) de AppDynamics permite a los propietarios de aplicaciones solucionar rápidamente los cuellos de botella de rendimiento y optimizar el rendimiento de las aplicaciones en ejecución en el entorno de Azure. APM de AppDynamics está perfectamente integrado con Azure Marketplace y disponible para supervisar Azure Cloud Services (PaaS) (incluidos los roles web y de trabajo), Virtual Machines (IaaS), Detección de servicios remotos (Microsoft Azure Service Bus), Servicios remotos de Microsoft Azure y Colas de Microsoft Azure (Blob de Azure), Cola de Azure (Microsoft Service Bus), Almacenamiento de datos y Microsoft Azure Blob Storage. 
+Application Performance Management (APM) de AppDynamics permite a los propietarios de aplicaciones solucionar rápidamente los cuellos de botella de rendimiento y optimizar el rendimiento de las aplicaciones en ejecución en el entorno de Azure. APM de AppDynamics está perfectamente integrado con Azure Marketplace y disponible para supervisar Azure Cloud Services (PaaS) (incluidos los roles web y de trabajo), Virtual Machines (IaaS), Detección de servicios remotos (Microsoft Azure Service Bus), Servicios remotos de Microsoft Azure y Colas de Microsoft Azure (Blob de Azure), Cola de Azure (Microsoft Service Bus), Almacenamiento de datos y Microsoft Azure Blob Storage.
 
 [Vaya a la documentación.][appdynamics-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
-Próximamente.
+Puede crear incidencias JIRA de alertas de Azure Monitor.
+
+[Vaya a la documentación.][atlassian-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 CloudMonix ofrece servicios de supervisión, automatización y recuperación automática para la Plataforma Microsoft Azure.
@@ -53,7 +59,8 @@ Datadog es un servicio de supervisión líder en el mundo para aplicaciones de e
 [Vaya a la documentación.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent se integra con Azure Virtual Machines y App Services a través de los mecanismos de extensión de Azure correspondientes. De esta forma se pueden recopilar métricas de rendimiento sobre los hosts, la red y los servicios.
+Dynatrace OneAgent se integra con Azure Virtual Machines y App Services a través de los mecanismos de extensión de Azure correspondientes.
+De esta forma se pueden recopilar métricas de rendimiento sobre los hosts, la red y los servicios.
 Aparte de mostrar simplemente las métricas, se visualizan entornos de un extremo a otro, que muestran las transacciones desde el lado cliente hasta la capa de base de datos.
 La correlación basada en AI de problemas y el análisis integrado de las causas principales, incluida la información a nivel de método sobre código y bases de datos, facilita bastante la solución de problemas y las optimizaciones de rendimiento.
 
@@ -68,14 +75,12 @@ OpsGenie actúa como un distribuidor para las alertas generadas por Azure. OpsGe
 [Vaya a la documentación.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, la solución líder de administración de incidentes, ofrece soporte de primera clase para Azure Alerts sobre las métricas. Hoy en día, PagerDuty admite notificaciones de alertas de Applications Insights para Azure, notificaciones de escalado automático y eventos de registro de auditoría, además de las notificaciones sobre las métricas a nivel de plataforma para los servicios de Azure. Estas mejoras proporcionan una mayor visibilidad a los usuarios de la Plataforma Azure principal, mientras les permite aprovechar al máximo las capacidades de administración de incidentes de PagerDuty para responder en tiempo real. La integración expandida de Azure es posible a través de webhook, lo que permite realizar configuraciones y personalizaciones de manera rápida y sencilla.
+PagerDuty, la solución líder de administración de incidentes, ofrece soporte de primera clase para Azure Alerts sobre las métricas. Hoy en día, PagerDuty admite notificaciones de alertas de Azure Monitor para aplicaciones Azure, notificaciones de escalado automático y eventos de registro de auditoría, además de las notificaciones sobre las métricas a nivel de plataforma para los servicios de Azure. Estas mejoras proporcionan una mayor visibilidad a los usuarios de la Plataforma Azure principal, mientras les permite aprovechar al máximo las capacidades de administración de incidentes de PagerDuty para responder en tiempo real. La integración expandida de Azure es posible a través de webhook, lo que permite realizar configuraciones y personalizaciones de manera rápida y sencilla.
 
 [Vaya a la documentación.][pagerduty-doc]
 
-## <a name="splunk-addon-for-microsoft-azure"></a>Complemento Splunk para Microsoft Azure
-El complemento Splunk para Microsoft Azure recopila datos de diagnóstico, rendimiento, auditoría y seguridad valiosos para la infraestructura y los sitios web que se ejecutan en Microsoft Azure. 
-
-La información de rendimiento y diagnóstico se recopila desde tablas de Azure Storage y blobs de Azure Storage. Los datos de auditoría se recopilan desde la API de eventos de Insights para Azure. Los datos del grupo de seguridad de red se recopilan desde los blobs de Azure Storage. Se incluyen varios paneles prediseñados con este complemento. 
+## <a name="splunk-add-on-for-microsoft-cloud-services"></a>Complemento Splunk para Microsoft Cloud Services
+El complemento Splunk para Microsoft Cloud Services está [disponible aquí](https://splunkbase.splunk.com/app/3110/).
 
 [Vaya a la documentación.][splunk-doc]
 
@@ -97,7 +102,7 @@ La información de rendimiento y diagnóstico se recopila desde tablas de Azure 
 [newrelic-anchor]: #newrelic "NewRelic"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
-[splunk-anchor]: #splunk-add-on-for-microsoft-azure "Splunk"
+[splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
 [sumologic-anchor]: #sumologic "Sumo Logic"
 
 <!--Icon references-->
@@ -117,6 +122,7 @@ La información de rendimiento y diagnóstico se recopila desde tablas de Azure 
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentación de AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentación de AppDynamics."
+[atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introducción a CloudMonix."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introducción a Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentación de DataDog."
@@ -124,11 +130,11 @@ La información de rendimiento y diagnóstico se recopila desde tablas de Azure 
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentación de OpsGenie."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty"
-[splunk-doc]: https://splunkbase.splunk.com/app/3084/#/details "Documentación de Splunk."
+[splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentación de Splunk."
 [sumologic-doc]: https://www.sumologic.com/azure "Documentación de SumoLogic"
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

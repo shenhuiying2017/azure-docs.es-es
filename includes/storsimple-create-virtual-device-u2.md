@@ -3,7 +3,7 @@
 2. Vaya a la página **Dispositivos** . Haga clic en **Crear un dispositivo virtual** en la parte inferior de la página **Dispositivos**.
 3. En el **cuadro de diálogo Crear un dispositivo virtual**, especifique los detalles siguientes.
    
-     ![Crear dispositivo virtual de StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
+    ![Crear dispositivo virtual de StorSimple](./media/storsimple-create-virtual-device-u2/CreatePremiumsva1.png)
    
    1. **Nombre** : un nombre único para el dispositivo virtual.
    2. **Modelo** : elija el modelo del dispositivo virtual. Este campo se muestra solo si se ejecuta Update 2 o posterior. Un modelo de dispositivo 8010 ofrece 30 TB de almacenamiento estándar, mientras que 8020 tiene 64 TB de almacenamiento premium. Especifique 8010
@@ -28,6 +28,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Inicio de sesión en Azure como una organización
-description: Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD.
+title: "Inicio de sesión en Azure como una organización"
+description: "Obtenga información acerca de cómo puede utilizar una cuenta profesional o educativa para aprovechar las cuentas de usuario, las directivas, las configuraciones o las implementaciones de servidor local que ya tiene y mejorar la eficacia entre la infraestructura de identidad local de su organización y Azure AD."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1b7f6dc2-bbdb-4aee-a615-db2f991f46ed
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bdbe25307b8b5e811dad374583d9ba3b96e212a5
+
 
 ---
 # <a name="sign-up-for-azure-as-an-organization"></a>Inicio de sesión en Azure como una organización
@@ -32,6 +36,9 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Mi
 * [¿Qué es Azure AD?](active-directory-whatis.md)
 * [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

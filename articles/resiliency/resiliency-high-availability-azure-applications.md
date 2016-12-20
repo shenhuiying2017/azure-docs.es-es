@@ -1,12 +1,12 @@
 ---
 title: Alta disponibilidad para aplicaciones creadas en Microsoft Azure | Microsoft Docs
-description: Información general técnica y detallada sobre cómo diseñar y crear aplicaciones para alta disponibilidad en Microsoft Azure.
-services: ''
+description: "Información general técnica y detallada sobre cómo diseñar y crear aplicaciones para alta disponibilidad en Microsoft Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 8be4f323-ca00-4025-9356-c9bbc998eef3
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f7289c969184b518a6ff836cbb9ed7e20841206b
+
 
 ---
 # <a name="high-availability-for-applications-built-on-microsoft-azure"></a>Alta disponibilidad para aplicaciones creadas en Microsoft Azure
@@ -36,7 +40,7 @@ Los dominios de actualización son similares a los dominios de error en su funci
 ### <a name="features-in-other-services"></a>Características de otros servicios
 Además de estas características de plataforma que admiten una gran disponibilidad de procesos, Azure inserta características de alta disponibilidad en sus demás servicios. Por ejemplo, Almacenamiento de Azure mantiene tres réplicas de todos los datos de los blobs, tablas y cola. También permite la opción de replicación geográfica para almacenar copias de seguridad de blobs y tablas en una región secundaria. La red de entrega de contenido de Azure permite que los blobs se almacenen en caché en todo el mundo tanto por redundancia como por escalabilidad. Base de datos SQL de Azure también mantiene varias réplicas.
 
-Además de la serie de artículos de [Guía técnica sobre resistencia en Azure](https://aka.ms/bctechguide), consulte el artículo [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Procedimientos recomendados para el diseño de servicios a gran escala en Azure Cloud Services). Estos artículos profundizan en el análisis de las características de disponibilidad de la plataforma Azure.
+Además de la serie de artículos de [Guía técnica sobre resistencia en Azure](https://aka.ms/bctechguide), consulte el artículo [Best Practices for Designing Large-Scale Services on Windows Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/) (Procedimientos recomendados para el diseño de servicios a gran escala en Azure Cloud Services). Estos artículos profundizan en el análisis de las características de disponibilidad de la plataforma Azure.
 
 Aunque Azure proporciona varias características que admiten la alta disponibilidad, es importante conocer sus limitaciones:
 
@@ -129,11 +133,14 @@ Tenga en cuenta que el diagrama anterior muestra una implementación de este enf
 * Se puede utilizar Caché de Azure en la capa web para proporcionar los requisitos inmediatos de almacenamiento en caché después de la transacción.
 
 ### <a name="scalability-patterns"></a>Patrones de escalabilidad
-Es importante tener en cuenta que la escalabilidad del servicio en la nube afecta directamente a la disponibilidad. Si una carga mayor hace que el servicio no responda, la impresión del usuario es que la aplicación no está funcionando. Siga los procedimientos recomendados para la escalabilidad en función de la carga esperada de la aplicación y sus expectativas futuras. La máxima escala incluye muchas consideraciones, como el uso de una única cuenta de almacenamiento o varias, el uso compartido entre varias bases de datos y las estrategias de almacenamiento en caché. Para una visión detallada de estos patrones, consulte [Best Practices for Designing Large-Scale Services on Microsoft Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)(Procedimientos recomendados para el diseño de servicios a gran escala en Microsoft Azure).
+Es importante tener en cuenta que la escalabilidad del servicio en la nube afecta directamente a la disponibilidad. Si una carga mayor hace que el servicio no responda, la impresión del usuario es que la aplicación no está funcionando. Siga los procedimientos recomendados para la escalabilidad en función de la carga esperada de la aplicación y sus expectativas futuras. La máxima escala incluye muchas consideraciones, como el uso de una única cuenta de almacenamiento o varias, el uso compartido entre varias bases de datos y las estrategias de almacenamiento en caché. Para una visión detallada de estos patrones, consulte [Best Practices for Designing Large-Scale Services on Windows Azure](https://azure.microsoft.com/blog/best-practices-for-designing-large-scale-services-on-windows-azure/)(Procedimientos recomendados para el diseño de servicios a gran escala en Windows Azure).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Este artículo forma parte de una serie enfocada a la [recuperación ante desastres y la alta disponibilidad para aplicaciones creadas en Microsoft Azure](resiliency-disaster-recovery-high-availability-azure-applications.md). El siguiente artículo de esta serie es [Recuperación ante desastres para aplicaciones generadas en Microsoft Azure](resiliency-disaster-recovery-azure-applications.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

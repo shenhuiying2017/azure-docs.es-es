@@ -53,7 +53,7 @@ Existen dos modos principales de edición de reglas de estilo: **Edit all rules*
 
 En esta sección queremos cambiar solo el estilo de los encabezados. Haga clic en la opción **Pick element** (Seleccionar elemento) de la barra de herramientas del editor de estilo y luego en **Select an element to customize** (Seleccionar un elemento para personalizarlo). Los elementos se irán resaltando cuando pase el mouse sobre ellos a fin de indicar qué estilos del elemento empezaría a editar si hiciera clic. Mueva el mouse sobre el texto que representa el nombre de la empresa en el encabezado ("Portal para desarrolladores Fabrikam" si siguió las instrucciones de la sección anterior) y haga clic en él. Aparecerá un conjunto de reglas de estilo con diferentes nombres y categorías dentro del propio editor de estilo.
 
-Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family..
+Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
 
 > Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap usado por el portal para editores.
 > 

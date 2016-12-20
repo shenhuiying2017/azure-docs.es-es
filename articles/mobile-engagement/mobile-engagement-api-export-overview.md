@@ -1,26 +1,30 @@
 ---
-title: Información general de API de exportación de Mobile Engagement
-description: Aprender los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas.
+title: "Información general de API de exportación de Mobile Engagement"
+description: "Aprender los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas."
 services: mobile-engagement
 documentationcenter: mobile
 author: kpiteira
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9380d47b-d7fa-4d4c-888f-97e6482196bb
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
-ms.author: kpiteira
+ms.author: kapiteir
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c17a1cb33616ad297d0fad9b8ea674de75bd8fb
+
 
 ---
-# Información general de API de exportación de Mobile Engagement
-## Introducción
+# <a name="mobile-engagement-export-api-overview"></a>Información general de API de exportación de Mobile Engagement
+## <a name="introduction"></a>Introducción
 Con en este documento aprenderá los conceptos básicos sobre la exportación de datos sin procesar generados por los dispositivos del usuario para aprovecharlos en sus propias herramientas.
 
-## Requisitos previos
+## <a name="pre-requisites"></a>Requisitos previos
 La exportación de datos sin procesar desde Mobile Engagement requiere:
 
 * Configuración de autenticación de API para poder usar las API (consulte la [configuración manual de la autenticación](mobile-engagement-api-authentication-manual.md)),
@@ -32,8 +36,9 @@ La exportación de datos sin procesar desde Mobile Engagement requiere:
 > 
 > 
 
-## ¿Qué se puede exportar?
-Mobile Engagement permite a sus usuarios recopilar muchos tipos de datos y, por tanto, tiene varios tipos de exportación adecuados para estos tipos de datos diferentes. Hay 2 tipos esenciales de exportación:
+## <a name="what-can-be-exported"></a>¿Qué se puede exportar?
+Mobile Engagement permite a sus usuarios recopilar muchos tipos de datos y, por tanto, tiene varios tipos de exportación adecuados para estos tipos de datos diferentes.
+Hay 2 tipos esenciales de exportación:
 
 * Instantánea: se usa normalmente para exportar datos que representan un estado y para los que Mobile Engagement no tiene un historial. Esto incluye, por ejemplo, etiquetas (información de la aplicación), tokens o comentarios de campañas de inserción. En consecuencia, estos tipos de exportación no están relacionados con una fecha.
 * Históricos: este tipo de exportación se usa para datos que se acumulan a lo largo del tiempo, como eventos o actividades, por ejemplo.
@@ -51,8 +56,9 @@ La tabla siguiente describe exhaustivamente todas las exportaciones posibles:
 | Históricos |Trabajo |Genera una exportación de todos los trabajos para cada dispositivo en un período de tiempo determinado |
 | Históricos |Error |Genera una exportación de todos los errores para cada dispositivo en un período de tiempo determinado |
 
-## ¿Cómo funciona?
-Las exportaciones son tareas de larga ejecución que puede producir archivos de datos grandes. Por ese motivo, no se pueden invocar para devolver inmediatamente un archivo para descargar. Para exportar datos desde Mobile Engagement, tendrá que crear un **trabajo de exportación** a través de la API donde, por lo general, debe especificar:
+## <a name="how-does-it-work"></a>¿Cómo funciona?
+Las exportaciones son tareas de larga ejecución que puede producir archivos de datos grandes. Por ese motivo, no se pueden invocar para devolver inmediatamente un archivo para descargar.
+Para exportar datos desde Mobile Engagement, tendrá que crear un **trabajo de exportación** a través de la API donde, por lo general, debe especificar:
 
 * El tipo de exportación (instantánea o histórico)
 * El tipo de datos,
@@ -64,4 +70,9 @@ Una vez que se crea el trabajo, es posible comprobar su estado para ver si todav
 
 Cuando el trabajo se complete CORRECTAMENTE, el archivo de datos resultante estará disponible en el contenedor de almacenamiento proporcionado.
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

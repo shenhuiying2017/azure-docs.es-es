@@ -1,12 +1,12 @@
 ---
-title: Aplicación Android de la versión 2.0 de Azure Active Directory | Microsoft Docs
-description: Procedimiento para compilar una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto su cuenta personal de Microsoft y sus cuentas profesionales o educativas, además de realizar llamadas a la API Graph mediante bibliotecas de terceros.
+title: "Aplicación para Android de la versión 2.0 de Azure Active Directory | Microsoft Docs"
+description: "Procedimiento para compilar una aplicación Android con la que los usuarios pueden iniciar sesión utilizando tanto su cuenta personal de Microsoft y sus cuentas profesionales o educativas, además de realizar llamadas a la API Graph mediante bibliotecas de terceros."
 services: active-directory
-documentationcenter: ''
-author: brandwe
+documentationcenter: 
+author: xerners
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 16294c07-f27d-45c9-833f-7dbb12083794
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: brandwe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 143d72953e84f9ffead2e3c4b0c88b350b824572
+
 
 ---
-# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v2.0-endpoint"></a>Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
+# <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adición de inicio de sesión a una aplicación Android mediante una biblioteca de terceros con la API Graph mediante la versión 2.0 del punto de conexión
 La plataforma Microsoft Identity utiliza estándares abiertos como OAuth2 y OpenID Connect. Los desarrolladores pueden usar la biblioteca que quieran integrar con nuestros servicios. Para ayudar a los desarrolladores a utilizar nuestra plataforma con otras bibliotecas, hemos escrito algunos tutoriales como este para demostrar cómo configurar bibliotecas de terceros con el objetivo de conectarse a la plataforma Microsoft Identity. La mayoría de las bibliotecas que implementan [la especificación OAuth2 RFC6749](https://tools.ietf.org/html/rfc6749) pueden conectarse a la plataforma Microsoft Identity.
 
 Con la aplicación que se crea en este tutorial, los usuarios podrán iniciar sesión en su organización y, después, buscarse en la organización mediante la API Graph.
@@ -49,7 +53,7 @@ git@github.com:Azure-Samples/active-directory-android-native-oidcandroidlib-v2.g
 ```
 
 ## <a name="register-an-app"></a>Registrar una aplicación
-Cree una nueva aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com) o siga los pasos que se detallan en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md).  Asegúrese de que:
+Cree una nueva aplicación en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o siga los pasos que se detallan en [Cómo registrar una aplicación con el punto de conexión v2.0](active-directory-v2-app-registration.md).  Asegúrese de que:
 
 * Copie el **id. de aplicación** asignado a su aplicación, ya que lo necesitará pronto.
 * Agregar la plataforma **Móvil** a la aplicación.
@@ -116,7 +120,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 ## <a name="configure-the-endpoints-of-the-sample"></a>Configuración de los puntos de conexión del ejemplo
 Ahora que `oidlib-sample` se ejecuta correctamente, vamos a modificar algunos puntos de conexión para que funcionen con Azure Active Directory.
 
-### <a name="configure-your-client-by-editing-the-oidc_clientconf.xml-file"></a>Configuración del cliente modificando el archivo oidc_clientconf.xml
+### <a name="configure-your-client-by-editing-the-oidcclientconfxml-file"></a>Configuración del cliente modificando el archivo oidc_clientconf.xml
 1. Como estamos usando flujos de OAuth2 para obtener un token y llamar a la API Graph, vamos a configurar el cliente para que solo utilice OAuth2. El uso de OIDC se tratará en un ejemplo posterior.
    
     ```xml
@@ -148,7 +152,7 @@ Puede obtener más información sobre todos los ámbitos disponibles en [Microso
 
 Si quiere ver explicaciones sobre `openid` o `offline_access` como los ámbitos de OpenID Connect, consulte [Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols-oauth-code.md).
 
-### <a name="configure-your-client-endpoints-by-editing-the-oidc_endpoints.xml-file"></a>Configuración de los puntos de conexión de cliente modificando el archivo oidc_endpoints.xml
+### <a name="configure-your-client-endpoints-by-editing-the-oidcendpointsxml-file"></a>Configuración de los puntos de conexión de cliente modificando el archivo oidc_endpoints.xml
 * Abra el archivo `oidc_endpoints.xml` y realice los siguientes cambios:
   
     ```xml
@@ -185,6 +189,9 @@ Cuando se haya autenticado correctamente, haga clic en el botón **Request Prote
 ## <a name="get-security-updates-for-our-product"></a>Obtención de actualizaciones de seguridad para nuestro producto
 Le animamos a que obtenga notificaciones de los incidentes de seguridad que se produzcan; para ello, visite la página [TechCenter de seguridad](https://technet.microsoft.com/security/dd252948) y suscríbase a las alertas de documentos informativos de seguridad.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

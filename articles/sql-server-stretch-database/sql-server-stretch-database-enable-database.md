@@ -1,12 +1,12 @@
 ---
-title: Enable Stretch Database for a database | Microsoft Docs
-description: Learn how to configure a database for Stretch Database.
+title: "Habilitación de Stretch Database para una base de datos | Microsoft Docs"
+description: "Obtenga información acerca de cómo configurar una base de datos para Stretch Database."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: douglaslMS
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 55fc4142-4be9-4664-8ea9-48a5e177838f
 ms.service: sql-server-stretch-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,33 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: douglasl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c6d3a81c3c919e50c123cef00dfb3e4a5ab23a44
+
 
 ---
-# <a name="enable-stretch-database-for-a-database"></a>Enable Stretch Database for a database
-To configure an existing database for Stretch Database, select **Tasks | Stretch | Enable** for a database in SQL Server Management Studio to open the **Enable Database for Stretch** wizard. You can also use Transact\-SQL to enable Stretch Database for a database.
+# <a name="enable-stretch-database-for-a-database"></a>Habilitación de Stretch Database para una base de datos
+Para configurar una base de datos existente para Stretch Database, seleccione **Tareas | Stretch | Habilitar** en una base de datos de SQL Server Management Studio para abrir el asistente **Habilitar la base de datos para Stretch**. También puede utilizar Transact\-SQL a fin de habilitar Stretch Database para una base de datos.
 
-If you select **Tasks | Stretch | Enable** for an individual table, and you have not yet enabled the database for Stretch Database, the wizard configures the database for Stretch Database and lets you select tables as part of the process. Follow the steps in this topic instead of the steps in [Enable Stretch Database for a table](sql-server-stretch-database-enable-database.md).
+Si selecciona **Tareas | Stretch | Habilitar** para una tabla y no ha habilitado todavía la base de datos para Stretch Database, el asistente configura la base de datos para Stretch Database y permite configurar tablas como parte del proceso. Siga los pasos de este tema en lugar de los pasos de [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-database.md).
 
-Enabling Stretch Database on a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+La habilitación de Stretch Database en una base de datos o una tabla requiere permisos db\_owner. La habilitación de Stretch Database en una base de datos también requiere permisos CONTROL DATABASE.
 
 > [!NOTE]
-> Later, if you disable Stretch Database, remember that disabling Stretch Database for a table or for a database does not delete the remote object. If you want to delete the remote table or the remote database, you have to drop it by using the Azure management portal. The remote objects continue to incur Azure costs until you delete them manually.
+> Posteriormente, al deshabilitar Stretch Database, no olvide que si lo hace en una tabla o una base de datos, no se elimina el objeto remoto. Si quiere eliminar la tabla remota o la base de datos remota, debe hacerlo mediante el Portal de administración de Azure. Los objetos remotos seguirán generando costos de Azure hasta que se eliminan manualmente.
 > 
 > 
 
-## <a name="before-you-get-started"></a>Before you get started
-* Before you configure a database for Stretch, we recommend that you run the Stretch Database Advisor to identify databases and tables that are eligible for Stretch. The Stretch Database Advisor also identifies blocking issues. For more info, see [Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md).
-* Review [Limitations for Stretch Database](sql-server-stretch-database-limitations.md).
-* Stretch Database migrates data to Azure . Therefore you have to have an Azure account and a subscription for billing. To get an Azure account, [click here](http://azure.microsoft.com/pricing/free-trial/).
-* Have the connection and login info you need to create a new Azure server or to select an existing Azure server.
+## <a name="before-you-get-started"></a>Antes de comenzar
+* Antes de configurar una base de datos para Stretch, se recomienda ejecutar el Asesor de Stretch Database para identificar las bases de datos y las tablas que son elegibles para el ajuste. El Asesor de Stretch Database también identifica los problemas de bloqueo. Para obtener más información, consulte [Identificar bases de datos y tablas para Stretch Database al ejecutar el Asesor de Stretch Database](sql-server-stretch-database-identify-databases.md).
+* Consulte [Limitaciones de Stretch Database](sql-server-stretch-database-limitations.md).
+* Stretch Database migra los datos a Azure. Por lo tanto, es necesario tener una cuenta de Azure y una suscripción para la facturación. Para obtener una cuenta de Azure, [haga clic aquí](http://azure.microsoft.com/pricing/free-trial/).
+* Tenga a mano la información de inicio de sesión y conexión que necesita para crear un nuevo servidor de Azure o seleccionar uno que ya exista.
 
-## <a name="<a-name="enabletsqlserver"></a>prerequisite:-enable-stretch-database-on-the-server"></a><a name="EnableTSQLServer"></a>Prerequisite: Enable Stretch Database on the server
-Before you can enable Stretch Database on a database or a table, you have to enable it on the local server. This operation requires sysadmin or serveradmin permissions.
+## <a name="a-nameenabletsqlserveraprerequisite-enable-stretch-database-on-the-server"></a><a name="EnableTSQLServer"></a>Requisito previo: habilitar Stretch Database en el servidor
+Para poder habilitar Stretch Database en una base de datos o una tabla, tendrá que habilitarlo en el servidor local. Esta operación requiere permisos sysadmin o serveradmin.
 
-* If you have the required administrative permissions, the **Enable Database for Stretch** wizard configures the server for Stretch .
-* If you don't have the required permissions,  an administrator has to enable the option manually by running **sp\_configure** before you run the wizard, or an administrator has to run the wizard.
+* Si tiene los permisos administrativos necesarios, el asistente para **habilitar la base de datos para Stretch** configura el servidor para Stretch.
+* Si no tiene los permisos necesarios, un administrador debe habilitar manualmente la opción ejecutando **sp\_configure** para que usted pueda ejecutar el asistente o un administrador debe ejecutar el asistente.
 
-To enable Stretch Database on the server manually, run **sp\_configure** and turn on the **remote data archive** option. The following example enables the **remote data archive** option by setting its value to 1.
+Para habilitar Stretch Database en el servidor manualmente, ejecute **sp\_configure** y active la opción de **archivo de datos remotos**. En el ejemplo siguiente se habilita la opción de **archivo de datos remotos** estableciendo su valor en 1.
 
 ```
 EXEC sp_configure 'remote data archive' , '1';
@@ -49,23 +53,23 @@ GO
 RECONFIGURE;
 GO
 ```
-For more info, see [Configure the remote data archive Server Configuration Option](https://msdn.microsoft.com/library/mt143175.aspx) and [sp_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
+Para más información, consulte [Configuración de la opción de configuración del servidor Archivo de datos remotos](https://msdn.microsoft.com/library/mt143175.aspx) y [sp_configure (Transact-SQL)](https://msdn.microsoft.com/library/ms188787.aspx).
 
-## <a name="<a-name="wizard"></a>use-the-wizard-to-enable-stretch-database-on-a-database"></a><a name="Wizard"></a>Use the wizard to enable Stretch Database on a database
-For info about the Enable Database for Stretch Wizard, including the info that you have to enter and the choices that you have to make, see [Get started by running the Enable Database for Stretch Wizard](sql-server-stretch-database-wizard.md).
+## <a name="a-namewizardause-the-wizard-to-enable-stretch-database-on-a-database"></a><a name="Wizard"></a>Uso del asistente para habilitar Stretch Database en una base de datos
+Para obtener más información sobre el asistente Habilitar la base de datos para Stretch, incluida la información que se debe especificar y las opciones que se deben seleccionar, consulte [Ejecución del asistente para habilitar la base de datos para Stretch](sql-server-stretch-database-wizard.md).
 
-## <a name="<a-name="enabletsqldatabase"></a>use-transact\-sql-to-enable-stretch-database-on-a-database"></a><a name="EnableTSQLDatabase"></a>Use Transact\-SQL to enable Stretch Database on a database
-Before you can enable Stretch Database on individual tables, you have to enable it on the database.
+## <a name="a-nameenabletsqldatabaseause-transact-sql-to-enable-stretch-database-on-a-database"></a><a name="EnableTSQLDatabase"></a>Uso de Transact\-SQL para habilitar Stretch Database en una base de datos
+Para poder habilitar Stretch Database en tablas individuales, tendrá que habilitarlo en la base de datos.
 
-Enabling Stretch Database on  a database or a table requires db\_owner permissions. Enabling Stretch Database on a database also requires CONTROL DATABASE permissions.
+La habilitación de Stretch Database en una base de datos o una tabla requiere permisos db\_owner. La habilitación de Stretch Database en una base de datos también requiere permisos CONTROL DATABASE.
 
-1. Before you begin, choose an existing Azure server for the data that Stretch Database migrates, or create a new Azure server.
-2. On the Azure server, create a firewall rule with the IP address range of the  SQL Server that lets SQL Server communicate with the remote server.
+1. Antes de comenzar, elija un servidor de Azure existente para los datos que migra Stretch Database, o bien cree un nuevo servidor.
+2. En el servidor de Azure, cree una regla de firewall con el intervalo de direcciones IP de SQL Server que permita a esta herramienta comunicarse con el servidor remoto.
    
-   You can easily find the values you need and create the firewall rule by attempting to connect to the Azure server from Object Explorer in SQL Server Management Studio (SSMS). SSMS helps you to create the rule by opening the following dialog box which already includes the required IP address values.
+   Puede intentar conectarse al servidor de Azure desde el Explorador de objetos de SQL Server Management Studio (SSMS) para encontrar fácilmente los valores que necesita y crear la regla de firewall. Para ayudarle a crear la regla, SSMS abre el siguiente cuadro de diálogo que ya incluye los valores de dirección IP necesarios.
    
-   ![Create a firewall rule in SSMS][FirewallRule]
-3. To configure a SQL Server database for Stretch Database, the database has to have a database master key. The database master key secures the credentials that Stretch Database uses to connect to the remote database. Here's an example that creates a new database master key.
+   ![Creación de una regla de firewall en SSMS][FirewallRule]
+3. Para configurar una base de datos de SQL Server para Stretch Database, la base de datos debe tener una clave maestra de base de datos. La clave maestra de base de datos protege las credenciales que Stretch Database usa para conectarse a la base de datos remota. A continuación, se muestra un ejemplo que crea una nueva clave maestra de base de datos.
    
    ```tsql
    USE <database>;
@@ -75,15 +79,15 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
    GO
    ```
    
-   For more info about the database master key, see [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) and [Create a Database Master Key](https://msdn.microsoft.com/library/aa337551.aspx).
-4. When you configure a database for Stretch Database, you have to provide a credential for Stretch Database to use for communication between the on premises SQL Server and the remote Azure server. You have two options.
+   Para obtener más información sobre la clave maestra de base de datos, consulte [CREATE MASTER KEY (Transact-SQL)](https://msdn.microsoft.com/library/ms174382.aspx) y [Crear la clave maestra de una base de datos](https://msdn.microsoft.com/library/aa337551.aspx).
+4. Cuando configure una base de datos para Stretch Database, tendrá que proporcionar una credencial para Stretch Database use para la comunicación entre el servidor de Azure remoto y SQL Server local. Tiene dos opciones:
    
-   * You can  provide an administrator credential.
+   * Puede proporcionar una credencial de administrador.
      
-     * If you enable Stretch Database by running the wizard, you can create the credential at that time.
-     * If you plan to enable Stretch Database by running **ALTER DATABASE**, you have to create the credential manually before you run **ALTER DATABASE** to enable Stretch Database.
+     * Si habilita Stretch Database ejecutando el asistente, puede crear la credencial en ese momento.
+     * Si planea habilitar Stretch Database ejecutando **ALTER DATABASE**, tendrá que crear manualmente la credencial antes de ejecutar **ALTER DATABASE** para habilitar Stretch Database.
      
-     Here's an example that creates a new credential.
+     A continuación, se muestra un ejemplo que crea una nueva credencial.
      
      ```tsql
      CREATE DATABASE SCOPED CREDENTIAL <db_scoped_credential_name>
@@ -91,17 +95,17 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
      GO
      ```
      
-     For more info about the credential, see [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). Creating the credential requires ALTER ANY CREDENTIAL permissions.
-   * You can use a federated service account for the SQL Server to communicate with the remote Azure server when the following conditions are all true.
+     Para obtener más información sobre la credencial que crea el asistente, consulte [CREATE DATABASE SCOPED CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/mt270260.aspx). La creación de la credencial requiere permisos ALTER ANY CREDENTIAL.
+   * Puede usar una cuenta de servicio federado para que SQL Server se comunique con el servidor remoto de Azure cuando se cumplan todas las condiciones siguientes.
      
-     * The service account under which the instance of SQL Server is running is a domain account.
-     * The domain account belongs to a domain whose Active Directory is federated with Azure Active Directory.
-     * The remote Azure server is configured to support Azure Active Directory authentication.
-     * The service account under which the instance of SQL Server is running must be configured as a dbmanager or sysadmin account on the remote Azure server.
-5. To configure a database for Stretch Database, run the ALTER DATABASE command.
+     * La cuenta de servicio en la que se ejecuta la instancia de SQL Server es una cuenta de dominio.
+     * La cuenta de dominio pertenece a un dominio cuyo Active Directory está federado con Azure Active Directory.
+     * El servidor remoto de Azure está configurado para admitir la autenticación de Azure Active Directory.
+     * La cuenta de servicio en la que se ejecuta la instancia de SQL Server debe configurarse como una cuenta dbmanager o sysadmin en el servidor remoto de Azure.
+5. Para configurar una base de datos para Stretch Database, ejecute el comando ALTER DATABASE.
    
-   1. For the SERVER argument, provide the name of an existing Azure server, including the `.database.windows.net` portion of the name \- for example, `MyStretchDatabaseServer.database.windows.net`.
-   2. Provide an existing administrator credential with the CREDENTIAL argument, or specify FEDERATED\_SERVICE\_ACCOUNT = ON. The following example provides an existing credential.
+   1. Para el argumento SERVER, proporcione el nombre de un servidor existente de Azure, incluida la parte `.database.windows.net` del nombre \-; por ejemplo, `MyStretchDatabaseServer.database.windows.net`.
+   2. Proporcione una credencial de administrador existente con el argumento CREDENTIAL o especifique FEDERATED\_SERVICE\_ACCOUNT = ON. En el ejemplo siguiente se proporciona una credencial existente.
    
    ```tsql
    ALTER DATABASE <database name>
@@ -113,22 +117,22 @@ Enabling Stretch Database on  a database or a table requires db\_owner permissio
    GO
    ```
 
-## <a name="next-steps"></a>Next steps
-* [Enable Stretch Database for a table](sql-server-stretch-database-enable-table.md) to enable additional tables.
-* [Monitor Stretch Database](sql-server-stretch-database-monitor.md) to see the status of data migration.
-* [Pause and resume Stretch Database](sql-server-stretch-database-pause.md)
-* [Manage and troubleshoot Stretch Database](sql-server-stretch-database-manage.md)
-* [Backup Stretch-enabled databases](sql-server-stretch-database-backup.md)
+## <a name="next-steps"></a>Pasos siguientes
+* [Habilitación de Stretch Database para una tabla](sql-server-stretch-database-enable-table.md) para habilitar tablas adicionales.
+* [Supervisión de Stretch Database](sql-server-stretch-database-monitor.md) para ver el estado de la migración de datos.
+* [Pausa y reanudación Stretch Database](sql-server-stretch-database-pause.md)
+* [Administración y solución de problemas de Stretch Database](sql-server-stretch-database-manage.md)
+* [Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md)
 
-## <a name="see-also"></a>See also
-[Identify databases and tables for Stretch Database](sql-server-stretch-database-identify-databases.md)
+## <a name="see-also"></a>Otras referencias
+[Identify databases and tables for Stretch Database by running Stretch Database Advisor (Identificación de bases de datos y tablas para Stretch Database mediante la ejecución de Stretch Database Advisor)](sql-server-stretch-database-identify-databases.md)
 
-[ALTER DATABASE SET Options (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
+[Opciones de ALTER DATABASE SET (Transact-SQL)](https://msdn.microsoft.com/library/bb522682.aspx)
 
 [FirewallRule]: ./media/sql-server-stretch-database-enable-database/firewall.png
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

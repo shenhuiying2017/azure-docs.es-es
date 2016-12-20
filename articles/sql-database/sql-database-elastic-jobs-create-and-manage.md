@@ -1,48 +1,52 @@
 ---
-title: Creación y administración de Bases de datos SQL de Azure escaladas horizontalmente con trabajos elásticos | Microsoft Docs
-description: Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica.
+title: "Creación y administración de bases de datos de Azure SQL escaladas horizontalmente con trabajos elásticos | Microsoft Docs"
+description: "Siga los pasos necesarios de los procesos de creación y administración de un trabajo de base de datos elástica."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 manager: jhubbard
 author: ddove
-editor: ''
-
+editor: 
+ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2016
+ms.date: 10/24/2016
 ms.author: ddove
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 923bc7102e5cc506307da25ee8125780076167ab
+
 
 ---
-# Creación y administración de Bases de datos SQL de Azure escaladas horizontalmente con trabajos elásticos (versión preliminar)
+# <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>Creación y administración de Bases de datos SQL de Azure escaladas horizontalmente con trabajos elásticos (versión preliminar)
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-elastic-jobs-create-and-manage.md)
 > * [PowerShell](sql-database-elastic-jobs-powershell.md)
 > 
 > 
 
-Los **trabajos de base de datos elástica** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida del Portal de Azure se limita la ejecución transversal en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca cliente de base de datos elástica](sql-database-elastic-scale-introduction.md)), vea [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md).
+**trabajos de base de datos elástica** simplifican la administración de grupos de bases de datos al ejecutar operaciones administrativas, como cambios de esquemas, administración de credenciales, actualizaciones de datos de referencias, recopilación de datos de rendimiento o recopilación de telemetría del inquilino (cliente). Trabajos de base de datos elástica está actualmente disponible a través del portal de Azure y los cmdlets de PowerShell. Sin embargo, la funcionalidad reducida del Portal de Azure se limita la ejecución transversal en todas las bases de datos de un [grupo de bases de datos elásticas (vista previa)](sql-database-elastic-pool.md). Para tener acceso a otras características y a la ejecución transversal de scripts en un grupo de bases de datos, que puede incluir una colección de bases de datos personalizada definida por el usuario o un conjunto de particiones (creado con la [biblioteca de cliente de bases de datos elásticas](sql-database-elastic-scale-introduction.md)), consulte [Creación y administración de trabajos mediante PowerShell](sql-database-elastic-jobs-powershell.md). Para obtener más información, vea [Información general sobre Trabajos de base de datos elástica](sql-database-elastic-jobs-overview.md). 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Para obtener una prueba gratuita, vea [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
-* Grupo de bases de datos elásticas. Vea [Acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool.md).
+* Grupo de bases de datos elásticas. Vea [Acerca de los grupos de bases de datos elásticas](sql-database-elastic-pool.md)
 * Instalación de componentes del servicio de trabajo de bases de datos elásticas. Vea [Instalación del servicio de trabajo de bases de datos elásticas](sql-database-elastic-jobs-service-installation.md).
 
-## Creación de trabajos
-1. Mediante el [Portal de Azure](https://portal.azure.com), en un grupo de trabajos de base de datos elástica existente, haga clic en**Crear trabajo**.
+## <a name="creating-jobs"></a>Creación de trabajos
+1. Mediante el [Portal de Azure](https://portal.azure.com), en un grupo de trabajos de base de datos elástica existente, haga clic en **Crear trabajo**.
 2. Escriba el nombre de usuario y la contraseña del administrador de base de datos (creados al instalar los trabajos) para la base de datos de control de trabajos (almacenamiento de metadatos de los trabajos).
    
     ![Asigne un nombre al trabajo, escríbalo o péguelo en el código y haga clic en Ejecutar.][1]
-3. En la hoja **Crear trabajo**, escriba un nombre para el trabajo.
+3. En la hoja **Crear trabajo** , escriba un nombre para el trabajo.
 4. Escriba el nombre de usuario y la contraseña para conectarse a las bases de datos de destino con los permisos necesarios para que la ejecución de script sea correcta.
 5. Péguelo o escríbalo en la secuencia de comandos T-SQL.
-6. Haga clic en **Guardar** y, a continuación, haga clic en **Ejecutar**.
+6. Haga clic en **Guardar** y, a continuación, en **Ejecutar**.
    
     ![Creación y ejecución de trabajos][5]
 
-## Ejecución de trabajos idempotentes
+## <a name="run-idempotent-jobs"></a>Ejecución de trabajos idempotentes
 Al ejecutar una secuencia de comandos en un conjunto de bases de datos, debe asegurarse de que la secuencia de comandos sea idempotente. Es decir, la secuencia de comandos debe poder ejecutarse varias veces, incluso si se produce un error antes en un estado incompleto. Por ejemplo, cuando se produce un error en una secuencia de comandos, el trabajo se reintentará de forma automática hasta que se procese correctamente (dentro de los límites, ya que la lógica de reintentos finalmente dejará de reintentar la operación). La manera de hacerlo es usar la una cláusula "IF EXISTS" y eliminar cualquier instancia encontrada antes de crear un nuevo objeto. A continuación se muestra un ejemplo:
 
     IF EXISTS (SELECT name FROM sys.indexes
@@ -81,7 +85,7 @@ Esta secuencia de comandos, a continuación, actualizará la tabla creada anteri
     GO
 
 
-## Comprobación del estado del trabajo
+## <a name="checking-job-status"></a>Comprobación del estado del trabajo
 Tras iniciar un trabajo, puede comprobar su progreso.
 
 1. Desde la página del grupo bases de datos elásticas, haga clic en **Administrar trabajos**.
@@ -91,7 +95,7 @@ Tras iniciar un trabajo, puede comprobar su progreso.
    
     ![Comprobación de un trabajo finalizado][3]
 
-## Comprobación de trabajos con errores
+## <a name="checking-failed-jobs"></a>Comprobación de trabajos con errores
 Si se produce un error en un trabajo, puede encontrar un registro de su ejecución. Haga clic en el nombre del trabajo con error para ver sus detalles.
 
 ![Comprobación de un trabajo con error][4]
@@ -107,4 +111,8 @@ Si se produce un error en un trabajo, puede encontrar un registro de su ejecuci�
 
 
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

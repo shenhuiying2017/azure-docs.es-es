@@ -1,102 +1,106 @@
 ---
-title: Insulating Service Bus applications against outages and disasters | Microsoft Docs
-description: Describes techniques you can use to protect applications against a potential Service Bus outage.
-services: service-bus
+title: Aislamiento de las aplicaciones de Service Bus ante interrupciones y desastres | Microsoft Docs
+description: "Se describen técnicas que puede usar para proteger las aplicaciones ante una posible interrupción del Bus de servicio."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
-
-ms.service: service-bus
+ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a76ebad52b8b08311b488cd5bbdb909628d43ec3
+
 
 ---
-# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Best practices for insulating applications against Service Bus outages and disasters
-Mission-critical applications must operate continuously, even in the presence of unplanned outages or disasters. This topic describes techniques you can use to protect Service Bus applications against a potential service outage or disaster.
+# <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Procedimientos recomendados para aislar aplicaciones ante desastres e interrupciones de Bus de servicio
+Las aplicaciones esenciales deben funcionar de manera continua, incluso si se producen interrupciones imprevistas o desastres. En este tema se describen técnicas que puede usar para proteger las aplicaciones de Service Bus ante un posible desastre o una interrupción del servicio.
 
-An outage is defined as the temporary unavailability of Azure Service Bus. The outage can affect some components of Service Bus, such as a messaging store, or even the entire datacenter. After the problem has been fixed, Service Bus becomes available again. Typically, an outage does not cause loss of messages or other data. An example of a component failure is the unavailability of a particular messaging store. An example of a datacenter-wide outage is a power failure of the datacenter, or a faulty datacenter network switch. An outage can last from a few minutes to a few days.
+Se define la interrupción como la falta temporal de disponibilidad del Bus de servicio de Azure. La interrupción puede afectar a algunos componentes del Bus de servicio, como a un almacén de mensajería, o incluso a todo el centro de datos. Una vez corregido el problema, el Bus de servicio vuelva a estar disponible. Normalmente, una interrupción no provoca la pérdida de mensajes ni otros datos. Un ejemplo de error de componente es la falta de disponibilidad de un determinado almacén de mensajería. Un ejemplo de interrupción de todo el centro de datos es un error de alimentación del centro de datos o un conmutador de red defectuoso en él. Una interrupción puede durar desde unos pocos minutos hasta varios días.
 
-A disaster is defined as the permanent loss of a Service Bus scale unit or datacenter. The datacenter may or may not become available again. Typically a disaster causes loss of some or all messages or other data. Examples of disasters are fire, flooding, or earthquake.
+Un desastre se define como la pérdida permanente de una unidad de escalado del Bus de servicio o un centro de datos. El centro de datos no volverá necesariamente a estar disponible. Normalmente, un desastre provoca la pérdida de algunos o todos los mensajes u otros datos. Algunos ejemplos de desastres son los incendios, las inundaciones o los terremotos.
 
-## <a name="current-architecture"></a>Current architecture
-Service Bus uses multiple messaging stores to store messages that are sent to queues or topics. A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail.
+## <a name="current-architecture"></a>Arquitectura actual
+Service Bus usa varios almacenes de mensajería para conservar los mensajes que se envían a colas o temas. Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema.
 
-All Service Bus messaging entities (queues, topics, relays) reside in a service namespace, which is affiliated with a datacenter. Service Bus does not enable automatic geo-replication of data, nor does it allow a namespace to span multiple datacenters.
+Todas las entidades de mensajería de Service Bus (colas, temas, retransmisiones) residen en un espacio de nombres de servicio, asociado con un centro de datos. El Bus de servicio no permite la replicación geográfica automática de los datos, ni tampoco permite un espacio de nombres que abarque varios centros de datos.
 
-## <a name="protecting-against-acs-outages"></a>Protecting against ACS outages
-If you are using ACS credentials, and ACS becomes unavailable, clients can no longer obtain tokens. Clients that have a token at the time ACS goes down can continue to use Service Bus until the tokens expire. The default token lifetime is 3 hours.
+## <a name="protecting-against-acs-outages"></a>Protección contra interrupciones de ACS
+Si está usando credenciales de ACS y este deja de estar disponible, los clientes ya no pueden obtener tokens. Los clientes que posean un token en el momento en que ACS deje de funcionar pueden seguir usando el Bus de servicio hasta que expiren los tokens. La duración predeterminada del token es de 3 horas.
 
-To protect against ACS outages, use Shared Access Signature (SAS) tokens. In this case, the client authenticates directly with Service Bus by signing a self-minted token with a secret key. Calls to ACS are no longer required. For more information about SAS tokens, see [Service Bus authentication][Service Bus authentication].
+Para protegerse ante las interrupciones de ACS, use tokens de firma de acceso compartido (SAS). En este caso, el cliente se autentica directamente con el Bus de servicio firmando un token autogenerado con una clave secreta. Las llamadas a ACS ya no son necesarias. Para más información sobre los tokens de SAS, vea [Service Bus authentication (Autenticación de Service Bus)][Service Bus authentication (Autenticación de Service Bus)].
 
-## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protecting queues and topics against messaging store failures
-A non-partitioned queue or topic is assigned to one messaging store. If this messaging store is unavailable, all operations on that queue or topic will fail. A partitioned queue, on the other hand, consists of multiple fragments. Each fragment is stored in a different messaging store. When a message is sent to a partitioned queue or topic, Service Bus assigns the message to one of the fragments. If the corresponding messaging store is unavailable, Service Bus writes the message to a different fragment, if possible. For more information about partitioned entities, see [Partitioned messaging entities][Partitioned messaging entities].
+## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Protección de colas y temas contra errores en el almacén de mensajería
+Se asigna una cola o un tema sin particiones a un almacén de mensajería. Si este almacén de mensajería no está disponible, se producirá un error en todas las operaciones de esa cola o tema. Por otra parte, una cola particionada está formada por varios fragmentos. Cada fragmento se guarda en un almacén de mensajería diferente. Cuando se envía un mensaje a una cola o un tema con particiones, Service Bus asigna el mensaje a uno de los fragmentos. Si el almacén de mensajería correspondiente no está disponible, el Bus de servicio escribe el mensaje en otro fragmento, si es posible. Para más información sobre las entidades con particiones, vea [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
 
-## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protecting against datacenter outages or disasters
-To allow for a failover between two datacenters, you can create a Service Bus service namespace in each datacenter. For example, the Service Bus service namespace **contosoPrimary.servicebus.windows.net** might be located in the United States North/Central region, and **contosoSecondary.servicebus.windows.net** might be located in the US South/Central region. If a Service Bus messaging entity must remain accessible in the presence of a datacenter outage, you can create that entity in both namespaces.
+## <a name="protecting-against-datacenter-outages-or-disasters"></a>Protección contra desastres o interrupciones del centro de datos
+Para permitir una conmutación por error entre dos centros de datos, puede crear un espacio de nombres de servicio para el Bus de servicio en cada centro de datos. Por ejemplo, el espacio de nombres de servicio de Service Bus **contosoPrimary.servicebus.windows.net** puede encontrarse en la región norte/central de Estados Unidos, y **contosoSecondary.servicebus.windows.net** puede encontrarse en la región sur/central de EE. UU. Si una entidad de mensajería del Bus de servicio debe permanecer accesible en el caso de una interrupción del centro de datos, puede crear esa entidad en ambos espacios de nombres.
 
-For more information, see the "Failure of Service Bus within an Azure datacenter" section in [Asynchronous messaging patterns and high availability][Asynchronous messaging patterns and high availability].
+Para más información, vea la sección "Error de Service Bus en un centro de datos de Azure" en [Patrones de mensajería asincrónica y alta disponibilidad][Patrones de mensajería asincrónica y alta disponibilidad].
 
-## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protecting relay endpoints against datacenter outages or disasters
-Geo-replication of relay endpoints allows a service that exposes a relay endpoint to be reachable in the presence of Service Bus outages. To achieve geo-replication, the service must create two relay endpoints in different namespaces. The namespaces must reside in different datacenters and the two endpoints must have different names. For example, a primary endpoint can be reached under **contosoPrimary.servicebus.windows.net/myPrimaryService**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protección de los extremos de retransmisión contra desastres o interrupciones del centro de datos
+La replicación geográfica de los extremos de retransmisión permite que un servicio que exponga un extremo de retransmisión sea accesible en caso de interrupciones del Bus de servicio. Para lograr la replicación geográfica, el servicio debe crear dos extremos de retransmisión en diferentes espacios de nombres. Los espacios de nombres deben residir en distintos centros de datos y ambos extremos deben tener nombres diferentes. Por ejemplo, se puede acceder a un punto de conexión principal en **contosoPrimary.servicebus.windows.net/myPrimaryService**, mientras que su equivalente secundario resulta accesible en **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
-The service then listens on both endpoints, and a client can invoke the service via either endpoint. A client application randomly picks one of the relays as the primary endpoint, and sends its request to the active endpoint. If the operation fails with an error code, this failure indicates that the relay endpoint is not available. The application opens a channel to the backup endpoint and reissues the request. At that point the active and the backup endpoints switch roles: the client application considers the old active endpoint to be the new backup endpoint, and the old backup endpoint to be the new active endpoint. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
+A continuación, el servicio escucha en ambos extremos y un cliente puede invocar el servicio a través de cualquiera de ellos. Una aplicación cliente selecciona de forma aleatoria una de las retransmisiones como extremo principal y envía su solicitud al extremo activo. Si la operación da como resultado un código de error, este error indica que el extremo de retransmisión no está disponible. La aplicación abre un canal al extremo de reserva y vuelve a emitir la solicitud. En ese momento, el extremo activo y el de reserva intercambian roles: la aplicación cliente considera el anterior extremo activo como el nuevo extremo de reserva y el anterior extremo de reserva pasa a ser el nuevo extremo activo. Si ambas operaciones de envío generan un error, no se modifican los roles de las dos entidades y se devuelve un error.
 
-The [Geo-replication with Service Bus Relayed Messages][Geo-replication with Service Bus Relayed Messages] sample demonstrates how to replicate relays.
+En el ejemplo de [replicación geográfica con mensajes retransmitidos del Bus de servicio][replicación geográfica con mensajes retransmitidos del Bus de servicio] se muestra cómo replicar retransmisiones.
 
-## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protecting queues and topics against datacenter outages or disasters
-To achieve resilience against datacenter outages when using brokered messaging, Service Bus supports two approaches: *active* and *passive* replication. For each approach, if a given queue or topic must remain accessible in the presence of a datacenter outage, you can create it in both namespaces. Both entities can have the same name. For example, a primary queue can be reached under **contosoPrimary.servicebus.windows.net/myQueue**, while its secondary counterpart can be reached under **contosoSecondary.servicebus.windows.net/myQueue**.
+## <a name="protecting-queues-and-topics-against-datacenter-outages-or-disasters"></a>Protección de colas y temas contra desastres o interrupciones del centro de datos
+Para lograr resistencia frente a interrupciones del centro de datos al usar mensajería asincrónica, Service Bus admite dos enfoques: replicación *activa* y *pasiva*. Para cada enfoque, si una cola o un tema determinados deben permanecer accesibles en el caso de una interrupción del centro de datos, puede crear la entidad en ambos espacios de nombres. Ambas entidades pueden tener el mismo nombre. Por ejemplo, se puede acceder a una cola principal en **contosoPrimary.servicebus.windows.net/myQueue**, mientras que su equivalente secundaria resulta accesible en **contosoSecondary.servicebus.windows.net/myQueue**.
 
-If the application does not require permanent sender-to-receiver communication, the application can implement a durable client-side queue to prevent message loss and to shield the sender from any transient Service Bus errors.
+Si la aplicación no requiere comunicación permanente entre remitente y receptor, esta puede implementar una cola del lado cliente duradera para evitar la pérdida de mensajes y proteger al remitente ante los errores transitorios del Bus de servicio.
 
-## <a name="active-replication"></a>Active replication
-Active replication uses entities in both namespaces for every operation. Any client that sends a message sends two copies of the same message. The first copy is sent to the primary entity (for example, **contosoPrimary.servicebus.windows.net/sales**), and the second copy of the message is sent to the secondary entity (for example, **contosoSecondary.servicebus.windows.net/sales**).
+## <a name="active-replication"></a>Replicación activa
+La replicación activa usa entidades en ambos espacios de nombres para cada operación. Cualquier cliente que envíe un mensaje envía dos copias de él. La primera copia se envía a la entidad principal (por ejemplo, **contosoPrimary.servicebus.windows.net/sales**), y la segunda copia del mensaje se envía a la entidad secundaria (por ejemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
-A client receives messages from both queues. The receiver processes the first copy of a message, and the second copy is suppressed. To suppress duplicate messages, the sender must tag each message with a unique identifier. Both copies of the message must be tagged with the same identifier. You can use the [BrokeredMessage.MessageId][BrokeredMessage.MessageId] or [BrokeredMessage.Label][BrokeredMessage.Label] properties, or a custom property to tag the message. The receiver must maintain a list of messages that it has already received.
+Un cliente recibe mensajes de ambas colas. El receptor procesa la primera copia de un mensaje y se suprime la segunda copia. Para suprimir mensajes duplicados, el remitente debe etiquetar cada mensaje con un identificador único. Ambas copias del mensaje deben estar etiquetadas con el mismo identificador. Puede usar las propiedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] o [BrokeredMessage.Label][BrokeredMessage.Label], o bien una propiedad personalizada para etiquetar el mensaje. El receptor debe mantener una lista de los mensajes que ya haya recibido.
 
-The [Geo-replication with Service Bus Brokered Messages][Geo-replication with Service Bus Brokered Messages] sample demonstrates active replication of messaging entities.
+En el ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][replicación geográfica con mensajes asincrónicos del Bus de servicio] se muestra la replicación activa de entidades de mensajería.
 
 > [!NOTE]
-> The active replication approach doubles the number of operations, therefore this approach can lead to higher cost.
+> La replicación activa dobla el número de operaciones; por lo tanto, este enfoque puede suponer un costo mayor.
 > 
 > 
 
-## <a name="passive-replication"></a>Passive replication
-In the fault-free case, passive replication uses only one of the two messaging entities. A client sends the message to the active entity. If the operation on the active entity fails with an error code that indicates the datacenter that hosts the active entity might be unavailable, the client sends a copy of the message to the backup entity. At that point the active and the backup entities switch roles: the sending client considers the old active entity to be the new backup entity, and the old backup entity is the new active entity. If both send operations fail, the roles of the two entities remain unchanged and an error is returned.
+## <a name="passive-replication"></a>Replicación pasiva
+En el caso de que no se hayan producido errores, la replicación pasiva solo usa una de las dos entidades de mensajería. Un cliente envía el mensaje a la entidad activa. Si la operación de la entidad activa genera un código de error que indica que es posible que el centro de datos que hospeda la entidad activa no esté disponible, el cliente envía una copia del mensaje a la entidad de reserva. En ese momento, la entidad activa y la de reserva intercambian roles: el cliente remitente considera la anterior entidad activa como la nueva entidad de reserva y la anterior entidad de reserva pasa a ser la nuevo entidad activa. Si ambas operaciones de envío generan un error, no se modifican los roles de las dos entidades y se devuelve un error.
 
-A client receives messages from both queues. Because there is a chance that the receiver receives two copies of the same message, the receiver must suppress duplicate messages. You can suppress duplicates in the same way as described for active replication.
+Un cliente recibe mensajes de ambas colas. Dado que es probable que el receptor reciba dos copias del mismo mensaje, este debe suprimir los mensajes duplicados. Puede suprimir duplicados de la misma manera descrita para la replicación activa.
 
-In general, passive replication is more economical than active replication because in most cases only one operation is performed. Latency, throughput, and monetary cost are identical to the non-replicated scenario.
+En general, la replicación pasiva es más económica que la activa porque en la mayoría de los casos se realiza una única operación. La latencia, el rendimiento y el costo económico son idénticos para el escenario sin replicación.
 
-When using passive replication, in the following scenarios messages can be lost or received twice:
+Cuando se usa la replicación pasiva, en los siguientes escenarios se pueden perder mensajes o recibirse dos veces:
 
-* **Message delay or loss**: Assume that the sender successfully sent a message m1 to the primary queue, and then the queue becomes unavailable before the receiver receives m1. The sender sends a subsequent message m2 to the secondary queue. If the primary queue is temporarily unavailable, the receiver receives m1 after the queue becomes available again. In case of a disaster, the receiver may never receive m1.
-* **Duplicate reception**: Assume that the sender sends a message m to the primary queue. Service Bus successfully processes m but fails to send a response. After the send operation times out, the sender sends an identical copy of m to the secondary queue. If the receiver is able to receive the first copy of m before the primary queue becomes unavailable, the receiver receives both copies of m at approximately the same time. If the receiver is not able to receive the first copy of m before the primary queue becomes unavailable, the receiver initially receives only the second copy of m, but then receives a second copy of m when the primary queue becomes available.
+* **Demora o pérdida de mensajes**: se supone que el remitente envió correctamente un mensaje m1 a la cola principal y después la cola deja de estar disponible antes de que el receptor reciba m1. El remitente envía otro mensaje m2 a la cola secundaria. Si la cola principal no está disponible temporalmente, el receptor recibe m1 una vez que la cola esté disponible de nuevo. En caso de desastre, puede que el receptor no reciba nunca m1.
+* **Recepción duplicada**: supongamos que el remitente envía un mensaje m a la cola principal. El Bus de servicio procesa m correctamente , pero no envía una respuesta. Una vez que la operación de envío agota el tiempo de espera, el remitente envía una copia idéntica de m a la cola secundaria. Si el receptor puede recibir la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe ambas copias de m aproximadamente al mismo tiempo. Si el receptor no recibe la primera copia de m antes de que la cola principal deje de estar disponible, el receptor recibe inicialmente solo la segunda copia de m pero, a continuación, recibe una segunda copia de m cuando la cola principal vuelve a estar disponible.
 
-The [Geo-replication with Service Bus Brokered Messages][Geo-replication with Service Bus Brokered Messages] sample demonstrates passive replication of messaging entities.
+En el ejemplo de [replicación geográfica con mensajes asincrónicos del Bus de servicio][replicación geográfica con mensajes asincrónicos del Bus de servicio] se muestra la replicación pasiva de entidades de mensajería.
 
-## <a name="next-steps"></a>Next steps
-To learn more about disaster recovery, see these articles:
+## <a name="next-steps"></a>Pasos siguientes
+Para obtener más información acerca de la recuperación ante desastres, consulte estos artículos:
 
-* [Azure SQL Database Business Continuity][Azure SQL Database Business Continuity]
-* [Azure resiliency technical guidance][Azure resiliency technical guidance]
+* [Continuidad de negocio de Base de datos SQL de Azure][Continuidad de negocio de Base de datos SQL de Azure]
+* [Guía técnica sobre resistencia en Azure][Guía técnica sobre resistencia en Azure]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
-[Partitioned messaging entities]: service-bus-partitioning.md
-[Asynchronous messaging patterns and high availability]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
-[Geo-replication with Service Bus Relayed Messages]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
+[Entidades de mensajería con particiones]: service-bus-partitioning.md
+[Patrones de mensajería asincrónica y alta disponibilidad]: service-bus-async-messaging.md#failure-of-service-bus-within-an-azure-datacenter
+[replicación geográfica con mensajes retransmitidos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-16dbfecd
 [BrokeredMessage.MessageId]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.messageid.aspx
 [BrokeredMessage.Label]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.label.aspx
-[Geo-replication with Service Bus Brokered Messages]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
-[Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
-[Azure resiliency technical guidance]: ../resiliency/resiliency-technical-guidance.md
+[replicación geográfica con mensajes asincrónicos del Bus de servicio]: http://code.msdn.microsoft.com/Geo-replication-with-f5688664
+[Continuidad de negocio de Base de datos SQL de Azure]: ../sql-database/sql-database-business-continuity.md
+[Guía técnica sobre resistencia en Azure]: ../resiliency/resiliency-technical-guidance.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

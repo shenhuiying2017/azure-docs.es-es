@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6d70338ebf918a3f9178a4f633dd46a607d72b1c
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 5abaa31828e624f77b6a9efb4496327977b483e4
 
 
 ---
@@ -27,7 +27,7 @@ En estos pasos se sigue un enfoque consistente en atar cabos para crear un conju
 Tardará unos 30 minutos en realizar los pasos de este artículo.
 
 ## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta.
+Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que desea usar e iniciar sesión en su cuenta.
 
 ## <a name="step-2-create-resources"></a>Paso 2: Creación de recursos
 Cree los recursos necesarios para su nuevo conjunto de escalado de máquinas virtuales.
@@ -130,7 +130,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
    
         $vmss = New-AzureRmVmssConfig -Location $locName -SkuCapacity 3 -SkuName "Standard_A0" -UpgradePolicyMode "manual"
    
-    En este ejemplo se muestra un conjunto de escalado que se crea con 3 máquinas virtuales. Para obtener más información sobre la capacidad de los conjuntos de escala, consulte [Información general de conjuntos de escala de máquinas virtuales](virtual-machine-scale-sets-overview.md) . Este paso también incluye el establecimiento del tamaño (al que se hace referencia como SkuName) de las máquinas virtuales del conjunto. Para encontrar un tamaño que satisfaga sus necesidades, consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md).
+    En este ejemplo se muestra un conjunto de escalado que se crea con 3 máquinas virtuales. Para obtener más información sobre la capacidad de los conjuntos de escala, consulte [Información general de conjuntos de escala de máquinas virtuales](virtual-machine-scale-sets-overview.md) . Este paso también incluye el establecimiento del tamaño (al que se hace referencia como SkuName) de las máquinas virtuales del conjunto. Para encontrar un tamaño que satisfaga sus necesidades, consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Adición de la configuración de la interfaz de red a la configuración del conjunto de escalado:
    
         Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmss -Name $vmssConfig -Primary $true -IPConfiguration $ipConfig
@@ -172,7 +172,7 @@ Tiene todos los recursos que necesita para la configuración del conjunto de esc
         $imageOffer = "WindowsServer"
         $imageSku = "2012-R2-Datacenter"
    
-    Para información sobre otras imágenes que puede usar, consulte [Navegación y selección de las imágenes de máquina virtual de Azure con Windows PowerShell y la CLI de Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md).
+    Para información sobre otras imágenes que puede usar, consulte [Navegación y selección de las imágenes de máquina virtual de Azure con Windows PowerShell y la CLI de Azure](../virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 3. Reemplace el valor de **$vhdContainers** por una lista que contenga las rutas de acceso donde se almacenan los discos duros virtuales, como "https://mystorage.blob.core.windows.net/vhds" y, después, cree la variable:
    
         $vhdContainers = @("https://myst1.blob.core.windows.net/vhds","https://myst2.blob.core.windows.net/vhds","https://myst3.blob.core.windows.net/vhds")
@@ -225,6 +225,6 @@ Use estos recursos para explorar el conjunto de escalado de máquinas virtuales 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

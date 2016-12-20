@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 09/27/2016
 ms.author: cynthn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 8e089fd94966e4504af115fff796f306adf825bd
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: b1e422d9d1ae36b8e8a84194020d2eef65b545d0
 
 Máquinas virtuales de Azure es uno de los distintos tipos de recursos informáticos a petición y escalables que ofrece Azure. Por lo general, elegirá una máquina virtual si necesita más control sobre su entorno informático del que ofrecen las otras opciones.
 
-Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual. Sin embargo, todavía es necesario mantener la máquina virtual: configurar, aplicar revisiones y mantener el software que se ejecuta en la máquina virtual. También puede obtener información [sobre máquinas virtuales de Linux en Azure](virtual-machines-linux-about.md).
+Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual. Sin embargo, todavía es necesario mantener la máquina virtual: configurar, aplicar revisiones y mantener el software que se ejecuta en la máquina virtual. También puede obtener información [sobre máquinas virtuales de Linux en Azure](virtual-machines-linux-about.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Esta tabla permite comparar las opciones de Azure.
 
@@ -35,9 +35,9 @@ Esta tabla permite comparar las opciones de Azure.
 [!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Creación de una máquina virtual de Windows en el Portal de Azure](virtual-machines-windows-hero-tutorial.md).
+Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Creación de una máquina virtual de Windows en el Portal de Azure](virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual de Windows con Resource Manager](virtual-machines-windows-creation-choices.md).
+Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual de Windows con Resource Manager](virtual-machines-windows-creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 

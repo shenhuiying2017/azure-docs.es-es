@@ -1,34 +1,38 @@
 ---
-title: Ejecución de ejemplos de Hadoop en HDInsight | Microsoft Docs
-description: Introducción al uso del servicio HDInsight de Azure con los ejemplos que se proporcionan. Use scripts de PowerShell que ejecutan programas MapReduce en clústeres de datos.
+title: "Ejecución de ejemplos de Hadoop en HDInsight | Microsoft Docs"
+description: "Introducción al uso del servicio HDInsight de Azure con los ejemplos que se proporcionan. Use scripts de PowerShell que ejecutan programas MapReduce en clústeres de datos."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 10/21/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dbc14234200c7e4995464e2a8ed4009b963eaff4
+
 
 ---
-# Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows
+# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Ejecución de ejemplos de Hadoop MapReduce en HDInsight basado en Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
 Se proporciona un conjunto de muestras para ayudarle a empezar a ejecutar trabajos de MapReduce en clústeres de Hadoop con HDInsight de Azure. Estas muestras se habilitan en cada uno de los clústeres administrados de HDInsight que se crean. La ejecución de estas muestras le permitirá familiarizarse con el uso de cmdlets de Azure PowerShell para ejecutar trabajos en clústeres de Hadoop.
 
-* [**Recuento de palabras**][hdinsight-sample-wordcount]\: cuenta las apariciones de una palabra en un archivo de texto.
-* [**Recuento de palabras de streaming de C#**][hdinsight-sample-csharp-streaming]\: cuenta las apariciones de una palabra en un archivo de texto mediante la interfaz de streaming de Hadoop.
-* [**Estimador de pi**][hdinsight-sample-pi-estimator]\: usa un método estadístico (quasi-Monte Carlo) para calcular el valor de pi.
-* [**Graysort de 10 GB**][hdinsight-sample-10gb-graysort]\: se ejecuta una muestra de GraySort de uso general en un archivo de 10 GB mediante el uso de HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
+* [**Recuento de palabras**][hdinsight-sample-wordcount]: cuenta las apariciones de una palabra en un archivo de texto.
+* [**Recuento de palabras de streaming de C#**][hdinsight-sample-csharp-streaming]: cuenta las apariciones de una palabra en un archivo de texto mediante la interfaz de streaming de Hadoop.
+* [**Estimador de Pi**][hdinsight-sample-pi-estimator]: usa un método estadístico (cuasi Monte Carlo) para estimar el valor de pi.
+* [**Graysort de 10 GB**][hdinsight-sample-10gb-graysort]: se ejecuta una muestra de GraySort de uso general en un archivo de 10 GB mediante HDInsight. Hay tres trabajos que se deben ejecutar: Teragen para generar los datos, Terasort para ordenarlos y Teravalidate para confirmar que los datos se han ordenado correctamente.
 
 > [!NOTE]
-> El código de origen puede encontrarse en el anexo.
+> El código de origen puede encontrarse en el anexo. 
 > 
 > 
 
@@ -38,7 +42,7 @@ En la web se encuentra disponible mucha documentación adicional sobre las tecno
 * [Envío de trabajos de Hadoop en HDInsight](hdinsight-submit-hadoop-jobs-programmatically.md)
 * [Introducción a Azure HDInsight][hdinsight-introduction]
 
-En la actualidad, muchas personas prefieren Hive y Pig a MapReduce. Para más información, consulte:
+En la actualidad, muchas personas prefieren Hive y Pig a MapReduce.  Para más información, consulte:
 
 * [Uso de Hive en HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig en HDInsight](hdinsight-use-pig.md)
@@ -51,16 +55,16 @@ En la actualidad, muchas personas prefieren Hive y Pig a MapReduce. Para más in
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## <a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java
-Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos. El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
+## <a name="a-namehdinsight-sample-wordcountaword-count---java"></a><a name="hdinsight-sample-wordcount"></a>Recuento de palabras: Java
+Para enviar un proyecto de MapReduce, primero hay que crear una definición de trabajo de MapReduce. En la definición del trabajo, se especifica el archivo jar de programa de MapReduce y la ubicación del archivo jar, que es **wasbs:///example/jars/hadoop-mapreduce-examples.jar**, el nombre de clase y los argumentos.  El programa de MapReduce de recuento de palabras toma dos argumentos: el archivo de origen que se usará para contar las palabras y la ubicación del resultado.
 
 El código fuente puede encontrarse en el [Anexo A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Para conocer el procedimiento de desarrollo del programa MapReduce de Java, consulte [Desarrollo de programas MapReduce de Java para Hadoop en HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
+Para conocer el procedimiento de desarrollo del programa MapReduce de Java, consulte [Desarrollo de programas MapReduce de Java para Hadoop en HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
 **Para enviar un trabajo de MapReduce de recuento de palabras**
 
-1. Abra **Windows PowerShell ISE**. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
+1. Abra **Windows PowerShell ISE**. Para más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 2. Pegue el siguiente script de PowerShell:
    
         $subscriptionName = "<Azure Subscription Name>"
@@ -112,10 +116,10 @@ Para conocer el procedimiento de desarrollo del programa MapReduce de Java, cons
         # Display the output file
         cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
    
-    El trabajo de MapReduce genera un archivo denominado *part-r-00000* con las palabras y los recuentos. El script usa el comando **findstr** para enumerar todas las palabras que contienen *"there*".
+    El trabajo de MapReduce genera un archivo denominado *part-r-00000*con las palabras y los recuentos. El script usa el comando **findstr** para enumerar todas las palabras que contienen *"there*".
 3. Establezca las 3 variables y ejecute el script.
 
-## <a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C
+## <a name="a-namehdinsight-sample-csharp-streamingaword-count---c-streaming"></a><a name="hdinsight-sample-csharp-streaming"></a>Recuento de palabras: streaming en C#
 Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java.
 
 > [!NOTE]
@@ -123,13 +127,13 @@ Hadoop ofrece una API de streaming para MapReduce que le permite escribir mapas 
 > 
 > 
 
-En el ejemplo, el asignador y el reductor son ejecutables que leen la entrada desde [stdin][stdin-stdout-stderr] \(línea a línea) y emiten la salida en [stdout][stdin-stdout-stderr]. El programa cuenta todas las palabras del texto.
+En el ejemplo, tanto el asignador como el reductor son ejecutables que leen la entrada desde [stdin][stdin-stdout-stderr] (línea a línea) y emiten la salida en [stdout][stdin-stdout-stderr]. El programa cuenta todas las palabras del texto.
 
-Cuando se especifica un archivo ejecutable para los **asignadores**, cada tarea del asignador inicia el ejecutable como un proceso aparte al inicializar el asignador. A medida que se ejecuta la tarea del asignador, convierte sus entradas en líneas y proporciona las líneas al elemento [stdin][stdin-stdout-stderr] del proceso.
+Cuando se especifica un archivo ejecutable para los **asignadores**, cada tarea del asignador inicia el ejecutable como un proceso aparte al inicializar el asignador. Mientras se ejecuta la tarea del asignador, convierte sus entradas en líneas y alimenta dichas líneas a [stdin][stdin-stdout-stderr] del proceso.
 
 Mientras tanto, el asignador recopila la salida orientada a líneas desde el elemento stdout del proceso. Convierte cada línea en un par de clave y valor, que se recopila como la salida del asignador. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor. Si no hay un carácter de tabulación en la línea, se considera que toda la línea es la clave y el valor es nulo.
 
-Cuando se especifica un archivo ejecutable para los **reductores**, cada tarea del reductor inicia el ejecutable como un proceso aparte al inicializar el reductor. Mientras se ejecuta la tarea del reductor, convierte sus pares clave-valor de entrada en líneas y proporciona las líneas al elemento [stdin][stdin-stdout-stderr] del proceso.
+Cuando se especifica un archivo ejecutable para los **reductores**, cada tarea del reductor inicia el ejecutable como un proceso aparte al inicializar el reductor. Mientras se ejecuta la tarea del reductor, convierte sus pares clave-valor de entrada en líneas y alimenta las líneas a [stdin][stdin-stdout-stderr] del proceso.
 
 Mientras tanto, el reductor recopila la salida orientada a líneas desde el elemento [stdout][stdin-stdout-stderr] del proceso. Convierte cada línea en un par de clave y valor, que se recopila como la salida del reductor. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor.
 
@@ -150,7 +154,7 @@ Para obtener más información acerca de la interfaz de streaming de Hadoop, con
 
         example/data/StreamingOutput/wc.txt/part-00000        
 
-## <a name="hdinsight-sample-pi-estimator"></a>Estimador de pi
+## <a name="a-namehdinsight-sample-pi-estimatorapi-estimator"></a><a name="hdinsight-sample-pi-estimator"></a>Estimador de pi
 El estimador de pi usa un método estadístico (cuasi Monte Carlo) para calcular el valor de pi. Los puntos colocados en el interior aleatorio de un cuadrado unitario también entran dentro de un círculo inscrito dentro de ese cuadrado con una probabilidad igual al área del círculo, pi/4. El valor de pi se puede estimar a partir del valor de 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado. Mientras más grande sea la muestra de puntos usada, mejor resulta el valor calculado.
 
 El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y se configura para ejecutarse con un valor de 16 asignaciones, cada una de las cuales debe procesar 10 millones de puntos de muestra por los valores de parámetro. Estos valores de parámetro se pueden cambiar para mejorar el valor calculado de pi. Como referencia, las primeras 10 posiciones decimales de pi son 3,1415926535.
@@ -164,13 +168,13 @@ El script que se proporciona para esta muestra envía un trabajo jar de Hadoop y
                                     -ClassName "pi" `
                                     -Arguments "16", "10000000"
 
-## <a name="hdinsight-sample-10gb-graysort"></a>GraySort de 10 GB
-Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/).
+## <a name="a-namehdinsight-sample-10gb-graysorta10-gb-graysort"></a><a name="hdinsight-sample-10gb-graysort"></a>GraySort de 10 GB
+Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamente rápido. En él se emplean las aplicaciones de MapReduce, desarrolladas por Owen O'Malley y Arun Murthy, que ganaron el estándar de comparación anual de ordenación de terabytes de fin general ("daytona") en 2009 con una velocidad de 0,578 TB/min (100 TB en 173 minutos). Para obtener más información sobre este y otros estándares de comparación de ordenación, consulte el sitio [Sortbenchmark](http://sortbenchmark.org/) .
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:
 
 1. **TeraGen** es un programa de MapReduce que puede utilizarse para generar las filas de datos que se van a ordenar.
-2. **TeraSort** toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta. TeraSort es un ordenamiento estándar de funciones de MapReduce, con la excepción de un particionador personalizado que utiliza una lista ordenada de N-1 claves de muestra que definen el rango de claves para cada reducción. En concreto, todas las claves, como esa muestra[i-1] <= clave < muestra[i] se envían a la reducción i. Esto garantiza que las salidas de la reducción i sean todas menores que la salida de la reducción i+1.
+2. **TeraSort**: toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta. TeraSort es un ordenamiento estándar de funciones de MapReduce, con la excepción de un particionador personalizado que utiliza una lista ordenada de N-1 claves de muestra que definen el rango de claves para cada reducción. En concreto, todas las claves, como esa muestra[i-1] <= clave < muestra[i] se envían a la reducción i. Esto garantiza que las salidas de la reducción i sean todas menores que la salida de la reducción i+1.
 3. **TeraValidate** es un programa de MapReduce que valida que la salida se ordene de manera global. Crea una asignación por archivo en el directorio de salida y cada asignación asegura que cada clave es menor o igual que la anterior. La función de asignación también genera registros de la primera y la última clave de cada archivo, y la función de reducción garantiza que la primera clave del archivo i es mayor que la última clave de archivo i-1. Los problemas se notifican como una salida de la reducción con las claves que no están en orden.
 
 El formato de entrada y salida, que utilizan las tres aplicaciones, lee y escribe los archivos de texto en el formato correcto. La salida de la reducción tiene la replicación definida en 1, en lugar del valor predeterminado 3, porque el concurso de estándar de comparación no requiere que los datos de salida se repliquen en varios nodos.
@@ -185,29 +189,35 @@ El ejemplo requiere tres tareas, cada una de las cuales corresponde a uno de los
 
 * Siga el procedimiento de [Recuento de palabras: Java](#word-count-java) y use las siguientes definiciones de trabajo:
   
-    $teragen = New-$teragen = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
   
-                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" ` -ClassName "teragen" ` -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
+                                -ClassName "teragen" `
+                                -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
   
     $terasort = New-AzureRmHDInsightMapReduceJobDefinition `
   
-                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" ` -ClassName "terasort" ` -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
+                                -ClassName "terasort" `
+                                -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
   
     $teravalidate = New-AzureRmHDInsightMapReduceJobDefinition `
   
-                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" ` -ClassName "teravalidate" ` -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
+                                -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
+                                -ClassName "teravalidate" `
+                                -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo y en los artículos en cada una de las muestras, ha obtenido información sobre cómo ejecutar las muestras incluidas en los clústeres de HDInsight mediante Azure PowerShell. Para obtener acceso a tutoriales sobre cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 
 * [Introducción al uso de Hadoop con Hive en HDInsight para analizar el uso de datos móviles][hdinsight-get-started]
 * [Uso de Pig con Hadoop en HDInsight][hdinsight-use-pig]
 * [Uso de Hive con Hadoop en HDInsight][hdinsight-use-hive]
 * [Envío de trabajos de Hadoop en HDInsight][hdinsight-submit-jobs]
-* [Documentación de SDK de HDInsight de Azure][hdinsight-sdk-documentation]
+* [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]
 * [Depuración de Hadoop en HDInsight: mensajes de error][hdinsight-errors]
 
-## Anexo A: código fuente del recuento de palabras
+## <a name="appendix-a---the-word-count-source-code"></a>Anexo A: código fuente del recuento de palabras
     package org.apache.hadoop.examples;
     import java.io.IOException;
     import java.util.StringTokenizer;
@@ -277,7 +287,7 @@ En este artículo y en los artículos en cada una de las muestras, ha obtenido i
       }
 
 
-## Anexo B: código fuente del streaming de recuento de palabras
+## <a name="appendix-b---the-word-count-streaming-source-code"></a>Anexo B: código fuente del streaming de recuento de palabras
 El programa de MapReduce utiliza la aplicación cat.exe como una interfaz de asignación para transmitir el texto en la consola y la aplicación wc.exe como la interfaz de reducción para contar el número de palabras que se transmiten desde un documento. Tanto el asignador como el reductor leen caracteres, línea por línea, a partir de la secuencia de entrada estándar (stdin) y escriben en la secuencia de salida estándar (stdout).
 
     // The source code for the cat.exe (Mapper).
@@ -307,7 +317,7 @@ El programa de MapReduce utiliza la aplicación cat.exe como una interfaz de asi
 
 
 
-El código del asignador en el archivo cat.cs usa un objeto [StreamReader][streamreader] para leer los caracteres de la transmisión entrante en la consola, la cual escribe a continuación la transmisión en la secuencia de salida estándar con el método [Console.Writeline][console-writeline] estático.
+El código del asignador en el archivo cat.cs usa un objeto [StreamReader][streamreader] para leer los caracteres de la transmisión entrante en la consola, la cual escribe a continuación la transmisión en la secuencia de salida estándar con el método estático [Console.Writeline][console-writeline].
 
     // The source code for wc.exe (Reducer) is:
 
@@ -337,9 +347,9 @@ El código del asignador en el archivo cat.cs usa un objeto [StreamReader][strea
     }
 
 
-El código reductor en el archivo wc.cs usa un objeto [StreamReader][streamreader] para leer caracteres de la secuencia de entrada estándar que han sido de salida por el asignador cat.exe. A medida que lee los caracteres con el método [Console.Writeline][console-writeline], cuenta las palabras contando espacios y caracteres de fin de línea al final de cada palabra. A continuación, escribe el total en la secuencia de salida estándar con el método [Console.Writeline][console-writeline].
+El código reductor en el archivo wc.cs usa un objeto [StreamReader][streamreader] para leer caracteres de la secuencia de entrada estándar que el asignador cat.exe ha transmitido. A medida que lee los caracteres con el método [Console.Writeline][console-writeline], cuenta las palabras contando espacios y caracteres de fin de línea al final de cada palabra. A continuación, escribe el total en la secuencia de salida estándar con el método [Console.Writeline][console-writeline].
 
-## Anexo C: código fuente del estimador de pi
+## <a name="appendix-c---the-pi-estimator-source-code"></a>Anexo C: código fuente del estimador de pi
 El código Java del estimador de pi que contiene las funciones de asignador y reductor está disponible para inspección a continuación. El programa de asignador genera un número especificado de puntos ubicados en el interior aleatorio de un cuadrado unitario y, a continuación, cuenta la cantidad de esos puntos que se encuentran dentro del círculo. El programa de reductor acumula los puntos que cuentan los asignadores y, a continuación, calcula el valor de pi a partir de la fórmula 4R, donde R es la proporción de la cantidad de puntos contados dentro del círculo con respecto al número total de puntos que se encuentran dentro del cuadrado.
 
      /**
@@ -679,7 +689,7 @@ El código Java del estimador de pi que contiene las funciones de asignador y re
      }
      }
 
-## Anexo D: código fuente de graysort de 10 GB
+## <a name="appendix-d---the-10gb-graysort-source-code"></a>Anexo D: código fuente de graysort de 10 GB
 En esta sección se analiza el código del programa de MapReduce de TeraSort.
 
     /**
@@ -989,4 +999,8 @@ En esta sección se analiza el código del programa de MapReduce de TeraSort.
 [console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

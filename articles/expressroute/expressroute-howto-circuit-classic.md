@@ -1,13 +1,13 @@
 ---
-title: Creación y modificación de un circuito ExpressRoute con el modelo de implementación clásica y PowerShell | Microsoft Docs
-description: Este artículo le guiará por los pasos necesarios para crear y aprovisionar un circuito ExpressRoute. También se muestra cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute.
+title: "Creación y modificación de un circuito ExpressRoute con el modelo de implementación clásica y PowerShell | Microsoft Docs"
+description: "Este artículo le guiará por los pasos necesarios para crear y aprovisionar un circuito ExpressRoute. También se muestra cómo comprobar el estado, actualizar, o eliminar y desaprovisionar un circuito ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr;cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: e7931f1b08d09fbe1fa5a5a2d4a11da01e736462
+ms.openlocfilehash: 5fb3200bb2a21624f8718bd50e4c7bb2fc607ba9
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell - Clásico](expressroute-howto-circuit-classic.md)
+> * [Portal de Azure: Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell: administrador de recursos](expressroute-howto-circuit-arm.md)
+> * [PowerShell: clásico](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -32,13 +36,13 @@ Este artículo le guiará por los pasos necesarios para crear un circuito Expres
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
-### <a name="1.-review-the-prerequisites-and-workflow-articles"></a>1. Revise los requisitos previos y los artículos de flujo de trabajo.
+### <a name="1-review-the-prerequisites-and-workflow-articles"></a>1. Revise los requisitos previos y los artículos de flujo de trabajo.
 Asegúrese de haber revisado los [requisitos previos](expressroute-prerequisites.md) y los [flujos de trabajo](expressroute-workflows.md) antes de comenzar la configuración.  
 
-### <a name="2.-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale las versiones más recientes de los módulos de Azure PowerShell.
+### <a name="2-install-the-latest-versions-of-the-azure-powershell-modules"></a>2. Instale las versiones más recientes de los módulos de Azure PowerShell.
 Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
 
-### <a name="3.-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Inicie sesión en la cuenta de Azure y seleccione la suscripción.
+### <a name="3-log-in-to-your-azure-account-and-select-a-subscription"></a>3. Inicie sesión en la cuenta de Azure y seleccione la suscripción.
 1. En una ventana de Windows PowerShell con privilegios elevados, ejecute los siguientes cmdlets:
    
         Add-AzureAccount
@@ -51,13 +55,13 @@ Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar
         Select-AzureSubscription -SubscriptionName "mysubscriptionname"
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creación y aprovisionamiento de un circuito ExpressRoute
-### <a name="1.-import-the-powershell-modules-for-expressroute"></a>1. Importación del módulo de PowerShell para ExpressRoute
+### <a name="1-import-the-powershell-modules-for-expressroute"></a>1. Importación del módulo de PowerShell para ExpressRoute
  Si aún no lo ha hecho, tiene que importar los módulos de Azure y ExpressRoute en la sesión de PowerShell para poder usar los cmdlets de ExpressRoute. Importe los módulos de la ubicación donde estaban instaladas en el equipo local. Según el método utilizado para instalar los módulos, la ubicación puede ser diferente a la que se muestra en el ejemplo siguiente. Si es necesario, modifique el ejemplo.  
 
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Azure.psd1'
     Import-Module 'C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\ExpressRoute\ExpressRoute.psd1'
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
 Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas.
 
 El cmdlet de PowerShell `Get-AzureDedicatedCircuitServiceProvider` devuelve esta información, que se usará en pasos posteriores:
@@ -72,7 +76,7 @@ Compruebe si aparece su proveedor de conectividad. Tome nota de la siguiente inf
 
 Ahora está listo para crear un circuito ExpressRoute.         
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Creación de un circuito ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. Creación de un circuito ExpressRoute
 En el ejemplo siguiente se muestra cómo crear un circuito ExpressRoute de 200 Mbps a través de Equinix en Silicon Valley. Si usa otro proveedor y otra configuración, sustituya esa información al realizar la solicitud.
 
 > [!IMPORTANT]
@@ -98,7 +102,7 @@ La respuesta contendrá la clave del servicio. Puede obtener una descripción de
 
     get-help new-azurededicatedcircuit -detailed
 
-### <a name="4.-list-all-the-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
+### <a name="4-list-all-the-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
 Para obtener una lista de todos los circuitos ExpressRoute que haya creado, ejecute el comando `Get-AzureDedicatedCircuit`:
 
     Get-AzureDedicatedCircuit
@@ -131,7 +135,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando lo 
 
     get-help get-azurededicatedcircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
 *ServiceProviderProvisioningState* da información sobre el estado actual del aprovisionamiento en el lado del proveedor de servicios. *Status* proporciona el estado relativo al lado de Microsoft. Para más información sobre los estados de aprovisionamiento del circuito, consulte el artículo [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito estará en el siguiente estado:
@@ -151,7 +155,7 @@ Un circuito ExpressRoute tiene que estar en el siguiente estado para poder usarl
     Status                           : Enabled
 
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Comprobación periódica del estado y la condición de la clave del circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Comprobación periódica del estado y la condición de la clave del circuito
 Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Después de configurar el circuito, *ServiceProviderProvisioningState* aparece como *Provisioned*, tal como se muestra en el ejemplo siguiente:
 
     Get-AzureDedicatedCircuit
@@ -165,7 +169,7 @@ Esto le permitirá saber cuándo ha habilitado el circuito el proveedor. Despué
     Sku                              : Standard
     Status                           : Enabled
 
-### <a name="7.-create-your-routing-configuration"></a>7. Creación de la configuración de enrutamiento
+### <a name="7-create-your-routing-configuration"></a>7. Creación de la configuración de enrutamiento
 Consulte el artículo [Configuración de enrutamiento de circuitos ExpressRoute (crear y modificar emparejamientos de circuito)](expressroute-howto-routing-classic.md) para obtener instrucciones paso a paso.
 
 > [!IMPORTANT]
@@ -173,7 +177,7 @@ Consulte el artículo [Configuración de enrutamiento de circuitos ExpressRoute 
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vinculación de una red virtual a un circuito ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vinculación de una red virtual a un circuito ExpressRoute
 A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md) para obtener instrucciones paso a paso. Si necesita crear una red virtual con el modelo de implementación clásica de ExpressRoute, consulte [Configuración de una red virtual para ExpressRoute en el Portal clásico](expressroute-howto-vnet-portal-classic.md) para obtener instrucciones.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtención del estado de un circuito ExpressRoute
@@ -325,6 +329,9 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-classic.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

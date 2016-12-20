@@ -1,13 +1,13 @@
 ---
-title: Incorporación del conector de DB2 a Logic Apps | Microsoft Docs
-description: Información general del conector de DB2 con parámetros de la API de REST
-services: ''
-documentationcenter: ''
+title: "Incorporación del conector de DB2 a Logic Apps | Microsoft Docs"
+description: "Información general del conector de DB2 con parámetros de la API de REST"
+services: 
+documentationcenter: 
 author: gplarsen
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
 ms.service: logic-apps
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 09/26/2016
 ms.author: plarsen
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d9b00d1db69951ce183f05c8237db02cd046931b
+
 
 ---
 # <a name="get-started-with-the-db2-connector"></a>Introducción al conector de DB2
@@ -170,7 +174,7 @@ Puede definir una acción de aplicación lógica para agregar una fila en una ta
 3. En el desencadenador **Periodicidad**, seleccione **Editar**, después, en la lista desplegable **Frecuencia** para seleccionar **Día** y, a continuación, seleccione **Intervalo** y escriba **7**. 
 4. Seleccione el cuadro **+ Nuevo paso** y, a continuación, seleccione **Agregar una acción**.
 5. En la lista de **acciones**, escriba **db2** en el cuadro de edición **Buscar más acciones** y, a continuación, seleccione **DB2 - Insert row (Preview)** (DB2 - Insertar fila [Vista previa]).
-6. En la acción **Get rows (Preview)** (Obtener filas [Vista previa]), seleccione **Cambiar conexión**. 
+6. En la acción **DB2 - Insert row (Preview)** (DB2: Insertar fila [Vista previa]), seleccione **Cambiar conexión**. 
 7. En el panel de configuración **Conexiones** , seleccione una conexión. Por ejemplo, seleccione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -225,7 +229,7 @@ Puede definir una acción de aplicación lógica para cambiar una fila en una ta
 3. En el desencadenador **Periodicidad**, seleccione **Editar**, después, en la lista desplegable **Frecuencia** para seleccionar **Día** y, a continuación, seleccione **Intervalo** y escriba **7**. 
 4. Seleccione el cuadro **+ Nuevo paso** y, a continuación, seleccione **Agregar una acción**.
 5. En la lista de **acciones**, escriba **db2** en el cuadro de edición **Buscar más acciones** y, a continuación, seleccione **DB2 - Update row (Preview)** (DB2 - Actualizar fila [Vista previa]).
-6. En la acción **Get rows (Preview)** (Obtener filas [Vista previa]), seleccione **Cambiar conexión**. 
+6. En la acción **DB2 - Update row (Preview)** (DB2: Actualizar fila [Vista previa]), seleccione **Cambiar conexión**. 
 7. En el panel de configuración **Conexiones** , seleccione una conexión existente. Por ejemplo, seleccione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -252,7 +256,7 @@ Puede definir una acción de aplicación lógica para quitar una fila en una tab
 3. En el desencadenador **Periodicidad**, seleccione **Editar**, después, en la lista desplegable **Frecuencia** para seleccionar **Día** y, a continuación, seleccione **Intervalo** y escriba **7**. 
 4. Seleccione el cuadro **+ Nuevo paso** y, a continuación, seleccione **Agregar una acción**.
 5. En la lista de **acciones**, seleccione **db2** en el cuadro de edición **Buscar más acciones** y, a continuación, seleccione **DB2 - Delete row (Preview)** (DB2 - Eliminar fila [Vista previa]).
-6. En la acción **Get rows (Preview)** (Obtener filas [Vista previa]), seleccione **Cambiar conexión**. 
+6. En la acción **DB2 - Delete row (Preview)** (DB2: Eliminar fila [Vista previa]), seleccione **Cambiar conexión**. 
 7. En el panel de configuración **Conexiones** , seleccione una conexión existente. Por ejemplo, seleccione **hisdemo2**.
    
     ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
@@ -407,6 +411,9 @@ Este conector admite las siguientes plataformas y versiones de IBM DB2, así com
 ## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md). Explore los demás conectores disponibles en Logic Apps en nuestra [lista de API](apis-list.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

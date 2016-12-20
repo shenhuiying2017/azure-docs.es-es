@@ -1,12 +1,12 @@
 ---
-title: 'Copia de seguridad de Azure: implementación y administración de la copia de seguridad para DPM mediante PowerShell | Microsoft Docs'
-description: Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell
+title: "Azure Backup: implementación y administración de la copia de seguridad para DPM mediante PowerShell | Microsoft Docs"
+description: "Obtenga información acerca de cómo implementar y administrar Copia de seguridad de Azure para Data Protection Manager (DPM) mediante PowerShell"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: Nkolli1
 manager: shreeshd
-editor: ''
-
+editor: 
+ms.assetid: bcbcef79-9d33-4e84-a558-9866614f2cae
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark; trinadhk; anuragm; markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 245172873a1ae3418fd33ccf98a26054208b620a
+
 
 ---
-# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-(dpm)-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
+# <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implementación y administración de copias de seguridad en Azure para servidores de Data Protection Manager (DPM) con PowerShell
 > [!div class="op_single_selector"]
 > * [ARM](backup-dpm-automation.md)
 > * [Clásico](backup-dpm-automation-classic.md)
@@ -299,7 +303,7 @@ Cuando efectúa una copia de seguridad de un origen de datos por primera vez, DP
 ```
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
-### <a name="changing-the-size-of-dpm-replica-&-recovery-point-volume"></a>Cambiar el tamaño de la réplica de DPM y el volumen de puntos de recuperación
+### <a name="changing-the-size-of-dpm-replica-recovery-point-volume"></a>Cambiar el tamaño de la réplica de DPM y el volumen de puntos de recuperación
 También puede cambiar el tamaño del volumen de réplica de DPM, así como el volumen de instantánea mediante el cmdlet [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) , como en el ejemplo siguiente: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Confirmar los cambios en el grupo de protección
@@ -345,6 +349,9 @@ Los comandos se pueden ampliar fácilmente para cualquier tipo de origen de dato
 ## <a name="next-steps"></a>Pasos siguientes
 * Para obtener más información sobre Copia de seguridad de Azure para DPM, consulte [Introducción a Copia de seguridad de DPM](backup-azure-dpm-introduction.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,35 +1,49 @@
 ---
-title: Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure
-description: Aprenda a procesar datos ejecutando scripts U-SQL en el servicio de proceso de Análisis de Azure Data Lake.
+title: "Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure"
+description: "Aprenda a procesar datos ejecutando scripts U-SQL en el servicio de proceso de Análisis de Azure Data Lake."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: e17c1255-62c2-4e2e-bb60-d25274903e80
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/06/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: a4121f8857fa9eaeb1cf1bca70e29666f6a04f63
+ms.openlocfilehash: f2d7655f0e119b524b7fb9a32bee4cc874e265a5
+
 
 ---
-# Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure
-Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Análisis de Data Lake** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Análisis de Azure Data Lake**.
+# <a name="run-u-sql-script-on-azure-data-lake-analytics-from-azure-data-factory"></a>Ejecución del script de U-SQL en Análisis de Azure Data Lake desde Factoría de datos de Azure
+> [!div class="op_single_selector"]
+> * [Hive](data-factory-hive-activity.md)  
+> * [Pig](data-factory-pig-activity.md)  
+> * [MapReduce](data-factory-map-reduce.md)  
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
+> * [.NET personalizado](data-factory-use-custom-activities.md)
+
+Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. En este artículo se describe la **actividad U-SQL de Data Lake Analytics** que ejecuta un script de **U-SQL** en un servicio vinculado de proceso de **Azure Data Lake Analytics**. 
 
 > [!NOTE]
 > Debe crear una cuenta de Azure Data Lake Analytics antes de crear una canalización con una actividad de U-SQL de este servicio. Para obtener más información sobre Azure Data Lake Analytics, consulte el artículo de [introducción a Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 > 
-> Revise el [tutorial sobre la compilación de la primera canalización ](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Data Factory, Visual Studio o Azure PowerShell para crear las entidades de Data Factory.
+> Revise el [tutorial sobre la compilación de la primera canalización](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Data Factory, Visual Studio o Azure PowerShell para crear las entidades de Data Factory.
 > 
 > 
 
-## Servicio vinculado con Análisis de Azure Data Lake
-Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado.
+## <a name="azure-data-lake-analytics-linked-service"></a>Servicio vinculado con Análisis de Azure Data Lake
+Cree un servicio vinculado de **Azure Data Lake Analytics** para vincular un servicio de proceso de Azure Data Lake Analytics a una instancia de Azure Data Factory. La actividad de U-SQL de Data Lake Analytics de la canalización hace referencia a este servicio vinculado. 
 
-En el ejemplo siguiente se proporciona la definición de JSON para un servicio vinculado de Análisis de Azure Data Lake.
+En el ejemplo siguiente se proporciona la definición de JSON para un servicio vinculado de Análisis de Azure Data Lake. 
 
     {
         "name": "AzureDataLakeAnalyticsLinkedService",
@@ -47,7 +61,7 @@ En el ejemplo siguiente se proporciona la definición de JSON para un servicio v
     }
 
 
-En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON.
+En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en la definición de JSON. 
 
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
@@ -59,16 +73,16 @@ En la siguiente tabla se ofrecen descripciones de las propiedades que se usan en
 | resourceGroupName |Nombre del grupo de recursos de Azure. |No (si no se especifica, se usa el grupo de recursos de la factoría de datos). |
 | sessionId |Identificador de sesión de la sesión de autorización de OAuth. Cada identificador de sesión es único y solo puede usarse una vez. Este se genera automáticamente en el Editor de Data Factory. |Sí |
 
-El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid\_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
+El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. Consulte la tabla siguiente para conocer el momento en que expiran los distintos tipos de cuentas de usuario. Puede ver el siguiente mensaje de error cuando el **token de autenticación expira**: Error de operación de credencial: invalid_grant - AADSTS70002: error al validar las credenciales. AADSTS70008: la concesión de acceso proporcionada expiró o se revocó. Id. de seguimiento: d18629e8-af88-43c5-88e3-d8419eb1fca1 Id. de correlación: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Marca de tiempo: 2015-12-15 21:09:31Z
 
 | Tipo de usuario | Expira después de |
 |:--- |:--- |
-| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc.) |12 horas |
+| Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc). |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
-Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente.
+Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** con programación, para lo que usará el código de la sección siguiente. 
 
-### Para generar los valores de sessionId y authorization mediante programación
+### <a name="to-programmatically-generate-sessionid-and-authorization-values"></a>Para generar los valores de sessionId y authorization mediante programación
     if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
         linkedService.Properties.TypeProperties is AzureDataLakeAnalyticsLinkedService)
     {
@@ -92,10 +106,10 @@ Para evitar o resolver este error, vuelva a dar la autorización con el botón *
         }
     }
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse (Clase)](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog.
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll para la clase WindowsFormsWebAuthenticationDialog. 
 
-## Actividad U-SQL de Análisis de Data Lake
-El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente.
+## <a name="data-lake-analytics-u-sql-activity"></a>Actividad U-SQL de Análisis de Data Lake
+El siguiente fragmento JSON define una canalización con una actividad U-SQL de Análisis de Data Lake. La definición de actividad tiene una referencia al servicio vinculado de Análisis de Azure Data Lake que creó anteriormente.   
 
     {
         "name": "ComputeEventsByRegionPipeline",
@@ -147,11 +161,11 @@ El siguiente fragmento JSON define una canalización con una actividad U-SQL de 
     }
 
 
-En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad.
+En la tabla siguiente se describen los nombres y descripciones de las propiedades que son específicas de esta actividad. 
 
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
-| type |La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL**. |Sí |
+| Tipo |La propiedad type debe establecerse en **DataLakeAnalyticsU-SQL**. |Sí |
 | scriptPath |Ruta de acceso a la carpeta que contiene el script U-SQL. El nombre del archivo distingue mayúsculas de minúsculas. |No (si se utiliza el script) |
 | scriptLinkedService |Servicio vinculado que se vincula al almacenamiento que contiene el script para la factoría de datos |No (si se utiliza el script) |
 | script |Especifique el script en línea en lugar de scriptPath y scriptLinkedService. Por ejemplo: "script": "Prueba CREAR BASE DE DATOS". |No (si usa scriptPath y scriptLinkedService) |
@@ -159,11 +173,11 @@ En la tabla siguiente se describen los nombres y descripciones de las propiedade
 | prioridad |Determina qué trabajos de todos los están en cola deben seleccionarse para ejecutarse primero. Cuanto menor sea el número, mayor será la prioridad. |No |
 | parameters |Parámetros del script SQL U |No |
 
-Para ver la definición del script, vea [Definición del script SearchLogProcessing.txt](#script-definition).
+Para ver la definición del script, vea [Definición del script SearchLogProcessing.txt](#script-definition) . 
 
-## Conjuntos de datos de entrada y salida de ejemplo
-### Conjunto de datos de entrada
-En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (archivo SearchLog.tsv en la carpeta de datalake/input).
+## <a name="sample-input-and-output-datasets"></a>Conjuntos de datos de entrada y salida de ejemplo
+### <a name="input-dataset"></a>Conjunto de datos de entrada
+En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (archivo SearchLog.tsv en la carpeta de datalake/input). 
 
     {
         "name": "DataLakeTable",
@@ -186,8 +200,8 @@ En este ejemplo, los datos de entrada residen en Almacén de Azure Data Lake (ar
         }
     }    
 
-### Conjunto de datos de salida
-En este ejemplo, los datos de salida generados por el script U-SQL se almacenan en Almacén de Azure Data Lake (carpeta datalake/output).
+### <a name="output-dataset"></a>Conjunto de datos de salida
+En este ejemplo, los datos de salida generados por el script U-SQL se almacenan en Almacén de Azure Data Lake (carpeta datalake/output). 
 
     {
         "name": "EventsByRegionTable",
@@ -204,8 +218,8 @@ En este ejemplo, los datos de salida generados por el script U-SQL se almacenan 
         }
     }
 
-### Ejemplo de servicio vinculado de Data Lake Store
-Aquí está la definición del servicio vinculado de Azure Data Lake Store de ejemplo que usan los conjuntos de datos de entrada y salida.
+### <a name="sample-data-lake-store-linked-service"></a>Ejemplo de servicio vinculado de Data Lake Store
+Aquí está la definición del servicio vinculado de Azure Data Lake Store de ejemplo que usan los conjuntos de datos de entrada y salida. 
 
     {
         "name": "AzureDataLakeStoreLinkedService",
@@ -219,9 +233,9 @@ Aquí está la definición del servicio vinculado de Azure Data Lake Store de ej
         }
     }
 
-Consulte el artículo sobre cómo [mover datos a Azure Data Lake Store como origen y destino](data-factory-azure-datalake-connector.md) para ver descripciones de las propiedades JSON.
+Consulte el artículo sobre cómo [mover datos a Azure Data Lake Store como origen y destino](data-factory-azure-datalake-connector.md) para ver descripciones de las propiedades JSON. 
 
-## Script U-SQL
+## <a name="sample-u-sql-script"></a>Script U-SQL
     @searchlog =
         EXTRACT UserId          int,
                 Start           DateTime,
@@ -247,25 +261,30 @@ Consulte el artículo sobre cómo [mover datos a Azure Data Lake Store como orig
         TO @out
           USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 
-ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** del script de U-SQL usando la sección parameters. Consulte la sección parameters de la definición de canalización.
+ADF pasa dinámicamente los valores de los parámetros **@in** y **@out** del script de U-SQL usando la sección "parameters". Consulte la sección parameters de la definición de canalización.
 
 También puede especificar otras propiedades como degreeOfParallelism y priority en la definición de canalización de los trabajos que se ejecutan en el servicio Azure Data Lake Analytics.
 
-## Parámetros dinámicos
-En la definición de canalización de ejemplo, se asignan los parámetros in y out con valores codificados de forma rígida.
+## <a name="dynamic-parameters"></a>Parámetros dinámicos
+En la definición de canalización de ejemplo, se asignan los parámetros in y out con valores codificados de forma rígida. 
 
     "parameters": {
         "in": "/datalake/input/SearchLog.tsv",
         "out": "/datalake/output/Result.tsv"
     }
 
-Es posible usar los parámetros dinámicos en su lugar. Por ejemplo:
+Es posible usar los parámetros dinámicos en su lugar. Por ejemplo: 
 
     "parameters": {
         "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
         "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"
     }
 
-En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.
+En este caso, los archivos de entrada se siguen tomando de la carpeta /datalake/input; los de salida se generan en la carpeta /datalake/output. Sin embargo, los nombres de archivo son dinámicos según la hora de inicio del segmento.  
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

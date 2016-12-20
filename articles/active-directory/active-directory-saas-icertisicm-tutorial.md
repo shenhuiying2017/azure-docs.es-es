@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Icertis Contract Management Platform | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Icertis Contract Management Platform.
+title: "Tutorial: Integración de Azure Active Directory con Icertis Contract Management Platform | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Icertis Contract Management Platform."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6627e6dd-f559-4cd4-a509-f6d9a4961b49
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a2d2fba76850d6dfcff7545d6646f45c12e05c3f
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integración de Azure Active Directory con Icertis Contract Management Platform
+# <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integración de Azure Active Directory con Icertis Contract Management Platform
 El objetivo de este tutorial es mostrar cómo integrar Icertis Contract Management Platform con Azure Active Directory (Azure AD).
 
 Integrar Icertis Contract Management Platform con Azure AD proporciona las siguientes ventajas:
@@ -121,10 +125,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
     b. Haga clic en **Siguiente**.
 2. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de Icertis Contract Management Platform y proporcione lo siguiente: 
    
-   * El archivo de **metadatos descargado** 
-   * El **identificador de entidad** 
-   * La **dirección URL de inicio de sesión único de SAML** 
-   * La **dirección URL del servicio de cierre de sesión único**
+    - El archivo de **metadatos descargado** 
+   
+    - El **identificador de entidad** 
+   
+    - La **dirección URL de inicio de sesión único de SAML** 
+   
+    - La **dirección URL del servicio de cierre de sesión único**
 3. En el portal clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
     ![Inicio de sesión único de Azure AD ][10]
@@ -206,7 +213,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Icertis Contract Management Platform en el Panel de acceso, debería haber iniciado sesión automáticamente en la aplicación Icertis Contract Management Platform.
@@ -235,6 +242,6 @@ Al hacer clic en el icono de Icertis Contract Management Platform en el Panel de
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Información general sobre la ciencia de los datos con Spark en HDInsight de Azure | Microsoft Docs
-description: El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight.
+title: "Información general sobre la ciencia de los datos con Spark en HDInsight de Azure | Microsoft Docs"
+description: "El kit de herramientas MLlib de Spark ofrece importantes funciones de modelado de aprendizaje automático para el entorno distribuido de HDInsight."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a4e1de99-a554-4240-9647-2c6d669593c8
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: deguhath;bradsev;gokuma
+translationtype: Human Translation
+ms.sourcegitcommit: ca799d03076175d6a7193c0e58b349a6cb61693b
+ms.openlocfilehash: 35f07fba1421af1db9c8b6190737c3c220a911e1
+
+
 
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Información general sobre la ciencia de los datos con Spark en HDInsight de Azure
@@ -29,6 +34,7 @@ Los pasos de instalación y el código proporcionados en este tutorial son para 
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Debe tener una suscripción de Azure. Si aún no tiene una, consulte [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)(Obtener una evaluación gratuita de Azure).
+
 2. Necesita un clúster de Spark 1.6 en HDInsight 3.4 para completar este tutorial. Para crear uno, consulte las instrucciones proporcionadas en [Introducción: creación de clústeres de Apache Spark en HDInsight para Linux y ejecución de consultas interactivas mediante Spark SQL (versión preliminar)](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). En el menú **Seleccionar tipo de clúster** se especifica el tipo de clúster y la versión. 
 
 ![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
@@ -136,7 +142,7 @@ Ahora puede:
 
 ![Curva ROC de regresión logística para el enfoque genérico](./media/machine-learning-data-science-spark-overview/pyspark-jupyter-autovisualization.png)
 
-## <a name="what's-next?"></a>Pasos siguientes
+## <a name="whats-next"></a>Pasos siguientes
 Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuadernos de Jupyter Notebook, está listo para trabajar con los temas correspondientes a estos tres cuadernos de PySpark, que muestran cómo explorar los datos y crear y utilizar los modelos. El cuaderno de exploración y modelado de datos avanzado muestra cómo incluir la validación cruzada, el barrido de los hiperparámetros y la evaluación de modelos. 
 
 **Exploración de datos y modelado con Spark** : explore el conjunto de datos y cree los modelos de aprendizaje automático que se puntuarán y evaluarán aquí mediante el tema [Exploración y modelado de datos con Spark](machine-learning-data-science-spark-data-exploration-modeling.md).
@@ -145,6 +151,9 @@ Ahora que ya ha configurado un clúster de HDInsight Spark y ha cargado los cuad
 
 **Validación cruzada y barrido de hiperparámetros**: Consulte [Exploración y modelado avanzados de datos con Spark](machine-learning-data-science-spark-advanced-data-exploration-modeling.md) sobre cómo pueden prepararse los modelos con el barrido de hiperparámetros y la validación cruzada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

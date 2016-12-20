@@ -1,26 +1,30 @@
 ---
-title: Solución Monitor de rendimiento de red de OMS | Microsoft Docs
-description: Monitor de rendimiento de red lo ayuda a supervisar el rendimiento de sus redes —en prácticamente tiempo real— para encontrar y localizar los cuellos de botella de rendimiento que afecten a la red.
+title: "Solución Monitor de rendimiento de red de OMS | Microsoft Docs"
+description: "Monitor de rendimiento de red lo ayuda a supervisar el rendimiento de sus redes —en prácticamente tiempo real— para encontrar y localizar los cuellos de botella de rendimiento que afecten a la red."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 4f5c7208cabc565c4f5dddc917c4756ae4776c33
+
 
 ---
-# <a name="network-performance-monitor-(preview)-solution-in-oms"></a>Solución Monitor de rendimiento de red (versión preliminar) de OMS
+# <a name="network-performance-monitor-preview-solution-in-oms"></a>Solución Monitor de rendimiento de red (versión preliminar) de OMS
 > [!NOTE]
 > Se trata de una [solución en versión preliminar](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+>
+>
 
 En este documento se describe la instalación y el uso de la solución Monitor de rendimiento de red de OMS, que lo ayuda a supervisar el rendimiento de sus redes —en prácticamente tiempo real—para encontrar y localizar los cuellos de botella de rendimiento que afecten a la red. Con la solución Monitor de rendimiento de red, puede supervisar la pérdida y la latencia entre dos redes, subredes o servidores. Monitor de rendimiento de red detecta posibles problemas de red, como enrutamiento del tráfico a "agujeros negros", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. Monitor de rendimiento de red genera alertas y notifica cómo y cuándo se supera un umbral en un vínculo de red. El sistema puede aprender automáticamente estos umbrales, o bien puede configurarlos para usar reglas de alerta personalizadas. Monitor de rendimiento de red garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado.
 
@@ -48,8 +52,8 @@ Use los procesos básicos para instalar agentes en [Conexión de equipos Windows
 
 > [!NOTE]
 > Debe instalar al menos 2 agentes si desea disponer de suficientes datos para detectar y supervisar los recursos de red. De lo contrario, la solución permanecerá en un estado de configuración hasta que instale y configure más agentes.
-> 
-> 
+>
+>
 
 ### <a name="where-to-install-the-agents"></a>Dónde instalar los agentes
 Antes de instalar los agentes, tenga en cuenta la topología de la red y qué partes de esta última desea supervisar. Se recomienda instalar más de un agente para cada subred que desee supervisar. Dicho de otro modo, para cada subred que desee supervisar, elija dos o más servidores o máquinas virtuales e instale el agente en ellos.
@@ -67,8 +71,8 @@ El puerto que se abre de forma predeterminada es 8084. Puede utilizar un puerto 
 
 > [!NOTE]
 > El script EnableRules.ps1 solo configura reglas del firewall de Windows en el equipo donde lo ejecute. Si tiene un firewall de red, debe asegurarse de que permite el tráfico destinado al puerto TCP que esté utilizando Monitor de rendimiento de red.
-> 
-> 
+>
+>
 
 ## <a name="configuring-the-solution"></a>Configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
@@ -158,8 +162,8 @@ La solución utiliza transacciones sintéticas para evaluar el estado de la red.
 
 > [!NOTE]
 > A pesar de que los agentes se comunican entre sí con frecuencia, no generan una gran cantidad de tráfico de red mientras llevan a cabo las pruebas. Los agentes utilizan exclusivamente los paquetes de protocolo de enlace SYNACK-TCP SYN-ACK para determinar la pérdida y la latencia; es decir, no se intercambia ningún paquete de datos. Durante este proceso, los agentes solo se comunican entre sí cuando resulta necesario, y la topología de comunicación de los agentes está optimizada para reducir el tráfico de red.
-> 
-> 
+>
+>
 
 ## <a name="using-the-solution"></a>Uso de la solución
 En esta sección se explican todas las funciones del panel y cómo utilizarlas.
@@ -233,13 +237,15 @@ Ahora que se ha familiarizado con Monitor de rendimiento de red, veamos una inve
 5. Todas las rutas de acceso entre los dos nodos seleccionados estarán trazadas en el mapa de topología. Puede visualizar la topología de salto a salto de las rutas entre dos nodos en el mapa de topología. Ofrece una perspectiva clara de cuántas rutas existen entre los dos nodos y qué rutas de acceso emplean los paquetes de datos. Los cuellos de botella de rendimiento de red se marcan en rojo. Puede encontrar una conexión o dispositivo de red defectuosos examinando los elementos de color rojo presentes en el mapa de topología.  
    ![Ejemplo de la vista de topología incorrecta](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
 6. Es posible consultar la pérdida, la latencia y el número de saltos de cada ruta de acceso en el panel **Detalles de la ruta de acceso**. En este ejemplo, puede ver que hay 3 rutas de acceso incorrectas, como se mencionó en el panel. Utilice la barra de desplazamiento para ver los detalles de esas rutas de acceso incorrectas.  Use las casillas para seleccionar una de las rutas de acceso, de modo que solo se trace la topología para una de ellas. Puede utilizar la rueda del mouse para acercar o alejar el mapa de topología.
-   
+
    En la siguiente imagen puede ver con claridad la causa principal de las áreas problemáticas de la sección específica de la red con solo observar las rutas de acceso y los saltos marcados en color rojo. Si hace clic en un nodo en el mapa de topología, se mostrarán las propiedades del nodo, incluido el FQDN y la dirección IP. Si se hace clic en un salto, se mostrará su dirección IP.  
    ![Ejemplo de topología incorrecta con detalles sobre las rutas de acceso](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Buscar registros](log-analytics-log-searches.md) para ver datos detallados de rendimiento de red.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

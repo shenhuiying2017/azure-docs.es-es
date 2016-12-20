@@ -1,25 +1,43 @@
 ---
-title: Introducción a Reliable Services | Microsoft Docs
-description: Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado.
+title: "Introducción a Reliable Services | Microsoft Docs"
+description: "Introducción a la creación de una aplicación de Service Fabric de Microsoft Azure mediante servicios con y sin estado."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: d9b44d75-e905-468e-b867-2190ce97379a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2016
+ms.date: 10/28/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
+
 
 ---
-# Introducción a Reliable Services de Service Fabric
+# <a name="get-started-with-reliable-services"></a>Introducción a los servicios de confianza
+> [!div class="op_single_selector"]
+> * [C# en Windows](service-fabric-reliable-services-quick-start.md)
+> * [Java en Linux](service-fabric-reliable-services-quick-start-java.md)
+> 
+> 
+
 Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).
 
-## Creación de un servicio sin estado
+## <a name="basic-concepts"></a>Conceptos básicos
+Para empezar a trabajar con Reliable Services, solo es necesario comprender cuatro conceptos básicos:
+
+* **Tipo de servicio**: se trata de la implementación del servicio. Se ha definido a través de la clase que escribe y que extiende `StatelessService` y cualquier otro código y dependencias utilizados, junto con un nombre y un número de versión.
+* **Instancia de servicio con nombre**: para ejecutar su servicio, debe crear instancias con nombre de su tipo de servicio, de forma muy similar a la creación de instancias de objetos de un tipo de clase. Las instancias de servicio son, en realidad, creaciones de instancias de objetos de la clase de servicio que escribe. 
+* **Host de servicio**: las instancias de servicio con nombre que cree deben ejecutarse dentro de un host. El host del servicio es simplemente un proceso donde se pueden ejecutar instancias de su servicio.
+* **Registro de servicio**: el registro incluye todos los elementos. El tipo de servicio debe registrarse con Service Fabric en tiempo de ejecución en un host de servicio para permitir que Service Fabric cree instancias de él para ejecutarse.  
+
+## <a name="create-a-stateless-service"></a>Creación de un servicio sin estado
 Un servicio sin estado es un tipo de servicio que es el que se encuentra actualmente en las aplicaciones en la nube. Se considera sin estado porque el propio servicio no contiene datos que tengan que almacenarse de manera fiable o requieran tener una alta disponibilidad. Si se cierra una instancia de un servicio sin estado, todo su estado interno se pierde. En este tipo de servicio, el estado debe almacenarse en un almacén externo, como Tablas de Azure o una base de datos SQL, para que resulte fiable y tenga una alta disponibilidad.
 
 Inicie Visual Studio 2015 como administrador y cree un nuevo proyecto de aplicación de Service Fabric denominado *HelloWorld*:
@@ -35,10 +53,10 @@ La solución contiene ahora dos proyectos:
 * *HelloWorld*. Se trata del proyecto de *aplicación* que contiene sus *servicios*. También contiene el manifiesto de aplicación que describe la aplicación y un número de scripts de PowerShell que le ayudarán a implementar la aplicación.
 * *HelloWorldStateless*. Este es el proyecto de servicio. Contiene la implementación del servicio sin estado.
 
-## Implementación del servicio
+## <a name="implement-the-service"></a>Implementación del servicio
 Abra el archivo **HelloWorldStateless.cs** en el proyecto de servicio. En Service Fabric, un servicio puede ejecutar cualquier lógica de negocios. La API de servicios proporciona dos puntos de entrada para el código:
 
-* Llama a un método de punto de entrada abierto denominado "*RunAsync*" donde puede comenzar la ejecución de cualquier carga de trabajo que desee, como cargas de trabajo de proceso de larga duración.
+* Llama a un método de punto de entrada abierto denominado " *RunAsync*" donde puede comenzar la ejecución de cualquier carga de trabajo que desee, como cargas de trabajo de proceso de larga duración.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -56,14 +74,15 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-En este tutorial, nos centraremos en el método de punto de entrada `RunAsync()`. Aquí es donde puede comenzar a ejecutar el código de inmediato. La plantilla de proyecto incluye una implementación de ejemplo de `RunAsync()` que incrementa un recuento gradual.
+En este tutorial, nos centraremos en el método de punto de entrada `RunAsync()` . Aquí es donde puede comenzar a ejecutar el código de inmediato.
+La plantilla de proyecto incluye una implementación de ejemplo de `RunAsync()` que incrementa un recuento gradual.
 
 > [!NOTE]
-> Para obtener más información acerca de cómo trabajar con una pila de comunicación, consulte [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md).
+> Para obtener más información acerca de cómo trabajar con una pila de comunicación, consulte [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
 > 
 > 
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -92,11 +111,13 @@ La plataforma llama a este método cuando hay una instancia del servicio colocad
 
 El sistema es quien se encarga de la coordinación para mantener el servicio con una alta disponibilidad y correctamente equilibrado.
 
-`RunAsync()` se ejecuta en su propia tarea. Tenga en cuenta que en el fragmento de código anterior, avanzamos hasta un bucle de tipo *while* No es necesario programar una tarea independiente para la carga de trabajo. La cancelación de la carga de trabajo es un esfuerzo cooperativo organizado por el token de cancelación proporcionado. El sistema esperará a que la tarea finalice (ya sea mediante una realización correcta, una cancelación o con errores) antes de moverla. Es importante respetar el token de cancelación, finalizar cualquier trabajo y cerrar `RunAsync()` lo antes posible cuando el sistema solicita la cancelación.
+`RunAsync()` no debe bloquearse de forma sincrónica. La implementación de RunAsync debe devolver una tarea o esperar a las operaciones de ejecución prolongada o de bloqueo para permitir que el entorno de tiempo de ejecución siga activo. Tenga en cuenta que en el bucle de `while(true)` del ejemplo anterior, se utiliza un parámetro `await Task.Delay()` de devolución de tareas. Si la carga de trabajo debe bloquearse de forma sincrónica, debería programar una nueva tarea con `Task.Run()` en la implementación de `RunAsync`.
+
+La cancelación de la carga de trabajo es un esfuerzo cooperativo organizado por el token de cancelación proporcionado. El sistema esperará a que la tarea finalice (ya sea mediante una realización correcta, una cancelación o con errores) antes de moverla. Es importante respetar el token de cancelación, finalizar cualquier trabajo y cerrar `RunAsync()` lo antes posible cuando el sistema solicita la cancelación.
 
 En este ejemplo de servicio sin estado, el número se almacena en una variable local. Pero dado que se trata de un servicio sin estado, el valor almacenado solo existe para el ciclo de vida actual de la instancia de su servicio. Cuando se mueve o se reinicia el servicio, el valor se pierde.
 
-## Creación de un servicio con estado
+## <a name="create-a-stateful-service"></a>Creación de un servicio con estado
 Service Fabric presenta un nuevo tipo de servicio que es con estado. Un servicio con estado puede mantener el estado confiablemente dentro del propio servicio, ubicado junto al código que lo está usando. Service Fabric ofrece una alta disponibilidad del estado sin necesidad de conservarlo en un almacén externo.
 
 Para cambiar el valor sin estado del contador a una alta disponibilidad y persistencia, incluso cuando se mueve o reinicia el servicio, se necesita un servicio con estado.
@@ -111,7 +132,7 @@ Seleccione **Servicio con estado** y asígnele el nombre *HelloWorldStateful*. H
 
 La aplicación ahora debe tener dos servicios: el servicio sin estado *HelloWorldStateless* y el servicio con estado *HelloWorldStateful*.
 
-Un servicio con estado tiene los mismos puntos de entrada que un servicio sin estado. La principal diferencia es la disponibilidad de un *proveedor de estado* que puede almacenar estados de forma confiable. Service Fabric incluye una implementación de proveedor de estado denominada "[Reliable Collections](service-fabric-reliable-services-reliable-collections.md)", que permite crear estructuras de datos con replicación mediante Reliable State Manager. Un servicio de confianza con estado usa este proveedor de estado de forma predeterminada.
+Un servicio con estado tiene los mismos puntos de entrada que un servicio sin estado. La principal diferencia es la disponibilidad de un *proveedor de estado* que puede almacenar estados de forma confiable. Service Fabric incluye una implementación de proveedor de estado denominada " [Reliable Collections](service-fabric-reliable-services-reliable-collections.md)", que permite crear estructuras de datos con replicación mediante Reliable State Manager. Un servicio de confianza con estado usa este proveedor de estado de forma predeterminada.
 
 Abra **HelloWorldStateful.cs** en *HelloWorldStateful*, que contiene el método RunAsync siguiente:
 
@@ -145,10 +166,10 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### RunAsync
+### <a name="runasync"></a>RunAsync
 `RunAsync()` funciona de forma similar en los servicios con y sin estado. Sin embargo, en los servicios con estado, la plataforma realiza una tarea adicional de forma automática antes de ejecutar `RunAsync()`. Al realizarla, se puede garantizar que Reliable State Manager y Reliable Collections estén listos para usarse.
 
-### Reliable Collections y Reliable State Manager
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Reliable Collections y Reliable State Manager
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
@@ -164,7 +185,7 @@ Reliable Collections puede almacenar cualquier tipo de .NET, incluidos los tipos
 
 Reliable State Manager administra Reliable Collections de forma automática. Basta con solicitar a Reliable State Manager una colección confiable por nombre en cualquier momento y lugar del servicio. Reliable State Manager garantiza la obtención de una referencia. No recomendamos guardar referencias a instancias de colecciones fiables en variables o propiedades de miembros de clase. Debe tener especial cuidado para asegurarse de que se establece la referencia a una instancia en todo momento del ciclo de vida de servicio. Reliable State Manager controla esta tarea automáticamente y está optimizado para la repetición de visitas.
 
-### Operaciones transaccionales y asincrónicas
+### <a name="transactional-and-asynchronous-operations"></a>Operaciones transaccionales y asincrónicas
 ```C#
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -180,10 +201,10 @@ Las colecciones Reliable Collections tienen muchas de las mismas operaciones que
 
 Las operaciones de Reliable Collections son *transaccionales*, de modo que el estado puede mantenerse de forma coherente entre varias operaciones y colecciones Reliable Collections. Por ejemplo, puede quitar de la cola un elemento de trabajo de una cola fiable, realizar una operación en ella y guardar el resultado en un diccionario fiable, todo en una única transacción. Se trata como una operación atómica y así se garantiza que toda la operación se complete correctamente o se revierta por completo. Si se produce un error después de quitar el elemento de la cola pero antes de guardar el resultado, toda la transacción se revierte y el elemento permanece en la cola para su procesamiento.
 
-## Ejecución de la aplicación
-Volvamos ahora a la aplicación *HelloWorld*. Ahora puede compilar e implementar sus servicios. Si presiona **F5**, la aplicación se creará e implementará en el clúster local.
+## <a name="run-the-application"></a>Ejecución de la aplicación
+Volvamos ahora a la aplicación *HelloWorld* . Ahora puede compilar e implementar sus servicios. Si presiona **F5**, la aplicación se creará e implementará en el clúster local.
 
-Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Seguimiento de eventos para Windows (ETW) generados en una ventana de **Eventos de diagnóstico**. Tenga en cuenta que hay eventos que se muestran desde el servicio sin estado y el servicio con estado en la aplicación. Puede pausar el streaming haciendo clic en el botón **Pausar**. Luego puede también examinar los detalles de un mensaje expandiéndolo.
+Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Seguimiento de eventos para Windows (ETW) generados en una ventana de **Eventos de diagnóstico** . Tenga en cuenta que hay eventos que se muestran desde el servicio sin estado y el servicio con estado en la aplicación. Puede pausar el streaming haciendo clic en el botón **Pausar** . Luego puede también examinar los detalles de un mensaje expandiéndolo.
 
 > [!NOTE]
 > Antes de ejecutar la aplicación, asegúrese de tener un clúster de desarrollo local ejecutándose. Consulte la [guía de introducción](service-fabric-get-started.md) para más información sobre cómo configurar un entorno local.
@@ -192,7 +213,7 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 ![Ver eventos de diagnóstico en Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Depuración de la aplicación del Service Fabric en Visual Studio](service-fabric-debugging-your-application.md)
 
 [Introducción a los servicios de la API web de Microsoft Azure Service Fabric con autohospedaje OWIN](service-fabric-reliable-services-communication-webapi.md)
@@ -205,4 +226,9 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 [Referencia para desarrolladores de servicios confiables](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

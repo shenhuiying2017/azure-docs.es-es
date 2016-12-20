@@ -1,13 +1,13 @@
 ---
-title: Análisis de datos de Twitter con Apache Hive en HDInsight | Microsoft Docs
-description: Aprenda a usar Python para almacenar tweets que contengan palabras clave específicas y luego use Hive y Hadoop en HDInsight para transformar los datos sin procesar de TWitter en una tabla de Hive en la que se puedan realizar búsquedas.
+title: "Análisis de datos de Twitter con Apache Hive en HDInsight | Microsoft Docs"
+description: "Aprenda a usar Python para almacenar tweets que contengan palabras clave específicas y luego use Hive y Hadoop en HDInsight para transformar los datos sin procesar de TWitter en una tabla de Hive en la que se puedan realizar búsquedas."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 660524509b523ae2edb72cb8c80d75437730c119
+
 
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Análisis de datos de Twitter con Hive en HDInsight
@@ -231,7 +235,7 @@ Así se almacenan los datos en una ubicación a la que pueden tener acceso todos
             concat(substr (get_json_object(json_response, '$.created_at'),1,10),' ',
             substr (get_json_object(json_response, '$.created_at'),27,4)),
             substr (get_json_object(json_response, '$.created_at'),27,4),
-            case substr (get_json_object(json_response, '$.created_at'),5,3)
+            case substr (get_json_object(json_response,    '$.created_at'),5,3)
                 when "Jan" then "01"
                 when "Feb" then "02"
                 when "Mar" then "03"
@@ -312,6 +316,6 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

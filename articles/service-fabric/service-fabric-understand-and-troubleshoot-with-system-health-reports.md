@@ -1,12 +1,12 @@
 ---
-title: Solución de problemas con los informes de mantenimiento del sistema | Microsoft Docs
-description: Describe los informes de estado enviados por los componentes de Azure Service Fabric y su uso para la resolución de problemas de clúster o de aplicaciones.
+title: "Solución de problemas con los informes de mantenimiento del sistema | Microsoft Docs"
+description: "Describe los informes de estado enviados por los componentes de Azure Service Fabric y su uso para la resolución de problemas de clúster o de aplicaciones."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5e940cd05a5e3d368f42cf3457f0a4b12e86440a
+
 
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
@@ -54,7 +58,7 @@ El informe especifica el tiempo de espera de concesión global como período de 
 ## <a name="node-system-health-reports"></a>Informes de mantenimiento del sistema de nodos
 **System.FM**, que representa el servicio Administrador de conmutación por error, es la autoridad que administra la información acerca de los nodos del clúster. Todos los nodos deben tener un informe de System.FM que muestre el estado. Las entidades de nodo se quitan cuando se quita el estado del nodo (consulte [RemoveNodeStateAsync](https://msdn.microsoft.com/library/azure/mt161348.aspx)).
 
-### <a name="node-up/down"></a>Nodo activo o inactivo
+### <a name="node-updown"></a>Nodo activo o inactivo
 System.FM notifica que está todo correcto cuando el nodo se une al anillo (está en funcionamiento). Notifica un error cuando el nodo sale del anillo (no funciona, ya sea porque se está actualizando o simplemente porque no pudo). La jerarquía de mantenimiento generada por el almacén de estado realiza una acción sobre las entidades implementadas en correlación con los informes de nodo de System.FM. Considera el nodo como un elemento primario virtual de todas las entidades implementadas. Las entidades implementadas en ese nodo se exponen a través de las consultas si System.FM notifica que el nodo está activo, con la misma instancia que la instancia asociada a las entidades. Cuando System.FM notifica que el nodo está inactivo o que se ha reiniciado (una nueva instancia), el almacén de estado limpia automáticamente las entidades implementadas que solo pueden existir en el nodo inactivo o en la instancia anterior del nodo.
 
 * **SourceId**: System.FM
@@ -678,6 +682,9 @@ HealthEvents          :
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

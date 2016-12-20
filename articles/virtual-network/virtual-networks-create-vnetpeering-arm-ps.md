@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: dac579bd-7545-461a-bdac-301c87434c84
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
 ms.author: narayanannamalai; annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 348b23b277c80867f600a408736e13b8ceb665f4
+ms.sourcegitcommit: bd5f3b3cd46ce347896ed9ef229e438b2a3c830f
+ms.openlocfilehash: 7de9b1f207caf582bde153aa931f3996b459d825
 
 
 ---
@@ -32,10 +32,9 @@ Para el emparejamiento de VNet mediante PowerShell, siga estos pasos:
 
 1. Si es la primera vez que usa Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
 
-> [!NOTE]
-> El cmdlet de PowerShell para administrar el emparejamiento de VNET se suministra con [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
-> 
-> 
+    > [!NOTE]
+    > El cmdlet de PowerShell para administrar el emparejamiento de VNET se suministra con [Azure PowerShell 1.6](http://www.powershellgallery.com/packages/Azure/1.6.0).
+    >
 
 1. Leer objetos de redes virtuales:
    
@@ -238,6 +237,6 @@ Para crear un emparejamiento de red virtual entre una red virtual clásica y una
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Supervisión de una cuenta de almacenamiento | Microsoft Docs
+title: "Supervisión de una cuenta de almacenamiento | Microsoft Docs"
 description: Aprenda a supervisar una cuenta de almacenamiento en Azure usando el Portal de Azure.
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
-
+ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c0506fd6745c9ab04f10b60936315901ed35edbc
+
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
@@ -21,7 +25,7 @@ ms.author: robinsh
 Puede supervisar su cuenta de almacenamiento en el [Portal de Azure](https://portal.azure.com). Al configurar la cuenta de almacenamiento para la supervisión a través del portal, Almacenamiento de Azure usa el [análisis del almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para realizar un seguimiento de las métricas de la cuenta y registrar los datos de solicitudes.
 
 > [!NOTE]
-> Existen costos adicionales asociados con el análisis de los datos de supervisión en el [Portal de Azure](https://portal.azure.com). Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
+> Existen costos adicionales asociados con el análisis de los datos de supervisión en el [Azure Portal](https://portal.azure.com). Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh360997.aspx">Facturación y análisis de almacenamiento</a>. <br />
 > 
 > Almacenamiento de archivos de Azure admite actualmente las métricas del Análisis de almacenamiento, pero aún no admite el registro. Puede habilitar las métricas para el Almacenamiento de archivos de Azure a través del [Portal de Azure](https://portal.azure.com).
 > 
@@ -129,6 +133,9 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/azure/hh343262.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

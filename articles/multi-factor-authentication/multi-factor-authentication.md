@@ -1,13 +1,13 @@
 ---
-title: Información general de MFA de Azure | Microsoft Docs
-description: 'En este tema se explica qué es Azure Multi-factor Authentication, por qué usar MFA, aporta más información sobre el cliente de Multi-Factor Authentication y los distintos métodos y versiones disponibles. '
-keywords: introducción a MFA, introducción general a mfa, qué es mfa
+title: "Información general de MFA de Azure | Microsoft Docs"
+description: "En este tema se explica qué es Azure Multi-factor Authentication, por qué usar MFA, aporta más información sobre el cliente de Multi-Factor Authentication y los distintos métodos y versiones disponibles. "
+keywords: "introducción a MFA, introducción general a mfa, qué es mfa"
 services: multi-factor-authentication
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
 editor: yossib
-
+ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a510763fe70d90a328c835cb123e78f455796850
+
 
 ---
-# <a name="what-is-azure-multi-factor-authentication?"></a>¿Qué es Azure Multi-Factor Authentication?
+# <a name="what-is-azure-multi-factor-authentication"></a>¿Qué es Azure Multi-Factor Authentication?
 La verificación en dos pasos es un método de autenticación que requiere más de un método de comprobación y agrega un segundo nivel importante de seguridad crítico a las transacciones e inicios de sesión del usuario. Funciona mediante la solicitud de dos o más de los siguientes métodos de verificación:
 
 * Un elemento que conoce (normalmente una contraseña).
@@ -32,7 +36,7 @@ Azure Multi-Factor Authentication (MFA) es la solución de Microsoft de comproba
 > 
 > 
 
-## <a name="why-use-azure-multi-factor-authentication?"></a>¿Por qué usar Azure Multi-Factor Authentication?
+## <a name="why-use-azure-multi-factor-authentication"></a>¿Por qué usar Azure Multi-Factor Authentication?
 Hoy en día, ahora más que nunca, las personas están cada vez más conectadas. Con los smartphones, tabletas, equipos portátiles y equipos de sobremesa, las personas tienen varias opciones para conectarse y permanecer conectados en cualquier momento. Pueden acceder a sus cuentas y las aplicaciones desde cualquier lugar, lo que significa que pueden ser más productivos y atender mejor a sus clientes.
 
 Azure Multi-Factor Authentication es una solución fácil de usar, escalable y confiable que proporciona un segundo método de autenticación para que los usuarios siempre estén protegidos.
@@ -122,6 +126,9 @@ Para obtener información detallada sobre los precios, vea [Precios de Azure MFA
 ## <a name="next-steps"></a>Pasos siguientes
 Para empezar a usar Azure Multi-Factor Authentication, el primer paso es [elegir entre MFA en la nube o local](multi-factor-authentication-get-started.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

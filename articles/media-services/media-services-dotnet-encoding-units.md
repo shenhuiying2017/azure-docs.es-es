@@ -1,12 +1,12 @@
 ---
-title: Cómo agregar unidades de codificación
-description: Información sobre cómo agregar unidades de codificación con .NET
+title: "Cómo agregar unidades de codificación"
+description: "Información sobre cómo agregar unidades de codificación con .NET"
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 33f7625a-966a-4f06-bc09-bccd6e2a42b5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2016
 ms.author: juliako;milangada;gtrifonov
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3dc67791d7bfd7221ad484e967b5e9bf49ed8c02
+
 
 ---
-# Escalado de codificación con el SDK de .NET
+# <a name="how-to-scale-encoding-with-net-sdk"></a>Escalado de codificación con el SDK de .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-scale-media-processing.md)
 > * [.NET](media-services-dotnet-encoding-units.md)
@@ -26,9 +30,9 @@ ms.author: juliako;milangada;gtrifonov
 > 
 > 
 
-## Información general
+## <a name="overview"></a>Información general
 > [!IMPORTANT]
-> Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md).
+> Para más información sobre cómo escalar el procesamiento de medios, consulte este tema de [introducción](media-services-scale-media-processing-overview.md) .
 > 
 > 
 
@@ -44,10 +48,10 @@ Para cambiar el tipo de unidad reservada y el número de unidades reservadas de 
 
     Console.WriteLine("Number of reserved units: {0}", encodingS1ReservedUnit.CurrentReservedUnits);
 
-## Apertura de una incidencia de soporte técnico
+## <a name="opening-a-support-ticket"></a>Apertura de una incidencia de soporte técnico
 De manera predeterminada las cuentas de Servicios multimedia pueden escalar hasta 25 unidades reservadas de codificación y 5 de streaming a petición. Si desea solicitar un límite mayor, abra una incidencia de soporte técnico.
 
-### Abrir una incidencia de soporte técnico
+### <a name="open-a-support-ticket"></a>Abrir una incidencia de soporte técnico
 Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 1. Haga clic en [Obtener soporte técnico](https://manage.windowsazure.com/?getsupport=true). Si no ha iniciado sesión, se le solicitará que especifique sus credenciales.
@@ -60,10 +64,15 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 8. Siga las instrucciones que aparecen en la página siguiente y, a continuación, escriba los detalles de su problema.
 9. Haga clic en Submit para abrir la incidencia.
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

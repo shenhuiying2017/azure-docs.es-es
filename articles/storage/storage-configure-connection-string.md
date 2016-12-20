@@ -1,12 +1,12 @@
 ---
-title: Configurar una cadena de conexión a Almacenamiento de Azure | Microsoft Docs
-description: Configuración de una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso a una cuenta de almacenamiento desde la aplicación en tiempo real.
+title: "Configurar una cadena de conexión a Azure Storage | Microsoft Docs"
+description: "Configuración de una cadena de conexión para una cuenta de Almacenamiento de Azure Una cadena de conexión incluye la información necesaria para autenticar el acceso a una cuenta de almacenamiento desde la aplicación en tiempo real."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: tamram
 manager: carmonm
 editor: tysonn
-
+ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: tamram
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 27c995e16f1137f6e18ebfc8210d492872d0e76c
+
 
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Almacenamiento de Azure
@@ -117,6 +121,9 @@ Por ejemplo, la cadena de conexión debe tener un aspecto similar a la siguiente
 * [Exploradores de almacenamiento de Azure](storage-explorers.md)
 * [Uso de Firmas de acceso compartido (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

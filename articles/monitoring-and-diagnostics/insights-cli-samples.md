@@ -1,12 +1,12 @@
 ---
-title: 'Azure Insights: Azure Insights CLI quick start samples. | Microsoft Docs'
-description: Sample CLI command can help you access Azure Insights monitoring features. Azure Insights is a Microsoft Azure service which allows you to autoScale Cloud Services, Virtual Machines, and Web Apps, send alert notifications, or call web URLs based on values of configured telemetry data.
+title: "Ejemplos de inicio rápido de CLI de Azure Monitor | Microsoft Docs"
+description: "Comandos de CLI de ejemplo para características de Azure Monitor. Azure Monitor es un servicio de Microsoft Azure que permite enviar notificaciones de alerta, llamar a direcciones URL web en función de los valores de datos de telemetría configurados y escalar automáticamente Cloud Services, Virtual Machines y Web Apps."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,192 +14,201 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 981056249213c53bb8198fd792b815c5d9b091f5
+
 
 ---
-# <a name="azure-insights-cross-platform-cli-quick-start-samples"></a>Azure Insights Cross-platform CLI quick start samples
-This article shows you sample command-line interface (CLI) commands to help you access Azure Insights monitoring features. Azure Insights allows you to AutoScale Cloud Services, Virtual Machines, and Web Apps and to send alert notifications or call web URLs based on values of configured telemetry data.
+# <a name="azure-monitor-cross-platform-cli-quick-start-samples"></a>Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor
+En este artículo se muestran comandos de la interfaz de la línea de comandos (CLI) de ejemplo que lo ayudarán a acceder a las características de supervisión de Azure Monitor. Azure Monitor permite escalar automáticamente Cloud Services, Virtual Machines y Web Apps para enviar notificaciones de alerta o llamar a direcciones URL web en función de los valores de datos de telemetría configurados.
 
-## <a name="prerequisites"></a>Prerequisites
-If you haven't already installed the Azure CLI, see [Install the Azure CLI](../xplat-cli-install.md). If you're unfamiliar with Azure CLI, you can read more about it at [Use the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
+> [!NOTE]
+> Azure Monitor es el nuevo nombre de lo que se conocía como "Azure Insights" hasta el 25 de septiembre de 2016. Sin embargo, los espacios de nombres y, por tanto, los siguientes comandos aún contienen el término "insights".
+> 
+> 
 
-In Windows, install npm from the [Node.js website](https://nodejs.org/). After you complete the installation, using CMD.exe with Run As Administrator privileges, execute the following from the folder where npm is installed:
+## <a name="prerequisites"></a>Requisitos previos
+Si no ha instalado aún la CLI, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md). Si no está familiarizado con la CLI de Azure, puede obtener más información en [Uso de la CLI de Azure para Mac, Linux y Windows con Azure Resource Manager](../xplat-cli-azure-resource-manager.md).
 
-```
+En Windows, instale npm desde el [sitio web de Node.js](https://nodejs.org/). Después de completar la instalación, usando el archivo CMD.exe con los privilegios Ejecutar como administrador, ejecute el siguiente comando desde la carpeta donde se ha instalado npm:
+
+```console
 npm install azure-cli --global
 ```
 
-Next, navigate to any folder/location you want and type at the command-line:
+Después, vaya a cualquier carpeta o ubicación que desee y escriba en la línea de comandos:
 
-```
+```console
 azure help
 ```
 
-## <a name="log-in-to-azure"></a>Log in to Azure
-The first step is to login to your Azure account.
+## <a name="log-in-to-azure"></a>Inicie sesión en Azure.
+El primer paso consiste en iniciar sesión en su cuenta de Azure.
 
-```
+```console
 azure login
 ```
 
-After running this command, you have to sign in via the instructions on the screen. Afterward, you see your Account, TenantId, and default Subscription Id. All commands work in the context of your default subscription.
+Después de ejecutar este comando, tendrá que iniciar sesión siguiendo las instrucciones de la pantalla. Después, podrá ver el id. predeterminado de la suscripción, el id. de inquilino y la cuenta. Todos los comandos funcionan en el contexto de la suscripción predeterminada.
 
-To list the details of your current subscription, use the following command.
+Para mostrar los detalles de la suscripción actual, utilice el siguiente comando.
 
-```
+```console
 azure account show
 ```
 
-To change working context to a different subscription, use the following command.
+Para cambiar el contexto de trabajo a una suscripción diferente, utilice el siguiente comando.
 
-```
+```console
 azure account set "subscription ID or subscription name"
 ```
 
-To use Azure Resource Manager and Azure Insights commands, you need to be in Azure Resource Manager mode.
+Para utilizar los comandos de Azure Resource Manager y Azure Monitor, debe estar en el modo ARM.
 
-```
+```console
 azure config mode arm
 ```
 
-To view a list of all supported Azure Insights commands, perform the following.
+Para ver una lista de todos los comandos de Azure Monitor admitidos, realice lo siguiente.
 
-```
+```console
 azure insights
 ```
 
-## <a name="view-audit-logs-for-a-subscription"></a>View audit logs for a subscription
-To view a list of audit logs, perform the following.
+## <a name="view-activity-log-for-a-subscription"></a>Visualización del registro de actividades para una suscripción
+Para ver una lista de eventos del registro de actividades, realice lo siguiente.
 
-```
+```console
 azure insights logs list [options]
 ```
 
-Try the following to view all available options.
+Pruebe el siguiente comando para ver todas las opciones disponibles.
 
-```
+```console
 azure insights logs list -help
 ```
 
-Here is an example to list logs by a resourceGroup
+Se trata de un ejemplo para mostrar los registros por grupo de recursos.
 
-```
+```console
 azure insights logs list --resourceGroup "myrg1"
 ```
 
-Example to list logs by caller
+Ejemplo para mostrar registros por autor de llamada
 
-```
+```console
 azure insights logs list --caller "myname@company.com"
 ```
 
-Example to list logs by caller on a resource type, within a start and end date
+Ejemplo para mostrar registros por tipo de recurso en una fecha de inicio y de finalización
 
-```
+```console
 azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@company.com" --startTime 2016-03-08T00:00:00Z --endTime 2016-03-16T00:00:00Z
 ```
 
-## <a name="work-with-alerts"></a>Work with alerts
-You can use the information in the section to work with alerts.
+## <a name="work-with-alerts"></a>Uso de alertas
+Puede usar la información de la sección sobre cómo usar las alertas.
 
-### <a name="get-alert-rules-in-a-resource-group"></a>Get alert rules in a resource group
-```
+### <a name="get-alert-rules-in-a-resource-group"></a>Obtención de reglas de alerta en un grupo de recursos
+```console
 azure insights alerts rule list abhingrgtest123
 azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 ```
 
-### <a name="create-a-metric-alert-rule"></a>Create a metric alert rule
-```
+### <a name="create-a-metric-alert-rule"></a>Creación de una regla de alerta de métrica
+```console
 azure insights alerts actions email create --customEmails foo@microsoft.com
 azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
 ```
 
-### <a name="create-a-log-alert-rule"></a>Create a log alert rule
-```
+### <a name="create-a-log-alert-rule"></a>Creación de una regla de alerta de registro
+```console
 azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
-### <a name="create-webtest-alert-rule"></a>Create webtest alert rule
-```
+### <a name="create-webtest-alert-rule"></a>Creación de una regla de alerta de WebTest
+```console
 azure insights alerts rule webtest set leowebtestr1-webtestr1 eastus Default-Web-WestUS PT5M 1 GSMT_AvRaw /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourcegroups/Default-Web-WestUS/providers/microsoft.insights/webtests/leowebtestr1-webtestr1
 ```
 
-### <a name="delete-an-alert-rule"></a>Delete an alert rule
-```
+### <a name="delete-an-alert-rule"></a>Creación una regla de alerta
+```console
 azure insights alerts rule delete abhingrgtest123 andy0323
 ```
 
-## <a name="log-profiles"></a>Log profiles
-Use the information in this section to work with log profiles.
+## <a name="log-profiles"></a>Perfiles de registro
+Utilice la información de esta sección para usar perfiles de registro.
 
-### <a name="get-a-log-profile"></a>Get a log profile
-```
+### <a name="get-a-log-profile"></a>Obtención de un perfil de registro
+```console
 azure insights logprofile list
 azure insights logprofile get -n default
 ```
 
 
-### <a name="add-a-log-profile-without-retention"></a>Add a log profile without retention
-```
+### <a name="add-a-log-profile-without-retention"></a>Adición de un perfil de registro sin retención de datos
+```console
 azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
-### <a name="remove-a-log-profile"></a>Remove a log profile
-```
+### <a name="remove-a-log-profile"></a>Eliminación de un perfil de registro
+```console
 azure insights logprofile delete --name default
 ```
 
-### <a name="add-a-log-profile-with-retention"></a>Add a log profile with retention
-```
+### <a name="add-a-log-profile-with-retention"></a>Adición de un perfil de registro con retención de datos
+```console
 azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
-### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Add a log profile with retention and EventHub
-```
+### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Adición de un perfil de registro con retención y EventHub
+```console
 azure insights logprofile add --name default --storageId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/insightsintegration7777 --serviceBusRuleId /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/testshoeboxeastus/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia --retentionInDays 90
 ```
 
 
-## <a name="diagnostics"></a>Diagnostics
-Use the information in this section to work with diagnostic settings.
+## <a name="diagnostics"></a>Diagnóstico
+Utilice la información de esta sección para usar la configuración de diagnóstico.
 
-### <a name="get-a-diagnostic-setting"></a>Get a diagnostic setting
-```
+### <a name="get-a-diagnostic-setting"></a>Obtención de la configuración de diagnóstico
+```console
 azure insights diagnostic get --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp
 ```
 
-### <a name="disable-a-diagnostic-setting"></a>Disable a diagnostic setting
-```
+### <a name="disable-a-diagnostic-setting"></a>Deshabilitación de la configuración de diagnóstico
+```console
 azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled false
 ```
 
-### <a name="enable-a-diagnostic-setting-without-retention"></a>Enable a diagnostic setting without retention
-```
+### <a name="enable-a-diagnostic-setting-without-retention"></a>Habilitación de la configuración de diagnóstico sin retención
+```console
 azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/andyrg/providers/Microsoft.Logic/workflows/andy0315logicapp --storageId /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/shibanitesting --enabled true
 ```
 
 
 ## <a name="autoscale"></a>Autoscale
-Use the information in this section to work with autoscale settings. You need to modify these examples.
+Utilice la información de esta sección para usar la configuración de escalado automático. Tendrá que modificar estos ejemplos.
 
-### <a name="get-autoscale-settings-for-a-resource-group"></a>Get autoscale settings for a resource group
-```
+### <a name="get-autoscale-settings-for-a-resource-group"></a>Obtención de la configuración de escalado automático de un grupo de recursos
+```console
 azure insights autoscale setting list montest2
 ```
 
-### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Get autoscale settings by name in a resource group
-```
+### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Obtención de valores de escalado automático por su nombre en un grupo de recursos
+```console
 azure insights autoscale setting list montest2 -n setting2
 ```
 
 
-### <a name="set-auotoscale-settings"></a>Set auotoscale settings
-```
+### <a name="set-auotoscale-settings"></a>Establecimiento de la configuración de escalado automático
+```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

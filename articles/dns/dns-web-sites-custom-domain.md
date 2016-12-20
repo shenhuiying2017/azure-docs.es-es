@@ -1,22 +1,26 @@
 ---
-title: Creación de registros DNS personalizados para una aplicación web | Microsoft Docs
-description: Creación de registros DNS de dominios personalizados para aplicaciones web mediante DNS de Azure.
+title: "Creación de registros DNS personalizados para una aplicación web | Microsoft Docs"
+description: "Creación de registros DNS de dominios personalizados para aplicaciones web mediante DNS de Azure."
 services: dns
 documentationcenter: na
-author: cherylmc
-manager: carmonm
-editor: ''
-
+author: georgewallace
+manager: timlt
+ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: cherylmc
+ms.author: gwallace
+translationtype: Human Translation
+ms.sourcegitcommit: 02d720a04fdc0fa302c2cb29b0af35ee92c14b3b
+ms.openlocfilehash: ebff4403b81930d533c1dcbaf2b8857207eda4b6
 
 ---
-# Creación de registros DNS para una aplicación web en un dominio personalizado
+
+# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Creación de registros DNS para una aplicación web en un dominio personalizado
+
 Puede utilizar DNS de Azure para hospedar un dominio personalizado para aplicaciones web. Por ejemplo, va a crear una aplicación web de Azure y desea que los usuarios obtengan acceso a ella con la utilización de contoso.com o www.contoso.com como FQDN.
 
 Para ello, deberá crear dos registros:
@@ -26,7 +30,8 @@ Para ello, deberá crear dos registros:
 
 Tenga en cuenta que si crea un registro A para una aplicación web en Azure, este debe actualizarse manualmente si la dirección IP subyacente de la aplicación web cambia.
 
-## Antes de empezar
+## <a name="before-you-begin"></a>Antes de empezar
+
 Antes de comenzar, debe crear una zona DNS en DNS de Azure y delegar la zona del registrador a DNS de Azure.
 
 1. Para crear una zona DNS, siga los pasos descritos en [Introducción a DNS de Azure](dns-getstarted-create-dnszone.md).
@@ -34,30 +39,42 @@ Antes de comenzar, debe crear una zona DNS en DNS de Azure y delegar la zona del
 
 Después de crear una zona y delegarla a DNS de Azure, podrá crear registros para el dominio personalizado.
 
-## 1\. Creación de un registro A para un dominio personalizado
+## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Creación de un registro A para un dominio personalizado
+
 Un registro A se usa para asignar un nombre a su dirección IP. En el ejemplo siguiente, asignaremos @ como un registro A a una dirección IPv4:
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
+
 Cree un registro y asígnelo a una variable $rs
 
-    $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 
+```powershell
+$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
+```
 
-### Paso 2
-Agregue el valor IPv4 al conjunto de registros creado previamente “@” con la utilización de la variable $rs asignada. El valor de IPv4 asignado será la dirección IP de la aplicación web.
+### <a name="step-2"></a>Paso 2
 
-Para buscar la dirección IP para una aplicación web, siga los pasos descritos en [Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-custom-domain-name.md#Find-the-virtual-IP-address).
+Agregue el valor IPv4 al conjunto de registros creado previamente "@" con la utilización de la variable $rs asignada. El valor de IPv4 asignado será la dirección IP de la aplicación web.
 
-    Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+Para buscar la dirección IP para una aplicación web, siga los pasos descritos en [Configuración de un nombre de dominio personalizado en Azure App Service](../app-service-web/web-sites-custom-domain-name.md#vip).
 
-### Paso 3
+```powershell
+Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address <your web app IP address>
+```
+
+### <a name="step-3"></a>Paso 3
+
 Confirme los cambios introducidos en el conjunto de registros. Use `Set-AzureRMDnsRecordSet` para cargar los cambios del conjunto de registros en DNS de Azure:
 
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+```powershell
+Set-AzureRMDnsRecordSet -RecordSet $rs
+```
 
-## 2\. Creación de un registro CNAME para el dominio personalizado
+## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Creación de un registro CNAME para el dominio personalizado
+
 Si el dominio ya está administrado por DNS de Azure (consulte [Delegación de dominios DNS](dns-domain-delegation.md)), puede utilizar el ejemplo siguiente para crear un registro CNAME para contoso.azurewebsites.net.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
+
 Abra PowerShell y cree un nuevo conjunto de registros CNAME y asígnelo a una variable $rs. Este ejemplo creará un tipo de conjunto de registros CNAME con un "período de vida" de 600 segundos en la zona DNS denominada "contoso.com".
 
     $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
@@ -72,7 +89,8 @@ Abra PowerShell y cree un nuevo conjunto de registros CNAME y asígnelo a una va
     Tags              : {}
 
 
-### Paso 2
+### <a name="step-2"></a>Paso 2
+
 Una vez creado el conjunto de registros CNAME, deberá crear un valor de alias que apuntará a la aplicación web.
 
 Mediante la variable asignada previamente "$rs", puede usar el comando de PowerShell siguiente para crear el alias para la aplicación web contoso.azurewebsites.net.
@@ -88,10 +106,13 @@ Mediante la variable asignada previamente "$rs", puede usar el comando de PowerS
     Records           : {contoso.azurewebsites.net}
     Tags              : {}
 
-### Paso 3
-Confirme los cambios mediante el cmdlet `Set-AzureRMDnsRecordSet`:
+### <a name="step-3"></a>Paso 3
 
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+Confirme los cambios mediante el cmdlet `Set-AzureRMDnsRecordSet` :
+
+```powershell
+Set-AzureRMDnsRecordSet -RecordSet $rs
+```
 
 Puede validar que el registro se ha creado correctamente consultando “www.contoso.com” con nslookup, como se muestra a continuación:
 
@@ -110,10 +131,12 @@ Puede validar que el registro se ha creado correctamente consultando “www.cont
     contoso.azurewebsites.net
     <instance of web app service>.vip.azurewebsites.windows.net
 
-## Creación de un registro "awverify" para aplicaciones web
+## <a name="create-an-awverify-record-for-web-apps"></a>Creación de un registro "awverify" para aplicaciones web
+
 Si decide usar un registro A para la aplicación web, debe seguir un proceso de verificación para asegurarse de que es el titular del dominio personalizado. Este paso de comprobación se realiza mediante la creación de un registro CNAME especial denominado "awverify". Esta sección se aplica solo a los registros A.
 
-### Paso 1
+### <a name="step-1"></a>Paso 1
+
 Cree el registro "awverify". En el ejemplo siguiente, el registro "awverify" se creará para contoso.com para verificar la titularidad del dominio personalizado.
 
     $rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "awverify" -RecordType "CNAME" -Ttl 600
@@ -128,7 +151,8 @@ Cree el registro "awverify". En el ejemplo siguiente, el registro "awverify" se 
     Tags              : {}
 
 
-### Paso 2
+### <a name="step-2"></a>Paso 2
+
 Una vez creado el conjunto de registros "awverify", asigne el alias del conjunto de registros CNAME. En el ejemplo siguiente, se asignará el alias del conjunto de registros CNAME a awverify.contoso.azurewebsites.net.
 
     Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
@@ -142,14 +166,20 @@ Una vez creado el conjunto de registros "awverify", asigne el alias del conjunto
     Records           : {awverify.contoso.azurewebsites.net}
     Tags              : {}
 
-### Paso 3
+### <a name="step-3"></a>Paso 3
+
 Confirme los cambios mediante el cmdlet `Set-AzureRMDnsRecordSet cmdlet`, como se muestra en el comando siguiente.
 
-    Set-AzureRMDnsRecordSet -RecordSet $rs
+```powershell
+Set-AzureRMDnsRecordSet -RecordSet $rs
+```
 
+## <a name="next-steps"></a>Pasos siguientes
 
-
-## Pasos siguientes
 Siga los pasos descritos en [Configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](../app-service-web/web-sites-custom-domain-name.md) para configurar la aplicación web para que use un dominio personalizado.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

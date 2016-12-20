@@ -10,7 +10,7 @@
         UIUserNotificationSettings* notificationSettings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeSound categories:nil];
         [[UIApplication sharedApplication] registerUserNotificationSettings:notificationSettings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
-3. En **QSAppDelegate.m**, agregue los métodos de controlador siguientes. Ahora su aplicación está actualizada para que sea compatible con las notificaciones push.
+3. En **QSAppDelegate.m**, agregue los métodos de controlador siguientes. Ahora su aplicación está actualizada para que sea compatible con las notificaciones push. 
    
         // Registration with APNs is successful
         - (void)application:(UIApplication *)application
@@ -139,4 +139,8 @@
    
         }
 
-<!---HONumber=AcomDC_0204_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -59,7 +59,7 @@ La realización de este tutorial es un requisito previo para todos los tutoriale
 
 El Centro de notificaciones está configurado para funcionar con GCM y el usuario dispone de las cadenas de conexión necesarias para registrar su aplicación para que reciba y envíe notificaciones push.
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
+## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>Conexión de la aplicación al Centro de notificaciones
 ### <a name="create-a-new-android-project"></a>Creación de un nuevo proyecto de Android
 1. En Android Studio, inicie un nuevo proyecto de Android Studio.
    
@@ -133,7 +133,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
    
    * **SenderId**: número de proyecto que obtuvo anteriormente en la [consola en la nube de Google](http://cloud.google.com/console).
    * **HubListenConnectionString**: la cadena de conexión **DefaultListenAccessSignature** del centro. Para copiar dicha cadena de conexión, haga clic en **Directivas de acceso** en la hoja **Configuración** de su centro en [Azure Portal].
-   * **HubName**: use el nombre del centro de notificaciones que aparece en la hoja del centro en el [Portal de Azure].
+   * **HubName**: use el nombre del centro de notificaciones que aparece en la hoja del centro en el [Azure Portal].
      
      `NotificationSettings` :
      
@@ -392,7 +392,7 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 12. En la barra de menús de Android Studio, haga clic en **Build** (Compilar)  > **Rebuild Project** (Recompilar proyecto) para asegurarse de que no hay errores en el código.
 
 ## <a name="sending-push-notifications"></a>Envío de notificaciones push
-Para probar la recepción de notificaciones push en la aplicación, envíelas a través del [Portal de Azure] (busque la sección **Solución del problemas** en la hoja del centro, como se muestra a continuación).
+Para probar la recepción de notificaciones push en la aplicación, envíelas a través del [Azure Portal] (busque la sección **Solución del problemas** en la hoja del centro, como se muestra a continuación).
 
 ![Centros de notificaciones de Azure: envío de prueba](./media/notification-hubs-android-get-started/notification-hubs-test-send.png)
 
@@ -664,10 +664,10 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencias a un proyecto de biblioteca]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[Guía de los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 
 

@@ -1,12 +1,12 @@
 ---
-title: Conmutación por error en Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Obtenga información acerca de la conmutación por error en Azure o en un centro de datos secundario.
+title: "Conmutación por error en Site Recovery | Microsoft Docs"
+description: "Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Obtenga información acerca de la conmutación por error en Azure o en un centro de datos secundario."
 services: site-recovery
-documentationcenter: ''
+documentationcenter: 
 author: rayne-wiselman
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/05/2016
 ms.author: raynew
+translationtype: Human Translation
+ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
+ms.openlocfilehash: 31d80e58071383aee22772e224c90289a610c0b3
+
 
 ---
 # <a name="failover-in-site-recovery"></a>Conmutación por error en Site Recovery
 El servicio Azure Site Recovery contribuye a su estrategia de continuidad empresarial y recuperación ante desastres (BCDR) mediante la coordinación de la replicación, la conmutación por error y la recuperación de máquinas virtuales y servidores físicos. Las máquinas se pueden replicar a Azure o a un centro de datos secundario local. Para obtener una introducción rápida, lea [¿Qué es Site Recovery?](site-recovery-overview.md)
 
 ## <a name="overview"></a>Información general
-Este artículo ofrece información e instrucciones para la recuperación (conmutación por error y conmutación por recuperación) de máquinas virtuales y servidores físicos protegidos con Site Recovery. 
+Este artículo ofrece información e instrucciones para la recuperación (conmutación por error y conmutación por recuperación) de máquinas virtuales y servidores físicos protegidos con Site Recovery.
 
 Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
@@ -48,7 +52,7 @@ Los tipos de conmutaciones por error que se admiten dependen del escenario de im
 | Servidor físico a Azure |Compatible (escenario mejorado)<br/><br/> No compatible (escenario heredado) |No compatible |Compatible |
 
 ## <a name="failover-and-failback"></a>Conmutación por error y conmutación por recuperación
-La conmutación por error de las máquinas virtuales se realiza a un sitio local secundario o a Azure, en función de la implementación. La máquina que conmuta por error a Azure se crea como máquina virtual de Azure. Puede realizar la conmutación por error a una única máquina virtual o servidor físico, o bien a un plan de recuperación. Los planes de recuperación se componen de uno o varios grupos ordenados que contienen máquinas virtuales o servidores físicos protegidos. Se utilizan para orquestar la conmutación por error de varias máquinas que conmutan por error en función del grupo donde se encuentren. [Obtenga más información](site-recovery-create-recovery-plans.md) sobre los planes de recuperación. 
+La conmutación por error de las máquinas virtuales se realiza a un sitio local secundario o a Azure, en función de la implementación. La máquina que conmuta por error a Azure se crea como máquina virtual de Azure. Puede realizar la conmutación por error a una única máquina virtual o servidor físico, o bien a un plan de recuperación. Los planes de recuperación se componen de uno o varios grupos ordenados que contienen máquinas virtuales o servidores físicos protegidos. Se utilizan para orquestar la conmutación por error de varias máquinas que conmutan por error en función del grupo donde se encuentren. [Obtenga más información](site-recovery-create-recovery-plans.md) sobre los planes de recuperación.
 
 Cuando se haya completado la conmutación por error y las máquinas estén en ejecución en una ubicación secundaria, tenga en cuenta lo siguiente:
 
@@ -63,11 +67,11 @@ La conmutación por recuperación desde un sitio secundario a uno principal util
 Si ha realizado la conmutación por error a Azure, las máquinas virtuales están protegidas por las características de resistencia de Azure para máquinas virtuales. Para convertir el sitio principal original en la ubicación active, debe ejecutar una conmutación por error planeada. Puede realizar una conmutación por recuperación a la ubicación original o a una ubicación alternativa si el sitio original no está disponible. Para iniciar la replicación de nuevo tras la conmutación por recuperación a la ubicación principal, debe iniciar una replicación inversa.
 
 ### <a name="failover-considerations"></a>Consideraciones sobre la conmutación por error
-* **Dirección IP tras la conmutación por error**: de forma predeterminada, una máquina con conmutación por error tendrá una dirección IP diferente que la máquina de origen. Si desea conservar la misma dirección IP, consulte: 
+* **Dirección IP tras la conmutación por error**: de forma predeterminada, una máquina con conmutación por error tendrá una dirección IP diferente que la máquina de origen. Si desea conservar la misma dirección IP, consulte:
   * **Sitio secundario**: si la conmutación por error se realiza a un sitio secundario y desea conservar la dirección IP, [lea](http://blogs.technet.com/b/scvmm/archive/2014/04/04/retaining-ip-address-after-failover-using-hyper-v-recovery-manager.aspx) este artículo. Tenga en cuenta que puede conservar una dirección IP pública si el ISP lo admite.
   * **Azure**: si realiza la conmutación por error a Azure, puede especificar la dirección IP que desea asignar en la pestaña **Configurar** de las propiedades de la máquina virtual. No puede conservar una dirección IP pública después de la conmutación por error en Azure. Puede conservar espacios de direcciones que no son RFC 1918 que se usan como direcciones internas.
-* **Conmutación por error parcial**: si desea realizar la conmutación por error de una parte de un sitio y no del sitio completo, tenga en cuenta lo siguiente: 
-  
+* **Conmutación por error parcial**: si desea realizar la conmutación por error de una parte de un sitio y no del sitio completo, tenga en cuenta lo siguiente:
+
   * **Sitio secundario**: si realiza la conmutación por error de un sitio principal a un sitio secundario y desea volver a conectarse al sitio principal, debe usar una conexión VPN de sitio a sitio para conectar las aplicaciones con conmutación por error del sitio secundario a componentes de infraestructura que se ejecutan en el sitio principal. Si se realiza la conmutación por error de la subred completa, se puede conservar la dirección IP de la máquina virtual. Si se realiza la conmutación por error de una subred parcial, no se puede conservar la dirección IP de la máquina virtual porque las subredes no pueden dividirse entre sitios.
   * **Azure**: si realiza la conmutación por error de un sitio parcial a Azure y desea volver a conectarse al sitio principal, puede usar la VPN de sitio a sitio para conectar una aplicación conmutada por error de Azure a componentes de infraestructura que se ejecutan en el sitio principal. Tenga en cuenta que si la subred completa conmuta por error, se puede conservar la dirección IP de la máquina virtual. Si se realiza la conmutación por error de una subred parcial, no se puede conservar la dirección IP de la máquina virtual porque las subredes no pueden dividirse entre sitios.
 * **Letra de la unidad**: si desea conservar la letra de unidad en las máquinas virtuales después de la conmutación por error, puede establecer la directiva SAN para la máquina virtual en **Activado**. Los discos de las máquinas virtuales se activan automáticamente. [Más información](https://technet.microsoft.com/library/gg252636.aspx).
@@ -86,15 +90,15 @@ Al ejecutar una prueba de conmutación por error se le pedirá que seleccione la
 
 > [!NOTE]
 > La dirección IP que se asigna a una máquina virtual durante la conmutación por error de prueba es la misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada (siempre que la dirección IP esté disponible en la red de conmutación por error de prueba). Si la misma dirección IP no está disponible en la red de conmutación por error de prueba, la máquina virtual obtendrá otra dirección IP disponible en la red de conmutación por error de prueba.
-> 
-> 
+>
+>
 
 ### <a name="run-a-test-failover-from-on-premises-to-azure"></a>Ejecución de una conmutación por error de prueba de local a Azure
 En este procedimiento se describe cómo ejecutar una conmutación por error de prueba para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina en la pestaña **Máquinas virtuales** .
 
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Test Conmutación por error**.
 2. En la página **Confirmar conmutación por error de prueba** , especifique cómo se conectarán las máquinas de réplica a una red de Azure tras la conmutación por error.
-3. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor. 
+3. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor.
 4. Realice el seguimiento del progreso de la conmutación por error en la pestaña **Trabajos** . Debe poder ver la máquina de réplica de prueba en el Portal de Azure.
 5. Puede tener acceso a las máquinas de réplica en Azure desde el sitio local. Para ello, inicie una conexión RDP a la máquina virtual. El puerto 3389 deberá estar abierto en el punto de conexión de la máquina virtual.
 6. Al terminar, cuando la conmutación por error alcance la fase **Pruebas completadas**, haga clic en **Prueba completada** para finalizar.
@@ -103,8 +107,8 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
 > [!NOTE]
 > Si una conmutación por error de prueba continúa durante más de dos semanas, se forzará su finalización. Se eliminarán todos los elementos o las máquinas virtuales creados automáticamente durante la conmutación por error de prueba.
-> 
-> 
+>
+>
 
 ### <a name="run-a-test-failover-from-a-primary-on-premises-site-to-a-secondary-on-premises-site"></a>Ejecute una conmutación por error de prueba de un sitio local principal a un sitio local secundario
 Deberá realizar varias tareas para ejecutar una conmutación por error de prueba, como realizar una copia del controlador de dominio e incluir servidores DHCP y DNS de prueba en el entorno de prueba. Puede hacerlo de dos maneras:
@@ -130,21 +134,21 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 
 > [!NOTE]
 > Si una conmutación por error de prueba continúa durante más de dos semanas, se forzará su finalización. Se eliminarán todos los elementos o las máquinas virtuales creados automáticamente durante la conmutación por error de prueba.
-> 
-> 
+>
+>
 
 #### <a name="prepare-dhcp"></a>Preparación de DHCP
 Si las máquinas virtuales implicadas en la conmutación por error de prueba usan DHCP, se debe crear un servidor DHCP de prueba dentro de la red aislada que se crea para la conmutación por error de prueba.
 
 ### <a name="prepare-active-directory"></a>Preparación de Active Directory
-Para ejecutar una conmutación por error de prueba con el fin de probar la aplicación, necesitará una copia del entorno de Active Directory de producción en el entorno de prueba. Examine la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#considerations-for-test-failover) para obtener más información. 
+Para ejecutar una conmutación por error de prueba con el fin de probar la aplicación, necesitará una copia del entorno de Active Directory de producción en el entorno de prueba. Examine la sección [Consideraciones sobre la conmutación por error de prueba para Active Directory](site-recovery-active-directory.md#test-failover-considerations) para obtener más información. 
 
 ### <a name="prepare-dns"></a>Preparación de DNS
 Prepare un servidor DNS para la conmutación por error de prueba de la forma siguiente:
 
 * **DHCP**: si las máquinas virtuales usan DHCP, debe actualizarse la dirección IP del DNS de prueba en el servidor DHCP de prueba. Si utiliza un tipo de red de virtualización de red de Windows, el servidor VMM actúa como servidor DHCP. Por lo tanto, la dirección IP de DNS debe actualizarse en la red de conmutación por error de prueba. En este caso, las máquinas virtuales se registrarán a sí mismas en el servidor DNS correspondiente.
-* **Dirección estática**: si las máquinas virtuales utilizan una dirección IP estática, la dirección IP del servidor DNS de prueba debe actualizarse en la red de conmutación por error de prueba. Es  posible que deba actualizar el DNS con la dirección IP de las máquinas virtuales de prueba. Puede usar el siguiente script de ejemplo para este propósito: 
-  
+* **Dirección estática**: si las máquinas virtuales utilizan una dirección IP estática, la dirección IP del servidor DNS de prueba debe actualizarse en la red de conmutación por error de prueba. Es  posible que deba actualizar el DNS con la dirección IP de las máquinas virtuales de prueba. Puede usar el siguiente script de ejemplo para este propósito:
+
         Param(
         [string]$Zone,
         [string]$name,
@@ -155,29 +159,29 @@ Prepare un servidor DNS para la conmutación por error de prueba de la forma sig
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-## <a name="run-a-planned-failover-(primary-to-secondary)"></a>Ejecución de una conmutación por error planeada (de principal a secundario)
+## <a name="run-a-planned-failover-primary-to-secondary"></a>Ejecución de una conmutación por error planeada (de principal a secundario)
  En este procedimiento se describe cómo ejecutar una conmutación por error planeada para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual en la pestaña **Máquinas virtuales** .
 
 1. Antes de comenzar, asegúrese de que en todas las máquinas virtuales en las que desea realizar la conmutación por error se ha completado la replicación inicial.
-2. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Planned Conmutación por error**. 
+2. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Planned Conmutación por error**.
 3. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error.
-   
-   * Si las conmutaciones por error anteriores funcionaron como se esperaba y todos los servidores de máquina virtual se encuentran en la ubicación de origen o bien en la ubicación de destino, los detalles de dirección de la conmutación por error son meramente informativos. 
+
+   * Si las conmutaciones por error anteriores funcionaron como se esperaba y todos los servidores de máquina virtual se encuentran en la ubicación de origen o bien en la ubicación de destino, los detalles de dirección de la conmutación por error son meramente informativos.
    * Si las máquinas virtuales están activas tanto en las ubicaciones de origen como de destino, aparece el botón **Cambiar dirección** . Utilice este botón para cambiar y especificar la dirección en la que debe realizarse la conmutación por error.
-4. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM. 
+4. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM.
 5. Cuando se inicia una conmutación por error planeada, el primer paso es apagar las máquinas virtuales para garantizar que se no se produce ninguna pérdida de datos. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** . Si se produce un error en la conmutación por error (ya sea en una máquina virtual o en un script incluido en el plan de recuperación), la conmutación por error planeada de un plan de recuperación se detiene. Puede iniciar la conmutación por error nuevo.
-6. Una vez creadas las máquinas virtuales de réplica, pasan a estar en estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error. 
-7. Cuando se ha completado la replicación, las máquinas virtuales se inician en la ubicación secundaria. 
+6. Una vez creadas las máquinas virtuales de réplica, pasan a estar en estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
+7. Cuando se ha completado la replicación, las máquinas virtuales se inician en la ubicación secundaria.
 
 ## <a name="run-an-unplanned-failover"></a>Ejecución de una conmutación por error no planeada
 En este procedimiento se describe cómo ejecutar una conmutación por error no planeada para un plan de recuperación. También puede ejecutar la conmutación por error para una única máquina virtual o un único servidor físico en la pestaña **Máquinas virtuales** .
 
-1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Unplanned Conmutación por error**. 
+1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Unplanned Conmutación por error**.
 2. En la página **Confirmar conmutación por error no planeada **, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error.
-   
-   * Si las conmutaciones por error anteriores funcionaron como se esperaba y todos los servidores de máquina virtual se encuentran en la ubicación de origen o bien en la ubicación de destino, los detalles de dirección de la conmutación por error son meramente informativos. 
+
+   * Si las conmutaciones por error anteriores funcionaron como se esperaba y todos los servidores de máquina virtual se encuentran en la ubicación de origen o bien en la ubicación de destino, los detalles de dirección de la conmutación por error son meramente informativos.
    * Si las máquinas virtuales están activas tanto en las ubicaciones de origen como de destino, aparece el botón **Cambiar dirección** . Utilice este botón para cambiar y especificar la dirección en la que debe realizarse la conmutación por error.
-3. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM. 
+3. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM.
 4. Seleccione **Apagar máquinas virtuales y sincronizar los últimos datos** para especificar que Site Recovery debe intentar apagar las máquinas virtuales protegidas y sincronizar los datos para que se realice la conmutación por error de la versión más reciente de los datos. Si no selecciona esta opción o el intento no se realiza correctamente, la conmutación por error se realizará a partir del último punto de recuperación disponible para la máquina virtual.
 5. Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** . Tenga en cuenta que incluso si se producen errores durante una conmutación por error no planeada, el plan de recuperación se ejecuta hasta que se completa.
 6. Después de la conmutación por error, las máquinas virtuales están en un estado de **confirmación pendiente** . Haga clic en **Confirmar** para confirmar la conmutación por error.
@@ -190,7 +194,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error no p
 1. Seleccione **Recovery Plans** > *nombreDePlanDeRecuperación*. Haga clic en **Conmutación por error** > **Planned Conmutación por error**.
 2. En la página **Confirmar conmutación por error planeada **, elija las ubicaciones de origen y de destino. Tenga en cuenta la dirección de la conmutación por error. Si la conmutación por error desde la ubicación principal ha funcionado como se esperaba y todas las máquinas virtuales están en la ubicación secundaria, este dato es solo informativo.
 3. Si realiza la conmutación por recuperación desde Azure, seleccione la configuración en **Sincronización de datos**:
-   
+
    * **Sincronizar datos antes de la conmutación por error (sincronizar solo cambios incrementales)**: esta opción minimiza el tiempo de inactividad de las máquinas virtuales ya que realiza la sincronización sin apagarlas. Hace lo siguiente:
      * Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
      * Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios se transfiere al servidor local y se inicia la máquina virtual local.
@@ -199,11 +203,11 @@ En este procedimiento se describe cómo ejecutar una conmutación por error no p
 
     > [AZURE.NOTE] Se recomienda utilizar esta opción si ha estado trabajando con Azure durante un tiempo (un mes o más) o la máquina virtual se ha eliminado. Esta opción no realiza los cálculos de suma de comprobación.
 
-1. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM. 
-2. De forma predeterminada se utiliza el último punto de recuperación, pero en **Cambiar punto de recuperación** puede especificar un punto de recuperación diferente. 
-3. Haga clic en la marca de verificación para iniciar la conmutación por recuperación.  Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** . 
+1. Si realiza la conmutación por error a Azure y en la nube está habilitado el cifrado de datos, en **Clave de cifrado** seleccione el certificado que se emitió cuando habilitó el cifrado de datos durante la instalación del proveedor en el servidor VMM.
+2. De forma predeterminada se utiliza el último punto de recuperación, pero en **Cambiar punto de recuperación** puede especificar un punto de recuperación diferente.
+3. Haga clic en la marca de verificación para iniciar la conmutación por recuperación.  Puede seguir el progreso de la conmutación por error en la pestaña **Trabajos** .
 4. Si seleccionó la opción para sincronizar los datos antes de la conmutación por error, una vez que la sincronización de datos inicial esté completa y esté listo para apagar las máquinas virtuales en Azure, haga clic en **Trabajos** > <planned failover job name> **Completar conmutación por error**. Esta opción apaga la máquina de Azure, transfiere los últimos cambios a la máquina virtual local y la inicia.
-5. Ahora puede iniciar sesión en la máquina virtual para confirmar que está disponible como se esperaba. 
+5. Ahora puede iniciar sesión en la máquina virtual para confirmar que está disponible como se esperaba.
 6. La máquina virtual está en un estado pendiente de confirmación. Haga clic en **Confirmar** para confirmar la conmutación por error.
 7. Para completar la conmutación por recuperación, haga clic en **Replicación inversa** con el fin de comenzar a proteger la máquina virtual en el sitio principal.
 
@@ -213,22 +217,24 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 1. Si configura nuevo hardware, instale Windows Server 2012 R2 y el rol de Hyper-V en el servidor.
 2. Cree un conmutador de red virtual con el mismo nombre que tenía en el servidor original.
 3. Seleccione **Elementos protegidos** -> **Grupo de protección** -> <ProtectionGroupName> -> <VirtualMachineName> en el que desea realizar la conmutación por recuperación y seleccione **Conmutación por error planeada**.
-4. En **Confirmar conmutación por error planeada** select **Crear máquina virtual local si no existe**. 
+4. En **Confirmar conmutación por error planeada** select **Crear máquina virtual local si no existe**.
 5. En **Nombre de host** , seleccione el nuevo servidor host de Hyper-V en el que desea incluir la máquina virtual.
 6. En Sincronización de datos, se recomienda seleccionar la opción **Sincronizar los datos antes de la conmutación por error**. Así se reduce el tiempo de inactividad de las máquinas virtuales, ya que la sincronización se realiza sin apagarlas. Hace lo siguiente:
-   
+
    * Fase 1: realiza una instantánea de la máquina virtual en Azure y la copia en el host de Hyper-V local. El equipo continúa ejecutándose en Azure.
    * Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios se transfiere al servidor local y se inicia la máquina virtual local.
 7. Haga clic en la marca de verificación para iniciar la conmutación por error (conmutación por recuperación).
 8. Después de que finalice la sincronización inicial y esté listo para apagar la máquina virtual en Azure, haga clic en **Trabajos** > <planned failover job> > **Completar conmutación por error**. Esta opción apaga la máquina de Azure, transfiere los últimos cambios a la máquina virtual local y la inicia.
 9. Puede iniciar sesión en la máquina virtual local para comprobar que todo funciona según lo esperado. A continuación, haga clic en **Confirmar** para finalizar la conmutación por error.
 10. Haga clic en **Replicación inversa** para comenzar a proteger la máquina virtual local.
-    
+
     > [!NOTE]
     > Si cancela el trabajo de conmutación por recuperación mientras se está en el paso de sincronización de datos, la VM local tendrá un estado dañado. Esto se debe a que la sincronización de datos copia los datos más recientes de los discos de VM de Azure a los discos de datos locales y hasta que la sincronización se complete, es posible que los datos de discos no tengan un estado coherente. Si se desea arrancar la VM local una vez que se cancela la sincronización de datos, es posible que no arranque. Vuelva a desencadenar la conmutación por error para completar la sincronización de datos.
-    > 
-    > 
+    >
+    >
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

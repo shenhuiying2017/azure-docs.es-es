@@ -13,19 +13,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/29/2016
+ms.date: 11/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f8f82859e072666ee9020af2422f1cb4d124abf2
+ms.sourcegitcommit: bf07b8a10dd7e5ee9259c6fab9da886578504fe7
+ms.openlocfilehash: a71130709ea33a8f6efb14ed0e4609a366d3ac98
 
 
 ---
 # <a name="nosql-tutorial-build-a-documentdb-c-console-application"></a>Tutorial de NoSQL: Crear una aplicación de consola de C# DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Bienvenido al tutorial de NoSQL para el SDK de Azure DocumentDB para .NET. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
@@ -51,12 +53,13 @@ Comencemos.
 ## <a name="prerequisites"></a>Requisitos previos
 Asegúrese de que dispone de lo siguiente:
 
-* Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/).
+* Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/free/). 
+    * Como alternativa, puede usar el [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md) en este tutorial.
 * [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
 
 ## <a name="step-1-create-a-documentdb-account"></a>Paso 1: Creación de una cuenta de DocumentDB
-Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS).
+Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la solución de Visual Studio](#SetupVS). Si está usando el Emulador de DocumentDB, siga los pasos que se indican en [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md) para configurar el emulador e ir directamente a la [instalación de su solución de Visual Studio](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -618,6 +621,6 @@ Para restaurar las referencias al SDK de DocumentDB para .NET en Visual Studio, 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

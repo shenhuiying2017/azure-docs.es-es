@@ -1,12 +1,12 @@
 ---
-title: Conector de SQL genérico paso a paso | Microsoft Docs
-description: Este artículo le guía paso a paso por un sencillo sistema de Recursos Humanos con el Conector de SQL genérico.
+title: "Conector de SQL genérico paso a paso | Microsoft Docs"
+description: "Este artículo le guía paso a paso por un sencillo sistema de Recursos Humanos con el Conector de SQL genérico."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 28c1cc60-24fd-4d0d-a36d-b4aba6de86e7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ef0dab5ea1c087f0d88612b44bb60785c19a805
+
 
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Conector de SQL genérico paso a paso
@@ -201,6 +205,6 @@ GO
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

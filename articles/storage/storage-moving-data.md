@@ -1,19 +1,23 @@
 ---
-title: Movimiento de datos hacia y desde Almacenamiento de Azure | Microsoft Docs
-description: Este artículo ofrece información general sobre los distintos métodos de mover los datos hacia y desde Almacenamiento de Azure.
+title: Movimiento de datos hacia y desde Azure Storage | Microsoft Docs
+description: "Este artículo ofrece información general sobre los distintos métodos de mover los datos hacia y desde Almacenamiento de Azure."
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: micurd
 manager: jahogg
 editor: tysonn
-
+ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2016
+ms.date: 11/18/2016
 ms.author: micurd
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 26dc2d2269855bcb31bc8f6faf2277ac059b81f5
+
 
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Movimiento de datos hacia y desde Almacenamiento de Azure
@@ -28,7 +32,7 @@ Consulte [Introducción al Almacenamiento de blobs de Azure mediante .NET](stora
 
 Además, también ofrecemos [Data Movement Library de Almacenamiento de Azure](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) que es una biblioteca diseñada para copia de datos de alto rendimiento en Azure y desde Azure. Consulte nuestra [documentación](https://github.com/Azure/azure-storage-net-data-movement) de Data Movement Library para más información. 
 
-## <a name="quickly-viewing/interacting-with-your-data"></a>Visualización o interacción rápida con los datos
+## <a name="quickly-viewinginteracting-with-your-data"></a>Visualización o interacción rápida con los datos
 Si desea una manera fácil de ver los datos de Almacenamiento de Azure y también disponer de la capacidad para cargar y descargar los datos, considere la posibilidad de utilizar el Explorador de Almacenamiento de Azure.
 
 Consulte nuestra lista de [Exploradores de almacenamiento de Azure](storage-explorers.md) para más información.
@@ -71,6 +75,9 @@ Si tiene aplicaciones y cargas de trabajo locales, necesitará una solución que
 
 Consulte [Azure Site Recovery](../site-recovery/site-recovery-overview.md) para más información.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

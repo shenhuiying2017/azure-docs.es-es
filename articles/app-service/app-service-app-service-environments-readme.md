@@ -1,48 +1,52 @@
 ---
-title: Entorno del Servicio de aplicaciones | Microsoft Docs
-description: ¿Qué es un Entorno del Servicio de aplicaciones de Azure? Introducción al Entorno del Servicio de aplicaciones
+title: App Service Environment | Microsoft Docs
+description: "¿Qué es un Entorno del Servicio de aplicaciones de Azure? Introducción al Entorno del Servicio de aplicaciones"
 keywords: entorno del servicio de aplicaciones de Azure, red virtual, redes seguras
 services: app-service
-documentationcenter: ''
-author: yochay
+documentationcenter: 
+author: stefsch
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 1db5c057-3c56-4537-b580-cdd21fe3f3a7
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2016
+ms.date: 10/04/2016
 ms.author: stefsch
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ad067e4152191cd0b324775f16c5dedfeee4a071
+
 
 ---
-# Documentación del Entorno del Servicio de aplicaciones
-Un entorno del Servicio de aplicaciones es una opción de plan de servicio [Premium][PremiumTier] del Servicio de aplicaciones de Azure que proporciona un entorno plenamente aislado y dedicado para ejecutar de forma segura las aplicaciones del Servicio de aplicaciones de Azure a gran escala, lo que incluye [Aplicaciones web][WebApps], [Aplicaciones móviles][MobileApps] y [Aplicaciones de API][APIApps].
+# <a name="app-service-environment-documentation"></a>Documentación del Entorno del Servicio de aplicaciones
+App Service Environment es una opción de plan de servicio [Premium][PremiumTier] de Azure App Service que proporciona un entorno totalmente aislado y dedicado para ejecutar de forma segura aplicaciones de Azure App Service a gran escala, entre las que se incluyen [Web Apps][WebApps], [Mobile Apps][MobileApps] y [API Apps][APIApps].  
 
 Los entornos del Servicio de aplicaciones son ideales para cargas de trabajo de aplicaciones que requieren:
 
 * Muy grande escala
 * Aislamiento y acceso a redes seguro
 
-Los clientes pueden crear varios entornos del Servicio de aplicaciones en una o varias regiones de Azure. Esto hace que sean perfectos para los niveles de aplicación sin estado de escalado horizontal en el respaldo de cargas de trabajo RPS elevadas.
+Los clientes pueden crear varios entornos del Servicio de aplicaciones en una o varias regiones de Azure.  Esto hace que sean perfectos para los niveles de aplicación sin estado de escalado horizontal en el respaldo de cargas de trabajo RPS elevadas.
 
-Los entornos del Servicios de aplicaciones están aislados para ejecutar únicamente las aplicaciones de un solo cliente, y siempre se implementan en una red virtual. Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación si usan [grupos de seguridad de red][NetworkSecurityGroups]. Las aplicaciones también pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
+Los entornos del Servicios de aplicaciones están aislados para ejecutar únicamente las aplicaciones de un solo cliente, y siempre se implementan en una red virtual.  Los clientes tienen un mayor control sobre el tráfico de red entrante y saliente de la aplicación si usan [grupos de seguridad de red][NetworkSecurityGroups].  Las aplicaciones también pueden establecer conexiones seguras a alta velocidad por redes virtuales a los recursos corporativos locales.
 
-Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web. Las aplicaciones que se ejecutan en entornos de Servicio de aplicaciones pueden tener acceso a los recursos accesibles mediante conexiones VPN [de sitio a sitio][SiteToSite] y [Azure ExpressRoute][ExpressRoute].
+Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de datos internas y servicios web.  Las aplicaciones que se ejecutan en instancias de App Service Environment pueden acceder a recursos a los que se puede llegar mediante conexiones VPN [de sitio a sitio][SiteToSite] y de [Azure ExpressRoute][ExpressRoute].
 
 * [¿Qué es un entorno del Servicio de aplicaciones?](../app-service-web/app-service-app-service-environment-intro.md)
 * [Creación de un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-an-app-service-environment.md)
 * [Creación de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
 * [Creación y uso de un equilibrador de carga interno con entornos del Servicio de aplicaciones](../app-service-web/app-service-environment-with-internal-load-balancer.md)
-* [Configuración de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-configure-an-app-service-environment.md)
+* [Configuración de un entorno del Servicio de aplicaciones](../app-service-web/app-service-web-configure-an-app-service-environment.md) 
 * [Escalado de aplicaciones en un Entorno del Servicio de aplicaciones](../app-service-web/app-service-web-scale-a-web-app-in-an-app-service-environment.md)
 * [Arquitectura y seguridad de red](../app-service-web/app-service-app-service-environment-network-architecture-overview.md)
 
-## Procedimientos
+## <a name="how-tos"></a>Procedimientos
 [!INCLUDE [app-service-blueprint-app-service-environment](../../includes/app-service-blueprint-app-service-environment.md)]
 
-## Vídeos
+## <a name="videos"></a>Vídeos
 [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON325/player]
 
 
@@ -59,4 +63,8 @@ Las aplicaciones suelen requerir acceso a recursos corporativos, como bases de d
 [SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

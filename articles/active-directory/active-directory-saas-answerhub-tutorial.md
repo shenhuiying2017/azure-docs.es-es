@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con AnswerHub | Microsoft Docs'
-description: Aprenda a usar AnswerHub con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con AnswerHub | Microsoft Docs"
+description: "Aprenda a usar AnswerHub con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 818b91d7-01df-4b36-9706-f167c710a73c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 067d47bdfa5459a8e751292339a0e7ff4a8ad46b
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
+# <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integración de Azure Active Directory con AnswerHub
 El objetivo de este tutorial es mostrar la integración de Azure y [AnswerHub](http://www.dzonesoftware.com/products/answerhub-question-answer-software).  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-answerhub"></a>Habilitación de la integración de aplicaciones para AnswerHub
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para AnswerHub.
 
-### <a name="to-enable-the-application-integration-for-answerhub,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para AnswerHub:
+### <a name="to-enable-the-application-integration-for-answerhub-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para AnswerHub:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-answerhub-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 Como parte de este procedimiento, se requiere crear un archivo de certificado codificado en base 64.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **AnswerHub**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
@@ -114,7 +118,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, tienen que aprovisionarse en AnswerHub.  
 En el caso de AnswerHub, el aprovisionamiento es una tarea manual.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
 1. Inicie sesión en el sitio de la compañía de **AnswerHub** como administrador.
 2. Vaya a **Administración**.
 3. Haga clic en la pestaña **Users & Groups** (Usuarios y grupos).
@@ -131,7 +135,7 @@ En el caso de AnswerHub, el aprovisionamiento es una tarea manual.
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-answerhub,-perform-the-following-steps:"></a>Para asignar usuarios a AnswerHub, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-answerhub-perform-the-following-steps"></a>Para asignar usuarios a AnswerHub, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **AnswerHub**, haga clic en **Asignar usuarios**.
    
@@ -142,6 +146,9 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

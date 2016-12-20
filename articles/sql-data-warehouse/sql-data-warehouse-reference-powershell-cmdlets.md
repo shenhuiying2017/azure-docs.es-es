@@ -3,28 +3,32 @@ title: Cmdlets de PowerShell para Almacenamiento de datos SQL de Azure
 description: Busque los principales cmdlets de PowerShell para Almacenamiento de datos SQL de Azure, incluidos aquellos para pausar y reanudar una base de datos.
 services: sql-data-warehouse
 documentationcenter: NA
-author: sonyam
-manager: barbkess
-editor: ''
-
+author: barbkess
+manager: jhubbard
+editor: 
+ms.assetid: 6f0d5772-f05f-4cc8-9749-4adb153dfd50
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/16/2016
-ms.author: sonyama;barbkess;mausher
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e993e8c0cb7b7143f9e7be5bd413f42742666fa8
+
 
 ---
-# Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL
-Muchas tareas de administración de Almacenamiento de datos SQL se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST. A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en Almacenamiento de datos SQL. Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)][Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)].
+# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Cmdlets de PowerShell y API de REST para Almacenamiento de datos SQL
+Muchas tareas de administración de Almacenamiento de datos SQL se pueden administrar mediante los cmdlets de Azure PowerShell o las API de REST.  A continuación se muestran algunos ejemplos de cómo usar comandos de PowerShell para automatizar tareas comunes en Almacenamiento de datos SQL.  Para ver algunos buenos ejemplos de REST, consulte el artículo [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)][Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)].
 
 > [!NOTE]
-> Para usar Azure PowerShell con Almacenamiento de datos SQL, es necesaria la versión 1.0.3 o posterior de Azure PowerShell. Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**. Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][Instalador de plataforma web de Microsoft]. Para más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][Cómo instalar y configurar Azure PowerShell].
+> Para usar Azure PowerShell con Almacenamiento de datos SQL, es necesaria la versión 1.0.3 o posterior de Azure PowerShell.  Puede comprobar la versión ejecutando **Get-Module -ListAvailable -Name Azure**.  Se puede instalar la versión más reciente desde el [Instalador de plataforma web de Microsoft][Instalador de plataforma web de Microsoft].  Para obtener más información sobre cómo instalar la versión más reciente, consulte [Cómo instalar y configurar Azure PowerShell][Cómo instalar y configurar Azure PowerShell].
 > 
 > 
 
-## Introducción a los cmdlets de Azure PowerShell
+## <a name="get-started-with-azure-powershell-cmdlets"></a>Introducción a los cmdlets de Azure PowerShell
 1. Abra Windows PowerShell.
 2. En el símbolo del sistema de PowerShell, ejecute estos comandos para iniciar sesión en Azure Resource Manager y seleccione su suscripción.
    
@@ -34,13 +38,13 @@ Muchas tareas de administración de Almacenamiento de datos SQL se pueden admini
     Select-AzureRmSubscription -SubscriptionName "MySubscription"
     ```
 
-## Ejemplo de pausa de Almacenamiento de datos SQL
-Pausa una base de datos denominada "Database02" que está hospedada en un servidor cuyo nombre es "Server01". El servidor está en un grupo de recursos de Azure denominado "ResourceGroup1."
+## <a name="pause-sql-data-warehouse-example"></a>Ejemplo de pausa de Almacenamiento de datos SQL
+Pausa una base de datos denominada "Database02" que está hospedada en un servidor cuyo nombre es "Server01".  El servidor está en un grupo de recursos de Azure denominado "ResourceGroup1."
 
 ```Powershell
 Suspend-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Este ejemplo, que es una variación, canaliza el objeto recuperado a [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]. El resultado es que se pausa la base de datos. El comando final muestra los resultados.
+Este ejemplo, que es una variación, canaliza el objeto recuperado a [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase].  El resultado es que se pausa la base de datos. El comando final muestra los resultados.
 
 ```Powershell
 $database = Get-AzureRmSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -48,7 +52,7 @@ $resultDatabase = $database | Suspend-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## Ejemplo de inicio de Almacenamiento de datos SQL
+## <a name="start-sql-data-warehouse-example"></a>Ejemplo de inicio de Almacenamiento de datos SQL
 Reanuda el funcionamiento de una base de datos denominada "Database02" que está hospedada en un servidor cuyo nombre es "Server01". El servidor está en un grupo de recursos denominado "ResourceGroup1."
 
 ```Powershell
@@ -67,7 +71,7 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 > 
 > 
 
-## Cmdlets de PowerShell usados con frecuencia
+## <a name="frequently-used-powershell-cmdlets"></a>Cmdlets de PowerShell usados con frecuencia
 Estos cmdlets de PowerShell se usan con frecuencia con Almacenamiento de datos SQL de Azure.
 
 * [Get-AzureRmSqlDatabase][Get-AzureRmSqlDatabase]
@@ -81,18 +85,18 @@ Estos cmdlets de PowerShell se usan con frecuencia con Almacenamiento de datos S
 * [Set-AzureRmSqlDatabase][Set-AzureRmSqlDatabase]
 * [Suspend-AzureRmSqlDatabase][Suspend-AzureRmSqlDatabase]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más ejemplos de PowerShell, consulte:
 
 * [Creación de Almacenamiento de datos SQL con PowerShell][Creación de Almacenamiento de datos SQL con PowerShell]
 * [Restauración de base de datos][Restauración de base de datos]
 
-Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets] \(Cmdlets de Base de datos SQL de Azure). Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte [Operaciones para bases de datos SQL de Azure][Operaciones para bases de datos SQL de Azure].
+Para ver una lista de todas las tareas que se pueden automatizar con PowerShell, consulte los [Azure SQL Database Cmdlets][Azure SQL Database Cmdlets].  Para ver una lista de todas las tareas que se pueden automatizar con REST, consulte [Operaciones para bases de datos SQL de Azure][Operaciones para bases de datos SQL de Azure] (Operaciones para bases de datos SQL de Azure).
 
 <!--Image references-->
 
 <!--Article references-->
-[Cómo instalar y configurar Azure PowerShell]: ./powershell-install-configure.md
+[Cómo instalar y configurar Azure PowerShell]: ../powershell-install-configure.md
 [Creación de Almacenamiento de datos SQL con PowerShell]: ./sql-data-warehouse-get-started-provision-powershell.md
 [Restauración de base de datos]: ./sql-data-warehouse-restore-database-powershell.md
 [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (REST)]: ./sql-data-warehouse-manage-compute-rest-api.md
@@ -115,4 +119,8 @@ Para ver una lista de todas las tareas que se pueden automatizar con PowerShell,
 <!--Other Web references-->
 [Instalador de plataforma web de Microsoft]: https://aka.ms/webpi-azps
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

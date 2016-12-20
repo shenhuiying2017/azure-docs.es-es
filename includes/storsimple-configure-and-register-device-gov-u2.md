@@ -1,12 +1,12 @@
 <!--author=SharS last changed: 02/22/2016-->
 
 ### <a name="to-configure-and-register-the-device"></a>Para configurar y registrar el dispositivo
-1. Acceder a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](#use-putty-to-connect-to-the-device-serial-console) para obtener instrucciones. **Siga el procedimiento exactamente como se indica o no podrá acceder a la consola.**
-2. En la sesión que se abre, presione ENTRAR una vez para obtener un símbolo del sistema. 
-3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione ENTRAR. 
+1. Acceder a la interfaz de Windows PowerShell en la consola serie del dispositivo StorSimple. Consulte [Uso de PuTTY para conectarse a la consola serie del dispositivo](../articles/storsimple/storsimple-deployment-walkthrough-gov-u2.md#use-putty-to-connect-to-the-device-serial-console) para obtener instrucciones. **Siga el procedimiento exactamente como se indica o no podrá acceder a la consola.**
+2. En la sesión que se abre, presione ENTRAR una vez para obtener un símbolo del sistema.
+3. Se le pedirá que elija el idioma que desee establecer para el dispositivo. Especifique el idioma y, a continuación, presione ENTRAR.
    
     ![Configurar y registrar el dispositivo 1 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. En el menú de la consola serie que se muestra, seleccione la opción 1 para iniciar sesión con acceso completo. 
+4. En el menú de la consola serie que se muestra, seleccione la opción 1 para iniciar sesión con acceso completo.
    
     ![Registrar el dispositivo 2 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. Realice los siguientes pasos para configurar los valores de red mínimos necesarios para su dispositivo.
@@ -20,7 +20,7 @@
    2. Escriba el siguiente comando:
       
         `Invoke-HcsSetupWizard`
-   3. Aparecerá un Asistente para instalación que le ayudará a configurar las opciones de red para el dispositivo. Proporcione la siguiente información: 
+   3. Aparecerá un Asistente para instalación que le ayudará a configurar las opciones de red para el dispositivo. Proporcione la siguiente información:
       
       * Dirección IP para la interfaz de red DATA 0
       * Máscara de subred
@@ -29,13 +29,13 @@
       * Dirección IP para el servidor NTP principal
       
       > [!NOTE]
-      > Tendrá que esperar unos minutos a que se aplique la configuración de máscara de subred y DNS. 
+      > Tendrá que esperar unos minutos a que se aplique la configuración de máscara de subred y DNS.
       > 
       > 
    4. De manera opcional, configure el servidor proxy web.
       
       > [!IMPORTANT]
-      > Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md). 
+      > Aunque la configuración del proxy web es opcional, tenga en cuenta que, si usa un proxy web, solo puede configurarlo aquí. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](../articles/storsimple/storsimple-configure-web-proxy.md).
       > 
       > 
 6. Presione Ctrl + C para salir del asistente de configuración.
@@ -49,7 +49,7 @@
       
       Para supervisar el progreso de la actualización, ejecute `Get-HcsUpdateStatus`.    
       
-      The following sample output shows the update in progress.
+      La siguiente salida de ejemplo muestra la actualización en curso.
       
       ````
       Controller0>Get-HcsUpdateStatus
@@ -57,12 +57,12 @@
       LastHotfixTimestamp : 4/13/2015 10:56:13 PM
       LastUpdateTimestamp : 4/13/2015 10:35:25 PM
       Controller0Events   :
-      Controller1Events   : 
+      Controller1Events   :
       ````
       
       La siguiente salida de ejemplo indica que ha finalizado la actualización.
       
-      ````
+      ```
       Controller1>Get-HcsUpdateStatus
       
       RunInprogress       : False
@@ -70,6 +70,7 @@
       LastUpdateTimestamp : 4/13/2015 10:35:25 PM
       Controller0Events   :
       Controller1Events   :
+      ```
       
       Las actualizaciones pueden tardar hasta 11 horas en aplicarse, incluidas las de Windows.
 8. Ejecute el siguiente cmdlet para que el dispositivo apunte al Portal de Microsoft Azure Government (ya que, de forma predeterminada, apunta al Portal de Azure clásico público). Ambos controladores se reiniciarán. Recomendamos que use dos sesiones PuTTY para conectarse simultáneamente a ambos controladores para así poder ver cuándo se reinicia cada uno.
@@ -83,7 +84,7 @@
    
     ![Asistente para reanudar la instalación](./media/storsimple-configure-and-register-device-gov-u2/HCS_ResumeSetup-gov-include.png)
    
-   Cuando se reanude la instalación, el asistente será la versión de Actualización 2. 
+   Cuando se reanude la instalación, el asistente será la versión de Actualización 2.
 10. Acepte la configuración de red. Verá un mensaje de validación después de aceptar cada configuración.
 11. Por motivos de seguridad, la contraseña del administrador del dispositivo expira después de la primera sesión y deberá cambiarla ahora. Cuando se le solicite, proporcione una contraseña de administrador del dispositivo. Una contraseña de administrador del dispositivo válida debe tener entre 8 y 15 caracteres. La contraseña debe contener tres de los siguientes elementos: minúsculas, mayúsculas, números y caracteres especiales.
     
@@ -101,7 +102,7 @@
     ![Registrar el dispositivo 7 de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice7_gov-include.png)    
     
     > [!IMPORTANT]
-    > Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. A continuación, podrá pegarlo en el Portapapeles o en cualquier editor de texto. 
+    > Para copiar el texto de la ventana de la consola serie, simplemente seleccione el texto. A continuación, podrá pegarlo en el Portapapeles o en cualquier editor de texto.
     > 
     > No use Ctrl+C para copiar la clave de cifrado de datos de servicio. Si usa Ctrl+C, saldrá del Asistente para instalación. Como resultado, no se cambiará la contraseña del administrador del dispositivo y el dispositivo volverá a usar la contraseña predeterminada.
     > 
@@ -113,14 +114,16 @@
     2. Haga clic en **Ver los dispositivos conectados**.
     3. En la página **Dispositivos** , compruebe que el dispositivo se conectó correctamente al servicio consultando el estado. El estado del dispositivo debe ser **Conectado**.
        
-        ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png) 
+        ![Página de dispositivos de StorSimple](./media/storsimple-configure-and-register-device-gov-u2/HCS_DeviceOnline-gov-include.png)
        
-        Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte. 
+        Si el estado del dispositivo es **Desconectado**, espere unos minutos para que el dispositivo se conecte.
        
-        Si el dispositivo sigue sin conexión tras unos minutos, hay que asegurarse de que la red de firewall se haya configurado tal como se describe en [Software de StorSimple, alta disponibilidad y requisitos de red](../articles/storsimple/storsimple-system-requirements.md). 
+        Si el dispositivo sigue sin conexión tras unos minutos, hay que asegurarse de que la red de firewall se haya configurado tal como se describe en [Software de StorSimple, alta disponibilidad y requisitos de red](../articles/storsimple/storsimple-system-requirements.md).
        
         Compruebe que el puerto 9354 está abierto para la comunicación saliente, ya que lo usa el Bus de servicio para la comunicación de servicio al dispositivo de StorSimple Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

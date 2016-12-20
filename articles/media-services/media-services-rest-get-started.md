@@ -1,80 +1,121 @@
 ---
-title: Introducción a la entrega de contenido a petición mediante REST | Microsoft Docs
-description: Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido a petición con Servicios multimedia de Azure mediante la API de REST.
+title: "Introducción a la entrega de contenido a petición mediante REST | Microsoft Docs"
+description: "Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido a petición con Servicios multimedia de Azure mediante la API de REST."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 88194b59-e479-43ac-b179-af4f295e3780
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/07/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 5944facc37937f1c8369d919c99cad3b42b56840
+ms.openlocfilehash: 590e6cd71bc6c24a485f5270b8688819cb1e47da
+
 
 ---
-# Introducción a la entrega de contenido a petición mediante REST
+# <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Introducción a la entrega de contenido a petición mediante REST
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
-Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Servicios multimedia de Azure (AMS).
+Esta guía de inicio rápido le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo bajo demanda (VoD) mediante API de REST de Servicios multimedia de Azure (AMS). 
 
-Presenta el flujo de trabajo básico de Servicios multimedia y la mayoría de los objetos y tareas de programación más comunes necesarios para el desarrollo de Servicios multimedia. Al término del tutorial, podrá transmitir o cargar progresivamente un archivo multimedia de ejemplo que cargó, codificó y descargó.
+Presenta el flujo de trabajo básico de Servicios multimedia y la mayoría de los objetos y tareas de programación más comunes necesarios para el desarrollo de Servicios multimedia. Al término del tutorial, podrá transmitir o cargar progresivamente un archivo multimedia de ejemplo que cargó, codificó y descargó.  
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Los siguientes requisitos previos son necesarios para empezar a desarrollar con las API de REST de Servicios multimedia.
 
-* Información sobre cómo desarrollar con las API de REST de Servicios multimedia. Para obtener más información, consulte [media-services-rest-overview](http://msdn.microsoft.com/library/azure/hh973616.aspx).
-* Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](http://www.telerik.com/download/fiddler).
+* Información sobre cómo desarrollar con las API de REST de Servicios multimedia. Para más información, consulte [Información general sobre la API de REST de Media Services](media-services-rest-how-to-use.md).
+* Una aplicación de su elección que puede enviar solicitudes y respuestas HTTP. En este tutorial se usa [Fiddler](http://www.telerik.com/download/fiddler). 
 
 En este tutorial rápido se muestran las siguientes tareas.
 
-1. Creación de una cuenta de Servicios multimedia con el Portal
-2. Conexión a la cuenta de Servicios multimedia con API de REST
-3. Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
-4. Configuración de unidades de streaming con API de REST
-5. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptable con API de REST
-6. Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
-7. Reproduzca el contenido.
+1. Creación de una cuenta de Servicios multimedia (con el Portal de Azure).
+2. Configuración de puntos de conexión de streaming con Azure Portal.
+3. Conexión a la cuenta de Servicios multimedia con API de REST
+4. Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
+5. Configuración de unidades de streaming con API de REST
+6. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptable con API de REST
+7. Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST 
+8. Reproduzca el contenido. 
 
-## <a id="create_ams"></a>Creación de una cuenta de Servicios multimedia (con el Portal)
-1. En el [Portal de Azure clásico][Portal de Azure clásico], haga clic en **Nuevo**, en **Servicios multimedia** y luego en **Creación rápida**.
+Para más información acerca de las entidades de AMS REST utilizadas en este tema, consulte [Referencia de la API de REST de Azure Media Services](/rest/api/media/services/azure-media-services-rest-api-reference). Consulte también [Conceptos de Azure Media Services](media-services-concepts.md).
+
+## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Azure Media Services mediante Azure Portal
+Los pasos de esta sección muestran cómo crear una cuenta de AMS.
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+2. Haga clic en **+Nuevo** > **Medios + CDN** > **Servicios multimedia**.
    
-    ![Creación rápida de Servicios multimedia](./media/media-services-rest-get-started/wams-QuickCreate.png)
-2. En **NOMBRE**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
-3. En **REGIÓN**, seleccione la región geográfica que se usará para almacenar los registros de metadatos para la cuenta de Servicios multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en el cuadro desplegable.
-4. En **CUENTA DE ALMACENAMIENTO**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente en la misma región geográfica que la cuenta de Servicios multimedia o crear una nueva cuenta de almacenamiento. Se crea una nueva cuenta de almacenamiento en la misma región.
-5. Si ha creado una nueva cuenta de almacenamiento, en **NOMBRE DE NUEVA CUENTA DE ALMACENAMIENTO**, especifique un nombre para la cuenta de almacenamiento. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
-6. Haga clic en **Creación rápida** en la parte inferior del formulario.
+    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new1.png)
+3. En **CREAR CUENTA DE SERVICIOS MULTIMEDIA** especifique los valores obligatorios.
    
-    Puede supervisar el estado del proceso en el área de mensajes situada en parte inferior de la ventana.
+    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new3.png)
    
-    Una vez que la cuenta se crea correctamente, el estado cambia a Activo.
+   1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
+   2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
+   3. En **Grupo de recursos**seleccione el recurso nuevo o uno ya existente.  Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../azure-resource-manager/resource-group-overview.md#resource-groups).
+   4. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Media Services. Esta región se utiliza para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable. 
+   5. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente de la misma región geográfica que la cuenta de Servicios multimedia o crearla. Se crea una nueva cuenta de almacenamiento en la misma región. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
+      
+       Puede obtener más información acerca del almacenamiento [aquí](../storage/storage-introduction.md).
+   6. Seleccione **Anclar al panel** para ver el progreso de la implementación de la cuenta.
+4. Haga clic en **Crear** en la parte inferior del formulario.
    
-    En la parte inferior de la página, se muestra el botón **ADMINISTRAR CLAVES**. Al hacer clic en este botón, se muestra un cuadro de diálogo con el nombre de cuenta de Servicios multimedia y las claves principales y secundarias. Necesita el nombre de cuenta y la información de la clave principal para obtener acceso mediante programación a la cuenta de Servicios multimedia.
+    Una vez que la cuenta se crea correctamente, el estado cambia a **En ejecución**. 
+   
+    ![Configuración de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-settings.png)
+   
+    Para administrar la cuenta de AMS (por ejemplo, para cargar vídeos, codificar recursos, supervisar el progreso del trabajo) use la ventana **Configuración** .
 
-    ![Página de Servicios multimedia](./media/media-services-rest-get-started/wams-mediaservices-page.png)
+## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configuración de puntos de conexión de streaming con Azure Portal
+Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
 
-    Cuando haga doble clic en el nombre de cuenta, se mostrará la página de Inicio rápido de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
+Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable en formatos admitidos por Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) justo a tiempo sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos de streaming.
 
+Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-## <a id="connect"></a>Conexión a la cuenta de Servicios multimedia con API de REST
+* Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).  
+* Cree al menos una unidad de streaming para el *punto de conexión de streaming* para el que planea entregar el contenido. Para cambiar el número de unidades de streaming, realice los siguientes pasos.
+
+Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+
+Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
+
+1. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**. 
+2. Haga clic en el punto de conexión de streaming predeterminado. 
+   
+    Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
+3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming** .
+   
+    ![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
+4. Haga clic en el botón **Guardar** para guardar los cambios.
+   
+   > [!NOTE]
+   > La asignación de cualquier nueva unidad puede tardar hasta 20 minutos en completarse.
+   > 
+   > 
+
+## <a name="a-idconnectaconnect-to-the-media-services-account-with-rest-api"></a><a id="connect"></a>Conexión a la cuenta de Servicios multimedia con API de REST
 Hay dos elementos necesarios al obtener acceso a Servicios multimedia de Azure: un token de acceso proporcionado por los Servicios de control de acceso (ACS) de Azure y el propio URI de Servicios multimedia. Puede usar los métodos que desee para crear estas solicitudes siempre que especifique los valores de encabezado adecuados y pase el token de acceso correctamente al llamar a Servicios multimedia.
 
 En los pasos siguientes se describe el flujo de trabajo más común al usar la API de REST de Servicios multimedia para conectarse a Servicios multimedia:
 
-1. Obtención de un token de acceso
-2. Conexión al URI de Servicios multimedia
+1. Obtención de un token de acceso 
+2. Conexión al URI de Servicios multimedia  
    
-    Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 en la que se especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI. Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
-3. Registre las llamadas de API posteriores en la nueva dirección URL.
+    Recuerde que después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Media Services. Debe realizar las llamadas posteriores al nuevo URI. Es posible que también reciba una respuesta HTTP/1.1 200 que contenga la descripción de metadatos de la API de ODATA.
+3. Registre las llamadas de API posteriores en la nueva dirección URL. 
    
     Por ejemplo, si después de intentar conectarse, obtiene lo siguiente:
    
@@ -83,8 +124,8 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
    
     Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-### Obtención de un token de acceso
-Para obtener acceso a Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. Este token es similar a otros tokens proporcionados por ACS basados en notificaciones de acceso proporcionadas en el encabezado de una solicitud HTTP y que usan el protocolo OAuth v2. No es necesario ningún otro requisito previo antes de conectarse directamente a Servicios multimedia.
+### <a name="getting-an-access-token"></a>Obtención de un token de acceso
+Para obtener acceso a Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. No es necesario ningún otro requisito previo antes de conectarse directamente a Servicios multimedia.
 
 En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP que se usan para recuperar un token.
 
@@ -101,14 +142,14 @@ En el ejemplo siguiente se muestra el encabezado y el cuerpo de solicitud HTTP q
 
 **Cuerpo**:
 
-Debe probar los valores client\_id y client\_secret en el cuerpo de esta solicitud; client\_id y client\_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta.
+Debe probar los valores client_id y client_secret en el cuerpo de esta solicitud; client_id y client_secret se corresponden con los valores AccountName y AccountKey, respectivamente. Servicios multimedia le proporciona estos valores al configurar su cuenta. 
 
-Tenga en cuenta que el valor AccountKey de su cuenta de Servicios multimedia debe tener codificación URL cuando se usa como el valor client\_secret en la solicitud de token de acceso.
+El valor AccountKey de su cuenta de Media Services debe tener codificación URL cuando se usa como el valor client_secret en la solicitud de token de acceso.
 
     grant_type=client_credentials&client_id=ams_account_name&client_secret=URL_encoded_ams_account_key&scope=urn%3aWindowsAzureMediaServices
 
 
-Por ejemplo:
+Por ejemplo: 
 
     grant_type=client_credentials&client_id=amstestaccount001&client_secret=wUNbKhNj07oqjqU3Ah9R9f4kqTJ9avPpfe6Pk3YZ7ng%3d&scope=urn%3aWindowsAzureMediaServices
 
@@ -135,18 +176,18 @@ En el ejemplo siguiente se muestra la respuesta HTTP que contiene el token de ac
 
 
 > [!NOTE]
-> Se recomienda almacenar en memoria caché los valores "access\_token" y "expires\_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
+> Se recomienda almacenar en memoria caché los valores "access_token" y "expires_in" en un almacenamiento externo. Los datos del token se pueden recuperar más tarde desde el almacenamiento y se pueden reutilizar en las llamadas de API de REST de Servicios multimedia. Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 > 
 > 
 
-Asegúrese de supervisar el valor "expires\_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
+Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
-### Conexión al URI de Servicios multimedia
+### <a name="connecting-to-the-media-services-uri"></a>Conexión al URI de Servicios multimedia
 El URI raíz de Servicios multimedia es https://media.windows.net/. Inicialmente, debe conectarse a este URI y, si obtiene una redirección 301 como respuesta, debe realizar las llamadas posteriores al nuevo URI. Además, no use ninguna lógica de redirección automática/seguimiento en las solicitudes. Los verbos HTTP y los cuerpos de solicitud no se enviarán al nuevo URI.
 
-Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/, donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
+El URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/, donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Media Services.
 
-En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).
+En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Media Services (https://media.windows.net/). La solicitud obtiene una redirección 301 como respuesta. La solicitud siguiente usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
 **Solicitud HTTP**:
 
@@ -207,17 +248,19 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 > 
 > 
 
-## <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
-En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos). Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
+## <a name="a-iduploadacreate-a-new-asset-and-upload-a-video-file-with-rest-api"></a><a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
+
+En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad **Asset** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
 
 Uno de los valores que se deben proporcionar al crear un recurso son las opciones de creación de activos. La propiedad **Options** es un valor de enumeración que describe las opciones de cifrado con las que se puede crear un recurso. Un valor válido es uno de los valores de la lista siguiente, no una combinación de valores de esta lista:
 
-* **None** = **0**: no se usa cifrado. Tenga en cuenta que al utilizar esta opción el contenido no está protegido en tránsito o en reposo en el almacenamiento. Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción.
-* **StorageEncrypted** = **1**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en el almacenamiento de Azure, donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
-* **CommonEncryptionProtected** = **2**: use esta opción si va a cargar contenido que ya se ha cifrado y protegido con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
-* **EnvelopeEncryptionProtected** = **4**: use esta opción si va a cargar HLS cifrado con AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
+* **None** = **0**: no se utiliza cifrado. Cuando se utiliza esta opción, el contenido no está protegido en tránsito o en reposo en el almacenamiento.
+    Si tiene previsto entregar un MP4 mediante una descarga progresiva, utilice esta opción. 
+* **StorageEncrypted** = **1**: cifra el contenido no cifrado localmente mediante el cifrado AES de 256 bits y, a continuación, lo carga en Azure Storage donde se almacena cifrado en reposo. Los recursos protegidos con el cifrado de almacenamiento se descifran automáticamente y se colocan en un sistema de archivos cifrados antes de la codificación y, opcionalmente, se vuelven a cifrar antes de volver a cargarlos como un nuevo recurso de salida. El caso de uso principal para el cifrado de almacenamiento es cuando desea proteger los archivos multimedia de entrada de alta calidad con un sólido cifrado en reposo en disco.
+* **CommonEncryptionProtected** = **2**: use esta opción si va a cargar contenido que ya se cifró y protegió con cifrado común o DRM de PlayReady (por ejemplo, Smooth Streaming protegido con DRM de PlayReady).
+* **EnvelopeEncryptionProtected** = **4**: use esta opción si va a cargar HLS cifrado con AES. Los archivos deben haberse codificado y cifrado con Transform Manager.
 
-### Creación de un recurso
+### <a name="create-an-asset"></a>Creación de un recurso
 Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Servicios multimedia y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
 En el ejemplo siguiente se muestra cómo crear un recurso.
@@ -271,10 +314,10 @@ Si se realiza correctamente, se devuelve lo siguiente:
        "StorageAccountName":"storagetestaccount001"
     }
 
-### Creación de AssetFile
+### <a name="create-an-assetfile"></a>Creación de AssetFile
 La entidad [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
-Después de cargar el archivo multimedia digital en un contenedor de blobs, usará la solicitud HTTP **MERGE** para actualizar la entidad AssetFile con información sobre el archivo multimedia (tal como se muestra más adelante en este tema).
+Después de cargar el archivo multimedia digital en un contenedor de blobs, usará la solicitud HTTP **MERGE** para actualizar la entidad AssetFile con información sobre el archivo multimedia (tal como se muestra más adelante en este tema). 
 
 **Solicitud HTTP**
 
@@ -333,7 +376,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
     }
 
 
-### Creación de AccessPolicy con permiso de escritura.
+### <a name="creating-the-accesspolicy-with-write-permission"></a>Creación de AccessPolicy con permiso de escritura.
 Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes tras la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
 En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
@@ -381,7 +424,8 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
        "Permissions":2
     }
 
-### Obtención de la dirección URL de carga
+### <a name="get-the-upload-url"></a>Obtención de la dirección URL de carga
+
 Para recibir la dirección URL de carga real, cree un localizador de SAS. Los localizadores definen la hora de inicio y el tipo de extremo de conexión para los clientes que desean tener acceso a archivos de un recurso. Puede crear varias entidades Locator para un par AccessPolicy y Asset determinado a fin de controlar las distintas solicitudes y necesidades del cliente. Cada uno de estos localizadores usa el valor StartTime más el valor DurationInMinutes de AccessPolicy para determinar la cantidad de tiempo que se puede usar una dirección URL. Para obtener más información, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
 Una dirección URL de SAS tiene el formato siguiente:
@@ -391,8 +435,10 @@ Una dirección URL de SAS tiene el formato siguiente:
 Se aplican algunas consideraciones:
 
 * No puede tener más de cinco localizadores únicos asociados a un recurso determinado a la vez. Para obtener más información, consulte Localizador.
-* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Servicios multimedia. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").
+* Si necesita cargar los archivos inmediatamente, debe establecer el valor StartTime cinco minutos antes de la hora actual. Esto se debe a que puede haber un desplazamiento de reloj entre el equipo cliente y Servicios multimedia. Además, el valor de StartTime debe tener el siguiente formato: YYYY-MM-DDTHH:mm:ssZ (por ejemplo, "2014-05-23T17:53:50Z").    
 * Puede haber un retraso de 30 a 40 segundos desde el momento en que se crea un localizador hasta que este está disponible para su uso. Este problema afecta a la dirección URL de SAS y a localizadores de origen.
+
+Para más información sobre localizadores de SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
 
 En el ejemplo siguiente se muestra cómo crear un localizador de dirección URL de SAS, tal como se define en la propiedad Type del cuerpo de solicitud ("1" para un localizador de SAS y "2" para un localizador de origen bajo demanda). La propiedad **Path** devuelta contiene la dirección URL que debe usar para cargar el archivo.
 
@@ -449,17 +495,17 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
        "Name":null
     }
 
-### Carga de un archivo en un contenedor de almacenamiento de blobs
-Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de almacenamiento de blobs de Azure mediante las API de REST de almacenamiento de Azure. Puede cargar en la página o blobs en bloques.
+### <a name="upload-a-file-into-a-blob-storage-container"></a>Carga de un archivo en un contenedor de almacenamiento de blobs
+Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de almacenamiento de blobs de Azure mediante las API de REST de almacenamiento de Azure. Puede cargar en la página o blobs en bloques. 
 
 > [!NOTE]
-> Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
+> Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 > 
 > 
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-### Actualización de AssetFile
+### <a name="update-the-assetfile"></a>Actualización de AssetFile
 Ahora que ha cargado el archivo, actualice la información de tamaño de FileAsset (y otro tipo de información). Por ejemplo:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
@@ -485,7 +531,7 @@ Ahora que ha cargado el archivo, actualice la información de tamaño de FileAss
 
 Si se realiza correctamente, se devuelve lo siguiente: HTTP/1.1 204 No Content
 
-## Eliminación de Locator y AccessPolicy
+## <a name="delete-the-locator-and-accesspolicy"></a>Eliminación de Locator y AccessPolicy
 **Solicitud HTTP**
 
     DELETE https://wamsbayclus001rest-hs.cloudapp.net/api/Locators('nb%3Alid%3AUUID%3Aaf57bdd8-6751-4e84-b403-f3c140444b54') HTTP/1.1
@@ -524,17 +570,17 @@ Si se realiza correctamente, se devuelve lo siguiente:
     ...
 
 
-## <a id="configure_streaming_units"></a>Configuración de unidades de streaming con API de REST
-Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access).
+## <a name="a-idconfigurestreamingunitsaconfigure-streaming-units-with-rest-api"></a><a id="configure_streaming_units"></a>Configuración de unidades de streaming con API de REST
+Cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es entregar streaming de velocidad de bits adaptable a los clientes. Con el streaming de velocidad de bits adaptable, el cliente puede cambiar a una secuencia de velocidad de bits mayor o menor que el vídeo mostrado, según el ancho de banda actual de la red, el uso de CPU y otros factores. Servicios multimedia admite las siguientes tecnologías de streaming adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (únicamente para licenciatarios de Adobe PrimeTime/Access). 
 
-Servicios multimedia proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos.
+Servicios multimedia proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos de streaming admitidos por Servicios multimedia (MPEG DASH, HLS, Smooth Streaming, HDS) sin tener que volver a empaquetar en estos formatos. 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-* obtener al menos una unidad de streaming a petición para el **punto de conexión de streaming ** desde el que planea entregar el contenido (como se describe en esta sección).
-* codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),
+* obtener al menos una unidad de streaming a petición para el **punto de conexión de streaming **desde el que planea entregar el contenido (como se describe en esta sección).
+* codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
 
-Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
+Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente. 
 
 > [!NOTE]
 > Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
@@ -543,8 +589,8 @@ Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos e
 
 Para cambiar el número de unidades reservadas de streaming, haga lo siguiente:
 
-### Obtención del extremo de streaming que desea actualizar
-Por ejemplo, vamos a obtener el primer extremo de streaming en su cuenta (puede tener hasta dos extremos de streaming en estado de ejecución al mismo tiempo).
+### <a name="get-the-streaming-endpoint-you-want-to-update"></a>Obtención del extremo de streaming que desea actualizar
+Por ejemplo, vamos a obtener el primer punto de conexión de streaming en su cuenta (puede tener hasta dos puntos de conexión de streaming en estado de ejecución al mismo tiempo).
 
 **Solicitud HTTP**:
 
@@ -564,7 +610,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
     HTTP/1.1 200 OK
     . . . 
 
-### Escalado del extremo de streaming
+### <a name="scale-the-streaming-endpoint"></a>Escalado del extremo de streaming
 **Solicitud HTTP**:
 
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/StreamingEndpoints('nb:oid:UUID:cd57670d-cc1c-0f86-16d8-3ad478bf9486')/Scale HTTP/1.1
@@ -595,8 +641,8 @@ Si se realiza correctamente, se devuelve lo siguiente:
     Content-Length: 0
 
 
-### <a id="long_running_op_status"></a>Comprobación del estado de una operación de ejecución prolongada
-La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse. Para comprobar el estado de la operación, use el método **Operations** y especifique el identificador de la operación. El identificador de la operación se devolvió en la respuesta a la solicitud **Scale**.
+### <a name="a-idlongrunningopstatusa-check-on-the-status-of-a-long-running-operation"></a><a id="long_running_op_status"></a> Comprobación del estado de una operación de ejecución prolongada
+La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finalizarse. Para comprobar el estado de la operación, use el método **Operations** y especifique el identificador de la operación. El identificador de la operación se devolvió en la respuesta a la solicitud **Scale** .
 
     operation-id: nb:opid:UUID:1853bcbf-b71f-4ed5-a4c7-a581d4f45ae7
 
@@ -641,22 +687,23 @@ La asignación de cualquier nueva unidad puede tardar unos 20 minutos en finaliz
     }
 
 
-## <a id="encode"></a>Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
-Después de introducir los recursos en Servicios multimedia, los elementos multimedia se pueden codificar, transmultiplexar, agregar una marca de agua, entre otras opciones, antes de entregarse a los clientes. Estas actividades se programan y se ejecutan en varias instancias de rol en segundo plano para garantizar la disponibilidad y alto rendimiento. Estas actividades se denominan trabajos y cada [trabajo](http://msdn.microsoft.com/library/azure/hh974289.aspx) está compuesto de tareas atómicas que realizan el trabajo real en el archivo del recurso.
+## <a name="a-idencodeaencode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a><a id="encode"></a>Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
 
-Como se ha indicado antes, cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Servicios multimedia pueden empaquetar de manera dinámica un conjunto de archivos MP4 de velocidad de bits adaptable en uno de los siguientes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
+Después de introducir los recursos en Servicios multimedia, los elementos multimedia se pueden codificar, transmultiplexar, agregar una marca de agua, entre otras opciones, antes de entregarse a los clientes. Estas actividades se programan y se ejecutan en varias instancias de rol en segundo plano para garantizar la disponibilidad y alto rendimiento. Estas actividades se denominan trabajos y cada trabajo está compuesto de tareas atómicas que realizan el trabajo real en el archivo del recurso (para más información, consulte las descripciones de [trabajo](/rest/api/media/services/job) y [tarea](/rest/api/media/services/task)). 
+
+Como se ha indicado antes, cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es ofrecer streaming de velocidad de bits adaptable a los clientes. Servicios multimedia pueden empaquetar de manera dinámica un conjunto de archivos MP4 de velocidad de bits adaptable en uno de los siguientes formatos: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access). 
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
-* codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,
-* obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
+* codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable,  
+* obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido. 
 
-En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podrá crear los localizadores necesarios para acceder a los recursos.
+En la sección siguiente se muestra cómo crear un trabajo que contiene una tarea de codificación. La tarea especifica la transcodificación del archivo intermedio en un conjunto de archivos MP4 de velocidad de bits adaptable con **Codificador multimedia estándar**. La sección también muestra cómo supervisar el progreso del procesamiento de trabajo. Una vez finalizado el trabajo, podría crear los localizadores necesarios para acceder a los recursos. 
 
-### Obtención de un procesador multimedia
+### <a name="get-a-media-processor"></a>Obtención de un procesador multimedia
 En los Servicios multimedia, un procesador multimedia es un componente que controla una tarea de procesamiento específica, como codificación, conversión de formato, cifrado o descifrado de contenido multimedia. Para la tarea de codificación que se muestra en este tutorial, usaremos el Codificador multimedia estándar.
 
-El código siguiente solicita el identificador del codificador.
+El código siguiente solicita el identificador del codificador. 
 
 **Solicitud HTTP**
 
@@ -699,10 +746,10 @@ El código siguiente solicita el identificador del codificador.
        ]
     }
 
-### Creación de un trabajo
-Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Servicios multimedia usa el procesamiento por lotes; sin embargo, para que sea fácil entender los ejemplos de código de este tema, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+### <a name="create-a-job"></a>Creación de un trabajo
+Cada trabajo puede tener una o más tareas según el tipo de procesamiento que desee llevar a cabo. A través de la API de REST, puede crear trabajos y sus tareas relacionadas en una de las dos maneras siguientes: las tareas se pueden definir en línea a través de la propiedad de navegación Tasks en entidades Job o de procesamiento por lotes de OData. El SDK de Media Services usa el procesamiento por lotes. Sin embargo, para que sea fácil entender los ejemplos de código de este tema, las tareas se definen en línea. Para obtener información sobre el procesamiento por lotes, consulte [Procesamiento por lotes del protocolo Open Data (OData)](http://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](http://msdn.microsoft.com/library/mt269960) admitidos por el procesador de Codificador multimedia estándar.
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. La siguiente sección de la documentación contiene la lista de todos los [valores preestablecidos de tareas](http://msdn.microsoft.com/library/mt269960) admitidos por el procesador de Codificador multimedia estándar.  
 
 **Solicitud HTTP**
 
@@ -730,7 +777,7 @@ En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conj
           {  
              "Configuration":"H264 Adaptive Bitrate MP4 Set 720p",
              "MediaProcessorId":"nb:mpid:UUID:ff4df607-d419-42f0-bc17-a481b1331e56",
-             "TaskBody":"<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
+             "TaskBody":"<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset>
                 <outputAsset>JobOutputAsset(0)</outputAsset></taskBody>"
           }
        ]
@@ -805,19 +852,19 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 * Una tarea puede tener varios recursos de salida. Un elemento JobOutputAsset(x) solo se puede usar una vez como salida de una tarea en un trabajo.
 * Puede especificar JobInputAsset o JobOutputAsset como un recurso de entrada de una tarea.
 * Las tareas no pueden formar un ciclo.
-* El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job.
+* El parámetro de valor que se pasa a JobInputAsset o JobOutputAsset representa el valor de índice para un recurso. Los recursos reales se definen en las propiedades de navegación InputMediaAssets y OutputMediaAssets en la definición de la entidad Job. 
 
 > [!NOTE]
-> Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "\_\_metadata: uri".
+> Dado que Servicios multimedia se basa en OData v3, se hace referencia a los recursos individuales de las colecciones de propiedades de navegación InputMediaAssets y OutputMediaAssets a través de un par nombre-valor "__metadata: uri". 
 > 
 > 
 
 * InputMediaAssets se asigna a uno o más recursos que ha creado en Servicios multimedia. El sistema crea OutputMediaAssets. Estos no hacen referencia a ningún recurso existente.
-* Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor de texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso de que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) \_NewJob".
+* Se puede asignar un nombre a OutputMediaAssets con el atributo assetName. Si este atributo no está presente, el nombre de OutputMediaAsset será el valor del texto interno del elemento <outputAsset> con un sufijo del valor Job Name o del valor Job Id (en el caso de que no se haya definido la propiedad Name). Por ejemplo, si establece un valor para assetName como "Sample", se establecería la propiedad de OutputMediaAsset Name en "Sample". Sin embargo, si no se ha definido un valor para assetName, pero se ha especificado el nombre del trabajo como "NewJob", OutputMediaAsset Name será "JobOutputAsset (value) _NewJob". 
   
     En el ejemplo siguiente se muestra cómo establecer el atributo assetName:
   
-        "<?xml version="1.0" encoding="utf-8"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName="CustomOutputAssetName">JobOutputAsset(0)</outputAsset></taskBody>"
+        "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"
 * Para habilitar el encadenamiento de tareas:
   
   * Un trabajo debe tener al menos dos tareas.
@@ -825,8 +872,8 @@ Hay algunas cuestiones importantes a tener en cuenta en cualquier solicitud de t
 
 Para obtener más información, consulte [Creación de un trabajo de codificación con la API de REST de Servicios multimedia](http://msdn.microsoft.com/library/azure/jj129574.aspx).
 
-### Supervisión del progreso del procesamiento
-Puede recuperar el estado del trabajo mediante la propiedad State, tal como se muestra en el ejemplo siguiente.
+### <a name="monitor-processing-progress"></a>Supervisión del progreso del procesamiento
+Puede recuperar el estado del trabajo mediante la propiedad State, tal como se muestra en el ejemplo siguiente. 
 
 **Solicitud HTTP**
 
@@ -860,7 +907,7 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
     {"d":{"State":2}}
 
 
-### Cancelación de un trabajo
+### <a name="cancel-a-job"></a>Cancelación de un trabajo
 Servicios multimedia le permite cancelar trabajos en ejecución a través de la función CancelJob. Esta llamada devolverá un código de error 400 si intenta cancelar un trabajo cuando su estado sea cancelado, cancelando, error o finalizado.
 
 En el ejemplo siguiente se muestra cómo llamar a CancelJob.
@@ -884,8 +931,8 @@ Si se realiza correctamente, se devuelve un código de respuesta 204 sin cuerpo 
 > 
 > 
 
-### Obtención del resultado de salida
-En el código siguiente se muestra cómo solicitar el identificador del recurso de salida.
+### <a name="get-the-output-asset"></a>Obtención del resultado de salida
+En el código siguiente se muestra cómo solicitar el identificador del recurso de salida. 
 
 **Solicitud HTTP**
 
@@ -934,10 +981,11 @@ En el código siguiente se muestra cómo solicitar el identificador del recurso 
 
 
 
-## <a id="publish_get_urls"></a>Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
-Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores: OnDemandOrigin locators, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia.
+## <a name="a-idpublishgeturlsapublish-the-asset-and-get-streaming-and-progressive-download-urls-with-rest-api"></a><a id="publish_get_urls"></a>Publicación del recurso y obtención de direcciones URL de streaming y de descarga progresiva con API de REST
 
-Una vez que se crean los localizadores, puede generar las direcciones URL que se utilizan para transmitir o descargar los archivos.
+Para transmitir o descargar un recurso, necesita "publicarlo" mediante la creación de un localizador. Los localizadores proporcionan acceso a los archivos contenidos en el recurso. Servicios multimedia admite dos tipos de localizadores: OnDemandOrigin locators, utilizados para transmitir contenido (por ejemplo, MPEG DASH, HLS o Smooth Streaming) y localizadores de firma de acceso (SAS), que se usan para descargar archivos multimedia. Para más información sobre localizadores de SAS, consulte [este](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog.
+
+Una vez que se crean los localizadores, puede generar las direcciones URL que se utilizan para transmitir o descargar los archivos. 
 
 Una dirección URL de streaming de Smooth Streaming tiene el formato siguiente:
 
@@ -956,13 +1004,13 @@ Una dirección URL de SAS utilizada para descargar archivos tiene el formato sig
 
     {blob container name}/{asset name}/{file name}/{SAS signature}
 
-En estas secciones se muestra cómo realizar las siguientes tareas necesarias para "publicar" los recursos.
+En estas secciones se muestra cómo realizar las siguientes tareas necesarias para "publicar" los recursos.  
 
-* Creación de AccessPolicy con permiso de lectura
-* Creación de una URL de SAS para descargar contenido
-* Creación de una URL de origen para transmitir contenido
+* Creación de AccessPolicy con permiso de lectura 
+* Creación de una URL de SAS para descargar contenido 
+* Creación de una URL de origen para transmitir contenido 
 
-### Creación de AccessPolicy con permiso de lectura
+### <a name="creating-the-accesspolicy-with-read-permission"></a>Creación de AccessPolicy con permiso de lectura
 Antes de descargar o transmitir contenido multimedia, primero defina una AccessPolicy con permisos de lectura y cree la entidad Locator adecuada que especifique el tipo de mecanismo de entrega que desea habilitar para los clientes. Para obtener más información sobre las propiedades disponibles, consulte [Propiedades de la entidad AccessPolicy](https://msdn.microsoft.com/library/azure/hh974297.aspx#accesspolicy_properties).
 
 En el ejemplo siguiente se muestra cómo especificar AccessPolicy para los permisos de lectura de un recurso determinado.
@@ -987,7 +1035,7 @@ Si se realiza correctamente, se devuelve un código de correcto 201 que describe
 > 
 > 
 
-### Creación de una URL de SAS para descargar contenido
+### <a name="creating-a-sas-url-for-downloading-content"></a>Creación de una URL de SAS para descargar contenido
 El código siguiente muestra cómo obtener una dirección URL que se puede usar para descargar un archivo multimedia creado y cargado previamente. AccessPolicy tiene permisos de lectura establecidos y a ruta de acceso de Locator hace referencia a una dirección URL de descarga de SAS.
 
     POST https://wamsbayclus001rest-hs.net/API/Locators HTTP/1.1
@@ -1053,17 +1101,17 @@ La propiedad **Path** devuelta contiene la dirección URL de SAS.
 > 
 > 
 
-### Descarga de archivos
-Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante las API de REST de almacenamiento de Azure.
+### <a name="download-files"></a>Descarga de archivos
+Una vez establecidos AccessPolicy y Locator, puede descargar archivos mediante las API de REST de almacenamiento de Azure.  
 
 > [!NOTE]
-> Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?.
+> Debe agregar el nombre de archivo para el archivo que desea descargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
 > 
 > 
 
 Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
-Como resultado del trabajo de codificación que realizó anteriormente (codificación en un conjunto de archivos MP4 adaptables), hay varios archivos MP4 que se pueden descargar progresivamente. Por ejemplo:
+Como resultado del trabajo de codificación que realizó anteriormente (codificación en un conjunto de archivos MP4 adaptables), hay varios archivos MP4 que se pueden descargar progresivamente. Por ejemplo:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -1082,7 +1130,7 @@ Como resultado del trabajo de codificación que realizó anteriormente (codifica
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-### Creación de una URL de streaming para transmitir contenido
+### <a name="creating-a-streaming-url-for-streaming-content"></a>Creación de una URL de streaming para transmitir contenido
 El siguiente código muestra cómo crear un localizador de direcciones URL de streaming:
 
     POST https://wamsbayclus001rest-hs/API/Locators HTTP/1.1
@@ -1153,21 +1201,23 @@ Para transmitir MPEG DASH, anexe(format=mpd-time-csf) después de "/manifest".
     http://amstestaccount001.streaming.mediaservices.windows.net/ebf733c4-3e2e-4a68-b67b-cc5159d1d7f2/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
-## <a id="play"></a>Reproducción del contenido
+## <a name="a-idplayaplay-your-content"></a><a id="play"></a>Reproducción del contenido
 Para transmitir vídeo, use [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
-## Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
+## <a name="next-steps-media-services-learning-paths"></a>Siguientes pasos: Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## ¿Busca alguna otra cosa?
+## <a name="looking-for-something-else"></a>¿Busca alguna otra cosa?
 Si este tema no contiene lo que esperaba, falta algo o no satisface de alguna forma sus necesidades, háganos llegar sus comentarios mediante el subproceso de Disqus siguiente.
 
-<!-- URLs. -->
-[Portal de Azure clásico]: http://manage.windowsazure.com/
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

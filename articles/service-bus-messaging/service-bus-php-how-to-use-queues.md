@@ -1,19 +1,23 @@
 ---
-title: Uso de colas del Bus de servicio con PHP | Microsoft Docs
-description: Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en PHP.
-services: service-bus
+title: Uso de colas de Service Bus con PHP | Microsoft Docs
+description: "Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en PHP."
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: e29c829b-44c5-4350-8f2e-39e0c380a9f2
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1d89a2f0a7f36bf9e2052682e931ac5c3596721f
+
 
 ---
 # <a name="how-to-use-service-bus-queues"></a>Utilización de las colas del Bus de servicio
@@ -39,7 +43,7 @@ En esta guía, utilizará funciones del servicio a las que se puede llamar desde
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuración de la aplicación para usar el Bus de servicio
 Para usar las API de la cola del Bus de servicio de Azure, siga estos pasos:
 
-1. Consulte el archivo autocargador mediante la instrucción [require_once][require-once].
+1. Consulte el archivo autocargador mediante la instrucción [require_once][require_once].
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder** .
@@ -99,7 +103,7 @@ use WindowsAzure\ServiceBus\Models\QueueInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     $queueInfo = new QueueInfo("myqueue");
 
     // Create queue.
@@ -133,7 +137,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -174,7 +178,7 @@ use WindowsAzure\ServiceBus\Models\ReceiveMessageOptions;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {
+try    {
     // Set the receive mode to PeekLock (default is ReceiveAndDelete).
     $options = new ReceiveMessageOptions();
     $options->setPeekLock();
@@ -210,17 +214,17 @@ También hay un tiempo de espera asociado con un mensaje bloqueado en la cola y,
 En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **deleteMessage**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Esta posibilidad habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez; aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado,entonces se recomienda la incorporación de lógica adicional a la aplicación para administrar la entrega de mensajes duplicados. Esto suele conseguirse usando el método **getMessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Colas, temas y suscripciones], donde encontrará más información.
+Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte [Colas, temas y suscripciones][Colas, temas y suscripciones] para más información.
 
 Para obtener más información, consulte también el [Centro para desarrolladores de PHP](/develop/php/).
 
 [Colas, temas y suscripciones]: service-bus-queues-topics-subscriptions.md
-[require-once]: http://php.net/require_once
+[require_once]: http://php.net/require_once
 
 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

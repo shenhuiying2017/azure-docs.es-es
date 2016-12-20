@@ -1,12 +1,12 @@
 ---
-title: Conexión de equipos Linux a Log Analytics | Microsoft Docs
+title: "Conexión de equipos Linux a Log Analytics | Microsoft Docs"
 description: El uso de Log Analytics permite recopilar y actuar sobre los datos generados en equipos Linux.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ab5b76d8-9ab5-406e-8768-76fb0632d830
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 218ffec4601c5b0b4ee9872b5bbd03489cb3ddcf
+
 
 ---
 # <a name="connect-linux-computers-to-log-analytics"></a>Conexión de equipos Linux a Log Analytics
@@ -39,7 +43,7 @@ Tanto la versión x86 como la x64 son compatibles oficialmente en una variedad d
 * Red Hat Enterprise Linux Server 5, 6 y 7
 * Debian GNU/Linux 6, 7 y 8
 * Ubuntu 12.04 LTS, 14.04 LTS, 15.04, 15.10
-* SUSE Linux Enterprise Server 11 y 12
+* SUSE Linux Enterprise Server 11 y 12
 
 ## <a name="oms-agent-for-linux"></a>Agente de OMS para Linux
 El agente de Operations Management Suite para Linux consta de varios paquetes. El archivo de versión contiene los siguientes paquetes disponibles mediante la ejecución de la agrupación de shell con `--extract`.
@@ -674,7 +678,7 @@ Se trata de un problema conocido que se produce durante la primera carga de dato
 ```
 
 
-### <a name="linux-data-doesn't-appear-in-the-oms-portal"></a>Los datos de Linux no aparecen en el portal de OMS
+### <a name="linux-data-doesnt-appear-in-the-oms-portal"></a>Los datos de Linux no aparecen en el portal de OMS
 #### <a name="probable-causes"></a>Causas probables
 * Se produjo un error en la incorporación al servicio OMS.
 * La conexión al servicio OMS se bloquea.
@@ -779,6 +783,9 @@ Rsyslog o Syslog son necesarios para recopilar mensajes de Syslog. El demonio pr
 * Familiarícese con las [búsquedas de registros](log-analytics-log-searches.md) para ver información detallada recopilada por soluciones.
 * Use los [paneles](log-analytics-dashboards.md) para guardar y mostrar sus propias búsquedas personalizadas.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

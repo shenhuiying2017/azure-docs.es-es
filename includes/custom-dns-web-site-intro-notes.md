@@ -3,8 +3,13 @@ Este artículo trata sobre el Servicio de aplicaciones de Azure (aplicaciones we
 > [!NOTE]
 > Si su aplicación es de carga equilibrada mediante el [Administrador de tráfico de Azure](https://azure.microsoft.com/services/traffic-manager/), haga clic en el selector en la parte superior de este artículo para obtener los pasos específicos.
 > 
-> **Los nombres de dominio personalizados no están habilitados para el nivel Gratis**. Debe [pasar a un plan de tarifa más alto](../articles/app-service-web/web-sites-scale.md), lo que puede cambiar la cantidad que se factura por su suscripción. Para más información, consulte los [precios del Servicio de aplicaciones](https://azure.microsoft.com/pricing/details/app-service/).
+> **Los nombres de dominio personalizados no están habilitados para el nivel Gratis**. Debe [pasar a un plan de tarifa más alto](../articles/app-service-web/web-sites-scale.md), lo que puede cambiar la cantidad que se factura por su suscripción. 
+> Para más información, consulte los [precios del Servicio de aplicaciones](https://azure.microsoft.com/pricing/details/app-service/) .
 > 
 > 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

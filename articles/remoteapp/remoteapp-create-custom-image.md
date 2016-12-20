@@ -1,28 +1,32 @@
 ---
-title: Creación de una imagen de plantilla personalizada para Azure RemoteApp | Microsoft Docs
-description: Aprenda a crear una imagen de plantilla personalizada para Azure RemoteApp. Puede usar esta plantilla con una colección híbrida o en la nube.
+title: "Creación de una imagen de plantilla personalizada para Azure RemoteApp | Microsoft Docs"
+description: "Aprenda a crear una imagen de plantilla personalizada para Azure RemoteApp. Puede usar esta plantilla con una colección híbrida o en la nube."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: b9ec5b51-f7cd-470b-8545-d0fd714c5982
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 550d46d4e280af2423a494857ffb808e6dffca37
+
 
 ---
-# Creación de una imagen de plantilla personalizada para Azure RemoteApp
+# <a name="how-to-create-a-custom-template-image-for-azure-remoteapp"></a>Creación de una imagen de plantilla personalizada para Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
-RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva.
+RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva. 
 
 > [!TIP]
 > ¿Sabía que ahora puede crear una imagen a partir de una máquina virtual de Azure? Verídico, y esto reduce la cantidad de tiempo que se tarda en importar la imagen. Consulte los pasos [aquí](remoteapp-image-on-azurevm.md).
@@ -50,19 +54,19 @@ Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
 * [Suscríbase](https://azure.microsoft.com/services/remoteapp/) a RemoteApp.
 * Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configuración de Azure Active Directory para RemoteApp](remoteapp-ad.md) para obtener más información.
-* Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
-* Instale el módulo de [Azure PowerShell](../powershell-install-configure.md).
+* Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
+* Instale el módulo de [Azure PowerShell](../powershell-install-configure.md) .
 * Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 
-## Creación de una imagen de plantilla
+## <a name="create-a-template-image"></a>Creación de una imagen de plantilla
 Estos son los pasos de alto nivel para crear una nueva imagen de plantilla desde el principio:
 
-1. Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
+1. Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
 2. Cree un archivo VHD.
 3. Instale Windows Server 2012 R2.
 4. Instale el rol Host de sesión de Escritorio remoto (RDSH, Remote Desktop Session Host) y la característica Experiencia de escritorio.
 5. Instale las características adicionales que necesitan sus aplicaciones.
-6. Instale y configure sus aplicaciones. Para que le resulte más fácil compartir aplicaciones, agregue las aplicaciones o los programas que quiera compartir al menú **Inicio** de la imagen, específicamente en **%systemdrive%\\ProgramData\\Microsoft\\Windows\\Menú Inicio\\Programas.
+6. Instale y configure sus aplicaciones. Para que le resulte más fácil compartir aplicaciones, agregue las aplicaciones o los programas que quiera compartir al menú **Inicio** de la imagen, específicamente en **%systemdrive%\ProgramData\Microsoft\Windows\Menú Inicio\Programas.
 7. Realice cualquier configuración adicional de Windows que requieran sus aplicaciones.
 8. Deshabilite el Sistema de cifrado de archivos (EFS).
 9. **REQERIDO:** vaya a Windows Update e instale todas las actualizaciones importantes.
@@ -70,7 +74,7 @@ Estos son los pasos de alto nivel para crear una nueva imagen de plantilla desde
 
 A continuación se indican los pasos detallados para crear una nueva imagen:
 
-1. Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
+1. Busque un DVD o una imagen ISO de actualización de Windows Server 2012 R2.
 2. Cree un archivo VHD usando Administración de discos.
    
    1. Inicie Administración de discos (diskmgmt.msc).
@@ -83,12 +87,12 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
       
       * Haga clic con el botón secundario en el disco (no en el espacio sin asignar) y haga clic en **Inicializar disco**. Seleccione **MBR** (registro de arranque maestro) como estilo de partición y haga clic en **Aceptar**.
       * Cree un nuevo volumen: haga clic con el botón secundario en el espacio sin asignar y, luego, haga clic en **Nuevo volumen simple**. Puede aceptar los valores predeterminados del asistente pero asegúrese de asignar una letra de unidad para evitar problemas potenciales cuando cargue la imagen de plantilla.
-      * Haga clic con el botón secundario en el disco y después en **Ocultar VHD**.
+      * Haga clic con el botón secundario en el disco y después en **Ocultar VHD**.
 3. Instale Windows Server 2012 R2:
    
    1. Cree una nueva máquina virtual. Use el Asistente para nueva máquina virtual de Administrador de Hyper-V o Cliente Hyper-V.
       1. En la página Especificar generación, elija **Generación 1**.
-      2. En la página Conectar disco duro virtual, seleccione **Usar un disco duro virtual existente** y busque el VHD que creó en el paso anterior.
+      2. En la página Conectar disco duro virtual, seleccione **Usar un disco duro virtual existente**y busque el VHD que creó en el paso anterior.
       3. En la página Opciones de instalación, seleccione **Instalar un sistema operativo desde un CD/DVD-ROM de arranque** y después seleccione la ubicación del disco de instalación de Windows Server 2012 R2.
       4. Elija otras opciones del asistente necesarias para instalar Windows y sus aplicaciones. Finalice el asistente.
    2. Después de finalizar el asistente, edite la configuración de la máquina virtual y realice cualquier cambio necesario para instalar Windows y sus programas —por ejemplo, el número de procesadores virtuales— y, por último, haga clic en **Aceptar**.
@@ -113,7 +117,7 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 > [!IMPORTANT]
 > Instale el rol RDSH antes de instalar las aplicaciones para garantizar que se detecta cualquier problema con la compatibilidad de aplicaciones antes de que la imagen se cargue en RemoteApp.
 > 
-> Asegúrese de que aparece un acceso directo a la aplicación (archivo **.lnk**) en el menú **Inicio** para todos los usuarios (%systemdrive%\\ProgramData\\Microsoft\\Windows\\Menú Inicio\\Programas). Asegúrese también de que el icono que ve en el menú **Inicio** es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
+> Asegúrese de que aparece un acceso directo a la aplicación (archivo **.lnk**) en el menú **Inicio** para todos los usuarios (%systemdrive%\ProgramData\Microsoft\Windows\Menú Inicio\Programas). Asegúrese también de que el icono que ve en el menú **Inicio** es lo que quiere que vean los usuarios. Si no es así, cámbielo. (No *tiene* que agregar la aplicación al menú Inicio, pero resulta mucho más fácil publicar la aplicación en RemoteApp. De lo contrario, debe proporcionar la ruta de instalación de la aplicación cuando publique la aplicación.)
 > 
 > 
 
@@ -125,18 +129,23 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
    Alternativamente, puede establecer o agregar el siguiente valor DWORD en el Registro:
    
      HKLM\System\CurrentControlSet\Control\FileSystem\NtfsDisableEncryption = 1
-3. Si crea la imagen dentro de una máquina virtual de Azure, cambie el nombre del archivo **\\%windir%\\Panther\\Unattend.xml**, ya que bloqueará el script de carga usado posteriormente desde el trabajo. Cambie el nombre de este archivo por Unattend.old; de este modo, seguirá teniendo el archivo en caso de que necesite revertir la implementación.
-4. Vaya a Windows Update e instale todas las actualizaciones importantes. Puede que tenga que ejecutar varias veces Windows Update para obtener todas las actualizaciones. (A veces se instala una actualización, y esa misma actualización requiere una actualización).
+3. Si crea la imagen dentro de una máquina virtual de Azure, cambie el nombre del archivo **\%windir%\Panther\Unattend.xml**, ya que bloqueará el script de carga usado posteriormente desde el trabajo. Cambie el nombre de este archivo por Unattend.old; de este modo, seguirá teniendo el archivo en caso de que necesite revertir la implementación.
+4.  vaya a Windows Update e instale todas las actualizaciones importantes. Puede que tenga que ejecutar varias veces Windows Update para obtener todas las actualizaciones. (A veces se instala una actualización, y esa misma actualización requiere una actualización).
 5. Aplique la herramienta SYSPREP a la imagen. En un símbolo del sistema con privilegios elevados, ejecute el siguiente comando:
    
-   **C:\\Windows\\System32\\sysprep\\sysprep.exe /generalize /oobe /shutdown**
+   **C:\Windows\System32\sysprep\sysprep.exe /generalize /oobe /shutdown**
    
    **Nota:** no use el modificador **/mode:vm** del comando SYSPREP aunque se trate de una máquina virtual.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya tiene su imagen de plantilla personalizada, es necesario que la cargue en su colección de RemoteApp. Para obtener información sobre cómo crear la colección, lea los artículos siguientes:
 
 * [Creación de una colección híbrida de RemoteApp](remoteapp-create-hybrid-deployment.md)
 * [Creación de una colección en la nube de RemoteApp](remoteapp-create-cloud-deployment.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

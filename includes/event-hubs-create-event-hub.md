@@ -34,6 +34,6 @@ Ya se ha creado Centro de eventos y cuenta con las cadenas de conexión que nece
 
 [Azure Portal]: https://portal.azure.com/
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

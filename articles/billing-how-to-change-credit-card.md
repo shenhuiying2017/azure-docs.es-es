@@ -1,13 +1,13 @@
 ---
-title: Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure | Microsoft Docs
-description: Describe cómo cambiar la tarjeta de crédito que se usa para pagar una suscripción de Azure
-services: ''
-documentationcenter: ''
+title: "Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure | Microsoft Docs"
+description: "Describe cómo cambiar la tarjeta de crédito que se usa para pagar una suscripción de Azure"
+services: 
+documentationcenter: 
 author: genlin
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 15252ced-1841-4a66-ae79-2e58af1d3370
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a362d38b451d2ab0129ee2c046418c993c7a44ba
+
 
 ---
-# Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure
+# <a name="how-to-change-the-credit-card-used-to-pay-for-an-azure-subscription"></a>Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure
 Es posible que, en ocasiones, necesite actualizar los detalles de la tarjeta de crédito en la información de su cuenta, o cambiar la tarjeta que utiliza para pagar la factura.
 
 Si se renueva la tarjeta de crédito y el número sigue siendo el mismo, solo tiene que actualizar la información de la tarjeta de crédito existente, como la fecha de caducidad.
@@ -29,37 +33,37 @@ Si alguna vez cambia el número de tarjeta de crédito, debido a pérdida, robo 
 > 
 > 
 
-## Editar información de pago de una tarjeta de crédito existente
-1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta. En el [Portal de Azure](https://portal.azure.com), puede acceder al Centro de cuentas seleccionando **Suscripción**>*nombre de la suscripción*>**Administrar**.
+## <a name="edit-payment-information-for-an-existing-credit-card"></a>Editar información de pago de una tarjeta de crédito existente
+1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta. En [Azure Portal](https://portal.azure.com), puede acceder al Centro de cuentas seleccionando **Suscripción**>*nombre de la suscripción*>**Administrar**.
    
    > [!NOTE]
    > Solo el administrador de cuenta tiene permiso para acceder al Centro de cuentas. Para más información sobre el administrador de cuenta, consulte [Incorporación o cambio de roles de administrador de Azure](billing-add-change-azure-subscription-administrator.md).
    > 
    > 
 2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción que está vinculada a la tarjeta de crédito.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
-3. En el lado derecho de la página, seleccione **Manage payment methods** (Administrar métodos de pago).</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
+3. En el lado derecho de la página, seleccione **Manage payment methods**(Administrar métodos de pago).</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
 4. En la página **Manage payment methods** (Administrar métodos de pago), seleccione **Editar** junto al número de la tarjeta de crédito.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
-5. En la página **Editar**, compruebe que ha seleccionado el tipo y el número de tarjeta de crédito correctos.
+5. En la página **Editar** , compruebe que ha seleccionado el tipo y el número de tarjeta de crédito correctos.
 6. Realice los cambios necesarios en los detalles de la tarjeta y luego haga clic en **Siguiente** para volver a la página **Elegir método de pago**.
 
-## Adición de una nueva tarjeta de crédito como método de pago
+## <a name="add-a-new-credit-card-as-a-payment-method"></a>Adición de una nueva tarjeta de crédito como método de pago
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
 2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción a la que desea agregar un nuevo método de pago.
-3. En el lado derecho de la página, seleccione **Manage payment methods** (Administrar métodos de pago).
+3. En el lado derecho de la página, seleccione **Manage payment methods**(Administrar métodos de pago).
 4. En la página **Manage payment methods** (Administrar métodos de pago), seleccione "+" para agregar una nueva tarjeta de crédito.
 5. Elija un tipo de tarjeta de crédito y luego proporcione toda la información necesaria.
 6. Haga clic en **Siguiente** para volver a la página **Manage payment methods** (Administrar métodos de pago). Si la tarjeta agregada es válida, se agregará a la lista de métodos de pago disponibles.
 
-## Cambio de la tarjeta de crédito usada para pagar una factura de Azure
+## <a name="change-the-credit-card-that-you-use-to-pay-an-azure-bill"></a>Cambio de la tarjeta de crédito usada para pagar una factura de Azure
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
 2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción para la que desea actualizar el método de pago.
-3. En el lado derecho de la página, seleccione **Manage payment methods** (Administrar métodos de pago).
+3. En el lado derecho de la página, seleccione **Manage payment methods**(Administrar métodos de pago).
 4. En la página **Manage payment methods** (Administrar métodos de pago) haga clic en **Use Instead** (Usar en su lugar) para seleccionar la tarjeta de crédito que desea usar.
 
-## Quitar una tarjeta de crédito de la cuenta
+## <a name="removing-a-credit-card-from-the-account"></a>Quitar una tarjeta de crédito de la cuenta
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de cuenta.
 2. En **Haga clic en una suscripción para ver los detalles y el uso**, seleccione la suscripción para la que desea actualizar el método de pago.
-3. En el lado derecho de la página, seleccione **Manage payment methods** (Administrar métodos de pago).
+3. En el lado derecho de la página, seleccione **Manage payment methods**(Administrar métodos de pago).
 4. En la página **Manage payment methods** (Administrar métodos de pago) haga clic en **Eliminar** para seleccionar la tarjeta de crédito que desea eliminar.
    
    > [!NOTE]
@@ -72,4 +76,9 @@ Si alguna vez cambia el número de tarjeta de crédito, debido a pérdida, robo 
 > 
 > 
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

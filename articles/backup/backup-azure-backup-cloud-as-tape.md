@@ -1,12 +1,12 @@
 ---
-title: Usar Copia de seguridad de Azure para reemplazar la infraestructura de cintas | Microsoft Docs
-description: Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure
+title: Uso de Azure Backup para reemplazar la infraestructura de cintas | Microsoft Docs
+description: "Aprenda cómo la Copia de seguridad de Microsoft Azure proporciona semántica similar a la cinta que le permite hacer copias de seguridad y restaurar datos en Azure"
 services: backup
-documentationcenter: ''
+documentationcenter: 
 author: trinadhk
 manager: vijayts
-editor: ''
-
+editor: 
+ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/27/2016
 ms.author: jimpark;trinadhk;markgal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3bd18e805dafbfae315cab0e1d5c9421c8210b95
+
 
 ---
-# Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
+# <a name="use-azure-backup-to-replace-your-tape-infrastructure"></a>Usar la copia de seguridad de Azure para cambiar su infraestructura de cintas
 Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Protection Manager pueden:
 
 * Realizar copias de seguridad de datos en las programaciones que mejor se adapten a las necesidades de su organización.
@@ -25,7 +29,7 @@ Los clientes de Copia de seguridad de Microsoft Azure y System Center Data Prote
 
 Este artículo explica cómo los clientes pueden habilitar las directivas de copia de seguridad y retención. Los clientes que utilicen las cintas para abordar sus necesidades de retención a largo plazo ahora tienen una alternativa viable y eficaz con la disponibilidad de esta característica. La característica está habilitada en la versión más reciente de la copia de seguridad de Azure (que está disponible [aquí](http://aka.ms/azurebackup_agent)). Debe actualizarse a los clientes System Center DPM, como mínimo, DPM 2012 R2 UR5 para usar DPM con el servicio de Azure Backup.
 
-## ¿Cuál es la programación de copia de seguridad?
+## <a name="what-is-the-backup-schedule"></a>¿Cuál es la programación de copia de seguridad?
 La programación de copia de seguridad indica la frecuencia de la operación de copia de seguridad. Por ejemplo, la configuración de la pantalla siguiente indica que las copias de seguridad se tomarán diariamente a las 18:00 h y a medianoche.
 
 ![Programación diaria](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -34,14 +38,14 @@ Los clientes también pueden programar una copia de seguridad semanal. Por ejemp
 
 ![Programación semanal](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
-## ¿Qué es la directa de retención?
+## <a name="what-is-the-retention-policy"></a>¿Qué es la directa de retención?
 La directiva de retención especifica el tiempo durante el que debe almacenarse la copia de seguridad. En vez de especificar solo una "directiva" para todos los puntos de copia de seguridad, los clientes pueden especificar directivas de retención diferentes en función de cuándo se realizó la copia de seguridad. Por ejemplo, un punto de copia de seguridad diario (que sirve como punto de recuperación operativo) podría conservarse durante 90 días. El punto de copia de seguridad realizado al final de cada trimestre con fines de auditoría se conserva durante un período prolongado.
 
 ![Directiva de retención](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 El número total de "puntos de retención" especificado en esta directiva es de 90 (puntos diarios) + 40 (uno cada trimestre durante 10 años) = 130.
 
-## Ejemplo: reunir ambos
+## <a name="example-putting-both-together"></a>Ejemplo: reunir ambos
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.
@@ -63,15 +67,20 @@ El número total de puntos de recuperación es 56.
 > 
 > 
 
-## Configuración avanzada
+## <a name="advanced-configuration"></a>Configuración avanzada
 Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
 
-![Modify](./media/backup-azure-backup-cloud-as-tape/modify.png)
+![Modificar](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre Azure Backup, vea
 
 * [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 * [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

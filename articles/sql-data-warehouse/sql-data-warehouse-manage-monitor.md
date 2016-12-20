@@ -1,12 +1,12 @@
 ---
-title: Supervisión de la carga de trabajo mediante DMV | Microsoft Docs
-description: Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV.
+title: "Supervisión de la carga de trabajo mediante DMV | Microsoft Docs"
+description: "Obtenga información sobre cómo supervisar la carga de trabajo mediante DMV."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 69ecd479-0941-48df-b3d0-cf54c79e6549
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6877a54f77a4c0137e4f6a8b2b2fcff41664a4b5
+
 
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Supervisión de la carga de trabajo mediante DMV
@@ -67,7 +71,7 @@ WHERE   [label] = 'My Query';
 
 En los resultados de la consulta anterior, **fíjese en el id. de solicitud** de la consulta que quiere investigar.
 
-Las consultas con estado **suspendido** se ponen en cola debido a los límites de simultaneidad. Estas consultas también aparecen en la consulta sys.dm_pdw_waits con un tipo de UserConcurrencyResourceType. Consulte [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL] para obtener más detalles sobre los límites de simultaneidad. Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Supervisión de consultas en espera] más adelante en este artículo.
+Las consultas con estado **suspendido** se ponen en cola debido a los límites de simultaneidad. Estas consultas también aparecen en la consulta sys.dm_pdw_waits con un tipo de UserConcurrencyResourceType. Consulte [Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL][Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL] para más detalles sobre los límites de simultaneidad. Las consultas también pueden esperar por otros motivos, como los bloqueos de objetos.  Si la consulta está esperando un recurso, consulte la sección [Supervisión de consultas en espera][Supervisión de consultas en espera] más adelante en este artículo.
 
 Para simplificar la búsqueda de una consulta en la tabla sys.dm_pdw_exec_requests, use [LABEL][LABEL] para asignar un comentario a la consulta que se pueda buscar en la vista sys.dm_pdw_exec_requests.
 
@@ -169,8 +173,8 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Si la consulta espera activamente recursos de otra consulta, el estado será **AcquireResources**.  Si la consulta tiene todos los recursos necesarios, el estado será **Concedido**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Vistas del sistema][] para más información sobre las DMV.
-Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse][].
+Consulte [Vistas de sistema][Vistas de sistema] para más información sobre las DMV.
+Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure]
 
 <!--Image references-->
 
@@ -194,6 +198,6 @@ Para más información sobre los procedimientos recomendados, consulte [Procedim
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

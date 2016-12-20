@@ -1,13 +1,13 @@
 ---
-title: Orientación sobre los trabajos en segundo plano | Microsoft Docs
-description: Orientación sobre las tareas en segundo plano que se ejecutan independientemente de la interfaz de usuario.
-services: ''
+title: "Orientación sobre los trabajos en segundo plano | Microsoft Docs"
+description: "Orientación sobre las tareas en segundo plano que se ejecutan independientemente de la interfaz de usuario."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: f6040f8c-4cbb-4c21-a886-8d54a5868421
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 3bc7d30a8d702fd219c7fccfc241f32147c90009
+
 
 ---
 # <a name="background-jobs-guidance"></a>Orientación sobre los trabajos de segundo plano
@@ -175,7 +179,7 @@ Tenga en cuenta los siguientes puntos cuando decida si va a implementar tareas e
 
 ### <a name="more-information"></a>Más información
 * [Máquinas virtuales](https://azure.microsoft.com/services/virtual-machines/) en Azure
-* [Preguntas más frecuentes sobre Máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-classic-faq.md)
+* [Preguntas más frecuentes sobre Máquinas virtuales de Azure](virtual-machines/virtual-machines-linux-classic-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 
 ## <a name="design-considerations"></a>Consideraciones de diseño
 Hay varios factores fundamentales que debe considerar a la hora de diseñar tareas en segundo plano. En las siguientes secciones se describen la creación de particiones, los conflictos y la coordinación.
@@ -209,7 +213,7 @@ La coordinación de varias tareas y pasos puede suponer un reto, pero hay tres p
 * **Administrar la ejecución de los pasos de una tarea**. Una aplicación podría realizar tareas que forman una serie de pasos (algunos de los cuales podrían invocar servicios remotos o acceder a recursos remotos). Los pasos individuales podrían ser independientes entre sí, pero están organizados por la lógica de la aplicación que implementa la tarea. Para más información, consulte el artículo sobre el [patrón de supervisor de programador de agentes](http://msdn.microsoft.com/library/dn589780.aspx).
 * **Administrar la recuperación de los pasos de una tarea con error**. Una aplicación podría necesitar deshacer el trabajo que se realiza por una serie de pasos (que conjuntamente definen una operación coherente) si uno o varios de los pasos termina en error. Para más información, consulte el artículo sobre el [patrón de transacción de compensación](http://msdn.microsoft.com/library/dn589804.aspx).
 
-## <a name="lifecycle-(cloud-services)"></a>ciclo de vida (Servicios en la nube)
+## <a name="lifecycle-cloud-services"></a>ciclo de vida (Servicios en la nube)
  Si decide implementar trabajos en segundo plano para aplicaciones de Servicios en la nube que usan roles web y de trabajo mediante la clase **RoleEntryPoint** , es importante comprender el ciclo de vida de esta clase para poder usarla correctamente.
 
 Los roles web y de trabajo pasan por un conjunto de fases como al iniciarse, ejecutarse y detenerse. La clase **RoleEntryPoint** expone una serie de eventos que indican cuándo se producen estas fases. Estos se usan para inicializar, ejecutar y detener las tareas en segundo plano personalizadas. El ciclo completo es el siguiente:
@@ -241,7 +245,7 @@ Tenga en cuenta los siguientes puntos cuando esté planeando cómo se ejecutará
     if (freeze != null)
     {
      if (Boolean.Parse(freeze))
-     {
+       {
          Thread.Sleep(System.Threading.Timeout.Infinite);
      }
     }
@@ -293,6 +297,9 @@ Las tareas en segundo plano deben ofrecer un rendimiento suficiente como para as
 * [Colas de Azure y colas de Bus de servicio: comparación y diferencias](service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 * [Cómo habilitar diagnósticos en un servicio en la nube](cloud-services/cloud-services-dotnet-diagnostics.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

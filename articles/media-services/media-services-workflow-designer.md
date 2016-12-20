@@ -1,12 +1,12 @@
 ---
-title: Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo | Microsoft Docs
-description: Aprenda a crear flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo.
+title: "Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo | Microsoft Docs"
+description: "Aprenda a crear flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: anilmur
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,34 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: juliako;johndeu;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: caf697786ce2a95dd0d4168d6ffa26bf4bee525a
+
 
 ---
-# Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo
-## Información general
-El **Diseñador de flujo de trabajo** es una herramienta de escritorio de Windows que se usa para diseñar y crear flujos de trabajo personalizados para la codificación con el **Flujo de trabajo premium de codificación de medios**. Mediante la eficacia de la herramienta del diseñador de flujos de trabajo, puede diseñar y crear complejos flujos de trabajo que se ejecutarán en el **Codificador multimedia Premium**.
+# <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Creación de flujos de trabajo de codificación avanzada con el Diseñador de flujo de trabajo
+## <a name="overview"></a>Información general
+El **Diseñador de flujo de trabajo** es una herramienta de escritorio de Windows que se usa para diseñar y crear flujos de trabajo personalizados para la codificación con el **Flujo de trabajo del Codificador multimedia premium**.
+Mediante la eficacia de la herramienta del diseñador de flujos de trabajo, puede diseñar y crear complejos flujos de trabajo que se ejecutarán en el **Codificador multimedia Premium**.  
 
 Los flujos de trabajo pueden incluir bifurcación y lógica de decisión de clientes en función de las propiedades del archivo de origen de entrada. Puede crear flujos de trabajo con propiedades reemplazables y valores dinámicos para facilitar la repetición incluso de las tareas de codificación más complejas y su personalización en la nube.
 
 Entre los flujos de trabajo de ejemplo que puede crear se incluyen:
 
-* Los flujos de trabajo basados en decisiones que inspeccionan el contenido de origen para resolución y solo codifican las pistas de salida deseadas. Esto resulta de utilidad al eliminar las pistas desaprovechadas que se generarían al escalar el contenido de origen de manera involuntaria.
-* Se pueden usar varios archivos de entrada para admitir títulos, superposiciones y contenido agrupado.
+* Los flujos de trabajo basados en decisiones que inspeccionan el contenido de origen para resolución y solo codifican las pistas de salida deseadas.  Esto resulta de utilidad al eliminar las pistas desaprovechadas que se generarían al escalar el contenido de origen de manera involuntaria.
+* Se pueden usar varios archivos de entrada para admitir títulos, superposiciones y contenido agrupado. 
 
-Esta herramienta también se puede usar para modificar cualquiera de nuestros [flujos de trabajo publicados](media-services-workflow-designer.md#existing_workflows).
+Esta herramienta también se puede usar para modificar cualquiera de nuestros [flujos de trabajo publicados](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Para obtener su copia de la herramienta Diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
+> Para obtener una copia de la herramienta del diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
 > 
 > 
 
-Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para obtener información sobre cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando **.NET**, consulte [Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium](media-services-encode-with-premium-workflow.md).
+Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para más información sobre cómo codificar con el **Flujo de trabajo del Codificador multimedia premium** mediante **.NET**, consulte [Codificación avanzada con el Flujo de trabajo del Codificador multimedia premium](media-services-encode-with-premium-workflow.md).
 
-## <a id="existing_workflows"></a>Modificación de flujos de trabajo existentes
+## <a name="a-idexistingworkflowsamodify-existing-workflows"></a><a id="existing_workflows"></a>Modificación de flujos de trabajo existentes
 Los [flujos de trabajo predeterminados](media-services-workflow-designer.md#existing_workflows) pueden modificarse con la herramienta de diseñador. Puede obtener los archivos de flujo de trabajo predeterminados [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
 Los vídeos siguientes muestran cómo usar el diseñador.
 
-### Día 1 – Introducción
+### <a name="day-1-getting-started"></a>Día 1 – Introducción
 El vídeo del día 1 trata de:
 
 * Información general del diseñador
@@ -52,7 +57,7 @@ El vídeo del día 1 trata de:
 > 
 > 
 
-### Día 2
+### <a name="day-2"></a>Día 2
 El vídeo del día 2 trata de:
 
 * Diversos escenarios de archivo de código fuente: control del audio
@@ -63,7 +68,7 @@ El vídeo del día 2 trata de:
 > 
 > 
 
-### Día 3
+### <a name="day-3"></a>Día 3
 El vídeo del día 3 trata de:
 
 * Scripting dentro de los flujos de trabajo y planos
@@ -74,17 +79,22 @@ El vídeo del día 3 trata de:
 > 
 > 
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 Si necesita soporte o tiene alguna pregunta sobre cómo crear flujos de trabajo personalizados en la herramienta del diseñador de flujo de trabajo, envíe un correo electrónico a mepd@microsoft.com.
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 [Azure Premium Encoder Workflow Designer Training Videos (Vídeos de aprendizaje del Diseñador de flujo de trabajo del codificador de Azure Premium)](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

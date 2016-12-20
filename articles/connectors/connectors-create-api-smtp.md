@@ -1,13 +1,13 @@
 ---
 title: SMTP | Microsoft Docs
-description: Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conexión a SMTP para envío de correo electrónico.
+description: "Cree aplicaciones lógicas con el Servicio de aplicaciones de Azure. Conexión a SMTP para envío de correo electrónico."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: app-service-logic
 ms.devlang: multiple
 ms.topic: article
@@ -15,79 +15,83 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/15/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e70351bda39d58b653273a5c3a795a1c6048c2c
+
 
 ---
-# Introducción al conector de SMTP
+# <a name="get-started-with-the-smtp-connector"></a>Introducción al conector de SMTP
 Conexión a SMTP para envío de correo electrónico.
 
 Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
 
-## Conexión a SMTP
-Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para poder conectarse a SMTP, primero debe crear una *conexión* a SMTP. Para ello, tendrá que especificar las credenciales que usa habitualmente para acceder al servicio al que desea conectarse. Por lo tanto, en el ejemplo de SMTP, necesitaría las credenciales de su nombre de conexión, la dirección del servidor SMTP y la información de inicio de sesión de usuario para poder crear una conexión a SMTP. [Más información acerca de las conexiones]()
+## <a name="connect-to-smtp"></a>Conexión a SMTP
+Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio. Por ejemplo, para poder conectarse a SMTP, primero necesita crear una *conexión* a SMTP. Para ello, tendrá que especificar las credenciales que usa habitualmente para acceder al servicio al que desea conectarse. Por lo tanto, en el ejemplo de SMTP, necesitaría las credenciales de su nombre de conexión, la dirección del servidor SMTP y la información de inicio de sesión de usuario para poder crear una conexión a SMTP. [Más información sobre las conexiones]()  
 
-### Creación de una conexión a SMTP
-> [!INCLUDE [Pasos para crear una conexión a SMTP](../../includes/connectors-create-api-smtp.md)]
+### <a name="create-a-connection-to-smtp"></a>Creación de una conexión a SMTP
+> [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
 > 
 > 
 
-## Uso de un desencadenador de SMTP
+## <a name="use-an-smtp-trigger"></a>Uso de un desencadenador de SMTP
 Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
-En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto). Este desencadenador se activará al crear un objeto de Salesforce. En nuestro ejemplo, vamos a configurarlo para que cada vez que se crea un cliente potencial en Salesforce, se produzca una acción *Enviar correo electrónico* a través del conector de SMTP con una notificación sobre el cliente potencial que se está creando.
+En este ejemplo, como SMTP no tiene un desencadenador propio, usaremos el desencadenador **Salesforce - When an object is created (Salesforce - Cuando se crea un objeto)**. Este desencadenador se activará al crear un objeto de Salesforce. En nuestro ejemplo, vamos a configurarlo para que cada vez que se crea un cliente potencial en Salesforce, se produzca una acción *Enviar correo electrónico* a través del conector SMTP con una notificación sobre el cliente potencial que se está creando.
 
-1. Escriba *salesforce* en el cuadro de búsqueda del Diseñador de aplicaciones lógicas y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce - Cuando se crea un objeto).  
+1. Escriba *salesforce* en el cuadro de búsqueda del diseñador de Logic Apps y seleccione el desencadenador **Salesforce - When an object is created** (Salesforce: cuando se crea un archivo).  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
-2. Se muestra el control **When an object is created** (Cuando se crea un objeto).  
+2. Se muestra el control **When an object is created** (Cuando se crea un objeto).
    ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un cliente potencial en Salesforce.  
+3. Seleccione el **tipo de objeto** y luego *Lead* (Cliente potencial) en la lista de objetos. En este paso está indicando que va a crear un desencadenador que enviará una notificación a su aplicación lógica cada vez que se cree un nuevo cliente potencial en Salesforce.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
 4. Se ha creado el desencadenador.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
 
-## Uso de una acción de SMTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información sobre las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
+## <a name="use-an-smtp-action"></a>Uso de una acción de SMTP
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).
 
 Ahora que se ha agregado el desencadenador, siga estos pasos para agregar una acción de SMTP que se produzca cuando se crea un cliente potencial en Salesforce.
 
-1. Seleccione **+ Nuevo paso** para agregar la acción que desea que se ejecute cuando se cree un cliente potencial.  
+1. Seleccione **+ Nuevo paso** para agregar la acción que quiere que se ejecute cuando se cree un cliente potencial.  
    ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. Seleccione **Add an action** (Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar.  
+2. Seleccione **Add an action**(Agregar una acción). Se abrirá el cuadro de búsqueda en el que podrá buscar cualquier acción que quiera realizar.  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
-3. Escriba *smtp* para buscar todas las acciones relacionadas con SMTP.
-4. Seleccione **SMTP - Send Email** (SMTP - Enviar correo electrónico) como la acción que se realizará cuando se crea el cliente potencial. Se abre el bloque de control de acción. Tendrá que establecer la conexión de SMTP en el bloque de diseñador si no lo ha hecho previamente.  
-   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)  
-5. Indique la información de correo electrónico que desee en el bloque **SMTP - Send Email** (SMTP - Enviar correo electrónico).  
+3. Escriba *smtp* para buscar todas las acciones relacionadas con SMTP.  
+4. Seleccione **SMTP - Send Email (SMTP - Enviar correo electrónico)** como la acción que se realizará cuando se crea el cliente potencial. Se abre el bloque de control de acción. Tendrá que establecer la conexión de SMTP en el bloque de diseñador si no lo ha hecho previamente.  
+   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
+5. Indique la información de correo electrónico que quiera en el bloque **SMTP - Send Email (SMTP - Enviar correo electrónico)**.  
    ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. Guarde el trabajo para activar el flujo de trabajo.
+6. Guarde el trabajo para activar el flujo de trabajo.  
 
-## Detalles técnicos
+## <a name="technical-details"></a>Detalles técnicos
 Estos son los detalles sobre los desencadenadores, las acciones y las respuestas compatibles con esta conexión:
 
-## Desencadenadores de SMTP
-SMTP no tiene ningún desencadenador.
+## <a name="smtp-triggers"></a>Desencadenadores de SMTP
+SMTP no tiene ningún desencadenador. 
 
-## Acciones de SMTP
+## <a name="smtp-actions"></a>Acciones de SMTP
 SMTP tiene la acción siguiente:
 
 | Acción | Descripción |
 | --- | --- |
 | [Enviar correo electrónico](connectors-create-api-smtp.md#send-email) |Esta operación envía un correo electrónico a uno o más destinatarios. |
 
-### Detalles de la acción
+### <a name="action-details"></a>Detalles de la acción
 Estos son los detalles de la acción de este conector, junto con sus respuestas:
 
-### Enviar correo electrónico
-Esta operación envía un correo electrónico a uno o más destinatarios.
+### <a name="send-email"></a>Enviar correo electrónico
+Esta operación envía un correo electrónico a uno o más destinatarios. 
 
 | Nombre de propiedad | Display Name (Nombre para mostrar) | Descripción |
 | --- | --- | --- |
-| Para |Para |Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com |
-| CC |cc |Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com |
+| Para |Para |Las direcciones de correo electrónico, como recipient1@domain.com;recipient2@domain.com, se separan con punto y coma. |
+| CC |cc |Las direcciones de correo electrónico, como recipient1@domain.com;recipient2@domain.com, se separan con punto y coma. |
 | Asunto |Asunto |Asunto del correo electrónico |
 | Cuerpo |Cuerpo |Cuerpo del correo electrónico |
 | De |De |Dirección de correo electrónico del remitente como sender@domain.com |
 | IsHtml |Es HTML |Enviar el correo electrónico como HTML (true/false) |
-| CCO |bcc |Indicar las direcciones de correo electrónico separadas por punto y coma, como recipient1@domain.com;destinatario2@dominio.com |
+| CCO |bcc |Las direcciones de correo electrónico, como recipient1@domain.com;recipient2@domain.com, se separan con punto y coma. |
 | Importancia |Importancia |Importancia del correo electrónico (alta, normal o baja) |
 | ContentData |Datos de contenido de los datos adjuntos |Datos de contenido (codificación en base64 para transmisiones y tal cual para cadena) |
 | ContentType |Tipo de contenido de los datos adjuntos |Tipo de contenido |
@@ -97,10 +101,10 @@ Esta operación envía un correo electrónico a uno o más destinatarios.
 
 El símbolo * indica que la propiedad es obligatoria.
 
-## Respuestas HTTP
-Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP:
+## <a name="http-responses"></a>Respuestas HTTP
+Las acciones y los desencadenadores anteriores pueden devolver uno o varios de los siguientes códigos de estado HTTP: 
 
-| Name | Descripción |
+| Nombre | Descripción |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |
@@ -111,7 +115,12 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 | 500 |Error interno del servidor. Error desconocido. |
 | default |Error en la operación. |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
 
-<!----HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

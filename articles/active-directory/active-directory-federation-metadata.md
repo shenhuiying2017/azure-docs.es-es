@@ -1,12 +1,12 @@
 ---
-title: Metadatos de federación de Azure AD | Microsoft Docs
-description: En este artículo se describe el documento de metadatos de federación que Azure Active Directory publica para los servicios que aceptan tokens de este directorio.
+title: "Metadatos de federación de Azure AD | Microsoft Docs"
+description: "En este artículo se describe el documento de metadatos de federación que Azure Active Directory publica para los servicios que aceptan tokens de este directorio."
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7d6a118481983215983e6db61804edc98554069d
+
 
 ---
 # <a name="federation-metadata"></a>Metadatos de federación
@@ -154,6 +158,6 @@ Del mismo modo, los extremos comunes del protocolo SAML 2.0 se publican en los m
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

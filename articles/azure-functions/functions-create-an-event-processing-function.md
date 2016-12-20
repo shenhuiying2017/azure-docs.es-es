@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2381b04e32a6d65075dadf04f717f4946ba4d464
+ms.sourcegitcommit: 44e397c7521ba8f0ba11893c364f51177561bee4
+ms.openlocfilehash: df3d303ee10fcc982552ea9756eb59198c87b650
 
 
 ---
@@ -27,9 +27,9 @@ Funciones de Azure es una experiencia de procesos a petición orientada a evento
 En este tema se muestra cómo crear una nueva función en C# que se ejecuta según un temporizador de eventos para agregar mensajes a una cola de almacenamiento. 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [puede crear una gratuita](https://azure.microsoft.com/free/).
+Una aplicación de función hospeda la ejecución de sus funciones en Azure. Si ya no tiene una cuenta de Azure, consulte la experiencia [Probar Functions](https://functions.azure.com/try) o [cree una cuenta gratis de Azure](https://azure.microsoft.com/free/). 
 
-## <a name="create-a-timertriggered-function-from-the-template"></a>Creación de una función desencadenada por un temporizador a partir de la plantilla
+## <a name="create-a-timer-triggered-function-from-the-template"></a>Creación de una función desencadenada por un temporizador a partir de la plantilla
 Una aplicación de función hospeda la ejecución de sus funciones en Azure. Para poder crear una función, tiene que tener una cuenta de Azure activa. Si aún no tiene una cuenta de Azure, [puede crear una gratuita](https://azure.microsoft.com/free/). 
 
 1. Vaya al [portal de Funciones de Azure](https://functions.azure.com/signin) e inicie sesión con su cuenta de Azure.
@@ -72,13 +72,13 @@ Consulte estos temas para más información sobre Azure Functions.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
    describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
-   (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
+  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de hospedaje de Consumo, y cómo elegir el plan adecuado.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

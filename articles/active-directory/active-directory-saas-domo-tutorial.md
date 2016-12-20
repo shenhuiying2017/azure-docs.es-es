@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Domo | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Domo.
+title: "Tutorial: Integración de Azure Active Directory con Domo | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Domo."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0b3eea4df3728b54554014eed99a911ec8770161
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-domo"></a>Tutorial: integración de Azure Active Directory con Domo
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: integración de Azure Active Directory con Domo
 El objetivo de este tutorial es mostrar cómo integrar Domo con Azure Active Directory (Azure AD).  
 Integrar Domo con Azure AD proporciona las siguientes ventajas:
 
@@ -115,7 +119,7 @@ La aplicación Domo espera las aserciones de SAML en un formato específico. Con
    
     c. En la lista **Valor de atributo** , seleccione el valor de atributo que se muestra para esa fila.
    
-    d. Haga clic en **Completo**.  
+    d. Haga clic en **Completo**.    
 3. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Domo**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
     ![Configurar inicio de sesión único][6] 
@@ -226,7 +230,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
 Al hacer clic en el icono de Domo en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Domo.
 
@@ -254,6 +258,6 @@ Al hacer clic en el icono de Domo en el panel de acceso, debería iniciar sesió
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

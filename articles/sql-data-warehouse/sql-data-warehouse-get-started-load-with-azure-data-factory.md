@@ -1,4 +1,5 @@
 ---
+redirect_url: /azure/sql-data-warehouse/sql-data-warehouse-load-with-data-factory
 title: Carga de datos con Azure Data Factory | Microsoft Docs
 description: "Más información sobre Factoría de datos de Azure"
 services: sql-data-warehouse
@@ -16,8 +17,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: mausher;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 960225117a1c9b0802004455353fb9015a80b07b
+ms.sourcegitcommit: 3d41671920d40335e3e0931599a434f9d5f58bba
+ms.openlocfilehash: 0fcbd492f1f26efb67dec90a5ba25ba27172065c
 
 
 ---
@@ -208,28 +209,28 @@ En estos temas se proporciona información detallada sobre Data Factory de Azure
 
 <!--Article references-->
 [documentación de AZCopy]: ../storage/storage-use-azcopy.md
-[Movimiento de datos hacia y desde Almacenamiento de datos SQL de Azure mediante Factoría de datos de Azure]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
+[Conector de Azure SQL Data Warehouse]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [BCP]: sql-data-warehouse-load-with-bcp.md
-[Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
+[Creación de una instancia de SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
 [crear una cuenta de almacenamiento]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [Factoría de datos]: sql-data-warehouse-get-started-load-with-azure-data-factory.md
 [Introducción a Azure Data Factory (Data Factory Editor)]: ../data-factory/data-factory-build-your-first-pipeline-using-editor.md
-[Introducción al servicio Data Factory de Azure]: ../data-factory/data-factory-introduction.md
+[Introducción al servicio Azure Data Factory]: ../data-factory/data-factory-introduction.md
 [Carga de datos de ejemplo en SQL Data Warehouse]: sql-data-warehouse-load-sample-databases.md
 [Movimiento de datos hacia y desde Azure SQL Data Warehouse mediante Azure Data Factory]: ../data-factory/data-factory-azure-sql-data-warehouse-connector.md
 [PolyBase]: sql-data-warehouse-get-started-load-with-polybase.md
-[Tutorial: Copia de datos de Almacenamiento de blobs en Base de datos SQL]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+[Tutorial: Copia de datos de Azure Storage Blob en Azure SQL Database]: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [Tutorial: Creación de su primera instancia de Data Factory (Introducción)]: ../data-factory/data-factory-build-your-first-pipeline.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Ruta de aprendizaje para Data Factory de Azure]: https://azure.microsoft.com/documentation/learning-paths/data-factory
-[Portal de Azure]: https://portal.azure.com
-[Descargue los datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
+[Ruta de aprendizaje para Azure Data Factory]: https://azure.microsoft.com/documentation/learning-paths/data-factory
+[Azure Portal]: https://portal.azure.com
+[Descarga de datos de ejemplo]: https://migrhoststorage.blob.core.windows.net/adfsample/FactInternetSales.csv
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

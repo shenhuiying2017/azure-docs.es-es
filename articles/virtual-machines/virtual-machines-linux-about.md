@@ -1,38 +1,13 @@
 ---
-title: Acerca de máquinas virtuales Linux | Microsoft Docs
-description: Conozca los aspectos básicos de las máquinas virtuales Linux en Azure usando ambos modelos de implementación.
-services: virtual-machines-linux
-documentationcenter: ''
-author: cynthn
-manager: timlt
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-
-ms.service: virtual-machines-linux
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 06/15/2016
-ms.author: cynthn
+redirect_url: /azure/virtual-machines/virtual-machines-linux-azure-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+translationtype: Human Translation
+ms.sourcegitcommit: 691de5c31be7618144f2899242f344e3879e87c1
+ms.openlocfilehash: c3e85574f3a5332ede486e8a10aa9cdab06b1171
 
 ---
-# Acerca de las máquinas virtuales Linux en Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-Máquinas virtuales de Azure es uno de los distintos tipos de recursos informáticos a petición y escalables que ofrece Azure. Por lo general, elegirá una máquina virtual si necesita más control sobre su entorno informático del que ofrecen las otras opciones.
 
-Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización sin necesidad de adquirir y mantener el hardware físico que ejecuta la máquina virtual. Sin embargo, todavía es necesario mantener la máquina virtual: configurar, aplicar revisiones y mantener el software que se ejecuta en la máquina virtual. También puede aprender [sobre las máquinas virtuales Linux en Azure](virtual-machines-windows-about.md).
 
-Esta tabla permite comparar las opciones de Azure.
+<!--HONumber=Dec16_HO2-->
 
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
 
-[!INCLUDE [virtual-machines-choose-me-content](../../includes/virtual-machines-choose-me-content.md)]
-
-## Pasos siguientes
-Pruebe una máquina virtual mediante la creación de una máquina virtual simple rápidamente. Para obtener instrucciones, consulte [Crear una máquina virtual que ejecute Linux](virtual-machines-linux-quick-create-cli.md).
-
-Como el tutorial le ayuda a crear una máquina virtual rápidamente, solo muestra una manera de hacerlo en lugar de describir las diversas herramientas que puede usar para crear máquinas virtuales. Para ver un resumen de estas herramientas y vínculos a instrucciones, consulte [Diferentes formas de crear una máquina virtual Linux con Resource Manager](virtual-machines-linux-creation-choices.md).
-
-<!---HONumber=AcomDC_0615_2016-->

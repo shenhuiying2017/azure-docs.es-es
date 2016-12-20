@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: af5563f875c532c0b902685219818b1cd0945a66
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a896240331d901ae839c2489c6266daac2780899
 
 
 ---
@@ -44,14 +44,18 @@ Este tutorial muestra cómo utilizar el servicio de DocumentDB proporcionado por
 ## <a name="a-nametoc395637760aprerequisites-for-this-database-tutorial"></a><a name="_Toc395637760"></a>Requisitos previos del tutorial de base de datos
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Azure activa. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. Para más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/). 
+
+    OR
+
+    Una instalación local del [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2015](http://www.visualstudio.com/) o Visual Studio 2013 Update 4, o cualquier versión superior. Si se usa Visual Studio 2013, será preciso instalar el [paquete NuGet Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/) para agregar compatibilidad con C# 6.0. 
-* SDK de Azure para .NET versión 2.5.1 o posterior, disponible a través del [Instalador de plataforma web de Microsoft][Instalador de plataforma web de Microsoft].
+* Azure SDK para .NET versión 2.5.1 o posterior, disponible a través del [Instalador de plataforma web de Microsoft][Microsoft Web Platform Installer].
 
 Todas las capturas de pantalla en este artículo se han tomado con Visual Studio 2013 con Update 4 aplicado y el SDK de Azure para .NET versión 2.5.1. Si el sistema está configurado con versiones diferentes, es probable que las pantallas y las opciones no coincidan completamente, pero si cumple los requisitos previos mencionados, esta solución debe funcionar.
 
 ## <a name="a-nametoc395637761astep-1-create-a-documentdb-database-account"></a><a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
-Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir a [Creación de una nueva aplicación ASP.NET MVC](#_Toc395637762).
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta o si usa el Emulador de DocumentDB en este tutorial, puede ir directamente a [Creación de una nueva aplicación de ASP.NET MVC](#_Toc395637762).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -78,6 +82,9 @@ Ahora que tiene una cuenta, creemos nuestro nuevo proyecto de ASP.NET.
 5. En el panel Plantillas, seleccione **MVC**.
 6. Si va a hospedar la aplicación en Azure, seleccione **Hospedar en la nube** en la esquina inferior derecha para que Azure hospede la aplicación. Hemos seleccionado hospedar en la nube y ejecutar la aplicación hospedada en Sitio web Azure. Al seleccionar esta opción se aprovisionará previamente Sitio web Azure para usted y le será mucho más fácil implementar la aplicación de trabajo final. Si desea hospedar en otro sitio o no desea configurar Azure por adelantado, simplemente borre **Hospedar en la nube**.
 7. Haga clic en **Aceptar** y deje que Visual Studio realice la tarea de scaffolding de la plantilla ASP.NET MVC vacía. 
+
+    Si recibe el error "Error al procesar la solicitud", consulte la sección [Solución de problemas](#troubleshooting).
+
 8. Si decide alojarla en la nube, verá al menos una pantalla adicional que le solicitará que inicie sesión en su cuenta de Azure y proporcione valores para el nuevo sitio web. Proporcione todos los valores adicionales y continúe. 
    
       No he elegido "Servidor de base de datos" aquí porque no estamos usando un servidor de Base de datos SQL de Azure aquí, vamos a crear una nueva cuenta de Azure DocumentDB más adelante en el Portal de Azure.
@@ -423,9 +430,9 @@ Agreguemos algo de código a DocumentDBRepository e ItemController para mantener
    
     Este código llama a DocumentDBRepository y usa el método CreateItemAsync para conservar el nuevo elemento todo en la base de datos. 
    
-    **Nota de seguridad**: El atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte la entrada de blog sobre la [Prevención de la falsificación de solicitud entre sitios][Prevención de la falsificación de solicitud entre sitios]. El código de origen proporcionado en [GitHub][GitHub] tiene la implementación completa en su lugar.
+    **Nota de seguridad**: El atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte el artículo sobre la [prevención de la falsificación de solicitud entre sitios][Preventing Cross-Site Request Forgery]. El código fuente proporcionado en [GitHub][GitHub] tiene la implementación completa.
    
-    **Nota de seguridad**: También usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para más información, consulte la entrada de blog sobre [Operaciones CRUD básicas en ASP.NET MVC][Operaciones CRUD básicas en ASP.NET MVC].
+    **Nota de seguridad**: También usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para más información, consulte el artículo sobre [operaciones CRUD básicas en ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
 Esto finaliza el código necesario para agregar elementos nuevos en nuestra base de datos.
 
@@ -510,7 +517,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
    
     ![Captura de pantalla de la aplicación web de lista de tareas pendientes creada con este tutorial](./media/documentdb-dotnet-application/image24.png)
    
-    Si utiliza Visual Studio 2013 y recibe el error "No se puede usar await en el cuerpo de una cláusula catch", será preciso que instale el [paquete nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). También puede comparar su código con el proyecto de ejemplo de [GitHub][GitHub]. 
+    Si utiliza Visual Studio 2013 y recibe el error "No se puede usar await en el cuerpo de una cláusula catch", será preciso que instale el [paquete nuget Microsoft.Net.Compilers](https://www.nuget.org/packages/Microsoft.Net.Compilers/). También puede comparar su código con el proyecto de ejemplo, en [GitHub][GitHub]. 
 2. Haga clic en el vínculo **Crear nuevo** y agregue valores a los campos **Nombre** y **Descripción**. Deje la casilla **Completado** sin seleccionar; de lo contrario, el **elemento** nuevo se agregará en estado completado y no aparecerá en la lista inicial.
    
     ![Captura de pantalla de la vista Crear](./media/documentdb-dotnet-application/image25.png)
@@ -536,20 +543,39 @@ Ahora que tiene la aplicación completa funcionando correctamente con DocumentDB
 
 En pocos segundos, Visual Studio terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
 
-## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Pasos siguientes
-¡Enhorabuena! Acaba de compilar su primera aplicación web ASP.NET MVC mediante Azure DocumentDB y la ha publicado en Sitios web de Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][GitHub]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="Troubleshooting"></a>Solución de problemas
 
-Para agregar más funcionalidad a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) y si lo que desea es contribuir a ella, hágalo libremente en [GitHub][GitHub]. 
+Si recibe el error "Error al procesar la solicitud" mientras intenta implementar la aplicación web, haga lo siguiente: 
+
+1. Cancele el mensaje de error y luego seleccione de nuevo **Microsoft Azure Web Apps**. 
+2. Inicie sesión y seleccione **Nuevo** para crear una nueva aplicación web. 
+3. En la pantalla **Crear una aplicación web en Microsoft Azure**, haga lo siguiente: 
+    
+    - Nombre de la aplicación web: "todo-net-app"
+    - Plan de App Service: Crear nueva, llamada "todo-net-app"
+    - Grupo de recursos: Crear nuevo, llamado "todo-net-app"
+    - Región: seleccione la región más cercana a los usuarios de la aplicación.
+    - Servidor de base de datos: haga clic en Ninguna base de datos y luego en **Crear**. 
+
+4. En la "pantalla de todo-net-app *", haga clic en **Validar conexión**. Después de comprobar la conexión, haga clic en **Publicar**. 
+    
+    Seguidamente la aplicación aparece en su explorador.
+
+
+## <a name="a-nametoc395637775anext-steps"></a><a name="_Toc395637775"></a>Pasos siguientes
+¡Enhorabuena! Acaba de compilar su primera aplicación web ASP.NET MVC mediante Azure DocumentDB y la ha publicado en Sitios web de Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación, que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][GitHub]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
+
+Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de DocumentDB](https://msdn.microsoft.com/library/azure/dn948556.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de DocumentDB en [GitHub][GitHub]. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Prevención de la falsificación de solicitud entre sitios]: http://go.microsoft.com/fwlink/?LinkID=517254
-[Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
+[Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

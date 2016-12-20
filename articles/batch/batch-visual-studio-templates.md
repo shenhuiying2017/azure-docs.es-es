@@ -1,12 +1,12 @@
 ---
 title: Plantillas de Visual Studio para Azure Batch | Microsoft Docs
-description: Descubra cómo estas plantillas de proyecto de Visual Studio pueden ayudarle a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch.
+description: "Descubra cómo estas plantillas de proyecto de Visual Studio pueden ayudarle a implementar y ejecutar cargas de trabajo de proceso intensivo en Azure Batch."
 services: batch
 documentationcenter: .net
 author: fayora
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/07/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+
 
 ---
-# Plantillas de proyecto de Visual Studio para Azure Batch
-Las **plantillas de Visual Studio para el administrador de trabajos** y el **procesador de tareas** para Batch proporcionan código para ayudar a implementar y ejecutar las cargas de trabajo de proceso intensivo en Batch con el mínimo esfuerzo. En este documento se describen estas plantillas y se proporcionan instrucciones para utilizarlas.
+# <a name="visual-studio-project-templates-for-azure-batch"></a>Plantillas de proyecto de Visual Studio para Azure Batch
+Las **plantillas de Visual Studio para el administrador de trabajos**y el **procesador de tareas** para Batch proporcionan código para ayudar a implementar y ejecutar las cargas de trabajo de proceso intensivo en Batch con el mínimo esfuerzo. En este documento se describen estas plantillas y se proporcionan instrucciones para utilizarlas.
 
 > [!IMPORTANT]
 > En este artículo se describe solo información aplicable a estas dos plantillas, y se supone que está familiarizado con el servicio Batch y con los conceptos clave relacionados con él: grupos, nodos de proceso, trabajos y tareas, tareas del administrador de trabajos, variables de entorno y otra información pertinente. Puede encontrar más información en [Datos básicos de Azure Batch](batch-technical-overview.md), [Información general de las características de Batch para desarrolladores](batch-api-basics.md) e [Introducción a la biblioteca de Azure Batch para .NET](batch-dotnet-get-started.md).
 > 
 > 
 
-## Información general de alto nivel
+## <a name="high-level-overview"></a>Información general de alto nivel
 Las plantillas del administrador de trabajos y del procesador de tareas pueden utilizarse para crear dos componentes útiles:
 
 * Una tarea del administrador de trabajos que implementa un separador de trabajo que puede desglosar un trabajo en varias tareas que se pueden ejecutar de forma independiente, en paralelo.
@@ -45,28 +49,28 @@ Como se muestra en el diagrama siguiente, un trabajo de proceso que usa estas pl
 
 ![Diagrama que muestra cómo interactúa el código de cliente con el servicio Batch][diagram01]
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para utilizar las plantillas de Batch, necesita lo siguiente:
 
 * Un equipo con Visual Studio 2015, o posterior, ya instalado.
 * Las plantillas de Batch, que están disponibles en la [Galería de Visual Studio][vs_gallery] como extensiones de Visual Studio. Las plantillas se pueden obtener de dos formas:
   
-  * Instale las plantillas con el cuadro de diálogo **Extensiones y actualizaciones** de Visual Studio (para obtener más información, vea [Buscar y usar extensiones de Visual Studio][vs_find_use_ext]). En el cuadro de diálogo **Extensiones y actualizaciones**, busque y descargue las dos extensiones siguientes:
+  * Instale las plantillas con el cuadro de diálogo **Extensiones y actualizaciones** de Visual Studio (para obtener más información, vea [Buscar y usar extensiones de Visual Studio][vs_find_use_ext]). En el cuadro de diálogo **Extensiones y actualizaciones** , busque y descargue las dos extensiones siguientes:
     
     * Administrador de trabajos de Azure Batch con separador de trabajos
     * Procesador de tareas de Azure Batch
-  * Descargue las plantillas de la galería en línea para Visual Studio: [plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates]
+  * Descargue las plantillas de la galería en línea de Visual Studio: [plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates].
 * Si piensa utilizar la característica [Paquetes de aplicación](batch-application-packages.md) para implementar el administrador de trabajos y el procesador de tareas en los nodos de proceso de Batch, debe vincular una cuenta de almacenamiento a la cuenta de Batch.
 
-## Preparación
+## <a name="preparation"></a>Preparación
 Se recomienda crear una solución que puede contener el administrador de trabajos, así como el procesador de tareas, ya que esto puede facilitar el uso compartido de código entre el administrador de trabajos y los programas de procesador de tareas. Para crear esta solución, siga estos pasos:
 
-1. Abra Visual Studio 2015 y seleccione **Archivo** > **Nuevo** > **Proyecto**.
-2. En **Plantillas**, expanda **Otros tipos de proyectos**, haga clic en **Soluciones de Visual Studio** y luego seleccione **Solución en blanco**.
+1. Abra Visual Studio 2015, seleccione **Archivo** > **Nuevo** > **Proyecto**.
+2. En **Plantillas**, expanda **Otros tipos de proyectos**, haga clic en **Soluciones de Visual Studio** y, luego, seleccione **Solución en blanco**.
 3. Escriba un nombre que describa la aplicación y el propósito de esta solución (por ejemplo, "LitwareBatchTaskPrograms").
 4. Para crear una solución nueva, haga clic en **Aceptar**.
 
-## Plantilla del administrador de trabajos
+## <a name="job-manager-template"></a>Plantilla del administrador de trabajos
 La plantilla del administrador de trabajos ayuda a implementar una tarea del administrador de trabajos que puede realizar las siguientes acciones:
 
 * Separar un trabajo en varias tareas.
@@ -77,17 +81,17 @@ La plantilla del administrador de trabajos ayuda a implementar una tarea del adm
 > 
 > 
 
-### Creación de un administrador de trabajos con la plantilla
+### <a name="create-a-job-manager-using-the-template"></a>Creación de un administrador de trabajos con la plantilla
 Para agregar un administrador de trabajos a la solución creada anteriormente, siga estos pasos:
 
 1. Abra la solución existente en Visual Studio 2015.
-2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego en **Agregar** > **Nuevo proyecto**.
-3. En **Visual C#**, haga clic en **Nube** y luego haga clic en **Administrador de trabajos de Azure Batch con separador de trabajos**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y seleccione **Agregar** > **Nuevo proyecto**.
+3. En **Visual C#**, haga clic en **Nube** y, luego, haga clic en **Administrador de trabajos de Azure Batch con separador de trabajos**.
 4. Escriba un nombre que describe la aplicación e identifica este proyecto como el administrador de trabajos (p. ej., "LitwareJobManager").
 5. Para crear el proyecto, haga clic en **Aceptar**.
 6. Por último, compile el proyecto para obligar a Visual Studio a cargar todos los paquetes NuGet a que se hace referencia y comprobar que es válido el proyecto antes de comenzar a modificarlo.
 
-### Archivos de plantilla del administrador de trabajos y su propósito
+### <a name="job-manager-template-files-and-their-purpose"></a>Archivos de plantilla del administrador de trabajos y su propósito
 Cuando se crea un proyecto mediante la plantilla del administrador de trabajos, genera tres grupos de archivos de código:
 
 * El archivo de programa principal (Program.cs). Contiene el punto de entrada del programa y el control de excepciones de nivel superior. Normalmente no es necesario modificar esto.
@@ -120,7 +124,7 @@ En el resto de esta sección se describen los diferentes archivos y su estructur
 * `Packages.config`: archivo de dependencia de paquetes NuGet estándar.
 * `Program.cs`: contiene el punto de entrada del programa y el control de excepciones de nivel superior.
 
-### Implementación del separador de trabajos
+### <a name="implementing-the-job-splitter"></a>Implementación del separador de trabajos
 Al abrir el proyecto de plantilla del administrador de trabajos, el proyecto tendrá el archivo JobSplitter.cs abierto de forma predeterminada. Puede implementar la lógica de separación de las tareas en la carga de trabajo mediante el uso del método Split() siguiente:
 
 ```csharp
@@ -156,9 +160,9 @@ public IEnumerable<CloudTask> Split()
 
 La implementación de Split() dispone de acceso a:
 
-* Los parámetros de trabajo, a través del campo `_parameters`.
-* El objeto CloudJob que representa el trabajo, a través del campo `_job`.
-* El objeto CloudTask que representa la tarea del administrador de trabajos, a través del campo `_jobManagerTask`.
+* Los parámetros de trabajo, a través del campo `_parameters` .
+* El objeto CloudJob que representa el trabajo, a través del campo `_job` .
+* El objeto CloudTask que representa la tarea del administrador de trabajos, a través del campo `_jobManagerTask` .
 
 La implementación de `Split()` no necesita agregar tareas al trabajo directamente. En su lugar, el código debe devolver una secuencia de objetos CloudTask, y se agregarán al trabajo automáticamente mediante las clases de marco de trabajo que invocan el separador de trabajos. Es habitual utilizar la característica del iterador de C# (`yield return`) para implementar los separadores de trabajos, ya que esto permite que las tareas empiecen a ejecutarse lo antes posible, en lugar de esperar a que se calculen todas las tareas.
 
@@ -172,14 +176,14 @@ Si el separador de trabajos detecta un error, debe:
 En ambos casos, se pueden ejecutar todas las tareas que el separador de trabajos ya haya devuelvo y que se hayan agregado al trabajo de Batch. Si no desea que esto ocurra, entonces puede:
 
 * Finalizar el trabajo antes de abandonar el separador de trabajos
-* Formular la colección de tareas completa antes de devolverla (es decir, devolver `ICollection<CloudTask>` o `IList<CloudTask>` en lugar de implementar el separador de trabajos mediante un iterador de C#)
+* Fomular la colección de tareas completa antes de devolverla (es decir, devolver `ICollection<CloudTask>` o `IList<CloudTask>` instead of implementing your job splitter using a C# iterato)
 * Utilizar las dependencias de tareas para realizar todas las tareas que dependen de la finalización correcta del administrador de trabajos
 
 **Reintentos del administrador de trabajos**
 
 Si se produce un error en el administrador de trabajos, el servicio Batch puede reintentarlo en función de la configuración de reintentos del cliente. En general, esto es seguro, porque cuando el marco de trabajo agrega tareas al trabajo, omite cualquier tarea que ya existe. Sin embargo, si la tarea de cálculo es cara, no puede incurrir en el costo de volver a calcular las tareas que ya se han agregado al trabajo; por el contrario, si no se garantiza que volver a realizar la ejecución genere los mismos identificadores de tarea, no se iniciará el comportamiento “Omitir duplicados”. En estos casos, es necesario diseñar el separador de trabajos para detectar el trabajo que se ha hecho ya y no repetirlo, por ejemplo mediante la realización de una tarea CloudJob.ListTasks antes de comenzar a producir tareas.
 
-### Excepciones y códigos de salida en la plantilla del administrador de trabajos
+### <a name="exit-codes-and-exceptions-in-the-job-manager-template"></a>Excepciones y códigos de salida en la plantilla del administrador de trabajos
 Las excepciones y los códigos de salida proporcionan un mecanismo para determinar el resultado de ejecutar un programa, y pueden ayudar a identificar los problemas con la ejecución del programa. La plantilla del administrador de trabajos implementa las excepciones y los códigos de salida que se describen en esta sección.
 
 Una tarea del administrador de trabajos que se implementa con la plantilla del administrador de trabajos puede devolver tres códigos de salida posibles:
@@ -194,12 +198,12 @@ En el caso de errores de tareas del administrador de trabajos, algunas tareas a�
 
 Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para obtener más información, vea [Control de errores](batch-api-basics.md#error-handling).
 
-### Consideraciones de cliente
+### <a name="client-considerations"></a>Consideraciones de cliente
 En esta sección se describen algunos requisitos de implementación de cliente al invocar un administrador de trabajos basado en esta plantilla. Vea [cómo pasar parámetros y variables de entorno desde el código de cliente](#pass-environment-settings) para obtener más información sobre cómo pasar los parámetros y la configuración del entorno.
 
 **Credenciales obligatorias**
 
-Para agregar tareas al trabajo de Azure Batch, la tarea del administrador de trabajos requiere la dirección URL y la clave de la cuenta de Azure Batch. Debe pasar estos datos en variables de entorno denominadas YOUR\_BATCH\_URL y YOUR\_BATCH\_KEY. También puede establecerlos en la configuración del entorno de tareas del administrador de trabajos. Por ejemplo, en un cliente de C#:
+Para agregar tareas al trabajo de Azure Batch, la tarea del administrador de trabajos requiere la dirección URL y la clave de la cuenta de Azure Batch. Debe pasar estos datos en variables de entorno denominadas YOUR_BATCH_URL y YOUR_BATCH_KEY. También puede establecerlos en la configuración del entorno de tareas del administrador de trabajos. Por ejemplo, en un cliente de C#:
 
 ```csharp
 job.JobManagerTask.EnvironmentSettings = new [] {
@@ -235,7 +239,7 @@ Si el separador de trabajos emite tareas con dependencias, el cliente debe estab
 
 En el modelo del separador de trabajos, es poco común que los clientes deseen agregar tareas a trabajos más allá de lo que crea el separador de trabajos. El cliente, por tanto, normalmente debe establecer la opción *onAllTasksComplete* del trabajo en **terminatejob**.
 
-## Plantilla del procesador de tareas
+## <a name="task-processor-template"></a>Plantilla del procesador de tareas
 La plantilla del procesador de tareas ayuda a implementar un procesador de tareas que puede realizar las siguientes acciones:
 
 * Configurar la información requerida por cada tarea de Batch para ejecutarla.
@@ -246,17 +250,17 @@ Aunque no es necesario que un procesador de tareas ejecute tareas en Batch, la p
 
 Las acciones realizadas por el procesador de tareas pueden ser simples o complejas, o bien muchas o pocas, según sea necesario para la carga de trabajo. Además, mediante la implementación de todas las acciones de las tareas en un procesador de tareas, puede actualizar o agregar acciones fácilmente en función de los cambios de los requisitos de las aplicaciones o cargas de trabajo. Sin embargo, en algunos casos un procesador de tareas puede no ser la solución óptima para la implementación, ya que puede agregar una complejidad innecesaria, por ejemplo cuando se ejecutan trabajos que se pueden iniciar rápidamente desde una línea de comandos simple.
 
-### Creación de un procesador de tareas con la plantilla
+### <a name="create-a-task-processor-using-the-template"></a>Creación de un procesador de tareas con la plantilla
 Para agregar un procesador de tareas a la solución creada anteriormente, siga estos pasos:
 
 1. Abra la solución existente en Visual Studio 2015.
-2. En el Explorador de soluciones, haga clic con el botón derecho en la solución, luego en **Agregar** y en **Nuevo proyecto**.
-3. En **Visual C#**, haga clic en **Nube** y luego haga clic en **Procesador de tareas de Azure Batch**.
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución; luego, en **Agregar** y en **Nuevo proyecto**.
+3. En **Visual C#**, haga clic en **Nube** y, luego, haga clic en **Procesador de tareas de Azure Batch**.
 4. Escriba un nombre que describe la aplicación e identifica este proyecto como el procesador de tareas (p. ej., "LitwareTaskProcessor").
 5. Para crear el proyecto, haga clic en **Aceptar**.
 6. Por último, compile el proyecto para obligar a Visual Studio a cargar todos los paquetes NuGet a que se hace referencia y comprobar que es válido el proyecto antes de comenzar a modificarlo.
 
-### Archivos de plantilla del procesador de tareas y su propósito
+### <a name="task-processor-template-files-and-their-purpose"></a>Archivos de plantilla del procesador de tareas y su propósito
 Cuando se crea un proyecto mediante la plantilla del procesador de tareas, genera tres grupos de archivos de código:
 
 * El archivo de programa principal (Program.cs). Contiene el punto de entrada del programa y el control de excepciones de nivel superior. Normalmente no es necesario modificar esto.
@@ -294,7 +298,7 @@ En el resto de esta sección se describen los diferentes archivos y su estructur
 * `Packages.config`: archivo de dependencia de paquetes NuGet estándar.
 * `Program.cs`: contiene el punto de entrada del programa y el control de excepciones de nivel superior.
 
-## Implementación del procesador de tareas
+## <a name="implementing-the-task-processor"></a>Implementación del procesador de tareas
 Al abrir el proyecto de plantilla del procesador de tareas, el proyecto tendrá el archivo TaskProcessor.cs abierto de forma predeterminada. Puede implementar la lógica de ejecución de las tareas en la carga de trabajo con el método Run() que se muestra a continuación:
 
 ```csharp
@@ -351,18 +355,18 @@ La implementación de Run() dispone de acceso a:
 
 * Los parámetros de tareas, a través del campo `_parameters`.
 * Los identificadores de trabajos y tareas, a través de los campos `_jobId`y `_taskId`.
-* La configuración de la tarea, a través del campo `_configuration`.
+* La configuración de la tarea, a través del campo `_configuration` .
 
 **Error de tarea**
 
 En caso de error, puede salir del método Run() iniciando una excepción, pero esto deja al controlador de excepciones de nivel superior el control del código de salida de la tarea. Si necesita controlar el código de salida para que pueda distinguir los diferentes tipos de error, por ejemplo con fines de diagnóstico o porque algunos modos de error deben finalizar el trabajo y otros no, debe salir del método Run() devolviendo un código de salida distinto de cero. Esto se convierte en el código de salida de la tarea.
 
-### Excepciones y códigos de salida en la plantilla del procesador de tareas
+### <a name="exit-codes-and-exceptions-in-the-task-processor-template"></a>Excepciones y códigos de salida en la plantilla del procesador de tareas
 Las excepciones y los códigos de salida proporcionan un mecanismo para determinar el resultado de ejecutar un programa, y pueden ayudar a identificar los problemas con la ejecución del programa. La plantilla del procesador de tareas implementa las excepciones y los códigos de salida que se describen en esta sección.
 
 Una tarea del procesador de tareas que se implementa con la plantilla del procesador de tareas puede devolver tres códigos de salida posibles:
 
-| Código | Description |
+| Código | Descripción |
 | --- | --- |
 | [Process.ExitCode][process_exitcode] |El procesador de tareas se ejecutó hasta completarse. Tenga en cuenta que esto no implica que el programa invocado sea correcto, solo que el procesador de tareas lo invocó correctamente y realizó cualquier procesamiento posterior sin excepciones. El significado de los códigos de salida depende del programa invocado, normalmente el código de salida 0 significa que el programa se ha ejecutado correctamente y cualquier otro código de salida significa que se ha producido algún error en el programa. |
 | 1 |Error del procesador de tareas con una excepción en un elemento “esperado” del programa. La excepción se ha traducido a `TaskProcessorException` con información de diagnóstico y, cuando sea posible, con sugerencias para resolver el error. |
@@ -375,10 +379,10 @@ Una tarea del procesador de tareas que se implementa con la plantilla del proces
 
 Toda la información devuelta por las excepciones se escribe en archivos stdout.txt y stderr.txt. Para más información, vea Control de errores en la documentación de Batch.
 
-### Consideraciones de cliente
+### <a name="client-considerations"></a>Consideraciones de cliente
 **Credenciales de almacenamiento**
 
-Si el procesador de tareas usa el almacenamiento de blobs de Azure para conservar las salidas, por ejemplo mediante la biblioteca auxiliar de convenciones de archivo, entonces necesita acceso a *cualquiera* de las credenciales de la cuenta de almacenamiento en nube *o* a una URL de contenedor de blobs que incluye una firma de acceso compartido (SAS). La plantilla incluye compatibilidad para proporcionar credenciales a través de variables de entorno común. El cliente puede pasar las credenciales de almacenamiento como sigue:
+Si el procesador de tareas usa Azure Blob Storage para conservar las salidas, por ejemplo, mediante la biblioteca auxiliar de convenciones de archivo, necesita acceso a *cualquiera* de las credenciales de la cuenta de almacenamiento en nube *o* a una URL de contenedor de blobs que incluye una firma de acceso compartido (SAS). La plantilla incluye compatibilidad para proporcionar credenciales a través de variables de entorno común. El cliente puede pasar las credenciales de almacenamiento como sigue:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -387,7 +391,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-La cuenta de almacenamiento está disponible en la clase TaskProcessor a través de la propiedad `_configuration.StorageAccount`.
+La cuenta de almacenamiento está disponible en la clase TaskProcessor a través de la propiedad `_configuration.StorageAccount` .
 
 Si prefiere usar una dirección URL de contenedor con SAS, también puede pasar esto a través de una configuración de entorno de trabajo común, pero la plantilla del procesador de tareas no incluyen actualmente compatibilidad integrada para esto.
 
@@ -395,8 +399,8 @@ Si prefiere usar una dirección URL de contenedor con SAS, también puede pasar 
 
 Se recomienda que la tarea del administrador de clientes o de trabajos cree los contenedores requeridos por las tareas antes de agregar las tareas al trabajo. Esto es obligatorio si se utiliza una dirección URL de contenedor con SAS, ya que dicha dirección URL no incluye permisos para crear el contenedor. Se recomienda incluso si pasa las credenciales de la cuenta de almacenamiento, puesto que se guarda cada tarea que tiene que llamar a CloudBlobContainer.CreateIfNotExistsAsync en el contenedor.
 
-## Transferencia de parámetros y variables de entorno
-### Configuración del entorno de transferencia
+## <a name="pass-parameters-and-environment-variables"></a>Transferencia de parámetros y variables de entorno
+### <a name="pass-environment-settings"></a>Configuración del entorno de transferencia
 Un cliente puede transferir información a la tarea del administrador de trabajos en el formulario de configuración del entorno. La tarea del administrador de trabajos puede usar esta información al generar las tareas del procesador de tareas que se ejecutarán como parte del trabajo de proceso. Ejemplos de la información que se puede transferir como configuración del entorno:
 
 * Claves de cuenta y nombre de cuenta de Storage
@@ -407,7 +411,7 @@ El servicio Batch tiene un mecanismo sencillo para transferir la configuración 
 
 Por ejemplo, para obtener la instancia `BatchClient` para una cuenta de Batch, puede transferir como variables de entorno del código de cliente la dirección URL y las credenciales de claves compartidas para la cuenta de Batch. Del mismo modo, para tener acceso a la cuenta de almacenamiento que está vinculada a la cuenta de Batch, puede transferir el nombre de la cuenta de almacenamiento y la clave de la cuenta de almacenamiento como variables de entorno.
 
-### Transferencia de parámetros a la plantilla del administrador de trabajos
+### <a name="pass-parameters-to-the-job-manager-template"></a>Transferencia de parámetros a la plantilla del administrador de trabajos
 En muchos casos, resulta útil transferir los parámetros de cada trabajo a la tarea del administrador de trabajos, para controlar el proceso de separación de trabajos o para configurar las tareas del trabajo. Puede hacerlo mediante la carga de un archivo JSON llamado parameters.json como un archivo de recursos para la tarea del administrador de trabajos. Los parámetros pueden estar disponibles después en el campo `JobSplitter._parameters` de la plantilla del administrador de trabajos.
 
 > [!NOTE]
@@ -415,7 +419,7 @@ En muchos casos, resulta útil transferir los parámetros de cada trabajo a la t
 > 
 > 
 
-### Transferencia de parámetros a la plantilla del procesador de tareas
+### <a name="pass-parameters-to-the-task-processor-template"></a>Transferencia de parámetros a la plantilla del procesador de tareas
 También puede transferir parámetros a tareas individuales que se implementan utilizando la plantilla del procesador de tareas. Al igual que con la plantilla del administrador de trabajos, la plantilla del procesador de tareas busca un archivo de recursos denominado
 
 parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros. Hay un par de opciones sobre cómo transferir parámetros a las tareas del procesador de tareas:
@@ -428,14 +432,14 @@ parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros.
 > 
 > 
 
-## Pasos siguientes
-### Guardar salidas de trabajos y tareas en Azure Storage
-Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] \(Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. En [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
+## <a name="next-steps"></a>Pasos siguientes
+### <a name="persist-job-and-task-output-to-azure-storage"></a>Guardar salidas de trabajos y tareas en Azure Storage
+Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos para Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
 
-### Foro de Batch
-El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y formular preguntas acerca del servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
+### <a name="batch-forum"></a>Foro de Batch
+El [foro de Azure Batch][forum] de MSDN es un lugar excelente para analizar Batch y plantear preguntas sobre este servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
 
-[forum]: https://social.msdn.microsoft.com/forums/azure/es-ES/home?forum=azurebatch
+[forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
@@ -448,4 +452,8 @@ El [foro de Lote de Azure][forum] en MSDN es un lugar excelente para debatir y f
 [solution_explorer01]: ./media/batch-visual-studio-templates/solution_explorer01.png
 [solution_explorer02]: ./media/batch-visual-studio-templates/solution_explorer02.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

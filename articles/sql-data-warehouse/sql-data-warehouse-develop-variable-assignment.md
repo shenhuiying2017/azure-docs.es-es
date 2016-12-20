@@ -1,27 +1,31 @@
 ---
-title: Asignación de variables en el Almacenamiento de datos SQL | Microsoft Docs
-description: Sugerencias para la asignación de variables de Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones.
+title: "Asignación de variables en SQL Data Warehouse | Microsoft Docs"
+description: "Sugerencias para la asignación de variables de Transact-SQL en el Almacenamiento de datos SQL Azure para desarrollar soluciones."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 81ddc7cf-a6ba-4585-91a3-b6ea50f49227
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5ec9f7ad24dad833758d3b981fd4d8735119d813
+
 
 ---
-# Asignación de variables en el Almacenamiento de datos SQL
+# <a name="assign-variables-in-sql-data-warehouse"></a>Asignación de variables en el Almacenamiento de datos SQL
 Las variables en el Almacenamiento de datos SQL se establecen mediante las instrucciones `DECLARE` o `SET`.
 
 A continuación se indican formas totalmente válidas para establecer el valor de una variable:
 
-## Configuración de variables con DECLARE
+## <a name="setting-variables-with-declare"></a>Configuración de variables con DECLARE
 Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el Almacenamiento de datos SQL.
 
 ```sql
@@ -45,7 +49,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## Configuración de valores con SET
+## <a name="setting-values-with-set"></a>Configuración de valores con SET
 SET es un método muy común para configurar una sola variable.
 
 Todos los ejemplos siguientes son formas válidas de establecer una variable con SET:
@@ -59,19 +63,23 @@ SET     @v +=1;
 
 Solo puede establecer una variable al mismo tiempo con SET. Sin embargo, como hemos visto anteriormente, se admiten los operadores compuestos.
 
-## Limitaciones
+## <a name="limitations"></a>Limitaciones
 Puede usar SELECT o UPDATE para la asignación de variables.
 
-## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,23 +1,27 @@
 ---
-title: Creación de una imagen de Azure RemoteApp | Microsoft Docs
-description: Obtenga información acerca de las opciones disponibles para la creación de imágenes para Azure RemoteApp.
+title: "Creación de una imagen de Azure RemoteApp | Microsoft Docs"
+description: "Obtenga información acerca de las opciones disponibles para la creación de imágenes para Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: cb0f9424-6185-45a1-abe9-c23f1edf34f2
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 12f27315348040ac897c1ff286b54d38e9950c7d
+
 
 ---
-# Creación de una imagen de Azure RemoteApp
+# <a name="create-an-azure-remoteapp-image"></a>Creación de una imagen de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -31,6 +35,11 @@ Tiene las siguientes opciones cuando se trata de imágenes:
 * Puede [crear y cargar una imagen personalizada](remoteapp-create-custom-image.md). Esto es apropiado si ya tiene una imagen que se utiliza para la implementación local de Servicios de Escritorio remoto.
 * Puede utilizar una de las [imágenes de plantilla](remoteapp-images.md) incluidas en su suscripción de RemoteApp. Estas imágenes se crean y mantienen por parte del equipo de RemoteApp y contienen algunas aplicaciones estándar (por ejemplo, el conjunto de programas de Office) que puede poner a disposición de los usuarios. Tenga en cuenta que la imagen Office 365 Pro Plus se puede utilizar en una configuración de producción.
 
-Independientemente de dónde obtenga la imagen o de cómo la cree, es importante que entienda los [requisitos de la aplicación](remoteapp-appreqs.md) para garantizar que la aplicación funciona bien en RemoteApp. A continuación, el siguiente paso es crear una colección [en la nube](remoteapp-create-cloud-deployment.md) o [híbrida](remoteapp-create-hybrid-deployment.md).
+Independientemente de dónde obtenga la imagen o de cómo la cree, es importante que entienda los [requisitos de la aplicación](remoteapp-appreqs.md) para garantizar que la aplicación funciona bien en RemoteApp. A continuación, el siguiente paso es crear una colección en la [nube](remoteapp-create-cloud-deployment.md) o [híbrida](remoteapp-create-hybrid-deployment.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

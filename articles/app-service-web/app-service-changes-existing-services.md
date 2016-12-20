@@ -1,12 +1,12 @@
 ---
 title: Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes
-description: Se explica cómo el nuevo Servicio de aplicaciones de Azure y sus características afectan a los servicios ya existentes de Azure.
+description: "Se explica cómo el nuevo Servicio de aplicaciones de Azure y sus características afectan a los servicios ya existentes de Azure."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: yochay
 manager: nirma
-editor: ''
-
+editor: 
+ms.assetid: 86c6a292-3c33-49f4-890c-89cc0321b397
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2016
 ms.author: yochayk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 295ee5a3c067010059a0435a8867eb8f4137ccbb
+
 
 ---
-# Servicio de aplicaciones de Azure y los servicios de Azure existentes
+# <a name="azure-app-service-and-existing-azure-services"></a>Servicio de aplicaciones de Azure y los servicios de Azure existentes
 En este artículo se describen las modificaciones de los servicios de Azure ya existentes como parte del cambio para reunir varios servicios de Azure en el [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/), una nueva oferta integrada.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Información general
-El [Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/) es un servicio en la nube nuevo y exclusivo que permite a los desarrolladores crear aplicaciones web y móviles destinadas a cualquier plataforma y dispositivo. Se trata de una solución integral diseñada para simplificar las funciones de codificación repetitivas, integrarse en sistemas Saas y empresariales y automatizar los procesos de negocio a la vez que cumplir sus necesidades de seguridad, confiabilidad y escalabilidad.
+## <a name="overview"></a>Información general
+[Servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/) es un servicio en la nube nuevo y exclusivo que permite a los desarrolladores crear aplicaciones web y móviles destinadas a cualquier plataforma y dispositivo. Se trata de una solución integral diseñada para simplificar las funciones de codificación repetitivas, integrarse en sistemas Saas y empresariales y automatizar los procesos de negocio a la vez que cumplir sus necesidades de seguridad, confiabilidad y escalabilidad.
 
-El Servicio de aplicaciones reúne los siguientes servicios de Azure ya existentes: [Sitios web](https://azure.microsoft.com/services/websites/), [Servicios móviles](https://azure.microsoft.com/services/mobile-services/) y [Servicios de Biztalk](https://azure.microsoft.com/services/biztalk-services/) en un servicio único combinado que, a su vez, agrega nuevas capacidades de gran eficacia. Además, permite hospedar los siguientes tipos de aplicaciones:
+App Service reúne los siguientes servicios de Azure existentes ([Websites](https://azure.microsoft.com/services/websites/), [Mobile Services](https://azure.microsoft.com/services/mobile-services/) y [BizTalk Services](https://azure.microsoft.com/services/biztalk-services/)) en un único servicio único combinado que, a su vez, agrega nuevas funcionalidades eficaces.  Además, permite hospedar los siguientes tipos de aplicaciones:
 
 * Aplicaciones web
 * Aplicaciones móviles
@@ -44,36 +48,36 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 <tbody>
 <tr class="odd">
 <td align="left">Sitios web Azure</td>
-<td align="left">Aplicaciones web</td>
-<td align="left"><li>Para Sitios web Azure, el Servicio de aplicaciones se limita estrictamente a cambiar el nombre Sitios web por Aplicaciones web.
+<td align="left">Web Apps</td>
+<td align="left"><li>En el caso de Azure Websites, App Service se limita estrictamente a cambiar el nombre de Websites por Web Apps.
 <p><li>Todas las instancias existentes de Sitios web serán ahora Aplicaciones web en el Servicio de aplicaciones.</p>
-<p><li>Puede tener acceso a los sitios web ya existentes a través del <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Portal de Azure</a>, donde los encontrará bajo <em>Aplicaciones web</em>.</p>
-<p><li><em>Plan de hospedaje web</em> es ahora <em>Plan del Servicio de aplicaciones</em>. Un <em>Plan del Servicio de aplicaciones</em> puede hospedar cualquier tipo de Servicio de aplicaciones, como Aplicaciones web, Aplicaciones móviles, Aplicaciones lógicas o Aplicaciones de API.</p>
+<p><li>Puede tener acceso a los sitios web existentes a través de <a href="http://go.microsoft.com/fwlink/?LinkId=529715">Azure Portal</a>, donde todos los sitios existentes se encuentran en <em>Web Apps</em>.</p>
+<p><li><em>Plan de hospedaje web</em> es ahora <em>Plan de App Service</em>. Un <em>plan de App Service</em> puede hospedar cualquier tipo de aplicación de App Service, como Web Apps, Mobile Apps, Logic Apps o API Apps.</p>
 <p><li>Aplicaciones web del Servicio de aplicaciones de Azure tiene ahora disponibilidad general.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/web/">Más información sobre Aplicaciones web</a>.</p></td>
+<p><li><a href="http://azure.microsoft.com/services/app-service/web/">Más información acerca de Web Apps</a>.</p></td>
 </tr>
 <tr class="even">
 <td align="left">Servicios móviles de Azure</td>
 <td align="left">Aplicaciones móviles</td>
 <td align="left"><p><li>Servicios móviles sigue estando disponible como servicio independiente con plena compatibilidad.</p>
 <p><li>Aplicaciones móviles es un tipo de aplicación del servicio de aplicaciones, que integra toda la funcionalidad de los servicios móviles y mucho más.</p>
-<p><li>Es fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar de Servicios móviles a Aplicaciones móviles</a>.</p>
-<p><li>Como parte del Servicio de aplicaciones, Aplicaciones móviles incluye nuevas capacidades además de Servicios móviles, como la integración con sistemas locales y SaaS, espacios de ensayo, trabajos web y opciones de escalado mejoradas, entre otras.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Más información sobre Aplicaciones móviles</a>.</p>
+<p><li>Es fácil <a href="http://go.microsoft.com/fwlink/?LinkID=724279&clcid=0x409">migrar de Mobile Services a Mobile Apps</a>.</p>
+<p><li>Como parte de App Service, Mobile Apps incluye nuevas funcionalidades, además de Mobile Services, como la integración con sistemas locales y SaaS, espacios de ensayo, WebJobs y opciones de escalado mejoradas, entre otras.</p>
+<p><li><a href="http://azure.microsoft.com/services/app-service/mobile/">Más información acerca de Mobile Apps</a>.</p>
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left">Aplicaciones de API</td>
+<td align="left">API Apps</td>
 <td align="left">
 <p><li>Aplicaciones de API es un nuevo tipo de aplicación del Servicio de aplicaciones que permite compilar y consumir API en la nube fácilmente.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/api/">Más información sobre Aplicaciones de API</a>.</p></td>
+<p><li><a href="http://azure.microsoft.com/services/app-service/api/">Más información acerca de API Apps</a>.</p></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
 <td align="left">Aplicaciones lógicas</td>
 <td align="left">
 <p><li>Aplicaciones lógicas es un nuevo tipo de aplicación del Servicio de aplicaciones que permite automatizar los procesos de negocio fácilmente.</p>
-<p><li><a href="http://azure.microsoft.com/services/app-service/logic/">Más información sobre Aplicaciones lógicas</a>.</p></td>
+<p><li><a href="http://azure.microsoft.com/services/app-service/logic/">Más información acerca de Logic Apps</a>.</p></td>
 </tr>
 <tr class="odd">
 <td align="left">Servicios de BizTalk de Azure</td>
@@ -88,4 +92,9 @@ En la tabla siguiente se explica cómo se asignan los servicios de Azure existen
 
 Para obtener más información, visite [Documentación del Servicio de aplicaciones](https://azure.microsoft.com/documentation/services/app-service/).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

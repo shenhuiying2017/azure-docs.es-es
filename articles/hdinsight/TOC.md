@@ -6,14 +6,17 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Versión preliminar de HDInsight unido a un dominio](hdinsight-domain-joined-introduction.md)
+## [Versión preliminar de Kafka](hdinsight-apache-kafka-introduction.md)
 
-# Primeros pasos
+# Introducción
 ## [Inicio con Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Inicio con la versión preliminar interactiva de Hive](hdinsight-hadoop-use-interactive-hive.md)
-## [Inicio con la versión preliminar de R Server](hdinsight-hadoop-r-server-get-started.md)
+## [Inicio con R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Inicio con Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Inicio con HBase y NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Inicio con Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Inicio con la versión preliminar interactiva de Hive](hdinsight-hadoop-use-interactive-hive.md)
+## [Inicio con versión preliminar de Kafka](hdinsight-apache-kafka-get-started.md)
 ## [Espacio aislado de Hadoop](hdinsight-hadoop-emulator-get-started.md)
 ## [Herramientas de Data Lake con Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Herramientas para Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -47,11 +50,12 @@
 ### [Uso de DataFu con Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [Clústeres a petición](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Envío de trabajos de Hadoop](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Uso de la versión preliminar de R Server
+## Uso de R Server
 ### [Opciones de almacenamiento](hdinsight-hadoop-r-server-storage.md)
 ### [Instalación de RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Contextos de proceso](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Uso de Spark para el procesamiento en memoria
+### [Con Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [Con herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 ### [Aplicación independiente](hdinsight-apache-spark-create-standalone-application.md)
 ### [Procesamiento de streaming de eventos](hdinsight-apache-spark-eventhub-streaming.md)
@@ -94,6 +98,10 @@
 ### [Configuración](hdinsight-domain-joined-configure.md)
 ### [Administración](hdinsight-domain-joined-manage.md)
 ### [Configuración de directivas Hive](hdinsight-domain-joined-run-hive.md)
+## Uso de versión preliminar de Kafka
+### [Replicación de datos de Kafka](hdinsight-apache-kafka-mirroring.md)
+### [Uso con Spark](hdinsight-apache-spark-with-kafka.md)
+### [Uso con Storm](hdinsight-apache-storm-with-kafka.md)
 ## Desarrollo
 ### [Desarrollo de programas Java MapReduce](hdinsight-develop-deploy-java-mapreduce-linux.md)
 ### [Desarrollo de trabajos de MapReduce de Scalding](hdinsight-hadoop-mapreduce-scalding.md)
@@ -142,7 +150,7 @@
 #### [Uso del SDK de .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 #### [Uso de la CLI de Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
 #### [Uso de Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md)
-#### [Utilización de plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+#### [Uso de plantillas de Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 ### [Administración de clústeres de Hadoop](hdinsight-administer-use-portal-linux.md)
 #### [Uso del SDK de .NET](hdinsight-administer-use-dotnet-sdk.md)
 #### [Uso de Azure PowerShell](hdinsight-administer-use-powershell.md)
@@ -174,12 +182,12 @@
 #### [Rendimiento de consultas de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Referencia
-## [Referencia de API de REST](https://msdn.microsoft.com/library/mt622197.aspx)
-## [API de REST de Spark para trabajos remotos](https://msdn.microsoft.com/library/mt613023.aspx)
-## [Cmdlets de PowerShell](https://msdn.microsoft.com/library/mt438705.aspx)
-## [.NET SDK para Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK para HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [Biblioteca de NET para Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Temas relacionados
 ## Clústeres de Windows
@@ -200,7 +208,7 @@
 ### [Uso de Oozie para flujos de trabajo](hdinsight-use-oozie.md)
 ### [Implementación y administración de topologías de Storm](hdinsight-storm-deploy-monitor-topology.md)
 ### [Uso de Maven para crear aplicaciones Java](hdinsight-hbase-build-java-maven.md)
-### [Uso de la UI de Tez para depurar los trabajos de Tez](hdinsight-debug-tez-ui.md)
+### [Uso de la interfaz de usuario de Tez para depurar los trabajos de Tez](hdinsight-debug-tez-ui.md)
 ### [Personalización con la acción de script](hdinsight-hadoop-customize-cluster.md)
 ### [Disponibilidad y confiabilidad](hdinsight-high-availability.md)
 ### [Acceso a registros de aplicaciones en YARN](hdinsight-hadoop-access-yarn-app-logs.md)
@@ -217,6 +225,6 @@
 ## [Ruta de aprendizaje](https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

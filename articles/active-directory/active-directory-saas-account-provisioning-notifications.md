@@ -1,12 +1,12 @@
 ---
 title: Notificaciones de aprovisionamiento de cuentas | Microsoft Docs
-description: Obtenga información sobre cómo asegurarse de que se le notifica si surge cualquier problema relacionado con el aprovisionamiento de usuarios que requiere su atención habilitando las notificaciones de aprovisionamiento de cuentas.
+description: "Obtenga información sobre cómo asegurarse de que se le notifica si surge cualquier problema relacionado con el aprovisionamiento de usuarios que requiere su atención habilitando las notificaciones de aprovisionamiento de cuentas."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a637aac7-f06b-48ef-a66d-639835a8edec
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markusvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1bd245877d3a2093d71504cda7ecd5affe5580f2
+
 
 ---
 # <a name="account-provisioning-notifications"></a>Notificaciones de aprovisionamiento de cuentas
@@ -49,6 +53,7 @@ Si tiene las notificaciones de aprovisionamiento de cuentas habilitadas, recibir
 [2]: ./media/active-directory-saas-account-provisioning-notifications/ic766308.png
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

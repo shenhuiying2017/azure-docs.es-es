@@ -1,48 +1,55 @@
 ---
-title: Manage Azure Service Bus using Azure Automation | Microsoft Docs
-description: Learn how to use the Azure Automation service to manage Azure Service Bus.
-services: service-bus, automation
-documentationcenter: ''
+title: "Administración de Azure Service Bus con Azure Automation | Microsoft Docs"
+description: "Obtenga información sobre cómo usar el servicio de Automatización de Azure para administrar Bus de servicio de Azure."
+services: service-bus-messaging, automation
+documentationcenter: 
 author: mgoedtel
 manager: jwhit
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 2a06e94b-92ef-4b5d-a2b7-fe827063df82
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1912275b05948525486e4e30e2065bd7f63630cb
+
 
 ---
-# <a name="managing-azure-service-bus-using-azure-automation"></a>Managing Azure Service Bus using Azure Automation
-This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of Azure Service Bus.
+# <a name="managing-azure-service-bus-using-azure-automation"></a>Administración de Bus de servicio de Azure con Automatización de Azure
+Esta guía presenta el servicio Automatización de Azure y cómo se puede usar para simplificar la administración de Bus de servicio de Azure.
 
-## <a name="what-is-azure-automation?"></a>What is Azure Automation?
-[Azure Automation](../automation/automation-intro.md) is an Azure service for simplifying cloud management through process automation and desired state configuration. Using Azure Automation, manual, repeated, long-running, and error-prone tasks can be automated to increase reliability, efficiency, and time to value for your organization.
+## <a name="what-is-azure-automation"></a>¿Qué es Automatización de Azure?
+[Automatización de Azure](../automation/automation-intro.md) es un servicio de Azure para simplificar la administración en la nube mediante la automatización de procesos y la configuración de estado deseado. Mediante Automatización de Azure, se pueden automatizar las tareas de ejecución prolongada, manuales, propensas a errores y que se repiten para aumentar la confiabilidad, la eficiencia y el valioso tiempo para su organización.
 
-Azure Automation provides a highly-reliable, highly-available workflow execution engine that scales to meet your needs. In Azure Automation, processes can be kicked off manually, by 3rd-party systems, or at scheduled intervals so that tasks happen exactly when needed.
+Automatización de Azure proporciona un motor de ejecución de flujo de trabajo altamente confiable y de alta disponibilidad que realiza la escalación para satisfacer sus necesidades. En Automatización de Azure, los sistemas de terceros pueden interrumpir los procesos manualmente o en intervalos programados para que las tareas se realicen justo cuando sea necesario.
 
-Reduce operational overhead and free up IT and DevOps staff to focus on work that adds business value by moving your cloud management tasks to be run automatically by Azure Automation.
+Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
-## <a name="how-can-azure-automation-help-manage-azure-service-bus?"></a>How can Azure Automation help manage Azure Service Bus?
-You can manage Service Bus with Azure Automation by using the [Service Bus REST API](https://msdn.microsoft.com/library/azure/mt639375.aspx). Within Azure Automation you can run PowerShell scripts to perform many of your Service Bus tasks using the REST API. You can also pair these REST API calls in Azure Automation with the cmdlets for other Azure services, to automate complex tasks across Azure services and 3rd party systems.
+## <a name="how-can-azure-automation-help-manage-azure-service-bus"></a>¿Cómo puede ayudar Automatización de Azure a administrar Bus de servicio de Azure?
+Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/mt639375.aspx). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas del Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
 
-Here are some examples of using PowerShell to manage Azure Service Bus:
+Los siguientes son algunos ejemplos de cómo usar PowerShell para administrar Bus de servicio de Azure:
 
-* [Custom PowerShell cmdlets to manage Azure Service Bus queues](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues)
-* [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Create Azure Service Bus Namespaces using PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
+* [Cmdlets personalizados de PowerShell para administrar colas de Bus de servicio de Azure](https://blogs.technet.microsoft.com/uktechnet/2014/12/04/sample-of-custom-powershell-cmdlets-to-manage-azure-servicebus-queues)
+* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Creación de espacios de nombres de Bus de servicio de Azure con PowerShell](http://buildazure.com/2015/09/24/create-azure-service-bus-namespaces-using-powershell-and-x-plat-cli/)
 
-The PowerShell module for working with Azure service bus in Automation runbooks can be downloaded from the [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0).
+El módulo de PowerShell que se utiliza con el Bus de servicio de Azure en cuadernos de automatización puede descargarse en la [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureServiceBusCreation/1.0).
 
-## <a name="next-steps"></a>Next steps
-Now that you've learned the basics of Azure Automation and how it can be used to manage Azure Service Bus, follow these links to learn more about Azure Automation.
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo se puede usar para administrar Bus de servicio de Azure, siga estos vínculos para obtener más información acerca de Automatización de Azure.
 
-* See the Azure Automation [Getting Started Tutorial](../automation/automation-first-runbook-graphical.md)
-* See how to [manage Service Bus with PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* Consulte el [Tutorial de introducción](../automation/automation-first-runbook-graphical.md)
+* Consulte cómo [administrar Bus de servicio con PowerShell](service-bus-powershell-how-to-provision.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

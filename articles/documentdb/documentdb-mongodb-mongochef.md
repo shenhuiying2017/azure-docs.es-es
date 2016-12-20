@@ -1,13 +1,13 @@
 ---
 title: Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB | Microsoft Docs
-description: Obtenga información acerca de cómo usar MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB, ahora disponible para versión preliminar.
+description: "Obtenga información acerca de cómo usar MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB, ahora disponible para versión preliminar."
 keywords: MongoChef
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
-editor: ''
-documentationcenter: ''
-
+editor: 
+documentationcenter: 
+ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2016
 ms.author: anhoh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90039d2626724ed789415967a345d2aadc3407af
+
 
 ---
 # <a name="use-mongochef-with-a-documentdb-account-with-protocol-support-for-mongodb"></a>Uso de MongoChef con una cuenta de DocumentDB con soporte de protocolo para MongoDB
@@ -45,7 +49,7 @@ Para agregar su cuenta de DocumentDB con soporte de protocolo para MongoDB en el
    
     ![Captura de pantalla de la ventana de conexión de prueba de MongoChef](./media/documentdb-mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-to-create-a-database,-collection,-and-documents"></a>Uso de MongoChef para crear una base de datos, una colección y unos documentos
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Uso de MongoChef para crear una base de datos, una colección y unos documentos
 Para crear una base de datos, una colección y unos documentos mediante MongoChef, realice los pasos siguientes.
 
 1. En **Connection Manager** (Administrador de conexiones), resalte la conexión y haga clic en **Connect** (Conectar).
@@ -66,14 +70,14 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
         "_id": "AndersenFamily",
         "lastName": "Andersen",
         "parents": [
-            { "firstName": "Thomas" },
-            { "firstName": "Mary Kay"}
+               { "firstName": "Thomas" },
+               { "firstName": "Mary Kay"}
         ],
         "children": [
-        {
-            "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
-            "pets": [{ "givenName": "Fluffy" }]
-        }
+           {
+               "firstName": "Henriette Thaulow", "gender": "female", "grade": 5,
+               "pets": [{ "givenName": "Fluffy" }]
+           }
         ],
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
@@ -89,7 +93,7 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
         "children": [
             {
                 "familyName": "Merriam", 
-                "givenName": "Jesse", 
+                 "givenName": "Jesse", 
                 "gender": "female", "grade": 1,
                 "pets": [
                     { "givenName": "Goofy" },
@@ -98,9 +102,9 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
             },
             { 
                 "familyName": "Miller", 
-                "givenName": "Lisa", 
-                "gender": "female", 
-                "grade": 8 }
+                 "givenName": "Lisa", 
+                 "gender": "female", 
+                 "grade": 8 }
         ],
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
@@ -112,6 +116,9 @@ Para crear una base de datos, una colección y unos documentos mediante MongoChe
 ## <a name="next-steps"></a>Pasos siguientes
 * Explore DocumentDB con soporte de protocolo para buscar [ejemplos](documentdb-mongodb-samples.md)de MongoDB.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

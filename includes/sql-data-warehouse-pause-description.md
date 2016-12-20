@@ -19,4 +19,8 @@ Al pausar una base de datos:
 * El almacenamiento de datos no se ve afectado y sus datos permanecen intactos. 
 * Almacenamiento de datos SQL cancela todas las operaciones de ejecución o en cola.
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

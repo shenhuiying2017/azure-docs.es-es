@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14a4d55409e9fd6b840f4c856110ae150499bb6f
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 6e29f5b26a06a83bd7f996169f2e53815e24a8e5
 
 
 ---
@@ -35,7 +35,7 @@ En este artículo, usará una plantilla de Azure Resource Manager para crear su 
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Lea el artículo [Tutorial: Compilación de la primera canalización para procesar datos mediante el clúster de Hadoop](data-factory-build-your-first-pipeline.md) y complete los pasos de los **requisitos previos** .
-* Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para instalar la última versión de Azure PowerShell en su equipo.
+* Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar la última versión de Azure PowerShell en su equipo.
 * Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md) . 
 
 ## <a name="in-this-tutorial"></a>Apartados de este tutorial
@@ -45,7 +45,7 @@ En este artículo, usará una plantilla de Azure Resource Manager para crear su 
 | Servicio vinculado a petición de HDInsight |Vincula un clúster de HDInsight a petición a la factoría de datos. El clúster se crea automáticamente para procesar los datos y se elimina después de que termina el procesamiento. |
 | Conjunto de datos de entrada de blob de Azure |Hace referencia al servicio vinculado de Azure Storage. El servicio vinculado hace referencia a una cuenta de Azure Storage y los conjuntos de datos del blob de Azure especifican el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de entrada. |
 | Conjunto de datos de salida de blob de Azure |Hace referencia al servicio vinculado de Azure Storage. El servicio vinculado hace referencia a una cuenta de Azure Storage y el conjunto de datos de Azure Blob especifica el contenedor, la carpeta y el nombre de archivo del almacenamiento que contiene los datos de salida. |
-| Canalización de datos |La canalización tiene una actividad de tipo HDInsightHive que consume el conjunto de datos de entrada y genera el conjunto de datos de salida. |
+| Canalización de datos |La canalización tiene una actividad de tipo HDInsightHive, que consume el conjunto de datos de entrada y genera el conjunto de datos de salida. |
 
 Una factoría de datos puede tener una o más canalizaciones. Una canalización puede tener una o más actividades. Hay dos tipos de actividades: [actividades de movimiento de datos](data-factory-data-movement-activities.md) y [actividades de transformación de datos](data-factory-data-transformation-activities.md). En este tutorial, va a crear una canalización con una actividad (actividad de copia).
 
@@ -379,7 +379,7 @@ Especifique el nombre y la clave de la cuenta de almacenamiento de Azure en esta
 
 **connectionString** usa los parámetros storageAccountName y storageAccountKey. Los valores de estos parámetros se pasan mediante el uso de un archivo de configuración. La definición también usa las variables azureStroageLinkedService y dataFactoryName definidas en la plantilla. 
 
-#### <a name="hdinsight-ondemand-linked-service"></a>Servicio vinculado a petición de HDInsight
+#### <a name="hdinsight-on-demand-linked-service"></a>Servicio vinculado a petición de HDInsight
 Consulte el artículo [Servicios vinculados de proceso](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) para más información sobre las propiedades JSON que se usan para definir un servicio vinculado a petición de HDInsight.  
 
       {
@@ -591,6 +591,6 @@ Esta plantilla crea una factoría de datos denominada GatewayUsingArmDF con una 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

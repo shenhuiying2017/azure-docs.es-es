@@ -1,12 +1,12 @@
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de sincronización de directorios| Microsoft Docs'
-description: Identifique qué requisitos son necesarios para sincronizar todos los usuarios entre el entorno local y la nube en la empresa.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinar los requisitos de sincronización de directorios | Microsoft Docs"
+description: "Identifique qué requisitos son necesarios para sincronizar todos los usuarios entre el entorno local y la nube en la empresa."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4fc6aa1baa5f558b8e706d94e3e604824f531d4a
+
 
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinación de los requisitos de sincronización de directorios
@@ -70,6 +74,9 @@ También deberá determinar los requisitos de seguridad y las restricciones de l
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

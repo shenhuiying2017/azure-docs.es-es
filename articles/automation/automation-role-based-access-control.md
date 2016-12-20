@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 09/12/2016
 ms.author: magoedte;sngun
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9fff24dfd2b20a785c6046b6c9700b583c309de4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 
 ---
-# <a name="rolebased-access-control-in-azure-automation"></a>Control de acceso basado en rol en Automatización de Azure
-## <a name="rolebased-access-control"></a>Control de acceso basado en rol
+# <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Automatización de Azure
+## <a name="role-based-access-control"></a>Control de acceso basado en rol
 El control de acceso basado en rol (RBAC) permite la administración del acceso en los recursos de Azure. Con [RBAC](../active-directory/role-based-access-control-configure.md), se puede separar los deberes del equipo y conceder a los usuarios, grupos y aplicaciones únicamente el acceso que necesiten para su trabajo. El acceso basado en rol se puede conceder a los usuarios que utilicen el Portal de Azure, las herramientas de la línea de comandos de Azure o las API de administración de Azure.
 
 ## <a name="rbac-in-automation-accounts"></a>RBAC en cuentas de Automatización de Azure
@@ -233,6 +233,6 @@ En los ejemplos anteriores, reemplace el **nombre de inicio de sesión**, el **i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

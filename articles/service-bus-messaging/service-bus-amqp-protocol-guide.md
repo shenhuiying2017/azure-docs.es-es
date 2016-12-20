@@ -1,22 +1,26 @@
 ---
-title: Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos | Microsoft Docs
-description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos
-services: service-bus,event-hubs
+title: "Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsoft Docs"
+description: "Guía del protocolo para expresiones y la descripción de AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos"
+services: service-bus-messaging,event-hubs
 documentationcenter: .net
 author: clemensv
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: d2d3d540-8760-426a-ad10-d5128ce0ae24
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2016
 ms.author: clemensv;jotaub;hillaryc;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 946384b5986ee56f16f5b3fe3be07d09f9837076
+
 
 ---
-# <a name="amqp-1.0-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 en el Bus de servicio de Azure y Centros de eventos
 Advanced Message Queueing Protocol 1.0 es un protocolo de tramas y transferencia estandarizado para transferir mensajes de forma asincrónica, segura y confiable entre dos partes. Es el principal protocolo de mensajería del Bus de servicio de Azure y Centros de eventos de Azure. Ambos servicios también admiten HTTPS. El protocolo SBMP propietario, que también se admite, está desapareciendo en favor de AMQP.
 
 AMQP 1.0 es el resultado de una amplia colaboración del sector que reunió a proveedores de middleware, como Microsoft y Red Hat, con muchos usuarios de middleware de mensajería, como JP Morgan Chase, que representa al sector de los servicios financieros. El foro de normalización técnica para las especificaciones del protocolo AMQP y la extensión es OASIS, y ha logrado la aprobación formal como estándar internacional como ISO/IEC 19494.
@@ -32,7 +36,7 @@ En la siguiente sección, asumiremos que la administración de conexiones, sesio
 
 Cuando se habla de las funcionalidades avanzadas del Bus de servicio de Azure, como la consulta de mensajes o la administración de sesiones, se explicarán en términos de AMQP, pero también como una pseudoimplementación superpuesta sobre esta abstracción API supuesta.
 
-## <a name="what-is-amqp?"></a>¿Qué es AMQP?
+## <a name="what-is-amqp"></a>¿Qué es AMQP?
 AMQP es un protocolo de tramas y transferencia. Las tramas significa que proporciona una estructura para los flujos de datos binarios que fluyan en ambas direcciones de una conexión de red. La estructura proporciona la delineación de bloques de datos distintivos (tramas) que se intercambiarán entre las partes conectadas. Las funcionalidades de transferencia se aseguran de que ambas partes de la comunicación pueden establecer un conocimiento compartido acerca de cuándo se transferirán las tramas y cuándo se considerarán completadas las transferencias.
 
 A diferencia de los anteriores borradores expirados producidos por el grupo de trabajo de AMQP que todavía usan algunos agentes de mensajes, el protocolo AMQP 1.0 estandarizado y final del grupo de trabajo no prescribe la presencia de un agente de mensajes o de ninguna topología concreta para las entidades dentro de un agente de mensajes.
@@ -44,7 +48,7 @@ El protocolo AMQP 1.0 está diseñado para ser extensible, lo que permite que la
 ## <a name="basic-amqp-scenarios"></a>Escenarios básicos de AMQP
 En esta sección se explica el uso básico de AMQP 1.0 con Azure Service Bus, lo que incluye la creación de conexiones, sesiones y vínculos, así como la transferencia de mensajes tanto a las entidades de Services Bus (colas, temas y suscripciones) como desde ellas.
 
-La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que el Bus de servicio usa AMQP 1.0. Para una introducción más completa a AMQP, así como una explicación más amplia de AMQP 1.0, puede consultar [este curso en vídeo][].
+La fuente con mayor autoridad para aprender cómo funciona AMQP es la especificación AMQP 1.0, pero se escribió para guiar de forma precisa la implementación, no para enseñar el protocolo. Esta sección se centra en la presentación de tanta terminología como sea necesario para describir el modo en que el Bus de servicio usa AMQP 1.0. Para obtener una introducción más completa sobre AMQP, así como una explicación más amplia de AMQP 1.0, puede ver [este curso de vídeo][este curso de vídeo].
 
 ### <a name="connections-and-sessions"></a>Conexiones y sesiones
 ![][1]
@@ -57,7 +61,7 @@ El Bus de servicio de Azure requiere el uso de TLS en todo momento. Admite conex
 
 Después de configurar la conexión y TLS, el Bus de servicio ofrece dos opciones de mecanismo SASL:
 
-* Normalmente, SASL PLAIN se utiliza para pasar las credenciales de usuario y la contraseña a un servidor. Service Bus no tiene cuentas, sino [reglas de seguridad de acceso compartido](../service-bus/service-bus-shared-access-signature-authentication.md) con nombre, que confieren derechos y están asociadas a una clave. El nombre de una regla se usa como nombre de usuario y la clave (como texto codificado con base64) se utiliza como contraseña. Los derechos asociados a la regla elegida rigen las operaciones permitidas en la conexión.
+* Normalmente, SASL PLAIN se utiliza para pasar las credenciales de usuario y la contraseña a un servidor. Service Bus no tiene cuentas, sino [reglas de seguridad de acceso compartido](service-bus-shared-access-signature-authentication.md) con nombre, que confieren derechos y están asociadas a una clave. El nombre de una regla se usa como nombre de usuario y la clave (como texto codificado con base64) se utiliza como contraseña. Los derechos asociados a la regla elegida rigen las operaciones permitidas en la conexión.
 * SASL ANONYMOUS se utiliza para omitir la autorización de SASL cuando el cliente desea usar el modelo de seguridad basada en notificaciones (CBS), que se describirá más adelante. Con esta opción, se puede establecer una conexión de cliente de forma anónima por un breve período, durante el cual el cliente solo puede interactuar con el punto de conexión CBS y se debe completar el protocolo de enlace CBS.
 
 Una vez establecida la conexión de transporte, cada contenedor declara el tamaño máximo de trama que desea controlar y, después de qué tiempo de espera inactivo se desconectará unilateralmente si no hay ninguna actividad en la conexión.
@@ -141,25 +145,25 @@ Las flechas muestran la dirección de flujo de performativos.
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Ninguna acción |
 | Ninguna acción |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### <a name="create-message-sender-(error)"></a>Creación del remitente del mensaje (error)
+#### <a name="create-message-sender-error"></a>Creación del remitente del mensaje (error)
 | Cliente | SERVICE BUS |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Ninguna acción |
 | Ninguna acción |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### <a name="close-message-receiver/sender"></a>Cierre del remitente/receptor del mensaje
+#### <a name="close-message-receiversender"></a>Cierre del remitente/receptor del mensaje
 | Cliente | SERVICE BUS |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Ninguna acción |
 | Ninguna acción |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### <a name="send-(success)"></a>Envío (correcto)
+#### <a name="send-success"></a>Envío (correcto)
 | Cliente | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Ninguna acción |
 | Ninguna acción |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-(error)"></a>Envío (error)
+#### <a name="send-error"></a>Envío (error)
 | Cliente | SERVICE BUS |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Ninguna acción |
@@ -308,6 +312,7 @@ Para aprender más sobre AMQP, consulte los siguientes vínculos:
 [AMQP de Service Bus para Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

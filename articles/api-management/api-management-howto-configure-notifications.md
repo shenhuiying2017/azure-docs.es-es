@@ -1,46 +1,49 @@
 ---
-title: Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
-description: Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Administración de API de Azure.
+title: "Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure"
+description: "Obtenga información acerca de cómo configurar notificaciones y plantillas de correo electrónico en Administración de API de Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee25f26d-4752-433b-af9c-3817db38aed5
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: d99e2d885d56e3752a3b1caf51e52c801acaab52
+ms.openlocfilehash: 8e3c98108672dcd2ae48da7b2a9eeb174cee76e1
+
 
 ---
-# Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
+# <a name="how-to-configure-notifications-and-email-templates-in-azure-api-management"></a>Configuración de notificaciones y plantillas de correo electrónico en Administración de API de Azure
 Administración de API ofrece la posibilidad de configurar notificaciones de eventos específicos, así como plantillas de correo electrónico que se usan para comunicarse con los administradores y desarrolladores de una instancia de Administración de API. Este tema muestra cómo configurar notificaciones de los eventos disponibles y ofrece información general sobre la configuración de plantillas de correo electrónico que se usan para estos eventos.
 
 ## <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
-Para configurar las notificaciones, haga clic en **Administrar** en el Portal de Azure clásico para su servicio Administración de API. De este modo, se abre el portal del publicador de Administración de API.
+Para configurar las notificaciones, haga clic en **Portal para editores** en Azure Portal en su servicio API Management. De este modo, se abre el portal del publicador de Administración de API.
 
 ![Portal del publicador][api-management-management-console]
 
-> Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][Creación de una instancia del servicio de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
-> 
-> 
+> [!NOTE] 
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
-Haga clic en **Notificaciones** en el menú **Administración de API** de la izquierda para ver las notificaciones disponibles.
+Haga clic en **Notificaciones** en el menú **API Management** de la izquierda para ver las notificaciones disponibles.
 
-![Publisher notifications][api-management-publisher-notifications]
+![Notificaciones del publicador][api-management-publisher-notifications]
 
 Se puede configurar la siguiente lista de eventos para notificaciones.
 
-* **Solicitudes de suscripción (se requiere aprobación)**: los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre solicitudes de suscripción de productos de API que requieran aprobación.
-* **Nuevas suscripciones**: los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre nuevas suscripciones de productos de API.
-* **Solicitudes de la galería de aplicaciones**: los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíen nuevas aplicaciones a la galería de aplicaciones.
-* **CCO**: los destinatarios y usuarios de correo electrónico especificados recibirán copias carbón ocultas de todos los correos electrónicos enviados a los desarrolladores.
-* **Nuevo problema o comentario**: los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíe un nuevo problema o comentario en el portal para desarrolladores.
-* **Cerrar mensaje de cuenta**: los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se cierre una cuenta.
-* **Aproximación al límite de cuota de suscripción**: los siguientes destinatarios y usuarios de correo electrónico recibirán notificaciones por correo electrónico cuando el uso de la suscripción se acerque a la cuota de uso.
+* **Solicitudes de suscripción (se requiere aprobación)** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre solicitudes de suscripción de productos de API que requieran aprobación.
+* **Nuevas suscripciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico sobre nuevas suscripciones de productos de API.
+* **Solicitudes de la galería de aplicaciones** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíen nuevas aplicaciones a la galería de aplicaciones.
+* **CCO** : los destinatarios y usuarios de correo electrónico especificados recibirán copias carbón ocultas de todos los correos electrónicos enviados a los desarrolladores.
+* **Nuevo problema o comentario** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se envíe un nuevo problema o comentario en el portal para desarrolladores.
+* **Cerrar mensaje de cuenta** : los destinatarios y usuarios de correo electrónico especificados recibirán notificaciones por correo electrónico cuando se cierre una cuenta.
+* **Aproximación al límite de cuota de suscripción** : los siguientes destinatarios y usuarios de correo electrónico recibirán notificaciones por correo electrónico cuando el uso de la suscripción se acerque a la cuota de uso.
 
 En cada evento, se pueden especificar destinatarios con el cuadro de texto de dirección de correo electrónico o seleccionar usuarios de una lista.
 
@@ -50,15 +53,15 @@ Para especificar las direcciones de correo electrónico a las que se van a envia
 
 Para especificar los usuarios a los que se va a notificar, haga clic en **Agregar destinatario**, active la casilla situada junto a los usuarios a los que se va a notificar y haga clic en **Aceptar**.
 
-> Observe que en la lista solo aparecen los administradores.
-> 
-> 
+> [!NOTE] 
+> En la lista solo aparecen los administradores.
+
 
 Después de configurar los destinatarios de las notificaciones, haga clic en **Guardar** para aplicar los destinatarios de notificación actualizados.
 
-> Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador**, el portal del publicador le avisará.
-> 
-> 
+> [!NOTE] 
+> Si hay cambios sin guardar y sale de la pestaña **Notificaciones del publicador** , el portal del publicador le avisará.
+
 
 ## <a name="email-templates"> </a>Configuración de plantillas de correo electrónico
 Administración de API proporciona plantillas de correo electrónico para los mensajes de correo electrónico que se envían durante la administración y el uso del servicio. Se incluyen las siguientes plantillas de correo electrónico.
@@ -76,11 +79,11 @@ Administración de API proporciona plantillas de correo electrónico para los me
 
 Estas plantillas se pueden modificar tal como se desee.
 
-Para ver y configurar las plantillas de correo electrónico de la instancia de Administración de API, haga clic en **Notificaciones** en el menú **Administración de API** de la izquierda y seleccione la pestaña **Plantillas de correo electrónico**.
+Para ver y configurar las plantillas de correo electrónico de la instancia de API Management, haga clic en **Notificaciones** en el menú **API Management** de la izquierda y seleccione la pestaña **Plantillas de correo electrónico**.
 
 ![Email templates][api-management-email-templates]
 
-Para ver o modificar una plantilla específica, selecciónela en de la lista desplegable **Plantillas**.
+Para ver o modificar una plantilla específica, selecciónela en de la lista desplegable **Plantillas** .
 
 ![Email templates list][api-management-email-templates-list]
 
@@ -92,11 +95,11 @@ La lista **Parámetros** contiene una lista de parámetros que, al insertarlos e
 
 Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que tendrá el correo electrónico o para enviar un correo electrónico de prueba.
 
-> Observe que los parámetros no se sustituyen con valores reales al obtener la vista previa o enviar una prueba.
-> 
-> Para guardar los cambios efectuados en la plantilla de correo electrónico, haga clic en **Guardar** o, si desea cancelarlos, haga clic en **Cancelar**.
-> 
-> 
+> [!NOTE] 
+> Los parámetros no se reemplazan por valores reales al obtener la vista previa o enviar una prueba.
+
+Para guardar los cambios efectuados en la plantilla de correo electrónico, haga clic en **Guardar** o, si desea cancelarlos, haga clic en **Cancelar**.
+ 
 
 [api-management-management-console]: ./media/api-management-howto-configure-notifications/api-management-management-console.png
 [api-management-publisher-notifications]: ./media/api-management-howto-configure-notifications/api-management-publisher-notifications.png
@@ -108,13 +111,17 @@ Haga clic en **Vista previa** o en **Enviar una prueba** para ver el aspecto que
 [api-management-email-template]: ./media/api-management-howto-configure-notifications/api-management-email-template.png
 
 
-[Configure publisher notifications]: #publisher-notifications
-[Configure email templates]: #email-templates
+[Configuración de notificaciones del publicador]: #publisher-notifications
+[Configuración de plantillas de correo electrónico]: #email-templates
 
-[How to create and use groups]: api-management-howto-create-groups.md
-[How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
+[Creación y uso de grupos]: api-management-howto-create-groups.md
+[Asociación de grupos a desarrolladores]: api-management-howto-create-groups.md#associate-group-developer
 
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
+[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

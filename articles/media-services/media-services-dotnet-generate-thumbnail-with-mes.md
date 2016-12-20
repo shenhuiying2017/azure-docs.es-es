@@ -1,12 +1,12 @@
 ---
-title: Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
-description: En este tema, se muestra cómo se usa .NET para codificar un activo y generar vistas en miniatura al mismo tiempo con el Codificador multimedia estándar.
+title: "Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET"
+description: "En este tema, se muestra cómo se usa .NET para codificar un activo y generar vistas en miniatura al mismo tiempo con el Codificador multimedia estándar."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: b8dab73a-1d91-4b6d-9741-a92ad39fc3f7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1c28e756548b69d336b7f66ae9fbfa3c9259f787
+
 
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-.net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET
 En este tema, se muestra cómo usar el SDK de los Servicios multimedia de .NET para codificar un activo y generar vistas en miniatura mediante el Codificador multimedia estándar. El tema define los valores predeterminados de las miniaturas de XML y JSON que se pueden utilizar para crear una tarea que codifique y genere vistas en miniatura al mismo tiempo. [Este](https://msdn.microsoft.com/library/mt269962.aspx) documento contiene descripciones de elementos que utilizan estos valores predeterminados.
 
 Asegúrese de revisar la sección [Consideraciones](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) .
@@ -168,7 +172,7 @@ En el ejemplo de código siguiente se usa el último SDK para .NET de Servicios 
             }
         }
 
-## <a name="<a-id="json"></a>thumbnail-json-preset"></a><a id="json"></a>Valor preestablecido JSON de miniatura
+## <a name="a-idjsonathumbnail-json-preset"></a><a id="json"></a>Valor preestablecido JSON de miniatura
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 
     {
@@ -270,7 +274,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
     }
 
 
-## <a name="<a-id="xml"></a>thumbnail-xml-preset"></a><a id="xml"></a>Valor preestablecido XML de miniatura
+## <a name="a-idxmlathumbnail-xml-preset"></a><a id="xml"></a>Valor preestablecido XML de miniatura
 Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) tema.
 
     <?xml version="1.0" encoding="utf-16"?>
@@ -370,6 +374,9 @@ Se aplican las siguientes consideraciones:
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre la codificación de Servicios multimedia](media-services-encode-asset.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

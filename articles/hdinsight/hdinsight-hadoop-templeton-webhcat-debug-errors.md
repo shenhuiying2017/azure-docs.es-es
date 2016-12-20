@@ -1,13 +1,13 @@
 ---
 title: Comprender y resolver errores de WebHCat en HDInsight
-description: Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos.
+description: "Aprenda cómo tratar errores comunes devueltos por WebHCat en HDInsight y cómo resolverlos."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b57bd17a8887dbf9bdecee4a3ad79b55ec7fb610
+
 
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-(templeton,)-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat (Templeton), en HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-templeton-on-hdinsight"></a>Entender y resolver errores recibidos de WebHCat (Templeton), en HDInsight
 Al usar WebHCat (anteriormente conocido como Templeton,) para trabajar con HDInsight, puede recibir errores. En este documento se proporcionan directrices sobre los errores comunes: ¿por qué se producen y qué puede hacer para resolverlos?
 
-## <a name="what-is-webhcat?"></a>¿Qué es WebHCat?
+## <a name="what-is-webhcat"></a>¿Qué es WebHCat?
 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) es una API de REST para [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), una capa de administración de almacenamiento y tablas para Hadoop. WebHCat está habilitado de manera predeterminada en los clústeres de HDInsight y se usa por diversas herramientas para enviar trabajos, obtener el estado de los trabajos, etc. sin iniciar sesión en el clúster.
 
 ## <a name="modifying-configuration"></a>Modificación de la configuración
@@ -38,7 +42,7 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 | Configuración | Qué hace | Valor predeterminado |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |El número máximo de trabajos que pueden estar activos de manera simultánea (pendientes o en ejecución) |10.000 |
-| [templeton.exec.max-procs][max-procs] |El número máximo de solicitudes que se pueden atender de manera simultánea |20 |
+| [templeton.exec.max-procs][max-procs] |El número máximo de solicitudes que se pueden atender de manera simultánea |20 | |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |El número de días que se conservará el historial de trabajos |7 días |
 
 ## <a name="too-many-requests"></a>Demasiadas solicitudes
@@ -55,7 +59,7 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 | --- | --- |
 | Esto suele producirse durante la conmutación por error entre el nodo principal primario y secundario para el clúster. |Espere dos minutos y vuelva a intentar la operación. |
 
-## <a name="bad-request-content:-could-not-find-job"></a>Contenido de solicitud incorrecta: no se encontró el trabajo.
+## <a name="bad-request-content-could-not-find-job"></a>Contenido de solicitud incorrecta: no se encontró el trabajo.
 **Código de estado HTTP**: 400
 
 | Causa | Resolución |
@@ -82,6 +86,6 @@ Los son los valores de configuración predeterminados que pueden afectar al rend
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

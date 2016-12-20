@@ -1,12 +1,12 @@
 ---
-title: 'Paso 6: Acceso al servicio web de Aprendizaje automático | Microsoft Docs'
-description: 'Paso 6 del tutorial Desarrollo de una solución predictiva: acceso a un servicio web activo de Estudio de aprendizaje automático de Azure.'
+title: 'Paso 6: Acceso al servicio web Machine Learning | Microsoft Docs'
+description: "Paso 6 del tutorial Desarrollo de una solución predictiva: acceso a un servicio web activo de Estudio de aprendizaje automático de Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+
 
 ---
-# <a name="walkthrough-step-6:-access-the-azure-machine-learning-web-service"></a>Paso 6 del tutorial: Acceso al servicio web de Aprendizaje automático de Azure
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Paso 6 del tutorial: Acceso al servicio web de Aprendizaje automático de Azure
 Este es el último paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Aprendizaje automático](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -42,6 +46,9 @@ Para obtener más información sobre el uso de plantillas de aplicación web, ve
 También puede desarrollar una aplicación personalizada para acceder al servicio web con código de inicio proporcionado en los lenguajes de programación R, C# y Python.
 Puede encontrar todos los detalles en [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

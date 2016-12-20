@@ -1,12 +1,12 @@
 ---
-title: Creación y administración de un clúster de Service Fabric de Azure independiente | Microsoft Docs
-description: Cree y administre un clúster de Azure Service Fabric en cualquier máquina (física o virtual) que ejecute Windows Server, ya sea local o en una nube.
+title: "Creación y administración de un clúster de Azure Service Fabric independiente | Microsoft Docs"
+description: "Cree y administre un clúster de Azure Service Fabric en cualquier máquina (física o virtual) que ejecute Windows Server, ya sea local o en una nube."
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 913726bb57f727bd62cdee0aee16bc886b38884f
+
 
 ---
 # <a name="create-and-manage-a-cluster-running-on-windows-server"></a>Creación y administración de un clúster que se ejecute en Windows Server
@@ -61,12 +65,12 @@ En el paquete de descarga, encontrará los siguientes archivos:
 ## <a name="plan-and-prepare-your-cluster-deployment"></a>Planeamiento y preparación para la implementación del clúster
 Realice los pasos siguientes antes de crear el clúster.
 
-### <a name="step-1:-plan-your-cluster-infrastructure"></a>Paso 1: Planear la infraestructura de clúster
+### <a name="step-1-plan-your-cluster-infrastructure"></a>Paso 1: Planear la infraestructura de clúster
 Va a crear un clúster de Service Fabric en máquinas que posee, por lo que podrá decidir qué tipos de errores desea que resista el clúster. Por ejemplo, ¿necesita separar redes eléctricas o conexiones a Internet que proporcionan estas máquinas? Además, debe tener en cuenta la seguridad física de estas máquinas. ¿Donde se encuentran las máquinas y quién tiene acceso a ellas? Una vez que haya tomado estas decisiones, asigne las máquinas de manera lógica a los distintos dominios de error (vea el paso 4). El planeamiento de la infraestructura para clústeres de producción es más complicado que el de los clústeres de prueba.
 
 <a id="preparemachines"></a>
 
-### <a name="step-2:-prepare-the-machines-to-meet-the-prerequisites"></a>Paso 2: Preparar las máquinas para cumplir los requisitos previos
+### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>Paso 2: Preparar las máquinas para cumplir los requisitos previos
 Requisitos previos para cada máquina que desee agregar al clúster:
 
 * Se recomiendan como mínimo 16 GB de RAM.
@@ -80,11 +84,11 @@ Requisitos previos para cada máquina que desee agregar al clúster:
 
 El administrador de clúster que implemente y configure el clúster debe tener [privilegios de administrador](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) en cada una de las máquinas. No se puede instalar Service Fabric en un controlador de dominio.
 
-### <a name="step-3:-determine-the-initial-cluster-size"></a>Paso 3: Determinar el tamaño inicial del clúster
+### <a name="step-3-determine-the-initial-cluster-size"></a>Paso 3: Determinar el tamaño inicial del clúster
 Cada nodo de un clúster de Service Fabric independiente tiene el sistema en tiempo de ejecución de Service Fabric implementado y es miembro del clúster. En una implementación típica de producción, hay un nodo por cada instancia de sistema operativo (física o virtual). El tamaño del clúster depende de sus necesidades empresariales. Sin embargo, debe tener un tamaño mínimo de clúster de tres nodos (máquinas o máquinas virtuales).
 Con fines de desarrollo, puede tener más de un nodo en una máquina determinada. En un entorno de producción, Service Fabric solo admite un nodo por máquina virtual o física.
 
-### <a name="step-4:-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Paso 4: Determinar el número de dominios de error y de actualización
+### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>Paso 4: Determinar el número de dominios de error y de actualización
 Un *dominio de error* (FD) es una unidad física de error, y está directamente relacionado con la infraestructura física de los centros de datos. Un dominio de error consta de componentes de hardware (equipos, conmutadores, redes, etc.) que comparten un único punto de error. Aunque no hay ninguna asignación 1:1 entre dominios de error y racks, en términos generales, cada bastidor puede considerarse un dominio de error. A la hora de valorar los nodos del clúster, se recomienda que los nodos se distribuyan entre tres dominios de error como mínimo.
 
 Si especifica dominios de error en ClusterConfig.json, puede elegir el nombre de cada uno. Service Fabric admite FD jerárquicos, así que puede reflejar la topología de infraestructura en ellos.  Por ejemplo, los siguientes FD son válidos:
@@ -106,7 +110,7 @@ Si especifica dominios de actualización en ClusterConfig.json, puede elegir el 
 
 Para más información sobre los dominios de actualización y los dominios de error, vea [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md).
 
-### <a name="step-5:-download-the-service-fabric-standalone-package-for-windows-server"></a>Paso 5: Descarga del paquete independiente de Windows Server para Service Fabric
+### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>Paso 5: Descarga del paquete independiente de Windows Server para Service Fabric
 [Descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprímalo en una máquina de implementación que no forme parte del clúster, o bien en una de las máquinas que formarán parte del clúster. Puede cambiar el nombre de la carpeta descomprimida `Microsoft.Azure.ServiceFabric.WindowsServer`.
 
 <a id="createcluster"></a>
@@ -114,16 +118,18 @@ Para más información sobre los dominios de actualización y los dominios de er
 ## <a name="create-your-cluster"></a>Creación del clúster
 Después de haber realizado los pasos de planeación y preparación anterior, ya puede crear el clúster.
 
-### <a name="step-1:-modify-cluster-configuration"></a>Paso 1: Modificar la configuración de clúster
+### <a name="step-1-modify-cluster-configuration"></a>Paso 1: Modificar la configuración de clúster
 El clúster se describe en un archivo ClusterConfig.json. Para ver detalles sobre las secciones de este archivo, vea [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md).
 Abra uno de los archivos ClusterConfig.json del paquete descargado y modifique las siguientes opciones:
 
+<!--Loc Comment: Please, check that line 129 the clause has been modified to "that you use as placement constraints" instead of using "you are used as placement constraints"-->
+
 | **Opciones de configuración.** | **Descripción** |
 | --- | --- |
-| **NodeTypes** |Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes:  <br> **Nombre**: es el nombre del tipo de nodo. <br>**Puertos de punto de conexión**: diversos puntos de conexión (puertos) con nombre asociados a este tipo de nodo. Puede usar cualquier número de puerto que no entre en conflicto con nada de este manifiesto y que no esté siendo usado por otra aplicación que se ejecute en la máquina o máquina virtual. <br> **Propiedades de ubicación**: describen las propiedades de este tipo de nodo que se usarán como restricciones de ubicación para los servicios del sistema o para sus servicios. Estas propiedades son pares de clave/valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Algunos ejemplos de propiedades de nodo son la existencia de un disco duro o una tarjeta gráfica en el nodo, el número de ejes de la unidad de disco duro, los núcleos y otras propiedades físicas. <br> **Capacities**: las capacidades del nodo definen el nombre y la cantidad de un recurso que un nodo tiene disponible para consumir. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas funcionalidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se coloquen en nodos donde esos recursos estén disponibles en la cantidad necesaria.<br>**IsPrimary**: si hay varias opciones NodeType definidas, asegúrese de establecer solo una como principal (con el valor *true*); es donde se ejecutan los servicios del sistema. Todos los demás tipos de nodo se deben establecer en *false*. |
+| **NodeTypes** |Los tipos de nodo permiten separar los nodos de clúster en grupos distintos. Un clúster debe tener al menos un tipo NodeType. Todos los nodos de un grupo tienen las siguientes características comunes:  <br> **nombre** : es el nombre del tipo de nodo. <br>**Endpoint Ports** : diversos puntos de conexión (puertos) con nombre asociados a este tipo de nodo. Puede usar cualquier número de puerto que desee, siempre que no entren en conflicto con nada de este manifiesto y que no estén siendo usados por otra aplicación que se ejecute en el equipo o en la máquina virtual. <br> **Propiedades de ubicación**: Describen las propiedades de este tipo de nodo que se usan como restricciones de ubicación para los servicios del sistema o para sus servicios. Estas propiedades son pares de clave y valor definidos por el usuario que proporcionan metadatos adicionales para un nodo determinado. Algunos ejemplos de propiedades de nodo son si el nodo tiene una unidad de disco duro o una tarjeta gráfica, el número de ejes de la unidad de disco duro, los núcleos y otras propiedades físicas. <br> **Capacities** : las capacidades del nodo definen el nombre y la cantidad de un recurso concreto que un nodo tiene disponible para consumir. Por ejemplo, un nodo puede definir que tenga capacidad para una métrica llamada "MemoryInMb" y 2048 MB de memoria disponible de forma predeterminada. Estas funcionalidades se usan en tiempo de ejecución para garantizar que los servicios que requieren una cantidad determinada de recursos se coloquen en nodos donde esos recursos estén disponibles en la cantidad necesaria.<br>**IsPrimary** : si hay varias opciones NodeType definidas, asegúrese de establecer solo una como principal con el valor *true*; es donde se ejecutan los servicios del sistema. Todos los demás tipos de nodo se deben establecer en *false* |
 | **Nodos** |Se trata de los detalles de cada uno de los nodos que forman parte del clúster (tipo de nodo, nombre de nodo, dirección IP, dominio de error y dominio de actualización del nodo). Las máquinas en las que desee que se cree el clúster en función de las necesidades se mostrarán aquí con sus direcciones IP. <br>  Si usa la misma dirección IP para todos los nodos, se crea un clúster one-box, que puede usar con fines de prueba. No use clústeres one-box para implementar cargas de trabajo de producción. |
 
-### <a name="step-2:-run-the-testconfiguration-script"></a>Paso 2: Ejecutar el script TestConfiguration
+### <a name="step-2-run-the-testconfiguration-script"></a>Paso 2: Ejecutar el script TestConfiguration
 El script TestConfiguration prueba la infraestructura definida en cluster.json para asegurarse de que se han asignado los permisos necesarios, de que las máquinas están conectadas entre sí y de que se han definido otros atributos, para que la implementación se realice correctamente. Básicamente se trata de un pequeño analizador de procedimientos recomendados. Se seguirán agregando más validaciones a esta herramienta con el tiempo para que sea más eficaz.
 
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster.
@@ -150,7 +156,7 @@ Passed                     : True
 
 ```
 
-### <a name="step-3:-run-the-create-cluster-script"></a>Paso 3: Ejecutar el script de creación de clúster
+### <a name="step-3-run-the-create-cluster-script"></a>Paso 3: Ejecutar el script de creación de clúster
 Cuando haya modificado la configuración del clúster en el documento JSON y haya agregado la información de los nodos, ejecute el script de PowerShell de creación de clústeres *CreateServiceFabricCluster.ps1* desde la carpeta del paquete y proporcione la ruta al archivo de configuración JSON. Cuando haya finalizado, acepte los términos de licencia.
 
 Este script puede ejecutarse en cualquier máquina que tenga acceso de administrador a todas las máquinas que se muestran como nodos en el archivo de configuración del clúster. La máquina donde se ejecuta este script no tiene que formar parte del clúster.
@@ -171,7 +177,7 @@ Este script puede ejecutarse en cualquier máquina que tenga acceso de administr
 > 
 > 
 
-### <a name="step-4:-connect-to-the-cluster"></a>Paso 4: Conectarse al clúster
+### <a name="step-4-connect-to-the-cluster"></a>Paso 4: Conectarse al clúster
 Para conectarse a un clúster seguro, vea [Conexión a un clúster seguro](service-fabric-connect-to-secure-cluster.md) en Service Fabric.
 
 Para conectarse a un clúster no seguro, ejecute el siguiente comando de PowerShell:
@@ -183,7 +189,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 
 ```
-### <a name="step-5:-bring-up-service-fabric-explorer"></a>Paso 5: Abrir Service Fabric Explorer
+### <a name="step-5-bring-up-service-fabric-explorer"></a>Paso 5: Abrir Service Fabric Explorer
 Ahora puede conectarse al clúster con Service Fabric Explorer directamente desde una de las máquinas con http://localhost:19080/Explorer/index.html o de forma remota con http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Agregar y quitar nodos
@@ -252,6 +258,6 @@ Ninguno.
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

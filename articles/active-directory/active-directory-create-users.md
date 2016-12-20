@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/22/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 09293d71b99e325a417edf59172550ef6e5f5b71
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3787f72dbd8ee865899b71538816d2e8d30af32
 
 
 ---
@@ -38,8 +38,8 @@ Agregue usuarios para rellenar su directorio. Este artículo explica cómo agreg
 > [!IMPORTANT]
 > Si su organización usa más de un dominio, debe tener en cuenta los siguientes problemas al agregar una cuenta de usuario:
 > 
-> * Para agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en todos los dominios, agregue **primero**, por ejemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com..
-> * **No** agregue geoffgrisso@contoso.com antes de agregar geoffgrisso@contoso.onmicrosoft.com.. Este orden es importante y puede ser complicado de deshacer.
+> * Para agregar cuentas de usuario con el mismo nombre principal de usuario (UPN) en todos los dominios, agregue **primero**, por ejemplo, geoffgrisso@contoso.onmicrosoft.com, **seguido de** geoffgrisso@contoso.com.
+> * **No** agregue geoffgrisso@contoso.com antes de agregar geoffgrisso@contoso.onmicrosoft.com. Este orden es importante y puede ser complicado de deshacer.
 > 
 > 
 
@@ -87,6 +87,6 @@ A continuación, puede editar las opciones para controlar el acceso de usuarios 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

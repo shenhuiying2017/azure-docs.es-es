@@ -1,12 +1,12 @@
 ---
-title: Incorporación o eliminación de un clúster de Service Fabric independiente | Microsoft Docs
-description: Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube.
+title: "Incorporación o eliminación de un clúster de Service Fabric independiente | Microsoft Docs"
+description: "Obtenga información sobre cómo agregar o quitar nodos en un clúster de Azure Service Fabric en una máquina virtual o física con Windows Server, la que podría estar en el entorno local o en alguna nube."
 services: service-fabric
 documentationcenter: .net
 author: dsk-2015
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2016
 ms.author: dkshir;chackdan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 335ab9d3746b089e9e7a8d640a89a2d381295b46
+
 
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
@@ -38,13 +42,18 @@ Una vez que [cree su clúster de Service Fabric independiente en máquinas de Wi
 3. Abra una conexión de Escritorio remoto (RDP) en la máquina o máquina virtual que desea quitar del clúster.
 4. Copie o [descargue el paquete independiente de Service Fabric para Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690) y descomprima el paquete en esta VM o máquina.
 5. Ejecute PowerShell como administrador y vaya a la ubicación del paquete no descomprimido.
-6. Ejecute el script *RemoveNode.ps1* de PowerShell. En el ejemplo siguiente se quita el nodo actual del clúster. *ExistingClusterConnectionEndPoint* es un punto de conexión para un nodo que ya está presente en el clúster existente. Para este punto de conexión, puede elegir la dirección IP de *cualquier* **otro nodo** del clúster.
+6. Ejecute *RemoveNode.ps1* en PowerShell. En el ejemplo siguiente se quita el nodo actual del clúster. *ExistingClientConnectionEndpoint* es un punto de conexión de cliente para cualquier nodo que permanecerá en el clúster. Elija la dirección IP y el puerto del punto de conexión de *cualquier* **otro nodo** del clúster. Este **otro nodo** a su vez actualizará la configuración del clúster para el nodo quitado. 
 
 ```
-.\RemoveNode.ps1 -ExistingClusterConnectionEndPoint 182.17.34.50:19000
+.\RemoveNode.ps1 -ExistingClientConnectionEndpoint 182.17.34.50:19000
 ```
 
-Defecto conocido que se corregirá en la próxima versión. Incluso después de quitar un nodo, este sigue apareciendo como inactivo en las consultas y SFX. 
+> [!NOTE]
+> No se pueden quitar algunos nodos debido a las dependencias de servicios del sistema. Estos nodos son principales y se pueden identificar con una consulta al manifiesto de clúster mediante `Get-ServiceFabricClusterManifest` y la búsqueda de entradas de nodo marcadas con `IsSeedNode=”true”`. 
+> 
+> 
+
+Incluso después de quitar un nodo, puede que aparezca como si estuviera inactivo en las consultas y SFX, tenga en cuenta que se trata de un defecto conocido. Se corregirá en una próxima versión. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Opciones de configuración de clústeres de Windows independientes](service-fabric-cluster-manifest.md)
@@ -52,6 +61,9 @@ Defecto conocido que se corregirá en la próxima versión. Incluso después de 
 * [Protección de un clúster de Windows independiente mediante certificados](service-fabric-windows-cluster-x509-security.md)
 * [Creación de un clúster de Service Fabric independiente con VM de Azure con Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

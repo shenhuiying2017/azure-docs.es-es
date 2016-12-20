@@ -1,11 +1,11 @@
 ---
-title: Opciones de proceso de Azure (servicios en la nube) | Microsoft Docs
-description: 'Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales'
+title: Opciones de proceso de Azure (Cloud Services) | Microsoft Docs
+description: "Obtenga información sobre cómo Azure hospeda las opciones y cómo funcionan: Servicio de aplicaciones, servicios en la nube y máquinas virtuales"
 services: cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-
+ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: na
@@ -13,9 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: db55f505d499fdb60f8a9d99509a68a1fd487eae
+
 
 ---
-# <a name="should-i-choose-cloud-services-or-something-else?"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
+# <a name="should-i-choose-cloud-services-or-something-else"></a>¿Debo elegir los servicios en la nube o alguna otra opción?
 ¿Son los servicios en la nube de Azure la opción que mejor se adapta a sus necesidades? Azure proporciona distintos modelos de hospedaje para ejecutar aplicaciones. Cada una de ellas proporciona un conjunto diferente de servicios; por tanto, lo que elija dependerá exactamente lo intenta hacer.
 
 [!INCLUDE [compute-table](../../includes/compute-options-table.md)]
@@ -38,7 +42,7 @@ Cualquier combinación de estas dos opciones ligeramente diferentes de hospedaje
 * **Rol de trabajo**  
    se ejecuta Windows Server sin IIS.
 
-Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queues](../storage/storage-introduction.md)).
+Por ejemplo, una aplicación simple podría utilizar solo un rol web, mientras que una aplicación más compleja podría utilizar un rol web para manejar solicitudes entrantes provenientes de los usuarios y luego transmitir el trabajo que crean esas solicitudes a un rol de trabajo para su procesamiento (esta comunicación podría utilizar [Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o [Azure Queues](../storage/storage-introduction.md)).
 
 Como sugiere la ilustración anterior, todas las máquinas virtuales de una sola aplicación se ejecutan en el mismo servicio en la nube. Debido a esto, los usuarios tienen acceso a la aplicación a través de una dirección IP pública única y se realiza automáticamente el equilibrio de carga de las solicitudes en todas las máquinas virtuales de la aplicación. La plataforma [escalará e implementará](cloud-services-how-to-scale.md) las máquinas virtuales en una aplicación de Servicios en la nube para así evitar un único punto de errores de hardware.
 
@@ -60,6 +64,9 @@ La naturaleza de PaaS de Servicios en la nube tiene también otras implicaciones
 [Crear una aplicación de servicio en la nube en PHP](../cloud-services-php-create-web-role.md)  
 [Creación de una aplicación de servicio en la nube en Python](cloud-services-python-ptvs.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

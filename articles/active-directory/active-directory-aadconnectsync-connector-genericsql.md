@@ -1,12 +1,12 @@
 ---
-title: Conector SQL genérico | Microsoft Docs
-description: En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft.
+title: "Conector SQL genérico | Microsoft Docs"
+description: "En este artículo se describe cómo configurar el conector de SQL genérico de Microsoft."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fd8ccef3-6605-47ba-9219-e0c74ffc0ec9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 14d2eaaa6463437d5b66840f05810588fce4b7da
+
 
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referencia técnica del conector de SQL genérico
@@ -83,7 +87,7 @@ La base de datos debe admitir uno de estos métodos de autenticación:
 
 **Export Type: Object Replace**(Tipo de exportación: reemplazar objeto): durante la exportación, cuando solo se han cambiado algunos atributos, se exportará el objeto completo con todos los atributos y reemplaza el objeto existente.
 
-### <a name="schema-1-(detect-object-types)"></a>Esquema 1 (Detectar tipos de objeto)
+### <a name="schema-1-detect-object-types"></a>Esquema 1 (Detectar tipos de objeto)
 En esta página, va a configurar cómo encuentra el conector los distintos tipos de objeto en la base de datos.
 
 Cada tipo de objeto se presenta como una partición y se configura más adelante en **Configurar particiones y jerarquías**.
@@ -98,7 +102,7 @@ Cada tipo de objeto se presenta como una partición y se configura más adelante
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **Consulta SQL**: esta opción permite proporcionar una consulta SQL que devuelve una sola columna con tipos de objeto, por ejemplo, `SELECT [Column Name] FROM TABLENAME`. La columna devuelta debe ser de tipo cadena (varchar).
 
-### <a name="schema-2-(detect-attribute-types)"></a>Esquema 2 (Detectar tipos de atributo)
+### <a name="schema-2-detect-attribute-types"></a>Esquema 2 (Detectar tipos de atributo)
 En esta página va a configurar cómo se van a detectar los nombres y tipos de atributo. Se muestran las opciones de configuración para cada tipo de objeto detectado en la página anterior.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
@@ -108,7 +112,7 @@ En esta página va a configurar cómo se van a detectar los nombres y tipos de a
 * **Tabla/Vista/Procedimiento almacenado**: proporcione el nombre de la tabla/vista/procedimiento almacenado que debe usarse para buscar los nombres de atributo. Si utiliza un procedimiento almacenado, indique también los parámetros para él en el formato **[Nombre]:[Dirección]:[Valor]**. Proporcione cada parámetro en una línea independiente (use Ctrl + Entrar para obtener una nueva línea). Para detectar los nombres de atributo en un atributo multivalor, proporcione una lista separada por comas de tablas o vistas. No se admiten escenarios multivalor si la tabla primaria y secundaria tienen los mismos nombres de columna.
 * **Consulta SQL**: esta opción permite proporcionar una consulta SQL que devuelve una sola columna con nombres de atributo, por ejemplo, `SELECT [Column Name] FROM TABLENAME`. La columna devuelta debe ser de tipo cadena (varchar).
 
-### <a name="schema-3-(define-anchor-and-dn)"></a>Esquema 3 (Definir delimitador y DN)
+### <a name="schema-3-define-anchor-and-dn"></a>Esquema 3 (Definir delimitador y DN)
 Esta página permite configurar el atributo de delimitador y de DN para cada tipo de objeto detectado. Puede seleccionar varios atributos para que el delimitador sea único.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -118,7 +122,7 @@ Esta página permite configurar el atributo de delimitador y de DN para cada tip
 * Si **DN es el delimitador** está seleccionado en la página Conectividad, esta página requiere solo el atributo de DN. Este atributo se utilizará también como el atributo de delimitador.
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-### <a name="schema-4-(define-attribute-type,-reference,-and-direction)"></a>Esquema 4 (Definir tipo de atributo, referencia y dirección)
+### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Esquema 4 (Definir tipo de atributo, referencia y dirección)
 Esta página permite configurar el tipo de atributo como entero, binario o un valor booleano, así como la dirección para cada atributo. Se muestran todos los atributos de la página **Esquema 2** , incluidos los atributos multivalor.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
@@ -133,7 +137,7 @@ Notas:
 * **Tablas anidadas** se pueden considerar tablas de base de datos con una única columna. Oracle almacena las filas de una tabla anidada sin un orden determinado. Sin embargo, al recuperar la tabla anidada en una variable de PL/SQL, se asigna a las filas subíndices consecutivos a partir de 1. Esto le proporciona un acceso de tipo matriz a las filas individuales.
 * **VARRYS** en el conector.
 
-### <a name="schema-5-(define-partition-for-reference-attributes)"></a>Esquema 5 (Definir partición para atributos de referencia)
+### <a name="schema-5-define-partition-for-reference-attributes"></a>Esquema 5 (Definir partición para atributos de referencia)
 En esta página, puede configurar en todos los atributos de referencia a qué partición (tipo de objeto) hace referencia un atributo.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -153,7 +157,7 @@ El conector de SQL genérico admite los siguientes métodos para la importación
   * La estrategia de marca de agua no admite objetos eliminados.
 * **Snapshot**: (solo funciona con Microsoft SQL Server) [Generating Delta Views Using Snapshots](https://technet.microsoft.com/library/cc720640.aspx)
 * **ChangeTracking**: (solo funciona con Microsoft SQL Server) [About ChangeTracking](https://msdn.microsoft.com/library/bb933875.aspx)  
-  Limitaciones:
+   Limitaciones:
   * Los atributos de delimitador y de DN deben ser parte de la clave principal para el objeto seleccionado en la tabla.
   * No se admite la consulta SQL durante la importación y exportación con seguimiento de cambios.
 
@@ -281,6 +285,9 @@ Si elige la opción Consulta SQL, la exportación requiere tres consultas difere
 ## <a name="troubleshooting"></a>Solución de problemas
 * Para más información acerca de cómo habilitar el registro para solucionar problemas del conector, consulte [How to Enable ETW Tracing for FIM 2010 R2 Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

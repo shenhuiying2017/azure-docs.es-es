@@ -1,12 +1,12 @@
 ---
-title: Detección de movimientos con Análisis multimedia de Azure | Microsoft Docs
-description: El procesador de multimedia (MP) Detector de movimiento multimedia de Azure permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono.
+title: "Detección de movimientos con Análisis multimedia de Azure | Microsoft Docs"
+description: "El procesador de multimedia (MP) Detector de movimiento multimedia de Azure permite identificar de manera eficaz las secciones de interés dentro de un vídeo que, de lo contrario, sería extenso y monótono."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d144f813-1a55-442f-a895-5c4cb6d0aeae
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b92e9290396009e59bfadb2eb3f75cf4952a45d
+
 
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detección de movimientos con Análisis multimedia de Azure
@@ -29,7 +33,7 @@ Este tema proporciona detalles sobre **Azure Media Motion Detector** y muestra c
 ## <a name="motion-detector-input-files"></a>Archivos de entrada del Detector de movimiento
 Archivos de vídeo. Actualmente, se admiten los siguientes formatos: MP4, MOV y WMV.
 
-## <a name="task-configuration-(preset)"></a>Configuración de tareas (valor predeterminado)
+## <a name="task-configuration-preset"></a>Configuración de tareas (valor predeterminado)
 Cuando cree una tarea con **Azure Media Motion Detector**, tiene que especificar una configuración preestablecida. 
 
 ### <a name="parameters"></a>Parámetros
@@ -78,7 +82,7 @@ Un trabajo de detección de movimiento devolverá un archivo JSON en el recurso 
 
 La API del Detector de movimiento brinda indicadores una vez que hay objetos en movimiento en un vídeo de fondo fijo (por ejemplo, un vídeo de vigilancia). El Detector de movimiento está entrenado para disminuir las alarmas falsas, como cambios de iluminación y sombras. Las limitaciones actuales de los algoritmos incluyen vídeos con visión nocturna, objetos semitransparentes y objetos pequeños.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
 > [!NOTE]
 > En la versión más reciente, el formato JSON de salida ha cambiado y puede representar un cambio importante para algunos clientes.
 > 
@@ -365,6 +369,9 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

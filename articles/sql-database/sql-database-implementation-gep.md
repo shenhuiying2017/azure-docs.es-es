@@ -1,19 +1,24 @@
 ---
-title: 'Caso práctico de Azure SQL Database: GEP | Microsoft Docs'
-description: Sepa cómo GEP utiliza SQL Database para llegar a más clientes internacionales y lograr una mayor eficacia.
+title: "Caso práctico de Azure SQL Database - GEP | Microsoft Docs"
+description: "Sepa cómo GEP utiliza SQL Database para llegar a más clientes internacionales y lograr una mayor eficacia."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: ae8bcb10-c251-4bac-b666-10a253918583
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: da2e3e4f9a33860141d94352fd2e657b14b0d03d
+
 
 ---
 # <a name="azure-gives-gep-global-reach-and-greater-efficiency"></a>Azure brinda a GEP alcance global y mayor eficacia
@@ -99,6 +104,9 @@ Desde que GEP migró los centros de datos locales a Azure y desarrolló SMART by
 * Sathyan Narasingh, administrador de ingeniería de GEP
 * Deepa Velukutty, arquitecto de bases de datos de GEP
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

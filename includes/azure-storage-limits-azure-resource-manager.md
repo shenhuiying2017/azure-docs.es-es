@@ -6,4 +6,8 @@ Los límites siguientes se aplican al usar el Administrador de recursos de Azure
 | Operaciones de administración de la cuenta de almacenamiento (escritura) |200 por hora |
 | Operaciones de administración de la cuenta de almacenamiento (lista) |100 por cada 5 minutos |
 
-<!---HONumber=Nov15_HO3-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

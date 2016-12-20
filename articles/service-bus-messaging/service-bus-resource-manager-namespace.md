@@ -1,41 +1,45 @@
 ---
-title: Creación de un espacio de nombres de Bus de servicio con una plantilla de Azure Resource Manager | Microsoft Docs
+title: "Creación de un espacio de nombres de Service Bus con una plantilla de Resource Manager | Microsoft Docs"
 description: Utilice la plantilla de Azure Resource Manager para crear un espacio de nombres de Bus de servicio
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 39907193d006d6060152c9ac737a082d655c2256
+
 
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres del Bus de servicio mediante una plantilla de Azure Resource Manager
 En este artículo se describe cómo utilizar una plantilla de Azure Resource Manager que crea un espacio de nombres de Service Bus del tipo **Mensajería** con una SKU de nivel básico o estándar. El artículo también define los parámetros que se especifican para la ejecución de la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
+Para más información sobre la creación de plantillas, vea [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
 
-Para ver la plantilla completa, consulte la [Plantilla de espacio de nombres del Bus de servicio][Plantilla de espacio de nombres del Bus de servicio] en GitHub.
+Vea la plantilla completa en [Plantilla de espacio de nombres del Bus de servicio][Plantilla de espacio de nombres del Bus de servicio] en GitHub.
 
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación. 
 > 
-> * [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
 > * [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 > * [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
 > * [Creación de un espacio de nombres de Bus de servicio con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Creación de un espacio de nombres de Service Bus con un tema, una suscripción y una regla](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Bus de servicio.
+> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Service Bus.
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>¿Qué va a implementar?
+## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 Con esta plantilla, implementará un espacio de nombres de Service Bus con una SKU de nivel [básico, estándar o premium](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
@@ -79,7 +83,7 @@ El nombre de la [SKU](https://azure.microsoft.com/pricing/details/service-bus/) 
 
 La plantilla define los valores permitidos para este parámetro (Básico, Estándar o Premium) y asigna un valor predeterminado (Estándar) si no se especifica ningún valor.
 
-Para obtener más información sobre los precios de Service Bus, vea [Precios y facturación de Service Bus][].
+Para más información sobre los precios de Service Bus, vea [Precios y facturación de Bus de servicio][Precios y facturación de Bus de servicio].
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
 La versión de la API de Bus de servicio de la plantilla.
@@ -133,7 +137,7 @@ azure group deployment create <my-resource-group> <my-deployment-name> --templat
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado e implementado recursos con Azure Resource Manager, lea los artículos siguientes para obtener información sobre cómo administrar dichos recursos:
 
-* [Administración de Service Bus con PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Administración de Service Bus con PowerShell](service-bus-powershell-how-to-provision.md)
 * [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
 
 [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
@@ -145,6 +149,6 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, lea los 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

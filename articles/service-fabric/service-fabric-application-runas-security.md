@@ -1,12 +1,12 @@
 ---
-title: Descripción de las directivas de seguridad del servicio y de la aplicación Service Fabric | Microsoft Docs
-description: Información general sobre cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad locales y del sistema, incluido el punto SetupEntry en el que una aplicación necesita realizar alguna acción con privilegios antes de iniciarse
+title: "Descripción de las directivas de seguridad del servicio y de la aplicación Service Fabric | Microsoft Docs"
+description: "Información general sobre cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad locales y del sistema, incluido el punto SetupEntry en el que una aplicación necesita realizar alguna acción con privilegios antes de iniciarse"
 services: service-fabric
 documentationcenter: .net
 author: msfussell
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,19 +14,23 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/22/2016
 ms.author: mfussell
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6a441b34e84d95410bb0dad6360ea7084c1808b1
+
 
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configuración de directivas de seguridad para la aplicación
-Azure Service Fabric permite proteger aplicaciones que se ejecutan en el clúster en distintas cuentas de usuario. También protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario, como archivos, directorios y certificados. Esto permite proteger las aplicaciones en ejecución, incluso en un entorno hospedado compartido, unas de otras. 
+Azure Service Fabric permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. Service Fabric también protege los recursos que usan las aplicaciones en el momento de la implementación con la cuenta de usuario; por ejemplo, archivos, directorios y certificados. Esto aumenta la seguridad entre aplicaciones en ejecución, incluso en un entorno hospedado compartido.
 
 De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también permite ejecutar aplicaciones en una cuenta de usuario local o una cuenta de sistema local especificada en el manifiesto de la aplicación. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.
 
- Cuando se ejecuta Service Fabric en Windows Server en el centro de datos mediante el instalador independiente, puede utilizar cuentas de dominio de Active Directory (AD).
+ Cuando ejecute Service Fabric en Windows Server en el centro de datos mediante el instalador independiente, puede utilizar cuentas de dominio de Active Directory.
 
-Se pueden definir y crear grupos de usuarios, con el fin de que se puedan agregar uno o varios usuarios a cada grupo para poder administrarlos de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo.
+Se pueden definir y crear grupos de usuarios, de modo que se puedan agregar uno o varios usuarios a cada grupo para poder administrarlos de forma conjunta. Esto es útil cuando hay varios usuarios para distintos puntos de entrada de servicio y es preciso que tengan ciertos privilegios comunes disponibles en el nivel de grupo.
 
-## <a name="configure-the-policy-for-service-setupentrypoint"></a>Configuración de la directiva del SetupEntryPoint del servicio
-Como se describe en [Modelar una aplicación en Service Fabric](service-fabric-application-model.md) , **SetupEntryPoint** es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *NetworkService* ) antes que cualquier otro punto de entrada. El ejecutable que especifica **EntryPoint** suele ser el host de servicios de ejecución prolongada, por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el host de servicios con privilegios elevados durante largos períodos. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea.
+## <a name="configure-the-policy-for-a-service-setup-entry-point"></a>Configuración de la directiva para un punto de entrada del programa de instalación del servicio
+Tal como se describe en el [modelo de aplicación](service-fabric-application-model.md), el punto de entrada del programa de instalación, **SetupEntryPoint**, es un punto de entrada con privilegios que se ejecuta con las mismas credenciales que Service Fabric (normalmente, la cuenta *NetworkService*) antes que cualquier otro punto de entrada. El archivo ejecutable que se especifica con **EntryPoint** suele ser el host de servicio de ejecución prolongada. Por lo que tener un punto de entrada de configuración independiente evita tener que ejecutar el ejecutable del host de servicio con privilegios elevados durante largos períodos de tiempo. El archivo ejecutable especificado por **EntryPoint** se ejecuta después de salir de **SetupEntryPoint** correctamente. El proceso resultante se supervisa y reinicia, comenzando de nuevo con **SetupEntryPoint**si alguna vez finaliza o se bloquea.
 
 A continuación aparece un ejemplo de manifiesto de servicio básico que muestra SetupEntryPoint y el EntryPoint principal del servicio.
 
@@ -54,8 +58,8 @@ A continuación aparece un ejemplo de manifiesto de servicio básico que muestra
 </ServiceManifest>
 ~~~
 
-### <a name="configure-the-policy-using-a-local-account"></a>Configuración de la directiva mediante una cuenta local
-Tras configurar el servicio para que tenga un punto de entrada de configuración, puede cambiar los permisos de seguridad que ejecuta en el manifiesto de aplicación. En el ejemplo siguiente, se muestra cómo configurar el servicio para que se ejecute con privilegios de cuenta de administrador de usuarios.
+### <a name="configure-the-policy-by-using-a-local-account"></a>Configuración de la directiva mediante una cuenta local
+Tras configurar el servicio para que tenga un punto de entrada de configuración, puede cambiar los permisos de seguridad que ejecuta en el manifiesto de aplicación. En el ejemplo siguiente se muestra cómo configurar el servicio para que se ejecute con privilegios de cuenta de administrador de usuarios.
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -81,11 +85,11 @@ Tras configurar el servicio para que tenga un punto de entrada de configuración
 
 En primer lugar, cree una sección **Principals** con un nombre de usuario, como SetupAdminUser. Esto indica que el usuario es miembro del grupo de administradores del sistema.
 
-Después, debajo de la sección **ServiceManifestImport**, configure una directiva para aplicar esta entidad de seguridad a **SetupEntryPoint**. Esto indica a Service Fabric que, cuando se ejecute el archivo **MySetup.bat** , debería ser RunAs con privilegios de administrador. Dado que *no* ha aplicado una directiva al punto de entrada principal, el código de **MyServiceHost.exe** se ejecuta en la cuenta **NetworkService** del sistema. Esta es la cuenta predeterminada como la que se ejecutan todos los puntos de entrada de servicio.
+Después, debajo de la sección **ServiceManifestImport**, configure una directiva para aplicar esta entidad de seguridad a **SetupEntryPoint**. Esto indica a Service Fabric que, cuando el archivo **MySetup.bat** se ejecute, debería ser `RunAs` con privilegios de administrador. Dado que *no* ha aplicado una directiva al punto de entrada principal, el código de **MyServiceHost.exe** se ejecuta en la cuenta **NetworkService** del sistema. Esta es la cuenta predeterminada como la que se ejecutan todos los puntos de entrada de servicio.
 
 Ahora agreguemos el archivo MySetup.bat al proyecto de Visual Studio para probar los privilegios de administrador. En Visual Studio, haga clic con el botón derecho en el proyecto de servicio y agregue un nuevo archivo, MySetup.bat.
 
-Después asegúrese de que el archivo MySetup.bat está incluido en el paquete de servicio. De forma predeterminada, no lo está. Seleccione el archivo, haga clic con el botón derecho para ver el menú contextual y elija **Propiedades**. En el cuadro de diálogo de propiedades, asegúrese de que **Copiar en el directorio de salida** está establecido en **Copiar si es posterior**. Observe la siguiente captura de pantalla.
+Después asegúrese de que el archivo MySetup.bat está incluido en el paquete de servicio. De forma predeterminada, no lo está. Seleccione el archivo, haga clic con el botón derecho para ver el menú contextual y elija **Propiedades**. En el cuadro de diálogo de propiedades, asegúrese de que **Copiar en el directorio de salida** está establecido en **Copiar si es posterior**. Vea la siguiente captura de pantalla.
 
 ![CopyToOutput de Visual Studio para el archivo por lotes de SetupEntryPoint][image1]
 
@@ -101,21 +105,21 @@ REM To delete this system variable us
 REM REG delete "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v TestVariable /f
 ~~~
 
-Seguidamente, compile e implemente la solución en un clúster de desarrollo local.  Una vez iniciado el servicio, como se muestra en el explorador de Service Fabric, puede ver que MySetup.bat se ha ejecutado correctamente de dos maneras. Abra un símbolo del sistema de PowerShell y escriba:
+Seguidamente, compile e implemente la solución en un clúster de desarrollo local. Una vez iniciado el servicio, tal como se muestra en Service Fabric Explorer, hay dos maneras de ver que MySetup.bat se ha ejecutado correctamente. Abra un símbolo del sistema de PowerShell y escriba:
 
 ~~~
 PS C:\ [Environment]::GetEnvironmentVariable("TestVariable","Machine")
 MyValue
 ~~~
 
-Luego, anote el nombre del nodo donde el servicio se ha implementado e iniciado en el explorador de Service Fabric, por ejemplo, Node 2. Después, navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si este servicio se implementó en Node 2, puede ir a esta ruta de acceso para ver el valor de **MyApplicationType**:
+Anote el nombre del nodo donde el servicio se ha implementado e iniciado en Service Fabric Explorer, por ejemplo, Node 2. Después, navegue hasta la carpeta de trabajo de la instancia de aplicación para buscar el archivo out.txt que muestra el valor de **TestVariable**. Por ejemplo, si este servicio se implementó en Node 2, puede ir a esta ruta de acceso para ver el valor de **MyApplicationType**:
 
 ~~~
 C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
 ~~~
 
-### <a name="configure-the-policy-using-local-system-accounts"></a>Configuración de la directiva mediante cuentas de sistema locales
-A menudo es preferible ejecutar el script de inicio mediante una cuenta de sistema local en lugar de usar una cuenta de administrador, como se mostró anteriormente. Normalmente, el hecho de ejecutar la directiva RunAs como administrador no funciona bien, ya que las máquinas tienen el Control de acceso de usuario (UAC) habilitado de forma predeterminada. En estos casos, **la recomendación es ejecutar el SetupEntryPoint como LocalSystem en lugar de un usuario local agregado al grupo de administradores**. En el ejemplo siguiente, se muestra cómo establecer SetupEntryPoint para que se ejecute como LocalSystem.
+### <a name="configure-the-policy-by-using-local-system-accounts"></a>Configuración de la directiva mediante cuentas de sistema locales
+A menudo es preferible ejecutar el script de inicio mediante una cuenta de sistema local en lugar de usar una cuenta de administrador. Normalmente, el hecho de ejecutar la directiva RunAs como miembro del grupo Administradores no funciona bien, ya que las máquinas tienen el Control de acceso de usuario (UAC) habilitado de forma predeterminada. En estos casos, **la recomendación es ejecutar el SetupEntryPoint como LocalSystem y no como un usuario local agregado al grupo de administradores**. En el ejemplo siguiente se muestra cómo establecer SetupEntryPoint para que se ejecute como LocalSystem:
 
 ~~~
 <?xml version="1.0" encoding="utf-8"?>
@@ -135,10 +139,10 @@ A menudo es preferible ejecutar el script de inicio mediante una cuenta de siste
 </ApplicationManifest>
 ~~~
 
-## <a name="launch-powershell-commands-from-a-setupentrypoint"></a>Inicio de comandos de PowerShell desde un SetupEntryPoint
-Para ejecutar PowerShell desde el punto **SetupEntryPoint**, puede ejecutar **PowerShell.exe** en un archivo por lotes que apunte al archivo de PowerShell. En primer lugar, agregue un archivo de PowerShell al proyecto de servicio, por ejemplo, **MySetup.ps1**. No olvide configurar la propiedad *Copiar si es posterior* para que el archivo se incluya también en el paquete de servicio. El ejemplo siguiente muestra un archivo por lotes de ejemplo que inicia un archivo de PowerShell denominado MySetup.ps1, que establece una variable de entorno del sistema denominada **TestVariable**.
+## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Inicio de comandos de PowerShell desde un SetupEntryPoint
+Para ejecutar PowerShell desde el punto **SetupEntryPoint**, puede ejecutar **PowerShell.exe** en un archivo por lotes que apunte al archivo de PowerShell. En primer lugar, agregue un archivo de PowerShell al proyecto de servicio, por ejemplo, **MySetup.ps1**. No olvide configurar la propiedad *Copiar si es posterior* para que el archivo se incluya también en el paquete de servicio. En el ejemplo siguiente se muestra un archivo por lotes de ejemplo que inicia un archivo de PowerShell denominado MySetup.ps1, que establece una variable de entorno del sistema denominada **TestVariable**.
 
-MySetup.bat para iniciar el archivo de PowerShell.
+MySetup.bat para iniciar un archivo de PowerShell:
 
 ~~~
 powershell.exe -ExecutionPolicy Bypass -Command ".\MySetup.ps1"
@@ -151,7 +155,10 @@ En el archivo de PowerShell, agregue el siguiente procedimiento para establecer 
 [Environment]::GetEnvironmentVariable("TestVariable","Machine") > out.txt
 ~~~
 
-**Nota:** De forma predeterminada, cuando se ejecuta el archivo por lotes, la búsqueda de archivos se realiza en la carpeta de aplicación denominada **work**. En este caso, cuando se ejecuta MySetup.bat queremos que encuentre MySetup.ps1 en la misma carpeta, que es la carpeta **paquete de código** de la aplicación. Para cambiar esta carpeta, configure la carpeta de trabajo, como se muestra a continuación.
+> [!NOTE]
+> De forma predeterminada, cuando se ejecuta el archivo por lotes, la búsqueda de archivos se realiza en la carpeta de aplicación denominada **work**. En este caso, cuando se ejecuta MySetup.bat queremos que encuentre el archivo MySetup.ps1 en la misma carpeta, que es la carpeta **paquete de código** de la aplicación. Para cambiar esta carpeta, configure la carpeta de trabajo:
+> 
+> 
 
 ~~~
 <SetupEntryPoint>
@@ -162,12 +169,15 @@ En el archivo de PowerShell, agregue el siguiente procedimiento para establecer 
 </SetupEntryPoint>
 ~~~
 
-## <a name="using-console-redirection-for-local-debugging"></a>Uso de la redirección de la consola para la depuración local
-Ocasionalmente, resulta útil ver el resultado de la consola tras ejecutar un script con fines de depuración. Para ello, puede establecer una directiva de redirección de la consola que escriba la salida en un archivo. La salida del archivo se escribe en la carpeta de aplicación denominada **log** en el nodo donde se ha implementado y ejecutado la aplicación (observe dónde se encuentra esta ubicación en el ejemplo anterior).
+## <a name="use-console-redirection-for-local-debugging"></a>Uso de la redirección de la consola para la depuración local
+En ocasiones, resulta útil ver el resultado de la consola tras ejecutar un script con fines de depuración. Para ello, puede establecer una directiva de redirección de la consola que escriba la salida en un archivo. La salida del archivo se escribe en la carpeta de aplicación denominada **log** en el nodo donde se ha implementado y ejecutado la aplicación. (Vea dónde encontrar esto en el ejemplo anterior).
 
-**Nota:** No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede influir en la capacidad de conmutación por error de la aplicación. **SOLO** debe usarla para propósitos de depuración y desarrollo local.  
+> [!NOTE]
+> No use nunca la directiva de redirección de la consola en una aplicación implementada en producción, ya que esto puede afectar a la capacidad de conmutación por error de la aplicación. *Solo* debe usarla con fines de depuración y desarrollo local.  
+> 
+> 
 
-En el ejemplo siguiente, se muestra cómo establecer la redirección de la consola con un valor de FileRetentionCount.
+En el ejemplo siguiente, se muestra cómo establecer la redirección de la consola con un valor de FileRetentionCount:
 
 ~~~
 <SetupEntryPoint>
@@ -179,19 +189,19 @@ En el ejemplo siguiente, se muestra cómo establecer la redirección de la conso
 </SetupEntryPoint>
 ~~~
 
-Si cambia el archivo MySetup.ps1 para escribir un comando **Echo** , este se escribirá en el archivo de salida con fines de depuración.
+Si cambia el archivo MySetup.ps1 para escribir un comando **Echo**, este se escribirá en el archivo de salida con fines de depuración:
 
 ~~~
 Echo "Test console redirection which writes to the application log folder on the node that the application is deployed to"
 ~~~
 
-**Después de haber depurado la secuencia de comandos, quite inmediatamente esta directiva de redireccionamiento de consola.**
+**Después de haber depurado el script, quite inmediatamente esta directiva de redireccionamiento de consola**.
 
-## <a name="configure-policy-for-service-code-packages"></a>Configuración de la directiva para los paquetes de código del servicio
+## <a name="configure-a-policy-for-service-code-packages"></a>Configuración de una directiva para los paquetes de código del servicio
 En los pasos anteriores se explicaba cómo aplicar la directiva RunAs a SetupEntryPoint. Ahora se explicará más detalladamente cómo crear diferentes entidades de seguridad que se pueden aplicar como directivas de servicio.
 
 ### <a name="create-local-user-groups"></a>Creación de grupos de usuarios locales
-Se pueden definir y crear grupos de usuarios que permitan agregar uno o varios usuarios a un grupo. Esto es especialmente útil si hay varios usuarios para distintos puntos de entrada de servicio y deben tener ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente, se muestra un grupo local denominado **LocalAdminGroup** con privilegios de administrador. Dos usuarios, Customer1 y Customer2, se convierten en miembros de este grupo local.
+Se pueden definir y crear grupos de usuarios que permitan agregar uno o varios usuarios a un grupo. Esto es especialmente útil si hay varios usuarios para distintos puntos de entrada de servicio y deben tener ciertos privilegios comunes disponibles en el nivel de grupo. En el ejemplo siguiente se muestra un grupo local denominado **LocalAdminGroup** con privilegios de administrador. Dos usuarios, Customer1 y Customer2, se convierten en miembros de este grupo local.
 
 ~~~
 <Principals>
@@ -247,20 +257,22 @@ En la sección **RunAsPolicy** de **ServiceManifestImport**, se especifica la cu
 </Policies>
 ~~~
 
-Si no se especifica **EntryPointType** , el valor predeterminado se establece en EntryPointType =”Main”. El uso de **SetupEntryPoint** es especialmente útil si lo que se desea es ejecutar determinadas operaciones de configuración con privilegios elevados en una cuenta de sistema. El código de servicio real puede ejecutarse en una cuenta con menos privilegios.
+Si no se especifica **EntryPointType** , el valor predeterminado se establece en EntryPointType =”Main”. El uso de **SetupEntryPoint** es especialmente útil si lo que se desea es ejecutar determinadas operaciones de instalación con privilegios elevados en una cuenta de sistema. El código de servicio real puede ejecutarse en una cuenta con menos privilegios.
 
 ### <a name="apply-a-default-policy-to-all-service-code-packages"></a>Aplicación de una directiva predeterminada a todos los paquetes de código de servicio
-La sección **DefaultRunAsPolicy** se usa para especificar una cuenta de usuario predeterminada para todos los paquetes de código que no tienen ningún parámetro **RunAsPolicy** específico definido. Si la mayoría de los paquetes de código especificados en el manifiesto de servicio que usa una aplicación debe ejecutarse en el mismo usuario, la aplicación solo puede definir una directiva RunAs predeterminada con dicha cuenta de usuario. En el ejemplo siguiente, se especifica que si un paquete de código no tiene una directiva **RunAsPolicy** especificada, tendrá que ejecutarse en la directiva **MyDefaultAccount** especificada en la sección de entidades de seguridad.
+La sección **DefaultRunAsPolicy** se usa para especificar una cuenta de usuario predeterminada para todos los paquetes de código que no tienen definido ningún parámetro **RunAsPolicy** específico. Si la mayoría de los paquetes de código especificados en el manifiesto de servicio que usa una aplicación deben ejecutarse en el mismo usuario, la aplicación solo puede definir una directiva RunAs predeterminada con dicha cuenta de usuario. En el ejemplo siguiente, se especifica que si un paquete de código no tiene una directiva **RunAsPolicy** especificada, tendrá que ejecutarse en la directiva **MyDefaultAccount** especificada en la sección de entidades de seguridad.
 
 ~~~
 <Policies>
   <DefaultRunAsPolicy UserRef="MyDefaultAccount"/>
 </Policies>
 ~~~
-### <a name="using-an-active-directory-domain-group-or-user"></a>Uso de un usuario o un grupo de dominios de Active Directory
-Para instalar Service Fabric en Windows Server con el instalador independiente, puede ejecutar el servicio con las credenciales de una cuenta de grupo o usuario de Active Directory (AD). Nota: Esto es para Active Directory local dentro del dominio y no para Azure Active Directory (AAD). Mediante el uso de un grupo o usuario de dominio puede tener acceso a otros recursos del dominio (por ejemplo, recursos compartidos de archivos) para los que se han concedido permisos.
+### <a name="use-an-active-directory-domain-group-or-user"></a>Uso de un usuario o un grupo de dominios de Active Directory
+Para una instancia de Service Fabric que se instale en Windows Server mediante el instalador independiente, puede ejecutar el servicio con las credenciales de una cuenta de grupo o usuario de Active Directory. Tenga en cuenta que esto se aplica a Active Directory local dentro del dominio y no para Azure Active Directory (AAD). Mediante el uso de un grupo o usuario de dominio puede tener acceso a otros recursos del dominio (por ejemplo, recursos compartidos de archivos) para los que se han concedido permisos.
 
-El ejemplo siguiente muestra un usuario de AD denominado *TestUser* con la contraseña de dominio cifrada mediante un certificado llamado *MyCert*. Puede usar el comando de Powershell `Invoke-ServiceFabricEncryptText` para crear el texto cifrado secreto. Consulte el artículo [Administración de secretos en aplicaciones de Service Fabric](service-fabric-application-secret-management.md) para más información acerca de cómo hacerlo. La clave privada del certificado para descifrar la contraseña se debe implementar en la máquina local con un método fuera de banda (en Azure esto se logra mediante Resource Manager). Posteriormente, cuando Service Fabric implementa el paquete de servicio en la máquina, es capaz de descifrar el secreto y, junto con el nombre de usuario, autenticarse mediante AD para ejecutarse con esas credenciales.
+El ejemplo siguiente muestra un usuario de Active Directory denominado *TestUser* con la contraseña de dominio cifrada mediante un certificado llamado *MyCert*. Puede usar el comando de PowerShell `Invoke-ServiceFabricEncryptText` para crear el texto cifrado secreto. Vea [Administración de secretos en aplicaciones de Service Fabric](service-fabric-application-secret-management.md) | Microsoft Azure.
+
+La clave privada del certificado para descifrar la contraseña se debe implementar en la máquina local con un método fuera de banda (en Azure esto se realiza mediante Azure Resource Manager). Posteriormente, cuando Service Fabric implemente el paquete de servicio en la máquina, podrá descifrar el secreto y, junto con el nombre de usuario, autenticarse mediante Active Directory para ejecutarse con esas credenciales.
 
 ~~~
 <Principals>
@@ -278,8 +290,8 @@ El ejemplo siguiente muestra un usuario de AD denominado *TestUser* con la contr
 ~~~
 
 
-## <a name="assign-securityaccesspolicy-for-http-and-https-endpoints"></a>Asignación de SecurityAccessPolicy a los puntos de conexión HTTP y HTTPS
-Si se aplica una directiva RunAs a un servicio y el manifiesto de servicio declara que hay recursos de puntos de conexión con el protocolo HTTP, es preciso especificar una directiva **SecurityAccessPolicy** para asegurarse de que los puertos asignados a dichos puntos de conexión aparezcan correctamente en la lista de control de acceso de la cuenta de usuario de RunAs en la que se ejecuta el servicio. En caso contrario, **http.sys** no tendrá acceso al servicio y aparecerán errores en las llamadas del cliente. En el ejemplo siguiente, la cuenta Customer3 se aplica a un punto de conexión denominado **ServiceEndpointName**y se le asignan derechos de acceso completos.
+## <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Asignación de una directiva de acceso de seguridad a los puntos de conexión HTTP y HTTPS
+Si se aplica una directiva RunAs a un servicio y el manifiesto de servicio declara que hay recursos de puntos de conexión con el protocolo HTTP, es preciso especificar una directiva **SecurityAccessPolicy** para asegurarse de que los puertos asignados a dichos puntos de conexión aparezcan correctamente en la lista de control de acceso de la cuenta de usuario RunAs en la que se ejecuta el servicio. En caso contrario, **http.sys** no tendrá acceso al servicio y aparecerán errores en las llamadas del cliente. En el ejemplo siguiente se aplica la cuenta Customer3 a un punto de conexión denominado **ServiceEndpointName**, que le concede derechos de acceso completos.
 
 ~~~
 <Policies>
@@ -369,6 +381,6 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

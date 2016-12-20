@@ -1,12 +1,12 @@
 ---
-title: Supervisión del mantenimiento en Service Fabric | Microsoft Docs
-description: Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios.
+title: "Supervisión del mantenimiento en Service Fabric | Microsoft Docs"
+description: "Una introducción al modelo de supervisión del mantenimiento de Azure Service Fabric, que proporciona supervisión del clúster y de sus aplicaciones y servicios."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2016
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6ec1e341bc87475251161521e808dcbb821c2939
+
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introducción a la supervisión del mantenimiento de Service Fabric
@@ -224,7 +228,7 @@ Los campos de la transición de estado se pueden usar para alertas inteligentes 
 * Alertar solo sobre las condiciones que han cambiado en los últimos X minutos. Si el estado de un informe ya era Error antes de la hora especificada, se puede ignorar, porque ya se había señalado con anterioridad.
 * Si una propiedad alterna entre Advertencia y Error, determine cuánto tiempo ha sido incorrecta (es decir, que no ha sido correcta). Por ejemplo, una alerta si la propiedad no ha sido correcta durante más de cinco minutos se pueden traducir como (HealthState != Ok y Now - LastOkTransitionTime > 5 minutes).
 
-## <a name="example:-report-and-evaluate-application-health"></a>Ejemplo: informar y evaluar el mantenimiento de una aplicación
+## <a name="example-report-and-evaluate-application-health"></a>Ejemplo: informar y evaluar el mantenimiento de una aplicación
 En el ejemplo siguiente se envía un informe de mantenimiento a través de PowerShell en la aplicación **fabric:/WordCount**desde el **MyWatchdog** de origen. El informe de mantenimiento contiene información sobre la "disponibilidad" de la propiedad de mantenimiento en un estado de mantenimiento de error, con un valor de TimeToLive infinito. Luego consulta el mantenimiento de la aplicación, que devuelve los errores del estado de mantenimiento agregado y los eventos de mantenimiento notificados en la lista de eventos de mantenimiento.
 
 ```powershell
@@ -311,6 +315,9 @@ El modelo de mantenimiento se usa mucho para la supervisión y el diagnóstico, 
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Desarrollo de aplicaciones para reproductor de vídeo
-description: El tema también proporciona vínculos a Player Framework y complementos que puede usar para desarrollar sus propias aplicaciones cliente que pueden consumir contenido multimedia en streaming desde Media Services.
+title: "Desarrollo de aplicaciones para reproductor de vídeo"
+description: "El tema también proporciona vínculos a Player Framework y complementos que puede usar para desarrollar sus propias aplicaciones cliente que pueden consumir contenido multimedia en streaming desde Media Services."
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 55e419fc-4c39-4902-9c62-f41cfcd86c6c
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: aea38b92140f753ce13256297b4740c4391aeb25
+
 
 ---
 # <a name="develop-video-player-applications"></a>Desarrollo de aplicaciones para reproductor de vídeo
@@ -68,6 +72,9 @@ Para obtener información sobre la compatibilidad con anuncios y subtítulos en 
 
 [Repositorio dash.js de GitHub](https://github.com/Dash-Industry-Forum/dash.js)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Configuración de un dispositivo nuevo con Azure AD durante la configuración | Microsoft Docs
-description: Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante su configuración rápida.
+title: "Configuración de un dispositivo nuevo con Azure AD durante la configuración | Microsoft Docs"
+description: "Un tema que explica cómo los usuarios pueden configurar Azure AD Join durante su configuración rápida."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 209414cf468311b8d597ec5654be832125f59683
+
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>Configuración de un dispositivo nuevo con Azure AD durante la configuración
@@ -32,7 +36,7 @@ Si un dispositivo tiene instaladas las ediciones Windows 10 Professional o Windo
 5. Escriba las credenciales que le ha proporcionado la organización.
    <center>
    ![Pantalla de inicio de sesión](./media/active-directory-azureadjoin/active-directory-azureadjoin-sign-in.png)
-6. Después de que escriba su nombre de usuario, se coloca un inquilino coincidente en Azure AD. Si se encuentra en un dominio federado, se le redirigirá al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
+6. Después de que escriba su nombre de usuario, se coloca un inquilino coincidente en Azure AD. Si se encuentra en un dominio federado, se le redirigirá al servidor del servicio de token seguro (STS) local; por ejemplo, Servicios de federación de Active Directory (AD FS).
 7. Si es un usuario en un dominio no federado, deberá escribir las credenciales directamente en la página hospedada en Azure AD. Si se ha configurado la personalización de la marca, también verá el logotipo de la organización y texto complementario.
 8. A continuación, encontrará un desafío de Multi-factor Authentication. Este desafío puede configurarlo un administrador de TI.
 9. Azure AD comprobará si este usuario/dispositivo requiere la inscripción en la administración de dispositivos móviles.
@@ -53,6 +57,9 @@ Si un dispositivo tiene instaladas las ediciones Windows 10 Professional o Windo
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

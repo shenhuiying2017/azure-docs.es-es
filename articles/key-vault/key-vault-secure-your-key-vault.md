@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/07/2016
 ms.author: ambapat
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5d58210a155666642cec8c180249c4e43b69fb9c
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: fd93a6634175df47cd3ef871b01d08e9f5fea27b
 
 
 ---
@@ -71,8 +71,8 @@ Los controles de acceso del plano de administración y del plano de datos funcio
 ## <a name="management-plane-access-control"></a>Control de acceso del plano de administración
 El plano de la administración se compone de las operaciones que afectan al propio almacén de claves. Por ejemplo, puede crear o eliminar un almacén de claves. Puede obtener una lista de los almacenes de una suscripción. Puede recuperar las propiedades de un almacén de claves (como SKU y etiquetas) y establecer directivas de acceso del almacén de claves que controlan los usuarios y las aplicaciones que pueden acceder a las claves y secretos del almacén de claves. El control de acceso del plano de administración utiliza RBAC. Vea la lista completa de operaciones del almacén de claves que se pueden realizar a través del plano de administración en la tabla de la sección anterior. 
 
-### <a name="rolebased-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
-Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Este tipo de control de acceso se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, se puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
+### <a name="role-based-access-control-rbac"></a>Control de acceso basado en rol (RBAC)
+Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones de ese directorio para que administren los de la suscripción de Azure que usan el modelo de implementación de Azure Resource Manager. Este tipo de control de acceso se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, se puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de Azure Resource Manager](https://msdn.microsoft.com/library/azure/dn906885.aspx).
 
 Con el modelo de Azure Resource Manager, se crea una instancia de un almacén de claves en un grupo de recursos y se controla el acceso al plano de administración de dicho almacén de claves mediante Azure Active Directory. Por ejemplo, puede conceder a los usuarios o a un grupo la capacidad de administrar los almacenes de claves en un grupo de recursos específico.
 
@@ -89,7 +89,7 @@ El plano de datos de un almacén de claves consta de operaciones que afectan a l
 El acceso al plano de datos se concede mediante el establecimiento de directivas de acceso para un almacén de claves. Un usuario, grupo o aplicación deben tener permisos de colaborador (RBAC) para el plano de administración de una instancia de un almacén de claves para poder establecer directivas de acceso para dicho almacén. Se puede conceder a un usuario, grupo o aplicación acceso para realizar operaciones concretas en las claves o secretos de un almacén de claves. Un almacén de claves admite hasta 16 entradas de directiva de acceso para un almacén de claves. Cree un grupo de seguridad de Azure Active Directory y agregue usuarios a dicho grupo para conceder acceso al plano de datos a varios usuarios a un almacén de claves.
 
 ### <a name="key-vault-access-policies"></a>Directivas de acceso de almacén de claves
-Las directivas de acceso de un almacén de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la directiva de acceso de un almacén de claves no admite permisos de nivel de objeto. Para establecer las directivas de acceso de un almacén de claves, puede usar [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o las [API de REST de administración de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
+Las directivas de acceso de un almacén de claves conceden permisos a las claves, los secretos y los certificados por separado. Por ejemplo, se puede dar a un usuario acceso solo a las claves, pero darle permisos para los secretos. Sin embargo, los permisos para acceder a las claves, secretos o certificados se encuentran en el nivel del almacén. En otras palabras, la directiva de acceso de un almacén de claves no admite permisos de nivel de objeto. Para establecer las directivas de acceso de un almacén de claves, puede usar [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o las [API de REST de administración de un almacén de claves](https://msdn.microsoft.com/library/azure/mt620024.aspx).
 
 > [!IMPORTANT]
 > Tenga en cuenta que las directivas de acceso de un almacén de claves se aplican en el nivel de almacén. Por ejemplo, cuando se concede a un usuario permiso para crear y eliminar claves, puede realizar dichas operaciones en todas las claves de dicho almacén de claves.
@@ -210,7 +210,7 @@ En este ejemplo se muestra un escenario simple. Los escenarios de la vida real p
 * [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)
   
   En este artículo se proporciona información detallada de todos los roles integrados disponibles en RBAC.
-* [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md)
+* [Descripción de la implementación del Administrador de recursos y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   En este artículo se explica el modelo de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos.
 * [Administración del control de acceso basado en rol con Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md)
@@ -253,6 +253,6 @@ Si le queda alguna duda acerca de Key Vault, visite los [foros de Azure Key Vaul
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

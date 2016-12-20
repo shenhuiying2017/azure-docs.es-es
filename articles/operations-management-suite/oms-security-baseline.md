@@ -8,15 +8,16 @@ manager: swadhwa
 editor: 
 ms.assetid: 17837c8b-3e79-47c0-9b83-a51c6ca44ca6
 ms.service: operations-management-suite
+ms.custom: oms-security
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 12/05/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1c3e2cf86a33f9bbe6b34f4f52b82a078b91661f
+ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
+ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
 
 
 ---
@@ -75,7 +76,7 @@ En este resultado de registro, se ve el tipo de regla de la línea base con erro
 > 
 
 ### <a name="accessing-computers-missing-baseline-assessment"></a>Acceso a equipos sin evaluación de línea base
-OMS admite el perfil de línea base de miembros de dominio en Windows Server 2008 R2 y hasta Windows Server 2012 R2. La línea base de Windows Server 2016 todavía no está finalizada y se agregará en cuanto se publique. Todos los demás sistemas operativos examinados mediante la evaluación de línea base de Seguridad y auditoría de OMS aparecen en la sección **Falta la evaluación de línea base de seguridad de los equipos**.
+OMS admite el perfil de línea base de miembros de dominio y de controladores de dominio en Windows Server 2008 R2 y hasta Windows Server 2012 R2. La línea base de Windows Server 2016 todavía no está finalizada y se agregará en cuanto se publique. Todos los demás sistemas operativos examinados mediante la evaluación de línea base de Seguridad y auditoría de OMS aparecen en la sección **Falta la evaluación de línea base de seguridad de los equipos**.
 
 ## <a name="see-also"></a>Consulte también
 En este documento, ha aprendido acerca de la evaluación de línea base de Seguridad y auditoría de OMS. Para obtener más información sobre Seguridad de OMS, consulte los siguientes artículos:
@@ -87,6 +88,6 @@ En este documento, ha aprendido acerca de la evaluación de línea base de Segur
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

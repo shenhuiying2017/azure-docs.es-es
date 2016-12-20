@@ -1,12 +1,12 @@
 ---
-title: Creación de claves de contenido con .REST | Microsoft Docs
+title: "Creación de claves de contenido con .REST | Microsoft Docs"
 description: Aprenda a crear claves de contenido que proporcionen un acceso seguro a los recursos.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8e4ca5083761f870d93447eb6561d9f0c088284e
+
 
 ---
 # <a name="create-contentkeys-with-rest"></a>Creación de claves de contenido con .NET
@@ -44,22 +48,22 @@ A continuación se muestran los pasos generales para generar claves de contenido
    
    El siguiente ejemplo de .NET calcula la suma de comprobación con la parte del GUID del identificador de clave y la clave de contenido sin cifrar.
    
-       public static string CalculateChecksum(byte[] contentKey, Guid keyId)
-       {
-           byte[] array = null;
-           using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
-           {
-               aesCryptoServiceProvider.Mode = CipherMode.ECB;
-               aesCryptoServiceProvider.Key = contentKey;
-               aesCryptoServiceProvider.Padding = PaddingMode.None;
-               ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-               array = new byte[16];
-               cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
-           }
-           byte[] array2 = new byte[8];
-           Array.Copy(array, array2, 8);
-           return Convert.ToBase64String(array2);
-       }
+     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
+   
+         byte[] array = null;
+         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+         {
+             aesCryptoServiceProvider.Mode = CipherMode.ECB;
+             aesCryptoServiceProvider.Key = contentKey;
+             aesCryptoServiceProvider.Padding = PaddingMode.None;
+             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+             array = new byte[16];
+             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+         }
+         byte[] array2 = new byte[8];
+         Array.Copy(array, array2, 8);
+         return Convert.ToBase64String(array2);
+     }
 5. Cree la clave de contenido con los valores **EncryptedContentKey** (convertida en cadena codificada en base 64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** y **Checksum** que recibió en los pasos anteriores.
 6. Asocie la entidad **ContentKey** a su entidad **Asset** mediante la operación $links.
 
@@ -251,6 +255,9 @@ Respuesta:
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

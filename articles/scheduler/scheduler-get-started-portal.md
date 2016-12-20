@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85e0f59bdaae76f6feb03e66a7bbf96c29b45dec
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
 
 
 ---
@@ -94,7 +94,7 @@ La pestaña **Historial** muestra métricas seleccionadas para cada ejecución d
 1. Estado  
 2. Detalles  
 3. Número de reintentos
-4. Periodicidad: 1ª, 2ª, 3ª, etc..
+4. Periodicidad: 1ª, 2ª, 3ª, etc.
 5. Hora de inicio de ejecución  
 6. Hora de finalización de ejecución
    
@@ -155,6 +155,6 @@ El control de acceso basado en roles (RBAC) de Azure permite realizar una admini
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

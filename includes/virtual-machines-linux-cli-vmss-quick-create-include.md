@@ -1,16 +1,23 @@
-Si no lo ha hecho todavía, puede obtener una [evaluación gratuita de susscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [ a su cuenta de Azure](../articles/xplat-cli-connect.md). Una vez hecho, puede ejecutar los siguientes comandos para crear rápidamente un conjunto de escalado:
+Si no lo ha hecho todavía, puede obtener una [evaluación gratuita de susscripción de Azure](https://azure.microsoft.com/pricing/free-trial/) y conectar la [CLI de Azure](../articles/xplat-cli-install.md) [ a su cuenta de Azure](../articles/xplat-cli-connect.md). Asegúrese de que la CLI de Azure está en modo de Resource Manager como se indica a continuación:
 
-```bash
-# make sure we are in Resource Manager mode (https://azure.microsoft.com/en-us/documentation/articles/resource-manager-deployment-model/)
+```azurecli
 azure config mode arm
+```
 
-# quick-create a scale set
-#
-# generic syntax:
-# azure vmss quick-create -n SCALE-SET-NAME -g RESOURCE-GROUP-NAME -l LOCATION -u USERNAME -p PASSWORD -C INSTANCE-COUNT -Q IMAGE-URN
-#
-# example:
-azure vmss quick-create -n negatvmss -g negatvmssrg -l westus -u negat -p P4ssw0rd -C 5 -Q Canonical:UbuntuServer:14.04.4-LTS:latest
+Ahora cree un conjunto de escalado mediante el comando `azure vmss quick-create`. En el ejemplo siguiente se crea un conjunto de escalado de Linux denominado `myVMSS` con 5 instancias de máquina virtual en el grupo de recursos denominado `myResourceGroup`:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q Canonical:UbuntuServer:16.04.0-LTS:latest
+```
+
+En el ejemplo siguiente se crea un conjunto de escalado de Windows con la misma configuración:
+
+```azurecli
+azure vmss quick-create -n myVMSS -g myResourceGroup -l westus \
+    -u ops -p P@ssw0rd! \
+    -C 5 -Q MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 ```
 
 Si desea personalizar la ubicación o el URN de la imagen, use los comandos `azure location list` y `azure vm image {list-publishers|list-offers|list-skus|list|show}`.
@@ -30,7 +37,8 @@ line=$(azure network lb list -g negatvmssrg | grep negatvmssrg)
 split_line=( $line )
 lb_name=${split_line[1]}
 
-# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is associated to it
+# now that we have the name of the load balancer, we can show the details to find which Public IP (PIP) is 
+# associated to it
 #
 # generic syntax:
 # azure network lb show -g RESOURCE-GROUP-NAME -n LOAD-BALANCER-NAME
@@ -56,6 +64,6 @@ FQDN=${split_line[3]}
 ssh -p 50000 negat@$FQDN
 ```
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

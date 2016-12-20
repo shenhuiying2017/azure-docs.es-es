@@ -68,6 +68,6 @@ Para más información acerca de SSMS, consulte [Usar SQL Server Management Stud
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

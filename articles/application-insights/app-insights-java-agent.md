@@ -1,11 +1,11 @@
 ---
-title: Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
-description: Supervisión extendida de sitios web de Java con Application Insights
+title: "Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java"
+description: "Supervisión extendida de sitios web de Java con Application Insights"
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
-
+ms.assetid: 84017a48-1cb3-40c8-aab1-ff68d65e2128
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,21 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 7a9c40081f52b2ffe918f4612f790f7fd08acc5a
+ms.openlocfilehash: 16ffd2ea5be6a18f59065a20d4c801f89bf030cf
+
 
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones y tiempos de ejecución en aplicaciones web de Java
-*Application Insights se encuentra en su versión de vista previa.*
+
 
 Si ha [instrumentado la aplicación web de Java con Application Insights][java], puede usar el agente de Java para obtener información más clara, sin tener que realizar cambios en el código:
 
 * **Dependencias:** datos sobre las llamadas realizadas por la aplicación a otros componentes, por ejemplo:
   * **Llamadas REST** realizadas a través de HttpClient, OkHttp y RestTemplate (Spring).
   * **Redis** llamadas realizadas a través del cliente de Jedis. Si la llamada tarda más de 10 s, el agente captura también los argumentos de la llamada.
-  * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta. 
+  * **[Llamadas JDBC](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**: MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB o DB Derby de Apache. Se admiten llamadas "executeBatch". En el caso de MySQL y PostgreSQL, si la llamada tarda más de 10 s, el agente notifica el plan de consulta.
 * **Excepciones detectadas:** datos sobre las excepciones que controla el código.
 * **Tiempo de ejecución del método:** datos sobre el tiempo necesario para ejecutar métodos específicos.
 
-Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java].
+Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones web deben instrumentarse con el [SDK de Java de Application Insights][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Instalación del agente de Application Insights para Java
 1. [Descargue el agente](https://aka.ms/aijavasdk)en la máquina que ejecuta el servidor de Java.
@@ -43,7 +47,7 @@ Para usar el agente de Java, debe instalarlo en el servidor. Las aplicaciones we
 ## <a name="configure-the-agent"></a>Configuración del agente
 Cree un archivo denominado `AI-Agent.xml` y colóquelo en la misma carpeta que el archivo JAR del agente.
 
-Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir u omitir las características que desee. 
+Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir u omitir las características que desee.
 
 ```XML
 
@@ -61,11 +65,11 @@ Establezca el contenido del archivo XML. Edite el ejemplo siguiente para incluir
            <MaxStatementQueryLimitInMS>1000</MaxStatementQueryLimitInMS>
         </BuiltIn>
 
-        <!-- Collect data about caught exceptions 
+        <!-- Collect data about caught exceptions
              and method execution times -->
 
         <Class name="com.myCompany.MyClass">
-           <Method name="methodOne" 
+           <Method name="methodOne"
                reportCaughtExceptions="true"
                reportExecutionTime="true"
                />
@@ -87,11 +91,11 @@ Debe habilitar la excepción de los informes y los intervalos de método para m�
 De forma predeterminada, `reportExecutionTime` es true y `reportCaughtExceptions` es false.
 
 ## <a name="view-the-data"></a>Visualización de los datos
-En el recurso de Application Insights, aparecen los tiempos de ejecución del método y la dependencia remota agregada [en el icono Rendimiento][métricas]. 
+En el recurso de Application Insights, aparecen los tiempos de ejecución del método y la dependencia remota agregada [en el icono Rendimiento][métricas].
 
-Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnóstico]. 
+Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnóstico].
 
-[Más información sobre diagnósticos de problemas de dependencia](app-insights-dependencies.md#diagnosis).
+[Más información sobre diagnósticos de problemas de dependencia](app-insights-asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
 * ¿No hay datos? [Establezca excepciones del firewall](app-insights-ip-addresses.md)
@@ -101,18 +105,16 @@ Para buscar instancias individuales de informes de dependencia, excepción y mé
 
 [api]: app-insights-api-custom-events-metrics.md
 [apiexceptions]: app-insights-api-custom-events-metrics.md#track-exception
-[availability]: app-insights-monitor-web-app-availability.md
+[disponibilidad]: app-insights-monitor-web-app-availability.md
 [diagnóstico]: app-insights-diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [métricas]: app-insights-metrics-explorer.md
-[usage]: app-insights-web-track-usage.md
+[uso]: app-insights-web-track-usage.md
 
 
 
-
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

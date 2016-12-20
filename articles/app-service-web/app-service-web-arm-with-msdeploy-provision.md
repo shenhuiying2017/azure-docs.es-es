@@ -1,41 +1,45 @@
 ---
-title: Deploy a web app using MSDeploy with hostname and ssl certificate
-description: Use an Azure Resource Manager template to deploy a web app using MSDeploy and setting up custom hostname and a SSL certificate
+title: "Implementación de una aplicación web con MSDeploy con un nombre de host personalizado y un certificado SSL"
+description: "Use una plantilla del Administrador de recursos de Azure para implementar una aplicación web mediante MSDeploy y configurar un nombre de host personalizado y un certificado SSL"
 services: app-service\web
 manager: erikre
-documentationcenter: ''
+documentationcenter: 
 author: jodehavi
-
+ms.assetid: 66366a72-cef7-4d75-8779-f4d32ed33cf7
 ms.service: app-service-web
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2016
-ms.author: john.dehavilland
+ms.author: jodehavi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9c748f4f65ec4a2ba32bca97648fb7ccdbb8d749
+
 
 ---
-# <a name="deploy-a-web-app-with-msdeploy,-custom-hostname-and-ssl-certificate"></a>Deploy a web app with MSDeploy, custom hostname and SSL certificate
-This guide walks through creating an end-to-end deployment for an Azure Web App, leveraging MSDeploy as well as adding a custom hostname and an SSL certificate to the ARM template.
+# <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Implementación de una aplicación web con MSDeploy, un nombre de host personalizado y un certificado SSL
+En esta guía, se recorre el proceso de crear una implementación integral para una aplicación web de Azure, sacar provecho de MSDeploy, así como agregar un nombre de host personalizado y un certificado SSL a la plantilla de ARM.
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
 
-### <a name="create-sample-application"></a>Create Sample Application
-You will be deploying an ASP.NET web application. The first step is to create a simple web application (or you could choose to use an existing one - in which case you can skip this step).
+### <a name="create-sample-application"></a>Creación de la aplicación de ejemplo
+Va a implementar una aplicación web ASP.NET. El primer paso consiste en crear una aplicación web sencilla (o puede elegir usar una existente, en cuyo caso puede omitir este paso).
 
-Open Visual Studio 2015 and choose File > New Project. On the dialog that appears choose Web > ASP.NET Web Application. Under Templates choose Web and choose the MVC template. Select *Change authentication type* to *No Authentication*. This is just to make the sample application as simple as possible.
+Abra Visual Studio 2015 y seleccione Archivo > Nuevo proyecto. En el cuadro de diálogo que aparece, elija Web > Aplicación web ASP.NET. En Plantillas, elija Web y después la plantilla MVC. En *Change authentication type* (Cambiar tipo de autenticación), seleccione *No Authentication* (Sin autenticación). Esto es solo para hacer la aplicación de ejemplo tan sencilla como sea posible.
 
-At this point you will have a basic ASP.Net web app ready to use as part of your deployment process.
+En este punto, tendrá una aplicación web ASP.NET básica lista para usarla como parte del proceso de implementación.
 
-### <a name="create-msdeploy-package"></a>Create MSDeploy package
-Next step is to create the package to deploy the web app to Azure. To do this, save your project and then run the following from the command line:
+### <a name="create-msdeploy-package"></a>Creación del paquete MSDeploy
+El siguiente paso consiste en crear el paquete para implementar la aplicación web en Azure. Para ello, guarde el proyecto y después ejecute lo siguiente en la línea de comandos:
 
     msbuild yourwebapp.csproj /t:Package /p:PackageLocation="path\to\package.zip"
 
-This will create a zipped package under the PackageLocation folder. The application is now ready to be deployed, which you can now build out an Azure Resource Manager template to do that.
+Esto creará un paquete comprimido en la carpeta PackageLocation. La aplicación está lista para implementarse y ahora puede crear una plantilla del Administrador de recursos de Azure para hacerlo.
 
-### <a name="create-arm-template"></a>Create ARM Template
-First, let's start with a basic ARM template that will create a web application and a hosting plan (note that parameters and variables are not shown for brevity).
+### <a name="create-arm-template"></a>Creación de la plantilla de ARM
+En primer lugar, vamos a comenzar con una plantilla de ARM básica que creará una aplicación web y un plan de hospedaje (tenga en cuenta que no se muestran los parámetros ni las variables por brevedad).
 
     {
         "name": "[parameters('appServicePlanName')]",
@@ -71,7 +75,7 @@ First, let's start with a basic ARM template that will create a web application 
         }
     }
 
-Next, you will need to modify the web app resource to take a nested MSDeploy resource. This will allow you to reference the package created earlier and tell Azure Resource Manager to use MSDeploy to deploy the package to the Azure WebApp. The following shows the Microsoft.Web/sites resource with the nested MSDeploy resource:
+A continuación, debe modificar el recurso de la aplicación web para que admita un recurso de MSDeploy anidado. Esto le permitirá hacer referencia al paquete creado antes e indicar al Administrador de recursos de Azure que use MSDeploy para implementar el paquete en la aplicación web de Azure. A continuación, se muestra el recurso Microsoft.Web/sites con el recurso de MSDeploy anidado:
 
     {
         "name": "[variables('webAppName')]",
@@ -113,13 +117,13 @@ Next, you will need to modify the web app resource to take a nested MSDeploy res
         ]
     }
 
-Now you will notice that the MSDeploy resource takes a **packageUri** property which is defined as follows:
+Ahora verá que el recurso de MSDeploy admite una propiedad **packageUri** que se define como sigue:
 
     "packageUri": "[concat(parameters('_artifactsLocation'), '/', parameters('webDeployPackageFolder'), '/', parameters('webDeployPackageFileName'), parameters('_artifactsLocationSasToken'))]"
 
-This **packageUri** takes the storage account uri which points to the storage account where you will upload your package zip to. The Azure Resource Manager will leverage [Shared Access Signatures](../storage/storage-dotnet-shared-access-signature-part-1.md) to pull the package down locally from the storage account when you deploy the template. This process will be automated via a PowerShell script that will upload the package and call the Azure Management API to create the keys required and pass those into the template as parameters (*_artifactsLocation* and *_artifactsLocationSasToken*). You will need to define parameters for the folder and filename the package is uploaded to under the storage container.
+Esta propiedad **packageUri** admite el identificador URI de la cuenta de almacenamiento que apunta a la cuenta de almacenamiento donde se cargará el archivo comprimido del paquete. El Administrador de recursos de Azure aprovechará las [firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) para descargar el paquete localmente desde la cuenta de almacenamiento cuando se implemente la plantilla. Este proceso se automatizará mediante un script de PowerShell que cargará el paquete y llamará a la API de administración de Azure para crear las claves requeridas y pasarlas a la plantilla como parámetros (*_artifactsLocation* y *_artifactsLocationSasToken*). Debe definir los parámetros de la carpeta y el nombre de archivo donde se carga el paquete en el contenedor de almacenamiento.
 
-Next you need to add in another nested resource to setup the hostname bindings to leverage a custom domain. You will first need to ensure that you own the hostname and set it up to be verified by Azure that you own it - see [Configure a custom domain name in Azure App Service](web-sites-custom-domain-name.md). Once that is done you can add the following to your template under the Microsoft.Web/sites resource section:
+Después, debe agregar otro recurso anidado para configurar los enlaces de nombre de host para sacar provecho de un dominio personalizado. En primer lugar, deberá asegurarse de que posee el nombre de host y configurarlo para que Azure compruebe que en efecto lo posee; consulte [Configurar un nombre de dominio personalizado en el Servicio de aplicaciones de Azure](web-sites-custom-domain-name.md). Una vez hecho esto, puede agregar lo siguiente a la plantilla en la sección de recursos Microsoft.Web/sites:
 
     {
         "apiVersion": "2015-08-01",
@@ -135,7 +139,7 @@ Next you need to add in another nested resource to setup the hostname bindings t
         }
     }
 
-Finally you need to add another top level resource, Microsoft.Web/certificates. This resource will contain your SSL certificate and will exist at the same level as your web app and hosting plan.
+Por último, debe agregar otro recurso de nivel superior, Microsoft.Web/certificates. Este recurso contendrá su certificado SSL y se encontrará en el mismo nivel que la aplicación web y el plan de hospedaje.
 
     {
         "name": "[parameters('certificateName')]",
@@ -148,20 +152,20 @@ Finally you need to add another top level resource, Microsoft.Web/certificates. 
         }
     }
 
-You will need to have a valid SSL certificate in order to set up this resource. Once you have that valid certificate then you need to extract the pfx bytes as a base64 string. One option to extract this is to use the following PowerShell command:
+Debe tener un certificado SSL válido para configurar este recurso. Una vez que tenga ese certificado válido, debe extraer los bytes pfx como una cadena de base64. Una opción para extraerlos es usar el siguiente comando de PowerShell:
 
     $fileContentBytes = get-content 'C:\path\to\cert.pfx' -Encoding Byte
 
     [System.Convert]::ToBase64String($fileContentBytes) | Out-File 'pfx-bytes.txt'
 
-You could then pass this as a parameter to your ARM deployment template.
+Después podría pasarlos como parámetro a la plantilla de implementación de ARM.
 
-At this point the ARM template is ready.
+En este punto, la plantilla de ARM está lista.
 
-### <a name="deploy-template"></a>Deploy Template
-The final steps are to piece this all together into a full end-to-end deployment. To make deployment easier you can leverage the **Deploy-AzureResourceGroup.ps1** PowerShell script that is added when you create an Azure Resource Group project in Visual Studio to help with uploading of any artifacts required in the template. It requires you to have created a storage account you want to use ahead of time. For this example, I created a shared storage account for the package.zip to be uploaded. The script will leverage AzCopy to upload the package to the storage account. You pass in your artifact folder location and the script will automatically upload all files within that directory to the named storage container. After calling Deploy-AzureResourceGroup.ps1 you have to then update the SSL bindings to map the custom hostname with your SSL certificate.
+### <a name="deploy-template"></a>Implementar plantilla
+Los pasos finales sirven para juntar todo en una implementación integral completa. Para facilitar la implementación, puede aprovechar el script de PowerShell **Deploy-AzureResourceGroup.ps1** que se agrega al crear un proyecto de grupo de recursos de Azure en Visual Studio para ayudar con la carga de los artefactos necesarios en la plantilla. Es necesario crear la cuenta de almacenamiento que desee usar con antelación. En este ejemplo, he creado una cuenta de almacenamiento compartido en la que cargar el archivo package.zip. El script hará uso de AzCopy para cargar el paquete en la cuenta de almacenamiento. Se pasa la ubicación de la carpeta de artefactos y el script cargará automáticamente todos los archivos de ese directorio en el contenedor de almacenamiento con nombre. Después de llamar a Deploy-AzureResourceGroup.ps1, tendrá que actualizar los enlaces SSL para asignar el nombre de host personalizado a su certificado SSL.
 
-The following PowerShell shows the complete deployment calling the Deploy-AzureResourceGroup.ps1:
+El siguiente script de PowerShell muestra la implementación completa con una llamada a Deploy-AzureResourceGroup.ps1:
 
     #Set resource group name
     $rgName = "Name-of-resource-group"
@@ -191,8 +195,11 @@ The following PowerShell shows the complete deployment calling the Deploy-AzureR
 
     Set-AzureRmResource -ApiVersion 2014-11-01 -Name nameofwebsite -ResourceGroupName $rgName -ResourceType Microsoft.Web/sites -PropertyObject $props
 
-At this point your application should have been deployed and you should be able to browse to it via https://www.yourcustomdomain.com
+En este momento, se debería haber implementado la aplicación y debería poder ir a ella mediante https://www.yourcustomdomain.com
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Introducción a un ejemplo
-description: Power BI Embedded, usar el SDK para agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial
+title: "Introducción a un ejemplo"
+description: "Power BI Embedded, usar el SDK para agregar informes interactivos de Power BI a la aplicación de inteligencia empresarial"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 90207623273c3c8f959a07425e1bdf7324649067
+
 
 ---
 # <a name="get-started-with-power-bi-embedded-sample"></a>Introducción a un ejemplo de Power BI Embedded
@@ -28,8 +32,8 @@ Antes de avanzar, probablemente deseará guardar los recursos siguientes. Nos pe
 
 > [!NOTE]
 > Para poder configurar y ejecutar el ejemplo introductorio de Power BI Embedded, debe crear al menos una **colección de área de trabajo** en su suscripción de Azure. Para ver cómo crear una **colección de áreas de trabajo** en el Portal de Azure, consulte [Introducción a la versión preliminar de Microsoft Power BI Embedded](power-bi-embedded-get-started.md).
-> 
-> 
+>
+>
 
 ## <a name="configure-the-sample-app"></a>Configuración de la aplicación de ejemplo
 Veamos la configuración del entorno de desarrollo de Visual Studio para acceder a los componentes necesarios para ejecutar la aplicación de ejemplo.
@@ -39,15 +43,15 @@ Veamos la configuración del entorno de desarrollo de Visual Studio para acceder
 3. Compile la solución.
 4. Ejecute la aplicación de consola **ProvisionSample** . En la aplicación de consola del ejemplo, aprovisione un área de trabajo e importe un archivo PBIX.
 5. Para aprovisionar una nueva **área de trabajo**, seleccione la opción 5, **Aprovisionar una nueva área de trabajo en una colección de áreas de trabajo existente**.
-   
+
     ![](media\\powerbi-embedded-get-started-sample\\console-option-5.png)
-6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para obtener más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started-sample.md#view-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
-   
+6. Escriba el nombre de su **colección de área de trabajo** y la **clave de acceso**. Puede obtener las claves en el **Portal de Azure**. Para obtener más información sobre cómo obtener la **clave de acceso**, consulte [Visualización de las claves de acceso de API de Power BI](power-bi-embedded-get-started.md#view-power-bi-api-access-keys) en Introducción a la versión preliminar de Microsoft Power BI Embedded.
+
     ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
 7. Copie y guarde el recién creado **identificador del área de trabajo** para utilizarlo más adelante en este artículo. Una vez creado el **identificador del área de trabajo**, **Azure Portal** puede encontrarlo.
-   
+
     ![](media\\powerbi-embedded-get-started-sample\\workspace-id.png)
-8. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene un archivo PBIX a mano, también puede descargar el [archivo PBIX con un ejemplo de análisis de minoristas](http://go.microsoft.com/fwlink/?LinkID=780547).
+8. Para importar un archivo PBIX en su **área de trabajo**, seleccione la opción **6. Importe el archivo de escritorio PBIX en un área de trabajo existente**. Si no tiene una archivo PBIX a mano, puede descargar la [muestra de PBIX de análisis comercial](http://go.microsoft.com/fwlink/?LinkID=780547).
 9. Si se le solicita, escriba un nombre descriptivo para su **Dataset**.
 
 Debería obtener una respuesta similar a la siguiente:
@@ -59,8 +63,8 @@ Checking import state... Succeeded
 
 > [!NOTE]
 > If your PBIX file contains any direct query connections, run option 7 to update the connection strings.
-> 
-> 
+>
+>
 
 At this point, you have a Power BI PBIX report imported into your **Workspace**. Now, let's look at how to run the **Power BI Embedded** get started sample web app.
 
@@ -69,7 +73,7 @@ The web app sample is a sample dashboard that renders reports imported into your
 
 1. In the **PowerBI-embedded** Visual Studio solution, right click the **EmbedSample** web application, and choose **Set as StartUp project**.
 2. In **web.config**, in the **EmbedSample** web application, edit the **appSettings**: **AccessKey**, **WorkspaceCollection** name, and **WorkspaceId**.
-   
+
     ```
     <appSettings>
         <add key="powerbi:AccessKey" value="" />
@@ -95,8 +99,8 @@ The **Microsoft Power BI Embedded** sample code is separated as follows. Each se
 
 > [!NOTE]
 > This section is a summary of the sample code that shows how the code was written. To view the complete sample, please load the PowerBI-embedded.sln solution in Visual Studio.
-> 
-> 
+>
+>
 
 ### Model
 The sample has a **ReportsViewModel** and **ReportViewModel**.
@@ -231,13 +235,15 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 
 > [!NOTE]
 > {tableName/fieldName} cannot include spaces or special characters. The {fieldValue} accepts a single categorical value.  
-> 
-> 
+>
+>
 
 ## See also
 * [Common Microsoft Power BI Embedded scenarios](power-bi-embedded-scenarios.md)
 * [Authenticating and authorizing in Power BI Embedded](power-bi-embedded-app-token-flow.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

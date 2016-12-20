@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Replicon | Microsoft Docs'
-description: Aprenda cómo usar Replicon con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Replicon | Microsoft Docs"
+description: "Aprenda cómo usar Replicon con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1dfd8edcae7d54d4ba8456a424a3fbc40d45c777
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-replicon"></a>Tutorial: Integración de Azure Active Directory con Replicon
+# <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Tutorial: Integración de Azure Active Directory con Replicon
 El objetivo de este tutorial es mostrar la integración de Azure y Replicon. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
@@ -35,7 +39,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-replicon"></a>Habilitación de la integración de aplicaciones para Replicon
 El objetivo de esta sección es describir cómo habilitar la integración de aplicaciones para Replicon.
 
-### <a name="to-enable-the-application-integration-for-replicon,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para Replicon:
+### <a name="to-enable-the-application-integration-for-replicon-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para Replicon:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-replicon-tutorial/IC700993.png "Active Directory")
@@ -60,7 +64,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Replicon con su cuenta de Azure AD a través de la federación basada en el protocolo SAML.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Replicon**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-replicon-tutorial/IC777801.png "Configure single sign-on")
@@ -75,7 +79,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
    2. En el cuadro de texto **URL de inicio de sesión de Replicon**, escriba la dirección URL **AssertionConsumerService** de Replicon (p. ej.: *https://global.replicon.com/!/saml2/company/sso/post*).  
       
       > [!NOTE]
-      > Puede obtener la dirección URL de los metadatos de Replicon en:         **https://global.replicon.com/!/saml2/\<SuClaveCompañía\>**.
+      > Puede obtener la dirección URL de los metadatos de Replicon en: **https://global.replicon.com/!/saml2/\<SuClaveCompañía\>**.
       > 
       > 
    3. Haga clic en **Siguiente**
@@ -103,7 +107,7 @@ El objetivo de esta sección es describir cómo habilitar usuarios para que se a
 Para permitir que los usuarios de Azure AD inicien sesión en Replicon, deben aprovisionarse en Replicon.  
 En el caso de Replicon, el aprovisionamiento es una tarea manual.
 
-### <a name="to-configure-user-provisioning,-perform-the-following-steps:"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
 1. En una ventana del explorador web, inicie sesión en como administrador en el sitio de Replicon de la compañía.
 2. Vaya a **Administración \> Usuarios**.
    
@@ -129,7 +133,7 @@ En el caso de Replicon, el aprovisionamiento es una tarea manual.
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-replicon,-perform-the-following-steps:"></a>Para asignar usuarios a Replicon, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-replicon-perform-the-following-steps"></a>Para asignar usuarios a Replicon, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Replicon**, haga clic en **Asignar usuarios**.
    
@@ -140,6 +144,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

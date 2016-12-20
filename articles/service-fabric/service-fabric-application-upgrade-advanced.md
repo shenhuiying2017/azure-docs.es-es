@@ -1,28 +1,32 @@
 ---
-title: 'Actualización de aplicación: temas avanzados | Microsoft Docs'
-description: En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric.
+title: "Actualización de la aplicación de Service Fabric: temas avanzados | Microsoft Docs"
+description: "En este artículo se tratan algunos temas avanzados relacionados con la actualización de una aplicación de Service Fabric."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: subramar
+translationtype: Human Translation
+ms.sourcegitcommit: 5e4aebee48754f1f6762898d9571a4fff7d7283e
+ms.openlocfilehash: 8f911da6798b8a2d517d79a9a90e66de86db9b8b
+
 
 ---
-# Actualización de la aplicación de Service Fabric: temas avanzados
-## Adición o eliminación de servicios durante la actualización de una aplicación
-Si se agrega un nuevo servicio a una aplicación que ya está implementada y publicada como una actualización, el nuevo servicio se agrega a la aplicación implementada. Dicha actualización no afecta a ninguno de los servicios que ya formaban parte de la aplicación. Sin embargo, tendrá que iniciarse una instancia del servicio que se agregó para que el nuevo servicio esté activo (mediante el cmdlet `New-ServiceFabricService`).
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Actualización de la aplicación de Service Fabric: temas avanzados
+## <a name="adding-or-removing-services-during-an-application-upgrade"></a>Adición o eliminación de servicios durante la actualización de una aplicación
+Si se agrega un nuevo servicio a una aplicación que ya está implementada y publicada como una actualización, el nuevo servicio se agrega a la aplicación implementada.  Dicha actualización no afecta a ninguno de los servicios que ya formaban parte de la aplicación. Sin embargo, tendrá que iniciarse una instancia del servicio que se agregó para que el nuevo servicio esté activo (mediante el cmdlet `New-ServiceFabricService` ).
 
-También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, se deben detener todas las instancias actuales del servicio se va a eliminar antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService`).
+También se pueden quitar servicios de una aplicación como parte de una actualización. Sin embargo, se deben detener todas las instancias actuales del servicio se va a eliminar antes de continuar con la actualización (mediante el cmdlet `Remove-ServiceFabricService` ). 
 
-## Modo de actualización manual
+## <a name="manual-upgrade-mode"></a>Modo de actualización manual
 > [!NOTE]
 > El modo manual no supervisado debe considerarse solo si la actualización presenta errores o si se suspende. El modo supervisado es el modo de actualización recomendado para las aplicaciones de Service Fabric.
 > 
@@ -36,10 +40,10 @@ La actualización de la aplicación gradual en modo supervisado es la actualizac
 
 Por último, la actualización de la aplicación gradual automatizada es útil para que los entornos de desarrollo o prueba proporcionen un ciclo de iteración rápido durante el desarrollo de servicios.
 
-## Cambio al modo de actualización manual
+## <a name="change-to-manual-upgrade-mode"></a>Cambio al modo de actualización manual
 **Manual**: detenga la actualización de la aplicación en el dominio de actualización actual y cambie el modo de actualización a manual no supervisado. El administrador debe llamar manualmente a **MoveNextApplicationUpgradeDomainAsync** para continuar con la actualización o desencadenar una reversión iniciando una nueva actualización. Una vez que la actualización adopte el modo manual, permanecerá en dicho modo hasta que se inicie una nueva actualización. El comando **GetApplicationUpgradeProgressAsync** devuelve FABRIC\_APPLICATION\_UPGRADE\_STATE\_ROLLING\_FORWARD\_PENDING.
 
-## Actualización con un paquete de diferencias
+## <a name="upgrade-with-a-diff-package"></a>Actualización con un paquete de diferencias
 Puede actualizarse una aplicación de Service Fabric mediante el aprovisionamiento de un paquete de aplicación completo y autocontenido. También se puede actualizar una aplicación mediante un paquete de diferencias que contenga solo los archivos de la aplicación actualizados y los archivos de los manifiestos de aplicación y servicio actualizados.
 
 Un paquete de aplicación completo contiene todos los archivos necesarios para iniciar y ejecutar una aplicación de Service Fabric. Un paquete de diferencias contiene solo los archivos que cambiaron entre el último aprovisionamiento y la actualización actual, además de los archivos de los manifiestos de aplicación y servicio completos. Cualquier referencia en el manifiesto de aplicación o de servicio que no se encuentra en el diseño de compilación se busca en el almacén de imágenes.
@@ -51,7 +55,7 @@ Casos en los que usar un paquete de diferencias sería una buena opción:
 * Se prefiere un paquete de diferencias cuando tiene un paquete de aplicación grande que hace referencia a varios archivos del manifiesto de servicio o varios paquetes de código, configuración o datos.
 * Asimismo, se prefiere un paquete de diferencias cuando dispone de un sistema de implementación que genera el diseño de compilación directamente desde el proceso de compilación de su aplicación. En este caso, aunque el código no ha cambiado, los ensamblados recién creados obtienen una suma de comprobación diferente. Para usar un paquete de aplicación completo, sería necesario que actualizara la versión de todos los paquetes de código. Con un paquete de diferencias, solo proporciona los archivos que cambiaron y los archivos de manifiesto cuya versión ha cambiado.
 
-Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final.
+Cuando se actualiza una aplicación mediante Visual Studio, el paquete de diferencias se publica automáticamente. Para crear manualmente un paquete de diferencias, se deben actualizar el manifiesto de aplicación y los manifiestos de servicio, pero solo los paquetes modificados deben incluirse en el paquete de aplicación final. 
 
 Por ejemplo, comencemos con la siguiente aplicación (se proporcionan los números de versión para facilitar la comprensión):
 
@@ -85,10 +89,10 @@ app1/
     code/
 ```
 
-## Pasos siguientes
-El procedimiento de [actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
+## <a name="next-steps"></a>Pasos siguientes
+[actualización de aplicaciones usando Visual Studio](service-fabric-application-upgrade-tutorial.md) ofrece información para actualizar una aplicación mediante Visual Studio.
 
-En el artículo sobre la [actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
+[actualización de aplicaciones mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) se explica en detalle lo que tiene que hacer para actualizar una aplicación mediante PowerShell.
 
 Puede controlar cómo se actualiza una aplicación usando [parámetros de actualización](service-fabric-application-upgrade-parameters.md).
 
@@ -96,4 +100,9 @@ Consiga que sus actualizaciones de aplicaciones sean compatibles aprendiendo a u
 
 Solucione problemas habituales en las actualizaciones de aplicaciones consultando los pasos que figuran en [Solución de problemas de las actualizaciones de aplicaciones](service-fabric-application-upgrade-troubleshooting.md).
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

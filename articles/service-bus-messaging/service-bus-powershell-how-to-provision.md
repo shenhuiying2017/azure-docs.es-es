@@ -1,43 +1,47 @@
 ---
-title: Manage Service Bus with PowerShell | Microsoft Docs
-description: Manage Service Bus with PowerShell scripts
-services: service-bus
+title: "Administración de Service Bus con PowerShell | Microsoft Docs"
+description: "Administración de Bus de servicio con scripts de PowerShell"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: aff8e2ce-bc8b-489f-aca9-a18782be0375
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea48cceb265a90138d9618b3e4ab94aef60ad2d4
+
 
 ---
-# <a name="manage-service-bus-with-powershell"></a>Manage Service Bus with PowerShell
-## <a name="overview"></a>Overview
-Microsoft Azure PowerShell is a scripting environment that you can use to control and automate the deployment and management of your workloads in Azure. This article describes how to use PowerShell to provision and manage Service Bus entities such as namespaces, queues, and Event Hubs using a local Azure PowerShell console.
+# <a name="manage-service-bus-with-powershell"></a>Administración de Service Bus con PowerShell
+## <a name="overview"></a>Información general
+Microsoft Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo se describe cómo usar PowerShell para aprovisionar y administrar entidades de Service Bus, como espacios de nombres, colas y centros de eventos, mediante una consola local de Azure PowerShell.
 
-## <a name="prerequisites"></a>Prerequisites
-Before you begin this article, you must have the following prerequisites:
+## <a name="prerequisites"></a>Requisitos previos
+Antes de comenzar este tutorial, debe cumplir los siguientes requisitos previos:
 
-* An Azure subscription. Azure is a subscription-based platform. For more information about obtaining a subscription, see [Purchase Options][Purchase Options], [Member Offers][Member Offers], or [Free Trial][Free Trial].
-* A computer with Azure PowerShell. For instructions, see [Install and configure Azure PowerShell][Install and configure Azure PowerShell].
-* A general understanding of PowerShell scripts, NuGet packages, and the .NET Framework.
+* Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [prueba gratuita][prueba gratuita].
+* Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
+* Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>Including a reference to the .NET assembly for Service Bus
-There are a limited number of PowerShell cmdlets available for managing Service Bus. To provision entities that are not exposed through the existing cmdlets, you can use the .NET client for Service Bus in the [Service Bus NuGet package][Service Bus NuGet package].
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
+Hay un número limitado de cmdlets de PowerShell disponibles para la administración de Service Bus. Para aprovisionar las entidades que no se exponen a través de los cmdlets existentes, puede usar el cliente de .NET para Service Bus del [paquete NuGet del Bus de servicio][paquete NuGet del Bus de servicio].
 
-First, make sure that the script can locate the **Microsoft.ServiceBus.dll** assembly, which is installed with the NuGet package. In order to be flexible, the script performs these steps:
+En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Microsoft.ServiceBus.dll** , que se instala con el paquete NuGet. Para ser flexible, el script llevará a cabo estos pasos:
 
-1. Determines the path at which it was invoked.
-2. Traverses the path until it finds a folder named `packages`. This folder is created when you install NuGet packages.
-3. Recursively searches the `packages` folder for an assembly named **Microsoft.ServiceBus.dll**.
-4. References the assembly so that the types are available for later use.
+1. Determina la ruta de acceso en la que se invocó.
+2. Atraviesa la ruta de acceso hasta que encuentra una carpeta denominada `packages`. Esta carpeta se crea al instalar paquetes de NuGet.
+3. Se busca de forma recursiva en la carpeta `packages` un ensamblado denominado **Microsoft.ServiceBus.dll**.
+4. Hace referencia al ensamblado de modo que los tipos estarán disponibles para su uso posterior.
 
-Here's how these steps are implemented in a PowerShell script:
+Aquí se explica cómo se implementan estos pasos en un script de PowerShell:
 
 ```
 try
@@ -58,22 +62,22 @@ catch [System.Exception]
 }
 ```
 
-## <a name="provision-a-service-bus-namespace"></a>Provision a Service Bus namespace
-Two PowerShell cmdlets support Service Bus namespace operations. Instead of the .NET SDK APIs, you can use [Get-AzureSBNamespace][Get-AzureSBNamespace] and [New-AzureSBNamespace][New-AzureSBNamespace].
+## <a name="provision-a-service-bus-namespace"></a>Aprovisionar un espacio de nombres de Service Bus
+Dos de los cmdlets de PowerShell admiten operaciones de espacio de nombres del Bus de servicio. En lugar de las API del SDK de .NET, puede usar [Get-AzureSBNamespace][Get-AzureSBNamespace] y [New-AzureSBNamespace][New-AzureSBNamespace].
 
-This example creates a few local variables in the script; `$Namespace` and `$Location`.
+En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
-* `$Namespace` is the name of the Service Bus namespace with which we want to work.
-* `$Location` identifies the data center in which the script provisions the namespace.
-* `$CurrentNamespace` stores the reference namespace that the script retrieves (or creates).
+* `$Namespace` es el nombre del espacio de nombres de Service Bus con el que queremos trabajar.
+* `$Location` identifica el centro de datos en el que el script aprovisiona el espacio de nombres.
+* `$CurrentNamespace` almacena el espacio de nombres de referencia que el script recupera (o crea).
 
-In an actual script, `$Namespace` and `$Location` can be passed as parameters.
+En un script real, `$Namespace` y `$Location` se pueden pasar como parámetros.
 
-This part of the script performs the following tasks:
+Esta parte del script realiza las siguientes tareas:
 
-1. Attempts to retrieve a Service Bus namespace with the provided name.
-2. If the namespace is found, it reports what was found.
-3. If the namespace is not found, it creates the namespace and then retrieves the newly created namespace.
+1. Intenta recuperar un espacio de nombres de Service Bus con el nombre proporcionado.
+2. Si se encuentra el espacio de nombres, informa de lo que ha encontrado.
+3. Si no se encuentra el espacio de nombres, lo crea y luego recupera el espacio de nombres recién creado.
    
     ```
     $Namespace = "MyServiceBusNS"
@@ -97,8 +101,8 @@ This part of the script performs the following tasks:
     }
     ```
 
-To provision other Service Bus entities, create an instance of the [NamespaceManager][NamespaceManager] class from the SDK.
-You can use the [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] cmdlet to retrieve an authorization rule that's used to provide a connection string. We'll store a reference to the `NamespaceManager` instance in the `$NamespaceManager` variable. We will use `$NamespaceManager` later in the script to provision other entities.
+Para aprovisionar otras entidades de Service Bus, cree una instancia de la clase [NamespaceManager][NamespaceManager] a partir del SDK.
+Puede usar el cmdlet [Get-AzureSBAuthorizationRule][Get-AzureSBAuthorizationRule] para recuperar una regla de autorización que se usa para proporcionar una cadena de conexión. Almacenaremos una referencia a la instancia de `NamespaceManager` en la variable `$NamespaceManager`. Usaremos `$NamespaceManager` más adelante en el script para aprovisionar otras entidades.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -108,14 +112,14 @@ $NamespaceManager = [Microsoft.ServiceBus.NamespaceManager]::CreateFromConnectio
 Write-Output "NamespaceManager object for the [$Namespace] namespace has been successfully created."
 ```
 
-## <a name="provisioning-other-service-bus-entities"></a>Provisioning other Service Bus entities
-In order to provision other entities, such as queues, topics, and Event Hubs, use the [.NET API for Service Bus][.NET API for Service Bus]. This article focuses only on Event Hubs, but the steps for other entities are similar. In addition, more detailed examples, including other entities, are referenced at the end of this article.
+## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamiento de otras entidades de Service Bus
+Para aprovisionar otras entidades, como colas, temas y Centros de eventos, podemos usar la [API de .NET para el Bus de servicio][API de .NET para el Bus de servicio]. En este artículo se tratan solo los centros de eventos, pero los pasos para otras entidades son similares. Además, al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
 
-This part of the script creates four more local variables. These variables are used to instantiate an `EventHubDescription` object. The script performs the following tasks:
+En esta parte del script se crean cuatro variables locales adicionales. Estas variables se usan para crear una instancia de un objeto `EventHubDescription` . Este script realiza las siguientes tareas:
 
-1. Using the `NamespaceManager` object, check to see if the Event Hub identified by `$Path` exists.
-2. If it does not exist, create an `EventHubDescription` and pass that to the `NamespaceManager` class `CreateEventHubIfNotExists` method.
-3. After determining that the Event Hub is available, create a consumer group using `ConsumerGroupDescription` and `NamespaceManager`.
+1. Mediante el objeto `NamespaceManager`, compruebe si existe el centro de eventos que se identifica mediante `$Path`.
+2. Si no existe, creamos un `EventHubDescription` y lo pasamos al método `CreateEventHubIfNotExists` de la clase `NamespaceManager`.
+3. Cuando sepamos que el centro de eventos está disponible, cree un grupo de consumidores mediante `ConsumerGroupDescription` y `NamespaceManager`.
    
     ```
     $Path  = "MyEventHub"
@@ -149,8 +153,8 @@ This part of the script creates four more local variables. These variables are u
     Write-Output "The consumer group [$ConsumerGroupName] for the [$Path] event hub has been successfully created."
     ```
 
-## <a name="migrate-a-namespace-to-another-azure-subscription"></a>Migrate a namespace to another Azure subscription
-The following sequence of commands moves a namespace from one Azure subscription to another. To execute this operation, the namespace must already be active, and the user running the PowerShell commands must be an administrator on both the source and target subscriptions.
+## <a name="migrate-a-namespace-to-another-azure-subscription"></a>Migrar un espacio de nombres a otra suscripción de Azure
+La siguiente secuencia de comandos mueve un espacio de nombres de una suscripción de Azure a otra. Para ejecutar esta operación, el espacio de nombres ya debe estar activo y el usuario que ejecuta los comandos de PowerShell debe ser administrador en las suscripciones de origen y destino.
 
 ```
 # Create a new resource group in target subscription
@@ -163,32 +167,32 @@ $res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Mic
 Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="next-steps"></a>Next steps
-This article provided a basic outline for provisioning Service Bus entities using PowerShell. Anything that you can do using the .NET client libraries, you can also do in a PowerShell script.
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo se proporciona una descripción básica para el aprovisionamiento de entidades del Bus de servicio mediante PowerShell. Todo lo que puede hacer con las bibliotecas de cliente .NET puede hacer en un script de PowerShell.
 
-There are more detailed examples available on these blog posts:
+Hay ejemplos más detallados disponibles en estas publicaciones de blog:
 
-* [How to create Service Bus queues, topics and subscriptions using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [How to create a Service Bus Namespace and an Event Hub using a PowerShell script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
-Some ready-made scripts are also available for download:
+Además, puede descargar algunos scripts listos para usar:
 
-* [Service Bus PowerShell Scripts](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
+* [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Link references-->
-[Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
-[Member Offers]: http://azure.microsoft.com/pricing/member-offers/
-[Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: ../powershell-install-configure.md
-[Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
+[Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
+[Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
+[prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
+[paquete NuGet del Bus de servicio]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[.NET API for Service Bus]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
+[API de .NET para el Bus de servicio]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.aspx
 [NamespaceManager]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

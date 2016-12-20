@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/26/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 037dc010a6dc60eb49ad4fdad2861e8653e36199
+ms.sourcegitcommit: e8b2379c750047bf2a4c7342815b5c3aab3883c6
+ms.openlocfilehash: a101ad134e15a0da5e6d3fd5cbf4ca051da34e86
 
 
 ---
@@ -64,7 +64,7 @@ Una aplicación de Service Fabric puede contener uno o varios servicios, cada un
     El proyecto de aplicación no contiene código directamente. En su lugar, hace referencia a un conjunto de proyectos de servicio. Además, contiene otros tres tipos de contenido:
    
    * **Perfiles de publicación**: se usa para administrar las herramientas preferidas para los distintos entornos.
-   * **Scripts**: incluye un script de PowerShell para implementar o actualizar aplicaciones. Visual Studio utiliza el script en segundo plano de Visual Studio. También se puede invocar el script directamente en la línea de comandos.
+   * **Scripts**: incluye un script de PowerShell para implementar o actualizar aplicaciones. Visual Studio utiliza el script en segundo plano. También se puede invocar el script directamente en la línea de comandos.
    * **Definición de la aplicación**: incluye el manifiesto de aplicación en *ApplicationPackageRoot*. Los archivos de aplicación asociados se encuentran en *ApplicationParameters*, donde se define la aplicación y se la puede configurar específicamente para un entorno determinado.
      
      Para obtener información general del contenido del proyecto de servicio, consulte [Introducción a Reliable Services de Microsoft Azure Service Fabric](service-fabric-reliable-services-quick-start.md).
@@ -151,6 +151,6 @@ Al cambiar el modo de clúster, el clúster de desarrollo se restablece y se qui
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

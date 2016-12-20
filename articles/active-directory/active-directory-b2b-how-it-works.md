@@ -1,13 +1,13 @@
 ---
-title: 'Vista previa de colaboración de Azure AD B2B: funcionamiento | Microsoft Docs'
-description: Describe la forma en que la colaboración de Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas.
+title: "Vista previa de la colaboración B2B de Azure AD: cómo funciona | Microsoft Azure"
+description: "Describe la forma en que la colaboración de Azure Active Directory B2B posibilita las relaciones entre empresas al permitir que los asociados empresariales accedan de forma selectiva a las aplicaciones corporativas."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: viv-liu
 manager: cliffdi
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 0c1cdde6-1988-4eff-a876-75c8f845f0ed
 ms.service: active-directory
 ms.devlang: NA
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/09/2016
 ms.author: viviali
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4f458a0835951692fa447d19b2ce1dda7cc2c8e2
+
 
 ---
-# Vista previa de la colaboración B2B de Azure AD: funcionamiento
+# <a name="azure-ad-b2b-collaboration-preview-how-it-works"></a>Vista previa de la colaboración B2B de Azure AD: funcionamiento
 La colaboración de Azure AD B2B se basa en un modelo de invitación y canje. Debe especificar las direcciones de correo electrónico de las partes con las que desea trabajar junto con las aplicaciones que deben usar. Azure AD les envía una invitación por correo electrónico que incluye un vínculo. El usuario del asociado debe seguir el vínculo y, cuando se le indique, debe iniciar sesión con su cuenta de Azure AD o bien suscribirse con una cuenta de Azure AD nueva.
 
 1. El administrador invita a los usuarios del asociado cargando un [archivo .csv estructurado](active-directory-b2b-references-csv-file-format.md) mediante el Portal de Azure.
@@ -25,7 +29,7 @@ La colaboración de Azure AD B2B se basa en un modelo de invitación y canje. De
 3. Los usuarios del asociado hacen clic en el vínculo incluido en el correo electrónico. A continuación, se les pide que inicien sesión con sus credenciales de trabajo (si ya pertenecen a Azure AD) o que se suscriban como usuarios de colaboración en Azure AD B2B.
 4. Los usuarios del asociado se redirigen a la aplicación a la que se les invitó, a la que ahora tienen acceso.
 
-## Operaciones del directorio
+## <a name="directory-operations"></a>Operaciones del directorio
 En Azure AD, los usuarios del asociado se consideran como usuarios externos. Esto significa que el administrador puede aprovisionar licencias, asignar pertenencias a grupos y proporcionar otros accesos a las aplicaciones corporativas mediante el Portal de Azure o usar Azure PowerShell al igual que con otros usuarios de su empresa.
 
 Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básica o Premium) para usar Azure AD B2B, los inquilinos que dispongan de una suscripción de pago de Azure AD (Básica o Premium) disfrutarán de las siguientes ventajas adicionales:
@@ -33,7 +37,7 @@ Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básic
 * Los administradores pueden asignar grupos a las aplicaciones lo que simplifica la administración del acceso de los usuarios invitados.
 * La personalización de la marca del inquilino de administración se usa para personalizar la marca en los correos electrónicos de invitación y la experiencia de canje, lo que proporciona más contexto a los usuarios invitados del asociado.
 
-## Artículos relacionados
+## <a name="related-articles"></a>Artículos relacionados
  Consulte otros artículos nuestros sobre la colaboración B2B de Azure AD:
 
 * [¿Qué es la colaboración de Azure AD B2B?](active-directory-b2b-what-is-azure-ad-b2b.md)
@@ -44,4 +48,9 @@ Aunque no es obligatorio contar con una suscripción de pago de Azure AD (Básic
 * [Limitaciones de la vista previa actual](active-directory-b2b-current-preview-limitations.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

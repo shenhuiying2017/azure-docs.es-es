@@ -1,22 +1,26 @@
 ---
-title: Configuración de conexiones VPN en Administración de API de Azure
-description: Aprenda a configurar una conexión VPN en Administración de API de Azure y obtenga acceso a los servicios web a través de ella.
+title: "Configuración de conexiones VPN en Administración de API de Azure"
+description: "Aprenda a configurar una conexión VPN en Administración de API de Azure y obtenga acceso a los servicios web a través de ella."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: antonba
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 55a2a1e1-d07e-4111-9ce3-8837ed5040d6
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: antonba
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3016778f22597921f716cfcf7845c550d6d822d5
+
 
 ---
-# Configuración de conexiones VPN en Administración de API de Azure
+# <a name="how-to-setup-vpn-connections-in-azure-api-management"></a>Configuración de conexiones VPN en Administración de API de Azure
 La compatibilidad con VPN de Administración de API le permite conectar la puerta de enlace de Administración de API a una red virtual de Azure (clásica). Esto permite a los clientes de Administración de API conectarse de forma segura a sus servicios web back-end del entorno local o que, por el contrario, no son inaccesibles a la Internet pública.
 
 > [!NOTE]
@@ -25,11 +29,11 @@ La compatibilidad con VPN de Administración de API le permite conectar la puert
 > 
 
 ## <a name="enable-vpn"> </a>Habilitación de conexiones VPN
-> La conectividad VPN solo está disponible en los niveles **Premium** y **Desarrollador**. Para cambiar, abra el servicio Administración de API en el [Portal de Azure clásico ][Portal de Azure clásico ] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
+> La conectividad VPN solo está disponible en los niveles **Premium** y **Desarrollador**. Para cambiar a él, abra su servicio de API Management en el [​​Portal de Azure clásico][Portal de Azure clásico] y luego abra la pestaña **Escala**. En la sección **General** seleccione el nivel Premium y haga clic en Guardar.
 > 
 > 
 
-Para habilitar la conectividad VPN, abra su servicio Administración de API en el [Portal de Azure clásico][Portal de Azure clásico] y cambie a la pestaña **Configurar**.
+Para habilitar la conectividad VPN, abra su servicio de API Management en el [Portal de Azure clásico][Portal de Azure clásico] y cambie a la pestaña**Configurar**. 
 
 En la sección VPN, cambie **Conexión VPN** a **Activar**.
 
@@ -50,21 +54,21 @@ Después de que el servicio Administración de API se conecta a la VPN, el acces
 
 ![Agregar una API desde VPN][api-management-setup-vpn-add-api]
 
-## Puertos necesarios para la compatibilidad con VPN de Administración de API
+## <a name="required-ports-for-api-management-vpn-support"></a>Puertos necesarios para la compatibilidad con VPN de Administración de API
 Cuando la instancia del servicio de Administración de API se hospeda en una red virtual, se usan los puertos de la tabla siguiente. Si estos puertos están bloqueados, puede que el servicio no funcione correctamente. Tener bloqueados uno o varios de estos puertos es el problema más común de una configuración incorrecta cuando se usa Administración de API con una red virtual.
 
 | Puertos | Dirección | Protocolo de transporte | Propósito | Origen/destino |
 | --- | --- | --- | --- | --- |
-| 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL\_NETWORK |
-| 80 443 |Salida |TCP |Dependencia de Administración de API en Almacenamiento de Azure y Bus de servicio de Azure |VIRTUAL\_NETWORK/INTERNET |
-| 1433 |Salida |TCP |Dependencias de Administración de API de SQL |VIRTUAL\_NETWORK/INTERNET |
-| 9350, 9351, 9352, 9353, 9354 |Salida |TCP |Dependencias de Administración de API de Bus de servicio |VIRTUAL\_NETWORK/INTERNET |
-| 5671 |Salida |AMQP |Dependencia de Administración de API para registrar en la directiva del centro de eventos |VIRTUAL\_NETWORK/INTERNET |
-| 6381, 6382, 6383 |Entrante o saliente |UDP |Dependencias de Administración de API de Caché en Redis |VIRTUAL\_NETWORK/VIRTUAL\_NETWORK |
-| 445 |Salida |TCP |Dependencia de Administración de API en el recurso compartido de archivos de Azure para GIT |VIRTUAL\_NETWORK/INTERNET |
+| 80, 443 |Entrada |TCP |Comunicación de cliente con Administración de API |INTERNET/VIRTUAL_NETWORK |
+| 80 443 |Salida |TCP |Dependencia de Administración de API en Almacenamiento de Azure y Bus de servicio de Azure |VIRTUAL_NETWORK/INTERNET |
+| 1433 |Salida |TCP |Dependencias de Administración de API de SQL |VIRTUAL_NETWORK/INTERNET |
+| 9350, 9351, 9352, 9353, 9354 |Salida |TCP |Dependencias de Administración de API de Bus de servicio |VIRTUAL_NETWORK/INTERNET |
+| 5671 |Salida |AMQP |Dependencia de Administración de API para registrar en la directiva del centro de eventos |VIRTUAL_NETWORK/INTERNET |
+| 6381, 6382, 6383 |Entrante o saliente |UDP |Dependencias de Administración de API de Caché en Redis |VIRTUAL_NETWORK/VIRTUAL_NETWORK |
+| 445 |Salida |TCP |Dependencia de Administración de API en el recurso compartido de archivos de Azure para GIT |VIRTUAL_NETWORK/INTERNET |
 
 ## <a name="custom-dns"> </a>Configuración del servidor DNS personalizado
-Administración de API depende de varios servicios de Azure. Cuando una instancia del servicio Administración de API se hospeda en una red virtual donde se utiliza un servidor DNS personalizado, debe ser capaz de resolver nombres de host de los servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado.
+Administración de API depende de varios servicios de Azure. Cuando una instancia del servicio Administración de API se hospeda en una red virtual donde se utiliza un servidor DNS personalizado, debe ser capaz de resolver nombres de host de los servicios de Azure. Siga [estas](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) instrucciones sobre la configuración de DNS personalizado.  
 
 ## <a name="related-content"> </a>Contenido relacionado
 * [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico][Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]
@@ -74,14 +78,17 @@ Administración de API depende de varios servicios de Azure. Cuando una instanci
 [api-management-setup-vpn-select]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-select.png
 [api-management-setup-vpn-add-api]: ./media/api-management-howto-setup-vpn/api-management-setup-vpn-add-api.png
 
-[Enable VPN connections]: #enable-vpn
-[Connect to a web service behind VPN]: #connect-vpn
-[Related content]: #related-content
+[Habilitación de conexiones VPN]: #enable-vpn
+[Conexión a un servicio web detrás de VPN]: #connect-vpn
+[Contenido relacionado]: #related-content
 
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[Portal de Azure clásico ]: https://manage.windowsazure.com/
 
 [Creación de una red virtual con una conexión VPN de sitio a sitio mediante el Portal de Azure clásico]: ../vpn-gateway/vpn-gateway-site-to-site-create.md
 [Uso del API Inspector para hacer un seguimiento de las llamadas en Administración de API de Azure]: api-management-howto-api-inspector.md
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

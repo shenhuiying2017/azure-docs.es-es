@@ -1,12 +1,12 @@
 ---
-title: Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos | Microsoft Docs
-description: Se muestra cómo configurar Diagnósticos de Azure con Centros de eventos de extremo a extremo, además de instrucciones para escenarios comunes.
+title: "Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos | Microsoft Docs"
+description: "Se muestra cómo configurar Diagnósticos de Azure con Centros de eventos de extremo a extremo, además de instrucciones para escenarios comunes."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 339438be098d0adb46a22ccf0389d7503c43672e
+
 
 ---
-# Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
+# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Transmisión de datos de Diagnósticos de Azure en la ruta de acceso activa mediante Centros de eventos
 Diagnósticos de Azure proporciona maneras flexibles de recopilar métricas y registros de máquinas virtuales de servicios en la nube (VM) y transferir los resultados a Almacenamiento de Azure. A partir de marzo de 2016 (SDK 2.9), se puede insertar diagnósticos en orígenes de datos completamente personalizados y transferir datos de rutas activas en cuestión de segundos mediante [Centros de eventos de Azure](https://azure.microsoft.com/services/event-hubs/).
 
 Entre los tipos de datos admitidos se incluyen:
@@ -32,9 +36,9 @@ En este artículo se muestra cómo configurar Diagnósticos de Azure con Centros
 * Cómo personalizar los registros y las métricas que se reciben en los Centros de eventos
 * Cómo cambiar la configuración de cada entorno
 * Cómo ver los datos de secuencia de los Centros de eventos
-* Cómo solucionar los problemas de conexión
+* Cómo solucionar los problemas de conexión  
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 La recepción de Centros de eventos en Diagnósticos de Azure se admite en Servicios en la nube, máquinas virtuales, conjuntos de escala de máquinas virtuales y Service Fabric comenzando en el SDK 2.9 de Azure y las correspondientes herramientas de Azure Tools para Visual Studio.
 
 * La extensión de Diagnósticos de Azure 1.6 ([Azure SDK para .NET 2.9 o posterior](https://azure.microsoft.com/downloads/) sirve a este fin de forma predeterminada).
@@ -42,10 +46,10 @@ La recepción de Centros de eventos en Diagnósticos de Azure se admite en Servi
 * Configuraciones existentes de Diagnósticos de Azure en una aplicación mediante un archivo *.wadcfgx* y uno de los siguientes métodos:
   * Visual Studio: [Configuración de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [Habilitar el diagnóstico en Servicios en la nube de Azure mediante PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Espacio de nombres de Centros de eventos aprovisionado según el artículo [Introducción a los Centros de eventos](event-hubs-csharp-ephcs-getstarted.md)
+* Espacio de nombres de Event Hubs aprovisionado según el artículo [Introducción a los Event Hubs](event-hubs-csharp-ephcs-getstarted.md)
 
-## Conectar Diagnósticos de Azure al receptor de Centros de eventos
-Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterminada, en una cuenta de Almacenamiento de Azure. Adicionalmente, una aplicación se puede insertar en Centros de eventos agregando una nueva sección **Sinks** al elemento **WadCfg** de la sección **PublicConfig** del archivo *wadcfgx*. En Visual Studio, el archivo *.wadcfgx* está almacenado en la siguiente ruta de acceso: **Proyecto de servicio de nube** > **Roles** > **(nombreDelRol)** > archivo **diagnostics.wadcfgx**.
+## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Conectar Diagnósticos de Azure al receptor de Centros de eventos
+Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterminada, en una cuenta de Almacenamiento de Azure. Adicionalmente, una aplicación se puede insertar en Event Hubs agregando una nueva sección **Sinks** al elemento **WadCfg** de la sección **PublicConfig** del archivo *wadcfgx*. En Visual Studio, el archivo *.wadcfgx* está almacenado en la siguiente ruta de acceso: **Proyecto de servicio en la nube** > **Roles** >  **(nombreDelRol)** > archivo **diagnostics.wadcfgx**.
 
 ```
 <SinksConfig>
@@ -55,18 +59,18 @@ Diagnósticos de Azure siempre inserta registros y métricas, de forma predeterm
 </SinksConfig>
 ```
 
-En este ejemplo, la URL del Centro de eventos se establece en el espacio de nombres completo del Centro de eventos: espacio de nombres de Centro de eventos + "/" + nombre del Centro de eventos.
+En este ejemplo, la URL del centro de eventos se establece en el espacio de nombres completo del centro de eventos: espacio de nombres de centro de eventos + "/" + nombre del centro de eventos.  
 
-La URL del Centro de eventos se muestra en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) del panel de Centros de eventos.
+La URL del Centro de eventos se muestra en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkID=213885) del panel de Centros de eventos.  
 
 El nombre **Sink** se puede establecer en cualquier cadena válida siempre y cuando se use el mismo valor sistemáticamente en el archivo de configuración.
 
 > [!NOTE]
-> Puede que haya más receptores configurados en esta sección, como *applicationInsights*. Diagnósticos de Azure permite definir uno o varios receptores, si cada uno de ellos también se declara en la sección **PrivateConfig**.
+> Puede que haya más receptores configurados en esta sección, como *applicationInsights* . Diagnósticos de Azure permite definir uno o varios receptores, si cada uno de ellos también se declara en la sección **PrivateConfig** .  
 > 
 > 
 
-El receptor de Centros de eventos también se debe declarar y definir en la sección **PrivateConfig** del archivo de configuración *.wadcfgx*.
+El receptor de Centros de eventos también se debe declarar y definir en la sección **PrivateConfig** del archivo de configuración *.wadcfgx* .
 
 ```
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -75,15 +79,15 @@ El receptor de Centros de eventos también se debe declarar y definir en la secc
 </PrivateConfig>
 ```
 
-El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Centros de eventos**. Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío*. El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.
+El valor de `SharedAccessKeyName` debe coincidir con una directiva y una clave de firma de acceso compartido (SAS) que se hayan definido en el espacio de nombres de **Centros de eventos** . Vaya al panel de Centros de eventos en el [Portal de Azure](https://manage.windowsazure.com), seleccione la pestaña **Configurar** y configure una directiva con nombre (por ejemplo, SendRule) que tenga permisos de *envío* . El elemento **StorageAccount** también se declara en **PrivateConfig**. No hace falta cambiar estos valores si funcionan. En este ejemplo, dejamos los valores vacíos, que indica que un activo de bajada establecerá los valores. Por ejemplo, el archivo de configuración del entorno *ServiceConfiguration.Cloud.cscfg* establecerá las claves y los nombres apropiados.  
 
 > [!WARNING]
-> Tenga en cuenta que la clave SAS de Centros de eventos se almacena en texto sin formato en el archivo *wadcfgx*. A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que cualquier usuario malintencionado pueda escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
+> Tenga en cuenta que la clave SAS de Centros de eventos se almacena en texto sin formato en el archivo *wadcfgx* . A menudo, esta clave se registra en el control de código fuente o está disponible como un recurso en el servidor de compilación, por lo que debe protegerla de la manera adecuada. Se recomienda usar aquí una clave SAS con permisos de *solo envío* para que cualquier usuario malintencionado pueda escribir en el Centro de eventos, pero nunca realizar operaciones de administración ni de escucha.
 > 
 > 
 
-## Configuración de registros y métricas de Diagnósticos de Azure para insertarlos con Centros de eventos
-Como se ha indicado anteriormente, todos los datos de diagnóstico predeterminados y personalizados (es decir, métricas y registros) se insertan automáticamente en Almacenamiento de Azure en los intervalos configurados. Con Centros de eventos (y cualquier receptor adicional), puede especificar que cualquier nodo raíz u hoja de la jerarquía se inserte en el Centro de eventos. Esto incluye eventos ETW, contadores de rendimiento, registros de eventos de Windows y registros de aplicaciones.
+## <a name="configure-azure-diagnostics-logs-and-metrics-to-sink-with-event-hubs"></a>Configuración de registros y métricas de Diagnósticos de Azure para insertarlos con Centros de eventos
+Como se ha indicado anteriormente, todos los datos de diagnóstico predeterminados y personalizados (es decir, métricas y registros) se insertan automáticamente en Almacenamiento de Azure en los intervalos configurados. Con Centros de eventos (y cualquier receptor adicional), puede especificar que cualquier nodo raíz u hoja de la jerarquía se inserte en el Centro de eventos. Esto incluye eventos ETW, contadores de rendimiento, registros de eventos de Windows y registros de aplicaciones.   
 
 Es importante tener en cuenta cuántos puntos de datos se deben transferir realmente a Centros de eventos. Normalmente, los desarrolladores transfieren datos de ruta de acceso activa y de baja latencia que deben consumirse e interpretarse rápidamente. Los sistemas que supervisan las alertas o las reglas de escalado automático son algunos ejemplos. Un desarrollador también puede configurar un almacén de búsqueda o un almacén de análisis alternativo (por ejemplo, Análisis de transmisiones de Azure, Elasticsearch, un sistema de supervisión personalizado o un sistema de supervisión favorito de terceros).
 
@@ -102,7 +106,7 @@ Las siguientes son algunas configuraciones de ejemplo.
 </PerformanceCounters>
 ```
 
-En el ejemplo siguiente, el receptor se aplica al nodo principal **PerformanceCounters** de la jerarquía, lo que significa que todos los nodos secundarios **PerformanceCounters** se enviarán a Centros de eventos.
+En el ejemplo siguiente, el receptor se aplica al nodo principal **PerformanceCounters** de la jerarquía, lo que significa que todos los nodos secundarios **PerformanceCounters** se enviarán a Centros de eventos.  
 
 ```
 <PerformanceCounters scheduledTransferPeriod="PT1M">
@@ -117,9 +121,9 @@ En el ejemplo siguiente, el receptor se aplica al nodo principal **PerformanceCo
 </PerformanceCounters>
 ```
 
-En el ejemplo anterior, el receptor se aplica solo a tres contadores: **Solicitudes en cola**, **Solicitudes rechazadas** y **% de tiempo de procesador**.
+En el ejemplo anterior, el receptor se aplica solo a tres contadores: **Solicitudes en cola**, **Solicitudes rechazadas** y **% de tiempo de procesador**.  
 
-En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la cantidad de datos que se envían como métricas críticas usadas para el estado del servicio.
+En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la cantidad de datos que se envían como métricas críticas usadas para el estado del servicio.  
 
 ```
 <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
@@ -127,30 +131,30 @@ En el ejemplo siguiente se muestra cómo un desarrollador puede limitar la canti
 
 En este ejemplo, el receptor se aplica a los registros y se filtra solo para el seguimiento de nivel Error.
 
-## Implementación y actualización de una aplicación de servicios en la nube y configuración de diagnósticos
-Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Centros de eventos. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio de nube ** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.
+## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Implementación y actualización de una aplicación de servicios en la nube y configuración de diagnósticos
+Visual Studio proporciona la manera más sencilla de implementar la aplicación y la configuración del receptor de Centros de eventos. Para ver y editar el archivo, abra el archivo *.wadcfgx* en Visual Studio, edítelo y guárdelo. La ruta de acceso es **Proyecto de servicio en la nube** > **Roles** > **(nombreDelRol)** > **diagnostics.wadcfgx**.  
 
 En este punto, toda la implementación y las acciones de actualización de la implementación en Visual Studio, Visual Studio Team System, además de todos los comandos o scripts que se basan en MSBuild y usan el destino **/t:publish** incluirán el archivo *.wadcfgx* en el proceso de empaquetado. Además, las implementaciones y actualizaciones implementan el archivo en Azure mediante la extensión del agente de Diagnósticos de Azure en las máquinas virtuales.
 
-Después de implementar la aplicación y la configuración de Diagnósticos de Azure, verá inmediatamente la actividad en el panel del Centros de eventos. Esto indica que está listo para continuar y ver los datos de la ruta de acceso activa en el cliente de escucha o la herramienta de análisis que prefiera.
+Después de implementar la aplicación y la configuración de Diagnósticos de Azure, verá inmediatamente la actividad en el panel del Centros de eventos. Esto indica que está listo para continuar y ver los datos de la ruta de acceso activa en el cliente de escucha o la herramienta de análisis que prefiera.  
 
 En la siguiente figura, el panel de Centros de eventos muestra el envío correcto de los datos de diagnóstico al Centro de eventos a partir de las 23:00. Ese es el momento en que la aplicación se ha implementado con un archivo *.wadcfgx* actualizado y el receptor se ha configurado correctamente.
 
-![][0]
+![][0]  
 
 > [!NOTE]
-> Al realizar actualizaciones en el archivo de configuración de Diagnósticos de Azure (.wadcfgx), se recomienda insertar las actualizaciones en toda la aplicación, además de la configuración, mediante el script de publicación de Visual Studio o el de Windows PowerShell.
+> Al realizar actualizaciones en el archivo de configuración de Diagnósticos de Azure (.wadcfgx), se recomienda insertar las actualizaciones en toda la aplicación, además de la configuración, mediante el script de publicación de Visual Studio o el de Windows PowerShell.  
 > 
 > 
 
-## Ver los datos de la ruta de acceso activa
+## <a name="view-hot-path-data"></a>Ver los datos de la ruta de acceso activa
 Como se explicó anteriormente, la escucha y el procesamiento de datos de Centros de eventos tienen varias finalidades.
 
-Un enfoque sencillo es crear una pequeña aplicación de consola de prueba para escuchar en el Centro de eventos e imprimir el flujo de salida. Puede colocar el código siguiente (que se explica con más detalle en [Introducción a los Centros de eventos](event-hubs-csharp-ephcs-getstarted.md)) en una aplicación de consola.
+Un enfoque sencillo es crear una pequeña aplicación de consola de prueba para escuchar en el Centro de eventos e imprimir el flujo de salida. Puede colocar el código siguiente (que se explica con más detalle en [Introducción a Event Hubs](event-hubs-csharp-ephcs-getstarted.md)) en una aplicación de consola.  
 
-Tenga en cuenta que la aplicación de consola debe incluir el [paquete NuGet del host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).
+Tenga en cuenta que la aplicación de consola debe incluir el [paquete NuGet del host del procesador de eventos](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
-No olvide sustituir los valores que aparecen entre corchetes angulares en la función **Main** por los valores de sus recursos.
+No olvide sustituir los valores que aparecen entre corchetes angulares en la función **Main** por los valores de sus recursos.   
 
 ```
 //Console application code for EventHub test client
@@ -233,21 +237,21 @@ namespace EventHubListener
 }
 ```
 
-## Solucionar los problemas del receptor de Centros de eventos
+## <a name="troubleshoot-event-hubs-sink"></a>Solucionar los problemas del receptor de Centros de eventos
 * El Centro de eventos no muestra la actividad de eventos entrante o saliente esperada.
   
-    Compruebe que el Centro de eventos esté correctamente aprovisionado. Toda la información de conexión de la sección **PrivateConfig** de *wadcfgx* debe coincidir con los valores de su recurso, tal y como se muestra en el portal. Asegúrese de tener una directiva SAS definida (SendRule en el ejemplo) en el portal y que se haya concedido el permiso de *envío*.
+    Compruebe que el Centro de eventos esté correctamente aprovisionado. Toda la información de conexión de la sección **PrivateConfig** de *wadcfgx* debe coincidir con los valores de su recurso, tal y como se muestra en el portal. Asegúrese de tener una directiva SAS definida (SendRule en el ejemplo) en el portal y que se haya concedido el permiso de *envío* .  
 * Después de una actualización, el Centro de eventos ya no muestra actividad de eventos entrante o saliente.
   
-    Primero, asegúrese de que el Centro de eventos y la información de configuración es correcta tal y como se ha explicado anteriormente. A veces, **PrivateConfig** se restablece en una actualización de implementación. La solución recomendada consiste en realizar todos los cambios en *.wadcfgx* en el proyecto y, luego, insertar una actualización completa de la aplicación. Si no es posible, asegúrese de que la actualización de diagnósticos inserta completamente **PrivateConfig**, lo que incluye la clave SAS.
+    Primero, asegúrese de que el Centro de eventos y la información de configuración es correcta tal y como se ha explicado anteriormente. A veces, **PrivateConfig** se restablece en una actualización de implementación. La solución recomendada consiste en realizar todos los cambios en *.wadcfgx* en el proyecto y, luego, insertar una actualización completa de la aplicación. Si no es posible, asegúrese de que la actualización de diagnósticos inserta completamente **PrivateConfig** , lo que incluye la clave SAS.  
 * He probado las sugerencias y el Centro de eventos sigue sin funcionar.
   
-    Pruebe a mirar en la tabla de Almacenamiento de Azure que contiene registros y errores del servicio Diagnósticos de Azure: **WADDiagnosticInfrastructureLogsTable**. Una opción es usar una herramienta como el [Explorador de almacenamiento de Azure](http://www.storageexplorer.com) para conectarse a esta cuenta de almacenamiento, ver esta tabla y agregar una consulta para TimeStamp en las últimas 24 horas. Puede usar la herramienta para exportar un archivo .csv y abrirlo en una aplicación como Microsoft Excel. Excel facilita la búsqueda de cadenas de tarjeta de llamadas, como **EventHubs**, para ver qué error se notifica.
+    Pruebe a mirar en la tabla de Almacenamiento de Azure que contiene registros y errores del servicio Diagnósticos de Azure: **WADDiagnosticInfrastructureLogsTable**. Una opción es usar una herramienta como el [Explorador de almacenamiento de Azure](http://www.storageexplorer.com) para conectarse a esta cuenta de almacenamiento, ver esta tabla y agregar una consulta para TimeStamp en las últimas 24 horas. Puede usar la herramienta para exportar un archivo .csv y abrirlo en una aplicación como Microsoft Excel. Excel facilita la búsqueda de cadenas de tarjeta de llamadas, como **EventHubs**, para ver qué error se notifica.  
 
-## Pasos siguientes
-• [Más información sobre Centros de eventos](https://azure.microsoft.com/services/event-hubs/)
+## <a name="next-steps"></a>Pasos siguientes
+•    [Más información sobre Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 
-## Apéndice: Archivo de configuración completo de Diagnósticos de Azure (.wadcfgx): ejemplo
+## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>Apéndice: Archivo de configuración completo de Diagnósticos de Azure (.wadcfgx): ejemplo
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
@@ -318,4 +322,8 @@ El archivo *ServiceConfiguration.Cloud.cscfg* complementario para este ejemplo s
 <!-- Images. -->
 [0]: ./media/event-hubs-streaming-azure-diags-data/dashboard.png
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

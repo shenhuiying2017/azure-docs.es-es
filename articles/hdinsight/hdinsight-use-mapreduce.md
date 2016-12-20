@@ -1,31 +1,38 @@
 ---
 title: MapReduce con Hadoop en HDInsight | Microsoft Docs
-description: Obtenga información sobre cómo ejecutar trabajos de MapReduce en Hadoop en clústeres de HDInsight. Ejecutará una operación de recuento de palabras básica implementada como un trabajo de MapReduce de Java.
+description: "Obtenga información sobre cómo ejecutar trabajos de MapReduce en Hadoop en clústeres de HDInsight. Ejecutará una operación de recuento de palabras básica implementada como un trabajo de MapReduce de Java."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2016
+ms.date: 11/15/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: b72443c0ca60196535ac093a6ac03df456f776ea
+ms.openlocfilehash: 068cd703d0d06206b3caa72e765dbe51b819ff17
+
 
 ---
-# Uso de MapReduce en Hadoop en HDInsight
+# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Uso de MapReduce en Hadoop en HDInsight
+
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
 
 En este artículo, obtendrá información sobre cómo ejecutar trabajos de MapReduce en clústeres de HDInsight. Ejecutamos una operación de recuento de palabras básica implementada como un trabajo de MapReduce de Java.
 
-## <a id="whatis"></a>¿Qué es MapReduce?
+## <a name="a-idwhatisawhat-is-mapreduce"></a><a id="whatis"></a>¿Qué es MapReduce?
+
 MapReduce de Hadoop es un marco de software para escribir trabajos que procesan enormes cantidades de datos. La entrada de datos se divide en fragmentos independientes que, a continuación, se procesan en paralelo a través de los nodos del clúster. Un trabajo de MapReduce consta de dos funciones:
 
 * **Asignador**: consume datos de entrada, los analiza (normalmente con un filtro y operaciones de ordenación) y emite tuplas (pares de clave-valor)
+
 * **Reductor**: consume tuplas emitidas por el asignador y realiza una operación de resumen que crea un resultado combinado más pequeño de los datos del asignador
 
 En el siguiente diagrama se muestra un ejemplo de trabajo de MapReduce de recuento de palabras básico:
@@ -39,7 +46,8 @@ La salida de este trabajo es un recuento de las veces que aparece cada palabra e
 
 MapReduce se puede implementar en varios lenguajes. Java es la implementación más común y se utiliza para fines de demostración en este documento.
 
-### Streaming de Hadoop
+### <a name="hadoop-streaming"></a>Streaming de Hadoop
+
 Lenguajes o marcos basados en Java y la máquina virtual de Java (por ejemplo, Scalding o Cascading) se pueda ejecutar directamente como un trabajo de MapReduce, similar a una aplicación de Java. Otros, como C# o Python, o ejecutables independientes, deben usar streaming de Hadoop.
 
 Streaming de Hadoop se comunica con el asignador y el reductor por STDIN y STDOUT; el asignador y el reductor leen datos una línea cada vez desde STDIN y escriben la salida a STDOUT. Cada línea leída o emitida por el asignador y el reductor debe estar en el formato de un par de clave-valor delimitado por un carácter de tabulación:
@@ -52,103 +60,105 @@ Para obtener ejemplos del uso del streaming de Hadoop con HDInsight, vea lo sigu
 
 * [Desarrollar trabajos de MapReduce de Python](hdinsight-hadoop-streaming-python.md)
 
-## <a id="data"></a>Acerca de los datos de ejemplo
+## <a name="a-iddataaabout-the-sample-data"></a><a id="data"></a>Acerca de los datos de ejemplo
+
 En este ejemplo, para datos de ejemplo, usará los cuadernos de Leonardo Da Vinci, que se proporcionan como documento de texto en el clúster de HDInsight.
 
-Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado para clústeres de Hadoop. HDInsight puede acceder a archivos almacenados en el almacenamiento de blobs mediante el prefijo **wasb**. Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
+Los datos de ejemplo se almacenan en el almacenamiento de blobs de Azure, que HDInsight usa como el sistema de archivos predeterminado para clústeres de Hadoop. HDInsight puede acceder a archivos almacenados en el almacenamiento de blobs mediante el prefijo **wasb** . Por ejemplo, para tener acceso al archivo sample.log, use la siguiente sintaxis:
 
     wasbs:///example/data/gutenberg/davinci.txt
 
 Dado que el almacenamiento de blobs de Azure es el almacenamiento predeterminado para HDInsight, también puede acceder al archivo mediante **/example/data/gutenberg/davinci.txt**.
 
 > [!NOTE]
-> En la sintaxis anterior, **wasbs:///**, se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
-> 
-> 
+> En la sintaxis anterior, **wasbs:///** se usa para acceder a archivos almacenados en el contenedor de almacenamiento predeterminado para el clúster de HDInsight. Si especificó cuentas de almacenamiento adicionales cuando aprovisionó el clúster y desea obtener acceso a los archivos almacenados en esas cuentas, puede acceder a los datos especificando el nombre de contenedor y la dirección de las cuentas de almacenamiento. Por ejemplo, **wasbs://mycontainer@mystorage.blob.core.windows.net/example/data/gutenberg/davinci.txt**.
 
-## <a id="job"></a>Acerca del MapReduce de ejemplo
-El trabajo de MapReduce que se usa en este ejemplo se encuentra en **wasbs://example/jars/hadoop-mapreduce-examples.jar** y se proporciona con el clúster de HDInsight. Contiene un ejemplo de recuento de palabras que se ejecutará con **davinci.txt**.
+
+## <a name="a-idjobaabout-the-example-mapreduce"></a><a id="job"></a>Acerca del MapReduce de ejemplo
+
+El trabajo de MapReduce que se usa en este ejemplo se encuentra en **wasbs://example/jars/hadoop-mapreduce-examples.jar**, y se proporciona con el clúster de HDInsight. Contiene un ejemplo de recuento de palabras que se ejecutará con **davinci.txt**.
 
 > [!NOTE]
 > En los clústeres de HDInsight 2.1, la ubicación del archivo es **wasbs:///example/jars/hadoop-examples.jar**.
-> 
-> 
 
 Como referencia, lo siguiente es el código Java para el trabajo de MapReduce de recuento de palabras:
 
-    package org.apache.hadoop.examples;
+```java
+package org.apache.hadoop.examples;
 
-    import java.io.IOException;
-    import java.util.StringTokenizer;
+import java.io.IOException;
+import java.util.StringTokenizer;
 
-    import org.apache.hadoop.conf.Configuration;
-    import org.apache.hadoop.fs.Path;
-    import org.apache.hadoop.io.IntWritable;
-    import org.apache.hadoop.io.Text;
-    import org.apache.hadoop.mapreduce.Job;
-    import org.apache.hadoop.mapreduce.Mapper;
-    import org.apache.hadoop.mapreduce.Reducer;
-    import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-    import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-    import org.apache.hadoop.util.GenericOptionsParser;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.util.GenericOptionsParser;
 
-    public class WordCount {
+public class WordCount {
 
-      public static class TokenizerMapper
-           extends Mapper<Object, Text, Text, IntWritable>{
+    public static class TokenizerMapper
+        extends Mapper<Object, Text, Text, IntWritable>{
 
-        private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
+    private final static IntWritable one = new IntWritable(1);
+    private Text word = new Text();
 
-        public void map(Object key, Text value, Context context
-                        ) throws IOException, InterruptedException {
-          StringTokenizer itr = new StringTokenizer(value.toString());
-          while (itr.hasMoreTokens()) {
-            word.set(itr.nextToken());
-            context.write(word, one);
-          }
+    public void map(Object key, Text value, Context context
+                    ) throws IOException, InterruptedException {
+        StringTokenizer itr = new StringTokenizer(value.toString());
+        while (itr.hasMoreTokens()) {
+        word.set(itr.nextToken());
+        context.write(word, one);
         }
-      }
-
-      public static class IntSumReducer
-           extends Reducer<Text,IntWritable,Text,IntWritable> {
-        private IntWritable result = new IntWritable();
-
-        public void reduce(Text key, Iterable<IntWritable> values,
-                           Context context
-                           ) throws IOException, InterruptedException {
-          int sum = 0;
-          for (IntWritable val : values) {
-            sum += val.get();
-          }
-          result.set(sum);
-          context.write(key, result);
-        }
-      }
-
-      public static void main(String[] args) throws Exception {
-        Configuration conf = new Configuration();
-        String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
-        if (otherArgs.length != 2) {
-          System.err.println("Usage: wordcount <in> <out>");
-          System.exit(2);
-        }
-        Job job = new Job(conf, "word count");
-        job.setJarByClass(WordCount.class);
-        job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
-        job.setReducerClass(IntSumReducer.class);
-        job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
-        FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
-        FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
-        System.exit(job.waitForCompletion(true) ? 0 : 1);
-      }
     }
+    }
+
+    public static class IntSumReducer
+        extends Reducer<Text,IntWritable,Text,IntWritable> {
+    private IntWritable result = new IntWritable();
+
+    public void reduce(Text key, Iterable<IntWritable> values,
+                        Context context
+                        ) throws IOException, InterruptedException {
+        int sum = 0;
+        for (IntWritable val : values) {
+        sum += val.get();
+        }
+        result.set(sum);
+        context.write(key, result);
+    }
+    }
+
+    public static void main(String[] args) throws Exception {
+    Configuration conf = new Configuration();
+    String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+    if (otherArgs.length != 2) {
+        System.err.println("Usage: wordcount <in> <out>");
+        System.exit(2);
+    }
+    Job job = new Job(conf, "word count");
+    job.setJarByClass(WordCount.class);
+    job.setMapperClass(TokenizerMapper.class);
+    job.setCombinerClass(IntSumReducer.class);
+    job.setReducerClass(IntSumReducer.class);
+    job.setOutputKeyClass(Text.class);
+    job.setOutputValueClass(IntWritable.class);
+    FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
+    FileOutputFormat.setOutputPath(job, new Path(otherArgs[1]));
+    System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
+}
+```
 
 Para obtener instrucciones sobre cómo escribir su propio trabajo de MapReduce, consulte [Desarrollo de programas MapReduce de Java para HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md).
 
-## <a id="run"></a>Ejecución de MapReduce
+## <a name="a-idrunarun-the-mapreduce"></a><a id="run"></a>Ejecución de MapReduce
+
 HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. Use la tabla siguiente para decidir cuál es el método adecuado para usted luego siga el vínculo para ver un tutorial.
 
 | **Use esto**... | **...para hacer esto** | ...con este **sistema operativo de clúster** | ...desde este **sistema operativo de cliente** |
@@ -158,7 +168,8 @@ HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. U
 | [Windows PowerShell](hdinsight-hadoop-use-mapreduce-powershell.md) |Enviar el trabajo de forma remota mediante **Windows PowerShell** |Linux o Windows |Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-mapreduce-remote-desktop.md) |Uso del comando Hadoop mediante **Escritorio remoto** |Windows |Windows |
 
-## <a id="nextsteps"></a>Pasos siguientes
+## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
+
 Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco difícil de dominar. Hay varios marcos basados en Java que facilitan la definición de aplicaciones de MapReduce, además de tecnologías como Pig y Hive, que proporcionan una manera más sencilla de trabajar con datos en HDInsight. Para obtener más información, consulte los artículos siguientes:
 
 * [Desarrollo de programas MapReduce de Java para HDInsight](hdinsight-develop-deploy-java-mapreduce-linux.md)
@@ -166,7 +177,7 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 * [Desarrollo de trabajos de MapReduce de Scalding con Hadoop Apache en HDInsight](hdinsight-hadoop-mapreduce-scalding.md)
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
-* [Ejecución de muestras de HDInsight][hdinsight-samples]
+* [Ejecución de ejemplos de HDInsight][hdinsight-samples]
 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
@@ -180,4 +191,8 @@ Aunque MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poco 
 
 [image-hdi-wordcountdiagram]: ./media/hdinsight-use-mapreduce/HDI.WordCountDiagram.gif
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

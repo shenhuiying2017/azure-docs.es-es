@@ -1,12 +1,12 @@
 ---
-title: Pruebas de conmutación por error y caos | Microsoft Docs
-description: Uso de los escenarios de prueba de conmutación por error y pruebas de caos de Service Fabric para inducir acciones de error y comprobar la confiabilidad de los servicios.
+title: "Pruebas de conmutación por error y caos | Microsoft Docs"
+description: "Uso de los escenarios de prueba de conmutación por error y pruebas de caos de Service Fabric para inducir acciones de error y comprobar la confiabilidad de los servicios."
 services: service-fabric
 documentationcenter: .net
 author: motanv
 manager: rsinha
 editor: toddabel
-
+ms.assetid: 8eee7e89-404a-4605-8f00-7e4d4fb17553
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/08/2016
 ms.author: motanv
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2b533be6bc7aa0fac0a6b0e4f5aee1df3714acd7
+
 
 ---
-# Escenarios de Testability
+# <a name="testability-scenarios"></a>Escenarios de Testability
 Los grandes sistemas distribuidos, como infraestructuras de nube, son inherentemente poco confiables. Azure Service Fabric ofrece a los desarrolladores la capacidad de escribir servicios para ejecutarse sobre infraestructuras poco confiables. Para poder escribir servicios de alta calidad, los desarrolladores deben poder inducir tal infraestructura confiable para probar la estabilidad de sus servicios.
 
 El servicio de análisis de errores proporciona a los desarrolladores la capacidad de inducir acciones de error para probar los servicios en casos de mal funcionamiento. Sin embargo, hasta ahora se obtendrán solo errores simulados dirigidos. Para realizar más pruebas, puede usar los escenarios de prueba en Service Fabric: una prueba de caos y una prueba de conmutación por error. Estos escenarios simulan errores continuos intercalados, tanto correctos como incorrectos, en todo el clúster durante períodos prolongados de tiempo. Una vez configurada una prueba con la tasa y el tipo de errores, se puede iniciar mediante las API de C# o de PowerShell para generar errores en el clúster y en el servicio.
@@ -26,10 +30,10 @@ El servicio de análisis de errores proporciona a los desarrolladores la capacid
 > 
 > 
 
-## Prueba de caos
+## <a name="chaos-test"></a>Prueba de caos
 El escenario de caos genera errores en todo el clúster de Service Fabric. El escenario comprime los errores que se ven por lo general durante meses o años en unas pocas horas. Esta combinación de errores intercalados con una elevada tasa de errores encuentra casos excepcionales que de otra manera pasan desapercibidos. Esto conduce a una mejora considerable en la calidad del código del servicio.
 
-### Errores simulados en la prueba de caos
+### <a name="faults-simulated-in-the-chaos-test"></a>Errores simulados en la prueba de caos
 * Reinicio de un nodo
 * Reinicio de un paquete de código implementado
 * Eliminación de una réplica
@@ -43,14 +47,14 @@ Por ejemplo, considere un conjunto de pruebas que se va a ejecutar durante una h
 
 En su forma actual, el motor de generación de errores de la prueba de caos induce solo errores seguros. Esto significa que en ausencia de errores externos nunca se producirá una pérdida de quórum o de datos.
 
-### Opciones de configuración importantes
+### <a name="important-configuration-options"></a>Opciones de configuración importantes
 * **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse con éxito. La prueba puede finalizarse antes en lugar de un error de validación.
 * **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes de cancelar la prueba. Las comprobaciones realizadas son si el mantenimiento del clúster es correcto, el mantenimiento del servicio es correcto, se consigue el tamaño del conjunto de réplicas de destino para la partición de servicio y si no hay réplicas InBuild.
 * **MaxConcurrentFaults**: número máximo de errores simultáneos inducidos en cada iteración. Cuanto mayor sea el número, más agresiva será la prueba. Por lo tanto, dará como resultado combinaciones de conmutaciones por error y de transición más complejas. La prueba garantiza que en ausencia de errores externos no habrá pérdida de quórum o de datos, con independencia de lo elevado del número de esta configuración.
 * **EnableMoveReplicaFaults**: habilita o deshabilita los errores provocando el movimiento de las réplicas principales o secundarias. Estos errores están deshabilitados de forma predeterminada.
 * **WaitTimeBetweenIterations**: cantidad de tiempo de espera entre iteraciones, es decir, después de una ronda de errores y de su validación correspondiente.
 
-### Ejecución de una prueba de caos
+### <a name="how-to-run-the-chaos-test"></a>Ejecución de una prueba de caos
 Ejemplo de C#
 
 ```csharp
@@ -141,10 +145,10 @@ Invoke-ServiceFabricChaosTestScenario -TimeToRunMinute $timeToRun -MaxClusterSta
 ```
 
 
-## Prueba de conmutación por error
+## <a name="failover-test"></a>Prueba de conmutación por error
 El escenario de prueba de conmutación por error es una versión del escenario de prueba de caos dirigida a una partición de servicio específica. Comprueba el efecto de la conmutación por error en una partición de servicio específica al mismo tiempo que deja sin afectar los otros servicios. Una vez configurada con la información de la partición de destino y otros parámetros, se ejecuta como una herramienta de cliente mediante las API de C# o PowerShell para generar errores para una partición de servicio. El escenario se itera por una secuencia de errores simulados y una validación de servicio mientras la lógica de negocios se ejecuta en paralelo para proporcionar una carga de trabajo. Un error en la validación de servicio indica un problema que necesita más investigación.
 
-### Errores simulados en la prueba de conmutación por error
+### <a name="faults-simulated-in-the-failover-test"></a>Errores simulados en la prueba de conmutación por error
 * Reinicio de un paquete de código implementado donde se hospeda la partición
 * Eliminación de una instancia sin estado o de una réplica principal/secundaria
 * Reinicio de una réplica principal/secundaria (si se conserva el servicio)
@@ -154,13 +158,13 @@ El escenario de prueba de conmutación por error es una versión del escenario d
 
 La prueba de conmutación por error provoca un error seleccionado y después ejecuta la validación en el servicio para garantizar su estabilidad. La prueba de conmutación por error solo provoca un error a la ver en lugar de varios errores posibles en la prueba de caos. Si la partición de servicio no se estabiliza en el tiempo de espera configurado después del error, la prueba produce un error. La prueba provoca únicamente errores seguros. Esto significa que, en ausencia de errores externos, nunca se producirá una pérdida de quórum o de datos.
 
-### Opciones de configuración importantes
+### <a name="important-configuration-options"></a>Opciones de configuración importantes
 * **PartitionSelector**: objeto selector que especifica la partición a la que debe dirigirse.
 * **TimeToRun**: tiempo total en el que se ejecutará la prueba antes de finalizarse.
 * **MaxClusterStabilizationTimeout**: cantidad máxima de tiempo de espera para que el mantenimiento del clúster sea correcto antes que la prueba produzca un error. Las comprobaciones realizadas son si el mantenimiento del servicio es correcto, el tamaño del conjunto de réplicas de destino conseguido para todas las particiones y si no hay réplicas InBuild.
 * **WaitTimeBetweenFaults**: cantidad de tiempo de espera entre cada ciclo de error y validación.
 
-### Ejecución de la prueba de conmutación por error
+### <a name="how-to-run-the-failover-test"></a>Ejecución de la prueba de conmutación por error
 **C#**
 
 ```csharp
@@ -250,4 +254,8 @@ Connect-ServiceFabricCluster $connection
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

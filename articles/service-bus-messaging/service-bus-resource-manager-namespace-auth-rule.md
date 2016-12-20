@@ -1,23 +1,27 @@
 ---
-title: Creación de una regla de autorización de Bus de servicio con una plantilla de Azure Resource Manager | Microsoft Docs
-description: Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
-services: service-bus
+title: "Creación de una regla de autorización de Service Bus con una plantilla de Azure Resource Manager | Microsoft Docs"
+description: "Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 7f1443a0-5fa8-4d90-8637-1a977ef0b1f0
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 10/14/2016
 ms.author: sethm;shvija
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 178b49b74319c57bb6a948b1b364c9d2e59b2379
+
 
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Creación de una regla de autorización de Bus de servicio para un espacio de nombres y una cola mediante una plantilla de Azure Resource Manager
-En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea una [regla de autorización](../service-bus/service-bus-authentication-and-authorization.md#shared-access-signature-authentication) para una cola y un espacio de nombres de Service Bus. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
+En este artículo se muestra cómo utilizar una plantilla de Azure Resource Manager que crea una [regla de autorización](service-bus-authentication-and-authorization.md#shared-access-signature-authentication) para una cola y un espacio de nombres de Service Bus. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
 
@@ -26,19 +30,19 @@ Para ver la plantilla completa, consulte la [Plantilla de regla de autorización
 > [!NOTE]
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación.
 > 
-> * [Creación de un espacio de nombres de Event Hubs con un centro de eventos y un grupo de consumidores](../event-hubs/event-hubs-resource-manager-namespace-event-hub.md)
+> * [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
 > * [Creación de un espacio de nombres de Bus de servicio con cola](service-bus-resource-manager-namespace-queue.md)
 > * [Creación de un espacio de nombres de Bus de servicio con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
-> * [Creación de un espacio de nombres de bus de servicio](service-bus-resource-manager-namespace.md)
+> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 > 
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Bus de servicio.
+> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque "Service Bus".
 > 
 > 
 
-## <a name="what-will-you-deploy?"></a>¿Qué va a implementar?
+## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
 Con esta plantilla, implementará una regla de autorización de Bus de servicio para una entidad de mensajería y espacio de nombres (una cola en este caso).
 
-Esta plantilla usa la [firma de acceso compartido (SAS)](../service-bus/service-bus-sas-overview.md) para la autenticación. SAS permite a las aplicaciones autenticarse en el Bus de servicio mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en el Bus de servicio.
+Esta plantilla usa la [firma de acceso compartido (SAS)](service-bus-sas-overview.md) para la autenticación. SAS permite a las aplicaciones autenticarse en el Bus de servicio mediante una clave de acceso configurada en el espacio de nombres o en la entidad de mensajería (cola o tema) al que se asocian derechos específicos. A continuación, puede usar esta clave para generar un token SAS que a su vez, los clientes pueden usar para autenticarse en el Bus de servicio.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -157,9 +161,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado e implementado recursos con Azure Resource Manager, estos artículos le enseñarán como administrarlos:
 
-* [Administración de Service Bus con PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Administración de Service Bus con PowerShell](service-bus-powershell-how-to-provision.md)
 * [Administración de recursos de Bus de servicio con el Explorador de Bus de servicio](https://code.msdn.microsoft.com/Service-Bus-Explorer-f2abca5a)
-* [Autenticación y autorización de Bus de servicio](../service-bus/service-bus-authentication-and-authorization.md)
+* [Autenticación y autorización de Bus de servicio](service-bus-authentication-and-authorization.md)
 
 [Creación de plantillas de Azure Resource Manager]: ../resource-group-authoring-templates.md
 [Plantillas de inicio rápido de Azure]: https://azure.microsoft.com/documentation/templates/?term=service+bus
@@ -169,6 +173,6 @@ Ahora que ha creado e implementado recursos con Azure Resource Manager, estos ar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

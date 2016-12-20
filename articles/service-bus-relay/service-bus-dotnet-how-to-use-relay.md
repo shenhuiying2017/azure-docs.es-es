@@ -1,30 +1,34 @@
 ---
-title: Uso de Retransmisión de bus de servicio (.NET) | Microsoft Docs
-description: Obtenga información acerca de cómo usar el servicio de retransmisión del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones.
-services: service-bus
+title: Uso de WCF Relay de Service Bus | Microsoft Docs
+description: "Obtenga información acerca de cómo usar el servicio de retransmisión del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones."
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/16/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9f7f9dc2eb6332c8f179fc35c9f746cbe5a7985e
+
 
 ---
-# <a name="how-to-use-the-azure-service-bus-relay-service"></a>Uso del servicio de Retransmisión de bus de servicio de Azure
+# <a name="how-to-use-the-service-bus-wcf-relay-with-net"></a>Uso de WCF Relay de Service Bus con .NET
 En este artículo se describe cómo usar el servicio de Retransmisión de bus de servicio. Los ejemplos se escriben en C# y usan la API de Windows Communication Foundation (WCF) con extensiones contenidas en el conjunto del bus de servicio. Para obtener más información sobre Service Bus Relay, consulte la información general de [Mensajería retransmitida de Service Bus](service-bus-relay-overview.md).
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="what-is-the-service-bus-relay?"></a>¿Qué es la retransmisión de bus de servicio?
+## <a name="what-is-the-service-bus-relay"></a>¿Qué es la retransmisión de bus de servicio?
 El servicio [Retransmisión* de Service Bus*](service-bus-relay-overview.md) permite crear aplicaciones híbridas que se pueden ejecutar en los centros de datos de Azure y en un entorno empresarial local. La retransmisión de bus de servicio facilita esta posibilidad, ya que le permite exponer de forma segura los servicios Windows Communication Foundation (WCF) que se encuentran en una red corporativa en la nube pública sin tener que abrir una conexión de firewall ni realizar cambios intrusivos en una infraestructura de red corporativa.
 
-![Conceptos del relé](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
+![Conceptos del relé WCF](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
 La Retransmisión de bus de servicio le permite hospedar servicios WCF en su entorno empresarial existente. A continuación, puede delegar la escucha de las sesiones entrantes y las solicitudes a esos servicios WCF al bus de servicio que se ejecuta en Azure. Esto le permite exponer esos servicios en el código de aplicación que se ejecuta en Azure o en entornos móviles de trabajo o asociados de extranet. El Bus de servicio permite controlar de forma segura quién puede obtener acceso a estos servicios en un nivel específico. Proporciona una forma segura y eficaz de exponer los datos y la funcionalidad de aplicaciones de las soluciones empresariales existentes y aprovecharlos desde la nube.
 
@@ -117,7 +121,7 @@ sh.Close();
 
 En el ejemplo, se crean dos extremos que se encuentran en la misma implementación del contrato. Uno es local y el otro se proyecta a través del Bus de servicio. Las principales diferencias entre ellos son los enlaces; [NetTcpBinding](https://msdn.microsoft.com/library/azure/system.servicemodel.nettcpbinding.aspx) para el local y [NetTcpRelayBinding](https://msdn.microsoft.com/library/azure/microsoft.servicebus.nettcprelaybinding.aspx) para el extremo de Service Bus y las direcciones. El extremo local dispone de una dirección de red local con un puerto distinto. El extremo del Bus de servicio cuenta con una dirección del extremo compuesta por la cadena `sb`, el nombre del espacio de nombres y la ruta "solver". Esto genera el URI `sb://[serviceNamespace].servicebus.windows.net/solver`, que identifica el extremo de servicio como extremo TCP del Bus de servicio con un nombre de DNS externo completo. Si coloca el código que reemplaza a los marcadores de posición en la función `Main` de la aplicación **Service**, tendrá un servicio funcional. Si quiere que el servicio escuche exclusivamente en el bus de servicio, quite la declaración del extremo local.
 
-### <a name="configure-a-service-host-in-the-app.config-file"></a>Configuración de un host de servicio en el archivo App.config
+### <a name="configure-a-service-host-in-the-appconfig-file"></a>Configuración de un host de servicio en el archivo App.config
 También puede configurar el host con el archivo App.config. El servicio que aloja el código en este caso aparece en el ejemplo siguiente.
 
 ```
@@ -182,7 +186,7 @@ using (var ch = cf.CreateChannel())
 
 Ya puede compilar el cliente y el servicio, ejecutarlos (ejecute primero el servicio), y el cliente llamará al servicio e imprimirá **9**. Puede ejecutar el cliente y el servidor en distintas máquinas, incluso entre redes, y la comunicación seguirá funcionando. El código de cliente también puede ejecutarse en la nube o localmente.
 
-#### <a name="configure-a-client-in-the-app.config-file"></a>Configuración de un cliente en el archivo App.config
+#### <a name="configure-a-client-in-the-appconfig-file"></a>Configuración de un cliente en el archivo App.config
 El siguiente código muestra cómo configurar el cliente con el archivo App.config.
 
 ```
@@ -219,14 +223,15 @@ Las definiciones del extremo se trasladan al archivo App.config. El siguiente ej
 Ahora que conoce los fundamentos del servicio Retransmisión de bus de servicio, siga estos vínculos para obtener más información.
 
 * [Mensajería retransmitida de Service Bus](service-bus-relay-overview.md)
-* [Información general sobre la arquitectura de Azure Service Bus](../service-bus/service-bus-fundamentals-hybrid-solutions.md)
-* Descargue ejemplos de Service Bus en [Ejemplos de Azure][Ejemplos de Azure] o consulte la [información general de ejemplos de Service Bus][información general de ejemplos de Service Bus].
+* [Información general sobre la arquitectura de Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* Descargue ejemplos de Service Bus en [Ejemplos de Azure][Ejemplos de Azure] o vea la [información general de ejemplos de Service Bus][información general de ejemplos de Service Bus].
 
 [Autenticación con firma de acceso compartido en Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Ejemplos de Azure]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 [información general de ejemplos de Service Bus]: ../service-bus-messaging/service-bus-samples.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Características de Active Directory Domain Services | Microsoft Docs
-description: Características de Servicios de dominio de Azure Active Directory
+title: "Características de Azure Active Directory Domain Services | Microsoft Docs"
+description: "Características de Servicios de dominio de Azure Active Directory"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 8d1c3eb3-1022-4add-a919-c98cc6584af1
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 18c3400063097cdf70398a95e9e39e9097e27992
+
 
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
@@ -36,6 +40,9 @@ Las siguientes características están disponibles en los dominios administrados
 * **Alta disponibilidad** : Azure AD Domain Services proporciona alta disponibilidad para el dominio. Esta característica ofrece la garantía de mayor tiempo de actividad de servicio y resistencia a errores. La supervisión de estado integrada ofrece corrección automatiza de errores poniendo en marcha nuevas instancias para reemplazar instancias con errores y proporcionar un servicio continuado para el dominio.
 * **Usar herramientas de administración familiares:** puede utilizar herramientas de administración familiares de Windows Server Active Directory, como Centro de administración de Active Directory o Active Directory PowerShell, para administrar dominios administrados.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

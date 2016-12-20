@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df9897894a2a2a09735b0947fd335959e81a46cd
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 4dd8331ed2fd30d61b4a653f04cae9049385ce3c
 
 
 ---
@@ -25,14 +25,14 @@ Muchas soluciones modernas están destinadas a ofrecer experiencias de cliente a
 
 ![Centros de eventos](./media/event-hubs-overview/IC759856.png)
 
-Centros de eventos de Azure es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta. Este servicio, que se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones. Centros de eventos ofrece un flujo de mensajes que controla la funcionalidad y, aunque un Centro de eventos es una entidad similar a los temas y las colas, tiene características que son muy diferentes de la mensajería empresarial tradicional. Los escenarios de mensajería empresarial normalmente requieren funcionalidades sofisticadas, como la secuenciación, las colas de mensajes fallidos, la compatibilidad con las transacciones y las garantías de entrega segura, mientras que la preocupación principal sobre el consumo de eventos es el alto procesamiento y la flexibilidad de procesamiento de los flujos de eventos. Por lo tanto, las funcionalidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. En este sentido, los Centros de eventos no implementan algunas de las funcionalidades de mensajería que están disponibles para los temas. Si necesita esas funcionalidades, los temas siguen siendo la opción óptima.
+Centros de eventos de Azure es un servicio de procesamiento de eventos que ofrece entrada de telemetría y eventos en la nube a escala masiva, con una latencia baja y una confiabilidad alta. Este servicio, que se usa con otros servicios del flujo de trabajo, es especialmente útil en escenarios de Internet de las cosas, procesamiento del flujo de trabajo o de la experiencia del usuario y en instrumentación de aplicaciones. Centros de eventos ofrece un flujo de mensajes que controla la funcionalidad y, aunque un Centro de eventos es una entidad similar a los temas y las colas, tiene características que son muy diferentes de la mensajería empresarial tradicional. Los escenarios de mensajería empresarial normalmente requieren funcionalidades sofisticadas, como la secuenciación, las colas de mensajes fallidos, la compatibilidad con las transacciones y las garantías de entrega segura, mientras que la preocupación principal sobre el consumo de eventos es el alto procesamiento y la flexibilidad de procesamiento de los flujos de eventos. Por lo tanto, las funcionalidades de Centros de eventos de Azure se diferencian de las de los temas del Bus de servicio en que están fuertemente orientadas a escenarios de alto rendimiento y procesamiento de eventos. En este sentido, Event Hubs no implementa algunas de las funcionalidades de mensajería que están disponibles para los temas. Si necesita esas funcionalidades, los temas siguen siendo la opción óptima.
 
 Un Centro de eventos se crea en el nivel de espacio de nombres de Centro de eventos, de forma similar a las colas y los temas de Bus de Servicio. Centros de eventos usa HTTP y AMQP como sus interfaces API principales. En el diagrama siguiente se muestra la relación entre los Centros de eventos y el Bus de servicio.
 
 ![Centros de eventos](./media/event-hubs-overview/ehoverview2.png)
 
 ## <a name="conceptual-overview"></a>Información general conceptual
-Centros de eventos ofrece un flujo de mensajes a través de un patrón de consumidores con particiones. Las colas y los temas usan un modelo de [consumidores paralelos](https://msdn.microsoft.com/library/dn568101.aspx) en el que cada consumidor intenta leer desde la misma cola o el mismo recurso. Esta competición por los recursos resulta finalmente en complejidad y límites de escalabilidad para las aplicaciones de procesamiento de flujos. Centros de eventos usa un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas.
+Centros de eventos ofrece un flujo de mensajes a través de un patrón de consumidores con particiones. Las colas y los temas usan un modelo de [*consumidores paralelos*](https://msdn.microsoft.com/library/dn568101.aspx) en el que cada consumidor intenta leer desde la misma cola o el mismo recurso. Esta competición por los recursos resulta finalmente en complejidad y límites de escalabilidad para las aplicaciones de procesamiento de flujos. Centros de eventos usa un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas.
 
 ### <a name="partitions"></a>Particiones
 Una partición es una secuencia ordenada de eventos que se mantiene en un Centro de eventos. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. Una partición puede considerarse como un "registro de confirmación".
@@ -47,7 +47,7 @@ El número de particiones se especifica en el momento de la creación del centro
 
 Aunque las particiones son identificables y se pueden enviar directamente a ellas, es preferible evitar el envío de datos a particiones concretas. En su lugar, puede usar construcciones de nivel superior que se presentan en las secciones [Publicador de eventos](#event-publisher) y [Directiva de edición](#capacity-and-security).
 
-En el contexto de los Centros de eventos, los mensajes se conocen como *datos de eventos*. Los datos de eventos contienen el cuerpo del evento, un contenedor de propiedades definido por el usuario y diversos metadatos sobre el evento, como su desplazamiento en la partición y su número en el flujo de la secuencia. Las particiones se rellenan con una secuencia de datos de eventos.
+En el contexto de los Centros de eventos, los mensajes se conocen como *datos de eventos*. Los datos de eventos contienen el cuerpo del evento, un contenedor de propiedades definido por el usuario y diversos metadatos sobre el evento, como su desplazamiento en la partición y su número en la secuencia. Las particiones se rellenan con una secuencia de datos de eventos.
 
 ## <a name="event-publisher"></a>Publicador de eventos
 Cualquier entidad que envíe eventos o datos a un Centro de eventos es un *publicador de eventos*. Los publicadores de eventos pueden publicar eventos mediante HTTPS o AMQP 1.0. Los publicadores de eventos usan un token de firma de acceso compartido (SAS) para identificarse en un Centro de eventos y pueden tener una identidad única o usar un token de SAS común, según los requisitos del escenario.
@@ -58,10 +58,10 @@ Para más información acerca de cómo trabajar con SAS, consulte [Autenticació
 En esta sección se describen tareas comunes de los publicadores de eventos.
 
 #### <a name="acquire-a-sas-token"></a>Adquisición de un token de SAS
-La firma de acceso compartido (SAS) es el mecanismo de autenticación de los Centros de eventos. El Bus de servicio ofrece directivas SAS a nivel de Centro de eventos y de espacio de nombres. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, el Bus de servicio puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un Centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para más información acerca de cómo trabajar con SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+La firma de acceso compartido (SAS) es el mecanismo de autenticación de Event Hubs. El Bus de servicio ofrece directivas SAS a nivel de Centro de eventos y de espacio de nombres. Un token de SAS se genera a partir de una clave de SAS y es un hash SHA de una dirección URL, codificado en un formato concreto. Con el nombre de la clave (directiva) y el token, el Bus de servicio puede volver a generar el hash y así autenticar al remitente. Normalmente, los tokens de SAS para publicadores de eventos se crean solo con privilegios de **envío** en un Centro de eventos concreto. Este mecanismo de dirección URL del token de SAS es la base para la identificación del publicador introducida en la directiva del publicador. Para más información acerca de cómo trabajar con SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### <a name="publishing-an-event"></a>Publicación de un evento
-Puede publicar un evento a través de AMQP 1.0 o HTTPS. El Bus de servicio ofrece una clase [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) para publicar los eventos en un Centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](http://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 256 KB, independientemente de si es un evento único o un lote. La publicación de eventos mayores producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el Centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
+Puede publicar un evento a través de AMQP 1.0 o HTTPS. El Bus de servicio ofrece una clase [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient?redirectedfrom=MSDN#microsoft_servicebus_messaging_eventhubclient) para publicar los eventos en un Centro de eventos de clientes .NET. Para otras plataformas y tiempos de ejecución, puede usar cualquier cliente de AMQP 1.0, como [Apache Qpid](http://qpid.apache.org/). Puede publicar eventos individualmente o por lotes. Una sola publicación (instancia de datos de eventos) tiene un límite de 256 KB, independientemente de si es un evento único o un lote. La publicación de eventos mayores producirá un error. Es una práctica recomendada para los publicadores desconocer las particiones en el Centro de eventos y solo especificar una *clave de partición* (que se presenta en la sección siguiente), o su identidad mediante su token de SAS.
 
 La opción de usar AMQP o HTTPS es específica para el escenario de uso. AMQP requiere el establecimiento de un socket bidireccional persistente, además de la seguridad de nivel de transporte (TLS) o SSL/TLS. Esto puede ser una operación costosa en términos de tráfico de red, pero solo se produce al comienzo de una sesión AMQP. HTTPS tiene una sobrecarga inicial menor, pero requiere sobrecarga SSL adicional por cada solicitud. Para los publicadores que publican frecuentemente los eventos, AMQP ofrece un ahorro considerable de rendimiento, latencia y procesamiento.
 
@@ -80,8 +80,10 @@ El mecanismo de publicación y suscripción de los Centros de eventos se habilit
 
 A continuación se muestran ejemplos de la convención URI del grupo de consumidores:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
 
 En la siguiente imagen se muestran los consumidores de eventos dentro de los grupos de consumidores.
 
@@ -119,7 +121,7 @@ La capacidad de procesamiento de los Centros de eventos se controla mediante uni
 * Entrada: hasta 1 MB por segundo o 1000 eventos por segundo.
 * Salida: hasta 2 MB por segundo.
 
-La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del [Portal de Azure clásico][Portal de Azure clásico]. También puede cambiar esta configuración mediante las API de Azure.
+La entrada está limitada a la cantidad de capacidad que ofrece el número de unidades de procesamiento adquiridas. El envío de datos por encima de esta cantidad provoca una excepción de "cuota superada". Esta cantidad es de 1 MB por segundo o 1000 eventos por segundo, lo que ocurra primero. La salida no produce excepciones de limitación, pero está limitada a la cantidad de transferencia de datos que ofrecen las unidades de procesamiento adquiridas: 2 MB por segundo por unidad de procesamiento. Si recibe excepciones de tasa de publicación o espera ver una salida superior, compruebe cuántas unidades de procesamiento adquirió para el espacio de nombres en que se creó el Centro de eventos. Para obtener más unidades de procesamiento, puede ajustar la configuración en la página **Espacios de nombres**, en la pestaña **Escala** del [Portal de Azure clásico][Azure classic portal]. También puede cambiar esta configuración mediante las API de Azure.
 
 Aunque las particiones son un concepto de organización de datos, las unidades de procesamiento son puramente un concepto de capacidad. Las unidades de procesamiento se facturan por hora y se adquieren previamente. Cuando se adquieren, las unidades de procesamiento se facturan durante un período mínimo de una hora. Se pueden adquirir hasta 20 unidades de procesamiento para un espacio de nombres de Centros de eventos y hay un límite de cuenta de Azure de 20 unidades de procesamiento. Estas unidades de procesamiento se comparten entre todos los Centros de eventos de un espacio de nombres determinado.
 
@@ -127,30 +129,32 @@ Las unidades de procesamiento se aprovisionan en base al mejor esfuerzo y puede 
 
 Se recomienda que equilibre cuidadosamente las particiones y las unidades de procesamiento para lograr una escalabilidad óptima con los Centros de eventos. Una sola partición tiene una escala máxima de una unidad de procesamiento. El número de unidades de procesamiento debe ser menor o igual que el número de particiones de un Centro de eventos.
 
-Para obtener información detallada sobre los precios, consulte [Precios de los Centros de eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+Para obtener información detallada sobre los precios, consulte la página [Event Hubs Precios](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="publisher-policy"></a>Directiva del publicador
 Los Centros de eventos permiten un control granular sobre los publicadores de eventos a través de las *directivas de publicador*. Las directivas de publicador son un conjunto de características de tiempo de ejecución diseñadas para facilitar grandes números de publicadores de eventos independientes. Con las directivas de publicador, cada publicador usa su propio identificador único al publicar los eventos en un Centro de eventos mediante el mecanismo siguiente:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
 
 No tiene que crear nombres de publicador con antelación, pero deben coincidir con el token de SAS que se usa al publicar un evento, con el fin de garantizar las identidades de publicador independientes. Para más información sobre SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). Al usar directivas de publicador, el valor **PartitionKey** se establece como el nombre del publicador. Para que funcione correctamente, estos valores deben coincidir.
 
 ## <a name="summary"></a>Resumen
-Centros de eventos Azure ofrece un servicio de procesamiento de eventos de gran escala y telemetría que se puede usar para la supervisión del flujo de trabajo de usuarios y aplicaciones comunes a cualquier escala. Con la capacidad para ofrecer capacidades de publicación y suscripción con una latencia baja y a gran escala, los Centros de eventos sirven como una "vía de entrada" para los datos de gran tamaño. Con la identidad basada en el publicador y las listas de revocación, estas capacidades se extienden en escenarios comunes de Internet de las cosas. Para obtener más información sobre cómo desarrollar aplicaciones de Centros de eventos, vea la [Guía de programación de Centros de eventos](event-hubs-programming-guide.md).
+Centros de eventos Azure ofrece un servicio de procesamiento de eventos de gran escala y telemetría que se puede usar para la supervisión del flujo de trabajo de usuarios y aplicaciones comunes a cualquier escala. Con la capacidad para ofrecer competencias de publicación y suscripción con una latencia baja y a gran escala, Event Hubs sirve como una "vía de entrada" para los macrodatos. Con la identidad basada en el publicador y las listas de revocación, estas capacidades se amplían a escenarios comunes en [Internet de las cosas](https://docs.microsoft.com/azure/#pivot=services&panel=iot). Para obtener más información sobre cómo desarrollar aplicaciones de Centros de eventos, vea la [Guía de programación de Centros de eventos](event-hubs-programming-guide.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ha aprendido conceptos sobre los Centros de eventos, puede continuar con los siguientes escenarios:
+Ahora que ha aprendido conceptos sobre Event Hubs, puede continuar con los siguientes escenarios:
 
 * Empezar a trabajar con un [tutorial de Centros de eventos].
 * Una [aplicación de ejemplo completa que usa Centros de eventos].
 
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 [tutorial de Centros de eventos]: event-hubs-csharp-ephcs-getstarted.md
 [aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-286fd097
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

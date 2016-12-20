@@ -1,26 +1,30 @@
 ---
-title: Ejemplos de servicios web de Aprendizaje automático creados con R | Microsoft Docs
-description: Encuentre un útil conjunto de ejemplos de servicios creados con código R y Aprendizaje automático de Azure, y publicados en Azure Marketplace.
-keywords: csharp, código r, ejemplos de servicios web
+title: Ejemplos de servicios web Machine Learning creados con R | Microsoft Docs
+description: "Encuentre un útil conjunto de ejemplos de servicios creados con código R y Aprendizaje automático de Azure, y publicados en Azure Marketplace."
+keywords: "csharp, código r, ejemplos de servicios web"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: jaymathe
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 97d66cb7-6a84-4ae9-8095-0b5f5ba82d7f
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/21/2016
 ms.author: jaymathe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0c3e94cf69d55de9c31a48de35e86a1ae9149a63
+
 
 ---
-# Ejemplos de servicios web con R en Aprendizaje automático de Azure y publicados en Microsoft Azure Marketplace
-En este artículo se crearon servicios web de ejemplo mediante Aprendizaje automático de Azure y se publicaron en Azure Marketplace. Cada ejemplo de servicio web tiene un documento exhaustivo asociado, donde se integran conjuntos de datos de ejemplo para probar los servicios y se explica cómo el usuario puede crear un servicio similar.
+# <a name="web-services-examples-using-r-code-on-azure-machine-learning-and-published-to-microsoft-azure-marketplace"></a>Ejemplos de servicios web con R en Aprendizaje automático de Azure y publicados en Microsoft Azure Marketplace
+En este artículo se crearon servicios web de ejemplo mediante Aprendizaje automático de Azure y se publicaron en Azure Marketplace. Cada ejemplo de servicio web tiene un documento exhaustivo asociado, donde se integran conjuntos de datos de ejemplo para probar los servicios y se explica cómo el usuario puede crear un servicio similar. 
 
-Con Estudio de aprendizaje automático de Azure, los usuarios pueden escribir código de R y, con tan solo hacer algunos clics, publicarlo como un servicio web para que lo consuman aplicaciones y dispositivos en todo el mundo.
+Con Estudio de aprendizaje automático de Azure, los usuarios pueden escribir código de R y, con tan solo hacer algunos clics, publicarlo como un servicio web para que lo consuman aplicaciones y dispositivos en todo el mundo. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -32,7 +36,7 @@ Cada ejemplo incluye un ejemplo de C# para el consumo de servicios web.
 
 Considere los siguientes escenarios.
 
-## Escenario 1: modelo genérico
+## <a name="scenario-1-generic-model"></a>Escenario 1: modelo genérico
 Un usuario trabaja con un modelo genérico que se puede aplicar a los datos de un nuevo usuario, como una previsión básica de datos de serie temporal o un método de R personalizado e integrado con análisis avanzado. Este usuario publica el modelo como un servicio web para que otros usuarios puedan utilizar sus datos.
 
 * [Clasificador binario](machine-learning-r-csharp-binary-classifier.md)
@@ -43,22 +47,22 @@ Un usuario trabaja con un modelo genérico que se puede aplicar a los datos de u
 * [Previsión - Media móvil integrada autorregresiva (ARIMA)](machine-learning-r-csharp-arima.md)
 * [Análisis de supervivencia](machine-learning-r-csharp-survival-analysis.md)
 
-## Escenario 2: modelo entrenado - datos específicos
+## <a name="scenario-2-trained-model-specific-data"></a>Escenario 2: modelo entrenado - datos específicos
 Un usuario tiene datos que proporcionan útiles predicciones a través del código R, como un ejemplo grande de cuestionarios de personalidad agrupados mediante un algoritmo k-means para predecir el tipo de personalidad del usuario o los datos de encuestas de salud que pueden utilizarse para predecir el riesgo de que un individuo padezca cáncer de pulmón mediante un paquete de análisis de supervivencia basado en R. El usuario publica los datos a través de un servicio web que predice el resultado del nuevo usuario.
 
-## Escenario 3: modelo entrenado - datos genéricos
+## <a name="scenario-3-trained-model-generic-data"></a>Escenario 3: modelo entrenado - datos genéricos
 Un usuario tiene datos genéricos (por ejemplo, un conjunto de texto) que permiten crear y aplicar de manera general un servicio web en diferentes tipos de escenarios y casos de uso.
 
 * [Análisis de opiniones basado en léxico](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
 
-## Escenario 4: calculadora avanzada
+## <a name="scenario-4-advanced-calculator"></a>Escenario 4: calculadora avanzada
 Un usuario proporciona cálculos avanzados o simulaciones, que no requieren ningún modelo entrenado o ajuste de un modelo a los datos del usuario.
 
 * [Diferencia en la prueba de proporciones](machine-learning-r-csharp-difference-in-two-proportions.md)
 * [Conjunto de distribución normal](machine-learning-r-csharp-normal-distribution.md)
 * [Conjunto de distribución binomial](machine-learning-r-csharp-binomial-distribution.md)
 
-## P+F
+## <a name="faq"></a>P+F
 Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/machine-learning-r-code-options-for-using-and-sharing-cloud.png
@@ -66,4 +70,8 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

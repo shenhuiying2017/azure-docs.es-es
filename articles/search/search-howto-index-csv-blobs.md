@@ -1,23 +1,27 @@
 ---
-title: Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure | Microsoft Docs
-description: Aprenda a indexar blobs JSON con Búsqueda de Azure
+title: "Indexación de blobs CSV con el indexador de blobs de Azure Search | Microsoft Docs"
+description: "Aprenda a indexar blobs JSON con Búsqueda de Azure"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: chaosrealm
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: ed3c9cff-1946-4af2-a05a-5e0b3d61eb25
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/12/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 82c9d68bc3f1650648fac0597f4a329ef053b109
+
 
 ---
-# Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure
-De forma predeterminada, el [indexador de blobs de Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) analiza los blobs de texto delimitados como un único fragmento de texto. Sin embargo, con blobs que contienen datos CSV, a menudo se desea tratar cada línea del blob como un documento independiente. Por ejemplo, dado el siguiente texto delimitado:
+# <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexación de blobs CSV con el indexador de blobs de Búsqueda de Azure
+De forma predeterminada, el [indexador de blobs de Búsqueda de Azure](search-howto-indexing-azure-blob-storage.md) analiza los blobs de texto delimitados como un único fragmento de texto. Sin embargo, con blobs que contienen datos CSV, a menudo se desea tratar cada línea del blob como un documento independiente. Por ejemplo, dado el siguiente texto delimitado: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
@@ -25,15 +29,15 @@ De forma predeterminada, el [indexador de blobs de Búsqueda de Azure](search-ho
 
 desea analizarlo en dos documentos, que contiene cada uno de ellos los campos "id", "datePublished" y "tags".
 
-En este artículo aprenderá cómo analizar blobs CSV con un indexador de blobs de Búsqueda de Azure.
+En este artículo aprenderá cómo analizar blobs CSV con un indexador de blobs de Búsqueda de Azure. 
 
 > [!IMPORTANT]
-> Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción.
+> Actualmente, la versión de esta funcionalidad es una versión preliminar. Está disponible solo en la API de REST con la versión **2015-02-28-Preview**. Por favor, recuerde que las versiones preliminares de las API están pensadas para realizar pruebas y evaluar, y no deben usarse en entornos de producción. 
 > 
 > 
 
-## Configuración de la indexación de CSV
-Para indexar blobs CSV, cree o actualice una definición de indexador con el modo de análisis `delimitedText`:
+## <a name="setting-up-csv-indexing"></a>Configuración de la indexación de CSV
+Para indexar blobs CSV, cree o actualice una definición de indexador con el modo de análisis `delimitedText` :  
 
     {
       "name" : "my-csv-indexer",
@@ -43,7 +47,8 @@ Para indexar blobs CSV, cree o actualice una definición de indexador con el mod
 
 Para más información sobre la API Create Indexer, consulte [Crear indexador](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-`firstLineContainsHeaders` indica que la primera línea (no en blanco) de cada blob contiene encabezados. Si el blob no contienen una línea de encabezado inicial, los encabezados deben especificarse en la configuración del indexador:
+`firstLineContainsHeaders` indica que la primera línea (no en blanco) de cada blob contiene encabezados.
+Si el blob no contienen una línea de encabezado inicial, los encabezados deben especificarse en la configuración del indexador: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
@@ -54,10 +59,10 @@ Actualmente, solo se admite la codificación UTF-8. Además, solo se admite el c
 > 
 > 
 
-## Ejemplos de solicitud
-Resumiendo, estos son los ejemplos de cargas útiles completas.
+## <a name="request-examples"></a>Ejemplos de solicitud
+Resumiendo, estos son los ejemplos de cargas útiles completas. 
 
-Origen de datos:
+Origen de datos: 
 
     POST https://[service name].search.windows.net/datasources?api-version=2015-02-28-Preview
     Content-Type: application/json
@@ -66,7 +71,7 @@ Origen de datos:
     {
         "name" : "my-blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
@@ -83,7 +88,12 @@ Indexador:
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } }
     }
 
-## Ayúdenos a mejorar Búsqueda de Azure
+## <a name="help-us-make-azure-search-better"></a>Ayúdenos a mejorar Búsqueda de Azure
 Si tiene solicitudes o ideas para mejorar las características, póngase en contacto con nosotros en nuestro [sitio UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

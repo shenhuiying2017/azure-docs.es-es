@@ -1,12 +1,12 @@
 ---
-title: Biblioteca de cliente administrada de Aplicaciones móviles del Servicio de aplicaciones (Windows | Microsoft Docs
-description: Aprenda a usar un cliente .NET para Aplicaciones móviles del Servicio de aplicaciones de Azure con aplicaciones de Windows y Xamarin.
+title: Biblioteca de cliente administrada de App Service Mobile Apps (Windows) | Microsoft Azure
+description: "Aprenda a usar un cliente .NET para Aplicaciones móviles del Servicio de aplicaciones de Azure con aplicaciones de Windows y Xamarin."
 services: app-service\mobile
-documentationcenter: ''
+documentationcenter: 
 author: adrianhall
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
+translationtype: Human Translation
+ms.sourcegitcommit: 790ca8b1adfece3a008b1dbf42a827d8ee283d9a
+ms.openlocfilehash: 5044dfc3cd5ba070ab4c57ca052bdf4e2aa852cb
+
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Uso del cliente administrado para Aplicaciones móviles de Azure
@@ -55,7 +59,7 @@ El tipo del cliente con tipo correspondiente en C# es la siguiente clase:
 
 [JsonPropertyAttribute][6] se usa para definir la asignación de *PropertyName* entre el tipo de cliente y la tabla.
 
-Para aprender a crear tablas en el back-end de Mobile Apps, consulte la información del [tema del SDK de servidor .NET][7] o el [tema del SDK de servidor Node.js][8]. Si creó el back-end de aplicación móvil en Azure Portal mediante la guía de inicio rápido, también puede usar la opción **Tablas fáciles** en [Azure Portal].
+Para aprender a crear tablas en el back-end de Mobile Apps, consulte el [tema del SDK de servidor .NET][7] o el [tema del SDK de servidor Node.js][8]. Si creó el back-end de aplicación móvil en Azure Portal mediante la guía de inicio rápido, también puede usar la opción **Tablas fáciles** en [Azure Portal].
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>Instalación del paquete del SDK de cliente administrado
 Utilice uno de los métodos siguientes para instalar el paquete del SDK de cliente administrado para Mobile Apps desde [NuGet][9]:
@@ -70,7 +74,7 @@ En el archivo de la actividad principal, no olvide agregar la siguiente instrucc
 ### <a name="a-namesymbolsourceahow-to-work-with-debug-symbols-in-visual-studio"></a><a name="symbolsource"></a>Trabajo con símbolos de depuración en Visual Studio
 Los símbolos del espacio de nombres Microsoft.Azure.Mobile están disponibles en [SymbolSource][10].  Consulte las [instrucciones de SymbolSource][11] para integrar SymbolSource con Visual Studio.
 
-## <a name="a-namecreateclientacreate-the-mobile-apps-client"></a><a name="create-client"></a>Creación del cliente de Aplicaciones móviles
+## <a name="a-namecreate-clientacreate-the-mobile-apps-client"></a><a name="create-client"></a>Creación del cliente de Aplicaciones móviles
 El código siguiente crea el objeto [MobileServiceClient][12] que se usa para acceder al back-end de Mobile App.
 
     var client = new MobileServiceClient("MOBILE_APP_URL");
@@ -117,9 +121,9 @@ En esta sección se describe cómo generar consultas al back-end de la aplicaci�
 * [Buscar datos por identificador](#lookingup)
 
 > [!NOTE]
-> Se aplica un tamaño de página del servidor para evitar que se devuelvan todas las filas.  La paginación evita que las solicitudes predeterminadas de los conjuntos de datos de gran tamaño incidan negativamente en el servicio.  Para devolver más de 50 filas, use los métodos `Skip` y `Take`, como se describe en [Devolución de datos en páginas].
-> 
-> 
+> Se aplica el tamaño de página del servidor para evitar que se devuelvan todas las filas.  La paginación evita que las solicitudes predeterminadas de los conjuntos de datos de gran tamaño incidan negativamente en el servicio.  Para devolver más de 50 filas, use los métodos `Skip` y `Take`, como se describe en [Devolución de datos en páginas].
+>
+>
 
 ### <a name="a-namefilteringahow-to-filter-returned-data"></a><a name="filtering"></a>Filtro de datos devueltos
 El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función [Where] aplica un predicado de filtrado de filas a la consulta en relación con la tabla.
@@ -180,12 +184,12 @@ El siguiente código muestra cómo ordenar datos incluyendo una función [OrderB
     // Sort items in ascending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderBy(todoItem => todoItem.Text)
-    List<TodoItem> items = await query.ToListAsync();
+     List<TodoItem> items = await query.ToListAsync();
 
     // Sort items in descending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderByDescending(todoItem => todoItem.Text)
-    List<TodoItem> items = await query.ToListAsync();
+     List<TodoItem> items = await query.ToListAsync();
 
 ### <a name="a-namepagingahow-to-return-data-in-pages"></a><a name="paging"></a>Devolución de datos en páginas
 De manera predeterminada, el back-end devuelve solo las primeras 50 filas. Aumente el número de filas devueltas llamando al método [Take] . Use `Take` junto con el método [Skip] para solicitar una "página" específica del conjunto de datos total devuelto por la consulta. Cuando se ejecuta la siguiente consulta, se devuelven los tres primeros elementos de la tabla.
@@ -210,11 +214,11 @@ El método [IncludeTotalCount] solicita el recuento total de *todos* los registr
 En una aplicación real, puede usar consultas similares a las anteriores con un control de paginación o una interfaz de usuario comparable para permitir a los usuarios desplazarse entre las páginas.
 
 > [!NOTE]
-> Para reemplazar el límite de 50 filas de un back-end de Mobile App, también se debe aplicar [EnableQueryAttribute] al método GET público y especificar el comportamiento de la paginación. Cuando se aplica al método, lo siguiente establece el máximo de filas devueltas a 1000:
-> 
+> Para reemplazar el límite de 50 filas de un back-end de aplicación móvil, también debe aplicar [EnableQueryAttribute] al método público GET y especificar el comportamiento de paginación. Cuando se aplica al método, lo siguiente establece el máximo de filas devueltas a 1000:
+>
 > [EnableQuery(MaxTop=1000)]
-> 
-> 
+>
+>
 
 ### <a name="a-nameselectingahow-to-select-specific-columns"></a><a name="selecting"></a>Selección de columnas específicas
 Puede especificar qué conjunto de propiedades incluir en los resultados agregando una cláusula [Select] a su consulta. Por ejemplo, el siguiente código muestra cómo seleccionar solo un campo y también cómo seleccionar varios campos y darle formato:
@@ -450,7 +454,7 @@ Las tablas sin conexión utilizan un almacén SQLite local para almacenar datos 
 
 1. En Visual Studio, haga clic con el botón derecho en la solución > **Administrar paquetes NuGet para la solución...** y, después, busque e instale el paquete NuGet **Microsoft.Azure.Mobile.Client.SQLiteStore** en todos los proyectos de la solución.
 2. (Opcional) Para admitir dispositivos de Windows, instale uno de los siguientes paquetes en el sistema de tiempo de ejecución de SQLite:
-   
+
    * **Runtime de Windows 8.1:** instale [SQLite para Windows 8.1][3].
    * **Windows Phone 8.1:** instale [SQLite para Windows Phone 8.1][4].
    * **Plataforma universal de Windows:** instale [SQLite para la Plataforma universal de Windows][5].
@@ -539,14 +543,14 @@ Puede llamar a una API personalizada al realizar una llamada a una de las sobrec
 Se trata de una llamada de método con tipo que requiere que se defina el tipo de devolución de **MarkAllResult** . Se admiten métodos con y sin tipos.
 
 ## <a name="a-nameauthenticationaauthenticate-users"></a><a name="authentication"></a>Autenticación de usuarios
-Mobile Apps es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Incorporación de la autenticación a su aplicación].
+Mobile Apps es compatible con la autenticación y la autorización de los usuarios de aplicaciones mediante diversos proveedores de identidades externas: Facebook, Google, cuenta de Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Incorporación de la autenticación a la aplicación de Windows].
 
 Se admiten dos flujos de autenticación: *administrado por cliente* y *administrado por servidor*. Este último ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo administrado por cliente permite una mayor integración con funcionalidades específicas del dispositivo, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
 > [!NOTE]
 > En las aplicaciones de producción se recomienda usar un flujo administrado por el cliente.
-> 
-> 
+>
+>
 
 Para configurar la autenticación, debe registrar la aplicación en uno o varios proveedores de identidades.  El proveedor de identidades generará un identificador y un secreto de cliente para la aplicación.  Estos valores se establecen en el back-end para habilitar la autenticación y autorización de Azure App Service.  Para obtener más información, siga las instrucciones detalladas del tutorial [Incorporación de la autenticación a la aplicación de Windows].
 
@@ -556,7 +560,7 @@ En esta sección se tratan los siguientes temas:
 * [Autenticación administrada por el servidor](#serverflow)
 * [Almacenamiento en caché del token de autenticación](#caching)
 
-### <a name="a-nameclientflowaclientmanaged-authentication"></a><a name="clientflow"></a>Autenticación administrada por el cliente
+### <a name="a-nameclientflowaclient-managed-authentication"></a><a name="clientflow"></a>Autenticación administrada por el cliente
 La aplicación puede ponerse en contacto de manera independiente con el proveedor de identidades y proporcionar el token devuelto en el inicio de sesión junto con el back-end. Este flujo de cliente permite proporcionar una experiencia de inicio de sesión único a los usuarios o recuperar datos de usuario adicionales del proveedor de identidades. Se prefiere la autenticación de flujo de cliente al uso de una de flujo de servidor, ya que el SDK de proveedor de identidades proporciona una experiencia UX más nativa y permite realizar más personalizaciones.
 
 Se proporcionan ejemplos de los siguientes patrones de autenticación de flujo de cliente:
@@ -571,20 +575,18 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
 1. Configure su back-end de aplicación móvil para el inicio de sesión en AAD siguiendo el tutorial [Configuración de App Service para usar el inicio de sesión de Azure Active Directory] . Asegúrese de completar el paso opcional de registrar una aplicación cliente nativa.
 2. En Visual Studio o Xamarin Studio, abra el proyecto y agregue una referencia al paquete NuGet `Microsoft.IdentityModel.CLients.ActiveDirectory` . Al buscar, incluya las versiones preliminares.
 3. Agregue el siguiente código a la aplicación, según la plataforma que utilice. En cada caso, realice las sustituciones siguientes:
-   
+
    * Reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó la aplicación. El formato debe ser https://login.windows.net/contoso.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de Azure clásico].
    * Reemplace **INSERT-RESOURCE-ID-HERE** por el Id. de cliente del back-end de la aplicación móvil. El Id. de cliente en la pestaña **Opciones avanzadas** de **Configuración de Azure Active Directory** en el portal.
    * Reemplace **INSERT-CLIENT-ID-HERE** por el Id. de cliente que copió de la aplicación cliente nativa.
    * Reemplace **INSERT-REDIRECT-URI-HERE** por el punto de conexión */.auth/login/done* del sitio, mediante el esquema HTTPS. Este valor debe ser similar a *https://contoso.azurewebsites.net/.auth/login/done*.
-     
+
      El código necesario para cada plataforma es el siguiente:
-     
+
      **Windows:**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync()
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync()   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -612,13 +614,11 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
                await dialog.ShowAsync();
            }
        }
-     
+
      **Xamarin.iOS**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync(UIViewController view)
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync(UIViewController view)   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -638,13 +638,11 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
                Console.Error.WriteLine(@"ERROR - AUTHENTICATION FAILED {0}", ex.Message);
            }
        }
-     
+
      **Xamarin.Android**
-     
-       private MobileServiceUser user;
-       private async Task AuthenticateAsync()
-       {
-     
+
+       private MobileServiceUser user;   private async Task AuthenticateAsync()   {
+
            string authority = "INSERT-AUTHORITY-HERE";
            string resourceId = "INSERT-RESOURCE-ID-HERE";
            string clientId = "INSERT-CLIENT-ID-HERE";
@@ -666,15 +664,13 @@ La biblioteca de autenticación de Active Directory (ADAL) se puede usar para in
                builder.SetTitle("You must log in. Login Required");
                builder.Create().Show();
            }
-       }
-       protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
-       {
-     
+       }   protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)   {
+
            base.OnActivityResult(requestCode, resultCode, data);
            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
        }
 
-#### <a name="a-nameclientfacebookasingle-signon-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Inicio de sesión único mediante un token de Facebook o Google
+#### <a name="a-nameclient-facebookasingle-sign-on-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Inicio de sesión único mediante un token de Facebook o Google
 Puede usar el flujo de cliente como se muestra en este fragmento para Facebook o Google.
 
     var token = new JObject();
@@ -706,13 +702,13 @@ Puede usar el flujo de cliente como se muestra en este fragmento para Facebook o
         }
     }
 
-#### <a name="a-nameclientlivesdkasingle-signin-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Inicio de sesión único mediante una cuenta Microsoft con el SDK de Live
+#### <a name="a-nameclient-livesdkasingle-sign-in-using-microsoft-account-with-the-live-sdk"></a><a name="client-livesdk"></a>Inicio de sesión único mediante una cuenta Microsoft con el SDK de Live
 Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de la cuenta Microsoft. Configure los detalles del registro en su back-end de aplicación móvil. Complete los pasos del artículo sobre cómo [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]para crear un registro de la cuenta Microsoft y conectarlo al back-end de aplicación móvil. Si dispone de ambas versiones de la aplicación, Tienda Windows y Windows Phone 8/Silverlight, registre primero la versión de Tienda Windows.
 
 El siguiente código se autentica mediante el SDK de Live y usa el token devuelto para iniciar sesión en el back-end de Aplicaciones móviles.
 
     private LiveConnectSession session;
-    //private static string clientId = "<microsoft-account-client-id>";
+     //private static string clientId = "<microsoft-account-client-id>";
     private async System.Threading.Tasks.Task AuthenticateAsync()
     {
 
@@ -760,7 +756,7 @@ El siguiente código se autentica mediante el SDK de Live y usa el token devuelt
 
 Para obtener más información, consulte la documentación del [SDK de Windows Live] .
 
-### <a name="a-nameserverflowaservermanaged-authentication"></a><a name="serverflow"></a>Autenticación administrada por el servidor
+### <a name="a-nameserverflowaserver-managed-authentication"></a><a name="serverflow"></a>Autenticación administrada por el servidor
 Una vez que haya registrado el proveedor de identidades, llame al método [LoginAsync] de [MobileServiceClient] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
     private MobileServiceUser user;
@@ -821,7 +817,7 @@ Cuando se cierre la sesión de un usuario, también es preciso quitar la credenc
     client.Logout();
     vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 
-Las aplicaciones de Xamarin utilizan las API de [Xamarin.Auth] para almacenar de forma segura las credenciales en un objeto **Account** . Para ver un ejemplo de cómo usar estas API, consulte el archivo de código [AuthStore.cs] en el [ejemplo de uso compartido de fotografías ContosoMoments].
+Las aplicaciones de Xamarin utilizan las API de [Xamarin.Auth] para almacenar de forma segura las credenciales en un objeto **Account**. Para ver un ejemplo de cómo usar estas API, consulte el archivo de código [AuthStore.cs] en el [ejemplo de uso compartido de fotografías ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
 
 Si utiliza la autenticación administrada por el cliente, también puede almacenar en caché el token de acceso obtenido del proveedor, como Facebook o Twitter. Este token se puede especificar al solicitar un nuevo token de autenticación del back-end, tal como se muestra a continuación:
 
@@ -839,7 +835,7 @@ Los siguientes temas tratan sobre las notificaciones push:
 * [Obtención del SID de un paquete de la Tienda Windows](#package-sid)
 * [Registro con plantillas multiplataforma](#register-xplat)
 
-### <a name="a-nameregisterforpushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
+### <a name="a-nameregister-for-pushahow-to-register-for-push-notifications"></a><a name="register-for-push"></a>Cómo registrarse para recibir notificaciones push
 El cliente de Aplicaciones móviles permite registrar las notificaciones push con Centros de notificaciones de Azure. Al registrar, se obtiene un identificador del servicio de notificaciones push (PNS) específico de la plataforma. A continuación, proporcione este valor junto con las etiquetas cuando se cree el registro. El código siguiente registra la aplicación de Windows para las notificaciones push en el Servicio de notificaciones de Windows.(WNS):
 
     private async void InitNotificationsAsync()
@@ -856,7 +852,7 @@ Si va a insertar en WNS, DEBE [obtener un SID del paquete de Tienda Windows](#pa
 Tenga en cuenta que no se admite la solicitud de etiquetas del cliente.  Las solicitudes de etiquetas se quitan del registro en modo silencioso.
 Si desea registrar el dispositivo con etiquetas, crear una API personalizada que use la API de los Centros de notificaciones para realizar el registro en su nombre.  [Llame a la API personalizada](#customapi), en lugar de al método `RegisterNativeAsync()`.
 
-### <a name="a-namepackagesidahow-to-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
+### <a name="a-namepackage-sidahow-to-obtain-a-windows-store-package-sid"></a><a name="package-sid"></a>Obtención del SID de un paquete de la Tienda Windows.
 Se necesita un SID de paquete para habilitar las notificaciones push en aplicaciones de la Tienda Windows.  Para recibir un SID del paquete. registre la aplicación en la Tienda Windows.
 
 Para obtener este valor:
@@ -872,9 +868,9 @@ Muchos usos del SID del paquete lo tratan como un URI, en cuyo caso debe usar *m
 Las aplicaciones de Xamarin requieren más código para poder registrar una aplicación que se ejecute en las plataformas Android o iOS. Para obtener más información, consulte el tema sobre su plataforma:
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
-* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push)
+* [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="a-nameregisterxplatahow-to-register-push-templates-to-send-crossplatform-notifications"></a><a name="register-xplat"></a>Procedimiento: Registro de plantillas push para enviar notificaciones entre plataformas
+### <a name="a-nameregister-xplatahow-to-register-push-templates-to-send-cross-platform-notifications"></a><a name="register-xplat"></a>Procedimiento: Registro de plantillas push para enviar notificaciones entre plataformas
 Para registrar plantillas, use el método `RegisterAsync()` con ellas, tal y como se indica a continuación:
 
         JObject templates = myTemplates();
@@ -977,14 +973,14 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [4]: https://msdn.microsoft.com/en-us/library/azure/mt419521(v=azure.10).aspx
 [5]: https://github.com/Azure-Samples
 [6]: http://www.newtonsoft.com/json/help/html/Properties_T_Newtonsoft_Json_JsonPropertyAttribute.htm
-[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[7]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [8]: app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [9]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/
 [10]: http://www.symbolsource.org/
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Incorporación de la autenticación a su aplicación]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Incorporación de la autenticación a la aplicación de Windows]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Sincronización de datos sin conexión en Aplicaciones móviles de Azure]: app-service-mobile-offline-data-sync.md
 [Agregar notificaciones de inserción a la aplicación]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [registrar la aplicación para usar el inicio de sesión de la cuenta Microsoft]: app-service-mobile-how-to-configure-microsoft-authentication.md
@@ -1032,10 +1028,11 @@ Para admitir su escenario de aplicación específico, deberá personalizar la co
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
-[AuthStore.cs]: (https://github.com/azure-appservice-samples/ContosoMoments/blob/dev/src/Mobile/ContosoMoments/Helpers/AuthStore.cs)
+[AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [Ejemplo de uso compartido de fotografías ContosoMoments]: https://github.com/azure-appservice-samples/ContosoMoments
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

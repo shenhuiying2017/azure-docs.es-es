@@ -1,12 +1,12 @@
 ---
 title: Entrega de contenido a los clientes | Microsoft Docs
-description: Este tema proporciona información general de lo que implica la entrega de contenido con Azure Media Services.
+description: "Este tema proporciona información general de lo que implica la entrega de contenido con Azure Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 89ede54a-6a9c-4814-9858-dcfbb5f4fed5
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,21 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0af1ca64301e2fb0a3af30e1da8b5d5277f14146
+
 
 ---
-# Entrega de contenido a los clientes
+# <a name="deliver-content-to-customers"></a>Entrega de contenido a los clientes
 Al proporcionar contenido de vídeo bajo demanda o streaming a los clientes, el objetivo consiste en entregar vídeo de alta calidad a varios dispositivos en condiciones de red diferentes.
 
 Para ello, puede realizar estas tareas:
 
 * Codificar la secuencia en una secuencia de vídeo de velocidad de bits múltiple (velocidad de bits adaptable) (esto se encargará de las condiciones de calidad y red).
-* Utilizar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Servicios multimedia de Microsoft Azure para volver a empaquetar dinámicamente la secuencia en distintos protocolos (esto se encargará del streaming en dispositivos diferentes). Servicios multimedia admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
+* Usar el [empaquetado dinámico](media-services-dynamic-packaging-overview.md) de Microsoft Azure Media Services para volver a empaquetar de forma dinámica la transmisión en distintos protocolos (esto se encargará del streaming en dispositivos diferentes). Servicios multimedia admite la entrega de las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS (solo para licenciatarios de Adobe PrimeTime/Access).
 
 En este artículo se ofrece información general sobre importantes conceptos de entrega de contenido.
 
 Para comprobar los problemas conocidos, consulte [esta sección](media-services-deliver-content-overview.md#known-issues).
 
-## Empaquetado dinámico
+## <a name="dynamic-packaging"></a>Empaquetado dinámico
 Gracias al empaquetado dinámico de Servicios multimedia, podrá entregar contenido codificado MP4 de velocidad de bits adaptable o Smooth Streaming en formatos compatibles con Servicios multimedia (MPEG DASH, HLS, Smooth Streaming y HDS) sin tener que volver a empaquetarlo en estos formatos de streaming. Recomendamos entregar el contenido con empaquetado dinámico.
 
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
@@ -42,12 +46,12 @@ Además de proporcionar acceso a las funcionalidades de empaquetado dinámico, l
 
 Para obtener más información, consulte [Empaquetado dinámico](media-services-dynamic-packaging-overview.md).
 
-## Filtros y manifiestos dinámicos
+## <a name="filters-and-dynamic-manifests"></a>Filtros y manifiestos dinámicos
 Servicios multimedia permite definir filtros para los recursos. Estos filtros son reglas del lado servidor que ayudan a los clientes elegir realizar acciones como reproducir solo una sección de un vídeo o especificar solo un subconjunto de las representaciones de audio y vídeo que el dispositivo de su cliente puede controlar (en lugar de todas las copias asociadas al recurso). Esta funcionalidad de filtro de recursos se realiza a través de los *manifiestos dinámicos* que se crean tras la solicitud del cliente para transmitir un vídeo en función de los filtros especificados.
 
 Para obtener más información, consulte [Filtros y manifiestos dinámicos](media-services-dynamic-manifest-overview.md).
 
-## Localizadores
+## <a name="locators"></a>Localizadores
 Para proporcionar al usuario una dirección URL que pueda utilizarse para transmitir o descargar su contenido, primero necesitará publicar su recurso mediante la creación de un localizador. Los localizadores proporcionan un punto de entrada para tener acceso a los archivos que se encuentran en un recurso. Servicios multimedia admite dos tipos de localizadores:
 
 * Localizadores OnDemandOrigin. Se usan para transmitir archivos multimedia (por ejemplo, MPEG DASH, HLS o Smooth Streaming) o archivos de descarga progresiva.
@@ -68,7 +72,7 @@ Los localizadores no están diseñados para administrar el control de acceso por
 
 Al crear un localizador, puede haber un retraso de 30 segundos debido a los procesos de almacenamiento y propagación requeridos en Almacenamiento de Azure.
 
-## Streaming adaptativo
+## <a name="adaptive-streaming"></a>Streaming adaptativo
 Las tecnologías de velocidad de bits adaptable permiten a las aplicaciones para reproductor de vídeo determinar las condiciones de red y seleccionar entre varias velocidades de bits. Cuando se degrada la comunicación de red, el cliente puede seleccionar una velocidad de bits más baja que permita al reproductor seguir reproduciendo el vídeo con una calidad inferior. A medida que mejoren las condiciones de red, el cliente puede cambiar a una velocidad de bits superior con calidad de vídeo mejorada. Servicios multimedia de Azure admite las siguientes tecnologías de velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH y HDS.
 
 Para proporcionar direcciones URL de streaming a los usuarios, primero debe crear un localizador OnDemandOrigin. Crear el localizador brinda la ruta de acceso de base al recurso que contiene el contenido que desea transmitir. Sin embargo, para poder transmitir este contenido, es necesario modificar aún más esta ruta de acceso. Para crear una dirección URL completa al archivo de manifiesto del streaming, debe concatenar el valor de la ruta de acceso del localizador y el nombre de archivo del manifiesto (filename.ism). Luego, anexe **/Manifiest** y un formato adecuado (si corresponde) a la ruta de acceso del localizador.
@@ -80,49 +84,49 @@ Para proporcionar direcciones URL de streaming a los usuarios, primero debe crea
 
 Solo puede transmitir por SSL si se creó el punto de conexión de streaming desde el que se entrega el contenido a partir del 10 de septiembre de 2014. Si las direcciones URL de streaming se basan en los puntos de conexión de streaming creados después del 10 de septiembre de 2014, la dirección URL contendrá streaming.mediaservices.windows.net. Las direcciones URL de streaming que contengan "origin.mediaservices.windows.net" (el formato anterior) no son compatibles con SSL. Si la dirección URL tiene un formato antiguo y desea poder transmitir a través de SSL, cree un extremo de streaming nuevo. Utilice direcciones URL creadas en función del nuevo punto de conexión de streaming para transmitir el contenido a través de SSL.
 
-## Formatos de la dirección URL de streaming
-### Formato MPEG-DASH
+## <a name="streaming-url-formats"></a>Formatos de la dirección URL de streaming
+### <a name="mpeg-dash-format"></a>Formato MPEG-DASH
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=mpd-time-csf)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
-### Formato Apple HTTP Live Streaming (HLS) V4
+### <a name="apple-http-live-streaming-hls-v4-format"></a>Formato Apple HTTP Live Streaming (HLS) V4
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=m3u8-aapl)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-### Formato Apple HTTP Live Streaming (HLS) V3
+### <a name="apple-http-live-streaming-hls-v3-format"></a>Formato Apple HTTP Live Streaming (HLS) V3
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=m3u8-aapl-v3)
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-### Formato Apple HTTP Live Streaming (HLS) con filtro solo de audio
+### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Formato Apple HTTP Live Streaming (HLS) con filtro solo de audio
 De forma predeterminada, las pistas solo de audio se incluyen en el manifiesto HLS. Esto es necesario para la certificación de la Apple Store para redes celulares. En este caso, si un cliente no tiene suficiente ancho de banda o se conecta a través de una conexión de 2G, se cambia a reproducción solo de audio. De este modo, se ayuda a mantener un streaming sin almacenamiento en búfer, pero con el inconveniente de no disponer de vídeo. En algunos escenarios, es posible que se prefiera el almacenamiento en búfer del reproductor a solo audio. Si desea quitar la pista de solo audio, puede agregar **audio-only=false** a la dirección URL.
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Para más información, consulte [Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) (Compatibilidad con Dynamic Manifest Composition y características adicionales de salida HLS).
+Para más información, consulte [Dynamic Manifest Composition support and HLS output additional features](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)(Compatibilidad con Dynamic Manifest Composition y características adicionales de salida HLS).
 
-### Formato Smooth Streaming
+### <a name="smooth-streaming-format"></a>Formato Smooth Streaming
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{filename}.ism/Manifest
 
 Ejemplo:
 
 http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a id="fmp4_v20"></a>Manifiesto Smooth Streaming 2.0 (manifiesto heredado)
+### <a name="a-idfmp4v20asmooth-streaming-20-manifest-legacy-manifest"></a><a id="fmp4_v20"></a>Manifiesto Smooth Streaming 2.0 (manifiesto heredado)
 De forma predeterminada el formato de manifiesto Smooth Streaming contiene la etiqueta de repetición (r-tag). Sin embargo, algunos reproductores no son compatibles con r-tag. Los clientes con estos reproductores pueden utilizar un formato que deshabilite la etiqueta r-tag:
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=fmp4-v20)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
-### HDS (solo para licencias de Adobe PrimeTime/Access)
+### <a name="hds-for-adobe-primetimeaccess-licensees-only"></a>HDS (solo para licencias de Adobe PrimeTime/Access)
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=f4m-f4f)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
-## Descarga progresiva
+## <a name="progressive-download"></a>Descarga progresiva
 La descarga progresiva le permite comenzar a reproducir archivos multimedia antes de haber descargado todo el archivo. No se puede descargar progresivamente archivos .ism * (ismv, isma, ismt e ismc).
 
 Para la descarga progresiva de contenido, utilice el tipo OnDemandOrigin de localizador. En el ejemplo siguiente se muestra la dirección URL que se basa en el tipo OnDemandOrigin de localizador:
@@ -131,7 +135,7 @@ Para la descarga progresiva de contenido, utilice el tipo OnDemandOrigin de loca
 
 Debe descifrar los recursos cifrados en almacenamiento que quiera transmitir desde el servicio de origen para la descarga progresiva.
 
-## Descargar
+## <a name="download"></a>Descargar
 Para descargar el contenido en un dispositivo cliente, debe crear un localizador de SAS. El localizador de SAS da acceso al contenedor de Almacenamiento de Azure donde se encuentra el archivo. Para generar la dirección URL de descarga, tiene que insertar el nombre de archivo entre el host y la firma de SAS.
 
 En el ejemplo siguiente se muestra la dirección URL que se basa en el localizador de SAS:
@@ -143,14 +147,23 @@ Se aplican las siguientes consideraciones:
 * Debe descifrar los recursos cifrados en almacenamiento que quiera transmitir desde el servicio de origen para la descarga progresiva.
 * Se producirá un error en una descarga que no se haya completado en 12 horas.
 
-## Puntos de conexión de streaming
+## <a name="streaming-endpoints"></a>Puntos de conexión de streaming
 Un punto de conexión de streaming representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproducción de cliente o a una red de entrega de contenido (CDN) para su posterior distribución. La secuencia de salida del servicio de punto de conexión de streaming puede ser streaming en vivo o un recurso de vídeo a petición en la cuenta de Servicios multimedia. También puede controlar la capacidad del servicio de punto de conexión de streaming para administrar las necesidades crecientes de ancho de banda ajustando las unidades reservadas de streaming. Debe asignar al menos una unidad reservada para las aplicaciones en un entorno de producción. Para más información, consulte [Escalado de un servicio multimedia](media-services-portal-manage-streaming-endpoints.md).
 
-## Problemas conocidos
-### Cambios en la versión de manifiesto de Smooth Streaming
+## <a name="known-issues"></a>esta sección
+### <a name="changes-to-smooth-streaming-manifest-version"></a>Cambios en la versión de manifiesto de Smooth Streaming
 Antes de la versión de servicio de julio de 2016, cuando los recursos producidos por el flujo de trabajo del Codificador multimedia estándar, el Codificador multimedia premium o el Codificador multimedia de Azure heredado se transmitieron mediante el empaquetado dinámico, el manifiesto de Smooth Streaming devuelto podría ajustarse a la versión 2.0. En la versión 2.0, las duraciones de fragmentos no utilizan las llamadas "etiquetas de repetición". Por ejemplo:
 
-<?xml version="1.0" encoding="UTF-8"?> <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000"> <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000"> <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" /> <c t="0" d="2000" n="0" /> <c d="2000" /> <c d="2000" /> <c d="2000" /> </StreamIndex> </SmoothStreamingMedia>
+<?xml version="1.0" encoding="UTF-8"?>
+    <SmoothStreamingMedia MajorVersion="2" MinorVersion="0" Duration="8000" TimeScale="1000">
+        <StreamIndex Chunks="4" Type="video" Url="QualityLevels({bitrate})/Fragments(video={start time})" QualityLevels="3" Subtype="" Name="video" TimeScale="1000">
+            <QualityLevel Index="0" Bitrate="1000000" FourCC="AVC1" MaxWidth="640" MaxHeight="360" CodecPrivateData="00000001674D4029965201405FF2E02A100000030010000003032E0A000F42400040167F18E3050007A12000200B3F8C70ED0B16890000000168EB7352" />
+            <c t="0" d="2000" n="0" />
+            <c d="2000" />
+            <c d="2000" />
+            <c d="2000" />
+        </StreamIndex>
+    </SmoothStreamingMedia>
 
 En la versión de servicio de julio de 2016, el manifiesto de Smooth Streaming generado se ajusta a la versión 2.2, con duraciones de fragmentos que utilizan etiquetas de repetición. Por ejemplo:
 
@@ -164,13 +177,18 @@ En la versión de servicio de julio de 2016, el manifiesto de Smooth Streaming g
 
 Es posible que algunos de los clientes heredados de Smooth Streaming no admitan las etiquetas de repetición y se produzcan errores al cargar el manifiesto. Para mitigar este problema, puede usar el parámetro de formato de manifiesto heredado **(format=fmp4-v20)** o actualizar el cliente a la versión más reciente que admita las etiquetas de repetición. Para más información, consulte [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Temas relacionados
+## <a name="related-topics"></a>Temas relacionados
 [Actualización de los localizadores de Servicios multimedia después de revertir las claves de almacenamiento](media-services-roll-storage-access-keys.md)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 08/15/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b6b6b19d82bfcf77dc72bae8926b8f696bfd9c0c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cdbf4b164af4a8077b8f9a166d6c4ad752b25ff4
 
 
 ---
-# <a name="deploying-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication
+# <a name="deploying-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Implementación del Portal de usuarios para Servidor Azure Multi-Factor Authentication
 El Portal de usuarios permite al administrador instalar y configurar el Portal de usuarios de Azure Multi-Factor Authentication. El Portal de usuarios es un sitio web de IIS que permite a los usuarios inscribirse en Azure Multi-Factor Authentication y mantener sus cuentas. Un usuario puede cambiar el número de teléfono, modificar el PIN o evitar Azure Multi-Factor Authentication durante su próximo inicio de sesión.
 
 Los usuarios iniciarán sesión en el Portal de usuarios mediante el nombre de usuario y la contraseña normales y completarán una llamada de Azure Multi-Factor Authentication o responderán a preguntas de seguridad para completar la autenticación. Si se permite la inscripción de usuarios, el usuario configurará el número de teléfono y el PIN la primera vez que inicien sesión en el Portal de usuarios.
@@ -29,13 +29,13 @@ Es posible que se configuren administradores para el Portal de usuarios y que se
 
 <center>![Configuración](./media/multi-factor-authentication-get-started-portal/install.png)</center>
 
-## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multifactor-authentication-server"></a>Implementación del Portal de usuarios en el mismo servidor que Servidor Azure Multi-Factor Authentication
+## <a name="deploying-the-user-portal-on-the-same-server-as-the-azure-multi-factor-authentication-server"></a>Implementación del Portal de usuarios en el mismo servidor que Servidor Azure Multi-Factor Authentication
 Los siguientes requisitos previos son obligatorios para instalar el Portal de usuarios en el mismo servidor que Servidor Azure Multi-Factor Authentication:
 
 * IIS debe estar instalado, incluido ASP.NET y Compatibilidad con la metabase de IIS 6 (para IIS 7 o posterior).
 * El usuario que haya iniciado sesión debe tener derechos de administrador para el equipo y el dominio, si corresponde.  La razón es que la cuenta necesita permisos para crear grupos de seguridad de Active Directory.
 
-### <a name="to-deploy-the-user-portal-for-the-azure-multifactor-authentication-server"></a>Para implementar el Portal de usuarios para Servidor Azure Multi-Factor Authentication
+### <a name="to-deploy-the-user-portal-for-the-azure-multi-factor-authentication-server"></a>Para implementar el Portal de usuarios para Servidor Azure Multi-Factor Authentication
 1. En Servidor Azure Multi-Factor Authentication: haga clic en el icono Portal de usuarios en el menú de la izquierda y después en el botón Instalar portal de usuarios.
 2. Haga clic en Siguiente.
 3. Haga clic en Siguiente.
@@ -47,7 +47,7 @@ Los siguientes requisitos previos son obligatorios para instalar el Portal de us
 
 <center>![Configuración](./media/multi-factor-authentication-get-started-portal/portal.png)</center>
 
-## <a name="deploying-the-azure-multifactor-authentication-server-user-portal-on-a-separate-server"></a>Implementación del Portal de usuarios de Servidor Azure Multi-Factor Authentication en otro servidor
+## <a name="deploying-the-azure-multi-factor-authentication-server-user-portal-on-a-separate-server"></a>Implementación del Portal de usuarios de Servidor Azure Multi-Factor Authentication en otro servidor
 Para usar la aplicación Azure Multi-Factor Authentication, se requiere lo siguiente para que pueda comunicarse correctamente con el Portal de usuarios:
 
 Consulte los requisitos de hardware y software:
@@ -89,7 +89,7 @@ Antes de instalar el Portal de usuarios en un servidor independiente, tenga en c
 7. Si el sitio web donde se instaló el Portal de usuarios (por ejemplo, Sitio web predeterminado) aún no está enlazado con un certificado firmado públicamente, instale el certificado en el servidor si aún no lo está, abra el Administrador de IIS y enlace el certificado al sitio web.
 8. Abra un explorador web desde cualquier equipo y vaya a la dirección URL donde se instaló el Portal de usuarios (por ejemplo, https://www.publicwebsite.com/MultiFactorAuth). Asegúrese de que no aparezca ningún error ni advertencia de certificado.
 
-## <a name="configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Establecimiento de la configuración del Portal de usuarios en Servidor Azure Multi-Factor Authentication
+## <a name="configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Establecimiento de la configuración del Portal de usuarios en Servidor Azure Multi-Factor Authentication
 Ahora que el portal está instalado, debe configurar el servidor Azure Multi-Factor Authentication para que funcione con el portal.
 
 Servidor Azure Multi-Factor Authentication ofrece varias opciones para el portal de usuarios.  En la tabla siguiente se proporciona una lista de estas opciones y se obtiene una explicación de para qué se usan.
@@ -113,7 +113,7 @@ La mayoría de estas configuraciones son visibles para el usuario una vez que es
 
 ![Configuración del portal de usuarios](./media/multi-factor-authentication-get-started-portal/portalsettings.png)
 
-### <a name="to-configure-the-user-portal-settings-in-the-azure-multifactor-authentication-server"></a>Para establecer la configuración del Portal de usuarios en Servidor Azure Multi-Factor Authentication
+### <a name="to-configure-the-user-portal-settings-in-the-azure-multi-factor-authentication-server"></a>Para establecer la configuración del Portal de usuarios en Servidor Azure Multi-Factor Authentication
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Portal de usuarios. En la pestaña Configuración, escriba la dirección URL del Portal de usuarios en el cuadro de texto URL del portal de usuarios. Esta dirección URL se insertará en los mensajes de correo electrónico que se envían a los usuarios cuando se importan a Servidor Azure Multi-Factor Authentication si se habilitó la funcionalidad de correo electrónico.
 2. Elija la configuración que desea usar en el Portal de usuarios. Por ejemplo, si se permite que los usuarios controlen sus métodos de autenticación, asegúrese de que activar Permitir a los usuarios seleccionar el método junto con los métodos entre los que pueden elegir.
 3. Haga clic en el vínculo Ayuda en la esquina superior derecha para obtener ayuda sobre cualquiera de las opciones que aparecen.
@@ -142,7 +142,7 @@ Esta pestaña permite especificar direcciones IP individuales o intervalos de di
 
 ![IP de confianza del portal de usuarios](./media/multi-factor-authentication-get-started-portal/trusted.png)
 
-## <a name="selfservice-user-enrollment"></a>Autoservicio de inscripción de usuarios
+## <a name="self-service-user-enrollment"></a>Autoservicio de inscripción de usuarios
 Si desea que los usuarios inicien sesión y se inscriban, debe seleccionar las opciones Permitir que los usuarios inicien sesión y Permitir inscripción de usuario. Recuerde que la configuración que seleccione afectará a la experiencia de inicio de sesión del usuario.
 
 Por ejemplo, cuando un usuario inicia sesión en el Portal de usuarios y hace clic en el botón Iniciar sesión, pasa a la página Configuración de usuario de Azure Multi-Factor Authentication.  Dependiendo de cómo haya configurado Azure Multi-Factor Authentication, el usuario puede seleccionar el método de autenticación.  
@@ -177,6 +177,6 @@ La autoinscripción del usuario ahora está completa y el usuario inicia sesión
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

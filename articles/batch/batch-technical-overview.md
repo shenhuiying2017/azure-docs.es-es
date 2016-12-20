@@ -3,7 +3,7 @@ title: "Conceptos básicos del servicio Azure Batch | Microsoft Docs"
 description: "Información acerca del servicio Lote de Azure para cargas de trabajo HPC y paralelas a gran escala"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 93e37d44-7585-495e-8491-312ed584ab79
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 2559aae752f319805c2c9f87a2e2a81d9b37e4b2
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: 2d83a9a42a17ddade81f891fca4463099a42f5e4
 
 
 ---
@@ -59,7 +59,7 @@ Puede procesar de forma eficiente cargas de trabajo a gran escala para su organi
 ### <a name="azure-accounts-youll-need"></a>Cuentas de Azure que necesita
 Cuando se desarrollan soluciones de Lote, es necesario usar las siguientes cuentas en Microsoft Azure.
 
-* **Cuenta y suscripción de Azure**: si aún no tiene una suscripción a Azure, puede activar su [crédito de Azure para suscriptores de MSDN][mdsn_benefits], o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se crea automáticamente una suscripción predeterminada.
+* **Cuenta de Azure y suscripción**: si aún no tiene ninguna suscripción a Azure, puede activar su [ventaja como suscriptor de MSDN][msdn_benefits] o bien registrarse para obtener una [cuenta gratuita de Azure][free_account]. Al crear una cuenta, se crea automáticamente una suscripción predeterminada.
 * **Cuenta de Lote** : cuando las aplicaciones interactúan con el servicio Lote, el nombre de cuenta, la dirección URL de la cuenta y una clave de acceso se utilizarán como credenciales. Todos los recursos de Lote como grupos, nodos de proceso, trabajos y tareas están asociados a una cuenta de Lote. Puede [crear una cuenta de Lote](batch-account-create-portal.md) en el Portal de Azure.
 * **Cuenta de Storage**: Batch incluye compatibilidad integrada para trabajar con archivos en [Azure Storage][azure_storage]. Casi todos los escenarios de Lote usan Almacenamiento de Azure (tanto para el almacenamiento provisional de los programas que ejecutan las tareas como de los datos que procesan, así como para el almacenamiento de los datos de salida que generan). Para crear una cuenta de Storage, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
@@ -77,16 +77,16 @@ Las aplicaciones y los servicios pueden emitir llamadas de API de REST directas,
 ### <a name="batch-resource-management"></a>Administración de recursos de Lote
 Además de las API de cliente, también puede utilizar lo siguiente para administrar los recursos en su cuenta de Lote.
 
-* [Cmdlets de PowerShell de Batch][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](../powershell-install-configure.md) permiten administrar los recursos de Batch con PowerShell.
+* [Cmdlets de Batch en PowerShell][batch_ps]: los cmdlets de Azure Batch en el módulo [Azure PowerShell](/powershell/azureps-cmdlets-docs) permiten administrar los recursos de Batch con PowerShell.
 * [CLI de Azure](../xplat-cli-install.md): la interfaz de la línea de comandos de Azure (CLI de Azure) es un conjunto de herramientas multiplataforma que proporciona comandos de shell para interactuar con muchos de los servicios de Azure, incluido Lote.
-* Biblioteca de cliente [.NET de Administración de Batch](batch-management-dotnet.md): también disponible a través de [NuGet][api_net_mgmt_nuget]; puede usar la biblioteca de cliente .NET de Administración de Batch para administrar mediante programación las cuentas, las cuotas y los paquetes de aplicación de Batch. La referencia sobre la biblioteca de administración se encuentra en [MSDN][api_net_mgmt].
+* Biblioteca de cliente [Batch Management .NET](batch-management-dotnet.md): también disponible a través de [NuGet][api_net_mgmt_nuget]; puede usar la biblioteca de cliente Batch Management .NET para administrar mediante programación las cuentas, las cuotas y los paquetes de aplicación de Batch. La referencia sobre la biblioteca de administración se encuentra en [MSDN][api_net_mgmt].
 
 ### <a name="batch-tools"></a>Herramientas de Lote
 Aunque no son necesarias para compilar soluciones con Lote, estas son varias herramientas que resultan útiles durante la compilación y depuración de los servicios y las aplicaciones de Lote.
 
-* [Azure Portal][portal]: en las hojas de Batch de Azure Portal, se pueden crear, supervisar y eliminar grupos, trabajos y tareas de Batch. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se descargan archivos desde los nodos de proceso de los grupos (por ejemplo, descargar una tarea con errores `stderr.txt` mientras se solucionan problemas). También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
-* [Azure Batch Explorer][batch_explorer]: Batch Explorer proporciona una funcionalidad de administración de recursos de Batch similar a la de Azure Portal, pero en una aplicación cliente de Windows Presentation Foundation (WPF) independiente. Puede compilar una de las aplicaciones de ejemplo de .NET de Batch disponibles en [GitHub][github_samples] con Visual Studio 2015 o posterior y usarla para examinar y administrar los recursos de su cuenta de Batch mientras desarrolla y depura sus soluciones de Batch. Vea los detalles de los trabajos, grupos y tareas, descargue archivos de los nodos de proceso y conéctese a nodos de forma remota mediante archivos de Escritorio remoto (RDP) que puede descargar con Explorador de Lote.
-* [Microsoft Azure Storage Explorer][storage_explorer]: aunque no es estrictamente una herramienta de Azure Batch, Storage Explorer es otra herramienta muy útil para desarrollar y depurar soluciones de Batch.
+* [Azure Portal][portal]: en las hojas de Batch de Azure Portal se pueden crear, supervisar y eliminar grupos, trabajos y tareas de Batch. La información relativa al estado de estos y otros recursos se puede ver mientras se ejecutan trabajos, e incluso se descargan archivos desde los nodos de proceso de los grupos (por ejemplo, descargar una tarea con errores `stderr.txt` mientras se solucionan problemas). También puede descargar los archivos de Escritorio remoto (RDP) que puede usar para iniciar sesión en los nodos de proceso.
+* [Explorador de Azure Batch][batch_explorer]: el Explorador de Batch proporciona una funcionalidad de administración de recursos similar a la de Azure Portal, pero en una aplicación cliente de Windows Presentation Foundation (WPF) independiente. Puede compilar una de las aplicaciones de ejemplo de .NET de Batch disponibles en [GitHub][github_samples] con Visual Studio 2015 o posterior y usarla para examinar y administrar los recursos de su cuenta de Batch mientras desarrolla y depura sus soluciones de Batch. Vea los detalles de los trabajos, grupos y tareas, descargue archivos de los nodos de proceso y conéctese a nodos de forma remota mediante archivos de Escritorio remoto (RDP) que puede descargar con Explorador de Lote.
+* [Explorador de Microsoft Azure Storage][storage_explorer]: aunque no es estrictamente una herramienta de Azure Batch, el Explorador de Storage es otra herramienta muy útil para desarrollar y depurar soluciones de Batch.
 
 ## <a name="scenario-scale-out-a-parallel-workload"></a>Escenario: Escalar horizontalmente una carga de trabajo paralela
 Una solución común que usa las API de Lote para interactuar con el servicio Lote implica escalar horizontalmente trabajo intrínsecamente paralelo, como la representación de imágenes para escenas 3D, en un grupo de nodos de proceso. Este grupo de nodos de proceso puede ser la "granja de representación" que le proporciona decenas, cientos o incluso miles de núcleos de su trabajo de representación, por ejemplo.
@@ -136,7 +136,7 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[mdsn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [batch_explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com
@@ -146,6 +146,6 @@ Ahora que ha visto información general de alto nivel del servicio Lote, es hora
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

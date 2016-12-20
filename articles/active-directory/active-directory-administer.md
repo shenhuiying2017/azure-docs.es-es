@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20f38ef90d9f3793c0bb0814e6fd5d67aa550209
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 001ffc0f9c7465552392a9848ef1487a4c0eafce
 
 
 ---
@@ -66,7 +66,7 @@ Si aún no tiene una suscripción a un servicio en la nube de Microsoft, utilice
 * [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://account.manage.microsoft.com/Signup/MainSignUp.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&ali=1)
 
-### <a name="manage-an-azureprovisioned-default-directory"></a>Administración de un directorio de aprovisionamiento predeterminado de Azure
+### <a name="manage-an-azure-provisioned-default-directory"></a>Administración de un directorio de aprovisionamiento predeterminado de Azure
 Actualmente, al suscribirse a Azure, se crea automáticamente un directorio y la suscripción queda asociada a ese directorio. No obstante, si se suscribió por primera vez a Azure antes de octubre de 2013, el directorio no se habrá creado automáticamente. En ese caso, Azure puede haber "repuesto" su cuenta mediante el aprovisionamiento de un directorio predeterminado para ella. Su suscripción se asoció entonces con ese directorio predeterminado.
 
 La reposición de directorios tuvo lugar en octubre de 2013 como parte de una mejora general del modelo de seguridad de Azure. Ayuda a ofrecer características de identidad organizativa a todos los clientes de Azure y garantiza que el acceso a todos los recursos de Azure se produce en el contexto de un usuario en un directorio. No es posible usar Azure sin un directorio. Para poder hacerlo, los usuarios que se hubieran registrado antes del 7 de julio de 2013 y no tuvieran un directorio, tenían que tener uno creado. Si ya tenía un directorio creado, su suscripción se asoció con ese directorio.
@@ -150,6 +150,6 @@ Se comprueban las condiciones siguientes:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

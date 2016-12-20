@@ -1,32 +1,36 @@
 ---
-title: Solución de administración de capacidad en Log Analytics | Microsoft Docs
-description: Puede usar la solución de planeamiento de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V administrados por System Center Virtual Machine Manager.
+title: "Solución de administración de capacidad en Log Analytics | Microsoft Docs"
+description: "Puede usar la solución de planeamiento de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V administrados por System Center Virtual Machine Manager."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/15/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
+ms.openlocfilehash: c34cda0da164c711c8effc78d2af38ad8df581aa
+
 
 ---
 # <a name="capacity-management-solution-in-log-analytics"></a>Solución de administración de capacidad en Log Analytics
-Puede usar la solución de planeamiento de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V administrados por System Center Virtual Machine Manager. Esta solución requiere System Center Operations Manager y System Center Virtual Machine Manager. La solución de planeamiento de capacidad no está disponible si solo usa agentes conectados directamente. La solución se instala para actualizar al agente de Operations Manager. La solución lee los contadores de rendimiento en el servidor supervisado y envía datos de uso al servicio OMS en la nube para procesarlos. La lógica se aplica a los datos usados y el servicio en la nube registra los datos. Con el tiempo, se identifican los patrones de uso y se proyecta la capacidad según el consumo actual.
+Puede usar la solución Administración de capacidad de Log Analytics para conocer la capacidad de los servidores de Hyper-V. Esta solución requiere System Center Operations Manager y System Center Virtual Machine Manager. Si usa agentes conectados directamente, la solución Planeamiento de capacidad no es funcional. La solución lee los contadores de rendimiento en el servidor supervisado y envía datos de uso al servicio OMS en la nube para procesarlos. La lógica se aplica a los datos usados y el servicio en la nube registra los datos. Con el tiempo, se identifican los patrones de uso y se proyecta la capacidad según el consumo actual.
 
-Por ejemplo, una proyección puede identificar cuándo serán necesarios núcleos de procesador adicionales o una memoria adicional para un servidor individual. En este ejemplo, la proyección podría indicar que en 30 días, el servidor necesitará memoria adicional. Esto puede ayudarle a planear una actualización de memoria durante la próxima ventana de mantenimiento del servidor, algo que puede ocurrir una vez cada dos semanas.
+Por ejemplo, una proyección puede identificar cuándo se requieren núcleos de procesador adicionales o una memoria adicional para un servidor individual. En este ejemplo, la proyección podría indicar que en 30 días, el servidor necesitará memoria adicional. Esta proyección puede ayudarlo a planear una actualización de memoria durante la próxima ventana de mantenimiento del servidor.
 
 > [!NOTE]
 > La solución de administración de capacidad no está disponible para agregarse a áreas de trabajo. Los clientes que tengan instalada la solución de administración de capacidad pueden seguir usándola.  
 > 
 > 
 
-La solución de planeamiento de capacidad se encuentra en fase de actualización para afrontar los siguientes retos notificados por los clientes:
+La solución de reemplazo Capacidad y rendimiento está disponible en versión preliminar privada. Se ha diseñado para abordar los siguientes problemas de la solución Administración de capacidad original que nos han comunicado los clientes:
 
 * Obligación de usar tanto Virtual Machine Manager como Operations Manager
 * Imposibilidad de personalizar o filtrar por grupos
@@ -38,15 +42,18 @@ Ventajas de la nueva solución de capacidad:
 
 * Posibilidad de recopilar datos pormenorizados con mejor precisión y confiabilidad
 * Compatibilidad con Hyper-V sin necesidad de VMM
-* Visualización de métricas en Power BI
 * Información sobre el uso de nivel de máquina virtual
+
+Actualmente, la nueva solución requiere Hyper-V Server 2012 o posterior. La solución da información sobre el entorno de Hyper-V y visibilidad de la utilización en general (CPU, memoria y disco) de los hosts y las máquinas virtuales que se ejecutan en esos servidores de Hyper-V. Se recopilan métricas de CPU, memoria y disco en todos los hosts y en las máquinas virtuales que se ejecutan en ellos.
+
+La documentación restante de esta página se refiere a la solución anterior Administración de capacidad. Esta documentación se actualizará cuando se lance la versión preliminar pública de la nueva solución.
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
 * Se necesita Operations Manager para la solución de administración de capacidad.
 * Se necesita Virtual Machine Manager para la solución de administración de capacidad.
-* Se necesita conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional acerca de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
+* Se necesita conectividad de Operations Manager con Virtual Machine Manager (VMM). Para obtener información adicional sobre de la conexión de los sistemas, consulte [Conexión de VMM con Operations Manager](http://technet.microsoft.com/library/hh882396.aspx).
 * Operations Manager debe estar conectado a Log Analytics.
 * Agregue la solución de administración de capacidad al área de trabajo de OMS a través del proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
 
@@ -55,7 +62,7 @@ La administración de capacidad recopila datos de rendimiento, metadatos y datos
 
 En la siguiente tabla se muestran los métodos de recolección de datos y otros detalles sobre cómo se recopilan datos para la administración de capacidad.
 
-| plataforma | Agente directo | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| plataforma | Agente directo | Agente de Operations Manager | Almacenamiento de Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |![No](./media/log-analytics-capacity/oms-bullet-red.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |![Sí](./media/log-analytics-capacity/oms-bullet-green.png) |cada hora |
 
@@ -68,7 +75,7 @@ En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la 
 | Estado |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="capacity-management-page"></a>Página de administración de la capacidad
- Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de OMS.
+Después de instalar la solución de planeamiento de capacidad, puede ver la capacidad de los servidores supervisados mediante el icono **Planeamiento de capacidad** de la página **Información general** de OMS.
 
 ![imagen del icono Planeamiento de capacidad](./media/log-analytics-capacity/oms-capacity01.png)
 
@@ -120,10 +127,10 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 **Eficacia**
 
-* *VM inactiva*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *VM sobreutilizada*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *Host inactivo*: aquellos que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
-* *Host sobreutilizado*: aquellos que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
+* *VM inactiva*: aquellas que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
+* *VM sobreutilizada*: aquellas que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
+* *Host inactivo*: aquellos que usan menos del 10 % de la CPU y de la memoria durante el período de tiempo especificado.
+* *Host sobreutilizado*: aquellos que usan más del 90 % de la CPU y de la memoria durante el período de tiempo especificado.
 
 ### <a name="to-work-with-items-on-the-compute-page"></a>Uso de los elementos de la página Proceso
 1. En el panel **Proceso**, en el área **Uso**, puede ver información acerca de los núcleos de CPU y la memoria en uso.
@@ -152,11 +159,11 @@ Las áreas siguientes se muestran en la página **Almacenamiento** :
 
 **Rendimiento de disco**
 
-Si usa OMS, puede ver las tendencias históricas de uso del espacio del disco. La capacidad de proyección utiliza un algoritmo para proyectar el uso futuro. Sobre el uso del espacio en particular, la capacidad de proyección permite proyectar cuándo puede quedarse sin espacio de disco. Esto permite planear el almacenamiento adecuado y saber cuándo necesita adquirir más almacenamiento.
+Si usa OMS, puede ver las tendencias históricas de uso del espacio del disco. La capacidad de proyección utiliza un algoritmo para proyectar el uso futuro. Sobre el uso del espacio en particular, la capacidad de proyección permite proyectar cuándo puede quedarse sin espacio de disco. Esta previsión permite planear el almacenamiento adecuado y saber cuándo es preciso adquirir más.
 
 **Herramienta de proyección**
 
-Mediante la herramienta de proyección, puede ver las tendencias históricas del uso del espacio de disco. También permite proyectar cuándo se quedará sin espacio de disco. Esto permite planear la capacidad adecuada y saber cuándo necesita adquirir más capacidad de almacenamiento.
+Mediante la herramienta de proyección, puede ver las tendencias históricas del uso del espacio de disco. También permite proyectar cuándo se quedará sin espacio de disco. Esta previsión permite planear la capacidad de almacenamiento adecuada y saber cuándo es preciso adquirir más.
 
 ### <a name="to-work-with-items-on-the-direct-attached-storage-page"></a>Uso de los elementos de la página Almacenamiento con conexión directa
 1. En el panel **Almacenamiento con conexión directa**, en el área **Uso**, puede ver la información sobre el uso del disco.
@@ -167,6 +174,9 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre la administración de capacidad.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

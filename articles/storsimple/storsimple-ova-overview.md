@@ -1,12 +1,12 @@
 ---
-title: Información general acerca de la matriz virtual de StorSimple | Microsoft Docs
-description: Describe la matriz virtual de StorSimple, una solución de almacenamiento integrada que administra las tareas de almacenamiento de información entre un dispositivo virtual local y el almacenamiento de nube de Microsoft Azure.
+title: "Información general acerca de la matriz virtual de StorSimple | Microsoft Docs"
+description: "Describe la matriz virtual de StorSimple, una solución de almacenamiento integrada que administra las tareas de almacenamiento de información entre un dispositivo virtual local y el almacenamiento de nube de Microsoft Azure."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: dacf0aa8-6cd3-425b-993d-d93bb632157d
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 80cac87cbcabe32f8aa1e4e05e8ba0b6643f1dc5
+
 
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introducción a la matriz virtual de StorSimple
@@ -48,7 +52,7 @@ La tabla siguiente resume las características más importantes de la matriz vir
 | Instantáneas |Coherencia frente a bloqueos |
 | Recuperación a nivel de elemento |Sí; los usuarios pueden realizar restauraciones desde recursos compartidos |
 
-## <a name="why-use-storsimple?"></a>¿Por qué usar StorSimple?
+## <a name="why-use-storsimple"></a>¿Por qué usar StorSimple?
 StorSimple conecta tanto a usuarios como a los servidores al almacenamiento de Azure en minutos, sin tener que modificar la aplicación.
 
 En la tabla siguiente se describen algunas de las ventajas principales que proporciona la solución de la matriz virtual 
@@ -184,6 +188,9 @@ Las características de protección de datos de StorSimple le permiten crear cop
 ## <a name="next-steps"></a>Pasos siguientes
 Aprenda a [preparar el portal de la matriz virtual](storsimple-ova-deploy1-portal-prep.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

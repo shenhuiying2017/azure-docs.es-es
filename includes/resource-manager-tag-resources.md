@@ -1,4 +1,4 @@
-1. Para agregar etiquetas a los recursos y los grupos de recursos existentes, seleccione el icono de etiqueta.
+1. Para agregar etiquetas a los recursos y los grupos de recursos existentes, seleccione el icono de etiqueta. 
    
      ![Parte de etiquetas en hojas de recursos y grupos de recursos](./media/resource-manager-tag-resources/select-tag-icon.png)
 2. Verá una lista de etiquetas que su organización ya ha aplicado a los recursos. Si no ha aplicado etiquetas anteriormente, la lista está vacía. Para agregar una etiqueta, especifique un nombre y valor y presione Entrar. Después de agregar algunas etiquetas, verá opciones de Autocompletar según los valores y nombres de etiquetas preexistentes. Estas opciones de Autocompletar garantizan una taxonomía coherente entre los recursos y evitan errores comunes, como errores ortográficos.
@@ -17,4 +17,8 @@
    
      ![Anclar etiquetas al Panel de inicio](./media/resource-manager-tag-resources/show-pinned-tag.png)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

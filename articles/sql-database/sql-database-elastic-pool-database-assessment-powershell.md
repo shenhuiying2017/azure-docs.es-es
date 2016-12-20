@@ -1,12 +1,12 @@
 ---
 title: Script de PowerShell para identificar bases de datos individuales adecuadas para un grupo | Microsoft Docs
-description: Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece un script de Powershell para ayudarle a evaluar la idoneidad de usar un grupo de bases de datos elásticas para un grupo de base de datos.
+description: "Un grupo de bases de datos elásticas es una colección de recursos disponibles que comparte un grupo de bases de datos elásticas. Este documento ofrece un script de Powershell para ayudarle a evaluar la idoneidad de usar un grupo de bases de datos elásticas para un grupo de base de datos."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
 ms.devlang: NA
 ms.date: 09/28/2016
@@ -14,6 +14,10 @@ ms.author: sstein
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 47b4890482752d8954a84c59b333b6607d997da3
+
 
 ---
 # <a name="powershell-script-for-identifying-databases-suitable-for-an-elastic-database-pool"></a>Script de PowerShell para identificar bases de datos adecuadas para un grupo de bases de datos elásticas
@@ -38,8 +42,8 @@ Puede ejecutar el script desde la máquina local o una máquina virtual en la nu
 * Una base de datos por hora = 38 KB
 * Una base de datos por día = 900 KB
 * Una base de datos por semana = 6 MB
-* 100 bases de datos por día = 90 MB
-* 500 bases de datos por semana = 3 GB
+* 100 bases de datos por día = 90 MB
+* 500 bases de datos por semana = 3 GB
 
 De forma predeterminado, el script no compila información para las siguientes bases de datos:
 
@@ -272,6 +276,6 @@ $data | %{'{0}' -f $_[0]}
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Solución de problemas de rutas - Portal | Microsoft Docs
-description: Obtenga información acerca de cómo solucionar problemas de las rutas en el modelo de implementación de Azure Resource Manager utilizando Azure Portal.
+title: "Solución de problemas de rutas mediante Azure Portal | Microsoft Docs"
+description: "Obtenga información acerca de cómo solucionar problemas de las rutas en el modelo de implementación de Azure Resource Manager utilizando Azure Portal."
 services: virtual-network
 documentationcenter: na
 author: AnithaAdusumilli
 manager: narayan
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: bdd8b6dc-02fb-4057-bb23-8289caa9de89
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
+translationtype: Human Translation
+ms.sourcegitcommit: b2e005d707717a8f6db90b24438527304823a6a8
+ms.openlocfilehash: a0867e97805bbb905d5defa89d13bbb0d4c4aa49
+
 
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solución de problemas de rutas mediante Azure Portal
 > [!div class="op_single_selector"]
 > * [Portal de Azure](virtual-network-routes-troubleshoot-portal.md)
 > * [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
-> 
-> 
+>
+>
 
 Si experimenta problemas de conectividad de red tanto de entrada como de salida en Azure Virtual Machine (VM), es posible que las rutas estén afectando el flujo de tráfico de la máquina virtual. Este artículo proporciona información general sobre las funcionalidades de diagnóstico para las rutas para ayudarle en la solución del problema.
 
@@ -44,8 +48,8 @@ Aunque este ejemplo utiliza solo rutas de sistema, los pasos siguientes pueden u
 
 > [!NOTE]
 > Si la máquina virtual tiene más de una NIC conectada, compruebe las rutas eficaces para cada una de las NIC con el fin de diagnosticar problemas de conectividad de red, tanto de entrada como de salida, de una máquina virtual.
-> 
-> 
+>
+>
 
 ### <a name="view-effective-routes-for-a-virtual-machine"></a>Visualización de las rutas eficaces para una máquina virtual
 Para ver las rutas agregadas que se aplican a una máquina virtual, complete los pasos siguientes:
@@ -53,41 +57,41 @@ Para ver las rutas agregadas que se aplican a una máquina virtual, complete los
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Haga clic en **Más servicios** y, luego, haga clic en **Máquinas virtuales** en la lista que aparece.
 3. En la lista seleccione una máquina virtual para solucionar problemas, después de hacerlo se abrirá una hoja de máquina virtual con opciones.
-4. Haga clic en **Diagnosticar y solucionar problemas** y, a continuación, seleccione un problema común. En este ejemplo está seleccionado **No puedo conectar con mi VM Windows** . 
-   
+4. Haga clic en **Diagnosticar y solucionar problemas** y, a continuación, seleccione un problema común. En este ejemplo está seleccionado **No puedo conectar con mi VM Windows** .
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image1.png)
-5. Bajo el problema aparecen una serie de pasos, tal como se muestra en la siguiente imagen: 
-   
+5. Bajo el problema aparecen una serie de pasos, tal como se muestra en la siguiente imagen:
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image2.png)
-   
+
     Haga clic en *effective routes* (rutas eficaces) en la lista de pasos recomendados.
 6. Aparece la hoja **Effective routes** (Rutas eficaces), como se muestra en la siguiente imagen:
-   
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image3.png)
-   
+
     Si la máquina virtual tiene solo una NIC, está seleccionada de forma predeterminada. Si tiene más de una NIC, seleccione la NIC para la que desea ver las rutas eficaces.
-   
+
    > [!NOTE]
    > Si la máquina virtual asociada con la NIC no está en estado de ejecución, no se mostrará ninguna ruta eficaz. Solo las primeras 200 rutas eficaces se muestran en el portal. Para obtener la lista completa, haga clic en **Descargar**. Puede filtrar aún más los resultados en el archivo .csv descargado.
-   > 
-   > 
-   
+   >
+   >
+
     Tenga en cuenta lo siguiente en el resultado:
-   
+
    * **Origen**: indica el tipo de ruta. Las rutas del sistema se muestran como *Predeterminado*, los UDR se muestran como *Usuario* y las rutas de puerta de enlace (estáticas o BGP) se muestran como *VPNGateway*.
    * **Estado**: indica el estado de la ruta eficaz. Los valores posibles son *Activo* o *No válido*.
-   * **AddressPrefixes**: especifica el prefijo de dirección de la ruta eficaz en la notación CIDR. 
+   * **AddressPrefixes**: especifica el prefijo de dirección de la ruta eficaz en la notación CIDR.
    * **nextHopType**: indica el próximo salto de la ruta dada. Los valores posibles son *VirtualAppliance*, *Internet*, *VNetLocal*, *VNetPeering* o *Null*. Un valor de *Null* para **nextHopType** en un UDR puede indicar una ruta no válida. Por ejemplo, si **nextHopType** es *VirtualAppliance* y la máquina virtual de dispositivo de red virtual no está en estado aprovisionado/en ejecución. Si **nextHopType** es *VPNGateway* y no hay ninguna puerta de enlace aprovisionada/en ejecución en la red virtual específica, la ruta puede no ser válida.
 7. No hay ninguna ruta para la red virtual *WestUS-VNET3* (prefijo 10.10.0.0/16) desde *WestUS-VNet1* (prefijo 10.9.0.0/16) en la imagen del paso anterior. En la siguiente imagen, el vínculo de emparejamiento está en estado *Desconectado* :
-   
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image4.png)
-   
+
     El vínculo bidireccional para el emparejamiento se interrumpe, lo que explica por qué VM1 no pudo conectarse a VM3 en la red virtual *WestUS-VNet3* .
 8. En la siguiente imagen se muestran las rutas después de establecer el vínculo de emparejamiento bidireccional:
-   
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image5.png)
 
-Para informarse sobre más escenarios de solución de problemas para la evaluación de ruta y de tunelización forzada consulte la sección [Consideraciones](virtual-network-routes-troubleshoot-portal.md#Considerations) de este artículo.
+Para informarse sobre más escenarios de solución de problemas para la evaluación de ruta y de tunelización forzada consulte la sección [Consideraciones](virtual-network-routes-troubleshoot-portal.md#considerations) de este artículo.
 
 ### <a name="view-effective-routes-for-a-network-interface"></a>Visualización de las rutas eficaces para una interfaz de red
 Si el flujo de tráfico de red se ve afectado para una interfaz de red (NIC) determinada, puede ver una lista completa de rutas eficaces directamente en una NIC. Para ver las rutas agregadas que se aplican a una NIC, complete los pasos siguientes:
@@ -96,12 +100,12 @@ Si el flujo de tráfico de red se ve afectado para una interfaz de red (NIC) det
 2. Haga clic en **Más servicios** y, a continuación, haga clic en **Interfaces de red**.
 3. En la lista busque el nombre de una NIC o selecciónelo en la lista que aparece. En este ejemplo está seleccionada **VM1 NIC1** .
 4. Seleccione **Rutas eficaces** en la hoja **Interfaz de red**, como se muestra en la siguiente imagen:
-   
-    ![](./media/virtual-network-routes-troubleshoot-portal/image6.png)
-   
+
+       ![](./media/virtual-network-routes-troubleshoot-portal/image6.png)
+
     Observe que el **Ámbito** se establece de forma predeterminada en la interfaz de red seleccionada.
-   
-    ![](./media/virtual-network-routes-troubleshoot-portal/image7.png)
+
+      ![](./media/virtual-network-routes-troubleshoot-portal/image7.png)
 
 ### <a name="view-effective-routes-for-a-route-table"></a>Visualización de las rutas eficaces para una tabla de rutas
 Para modificar rutas definidas por el usuario (UDR) en una tabla de rutas, puede revisar el impacto de las rutas que se han agregado en una máquina virtual específica. Una tabla de rutas se puede asociar con cualquier número de subredes. Puede ver una lista completa de las rutas eficaces para todas las NIC a las que se aplica una tabla de rutas determinada, sin tener que cambiar el contexto de la hoja de tabla de rutas determinada.
@@ -115,31 +119,31 @@ Para ver las rutas agregadas que se aplican a una tabla de rutas, complete los p
 1. Inicie sesión en Azure Portal en https://portal.azure.com.
 2. Haga clic en **Más servicios** y, a continuación, haga clic en **Tablas de rutas**.
 3. Busque en la lista la tabla de rutas para la que desea ver las rutas agregadas y selecciónela. En este ejemplo, **UDRouteTable** está seleccionada. Aparece una hoja de la tabla de rutas seleccionada, tal como se muestra en la siguiente imagen:
-   
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image9.png)
 4. Seleccione **Rutas eficaces** en la hoja **Tabla de rutas**. El **Ámbito** se establece en la tabla de rutas seleccionada.
 5. Una tabla de rutas se puede aplicar a varias subredes. Seleccione en la lista la **Subred** que desea revisar. En este ejemplo está seleccionada **Subnet1** .
 6. Seleccione una **Interfaz de red**. Se muestran todas las NIC conectadas a la subred seleccionada. En este ejemplo está seleccionada **VM1 NIC1** .
-   
+
     ![](./media/virtual-network-routes-troubleshoot-portal/image10.png)
-   
+
    > [!NOTE]
    > Si la NIC no está asociada a una máquina virtual en ejecución, no se muestra ninguna ruta eficaz.
-   > 
-   > 
+   >
+   >
 
 ## <a name="considerations"></a>Consideraciones
 Algunos aspectos que tener en cuenta al revisar la lista de rutas devuelven:
 
 * El enrutamiento se basa en coincidencia de prefijo más larga (LPM) entre las rutas UDR, BGP y del sistema. Si hay más de una ruta con la misma coincidencia LPM, se selecciona una en función de su origen en el orden siguiente:
-  
+
   * Ruta definida por el usuario
   * Ruta BGP
   * Ruta del sistema (predeterminado)
-    
+
     En el caso de las rutas eficaces, solo puede ver aquellas que tienen una coincidencia LPM basada en todas las rutas disponibles. Al mostrar cómo las rutas se evalúan realmente para una NIC determinada, resulta mucho más fácil solucionar problemas en rutas específicas que pueden afectar a la conectividad (tanto de entrada como de salida) de la máquina virtual.
-* Si tiene UDR que están enviando tráfico a un dispositivo de red virtual (NVA), con *VirtualAppliance* como **nextHopType**, asegúrese de que el reenvío IP está habilitado en el NVA que recibe el tráfico o se perderán los paquetes. 
-* Si está habilitada la tunelización forzada, todo el tráfico saliente de Internet se enrutará a la red local. Una conexión RDP o SSH desde Internet a su máquina virtual puede no funcionar con esta configuración, dependiendo de cómo la red local controle este tráfico. 
+* Si tiene UDR que están enviando tráfico a un dispositivo de red virtual (NVA), con *VirtualAppliance* como **nextHopType**, asegúrese de que el reenvío IP está habilitado en el NVA que recibe el tráfico o se perderán los paquetes.
+* Si está habilitada la tunelización forzada, todo el tráfico saliente de Internet se enrutará a la red local. Una conexión RDP o SSH desde Internet a su máquina virtual puede no funcionar con esta configuración, dependiendo de cómo la red local controle este tráfico.
   Puede habilitar la tunelización forzada:
   * Si utiliza VPN de sitio a sitio, estableciendo una ruta definida por el usuario (UDR) con nextHopType como VPN Gateway
   * Si se anuncia una ruta predeterminada a través de BGP
@@ -147,6 +151,8 @@ Algunos aspectos que tener en cuenta al revisar la lista de rutas devuelven:
   * Espere unos segundos y vuelva a intentar si es un vínculo de emparejamiento recién establecido. En ocasiones la propagación de las rutas a todas las interfaces de red en una subred lleva algo más de tiempo.
   * Las reglas del grupo de seguridad de red (NSG) pueden estar afectando a los flujos de tráfico. Para más información, consulte el artículo sobre [Solución de problemas de los grupos de seguridad de red](virtual-network-nsg-troubleshoot-portal.md) .
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

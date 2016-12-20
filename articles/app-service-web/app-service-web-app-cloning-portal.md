@@ -1,12 +1,12 @@
 ---
-title: Clonación de aplicaciones web con el Portal de Azure
+title: "Clonación de aplicaciones web con el Portal de Azure"
 description: Aprenda a clonar sus aplicaciones web en nuevas aplicaciones web con el Portal de Azure.
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: ahmedelnably
 manager: stefsch
-editor: ''
-
+editor: 
+ms.assetid: 20b0ae4e-67e8-4bae-9d74-8a24dc445cce
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,16 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2016
 ms.author: ahmedelnably
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7b0daaee1f9017ade049909341100a4d0e5f4a59
+
 
 ---
-# Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante el Portal de Azure
+# <a name="azure-app-service-app-cloning-using-azure-portal"></a>Clonación de aplicaciones del Servicio de aplicaciones de Azure mediante el Portal de Azure
 La característica de clonación de las [aplicaciones web del Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714) le permite clonar fácilmente aplicaciones web existentes en una aplicación de reciente creación de una región distinta o de la misma. Esto permitirá que los clientes implementen varias aplicaciones en diferentes regiones de una forma rápida y sencilla.
 
 La clonación de aplicaciones actualmente solo se admite para los planes de Servicio de aplicaciones de nivel Premium. La nueva característica cuenta con las mismas limitaciones que la de Copia de seguridad de aplicaciones web; consulte [Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure](web-sites-backup.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Clonación de una aplicación existente
+## <a name="cloning-an-existing-app"></a>Clonación de una aplicación existente
 La aplicación web debe ejecutarse en el modo **Premium** para que pueda crear un clon de esta.
 
 1. En el [Portal de Azure](https://portal.azure.com/), abra la hoja de la aplicación web.
@@ -32,18 +36,18 @@ La aplicación web debe ejecutarse en el modo **Premium** para que pueda crear u
     ![][1]
    
    > [!NOTE]
-   > Si la aplicación web aún no está en el modo **Premium**, recibirá un mensaje en el que se indican los modos compatibles para la clonación de aplicaciones. En este momento, tiene la opción de seleccionar **Actualizar**.
+   > Si la aplicación web aún no está en el modo **Premium** , recibirá un mensaje en el que se indican los modos compatibles para la clonación de aplicaciones. En este momento, tiene la opción de seleccionar **Actualizar**.
    > 
    > 
-3. En la hoja **Clonar aplicación**, especifique un nombre de la nueva aplicación web, el grupo de recursos y el plan de servicio de aplicaciones. El usuario también podrá elegir si desea clonar un determinado número de opciones de configuración de aplicaciones web de origen o no.
+3. En la hoja **Clonar aplicación** , especifique un nombre de la nueva aplicación web, el grupo de recursos y el plan de servicio de aplicaciones. El usuario también podrá elegir si desea clonar un determinado número de opciones de configuración de aplicaciones web de origen o no.
    
     ![][2]
-4. Después de hacer clic **crear**, la plataforma empezará a trabajar en la creación de un clon de la aplicación web de origen.
+4. Después de hacer clic **crear** , la plataforma empezará a trabajar en la creación de un clon de la aplicación web de origen.
 
-## Clonación de una aplicación existente en un entorno de Servicio de aplicaciones
-En la hoja **Clonar aplicación**, el cliente tendrá la posibilidad de elegir un grupo de aplicaciones en un entorno del Servicio de aplicaciones existente.
+## <a name="cloning-an-existing-app-to-an-app-service-environment"></a>Clonación de una aplicación existente en un entorno de Servicio de aplicaciones
+En la hoja **Clonar aplicación** , el cliente tendrá la posibilidad de elegir un grupo de aplicaciones en un entorno del Servicio de aplicaciones existente.
 
-## Restricciones actuales
+## <a name="current-restrictions"></a>Restricciones actuales
 Esta característica se encuentra actualmente en versión preliminar y estamos trabajando para agregar nuevas funcionalidades con el tiempo. En la siguiente lista, se incluyen las restricciones conocidas sobre la compatibilidad actual de la clonación de aplicaciones en el Portal de Azure:
 
 * No se clona la configuración del Administrador de tráfico de Azure.
@@ -56,7 +60,7 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 * No se clonan las reglas de TiP.
 * No se clona el contenido de la base de datos
 
-### Referencias
+### <a name="references"></a>Referencias
 * [Clonación de aplicaciones web con PowerShell](app-service-web-app-cloning.md)
 * [Hacer copia de seguridad de una aplicación web en el Servicio de aplicaciones de Azure](web-sites-backup.md)
 * [Creación de un entorno del Servicio de aplicaciones](app-service-web-how-to-create-an-app-service-environment.md)
@@ -67,4 +71,8 @@ Esta característica se encuentra actualmente en versión preliminar y estamos t
 [1]: ./media/app-service-web-app-cloning-portal/CloningBlade.png
 [2]: ./media/app-service-web-app-cloning-portal/CloneSettings.png
 
-<!---HONumber=AcomDC_0601_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

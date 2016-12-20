@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/25/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f7dafd3808b688cf1a7aff43ab996fb8e3d48cb9
+ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
+ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 
 ---
@@ -41,7 +41,7 @@ HDInsight de Azure ofrece un servicio Spark completamente administrado. Estas so
 | Característica | Description |
 | --- | --- |
 | Facilidad de creación de clústeres |Puede crear un nuevo clúster Spark en HDInsight en cuestión de minutos mediante el Portal de administración de Azure, Azure PowerShell o el SDK de .NET de HDInsight. Consulte [Introducción al clúster de Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Facilidad de uso |Spark en clústeres de HDInsight incluye cuadernos de Jupyter preconfigurados. Puede usarlos para el procesamiento y la visualización de datos interactivos. La dirección URL es https://CLUSTERNAME.azurehdinsight.net/jupyter. Reemplace **CLUSTERNAME** por el nombre del clúster de Spark en HDInsight. |
+| Facilidad de uso |Spark en clústeres de HDInsight incluye cuadernos de Jupyter preconfigurados. Puede usarlos para el procesamiento y la visualización de datos interactivos. La dirección URL para Jupyter Notebook es https://CLUSTERNAME.azurehdinsight.net/jupyter. Reemplace **CLUSTERNAME** por el nombre del clúster de Spark en HDInsight. |
 | API de REST |Spark en HDInsight incluye [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un servidor de trabajo Spark de API de REST, para enviar y supervisar trabajos en ejecución de forma remota. |
 | Compatibilidad con Almacén de Azure Data Lake |Se puede configurar Spark en HDInsight para que utilice el Almacén de Azure Data Lake como un almacenamiento adicional. Para más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integración con servicios de Azure |Spark en HDInsight incluye un conector a los Centros de eventos de Azure. Los clientes pueden compilar aplicaciones de streaming con los Centros de eventos, además de con [Kafka](http://kafka.apache.org/), que ya está disponible como parte de Spark. |
@@ -69,12 +69,12 @@ Apache Spark en HDInsight almacena datos en blobs de Azure. Los expertos de la e
 
 Apache Spark incluye [MLlib](http://spark.apache.org/mllib/), una biblioteca de aprendizaje automático que se basa en Spark. Además, Spark en HDInsight incluye Anaconda, una distribución de Python con diversos paquetes para Aprendizaje automático. Si agregamos a esto la compatibilidad integrada con cuadernos de Jupyter, dispone de un entorno de primera línea para la creación de aplicaciones de Aprendizaje automático.  
 
-### <a name="streaming-and-realtime-data-analysis"></a>Análisis de datos de streaming y en tiempo real
+### <a name="streaming-and-real-time-data-analysis"></a>Análisis de datos de streaming y en tiempo real
 [Vea un tutorial](hdinsight-apache-spark-eventhub-streaming.md)
 
 El análisis de datos en tiempo real se usa para escenarios que incluyen tanto la reducción del tiempo dedicado a la comprensión de los datos al procesarlos en cuanto llegan como la creación de una verdadera solución de streaming. Spark en HDInsight ofrece amplia compatibilidad para crear soluciones de análisis en tiempo real. Mientras que Spark ya posee conectores para insertar datos de varios orígenes como los sockets TCP, Flume, Twitter, ZeroMQ o Kafka, Spark en HDInsight agrega compatibilidad de primera clase para insertar datos desde Centros de eventos de Azure. Los Centros de eventos son el servicio de cola más usado en Azure. La disponibilidad inmediata de la compatibilidad con Centros de eventos convierte a Spark en HDInsight en una plataforma ideal para crear la canalización de análisis en tiempo real.
 
-## <a name="a-namenextstepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>¿Qué componentes se incluyen como parte de un clúster Spark?
+## <a name="a-namenext-stepsawhat-components-are-included-as-part-of-a-spark-cluster"></a><a name="next-steps"></a>¿Qué componentes se incluyen como parte de un clúster Spark?
 Spark en HDInsight incluye los siguientes componentes que están disponibles en los clústeres de manera predeterminada.
 
 * [Spark Core](https://spark.apache.org/docs/1.5.1/). Incluye Spark Core, Spark SQL, API Spark de streaming, GraphX y MLlib.
@@ -115,6 +115,6 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

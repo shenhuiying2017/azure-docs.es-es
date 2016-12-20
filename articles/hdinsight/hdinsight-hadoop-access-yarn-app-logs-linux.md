@@ -1,13 +1,13 @@
 ---
-title: Acceso a registros de aplicación de YARN de Hadoop en HDInsight basado en Linux | Microsoft Docs
-description: Obtenga información acerca de cómo tener acceso a los registros de aplicaciones de YARN en un clúster de HDInsight (Hadoop) basado en Linux, mediante la línea de comandos y un explorador web.
+title: "Acceso a registros de aplicación de YARN de Hadoop en HDInsight basado en Linux | Microsoft Docs"
+description: "Obtenga información acerca de cómo tener acceso a los registros de aplicaciones de YARN en un clúster de HDInsight (Hadoop) basado en Linux, mediante la línea de comandos y un explorador web."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/21/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f03c595977f098f19d396cc460c73e27163f070c
+
 
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Acceso a registros de aplicación de YARN en HDInsight basado en Linux
@@ -29,7 +33,7 @@ En este documento se explica cómo acceder a los registros de aplicaciones de YA
 * Un clúster de HDInsight basado en Linux
 * Debe [crear un túnel SSH](hdinsight-linux-ambari-ssh-tunnel.md) para poder acceder a la interfaz de usuario web de registros de ResourceManager.
 
-## <a name="<a-name="yarntimelineserver"></a>yarn-timeline-server"></a><a name="YARNTimelineServer"></a>Servidor de escala de tiempo de YARN
+## <a name="a-nameyarntimelineserverayarn-timeline-server"></a><a name="YARNTimelineServer"></a>Servidor de escala de tiempo de YARN
 El [Servidor de escala de tiempo de YARN](http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) ofrece información genérica sobre las aplicaciones completadas, así como información de aplicaciones específicas del marco a través de dos interfaces diferentes. Concretamente:
 
 * Se ha habilitado el almacenamiento y la recuperación de información de aplicaciones genéricas en clústeres de HDInsight con la versión 3.1.1.374 o superiores.
@@ -42,7 +46,7 @@ La información genérica sobre aplicaciones incluye los siguientes tipos de dat
 * La información acerca de los intentos realizados para completar la aplicación.
 * Los contenedores usados por cualquier intento de aplicación concreto.
 
-## <a name="<a-name="yarnappsandlogs"></a>yarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Registros y aplicaciones de YARN
+## <a name="a-nameyarnappsandlogsayarn-applications-and-logs"></a><a name="YARNAppsAndLogs"></a>Registros y aplicaciones de YARN
 YARN admite varios modelos de programación (MapReduce es uno de ellos) al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Esto se realiza mediante un *Resource Manager* (RM) global, por nodo de trabajo *Administradores de nodos* (NM) y por aplicación *Maestros de aplicación* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
 
 Además, cada aplicación puede constar de varios *intentos de aplicación* para completar la aplicación en el caso de bloqueos o debido a la pérdida de comunicación entre un AM y un RM. Por lo tanto, los contenedores se conceden a un intento específico de una aplicación. En cierto sentido, un contenedor ofrece el contexto para la unidad básica de trabajo realizado por una aplicación YARN, y todo el trabajo que se realiza en el contexto de un contenedor se lleva a cabo en el nodo de trabajo concreto en el que se ha asignado el contenedor. Consulte [Conceptos de YARN][YARN-concepts] para obtener más información.
@@ -91,6 +95,6 @@ Una vez creado un túnel SSH, siga estos pasos para ver los registros de YYARN:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

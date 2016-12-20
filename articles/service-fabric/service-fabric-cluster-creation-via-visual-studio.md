@@ -1,12 +1,12 @@
 ---
-title: Configuración de un clúster de Service Fabric mediante Visual Studio | Microsoft Docs
-description: Describe cómo configurar un clúster de Service Fabric con una plantilla de Azure Resource Manager creada por un proyecto de grupo de recursos de Azure en Visual Studio.
+title: "Configuración de un clúster de Service Fabric mediante Visual Studio | Microsoft Docs"
+description: "Describe cómo configurar un clúster de Service Fabric con una plantilla de Azure Resource Manager creada por un proyecto de grupo de recursos de Azure en Visual Studio."
 services: service-fabric
 documentationcenter: .net
 author: karolz-ms
 manager: adegeo
-editor: ''
-
+editor: 
+ms.assetid: bd2c0511-36c9-4828-8dc3-69e4b6a70567
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2016
 ms.author: karolz@microsoft.com
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01498faf6d150cb0a96af150d6c9ce1ed62c26dd
+
 
 ---
 # <a name="set-up-a-service-fabric-cluster-by-using-visual-studio"></a>Configuración de un clúster de Service Fabric mediante Visual Studio
@@ -49,12 +53,12 @@ Antes de implementar la plantilla para crear el clúster, debe proporcionar los 
 
 La plantilla del Administrador de recursos de Service Fabric de Visual Studio crea un clúster seguro que está protegido por un certificado. Este certificado se identifica mediante los tres últimos parámetros de plantilla (`certificateThumbprint`, `sourceVaultValue` y `certificateUrlValue`) y tiene que encontrarse en un **Almacén de claves de Azure**. Para obtener más información sobre cómo crear el certificado de seguridad del clúster, consulte el artículo [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md#x509-certificates-and-service-fabric) .
 
-## <a name="optional:-change-the-cluster-name"></a>Opcional: cambio del nombre del clúster
+## <a name="optional-change-the-cluster-name"></a>Opcional: cambio del nombre del clúster
 Cada clúster de Service Fabric tiene un nombre. Cuando se crea un clúster de Fabric en Azure, el nombre determina (junto con la región de Azure) el nombre del Sistema de nombres de dominio (DNS) para el clúster. Por ejemplo, si le da a su clúster el nombre `myBigCluster` y la ubicación (región de Azure) del grupo de recursos que hospedará el nuevo clúster es Este de EE. UU., el nombre DNS del clúster será `myBigCluster.eastus.cloudapp.azure.com`.
 
 De forma predeterminada, el nombre del clúster se genera automáticamente y se convierte en único cuando se le adjunta un sufijo aleatorio a un prefijo "clúster". De esta forma, resulta muy fácil usar la plantilla como parte de un sistema de **integración continua** (CI). Si quiere utilizar un nombre específico para el clúster, uno que sea significativo para usted, establezca el valor de la variable `clusterName` del archivo de plantilla de Resource Manager (`ServiceFabricCluster.json`) en el nombre elegido. Es la primera variable definida en ese archivo.
 
-## <a name="optional:-add-public-application-ports"></a>Opcional: agregar puertos de aplicación pública
+## <a name="optional-add-public-application-ports"></a>Opcional: agregar puertos de aplicación pública
 Otro aspecto de la plantilla que quizá quiera cambiar antes de su implementación son los puertos de aplicación pública para el clúster. De forma predeterminada, la plantilla abre sólo dos puertos TCP públicos (80 y 8081); si necesita más para sus aplicaciones, tendrá que modificar la definición del equilibrador de carga de Azure en la plantilla. La definición se almacena en el archivo de plantilla principal (`ServiceFabricCluster.json`). Abra el archivo y busque `loadBalancedAppPort`. Cada puerto se asocia con tres artefactos:
 
 1. Una variable de plantilla que define el valor del puerto TCP:
@@ -142,6 +146,6 @@ Si hay errores, vaya al [Portal de Azure](https://portal.azure.com/) y abra el g
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

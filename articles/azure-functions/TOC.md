@@ -8,7 +8,7 @@
 # Procedimientos
 ## Planeamiento y diseño
 ### [Elección entre Flow, Logic Apps, Functions y WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Elección entre consumo y plan de App Service](functions-scale.md)
+### [Elección entre planes de hospedaje](functions-scale.md)
 
 ## Desarrollo
 ### [Desarrollo de aplicaciones de función](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Enlaces de Mobile Apps](functions-bindings-mobile-apps.md)
 #### [Enlace de salida del centro de notificaciones](functions-bindings-notification-hubs.md)
 #### [Desencadenadores y enlaces de Service Bus para colas y temas](functions-bindings-service-bus.md)
-#### Almacenamiento
+#### Enlaces de Storage
 ##### [Enlaces de blob](functions-bindings-storage-blob.md)
 ##### [Enlaces de cola](functions-bindings-storage-queue.md)
 ##### [Enlaces de tabla](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Creación de una función en Azure Portal](functions-create-first-azure-function-azure-portal.md)
 ### [Prueba de Azure Functions](functions-test-a-function.md)
 ### [Desarrollo y depuración locales](functions-run-local.md)
+### [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 ### [Uso de Azure Functions para realizar una tarea de limpieza programada](functions-scenario-database-table-cleanup.md)
 
 ## Administrar
@@ -38,8 +39,8 @@
 ## Implementación
 ### [Implementación continua para Azure Functions](functions-continuous-deployment.md)
 
-# Referencia
-## [API de .NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+## Supervisión
+### [Supervisión de Azure Functions](functions-monitoring.md)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/functions/)  
@@ -48,6 +49,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

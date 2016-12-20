@@ -1,130 +1,158 @@
 ---
-title: 'Azure Insights: Best practices for Azure Insights autoscaling. | Microsoft Docs'
-description: Learn principles to effectively use autoscaling in Azure Insights.
+title: "Procedimientos recomendados de escalado automático en Azure Monitor | Microsoft Docs"
+description: "Principios para usar eficazmente el escalado automático en Azure Monitor."
 author: kamathashwin
-manager: ''
-editor: ''
+manager: carolz
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2016
+ms.date: 10/20/2016
 ms.author: ashwink
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f49d9121f34cc58d1486220a93bcb102f8eba90b
+
 
 ---
-# <a name="best-practices-for-azure-insights-autoscaling"></a>Best practices for Azure Insights autoscaling
-The following sections in this document will help you understand the best practices for Autoscale in Azure Insights. After reviewing this information, you'll be better able to effectively use Autoscale in your Azure infrastructure.
+# <a name="best-practices-for-azure-monitor-autoscaling"></a>Procedimientos recomendados de escalado automático en Azure Monitor
+Las secciones de este documento le sirven para conocer los procedimientos recomendados de escalado automático en Azure. Tras revisar esta información, podrá usar la opción de escalado automático de mejor forma en la infraestructura de Azure.
 
-## <a name="autoscale-concepts"></a>Autoscale concepts
-* A resource can have only *one* autoscale setting
-* An autoscale setting can have one or more profiles and each profile can have one or more autoscale rules.
-* An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
-  An autoscale setting has a maximum, minimum, and default value of instances.
-* An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale out or scale in. You can view a list of metrics that autoscale can scale by at [Azure Insights autoscaling common metrics](insights-autoscale-common-metrics.md).
-* All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale out when the average CPU across all instances is greater than 80%.
-* You will always receive failure notifications via email. Specifically, the owner, contributor, and readers of the target resource will receive email. You will also always receive a *recovery* email when autoscale recovers from a failure and starts functioning normally.
-* You can opt-in to receive a successful scale action notification via email and webhooks.
+## <a name="autoscale-concepts"></a>Conceptos de escalado automático
+* Un recurso solo puede tener *una* configuración de escalado automático.
+* Una configuración de escalado automático puede tener uno o varios perfiles y cada perfil, a su vez, puede tener una o varias reglas de escalado automático.
+* Una configuración de escalado automático escala instancias *horizontalmente* aumentando las instancias y las *reduce horizontalmente* disminuyendo el número de instancias.
+  Una configuración de escalado automático presenta unos valores máximo, mínimo y predeterminado de instancias.
+* Un trabajo de escalado automático siempre lee la métrica asociada por la que realizar la escala y comprueba si se rebasó el umbral establecido para el escalado horizontal o la reducción horizontal. En [Métricas comunes de escalado automático de Azure Monitor](insights-autoscale-common-metrics.md) encontrará una lista de métricas por las que el escalado automático puede escalar.
+* Todos los umbrales se calculan en el nivel de instancia. Por ejemplo, "escalar horizontalmente por 1 instancia cuando el uso medio de CPU > 80 % cuando el número de instancias es 2" significa escalar horizontalmente cuando el uso medio de CPU en todas las instancias sea superior al 80 %.
+* Las notificaciones de error siempre se reciben por correo electrónico. Las reciben, concretamente, el propietario, el colaborador y los lectores del recurso de destino. Además, siempre se recibe un correo electrónico de *recuperación* cuando el escalado automático se recupere de un error y comience a funcionar con normalidad.
+* Puede optar por recibir una notificación de acción de escalado correcta por correo electrónico y por webhooks.
 
-## <a name="autoscale-best-practices"></a>Autoscale best practices
-Use the following best practices as you use Autoscale.
+## <a name="autoscale-best-practices"></a>Procedimientos recomendados de escalado automático
+Use los procedimientos recomendados al usar el escalado automático.
 
-### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Ensure the maximum and minimum values are different and have an adequate margin between them
-If you have a setting that has maximum=2, minimum=2 and the current instance count is 2, no scale action can occur. A recommended setting is to keep an adequate margin between the maximum and minimum instance counts. Autoscale will always scale between these limits, which is inclusive. However, assume that you decide to manually scale (update) the instance count to a value above the maximum. The next time an autoscale job runs, it checks if the current instance count is greater than maximum - if so, it scales in to the maximum, regardless of the threshold set on the rules. Similarly, if you manually arrive at a current instance count less than the minimum, the next time an autoscale job runs, it scales out to the minimum number of instances.
+### <a name="ensure-the-maximum-and-minimum-values-are-different-and-have-an-adequate-margin-between-them"></a>Asegúrese de que los valores máximo y mínimo son diferentes y de que hay margen suficiente entre ellos
+Si tiene una configuración en la que el valor mínimo es 2, el valor máximo es 2 y el número de instancias es 2, no se puede ejecutar ninguna acción de escalado. Mantenga un margen suficiente entre los números de instancias máximo y mínimo, que son inclusivos. El escalado automático siempre escala entre estos límites.
 
-### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Always use a scale out and scale in rule combination that performs an increase and decrease
-If you use only one part of the combination, autoscale will scale in that single out, or in, until the maximum, or minimum, is reached.
+### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>El escalado manual se restablece al valor máximo y mínimo de escalado automático.
+Si actualiza manualmente el recuento de instancias a un valor superior o inferior al máximo, el motor de escalado automático se ajusta automáticamente al valor mínimo (si está por debajo) o al máximo (si está por encima). Por ejemplo, establezca el intervalo entre 3 y 6. Si tiene una instancia en ejecución, el motor de escalado automático escala a 3 instancias cuando vuelva a ejecutarse. Del mismo modo, podría reducir horizontalmente de 8 instancias a 6 en su siguiente ejecución.  El escalado manual es muy temporal a menos que restablezca también las reglas de escalado automático.
 
-### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>Do not switch between the Azure portal and the Azure classic portal when managing Autoscale
-For Cloud Services and App Services (Web Apps), use the Azure portal (portal.azure.com) to create and manage Autoscale settings. For Virtual Machine Scale Sets use PoSH, CLI or REST API to create and manage autoscale setting. Do not switch between the Azure classic portal (manage.windowsazure.com) and the Azure portal (portal.azure.com) when managing autoscale configurations. The Azure classic portal and its underlying backend has limitations. Move to the Azure portal to manage autoscale using a graphical user interface. The options are to use the Autoscale PowerShell, CLI or REST API (via Azure Resource Explorer).
+### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Use siempre una combinación de reglas de escalado horizontal y reducción horizontal que realice un aumento y una disminución.
+Si usa solo una parte de la combinación, el escalado automático escala o reduce horizontalmente (y a la inversa) hasta alcanzar el valor máximo o mínimo.
 
-### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Choose the appropriate statistic for your diagnostics metric
-For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
+### <a name="do-not-switch-between-the-azure-portal-and-the-azure-classic-portal-when-managing-autoscale"></a>No alterne entre el Portal de Azure y el Portal de Azure clásico al administrar el escalado automático
+Para Cloud Services y App Services (Web Apps), use Azure Portal (portal.azure.com) para crear y administrar la configuración de escalado automático. Para los conjuntos de escala de máquinas virtuales, use PoSH, CLI o la API de REST para crear y administrar la configuración de escalado automático. No alterne entre el Portal de Azure clásico (manage.windowsazure.com) y el Portal de Azure (portal.azure.com) al administrar configuraciones de escalado automático. El Portal de Azure clásico y su back-end subyacente presentan una serie de limitaciones. Vaya al Portal de Azure para administrar el escalado automático mediante una interfaz gráfica de usuario. Las opciones son usar PowerShell de escalado automático, CLI o la API de REST (a través del Explorador de recursos de Azure).
 
-### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Choose the thresholds carefully for all metric types
-We recommend carefully choosing different thresholds for scale out and scale in based on practical situations.
+### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Elija la estadística adecuada para la métrica de diagnósticos
+Para las métricas de diagnóstico, puede elegir entre *Promedio*, *Mínimo*, *Máximo* y *Total* como métrica a partir de la que escalar. La estadística más común es *Promedio*.
 
-We *do not recommend* autoscale settings like the examples below with the same or very similar threshold values for out and in conditions:
+### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>Elija los umbrales cuidadosamente para todos los tipos de métrica
+Es recomendable tener cuidado a la hora de elegir los diferentes umbrales de escalado y reducción horizontal en función de las situaciones prácticas.
 
-* Increase instances by 1 count when Thread Count <= 600
-* Decrease instances by 1 count when Thread Count >= 600
+*No se recomiendan* opciones de escalado automático como las de los siguientes ejemplos, con valores de umbral iguales o muy similares en condiciones de escalado o reducción horizontal:
 
-Let's look at an example of what can lead to a behavior that may seem confusing. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625. Autoscale scales out adding a 3rd instance. Next, assume that the average thread count across instance falls to 575. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means Autoscale will have to immediately scale out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop. To avoid this *flappy* situation, Autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
+* Aumentar las instancias en 1 cuando el número de subprocesos < = 600
+* Disminuir las instancias en 1 cuando el número de subprocesos > = 600
 
-This estimation behavior during a scale in is intended to avoid a flappy situation. You should keep this behavior in mind when you choose the same thresholds for scale out and in.
+Veamos un ejemplo de lo que puede llevar a producir un comportamiento confuso. Considere la siguiente secuencia.
 
-We recommend choosing an adequate margin between the scale out and in thresholds. As an example, consider the following better rule combination.
+1. Imaginemos que hay 2 instancias inicialmente y después aumenta el número promedio de subprocesos por instancia a 625.
+2. El escalado automático escala horizontalmente agregando una tercera instancia.
+3. Imaginemos ahora que el número promedio de subprocesos en la instancia se reduce a 575.
+4. Antes de reducir verticalmente, el escalado automático intenta evaluar cuál será el estado final si reduce horizontalmente. Por ejemplo, 575 x 3 (número de instancias actual) = 1725/2 (número final de instancias al reducir verticalmente) = 862,5 subprocesos. Esto significa que el escalado automático tiene que volver a escalar horizontalmente de inmediato (incluso después de haber reducido horizontalmente) si el número promedio de subprocesos sigue siendo el mismo o incluso si se reduce solo una pequeña cantidad. Sin embargo, si se volviera a escalar verticalmente, todo el proceso se repetiría, dando lugar a un bucle infinito.
+5. Para evitar esta situación (conocida como "inestable"), el escalado automático nunca reduce verticalmente. En su lugar, pasa esto por alto y vuelve a evaluar la situación la siguiente vez que el trabajo del servicio se ejecuta. Esto podría ser confuso para muchos usuarios, ya que puede dar la impresión de que el escalado automático no funciona cuando el número promedio de subprocesos es 575.
 
-* Increase instances by 1 count when CPU%  >= 80
-* Decrease instances by 1 count when CPU% <= 60
+La estimación durante una reducción horizontal está pensada para evitar situaciones de inestabilidad. Conviene recordar este comportamiento cuando se elijan los mismos umbrales de escalado horizontal y reducción horizontal.
 
-Let's review how this example works. Assume there are 2 instances to start with. If the average CPU% across instances goes to 80, autoscale scales out adding a 3rd instance. Now assume that over time the CPU% falls to 60. Autoscale's scale in rule estimates the final state if it were to scale in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So Autoscale does not scale in because it would have to scale out again immediately. Instead, it skips scaling down. Next, assume that the next time it checks, the CPU continues to fall to 50, then it estimates again -  50 x 3 instance = 150 / 2 instances = 75, which is below the scale out threshold of 80, so it scales in successfully to 2 instances.
+Nuestra recomendación es establecer un margen suficiente entre el escalado horizontal y en los umbrales. Por ejemplo, echemos un vistazo a esta siguiente combinación de reglas, que es mejor.
 
-### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considerations for scaling threshold values for special metrics
- For special metrics such as Storage or Service Bus Queue length metric, the threshold is the average number of messages available per current number of instances. Carefully choose the choose the threshold value for this metric.
+* Aumentar las instancias en 1 cuando el porcentaje de CPU > = 80
+* Disminuir las instancias en 1 cuando el porcentaje de CPU > = 60
 
-Let's illustrate it with an example to ensure you understand the behavior better.
+En este caso  
 
-* Increase instances by 1 count when Storage Queue message count >= 50
-* Decrease instances by 1 count when Storage Queue message count <= 10
+1. Imaginemos que hay 2 instancias para empezar.
+2. Si el promedio de porcentaje de CPU entre instancias llega a 80, el escalado automático escala horizontalmente agregando una tercera instancia.
+3. Imaginemos ahora que, con el tiempo, el porcentaje de CPU cae a 60.
+4. La regla de reducción horizontal del escalado automático calcula el estado final como si fuese a reducirse horizontalmente. Por ejemplo, 60 x 3 (número de instancias actual) = 180/2 (número final de instancias al reducir verticalmente) = 90. Por tanto, el escalado automático no reduce horizontalmente porque tendría que volver a escalar horizontalmente de inmediato. En su lugar, omite la reducción vertical.
+5. La próxima vez que comprueba el escalado automático, la CPU ha seguido cayendo a 50. Vuelve a calcular: 50 x 3 instancias = 150/2 instancias = 75, lo que está por debajo del umbral de escalado horizontal de 80. Por tanto, reduce horizontalmente a 2 instancias.
 
-Assume there are 2 instances to start with. Next, assume that messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale out action. However, note that it is still 50/2 = 25 messages per instance. So, scale out does not occur. For the first scale out to happen, the total message count in the storage queue should be 100. Next, assume that the total message count reaches 100. A 3rd instance is added due to a scale out action. The next scale out action will not happen until the total message count in the queue reaches 150. Let's look at the scale in action. Assume that the number of instances is 3. The first scale in action happens when the total messages in the queue reaches 30, making it 30/3 = 10 messages per instance, which is the scale in threshold.
+### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Consideraciones para establecer valores de umbral de escalado en métricas especiales
+ En el caso de las métricas especiales, como la métrica longitud de cola de bus de servicio o de almacenamiento, el umbral es el promedio de mensajes disponibles por número actual de instancias. Elija cuidadosamente el valor de umbral para esta métrica.
 
-### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considerations for scaling when multiple profiles are configured in an autoscale setting
-In an autoscale setting, you can choose a default profile, which is always applied without any dependency on schedule or time, or you can choose a recurring profile or a profile for a fixed period with a date and time range.
+Veamos esto con un ejemplo para procurar que entienda el comportamiento de mejor forma.
 
-When Autoscale service processes them, it always checks in the following order:
+* Aumentar las instancias en 1 cuando el número de mensajes de la cola de almacenamiento > = 50
+* Disminuir las instancias en 1 cuando el número de mensajes de la cola de almacenamiento < = 10
 
-1. Fixed Date profile
-2. Recurring profile
-3. Default ("Always") profile
+Considere la siguiente secuencia:
 
-If a profile condition is met, autoscale does not check the next profile condition below it. Autoscale only processes one profile at a time. This means if you want to also include a processing condition from a lower-tier profile, you must include those rules as well in the current profile.
+1. Hay dos instancias de la cola de almacenamiento.
+2. Siguen llegando mensajes y, al revisar la cola de almacenamiento, el recuento total es 50. Se supone que el escalado automático tendría que iniciar una acción de escalado horizontal. Sin embargo, vemos que sigue siendo de 50/2 = 25 mensajes por instancia. Por lo tanto, el escalado horizontal no se ha producido. Para que el primer escalado horizontal se produzca, el número total de mensajes en la cola de almacenamiento debe ser 100.
+3. Tras esto, imaginemos que el número total de mensajes llega a 100.
+4. Se agrega una tercera instancia de la cola de almacenamiento debido a una acción de escalado horizontal.  La siguiente acción de escalado horizontal no tendrá lugar hasta que el número total de mensajes en la cola llegue a 150 porque 150/3 = 50.
+5. Ahora, disminuye el número de mensajes en la cola. Con tres instancias, la primera acción de reducción horizontal ocurre cuando el número total de mensajes en la cola llega a 30 porque 30/3 = 10 mensajes por instancia, que es el umbral de reducción horizontal.
 
-Let's review this using an example:
+### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Consideraciones de escalado cuando hay varios perfiles configurados en una configuración de escalado automático
+En una configuración de escalado automático, puede elegir un perfil predeterminado, que se aplica siempre (independientemente de programaciones o períodos de tiempo), o bien optar por perfil periódico o por un perfil para un período fijo con una fecha y un intervalo de tiempo.
 
-The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale out when the message count in the queue is greater than 10 and scale in when the message count in the queue is less than 3. So now the resource can scale between 2 and 10 instances.
+Cuando el servicio de escalado automático procesa estos perfiles, siempre los comprueba en el siguiente orden:
 
-In addition, there is a recurring profile set for Monday. It is set for minimum instances = 2 and maximum instances = 12. This means on Monday, the first time Autoscale checks for this condition, if the instance count was 2, it will scale it to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it will only process the CPU based scale out/in rules configured for this profile. At this time, it will not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile. 
+1. Perfil de fecha fija
+2. Perfil periódico
+3. Perfil predeterminado ("Siempre")
 
-Similarly, when Autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
+Si se cumple una condición de perfil, el escalado automático no comprobará la siguiente condición de perfil por debajo de este. El escalado automático solo procesa un perfil cada vez. Esto significa que, si queremos incluir una condición de procesamiento de un perfil de nivel inferior, tendremos que incluir también las reglas del perfil actual.
 
-![autoscale settings](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
+Analicemos esto con un ejemplo:
 
-### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Considerations for scaling when multiple rules are configured in a profile
-There are cases where you may have to set multiple rules in a profile. The following set of autoscale rules are used by services use when multiple rules are set.
+La siguiente imagen muestra una configuración de escalado automático con un perfil predeterminado con un número de instancias mínimo = 2 y un número de instancias máximo = 10. En este ejemplo, las reglas están configuradas para escalar horizontalmente cuando el número de mensajes en la cola sea mayor que 10 y, asimismo, reducir horizontalmente cuando el número de mensajes en la cola sea inferior a 3. Ahora el recurso puede escalar entre 2 y 10 instancias.
 
-On *scale out*, Autoscale will run if any rule is met.
-On *scale in*, Autoscale require all rules to be met.
+Además, hay un perfil periódico establecido para el lunes. Está configurado para un número de instancias mínimo = 2 y un número de instancias máximo = 12. Esto significa que, la primera vez que el escalado automático compruebe esta condición el lunes, si el recuento de instancias es 2, lo escala al nuevo mínimo de 3. Mientras el escalado automático siga encontrando una coincidencia con esta condición de perfil (lunes), solo procesa las reglas de escalado/reducción horizontal basadas en CPU configuradas en este perfil. En este momento, no comprueba la longitud de la cola. Sin embargo, si queremos que compruebe la condición de longitud de cola, tendremos que incluir esas reglas del perfil predeterminado también en el perfil del lunes.
 
-To illustrate, assume that you have the following 4 autoscale rules:
+De forma similar, cuando el escalado automático regresa al perfil predeterminado, primero comprueba si se cumplen las condiciones mínima y máxima. Si el número de instancias en ese momento es 12, reducirá horizontalmente a 10, que es el máximo permitido en el perfil predeterminado.
 
-* If CPU < 30 %, scale in by 1
-* If Memory < 50%, scale in by 1
-* If CPU > 75%, scale out by 1
-* If Memory > 75%, scale out by 1
+![configuración de escalado automático](./media/insights-autoscale-best-practices/insights-autoscale-best-practices.png)
 
-Then the follow will occur: 
+### <a name="considerations-for-scaling-when-multiple-rules-are-configured-in-a-profile"></a>Consideraciones de escalado cuando hay varias reglas configuradas en un perfil
+Hay casos en los que puede que sea necesario establecer varias reglas en un perfil. Cuando se establecen varias reglas, los servicios usan el siguiente conjunto de reglas de escalado automático.
 
-* If CPU is 76% and Memory is 50%, we will scale out.
-* If CPU is 50% and Memory is 76% we will scale out.
+Al *escalar horizontalmente*, el escalado automático se ejecuta si se cumple cualquier regla.
+Al *reducir horizontalmente*, el escalado automático necesita que todas las reglas se cumplan.
 
-On the other hand, if CPU is 25% and memory is 51% autoscale will **not** scale in. In order to scale in, CPU must be 29% and Memory 49%.
+Para ilustrar esto, imaginemos que tiene las siguientes 4 reglas de escalado automático:
 
-### <a name="always-select-a-safe-default-instance-count"></a>Always select a safe default instance count
-The default instance count is important because it the instance count that Autoscale scales your service to when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
+* Con una CPU < 30 %, se reduce horizontalmente en 1
+* Con una memoria < 50 %, se reduce horizontalmente en 1
+* Con una CPU> 75 %, se escala horizontalmente en 1
+* Con una memoria > 75 %, se escala horizontalmente en 1
 
-### <a name="configure-autoscale-notifications"></a>Configure autoscale notifications
-Autoscale notifies the administrators and contributors of the resource by email if any of the following conditions occur:
+Por tanto, sucederá lo siguiente:
 
-* Autoscale service fails to take an action.
-* Metrics are not available for autoscale service to make a scale decision.
-* Metrics are available (recovery) again to make a scale decision.
-  In addition to the conditions above, you can configure email or webhook notifications to get notified for successful scale actions.
+* Con una CPU del 76 % y una memoria del 50 %, se escala horizontalmente.
+* Con una CPU del 50 % y una memoria del 76 %, se escala horizontalmente.
 
-<!--HONumber=Oct16_HO2-->
+Por otro lado, con una CPU del 25 % y una memoria del 51 %, el escalado automático **no** reduce horizontalmente. Para ello, la CPU debe ser 29 % y la memoria, 49 %.
+
+### <a name="always-select-a-safe-default-instance-count"></a>Seleccione siempre un número predeterminado de instancias seguro
+El número predeterminado de instancias es importante, porque el escalado automático escala el servicio a dicho número cuando no haya métricas disponibles. Por tanto, seleccione un número predeterminado de instancias que sea seguro para sus cargas de trabajo.
+
+### <a name="configure-autoscale-notifications"></a>Configure notificaciones de escalado automático
+El escalado automático notifica a los administradores y a los colaboradores del recurso por correo electrónico cuando se produce alguna de las siguientes condiciones:
+
+* El servicio de escalado automático no puede realizar una acción.
+* No hay métricas disponibles para que el servicio de escalado automático tome una decisión de escalado.
+* Vuelve a haber métricas disponibles (recuperación) para poder tomar una decisión de escalado.
+  Aparte de las condiciones anteriores, puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta.
+
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

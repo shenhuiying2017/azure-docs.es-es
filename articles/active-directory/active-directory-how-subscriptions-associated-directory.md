@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73d58df13d3265312b371a02e12fbb9342fb3980
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e41300ac8f6829ba93ebe7cba6063d82db1119f7
 
 
 ---
@@ -119,7 +119,7 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 * Para más información acerca de cómo cambiar los administradores de una suscripción de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md)
 * Para más información acerca de cómo se controla el acceso a los recursos en Microsoft Azure, consulte [Descripción de acceso a los recursos de Azure](active-directory-understanding-resource-access.md)
 * Para más información sobre cómo asignar roles en Azure AD, consulte [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md)
-* [Inicio de sesión en Azure como una organización](sign-up-organization.md)
+* [Registro en Azure como una organización](sign-up-organization.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
@@ -128,6 +128,6 @@ Para administrar ambos directorios en el Portal de Azure clásico, siga estos pa
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

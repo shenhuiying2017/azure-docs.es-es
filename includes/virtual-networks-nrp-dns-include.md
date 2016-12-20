@@ -1,11 +1,11 @@
-## DNS de Azure
+## <a name="azure-dns"></a>DNS de Azure
 DNS de Azure es un servicio de hospedaje para los dominios DNS, que permite resolver nombres mediante la infraestructura de Microsoft Azure.
 
 | Propiedad | Descripción | Valor de ejemplo |
 | --- | --- | --- |
 | **DNSzones** |Información de la zona de dominio para hospedar los registros de DNS de un dominio determinado |/subscriptions/{guid}/.../providers/Microsoft.Network/dnszones/contoso.com" |
 
-### Conjuntos de registros de DNS
+### <a name="dns-record-sets"></a>Conjuntos de registros de DNS
 Las zonas DNS tienen un objeto secundario, llamado conjunto de registros. Los conjuntos de registros son una recopilación de los registros del host por tipo en una zona DNS. Los tipos de registro son A, AAAA, CNAME, MX, NS, SOA, SRV y TXT.
 
 | Propiedad | Descripción | Valor de ejemplo |
@@ -20,7 +20,7 @@ Las zonas DNS tienen un objeto secundario, llamado conjunto de registros. Los co
 
 <sup>1</sup> solo se permite un valor por conjunto de registros.
 
-<sup>2</sup> solo se permite un tipo de registro por SOA por zona DNS.
+<sup>2</sup> solo se permite un tipo de registro por SOA por zona DNS. 
 
 Ejemplo de una zona DNS en formato JSON:
 
@@ -77,9 +77,13 @@ Ejemplo de una zona DNS en formato JSON:
           ]
     }
 
-## Recursos adicionales
-Para más información, lea la [documentación de API de REST para las zonas DNS](https://msdn.microsoft.com/library/azure/mt130626.aspx).
+## <a name="additional-resources"></a>Recursos adicionales
+Para más información, lea la [documentación de API de REST para las zonas DNS ](https://msdn.microsoft.com/library/azure/mt130626.aspx) .
 
-Para obtener más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx).
+Para obtener más información, lea la [documentación de API de REST para los conjuntos de registros DNS](https://msdn.microsoft.com/library/azure/mt130627.aspx) .
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

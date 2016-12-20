@@ -1,12 +1,12 @@
 ---
-title: Administración de recursos de Media Services entre varias cuentas de almacenamiento | Microsoft Docs
-description: En este artículo se dan instrucciones sobre cómo administrar recursos de servicios de multimedia en varias cuentas de almacenamiento.
+title: "Administración de recursos de Media Services entre varias cuentas de almacenamiento | Microsoft Docs"
+description: "En este artículo se dan instrucciones sobre cómo administrar recursos de servicios de multimedia en varias cuentas de almacenamiento."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 4e4a9ec3-8ddb-4938-aec1-d7172d3db858
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 42a2b241ed6ac2b13d1fb65f42242b194ef2858b
+
 
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Administración de recursos de Servicios multimedia entre varias cuentas de almacenamiento
 A partir de Servicios multimedia de Microsoft Azure  2.2, puede asociar varias cuentas de almacenamiento a una sola cuenta de Servicios multimedia. La capacidad de asociar varias cuentas de almacenamiento a una cuenta de Servicios multimedia ofrece las siguientes ventajas:
 
 * Equilibrio de carga de sus activos entre varias cuentas de almacenamiento.
-* Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
+* Escalado de Servicios multimedia para grandes cantidades de procesamiento de contenido (ya que actualmente una única cuenta de almacenamiento tiene un límite máximo de 500 TB). 
 
 En este tema se muestra cómo asociar varias cuentas de almacenamiento a una cuenta de Media Services mediante Azure Service Management API de REST. También muestra cómo especificar diferentes cuentas de almacenamiento al crear activos mediante el SDK de Servicios multimedia. 
 
@@ -250,6 +254,9 @@ El código siguiente usa el último SDK de Servicios multimedia para realizar la
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

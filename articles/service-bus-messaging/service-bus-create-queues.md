@@ -1,19 +1,23 @@
 ---
-title: Creación de aplicaciones que usan colas del Bus de servicio | Microsoft Docs
-description: Escritura de una aplicación sencilla basada en cola que usa del Bus de servicio.
-services: service-bus
+title: Crear aplicaciones que usen colas de Service Bus | Microsoft Docs
+description: "Escritura de una aplicación sencilla basada en cola que usa del Bus de servicio."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 754d91b3-1426-405e-84b4-fd36d65b114a
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2350c3e222277b6d8e837472f55a7b79346d3d21
+
 
 ---
 # <a name="create-applications-that-use-service-bus-queues"></a>Creación de aplicaciones que usan colas del Bus de servicio
@@ -25,7 +29,7 @@ Considere un escenario del sector de la venta al por menor en el que los datos d
 
 Cada terminal del PDV informa de sus datos de venta mediante el envío de mensajes a **DataCollectionQueue**, donde permanecen hasta que el sistema de gestión de inventarios los recupera. Este patrón se denomina a menudo *mensajería asincrónica*, ya que el terminal del PDV no tiene que esperar una respuesta del sistema de gestión de inventarios para continuar el procesamiento.
 
-## <a name="why-queuing?"></a>Motivos para usar la cola
+## <a name="why-queuing"></a>Motivos para usar la cola
 Antes de examinar el código necesario para configurar esta aplicación, considere las ventajas de usar una cola en este escenario, en lugar de que los terminales de los PDV se comuniquen directamente (de forma sincrónica) con el sistema de gestión de inventarios.
 
 ### <a name="temporal-decoupling"></a>Desacoplamiento temporal
@@ -51,13 +55,13 @@ En la sección siguiente se muestra cómo usar el Bus de servicio para compilar 
 Para empezar a trabajar con el Bus de servicio, se necesita una cuenta de Azure. Si no tiene una, puede registrarse para obtener una cuenta gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF).
 
 ### <a name="create-a-namespace"></a>Creación de un espacio de nombres
-Una vez que tenga una suscripción, puede [crear un nuevo espacio de nombres](../service-bus/service-bus-create-namespace-portal.md). Cada espacio de nombres actúa como contenedor con un ámbito para un conjunto de entidades de Bus de servicio. Asigne un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio. 
+Una vez que tenga una suscripción, puede [crear un nuevo espacio de nombres](service-bus-create-namespace-portal.md). Cada espacio de nombres actúa como contenedor con un ámbito para un conjunto de entidades de Bus de servicio. Asigne un nombre único al nuevo espacio de nombres en todas las cuentas de Bus de servicio. 
 
 ### <a name="install-the-nuget-package"></a>Instalación del paquete NuGet.
 Para usar el espacio de nombres de Bus de servicio, una aplicación debe hacer referencia al ensamblado de Bus de servicio, en concreto Microsoft.ServiceBus.dll. Este ensamblado forma parte del SDK de Microsoft Azure y la descarga está disponible en la [página de descarga de Azure SDK](https://azure.microsoft.com/downloads/). Sin embargo, el [paquete NuGet de Service Bus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) es la forma más sencilla de obtener la API de Service Bus y configurar su aplicación con todas las dependencias de Service Bus.
 
 ### <a name="create-the-queue"></a>Creación de la cola
-Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](../service-bus/service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
+Las operaciones de administración de las entidades de mensajería de Service Bus (colas y temas de publicación o suscripción) se realizan a través de la clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx). Service Bus usa un modelo de seguridad basado en la [firma de acceso compartido (SAS)](service-bus-sas-overview.md). La clase [TokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.aspx) representa un proveedor de tokens de seguridad con métodos de generador integrados que devuelven algunos proveedores de tokens conocidos. Vamos a usar un método [CreateSharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.tokenprovider.createsharedaccesssignaturetokenprovider.aspx) para retener las credenciales de SAS. A continuación, se construye la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) con la dirección base del espacio de nombres de Service Bus y el proveedor de tokens.
 
 La clase [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) proporciona métodos para crear, enumerar y eliminar entidades de mensajes. El siguiente código muestra cómo se crea la instancia de [NamespaceManager](https://msdn.microsoft.com/library/azure/microsoft.servicebus.namespacemanager.aspx) y se usa para crear la cola **DataCollectionQueue**.
 
@@ -145,6 +149,9 @@ catch (Exception e)
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha aprendido los conceptos básicos de las colas, consulte [Creación de aplicaciones que usan temas y suscripciones de Service Bus](service-bus-create-topics-subscriptions.md) para continuar este tema sobre el uso de las funcionalidades de publicación y suscripción de los temas y las suscripciones de Service Bus.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

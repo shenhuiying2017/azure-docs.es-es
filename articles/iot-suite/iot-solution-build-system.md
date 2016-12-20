@@ -1,12 +1,12 @@
 ---
-title: 'Ejemplo de IoT de Azure MyDriving: compilación | Microsoft Docs'
-description: Compile una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos.
-services: ''
+title: "Ejemplo de IoT de Azure MyDriving: compilación | Microsoft Docs"
+description: "Compile una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos."
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: c2fcd6ee-3bbe-43d1-a066-dce52cc3a53d
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 012bfc7d8431e2edb2b1056fb465421fad58193a
+
 
 ---
 # <a name="build-and-deploy-the-mydriving-solution-to-your-environment"></a>Compilación e implementación de la solución MyDriving en su entorno
@@ -192,7 +196,7 @@ Consulte las instrucciones detalladas de **scripts/README.md**para realizar una 
 
 Microsoft Azure proporciona una gran cantidad de servicios diferentes que se pueden usar para crear aplicaciones de nube. Aunque muchos se pueden usar individualmente (por ejemplo, Servicio de aplicaciones/Aplicaciones web), lo mejor es interconectarlos para formar un sistema integrado como el que usamos en MyDriving.
 
-Es posible crear e interconectar manualmente los servicios de Azure, pero es mucho más rápido y confiable usar plantillas de Azure Resource Manager. [Resource Manager](../resource-group-overview.md) automatiza la implementación de los recursos de una solución y la creación de interconexiones entre ellos.
+Es posible crear e interconectar manualmente los servicios de Azure, pero es mucho más rápido y confiable usar plantillas de Azure Resource Manager. [Resource Manager](../azure-resource-manager/resource-group-overview.md) automatiza la implementación de los recursos de una solución y la creación de interconexiones entre ellos.
 
 Encontrará la plantilla para el sistema de MyDriving en el repositorio de GitHub en [Scripts/ARM](https://github.com/Azure-Samples/MyDriving/tree/master/scripts/ARM). Esta plantilla ofrece una vista completa y concisa de cómo están interconectados los distintos servicios de nuestra arquitectura. Todo esto se explica en detalle en la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs); sin embargo, se puede aprender muchísimo simplemente leyendo la plantilla.
 
@@ -377,7 +381,7 @@ Condiciones:
 Para más información, consulte:
 
 * Resumen de [cuotas y límites del servicio de Azure](../azure-subscription-service-limits.md#iot-hub-limits)
-* [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+*  [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
 
 ## <a name="send-us-your-feedback"></a>Envíenos sus comentarios
 Como ya hemos creado MyDriving para ayudar a impulsar sus propios sistemas de IoT, queremos conocer su opinión acerca de cómo funciona. Queremos saber si:
@@ -394,6 +398,9 @@ Esperamos sus noticias.
 ## <a name="next-steps"></a>Pasos siguientes
 Se recomienda la lectura de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), donde se describe de manera detallada el diseño del sistema y sus componentes.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

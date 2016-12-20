@@ -1,25 +1,29 @@
 ---
-title: Administración de estado de Reliable Actors | Microsoft Docs
-description: Describe cómo se administra, se conserva y se replica el estado de Reliable Actors para alta disponibilidad.
+title: "Administración de estado de Reliable Actors | Microsoft Docs"
+description: "Describe cómo se administra, se conserva y se replica el estado de Reliable Actors para alta disponibilidad."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/06/2016
+ms.date: 10/19/2016
 ms.author: vturecek
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 194935398809b1905ddc4100b5f09fce7f75a796
+
 
 ---
-# Administración de estado de Reliable Actors
+# <a name="reliable-actors-state-management"></a>Administración de estado de Reliable Actors
 Reliable Actors son objetos uniproceso que encapsulan la lógica y el estado. Como los actores se ejecutan en Reliable Services, pueden mantener el estado de forma confiable con los mismos mecanismos de persistencia de replicación utilizados por Reliable Services. De este modo, los actores no pierden su estado después de los errores, cuando se reactivan después de la recolección de elementos no utilizados o cuando se mueven entre los nodos de un clúster debido un equilibrio de los recursos o actualizaciones.
 
-## Persistencia y replicación del estado
+## <a name="state-persistence-and-replication"></a>Persistencia y replicación del estado
 Reliable Actors se considera *con estado* porque cada instancia de actor se asigna a un identificador único. Esto significa que las llamadas repetidas al mismo identificador de actor se enrutarán a la misma instancia de actor. Esto difiere de un sistema sin estado en que no se garantiza que las llamadas del cliente se enruten al mismo servidor cada vez. Por este motivo, los servicios de actor siempre son servicios con estado.
 
 Sin embargo, aunque los actores se consideran con estado, no significa que deben almacenar el estado de manera confiable. Los actores pueden elegir el nivel de persistencia y replicación de estado basado en los requisitos de almacenamiento de sus datos:
@@ -30,7 +34,7 @@ Sin embargo, aunque los actores se consideran con estado, no significa que deben
 
 Cada nivel de persistencia es simplemente otra configuración del *proveedor de estado* y de la *replicación* del servicio. Si el estado se escribe o no en el disco depende del *proveedor de estado* (el componente de un servicio Reliable Services que almacena el estado) y la replicación depende de con cuántas réplicas se ha implementado un servicio. Al igual que con Reliable Services, tanto el proveedor de estado como el número de réplicas pueden establecerse manualmente con facilidad. La plataforma de actores proporciona un atributo, que, cuando se utiliza en un actor seleccionará automáticamente un proveedor de estado predeterminado y generará automáticamente la configuración para el número de réplicas para lograr una de estas tres opciones de persistencia.
 
-### Estado persistente
+### <a name="persisted-state"></a>Estado persistente
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
@@ -39,7 +43,7 @@ class MyActor : Actor, IMyActor
 ```  
 Esta configuración usa un proveedor de estado que almacena datos en el disco y establece automáticamente el número de réplicas del servicio en 3.
 
-### Estado volátil
+### <a name="volatile-state"></a>Estado volátil
 ```csharp
 [StatePersistence(StatePersistence.Volatile)]
 class MyActor : Actor, IMyActor
@@ -48,7 +52,7 @@ class MyActor : Actor, IMyActor
 ```
 Esta configuración utiliza un proveedor de estado solo en memoria y establece el número de réplicas en 3.
 
-### Sin estado persistente
+### <a name="no-persisted-state"></a>Sin estado persistente
 ```csharp
 [StatePersistence(StatePersistence.None)]
 class MyActor : Actor, IMyActor
@@ -57,14 +61,14 @@ class MyActor : Actor, IMyActor
 ```
 Esta configuración utiliza un proveedor de estado solo en memoria y establece el número de réplicas en 1.
 
-### Valores predeterminados y configuración generada
-Cuando se usa el atributo `StatePersistence`, se selecciona automáticamente un proveedor de estado en tiempo de ejecución cuando se inicia el servicio de actor. Sin embargo, el número de réplicas, se establece en tiempo de compilación con las herramientas de compilación de actores de Visual Studio. Las herramientas de compilación generan automáticamente un *servicio predeterminado* del servicio de actor en ApplicationManifest.xml. Los parámetros se crean para **min replica set size** y **target replica set size**. Por supuesto, puede cambiar estos parámetros manualmente; sin embargo, cada vez que se cambia el atributo `StatePersistence`, los parámetros se establecerán, de forma predeterminada, en los valores del tamaño del conjunto de réplicas para el atributo `StatePersistence`, invalidando los valores anteriores. Es decir, los valores establecidos en ServiceManifest.xml **solo** se reemplazarán al compilar cuando cambie el valor del atributo `StatePersistence`.
+### <a name="defaults-and-generated-settings"></a>Valores predeterminados y configuración generada
+Cuando se usa el atributo `StatePersistence` , se selecciona automáticamente un proveedor de estado en tiempo de ejecución cuando se inicia el servicio de actor. Sin embargo, el número de réplicas, se establece en tiempo de compilación con las herramientas de compilación de actores de Visual Studio. Las herramientas de compilación generan automáticamente un *servicio predeterminado* del servicio de actor en ApplicationManifest.xml. Los parámetros se crean para **min replica set size** y **target replica set size**. Por supuesto, puede cambiar estos parámetros manualmente; sin embargo, cada vez que se cambia el atributo `StatePersistence`, los parámetros se establecerán, de forma predeterminada, en los valores del tamaño del conjunto de réplicas para el atributo `StatePersistence`, invalidando los valores anteriores. Es decir, los valores establecidos en ServiceManifest.xml **solo** se reemplazarán al compilar cuando cambie el valor del atributo `StatePersistence`. 
 
 ```xml
 <ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <Parameters>
       <Parameter Name="MyActorService_PartitionCount" DefaultValue="10" />
-      <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="2" />
+      <Parameter Name="MyActorService_MinReplicaSetSize" DefaultValue="3" />
       <Parameter Name="MyActorService_TargetReplicaSetSize" DefaultValue="3" />
    </Parameters>
    <ServiceManifestImport>
@@ -80,26 +84,31 @@ Cuando se usa el atributo `StatePersistence`, se selecciona automáticamente un 
 </ApplicationManifest>
 ```
 
-## Administrador de estado
-Cada instancia de actor tiene su propio administrador de estado: una estructura de datos similar a un diccionario que almacena de manera confiable los pares clave-valor. El administrador de estado es un contenedor alrededor de un proveedor de estado. Se puede utilizar para almacenar datos, con independencia de la configuración de persistencia que se utilice, pero no proporciona ninguna garantía de que se pueda cambiar un servicio de actor en ejecución de una configuración de estado volátil (solo en memoria) a una configuración de estado persistente mediante una actualización gradual mientras se conservan los datos. Sin embargo, es posible cambiar el número de réplicas para un servicio en ejecución.
+## <a name="state-manager"></a>Administrador de estado
+Cada instancia de actor tiene su propio administrador de estado: una estructura de datos similar a un diccionario que almacena de manera confiable los pares clave-valor. El administrador de estado es un contenedor alrededor de un proveedor de estado. Se puede utilizar para almacenar datos, con independencia de la configuración de persistencia que se utilice, pero no proporciona ninguna garantía de que se pueda cambiar un servicio de actor en ejecución de una configuración de estado volátil (solo en memoria) a una configuración de estado persistente mediante una actualización gradual mientras se conservan los datos. Sin embargo, es posible cambiar el número de réplicas para un servicio en ejecución. 
 
-Las claves del administrador de estado deben ser cadenas, mientras que los valores son genéricos y pueden ser de cualquier tipo, incluidos los tipos personalizados. Los valores almacenados en el administrador del estado deben ser serializables en el contrato de datos, ya que pueden transmitirse a través de la red a otros nodos durante la replicación y pueden escribirse en el disco, dependiendo de la configuración de persistencia del estado de un actor.
+Las claves del administrador de estado deben ser cadenas, mientras que los valores son genéricos y pueden ser de cualquier tipo, incluidos los tipos personalizados. Los valores almacenados en el administrador del estado deben ser serializables en el contrato de datos, ya que pueden transmitirse a través de la red a otros nodos durante la replicación y pueden escribirse en el disco, dependiendo de la configuración de persistencia del estado de un actor. 
 
 El administrador de estado expone los métodos de diccionario comunes para administrar el estado, de manera similar a los que se encuentran en un diccionario confiable.
 
-### Acceso al estado
+### <a name="accessing-state"></a>Acceso al estado
 Se puede acceder al estado a través del administrador de estado mediante una clave. Los métodos del administrador de estado son completamente asincrónicos ya que pueden requerir una E/S de disco cuando los actores tienen un estado persistente. Después del primer acceso, los objetos de estado se almacenan en caché en la memoria. Las operaciones de acceso repetidas acceden a los objetos directamente desde la memoria y devuelven sincrónicamente sin incurrir en la sobrecarga de intercambio de contexto asincrónico o de E/S de disco. Se quita un objeto de estado de la memoria caché en los casos siguientes:
 
 * Un método de actor produce una excepción no controlada después de recuperar un objeto del administrador de estado.
 * Un actor se vuelve a activar después de haberse desactivado o debido a un error.
-* Si el proveedor de estado pagina el estado en el disco. Este comportamiento depende de la implementación del proveedor de estado. El proveedor de estado predeterminado para la configuración `Persisted` tiene este comportamiento.
+* Si el proveedor de estado pagina el estado en el disco. Este comportamiento depende de la implementación del proveedor de estado. El proveedor de estado predeterminado para la configuración `Persisted` tiene este comportamiento. 
 
-El estado se puede recuperar mediante una operación *Get* estándar que inicia `KeyNotFoundException` si no existe ninguna entrada para la clave especificada:
+El estado se puede recuperar mediante una operación *Get`KeyNotFoundException` estándar que inicia * si no existe ninguna entrada para la clave especificada: 
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task<int> GetCountAsync()
     {
         return this.StateManager.GetStateAsync<int>("MyState");
@@ -112,6 +121,11 @@ El estado también se puede recuperar mediante un método *TryGet* que no inicia
 ```csharp
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public async Task<int> GetCountAsync()
     {
         ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
@@ -125,7 +139,7 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-### Almacenamiento del estado
+### <a name="saving-state"></a>Almacenamiento del estado
 Los métodos de recuperación del administrador de estado devuelven una referencia a un objeto en la memoria local. La modificación de este objeto solo en la memoria local no hace que se guarde de forma duradera. Cuando un objeto se recupera desde el administrador de estado y se modifica, debe volver a insertarse en el administrador de estado para que se guarde de forma duradera.
 
 El estado se puede insertar mediante una operación *Set* no condicional, que equivale a la sintaxis `dictionary["key"] = value`:
@@ -134,6 +148,11 @@ El estado se puede insertar mediante una operación *Set* no condicional, que eq
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task SetCountAsync(int value)
     {
         return this.StateManager.SetStateAsync<int>("MyState", value);
@@ -147,6 +166,11 @@ El estado puede agregarse con el método *Add*, que iniciará una excepción `In
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task AddCountAsync(int value)
     {
         return this.StateManager.AddStateAsync<int>("MyState", value);
@@ -154,12 +178,17 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado puede agregarse también con el método *TryAdd*, que no iniciará ninguna excepción cuando se intente agregar una clave que ya existe:
+El estado puede agregarse también con el método *TryAdd* , que no iniciará ninguna excepción cuando se intente agregar una clave que ya existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public async Task AddCountAsync(int value)
     {
         bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
@@ -185,13 +214,18 @@ async Task IMyActor.SetCountAsync(int count)
 }
 ```
 
-### Eliminación del estado
-El estado puede quitarse permanentemente del administrador de estado de un actor mediante la llamada al método *Remove*. Este método iniciará la excepción `KeyNotFoundException` cuando se intente quitar una clave que no existe:
+### <a name="removing-state"></a>Eliminación del estado
+El estado puede quitarse permanentemente del administrador de estado de un actor mediante la llamada al método *Remove* . Este método iniciará la excepción `KeyNotFoundException` cuando se intente quitar una clave que no existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task RemoveCountAsync()
     {
         return this.StateManager.RemoveStateAsync("MyState");
@@ -199,12 +233,17 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-El estado también se puede quitar de manera permanente mediante el método *TryRemove*, que no iniciará ninguna excepción cuando se intente quitar una clave que no existe:
+El estado también se puede quitar de manera permanente mediante el método *TryRemove* , que no iniciará ninguna excepción cuando se intente quitar una clave que no existe:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
 class MyActor : Actor, IMyActor
 {
+    public MyActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public async Task RemoveCountAsync()
     {
         bool result = await this.StateManager.TryRemoveStateAsync("MyState");
@@ -217,11 +256,16 @@ class MyActor : Actor, IMyActor
 }
 ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Notas sobre la serialización del tipo de Reliable Actors de Service Fabric](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 * [Polimorfismo de actores y patrones de diseño orientado a objetos](service-fabric-reliable-actors-polymorphism.md)
 * [Supervisión del rendimiento y diagnósticos de los actores](service-fabric-reliable-actors-diagnostics.md)
 * [Documentación de referencia de la API de actor](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [Código de ejemplo](https://github.com/Azure/servicefabric-samples)
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

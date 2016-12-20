@@ -1,22 +1,26 @@
 ---
-title: Configuración del equipo para el desarrollo de Servicios multimedia con .NET
-description: Conozca los requisitos previos de Servicios multimedia usando el SDK de Servicios multimedia para .NET. Aprenda también a crear una aplicación de Visual Studio.
+title: "Configuración del equipo para el desarrollo de Servicios multimedia con .NET"
+description: "Conozca los requisitos previos de Servicios multimedia usando el SDK de Servicios multimedia para .NET. Aprenda también a crear una aplicación de Visual Studio."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/24/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9cfa3ecf3788dfd90a7e1d6c79827961d3dbeb54
+
 
 ---
-# <a name="media-services-development-with-.net"></a>Desarrollo de Servicios multimedia con .NET
+# <a name="media-services-development-with-net"></a>Desarrollo de Servicios multimedia con .NET
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
 En este tema se explica cómo empezar a desarrollar aplicaciones de Servicios multimedia con .NET.
@@ -36,30 +40,25 @@ En esta sección se muestra cómo usar **NuGet** para agregar el SDK de Servicio
 
 También puede obtener los bits más recientes del SDK de Media Services para .NET desde GitHub ([github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) y [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)), compilar la solución y agregar las referencias al proyecto del cliente. Tenga en cuenta que todas las dependencias necesarias se descargan y extraen automáticamente.
 
-1. Cree una nueva Aplicación de consola de C# en Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1. Escriba el **Nombre**, la **Ubicación** y el **Nombre de la solución** y, a continuación, haga clic en Aceptar.
+1. Cree una Aplicación de consola de C# nueva en Visual Studio 2010 SP1 o versiones posteriores. Escriba el **Nombre**, la **Ubicación** y el **Nombre de la solución** y, a continuación, haga clic en Aceptar.
 2. Compile la solución.
 3. Use **NuGet** para instalar y agregar **Extensiones del SDK de Azure Media Services para .NET**. Al instalar este paquete, también se instala el **SDK de Servicios multimedia para .NET** y agrega todas las demás dependencias necesarias.
-4. Asegúrese de que tiene instalada la versión más reciente de NuGet. Para más información e instrucciones de instalación, consulte [NuGet](http://nuget.codeplex.com/).
-5. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto y elija Administrar paquetes de NuGet.
-
-Aparecerá el cuadro de diálogo Administrar paquetes de NuGet.
-
-1. En la galería en línea, busque Extensiones de Servicios multimedia de Azure, elija Extensiones del SDK de Servicios multimedia de Azure para .NET y luego haga clic en el botón Instalar.
-
-El proyecto se modifica y se agregan referencias a Extensiones del SDK de Media Services para .NET, al SDK de .NET de Media Services y a otros ensamblados dependientes.
-
-1. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
-2. Agregue una referencia al ensamblado **System.Configuration** . Este ensamblado contiene la clase de Configuración del sistema.**Administrador de configuración** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
-
-Para agregar referencias usando el cuadro de diálogo Administrar referencias, haga lo siguiente:
-
-1. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto. A continuación, seleccione Agregar y Referencias.
-
-Aparecerá el cuadro de diálogo Administrar referencias.
-
-1. En los ensamblados de .NET Framework, busque y seleccione el ensamblado System.Configuration.
-2. Presione Aceptar.
-3. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo.     
+   
+    Asegúrese de que tiene instalada la versión más reciente de NuGet. Para más información e instrucciones de instalación, consulte [NuGet](http://nuget.codeplex.com/).
+4. En el Explorador de soluciones, haga clic con el botón secundario en el nombre del proyecto y elija Administrar paquetes de NuGet.
+   
+    Aparecerá el cuadro de diálogo Administrar paquetes de NuGet.
+5. En la galería en línea, busque Extensiones de Servicios multimedia de Azure, elija Extensiones del SDK de Servicios multimedia de Azure para .NET y luego haga clic en el botón Instalar.
+   
+    El proyecto se modifica y se agregan referencias a Extensiones del SDK de Media Services para .NET, al SDK de .NET de Media Services y a otros ensamblados dependientes.
+6. Para promover un entorno de desarrollo más limpio, considere la posibilidad de habilitar la restauración de paquetes de NuGet. Para obtener más información, consulte [Restauración de paquetes de NuGet](http://docs.nuget.org/consume/package-restore).
+7. Agregue una referencia al ensamblado **System.Configuration** . Este ensamblado contiene la clase de Configuración del sistema.**Administrador de configuración** que se usa para tener acceso a los archivos de configuración (por ejemplo, App.config).
+   
+    Para agregar referencias usando el cuadro de diálogo de administración de referencias, haga clic con el botón derecho en el nombre del proyecto en el Explorador de soluciones. A continuación, seleccione Agregar y Referencias.
+   
+    Aparecerá el cuadro de diálogo Administrar referencias.
+8. En los ensamblados de .NET Framework, busque, seleccione el ensamblado System.Configuration y haga clic en Aceptar.
+9. Abra el archivo App.config (agregue el archivo al proyecto si no se ha agregado de forma predeterminada) y agregue una sección *appSettings* al archivo.     
    Establezca los valores de la clave de nombre y la cuenta de cuenta de Servicios multimedia de Azure, tal como se muestra en el ejemplo siguiente.
    
     Para buscar el nombre y la clave de valores, vaya a Azure Portal y seleccione la cuenta. Aparecerá la ventana Configuración a la derecha. En la ventana Configuración, seleccione Claves. Al hacer clic en el icono junto a cada cuadro de texto, se copia el valor al Portapapeles del sistema.
@@ -73,7 +72,7 @@ Aparecerá el cuadro de diálogo Administrar referencias.
 
         </configuration>
 
-1. Sobrescriba los valores existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
+1. Sobrescriba las instrucciones **using** existentes siguiendo las instrucciones al comienzo del archivo Program.cs con el siguiente código.
    
         using System;
         using System.Collections.Generic;
@@ -93,6 +92,9 @@ En este punto, está listo para iniciar el desarrollo de una aplicación de Serv
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

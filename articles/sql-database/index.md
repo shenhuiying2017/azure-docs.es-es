@@ -1,11 +1,12 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: edfc23605c738fbe8aac99c0db89c6f588a09d60
-ms.openlocfilehash: 85bf943fb28348a17e609fff506dddf855b28dfa
+ms.sourcegitcommit: 511d15cc48b17bd65bedc2c1cd9602d868ffa724
+ms.openlocfilehash: 07cbe71fc9330724dd8b92c5321d4fca9ecde512
 
 ---
-#<a name="sql-database-documentation"></a>Documentación de SQL Database
+
+# <a name="sql-database-documentation"></a>Documentación de SQL Database
 
 Azure SQL Database es un servicio de base de datos relacional en la nube, con funcionalidades críticas y basado en el motor de Microsoft SQL Server. Ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos (todo ello con una mínima administración). Al basarse en el motor SQL Server, SQL Database admite las herramientas, bibliotecas y API de SQL Server existentes, lo que facilita el proceso del paso a la nube.
 
@@ -104,34 +105,63 @@ Azure SQL Database es un servicio de base de datos relacional en la nube, con fu
 
 ---
 
-##<a name="reference"></a>Referencia
-
-###<a name="powershell"></a>PowerShell
-[Referencia de Azure PowerShell] (/powershell/azureps-cmdlets-docs)
-
-###<a name="net"></a>.NET
-[Referencia administrada de .NET](/dotnet/api)
-
-### <a name="java"></a>Java
-[Referencia de SDK de Java](/java/api)
-
-###<a name="rest"></a>REST
-[Referencia de la API de REST de SQL Database](/rest/api/sql)
-
-###<a name="tsql"></a>T-SQL
-[Referencia de T-SQL](https://msdn.microsoft.com/library/azure/bb510741)
-
+<h2>Referencia</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql">PowerShell</a></p>
+                        <p><a href="/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs">PowerShell (base de datos elástica)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/sql/">Referencia de API de REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/sql-database.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de SQL Database </div>
+Descargar la documentación sobre SQL Database </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

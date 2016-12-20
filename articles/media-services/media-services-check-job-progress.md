@@ -1,12 +1,12 @@
 ---
-title: Supervisión del progreso de los trabajos mediante .NET
-description: Aprenda a usar el código del controlador de eventos para realizar el seguimiento del progreso del trabajo y enviar actualizaciones de estado. El ejemplo de código está escrito en C# y utiliza el SDK de Servicios multimedia para .NET.
+title: "Supervisión del progreso de los trabajos mediante .NET"
+description: "Aprenda a usar el código del controlador de eventos para realizar el seguimiento del progreso del trabajo y enviar actualizaciones de estado. El ejemplo de código está escrito en C# y utiliza el SDK de Servicios multimedia para .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1420c9dbaba1767526fa86a27aacb4fa3b2e2fe0
+
 
 ---
-# Supervisión del progreso de los trabajos mediante .NET
+# <a name="monitor-job-progress-using-net"></a>Supervisión del progreso de los trabajos mediante .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-check-job-progress.md)
 > * [.NET](media-services-check-job-progress.md)
@@ -26,7 +30,7 @@ ms.author: juliako
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. Puede consultar el progreso si define un controlador de eventos StateChanged (como se describe en este tema) o usa el almacenamiento en cola de Azure para supervisar las notificaciones sobre trabajos de Servicios multimedia (como se explica en [este](media-services-dotnet-check-job-progress-with-queues.md) tema).
 
-## Definición de controlador de eventos de StateChanged para supervisar el progreso del trabajo
+## <a name="define-statechanged-event-handler-to-monitor-job-progress"></a>Definición de controlador de eventos de StateChanged para supervisar el progreso del trabajo
 El siguiente ejemplo de código define el controlador de eventos StateChanged. Este controlador de eventos hace un seguimiento del progreso del trabajo y proporciona un estado actualizado, según el estado. El código define también el método LogJobStop. Este método auxiliar registra los detalles del error.
 
     private static void StateChanged(object sender, JobStateChangedEventArgs e)
@@ -106,12 +110,17 @@ El siguiente ejemplo de código define el controlador de eventos StateChanged. E
 
 
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 Consulte las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

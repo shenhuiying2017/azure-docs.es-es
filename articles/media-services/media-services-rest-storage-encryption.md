@@ -2,11 +2,11 @@
 title: Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS
 description: Aprenda a cifrar el contenido con cifrado de almacenamiento mediante las API de REST de AMS.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a0a79f3d-76a1-4994-9202-59b91a2230e0
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8b0758e1fa5f12dc49d8548b733aefdf1f43d6f0
+
 
 ---
 # <a name="encrypting-your-content-with-storage-encryption-using-ams-rest-api"></a>Cifrado del contenido con cifrado de almacenamiento mediante la API de REST de AMS
@@ -92,11 +96,11 @@ A continuación se muestran los pasos generales para generar claves de contenido
 
     Para el cifrado de almacenamiento, se deben incluir las siguientes propiedades en el cuerpo de la solicitud.
 
-    Propiedad del cuerpo de la solicitud   | Description
+    Propiedad del cuerpo de la solicitud    | Description
     ---|---
     Id | El identificador de ContentKey que generamos nosotros mismos utilizando el siguiente formato “nb:kid:UUID:<NEW GUID>”.
     ContentKeyType | Este es el tipo de clave de contenido en forma de entero para esta clave de contenido. Pasamos el valor 1 para el cifrado del almacenamiento.
-    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    EncryptedContentKey | Creamos un valor de clave de contenido que es un valor de 256 bits (32 bytes). La clave se cifra con el certificado X.509 de cifrado de almacenamiento que recuperamos de Servicios multimedia de Microsoft Azure mediante la ejecución de una solicitud HTTP GET para los métodos de GetProtectionKeyId y GetProtectionKey. A modo de ejemplo, vea el siguiente código. NET: el método **EncryptSymmetricKeyData** definido [aquí](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
     ProtectionKeyId | Es el identificador de la clave de protección para el certificado X.509 de cifrado de almacenamiento que se usó para cifrar la clave de contenido.
     ProtectionKeyType | Es el tipo de cifrado para la clave de protección que se usó para cifrar la clave de contenido. Este valor es StorageEncryption(1) en nuestro ejemplo.
     Checksum |Suma de comprobación calculada de MD5 para la clave de contenido. Se calcula mediante el cifrado del identificador de contenido con la clave de contenido. El código de ejemplo muestra cómo calcular la suma de comprobación.
@@ -364,6 +368,6 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

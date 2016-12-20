@@ -1,12 +1,12 @@
 ---
-title: Administración de los registros de control de acceso en la matriz virtual de StorSimple | Microsoft Docs
-description: Describe cómo administrar los registros de control de acceso (ACR) para determinar qué hosts pueden conectarse a un volumen en la matriz virtual de StorSimple.
+title: "Administración de los registros de control de acceso en la matriz virtual de StorSimple | Microsoft Docs"
+description: "Describe cómo administrar los registros de control de acceso (ACR) para determinar qué hosts pueden conectarse a un volumen en la matriz virtual de StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 11252938-5b97-4178-8c37-f58eaa3d00b1
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/03/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 037da7a5647f5b3d2b0cf1364fab050406be3b62
+
 
 ---
-# Uso del servicio StorSimple Manager para administrar los registros de control de acceso para la matriz virtual de StorSimple
-## Información general
-Los registros de control de acceso (ACR) le permiten especificar qué hosts pueden conectarse a un volumen de la matriz virtual de StorSimple (también conocido como dispositivo virtual local de StorSimple). Los ACR se establecen en un volumen específico y contienen los nombres calificados iSCSI (IQNs) de los hosts. Cuando un host intenta conectarse a un volumen, el dispositivo comprueba el ACR asociado a ese volumen para el nombre IQN y, a continuación, si hay una coincidencia, se establece la conexión. La sección de **registros de control de acceso** de la página **Configuración** muestra todos los registros de control de acceso con los IQN correspondientes de los hosts.
+# <a name="use-the-storsimple-manager-service-to-manage-access-control-records-for-the-storsimple-virtual-array"></a>Uso del servicio StorSimple Manager para administrar los registros de control de acceso para la matriz virtual de StorSimple
+## <a name="overview"></a>Información general
+Los registros de control de acceso (ACR) le permiten especificar qué hosts pueden conectarse a un volumen de la matriz virtual de StorSimple (también conocido como dispositivo virtual local de StorSimple). Los ACR se establecen en un volumen específico y contienen los nombres calificados iSCSI (IQNs) de los hosts. Cuando un host intenta conectarse a un volumen, el dispositivo comprueba el ACR asociado a ese volumen para el nombre IQN y, a continuación, si hay una coincidencia, se establece la conexión. La sección de **registros de control de acceso** de la página **Configurar** muestra todos los registros de control de acceso con los IQN correspondientes de los hosts.
 
 Este tutorial explica las siguientes tareas comunes relacionadas con los ACR comunes:
 
@@ -33,12 +37,12 @@ Este tutorial explica las siguientes tareas comunes relacionadas con los ACR com
 > 
 > 
 
-## Obtención del IQN
+## <a name="get-the-iqn"></a>Obtención del IQN
 Siga estos pasos para obtener el nombre completo del IQN de un host de Windows que ejecute Windows Server 2012.
 
 [!INCLUDE [storsimple-get-iqn](../../includes/storsimple-get-iqn.md)]
 
-## Adición de ACR
+## <a name="add-an-acr"></a>Adición de ACR
 Use la página **Configuración** del servicio Administrador de StorSimple para agregar ACR. Normalmente, se asociará un ACR a un volumen.
 
 Para más información sobre cómo asociar un ACR a un volumen, vaya a [Agregar un volumen](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
@@ -50,19 +54,19 @@ Para más información sobre cómo asociar un ACR a un volumen, vaya a [Agregar 
 
 Realice los pasos siguientes para agregar un ACR.
 
-#### Para agregar un ACR
-1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración**.
+#### <a name="to-add-an-acr"></a>Para agregar un ACR
+1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración** .
    
     ![pestaña Configuración](./media/storsimple-ova-manage-acrs/acr1.png)
-2. En la lista tabular de **Registros de control de acceso**, proporcione un **Nombre** para el ACR.
-3. Proporcione el nombre IQN del host de Windows en **Nombre del iniciador iSCSI**.
+2. En la lista tabular de **Registros de control de acceso**, escriba un **Nombre** para el ACR.
+3. Proporcione el nombre IQN del host de Windows en **Nombre del iniciador iSCSI**. 
 4. Para guardar el ACR recién creado, haga clic en **Guardar** en la parte inferior de la página. Verá el siguiente mensaje de confirmación.
    
     ![mensaje de confirmación](./media/storsimple-ova-manage-acrs/acr2.png)
-5. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar esta adición.
+5. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar esta adición.
 
-## Edición de un ACR
-Use la página **Configuración** del Portal de Azure clásico para editar ACR.
+## <a name="edit-an-acr"></a>Edición de un ACR
+Use la página **Configuración** del Portal de Azure clásico para editar ACR. 
 
 > [!NOTE]
 > Debe modificar solo los ACR que no están actualmente en uso. Para editar un ACR asociado a un volumen que está actualmente en uso, el volumen debe estar desconectado.
@@ -71,15 +75,15 @@ Use la página **Configuración** del Portal de Azure clásico para editar ACR.
 
 Realice los pasos siguientes para editar un ACR.
 
-#### Para editar un ACR
-1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración**.
+#### <a name="to-edit-an-acr"></a>Para editar un ACR
+1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración** .
 2. En la lista tabular de los registros de control de acceso, pase el ratón sobre el ACR que desea modificar.
 3. Proporcione un nombre nuevo y/o el IQN del ACR.
-4. Haga clic en **Guardar** en la parte inferior de la página para guardar el ACR modificado. Aparecerá un mensaje de confirmación.
-5. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar este cambio.
+4. Haga clic en **Guardar** en la parte inferior de la página para guardar el ACR modificado. Aparecerá un mensaje de confirmación. 
+5. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar este cambio.
 
-## Eliminar un registro de control de acceso
-Utilice la página **Configuración** del Portal de Azure clásico para eliminar ACR.
+## <a name="delete-an-access-control-record"></a>Eliminar un registro de control de acceso
+Utilice la página **Configuración** del Portal de Azure clásico para eliminar ACR. 
 
 > [!NOTE]
 > * Debe eliminar solo esos ACR que no están actualmente en uso. Para eliminar un ACR asociado a un volumen que está actualmente en uso, el volumen debe estar desconectado.
@@ -89,15 +93,20 @@ Utilice la página **Configuración** del Portal de Azure clásico para eliminar
 
 Realice los pasos siguientes para eliminar un registro de control de acceso.
 
-#### Para eliminar un registro de control de acceso
-1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración**.
+#### <a name="to-delete-an-access-control-record"></a>Para eliminar un registro de control de acceso
+1. En la página de aterrizaje del servicio, seleccione el servicio, haga doble clic en el nombre del servicio y, a continuación, haga clic en la pestaña **Configuración** .
 2. En la lista tabular de los registros de control de acceso (ACR), pase el ratón sobre el ACR que desea eliminar.
 3. Aparecerá un icono de eliminación (**x**) en la columna en el extremo derecho para el ACR que seleccione. Haga clic en el icono **x** para eliminar el ACR. Verá el siguiente mensaje de confirmación.
    
     ![mensaje de confirmación](./media/storsimple-ova-manage-acrs/acr3.png)
-4. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar la eliminación.
+4. Haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-ova-manage-acrs/check-icon.png). La lista tabular se actualizará para reflejar la eliminación.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre la [adición de volúmenes y la configuración de ACR](storsimple-ova-deploy3-iscsi-setup.md#step-3-add-a-volume).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

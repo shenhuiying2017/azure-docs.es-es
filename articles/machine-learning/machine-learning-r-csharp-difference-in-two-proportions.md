@@ -2,11 +2,11 @@
 title: Diferencia en la prueba de proporciones | Microsoft Docs
 description: Diferencia en la prueba de proporciones
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: aniedea
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 9356b821-5345-44f6-8e26-719f2dea5e6d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: aniedea
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 27e1626e72f9740e73a19e078868a7c4392baf1e
+
 
 ---
-# Diferencia en la prueba de proporciones
-¿Las dos proporciones son diferentes desde el punto de vista estadístico? Supongamos que un usuario desea comparar dos películas para determinar si una película tiene una mayor proporción de "me gusta" en comparación con la otra. Con un ejemplo grande, podría haber una diferencia significativa estadísticamente entre las proporciones 0,50 y 0,51. Con un ejemplo pequeño, es posible que no haya suficientes datos para determinar si estas proporciones son realmente diferentes.
+# <a name="difference-in-proportions-test"></a>Diferencia en la prueba de proporciones
+¿Las dos proporciones son diferentes desde el punto de vista estadístico? Supongamos que un usuario desea comparar dos películas para determinar si una película tiene una mayor proporción de "me gusta" en comparación con la otra. Con un ejemplo grande, podría haber una diferencia significativa estadísticamente entre las proporciones 0,50 y 0,51. Con un ejemplo pequeño, es posible que no haya suficientes datos para determinar si estas proporciones son realmente diferentes. 
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -27,7 +31,7 @@ Este [servicio web](https://datamarket.azure.com/dataset/aml_labs/prop_test) rea
 > 
 > 
 
-## Uso del servicio web
+## <a name="consumption-of-web-service"></a>Uso del servicio web
 Este servicio acepta 4 argumentos y realiza una prueba hipotética de las proporciones.
 
 Los argumentos de entrada son:
@@ -39,13 +43,13 @@ Los argumentos de entrada son:
 
 La salida del servicio es el resultado de la prueba hipotética junto con la prueba estadística de Chi cuadrado, el valor df, el valor p y la proporción del ejemplo 1 y 2 y los límites del intervalo de confianza.
 
-> Este servicio cuando está hospedado en Azure Marketplace es un servicio de OData, al que se puede llamar mediante los métodos POST o GET.
+> Este servicio cuando está hospedado en Azure Marketplace es un servicio de OData, al que se puede llamar mediante los métodos POST o GET. 
 > 
 > 
 
-Hay varias maneras de consumir el servicio de forma automática ([aquí](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx) se puede ver una aplicación de ejemplo).
+Hay varias maneras de consumir el servicio de forma automática ( [aquí](http://microsoftazuremachinelearning.azurewebsites.net/DifferenceInProportionsTest.aspx)se puede ver una aplicación de ejemplo).
 
-### Inicio del código C# para el uso del servicio web:
+### <a name="starting-c-code-for-web-service-consumption"></a>Inicio del código C# para el uso del servicio web:
     public class Input
     {
             public string successes1;
@@ -76,24 +80,24 @@ Hay varias maneras de consumir el servicio de forma automática ([aquí](http://
     }
 
 
-## Creación del servicio web
+## <a name="creation-of-web-service"></a>Creación del servicio web
 > Este servicio web se ha creado con el Aprendizaje automático de Azure. Para obtener acceso a una evaluación gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](machine-learning-publish-a-machine-learning-web-service.md), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 > 
 > 
 
-En Aprendizaje automático de Azure, se creó un nuevo experimento en blanco con dos módulos [Ejecutar script R][execute-r-script]. En el primer módulo se define el esquema de datos, mientras que el segundo módulo utiliza el comando prop.test en R para realizar la prueba hipotética para dos proporciones.
+En Azure Machine Learning, se creó un nuevo experimento en blanco con dos módulos [Ejecutar script R][execute-r-script]. En el primer módulo se define el esquema de datos, mientras que el segundo módulo utiliza el comando prop.test en R para realizar la prueba hipotética para dos proporciones. 
 
-### Flujo de experimento:
+### <a name="experiment-flow"></a>Flujo de experimento:
 ![Flujo de experimento][2]
 
-#### Módulo 1:
+#### <a name="module-1"></a>Módulo 1:
     ####Schema definition  
     data.set=data.frame(successes1=50,successes2=60,total1=100,total2=100);
     maml.mapOutputPort("data.set"); #send data to output port
     dataset1 = maml.mapInputPort(1) #read data from input port
 
 
-#### Módulo 2:
+#### <a name="module-2"></a>Módulo 2:
     test=prop.test(c(dataset1$successes1[1],dataset1$successes2[1]),c(dataset1$total1[1],dataset1$total2[1])) #conduct hypothesis test
 
     result=data.frame(
@@ -109,10 +113,10 @@ En Aprendizaje automático de Azure, se creó un nuevo experimento en blanco con
     maml.mapOutputPort("result"); #output port
 
 
-## Limitaciones
+## <a name="limitations"></a>Limitaciones
 Se trata de un ejemplo muy sencillo para probar las diferencias entre dos proporciones. Como puede observarse en el código de ejemplo anterior, no se implementa ninguna detección de errores y el servicio supone que todas las variables son continuas.
 
-## P+F
+## <a name="faq"></a>P+F
 Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Azure Marketplace, haga clic [aquí](machine-learning-marketplace-faq.md).
 
 [1]: ./media/machine-learning-r-csharp-difference-in-two-proportions/hyptest-img1.png
@@ -123,4 +127,8 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

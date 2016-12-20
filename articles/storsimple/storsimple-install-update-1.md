@@ -1,12 +1,12 @@
 ---
-title: Instalación de la actualización 1.2 en el dispositivo StorSimple | Microsoft Docs
-description: Explica cómo instalar la actualización 1.2 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000.
+title: "Instalación de Update 1.2 en el dispositivo StorSimple | Microsoft Docs"
+description: "Explica cómo instalar la actualización 1.2 de la serie StorSimple 8000 en un dispositivo de la serie StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7a513923-eb77-4078-b0ab-f8e90183796a
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,10 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/22/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f16ae589c160338450a41857f88fe29763e1b9eb
+
 
 ---
-# Instalación la actualización 1.2 en el dispositivo StorSimple
-## Información general
+# <a name="install-update-12-on-your-storsimple-device"></a>Instalación la actualización 1.2 en el dispositivo StorSimple
+## <a name="overview"></a>Información general
 En este tutorial se explica cómo instalar la actualización 1.2 en un dispositivo StorSimple con una versión de software anterior a la actualización 1. El tutorial también trata los pasos adicionales necesarios para la actualización cuando se configura una puerta de enlace en una interfaz de red que no sea DATA 0 del dispositivo StorSimple.
 
 La actualización 1.2 incluye actualizaciones de software del dispositivo, actualizaciones de controladores LSI y actualizaciones del firmware del disco. Las actualizaciones del software y de los controladores LSI son actualizaciones que no provocan interrupciones y se pueden aplicar mediante el Portal de Azure clásico. Las actualizaciones del firmware del disco son actualizaciones perturbadoras y solo pueden aplicarse mediante la interfaz de Windows PowerShell del dispositivo.
@@ -46,21 +50,21 @@ En función de la versión que se está ejecutando en el dispositivo, puede dete
 
 [!INCLUDE [storsimple-preparing-for-update](../../includes/storsimple-preparing-for-updates.md)]
 
-## Instalación de la actualización 1.2 mediante el Portal de Azure clásico
+## <a name="install-update-12-via-the-azure-classic-portal"></a>Instalación de la actualización 1.2 mediante el Portal de Azure clásico
 Realice los pasos siguientes para actualizar el dispositivo a [Update 1.2](storsimple-update1-release-notes.md). Use este procedimiento solo si tiene una puerta de enlace configurada en la interfaz de red DATA 0 del dispositivo.
 
 [!INCLUDE [storsimple-install-update2-via-portal](../../includes/storsimple-install-update2-via-portal.md)]
 
-1. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. También se debe modificar **Fecha de última actualización:**. También verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
+1. Compruebe que el dispositivo está ejecutando **StorSimple 8000 Series Update 1.2 (6.3.9600.17584)**. También se debe modificar **Fecha de última actualización:** . También verá que hay disponibles actualizaciones en modo de mantenimiento (este mensaje podría seguir apareciendo hasta 24 horas después de instalar las actualizaciones).
    
    Las actualizaciones del modo de mantenimiento provocan interrupciones con tiempos de inactividad del dispositivo y solo pueden aplicarse a través de la interfaz de Windows PowerShell del dispositivo.
    
-   ![Página de mantenimiento](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Página de mantenimiento")
+   ![Página de mantenimiento](./media/storsimple-install-update-1/InstallUpdate12_10M.png "Maintenance page")
 2. Descargue las actualizaciones en el modo de mantenimiento mediante los pasos enumerados en [Descargar revisiones](#to-download-hotfixes) para buscar y descargar KB3063416, que instala las actualizaciones de firmware del disco (el resto de actualizaciones ya deben estar instaladas).
 3. Siga los pasos enumerados en [Instalar y comprobar las revisiones del modo de mantenimiento](#to-install-and-verify-maintenance-mode-hotfixes) para instalar las actualizaciones del modo de mantenimiento.
 4. En el Portal de Azure clásico, desplácese hasta la página **Mantenimiento** y, en la parte inferior de la página, haga clic en **Buscar actualizaciones** para comprobar si hay actualizaciones de Windows; a continuación, haga clic en **Instalar actualizaciones**. Habrá terminado cuando se instalen correctamente todas las actualizaciones.
 
-## Instale la actualización 1.2 en un dispositivo que tenga una puerta de enlace configurada para una interfaz de red que no sea DATA 0
+## <a name="install-update-12-on-a-device-that-has-a-gateway-configured-for-a-non-data-0-network-interface"></a>Instale la actualización 1.2 en un dispositivo que tenga una puerta de enlace configurada para una interfaz de red que no sea DATA 0
 Debe usar este procedimiento solo si la comprobación de la puerta de enlace es incorrecta al intentar instalar las actualizaciones mediante el Portal de Azure clásico. Se produce un error en la comprobación porque tiene una puerta de enlace asignada a una interfaz de red que no es DATA 0 y el dispositivo está ejecutando una versión de software antes de la actualización 1. Si el dispositivo no tiene una puerta de enlace en una interfaz de red que no sea DATA 0, puede actualizar el dispositivo directamente desde el Portal de Azure clásico. Consulte [Instalación de la actualización 1.2 mediante el Portal de Azure clásico](#install-update-1.2-via-the-azure-classic-portal).
 
 Las versiones de software que se pueden actualizar con este método son actualización 0.1, actualización 0.2 y actualización 0.3.
@@ -78,7 +82,7 @@ Si el dispositivo ejecuta el software previo a la actualización 1 y tiene una p
 
 En las siguientes secciones, se proporcionan instrucciones detalladas de cada una de estas opciones.
 
-## Opción 1: Use Windows PowerShell para StorSimple para aplicar la actualización 1.2 como una revisión
+## <a name="option-1-use-windows-powershell-for-storsimple-to-apply-update-12-as-a-hotfix"></a>Opción 1: Use Windows PowerShell para StorSimple para aplicar la actualización 1.2 como una revisión
 Solo debe usar este procedimiento si ejecuta la actualización 0.1, 0.2 y 0.3 y si la comprobación de la puerta de enlace produce un error al intentar instalar actualizaciones desde el Portal de Azure clásico. Si está ejecutando la versión de lanzamiento (GA), [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para actualizar el dispositivo.
 
 Para instalar Update 1.2 como una revisión, descargue e instale las revisiones siguientes:
@@ -97,7 +101,7 @@ Realice los pasos siguientes para aplicar la actualización 1.2. **Las actualiza
 
 [!INCLUDE [storsimple-install-update-option1](../../includes/storsimple-install-update-option1.md)]
 
-## Opción 2: use el Portal de Azure clásico para aplicar la actualización 1.2 después de quitar la configuración de la puerta de enlace
+## <a name="option-2-use-the-azure-classic-portal-to-apply-update-12-after-removing-the-gateway-configuration"></a>Opción 2: use el Portal de Azure clásico para aplicar la actualización 1.2 después de quitar la configuración de la puerta de enlace
 Este procedimiento solo se aplica a los dispositivos StorSimple que ejecutan una versión del software anterior a la actualización 1 y tienen una puerta de enlace establecida en una interfaz de red que no sea DATA 0. Deberá borrar la configuración de la puerta de enlace antes de aplicar la actualización.
 
 La actualización puede tardar unas horas en completarse. Si los hosts se encuentran en subredes diferentes, la eliminación de la configuración de la puerta de enlace de las interfaces de iSCSI podría provocar un tiempo de inactividad. Para reducir el tiempo de inactividad, se recomienda configurar DATA 0 para el tráfico iSCSI.
@@ -108,7 +112,12 @@ Realice los pasos siguientes para deshabilitar la interfaz de red con la puerta 
 
 [!INCLUDE [storsimple-install-troubleshooting](../../includes/storsimple-install-troubleshooting.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [lanzamiento de la actualización 1.2](storsimple-update1-release-notes.md).
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

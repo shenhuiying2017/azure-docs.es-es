@@ -1,22 +1,26 @@
 ---
-title: Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL | Microsoft Docs
+title: Uso de etiquetas para instrumentar consultas en SQL Data Warehouse | Microsoft Docs
 description: Sugerencias para usar etiquetas para instrumentar las consultas en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 44988de8-04c1-4fed-92be-e1935661a4e8
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 5c72cd2c80d9fcee3d9340c23a629451c54c9156
+
 
 ---
-# Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL
+# <a name="use-labels-to-instrument-queries-in-sql-data-warehouse"></a>Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL
 Almacenamiento de datos SQL admite un concepto conocido como etiquetas de consulta. Antes de entrar en materia, vamos a ver un ejemplo:
 
 ```sql
@@ -44,16 +48,20 @@ WHERE   r.[label] = 'My Query Label'
 > 
 > 
 
-## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

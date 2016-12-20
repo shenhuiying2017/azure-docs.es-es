@@ -1,12 +1,12 @@
 ---
-title: Códecs y formatos de flujo de trabajo de Media Encoder premium | Microsoft Docs
-description: En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo de Media Encoder premium.
+title: "Códecs y formatos del Flujo de trabajo del Codificador multimedia premium | Microsoft Docs"
+description: "En este tema se proporciona información general de códecs y formatos de formatos de flujo de trabajo de Media Encoder premium."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erik43
-editor: ''
-
+editor: 
+ms.assetid: b197fce8-3b9b-4189-8d08-486810c0426f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako;anilmur
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d7e3bc0ac0c1f0c6bbce0cc25fe7a8df2cc53836
+
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Códecs y formatos de flujo de trabajo del Codificador multimedia Premium
@@ -32,10 +36,10 @@ Este documento contiene una lista de los formatos de archivo de entrada y salida
 
 **Flujo de trabajo del Codificador multimedia premium** admite los subtítulos que se describen en [esta](#closed_captioning) sección. 
 
-## <a name="<a-id="input_formats"></a>media-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
+## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Códecs y formatos de entrada de flujo de trabajo del Codificador multimedia Premium
 En la sección siguiente se enumeran los códecs y formatos de archivo que admite este procesador multimedia como entrada.
 
-### <a name="input-container/file-formats"></a>Formatos de archivo/contenedor de entrada
+### <a name="input-containerfile-formats"></a>Formatos de archivo/contenedor de entrada
 * Adobe® Flash® F4V
 * MXF/SMPTE 377M
 * GXF
@@ -64,10 +68,10 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que admit
 * Windows Media Audio
 * WAV/PCM
 
-## <a name="<a-id="output_format"></a>media-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
+## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Códecs y formatos de salida de flujo de trabajo del Codificador multimedia Premium
 En la sección siguiente se enumeran los códecs y formatos de archivo que se admiten como salida de este procesador multimedia.
 
-### <a name="output-container/file-formats"></a>Formatos de archivo/contenedor de salida
+### <a name="output-containerfile-formats"></a>Formatos de archivo/contenedor de salida
 * Adobe® Flash® F4V
 * MXF (OP1a, XDCAM y AS02)
 * DPP (incluido AS11)
@@ -96,7 +100,7 @@ En la sección siguiente se enumeran los códecs y formatos de archivo que se ad
 * MP3 (MPEG-1 Audio Layer 3)
 * Windows Media Audio
 
-## <a name="<a-id="closed_captioning"></a>support-for-closed-captioning"></a><a id="closed_captioning"></a>Compatibilidad con subtítulos
+## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>Compatibilidad con subtítulos
 En la entrada, el **flujo de trabajo del Codificador multimedia Premium** admite:
 
 1. Archivos SCC
@@ -124,6 +128,9 @@ Si el vídeo de entrada no contiene subtítulos, el recurso de salida seguirá c
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

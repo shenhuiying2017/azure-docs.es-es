@@ -1,22 +1,26 @@
 ---
-title: Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Docs
-description: El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean.
+title: "Vídeos sobre seguridad de Azure de Channel 9 | Microsoft Docs"
+description: "El artículo proporciona una lista protegida de presentaciones de seguridad de Azure en Channel 9. Channel 9 es una comunidad que conecta a las personas que usan nuestros productos con las personas que los crean."
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
 editor: TomSh
-
+ms.assetid: 9e5e14aa-11d7-4242-8b7e-49fd0e79817a
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9713d8b952f79f3ea4010a2d504b5174e70ce9ca
+
 
 ---
-# Vídeos sobre seguridad de Azure de Channel 9
+# <a name="azure-security-videos-on-channel-9"></a>Vídeos sobre seguridad de Azure de Channel 9
 [Channel 9](https://channel9.msdn.com/) es una comunidad que reúne a quienes se encuentran detrás de nuestros productos y los conecta con los clientes.
 
 Creen que hay un gran futuro en el software y se sienten emocionados con ello. Channel 9 es una comunidad para participar en la conversación en curso.
@@ -75,4 +79,8 @@ Azure Active Directory (AD) Privileged Identity Management es una funcionalidad 
 
 Amit Bapat presenta a Scott Almacén de claves de Azure. Con Almacén de claves de Azure puede cifrar claves y pequeños secretos como contraseñas con claves almacenadas en módulos de seguridad de hardware (HSM). Se trata de una administración de secretos basada en hardware y en la nube para Microsoft Azure.
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

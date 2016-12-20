@@ -1,19 +1,23 @@
 ---
-title: Colas de mensajes fallidos del Bus de servicio | Microsoft Docs
-description: Información general de colas de mensajes fallidos del Bus de servicio de Azure
-services: service-bus
+title: Colas de mensajes fallidos de Service Bus | Microsoft Docs
+description: "Información general de colas de mensajes fallidos del Bus de servicio de Azure"
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: clemensv;sethm
+ms.author: clemensv,sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: dfab83bdd505a1a173abc1142da609d31ecbd72a
+
 
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos del Bus de servicio
@@ -83,6 +87,9 @@ Consulte los siguientes artículos para más información sobre las colas de Bus
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Comparación de colas de Azure y colas de Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

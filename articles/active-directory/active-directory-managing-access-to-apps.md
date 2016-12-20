@@ -1,12 +1,12 @@
 ---
-title: Administración del acceso a aplicaciones con Azure AD | Microsoft Docs
-description: Describe cómo Azure Active Directory permite a las organizaciones especificar las aplicaciones a las que cada usuario tiene acceso.
+title: "Administración del acceso a aplicaciones con Azure AD | Microsoft Docs"
+description: "Describe cómo Azure Active Directory permite a las organizaciones especificar las aplicaciones a las que cada usuario tiene acceso."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b0829f18-9e57-4107-925d-5f0457d81671
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d08131936f856ed671a2358867918d5ba40a5897
+
 
 ---
 # <a name="managing-access-to-apps"></a>Administración del acceso a las aplicaciones
 El acceso continuo a las aplicaciones, la evaluación del uso y la generación de informes siguen siendo un desafío después de que una aplicación se integra en el sistema de identidad de su organización. En muchos casos, el administrador de TI o el departamento de soporte técnico deben asumir un rol activo en la administración del acceso a las aplicaciones. En ocasiones, la asignación la realiza un equipo de TI general o departamental. En ocasiones, se pretende que la decisión de asignación se delegue en el responsable de la toma de decisiones, lo que requiere su aprobación antes de que TI realice la asignación.  Otras organizaciones invierten en integración con un sistema automatizado existente de administración de identidades y acceso, como Control de acceso basado en rol (RBAC) o Control de acceso basado en atributos (ABAC). Tanto la integración como el desarrollo de reglas tienden a ser procesos especializados y caros. La supervisión o la generación de informes en cualquier enfoque de administración requieren su propia inversión aparte que resulta costosa y compleja.
 
-## <a name="how-does-azure-active-directory-help?"></a>¿Cómo ayuda Azure Active Directory?
+## <a name="how-does-azure-active-directory-help"></a>¿Cómo ayuda Azure Active Directory?
  Azure AD proporciona una exhaustiva administración del acceso para aplicaciones configuradas, lo que permite a las organizaciones lograr fácilmente las directivas de acceso adecuadas: desde asignación automática y basada en atributos (escenarios ABAC o RBAC) hasta la delegación y la administración de administradores. Con Azure AD pueden conseguir fácilmente directivas complejas al combinar varios modelos de administración para una sola aplicación, e incluso puede volver a usar las reglas de administración entre aplicaciones con los mismos destinatarios.
 
 * [Adición de aplicaciones nuevas o existentes](active-directory-sso-integrate-saas-apps.md)
@@ -48,7 +52,7 @@ En este caso, todos los usuarios asignados se aprovisionarían automáticamente 
 
 Los administradores pueden emplear el [acceso condicional de Azure AD](active-directory-conditional-access.md) para establecer directivas de acceso para roles específicos. Estas directivas pueden incluir si se permite el acceso fuera del entorno corporativo e incluso los requisitos de Multi-Factor Authentication o de los dispositivo para obtener acceso en diversos casos.
 
-## <a name="how-can-i-get-started?"></a>¿Cómo puedo comenzar?
+## <a name="how-can-i-get-started"></a>¿Cómo puedo comenzar?
 En primer lugar, si aún no usa Azure AD y es un administrador de TI:
 
 * [¡Pruébelo!](https://azure.microsoft.com/trial/get-started-active-directory/)  Puede suscribirse a una evaluación gratuita de 30 días hoy e implementar su primera solución en la nube en menos de 5 minutos con este vínculo.
@@ -61,11 +65,14 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 * P+F sobre la asignación de aplicaciones
 * [Panel/informes de uso de aplicaciones](active-directory-passwords-get-insights.md)
 
-## <a name="where-can-i-learn-more?"></a>¿Dónde puedo obtener más información?
+## <a name="where-can-i-learn-more"></a>¿Dónde puedo obtener más información?
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Protección de aplicaciones con acceso condicional](active-directory-conditional-access.md)
 * [Administración de grupos de autoservicio/SSAA](active-directory-accessmanagement-self-service-group-management.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

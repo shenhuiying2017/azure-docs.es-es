@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con PolicyStat | Microsoft Docs'
-description: Aprenda cómo usar PolicyStat con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con PolicyStat | Microsoft Docs"
+description: "Aprenda cómo usar PolicyStat con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: af5eb0f1-1c8e-4809-b0c4-8ccfb915ca42
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 738184f4a253201a9aa7581e03d269a06d7cf48a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
+# <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integración de Azure Active Directory con PolicyStat
 El objetivo de este tutorial es mostrar la integración de Azure y PolicyStat.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-policystat"></a>Habilitación de la integración de aplicaciones para PolicyStat
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para PolicyStat.
 
-### <a name="to-enable-the-application-integration-for-policystat,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:
+### <a name="to-enable-the-application-integration-for-policystat-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para PolicyStat:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-policystat-tutorial/IC700993.png "Active Directory")
@@ -65,7 +69,7 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
 
 ![Atributos](./media/active-directory-saas-policystat-tutorial/IC808628.png "Attributes")
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **PolicyStat**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-policystat-tutorial/IC808629.png "Configure Single Sign-On")
@@ -129,7 +133,7 @@ Los usuarios se agregarán automáticamente en su primer inicio de sesión a tra
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-policystat,-perform-the-following-steps:"></a>Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-policystat-perform-the-following-steps"></a>Para asignar usuarios a PolicyStat, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **PolicyStat**, haga clic en **Asignar usuarios**.
    
@@ -140,6 +144,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

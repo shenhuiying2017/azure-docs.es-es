@@ -1,5 +1,5 @@
 ---
-title: Roles web y de trabajo de Python con Visual Studio | Microsoft Docs
+title: "Introducción a Python y a Azure Cloud Services | Microsoft Docs"
 description: "Información general sobre el uso de Python Tools para Visual Studio para crear servicios en la nube de Azure, incluidos roles web y roles de trabajo."
 services: cloud-services
 documentationcenter: python
@@ -12,15 +12,21 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d951e05a9a0ae59adb64d53726e9898d95424d80
+ms.sourcegitcommit: 712c62ed3d5ff21847e2431df3530e7d39c6aae2
+ms.openlocfilehash: 53f7c17d8404bb02ab8bb2be9018ba2b179f1b08
 
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Roles web y de trabajo de Python con herramientas de Python para Visual Studio
+
+> [!div class="op_single_selector"]
+> * [.NET](cloud-services-dotnet-get-started.md)
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
+
 En este artículo se ofrece información general sobre el uso de roles web y de trabajo de Python con [Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio]. Aprenderá a usar Visual Studio para crear e implementar un servicio en la nube básico que use Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -365,6 +371,6 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

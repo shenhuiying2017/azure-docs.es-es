@@ -1,12 +1,12 @@
 ---
 title: Todos los temas del servicio SQL Server Stretch Database | Microsoft Docs
-description: Tabla de todos los temas del servicio de Azure SQL Server Stretch Database que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones.
+description: "Tabla de todos los temas del servicio de Azure SQL Server Stretch Database que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones."
 services: sql-server-stretch-database
-documentationcenter: ''
+documentationcenter: 
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
-
+ms.assetid: b1718024-84d6-4f5c-a912-3a99edb3f632
 ms.service: sql-server-stretch-database
 ms.workload: sql-server-stretch-database
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
+
 
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Todos los temas del servicio SQL Server Stretch Database de Azure
@@ -54,6 +58,9 @@ En este documento se muestran todos los temas relacionados directamente con el s
 | 14 |[Copia de seguridad y restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-backup.md) |Obtenga información sobre cómo realizar una copia de seguridad de bases de datos habilitadas para Stretch. |
 | 15 |[Restauración de bases de datos habilitadas para Stretch](sql-server-stretch-database-restore.md) |Obtenga información sobre cómo restaurar bases de datos habilitadas para Stretch. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

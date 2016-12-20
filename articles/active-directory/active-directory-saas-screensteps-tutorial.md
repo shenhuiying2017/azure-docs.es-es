@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con ScreenSteps | Microsoft Docs'
-description: Aprenda cómo usar ScreenSteps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con ScreenSteps | Microsoft Docs"
+description: "Aprenda cómo usar ScreenSteps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 4563fe94-a88f-4895-a07f-79df44889cf9
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9e097ed265381225deeda19642c281223907a4cc
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
+# <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: Integración de Azure Active Directory con ScreenSteps
 El objetivo de este tutorial es mostrar la integración de Azure y ScreenSteps.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-screensteps"></a>Habilitación de la integración de aplicaciones para ScreenSteps
 El objetivo de esta sección es describir cómo habilitar la integración de las aplicaciones para ScreenSteps.
 
-### <a name="to-enable-the-application-integration-for-screensteps,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para ScreenSteps:
+### <a name="to-enable-the-application-integration-for-screensteps-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para ScreenSteps:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-screensteps-tutorial/IC700993.png "Active Directory")
@@ -61,7 +65,7 @@ El objetivo de esta sección es describir cómo habilitar la integración de las
 
 El objetivo de esta sección es describir cómo se habilita la autenticación de los usuarios en ScreenSteps con su cuenta de Azure AD usando el protocolo SAML basado en la federación.
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **ScreenSteps**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-screensteps-tutorial/IC778519.png "Configure single sign-on")
@@ -108,7 +112,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 Para permitir que los usuarios de Azure AD inicien sesión en **ScreenSteps**, deben aprovisionarse en **ScreenSteps**.  
 En el caso de **ScreenSteps**, el aprovisionamiento es una tarea manual.
 
-### <a name="to-provision-a-user-account-to-screensteps,-perform-the-following-steps:"></a>Para aprovisionar cuentas de usuario a ScreenSteps, realice los siguientes pasos:
+### <a name="to-provision-a-user-account-to-screensteps-perform-the-following-steps"></a>Para aprovisionar cuentas de usuario a ScreenSteps, realice los siguientes pasos:
 1. Inicie sesión en su inquilino de **ScreenSteps** .
 2. Haga clic en **Administración de cuentas**.
    
@@ -135,7 +139,7 @@ En el caso de **ScreenSteps**, el aprovisionamiento es una tarea manual.
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-screensteps,-perform-the-following-steps:"></a>Para asignar usuarios a ScreenSteps, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-screensteps-perform-the-following-steps"></a>Para asignar usuarios a ScreenSteps, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **ScreenSteps**, haga clic en **Asignar usuarios**.
    
@@ -146,6 +150,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

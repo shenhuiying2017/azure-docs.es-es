@@ -1,12 +1,12 @@
 ---
-title: Introducción al modelo de autenticación y seguridad de los Centros de eventos | Microsoft Docs
-description: Introducción al modelo de autenticación y seguridad de Centros de eventos
+title: "Introducción al modelo de autenticación y seguridad de Event Hubs | Microsoft Docs"
+description: "Introducción al modelo de autenticación y seguridad de Centros de eventos"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
 ms.author: sethm;clemensv
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de los Centros de eventos
@@ -24,7 +28,7 @@ El modelo de seguridad de los Centros de eventos cumple los siguientes requisito
 * Un dispositivo no autorizado puede bloquearse para que no envíe datos a un Centro de eventos.
 
 ## <a name="device-authentication"></a>Autenticación de dispositivos
-El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
+El modelo de seguridad de Event Hubs se basa en una combinación de tokens de [firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-shared-access-signature-authentication.md) y *publicadores de eventos*. Un publicador de eventos define un extremo virtual para un Centro de eventos. El publicador solo puede usarse para enviar mensajes a un Centro de eventos. No es posible recibir mensajes desde un publicador.
 
 Normalmente, un Centro de eventos emplea a un publicador por dispositivo. Todos los mensajes que se envíen a cualquiera de los publicadores de un Centro de eventos se ponen en cola dentro de ese Centro de eventos. Los publicadores permiten control de acceso y limitación avanzados.
 
@@ -39,7 +43,7 @@ Cuando se crea un espacio de nombres de Centros de eventos, Centros de eventos d
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el Centro de eventos:
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -60,7 +64,7 @@ nm.CreateEventHub(ed);
 ### <a name="generate-tokens"></a>Generación de tokens
 Puede generar tokens con la clave de SAS. Solo debe generar un token por dispositivo. Los tokens se pueden producir con el método siguiente. Todos los tokens se generan con la clave **EventHubSendKey** . A cada token se le asigna un URI único.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
@@ -68,13 +72,13 @@ Al llamar a este método, se debe especificar el URI como `//<NAMESPACE>.service
 
 Este método genera un token con la estructura siguiente:
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
 La fecha de expiración del token se especifica en segundos desde el 1 de enero de 1970. A continuación, se muestra un ejemplo de un token:
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
@@ -109,6 +113,6 @@ Para más información sobre Centros de eventos, visite los siguientes temas:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

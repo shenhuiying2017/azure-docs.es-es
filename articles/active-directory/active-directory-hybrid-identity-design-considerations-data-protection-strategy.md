@@ -1,12 +1,12 @@
 ---
-title: 'Consideraciones sobre el diseño de identidades híbridas de Azure Active Directory: definir la estrategia de protección de datos| Microsoft Docs'
-description: Definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidades híbridas de Azure Active Directory: definir la estrategia de protección de datos| Microsoft Docs"
+description: "Definirá la estrategia de protección de datos para que una solución de identidad híbrida cumpla los requisitos empresariales que se definen."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 93ddb2715870348cbaaccfb05f332351dd27ae2c
+
 
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definición de una estrategia de protección de datos para soluciones de identidad híbrida
@@ -112,18 +116,19 @@ Cada una de las interacciones del diagrama que se muestra en la Ilustración X r
 
 1. Acceso condicional a las aplicaciones hospedadas localmente: puede usar dispositivos registrados con directivas de acceso en las aplicaciones configuradas para usar AD FS con Windows Server 2012 R2. Para obtener más información sobre cómo configurar el acceso condicional localmente, consulte [Configuración del acceso condicional local mediante el registro de dispositivos de Azure Active Directory](active-directory-conditional-access-on-premises-setup.md).
 2. Control de acceso al Portal de administración de Azure: Azure también tiene la funcionalidad de controlar el acceso al Portal de administración mediante el uso del control de acceso basado en rol (RBAC, control de acceso basado en rol). Este método permite a la empresa restringir la cantidad de operaciones que una persona puede hacer una vez que tenga acceso al Portal de administración de Azure. Si se usa RBAC para controlar el acceso al portal, los administradores de TI pueden delegar el acceso con los siguientes enfoques de administración de acceso:
-   
-   * Asignación de roles basada en grupo: se puede asignar acceso a los grupos de Azure AD que se puedan sincronizar desde Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
-   * Sacar provecho a los roles integrados de Azure: se pueden usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y grupos tienen permiso para realizar solo las tareas que necesitan para sus trabajos.
-   * Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
+
+* Asignación de roles basada en grupo: se puede asignar acceso a los grupos de Azure AD que se puedan sincronizar desde Active Directory local. Esto le permite aprovechar las inversiones que su organización realizó en herramientas y procesos para administrar grupos. También puede usar la característica de administración de grupos delegados de Azure AD Premium.
+* Sacar provecho a los roles integrados de Azure: se pueden usar tres roles (Propietario, Colaborador y Lector) para asegurarse de que los usuarios y grupos tienen permiso para realizar solo las tareas que necesitan para sus trabajos.
+* Acceso granular a los recursos: puede asignar roles a los usuarios y grupos para una suscripción concreta, un grupo de recursos o un recurso individual de Azure como un sitio web o una base de datos. De esta forma, puede asegurarse de que los usuarios tengan acceso a todos los recursos que necesitan y ningún acceso a los que no necesitan administrar.
 
 > [!NOTE]
 > Para más información sobre esta funcionalidad, consulte [Role-based access control in Azure](https://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) (Control de acceso basado en rol en Azure). Los desarrolladores que compilan aplicaciones y desean personalizar el control de acceso a ellas, también pueden usar los roles de aplicación de Azure AD para la autorización. Para usar esta capacidad, revise el [ejemplo WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) de creación de una aplicación.
 > 
 > 
 
-1. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune: los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Para obtener más información, vea [Directivas de dispositivos de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md).
-2. Acceso condicional para aplicaciones SaaS: [esta característica](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite configurar reglas de acceso a la autenticación multifactor por aplicación y la capacidad de bloquear el acceso a los usuarios que no estén en una red de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
+3. Acceso condicional para aplicaciones de Office 365 con Microsoft Intune: los administradores de TI pueden aprovisionar directivas de dispositivos de acceso condicional para proteger los recursos corporativos, al tiempo que permiten que los trabajadores de la información con dispositivos compatibles tengan acceso a los servicios. Para obtener más información, vea [Directivas de dispositivos de acceso condicional para servicios de Office 365](active-directory-conditional-access-device-policies.md).
+
+4. Acceso condicional para aplicaciones SaaS: [esta característica](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) permite configurar reglas de acceso a la autenticación multifactor por aplicación y la capacidad de bloquear el acceso a los usuarios que no estén en una red de confianza. La regla de autenticación multifactor puede aplicarse a todos los usuarios que están asignados a la aplicación o solo a los que pertenecen a grupos de seguridad especificados. Los usuarios pueden excluirse del requisito de autenticación multifactor si van a tener acceso a la aplicación desde una dirección IP que se encuentre dentro de la red de la organización.
 
 Dado que las opciones de control de acceso usan un enfoque multicapa, la comparación entre ellas no se puede aplicar a esta tarea. Asegúrese de que saque provecho a todas las opciones disponibles para cada escenario que requiera que controle el acceso a sus recursos.
 
@@ -164,6 +169,9 @@ Dado que las opciones para la respuesta ante incidentes usan un enfoque multicap
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

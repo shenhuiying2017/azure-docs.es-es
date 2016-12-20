@@ -1,37 +1,41 @@
 ---
-title: Configuración avanzada para el SDK de Android para Azure Mobile Engagement
-description: Describe las opciones de configuración avanzada, incluido el manifiesto de Android con el SDK de Android para Azure Mobile Engagement
+title: "Configuración avanzada para el SDK de Android para Azure Mobile Engagement"
+description: "Describe las opciones de configuración avanzada, incluido el manifiesto de Android con el SDK de Android para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
+ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
+
 
 ---
-# Configuración avanzada para el SDK de Android para Azure Mobile Engagement
+# <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Configuración avanzada para el SDK de Android para Azure Mobile Engagement
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-logging.md)
-> 
-> 
+> * [Android](mobile-engagement-android-advanced-configuration.md)
+>
+>
 
 Este procedimiento describe cómo configurar diversas opciones de configuración de aplicaciones de Android para Azure Mobile Engagement.
 
-## Requisitos previos
-[!INCLUDE [Requisitos previos](../../includes/mobile-engagement-android-prereqs.md)]
+## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-## Requisitos de permiso
-Algunas opciones requieren permisos específicos, las cuales se enumeran aquí para su referencia e integradas en las características en cuestión. Agregue estos permisos al archivo AndroidManifest.xml del proyecto inmediatamente antes o después de la etiqueta `<application>`.
+## <a name="permission-requirements"></a>Requisitos de permiso
+Algunas opciones requieren permisos específicos, las cuales se enumeran aquí para su referencia e integradas en las características en cuestión. Agregue estos permisos al archivo AndroidManifest.xml del proyecto inmediatamente antes o después de la etiqueta `<application>` .
 
 El código de permiso debe ser similar al siguiente, donde se rellena el permiso adecuado a partir de la tabla siguiente.
 
@@ -41,39 +45,39 @@ El código de permiso debe ser similar al siguiente, donde se rellena el permiso
 | Permiso | Cuándo se usa |
 | --- | --- |
 | INTERNET |Obligatorio. Para informes básicos |
-| ACCESS\_NETWORK\_STATE |Obligatorio. Para informes básicos |
-| RECEIVE\_BOOT\_COMPLETED |Obligatorio. Para mostrar el centro de notificaciones tras el reinicio del dispositivo |
-| WAKE\_LOCK |Se recomienda su uso. Habilita la recopilación de datos cuando se usa la conexión WiFi o cuando la pantalla está apagada |
+| ACCESS_NETWORK_STATE |Obligatorio. Para informes básicos |
+| RECEIVE_BOOT_COMPLETED |Obligatorio. Para mostrar el centro de notificaciones tras el reinicio del dispositivo |
+| WAKE_LOCK |Se recomienda su uso. Habilita la recopilación de datos cuando se usa la conexión WiFi o cuando la pantalla está apagada |
 | VIBRATE |Opcional. Habilita la vibración cuando se reciben las notificaciones |
-| DOWNLOAD\_WITHOUT\_NOTIFICATION |Opcional. Habilita la notificación de panorama general de Android |
-| WRITE\_EXTERNAL\_STORAGE |Opcional. Habilita la notificación de panorama general de Android |
-| ACCESS\_COARSE\_LOCATION |Opcional. Habilita los informes de ubicación en tiempo real |
-| ACCESS\_FINE\_LOCATION |Opcional. Habilita los informes de ubicación basados en GPS |
+| DOWNLOAD_WITHOUT_NOTIFICATION |Opcional. Habilita la notificación de panorama general de Android |
+| WRITE_EXTERNAL_STORAGE |Opcional. Habilita la notificación de panorama general de Android |
+| ACCESS_COARSE_LOCATION |Opcional. Habilita los informes de ubicación en tiempo real |
+| ACCESS_FINE_LOCATION |Opcional. Habilita los informes de ubicación basados en GPS |
 
-A partir de Android M, [algunos permisos se administran en tiempo de ejecución](mobile-engagement-android-location-reporting.md#Android-M-Permissions).
+A partir de Android M, [algunos permisos se administran en tiempo de ejecución](mobile-engagement-android-location-reporting.md#android-m-permissions).
 
 Si ya usa ``ACCESS_FINE_LOCATION``, no necesita usar también ``ACCESS_COARSE_LOCATION``.
 
-## Opciones de configuración del manifiesto de Android
-### Informe de bloqueos
+## <a name="android-manifest-configuration-options"></a>Opciones de configuración del manifiesto de Android
+### <a name="crash-report"></a>Informe de bloqueos
 Si desea deshabilitar los informes de bloqueo, agregue este código entre las etiquetas `<application>` y `</application>`:
 
     <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-### Umbral de ráfaga
+### <a name="burst-threshold"></a>Umbral de ráfaga
 De forma predeterminada, el servicio de Engagement informa los registros en tiempo real. Si su aplicación notifica registros con mucha frecuencia, es mejor almacenar en búfer los registros y notificarlos todos a la vez de manera periódica (esto se conoce como "modo de ráfaga"). Para ello, agregue este código entre las etiquetas `<application>` y `</application>`:
 
     <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). El umbral de ráfaga no debe ser superior a 30 000 (30 segundos).
 
-### Tiempo de espera de sesión
+### <a name="session-timeout"></a>Tiempo de espera de sesión
  Puede finalizar una actividad presionando la tecla **Inicio** o **Atrás**, poniendo el teléfono inactivo o yendo a otra aplicación. De forma predeterminada, una sesión finaliza diez segundos después de su última actividad. Esto evita que una sesión se divida cada vez que el usuario sale de la aplicación y vuelve a ella rápidamente, lo cual puede suceder cuando se selecciona una imagen, se comprueba una notificación, etc. Puede que desee modificar este parámetro. Para ello, agregue este código entre las etiquetas `<application>` y `</application>`:
 
     <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
-## Deshabilitación de los informes de registro
-### Mediante una llamada al método
+## <a name="disable-log-reporting"></a>Deshabilitación de los informes de registro
+### <a name="using-a-method-call"></a>Mediante una llamada al método
 Si desea que Engagement deje de enviar registros, puede efectuar una llamada:
 
     EngagementAgent.getInstance(context).setEnabled(false);
@@ -84,7 +88,7 @@ Si Engagement está activo cuando llama a esta función, puede que el servicio t
 
 Puede habilitar de nuevo los informes de registro mediante la llamada a la misma función con `true`.
 
-### Integración en su propia `PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integración en su propia `PreferenceActivity`
 En lugar de llamar a esta función, también puede integrar este valor directamente en su `PreferenceActivity` existente.
 
 Puede configurar Engagement para usar su archivo de preferencias (con el modo deseado) en el archivo `AndroidManifest.xml` con `application meta-data`:
@@ -114,4 +118,8 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
       android:summaryOn="Engagement is enabled."
       android:summaryOff="Engagement is disabled." />
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Guía para crear un Servicio de datos en Marketplace | Microsoft Docs
-description: Se ofrecen instrucciones detalladas sobre cómo crear, certificar e implementar un servicio de datos para la venta en Azure Marketplace.
+title: "Guía para crear un servicio de datos en Marketplace | Microsoft Docs"
+description: "Se ofrecen instrucciones detalladas sobre cómo crear, certificar e implementar un servicio de datos para la venta en Azure Marketplace."
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
-manager: ''
-editor: ''
-
+manager: hascipio
+editor: 
+ms.assetid: 3a632825-db5b-49ec-98bd-887138798bc4
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 60d3225f276b54e08946744838a5028a02666149
+
 
 ---
-# Asignación de un servicio web existente a OData a través de CSDL
+# <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>Asignación de un servicio web existente a OData a través de CSDL
 > [!IMPORTANT]
 > **En este momento, ya no se pueden incorporar nuevos editores del Servicio de datos. No se aprobarán nuevos servicios de datos para mostrarse en lista.** Si tiene una aplicación de negocio de SaaS que desea publicar en AppSource, puede encontrar más información [aquí](https://appsource.microsoft.com/partners). Si tiene aplicaciones IaaS o un servicio de desarrollo que quiera publicar en Azure Marketplace, puede encontrar más información [aquí](https://azure.microsoft.com/marketplace/programs/certified/).
 > 
@@ -24,7 +28,7 @@ ms.author: hascipio; avikova
 
 Este artículo brinda información general sobre cómo usar CSDL para asignar un servicio existente a un servicio compatible de OData. Explica cómo crear el documento de asignación (CSDL) que transforma la solicitud de entrada desde el cliente a través de una llamada de servicio y el resultado (datos) de vuelta al cliente a través de una fuente compatible con OData. Microsoft Azure Marketplace expone los servicios a los usuarios finales a través del protocolo de OData. Los proveedores de contenido (propietarios de los datos) exponen los servicios de diversas formas, como REST, SOAP, etc.
 
-## ¿Qué es un CSDL y cuál es su estructura?
+## <a name="what-is-a-csdl-and-its-structure"></a>¿Qué es un CSDL y cuál es su estructura?
 Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificación que define cómo describir el servicio web o el servicio de base de datos en un lenguaje XML común para Azure Marketplace.
 
 Información general simple sobre el **flujo de solicitud:**
@@ -35,7 +39,7 @@ El **flujo de datos** va en la dirección opuesta:
 
   `Client <- Azure Marketplace <- Content Provider’s WebService`
 
-La **figura 1** muestra cómo un cliente puede obtener datos de un proveedor de contenido (su servicio) a través de Azure Marketplace. El componente de asignación/transformación utiliza el CSDL para controlar el paso de la solicitud y los datos entre los servicios del proveedor de contenido y el cliente que realiza la solicitud.
+**figura 1** muestra cómo un cliente puede obtener datos de un proveedor de contenido (su servicio) a través de Azure Marketplace.  El componente de asignación/transformación utiliza el CSDL para controlar el paso de la solicitud y los datos entre los servicios del proveedor de contenido y el cliente que realiza la solicitud.
 
 *Figura 1: Flujo detallado desde el cliente que realiza la solicitud al proveedor de contenido a través de Azure Marketplace*
 
@@ -43,9 +47,9 @@ La **figura 1** muestra cómo un cliente puede obtener datos de un proveedor de 
 
 Para obtener información sobre Atom, Atom Pub y el protocolo OData en que se basan las extensiones de Azure Marketplace, revise: [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-Extracto del vínculo anterior: *"El propósito del protocolo Open Data (en adelante, OData) es brindar un protocolo basado en REST para las operaciones de tipo CRUD (crear, leer, actualizar y eliminar) en los recursos expuestos como servicios de datos. Un "servicio de datos" es un punto de conexión donde hay datos expuestos desde una o más "colecciones", cada una de las cuales con cero o más "entradas", que consisten en pares de tipo nombre-valor. OData es publicado por Microsoft según los estándares OASIS (Organización para el fomento de los estándares de información estructurada) para que cualquier persona que así lo desee pueda crear servidores, clientes o herramientas sin regalías ni restricciones".*
+Extracto del vínculo anterior:       *"El propósito del protocolo Open Data (en adelante, OData) es brindar un protocolo basado en REST para las operaciones de tipo CRUD (crear, leer, actualizar y eliminar) en los recursos expuestos como servicios de datos. Un "servicio de datos" es un punto de conexión donde hay datos expuestos desde una o más "colecciones", cada una de las cuales con cero o más "entradas", que consisten en pares de tipo nombre-valor. OData es publicado por Microsoft según los estándares OASIS (Organización para el fomento de los estándares de información estructurada) para que cualquier persona que así lo desee pueda crear servidores, clientes o herramientas sin regalías ni restricciones".*
 
-### El CSDL debe definir tres partes fundamentales:
+### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>El CSDL debe definir tres partes fundamentales:
 * El **punto de conexión** del proveedor de servicios: La dirección web (URI) del servicio.
 * Los **parámetros de datos** transmitidos como entrada al proveedor de servicios: Las definiciones de los parámetros que se envían al servicio del proveedor de contenido al tipo de datos.
 * El **esquema** de los datos que se devuelven al servicio que realiza la solicitud: El esquema de los datos que entrega el servicio del proveedor de contenido, incluido el contenedor, las colecciones/tablas, las variables/columnas y los tipos de datos.
@@ -54,42 +58,42 @@ El siguiente diagrama muestra información general del flujo desde donde el clie
 
   ![dibujo](media/marketplace-publishing-data-service-creation-odata-mapping/figure-2.png)
 
-### Pasos:
+### <a name="steps"></a>Pasos:
 1. El cliente envía la solicitud a través de una llamada de servicio completa con los parámetros de entrada definidos en XML a Azure Marketplace.
 2. CSDL se utiliza para validar la llamada de servicio.
    * Azure Marketplace envía luego la llamada de servicio con formato al servicio de proveedores de contenido.
 3. El servicio web ejecuta y realiza la acción del verbo Http (es decir, GET). Los datos se devuelven a Azure Marketplace donde los datos solicitados (si hay) se exponen en formato XML al cliente con la asignación definida en el CSDL.
 4. El cliente recibe los datos (si hay) en formato XML o JSON.
 
-## Definiciones
-### OData ATOM Pub
+## <a name="definitions"></a>Definiciones
+### <a name="odata-atom-pub"></a>OData ATOM Pub
 Una extensión de ATOM Pub donde cada entrada representa una fila de un conjunto de resultados. Se mejora la parte de contenido de la entrada para contener los valores de la fila, como pares de clave-valor. Puede encontrar más información en este vínculo: [https://www.odata.org/documentation/odata-version-3-0/atom-format/](https://www.odata.org/documentation/odata-version-3-0/atom-format/)
 
-### CSDL: lenguaje de definición de esquemas conceptuales
-Permitir definir funciones (SPROC) y entidades expuestas a través de una base de datos. Puede encontrar más información en este vínculo: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)
+### <a name="csdl---conceptual-schema-definition-language"></a>CSDL: lenguaje de definición de esquemas conceptuales
+Permitir definir funciones (SPROC) y entidades expuestas a través de una base de datos. Puede encontrar más información en este vínculo: [http://msdn.microsoft.com/library/bb399292.aspx](http://msdn.microsoft.com/library/bb399292.aspx)  
 
 > [!TIP]
 > Haga clic en el menú desplegable **Otras versiones** y seleccione una versión si no ve el artículo.
 > 
 > 
 
-### EDM: modelo de datos de entrada
+### <a name="edm---entry-data-model"></a>EDM: modelo de datos de entrada
 * Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
 
-[OverviewLink]: http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-* Presentación técnica: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+[OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
+* Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
 
-[PreviewLink]: http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
+[PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
 * Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
 
-[DataTypesLink]: http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
+[DataTypesLink]:http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx
 
 El siguiente diagrama el flujo detallado de izquierda a derecha desde donde el cliente ingresa la instrucción OData (llamada al servicio web del proveedor de contenido) para recuperar los resultados/datos:
 
   ![dibujo](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
-## Aspectos básicos de CSDL
-Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificación que define cómo describir el servicio web o el servicio de base de datos en un lenguaje XML común para Azure Marketplace. CSDL describe las partes fundamentales que **hacen posible el paso de los datos desde el origen de datos a Azure Marketplace.** A continuación, se describen las partes fundamentales:
+## <a name="csdl-basics"></a>Aspectos básicos de CSDL
+Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificación que define cómo describir el servicio web o el servicio de base de datos en un lenguaje XML común para Azure Marketplace. CSDL describe las partes fundamentales que **hacen posible el paso de los datos desde el origen de datos a Azure Marketplace.**  A continuación, se describen las partes fundamentales:
 
 * Información de interfaz que describe todas las funciones disponibles al público (nodo FunctionImport).
 * Información de tipo de datos para todas las solicitudes de mensajes (entrada) y respuestas de mensajes (salidas) (nodos EntityContainer/EntitySet/EntityType).
@@ -98,22 +102,22 @@ Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificació
 
 En resumen, el CSDL representa un contrato independiente de la plataforma y del lenguaje entre el solicitante del servicio y el proveedor de servicios. Con el CSDL, un cliente puede ubicar un servicio web o un servicio de base de datos e invocar cualquiera de sus funciones disponibles al público.
 
-### Relación de un CSDL con una base de datos o una colección
+### <a name="relating-a-csdl-to-a-database-or-a-collection"></a>Relación de un CSDL con una base de datos o una colección
 **La especificación de CSDL**
 
-CSDL es la gramática de XML para describir un servicio web. La especificación misma se divide en 4 elementos importantes: EntitySet, FunctionImport NameSpace y EntityType.
+CSDL es la gramática de XML para describir un servicio web. La especificación misma se divide en cuatro elementos importantes: EntitySet, FunctionImport, NameSpace y EntityType.
 
 Para poder comprender mejor esta abstracción, relacionemos un CSDL con una tabla.
 
 Recuerde:
 
-  Representa un contrato independiente de la plataforma y del lenguaje entre el **solicitante del servicio** y el **proveedor de servicios**. Con el CSDL, un **cliente** puede ubicar un **servicio web o un servicio de base de datos** e invocar cualquiera de sus **funciones** disponibles al público.
+  CSDL representa un contrato independiente de la plataforma y del lenguaje entre el **solicitante del servicio** y el **proveedor de servicios**. Con el CSDL, un **cliente** puede ubicar un **servicio web o un servicio de base de datos** e invocar cualquiera de sus **funciones** disponibles al público.
 
 En el caso de un servicio de datos, las cuatro partes de un CSDL se pueden pensar como una base de datos, una tabla, una columna y un procedimiento almacenado.
 
 Relacione estos elementos de la siguiente manera en un servicio de datos:
 
-* EntityContainer ~= Base de datos
+* EntityContainer ~=  Base de datos
 * EntitySet ~= Tabla
 * EntityType ~= Columnas
 * FunctionImport ~= Procedimiento almacenado
@@ -125,20 +129,21 @@ Relacione estos elementos de la siguiente manera en un servicio de datos:
 * DELETE: elimina los datos de la base de datos (elimina una colección).
 * PUT: actualiza los datos de una base de datos (reemplaza una colección o crea una).
 
-## Documento de asignación/metadatos
-El documento de asignación/metadatos se usa para asignar los servicios web existentes de un proveedor de contenido para que el sistema de Azure Marketplace pueda exponerlo como un servicio web OData. Se basa en CSDL e implementa algunas extensiones en CSDL para incluir las necesidades de los servicios web basados en REST que se exponen a través de Azure Marketplace. Las extensiones se encuentran en el espacio de nombres [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04).
+## <a name="metadatamapping-document"></a>Documento de asignación/metadatos
+El documento de asignación/metadatos se usa para asignar los servicios web existentes de un proveedor de contenido para que el sistema de Azure Marketplace pueda exponerlo como un servicio web OData. Se basa en CSDL e implementa algunas extensiones en CSDL para incluir las necesidades de los servicios web basados en REST que se exponen a través de Azure Marketplace. Las extensiones se encuentran en el espacio de nombres [http://schemas.microsoft.com/dallas/2010/04](http://schemas.microsoft.com/dallas/2010/04) .
 
-A continuación, aparece un ejemplo del CSDL: (copie y pegue el CSDL de ejemplo siguiente en un editor de XML y cámbielo para que coincida con su servicio. Luego, péguelo en Asignación de CSDL en la pestaña Servicio de datos cuando cree su servicio en el [Portal de publicación de Azure Marketplace](https://publish.windowsazure.com)).
+A continuación, aparece un ejemplo del CSDL: (copie y pegue el CSDL de ejemplo siguiente en un editor de XML y cámbielo para que coincida con su servicio.  Luego, péguelo en Asignación de CSDL en la pestaña Servicio de datos cuando cree su servicio en el [Portal de publicación de Azure Marketplace](https://publish.windowsazure.com)).
 
 **Términos:** relacionan los términos CSDL con los términos de la interfaz de usuario del [Portal de publicación](https://publish.windowsazure.com) (PPUI).
 
 * El título ("Title") de la oferta en la PPUI se relaciona con MyWebOffer.
-* MyCompany en la PPUI se relaciona con el **Nombre para mostrar del publicador** de la interfaz de usuario de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure).
+* MyCompany en la PPUI se relaciona con el **Nombre para mostrar del publicador** de la interfaz de usuario de [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) .
 * La API se relaciona con una web o un servicio de datos (un plan en la PPUI)
 
-**Jerarquía:** una empresa (proveedor de contenido) es propietaria de ofertas que tienen planes, es decir, servicios, que se alinean con una API.
+**Jerarquía:**
+ una empresa (proveedor de contenido) es propietaria de ofertas que tienen planes, es decir, servicios, que se alinean con una API.
 
-### Ejemplo de CSDL de servicio web
+### <a name="webservice-csdl-example"></a>Ejemplo de CSDL de servicio web
 Se conecta a un servicio que expone un punto de conexión de aplicaciones web (como una aplicación C#).
 
         <?xml version="1.0" encoding="utf-8"?>
@@ -250,11 +255,11 @@ Se conecta a un servicio que expone un punto de conexión de aplicaciones web (c
         </Schema>
 
 > [!TIP]
-> Puede ver más ejemplos de servicio web de CSDL en el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md).
+> Puede ver más ejemplos de servicio web de CSDL en el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md)
 > 
 > 
 
-### Ejemplo de CSDL de servicio de datos
+### <a name="dataservice-csdl-example"></a>Ejemplo de CSDL de servicio de datos
 Se conecta a un servicio que expone una vista o una tabla de base de datos como un punto de conexión. Los ejemplos siguientes muestran dos API para un CSDL de API basada en base de datos (puede usar vistas en lugar de tablas).
 
         <?xml version="1.0"?>
@@ -308,9 +313,14 @@ Se conecta a un servicio que expone una vista o una tabla de base de datos como 
         </EntityType>
         </Schema>
 
-## Otras referencias
-* Si está interesado en conocer los nodos específicos y sus parámetros, consulte el artículo [Understanding the nodes schema for mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping-nodes.md), donde encontrará definiciones y explicaciones, ejemplos y contexto de caso de uso.
-* Si está interesado en revisar ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md), donde encontrará ejemplos de código y una explicación del contexto y la sintaxis del código.
+## <a name="see-also"></a>Otras referencias
+* Si está interesado en conocer los nodos específicos y sus parámetros, consulte el artículo [Understanding the nodes schema for mapping an existing web service to OData through CSDL](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) , donde encontrará definiciones y explicaciones, ejemplos y contexto de caso de uso.
+* Si está interesado en revisar ejemplos, consulte el artículo [Examples of mapping an existing web service to OData through CSDLs](marketplace-publishing-data-service-creation-odata-mapping-examples.md) , donde encontrará ejemplos de código y una explicación del contexto y la sintaxis del código.
 * Para volver a la ruta de acceso prescrita para publicar un servicio de datos en Azure Marketplace, consulte el artículo [Data Service Publishing Guide for the Azure Marketplace](marketplace-publishing-data-service-creation.md).
 
-<!---HONumber=AcomDC_0831_2016--->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

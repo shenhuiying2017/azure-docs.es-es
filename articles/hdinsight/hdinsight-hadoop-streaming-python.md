@@ -1,13 +1,13 @@
 ---
-title: Desarrollo de trabajos de Python MapReduce con HDInsight | Microsoft Docs
-description: Aprenda a crear y ejecutar trabajos de MapReduce para Python en clústeres de HDInsight basado en Linux.
+title: Desarrollo de trabajos de MapReduce para Python con HDInsight | Microsoft Docs
+description: "Aprenda a crear y ejecutar trabajos de MapReduce para Python en clústeres de HDInsight basado en Linux."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/11/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 729550243e18c7a9f514aa18d1f4fdd8142d141b
+
 
 ---
 # <a name="develop-python-streaming-programs-for-hdinsight"></a>Desarrollo de programas de streaming para HDInsight
@@ -46,7 +50,7 @@ El siguiente diagrama de flujo ilustra lo que sucede durante las fases de asigna
 
 ![ilustración de reducción del mapa](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## <a name="why-python?"></a>¿Por qué Python?
+## <a name="why-python"></a>¿Por qué Python?
 Python es un lenguaje de programación de uso general y alto nivel que le permite expresar conceptos en menos líneas de código que muchos de los otros lenguajes. Se volvió popular recientemente entre los científicos de datos como un lenguaje para la creación de prototipos porque su naturaleza interpretada, sus tipos dinámicos y su sintaxis elegante lo hacen apto para un desarrollo de aplicaciones rápido.
 
 Python está instalado en todos los clústeres de HDInsight.
@@ -63,7 +67,7 @@ Python puede controlar fácilmente estos requisitos si usa el módulo **sys** pa
 ## <a name="create-the-mapper-and-reducer"></a>Creación del asignador y del reductor
 El asignador y el reductor son archivos de texto, en este caso **mapper.py** y **reducer.py** (para que quede claro qué hace cada uno). Puede crearlos con el editor que prefiera.
 
-### <a name="mapper.py"></a>Mapper.py
+### <a name="mapperpy"></a>Mapper.py
 Cree un archivo nuevo llamado **mapper.py** y use el siguiente código como el contenido:
 
     #!/usr/bin/env python
@@ -92,7 +96,7 @@ Cree un archivo nuevo llamado **mapper.py** y use el siguiente código como el c
 
 Dedique un momento para leer el código y comprender lo que hace.
 
-### <a name="reducer.py"></a>reducer.py
+### <a name="reducerpy"></a>reducer.py
 Cree un archivo nuevo llamado **reducer.py** y use los siguientes elementos como el contenido:
 
     #!/usr/bin/env python
@@ -204,6 +208,9 @@ Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsig
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de trabajos de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

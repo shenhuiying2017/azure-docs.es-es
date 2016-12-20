@@ -46,8 +46,8 @@
 ### [Uso de AMQP con temas y colas con particiones](service-bus-partitioned-queues-and-topics-amqp-overview.md)
 ### [Espacios de nombres emparejados](service-bus-paired-namespaces.md)
 ### [Encadenamiento de entidades con reenvío automático](service-bus-auto-forwarding.md)
-## Administrar
-### [Uso de plantillas de ARM](service-bus-resource-manager-overview.md)
+## Manage
+### [Uso de plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md)
 ### [Uso de PowerShell para aprovisionar entidades](service-bus-powershell-how-to-provision.md)
 
 # Referencia
@@ -57,6 +57,10 @@
 ## [Cuotas](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [Sintaxis de SQLFilter](service-bus-messaging-sql-filter.md)
+## [Sintaxis de SQLRuleAction](service-bus-messaging-sql-rule-action.md)
+## [Guía del protocolo AMQP1.0](service-bus-amqp-protocol-guide.md)
+### [Operaciones basadas en solicitud/respuesta de AMQP 1.0](service-bus-amqp-request-response.md)
 
 # Recursos
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -69,6 +73,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

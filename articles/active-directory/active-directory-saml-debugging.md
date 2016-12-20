@@ -1,11 +1,11 @@
 ---
-title: Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory | Microsoft Docs
-description: 'Obtenga información acerca de cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory  '
+title: "Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory | Microsoft Docs"
+description: "Obtenga información acerca de cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory  "
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
 manager: femila
-
+ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,6 +13,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
 ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e55582ccafabd5bb305b2bf0cef65ccdb5610be2
+
 
 ---
 # <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
@@ -36,6 +40,6 @@ Para ver el token SAML, seleccione esta línea y, luego, seleccione la pestaña 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

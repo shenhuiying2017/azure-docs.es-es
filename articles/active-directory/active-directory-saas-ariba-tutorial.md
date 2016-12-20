@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Ariba | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Ariba.
+title: "Tutorial: Integración de Azure Active Directory con Ariba | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Ariba."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c264854aaac29489bb70e1c0fa52be456a598e9
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-ariba"></a>Tutorial: Integración de Azure Active Directory con Ariba
+# <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integración de Azure Active Directory con Ariba
 El objetivo de este tutorial es mostrar cómo integrar Ariba con Azure Active Directory (Azure AD).
 
 Integrar Ariba con Azure AD le proporciona las siguientes ventajas:
@@ -210,7 +214,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Ariba en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Ariba.
@@ -239,6 +243,6 @@ Al hacer clic en el icono de Ariba en el panel de acceso, debería iniciar sesi�
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

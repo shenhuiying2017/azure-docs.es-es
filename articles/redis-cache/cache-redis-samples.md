@@ -1,12 +1,12 @@
 ---
-title: Ejemplos de Caché en Redis de Azure | Microsoft Docs
-description: Obtener información acerca de cómo usar Caché en Redis de Azure
+title: Ejemplos de Azure Redis Cache | Microsoft Docs
+description: "Obtener información acerca de cómo usar Caché en Redis de Azure"
 services: redis-cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
@@ -14,15 +14,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f5716ebd46560793a4f7161705252839a3f70e44
+
 
 ---
-# Ejemplos de Caché en Redis de Azure
+# <a name="azure-redis-cache-samples"></a>Ejemplos de Caché en Redis de Azure
 Este tema proporciona una lista de ejemplos de Caché en Redis de Azure y cubre escenarios como conexión a una caché, operaciones de lectura y escritura en una caché y uso de proveedores de Caché en Redis de ASP.NET. Algunos de los ejemplos son proyectos que se pueden descargar y algunos otros proporcionan instrucciones paso a paso e incluyen fragmentos de código pero no vínculos a un proyecto que se puede descargar.
 
-## Ejemplos Hello world
+## <a name="hello-world-samples"></a>Ejemplos Hello world
 Los ejemplos de esta sección muestran los conceptos básicos de conexión a una instancia de Caché en Redis de Azure y de lectura y escritura de datos en la memoria caché usando una gran variedad de lenguajes y clientes de Redis.
 
-El ejemplo [Hello world ](https://github.com/rustd/RedisSamples/tree/master/HelloWorld)muestra cómo realizar diversas operaciones de caché mediante el cliente .NET [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
+En el ejemplo [Hello world](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) se muestra cómo realizar diversas operaciones de caché mediante el cliente .NET [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis).
 
 Este ejemplo lo siguiente:
 
@@ -35,34 +39,39 @@ Este ejemplo lo siguiente:
 * Uso de conjuntos de Redis para implementar el etiquetado
 * Trabajar con el Clúster en Redis
 
-Para obtener más información, consulte la documentación de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) en github y para ver más escenarios de uso, consulte las pruebas unitarias [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
+Para más información, vea la documentación de [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) en GitHub y para ver más escenarios de uso, vea las pruebas unitarias [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests).
 
-[Uso de Caché en Redis de Azure con Python](cache-python-get-started.md) muestra cómo comenzar a usar Caché en Redis de Azure con Python y el cliente r[edis-py](https://github.com/andymccurdy/redis-py).
+[Uso de Azure Redis Cache con Python](cache-python-get-started.md) muestra cómo empezar a usar Azure Redis Cache con Python y el cliente [redis-py](https://github.com/andymccurdy/redis-py).
 
-[Trabajar con objetos .NET en la memoria caché](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) muestra una forma de serializar objetos .NET de forma que pueda realizar operaciones de escritura y lectura con ellos en una instancia de Caché en Redis de Azure.
+[Trabajar con objetos .NET en la memoria caché](cache-dotnet-how-to-use-azure-redis-cache.md#work-with-net-objects-in-the-cache) muestra una forma de serializar objetos .NET de forma que pueda realizar operaciones de escritura y lectura con ellos en una instancia de Caché en Redis de Azure. 
 
-## Uso de Caché en Redis como un backplane de escalado horizontal para ASP.NET SignalRen
+## <a name="use-redis-cache-as-a-scale-out-backplane-for-aspnet-signalr"></a>Uso de Caché en Redis como un backplane de escalado horizontal para ASP.NET SignalRen
 El ejemplo [Uso de Caché en Redis como un backplane de escalado horizontal para ASP.NET SignalR](https://github.com/rustd/RedisSamples/tree/master/RedisAsSignalRBackplane) muestra cómo puede usar Caché en Redis de Azure como un backplane SignalR. Para obtener más información acerca de backplane, consulte [Escalado horizontal SignalR con Redis](http://www.asp.net/signalr/overview/performance/scaleout-with-redis).
 
-## Ejemplo de consulta de cliente de Caché en Redis
+## <a name="redis-cache-customer-query-sample"></a>Ejemplo de consulta de cliente de Caché en Redis
 Este ejemplo compara el rendimiento entre el acceso a datos desde una memoria caché y el acceso a datos desde almacenamiento de persistencia. Este ejemplo tiene dos proyectos.
 
 * [Demostración de cómo Caché en Redis puede mejorar el rendimiento almacenando datos en caché](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
 * [Inicialización de la base de datos y la memoria caché para la demostración](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
-## Estado de sesión de ASP.NET y almacenamiento en caché de resultados
+## <a name="aspnet-session-state-and-output-caching"></a>Estado de sesión de ASP.NET y almacenamiento en caché de resultados
 El ejemplo [Uso de Caché en Redis de Azure para almacenar SessionState y OutputCache de ASP.NET](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) muestra cómo usar Caché en Redis de Azure para almacenar la sesión y la memoria caché de salida usando los proveedores SessionState y OutputCache para Redis.
 
-## Administración de Caché en Redis de Azure con Azure MAML
-El ejemplo [Administración de Caché en Redis de Azure mediante bibliotecas de administración de Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) muestra cómo usar bibliotecas de administración de Azure para administrar (crear, actualizar y eliminar) su memoria caché.
+## <a name="manage-azure-redis-cache-with-maml"></a>Administración de Caché en Redis de Azure con Azure MAML
+El ejemplo [Administración de Caché en Redis de Azure mediante bibliotecas de administración de Azure](https://github.com/rustd/RedisSamples/tree/master/ManageCacheUsingMAML) muestra cómo usar bibliotecas de administración de Azure para administrar (crear, actualizar y eliminar) su memoria caché. 
 
-## Ejemplo de personalización de supervisión
+## <a name="custom-monitoring-sample"></a>Ejemplo de personalización de supervisión
 El [ejemplo de acceso a los datos de supervisión de Caché en Redis](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring) muestra cómo puede obtener acceso a datos de supervisión para su Caché en Redis de Azure fuera del Portal de Azure.
 
-## Un clon de estilo Twitter escrito mediante PHP y Redis
-El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World de Redis. Es un clon de red social mínima de tipo Twitter escrito mediante Redis y PHP mediante el cliente [Predis](https://github.com/nrk/predis). El código fuente está diseñado para ser muy sencillo y al mismo tiempo para mostrar diferentes estructuras de datos de Redis.
+## <a name="a-twitter-style-clone-written-using-php-and-redis"></a>Un clon de estilo Twitter escrito mediante PHP y Redis
+El ejemplo [Retwis](https://github.com/SyntaxC4-MSFT/retwis) es el Hello World de Redis. Es un clon de red social mínima de tipo Twitter escrito mediante Redis y PHP mediante el cliente [Predis](https://github.com/nrk/predis) . El código fuente está diseñado para ser muy sencillo y al mismo tiempo para mostrar diferentes estructuras de datos de Redis.
 
-## Supervisión del ancho de banda
+## <a name="bandwidth-monitor"></a>Supervisión del ancho de banda
 El ejemplo [Supervisión del ancho de banda](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) permite supervisar el ancho de banda utilizado en el cliente. Para medir el ancho de banda, ejecute el ejemplo en el equipo cliente de la caché, realice llamadas a la memoria caché y observe el ancho de banda notificado por el ejemplo de supervisión de ancho de banda.
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

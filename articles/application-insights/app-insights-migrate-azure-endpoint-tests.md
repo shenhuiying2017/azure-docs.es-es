@@ -1,11 +1,11 @@
 ---
-title: Migración de la supervisión de punto de conexión de Azure a las pruebas de disponibilidad de Application Insights
-description: Migración de las pruebas de supervisión de puntos de conexión de Azure en las pruebas de disponibilidad de Application Insights antes del 31 de octubre de 2016.
+title: "Migración de la supervisión de punto de conexión de Azure a las pruebas de disponibilidad de Application Insights"
+description: "Migración de las pruebas de supervisión de puntos de conexión de Azure en las pruebas de disponibilidad de Application Insights antes del 31 de octubre de 2016."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: soubhagyadash
 manager: douge
-
+ms.assetid: 74cc1ddf-1b70-4ad2-bdb5-1bd895937861
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,6 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
+ms.openlocfilehash: 9b3cf88473cd3f4e4e5a383dfdadfe06d4f34f36
+
 
 ---
 # <a name="moving-from-azure-endpoint-monitoring-to-application-insights-availability-tests"></a>Sustitución de la supervisión de punto de conexión de Azure por las pruebas de disponibilidad de Application Insights
@@ -20,7 +24,7 @@ ms.author: awills
 
 Puede editar las nuevas pruebas y hacer el cambio si así lo desea. Las encontrará en el [Portal de Azure](https://portal.azure.com) en el grupo de recursos Default-ApplicationInsights-CentralUS.
 
-## <a name="what-are-availability-tests?"></a>¿Qué son las pruebas de disponibilidad?
+## <a name="what-are-availability-tests"></a>¿Qué son las pruebas de disponibilidad?
 Las pruebas de disponibilidad son una característica de Azure que comprueba continuamente que todos los servicios o sitios web estén activos y en ejecución enviándole solicitudes HTTP (pruebas web de Visual Studio o de ping único) desde un máximo de 16 ubicaciones en todo el mundo. 
 
 En el [Portal de Azure clásico](https://manage.windowsazure.com), estas pruebas se denominaban supervisión de puntos de conexión. Eran de un ámbito más limitado. Las nuevas pruebas de disponibilidad ofrecen una mejora sustancial:
@@ -35,9 +39,9 @@ En el [Portal de Azure clásico](https://manage.windowsazure.com), estas pruebas
 
 Obtenga más información acerca de las [pruebas de disponibilidad aquí](app-insights-monitor-web-app-availability.md).
 
-Las pruebas de disponibilidad forman parte de [Application Insights de Visual Studio](app-insights-overview.md), que es un servicio de análisis extensible para cualquier aplicación web.
+Las pruebas de disponibilidad forman parte de [Azure Application Insights](app-insights-overview.md), que es un servicio de análisis extensible para cualquier aplicación web.
 
-## <a name="so-what's-happening-to-my-endpoint-tests?"></a>¿Qué va a pasar con mis pruebas de puntos de conexión?
+## <a name="so-whats-happening-to-my-endpoint-tests"></a>¿Qué va a pasar con mis pruebas de puntos de conexión?
 * Hemos copiado las pruebas de supervisión de puntos de conexión en las nuevas pruebas de disponibilidad de Application Insights.
 * Las nuevas pruebas de disponibilidad están deshabilitadas actualmente y las pruebas de puntos de conexión antiguas aún están en funcionamiento.
 * Las reglas de alertas *no* se han migrado. Las nuevas pruebas se han configurado inicialmente con una regla predeterminada:
@@ -46,28 +50,28 @@ Las pruebas de disponibilidad forman parte de [Application Insights de Visual St
 
 En el [Portal de Azure](https://portal.azure.com)encontrará las pruebas migradas en el grupo de recursos "Default-ApplicationInsights-CentralUS". Los nombres de las pruebas tienen el prefijo "Migrated-". 
 
-## <a name="what-do-i-need-to-do?"></a>¿Qué tengo que hacer?
+## <a name="what-do-i-need-to-do"></a>¿Qué tengo que hacer?
 * Si por algún motivo no migró sus pruebas, las nuevas pruebas de disponibilidad son [fáciles de configurar](app-insights-monitor-web-app-availability.md).
 
-### <a name="option-a:-do-nothing.-leave-it-to-us."></a>Opción A: no hacer nada. Nosotros nos encargaremos.
+### <a name="option-a-do-nothing-leave-it-to-us"></a>Opción A: no hacer nada. Nosotros nos encargaremos.
 **El 31 de octubre de 2016** se realizaran las siguientes operaciones:
 
 * Deshabilitar las antiguas pruebas de puntos de conexión.
 * Habilitar las pruebas de disponibilidad migradas.
 
-### <a name="option-b:-you-manage-and/or-enable-the-new-tests."></a>Opción B: usted se encarga de administrar y habilitar las nuevas pruebas.
+### <a name="option-b-you-manage-andor-enable-the-new-tests"></a>Opción B: usted se encarga de administrar y habilitar las nuevas pruebas.
 * Revise y edite las nuevas pruebas de disponibilidad en el nuevo [Portal de Azure](https://portal.azure.com). 
   * Revise los criterios de desencadenamiento
   * Revise los destinatarios de correo electrónico
 * Habilite las nuevas pruebas
 * El 31 de octubre de 2016 se deshabilitarán las pruebas de supervisión de puntos de conexión heredadas. 
 
-### <a name="option-c:-opt-out"></a>Opción C: no participar.
+### <a name="option-c-opt-out"></a>Opción C: no participar.
 Si no desea utilizar las pruebas de disponibilidad, puede eliminarlas en el [Portal de Azure](https://portal.azure.com). También hay un vínculo de cancelación de suscripción en la parte inferior de los correos electrónicos de notificación.
 
 Aún así se eliminarán las antiguas pruebas de puntos de conexión el 31 de octubre de 2016. 
 
-## <a name="how-do-i-edit-the-new-tests?"></a>¿Cómo se pueden editar las nuevas pruebas?
+## <a name="how-do-i-edit-the-new-tests"></a>¿Cómo se pueden editar las nuevas pruebas?
 Inicie sesión en el [Portal de Azure](https://portal.azure.com) y busque las pruebas web con el prefijo 'Migrated-': 
 
 ![Elegir grupos de recursos, Default-ApplicationInsights-CentralUS y abrir las pruebas 'migradas'.](./media/app-insights-migrate-azure-endpoint-tests/20.png)
@@ -76,24 +80,24 @@ Edite y/o habilite la prueba:
 
 ![](./media/app-insights-migrate-azure-endpoint-tests/21.png)
 
-## <a name="why-is-this-happening?"></a>¿Por qué ocurre esto?
+## <a name="why-is-this-happening"></a>¿Por qué ocurre esto?
 Un mejor servicio. El servicio de puntos de conexión anterior era mucho más reducido. Solo puede proporcionar dos direcciones URL para las pruebas de ping simples desde tres ubicaciones geográficas en una aplicación web o máquina virtual de Azure. Las nuevas pruebas pueden ejecutar pruebas web de varios pasos desde un máximo de 16 ubicaciones y se pueden especificar hasta 10 pruebas para una aplicación. Puede probar cualquier dirección URL: no tiene que ser un sitio de Azure.
 
 Las nuevas pruebas se configuran independientemente de la aplicación web o máquina virtual que se esté probando. 
 
 Vamos a migrar las pruebas para garantizar que sigue teniendo el control sobre ellas mientras se utiliza el nuevo portal. 
 
-## <a name="what-is-application-insights?"></a>¿Qué es Application Insights?
-Las nuevas pruebas de disponibilidad forman parte de [Application Insights de Visual Studio](app-insights-overview.md). Aquí puede ver un [vídeo de 2 minutos](http://go.microsoft.com/fwlink/?LinkID=733921).
+## <a name="what-is-application-insights"></a>¿Qué es Application Insights?
+Las nuevas pruebas de disponibilidad forman parte de [Azure Application Insights](app-insights-overview.md). Aquí puede ver un [vídeo de 2 minutos](http://go.microsoft.com/fwlink/?LinkID=733921).
 
-## <a name="am-i-paying-for-the-new-tests?"></a>¿Voy a pagar las nuevas pruebas?
+## <a name="am-i-paying-for-the-new-tests"></a>¿Voy a pagar las nuevas pruebas?
 Las pruebas migradas se configuran en un recurso de Application Insights en el plan gratis predeterminado. Esto permite la recopilación de hasta 5 millones de puntos de datos. Esto cubre fácilmente el volumen de datos que utilizarán las pruebas. 
 
 Por supuesto, si le gusta Application Insights y crea más pruebas de disponibilidad o adopta algunas más de sus características de diagnóstico y de supervisión de rendimiento, generará más puntos de datos.  Aún así, el resultado solo sería que podría alcanzar la cuota máxima del plan gratis. No recibirá una factura a menos que decida participar en los planes Estándar o Premium. 
 
 [Más información sobre los precios de Application Insights y la supervisión de la cuota](app-insights-pricing.md). 
 
-## <a name="what-is-and-isn't-migrated?"></a>¿Qué se migra y qué no?
+## <a name="what-is-and-isnt-migrated"></a>¿Qué se migra y qué no?
 Se conserva de las antiguas pruebas de puntos de conexión:
 
 * La dirección URL del punto de conexión que se va a probar.
@@ -106,17 +110,20 @@ No se migran:
 * La regla de desencadenamiento de alerta. La regla que hemos configurado se desencadena cuando una ubicación informa de errores en 5 minutos.
 * Los destinatarios de la alerta. Se enviarán correos electrónicos de notificación a los propietarios y copropietarios de la suscripción. 
 
-## <a name="how-do-i-find-the-new-tests?"></a>¿Cómo encuentro las nuevas pruebas?
+## <a name="how-do-i-find-the-new-tests"></a>¿Cómo encuentro las nuevas pruebas?
 Ahora puede editar cualquiera de las nuevas pruebas si lo desea. Inicie sesión en [Azure Portal](https://portal.azure.com), abra **Grupos de recursos** y seleccione **Default-ApplicationInsights-CentralUS**. En ese grupo, encontrará las nuevas pruebas web. [Más información sobre las nuevas pruebas de disponibilidad](app-insights-monitor-web-app-availability.md).
 
 Tenga en cuenta que los nuevos correos electrónicos de alerta se enviarán desde esta dirección: alertas de App Insights (ai-noreply@microsoft.com)
 
-## <a name="what-happens-if-i-do-nothing?"></a>¿Qué sucederá si no hago nada?
+## <a name="what-happens-if-i-do-nothing"></a>¿Qué sucederá si no hago nada?
 Se aplicará la opción A. Habilitaremos las pruebas migradas y configuraremos las reglas de alerta predeterminadas como se mencionó anteriormente. Tendrá que agregar las reglas de alerta y los destinatarios personalizados como se mencionó anteriormente. Se deshabilitarán las pruebas heredadas de supervisión de puntos de conexión. 
 
-## <a name="where-can-i-provide-feedback-on-this?"></a>¿Dónde puedo proporcionar comentarios sobre las pruebas?
+## <a name="where-can-i-provide-feedback-on-this"></a>¿Dónde puedo proporcionar comentarios sobre las pruebas?
 Agradecemos sus comentarios. Por favor, [envíenos un correo electrónico](mailto:vsai@microsoft.com). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

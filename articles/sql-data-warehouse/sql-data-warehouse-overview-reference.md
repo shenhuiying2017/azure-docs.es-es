@@ -1,22 +1,26 @@
 ---
-title: Temas de referencia sobre Almacenamiento de datos SQL | Microsoft Docs
-description: Vínculos al contenido de referencia de Almacenamiento de datos SQL.
+title: Temas de referencia sobre SQL Data Warehouse | Microsoft Docs
+description: "Vínculos al contenido de referencia de Almacenamiento de datos SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: abecd886-77bd-484f-b006-93600533a044
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/08/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9395c092411ebc056a8b3145a29f3a0c56b2a3cd
+
 
 ---
-# Temas de referencia de Almacenamiento de datos SQL
+# <a name="reference-topics-for-sql-data-warehouse"></a>Temas de referencia de Almacenamiento de datos SQL
 Estos artículos contienen información de referencia sobre Almacenamiento de datos SQL.
 
 * [Elementos del lenguaje Transact-SQL][Elementos del lenguaje Transact-SQL]
@@ -24,8 +28,8 @@ Estos artículos contienen información de referencia sobre Almacenamiento de da
 * [Vistas del sistema Transact-SQL][Vistas del sistema Transact-SQL]
 * [Cmdlets de PowerShell][Cmdlets de PowerShell]
 
-## Pasos siguientes
-Para obtener información de desarrollo, consulte [Introducción al desarrollo][Introducción al desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para información sobre el desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 
@@ -39,4 +43,8 @@ Para obtener información de desarrollo, consulte [Introducción al desarrollo][
 
 <!--MSDN references-->
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

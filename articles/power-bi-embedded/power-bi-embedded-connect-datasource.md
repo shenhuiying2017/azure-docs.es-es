@@ -1,13 +1,13 @@
 ---
 title: Microsoft Power BI Embedded - Conectarse a un origen de datos
-description: Power BI Embedded, conectarse a orígenes de datos
+description: "Power BI Embedded, conectarse a orígenes de datos"
 services: power-bi-embedded
-documentationcenter: ''
+documentationcenter: 
 author: guyinacube
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 10/04/2016
 ms.author: asaxton
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4b827760c2095ace72831ed579b9c309b4d8991b
+
 
 ---
 # <a name="connect-to-a-data-source"></a>Conectarse a un origen de datos
@@ -38,7 +42,7 @@ Existen dos ventajas principales al usar **DirectQuery**:
    Existen algunas limitaciones al usar **DirectQuery**:
 
 * Todas las tablas deben proceder de una base de datos única.
-* Si la consulta es demasiado compleja, se producirá un error. Para solucionar el error debe refactorizar la consulta, de forma que sea menos compleja. Si la consulta debe ser compleja, necesitará importar los datos en lugar de usar **DirectQuery**.
+* Si la consulta es demasiado compleja, se producirá un error. Para solucionar el error debe refactorizar la consulta, de forma que sea menos compleja. Si la consulta debe ser compleja, deberá importar los datos en lugar de usar **DirectQuery**.
 * El filtrado de relación se limita a una dirección única, en lugar de a ambas direcciones.
 * No puede cambiar el tipo de datos de una columna.
 * De forma predeterminada, las limitaciones se colocan en expresiones DAX permitidas en las medidas. Consulte [DirectQuery y medidas](#measures).
@@ -52,6 +56,9 @@ Para asegurarse de que las consultas que se envían al origen de datos subyacent
 * [Introducción a Microsoft Power BI Embedded](power-bi-embedded-get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

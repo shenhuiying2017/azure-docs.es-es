@@ -1,8 +1,8 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 00db07b08a15b37c38e6c3a303e3e35cf16b0774
-ms.openlocfilehash: fc268f8905ff7b1a0e0cc1e98776a9ec8fa132c4
+ms.sourcegitcommit: 5b9948f59fad542ce488f7682aef2cc57b1a0b55
+ms.openlocfilehash: 20bf594172ade3277455aae59469181162b4238a
 
 ---
 #<a name="batch-documentation"></a>Documentación de Batch
@@ -29,24 +29,6 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
         </a>
     </li>
     <li>
-        <a href="/azure/Batch/batch-account-create-portal">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/get-started.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Introducción a Batch</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=batch">
         <div class="cardSize">
             <div class="cardPadding">
@@ -64,6 +46,24 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/Batch/batch-account-create-portal">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Introducción a Batch</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
      <li>
         <a href="/azure/batch/batch-dotnet-get-started">
         <div class="cardSize">
@@ -75,7 +75,7 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creación de la primera aplicación .NET</h3>
+                        <h3>Introducción a Batch con .NET</h3>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Creación de la primera aplicación Python</h3>
+                        <h3>Introducción a Batch con Python</h3>
                     </div>
                 </div>
             </div>
@@ -104,30 +104,114 @@ Azure Batch permite ejecutar aplicaciones en paralelo a gran escala y de inform�
 
 ---
 
-##<a name="reference"></a>Referencia
+## <a name="reference"></a>Referencia
 
-###<a name="powershell"></a>PowerShell
-[Referencia de PowerShell para Batch](/powershell)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Referencia de Azure PowerShell</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="azure-cli"></a>CLI de Azure
-[Batch mediante la CLI de Azure](/azure/batch/batch-cli-get-started)
+    <li>
+        <a href="/azure/batch/batch-cli-get-started">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>CLI de Azure</h3>
+                        <p>Batch mediante la CLI de Azure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Referencia administrada de Batch</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="net"></a>.NET
-[Referencia administrada de Batch](https://msdn.microsoft.com/library/azure/mt348682)
+<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Referencia de SDK de Java</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="java"></a>Java
-[Referencia de SDK de Java](/java/api)
+<li>
+        <a href="http://azure.github.io/azure-sdk-for-node/azure-batch/latest/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Node.js</h3>
+                        <p>Referencia de Node.js</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="nodejs"></a>Node.js
-[Referencia de Node.js](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/)
+<li>
+        <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Python</h3>
+                        <p>Referencia de SDK de Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###<a name="python"></a>Python
-[Referencia de SDK de Python](http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagementbatch.html)
-
-###<a name="rest"></a>REST
-[Referencia de API de REST para Batch](/rest/api/batchmanagement)
-
+<li>
+        <a href="/rest/api/batchservice">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Referencia de API de REST de Lote</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/batch.pdf">
@@ -139,6 +223,6 @@ Descarga de la documentación de Azure Batch </div>
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

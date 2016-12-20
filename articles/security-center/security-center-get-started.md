@@ -1,107 +1,128 @@
 ---
-title: Guía de inicio rápido de Azure Security Center | Microsoft Docs
-description: Este documento le ayuda a empezar a trabajar rápidamente con el Centro de seguridad de Azure, guiándole a través de la supervisión de la seguridad y los componentes de administración de directivas y ofreciendo vínculos a los pasos siguientes.
+title: "Guía de inicio rápido de Azure Security Center | Microsoft Docs"
+description: "Este artículo le ayuda a empezar a trabajar rápidamente con Azure Security Center, guiándole en los componentes de supervisión de la seguridad y administración de directivas y ofreciendo vínculos a los pasos siguientes."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: ''
-
+editor: 
+ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2016
+ms.date: 11/14/2016
 ms.author: terrylan
+translationtype: Human Translation
+ms.sourcegitcommit: bb64c7e5f25517477cb1f24333d10149b2e8c844
+ms.openlocfilehash: d9bb2249e41095c247d08fd75e44e0696e1d31a6
+
 
 ---
-# Guía de inicio rápido de Azure Security Center
-Este documento le ayuda a empezar a trabajar rápidamente con el Centro de seguridad de Azure, guiándole a través de la supervisión de la seguridad y los componentes de administración de directivas y ofreciendo vínculos a los pasos siguientes.
+# <a name="azure-security-center-quick-start-guide"></a>Guía de inicio rápido de Azure Security Center
+Este artículo le ayuda a comenzar rápidamente con Azure Security Center guiándole por los componentes de supervisión de la seguridad y administración de directivas de Security Center.
 
 > [!NOTE]
-> En este documento se presenta el servicio mediante una implementación de ejemplo. No se trata de una guía paso a paso.
-> 
-> 
+> Este artículo es una introducción al servicio mediante una implementación de ejemplo. No es una guía paso a paso.
+>
+>
 
-## Colección de datos
-Security Center recopila datos de las máquinas virtuales para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede al Centro de seguridad la recopilación de datos se habilita en todas las máquinas virtuales de la suscripción. Se recomienda utilizar la recopilación de datos, pero se puede cancelar desactivando la recopilación de datos en la directiva del Centro de seguridad. Los pasos siguientes muestran cómo desactivar la recopilación de datos.
+## <a name="prerequisites"></a>Requisitos previos
+Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-## Requisitos previos
-Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. El Centro de seguridad se habilita con su suscripción. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
+El nivel gratuito de Security Center se habilita automáticamente con su suscripción y proporciona visibilidad sobre el estado de seguridad de los recursos de Azure. Ofrece administración básica de directivas de seguridad, recomendaciones de seguridad e integración con servicios y productos de seguridad de Azure de asociados.
 
-Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Consulte la [documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/) para más información.
+Se accede al Centro de seguridad desde el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/). Para más información sobre Azure Portal, consulte la [documentación del portal](https://azure.microsoft.com/documentation/services/azure-portal/).
 
-## Acceso al Centro de seguridad
+## <a name="data-collection"></a>Colección de datos
+Security Center recopila datos de las máquinas virtuales (VM) para evaluar su estado de seguridad, proporcionar recomendaciones de seguridad y avisarle de las amenazas. La primera vez que se accede a Security Center, la recopilación de datos está habilitada en todas las máquinas virtuales de la suscripción. Aunque se recomienda usar la recopilación de datos, puede desactivarla en la directiva de Security Center.
+
+Los pasos siguientes describen cómo acceder a los componentes de Security Center y usarlos. En estos pasos, se muestra cómo desactivar la recopilación de datos, si decide excluirla.
+
+## <a name="access-security-center"></a>Acceso al Centro de seguridad
 En el portal, siga estos pasos para acceder al Centro de seguridad:
 
-1. Seleccione **Examinar** y después desplácese hasta la opción **Centro de seguridad**. ![Acceso al Centro de seguridad de Azure en el portal][1]
-2. Seleccione **Centro de seguridad**. De este modo se abrirá la hoja **Centro de seguridad**.
-3. Para facilitar el acceso a la hoja **Centro de seguridad** en el futuro, seleccione la opción **Fijar hoja al panel** (parte superior derecha). ![Opción Anclar hoja al panel][2]
+1. En el menú de **Microsoft Azure**, seleccione **Security Center**.
 
-## Uso del Centro de seguridad
-Puede configurar directivas de seguridad para los grupos de recursos y las suscripciones de Azure. Configuremos una **directiva** de seguridad para su suscripción:
+   ![Menú de Azure][1]
+2. Si es la primera vez que accede a Security Center, se abre la hoja de **bienvenida**. Seleccione **Sí. Quiero iniciar Azure Security Center** para abrir la hoja **Security Center** y para habilitar la recopilación de datos.
+   ![Pantalla principal][10]
+3. Después de iniciar Security Center desde la hoja de bienvenida o seleccionarlo desde el menú de Microsoft Azure, se abre la hoja **Security Center**. Para facilitar el acceso a la hoja **Security Center** en el futuro, seleccione la opción **Anclar hoja al panel** (parte superior derecha).
+   ![Opción Anclar hoja al panel][2]
 
-1. Haga clic en el icono **Directiva** en la hoja **Centro de seguridad**. ![Centro de seguridad][3]
-2. En la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**, seleccione una suscripción. ![La hoja Directiva de seguridad en el Centro de seguridad de Azure][4]
-3. En la hoja **Directiva de seguridad**, **Recopilación de datos** está habilitado para que recopile registros de forma automática. La extensión de supervisión se aprovisiona en todas las máquinas virtuales actuales y nuevas de la suscripción. (para desactivar la recopilación de datos, en **Recopilación de datos** seleccione **Off**, pero si lo hace, Azure Security Center dejará de proporcionar alertas y recomendaciones de seguridad).
-4. Seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se creará automáticamente. Los datos recopilados se aíslan lógicamente de los datos de otros clientes por seguridad.
-   
+## <a name="use-security-center"></a>Uso del Centro de seguridad
+Puede configurar directivas de seguridad para los grupos de recursos y las suscripciones de Azure. Vamos a configurar una directiva de seguridad para su suscripción:
+
+1. En la hoja **Security Center**, seleccione el icono **Directiva**.
+   ![Directiva de seguridad][3]
+2. En la hoja **Directiva de seguridad: definir directiva por suscripción o grupo de recursos**, seleccione una suscripción.
+3. En la hoja **Directiva de seguridad**, **Recopilación de datos** está habilitada para que recopile registros de forma automática. La extensión de supervisión se aprovisiona en todas las máquinas virtuales actuales y nuevas de la suscripción. (Para desactivar la recopilación de datos, en **Recopilación de datos**, seleccione **Desactivar**; pero si lo hace, Security Center dejará de proporcionar alertas y recomendaciones de seguridad).
+4. En la hoja **Directiva de seguridad**, seleccione **Elija una cuenta de almacenamiento por región**. Para cada región en la que disponga de máquinas virtuales en funcionamiento, elija la cuenta de almacenamiento en la que se almacenan los datos recopilados de esas máquinas virtuales. Si no elige una cuenta de almacenamiento para cada región, se creará automáticamente. Los datos recopilados se aíslan lógicamente de los datos de otros clientes por seguridad.
+
    > [!NOTE]
    > Se recomienda que en primer lugar habilite la recopilación de datos y elija una cuenta de almacenamiento en el nivel de suscripción. Las directivas de seguridad se pueden establecer en el nivel de suscripción y el nivel de grupo de recursos de Azure, pero la configuración de la recopilación de datos y la cuenta de almacenamiento tiene lugar solo en el nivel de suscripción.
-   > 
-   > 
-5. Active las **Recomendaciones** que le gustaría ver como parte de la directiva de seguridad. Ejemplos:
-   
-   * Si se activa **Actualizaciones del sistema**, se examinarán todas las máquinas virtuales compatibles para comprobar si faltan actualizaciones del sistema operativo.
-   * Si se activa **OS vulnerabilities** (Vulnerabilidades del SO), se examinarán todas las máquinas virtuales compatibles para identificar todas las configuraciones del sistema operativo que podrían hacer que la máquina virtual resultara más vulnerable a ataques.
+   >
+   >
+5. En la hoja **Directiva de seguridad**, seleccione **Directiva de prevención**. Se abre la hoja **Directiva de prevención**.
+   ![Directiva de prevención][4]
+6. En la hoja **Directiva de prevención**, active las recomendaciones que quiere ver como parte de la directiva de seguridad. Ejemplos:
 
-Atender las **recomendaciones**:
+   * Al establecer **Actualizaciones del sistema** en **Activado**, se examinan todas las máquinas virtuales compatibles para comprobar si faltan actualizaciones del sistema operativo.
+   * Al establecer **Vulnerabilidades del sistema operativo** en **Activado**, se examinan todas las máquinas virtuales compatibles para identificar todas las configuraciones del sistema operativo que podrían hacer que la máquina virtual resultara más vulnerable a ataques.
 
-1. Vuelva a la hoja **Centro de seguridad** y haga clic en el icono **Recomendaciones**. El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Una vez identificadas las posibles vulnerabilidades de seguridad, muestra una recomendación.
-2. Haga clic en cada recomendación para ver más información o para realizar alguna acción encaminada a resolver el problema. ![Recomendaciones en el Centro de seguridad de Azure][5]
+### <a name="view-recommendations"></a>Ver recomendaciones
+1. Vuelva a la hoja **Security Center** y haga clic en el icono **Recomendaciones**. El Centro de seguridad analiza periódicamente el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, muestra recomendaciones en la hoja **Recomendaciones**.
+   ![Recomendaciones en Azure Security Center][5]
+2. Seleccione una recomendación en la hoja **Recomendaciones** para ver más información o realizar una acción para resolver el problema.
 
-Consulte el estado de mantenimiento y seguridad de los recursos a través de **Estado de seguridad de los recursos**:
+### <a name="view-the-health-and-security-state-of-your-resources"></a>Ver el estado de seguridad de los recursos
+1. Vuelva a la hoja **Centro de seguridad** . El icono **Estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las máquinas virtuales, las redes, los datos y las aplicaciones.
+2. Seleccione **Máquinas virtuales** para consultar más información. La hoja **Máquinas virtuales** se abre y muestra un resumen del estado de programas antimalware, actualizaciones del sistema, reinicios y vulnerabilidades del sistema operativo de las máquinas virtuales.
+   ![El icono Estado de los recursos de Azure Security Center][6]
+3. Seleccione una recomendación en **RECOMENDACIONES SOBRE MÁQUINAS VIRTUALES** para ver más información o tomar medidas para configurar los controles necesarios.
+4. Seleccione la máquina virtual en **Máquinas virtuales** para ver más detalles.
 
-1. Vuelva a la hoja **Centro de seguridad**.
-2. El icono **Estado de seguridad de los recursos** contiene indicadores del estado de seguridad de las **Máquinas virtuales**, **Redes**, **SQL** y **Aplicaciones**.
-3. Seleccione **Máquinas virtuales** para consultar más información.
-4. La hoja **Máquinas virtuales** muestra un resumen del estado de los programas antimalware, las actualizaciones del sistema, los reinicios y las reglas de línea de base de sus máquinas virtuales.
-5. Seleccione un elemento en **RECOMENDACIONES SOBRE MÁQUINAS VIRTUALES** para ver más información o tomar medidas para configurar los controles necesarios.
-6. Explore en profundidad para ver información adicional de máquinas virtuales concretas. ![El icono Estado de los recursos en el Centro de seguridad de Azure][6]
+### <a name="view-security-alerts"></a>Ver alertas de seguridad
+1. Vuelva a la hoja **Security Center** y haga clic en el icono **Alertas de seguridad**. Se abre la hoja **Alertas de seguridad** con una lista de alertas. Las alertas se generan mediante el análisis que Security Center hace de los registros de seguridad y la actividad de la red. También se incluyen alertas de soluciones de asociados integradas.
+   ![Alertas de seguridad en el Centro de seguridad de Azure][7]
 
-Atender las **Alertas de seguridad**:
+   > [!NOTE]
+   > Las alertas de seguridad solo están disponibles si se habilita el nivel Estándar de Security Center. Hay disponible una evaluación gratuita durante 90 días de nivel Estándar. Consulte [Pasos siguientes](#next-steps) para más información sobre cómo conseguir el nivel Estándar.
+   >
+   >
+2. Seleccione una alerta para ver información adicional. En este ejemplo, vamos a seleccionar **Modified system binary discovered** (Detectado binario del sistema modificado). Al hacerlo, se abren varias hojas que proporcionan detalles adicionales sobre la alerta.
+   ![Detalles de alertas de seguridad en Azure Security Center][8]
 
-1. Vuelva a la hoja **Centro de seguridad** y haga clic en el icono **Alertas de seguridad**. En la hoja **Alertas de seguridad**, se muestra una lista de alertas. Las alertas se generan mediante el análisis que el Centro de seguridad hace de los registros de seguridad y la actividad de la red. También se incluyen las alertas de soluciones de socios integradas. ![Alertas de seguridad en el Centro de seguridad de Azure][7]
-2. Seleccione una alerta para ver información adicional. ![Detalles de alertas de seguridad en el Centro de seguridad de Azure][8]
+### <a name="view-the-health-of-your-partner-solutions"></a>Ver el estado de sus soluciones de asociados
+1. Vuelva a la hoja **Centro de seguridad** . El icono **Soluciones de asociados** permite supervisar de un solo vistazo el estado de mantenimiento de las soluciones de asociados integradas en su suscripción de Azure.
+2. Seleccione el icono **Soluciones de asociados** . Se abre una hoja con una lista de todas las soluciones de asociados conectadas a Security Center.
+   ![Soluciones de asociados][9]
+3. Seleccione una solución de asociado. En este ejemplo, seleccionaremos la solución **F5-WAF**.  Se abre una hoja que muestra el estado de la solución de asociados y de los recursos asociados de la solución. Seleccione **Consola de soluciones** para abrir la experiencia de administración de asociados de esta solución.
 
-Ver el estado de su **Soluciones de asociados**:
+## <a name="next-steps"></a>Pasos siguientes
+En este artículo se han presentado los componentes de supervisión de la seguridad y administración de directivas de Security Center. Ahora que está familiarizado con Security Center, pruebe los siguientes pasos:
 
-1. Vuelva a la hoja **Centro de seguridad**. El icono de **Soluciones de asociados** permite supervisar de un solo vistazo el estado de mantenimiento de las soluciones de asociados integradas en su suscripción de Azure.
-2. Seleccione el icono de **Soluciones de asociados**. Se abre una hoja con una lista de todas las soluciones de asociados conectadas a Azure Security Center. ![Soluciones de socios][9]
-3. Seleccione una solución de asociado. En este ejemplo, seleccionaremos la solución **F5-WAF2**. Se abre una hoja que muestra que el estado de la solución de asociado y de sus recursos asociados. Seleccione **Consola de soluciones** para abrir la experiencia de administración de asociados de esta solución. ![Detalle de solución de asociado][10]
-
-## Otras referencias
-En este documento, se han presentado los componentes de supervisión de seguridad y de administración de directivas en el Centro de seguridad. Para obtener más información, consulte:
-
-* [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md): aprenda a configurar directivas de seguridad para las suscripciones y los grupos de recursos de Azure.
-* [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md): recomendaciones que lo ayudan a proteger los recursos de Azure.
-* [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md): obtenga información sobre cómo supervisar el estado de los recursos de Azure.
-* [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md): obtenga información sobre cómo administrar y responder a alertas de seguridad.
-* [Supervisión de las soluciones de asociados con Azure Security Center](security-center-partner-solutions.md): aprenda a supervisar el estado de mantenimiento de las soluciones de asociados.
-* [Preguntas más frecuentes sobre Azure Security Center](security-center-faq.md): encuentre las preguntas más frecuentes sobre el uso del servicio.
-* [Blog de seguridad de Azure](http://blogs.msdn.com/b/azuresecurity/): obtenga las últimas noticias e información sobre la seguridad en Azure.
+* Configure una directiva de seguridad para su suscripción de Azure. Para aprender más, consulte [Establecimiento de directivas de seguridad en Azure Security Center](security-center-policies.md).
+* Use las recomendaciones de Security Center como ayuda para proteger los recursos de Azure. Para aprender más, consulte [Administración de recomendaciones de seguridad en Azure Security Center](security-center-recommendations.md).
+* Revise y administre las alertas de seguridad actuales. Para aprender más, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md).
+* Aprenda más sobre las [características avanzadas de detección de amenazas](security-center-detection-capabilities.md) que vienen con el [nivel estándar](security-center-pricing.md) de Security Center. Hay disponible una evaluación gratuita durante 90 días de nivel Estándar.
+* Si tiene preguntas acerca de cómo usar Security Center, consulte las [P+F de Azure Security Center](security-center-faq.md).
 
 <!--Image references-->
-[1]: ./media/security-center-get-started/security-tile.png
-[2]: ./media/security-center-get-started/pin-blade.png
-[3]: ./media/security-center-get-started/security-center.png
-[4]: ./media/security-center-get-started/security-policy.png
+[1]: ./media/security-center-get-started/azure-menu.png
+[2]: ./media/security-center-get-started/security-center-pin.png
+[3]: ./media/security-center-get-started/security-policy.png
+[4]: ./media/security-center-get-started/prevention-policy.png
 [5]: ./media/security-center-get-started/recommendations.png
 [6]: ./media/security-center-get-started/resources-health.png
 [7]: ./media/security-center-get-started/security-alert.png
 [8]: ./media/security-center-get-started/security-alert-detail.png
 [9]: ./media/security-center-get-started/partner-solutions.png
-[10]: ./media/security-center-get-started/partner-solutions-detail.png
+[10]: ./media/security-center-get-started/welcome.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

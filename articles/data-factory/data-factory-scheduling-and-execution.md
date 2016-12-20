@@ -1,19 +1,23 @@
 ---
-title: Programación y ejecución con Data Factory | Microsoft Docs
-description: Obtenga información sobre los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure.
+title: "Programación y ejecución con Data Factory | Microsoft Docs"
+description: "Obtenga información sobre los aspectos de programación y ejecución del modelo de aplicación de Factoría de datos de Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 088a83df-4d1b-4ac1-afb3-0787a9bd1ca5
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/15/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: febc8fef864f88fa07accf91efc9b87727a48b32
+ms.openlocfilehash: 8b1029075178fbc591645a5fd6a112ad0a7f8b86
+
 
 ---
 # <a name="data-factory-scheduling-and-execution"></a>Programación y ejecución de Data Factory
@@ -29,10 +33,12 @@ En este artículo se presupone que comprende los conceptos básicos del modelo d
 ## <a name="schedule-an-activity"></a>Programación de una actividad
 Con la sección de programación del JSON de actividad, puede especificar una programación recurrente para una actividad. Por ejemplo, puede programar una actividad cada hora de la manera siguiente:
 
-    "scheduler": {
-        "frequency": "Hour",
-        "interval": 1
-    },  
+```json
+"scheduler": {
+    "frequency": "Hour",
+    "interval": 1
+},  
+```
 
 ![Ejemplo de programador](./media/data-factory-scheduling-and-execution/scheduler-example.png)
 
@@ -49,10 +55,12 @@ Los datos de series temporales son una secuencia continua de puntos de datos que
 
 Con Data Factory, puede procesar datos de series temporales por lotes con ejecuciones de actividad. Normalmente, hay un ritmo periódico en el que llegan los datos de entrada y los datos de salida tienen que producirse. Este ritmo se modela especificando la sección **availability** en el conjunto de datos de la manera siguiente:
 
-    "availability": {
-      "frequency": "Hour",
-      "interval": 1
-    },
+```json
+"availability": {
+  "frequency": "Hour",
+  "interval": 1
+},
+```
 
 Cada unidad de datos consumida y producida por la ejecución de una actividad se denomina segmento de datos. El diagrama siguiente muestra un ejemplo de una actividad con un conjunto de datos de entrada y uno de salida. Estos conjuntos de datos tienen establecida la sección **availability** en una frecuencia horaria.
 
@@ -71,128 +79,131 @@ Vamos a juntar todo y ponerlo en marcha mediante la creación de una canalizaci�
 
 **Entrada: conjunto de datos de Azure SQL Database**
 
-    {
-        "name": "AzureSqlInput",
-        "properties": {
-            "published": false,
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": {
-                "tableName": "MyTable"
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {}
-        }
+```json
+{
+    "name": "AzureSqlInput",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "MyTable"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {}
     }
-
+}
+```
 
 El valor **frequency** está establecido en **Hour** y **interval** está establecido en **1** en la sección de disponibilidad.
 
 **Salida: conjunto de datos de Azure Blob Storage**
 
-    {
-        "name": "AzureBlobOutput",
-        "properties": {
-            "published": false,
-            "type": "AzureBlob",
-            "linkedServiceName": "StorageLinkedService",
-            "typeProperties": {
-                "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
-                "format": {
-                    "type": "TextFormat"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%M"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%d"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "%H"
-                        }
-                    }
-                ]
+```json
+{
+    "name": "AzureBlobOutput",
+    "properties": {
+        "published": false,
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "folderPath": "mypath/{Year}/{Month}/{Day}/{Hour}",
+            "format": {
+                "type": "TextFormat"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%M"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%d"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "%H"
+                    }
+                }
+            ]
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
+}
+```
 
 El valor **frequency** está establecido en **Hour** y **interval** está establecido en **1** en la sección de disponibilidad.
 
 **Actividad: actividad de copia**
 
-    {
-        "name": "SamplePipeline",
-        "properties": {
-            "description": "copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "name": "AzureSQLtoBlob",
-                    "description": "copy activity",
-                    "typeProperties": {
-                        "source": {
-                            "type": "SqlSource",
-                            "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 100000,
-                            "writeBatchTimeout": "00:05:00"
-                        }
+```json
+{
+    "name": "SamplePipeline",
+    "properties": {
+        "description": "copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "name": "AzureSQLtoBlob",
+                "description": "copy activity",
+                "typeProperties": {
+                    "source": {
+                        "type": "SqlSource",
+                        "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
                     },
-                    "inputs": [
-                        {
-                            "name": "AzureSQLInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 100000,
+                        "writeBatchTimeout": "00:05:00"
                     }
+                },
+                "inputs": [
+                    {
+                        "name": "AzureSQLInput"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobOutput"
+                    }
+                ],
+                   "scheduler": {
+                      "frequency": "Hour",
+                      "interval": 1
                 }
-            ],
-            "start": "2015-01-01T08:00:00Z",
-            "end": "2015-01-01T11:00:00Z"
-        }
+            }
+        ],
+        "start": "2015-01-01T08:00:00Z",
+        "end": "2015-01-01T11:00:00Z"
     }
-
+}
+```
 
 En el ejemplo se muestran las secciones de programación de la actividad y de disponibilidad del conjunto de datos establecidas en una frecuencia de cada hora. En el ejemplo se muestra cómo puede usar **WindowStart** y **WindowEnd** para seleccionar datos pertinentes para la ejecución de una actividad y copiarlos en un blob con el valor de **folderPath** adecuado. **folderPath** se parametriza para tener una carpeta independiente para cada hora.
 
@@ -203,20 +214,23 @@ Cuando se ejecutan tres de los segmentos entre las 8 y las 11 a.m., los datos de
 Tras implementar la canalización, el blob de Azure se rellena de la manera siguiente:
 
 * Archivo mypath/2015/1/1/8/Data.&lt;Guid&gt;.txt con datos
-  
-          10002345,334,2,2015-01-01 08:24:00.3130000
-          10002345,347,15,2015-01-01 08:24:00.6570000
-          10991568,2,7,2015-01-01 08:56:34.5300000
+    ```  
+    10002345,334,2,2015-01-01 08:24:00.3130000
+    10002345,347,15,2015-01-01 08:24:00.6570000
+    10991568,2,7,2015-01-01 08:56:34.5300000
+    ```
   
   > [!NOTE]
   > &lt;Guid&gt; se sustituye por un GUID real. Nombre del archivo de ejemplo: Data.bcde1348-7620-4f93-bb89-0eed3455890b.txt
   > 
   > 
 * Archivo mypath/2015/1/1/9/Data.&lt;Guid&gt;.txt con datos:
-  
-          10002345,334,1,2015-01-01 09:13:00.3900000
-          24379245,569,23,2015-01-01 09:25:00.3130000
-          16777799,21,115,2015-01-01 09:47:34.3130000
+
+    ```json  
+    10002345,334,1,2015-01-01 09:13:00.3900000
+    24379245,569,23,2015-01-01 09:25:00.3130000
+    16777799,21,115,2015-01-01 09:47:34.3130000
+    ```
 * Archivo mypath/2015/1/1/10/Data.&lt;Guid&gt;.txt sin datos.
 
 ## <a name="active-period-for-pipeline"></a>Período activo de canalización
@@ -275,82 +289,84 @@ ActividadCopia2 solo se ejecutaría si ActividadCopia1 se hubiera ejecutado corr
 
 Esta es el JSON de canalización de ejemplo:
 
-    {
-        "name": "ChainActivities",
-        "properties": {
-            "description": "Run activities in sequence",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "copyBehavior": "PreserveHierarchy",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "ChainActivities",
+    "properties": {
+        "description": "Run activities in sequence",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
                     },
-                    "inputs": [
-                        {
-                            "name": "Dataset1"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "Dataset2"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00"
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "CopyFromBlob1ToBlob2",
-                    "description": "Copy data from a blob to another"
+                    "sink": {
+                        "type": "BlobSink",
+                        "copyBehavior": "PreserveHierarchy",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
                 },
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+                "inputs": [
+                    {
+                        "name": "Dataset1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob1ToBlob2",
+                "description": "Copy data from a blob to another"
+            },
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
                     },
-                    "inputs": [
-                        {
-                            "name": "Dataset2"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "Dataset3"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00"
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "CopyFromBlob2ToBlob3",
-                    "description": "Copy data from a blob to another"
-                }
-            ],
-            "start": "2016-08-25T01:00:00Z",
-            "end": "2016-08-25T01:00:00Z",
-            "isPaused": false
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset3"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob2ToBlob3",
+                "description": "Copy data from a blob to another"
+            }
+        ],
+        "start": "2016-08-25T01:00:00Z",
+        "end": "2016-08-25T01:00:00Z",
+        "isPaused": false
     }
+}
+```
 
 Observe que en el ejemplo, el conjunto de datos de salida de la primera actividad de copia (ConjuntoDatos2) se especifica como entrada para la segunda. Por lo tanto, la segunda actividad solo se ejecuta cuando el conjunto de datos de salida de la primera está listo.  
 
@@ -364,86 +380,87 @@ CopyActivity2
 
 Entradas: Dataset3, Dataset2. Salida: Dataset4.
 
-    {
-        "name": "ChainActivities",
-        "properties": {
-            "description": "Run activities in sequence",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "copyBehavior": "PreserveHierarchy",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "ChainActivities",
+    "properties": {
+        "description": "Run activities in sequence",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
                     },
-                    "inputs": [
-                        {
-                            "name": "Dataset1"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "Dataset2"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00"
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "CopyFromBlobToBlob",
-                    "description": "Copy data from a blob to another"
+                    "sink": {
+                        "type": "BlobSink",
+                        "copyBehavior": "PreserveHierarchy",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
                 },
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+                "inputs": [
+                    {
+                        "name": "Dataset1"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlobToBlob",
+                "description": "Copy data from a blob to another"
+            },
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource"
                     },
-                    "inputs": [
-                        {
-                            "name": "Dataset3"
-                        },
-                        {
-                            "name": "Dataset2"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "Dataset4"
-                        }
-                    ],
-                    "policy": {
-                        "timeout": "01:00:00"
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "Dataset3"
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "CopyFromBlob3ToBlob4",
-                    "description": "Copy data from a blob to another"
-                }
-            ],
-            "start": "2017-04-25T01:00:00Z",
-            "end": "2017-04-25T01:00:00Z",
-            "isPaused": false
-        }
+                    {
+                        "name": "Dataset2"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "Dataset4"
+                    }
+                ],
+                "policy": {
+                    "timeout": "01:00:00"
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "CopyFromBlob3ToBlob4",
+                "description": "Copy data from a blob to another"
+            }
+        ],
+        "start": "2017-04-25T01:00:00Z",
+        "end": "2017-04-25T01:00:00Z",
+        "isPaused": false
     }
-
+}
+```
 
 Observe que en el ejemplo, hay dos conjuntos de datos de entrada especificados para la segunda actividad de copia. Cuando se especifican varias entradas, solo se usa el primer conjunto de datos de entrada para copiar los datos. Sin embargo, los demás conjuntos de datos se usan como dependencias. CopyActivity2 empezaría solo después de que se cumplen las condiciones siguientes:
 
@@ -453,7 +470,7 @@ Observe que en el ejemplo, hay dos conjuntos de datos de entrada especificados p
 ## <a name="model-datasets-with-different-frequencies"></a>Modelado de conjuntos de datos con distintas frecuencias
 En los ejemplos, las frecuencias de los conjuntos de datos de entrada y salida y de la ventana de programación de actividad eran las mismas. Algunos escenarios requieren que se puedan producir resultados a una frecuencia diferente de las frecuencias de una o más entradas. Data Factory admite el modelado de estos escenarios.
 
-### <a name="sample-1:-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Ejemplo 1: Generación de un informe de salida diario para los datos de entrada que esté disponibles cada hora
+### <a name="sample-1-produce-a-daily-output-report-for-input-data-that-is-available-every-hour"></a>Ejemplo 1: Generación de un informe de salida diario para los datos de entrada que esté disponibles cada hora
 Considere un escenario en el que tiene datos de medida de entrada de sensores disponibles cada hora en Azure Blob Storage. Quiere generar un informe agregado diario con estadísticas como media, máximo y mínimo para el día con la [actividad de Hive de Data Factory](data-factory-hive-activity.md).
 
 A continuación, se muestra cómo puede modelar este escenario con Data Factory:
@@ -462,105 +479,110 @@ A continuación, se muestra cómo puede modelar este escenario con Data Factory:
 
 Se quitan los archivos de entrada de cada hora en la carpeta para el día especificado. La disponibilidad para la entrada se establece en **Hour** (frecuencia: hora, intervalo: 1).
 
-    {
-      "name": "AzureBlobInput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-          "partitionedBy": [
-            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-          ],
-          "format": {
-            "type": "TextFormat"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Hour",
-          "interval": 1
-        }
+```json
+{
+  "name": "AzureBlobInput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+      "partitionedBy": [
+        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+      ],
+      "format": {
+        "type": "TextFormat"
       }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
     }
-
+  }
+}
+```
 **Conjunto de datos de salida**
 
 Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en **Day** (frecuencia: día e intervalo: 1).
 
-    {
-      "name": "AzureBlobOutput",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-          "partitionedBy": [
-            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-          ],
-          "format": {
-            "type": "TextFormat"
-          }
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```json
+{
+  "name": "AzureBlobOutput",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+      "partitionedBy": [
+        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+      ],
+      "format": {
+        "type": "TextFormat"
       }
+    },
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
+  }
+}
+```
 
 **Actividad: actividad de Hive en una canalización**
 
 El script de Hive recibe la información adecuada de *DateTime* como parámetros que usan la variable **WindowStart** como se muestra a continuación. El script de Hive usa esta variable para cargar los datos de la carpeta correcta para el día y ejecutar la agregación para generar la salida.
 
-        {  
-            "name":"SamplePipeline",
-            "properties":{  
-            "start":"2015-01-01T08:00:00",
-            "end":"2015-01-01T11:00:00",
-            "description":"hive activity",
-            "activities": [
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-01-01T08:00:00",
+    "end":"2015-01-01T11:00:00",
+    "description":"hive activity",
+    "activities": [
+        {
+            "name": "SampleHiveActivity",
+            "inputs": [
                 {
-                    "name": "SampleHiveActivity",
-                    "inputs": [
-                        {
-                            "name": "AzureBlobInput"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobOutput"
-                        }
-                    ],
-                    "linkedServiceName": "HDInsightLinkedService",
-                    "type": "HDInsightHive",
-                    "typeProperties": {
-                        "scriptPath": "adftutorial\\hivequery.hql",
-                        "scriptLinkedService": "StorageLinkedService",
-                        "defines": {
-                            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-                            "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                            "Day": "$$Text.Format('{0:%d}',WindowStart)"
-                        }
-                    },
-                    "scheduler": {
-                        "frequency": "Day",
-                        "interval": 1
-                    },          
-                    "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 2,
-                        "timeout": "01:00:00"
-                    }
-                 }
-             ]
-           }
-        }
+                    "name": "AzureBlobInput"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "AzureBlobOutput"
+                }
+            ],
+            "linkedServiceName": "HDInsightLinkedService",
+            "type": "HDInsightHive",
+            "typeProperties": {
+                "scriptPath": "adftutorial\\hivequery.hql",
+                "scriptLinkedService": "StorageLinkedService",
+                "defines": {
+                    "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
+                    "Month": "$$Text.Format('{0:%M}',WindowStart)",
+                    "Day": "$$Text.Format('{0:%d}',WindowStart)"
+                }
+            },
+            "scheduler": {
+                "frequency": "Day",
+                "interval": 1
+            },            
+            "policy": {
+                "concurrency": 1,
+                "executionPriorityOrder": "OldestFirst",
+                "retry": 2,
+                "timeout": "01:00:00"
+            }
+         }
+     ]
+   }
+}
+```
 
 El diagrama siguiente muestra el escenario desde el punto de vista de la dependencia de datos.
 
@@ -568,7 +590,7 @@ El diagrama siguiente muestra el escenario desde el punto de vista de la depende
 
 El segmento de salida para cada día depende de 24 segmentos por hora del conjunto de datos de entrada. Data Factory calcula automáticamente estas dependencias al determinar los segmentos de datos de entrada que se encuentran en el mismo período de tiempo que el segmento de salida que se va a producir. Si cualquiera de los 24 segmentos de entrada no está disponible, Data Factory espera a que el segmento de entrada esté listo antes de empezar la ejecución de la actividad diaria.
 
-### <a name="sample-2:-specify-dependency-with-expressions-and-data-factory-functions"></a>Ejemplo 2: Especificación de la dependencia con expresiones y funciones de Data Factory
+### <a name="sample-2-specify-dependency-with-expressions-and-data-factory-functions"></a>Ejemplo 2: Especificación de la dependencia con expresiones y funciones de Data Factory
 Consideremos otro escenario. Suponga que tiene una actividad de Hive que procesa dos conjuntos de datos de entrada. Uno de ellos tiene nuevos datos diariamente, pero otro obtiene datos nuevos cada semana. Supongamos que desea combinar las dos entradas y producir una salida cada día.
 
 El enfoque sencillo, en el que Data Factory determina automáticamente los segmentos de entrada correctos que se van a procesar al alinearlos con el período de los segmentos de datos de salida, no funciona.
@@ -579,139 +601,146 @@ Debe especificar que para cada ejecución de actividad, Data Factory debe usar e
 
 La primera entrada es el blob de Azure que se actualiza diariamente.
 
-    {
-      "name": "AzureBlobInputDaily",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-          "partitionedBy": [
-            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-          ],
-          "format": {
-            "type": "TextFormat"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```json
+{
+  "name": "AzureBlobInputDaily",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+      "partitionedBy": [
+        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+      ],
+      "format": {
+        "type": "TextFormat"
       }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
+  }
+}
+```
 
 **Input2: blob de Azure**
 
 Input2 es el blob de Azure que se actualiza semanalmente.
 
-    {
-      "name": "AzureBlobInputWeekly",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-          "partitionedBy": [
-            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-          ],
-          "format": {
-            "type": "TextFormat"
-          }
-        },
-        "external": true,
-        "availability": {
-          "frequency": "Day",
-          "interval": 7
-        }
+```json
+{
+  "name": "AzureBlobInputWeekly",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+      "partitionedBy": [
+        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+      ],
+      "format": {
+        "type": "TextFormat"
       }
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Day",
+      "interval": 7
     }
+  }
+}
+```
 
 **Salida: blob de Azure**
 
 Cada día se crea un archivo de salida en la carpeta del día. La disponibilidad de la salida se establece en **day** (frecuencia: día, intervalo: 1).
 
-    {
-      "name": "AzureBlobOutputDaily",
-      "properties": {
-        "type": "AzureBlob",
-        "linkedServiceName": "StorageLinkedService",
-        "typeProperties": {
-          "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
-          "partitionedBy": [
-            { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
-            { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
-            { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
-          ],
-          "format": {
-            "type": "TextFormat"
-          }
-        },
-        "availability": {
-          "frequency": "Day",
-          "interval": 1
-        }
+```json
+{
+  "name": "AzureBlobOutputDaily",
+  "properties": {
+    "type": "AzureBlob",
+    "linkedServiceName": "StorageLinkedService",
+    "typeProperties": {
+      "folderPath": "mycontainer/myfolder/{Year}/{Month}/{Day}/",
+      "partitionedBy": [
+        { "name": "Year", "value": {"type": "DateTime","date": "SliceStart","format": "yyyy"}},
+        { "name": "Month","value": {"type": "DateTime","date": "SliceStart","format": "%M"}},
+        { "name": "Day","value": {"type": "DateTime","date": "SliceStart","format": "%d"}}
+      ],
+      "format": {
+        "type": "TextFormat"
       }
+    },
+    "availability": {
+      "frequency": "Day",
+      "interval": 1
     }
+  }
+}
+```
 
 **Actividad: actividad de Hive en una canalización**
 
 La actividad de Hive toma las dos entradas y genera un segmento de salida cada día. Puede especificar de la forma siguiente el segmento de salida de cada día para que dependa de segmento de entrada de la semana pasada para la entrada semanal.
 
-    {  
-        "name":"SamplePipeline",
-        "properties":{  
-        "start":"2015-01-01T08:00:00",
-        "end":"2015-01-01T11:00:00",
-        "description":"hive activity",
-        "activities": [
+```json
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2015-01-01T08:00:00",
+    "end":"2015-01-01T11:00:00",
+    "description":"hive activity",
+    "activities": [
+      {
+        "name": "SampleHiveActivity",
+        "inputs": [
           {
-            "name": "SampleHiveActivity",
-            "inputs": [
-              {
-                "name": "AzureBlobInputDaily"
-              },
-              {
-                "name": "AzureBlobInputWeekly",
-                "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
-                "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
-              }
-            ],
-            "outputs": [
-              {
-                "name": "AzureBlobOutputDaily"
-              }
-            ],
-            "linkedServiceName": "HDInsightLinkedService",
-            "type": "HDInsightHive",
-            "typeProperties": {
-              "scriptPath": "adftutorial\\hivequery.hql",
-              "scriptLinkedService": "StorageLinkedService",
-              "defines": {
-                "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
-                "Month": "$$Text.Format('{0:%M}',WindowStart)",
-                "Day": "$$Text.Format('{0:%d}',WindowStart)"
-              }
-            },
-            "scheduler": {
-              "frequency": "Day",
-              "interval": 1
-            },          
-            "policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "OldestFirst",
-              "retry": 2,  
-              "timeout": "01:00:00"
-            }
-           }
-         ]
+            "name": "AzureBlobInputDaily"
+          },
+          {
+            "name": "AzureBlobInputWeekly",
+            "startTime": "Date.AddDays(SliceStart, - Date.DayOfWeek(SliceStart))",
+            "endTime": "Date.AddDays(SliceEnd,  -Date.DayOfWeek(SliceEnd))"  
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureBlobOutputDaily"
+          }
+        ],
+        "linkedServiceName": "HDInsightLinkedService",
+        "type": "HDInsightHive",
+        "typeProperties": {
+          "scriptPath": "adftutorial\\hivequery.hql",
+          "scriptLinkedService": "StorageLinkedService",
+          "defines": {
+            "Year": "$$Text.Format('{0:yyyy}',WindowStart)",
+            "Month": "$$Text.Format('{0:%M}',WindowStart)",
+            "Day": "$$Text.Format('{0:%d}',WindowStart)"
+          }
+        },
+        "scheduler": {
+          "frequency": "Day",
+          "interval": 1
+        },            
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 2,  
+          "timeout": "01:00:00"
+        }
        }
-    }
-
+     ]
+   }
+}
+```
 
 ## <a name="data-factory-functions-and-system-variables"></a>Funciones y variables del sistema de Data Factory
 Para conocer la lista de funciones y variables del sistema que admite Data Factory, consulte el artículo [Azure Data Factory: funciones y variables del sistema](data-factory-functions-variables.md) .
@@ -725,8 +754,10 @@ La ejecución de una actividad genera un segmento del conjunto de datos solo des
 
 Para generar el segmento de conjunto de datos [**start**, **end**], se necesita una función para asignar el segmento de conjunto de datos a su período de dependencia. Esta función es básicamente una fórmula que convierte el principio y el final del segmento del conjunto de datos en el comienzo y final del período de dependencia. Dicho más formalmente,
 
-    DatasetSlice = [start, end]
-    DependecyPeriod = [f(start, end), g(start, end)]
+```
+DatasetSlice = [start, end]
+DependecyPeriod = [f(start, end), g(start, end)]
+```
 
 **F** y **g** son funciones de asignación que calculan el inicio y el fin del período de dependencia para cada entrada de actividad.
 
@@ -750,71 +781,73 @@ Un conjunto de datos se puede marcar como externo (como se muestra en el fragmen
 
 De forma similar a los conjuntos de datos que produce Data Factory, los segmentos de datos externos deben estar preparados antes de que se puedan procesar los segmentos dependientes.
 
+```json
+{
+    "name": "AzureSqlInput",
+    "properties":
     {
-        "name": "AzureSqlInput",
-        "properties":
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties":
         {
-            "type": "AzureSqlTable",
-            "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties":
+            "tableName": "MyTable"
+        },
+        "availability":
+        {
+            "frequency": "Hour",
+            "interval": 1     
+        },
+        "external": true,
+        "policy":
+        {
+            "externalData":
             {
-                "tableName": "MyTable"
-            },
-            "availability":
-            {
-                "frequency": "Hour",
-                "interval": 1     
-            },
-            "external": true,
-            "policy":
-            {
-                "externalData":
-                {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
-            }  
-        }
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
+        }  
     }
-
-
+}
+```
 ## <a name="onetime-pipeline"></a>Canalización de una vez
 Puede crear y programar una canalización que se ejecute periódicamente (por ejemplo, cada hora y diariamente) entre las horas de inicio y finalización que especifique en la definición de la canalización. Para más información, consulte [Programación de actividades](#scheduling-and-execution) . También puede crear una canalización que se ejecute una sola vez. Para ello, establezca la propiedad **pipelineMode** en **onetime** en la definición de la canalización,como se muestra en el siguiente ejemplo de JSON. El valor predeterminado de esta propiedad es **scheduled**.
 
-    {
-        "name": "CopyPipeline",
-        "properties": {
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "BlobSource",
-                            "recursive": false
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```json
+{
+    "name": "CopyPipeline",
+    "properties": {
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "BlobSource",
+                        "recursive": false
                     },
-                    "inputs": [
-                        {
-                            "name": "InputDataset"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "OutputDataset"
-                        }
-                    ]
-                    "name": "CopyActivity-0"
-                }
-            ]
-            "pipelineMode": "OneTime"
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "InputDataset"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "OutputDataset"
+                    }
+                ]
+                "name": "CopyActivity-0"
+            }
+        ]
+        "pipelineMode": "OneTime"
     }
+}
+```
 
 Tenga en cuenta lo siguiente:
 
@@ -823,6 +856,9 @@ Tenga en cuenta lo siguiente:
 * La vista Diagrama no muestra las canalizaciones de una vez. Este comportamiento es así por diseño.
 * Las canalizaciones de una vez no se pueden actualizar. Puede clonar una canalización de una vez, cambiarle el nombre, actualizar las propiedades e implementarla para crear otra.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

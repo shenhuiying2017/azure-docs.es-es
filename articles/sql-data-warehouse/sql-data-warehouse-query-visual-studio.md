@@ -1,5 +1,5 @@
 ---
-title: "Realización de consultas en Azure SQL Data Warehouse (Visual Studio) | Microsoft Docs"
+title: "Conexión a Azure SQL Data Warehouse: VSTS | Microsoft Docs"
 description: Consultas en Almacenamiento de datos SQL con Visual Studio.
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,15 +15,15 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e97fefdf3cc13f2fd3e060da901e90ef5ef9a29
+ms.sourcegitcommit: 77474214c6fafe7f591030d30f6a46c66fbc5c09
+ms.openlocfilehash: 71a56d0e99308d3f7f514283792a2155a05a7172
 
 
 ---
-# <a name="query-azure-sql-data-warehouse-visual-studio"></a>Realización de consultas en Almacenamiento de datos SQL de Azure (Visual Studio)
+# <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Conexión a SQL Data Warehouse con Visual Studio y SSDT
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizaje automático de Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -37,7 +37,7 @@ Para utilizar este tutorial, necesitará:
 
 * Una cuenta de Almacenamiento de datos SQL existente. Para crear una, consulte [Creación de una instancia de SQL Data Warehouse][Creación de una instancia de SQL Data Warehouse].
 * SSDT para Visual Studio. Si tiene Visual Studio, probablemente ya tenga este componente. Para ver instrucciones y opciones de instalación, consulte [Instalación de Visual Studio y SSDT][Instalación de Visual Studio y SSDT].
-* El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to Azure SQL Data Warehouse (Conexión a Azure SQL Data Warehouse)][Connect to SQL Data Warehouse] (Conexión a Azure SQL Data Warehouse).
+* El nombre del servidor SQL completo. Para encontrarlo, consulte [Connect to SQL Data Warehouse][Connect to SQL Data Warehouse] (Conexión a Azure SQL Data Warehouse).
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conexión a la instancia de Almacenamiento de datos SQL
 1. Abra Visual Studio 2013 o 2015
@@ -81,17 +81,17 @@ Ahora que se ha establecido una conexión a la base de datos, pasemos a escribir
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que puede conectarse y realizar consultas, pruebe a [visualizar los datos con PowerBI][visualizar los datos con PowerBI].
 
-Para configurar el entorno para la autenticación de Azure Active Directory, consulte [Authentication to Azure SQL Data Warehouse (Autenticación en SQL Data Warehouse)][Authenticate to SQL Data Warehouse] (Autenticación en SQL Data Warehouse).
+Para configurar el entorno para la autenticación de Azure Active Directory, consulte [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse] (Autenticación en SQL Data Warehouse).
 
 <!--Arcticles-->
-[Conexión a Almacenamiento de datos SQL]: sql-data-warehouse-connect-overview.md
-[Creación de una instancia de Almacenamiento de datos SQL de Azure]: sql-data-warehouse-get-started-provision.md
-[Instalación de Visual Studio 2015 y SSDT para Almacenamiento de datos SQL]: sql-data-warehouse-install-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: sql-data-warehouse-authentication.md
+[Connect to SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
+[Creación de una instancia de SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
+[Instalación de Visual Studio y SSDT]: sql-data-warehouse-install-visual-studio.md
+[Authenticate to SQL Data Warehouse]: sql-data-warehouse-authentication.md
 [visualizar los datos con PowerBI]: sql-data-warehouse-get-started-visualize-with-power-bi.md  
 
 <!--Other-->
-[Portal de Azure]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 
 <!--Image references-->
 
@@ -105,6 +105,6 @@ Para configurar el entorno para la autenticación de Azure Active Directory, con
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

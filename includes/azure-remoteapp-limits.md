@@ -13,12 +13,12 @@
 | Usuarios - nivel Estándar* |250 (predeterminado)/500 (máximo) |
 | Nivel de usuarios premium |Valor predeterminado: 100. |
 | Nivel de usuarios premium plus |Valor predeterminado: 50 |
-| Conexiones simultáneas en todas las colecciones de una suscripción |5\.000 |
+| Conexiones simultáneas en todas las colecciones de una suscripción |5.000 |
 | Almacenamiento de datos de usuario (UPD) por usuario y colección |50 GB |
 | Tiempo de espera inactividad |4 horas |
 | Tiempo de espera de desconexión |4 horas |
 
-**Los límites de usuario en los niveles Básico y Estándar no se pueden aumentar por encima del límite máximo indicado anteriormente.
+*Los límites de usuario en los niveles Básico y Estándar no se pueden aumentar por encima del límite máximo indicado anteriormente. 
 
 El número de usuarios viene determinado por el número de máquinas virtuales que se usen para su colección:
 
@@ -26,4 +26,9 @@ El número de usuarios viene determinado por el número de máquinas virtuales q
 * Estándar = 10 usuarios por máquina virtual
 * Premium = 4 usuarios por máquina virtual
 * Premium plus = 2 usuarios por máquina virtual
+
+
+
+<!--HONumber=Nov16_HO3-->
+
 

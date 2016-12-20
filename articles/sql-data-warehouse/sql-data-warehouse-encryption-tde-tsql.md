@@ -2,11 +2,11 @@
 title: Cifrado de datos transparente en SQL Data Warehouse (T-SQL)| Microsoft Docs
 description: Cifrado de datos transparente (TDE) en SQL Data Warehouse (T-SQL)
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: ronortloff
 manager: barbkess
-editor: ''
-
+editor: 
+ms.assetid: 8ccefef3-1308-41ee-b336-5e491d1098ae
 ms.service: sql-data-warehouse
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: fb915cd9abb83b10af17046591ce313dcc84fd47
+
 
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Introducción al cifrado de datos transparente (TDE)
@@ -70,7 +74,7 @@ FROM
 Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una base de datos no cifrada.
 
 ## <a name="encryption-dmvs"></a>DMV de cifrado
-* [Sys.Databases][Sys.Databases] 
+* [sys.databases][sys.databases] 
 * [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->
@@ -84,6 +88,6 @@ Un resultado de ```1``` indica una base de datos cifrada, ```0``` indica una bas
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

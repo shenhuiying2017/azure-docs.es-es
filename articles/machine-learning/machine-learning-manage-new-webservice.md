@@ -1,12 +1,12 @@
 ---
-title: Administración de un servicio web mediante el portal Servicios web Azure Machine Learning | Microsoft Docs
-description: Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático
+title: "Administración de un servicio web mediante el portal de servicios web Azure Machine Learning | Microsoft Docs"
+description: "Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: vDonGlover
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b62cf2ca-dd2a-4a83-bb54-469f948fb026
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: v-donglo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3b04aa7406f44130deb4f12c856b459369301449
+
 
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Administración de un servicio web mediante el portal Servicios web Azure Machine Learning
@@ -22,7 +26,7 @@ Puede administrar los servicios web Machine Learning nuevos y clásicos mediante
 En el portal Servicios web Machine Learning, puede realizar las siguientes acciones:
 
 * Supervisar el uso del servicio web.
-* Configurar la descripción, actualizar las claves del servicio web (solo en los nuevos), actualizar la clave de la cuenta de almacenamiento (solo en los nuevos), habilitar el registro (solo en los clásicos) y habilitar o deshabilitar datos de ejemplo
+* Configurar la descripción, actualizar las claves del servicio web (solo en los nuevos), actualizar la clave de la cuenta de almacenamiento (solo en los nuevos), habilitar el registro y habilitar o deshabilitar datos de ejemplo
 * Eliminar el servicio web.
 * Crear, eliminar o actualizar planes de facturación (solo en los nuevos)
 * Agregar y eliminar puntos de conexión (solo en los clásicos)
@@ -171,6 +175,9 @@ Para administrar cuentas adicionales que dispongan de acceso al área de trabajo
 > 
 > 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

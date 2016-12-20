@@ -1,27 +1,31 @@
 ---
-title: Permitir el acceso público a una aplicación de ACS | Microsoft Docs
-description: Cómo permitir el acceso público a Azure Container Service.
+title: "Permitir el acceso público a una aplicación de ACS | Microsoft Docs"
+description: "Cómo permitir el acceso público a Azure Container Service."
 services: container-service
-documentationcenter: ''
+documentationcenter: 
 author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: acs, azure-container-service
 keywords: Docker, contenedores, microservicios, Mesos, Azure
-
+ms.assetid: 5dea3c4d-a687-4024-93ea-f7a9a7243ab4
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
-ms.author: adegeo
+ms.author: timlt
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9491ffb2683063169ab25c38b3db5de06282d654
+
 
 ---
-# Permitir el acceso público a una aplicación de Azure Container Service
-Cualquier contenedor de DC/OS del [grupo de agentes público](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) de ACS se expone automáticamente a Internet. De forma predeterminada, los puertos **80**, **443** y **8080** están abiertos, y se puede acceder a cualquier contenedor (público) que escucha en esos puertos. En este artículo se explica cómo abrir más puertos para las aplicaciones de Azure Container Service.
+# <a name="enable-public-access-to-an-azure-container-service-application"></a>Permitir el acceso público a una aplicación de Azure Container Service
+Cualquier contenedor de DC/OS del [grupo de agentes público](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) de ACS se expone automáticamente a Internet. De forma predeterminada, los puertos **80**, **443** y **8080** están abiertos y se puede tener acceso a cualquier contenedor (público) que escucha en esos puertos. En este artículo se explica cómo abrir más puertos para las aplicaciones de Azure Container Service.
 
-## Abrir un puerto (portal)
+## <a name="open-a-port-portal"></a>Abrir un puerto (portal)
 En primer lugar, es necesario abrir el puerto que desee.
 
 1. Inicie sesión en el portal.
@@ -53,10 +57,10 @@ En primer lugar, es necesario abrir el puerto que desee.
    | Puerto back-end |El puerto público interno del contenedor al que enrutar el tráfico. |
    | Grupo back-end |Los contenedores de este grupo serán el destino de este equilibrador de carga. |
    | Sondeo |El sondeo que se utiliza para determinar si un destino del **grupo back-end** es correcto. |
-   | Persistencia de la sesión |Determina cómo se debe controlar el tráfico de un cliente para la duración de la sesión.<br><br>**Ninguna**: cualquier contenedor puede controlar solicitudes sucesivas del mismo cliente.<br>**Dirección IP del cliente**: el mismo contenedor puede controlar solicitudes sucesivas de la misma dirección IP del cliente.<br>**IP y protocolo del cliente**: el mismo contenedor puede controlar solicitudes sucesivas de la combinación del protocolo y la dirección IP del mismo cliente. |
-   | Tiempo de espera inactividad |(Solo TCP) En minutos, el tiempo que se mantiene abierto el cliente TCP/HTTP sin depender de mensajes *keep-alive*. |
+   | Persistencia de la sesión |Determina cómo se debe controlar el tráfico de un cliente para la duración de la sesión.<br><br>**Ninguna**: cualquier contenedor puede controlar solicitudes sucesivas del mismo cliente.<br>**IP del cliente**: el mismo contenedor puede controlar solicitudes sucesivas de la dirección IP del mismo cliente.<br>**IP y protocolo del cliente**: el mismo contenedor puede controlar solicitudes sucesivas de la combinación del protocolo y la dirección IP del mismo cliente. |
+   | Tiempo de espera inactividad |(Solo TCP) En minutos, el tiempo que se mantiene abierto el cliente TCP/HTTP sin depender de mensajes *keep-alive* . |
 
-## Agregar una regla de seguridad (portal)
+## <a name="add-a-security-rule-portal"></a>Agregar una regla de seguridad (portal)
 A continuación, es necesario agregar una regla de seguridad que enruta el tráfico desde el puerto abierto a través del firewall.
 
 1. Inicie sesión en el portal.
@@ -76,12 +80,17 @@ A continuación, es necesario agregar una regla de seguridad que enruta el tráf
    | Origen |Restringir el intervalo de direcciones IP de entrada que esta regla admitirá o denegará. Utilizar **Cualquiera** para no especificar una restricción. |
    | Servicio |Seleccionar un conjunto de servicios predefinidos a los que vaya destinada esta regla de seguridad. De lo contrario, utilizar **Personalizado** para crear uno propio. |
    | Protocol |Restringir el tráfico basado en **TCP** o **UDP**. Utilizar **Cualquiera** para no especificar una restricción. |
-   | Intervalo de puertos |Cuando **Servicio** es **Personalizado**, especifica el intervalo de puertos al que afecta esta regla. Puede utilizar un único puerto, como **80**, o un intervalo como **1024-1500**. |
+   | Intervalo de puertos |Cuando **Servicio** es **Personalizado**, especifica el intervalo de puertos al que afecta esta regla. Puede usar un único puerto, como **80** o un intervalo como **1024-1500**. |
    | Acción |Permitir o denegar el tráfico que cumple los criterios. |
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre la diferencia entre [agentes de DC/OS públicos y privados](container-service-dcos-agents.md).
 
 Obtenga más información sobre cómo [administrar contenedores de DC/OS](container-service-mesos-marathon-ui.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

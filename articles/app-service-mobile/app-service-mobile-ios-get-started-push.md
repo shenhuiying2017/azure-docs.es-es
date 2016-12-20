@@ -1,64 +1,65 @@
 ---
-title: Incorporación de notificaciones push a la aplicación iOS con las Aplicaciones móviles de Azure
-description: Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para enviar notificaciones push a su aplicación iOS.
+title: "Incorporación de notificaciones push a la aplicación iOS con las Aplicaciones móviles de Azure"
+description: "Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para enviar notificaciones push a su aplicación iOS."
 services: app-service\mobile
 documentationcenter: ios
-manager: dwrede
-editor: ''
-author: krisragh
-
+manager: yochayk
+editor: 
+author: ysxu
+ms.assetid: fa503833-d23e-4925-8d93-341bb3fbab7d
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/28/2016
-ms.author: krisragh
+ms.date: 10/10/2016
+ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a21ae4b13479f66ada053153834a2b3cc5687e5a
+
 
 ---
-# Incorporación de notificaciones push a la aplicación iOS
+# <a name="add-push-notifications-to-your-ios-app"></a>Incorporación de notificaciones push a la aplicación iOS
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
-## Información general
-En este tutorial, agregará notificaciones push al proyecto de [inicio rápido de iOS] para que cada vez que se inserte un registro, se envíe una notificación push. Este tutorial está basado en el tutorial de [inicio rápido de iOS], que debe completar primero. Si no usa el proyecto de servidor de inicio rápido descargado, debe agregar el paquete de extensión de notificaciones push al proyecto. Para obtener más información acerca de los paquetes de extensión de servidor, consulte [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+## <a name="overview"></a>Información general
+En este tutorial, agregará notificaciones de inserción al proyecto de [inicio rápido de iOS] para que cada vez que se envíe una notificación de inserción al dispositivo, se inserte un registro.
 
-El [simulador de iOS no admite notificaciones push](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), por lo que, para este tutorial, necesita un dispositivo iOS físico y una [suscripción al programa para desarrolladores de Apple](https://developer.apple.com/programs/ios/).
+Si no usa el proyecto de servidor de inicio rápido descargado, necesitará el paquete de extensión de la notificación de inserción. Vea [Trabajar con el SDK de servidor de back-end de .NET para Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obtener más información.
 
-## <a name="create-hub"></a>Creación de un centro de notificaciones
-[!INCLUDE [app-service-mobile-create-notification-hub](../../includes/app-service-mobile-create-notification-hub.md)]
+El [simulador de iOS no admite notificaciones de inserción](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html). Necesita un dispositivo de iOS físico y una [suscripción de Apple Developer Program](https://developer.apple.com/programs/ios/).
 
-## <a id="register"></a>Registro de aplicaciones para notificaciones push
-[!INCLUDE [Habilitación de notificaciones de inserción de Apple](../../includes/enable-apple-push-notifications.md)]
+## <a name="a-nameconfigure-hubaconfigure-notification-hub"></a><a name="configure-hub"></a>Configurar el Centro de notificaciones
+[!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## Configuración de Azure para enviar notificaciones push
+## <a name="a-idregisteraregister-app-for-push-notifications"></a><a id="register"></a>Registro de aplicaciones para notificaciones push
+[!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
+
+## <a name="configure-azure-to-send-push-notifications"></a>Configuración de Azure para enviar notificaciones push
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a id="update-server"></a>Actualización del proyecto de servidor para enviar notificaciones push
+## <a name="a-idupdate-serveraupdate-backend-to-send-push-notifications"></a><a id="update-server"></a>Actualizar el back-end para enviar notificaciones de inserción
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-apns](../../includes/app-service-mobile-dotnet-backend-configure-push-apns.md)]
 
-## <a id="add-push"></a>Agregar notificaciones push a la aplicación
+## <a name="a-idadd-pushaadd-push-notifications-to-app"></a><a id="add-push"></a>Agregar notificaciones push a la aplicación
 [!INCLUDE [app-service-mobile-add-push-notifications-to-ios-app.md](../../includes/app-service-mobile-add-push-notifications-to-ios-app.md)]
 
-## <a id="test"></a>Prueba de las notificaciones push en la aplicación
-[!INCLUDE [Prueba de las notificaciones push en la aplicación](../../includes/test-push-notifications-in-app.md)]
+## <a name="a-idtestatest-push-notifications"></a><a id="test"></a>Probar notificaciones de inserción
+[!INCLUDE [Test Push Notifications in App](../../includes/test-push-notifications-in-app.md)]
 
-## <a id="more"></a>Más
+## <a name="a-idmoreamore"></a><a id="more"></a>Más
 * Las plantillas proporcionan flexibilidad para enviar inserciones multiplataforma e inserciones localizadas. [Uso de la biblioteca de cliente de iOS para Aplicaciones móviles de Azure](app-service-mobile-ios-how-to-use-client-library.md#templates) muestra cómo registrar plantillas.
-* Las etiquetas permiten dirigirse a clientes segmentados con inserciones. [Trabajar con el SDK del servidor back-end de .NET para Aplicaciones móviles de Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags) muestra cómo agregar etiquetas a la instalación de un dispositivo.
 
 <!-- Anchors.  -->
-[Generate iOS certificate signing request]: #certificates
-[Register your app and enable push notifications]: #register
-[Create a provisioning profile for the app]: #profile
-[Add push notifications to the app]: #add-push
-[Configure your mobile backend to send push requests]: #configure
-[Update the server to send push notifications]: #update-server
-[Publish the mobile backend to Azure]: #publish-mobile-service
-[Test your app]: #test-the-service
 
 <!-- Images. -->
 
 <!-- URLs. -->
 [inicio rápido de iOS]: app-service-mobile-ios-get-started.md
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

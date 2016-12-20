@@ -1,22 +1,27 @@
 ---
-title: 'Caso práctico de Azure SQL Database: Daxko y CSI | Microsoft Docs'
-description: Sepa cómo Daxko y CSI utilizan SQL Database para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente.
+title: "Caso práctico de Azure SQL Database: Daxko y CSI | Microsoft Docs"
+description: "Sepa cómo Daxko y CSI utilizan SQL Database para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: CarlRabeler
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
+ms.custom: app development case study; app development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/08/2016
 ms.author: carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+
 
 ---
-# <a name="daxko/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko y CSI utilizan Azure para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente
+# <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko y CSI utilizan Azure para acelerar su ciclo de desarrollo, aumentar su rendimiento y mejorar sus servicios de atención al cliente
 ![Logotipo de Daxko/CSI](./media/sql-database-implementation-daxko/csidaxkologo25.png)
 
 Daxko y CSI Software se han enfrentado a un reto: la base de clientes de sus centros de bienestar y recreo han aumentado rápidamente gracias al éxito de su solución completa de software empresarial. Sin embargo, el hecho de tener que satisfacer las necesidades de infraestructura de TI de esa base de clientes en aumento estaba poniendo a prueba al personal de TI de la empresa. La compañía cada vez se veía cada vez más limitada por el aumento de la sobrecarga de operaciones, sobre todo las relacionadas con la administración de sus bases de datos en constante crecimiento. Y lo que es peor, esa sobrecarga de operaciones estaba impidiendo que los recursos de desarrollo llevasen a cabo nuevas iniciativas, como las nuevas características de movilidad del software de la empresa.
@@ -86,10 +91,13 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 * Si necesita obtener más detalles sobre las herramientas para bases de datos y el escalado elástico, lea [este artículo](sql-database-elastic-scale-get-started.md).
 * Para obtener más información cómo migrar una base de datos de SQL Server, vea [Migrar la base de datos de SQL Server a Base de datos SQL con el Asistente para implementar base de datos en Base de datos de Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Si quiere conocer más detalles sobre la replicación geográfica activa, revise [este artículo](sql-database-geo-replication-overview.md).
-* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute). 
+* Para obtener más detalles sobre los roles web y de trabajo, consulte [este artículo](../fundamentals-introduction-to-azure.md#compute).    
 * Si necesita más información sobre Azure Service Bus, lea [este artículo](https://azure.microsoft.com/services/service-bus/).
 * Si quiere saber más sobre el escalado automático, revise [este artículo](../cloud-services/cloud-services-how-to-scale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

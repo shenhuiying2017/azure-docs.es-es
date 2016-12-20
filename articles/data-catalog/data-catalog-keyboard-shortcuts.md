@@ -1,13 +1,13 @@
 ---
-title: Catálogo de datos de Azure | Microsoft Docs
-description: En este artículo se muestran los métodos abreviados de teclado para el Catálogo de datos de Azure.
+title: Azure Data Catalog | Microsoft Docs
+description: "En este artículo se muestran los métodos abreviados de teclado para el Catálogo de datos de Azure."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: NA
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/13/2016
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 190f46f9994be1a0699488eb813955070070ee51
+
 
 ---
-# Métodos abreviados de teclado para el Catálogo de datos de Azure
-## Métodos abreviados de teclado para la herramienta de registro de orígenes de datos del Catálogo de datos
-### Métodos abreviados de teclado generales
+# <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Métodos abreviados de teclado para el Catálogo de datos de Azure
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Métodos abreviados de teclado para la herramienta de registro de orígenes de datos del Catálogo de datos
+### <a name="general-keyboard-shortcuts"></a>Métodos abreviados de teclado generales
 | Operación | Presione |
 | --- | --- |
 | Ir a cada control de una página. |Tabulador |
@@ -28,24 +32,24 @@ ms.author: spelluru
 | Restaurar o minimizar la página |WIN+Flecha abajo |
 | Abrir el menú de página |ALT+Barra espaciadora |
 
-### Página de autenticación
+### <a name="authentication-page"></a>Página de autenticación
 | Operación | Presione |
 | --- | --- |
 | Iniciar sesión en el servicio. |ALT+S |
 
-### Página de selección del origen de datos
+### <a name="data-source-selection-page"></a>Página de selección del origen de datos
 | Operación | Presione |
 | --- | --- |
 | Ir a la página siguiente (si está habilitado). |ALT+N |
 | Cambiar el tipo seleccionado cuando el foco está en un icono. |Flecha izquierda, arriba, derecha o abajo |
 
-### Página de conexión al origen de datos
+### <a name="data-source-connection-page"></a>Página de conexión al origen de datos
 | Operación | Presione |
 | --- | --- |
 | Ir a la página anterior (si está habilitado). |ALT+P |
 | Elegir el botón Conectar. |ALT+C |
 
-### Página de contexto de conexión
+### <a name="connection-context-page"></a>Página de contexto de conexión
 | Operación | Presione |
 | --- | --- |
 | Botón Registrar (si está habilitado). |ALT+R |
@@ -55,20 +59,20 @@ ms.author: spelluru
 | Jerarquía del servidor, expandir un nodo de la vista de árbol. |Flecha derecha |
 | Mover los elementos seleccionados a **Objetos disponibles** o a **Objetos que se registrarán**. |Barra espaciadora |
 
-### Página de progreso de publicación
+### <a name="publish-progress-page"></a>Página de progreso de publicación
 | Operación | Presione |
 | --- | --- |
 | Botón Cancelar |ALT+C |
 | Botón Registrar más objetos |ALT+R |
 | Botón Ver portal |ALT + V |
 
-### Página de progreso de publicación
+### <a name="publish-progress-page"></a>Página de progreso de publicación
 | Operación | Presione |
 | --- | --- |
 | Botón Guardar (si está habilitado) |ALT+S |
 | Botón Cancelar |ALT+C |
 
-## Métodos abreviados de teclado para el portal del Catálogo de datos
+## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Métodos abreviados de teclado para el portal del Catálogo de datos
 | Operación | Presione |
 | --- | --- |
 | Navegar |TAB y MAYÚS + TAB |
@@ -82,4 +86,9 @@ ms.author: spelluru
 | Alternar menú **Abrir en** |ALT + O |
 | Explorar el contenedor, si el recurso es un contenedor |ALT + L |
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Implementación de una aplicación web vinculada a un repositorio de GitHub
-description: Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que contenga un proyecto de un repositorio de GitHub.
+title: "Implementación de una aplicación web vinculada a un repositorio de GitHub"
+description: "Use una plantilla de Administrador de recursos de Azure para implementar una aplicación web que contenga un proyecto de un repositorio de GitHub."
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: cephalin
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 32739607-85fe-43c8-a4dc-1feb46d93a4d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bcd39d5c4d837815daf0789744c2845a1e2e84f8
+
 
 ---
-# Implementación de una aplicación web vinculada a un repositorio de GitHub
+# <a name="deploy-a-web-app-linked-to-a-github-repository"></a>Implementación de una aplicación web vinculada a un repositorio de GitHub
 En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa una aplicación web que está vinculada a un proyecto en un repositorio de GitHub. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
 Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
@@ -25,17 +29,17 @@ Para la plantilla completa, consulte [Aplicación web vinculada a la plantilla d
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Lo que implementará
+## <a name="what-you-will-deploy"></a>Lo que implementará
 Con esta plantilla, implementará una aplicación web que contiene el código de un proyecto en GitHub.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
 [![Implementación en Azure](./media/app-service-web-arm-from-github-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-web-app-github-deploy%2Fazuredeploy.json)
 
-## Parámetros
+## <a name="parameters"></a>Parámetros
 [!INCLUDE [app-service-web-deploy-web-parameters](../../includes/app-service-web-deploy-web-parameters.md)]
 
-### repoURL
+### <a name="repourl"></a>repoURL
 La dirección URL del repositorio GitHub que contiene el proyecto que se va a implementar. Este parámetro contiene un valor predeterminado, pero la finalidad de este valor es únicamente mostrarle cómo proporcionar la dirección URL del repositorio. Puede usar este valor cuando pruebe la plantilla, pero lo más seguro es que quiera proporcionar la dirección URL de su propio repositorio cuando trabaje con la plantilla.
 
     "repoURL": {
@@ -43,7 +47,7 @@ La dirección URL del repositorio GitHub que contiene el proyecto que se va a im
         "defaultValue": "https://github.com/davidebbo-test/Mvc52Application.git"
     }
 
-### branch
+### <a name="branch"></a>branch
 La rama del repositorio que se va a usar al implementar la aplicación. El valor predeterminado es maestro, pero puede proporcionar el nombre de cualquier rama del repositorio que desee implementar.
 
     "branch": {
@@ -51,15 +55,16 @@ La rama del repositorio que se va a usar al implementar la aplicación. El valor
         "defaultValue": "master"
     }
 
-## Recursos para implementar
+## <a name="resources-to-deploy"></a>Recursos para implementar
 [!INCLUDE [app-service-web-deploy-web-host](../../includes/app-service-web-deploy-web-host.md)]
 
-### Aplicación web
-Crea la aplicación web que está vinculada al proyecto en GitHub.
+### <a name="web-app"></a>Aplicación web
+Crea la aplicación web que está vinculada al proyecto en GitHub. 
 
-Especifique el nombre de la aplicación web a través del parámetro **siteName** y la ubicación de la aplicación web a través del parámetro **siteLocation**. En el elemento **dependsOn**, la plantilla define la aplicación web como dependiente del plan de hospedaje de servicio. Puesto que depende del plan de hospedaje, la aplicación web no se crea hasta que ha terminado de crearse el plan de hospedaje. El elemento **dependsOn** solo se usa para especificar el orden de implementación. Si no marca la aplicación web como dependientes en el plan de hospedaje, el Administrador de recursos de Azure intentará crear ambos recursos al mismo tiempo y puede recibir un error si la aplicación web se crea antes que el plan de hospedaje.
+Especifique el nombre de la aplicación web a través del parámetro **siteName** y la ubicación de la aplicación web a través del parámetro **siteLocation**. En el elemento **dependsOn** , la plantilla define la aplicación web como dependiente del plan de hospedaje de servicio. Puesto que depende del plan de hospedaje, la aplicación web no se crea hasta que ha terminado de crearse el plan de hospedaje. El elemento **dependsOn** solo se usa para especificar el orden de implementación. Si no marca la aplicación web como dependientes en el plan de hospedaje, el Administrador de recursos de Azure intentará crear ambos recursos al mismo tiempo y puede recibir un error si la aplicación web se crea antes que el plan de hospedaje.
 
-La aplicación web también tiene un recurso secundario que se define en la sección **Recursos** más adelante. Este recurso secundario define el control de código fuente para el proyecto implementado con la aplicación web. En esta plantilla, el control de código fuente está vinculado a un repositorio de GitHub determinado. El repositorio de GitHub se define con el código **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"**. Podría codificar la dirección URL del repositorio cuando desee crear una plantilla que implemente de forma repetida un único proyecto y se requiera el número mínimo de parámetros. En lugar de codificar la dirección URL del repositorio, puede agregar un parámetro para ella y usar ese valor para la propiedad **RepoUrl**.
+La aplicación web también tiene un recurso secundario que se define en la sección sobre **recursos** posterior. Este recurso secundario define el control de código fuente para el proyecto implementado con la aplicación web. En esta plantilla, el control de código fuente está vinculado a un repositorio de GitHub determinado. El repositorio de GitHub se define con el código **"RepoUrl": "https://github.com/davidebbo-test/Mvc52Application.git"** Podría codificar de forma rígida la dirección URL del repositorio cuando desee crear una plantilla que implemente de forma repetida un único proyecto y se requiera el número mínimo de parámetros.
+En lugar de codificar de forma rígida la dirección URL del repositorio, puede agregar un parámetro para ella y usar ese valor para la propiedad **RepoUrl**.
 
     {
       "apiVersion": "2015-08-01",
@@ -89,16 +94,20 @@ La aplicación web también tiene un recurso secundario que se define en la secc
       ]
     }
 
-## Comandos para ejecutar la implementación
+## <a name="commands-to-run-deployment"></a>Comandos para ejecutar la implementación
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
     New-AzureRmResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json -siteName ExampleSite -hostingPlanName ExamplePlan -siteLocation "West US" -ResourceGroupName ExampleDeployGroup
 
-### Azure CLI
+### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-web-app-github-deploy/azuredeploy.json
 
 
 
 
-<!---HONumber=AcomDC_0504_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,21 +1,25 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Cherwell | Microsoft Docs'
-description: Aprenda a usar Cherwell con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Cherwell | Microsoft Docs"
+description: "Aprenda a usar Cherwell con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/27/2016
+ms.date: 10/14/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 70a46193b66142e6be55f4e5fdbe25888c7adfd6
+
 
 ---
-# Tutorial: Integración de Azure Active Directory con Cherwell
+# <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integración de Azure Active Directory con Cherwell
 El objetivo de este tutorial es mostrar la integración de Azure y Cherwell. En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
 * Una suscripción de Azure válida
@@ -30,90 +34,97 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Escenario")
+![Escenario](./media/active-directory-saas-cherwell-tutorial/IC798988.png "Scenario")
 
-## Habilitación de la integración de aplicaciones para Cherwell
+## <a name="enabling-the-application-integration-for-cherwell"></a>Habilitación de la integración de aplicaciones para Cherwell
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para Cherwell.
 
-### Siga estos pasos para habilitar la integración de aplicaciones para Cherwell:
+### <a name="to-enable-the-application-integration-for-cherwell-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para Cherwell:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-cherwell-tutorial/IC700993.png "Active Directory")
-2. En la lista **Directory**, seleccione el directorio cuya integración desee habilitar.
-3. Para abrir la vista de aplicaciones, haga clic en **Applications**, en el menú superior de la vista de directorios.
+2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
+3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Aplicaciones](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Aplicaciones")
+   ![Applications](./media/active-directory-saas-cherwell-tutorial/IC700994.png "Applications")
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicación](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Agregar aplicación")
+   ![Agregar aplicación](./media/active-directory-saas-cherwell-tutorial/IC749321.png "Add application")
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Agregar una aplicación de la galería")
+   ![Agregar una aplicación de la galería](./media/active-directory-saas-cherwell-tutorial/IC749322.png "Add an application from gallerry")
 6. En el **cuadro de búsqueda**, escriba **Cherwell**.
    
    ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798989.png "Cherwell")
-7. En el panel de resultados, seleccione **Cherwell** y luego haga clic en **Completar** para agregar la aplicación.
+7. En el panel de resultados, seleccione **Cherwell** y haga clic en **Completar** para agregar la aplicación.
    
-   ## Configuración del inicio de sesión único
+   ## <a name="configuring-single-sign-on"></a>Configuración del inicio de sesión único
    ![Cherwell](./media/active-directory-saas-cherwell-tutorial/IC798996.png "Cherwell")
 
 El objetivo de esta sección es describir cómo habilitar usuarios para que se autentiquen en Cherwell con su cuenta de Azure AD mediante federación basada en el protocolo SAML.
 
-### Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Cherwell**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configurar inicio de sesión único")
-2. En la página **¿Cómo desea que los usuarios inicien sesión en Cherwell?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
+   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798990.png "Configure Single Sign-On")
+2. En la página **¿Cómo desea que los usuarios inicien sesión en Cherwell?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Configurar inicio de sesión único")
-3. En la página **Configurar dirección URL de la aplicación**, realice los pasos siguientes:
+   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798991.png "Configure Single Sign-On")
+3. En la página **Configurar dirección URL de la aplicación** , realice los pasos siguientes:
    
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configurar dirección URL de la aplicación")
+   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-cherwell-tutorial/IC798992.png "Configure App URL")
    
-   a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios usan para iniciar sesión en la aplicación **Cherwell** (p. ej.: *https://\<nombreDeCompañía>.cherwellondemand.com/cherwellclient*).
+   a.  En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL que los usuarios utilizan para iniciar sesión en la aplicación **Cherwell** (por ejemplo: *https://\<nombre de compañía\>.cherwellondemand.com/cherwellclient*).
    
-   b. Haga clic en **Siguiente**.
-4. En la página **Configurar inicio de sesión único en Cherwell**, siga estos pasos:
+   b.  Haga clic en **Siguiente**
+4. En la página **Configurar inicio de sesión único en Cherwell** , siga estos pasos:
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798993.png "Configure Single Sign-On")
    
-   a. Haga clic en **Descargar certificado** y luego guarde el certificado en el equipo.
+   a.  Haga clic en **Descargar certificado**y luego guarde el certificado en el equipo.
    
-   b. Copie la **Dirección URL del proveedor de identidades**.
+   b.  Copie la **Dirección URL del proveedor de identidades**.
    
-   c. Copie la **Dirección URL del servicio de inicio de sesión único**.
+   c.  Copie la **Dirección URL del servicio de inicio de sesión único**.
    
-   d. Haga clic en **Siguiente**.
-5. Envíe el certificado descargado, la **Dirección URL del proveedor de identidades** y la **Dirección URL del servicio de inicio de sesión único** al equipo de soporte de Cherwell.
+   d.  Haga clic en **Siguiente**.
+5. Envíe el certificado descargado, la **dirección URL del proveedor de identidades** y la **dirección URL del servicio de inicio de sesión único** al equipo de soporte de Cherwell.
    
    > [!NOTE]
-   > El equipo de soporte técnico de Cherwell es el que tiene que realizar la configuración real de SSO. Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
+   > El equipo de soporte técnico de Cherwell es el que tiene que realizar la configuración real de SSO.
+   > Cuando SSO se haya habilitado en su suscripción recibirá una notificación.
    > 
    > 
-6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y, luego, haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
+6. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configurar inicio de sesión único")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-cherwell-tutorial/IC798994.png "Configure Single Sign-On")
 
-## Configuración del aprovisionamiento de usuario
-Para permitir que los usuarios de Azure AD inicien sesión en Cherwell, tienen que aprovisionarse en Cherwell. En el caso de Cherwell, las cuentas de usuario debe crearlas el equipo de soporte técnico de Cherwell.
+## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
+Para permitir que los usuarios de Azure AD inicien sesión en Cherwell, tienen que aprovisionarse en Cherwell.  
+En el caso de Cherwell, las cuentas de usuario debe crearlas el equipo de soporte técnico de Cherwell.
 
 > [!NOTE]
 > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Cherwell que proporcione Cherwell para aprovisionar cuentas de usuario de Azure Active Directory.
 > 
 > 
 
-## Asignación de usuarios
+## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, tiene que conceder acceso, mediante su asignación, a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### Para asignar usuarios a Cherwell, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-cherwell-perform-the-following-steps"></a>Para asignar usuarios a Cherwell, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Cherwell**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Asignar usuarios")
-3. Seleccione su usuario de prueba, haga clic en **Asignar** y luego en **Sí** para confirmar la asignación.
+   ![Asignar usuarios](./media/active-directory-saas-cherwell-tutorial/IC798995.png "Assign Users")
+3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Sí")
+   ![Sí](./media/active-directory-saas-cherwell-tutorial/IC767830.png "Yes")
 
-Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
+Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

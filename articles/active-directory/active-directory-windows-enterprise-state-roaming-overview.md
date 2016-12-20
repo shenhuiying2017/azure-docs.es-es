@@ -1,13 +1,13 @@
 ---
-title: Información general de Enterprise State Roaming | Microsoft Docs
-description: Proporciona información sobre la configuración de Enterprise State Roaming en dispositivos de Windows. Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo.
+title: "Información general de Enterprise State Roaming | Microsoft Docs"
+description: "Proporciona información sobre la configuración de Enterprise State Roaming en dispositivos de Windows. Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo."
 services: active-directory
-keywords: qué es Enterprise State Roaming, sincronización empresarial, nube de windows
-documentationcenter: ''
+keywords: "qué es Enterprise State Roaming, sincronización empresarial, nube de windows"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: 83b3b58f-94c1-4ab0-be05-20e01f5ae3f0
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b946c4c712544ea49607cf5cdd5ebbd997ff116
+
 
 ---
 # <a name="enterprise-state-roaming-overview"></a>Información general de Enterprise State Roaming
@@ -33,6 +37,9 @@ Enterprise State Roaming está disponible en varias regiones de Azure. En la pá
 | [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 proporciona configuración de la directiva de directiva de grupo y de administración de dispositivos móviles (MDM) para limitar la sincronización de configuración. |
 | [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |Lo siguiente es una lista completa de todas las opciones que se movilizan o se copian en Windows 10. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

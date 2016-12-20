@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 73bd16f44f0848c74ce3edd5042900525e4811db
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ac0044da9cf804dabd9d71e3380782120728a55a
 
 
 ---
@@ -200,7 +200,7 @@ Es posible acceder a los recursos de Almacenamiento de Azure por medio de cualqu
 * [Herramientas de cliente de Almacenamiento de Azure](storage-explorers.md)
 * [SDK y herramientas de Azure](https://azure.microsoft.com/tools/)
 * [Emulador de almacenamiento de Azure](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Utilidad de línea de comandos AzCopy](http://aka.ms/downloadazcopy)
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -246,9 +246,12 @@ Para obtener más información sobre Almacenamiento de Azure, consulte los sigui
 * [Uso del almacenamiento de colas de Python](storage-python-how-to-use-queue-storage.md)
 * [Uso del Almacenamiento de archivos desde Python](storage-python-how-to-use-file-storage.md)
 
+## <a name="next-steps"></a>Pasos siguientes
+
+* [crear una cuenta de almacenamiento](storage-create-storage-account.md)
+* [Introducción en cinco minutos a Almacenamiento de Azure](storage-getting-started-guide.md)
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

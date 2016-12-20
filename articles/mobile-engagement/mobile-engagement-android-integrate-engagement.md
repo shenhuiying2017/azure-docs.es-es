@@ -1,12 +1,12 @@
 ---
-title: Integración del SDK de Android para Azure Mobile Engagement
-description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
+title: "Integración del SDK de Android para Azure Mobile Engagement"
+description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,9 +14,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 09c5c2333748eeca3d6e93b62810d62c8a3e53a1
+
 
 ---
-# Integración de Engagement en Android
+# <a name="how-to-integrate-engagement-on-android"></a>Integración de Engagement en Android
 > [!div class="op_single_selector"]
 > * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -32,19 +36,17 @@ Este procedimiento describe la manera más fácil de activar las funciones de An
 > 
 > 
 
-Los siguientes pasos son suficientes para activar el informe de registros necesarios para calcular todas las estadísticas relativas a Usuarios, Sesiones, Actividades, Bloqueos y Aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (vea [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su dispositivo Android](mobile-engagement-android-use-engagement-api.md)) debido a que estas estadísticas dependen de la aplicación.
+Los siguientes pasos son suficientes para activar el informe de registros necesarios para calcular todas las estadísticas relativas a Usuarios, Sesiones, Actividades, Bloqueos y Aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (vea [Cómo usar la API de etiquetado avanzado de Mobile Engagement en su dispositivo Android](mobile-engagement-android-use-engagement-api.md) ) debido a que estas estadísticas dependen de la aplicación.
 
-## Inserción del SDK y el servicio Engagement en el proyecto de Android
-Descargue el SDK de Android [aquí](https://aka.ms/vq9mfn) Obtenga `mobile-engagement-VERSION.jar` y colóquelos en la carpeta `libs` del proyecto Android (cree la carpeta libs si aún no existe).
+## <a name="embed-the-engagement-sdk-and-service-into-your-android-project"></a>Inserción del SDK y el servicio Engagement en el proyecto de Android
+Descargue el SDK de Android [aquí](https://aka.ms/vq9mfn). Obtenga `mobile-engagement-VERSION.jar` y colóquelos en la carpeta `libs` del proyecto Android (cree la carpeta libs si aún no existe).
 
 > [!IMPORTANT]
 > Si compila su paquete de aplicación con ProGuard, deberá mantener algunas clases. Puede usar el siguiente snippet de configuración:
 > 
-> -keep public class * extends android.os.IInterface
-> -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
+> -keep public class * extends android.os.IInterface -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {
 > 
-> <methods>;
-> }
+> <methods>; }
 > 
 > 
 
@@ -70,7 +72,7 @@ La cadena de conexión de la aplicación se muestra en el portal de Azure.
 * Cambie `<Your application name>` por el nombre de la aplicación.
 
 > [!TIP]
-> El atributo `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla "Running services" (Servicios en ejecución) de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
+> La clave `android:label` le permite elegir el nombre del servicio Engagement que aparecerá para los usuarios finales en la pantalla "Running services" (Servicios en ejecución) de su teléfono. Se recomienda establecer este atributo en `"<Your application name>Service"` (por ejemplo, `"AcmeFunGameService"`).
 > 
 > 
 
@@ -95,8 +97,8 @@ Puede hacer lo mismo para `Application.onTerminate()`, `Application.onLowMemory(
 
 También puede ampliar `EngagementApplication` en lugar de `Application`: la devolución de llamada `Application.onCreate()` solo realiza el proceso y llama a `Application.onApplicationProcessCreate()` si el proceso actual no es el que hospeda el servicio Engagement; las mismas reglas se aplican para las demás devoluciones de llamada.
 
-## Informes básicos
-### Método recomendado: sobrecargar las clases `Activity`
+## <a name="basic-reporting"></a>Informes básicos
+### <a name="recommended-method-overload-your-activity-classes"></a>Método recomendado: sobrecargar las clases `Activity`
 Para activar el informe de todos los registros que necesita Engagement para calcular las estadísticas de Usuarios, Sesiones, Actividades, Bloqueos y Aspectos técnicos, tiene que hacer que todas las subclases `*Activity` hereden de las clases `Engagement*Activity` correspondientes (por ejemplo, si su actividad heredada amplía `ListActivity`, haga que amplíe `EngagementListActivity`).
 
 **Sin Engagement:**
@@ -140,7 +142,7 @@ Para activar el informe de todos los registros que necesita Engagement para calc
 
 Puede encontrar estas clases en la carpeta `src` y puede copiarlas en su proyecto. Las clases también están en **JavaDoc**.
 
-### Método alternativo: llamar a `startActivity()` y `endActivity()` manualmente
+### <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Método alternativo: llamar a `startActivity()` y `endActivity()` manualmente
 Si no puede o no quiere sobrecargar sus clases `Activity`, puede iniciar y finalizar sus actividades llamando a los métodos `EngagementAgent` directamente.
 
 > [!IMPORTANT]
@@ -170,20 +172,20 @@ Este es un ejemplo:
 
 Este ejemplo es muy parecido a la clase `EngagementActivity` y sus variantes, cuyo código fuente se proporciona en la carpeta `src`.
 
-## Prueba
+## <a name="test"></a>Prueba
 Ahora, para comprobar la integración, ejecute la aplicación móvil en un dispositivo o emulador y compruebe que registra una sesión en la pestaña Monitor.
 
 Las siguientes secciones son opcionales.
 
-## Informes de ubicación
+## <a name="location-reporting"></a>Informes de ubicación
 Si desea que se notifiquen las ubicaciones, deberá agregar algunas líneas de configuración (entre las etiquetas `<application>` y `</application>`).
 
-### Informes de ubicaciones de áreas diferidas
+### <a name="lazy-area-location-reporting"></a>Informes de ubicaciones de áreas diferidas
 Los informes de ubicación de área diferida permiten notificar el país, la región y la localidad asociados con los dispositivos. Este tipo de informe de ubicación sólo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI). El área del dispositivo se notifica como máximo una vez por sesión. El GPS no se utiliza nunca y, por tanto, este tipo de informe de ubicación tiene muy poco impacto (por no decir ninguno) en la batería.
 
 Las áreas notificadas se utilizan para elaborar estadísticas geográficas acerca de los usuarios, las sesiones, los eventos y los errores. También se pueden usar como criterios en campañas de cobertura.
 
-Para habilitar los informes diferidos de ubicación, puede hacerlo mediante la configuración anteriormente mencionada en este procedimiento:
+Para habilitar los informes diferidos de ubicación, puede hacerlo mediante la configuración anteriormente mencionada en este procedimiento: 
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
     engagementConfiguration.setConnectionString("Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}");
@@ -196,10 +198,10 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
 O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
 
-### Informes de ubicación en tiempo real
+### <a name="real-time-location-reporting"></a>Informes de ubicación en tiempo real
 Los informes de ubicación en tiempo real permiten notificar la latitud y la longitud asociadas con los dispositivos. De forma predeterminada, este tipo de informes de ubicación solo emplea ubicaciones de red (basadas en el identificador del teléfono móvil o en WIFI), y los informes solo están activos cuando la aplicación se ejecuta en primer plano (por ejemplo, durante una sesión).
 
-Las ubicaciones en tiempo real *NO* se usan para calcular las estadísticas. Su único objetivo es permitir el uso de criterios de geovallas en tiempo real <Reach-audiencia-geovallas> en las campañas de Reach.
+Las ubicaciones en tiempo real *NO* se usan para calcular las estadísticas. Su única finalidad es permitir el uso de criterios de geovallado en tiempo real \<Reach-Audience-geofencing\> en las campañas de cobertura.
 
 Para habilitar los informes de ubicación en tiempo real, puede hacerlo mediante la configuración anteriormente mencionada en este procedimiento:
 
@@ -214,7 +216,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
 O bien, puede seguir usando ``ACCESS_FINE_LOCATION`` si ya lo usa en la aplicación.
 
-#### Informes basados en GPS
+#### <a name="gps-based-reporting"></a>Informes basados en GPS
 De forma predeterminada, los informes de ubicación en tiempo real solo emplean ubicaciones de red. Para habilitar el uso de ubicaciones basadas en GPS (que son mucho más precisas), use el objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -227,7 +229,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
             <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
-#### Informes en segundo plano
+#### <a name="background-reporting"></a>Informes en segundo plano
 De forma predeterminada, los informes de ubicación en tiempo real solo están activos cuando la aplicación se ejecuta en primer plano (es decir, durante una sesión). Para habilitar los informes también en segundo plano, use el objeto de configuración:
 
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -254,7 +256,7 @@ Puede que también deba agregar el siguiente permiso si no existe:
 
             <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-### Permisos de Android M
+### <a name="android-m-permissions"></a>Permisos de Android M
 A partir de Android M, algunos permisos se administran en tiempo de ejecución y se necesita la aprobación del usuario.
 
 Los permisos en tiempo de ejecución se desactivan de manera predeterminada para las nuevas instalaciones de aplicaciones con destino la API de Android nivel 23. De lo contrario, se activan de forma predeterminada.
@@ -310,36 +312,36 @@ Este es un ejemplo de código para usar en una actividad de la aplicación para 
         getEngagementAgent().refreshPermissions();
     }
 
-## Informes avanzados
-De manera opcional, si desea notificar eventos, errores y trabajos específicos de la aplicación, deberá usar la API de Engagement a través de los métodos de la clase `EngagementAgent`. Un objeto de esta clase se puede recuperar mediante la llamada al método estático `EngagementAgent.getInstance()`.
+## <a name="advanced-reporting"></a>Informes avanzados
+De manera opcional, si desea notificar eventos, errores y trabajos específicos de la aplicación, deberá usar la API de Engagement a través de los métodos de la clase `EngagementAgent` . Un objeto de esta clase se puede recuperar mediante la llamada al método estático `EngagementAgent.getInstance()` .
 
-La API de Engagement permite usar todas las capacidades avanzadas de Engagement, que se detallan en Cómo usar la API de Engagement en Android (así como en la documentación técnica de la clase `EngagementAgent`).
+La API de Engagement permite usar todas las capacidades avanzadas de Engagement, que se detallan en Cómo usar la API de Engagement en Android (así como en la documentación técnica de la clase `EngagementAgent` ).
 
-## Configuración avanzada (en AndroidManifest.xml)
-### Reactivar bloqueos
+## <a name="advanced-configuration-in-androidmanifestxml"></a>Configuración avanzada (en AndroidManifest.xml)
+### <a name="wake-locks"></a>Reactivar bloqueos
 Si desea asegurarse de que las estadísticas se envían en tiempo real cuando se utilice Wifi o cuando la pantalla esté apagada, agregue el siguiente permiso opcional:
 
             <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-### Informe de bloqueos
+### <a name="crash-report"></a>Informe de bloqueos
 Si desea deshabilitar los informes de bloqueo, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
             <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
-### Umbral de ráfaga
+### <a name="burst-threshold"></a>Umbral de ráfaga
 De forma predeterminada, el servicio de Engagement informa los registros en tiempo real. Si su aplicación notifica registros con mucha frecuencia, es mejor almacenar en búfer los registros y notificarlos todos a la vez de manera periódica (esto se conoce como "modo de ráfaga"). Para ello, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
             <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
 El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta al monitor de Engagement: la duración de todas las sesiones y trabajos se redondeará al umbral de ráfaga (por lo tanto, es posible que las sesiones y los trabajos más cortos que el umbral de ráfaga no sean visibles). Se recomienda usar un umbral de ráfaga inferior a 30.000 (30 segundos).
 
-### Tiempo de espera de sesión
+### <a name="session-timeout"></a>Tiempo de espera de sesión
 De forma predeterminada, una sesión finaliza a los 10 seg. del final de su última actividad (que normalmente se produce al presionar Inicio o la tecla de retroceso, poniendo el teléfono inactivo o yendo a otra aplicación). Esto se hace para evitar que una sesión se divida cada vez que el usuario sale de la aplicación y vuelve a ella muy rápidamente (lo que puede suceder cuando se selecciona una imagen, se comprueba una notificación, etc.). Puede que desee modificar este parámetro. Para ello, agregue esto (entre las etiquetas `<application>` y `</application>`):
 
             <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
-## Deshabilitación de los informes de registro
-### Mediante una llamada al método
+## <a name="disable-log-reporting"></a>Deshabilitación de los informes de registro
+### <a name="using-a-method-call"></a>Mediante una llamada al método
 Si desea que Engagement deje de enviar registros, puede efectuar una llamada:
 
             EngagementAgent.getInstance(context).setEnabled(false);
@@ -350,7 +352,7 @@ Si Engagement está activo cuando llama a esta función, puede que el servicio t
 
 Puede habilitar de nuevo los informes de registro mediante la llamada a la misma función con `true`.
 
-### Integración en su propia `PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Integración en su propia `PreferenceActivity`
 En lugar de llamar a esta función, también puede integrar este valor directamente en su `PreferenceActivity` existente.
 
 Puede configurar Engagement para usar su archivo de preferencias (con el modo deseado) en el archivo `AndroidManifest.xml` con `application meta-data`:
@@ -381,6 +383,10 @@ Luego, puede agregar un `CheckBoxPreference` a su diseño de preferencias como e
               android:summaryOff="Engagement is disabled." />
 
 <!-- URLs. -->
-[Device API]: http://go.microsoft.com/?linkid=9876094
+[API del dispositivo]: http://go.microsoft.com/?linkid=9876094
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

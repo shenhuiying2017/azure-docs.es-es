@@ -1,19 +1,23 @@
 ---
-title: Administración de certificados de federación en AD de Azure | Microsoft Docs
-description: Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto.
+title: "Administración de certificados de federación en Azure AD | Microsoft Docs"
+description: "Aprenda a personalizar la fecha de expiración de los certificados de federación y a renovar certificados que expiran pronto."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: f516f7f0-b25a-4901-8247-f5964666ce23
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 275afec9fd3d2ce6051f48b257c7e116d765186b
+
 
 ---
 # <a name="managing-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Administración de certificados para inicio de sesión único federado en Azure Active Directory
@@ -71,6 +75,9 @@ Lo ideal es que los pasos de renovación que se muestran a continuación no supo
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 * [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](active-directory-saml-debugging.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

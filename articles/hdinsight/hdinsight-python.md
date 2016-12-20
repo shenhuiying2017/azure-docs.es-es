@@ -1,13 +1,13 @@
 ---
 title: Uso de Python con Hive y Pig en HDInsight | Microsoft Docs
-description: Vea cómo usar funciones definidas por el usuario (UDF) de Python desde Hive y Pig en HDInsight, la pila de tecnología de Hadoop en Azure.
+description: "Vea cómo usar funciones definidas por el usuario (UDF) de Python desde Hive y Pig en HDInsight, la pila de tecnología de Hadoop en Azure."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: c44d6606-28cd-429b-b535-235e8f34a664
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,12 +15,16 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ecd33fdad27cb5bb13931075f4c603f9bd479207
+
 
 ---
-# Uso de Python con Hive y Pig en HDInsight
+# <a name="use-python-with-hive-and-pig-in-hdinsight"></a>Uso de Python con Hive y Pig en HDInsight
 Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Tanto Hive como Pig le permiten crear funciones definidas por el usuario (UDF) mediante diversos lenguajes de programación. En este artículo, aprenderá a usar una UDF de Python desde Hive y Pig.
 
-## Requisitos
+## <a name="requirements"></a>Requisitos
 * Un clúster de HDInsight (Windows o Linux)
 * Un editor de texto
   
@@ -29,13 +33,13 @@ Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en oca
   > 
   > 
 
-## <a name="python"></a>Python en HDInsight
+## <a name="a-namepythonapython-on-hdinsight"></a><a name="python"></a>Python en HDInsight
 Python2.7 se instala de forma predeterminada en los clústeres de HDInsight 3.0 y posteriores. Hive se puede usar con esta versión de Python para el procesamiento por secuencias (los datos se pasan entre Hive y Python mediante STDOUT/STDIN).
 
 HDInsight incluye también Jython, que es una implementación de Python escrita en Java. Pig comprende cómo hablar con Jython sin tener que recurrir a la transmisión por secuencias, de modo que es preferible cuando se usa Pig. Sin embargo, también puede usar Python normal (C Python), con Pig.
 
-## <a name="hivepython"></a>Hive y Python
-Python se puede usar como UDF desde Hive a través de la instrucción **TRANSFORM** de HiveQL. Por ejemplo, el siguiente HiveQL invoca un script de Python almacenado en el archivo **streaming.py**.
+## <a name="a-namehivepythonahive-and-python"></a><a name="hivepython"></a>Hive y Python
+Python se puede usar como UDF desde Hive a través de la instrucción **TRANSFORM** de HiveQL. Por ejemplo, el siguiente HiveQL invoca un script de Python almacenado en el archivo **streaming.py** .
 
 **HDInsight basado en Linux**
 
@@ -98,8 +102,8 @@ Aparte de eso, el script simplemente concatena los valores de entrada de `device
 
 Consulte [Ejecución de los ejemplos](#running) para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
-## <a name="pigpython"></a>Pig y Python
-Un script de Python se puede usar como UDF desde Pig a través de la instrucción **GENERATE**. Para ello, puede hacer dos cosas: usar Jython (Python implementado en Java Virtual Machine) y C Python (Python normal).
+## <a name="a-namepigpythonapig-and-python"></a><a name="pigpython"></a>Pig y Python
+Un script de Python se puede usar como UDF desde Pig a través de la instrucción **GENERATE** . Para ello, puede hacer dos cosas: usar Jython (Python implementado en Java Virtual Machine) y C Python (Python normal).
 
 La diferencia principal entre ellos es que Jython se ejecuta en JVM y se puede llamar de forma nativa desde Pig (que también se ejecuta en JVM). C Python es un proceso externo (escrito en C). Así que los datos de Pig en JVM se envían al script que se ejecuta en un proceso de Python, y la salida de eso se devuelve a Pig.
 
@@ -109,7 +113,7 @@ Para determinar si Pig usa Jython o C Python para ejecutar el script, use **regi
 * **Para usar C Python**: `register '/path/to/pig_python.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]
-> Al usar Jython, la ruta de acceso al archivo pig\_jython puede ser una ruta de acceso local o una ruta de acceso WASB://. Sin embargo, cuando se usa C Python, se debe hacer referencia a un archivo local en el sistema de archivos local del nodo que se usa para enviar el trabajo de Pig.
+> Al usar Jython, la ruta de acceso al archivo pig_jython puede ser una ruta de acceso local o una ruta de acceso WASB://. Sin embargo, cuando se usa C Python, se debe hacer referencia a un archivo local en el sistema de archivos local del nodo que se usa para enviar el trabajo de Pig.
 > 
 > 
 
@@ -124,8 +128,8 @@ A continuación se muestra lo que hace este ejemplo:
 
 1. La primera línea carga el archivo de datos de ejemplo **sample.log** en **LOGS**. Como este archivo de registro no tiene un esquema coherente, también define cada registro (en este caso **LINE**) como una **chararray**. Chararray es básicamente una cadena.
 2. La siguiente línea filtra los valores nulos y almacena el resultado de la operación en **LOG**.
-3. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create\_structure** contenido en el script de Python/Jython cargado como **myfuncs**. **LINE** se usa para pasar el registro actual a la función.
-4. Por último, los resultados se vuelcan en STDOUT con el comando **DUMP**. Esta acción se realiza para mostrar inmediatamente los resultados una vez que la operación ha finalizado; en un script real los datos se almacenarían (**STORE**) normalmente en un nuevo archivo.
+3. A continuación, recorre en iteración los registros de **LOG** y usa **GENERATE** para invocar el método **create_structure** contenido en el script de Python/Jython cargado como **myfuncs**.  **LINE** se usa para pasar el registro actual a la función.
+4. Por último, los resultados se vuelcan en STDOUT con el comando **DUMP** . Esta acción se realiza para mostrar inmediatamente los resultados una vez que la operación ha finalizado; en un script real los datos se almacenarían ( **STORE** ) normalmente en un nuevo archivo.
 
 El archivo de script de Python real también es similar en C Python y Jython, la única diferencia es que al usar C Python debe importar desde **pig\_util**. Este es el script de **pig\_python.py**:
 
@@ -142,7 +146,7 @@ El archivo de script de Python real también es similar en C Python y Jython, la
     return date, time, classname, level, detail
 
 > [!NOTE]
-> 'pig\_util' no es algo de lo que deba preocuparse por instalar; está disponible automáticamente para el script.
+> 'pig_util' no es algo de lo que deba preocuparse por instalar; está disponible automáticamente para el script.
 > 
 > 
 
@@ -155,20 +159,20 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como chararray por
    * classname: el nombre de la clase para la que se creó la entrada
    * level: el nivel de registro
    * detail: los detalles de la entrada del registro
-2. A continuación, **def create\_structure(input)** define la función a la que Pig pasará elementos de línea.
+2. A continuación, **def create_structure(input)** define la función a la que Pig pasará elementos de línea.
 3. Los datos de ejemplo, **sample.log**, se ajustan principalmente al esquema de date, time, classname, level y detail que queremos devolver. Pero también contiene unas cuantas líneas que comienzan por la cadena '*java.lang.Exception*' y que han de modificarse para que coincidan con el esquema. La instrucción **if** las busca, y luego modifica los datos de entrada para mover la cadena '*java.lang.Exception*' al final, de forma que pone los datos en línea con nuestro esquema de salida esperado.
 4. A continuación, se usa el comando **split** para dividir los datos en los primeros cuatro caracteres de espacio. El resultado son cinco valores, que se asignan a **date**, **time**, **classname**, **level** y **detail**.
 5. Finalmente, los valores se devuelven a Pig.
 
-Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción **@outputSchema**.
+Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción **@outputSchema** de HiveQL.
 
-## <a name="running"></a>Ejecución de los ejemplos
-Si está usando un clúster de HDInsight basado en Linux, siga los pasos de **SSH** siguientes. Si usa un clúster de HDInsight basado en Windows y un cliente de Windows, siga los pasos de **PowerShell**.
+## <a name="a-namerunningarunning-the-examples"></a><a name="running"></a>Ejecución de los ejemplos
+Si está usando un clúster de HDInsight basado en Linux, siga los pasos de **SSH** siguientes. Si usa un clúster de HDInsight basado en Windows y un cliente de Windows, siga los pasos de **PowerShell** .
 
-### SSH
-Para obtener más información sobre el uso de SSH, vea <a href="../hdinsight-hadoop-linux-use-ssh-unix/" target="_blank">Usar SSH con Hadoop basado en Linux desde Linux, Unix u OS X</a> o <a href="../hdinsight-hadoop-linux-use-ssh-windows/" target="_blank">Usar SSH con Hadoop basado en Linux desde Windows</a>.
+### <a name="ssh"></a>SSH
+Para obtener más información sobre el uso de SSH, vea [Usar SSH con Hadoop basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md) o [Usar SSH con Hadoop basado en Linux desde Windows](hdinsight-hadoop-linux-use-ssh-windows.md).
 
-1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [pig\_python.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
+1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [pig_python.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
 2. Use `scp` para copiar los archivos en el clúster de HDInsight. Por ejemplo, lo siguiente copiaría los archivos a un clúster denominado **mycluster**.
    
         scp streaming.py pig_python.py myuser@mycluster-ssh.azurehdinsight.net:
@@ -182,9 +186,9 @@ Para obtener más información sobre el uso de SSH, vea <a href="../hdinsight-ha
 
 Después de cargar los archivos, siga los pasos siguientes para ejecutar los trabajos de Hive y Pig.
 
-#### Hive
+#### <a name="hive"></a>Hive
 1. Use el comando `hive` para iniciar el shell de Hive. Debería ver un símbolo del sistema `hive>` cuando se haya cargado el shell.
-2. En el símbolo del sistema `hive>`, escriba lo siguiente:
+2. En el símbolo del sistema `hive>` , escriba lo siguiente:
    
         add file wasbs:///streaming.py;
         SELECT TRANSFORM (clientid, devicemake, devicemodel)
@@ -200,7 +204,7 @@ Después de cargar los archivos, siga los pasos siguientes para ejecutar los tra
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### Pig
+#### <a name="pig"></a>Pig
 1. Use el comando `pig` para iniciar el shell. Debería ver un símbolo del sistema `grunt>` cuando se haya cargado el shell.
 2. Escriba las siguientes instrucciones en el símbolo del sistema `grunt>` para ejecutar el script de Python mediante el intérprete de Jython.
    
@@ -216,15 +220,15 @@ Después de cargar los archivos, siga los pasos siguientes para ejecutar los tra
         ((2012-02-03,20:11:56,SampleClass8,[DEBUG],detail for id 2083681507))
         ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
         ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
-4. Use `quit` para salir del shell de Grunt y, a continuación, use lo siguiente para editar el archivo pig\_python.py en el sistema de archivos local:
+4. Use `quit` para salir del shell de Grunt y, a continuación, use lo siguiente para editar el archivo pig_python.py en el sistema de archivos local:
    
-    nano pig\_python.py
+    nano pig_python.py
 5. Una vez en el editor, quite la siguiente línea de comentario eliminando el carácter `#` del principio de la línea:
    
         #from pig_util import outputSchema
    
     Cuando se haya realizado el cambio, use Ctrl + X para salir del editor. Seleccione Y y, a continuación, Entrar para guardar los cambios.
-6. Use el comando `pig` para iniciar de nuevo el shell. Cuando esté en el símbolo del sistema `grunt>`, use lo siguiente para ejecutar el script de Python con el intérprete de C Python.
+6. Use el comando `pig` para iniciar de nuevo el shell. Cuando esté en el símbolo del sistema `grunt>` , use lo siguiente para ejecutar el script de Python con el intérprete de C Python.
    
         Register 'pig_python.py' using streaming_python as myfuncs;
         LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
@@ -234,13 +238,13 @@ Después de cargar los archivos, siga los pasos siguientes para ejecutar los tra
    
     Una vez completado este trabajo, verá la misma salida que cuando anteriormente ejecutó el script mediante Jython.
 
-### PowerShell
+### <a name="powershell"></a>PowerShell
 En estos pasos que se usa Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) antes de realizar los siguientes pasos.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [pig\_python.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
-2. Use el siguiente script de PowerShell para cargar los archivos **streaming.py** y **pig\_python.py** en el servidor. Sustituya el nombre del clúster de Azure HDInsight y la ruta de acceso a los archivos **streaming.py** y **jython.py** en las tres primeras líneas del script.
+1. Mediante los ejemplos de Python [streaming.py](#streamingpy) y [pig_python.py](#jythonpy), cree copias locales de los archivos en su máquina de desarrollo.
+2. Use el siguiente script de PowerShell para cargar los archivos **streaming.py** y **pig\_python.py** en el servidor. Sustituya el nombre del clúster de Azure HDInsight y la ruta de acceso a los archivos **streaming.py** y **pig\_python.py** en las tres primeras líneas del script.
    
         $clusterName = YourHDIClusterName
         $pathToStreamingFile = "C:\path\to\streaming.py"
@@ -274,13 +278,13 @@ En estos pasos que se usa Azure PowerShell. Si aún no está instalado y configu
     Este script recupera información del clúster de HDInsight, luego extrae la cuenta y la clave de la cuenta de almacenamiento predeterminada y seguidamente carga los archivos en la raíz del contenedor.
    
    > [!NOTE]
-   > En el documento [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md)se pueden encontrar otros métodos para cargar los scripts.
+   > En el documento [Carga de datos para trabajos de Hadoop en HDInsight](hdinsight-upload-data.md) se pueden encontrar otros métodos para cargar los scripts.
    > 
    > 
 
 Después de cargar los archivos, use los siguientes scripts de PowerShell para iniciar los trabajos. Cuando finalice el trabajo, la salida se debe escribir en la consola de PowerShell.
 
-#### Hive
+#### <a name="hive"></a>Hive
 El siguiente script ejecutará el script **streaming.py**. Antes de ejecutarse, solicitará la información de la cuenta de administrador/HTTPs para el clúster de HDInsight.
 
     # Replace 'YourHDIClusterName' with the name of your cluster
@@ -346,8 +350,8 @@ La salida del trabajo de **Hive** debe parecerse a la siguiente:
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-#### Pig (Jython)
-A continuación se usa el script **pig\_python.py** con el intérprete de Jython. Antes de ejecutarse, solicitará la información de administración/HTTPs para el clúster de HDInsight.
+#### <a name="pig-jython"></a>Pig (Jython)
+A continuación se usa el script **pig_python.py** con el intérprete de Jython. Antes de ejecutarse, solicitará la información de administración/HTTPs para el clúster de HDInsight.
 
 > [!NOTE]
 > Al enviar de forma remota un trabajo mediante PowerShell, no es posible usar Python C como intérprete.
@@ -416,8 +420,8 @@ La salida del trabajo de **Pig** debe parecerse a la siguiente:
     ((2012-02-03,20:11:56,SampleClass3,[TRACE],verbose detail for id 1718828806))
     ((2012-02-03,20:11:56,SampleClass3,[INFO],everything normal for id 530537821))
 
-## <a name="troubleshooting"></a>Solución de problemas
-### Errores en la ejecución de trabajos
+## <a name="a-nametroubleshootingatroubleshooting"></a><a name="troubleshooting"></a>Solución de problemas
+### <a name="errors-when-running-jobs"></a>Errores en la ejecución de trabajos
 Al ejecutar el trabajo de Hive, es posible que se produzca un error similar al siguiente:
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
@@ -430,7 +434,7 @@ Si tiene un editor que no puede crear finales de línea LF, o bien no está segu
     $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
     [IO.File]::WriteAllText($original_file, $text)
 
-### Scripts de PowerShell
+### <a name="powershell-scripts"></a>Scripts de PowerShell
 Ambos scripts de ejemplo de PowerShell usados para ejecutar los ejemplos contienen una línea comentada que mostrará una salida con error para el trabajo. Si no ve la salida esperada del trabajo, quite los comentarios de la siguiente línea y observe si la información de error indica un problema.
 
     # Get-AzureRmHDInsightJobOutput `
@@ -449,7 +453,7 @@ La información de error (STDERR) y el resultado del trabajo (STDOUT) también s
 | Hive |/HivePython/stderr<p>/HivePython/stdout |
 | Pig |/PigPython/stderr<p>/PigPython/stdout |
 
-## <a name="next"></a>Pasos siguientes
+## <a name="a-namenextanext-steps"></a><a name="next"></a>Pasos siguientes
 Si necesita cargar módulos de Python que no se proporcionan de forma predeterminada, consulte [Implementación de un módulo en HDInsight de Azure](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) para ver un ejemplo de cómo hacerlo.
 
 Para conocer otras formas de usar Pig y Hive, y para obtener información sobre el uso de MapReduce, consulte lo siguiente:
@@ -458,4 +462,9 @@ Para conocer otras formas de usar Pig y Hive, y para obtener información sobre 
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

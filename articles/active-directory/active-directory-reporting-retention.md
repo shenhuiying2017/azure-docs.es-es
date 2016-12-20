@@ -1,12 +1,12 @@
 ---
-title: Directivas de retención de informes de Azure Active Directory | Microsoft Docs
-description: Directivas de retención de datos de informes en Azure Active Directory
+title: "Directivas de retención de informes de Azure Active Directory | Microsoft Docs"
+description: "Directivas de retención de datos de informes en Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/07/2016
 ms.author: dhanyahk
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+
 
 ---
-# Directivas de retención de informes de Azure Active Directory
+# <a name="azure-active-directory-report-retention-policies"></a>Directivas de retención de informes de Azure Active Directory
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
 Los informes de Azure Active Directory (Azure AD) conservan los datos durante un número determinado de días, que indicamos a continuación.
@@ -47,4 +51,9 @@ Los informes de Azure Active Directory (Azure AD) conservan los datos durante un
 | Uso de dispositivos RMS |30 días |
 | Uso de aplicaciones habilitadas para RMS |30 días |
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

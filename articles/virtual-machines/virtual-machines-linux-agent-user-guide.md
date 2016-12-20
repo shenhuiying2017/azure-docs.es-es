@@ -1,13 +1,13 @@
 ---
-title: Guía de usuario del Agente de Linux | Microsoft Docs
-description: Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure.
+title: "Guía de usuario del Agente de Linux | Microsoft Docs"
+description: "Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: szarkos
 manager: timlt
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 43d3ad9e2b50a84cb9fd70582eb03b9d7d45d788
+
 
 ---
 # <a name="azure-linux-agent-user-guide"></a>Guía de usuario del Agente de Linux de Azure
@@ -98,7 +102,7 @@ El agente de Linux depende de algunos paquetes de sistema para funcionar correct
 * Compatibilidad de kernel para el montaje de sistemas de archivos UDF.
 
 ## <a name="installation"></a>Instalación
-La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](virtual-machines-linux-endorsed-distros.md) integran el paquete de agente Linux de Azure en sus imágenes y repositorios.
+La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el agente Linux de Azure. Todos los [proveedores de distribución aprobada](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) integran el paquete de agente Linux de Azure en sus imágenes y repositorios.
 
 Consulte la documentación en el [repositorio de agente Linux de Azure en Github](https://github.com/Azure/WALinuxAgent) para opciones de instalación avanzada, como la instalación desde el origen o en ubicaciones o prefijos personalizados.
 
@@ -300,8 +304,11 @@ Tenga en cuenta que Ubuntu Cloud Images usan [cloud-init](https://launchpad.net/
 * Consulte los recursos siguientes para configurar el punto de montaje del disco de recursos e intercambiar espacio en Ubuntu Cloud Images durante el aprovisionamiento:
   
   * [Ubuntu Wiki: Configure Swap Partitions (Configuración de particiones de intercambio)](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
-  * [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-windows-classic-inject-custom-data.md)
+  * [Inyección de datos personalizados en una máquina virtual de Azure](virtual-machines-windows-classic-inject-custom-data.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

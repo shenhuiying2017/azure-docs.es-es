@@ -1,12 +1,12 @@
 ---
-title: Lista de tareas de administración y desarrollo de los Servicios de BizTalk | Microsoft Docs
-description: Ayuda de planeación y de trabajo para implementar Servicios de BizTalk de Azure.
+title: "Lista de tareas de administración y desarrollo de BizTalk Services | Microsoft Docs"
+description: "Ayuda de planeación y de trabajo para implementar Servicios de BizTalk de Azure."
 services: biztalk-services
-documentationcenter: ''
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 1013419f9283c3e81a6a6e8ed56a34d6ee5937ea
+
 
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>Lista de tareas de administración y desarrollo de los Servicios de BizTalk
@@ -50,6 +54,9 @@ Cuando se trabaja con Servicios de BizTalk de Microsoft Azure, hay varios compon
 [Uso del servicio del adaptador de BizTalk (BAS)](https://msdn.microsoft.com/library/azure/hh689889.aspx)  
 [Servicios de BizTalk de Azure](http://go.microsoft.com/fwlink/p/?LinkID=303664)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

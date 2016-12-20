@@ -1,13 +1,13 @@
 ---
-title: Código de archivo de evento de XEvent para Base de datos SQL | Microsoft Docs
-description: Brinda PowerShell y Transact-SQL para un ejemplo de código de dos fases que muestra el destino de archivo de evento en un evento extendido en Base de datos SQL de Azure. Almacenamiento de Azure es una parte necesaria en este escenario.
+title: "Código de archivo de evento de XEvent para SQL Database | Microsoft Docs"
+description: "Brinda PowerShell y Transact-SQL para un ejemplo de código de dos fases que muestra el destino de archivo de evento en un evento extendido en Base de datos SQL de Azure. Almacenamiento de Azure es una parte necesaria en este escenario."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: bbb10ecc-739f-4159-b844-12b4be161231
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 1569bdf8ad8a073808b83b08fa3fdae8f843805f
+
 
 ---
-# Código de destino del archivo de evento para eventos extendidos en Base de datos SQL
+# <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Código de destino del archivo de evento para eventos extendidos en Base de datos SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Desea tener un ejemplo de código completo de una manera eficaz para capturar y notificar información de un evento extendido.
@@ -32,20 +36,21 @@ En este tema se presenta un ejemplo de código de dos fases:
   * Para asignar el contenedor de Almacenamiento de Azure a un destino de archivo de evento.
   * Para crear e iniciar la sesión del evento, etc.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.
   
   * De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](sql-database-get-started.md) en cuestión de minutos.
-* SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. Puede descargar la versión más reciente de ssms.exe desde:
+* SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. 
+  Puede descargar la versión más reciente de ssms.exe desde:
   
   * El tema titulado [Descarga de SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
   * [Un vínculo directo a la descarga.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Debe tener instalados los [módulos de Azure PowerShell](http://go.microsoft.com/?linkid=9811175).
+* Debe tener instalados los [módulos de Azure PowerShell](http://go.microsoft.com/?linkid=9811175) .
   
   * Los módulos brindan comandos como - **New-AzureStorageAccount**.
 
-## Fase 1: código de PowerShell para el contenedor de Almacenamiento de Azure
+## <a name="phase-1-powershell-code-for-azure-storage-container"></a>Fase 1: código de PowerShell para el contenedor de Almacenamiento de Azure
 Esta es la fase 1 del ejemplo de código de dos fases.
 
 El script comienza con comandos que realizan una limpieza después de una posible ejecución anterior y se puede volver a ejecutar.
@@ -53,7 +58,7 @@ El script comienza con comandos que realizan una limpieza después de una posibl
 1. Pegue el script de PowerShell en un editor de texto simple, como Notepad.exe, y guárdelo como archivo con extensión **.ps1**.
 2. Inicie PowerShell ISE como administrador.
 3. En el símbolo del sistema, escriba<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>y, luego, presione Entrar.
-4. En PowerShell ISE, abra el archivo **.ps1**. Ejecute el script.
+4. En PowerShell ISE, abra el archivo **.ps1** . Ejecute el script.
 5. El script primero inicia una ventana nueva donde se inicia sesión en Azure.
    
    * Si vuelve a ejecutar el script sin interrumpir la sesión, tiene la opción conveniente de marcar el comando **Add-AzureAccount** como comentario.
@@ -237,7 +242,7 @@ Now shift to the Transact-SQL portion of the two-part code sample!'
 
 Anote los valores con nombre que el script de PowerShell imprime cuando finaliza. Debe editar esos valores en el script de Transact-SQL que sigue en la fase 2.
 
-## Fase 2: código de Transact-SQL que usa el contenedor de Almacenamiento de Azure
+## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>Fase 2: código de Transact-SQL que usa el contenedor de Almacenamiento de Azure
 * En la fase 1 de este ejemplo de código, ejecutó un script de PowerShell para crear un contenedor de Almacenamiento de Azure.
 * A continuación, en la fase 2, el siguiente script de Transact-SQL debe usar el contenedor.
 
@@ -469,8 +474,8 @@ GO
 
 &nbsp;
 
-## Salida
-Cuando se complete el script de Transact-SQL, haga clic en una celda bajo el encabezado de la columna **event\_data\_XML**. Aparece un elemento **<event>** que muestra una instrucción UPDATE.
+## <a name="output"></a>Salida
+Cuando se complete el script de Transact-SQL, haga clic en una celda bajo el encabezado de la columna **event_data_XML**. Aparece un elemento **<event>** que muestra una instrucción UPDATE.
 
 Este es un elemento **<event>** que se generó durante la prueba:
 
@@ -517,9 +522,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 &nbsp;
 
-El script Transact-SQL anterior utiliza la siguiente función de sistema para leer el archivo event\_file:
+El script Transact-SQL anterior utiliza la siguiente función de sistema para leer el archivo event_file:
 
-* [sys.fn\_xe\_file\_target\_read\_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
 
 En la siguiente página encontrará una explicación de las opciones avanzadas de la visualización de datos de eventos extendidos:
 
@@ -527,16 +532,16 @@ En la siguiente página encontrará una explicación de las opciones avanzadas d
 
 &nbsp;
 
-## Conversión del ejemplo de código para ejecutarlo en SQL Server
+## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversión del ejemplo de código para ejecutarlo en SQL Server
 Suponga que desea ejecutar el ejemplo de Transact-SQL anterior en Microsoft SQL Server.
 
-* Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Almacenamiento de Azure por un archivo simple, como **C:\\myeventdata.xel**. El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
+* Para mantener la simplicidad, desearía reemplazar completamente el uso del contenedor de Azure Storage por un archivo simple como **C:\myeventdata.xel**. El archivo se escribiría en el disco duro local del equipo donde se hospeda SQL Server.
 * No necesitaría ningún tipo de instrucción Transact-SQL para **CREATE MASTER KEY** y **CREATE CREDENTIAL**.
-* En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** con una cadena de ruta de acceso completa, como **C:\\myfile.xel**.
+* En la instrucción **CREATE EVENT SESSION**, en su cláusula **ADD TARGET**, reemplazaría el valor Http asignado en **filename=** por una cadena de ruta de acceso completa como **C:\myfile.xel**.
   
   * No es necesario utilizar ninguna cuenta de Almacenamiento de Azure.
 
-## Más información
+## <a name="more-information"></a>Más información
 Si desea obtener más información sobre las cuentas y los contenedores del servicio de Almacenamiento de Azure, consulte:
 
 * [Uso del almacenamiento de blobs de .NET](../storage/storage-dotnet-how-to-use-blobs.md)
@@ -551,4 +556,9 @@ Image references.
 
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
