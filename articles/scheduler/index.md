@@ -1,13 +1,13 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: 4d856b71ced1f1b9c6c1469bee4f23b84865c7d1
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: ee469905e6b1f55def062c1d7291bde47a5518ea
 
 ---
 # <a name="scheduler-documentation"></a>Documentación de Scheduler
 
-Programador de Azure le permite describir mediante declaración las acciones para ejecutar en la nube.  A continuación, programa y ejecuta esas acciones de forma automática.  Después, Scheduler mantiene un historial de los resultados de las ejecuciones de los trabajos que se puede consultar.
+Azure Scheduler le permite describir mediante declaración las acciones para ejecutar en la nube.  A continuación, programa y ejecuta esas acciones de forma automática.  Después, Scheduler mantiene un historial de los resultados de las ejecuciones de los trabajos que se puede consultar.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +29,7 @@ Programador de Azure le permite describir mediante declaración las acciones par
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=scheduler">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=scheduler">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -68,62 +68,43 @@ Programador de Azure le permite describir mediante declaración las acciones par
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/mt490138(v=azure.200).aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlets de PowerShell de Azure Scheduler</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia administrada de Scheduler</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/scheduler/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de API de REST de Programador</p>
+                        <p><a href="/rest/api/scheduler">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/scheduler.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de Scheduler </div>
+Descargar la documentación sobre Scheduler </div>
     </a>
 </div>
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

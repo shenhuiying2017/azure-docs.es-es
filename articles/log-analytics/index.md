@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: a70f352a076f0d018856c1bdf5c326515405d154
+ms.sourcegitcommit: c086dc37b8665017de0dbbad9c7ac82931932a72
+ms.openlocfilehash: bd819da72cbfdd58323321eb41ab28441e043c84
 
 ---
+
 # <a name="log-analytics-documentation"></a>Documentación de Log Analytics
 
 Log Analytics es un servicio de Operations Management Suite (OMS) que le ayuda a recopilar y analizar los datos generados por los recursos en los entornos locales o de nube. Proporciona información en tiempo real mediante el uso de paneles personalizados y de búsqueda para analizar fácilmente millones de registros en todas las cargas de trabajo y los servidores, independientemente de su ubicación física.
@@ -68,22 +69,19 @@ Log Analytics es un servicio de Operations Management Suite (OMS) que le ayuda a
 
 ---
 
-## <a name="automation"></a>Automation
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -97,6 +95,6 @@ Descarga de documentación de Log Analytics </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 
