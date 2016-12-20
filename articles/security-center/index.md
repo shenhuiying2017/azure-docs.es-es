@@ -1,9 +1,13 @@
 ---
 layout: LandingPage
----
-# Security Center Documentation
+translationtype: Human Translation
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 8091c1c7cbf6617725bf7620fe0c2232e4e47cec
 
-Security Center helps you prevent, detect, and respond to threats with increased visibility into and control over the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions, helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+---
+# <a name="security-center-documentation"></a>Documentación de Security Center
+
+Security Center ayuda a evitar, detectar y responder a amenazas con más visibilidad y control de la seguridad en los recursos de Azure. Proporciona administración de directivas y supervisión de la seguridad integrada en las suscripciones de Azure, ayuda a detectar las amenazas que podrían pasar desapercibidas y funciona con un amplio ecosistema de soluciones de seguridad.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +21,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Azure Security Center</h3>
+                        <h3>Más información sobre Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -25,7 +29,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -35,7 +39,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Security Center Video Library</h3>
+                        <h3>Biblioteca de vídeos de Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -53,7 +57,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Security Center</h3>
+                        <h3>Introducción a Azure Security Center</h3>
                     </div>
                 </div>
             </div>
@@ -63,17 +67,32 @@ Security Center helps you prevent, detect, and respond to threats with increased
 </ul>
 
 ---
-## Reference
 
-### REST
-[Security Center REST API Reference](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100))
+<h2>Referencia</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">Referencia de API de REST</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>   
 
----
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Security Center Documentation
-        </div>
+Descargar la documentación sobre Security Center </div>
     </a>
 </div>
+
+
+<!--HONumber=Dec16_HO2-->
+
+

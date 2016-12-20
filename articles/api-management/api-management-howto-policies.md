@@ -1,32 +1,36 @@
 ---
-title: Directivas de Administración de API de Azure | Microsoft Docs
-description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API.
+title: Directivas de Azure API Management | Microsoft Docs
+description: "Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 537e5caf-708b-430e-a83f-72b70af28aa9
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bb6f3ee125f3640315cbb885148eb6d328f0c6e4
+
 
 ---
-# Directivas de Administración de API de Azure
+# <a name="policies-in-azure-api-management"></a>Directivas de Administración de API de Azure
 En Administración de API de Azure, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador. Hay muchas más directivas disponibles y listas para usar.
 
-Consulte la [Referencia de directivas][Referencia de directivas] para obtener una lista de declaraciones de directiva con su configuración.
+Vea la [Referencia de directivas][Referencia de directivas] para obtener la lista completa de declaraciones de directiva con su configuración.
 
 Las directivas se aplican en la puerta de enlace que se encuentra entre el consumidor de la API y la API administrada. La puerta de enlace recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Flujo de control] y [Establecer variable][Establecer variable] se basan en expresiones de directiva. Para obtener más información, consulte [Directivas avanzadas][Directivas avanzadas] y [Expresiones de directiva][Expresiones de directiva].
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de Administración de API, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control][Flujo de control] y [Establecer variable][Establecer variable] se basan en expresiones de directiva. Para más información, vea [Directivas avanzadas][Directivas avanzadas] y [Expresiones de directiva][Expresiones de directiva].
 
 ## <a name="scopes"> </a>Configuración de directivas
-Las directivas se pueden configurar globalmente o en el ámbito de un [producto][producto], una [API][API] o una [operación][operación]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
+Las directivas se pueden configurar globalmente o en el ámbito de un [Producto][Producto], una [API][API] o una [operación][operación]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
 
 ![Policies menu][policies-menu]
 
@@ -34,7 +38,7 @@ El editor de directivas consta de tres secciones principales: el ámbito de la d
 
 ![Policies editor][policies-editor]
 
-Para comenzar a configurar una directiva, se debe seleccionar en primer lugar el ámbito en el que se debe aplicar. En la captura de pantalla siguiente, se selecciona el producto **Starter**. Tenga en cuenta que el símbolo de recuadro junto al nombre de la directiva indica que ya se aplica una directiva en este nivel.
+Para comenzar a configurar una directiva, se debe seleccionar en primer lugar el ámbito en el que se debe aplicar. En la captura de pantalla siguiente, se selecciona el producto **Starter** . Tenga en cuenta que el símbolo de recuadro junto al nombre de la directiva indica que ya se aplica una directiva en este nivel.
 
 ![Scope][policies-scope]
 
@@ -42,22 +46,22 @@ Puesto que ya se ha aplicado una directiva, la configuración se muestra en la v
 
 ![Configuración][policies-configure]
 
-La directiva aparece como de solo lectura al principio. Para editar la definición, haga clic en la acción **Configurar directiva**.
+La directiva aparece como de solo lectura al principio. Para editar la definición, haga clic en la acción **Configurar directiva** .
 
 ![Edit][policies-edit]
 
 La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de instrucciones a la derecha y las instrucciones aplicables al ámbito actual están habilitadas y resaltadas; como demuestra la instrucción **Límite de tasa de llamadas** de la captura de pantalla anterior.
 
-Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición.
+Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición. 
 
 > [!NOTE]
 > Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** de esa directiva en la [Referencia de directivas][Referencia de directivas].
 > 
 > 
 
-Hay una lista completa de instrucciones de directivas y su configuración disponible en la [Referencia de directivas][Referencia de directivas].
+Hay una lista completa de declaraciones de directiva y su configuración disponible en la [Referencia de directivas][Referencia de directivas].
 
-Por ejemplo, para agregar una nueva instrucción a fin de restringir las solicitudes de entrada a las direcciones IP especificadas, sitúe el cursor exactamente dentro del contenido del elemento XLM `inbound` y haga clic en la instrucción **Restringir las IP del autor de llamada**.
+Por ejemplo, para agregar una nueva instrucción a fin de restringir las solicitudes de entrada a las direcciones IP especificadas, sitúe el cursor exactamente dentro del contenido del elemento XLM `inbound` y haga clic en la instrucción **Restringir las IP del autor de llamada** .
 
 ![Restriction policies][policies-restrict]
 
@@ -74,9 +78,9 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
         <address>1.2.3.4</address>
     </ip-filter>
 
-![Save][policies-save]
+![Guardar][policies-save]
 
-Cuando complete la configuración de las instrucciones de la directiva, haga clic en **Guardar**; los cambios se propagarán inmediatamente a la puerta de enlace de Administración de API.
+Cuando complete la configuración de las instrucciones de la directiva, haga clic en **Guardar** ; los cambios se propagarán inmediatamente a la puerta de enlace de Administración de API.
 
 ## <a name="sections"> </a>Descripción de la configuración de directivas
 Una directiva es una serie de declaraciones que se ejecutan en orden para una solicitud y una respuesta. La configuración se divide adecuadamente en las secciones `inbound`, `backend`, `outbound` y `on-error`, como se muestra en la siguiente configuración.
@@ -99,7 +103,7 @@ Una directiva es una serie de declaraciones que se ejecutan en orden para una so
 
 Si se produce un error durante el procesamiento de una solicitud, los pasos restantes de las secciones `inbound`, `backend` o `outbound` se omiten y la ejecución salta a las instrucciones de la sección `on-error`. Mediante la colocación de instrucciones de directiva en la sección `on-error` puede revisar el error con la propiedad `context.LastError`, inspeccionar y personalizar la respuesta de error con la directiva `set-body` y configurar lo que ocurre si se produce un error. Existen códigos de error para pasos integrados y errores que pueden producirse durante el procesamiento de las instrucciones de directiva. Para más información, consulte [Control de errores en las directivas de administración de API](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-Como las directivas se pueden especificar en distintos niveles (global, de producto, de API y de operación), la configuración ofrece una manera de que se especifique el orden en el que se ejecutan las instrucciones de la definición de la directiva con respecto a la directiva principal.
+Como las directivas se pueden especificar en distintos niveles (global, de producto, de API y de operación), la configuración ofrece una manera de que se especifique el orden en el que se ejecutan las instrucciones de la definición de la directiva con respecto a la directiva principal. 
 
 Los ámbitos de la directiva se evalúan en el orden siguiente.
 
@@ -108,9 +112,9 @@ Los ámbitos de la directiva se evalúan en el orden siguiente.
 3. Ámbito de la API
 4. Ámbito de la operación
 
-Las instrucciones dentro de ellos se evalúan según la ubicación del elemento `base`, si existe.
+Las instrucciones dentro de ellos se evalúan según la ubicación del elemento `base` , si existe.
 
-Por ejemplo, si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa directiva en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base.
+Por ejemplo, si tiene una directiva de nivel global y una directiva configurada para una API, cuando se use esa directiva en concreto, se aplicarán ambas directivas. Administración de API tiene en cuenta el orden determinista de declaraciones de directiva combinadas mediante el elemento base. 
 
     <policies>
         <inbound>
@@ -124,9 +128,9 @@ En la definición de directiva del ejemplo anterior, la instrucción `cross-doma
 
 Si la misma directiva aparece dos veces en la instrucción de directiva, se aplica la directiva más recientemente evaluada. Puede utilizar esto para reemplazar las directivas que se definen en un ámbito superior. Para ver las directivas en el ámbito actual en el editor de directivas, haga clic en **Recalcular la directiva en vigor del ámbito seleccionado**.
 
-Tenga en cuenta que una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto.
+Tenga en cuenta que una directiva global no tiene una directiva principal y el uso del elemento `<base>` en ella no surte efecto. 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Visualice el siguiente vídeo acerca de expresiones de directivas.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Policy-Expressions-in-Azure-API-Management/player]
@@ -134,8 +138,8 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 > 
 
 [Referencia de directivas]: api-management-policy-reference.md
-[producto]: api-management-howto-add-products.md
-[API]: api-management-howto-add-products.md#add-apis
+[Producto]: api-management-howto-add-products.md
+[API]: api-management-howto-add-products.md#add-apis 
 [operación]: api-management-howto-add-operations.md
 
 [Directivas avanzadas]: https://msdn.microsoft.com/library/azure/dn894085.aspx
@@ -151,4 +155,8 @@ Visualice el siguiente vídeo acerca de expresiones de directivas.
 [policies-restrict]: ./media/api-management-howto-policies/api-management-policies-restrict.png
 [policies-save]: ./media/api-management-howto-policies/api-management-policies-save.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

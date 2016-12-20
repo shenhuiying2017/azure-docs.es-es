@@ -15,18 +15,18 @@ ms.topic: get-started-article
 ms.date: 10/14/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 20aefd2c94bca03653f11a91c5ade173cb6da9bf
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0a9ab0aca1a77245f360d0d8976aa9b8f59f15a0
 
 
 ---
-# <a name="securing-cloud-resources-with-azure-multifactor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
+# <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protección de recursos en la nube con Azure Multi-Factor Authentication y AD FS
 Si su organización está federada con Azure Active Directory, use Azure Multi-Factor Authentication o Servicios de federación de Active Directory para proteger los recursos a los que se accede mediante Azure AD. Utilice los siguientes procedimientos para proteger recursos de Azure Active Directory mediante Azure Multi-Factor Authentication o Servicios de federación de Active Directory.
 
 ## <a name="secure-azure-ad-resources-using-ad-fs"></a>Protección de los recursos de Azure AD mediante AD FS
 Para proteger los recursos en la nube, habilite una cuenta para los usuarios y configure una regla de notificaciones. Siga este procedimiento para realizar los pasos:
 
-1. Utilice los pasos descritos en [Activación de autenticación multifactor para usuarios](multi-factor-authentication-get-started-cloud.md#turn-on-multi-factor-authentication-for-users) para habilitar una cuenta.
+1. Utilice los pasos descritos en [Activación de autenticación multifactor para usuarios](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) para habilitar una cuenta.
 2. Inicie la consola de administración de AD FS.
    ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
 3. Vaya a **Relaciones de confianza para usuario autenticado** y haga clic con el botón derecho en las relaciones de confianza para usuario autenticado. Seleccione **Editar reglas de notificación...**
@@ -34,13 +34,13 @@ Para proteger los recursos en la nube, habilite una cuenta para los usuarios y c
 5. En la lista desplegable, seleccione **Enviar notificaciones con una regla personalizada** y haga clic en **Siguiente**.
 6. Escriba un nombre para la regla de notificación.
 7. En Regla personalizada: agregue el siguiente texto:
-   
+
     ```
     => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
     ```
-   
+
     Notificación correspondiente.
-   
+
     ```
     <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
     <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
@@ -74,7 +74,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 10. En el Asistente para agregar regla de notificaciones de transformación, seleccione **Enviar notificaciones mediante regla personalizada** en la lista desplegable y haga clic en **Siguiente**.
 11. En el cuadro situado bajo el nombre de la regla de notificación: escriba *Mantener a los usuarios con la sesión iniciada*.
 12. En el cuadro de regla personalizada, escriba:
-    
+
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
     ![Nube](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip5.png)
@@ -83,7 +83,7 @@ Utilice el procedimiento siguiente para configurar las notificaciones de AD FS. 
 15. Haga clic en **Aceptar**.
 16. Cierre Administración de AD FS.
 
-### <a name="configure-azure-multifactor-authentication-trusted-ips-with-federated-users"></a>Configuración de las IP de confianza de Azure Multi-Factor Authentication con usuarios federados
+### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configuración de las IP de confianza de Azure Multi-Factor Authentication con usuarios federados
 Ahora que las notificaciones están listas, podemos configurar direcciones IP de confianza.
 
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
@@ -100,7 +100,6 @@ Ahora que las notificaciones están listas, podemos configurar direcciones IP de
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

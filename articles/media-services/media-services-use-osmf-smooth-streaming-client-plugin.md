@@ -2,11 +2,11 @@
 title: El complemento Smooth Streaming para Open Source Media Framework
 description: Aprenda a usar el complemento Smooth Streaming de Servicios multimedia de Azure para Adobe Open Source Media Framework.
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 6068151f-b6b0-4507-9346-f03416d3d572
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,10 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 32b530e5234610363b1a160e22921f1b0ce8bdc0
+
 
 ---
-# Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe
-## Información general
+# <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe
+## <a name="overview"></a>Información general
 El complemento Smooth Streaming de Microsoft para Open Source Media Framework 2.0 (SS para OSMF) amplía las capacidades predeterminadas de OSMF y agrega la reproducción del contenido Smooth Streaming de Microsoft a los reproductores con OSMF nuevos y existentes. El complemento también agrega las capacidades de reproducción de Smooth Streaming para Strobe Media Playback (SMP).
 
 SS para OSMF incluye dos versiones del complemento:
@@ -27,7 +31,7 @@ SS para OSMF incluye dos versiones del complemento:
 
 En este documento se asume que el lector tiene un conocimiento general acerca del funcionamiento de los complementos OSMF y OSMF. Para obtener más información acerca de OSMF, consulte la documentación disponible en el [sitio oficial de OSMF (en inglés)](http://osmf.org/).
 
-### Complemento Smooth Streaming para OSMF 2.0
+### <a name="smooth-streaming-plugin-for-osmf-20"></a>Complemento Smooth Streaming para OSMF 2.0
 El complemento admite la carga y reproducción de contenido Smooth Streaming bajo demanda con las siguientes características:
 
 * Reproducción de Smooth Streaming bajo demanda (Reproducir, Pausar, Buscar y Detener)
@@ -38,13 +42,13 @@ El complemento admite la carga y reproducción de contenido Smooth Streaming baj
 * Conmutación de varios idiomas de audio con API integradas de OSMF
 * Selección de calidad máxima de reproducción con API integradas de OSMF
 * Títulos cerrados adicionales con el complemento de títulos de OSMF
-* Adobe&reg; Flash&reg; Player 11.4 o posterior.
+* Adobe&reg; Flash&reg; Player 11.4 o superior.
 * Esta versión solo admite OSMF 2.0.
 
-## Características admitidas y problemas conocidos
+## <a name="supported-features-and-known-issues"></a>Características admitidas y problemas conocidos
 Para obtener una lista completa de características compatibles, características no compatibles y problemas conocidos, consulte [este documento](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
-## Carga del complemento
+## <a name="loading-the-plugin"></a>Carga del complemento
 Los complementos de OSMF se pueden cargar estáticamente (en el momento de la compilación) o dinámicamente (en el tiempo de ejecución). La descarga del complemento Smooth Streaming para OSMF incluye las versiones dinámicas y estáticas.
 
 * Carga estática: para esta carga, se necesita un archivo de biblioteca estática (SWC). Los complementos estáticos se agregan como una referencia a los proyectos y se combinan dentro del archivo de salida final en el momento de la compilación.
@@ -52,7 +56,7 @@ Los complementos de OSMF se pueden cargar estáticamente (en el momento de la co
 
 Para obtener más información acerca de la carga estática y dinámica, consulte la [página oficial del complemento de OSMF (en inglés)](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf).
 
-### Carga estática de SS para OSMF
+### <a name="ss-for-osmf-static-loading"></a>Carga estática de SS para OSMF
 El fragmento de código siguiente muestra cómo cargar estáticamente el complemento SS para OSMF y reproducir vídeo básico con la utilización de la clase MediaFactory de OSMF. Antes de incluir el código SS para OSMF, asegúrese de que la referencia del proyecto incluye el complemento estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
 ```
@@ -188,7 +192,7 @@ package
 ```
 
 
-### Carga dinámica de SS para OSMF
+### <a name="ss-for-osmf-dynamic-loading"></a>Carga dinámica de SS para OSMF
 El fragmento de código siguiente muestra cómo cargar dinámicamente el complemento SS para OSMF y reproducir vídeo básico con la utilización de la clase MediaFactory de OSMF. Antes de incluir el código SS para OSMF, copie el complemento "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" a la carpeta del proyecto si desea realizar la carga con el protocolo FILE, o bien cópielo en un servidor web para cargas HTTP. No es necesario incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" en las referencias del proyecto.
 
 paquete {
@@ -322,14 +326,14 @@ paquete {
     }
 }
 
-## Strobe Media Playback con el complemento dinámico SS para ODMF
+## <a name="strobe-media-playback-with-the-ss-odmf-dynamic-plugin"></a>Strobe Media Playback con el complemento dinámico SS para ODMF
 El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Puede usar el complemento SS para OSMF para agregar la reproducción de contenido Smooth Streaming a SMP. Para ello, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" en un servidor web para cargas HTTP mediante estos pasos:
 
-1. Examine la [página de configuración de Strobe Media Playback (en inglés)](http://osmf.org/dev/2.0gm/setup.html).
-2. Defina src como un origen Smooth Streaming (por ejemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest).
+1. Examine la [página de configuración de Strobe Media Playback (en inglés)](http://osmf.org/dev/2.0gm/setup.html). 
+2. Defina src como un origen Smooth Streaming (por ejemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest). 
 3. Realice los cambios de configuración deseados y haga clic en Preview y Update.
    
-   **Nota**: el servidor web de contenido necesita un archivo crossdomain.xml válido.
+   **Nota** : el servidor web de contenido necesita un archivo crossdomain.xml válido. 
 4. Copie y pegue el código en una página HTML sencilla con su editor de texto favorito, como en el ejemplo siguiente:
 
         <html>
@@ -376,17 +380,22 @@ El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Me
         </object>
         </html>
 2. Guarde la página HTML y publíquela en un servidor web. Vaya a la página web publicada utilizando el explorador de Internet que prefiera (Internet Explorer, Chrome y Firefox, entre otros) con Flash&reg; Player habilitado.
-3. Disfrute del contenido Smooth Streaming en Adobe&reg; Flash&reg; Player.
+3. Disfrute del contenido de Smooth Streaming en Adobe&reg; Flash&reg; Player.
 
 Para obtener más información acerca del desarrollo de OSMF general, consulte la [página oficial de desarrollo de OSMF (en inglés)](http://osmf.org/resources.html).
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Otras referencias
-[Actualización del complemento de streaming adaptable para OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/)
+## <a name="see-also"></a>Otras referencias
+[Actualización del complemento de streaming adaptable para OSMF](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

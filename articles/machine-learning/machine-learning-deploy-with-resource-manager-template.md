@@ -1,12 +1,12 @@
 ---
-title: Implementación del área de trabajo de Machine Learning mediante una plantilla de Azure Resource Manager | Microsoft Docs
-description: Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager
+title: "Implementación del área de trabajo de Machine Learning mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+description: "Cómo implementar un área de trabajo de Machine Learning de Azure mediante la plantilla de Azure Resource Manager"
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: ahgyger
 manager: haining
 editor: garye
-
+ms.assetid: 4955ac4d-ff99-4908-aa27-69b6bfcc8e85
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,17 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: ahgyger
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cf6c80aa82edc6753700975f2bf3919f0c48ec75
+
 
 ---
-# Implementación del área de trabajo de Machine Learning mediante Azure Resource Manager
-## Introducción
-El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning, por ejemplo, debe configurar primero una cuenta de Almacenamiento de Azure y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Azure Machine Learning y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para una introducción excelente acerca de Azure Resource Manager, consulte [Información general de Azure Resource Manager](../resource-group-overview.md).
+# <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Machine Learning mediante Azure Resource Manager
+## <a name="introduction"></a>Introducción
+El uso de una plantilla de implementación de Azure Resource Manager le permite ahorrar tiempo proporcionándole una manera escalable de implementar componentes interconectados con un mecanismo de validación y reintento. Para configurar áreas de trabajo de Azure Machine Learning, por ejemplo, debe configurar primero una cuenta de Almacenamiento de Azure y, a continuación, implementar el área de trabajo. Imagine que tiene que hacer esto manualmente para cientos de áreas de trabajo. Una alternativa más sencilla es utilizar una plantilla de Azure Resource Manager para implementar un área de trabajo de Azure Machine Learning y todas sus dependencias. Este artículo le guiará por este proceso paso a paso. Para ver una introducción excelente sobre Azure Resource Manager, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-## Paso a paso: Creación de un área de trabajo de Machine Learning
+## <a name="step-by-step-create-a-machine-learning-workspace"></a>Paso a paso: Creación de un área de trabajo de Machine Learning
 Crearemos un grupo de recursos de Azure e implementaremos una nueva cuenta de Almacenamiento de Azure y una nueva área de trabajo de Azure Machine Learning mediante una plantilla de Resource Manager. Una vez completada la implementación, se imprimirá información importante acerca de las áreas de trabajo que se crearon (la clave principal, el identificador y la dirección URL del área de trabajo).
 
-### Creación de una plantilla de Azure Resource Manager
-Un área de trabajo de Machine Learning requiere una cuenta de almacenamiento de Azure para almacenar el conjunto de datos vinculado a ella. La siguiente plantilla usa el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento y el nombre del área de trabajo. También utiliza el nombre de la cuenta de almacenamiento como una propiedad al crear el área de trabajo.
+### <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
+Un área de trabajo de Machine Learning requiere una cuenta de almacenamiento de Azure para almacenar el conjunto de datos vinculado a ella.
+La siguiente plantilla usa el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento y el nombre del área de trabajo.  También utiliza el nombre de la cuenta de almacenamiento como una propiedad al crear el área de trabajo.
 
 ```
 {
@@ -71,11 +76,11 @@ Un área de trabajo de Machine Learning requiere una cuenta de almacenamiento de
 }
 
 ```
-Guarde esta plantilla como archivo mlworkspace.json en c:\\temp.
+Guarde esta plantilla como archivo mlworkspace.json en c:\temp.
 
-### Implementación del grupo de recursos basado en la plantilla
+### <a name="deploy-the-resource-group-based-on-the-template"></a>Implementación del grupo de recursos basado en la plantilla
 * Abra PowerShell
-* Instale los módulos de Azure Resource Manager y Azure Service Management
+* Instale los módulos de Azure Resource Manager y Azure Service Management  
 
 ```
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
@@ -85,9 +90,9 @@ Install-Module AzureRM -Scope CurrentUser
 Install-Module Azure -Scope CurrentUser
 ```
 
-   Estos pasos permiten descargar e instalar los módulos necesarios para completar los pasos restantes. Esto solo debe realizarse una vez en el entorno donde se ejecutan los comandos de PowerShell.
+   Estos pasos permiten descargar e instalar los módulos necesarios para completar los pasos restantes. Esto solo debe realizarse una vez en el entorno donde se ejecutan los comandos de PowerShell.   
 
-* Autentíquese en Azure
+* Autentíquese en Azure  
 
 ```
 # Authenticate (enter your credentials in the pop-up window)
@@ -106,7 +111,8 @@ $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Ce
 $rg
 ```
 
-Compruebe que se ha aprovisionado correctamente el grupo de recursos. **ProvisioningState** debe ser "Succeeded" (Correcto). La plantilla utiliza el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.
+Compruebe que se ha aprovisionado correctamente el grupo de recursos. **ProvisioningState** debe ser "Succeeded" (Correcto).
+La plantilla utiliza el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento debe tener entre 3 y 24 caracteres, y usar solo números y letras minúsculas.
 
 ![El grupos de recursos][2]
 
@@ -132,10 +138,10 @@ Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |
 ```
 Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Estudio de aprendizaje automático de Microsoft Azure mediante el [módulo de PowerShell para Aprendizaje automático de Azure](http://aka.ms/amlps).
 
-## Pasos siguientes
-* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
-* Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
-* Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
+## <a name="next-steps"></a>Pasos siguientes
+* Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md). 
+* Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates). 
+* Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
 
 <!--Image references-->
 [1]: ../media/machine-learning-deploy-with-resource-manager-template/azuresubscription.png
@@ -144,4 +150,8 @@ Una vez aprovisionada el área de trabajo, también puede automatizar muchas tar
 
 <!--Link references-->
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

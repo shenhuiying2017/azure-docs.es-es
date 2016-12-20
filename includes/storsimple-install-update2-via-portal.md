@@ -1,11 +1,11 @@
 <!--author=alkohli last changed: 03/17/16-->
 
-#### Instalar una actualización desde el Portal de Azure
-1. En la página de servicio de StorSimple, seleccione el dispositivo. Vaya a **Dispositivos** > **Mantenimiento**.
+#### <a name="to-install-an-update-from-the-azure-portal"></a>Instalar una actualización desde el Portal de Azure
+1. En la página de servicio de StorSimple, seleccione el dispositivo. Navegue a **Dispositivos** > **Mantenimiento**.
 2. En la parte inferior de la página, haga clic en **Buscar actualizaciones**. Para buscar actualizaciones disponibles, se creará un trabajo. Recibirá una notificación cuando el trabajo esté completado correctamente.
 3. En la sección **Actualizaciones de software** en la misma página, verá que hay nuevas actualizaciones de software disponibles. Se recomienda revisar las notas de la versión antes de aplicar una actualización en el dispositivo.
-4. En la parte inferior de la página, haga clic en **Instalar actualizaciones** y, a continuación, en **Aceptar**.
-5. En el cuadro de diálogo **Instalar actualizaciones**, asegúrese de que ha seguido las recomendaciones y, a continuación, seleccione **Entiendo el requisito anterior y estoy listo para actualizar el dispositivo** y haga clic en el botón de comprobación.
+4. En la parte inferior de la página, haga clic en **Instalar actualizaciones** y, luego, en **Aceptar**.
+5. En el cuadro de diálogo **Instalar actualizaciones**, asegúrese de que ha seguido las recomendaciones y, después, seleccione **Entiendo el requisito anterior y estoy listo para actualizar el dispositivo** y haga clic en el botón de comprobación.
    
     ![Mensaje de confirmación](./media/storsimple-install-update2-via-portal/InstallUpdate12_2M.png)
 6. Ahora se iniciará un conjunto de comprobaciones previas. Entre ellos se incluyen los siguientes:
@@ -28,8 +28,12 @@
     ![Creación del trabajo de actualización](./media/storsimple-install-update2-via-portal/InstallUpdate12_44M.png)
    
     La actualización se aplicará en el dispositivo.
-8. Para supervisar el progreso del trabajo de actualización, haga clic en **Ver trabajo**. En la página **Trabajos**, puede ver el progreso de la actualización.
+8. Para supervisar el progreso del trabajo de actualización, haga clic en **Ver trabajo**. En la página **Trabajos** , puede ver el progreso de la actualización.
 9. La actualización tardará unas horas en completarse. Seleccione el trabajo de actualización y haga clic en **Detalles** para ver los detalles del trabajo en cualquier momento.
-10. Una vez completado el trabajo, vaya a la página **Mantenimiento** página y desplácese hacia abajo hasta **Actualizaciones de software**.
+10. Una vez que el trabajo se haya completado, navegue a la página **Mantenimiento** página y desplácese hacia abajo hasta **Actualizaciones de software**.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

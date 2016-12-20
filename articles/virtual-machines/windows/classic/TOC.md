@@ -9,12 +9,12 @@
 # Primeros pasos
 ## [Creación de una VM desde el portal](../../virtual-machines-windows-classic-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [Inicio de sesión en una VM](../../virtual-machines-windows-classic-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
-## [Azure PowerShell](../../../powershell-install-configure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+## [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Instalación de la CLI de Azure](../../../xplat-cli-install.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Procedimientos
 
-## Usar Storage
+## Uso de Storage
 ### [Acoplamiento de un disco de datos](../../virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Desacoplamiento de un disco de datos](../../virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ### [Uso de D: como disco de datos](../../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
@@ -102,13 +102,15 @@
 ### [Problemas de la implementación clásica con el reinicio o el cambio de tamaño de una VM existente](virtual-machines-windows-classic-restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 # Referencia
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [CLI de Azure](/cli/azure/vm)
-## [Java](/java/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [Creación de plantillas de Resource Manager](../../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates/)
-## [REST de Compute](/rest/api/compute/)
-## [REST de Network](/rest/api/)
-## [REST de Storage](/rest/api/storageservices/)
+## [Plantillas de la comunidad](https://azure.microsoft.com/documentation/templates)
+## [REST de Compute](/rest/api/compute)
+## [REST de Network](/rest/api)
+## [REST de Storage](/rest/api/storageservices)
 
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)
@@ -117,6 +119,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

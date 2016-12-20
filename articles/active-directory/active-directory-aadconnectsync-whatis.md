@@ -1,29 +1,33 @@
 ---
-title: 'Sincronización de Azure AD Connect: comprender y personalizar la sincronización | Microsoft Docs'
-description: Se explica cómo funciona la sincronización de Azure AD Connect y cómo personalizarla.
+title: "Sincronización de Azure AD Connect: descripción y personalización de la sincronización | Microsoft Docs"
+description: "Se explica cómo funciona la sincronización de Azure AD Connect y cómo personalizarla."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: andkjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
-ms.author: markusvi;andkjell
+ms.date: 11/01/2016
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 68102abce40ed15f0430cfdf19d56807a1149bf8
+
 
 ---
-# Sincronización de Azure AD Connect: comprender y personalizar la sincronización
+# <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Sincronización de Azure AD Connect: comprender y personalizar la sincronización
 Los servicios de sincronización de Azure Active Directory Connect (sincronización de Azure AD Connect) es un componente principal de Azure AD Connect. Se encargan de todas las operaciones relacionadas con la sincronización de datos de identidad entre el entorno local y Azure AD. Sincronización de Azure AD Connect es el sucesor de DirSync, Sincronización de Azure AD y Forefront Identity Manager con Conector Azure Active Directory configurado.
 
-Este tema es la principal referencia sobre la **sincronización de Azure AD Connect** (que también se conoce como **motor de sincronización**) y en el que se muestran vínculos a todos los otros temas relacionados con ella. Para obtener vínculos para Azure AD Connect, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+Este tema es la principal referencia sobre la **sincronización de Azure AD Connect** (que también se conoce como **motor de sincronización**) y en el que se muestran vínculos a todos los otros demás temas relacionados con ella. Para obtener vínculos para Azure AD Connect, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-El servicio de sincronización consta de dos componentes, el componente local de **sincronización de Azure AD Connect** y el lado del servicio en Azure AD llamado **servicio de sincronización de Azure AD Connect**. El servicio es común para DirSync, Sincronización de Azure AD y Azure AD Connect.
+El servicio de sincronización consta de dos componentes, el componente de **sincronización de Azure AD Connect** local y el lado del servicio en Azure AD llamado **servicio de sincronización de Azure AD Connect**. El servicio es común para DirSync, Sincronización de Azure AD y Azure AD Connect.
 
-## Temas de sincronización de Azure AD Connect
+## <a name="azure-ad-connect-sync-topics"></a>Temas de sincronización de Azure AD Connect
 | Tema. | ¿Qué aspectos cubre y cuándo debe leerlo? |
 | --- | --- |
 | **Fundamentos de la sincronización de Azure AD Connect** | |
@@ -47,9 +51,9 @@ El servicio de sincronización consta de dos componentes, el componente local de
 | [Extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md) |Describe cómo extender el esquema de Azure AD con sus propios atributos personalizados. |
 | **Servicio de sincronización** | |
 | [Características del servicio de sincronización de Azure AD Connect](active-directory-aadconnectsyncservice-features.md) |Describe el lado del servicio de sincronización y cómo cambiar la configuración de sincronización de Azure AD. |
-| [Resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |En él se describe cómo habilitar y usar la resistencia de valores de atributos duplicados para **userPrincipalName** y **proxyAddresses**. |
+| [Resistencia de atributos duplicados](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md) |En él se describe cómo habilitar y usar la resistencia de valores de atributos duplicados de **userPrincipalName** y **proxyAddresses**. |
 | **Operaciones e interfaz de usuario** | |
-| [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) |En él se describe la interfaz de usuario de Synchronization Service Manager, incluidas las pestañas [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md), [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md), [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) y [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md). |
+| [Synchronization Service Manager](active-directory-aadconnectsync-service-manager-ui.md) |En él se describe la interfaz de usuario de Synchronization Service Manager, incluidas las pestañas [Operations](active-directory-aadconnectsync-service-manager-ui-operations.md) (Operaciones), [Connectors](active-directory-aadconnectsync-service-manager-ui-connectors.md) (Conectores), [Metaverse Designer](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) (Diseñador de metaverso) y [Metaverse Search](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) (Búsqueda de metaverso). |
 | [Tareas y consideraciones operativas](active-directory-aadconnectsync-operations.md) |Describe las preocupaciones operativas, como la recuperación ante desastres. |
 | **Procedimiento para:** | |
 | [Restablecer la cuenta de Azure AD](active-directory-aadconnectsync-howto-azureadaccount.md) |Procedimiento para restablecer las credenciales de la cuenta de servicio usada para conectarse desde el servicio de sincronización de Azure AD Connect a Azure AD. |
@@ -58,7 +62,12 @@ El servicio de sincronización consta de dos componentes, el componente local de
 | [Atributos sincronizados con Azure Active Directory](active-directory-aadconnectsync-attributes-synchronized.md) |Enumera todos los atributos que se sincronizan entre los AD locales y Azure AD. |
 | [Referencia de funciones](active-directory-aadconnectsync-functions-reference.md) |Enumera todas las funciones disponibles en el aprovisionamiento declarativo. |
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

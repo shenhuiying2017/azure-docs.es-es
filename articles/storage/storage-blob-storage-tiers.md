@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: mihauss
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 31af2d1ade0c24a8d76e98d95fda287320552eea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 998e95611bca6778de601239bcf9c81246dead83
 
 
 ---
@@ -248,7 +248,7 @@ Para calcular los costos de transacción de las cuentas de Almacenamiento de blo
 
 Para calcular los costos de transacción de las cuentas de almacenamiento de uso general, es preciso agregar todas las transacciones, independientemente de la operación o API.
 
-##### <a name="data-access-and-georeplication-data-transfer-costs"></a>Costos de transferencia de datos de acceso y de replicación geográfica
+##### <a name="data-access-and-geo-replication-data-transfer-costs"></a>Costos de transferencia de datos de acceso y de replicación geográfica
 Aunque el análisis del almacenamiento no proporciona la cantidad de datos leídos de una cuenta de almacenamiento y escritos en ella, se puede realizar un cálculo aproximado mediante el examen de la tabla de métricas de transacciones.
 La suma de *'TotalIngress'* en todas las entradas de una API de la tabla de métricas de transacciones indica la cantidad total de datos de entrada, en bytes, de dicha API concreta.
 De igual modo, la suma de *'TotalEgress'* indica la cantidad total de datos de salida, en bytes.
@@ -345,6 +345,6 @@ Para más información, consulte [Introducción al Almacenamiento de blobs de Az
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

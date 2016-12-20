@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/04/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 883b3a27b4b06785068d04a143bae6c33fbed99b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0374fea21dbecabc0008cf6cd9096cd8c2d3f206
 
 
 ---
@@ -75,10 +75,10 @@ Antes de instalar el servicio web de aplicación móvil, tenga en cuenta lo sigu
 
 <li>Abra un explorador web desde cualquier equipo y vaya a la dirección URL donde se instaló el servicio web de la aplicación móvil (por ejemplo, https://www.publicwebsite.com/PA). Asegúrese de que no aparezca ningún error ni advertencia de certificado.</li>
 
-### <a name="configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Establecimiento de la configuración del servicio web de aplicación móvil en el Servidor Azure Multi-Factor Authentication
+### <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Establecimiento de la configuración del servicio web de aplicación móvil en el Servidor Azure Multi-Factor Authentication
 Ahora que el servicio web de la aplicación móvil está instalado, debe configurar Servidor Azure Multi-Factor Authentication para que funcione con el portal.
 
-#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multifactor-authentication-server"></a>Para configurar los ajustes de la aplicación móvil en Servidor Azure Multi-Factor Authentication
+#### <a name="to-configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Para configurar los ajustes de la aplicación móvil en Servidor Azure Multi-Factor Authentication
 1. En Servidor Azure Multi-Factor Authentication, haga clic en el icono Portal de usuarios. Si los usuarios pueden controlar sus métodos de autenticación, en la pestaña Configuración, en Permitir a los usuarios seleccionar el método, active Aplicación móvil. Sin esta característica habilitada, los usuarios finales deberán ponerse en contacto con el departamento de soporte técnico para completar la activación de la aplicación móvil.
 2. Active la casilla Permitir a los usuarios activar la aplicación móvil.
 3. Active la casilla Permitir inscripción de usuario.
@@ -89,6 +89,6 @@ Ahora que el servicio web de la aplicación móvil está instalado, debe configu
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

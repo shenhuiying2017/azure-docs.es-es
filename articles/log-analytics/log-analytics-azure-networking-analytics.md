@@ -1,12 +1,12 @@
 ---
-title: Solución Azure Networking Analytics de Log Analytics | Microsoft Docs
-description: Puede usar la solución Azure Networking Analytics en Log Analytics para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway.
+title: "Solución Azure Networking Analytics de Log Analytics | Microsoft Docs"
+description: "Puede usar la solución Azure Networking Analytics en Log Analytics para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+
 
 ---
-# <a name="azure-networking-analytics-(preview)-solution-in-log-analytics"></a>Solución Azure Networking Analytics (versión preliminar) en Log Analytics
+# <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Solución Azure Networking Analytics (versión preliminar) en Log Analytics
 > [!NOTE]
 > Se trata de una [solución preliminar](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -96,6 +100,9 @@ Tras hacer clic en el icono de **Overview** (Información general), puede ver re
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de Azure Networking Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

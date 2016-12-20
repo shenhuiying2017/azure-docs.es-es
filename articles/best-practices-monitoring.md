@@ -1,13 +1,13 @@
 ---
-title: Guía de supervisión y diagnósticos | Microsoft Docs
-description: Prácticas recomendadas para la supervisión de aplicaciones distribuidas en la nube.
-services: ''
+title: "Guía de supervisión y diagnósticos | Microsoft Docs"
+description: "Prácticas recomendadas para la supervisión de aplicaciones distribuidas en la nube."
+services: 
 documentationcenter: na
 author: dragon119
 manager: christb
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2d2a8497-73d0-4a46-aac6-6d504003de2b
 ms.service: best-practice
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
+translationtype: Human Translation
+ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
+ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+
 
 ---
 # <a name="monitoring-and-diagnostics-guidance"></a>Guía de supervisión y diagnósticos
@@ -60,7 +64,7 @@ Un operador debe recibir una alerta rápidamente (en cuestión de segundos) si s
 
 Un completo sistema de supervisión del estado permite que un operador explore en profundidad el sistema para ver el estado de los subsistemas y componentes. Por ejemplo, si el sistema global se representa como parcialmente correcto, el operador debe ser capaz de profundizar y determinar la funcionalidad que no está disponible actualmente.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 Los datos sin procesar necesarios para permitir el seguimiento de estado pueden generarse como resultado de:
 
 * El seguimiento de la ejecución de las solicitudes de los usuarios. Esta información puede usarse para determinar las solicitudes que se realizaron correctamente, las que produjeron un error y cuánto tiempo tarda cada solicitud.
@@ -93,7 +97,7 @@ Un operador también debería poder ver el histórico de disponibilidad de cada 
 
 Una solución de supervisión debe proporcionar una vista inmediata e histórica de la disponibilidad o no disponibilidad de cada subsistema. También debe ser capaz de alertar rápidamente a un operador cuando uno o más servicios produzcan errores o cuando los usuarios no pueden conectarse a los servicios. No es solo cuestión de supervisar cada servicio, sino también de examinar las acciones que los usuarios realizan si estas acciones producen un error al intentar comunicarse con un servicio. En cierta medida, un cierto grado de error en la conectividad es normal y podría deberse a errores transitorios. Pero podría ser útil permitir que el sistema genere una alerta por el número de errores de conectividad en un subsistema especificado que se produzcan durante un período determinado.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 Al igual que con el seguimiento de estado, los datos sin procesar necesarios para permitir la supervisión de la disponibilidad pueden generarse como resultado de la supervisión de usuarios sintéticos y el registro de las excepciones, los errores y las advertencias que puedan producirse. Además, los datos de la disponibilidad se pueden obtener de la supervisión de los extremos. La aplicación puede exponer uno o más extremos de estado, cada uno de los cuales realiza pruebas de acceso a un área funcional dentro del sistema. El sistema de supervisión puede hacer ping a cada punto de conexión siguiendo una programación definida y recopilar los resultados (acierto o error).
 
 Se deben registrar todos los tiempos de espera, los errores de conectividad de red y los reintentos de conexión. Todos los datos deben tener marca de tiempo.
@@ -157,7 +161,7 @@ Todas las visualizaciones deben permitir que un operador especifique un período
 
 Un operador debe ser capaz de generar una alerta en función de una medida de rendimiento de un valor especificado durante un intervalo de tiempo especificado.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 Puede recopilar datos de rendimiento de alto nivel (capacidad de proceso, número de usuarios simultáneos, número de transacciones de negocio, tasas de error, etc.) mediante la supervisión del progreso de las solicitudes de los usuarios cuando llegan y pasan por el sistema. Esto implica la incorporación de instrucciones de seguimiento en puntos clave del código de la aplicación junto con información de tiempo. Todos los errores, excepciones y advertencias deben capturarse con datos suficientes para que puedan correlacionarse con las solicitudes que los provocaron. El registro de Internet Information Services (IIS) es otro origen útil.
 
 Si es posible, también debería capturar datos de rendimiento de los sistemas externos que use la aplicación. Estos sistemas externos podrían proporcionar sus propios contadores de rendimiento u otras características para solicitar datos de rendimiento. Si esto no es posible, registre la información como la horas de inicio y finalización de cada solicitud realizada a un sistema externo, junto con el estado (correcto, error o advertencia) de la operación. Por ejemplo, puede aplicar un enfoque de cronómetro a las solicitudes de tiempo; inicie un temporizador cuando se inicie la solicitud y deténgalo cuando la solicitud se complete.
@@ -199,7 +203,7 @@ La información facilitada a un operador debe incluir la dirección del host del
 
 Una parte clave del mantenimiento de la seguridad de un sistema es poder detectar rápidamente las acciones que se desvíen del patrón habitual. Información, como el número de solicitudes de inicio de sesión aceptadas o rechazadas, se puede mostrar visualmente para ayudar a detectar si se ha producido un pico de actividad a una hora inusual. (Por ejemplo, los usuarios que inician sesión a las 3 a.m. y que realizan un gran número de operaciones cuando su día laborable comienza a las 9 a.m.). Esta información también puede utilizarse para ayudar a configurar el escalado automático basado en el tiempo. Por ejemplo, si un operador observa que un gran número de usuarios normalmente inician sesión en un momento determinado del día, el operador puede organizarse para iniciar servicios de autenticación adicionales y así controlar el volumen de trabajo y, más tarde, reducir esos servicios adicionales cuando haya pasado el pico.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 La seguridad es un aspecto global de la mayoría de los sistemas distribuidos. Es posible que los datos pertinentes se generen en varios puntos de un sistema. Considere la posibilidad de adoptar un enfoque de administración de eventos e información de seguridad (SIEM) para recopilar la información relacionada con la seguridad resultante de los eventos que han generado la aplicación, el equipo de red, los servidores, los firewalls, el software antivirus y otros elementos de prevención de intrusiones.
 
 La supervisión de la seguridad puede incorporar datos de herramientas que no forman parte de la aplicación. Por ejemplo, herramientas que identifican actividades de exploración de puertos por organismos externos o filtros de red que detectan intentos de acceso no autenticado a la aplicación y los datos.
@@ -251,7 +255,7 @@ Una aplicación en la nube probablemente constará de un número de componentes 
 
 Para fines de alertas, el sistema debe ser capaz de generar un evento si cualquiera de los indicadores de alto nivel supera un umbral especificado. Los detalles de nivel inferior de los distintos factores que componen el indicador de alto nivel deben estar disponibles como datos contextuales para el sistema de alertas.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 Los datos sin procesar necesarios para permitir la supervisión del SLA son similares a los que se necesitan para supervisar el rendimiento, junto con algunos aspectos de seguimiento de estado y supervisión de la disponibilidad. (Consulte esas secciones para obtener más detalles). Puede capturar estos datos mediante:
 
 * La realización de supervisión de los extremos
@@ -283,7 +287,7 @@ Un analista debe poder realizar un seguimiento de la secuencia de operaciones de
 
 La información de auditoría es sumamente delicada. Probablemente incluya datos que identifiquen a los usuarios del sistema, junto con las tareas que realizan. Por este motivo, lo más habitual es que la información de auditoría adopte la forma de informes que solo están disponibles para los analistas de confianza en lugar de mediante un sistema interactivo que admita la exploración en profundidad de operaciones gráficas. Un analista debe ser capaz de generar una variedad de informes. Por ejemplo, informes que muestren las actividades de todos los usuarios que se producen durante un período de tiempo especificado, que detallen la cronología de actividad de un solo usuario o que indiquen la secuencia de operaciones realizadas en relación con uno o más recursos.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 Los principales orígenes de información de auditoría pueden incluir:
 
 * El sistema de seguridad que administra la autenticación de usuario.
@@ -314,7 +318,7 @@ Para examinar el uso del sistema, un operador normalmente necesita ver cierta in
 
 Un operador también debe ser capaz de generar gráficos. Por ejemplo, un gráfico podría mostrar los usuarios que necesitan más recursos o los recursos o las características del sistema a los que se accede con mayor frecuencia.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 El seguimiento del uso se puede realizar en un nivel relativamente alto. Se pueden anotar los tiempos de inicio y finalización de cada solicitud y la naturaleza de la solicitud (lectura, escritura, etc., según el recurso en cuestión). Puede obtener esta información mediante:
 
 * El seguimiento de la actividad de usuario.
@@ -331,7 +335,7 @@ Los clientes y otros usuarios podrían informar de problemas si se producen even
 ### <a name="requirements-for-issue-tracking"></a>Requisitos para el seguimiento de problemas
 Los operadores realizan a menudo el seguimiento de problemas mediante un sistema independiente que les permite registrar e informar de los detalles de los problemas que los usuarios notifican. Estos detalles pueden incluir las tareas que el usuario estaba intentando llevar a cabo, los síntomas del problema, la secuencia de eventos y los mensajes de error o advertencia que se emitieron.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 El origen inicial de los datos de seguimiento de problemas es el usuario que informa del problema en primer lugar. El usuario podría proporcionar datos adicionales, como:
 
 * Un archivo de volcado (si la aplicación incluye un componente que se ejecuta en el escritorio del usuario).
@@ -358,7 +362,7 @@ Cuando un usuario informa de un problema, el usuario a menudo solo es consciente
 ### <a name="requirements-for-tracing-and-debugging"></a>Requisitos para el seguimiento y la depuración
 Para el seguimiento de eventos inesperados y otros problemas, es fundamental que los datos de supervisión proporcionen información suficiente para permitir que un analista haga un seguimiento hasta los orígenes de estos problemas y reconstruya la secuencia de eventos que se produjeron. Esta información debe ser suficiente para permitir que un analista diagnostique la causa raíz de los problemas. Luego, un programador puede realizar las modificaciones necesarias para evitar que se repitan.
 
-### <a name="data-sources,-instrumentation,-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
+### <a name="data-sources-instrumentation-and-data-collection-requirements"></a>Requisitos de recopilación de datos, instrumentación y orígenes de datos
 La solución de problemas puede implicar tener que realizar un seguimiento de todos los métodos (y sus parámetros) que se invocan como parte de una operación, para crear un árbol que represente el flujo lógico a través del sistema cuando un cliente realiza una solicitud concreta. Se deben capturar y registrar las excepciones y advertencias que genera el sistema como resultado de este flujo.
 
 Para hacer posible la depuración, el sistema puede proporcionar enlaces que permitan a un operador capturar información de estado en los puntos esenciales del sistema. O bien, el sistema puede ofrecer información detallada paso a paso a medida que progresan las operaciones seleccionadas. La captura de datos a este nivel de detalle puede imponer una carga adicional en el sistema y debería ser un proceso temporal. Un operador utiliza este proceso principalmente cuando se produce una serie de eventos muy poco habituales y es difícil de replicar, o cuando una nueva versión de uno o más elementos de un sistema requiere una cuidadosa supervisión para asegurarse de que los elementos funcionan según lo esperado.
@@ -517,7 +521,7 @@ Dada la naturaleza flexible de la nube y para evitar la necesidad de recuperar m
 
 Para optimizar el uso del ancho de banda, puede elegir transferir datos menos urgentes en fragmentos, como lotes. Sin embargo, los datos no deben retrasarse indefinidamente, especialmente si contienen información confidencial en el tiempo.
 
-#### <a name="_pulling-and-pushing-instrumentation-data_"></a>*Extracción e inserción de datos de instrumentación*
+#### <a name="pulling-and-pushing-instrumentation-data"></a>*Extracción e inserción de datos de instrumentación*
 El subsistema de recopilación de datos de instrumentación puede recuperar de forma activa datos de instrumentación de los distintos registros y otros orígenes para cada instancia de la aplicación (el *modelo de extracción*). O bien, puede actuar como receptor pasivo que espera a que se envíen los datos desde los componentes que conforman cada instancia de la aplicación (el *modelo de inserción*).
 
 Un enfoque para implementar el modelo de extracción es usar agentes de supervisión que se ejecuten localmente con cada instancia de la aplicación. Un agente de supervisión es un proceso independiente que recupera periódicamente (extrae) datos de telemetría recopilados en el nodo local y escribe esta información directamente en un almacenamiento centralizado que comparten todas las instancias de la aplicación. Este es el mecanismo que implementa Diagnósticos de Azure. Cada instancia de un rol web o de trabajo de Azure puede configurarse para que capture información de diagnóstico y otra información de seguimiento, que se almacena localmente. El agente de supervisión que se ejecuta unto con cada instancia copia los datos especificados en Almacenamiento de Azure. En el artículo [Habilitación de diagnósticos de Azure en servicios en la nube de Azure](cloud-services/cloud-services-dotnet-diagnostics.md) se proporcionan más detalles sobre este proceso. Algunos elementos, como registros, volcados y registros de errores personalizados de IIS se escriben en el almacenamiento de blobs. Los datos del registro de eventos de Windows, los eventos ETW y los contadores de rendimiento se registran en el almacenamiento de tablas. En la Figura 3 se muestra este mecanismo.
@@ -545,7 +549,7 @@ Para la escalabilidad, puede ejecutar varias instancias del servicio de escritur
 
 <a name="consolidating-instrumentation-data"></a>
 
-#### <a name="_consolidating-instrumentation-data_"></a>*Consolidación de datos de instrumentación*
+#### <a name="consolidating-instrumentation-data"></a>*Consolidación de datos de instrumentación*
 Los datos de instrumentación que recupera el servicio de recopilación de datos a partir de una única instancia de una aplicación ofrecen una vista localizada del estado y rendimiento de esa instancia. Para evaluar el estado general del sistema, es necesario consolidar algunos aspectos de los datos en las vistas locales. Puede realizar esto después de que se han almacenado los datos, pero en algunos casos, también puede conseguirlo mientras se recopilan. En vez de que los datos de instrumentación se escriban directamente en el almacenamiento compartido, pueden pasar por un servicio de consolidación de datos independiente que combine los datos y actúe como un proceso de filtrado y limpieza. Por ejemplo, se pueden combinar datos de instrumentación que incluyan la misma información de correlación, como un id. de actividad. (Es posible que un usuario comience a realizar una operación de negocio en un nodo y que luego se transfiera a otro nodo en caso de error o en función de cómo esté configurado el equilibrio de carga). Este proceso también puede detectar y quitar los datos duplicados (siempre es una posibilidad, si el servicio de telemetría usa colas de mensajes para insertar datos de instrumentación en el almacenamiento). En la Ilustración 5 se muestra un ejemplo de esta estructura.
 
 ![Ejemplo de uso de un servicio para consolidar los datos de instrumentación](media/best-practices-monitoring/Consolidation.png)
@@ -574,12 +578,12 @@ También debe considerar la urgencia con que se requieren los datos. Es necesari
 
 La información que se usa para análisis más considerados, informes y para detectar las tendencias históricas es menos urgente y se puede almacenar de manera que admita minería de datos y consultas ad hoc. Para más información, consulte la sección [Compatibilidad con el análisis en caliente, intermedio y en frío](#supporting-hot-warm-and-cold-analysis) más adelante en este documento.
 
-#### <a name="_log-rotation-and-data-retention_"></a>*Rotación de registros y retención de datos*
+#### <a name="log-rotation-and-data-retention"></a>*Rotación de registros y retención de datos*
 La instrumentación puede generar grandes volúmenes de datos. Estos datos se pueden almacenar en varios lugares, comenzando por los archivos de registro sin procesar, los archivos de seguimiento y otra información capturada en cada nodo para las vistas consolidada, limpia y con particiones de los datos que se mantienen en el almacenamiento compartido. En algunos casos, cuando los datos se han procesado y transferido, los datos originales sin procesar se pueden eliminar de cada nodo. En otros casos, puede ser necesario o simplemente útil guardar la información sin procesar. Por ejemplo, es mejor que los datos generados con fines de depuración queden disponibles en el formato sin procesar, pero luego puedan descartarse bastante rápido cuando se han subsanados los errores.
 
 Los datos de rendimiento a menudo tienen una vida más larga, de modo que pueden usarse para identificar tendencias de rendimiento y para planear la capacidad. La vista consolidada de estos datos normalmente se mantiene en línea durante un período limitado para permitir un acceso rápido. Después, se pueden archivar o descartar. Es posible que los datos recopilados para la medición y facturación de los clientes se guarden de forma indefinida. Además, los requisitos normativos podrían obligar a que la información recopilada con fines de auditoría y seguridad también se deba archivar y guardar. Estos datos también son confidenciales y es necesario cifrarlos o aplicarles otro tipo de protección para evitar su manipulación. Nunca debe registrar las contraseñas de usuario u otra información que pudiera utilizarse para cometer fraudes de identidad. Estos detalles deben eliminarse de los datos antes de almacenarlos.
 
-#### <a name="_down-sampling_"></a>*Reducción de la resolución*
+#### <a name="down-sampling"></a>*Reducción de la resolución*
 Resulta útil almacenar datos históricos, así puede detectar tendencias a largo plazo. En lugar de guardar los datos antiguos en su totalidad, es posible tomar una muestra de los datos para disminuir su resolución y ahorrar en costos de almacenamiento. Por ejemplo, en lugar de guardar indicadores de rendimiento minuto a minuto, puede consolidar los datos con una antigüedad superior a un mes para formar una vista hora a hora.
 
 ### <a name="best-practices-for-collecting-and-storing-logging-information"></a>Prácticas recomendadas para recopilar y almacenar información de registro
@@ -597,7 +601,7 @@ Como se describe en la sección [Consolidación de los datos de instrumentación
 
 <a name="supporting-hot-warm-and-cold-analysis"></a>
 
-### <a name="supporting-hot,-warm,-and-cold-analysis"></a>Compatibilidad con el análisis en caliente, intermedio y en frío
+### <a name="supporting-hot-warm-and-cold-analysis"></a>Compatibilidad con el análisis en caliente, intermedio y en frío
 El análisis y la operación de formato de los datos para fines de visualización, informes y alertas puede ser un proceso complejo que consume su propio conjunto de recursos. Algunas formas de supervisión dependen del tiempo y requieren un análisis inmediato de los datos para resultar eficaces. Esto se conoce como *análisis en caliente*. Algunos ejemplos son los análisis que se requieren para las alertas y algunos aspectos de la supervisión de la seguridad (por ejemplo, la detección de un ataque en el sistema). Los datos necesarios con estos fines deben estar disponibles rápidamente y estar estructurados para un procesamiento eficaz. En algunos casos, podría ser necesario mover el procesamiento del análisis a los nodos individuales donde se mantienen los datos.
 
 Otras formas de análisis dependen menos del tiempo y pueden requerir algunos cálculos y agregaciones cuando se han recibido los datos sin procesar. Esto se conoce como *análisis en caliente*. El análisis del rendimiento se encuentra con frecuencia en esta categoría. En este caso, un evento de rendimiento individual y aislado es poco probable que sea significativo desde el punto de vista estadístico. (Podría deberse a un problema o un pico repentino). Los datos de una serie de eventos deben proporcionar una imagen más confiable del rendimiento del sistema.
@@ -699,10 +703,13 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 * [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) y [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Utilización de las colas del Bus de servicio](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md)
-* [Recibir notificaciones de alerta](azure-portal/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](azure-portal/insights-service-health.md)
+* [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Recibir notificaciones de alerta](monitoring-and-diagnostics/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

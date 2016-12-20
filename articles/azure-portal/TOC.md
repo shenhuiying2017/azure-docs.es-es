@@ -22,7 +22,7 @@
 ### [Visualización de eventos y registros de auditoría](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Referencia
+# Temas relacionados
 ## [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md)
 ## [Procedimientos recomendados de escalado automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Métricas comunes de escalado automático](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -32,10 +32,16 @@
 ## [Ejemplos de inicio rápido de PowerShell de Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Ejemplos de inicio rápido de CLI para Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
 
+# Recursos
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

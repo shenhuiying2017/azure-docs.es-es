@@ -1,7 +1,7 @@
-Asegúrese de que ya haya creado un espacio de nombres de Service Bus, como se muestra [aquí][namespace-how-to].
+Asegúrese de haber creado antes un espacio de nombres de Service Bus, como se muestra [aquí][namespace-how-to].
 
 1. Inicie sesión en [Azure Portal][azure-portal].
-2. En el panel de navegación izquierdo del Portal, haga clic en **Bus de servicio**.
+2. En el panel de navegación izquierdo del portal, haga clic en **Service Bus** (si no ve **Service Bus**, haga clic en **Más servicios**).
 3. Seleccione el espacio de nombres donde desea crear la cola. En este caso, es **nstest1**.
    
     ![Creación de una cola][createqueue1]
@@ -13,14 +13,14 @@ Asegúrese de que ya haya creado un espacio de nombres de Service Bus, como se m
     ![Seleccionar Nuevo][createqueue3]
 6. Haga clic en **Crear**en la parte inferior de la hoja.
 
-[crear cola 1]: ./media/service-bus-create-queue-portal/create-queue1.png
-[crear cola 2]: ./media/service-bus-create-queue-portal/create-queue2.png
-[crear cola 3]: ./media/service-bus-create-queue-portal/create-queue3.png
+[createqueue1]: ./media/service-bus-create-queue-portal/create-queue1.png
+[createqueue2]: ./media/service-bus-create-queue-portal/create-queue2.png
+[createqueue3]: ./media/service-bus-create-queue-portal/create-queue3.png
 
 [namespace-how-to]: ../articles/service-bus-messaging/service-bus-create-namespace-portal.md
 [azure-portal]: https://portal.azure.com
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

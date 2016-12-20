@@ -1,29 +1,33 @@
 ---
-title: Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Docs
-description: Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
-services: ''
-documentationcenter: ''
+title: "Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure | Microsoft Docs"
+description: "Describe las directrices de uso de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure"
+services: 
+documentationcenter: 
 author: genlin
 manager: mbaldwin
-editor: ''
+editor: 
 tags: billing
-
+ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2016
+ms.date: 11/13/2016
 ms.author: genli
+translationtype: Human Translation
+ms.sourcegitcommit: 37d7ad87fc94a6abe8260e11de673515954acef4
+ms.openlocfilehash: 10c919cf994351e2bf7fae7c96ef065b48b25955
+
 
 ---
-# Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
-Cuando se [crea una nueva solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.
+# <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Directrices de la utilidad Carga de archivos de nueva solicitud de soporte técnico de Microsoft Azure
+Cuando se [crea una solicitud de soporte técnico](https://portal.azure.com/#create/Microsoft.Support), la utilidad Carga de archivos puede ayudarle a cargar fácilmente los archivos de diagnóstico o cualquier otro archivo que crea que es pertinente para el incidente.  
 
 > [!NOTE]
 > Para proteger su privacidad, no incluya ninguna información personal en su carga.
-> 
-> 
+>
+>
 
 Siga estas directrices cuando use la utilidad Carga de archivos:
 
@@ -32,36 +36,40 @@ Siga estas directrices cuando use la utilidad Carga de archivos:
 * No se puede cargar más de un archivo.
 * Los archivos no pueden ser superiores a 4 MB.
 
-## Tabla de las extensiones de nombre de archivo permitidas
-| 0-9, A-C | D-G | H-M | N-P | R-T | U-W | X-Z |
-| --- | --- | --- | --- | --- | --- | --- |
-| .7z |.dat |.hwl |.odx |.rar |.tdb |.xlam |
-| .a |.db |.ics |.oft |.rdl |.tdf |.xlr |
-| .abc |.DMP |.ini |.old |.rdlc |.text |.xls |
-| .adm |.do\_ |.java |.one |.re\_ |.thmx |.xlsb |
-| .aspx |.doc |.jpg |.osd |.reg |.tif |.xlsm |
-| .ATF |.docm |.LDF |.OUT |.remove |.trc |.xlsx |
-| .b |.docx |.letterhead |.p1 |.ren |.TTD |.xlt |
-| .ba\_ |.dotm |.lnk |.pcap |.rename |.tx\_ |.xltx |
-| .bak |.dotx |.lo\_ |.pdb |.rft |.txt |.xml |
-| .bat |.dtsx |.log |.pdf |.rpt |.uccapilog |.xmla |
-| .blg |.eds |.lpk |.piz |.rte |.uccplog |.xps |
-| .CA\_ |.emf |.manifest |.pmls |.rtf |.udcx |.xsd |
-| .CAB |.eml |.master |.png |.run |.vb\_ |.xsn |
-| .cap |.emz |.mdmp |.potx |.saz |.vbs\_ |.xxx |
-| .catx |.err |.mof |.ppt |.sql |.vcf |.z\_ |
-| .CFG |.etl |.mp3 |.pptm |.sqlplan |.vsd |.z01 |
-| .compressed |.evt |.mpg |.pptx |.stp |.wdb |.z02 |
-| .Config |.evtx |.ms\_ |.prn |.svclog |.wks |.zi |
-| .cpk |.EX |.msg |.psf | |.wma |.zi\_ |
-| .cpp |.ex\_ |.msi |.pst | |.wmv |.zip |
-| .cs |.ex0 |.mso |.pub | |.wmz |.zip\_ |
-| .CSV |.FRD |.msu | | |.wps |.zipp |
-| .cvr |.gif |.nfo | | |.wpt |.zipped |
-| .guid | | | |.wsdl |.zippy | |
-| .gz | | | |.wsp |.zipx | |
-|  | | | |.wtl |.zit | |
-|  | | | | |.zix | |
-|  | | | | |.zzz | |
+## <a name="table-of-the-allowed-file-name-extensions"></a>Tabla de las extensiones de nombre de archivo permitidas
+| 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
+|-------------|-------|-------------|-------|----------|------------|---------|
+| .7z         | .dat  | .hwl        | .odx  | .rar     | .tdb       | .xlam   |
+| .a          | .db   | .ics        | .oft  | .rdl     | .tdf       | .xlr    |
+| .abc        | .DMP  | .ini        | .old  | .rdlc    | .text      | .xls    |
+| .adm        | .do_  | .java       | .one  | .re_     | .thmx      | .xlsb   |
+| .aspx       | .doc  | .jpg        | .osd  | .reg     | .tif       | .xlsm   |
+| .ATF        | .docm | .LDF        | .OUT  | .remove  | .trc       | .xlsx   |
+| .b          | .docx | .letterhead | .p1   | .ren     | .TTD       | .xlt    |
+| .ba_        | .dotm | .lnk        | .pcap | .rename  | .tx_       | .xltx   |
+| .bak        | .dotx | .lo_        | .pdb  | .rft     | .txt       | .xml    |
+| .bat        | .dtsx | .log        | .pdf  | .rpt     | .uccapilog | .xmla   |
+| .blg        | .eds  | .lpk        | .piz  | .rte     | .uccplog   | .xps    |
+| .CA_        | .emf  | .manifest   | .pmls | .rtf     | .udcx      | .xsd    |
+| .CAB        | .eml  | .master     | .png  | .run     | .vb_       | .xsn    |
+| .cap        | .emz  | .mdmp       | .potx | .saz     | .vbs_      | .xxx    |
+| .catx       | .err  | .mof        | .ppt  | .sql     | .vcf       | .z_     |
+| .CFG        | .etl  | .mp3        | .pptm | .sqlplan | .vsd       | .z01    |
+| .compressed | .evt  | .mpg        | .pptx | .stp     | .wdb       | .z02    |
+| .Config     | .evtx | .ms_        | .prn  | .svclog  | .wks       | .zi     |
+| .cpk        | .EX   | .msg        | .psf  |   -       | .wma       | .zi_    |
+| .cpp        | .ex_  | .msi        | .pst  |  -        | .wmv       | .zip    |
+| .cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
+| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
+| .cvr        | .gif  | .nfo        | -      |-          | .wpt       | .zipped |
+| -            | .guid | -            | -      | -         | .wsdl      | .zippy  |
+| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
+| -            | -      | -            | -      | -         | .wtl       | .zit    |
+| -            | -      | -            | -      | -         |     -       | .zix    |
+| -            | -      | -            | -      | -         |  -          | .zzz    |
 
-<!---HONumber=AcomDC_0803_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

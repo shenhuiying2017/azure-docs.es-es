@@ -1,12 +1,12 @@
 ---
-title: 'Personalizar: Administración de contraseñas de Azure AD | Microsoft Docs'
-description: Cómo personalizar el aspecto, el comportamiento y las notificaciones de la Administración de contraseñas en Azure AD para satisfacer sus necesidades.
+title: "Personalizar: Administración de contraseñas de Azure AD | Microsoft Docs"
+description: "Cómo personalizar el aspecto, el comportamiento y las notificaciones de la Administración de contraseñas en Azure AD para satisfacer sus necesidades."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asteen
 manager: femila
 editor: curtand
-
+ms.assetid: 2cddd150-8747-447a-a7cf-1d7d5775c0b3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: asteen
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: e11be2489d8c0585e386669f34012964e57978d7
+
 
 ---
-# <a name="customizing-password-management-to-fit-your-organization's-needs"></a>Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
+# <a name="customizing-password-management-to-fit-your-organizations-needs"></a>Personalización de la administración de contraseñas para ajustarse a las necesidades de su organización
 > [!IMPORTANT]
 > **¿Está aquí porque tiene problemas para iniciar sesión?** Si es así, [aquí aprenderá a cambiar y restablecer la contraseña](active-directory-passwords-update-your-own-password.md).
 > 
@@ -876,6 +880,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

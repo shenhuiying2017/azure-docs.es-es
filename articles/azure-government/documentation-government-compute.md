@@ -1,13 +1,13 @@
 ---
-title: Documentación de Azure Government | Microsoft Docs
-description: Esto proporciona una comparación de funciones e instrucciones sobre cómo desarrollar aplicaciones para la administración de Azure
+title: Proceso de Azure Government | Microsoft Docs
+description: "Esto proporciona una comparación de funciones e instrucciones sobre cómo desarrollar aplicaciones para la administración de Azure"
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: ryansoc
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 09/29/2016
 ms.author: ryansoc
+translationtype: Human Translation
+ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
+ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+
 
 ---
 # <a name="azure-government-compute"></a>Proceso de Azure Government
 ## <a name="virtual-machines"></a>Máquinas virtuales
-Para más información sobre este servicio y cómo usarlo, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-windows-sizes.md).
+Para más información sobre este servicio y cómo usarlo, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variaciones
 Las siguientes SKU de máquina virtual están disponible con carácter general (GA) en Azure Government:
@@ -43,6 +47,9 @@ La siguiente información identifica el límite de Azure Government para Máquin
 ## <a name="next-steps"></a>Pasos siguientes
 Para información complementaria y actualizaciones suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

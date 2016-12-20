@@ -1,12 +1,12 @@
 ---
-title: Cómo usar la API de Engagement en iOS
-description: 'Último SDK de iOS: cómo usar la API de Engagement en iOS'
+title: "Cómo usar la API de Engagement en iOS"
+description: "Último SDK de iOS: cómo usar la API de Engagement en iOS"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,43 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
+
 
 ---
-# Cómo usar la API de Engagement en iOS
+# <a name="how-to-use-the-engagement-api-on-ios"></a>Cómo usar la API de Engagement en iOS
 Este documento es un complemento al documento Cómo integrar Engagement en iOS: en él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Tenga en cuenta que si solo desea que Engagement informe de las sesiones, las actividades, bloqueos e información técnica de la aplicación, a continuación, la manera más sencilla es hacer que todos los objetos `UIViewController` personalizados hereden de la clase `EngagementViewController` correspondiente.
 
 Si desea hacer más, por ejemplo, si necesita informar de eventos, errores y trabajos específicos de la aplicación, o si debe informar de las actividades de la aplicación de manera diferente de la que se implementa en las clases `EngagementViewController`, deberá usar la API de Engagement.
 
-La API de Engagement la proporciona la clase `EngagementAgent`. Para recuperar una instancia de esta clase puede llamarse al método estático `[EngagementAgent shared]` (tenga en cuenta que el objeto `EngagementAgent` que se devuelve es un singleton).
+La API de Engagement la proporciona la clase `EngagementAgent` . Para recuperar una instancia de esta clase puede llamarse al método estático `[EngagementAgent shared]` (tenga en cuenta que el objeto `EngagementAgent` que se devuelve es un singleton).
 
 Antes de las llamadas a una API, el objeto `EngagementAgent` debe inicializarse llamando al método `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
-## Conceptos de Engagement
+## <a name="engagement-concepts"></a>Conceptos de Engagement
 En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md) para la plataforma iOS.
 
-### `Session` y `Activity`
-Una *actividad* normalmente se asocia con una pantalla de la aplicación, es decir, la *actividad* se inicia cuando la pantalla se muestra y se detiene cuando se cierra la pantalla: este es el caso cuando se integra el SDK de Engagement utilizando las clases `EngagementViewController`.
+### <a name="session-and-activity"></a>`Session` y `Activity`
+Una *actividad* suele asociarse con una pantalla de la aplicación (es decir, la *actividad* se inicia cuando la pantalla se muestra y se detiene cuando se cierra la pantalla, como cuando se integra el SDK de Engagement con el uso de las clases `EngagementViewController`).
 
 Sin embargo, las *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una pantalla dada en varias subpartes para obtener más detalles sobre el uso de esta pantalla (por ejemplo, para saber con qué frecuencia y durante cuánto tiempo se utilizan los cuadros de diálogo dentro de esta pantalla).
 
-## Informes sobre actividades
-### El usuario inicia una nueva actividad
+## <a name="reporting-activities"></a>Informes sobre actividades
+### <a name="user-starts-a-new-activity"></a>El usuario inicia una nueva actividad
             [[EngagementAgent shared] startActivity:@"MyUserActivity" extras:nil];
 
 Debe llamar a `startActivity()` cada vez que cambie la actividad de usuario. La primera llamada a esta función inicia una nueva sesión de usuario.
 
-### El usuario finaliza su actividad actual
+### <a name="user-ends-his-current-activity"></a>El usuario finaliza su actividad actual
             [[EngagementAgent shared] endActivity];
 
 > [!WARNING]
-> **NUNCA** debe llamar a esta función por sí mismo, excepto si desea dividir un uso de la aplicación en varias sesiones: una llamada a esta función terminaría la sesión actual inmediatamente, por lo tanto, una llamada posterior a `startActivity()` podría iniciar una nueva sesión. Esta función es invocada automáticamente por el SDK cuando se cierra la aplicación.
+> **NUNCA** realice una llamada a esta función, excepto si quiere dividir un uso de la aplicación en varias sesiones: una llamada a esta función terminaría la sesión actual inmediatamente, pero puede realizar una llamada posterior a `startActivity()` para iniciar una nueva sesión. Esta función es invocada automáticamente por el SDK cuando se cierra la aplicación.
 > 
 > 
 
-## Informes de eventos
-### Eventos de sesión
+## <a name="reporting-events"></a>Informes de eventos
+### <a name="session-events"></a>Eventos de sesión
 Los eventos de sesión se suelen usar para notificar las acciones que realiza el usuario durante su sesión.
 
 **Ejemplo sin datos adicionales:**
@@ -84,15 +88,15 @@ Los eventos de sesión se suelen usar para notificar las acciones que realiza el
        [...]
     }
 
-### Eventos independientes
+### <a name="standalone-events"></a>Eventos independientes
 Al contrario de los eventos de sesión, los eventos independientes pueden utilizarse fuera del contexto de una sesión.
 
 **Ejemplo:**
 
     [[EngagementAgent shared] sendEvent:@"received_notification" extras:nil];
 
-## Informes de errores
-### Errores de sesión
+## <a name="reporting-errors"></a>Informes de errores
+### <a name="session-errors"></a>Errores de sesión
 Los errores de sesión suelen usarse para notificar los errores que afectan al usuario durante su sesión.
 
 **Ejemplo:**
@@ -109,14 +113,14 @@ Los errores de sesión suelen usarse para notificar los errores que afectan al u
       [...]
     }
 
-### Errores independientes
+### <a name="standalone-errors"></a>Errores independientes
 Al contrario de los errores de la sesión, los errores independientes pueden utilizarse fuera del contexto de una sesión.
 
 **Ejemplo:**
 
     [[EngagementAgent shared] sendError:@"something_failed" extras:nil];
 
-## Informes de trabajos
+## <a name="reporting-jobs"></a>Informes de trabajos
 **Ejemplo:**
 
 Supongamos que desea notificar la duración del proceso de inicio de sesión:
@@ -134,7 +138,7 @@ Supongamos que desea notificar la duración del proceso de inicio de sesión:
     }
     [...]
 
-### Informe de errores durante un trabajo
+### <a name="report-errors-during-a-job"></a>Informe de errores durante un trabajo
 Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
 **Ejemplo:**
@@ -171,7 +175,7 @@ Suponga que desea notificar un error durante el proceso de inicio de sesión:
     };
     [...]
 
-### Eventos durante un trabajo
+### <a name="events-during-a-job"></a>Eventos durante un trabajo
 Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
 **Ejemplo:**
@@ -198,7 +202,7 @@ Supongamos que tenemos una red social y utilizamos un trabajo de informe del tie
     }
     [...]
 
-## Parámetros adicionales
+## <a name="extra-parameters"></a>Parámetros adicionales
 Se pueden adjuntar datos arbitrarios en eventos, errores, actividades y trabajos.
 
 Estos datos pueden estructurarse, utilizan la clase de NSDictionary de iOS.
@@ -214,29 +218,29 @@ Tenga en cuenta que los extras pueden contener `arrays(NSArray, NSMutableArray)`
 > 
 > 
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
     NSMutableDictionary* extras = [NSMutableDictionary dictionaryWithCapacity:2];
     [extras setObject:[NSNumber numberWithInt:123] forKey:@"video_id"];
     [extras setObject:@"http://foobar.com/blog" forKey:@"ref_click"];
     [[EngagementAgent shared] sendEvent:@"video_clicked" extras:extras];
 
-### Límites
-#### simétricas
+### <a name="limits"></a>Límites
+#### <a name="keys"></a>simétricas
 Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves tienen que empezar como mínimo con una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### Tamaño
+#### <a name="size"></a>Tamaño
 Los extras están limitados a **1024** caracteres por llamada (una vez codificados en JSON por el agente de Engagement).
 
 En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 58 caracteres:
 
     {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## Información de la aplicación de informes
-Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función `sendAppInfo:`.
+## <a name="reporting-application-information"></a>Información de la aplicación de informes
+Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función `sendAppInfo:` .
 
 Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada.
 
@@ -249,19 +253,23 @@ Al igual que los extras de evento, la clase `NSDictionary` se usa para resumir l
     [appInfo setObject:@"1983-12-07" forKey:@"birthdate"]; // December 7th 1983
     [[EngagementAgent shared] sendAppInfo:appInfo];
 
-### Límites
-#### simétricas
+### <a name="limits"></a>Límites
+#### <a name="keys"></a>simétricas
 Cada clave de la `NSDictionary` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves tienen que empezar como mínimo con una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### Tamaño
+#### <a name="size"></a>Tamaño
 La información de la aplicación está limitada a **1024** caracteres por llamada (una vez codificados en JSON por el agente de Engagement).
 
 En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 44 caracteres:
 
     {"birthdate":"1983-12-07","gender":"female"}
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

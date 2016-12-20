@@ -1,19 +1,23 @@
 ---
-title: Diseñador de vistas de Log Analytics | Microsoft Docs
-description: El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas.
+title: "Diseñador de vistas de Log Analytics | Microsoft Docs"
+description: "El Diseñador de vistas de Log Analytics permite crear vistas personalizadas en la consola de OMS que contienen diferentes visualizaciones de datos del repositorio OMS. En este artículo encontrará información general del Diseñador de vistas, y procedimientos para crear y editar vistas personalizadas."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4ba6ce876df3ec426e02e10eda062b67d0d42c4e
+
 
 ---
 # <a name="log-analytics-view-designer"></a>Diseñador de vistas de Log Analytics
@@ -92,6 +96,9 @@ Las vistas solo tienen una fila de elementos de visualización.  Los elementos d
 * Agregue [iconos](log-analytics-view-designer-tiles.md) a la vista personalizada.
 * Agregue [elementos de visualización](log-analytics-view-designer-parts.md) a la vista personalizada.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

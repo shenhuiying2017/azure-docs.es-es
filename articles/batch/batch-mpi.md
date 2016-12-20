@@ -1,37 +1,41 @@
 ---
-title: Ejecución de aplicaciones de MPI en Lote de Azure con tareas de instancias múltiples | Microsoft Docs
-description: Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Lote de Azure.
+title: "Ejecución de aplicaciones de MPI en Batch de Azure con tareas de instancias múltiples | Microsoft Docs"
+description: "Obtenga información sobre cómo ejecutar aplicaciones de Interfaz de paso de mensajes (MPI) con el tipo de tarea de instancias múltiples en Lote de Azure."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/29/2016
+ms.date: 10/21/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 7a51cca5f6e0c70978d45f7576a1e893b5eca536
+
 
 ---
-# <a name="use-multiinstance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
+# <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-azure-batch"></a>Uso de tareas de instancias múltiples para ejecutar aplicaciones de la Interfaz de paso de mensajes (MPI) en Lote de Azure
 Las tareas de instancias múltiples le permiten ejecutar una tarea de Lote de Azure en varios nodos de proceso al mismo tiempo. Estas tareas permiten escenarios de informática de alto rendimiento como las aplicaciones de interfaz de paso de mensajes (MPI) en Lote. En este artículo, aprenderá a ejecutar tareas de múltiples instancias mediante la biblioteca [.NET de Batch][api_net].
 
 > [!NOTE]
 > Aunque los ejemplos de este artículo se centran en .NET de Batch, MS-MPI y los nodos de proceso de Windows, los conceptos de tareas de múltiples instancias aquí tratados son aplicables a otras plataformas y tecnologías (Python e Intel MPI en nodos de Linux, por ejemplo).
-> 
-> 
+>
+>
 
-## <a name="multiinstance-task-overview"></a>Información general de las tareas de instancias múltiples
-En Lote, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Lote programa la ejecución de cada tarea en un nodo. Sin embargo, al configurar la **opción de instancias múltiples**para una tarea, puede indicar al servicio Lote que divida esa tarea en subtareas para que se ejecuten en varios nodos.
+## <a name="multi-instance-task-overview"></a>Información general de las tareas de instancias múltiples
+En Lote, cada tarea se ejecuta normalmente en un solo nodo de proceso: se envían varias tareas a un trabajo y el servicio Lote programa la ejecución de cada tarea en un nodo. No obstante, si establece la **configuración de instancias múltiples** en una tarea, le estará diciendo a Batch que cree una tarea principal y varias tareas secundarias que se ejecutarán después en varios nodos.
 
 ![Información general de las tareas de instancias múltiples][1]
 
 Al enviar una tarea con configuración de instancias múltiples a un trabajo, el servicio Lote realiza  varios pasos que son específicos de las tareas de instancias múltiples:
 
-1. El servicio Batch divide la tarea en una **principal** y varias **subtareas**. El número total de tareas (principales y todas las subtareas) coincide con el número de **instancias** (nodos de proceso) especificado en la configuración de múltiples instancias.
+1. El servicio Batch crea una tarea **principal** y varias tareas **secundarias** en función de la configuración de instancias múltiples definida. El número total de tareas (principales y todas las subtareas) coincide con el número de **instancias** (nodos de proceso) especificado en la configuración de múltiples instancias.
 2. Batch designa uno de los nodos de proceso como el **maestro**, y programa la tarea principal para que se ejecute en el maestro. Programa las subtareas para que se ejecuten en el resto de los nodos de proceso asignados a la tarea de múltiples instancias, una subtarea por nodo.
 3. Estas tareas, tanto la principal como las subtareas, descargan los **archivos de recursos comunes** que se especifican en la configuración de múltiples instancias.
 4. Cuando se han descargado los archivos de recursos comunes, la tarea principal y las subtareas ejecutan el **comando de coordinación** que se especifica en la configuración de instancias múltiples. El comando de coordinación normalmente se utiliza para preparar los nodos para ejecutar la tarea. Esto puede incluir iniciar servicios en segundo plano (como [Microsoft MPI][msmpi_msdn]'s `smpd.exe`) y comprobar que los nodos están listos procesar los mensajes entre nodos.
@@ -39,10 +43,10 @@ Al enviar una tarea con configuración de instancias múltiples a un trabajo, el
 
 > [!NOTE]
 > Aunque es funcionalmente distinta, la "tarea de múltiples instancias" no es un tipo de tarea única como [StartTask][net_starttask] o [JobPreparationTask][net_jobprep]. La tarea de múltiples instancias es simplemente una tarea de Batch estándar ([CloudTask][net_task] en .NET de Batch) cuya opción de múltiples instancias se ha configurado. En este artículo, nos referiremos a ella como **tarea de instancias múltiples**.
-> 
-> 
+>
+>
 
-## <a name="requirements-for-multiinstance-tasks"></a>Requisitos de las tareas de instancias múltiples
+## <a name="requirements-for-multi-instance-tasks"></a>Requisitos de las tareas de instancias múltiples
 Las tareas de múltiples instancias requieren un grupo con la **comunicación ente nodos habilitada** y la **ejecución simultánea de tareas deshabilitada**. Si intenta ejecutar una tarea de instancias múltiples en un grupo con la comunicación entre nodos deshabilitada o con un valor de *maxTasksPerNode* superior a 1, la tarea nunca será programada, sino que permanecerá indefinidamente en estado "activo". Este fragmento de código muestra la creación de un grupo de este tipo mediante la biblioteca .NET de Lote.
 
 ```csharp
@@ -61,13 +65,8 @@ myCloudPool.MaxTasksPerComputeNode = 1;
 
 Además, se ejecutarán tareas de múltiples instancias *solo* en nodos de los **grupos creados después del 14 de diciembre de 2015**.
 
-> [!TIP]
-> Cuando elige el [tamaño con capacidad RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md) como A9 para los nodos de proceso del grupo de Batch, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure. Puede ver la lista completa de tamaños de nodos de proceso disponibles para los grupos de Lote en [Tamaños de los servicios en la nube](../cloud-services/cloud-services-sizes-specs.md).
-> 
-> 
-
-### <a name="use-a-starttask-for-mpi-application-installation"></a>Uso de StartTask para la instalación de la aplicación de MPI
-Para ejecutar aplicaciones de MPI con una tarea de instancias múltiples, primero debe obtener el software de MPI en los nodos de proceso del grupo. Es un buen momento para utilizar una instancia de [StartTask][net_starttask], que se ejecuta cada vez que un nodo se une a un grupo o se ha reiniciado. Este fragmento de código crea una instancia de StartTask que especifica el paquete de instalación de MS-MPI como un [archivo de recursos][net_resourcefile], y la línea de comandos que se ejecutará después de que el archivo de recursos se descargue en el nodo.
+### <a name="use-a-starttask-to-install-mpi"></a>Uso de StartTask para instalar MPI
+Para ejecutar aplicaciones MPI con una tarea de instancias múltiples, primero debe instalar una implementación de MPI (por ejemplo, MS-MPI o Intel MPI) en los nodos de proceso del grupo. Este es un buen momento para usar [StartTask][net_starttask], que se ejecuta siempre que un nodo se une a un grupo o se reinicia. En este fragmento de código, se crea un objeto StartTask que especifica el paquete de instalación de MS-MPI como un [archivo de recursos][net_resourcefile]. La línea de comandos de la tarea de inicio se ejecuta una vez que el archivo de recurso se ha descargado en el nodo. En este caso, la línea de comandos realiza una instalación desatendida de MS-MPI.
 
 ```csharp
 // Create a StartTask for the pool which we use for installing MS-MPI on
@@ -86,12 +85,25 @@ myCloudPool.StartTask = startTask;
 await myCloudPool.CommitAsync();
 ```
 
-> [!NOTE]
-> No está limitado a usar MS-MPI al implementar una solución de MPI con tareas de instancias múltiples en Lote. Puede usar cualquier implementación del estándar de MPI que sea compatible con el sistema operativo que especifique para los nodos de proceso del grupo.
-> 
-> 
+### <a name="remote-direct-memory-access-rdma"></a>Acceso directo a memoria remota (RDMA)
+Cuando elige el [tamaño con capacidad RDMA](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) como A9 para los nodos de proceso del grupo de Batch, la aplicación de MPI puede aprovechar la red de acceso directo a memoria remota (RDMA) de alto rendimiento y baja latencia de Azure.
 
-## <a name="create-a-multiinstance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Lote
+Consulte los tamaños compatibles con RDMA en los siguientes artículos:
+
+* Grupos de **CloudServiceConfiguration**
+
+  * [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (solo Windows)
+* Grupos de **VirtualMachineConfiguration**
+
+  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
+  * [Tamaños de las máquinas virtuales en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+
+> [!NOTE]
+> Para sacar el máximo provecho a RDMA en los [nodos de proceso de Linux](batch-linux-nodes.md), debe utilizar **Intel MPI** en esos nodos. Para obtener más información sobre los grupos de CloudServiceConfiguration y VirtualMachineConfiguration, consulte la sección [Grupo](batch-api-basics.md) de la información general sobre las características de Batch.
+>
+>
+
+## <a name="create-a-multi-instance-task-with-batch-net"></a>Creación de una tarea de instancias múltiples con .NET de Lote
 Ahora que hemos analizado los requisitos de grupo y la instalación del paquete MPI, vamos a crear la tarea de instancias múltiples. En este fragmento de código, creamos una [CloudTask][net_task] estándar, configure su propiedad [MultiInstanceSettings][net_multiinstance_prop]. Como se mencionó anteriormente, la tarea de instancias múltiples no es un tipo de tarea distinto, sino una tarea de Lote estándar configurada con la opción de instancias múltiples.
 
 ```csharp
@@ -152,8 +164,8 @@ cmd /c ""%MSMPI_BIN%\mpiexec.exe"" -c 1 -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIAp
 
 > [!NOTE]
 > Dado que `mpiexec.exe` de MS-MPI utiliza la variable `CCP_NODES` de forma predeterminada (consulte [Variables de entorno](#environment-variables)), la línea de comandos de aplicación del ejemplo anterior la excluye.
-> 
-> 
+>
+>
 
 ## <a name="environment-variables"></a>Variables de entorno
 Batch crea varias [variables de entorno][msdn_env_var] específicas de las tareas de múltiples instancias en los nodos de proceso asignados a una tarea de múltiples instancias. Las líneas de comando de coordinación y de la aplicación pueden hacer referencia a estas variables de entorno, como los scripts y programas que se ejecutan.
@@ -171,8 +183,8 @@ Para obtener detalles completos sobre estas y las demás variables de entorno de
 
 > [!TIP]
 > El ejemplo de código de Linux MPI de Batch contiene un ejemplo de cómo se pueden usar varias de estas variables de entorno. El script de Batch [coordination-cmd][coord_cmd_example] descarga archivos de aplicación y entrada comunes desde Azure Storage, permite a un recurso compartido de Network File System (NFS) en el nodo maestro y configura los demás nodos asignados a la tarea de múltiples instancias, como clientes NFS.
-> 
-> 
+>
+>
 
 ## <a name="resource-files"></a>Archivos de recursos
 Hay dos conjuntos de archivos de recursos que se deben tener en cuenta para las tareas de múltiples instancias: **archivos de recursos comunes** que descargan *todas* las tareas (tanto principales como subtareas) y **archivos de recursos** especificados para la propia tarea de múltiples instancias, que descarga *solo la tarea principal*.
@@ -183,8 +195,8 @@ Los archivos de recursos que especifique para la propia tarea de múltiples inst
 
 > [!IMPORTANT]
 > Utilice siempre las variables de entorno `AZ_BATCH_TASK_SHARED_DIR` y `AZ_BATCH_TASK_WORKING_DIR` para hacer referencia a estos directorios en las líneas de comando. No intente construir las rutas de acceso manualmente.
-> 
-> 
+>
+>
 
 ## <a name="task-lifetime"></a>Duración de la tarea
 La duración de la tarea principal controla la duración de toda la tarea de instancias múltiples. Cuando se cierra la tarea principal, todas las subtareas se terminan. El código de salida de la tarea principal es el código de salida de la tarea y, por tanto, se utiliza para determinar el éxito o fracaso de la tarea con fines de reintento.
@@ -202,8 +214,8 @@ Para obtener información sobre las subtareas mediante la biblioteca .NET de Bat
 
 > [!NOTE]
 > A menos que se indique lo contrario, los métodos .NET de Batch que operan en la propia clase [CloudTask][net_task] de varias instancias, *solo* se aplican a la tarea principal. Por ejemplo, al llamar al método [CloudTask.ListNodeFiles][net_task_listnodefiles] en una tarea de múltiples instancias, solo se devuelven los archivos de la tarea principal.
-> 
-> 
+>
+>
 
 El fragmento de código siguiente muestra cómo obtener información de la subtarea y cómo solicitar contenido de archivos de los nodos en los que se ejecuta.
 
@@ -244,10 +256,74 @@ await subtasks.ForEachAsync(async (subtask) =>
 });
 ```
 
+## <a name="code-sample"></a>Código de ejemplo
+En el ejemplo de código de [MultiInstanceTasks][github_mpi] que se encuentra en GitHub, se muestra cómo puede utilizarse una tarea de instancias múltiples para ejecutar una aplicación de [MS-MPI][msmpi_msdn] en los nodos de proceso de Batch. Siga los pasos que se describen en las secciones [Preparación](#preparation) y [Ejecución](#execution) para ejecutar el ejemplo.
+
+### <a name="preparation"></a>Preparación
+1. Siga los dos primeros pasos que se indican en [How to compile and run a simple MS-MPI program][msmpi_howto] (Compilación y ejecución de un sencillo programa de MS-MPI). De este modo, cumplirá los requisitos necesarios para el siguiente paso.
+2. Cree una versión de *lanzamiento* del programa de ejemplo [MPIHelloWorld][helloworld_proj] de MPI. La tarea de instancias múltiples ejecutará este programa en los nodos de proceso.
+3. Cree un archivo zip que contenga `MPIHelloWorld.exe` (creado en el paso 2) y `MSMpiSetup.exe` (descargado en el paso 1). En el siguiente paso, cargará este archivo zip como paquete de aplicación.
+4. Use [Azure Portal][portal] para crear una [aplicación](batch-application-packages.md) de Batch llamada "MPIHelloWorld" y establezca el archivo zip que creó en el paso anterior como versión "1.0" del paquete de aplicación. Para más información, consulte [Carga y administración de aplicaciones](batch-application-packages.md#upload-and-manage-applications).
+
+> [!TIP]
+> Cree una versión de *lanzamiento* de `MPIHelloWorld.exe` para que no tenga que incluir otras dependencias (por ejemplo, `msvcp140d.dll` o `vcruntime140d.dll`) en el paquete de aplicación.
+>
+>
+
+### <a name="execution"></a>Ejecución
+1. Descargue [azure-batch-samples][github_samples_zip] de GitHub.
+2. Abra la **solución** MultiInstanceTasks en Visual Studio 2015. El archivo de solución de `MultiInstanceTasks.sln` se encuentra en:
+
+    `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
+3. En el proyecto **Microsoft.Azure.Batch.Samples.Common**, especifique las credenciales de la cuenta de Batch y Storage en `AccountSettings.settings`.
+4. **Compile y ejecute** la solución MultiInstanceTasks. De este modo, ejecutará la aplicación de ejemplo de MPI en los nodos de proceso de un grupo de Batch.
+5. *Opcional*: puede utilizar [Azure Portal][portal] o el [explorador de Batch][batch_explorer] para examinar el grupo, el trabajo y la tarea de ejemplo ("MultiInstanceSamplePool", "MultiInstanceSampleJob" y "MultiInstanceSampleTask") antes de eliminar los recursos.
+
+> [!TIP]
+> Si no tiene Visual Studio, puede descargar gratis [Visual Studio Community][visual_studio].
+>
+>
+
+La salida de `MultiInstanceTasks.exe` será similar a la siguiente:
+
+```
+Creating pool [MultiInstanceSamplePool]...
+Creating job [MultiInstanceSampleJob]...
+Adding task [MultiInstanceSampleTask] to job [MultiInstanceSampleJob]...
+Awaiting task completion, timeout in 00:30:00...
+
+Main task [MultiInstanceSampleTask] is in state [Completed] and ran on compute node [tvm-1219235766_1-20161017t162002z]:
+---- stdout.txt ----
+Rank 2 received string "Hello world" from Rank 0
+Rank 1 received string "Hello world" from Rank 0
+
+---- stderr.txt ----
+
+Main task completed, waiting 00:00:10 for subtasks to complete...
+
+---- Subtask information ----
+subtask: 1
+        exit code: 0
+        node: tvm-1219235766_3-20161017t162002z
+        stdout.txt:
+        stderr.txt:
+subtask: 2
+        exit code: 0
+        node: tvm-1219235766_2-20161017t162002z
+        stdout.txt:
+        stderr.txt:
+
+Delete job? [yes] no: yes
+Delete pool? [yes] no: yes
+
+Sample complete, hit ENTER to exit...
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 * En el blog Microsoft HPC & Azure Batch Team se trata sobre la [compatibilidad de MPI para Linux en Azure Batch][blog_mpi_linux], e incluye información sobre el uso de [OpenFOAM][openfoam] con Batch. Puede encontrar ejemplos de código de Python para el [ejemplo de OpenFOAM en GitHub][github_mpi].
-* Puede crear una aplicación sencilla de MS-MPI para utilizar durante la prueba de tareas de instancias múltiples en Lote. El artículo de otro blog [How to compile and run a simple MS-MPI program][msmpi_howto] (Cómo compilar y ejecutar un programa sencillo de MS-MPI), contiene un tutorial para la creación de una aplicación de MPI sencilla mediante MS-MPI.
-* Consulte la página [Microsoft MPI][msmpi_msdn] de MSDN para obtener la información más reciente sobre MS-MPI.
+* Aprenda a [crear grupos de nodos de proceso de Linux](batch-linux-nodes.md) para utilizarlos en soluciones de MPI con Azure Batch.
+
+[helloworld_proj]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks/MPIHelloWorld
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx
 [api_rest]: http://msdn.microsoft.com/library/azure/dn820158.aspx
@@ -255,13 +331,15 @@ await subtasks.ForEachAsync(async (subtask) =>
 [blog_mpi_linux]: https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/
 [cmd_start]: https://technet.microsoft.com/library/cc770297.aspx
 [coord_cmd_example]: https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/article_samples/mpi/data/linux/openfoam/coordination-cmd
-[github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch/article_samples/mpi
+[github_mpi]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/MultiInstanceTasks
 [github_samples]: https://github.com/Azure/azure-batch-samples
+[github_samples_zip]: https://github.com/Azure/azure-batch-samples/archive/master.zip
 [msdn_env_var]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [msmpi_msdn]: https://msdn.microsoft.com/library/bb524831.aspx
 [msmpi_sdk]: http://go.microsoft.com/FWLink/p/?LinkID=389556
 [msmpi_howto]: http://blogs.technet.com/b/windowshpc/archive/2015/02/02/how-to-compile-and-run-a-simple-ms-mpi-program.aspx
 [openfoam]: http://www.openfoam.com/
+[visual_studio]: https://www.visualstudio.com/vs/community/
 
 [net_jobprep]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobpreparationtask.aspx
 [net_multiinstance_class]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.multiinstancesettings.aspx
@@ -284,12 +362,13 @@ await subtasks.ForEachAsync(async (subtask) =>
 [net_task_listnodefiles]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.listnodefiles.aspx
 [poolops_getnodefile]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getnodefile.aspx
 
+[portal]: https://portal.azure.com
 [rest_multiinstance]: https://msdn.microsoft.com/library/azure/mt637905.aspx
 
 [1]: ./media/batch-mpi/batch_mpi_01.png "información general de múltiples instancias"
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

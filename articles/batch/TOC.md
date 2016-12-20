@@ -25,7 +25,7 @@
 ### [Registros de diagnósticos de Batch](batch-diagnostics.md)
 
 # Referencia
-## [Cmdlets de PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [Cmdlets de PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [API de .NET](https://docs.microsoft.com/dotnet/api)
 ## [SDK de Python](https://go.microsoft.com/fwlink/p/?linkid=833496)
@@ -43,11 +43,11 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=batch)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=batch&updatetype=&platform=)
-## [Ejemplos de código en C# de Batch](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
-## [Ejemplos de código de Python de Batch](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
+## [Ejemplos de código de C#](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
+## [Ejemplos de código de Python](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch)
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Roles de PIM | Microsoft Docs
-description: Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure.
+description: "Obtenga información sobre los roles que se usan para identidades con privilegios con la extensión de Privileged Identity Management de Azure."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,38 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/01/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b7084b2ea7e10ab69c1ac934724d0aa05ed70208
+
 
 ---
-# Roles en Privileged Identity Management de Azure AD
+# <a name="roles-in-azure-ad-privileged-identity-management"></a>Roles en Privileged Identity Management de Azure AD
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-En su organización, puede asignar a usuarios a roles administrativos diferentes en Azure AD. Estas asignaciones de roles controlan las tareas, como agregar y quitar usuarios o cambiar la configuración de los servicios, que pueden realizar los usuarios en Azure AD, Office 365 y otros servicios Microsoft Online Services y aplicaciones conectadas.
+En su organización, puede asignar a usuarios a roles administrativos diferentes en Azure AD. Estas asignaciones de roles controlan las tareas, como agregar y quitar usuarios o cambiar la configuración de los servicios, que pueden realizar los usuarios en Azure AD, Office 365 y otros servicios Microsoft Online Services y aplicaciones conectadas.  
 
-Un administrador global puede actualizar qué usuarios están **permanentemente** asignados a roles en Azure AD, mediante cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`, o a través del portal clásico, tal como se describe en [Asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md).
+Un administrador global puede actualizar qué usuarios están **permanentemente** asignados a roles en Azure AD, mediante cmdlets de PowerShell, como `Add-MsolRoleMember` y `Remove-MsolRoleMember`, o a través del portal clásico, tal como se describe en [Asignación de roles de administrador en Azure Active Directory](active-directory-assign-admin-roles.md).
 
 Privileged Identity Management (PIM) de Azure AD administra las directivas de acceso con privilegios para los usuarios en Azure AD. PIM asigna a usuarios a uno o varios roles de Azure AD y puede asignar una persona para que esté permanentemente en el rol o sea apta para el rol. Cuando un usuario se asigna permanentemente a un rol o activa una asignación de rol apta, puede administrar Azure Active Directory, Office 365 y otras aplicaciones con los permisos asignados a su rol.
 
 No hay ninguna diferencia en el acceso proporcionado de forma permanente a una persona o una asignación de roles aptos. La única diferencia es que algunas personas no necesitan ese acceso todo el tiempo. Son aptas para el rol y, pueden activarlas y desactivarlas cada vez que lo necesiten.
 
-## Roles administrados en PIM
+## <a name="roles-managed-in-pim"></a>Roles administrados en PIM
 Privileged Identity Management (PIM) permite asignar usuarios a roles de administrador comunes, como los siguientes:
 
-* El **administrador global** (también conocido como "administrador de la compañía") tiene acceso a todas las características administrativas. Puede tener más de un administrador global en su organización. La persona que se suscribe para comprar Office 365 automáticamente se convierte en un administrador global.
-* El **administrador de roles con privilegios** administra PIM de Azure AD y actualiza las asignaciones de roles para otros usuarios.
-* **Administrador de facturación**: hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
-* **Administrador de contraseñas**: restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas están limitados a restablecer las contraseñas para los usuarios.
-* **Administrador de servicios**: administra las solicitudes de servicio y supervisa el estado del servicio.
+* **administrador global** (también conocido como "administrador de la compañía") tiene acceso a todas las características administrativas. Puede tener más de un administrador global en su organización. La persona que se suscribe para comprar Office 365 automáticamente se convierte en un administrador global.
+* **administrador de roles con privilegios** administra PIM de Azure AD y actualiza las asignaciones de roles para otros usuarios.  
+* **Administrador de facturación** : hace compras, administra suscripciones, administra incidencias de soporte técnico y supervisa el estado del servicio.
+* **Administrador de contraseñas** : restablece las contraseñas, administra las solicitudes de servicio y supervisa el estado del servicio. Los administradores de contraseñas están limitados a restablecer las contraseñas para los usuarios.
+* **Administrador de servicios** : administra las solicitudes de servicio y supervisa el estado del servicio.
   
   > [!NOTE]
   > Si usa Office 365, antes de asignar el rol de administrador de servicio a un usuario, asigne primero al usuario permisos administrativos a un servicio, como Exchange Online.
   > 
   > 
-* El **administrador de control de usuarios** restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. El administrador de usuarios no puede eliminar a un administrador global, crear otros roles de administrador o restablecer contraseñas de los administradores de facturación, globales y de servicios.
-* El **administrador de Exchange** tiene acceso administrativo a Exchange Online a través del Centro de administración de Exchange (EAC) y puede realizar casi cualquier tarea en Exchange Online.
-* El **administrador de SharePoint** tiene acceso administrativo a SharePoint Online a través del Centro de administración de SharePoint Online y puede realizar casi cualquier tarea en SharePoint Online.
-* El **administrador de Skype Empresarial** tiene acceso administrativo a Skype Empresarial a través del Centro de administración de Skype Empresarial y puede realizar casi cualquier tarea en Skype Empresarial Online.
+* **administrador de control de usuarios** restablece las contraseñas, supervisa el estado del servicio y administra cuentas de usuario, grupos de usuarios y solicitudes de servicio. El administrador de usuarios no puede eliminar a un administrador global, crear otros roles de administrador o restablecer contraseñas de los administradores de facturación, globales y de servicios.
+* **administrador de Exchange** tiene acceso administrativo a Exchange Online a través del Centro de administración de Exchange (EAC) y puede realizar casi cualquier tarea en Exchange Online.
+* **administrador de SharePoint** tiene acceso administrativo a SharePoint Online a través del Centro de administración de SharePoint Online y puede realizar casi cualquier tarea en SharePoint Online.
+* **administrador de Skype Empresarial** tiene acceso administrativo a Skype Empresarial a través del Centro de administración de Skype Empresarial y puede realizar casi cualquier tarea en Skype Empresarial Online.
 
-Consulte estos artículos para obtener más información sobre la [asignación de roles de administrador en Azure Active Directory (Azure AD)](active-directory-assign-admin-roles.md) y [de roles de administrador en Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
+Consulte estos artículos para más información sobre la [asignación de roles de administrador en Azure AD](active-directory-assign-admin-roles.md) y de roles de administrador en [Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
@@ -56,22 +60,22 @@ Si desea dar a otro usuario acceso para administrar en el mismo PIM, los roles q
 
 <!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
-## Roles no administrados en PIM
+## <a name="roles-not-managed-in-pim"></a>Roles no administrados en PIM
 Los roles de Exchange Online o SharePoint Online, excepto los mencionados anteriormente, no están representados en Azure AD y, por lo tanto, no son visibles en PIM. Para obtener más información sobre cómo cambiar las asignaciones de roles específicas de estos servicios de Office 365, consulte [Permisos en Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md) y, para obtener más información sobre RBAC de Azure, consulte [Uso de asignaciones de roles para administrar el acceso a los recursos de Azure Active Directory](role-based-access-control-configure.md).
+Las suscripciones de Azure y los grupos de recursos tampoco están representados en Azure AD. Para administrar las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md) y para más información sobre Azure RBAC, consulte [Control de acceso basado en roles de Azure](role-based-access-control-configure.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
-## Roles de usuario e inicio de sesión
+## <a name="user-roles-and-signing-in"></a>Roles de usuario e inicio de sesión
 En algunos servicios y aplicaciones de Microsoft, asignar a un usuario un rol puede no ser suficiente para permitir que el usuario sea un administrador.
 
-El acceso al Portal de Azure clásico requiere que el usuario sea un administrador de servicios o el coadministrador de una suscripción de Azure, incluso si el usuario necesita administrar las suscripciones de Azure. Por ejemplo, para administrar la configuración de Azure AD en el portal clásico, el usuario debe ser tanto un administrador global de Azure AD como un coadministrador de suscripción en una suscripción de Azure. Para obtener más información sobre cómo agregar usuarios a las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md).
+El acceso al Portal de Azure clásico requiere que el usuario sea un administrador de servicios o el coadministrador de una suscripción de Azure, incluso si el usuario necesita administrar las suscripciones de Azure.  Por ejemplo, para administrar la configuración de Azure AD en el portal clásico, el usuario debe ser tanto un administrador global de Azure AD como un coadministrador de suscripción en una suscripción de Azure.  Para obtener más información sobre cómo agregar usuarios a las suscripciones de Azure, consulte [Incorporación o cambio de roles de administrador de Azure](../billing-add-change-azure-subscription-administrator.md).
 
 El acceso a Microsoft Online Services puede requerir que se le asigne una licencia al usuario para poder abrir el portal del servicio o realizar tareas administrativas.
 
-## Asignación de una licencia a un usuario en Azure AD
+## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Asignación de una licencia a un usuario en Azure AD
 1. Inicie sesión en el [Portal de Azure clásico](http://manage.windowsazure.com) con una cuenta de administrador global o una cuenta de coadministrador.
 2. Seleccione **Todos los elementos** en el menú principal.
 3. Seleccione el directorio con el que quiere trabajar y que tiene licencias asociadas.
@@ -79,10 +83,15 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 5. Seleccione el plan de licencias que contiene las licencias que quiere distribuir.
 6. Seleccione **Asignar usuarios**.
 7. Seleccione el usuario al que quiere asignar una licencia.
-8. Haga clic en el botón **Asignar**. El usuario ahora puede iniciar sesión en Azure.
+8. Haga clic en el botón **Asignar** .  El usuario ahora puede iniciar sesión en Azure.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 
-<!---HONumber=AcomDC_0706_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

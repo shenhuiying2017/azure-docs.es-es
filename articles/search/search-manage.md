@@ -1,13 +1,13 @@
 ---
-title: Administración de servicios de Azure Search en Azure Portal
-description: Administrar Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal.
+title: "Administración de servicios de Azure Search en Azure Portal"
+description: "Administrar Azure Search, un servicio hospedado de búsqueda en la nube de Microsoft Azure, mediante Azure Portal."
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: HeidiSteen
 manager: jhubbard
-editor: ''
+editor: 
 tags: azure-portal
-
+ms.assetid: c87d1fdd-b3b8-4702-a753-6d7e29dbe0a2
 ms.service: search
 ms.devlang: rest-api
 ms.workload: search
@@ -15,6 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/17/2016
 ms.author: heidist
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71cfd2ea327cad22cdb1085558658934804c15f1
+
 
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administración de servicios de Azure Search en Azure Portal
@@ -35,9 +39,11 @@ Azure Search es un servicio basado en la nube totalmente administrado que se uti
 
 *Administración del contenido* (o administración de índices) hace referencia a operaciones tales como el análisis del tráfico de búsqueda para entender el volumen de consultas, la detección de los términos que se buscan y lo satisfactorios que son los resultados de las búsquedas para guiar a los clientes a documentos concretos del índice. La administración del contenido está fuera del ámbito de este artículo. Para obtener instrucciones acerca de cómo obtener información sobre las operaciones internas en el nivel del índice, consulte [Análisis de tráfico de búsqueda para Azure Search](search-traffic-analytics.md).
 
-*rendimiento de las consultas* también está fuera del ámbito de este artículo. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+*rendimiento de las consultas* también está fuera del ámbito de este artículo. Para más información, vea [Supervisar el uso y las métricas de consultas](search-monitor-usage.md) y [Rendimiento y optimización](search-performance-optimization.md).
 
-Azure Search no proporciona soluciones integradas para la recuperación ante desastres o la copia de seguridad y restauración. Para los clientes que insertan objetos y datos en su servicio, el código fuente para crear y rellenar un índice es la opción de restauración de facto si se elimina un índice por error. En cuanto a la recuperación ante desastres, los clientes optan por la redundancia a través de un servicio adicional en otro centro de datos regional. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+Azure Search conmutará por error a otros clústeres y centros de datos si se produce una interrupción del servicio, pero no ofrece soluciones integradas para operaciones manuales de copia de seguridad y restauración si el índice o servicio se elimina por error o de forma malintencionada. Para los clientes que insertan objetos y datos en su servicio, el código fuente para crear y rellenar un índice es la opción de restauración de facto si se elimina un índice por error. 
+
+Azure Search no ofrece la replicación geográfica de índices en todos los servicios. Si su solución tiene una cobertura global, puede agregar redundancia con un servicio adicional en un centro de datos regional distinto para que todos los componentes de las aplicaciones estén hospedados en un mismo sitio. Para más información, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -51,7 +57,7 @@ Toda la interacción del usuario con Azure Search se encuadra en de uno de estos
 <a id="sys-info"></a>
 
 ## <a name="logging-in-azure-search-and-system-information"></a>Registro en Azure Search e información del sistema
-Azure Search no expone los archivos de registro de un servicio individual ni a través del portal ni de interfaces de programación. En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Search tengan una disponibilidad del 99,9 % por acuerdo de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
+Azure Search no expone los archivos de registro de un servicio individual ni a través del portal ni de interfaces de programación. En el nivel básico, y en los superiores, Microsoft supervisa que todos los servicios de Azure Search tengan una disponibilidad del 99,9 % por acuerdo de nivel de servicio (SLA). Si el servicio es lento o el rendimiento de las solicitudes no llega a los umbrales del SLA, los equipos de soporte técnico revisan los archivos de registro a los que pueden acceder y solucionan el problema.
 
 En términos de información general acerca del servicio, hay varias formas de obtener información:
 
@@ -150,13 +156,13 @@ Para ello, vuelva a mover el control deslizante de la réplica a un número infe
 ### <a name="remove-partitions"></a>Eliminación de particiones
 A diferencia de la eliminación de réplicas, que no requiere que haga nada más, es posible que tenga que hacer algo si usa más almacenamiento del que se puede reducir. Por ejemplo, si su solución usa tres particiones, la reducción de su tamaño a una o dos particiones generará un error si el nuevo espacio de almacenamiento es inferior al requerido. Como cabría esperar, las opciones con las que cuenta son eliminar índices o documentos en un índice asociado para liberar espacio o mantener la configuración actual.
 
-No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
+No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
 Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver cuánto usó en realidad. 
 
 <a id="advanced-deployment"></a>
 
-## <a name="best-practices-on-scale-and-deployment-(video)"></a>Prácticas recomendadas para el escalado y la implementación (vídeo)
+## <a name="best-practices-on-scale-and-deployment-video"></a>Prácticas recomendadas para el escalado y la implementación (vídeo)
 En este vídeo de 30 minutos se analizan las prácticas recomendadas para escenarios de implementación avanzada, entre los que se incluyen las cargas de trabajo distribuidas geográficamente. También puede consultar [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md) , donde encontrará páginas de ayuda que tratan los mismos puntos.
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
@@ -184,6 +190,6 @@ Además, si aún no lo ha hecho, lea el [artículo sobre rendimiento y optimizac
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

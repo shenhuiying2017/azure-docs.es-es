@@ -1,12 +1,12 @@
 ---
-title: Ejemplo de IoT de Azure MyDriving - Inicio rápido | Microsoft Docs
-description: Empiece a trabajar con una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos.
-services: ''
+title: "Ejemplo de IoT de Azure MyDriving: inicio rápido | Microsoft Docs"
+description: "Empiece a trabajar con una aplicación que es una demostración completa de cómo diseñar un sistema IoT con Microsoft Azure, incluido Análisis de transmisiones, Aprendizaje automático y Centros de eventos."
+services: 
 documentationcenter: .net
-suite: ''
+suite: 
 author: harikmenon
 manager: douge
-
+ms.assetid: f40ea71b-5721-4a6b-a886-53c2e9dffe8f
 ms.service: multiple
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -14,23 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/25/2016
 ms.author: harikm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c6366d42b91748963ec14c258f92746e5d2fde92
+
 
 ---
-# Sistema IoT de MyDriving: inicio rápido
+# <a name="mydriving-iot-system-quick-start"></a>Sistema IoT de MyDriving: inicio rápido
 MyDriving es un sistema que muestra el diseño y la implementación de una solución de [Internet de las cosas](iot-suite-overview.md) (IoT) típica que recopila datos de telemetría de dispositivos, procesa dichos datos en la nube y aplica el aprendizaje automático para proporcionar una respuesta adaptable. La demostración registra datos sobre sus viajes en coche, mediante el uso de los datos de su teléfono móvil y un adaptador que recopila información del sistema de control de su automóvil. Estos datos se utilizan para proporcionar comentarios sobre su estilo de conducción en comparación con otros usuarios.
 
 El objetivo real de MyDriving es animarle a crear su propia solución de IoT. Pero antes de eso, vamos a comenzar a hacerlo con la propia aplicación MyDriving, como si fuera un miembro de nuestro equipo de usuarios de prueba. Esto le proporciona una experiencia de la aplicación y del sistema subyacente como consumidor, antes de profundizar en la arquitectura. También le presenta HockeyApp, una forma útil de administrar las distribuciones alfa y beta de las aplicaciones para usuarios de prueba.
 
-## Uso de la experiencia móvil
+## <a name="use-the-mobile-experience"></a>Uso de la experiencia móvil
 Puede utilizar la aplicación MyDriving si tiene un dispositivo Android, iOS o Windows 10.
 
-### Instalación de Android y Windows 10 Mobile
+### <a name="android-and-windows-10-mobile-installation"></a>Instalación de Android y Windows 10 Mobile
 En su dispositivo:
 
 1. Dé permiso a las aplicaciones de desarrollo:
    
-   * Android: en **Ajustes**, **Seguridad**, dé permiso a las aplicaciones de **orígenes desconocidos**.
-   * Windows 10: en **Configuración**, **Actualizaciones**, **Para desarrolladores**, establezca **Modo de programador**.
+   * Android: en **Ajustes** > **Seguridad**, dé permiso a las aplicaciones de **orígenes desconocidos**.
+   * Windows 10: en **Configuración** > **Actualizaciones** > **Para desarrolladores**, establezca **Modo de programador**.
 2. Únase a nuestro equipo de prueba beta mediante el registro o el inicio de sesión en [HockeyApp](https://rink.hockeyapp.net). HockeyApp facilita la distribución de versiones anteriores de su aplicación a usuarios de prueba.
    
    Si está utilizando Windows 10, use el explorador Edge.
@@ -45,24 +49,25 @@ En su dispositivo:
    
    Hay dos elementos. Instale el certificado en **Personas de confianza**. A continuación, instale la aplicación.
 
-*¿Tiene problemas al iniciar la aplicación en Windows 10 Mobile?* Puede ser que el teléfono tenga pendientes una o dos actualizaciones. Asegúrese de que tiene las actualizaciones más recientes, o instale:
+*¿Tiene problemas al iniciar la aplicación en Windows 10 Mobile?*  Puede ser que el teléfono tenga pendientes una o dos actualizaciones. Asegúrese de que tiene las actualizaciones más recientes, o instale:
 
-* [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx)
-* [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx)
+* [Microsoft.NET.Native.Framework.1.2.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Framework.1.2.appx) 
+* [Microsoft.NET.Native.Runtime.1.1.appx](https://download.hockeyapp.net/packages/win10/Microsoft.NET.Native.Runtime.1.1.appx) 
 * [Microsoft.VCLibs.ARM.14.00.appx](https://download.hockeyapp.net/packages/win10/Microsoft.VCLibs.ARM.14.00.appx)
 
-### Instalación para iOS
+### <a name="ios-installation"></a>Instalación para iOS
 Si ha asistido a Build 2016, descargue la aplicación como miembro de nuestro equipo de prueba en HockeyApp:
 
-1. En el dispositivo iOS, inicie sesión en [HockeyApp](https://rink.hockeyapp.net). Use uno de los botones de inicio de sesión de Microsoft e inicie sesión con la misma cuenta de Microsoft con el que se ha registrado para la conferencia. (No utilice los campos de correo electrónico y contraseña).
+1. En el dispositivo iOS, inicie sesión en [HockeyApp](https://rink.hockeyapp.net).
+   Use uno de los botones de inicio de sesión de Microsoft e inicie sesión con la misma cuenta de Microsoft con el que se ha registrado para la conferencia. (No utilice los campos de correo electrónico y contraseña).
    
    ![Pantalla de inicio de sesión de HockeyApp](./media/iot-solution-get-started/image1.png)
 2. En el panel de HockeyApp, seleccione MyDriving y descárguelo.
 3. Autorice la versión beta desde HockeyApp:
    
-   a. Vaya a **Settings** (Configuración) > **General** > **Profiles and Device Management** (Perfiles y administración de dispositivos).
+   a. Vaya a **Configuración** > **General** > **Perfiles y administración de dispositivos.**
    
-   b. Confíe en el certificado **Bit Stadium GmbH**.
+   b. Confíe en el certificado **Bit Stadium GmbH** .
 
 Si no asistió a Build 2016, puede compilar e implementar la aplicación usted mismo:
 
@@ -71,7 +76,7 @@ Si no asistió a Build 2016, puede compilar e implementar la aplicación usted m
 
 Encuentre más información en la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), en inglés.
 
-## Obtención de un adaptador OBD (opcional)
+## <a name="get-an-obd-adapter-optional"></a>Obtención de un adaptador OBD (opcional)
 Esta es la parte que lo convierte en un verdadero sistema de Internet de las cosas. Puede utilizar la aplicación sin uno de ellos, pero es más divertido usar uno auténtico y no son costosos.
 
 El diagnóstico a bordo (OBD) es la característica de su automóvil que usa el taller para ajustar y diagnosticar ruidos extraños y luces de advertencia. A menos que su automóvil tenga muchos años, encontrará un socket en alguna parte del habitáculo, normalmente detrás de un saliente debajo del salpicadero. Con el conector adecuado, puede obtener métricas de rendimiento del motor y realizar algunos ajustes. Un conector de OBD se puede adquirir de manera económica en las ubicaciones habituales. Se conecta mediante Wi-Fi o Bluetooth a una aplicación en su teléfono.
@@ -87,7 +92,7 @@ Para conectar un dispositivo de OBD:
    * Si está usando un teléfono iOS, necesitará un adaptador OBD habilitado para Wi-Fi. Usamos el [detector de diagnóstico y adaptador OBD ScanTool OBDLink MX Wi-Fi].
 3. Siga las instrucciones incluidas en el adaptador OBD para conectarse a su teléfono. Tenga en cuenta lo siguiente:
    
-   * El adaptador Bluetooth debe estar emparejado con el teléfono, en la página de **configuración**.
+   * El adaptador Bluetooth debe estar emparejado con el teléfono, en la página de **configuración** .
    * El adaptador Wi-Fi debe tener una dirección en el intervalo de 192.168.xxx.xxx.
 4. Si tiene varios automóviles, puede conseguir un adaptador independiente para cada uno de ellos (un máximo de tres).
 
@@ -95,10 +100,10 @@ Si no tiene un adaptador OBD, la aplicación todavía enviará datos de velocida
 
 Puede encontrar más información acerca de cómo la aplicación utiliza los datos desde el adaptador OBD y sobre las opciones para crear su propio dispositivo OBD en la sección 2.1 "IoT Devices" (Dispositivos IoT) de la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs), en inglés.
 
-## Uso de la aplicación
+## <a name="use-the-app"></a>Uso de la aplicación
 Inicie la aplicación. Hay un inicio rápido introductorio que le guiará a través de su funcionamiento.
 
-### Realice el seguimiento de sus viajes.
+### <a name="track-your-trips"></a>Realice el seguimiento de sus viajes.
 Pulse el botón Grabar (el gran círculo rojo en la parte inferior de la pantalla) para iniciar un viaje y vuelva a pulsarlo para finalizar.
 
 ![Ilustración del botón Grabar para el seguimiento de viajes](./media/iot-solution-get-started/image2.png)
@@ -109,13 +114,13 @@ Al final de un viaje, pulse el botón Detener y obtendrá un resumen.
 
 ![Ejemplo de un resumen de viaje](./media/iot-solution-get-started/image3.png)
 
-### Revise sus viajes.
+### <a name="review-your-trips"></a>Revise sus viajes.
 ![Ejemplo de un viaje anterior](./media/iot-solution-get-started/image4.png)
 
-### Revise su perfil.
+### <a name="review-your-profile"></a>Revise su perfil.
 ![Ejemplo de un perfil de conducción](./media/iot-solution-get-started/image5.png)
 
-## Envíenos sus comentarios de prueba.
+## <a name="send-us-your-test-feedback"></a>Envíenos sus comentarios de prueba.
 Como ya hemos creado MyDriving para ayudar a impulsar sus propios sistemas de IoT, queremos conocer su opinión acerca de cómo funciona. Queremos saber si:
 
 * Se enfrenta a dificultades y desafíos.
@@ -123,13 +128,13 @@ Como ya hemos creado MyDriving para ayudar a impulsar sus propios sistemas de Io
 * Busca una forma más eficaz de realizar ciertas necesidades.
 * Tiene cualquier sugerencia para mejorar MyDriving o esta documentación.
 
-Dentro de la misma aplicación MyDriving, puede usar el mecanismo de comentarios integrado de HockeyApp: en iOS y Android solo tiene que agitar el teléfono o utilizar el comando de menú de **comentarios**. Esta acción asociará automáticamente una captura de pantalla, por lo que ya sabremos de que está hablando. Y si se produjeran algunos bloqueos desafortunados, HockeyApp recopilará los registros de bloqueo para informarnos sobre ellos. También puede proporcionar comentarios a través del [portal de HockeyApp].
+Dentro de la misma aplicación MyDriving, puede usar el mecanismo de comentarios integrado de HockeyApp: en iOS y Android solo tiene que agitar el teléfono o utilizar el comando de menú de **comentarios** . Esta acción asociará automáticamente una captura de pantalla, por lo que ya sabremos de que está hablando. Y si se produjeran algunos bloqueos desafortunados, HockeyApp recopilará los registros de bloqueo para informarnos sobre ellos. También puede proporcionar comentarios a través del [portal de HockeyApp].
 
 Asimismo puede registrar un [problema en GitHub] o dejar un comentario a continuación (edición en inglés).
 
 Esperamos sus noticias.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Explore la [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs) (en inglés) para entender cómo hemos diseñado y creado todo el sistema MyDriving.
 * [Cree e implemente un sistema por su cuenta](iot-solution-build-system.md) con nuestros scripts de Azure Resource Manager. La [guía de referencia de MyDriving](http://aka.ms/mydrivingdocs) también le guía por aquellas áreas en las que realizará la mayoría de las personalizaciones.
 
@@ -140,4 +145,8 @@ Esperamos sus noticias.
 [portal de HockeyApp]: https://rink.hockeyapp.org
 [problema en GitHub]: https://github.com/Azure-Samples/MyDriving/issues
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

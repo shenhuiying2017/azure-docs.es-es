@@ -1,12 +1,12 @@
 ---
-title: Reemplazar la batería en el dispositivo StorSimple | Microsoft Docs
-description: Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple.
+title: "Reemplazar la batería en un dispositivo StorSimple | Microsoft Docs"
+description: "Describe cómo quitar, reemplazar y mantener el módulo de baterías de reserva en el dispositivo StorSimple."
 services: storsimple
-documentationcenter: ''
+documentationcenter: 
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 3c8a6654-4826-4883-aad8-75f332347c53
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 59af78e188441979d9d5a177a1f7b31b8080a0b5
+
 
 ---
-# Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
-## Información general
-El Módulo de alimentación y refrigeración (PCM) del gabinete primario en el dispositivo StorSimple de Microsoft Azure tiene un paquete de baterías adicional. Este paquete proporciona energía para que el dispositivo StorSimple pueda guardar los datos si hay una pérdida de alimentación de CA para el gabinete principal. Este paquete de baterías se conoce como el *módulo de baterías de reserva*. El módulo de baterías de reserva solo existe para el gabinete principal del dispositivo StorSimple (el gabinete de EBOD no contiene un módulo de baterías de reserva).
+# <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Reemplazar el módulo de baterías de reserva en el dispositivo StorSimple
+## <a name="overview"></a>Información general
+El Módulo de alimentación y refrigeración (PCM) del gabinete primario en el dispositivo StorSimple de Microsoft Azure tiene un paquete de baterías adicional. Este paquete proporciona energía para que el dispositivo StorSimple pueda guardar los datos si hay una pérdida de alimentación de CA para el gabinete principal. Este paquete de baterías se conoce como el *módulo de baterías de reserva*. El módulo de baterías de reserva solo existe para el gabinete principal del dispositivo StorSimple (el gabinete de EBOD no contiene un módulo de baterías de reserva). 
 
 Este tutorial explica cómo realizar lo siguiente:
 
-* Quitar el módulo de baterías de reserva
+* Quitar el módulo de baterías de reserva 
 * Instalar un nuevo módulo de baterías de reserva
 * Mantener el módulo de baterías de reserva
 
@@ -31,18 +35,18 @@ Este tutorial explica cómo realizar lo siguiente:
 > 
 > 
 
-## Quitar el módulo de baterías de reserva
+## <a name="remove-the-backup-battery-module"></a>Quitar el módulo de baterías de reserva
 El módulo de baterías de reserva para el dispositivo StorSimple es una unidad reemplazable en situ. Antes de instalar en el PCM, el módulo de baterías debería almacenarse en su paquete original. Realice los siguientes pasos para extraer la batería de reserva.
 
-#### Para quitar el módulo de baterías de reserva
-1. En el Portal de Azure clásico, haga clic en **Dispositivos** > **Mantenimiento** > **Estado del hardware**. En **Componentes compartidos**, examine el estado de la batería.
+#### <a name="to-remove-the-backup-battery-module"></a>Para quitar el módulo de baterías de reserva
+1. En el Portal de Azure clásico, vaya a **Dispositivos** > **Mantenimiento** > **Estado de hardware**. En **Componentes compartidos**, examine el estado de la batería.
 2. Identifique el PCM en el que ha fallado la batería. La Figura 1 muestra la parte posterior del dispositivo StorSimple.
    
     ![Backplane de módulos del gabinete principal del dispositivo](./media/storsimple-battery-replacement/IC740994.png)
    
     **Figura 1** Vista posterior del dispositivo primario que muestra los módulos PCM y del controlador
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |PCM 0 |
    | 2 |PCM 1 |
@@ -55,7 +59,7 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
    
     **Figura 2** Parte posterior del PCM que muestra los LED indicadores de supervisión
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    |:--- |:--- |
    | 1 |Error de corriente alterna |
    | 2 |Error del ventilador |
@@ -72,26 +76,26 @@ El módulo de baterías de reserva para el dispositivo StorSimple es una unidad 
 5. Coloque el módulo en el paquete de unidad reemplazable en campo.
 6. Devolver la unidad defectuosa a Microsoft para el mantenimiento y control adecuado.
 
-## Instalar un nuevo módulo de baterías de reserva
+## <a name="install-a-new-backup-battery-module"></a>Instalar un nuevo módulo de baterías de reserva
 Realice los pasos siguientes para instalar el módulo de baterías de sustitución en el PCM del receptáculo principal del dispositivo StorSimple.
 
-#### Para instalar el módulo de batería
+#### <a name="to-install-the-battery-module"></a>Para instalar el módulo de batería
 1. Coloque el módulo de baterías de reserva en la orientación correcta en el PCM.
 2. Presione el asa del módulo de batería por completo para asentar el conector.
 3. Sustituya el PCM en el gabinete principal siguiendo las directrices de [Reemplazar un Módulo de alimentación y refrigeración en su dispositivo StorSimple](storsimple-power-cooling-module-replacement.md).
-4. Una vez completada la sustitución, vaya a **Dispositivos** > **Mantenimiento** > **Estado del hardware** en el Portal de Azure clásico. Compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Un estado verde indica que el estado de la batería es correcto.
+4. Una vez completada la sustitución, vaya a **Dispositivos** > **Mantenimiento** > ** Estado de hardware** en el Portal de Azure clásico. Compruebe el estado de la batería para asegurarse de que la instalación fue correcta. Un estado verde indica que el estado de la batería es correcto.
 
-## Mantener el módulo de baterías de reserva
+## <a name="maintain-the-backup-battery-module"></a>Mantener el módulo de baterías de reserva
 En el dispositivo StorSimple, el módulo de baterías de reserva proporciona energía al controlador durante un evento de pérdida de alimentación. Permite que el dispositivo StorSimple guarde los datos críticos antes de apagar el equipo de una manera controlada. Con dos baterías totalmente cargadas en los PCM, el sistema puede controlar dos eventos de pérdida consecutivos.
 
-En el Portal de Azure clásico, el **Estado del hardware** en la página **Mantenimiento** indica si la batería funciona mal o si se aproxima el final del ciclo de vida. El estado de la batería se indica mediante **Batería en PCM 0** o **Batería en PCM 1** en **Componentes compartidos**. Esta página muestra un estado **DEGRADADO** cuando se aproxima el final del ciclo de vida, y **ERROR** cuando se alcanza el final del ciclo de vida.
+En el Portal de Azure clásico, el **Estado de hardware** en la página **Mantenimiento** indica si la batería funciona mal o si se aproxima el final del ciclo de vida. El estado de la batería se indica en **Batería en PCM 0** o **Batería en PCM 1** en **Componentes compartidos**. Esta página muestra un estado **DEGRADADO** cuando se aproxima el final del ciclo de vida, y **ERROR** cuando se alcanza el final del ciclo de vida. 
 
 > [!NOTE]
 > La batería puede mostrar **ERROR** cuando simplemente necesita cargarse.
 > 
 > 
 
-Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
+Si aparece el estado **DEGRADADO** , se recomienda lo siguiente:
 
 * Puede que el sistema haya experimentado una pérdida de energía reciente o las baterías pueden estar llevando a cabo el mantenimiento periódico. Observe el sistema durante 12 horas antes de continuar.
   
@@ -100,11 +104,16 @@ Si aparece el estado **DEGRADADO**, se recomienda lo siguiente:
 * Si no ha habido una pérdida de alimentación de CA asociada y el PCM está encendido y conectado a CA, debe reemplazar la batería. [Póngase en contacto con Microsoft Support](storsimple-contact-microsoft-support.md) para obtener un módulo de baterías de reserva de reemplazo.
 
 > [!IMPORTANT]
-> Deseche la batería que no funciona según las normas nacionales y regionales.
+> Deseche la batería que no funciona según las normas nacionales y regionales. 
 > 
 > 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

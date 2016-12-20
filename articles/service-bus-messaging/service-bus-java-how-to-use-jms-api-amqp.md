@@ -1,22 +1,26 @@
 ---
-title: Uso de AMQP 1.0 con la API del Bus de servicio de Java | Microsoft Docs
-description: Cómo usar Java Message Service (JMS) con el Bus de servicio de Azure y Advanced Message Queuing Protodol (AMQP) 1.0.
-services: service-bus
+title: Uso de AMQP 1.0 con la API de Service Bus de Java | Microsoft Docs
+description: "Cómo usar Java Message Service (JMS) con el Bus de servicio de Azure y Advanced Message Queuing Protodol (AMQP) 1.0."
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 7f9bd4484a4cb9cbb01524b55d72524554cc6822
+
 
 ---
-# <a name="how-to-use-the-java-message-service-(jms)-api-with-service-bus-and-amqp-1.0"></a>Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0
+# <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
 
 La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
@@ -24,14 +28,14 @@ La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar la
 En este artículo se explica cómo utilizar las características de mensajería de Service Bus (colas y temas de publicación o suscripción) desde aplicaciones de Java mediante el popular estándar de API de Java Message Service (JMS). Existe otro [artículo complementario](service-bus-dotnet-advanced-message-queuing.md) en el que se explica cómo hacer lo mismo utilizando la API de .NET de Service Bus. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
 ## <a name="get-started-with-service-bus"></a>Introducción al Bus de servicio
-En esta guía se asume que ya dispone de un espacio de nombres de Service Bus con una cola denominada **queue1**. Si no es así, puede [crear el espacio de nombres y la cola](../service-bus/service-bus-create-namespace-portal.md) con ayuda de [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, consulte [Utilización de las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
+En esta guía se asume que ya dispone de un espacio de nombres de Service Bus con una cola denominada **queue1**. Si no es así, puede [crear el espacio de nombres y la cola](service-bus-create-namespace-portal.md) con ayuda de [Azure Portal](https://portal.azure.com). Para obtener más información sobre cómo crear espacios de nombres y colas de Service Bus, consulte [Utilización de las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md).
 
 > [!NOTE]
 > Los temas y colas con particiones también admiten AMQP. Para más información, consulte [Temas y colas con particiones](service-bus-partitioning.md) y [Compatibilidad de AMQP 1.0 con los temas y las colas con particiones de Service Bus](service-bus-partitioned-queues-and-topics-amqp-overview.md).
 > 
 > 
 
-## <a name="downloading-the-amqp-1.0-jms-client-library"></a>Descarga de la biblioteca de cliente AMQP 1.0 JMS
+## <a name="downloading-the-amqp-10-jms-client-library"></a>Descarga de la biblioteca de cliente AMQP 1.0 JMS
 Para obtener más información sobre dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el Bus de servicio:
@@ -42,7 +46,7 @@ Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de 
 * qpid-amqp-1-0-common-[version].jar
 
 ## <a name="coding-java-applications"></a>Codificación de las aplicaciones Java
-### <a name="java-naming-and-directory-interface-(jndi)"></a>Interfaz de denominación y directorio Java (JNDI)
+### <a name="java-naming-and-directory-interface-jndi"></a>Interfaz de denominación y directorio Java (JNDI)
 JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una separación entre los nombres lógicos y los físicos. Se resuelven dos tipos de objetos JMS usando JNDI: ConnectionFactory y Destination. JNDI usa un modelo de proveedor al que se pueden acoplar diferentes servicios de directorio para controlar labores de resolución de nombres. La biblioteca Apache Qpid JMS AMQP 1.0 se presenta con un proveedor JNDI basado en archivo de propiedades sencillas que se configura usando un archivo de propiedades cuyo formato es el siguiente:
 
 ```
@@ -219,7 +223,7 @@ public class SimpleSenderReceiver implements MessageListener {
             e.printStackTrace();
         }
     }
-}   
+}    
 ```
 
 ### <a name="run-the-application"></a>Ejecución de la aplicación
@@ -240,14 +244,14 @@ Received message with JMSMessageID = ID:956102171969368961
 exit
 ```
 
-## <a name="cross-platform-messaging-between-jms-and-.net"></a>Mensajería de diferentes plataformas entre JMS y .NET
+## <a name="cross-platform-messaging-between-jms-and-net"></a>Mensajería de diferentes plataformas entre JMS y .NET
 Esta guía le ha mostrado cómo enviar y recibir mensajes con el Bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
 Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con Service Bus .NET y AMQP 1.0](service-bus-dotnet-advanced-message-queuing.md), es posible intercambiar mensajes entre .NET y Java. 
 
 Para obtener más información acerca de la mensajería entre distintas plataformas mediante Service Bus y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md).
 
-### <a name="jms-to-.net"></a>De JMS a .NET
+### <a name="jms-to-net"></a>De JMS a .NET
 Para comprobar cómo funciona la mensajería de JMS a .NET:
 
 * Inicie la aplicación de ejemplo .NET sin ningún argumento de línea de comandos.
@@ -265,9 +269,9 @@ Sent message with JMSMessageID = ID:1565011046230456854
 exit
 ```
 
-#### <a name="output-from-.net-application"></a>Resultados de la aplicación .NET
+#### <a name="output-from-net-application"></a>Resultados de la aplicación .NET
 ```
-> SimpleSenderReceiver.exe  
+> SimpleSenderReceiver.exe    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with MessageID = 4364096528752411591
 Received message with MessageID = 459252991689389983
@@ -275,7 +279,7 @@ Received message with MessageID = 1565011046230456854
 exit
 ```
 
-### <a name=".net-to-jms"></a>De .NET a JMS
+### <a name="net-to-jms"></a>De .NET a JMS
 Para comprobar cómo funciona la mensajería de .NET a JMS:
 
 * Inicie la aplicación de ejemplo .NET con el argumento de línea de comandos "sendonly". De esta manera, la aplicación no recibirá mensajes de la cola, sino que solo los enviará.
@@ -283,11 +287,11 @@ Para comprobar cómo funciona la mensajería de .NET a JMS:
 * Presione **Entrar** unas cuantas veces en la consola de la aplicación .NET para enviar los mensajes.
 * Estos mensajes los recibe la aplicación Java.
 
-#### <a name="output-from-.net-application"></a>Resultados de la aplicación .NET
+#### <a name="output-from-net-application"></a>Resultados de la aplicación .NET
 ```
 > SimpleSenderReceiver.exe sendonly
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
-Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3  
+Sent message with MessageID = d64e681a310a48a1ae0ce7b017bf1cf3    
 Sent message with MessageID = 98a39664995b4f74b32e2a0ecccc46bb
 Sent message with MessageID = acbca67f03c346de9b7893026f97ddeb
 exit
@@ -295,7 +299,7 @@ exit
 
 #### <a name="output-from-jms-application"></a>Resultados de la aplicación JMS
 ```
-> java SimpleSenderReceiver 
+> java SimpleSenderReceiver    
 Press [enter] to send a message. Type 'exit' + [enter] to quit.
 Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
 Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
@@ -324,6 +328,9 @@ También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como
 * [Utilización de las colas del Bus de servicio](service-bus-dotnet-get-started-with-queues.md)
 * [Centro de desarrolladores de Java](/develop/java/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,13 +1,13 @@
 ---
-title: Creación de una red virtual con un archivo de configuración de red en el portal de Azure | Microsoft Docs
-description: Obtenga información sobre cómo crear una red virtual con un archivo de configuración de red en el portal de Azure.
+title: "Creación de una red virtual con un archivo de configuración de red en Azure Portal | Microsoft Docs"
+description: "Obtenga información sobre cómo crear una red virtual con un archivo de configuración de red en el portal de Azure."
 services: virtual-network
-documentationcenter: ''
+documentationcenter: 
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management
-
+ms.assetid: 95eadae3-cffd-45d1-89bc-b74d030f3d57
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 3c8c37891e5a465749a225e5952058930f9b4682
+
 
 ---
-# Creación de una red virtual (clásica) usando PowerShell
+# <a name="create-a-virtual-network-classic-by-using-powershell"></a>Creación de una red virtual (clásica) usando PowerShell
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]
 
 [!INCLUDE [virtual-networks-create-vnet-intro](../../includes/virtual-networks-create-vnet-intro-include.md)]
@@ -30,4 +34,9 @@ Este documento describe la creación de una red virtual mediante el modelo de im
 
 [!INCLUDE [virtual-networks-create-vnet-classic-netcfg-ps-include](../../includes/virtual-networks-create-vnet-classic-netcfg-ps-include.md)]
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

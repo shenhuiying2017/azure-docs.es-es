@@ -1,12 +1,12 @@
 ---
-title: Implementación de un escenario de streaming de conmutación por error | Microsoft Docs
-description: Este tema muestra cómo implementar un escenario de streaming de conmutación por error.
+title: "Implementación de un escenario de streaming de conmutación por error | Microsoft Docs"
+description: "Este tema muestra cómo implementar un escenario de streaming de conmutación por error."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 95447f7b77297fbcdf5b01408543b0787fc42081
+
 
 ---
 # <a name="implementing-failover-streaming-scenario"></a>Implementación de un escenario de streaming de conmutación por error
@@ -96,7 +100,7 @@ En esta sección creará y configurará un proyecto de aplicación de consola de
           <add key="MediaServicesStorageAccountKeyTarget" value=" Media-Services-Storage-Account-Key-Target" />
         </appSettings>
 
-## <a name="add-code-that-handles-redundancy-for-on-demand-streaming."></a>Adición de código que controle la redundancia del streaming a petición.
+## <a name="add-code-that-handles-redundancy-for-on-demand-streaming"></a>Adición de código que controle la redundancia del streaming a petición.
 1. Agregue los siguientes campos de nivel de clase a la clase Program.
    
         // Read values from the App.config file.
@@ -957,6 +961,9 @@ Ahora puede usar un administrador de tráfico para enrutar las solicitudes entre
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

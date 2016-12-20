@@ -1,12 +1,12 @@
 ---
-title: Implementación de un servicio web Machine Learning | Microsoft Docs
-description: Cómo convertir un experimento de entrenamiento en un experimento predictivo, prepararlo para la implementación y luego implementarlo como servicio web Azure Machine Learning.
+title: "Implementación de un servicio web Machine Learning | Microsoft Docs"
+description: "Cómo convertir un experimento de entrenamiento en un experimento predictivo, prepararlo para la implementación y luego implementarlo como servicio web de Aprendizaje automático de Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 44afeaa05ff2a8ab5a685d9f82880b0fa50f490b
+
 
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>Implementación de un servicio web Azure Machine Learning
+# <a name="deploy-an-azure-machine-learning-web-service"></a>Implementar un servicio web de Aprendizaje automático de Azure
 Azure Machine Learning permite compilar, probar e implementar soluciones de análisis predictivo.
 
 Desde una perspectiva general, esto se realiza en tres pasos:
@@ -51,28 +55,28 @@ Para obtener más información sobre cómo realizar esta conversión, consulte [
 A continuación, se describe el proceso de implementación de un experimento predictivo como servicio web nuevo. También puede implementarlo como servicio web clásico.
 
 ## <a name="deploy-the-predictive-experiment-as-a-new-web-service"></a>Implementación del experimento predictivo como servicio web nuevo
-Una vez preparado el experimento predictivo, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo, y este devolverá las predicciones.
+Una vez preparado el experimento predictivo, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
-Para implementar un experimento predictivo, haga clic en la opción **Ejecutar** de la parte inferior del lienzo del experimento. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [[New]]** (Implementar servicio web [nuevo]).  Se abrirá la página de implementación del portal Servicios web Machine Learning. 
+Para implementar un experimento predictivo, haga clic en la opción **Ejecutar** de la parte inferior del lienzo del experimento. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [[New]]** (Implementar servicio web [nuevo]).  Se abrirá la página de implementación del portal Servicios web Machine Learning.
 
 ### <a name="machine-learning-web-service-portal-deploy-experiment-page"></a>Página de implementación de experimentos del portal Servicios web Machine Learning
 En la página de implementación de experimentos, escriba un nombre para el servicio web.
-Seleccione un plan de tarifa. Si ya tiene uno, puede seleccionarlo; si no, debe crear uno nuevo para el servicio. 
+Seleccione un plan de tarifa. Si ya tiene uno, puede seleccionarlo; si no, debe crear uno nuevo para el servicio.
 
 1. En el menú desplegable **Price Plan** (Plan de precios), seleccione un plan existente o elija la opción **Select new plan** (Seleccionar nuevo plan).
 2. En **Nombre del plan**, escriba un nombre que identifique el plan en la factura.
 3. Seleccione uno de los **niveles de planes mensuales**. Los niveles de los planes predeterminados son los de la región predeterminada, y el servicio web se implementa en dicha región.
 
-Haga clic en la página **Implementar** para que se abra la página **Inicio rápido** del servicio web.
+Haga clic en las páginas **Implementar** e **Inicio rápido** del servicio web que se abre.
 
 A través de la página Inicio rápido del servicio web podrá acceder a las tareas más comunes que se realizarán después de crear un servicio web nuevo, así como instrucciones sobre cómo hacerlo. A partir de ahí, puede acceder fácilmente a las páginas Prueba y Consume (Consumo).
 
-<!-- ![Deploy the Web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
+<!-- ![Deploy the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)-->
 
 ### <a name="test-your-web-service"></a>Prueba del servicio web
-Para probar el nuevo servicio web, haga clic en la opción **Test web service** (Probar servicio web) de las tareas comunes. En la página Prueba puede probar el servicio web como servicio de solicitud-respuesta (RRS, Request-Response Service) o de ejecución por lotes (BES, Batch Execution Service). 
+Para probar el nuevo servicio web, haga clic en la opción **Test web service** (Probar servicio web) de las tareas comunes. En la página Prueba puede probar el servicio web como servicio de solicitud-respuesta (RRS) o de ejecución por lotes (BES).
 
-En la página de pruebas RRS se muestran las entradas, las salidas y los parámetros globales definidos para el experimento. Para probar el servicio web, puede escribir manualmente los valores adecuados de las entradas o bien introducir un archivo con formato de valores separados por comas (CSV) que contenga los valores de prueba. 
+En la página de pruebas RRS se muestran las entradas, las salidas y los parámetros globales definidos para el experimento. Para probar el servicio web, puede escribir manualmente los valores adecuados de las entradas o bien introducir un archivo con formato de valores separados por comas (CSV) que contenga los valores de prueba.
 
 Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores adecuados de las entradas y haga clic en **Test Request-Response**(Probar solicitud-respuesta). Los resultados de predicción se mostrarán en la columna de salida de la izquierda.
 
@@ -80,7 +84,7 @@ Para realizar pruebas RRS, en el modo de vista de lista, escriba los valores ade
 
 Para realizar pruebas BES, haga clic en **Lote**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
 
-Para ello, abra Estudio de aprendizaje automático de Microsoft Azure. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**. 
+Para ello, abra Estudio de aprendizaje automático de Microsoft Azure. Abra el experimento predictivo y haga clic con el botón derecho en la entrada del experimento. En el menú contextual, seleccione **conjunto de datos** y, después, haga clic en **Descargar**.
 
 ![Implementación del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -88,7 +92,7 @@ Haga clic en **Probar**. El estado del trabajo de ejecución por lotes se muestr
 
 ![Implementación del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
-<!--![Test the Web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)-->
+<!--![Test the web service](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)-->
 
 En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, actualizar la clave de la cuenta de almacenamiento y habilitar los datos de ejemplo para el servicio web.
 
@@ -97,48 +101,52 @@ En la página **CONFIGURACIÓN**, puede cambiar la descripción y el título, ac
 Una vez que haya implementado el servicio web, puede hacer lo siguiente:
 
 * **Acceder** a él través de la API del servicio web
-* **Administrarlo** a través del portal Servicios web Azure Machine Learning o el Portal de Azure clásico 
+* **Administrarlo** a través del portal de servicios web de Aprendizaje automático de Azure o el portal de Azure clásico
 * **Actualizarlo** si cambia el modelo
 
 ### <a name="access-the-web-service"></a>Acceso al servicio web
-Una vez implementado el servicio web desde Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
 
-La página **Consume** (Consumo) ofrece toda la información que necesita para acceder al servicio web. Por ejemplo, la clave de API se ofrece para permitir el acceso autorizado al servicio. 
+La página **Consume** (Consumo) proporciona toda la información que necesita para acceder al servicio web. Por ejemplo, la clave de API se ofrece para permitir el acceso autorizado al servicio.
 
-Para obtener más información sobre el acceso a un servicio web Machine Learning, consulte [Consumo de un servicio web Azure Machine Learning implementado](machine-learning-consume-Web-services.md).
+Para obtener más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado](machine-learning-consume-web-services.md).
 
 ### <a name="manage-your-new-web-service"></a>Administración de servicios web nuevos
-Puede administrar los servicios web clásicos mediante el portal Servicios web Machine Learning. En la [página principal del portal](https://services.azureml-test.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log** (Registro de solicitudes por lotes).
+Puede administrar los servicios web clásicos mediante el portal de servicios web de Aprendizaje automático. En la [página principal del portal](https://services.azureml-test.net/), haga clic en **Servicios web**. En la página de servicios web, puede eliminar o copiar servicios. Para supervisar un servicio concreto, haga clic en el servicio y, después, haga clic en **Panel**. Para supervisar los trabajos por lotes asociados con el servicio web, haga clic en **Batch Request Log**(Registro de solicitudes por lotes).
 
 ## <a name="deploy-the-predictive-experiment-as-a-classic-web-service"></a>Implementación del experimento predictivo como servicio web clásico
-Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo, y este devolverá las predicciones.
+Ahora que ha preparado el experimento predictivo suficientemente, puede implementarlo como servicio web de Azure. Mediante el servicio web, los usuarios pueden enviar datos a su modelo y el modelo devolverá las predicciones.
 
 Para implementar el experimento predictivo, haga clic en **Ejecutar** en la parte inferior del lienzo del experimento y luego haga clic en **Deploy Web Service** (Implementar servicio web). El servicio web está configurado y se colocará en el panel del servicio web.
 
 ![Implementación del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-2.png)
 
-Para probar el servicio web, haga clic en el vínculo **Probar** del panel del servicio web. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Estas son las columnas esperadas del experimento puntuación. Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**. Los resultados generados por el servicio web se muestran en la parte inferior del panel.
+Puede probar el servicio web en el portal de Machine Learning Studio o en Machine Learning Studio.
+
+Para probar el servicio web de respuesta de solicitudes, haga clic en el botón **Probar** del panel del servicio web. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Estas son las columnas esperadas del experimento puntuación. Escriba un conjunto de datos y haga clic en **Aceptar**. Los resultados generados por el servicio web se muestran en la parte inferior del panel.
 
 Puede hacer clic en el vínculo de versión preliminar **Probar** para probar el servicio en el portal Servicios web Azure Machine Learning del modo que se mostró anteriormente en la sección Servicio web nuevo.
 
+Para probar el servicio de ejecución por lotes, haga clic en el vínculo de vista previa **Probar**. En la página de pruebas por lotes, haga clic en la opción Examinar de la entrada y seleccione un archivo CSV que contenga los valores de ejemplo adecuados. Si no dispone de un archivo CSV y ha creado el experimento predictivo con Machine Learning Studio, puede descargar el conjunto de datos del experimento predictivo y utilizarlo.
+
 ![Prueba del servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-3.png)
 
-En la página **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en el [Portal de Azure clásico](http://manage.windowsazure.com/), donde se administran los servicios web.
+En la página **CONFIGURACIÓN** puede cambiar el nombre para mostrar del servicio y darle una descripción. El nombre y la descripción se muestran en el [Portal de Azure clásico](http://manage.windowsazure.com/) , donde se administran los servicios web.
 
-Puede dar una descripción para los datos de entrada, los de salida y los parámetros del servicio web escribiendo una cadena para cada columna en **INPUT SCHEMA** (ESQUEMA DE ENTRADA), **OUTPUT SCHEMA** (ESQUEMA DE SALIDA) y **WEB SERVICE PARAMETER** (PARÁMETRO DE SERVICIO WEB). Estas descripciones se utilizan en la documentación de código de ejemplo dada para el servicio web.
+Puede dar una descripción para los datos de entrada, los de salida y los parámetros del servicio web escribiendo una cadena para cada columna en **INPUT SCHEMA** (ESQUEMA DE ENTRADA), **OUTPUT SCHEMA** (ESQUEMA DE SALIDA) y **WEB SERVICE PARAMETER** (PARÁMETRO DE SERVICIO WEB). Estas descripciones se utilizan en la documentación de código de ejemplo proporcionada para el servicio web.
 
-Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para obtener más información, vea [Habilitación del registro para los servicios web Machine Learning](machine-learning-web-services-logging.md).
+Puede habilitar el registro para diagnosticar cualquier error que vea al acceder al servicio web. Para más información, vea [Habilitar el registro para los servicios web de Aprendizaje automático](machine-learning-web-services-logging.md).
 
 ![Configurar el servicio web](./media/machine-learning-publish-a-machine-learning-web-service/figure-4.png)
 
 También puede configurar los puntos de conexión del servicio web en el portal Servicios web Azure Machine Learning de una forma parecida al procedimiento mostrado anteriormente en la sección Servicio web nuevo. Las opciones son diferentes: puede agregar o cambiar la descripción del servicio, habilitar el registro y habilitar datos de ejemplo para las pruebas.
 
 ### <a name="access-the-web-service"></a>Acceso al servicio web
-Una vez implementado el servicio web desde Machine Learning Studio, puede enviar datos al servicio y recibir respuestas mediante programación.
+Cuando implementa el servicio web desde el Estudio de aprendizaje automático, puede enviar datos al servicio y recibir respuestas mediante programación.
 
-El panel ofrece toda la información que necesita para acceder a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
+El panel proporciona toda la información que necesita para tener acceso a su servicio web. Por ejemplo, la clave de API se proporciona para permitir el acceso autorizado al servicio, y las páginas de ayuda de API sirven para ayudarle a empezar a escribir el código.
 
-Para obtener más información sobre el acceso a un servicio web Machine Learning, consulte [Consumo de un servicio web Azure Machine Learning implementado](machine-learning-consume-Web-services.md).
+Para obtener más información sobre el acceso a un servicio web de Aprendizaje automático, vea [Cómo consumir un servicio web de Aprendizaje automático de Azure implementado](machine-learning-consume-web-services.md).
 
 ### <a name="manage-the-web-service"></a>Administración del servicio web
 Hay varias acciones que puede realizar para supervisar un servicio web. Puede actualizarlo y eliminarlo. También puede agregar puntos de conexión adicionales para un servicio web clásico aparte del punto de conexión predeterminado que se crea cuando se implementa.
@@ -146,18 +154,18 @@ Hay varias acciones que puede realizar para supervisar un servicio web. Puede ac
 Para obtener más información, consulte [Administración de un área de trabajo de Azure Machine Learning](machine-learning-manage-workspace.md) y [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](machine-learning-manage-new-webservice.md).
 
 <!-- When this article gets published, fix the link and uncomment
-For more information on how to manage Azure Machine Learning Web service endpoints using the REST API, see **Azure machine learning Web service endpoints**.
+For more information on how to manage Azure Machine Learning web service endpoints using the REST API, see **Azure machine learning web service endpoints**.
 -->
 
-## <a name="update-the-web-service"></a>Actualización del servicio web
-Puede realizar cambios en el servicio web, como actualizar el modelo con datos de entrenamiento adicionales y volver a implementarlo, lo que sobrescribirá el servicio web original.
+## <a name="update-the-web-service"></a>Actualizar el servicio web
+Puede realizar cambios en el servicio web, como actualizar el modelo con datos de entrenamiento adicionales y volver a implementarlo, sobrescribiendo el servicio web original.
 
-Para actualizar el servicio web, abra el experimento predictivo original que usó para implementarlo y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**. 
+Para actualizar el servicio web, abra el experimento predictivo original que usó para implementar el servicio web y haga una copia modificable haciendo clic en **GUARDAR COMO**. Realice los cambios y haga clic en **Publicar servicio web**.
 
 Como ya ha implementado este experimento antes, se le preguntará si quiere sobrescribir (servicio web clásico) o actualizar (servicio web nuevo) el servicio existente. Al hacer clic en **SÍ** o **Actualizar**, el servicio web existente se detendrá y, en su lugar, se implementará el nuevo experimento predictivo.
 
 > [!NOTE]
-> Si ha realizado cambios de configuración en el servicio web original como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, deberá escribir esos valores de nuevo.
+> Si ha realizado cambios de configuración en el servicio web original, como, por ejemplo, escribir un nuevo nombre para mostrar o una descripción, necesitará escribir esos valores de nuevo.
 > 
 > 
 
@@ -174,6 +182,6 @@ Una opción para actualizar el servicio web es volver a entrenar el modelo media
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,26 +1,30 @@
 ---
-title: Entidades de mensajería del Bus de servicio con reenvío automático | Microsoft Docs
-description: Encadenamiento de una cola o suscripción a otra cola u otro tema.
-services: service-bus
+title: "Entidades de mensajería de Service Bus con reenvío automático | Microsoft Docs"
+description: "Encadenamiento de una cola o suscripción a otra cola u otro tema."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: f7060778-3421-402c-97c7-735dbf6a61e8
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: a20450442a8471534e4cd3faab9167d1db65d9b3
+
 
 ---
 # <a name="chaining-service-bus-entities-with-auto-forwarding"></a>Encadenamiento de entidades de Bus de servicio con reenvío automático
 La característica de *reenvío automático* permite encadenar una cola o suscripción a otra cola o tema que forme parte del mismo espacio de nombres. Cuando el reenvío automático está habilitado, Service Bus elimina automáticamente los mensajes que se colocan en la primera cola o suscripción (origen) y los coloca en la segunda cola o en el segundo tema (destino). Tenga en cuenta que todavía se puede enviar un mensaje a la entidad de destino directamente. Además, no es posible encadenar una subcola (como una cola de mensajes fallidos) a otra cola o tema.
 
 ## <a name="using-auto-forwarding"></a>Uso del reenvío automático
-Para habilitar el reenvío automático, establezca las propiedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] de los objetos [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] para el origen, como en el siguiente ejemplo.
+Para habilitar el reenvío automático, establezca las propiedades [QueueDescription.ForwardTo][QueueDescription.ForwardTo] o [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] de los objetos [QueueDescription][QueueDescription] o [SubscriptionDescription][SubscriptionDescription] para el origen, como en el ejemplo siguiente.
 
 ```
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -30,7 +34,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 
 La entidad de destino debe existir en el momento en que se creó la entidad de origen. Si la entidad de destino no existe, el Bus de servicio devuelve una excepción cuando se le pide que cree la entidad de origen.
 
-El reenvío automático se puede utilizar para escalar horizontalmente un tema individual. Service Bus limita el [número de suscripciones de un tema dado](../service-bus/service-bus-quotas.md) a 2000. Para alojar suscripciones adicionales, cree temas de segundo nivel. Tenga en cuenta que aunque no tenga la limitación de Service Bus sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
+El reenvío automático se puede utilizar para escalar horizontalmente un tema individual. Service Bus limita el [número de suscripciones de un tema dado](service-bus-quotas.md) a 2000. Para alojar suscripciones adicionales, cree temas de segundo nivel. Tenga en cuenta que aunque no tenga la limitación de Service Bus sobre el número de suscripciones, el hecho de agregar un segundo nivel de temas puede mejorar el rendimiento general del tema.
 
 ![Escenario de reenvío automático][0]
 
@@ -56,7 +60,7 @@ Para más información sobre el reenvío automático, consulte los siguientes te
 * [QueueDescription][QueueDescription]
 * [SubscriptionDescription][SubscriptionDescription]
 
-Para más información sobre las mejoras de rendimiento de Service Bus, consulte [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
+Para más información sobre las mejoras de rendimiento de Service Bus, vea [Entidades de mensajería con particiones][Entidades de mensajería con particiones].
 
 [QueueDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.forwardto.aspx
 [SubscriptionDescription.ForwardTo]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.subscriptiondescription.forwardto.aspx
@@ -67,6 +71,7 @@ Para más información sobre las mejoras de rendimiento de Service Bus, consulte
 [Entidades de mensajería con particiones]: service-bus-partitioning.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO3-->
 
 

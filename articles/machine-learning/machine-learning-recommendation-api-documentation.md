@@ -1,24 +1,29 @@
 ---
-title: Documentación de la API de recomendaciones de Aprendizaje automático | Microsoft Docs
-description: Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace.
+title: "Documentación de la API de recomendaciones de Machine Learning | Microsoft Docs"
+description: "Documentación de la API de recomendaciones de Aprendizaje automático de Azure para un motor de recomendaciones disponible en Microsoft Azure Marketplace."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: LuisCabrer
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 32c3ab2f-fdd7-48cc-b501-ad55c79b87dc
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/07/2016
 ms.author: LuisCa
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d9c7f3c11e534f20bae157430a00724a2c839e8e
+
 
 ---
-# Documentación de la API de recomendación de Aprendizaje automático de Azure
+# <a name="azure-machine-learning-recommendations-api-documentation"></a>Documentación de la API de recomendación de Aprendizaje automático de Azure
 > [!NOTE]
-> Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc. Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate).
+> Debe empezar a utilizar el servicio Cognitive Services de la API de Recomendaciones en lugar de esta versión. El servicio Cognitive Services de Recomendaciones va a sustituir a este servicio y todas las características nuevas se desarrollarán en esta nueva versión. Tiene nuevas funcionalidades como compatibilidad con procesamientos por lotes, un explorador de API más eficaz, una interfaz de API más limpia, una experiencia de facturación y suscripción más coherente, etc.
+> Obtenga más información sobre cómo [migrar al nuevo servicio Cognitive Services](http://aka.ms/recomigrate)
 > 
 > 
 
@@ -26,7 +31,7 @@ Este documento describe las API de recomendaciones de Aprendizaje automático de
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## 1\. Información general
+## <a name="1-general-overview"></a>1. Información general
 Este documento es una referencia de API. Debe empezar con el documento "Recomendación de Aprendizaje automático de Azure: Inicio rápido".
 
 La API de recomendaciones de Aprendizaje automático de Azure se puede dividir en los grupos lógicos siguientes:
@@ -44,7 +49,7 @@ La API de recomendaciones de Aprendizaje automático de Azure se puede dividir e
 * <ins>Datos de usuario</ins>las API que le permiten capturar información sobre los datos de uso del usuario.
 * <ins>Notificaciones</ins>: las API que le permiten recibir notificaciones acerca de los problemas relacionados con las operaciones de API. (Por ejemplo, notifica el uso de los datos a través de la adquisición de datos y la mayor parte del procesamiento de eventos está dando errores. Se generará una notificación de error).
 
-## 2\. Limitaciones
+## <a name="2-limitations"></a>2. Limitaciones
 * El número máximo de modelos por suscripción es 10.
 * El número máximo de compilaciones por modelo es 20.
 * El número máximo de elementos que puede contener un catálogo es 100 000.
@@ -52,33 +57,36 @@ La API de recomendaciones de Aprendizaje automático de Azure se puede dividir e
 * El tamaño máximo de datos que puede enviarse en POST (por ejemplo, importar datos de catálogo, importar datos de uso) es de 200 MB
 * El número máximo de elementos que se pueden solicitar al obtener recomendaciones es 150.
 
-## 3\. API: información general
-### 3\.1. Autenticación
+## <a name="3-apis---general-information"></a>3. API: información general
+### <a name="31-authentication"></a>3.1. Autenticación
 Siga las directrices de Microsoft Azure Marketplace con respecto a la autenticación. Marketplace admite métodos de autenticación Básica o OAuth.
 
-### 3\.2. URI de servicio
-El URI raíz de servicio para cada una de las API de recomendaciones de Aprendizaje automático de Azure se encuentra [aquí](https://api.datamarket.azure.com/amla/recommendations/v3/).
+### <a name="32-service-uri"></a>3.2. URI de servicio
+El URI raíz de servicio para cada una de las API de recomendaciones de Aprendizaje automático de Azure se encuentra [aquí](https://api.datamarket.azure.com/amla/recommendations/v3/)
 
-El URI de servicio completo se expresa mediante elementos de la especificación de OData.
+El URI de servicio completo se expresa mediante elementos de la especificación de OData.  
 
-### 3\.3. Versión de API
+### <a name="33-api-version"></a>3.3. Versión de API
 Cada llamada a la API tendrá al final el parámetro de consulta denominado apiVersion que debe estar establecido en 1.0
 
-### 3\.4. Los Id. distinguen mayúsculas de minúsculas
+### <a name="34-ids-are-case-sensitive"></a>3.4. Los Id. distinguen mayúsculas de minúsculas
 Los Id., devueltos por cualquiera de las API, distinguen mayúsculas de minúsculas y deben usarse como tales cuando se pasan como parámetros en las sucesivas llamadas a API. Por ejemplo, los Id. de modelo y de catálogo distinguen mayúsculas de minúsculas.
 
-## 4\. Calidad de recomendaciones y elementos fríos
-### 4\.1. Calidad de recomendación
-La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos (sin uso significativo), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data).
+## <a name="4-recommendations-quality-and-cold-items"></a>4. Calidad de recomendaciones y elementos fríos
+### <a name="41-recommendation-quality"></a>4.1. Calidad de recomendación
+La creación de un modelo de recomendación suele ser suficiente para permitir que el sistema proporcione recomendaciones. No obstante, la calidad de recomendación varía según el uso procesado y la cobertura del catálogo. Por ejemplo si tiene muchos elementos fríos (sin uso significativo), el sistema tendrá dificultades para proporcionar una recomendación para un elemento de este tipo o para usar un elemento de este tipo como recomendado. Para solucionar el problema con los elementos fríos, el sistema permite el uso de metadatos de los elementos para mejorar las recomendaciones. Estos metadatos se conocen como características. Características típicas son el autor de un libro o el actor de una película. Las características se proporcionan mediante el catálogo en forma de cadenas de clave y valor. Para obtener el formato completo del archivo de catálogo, consulte la [sección sobre la importación del catálogo](#81-import-catalog-data). 
 
-### 4\.2. Compilación de rango
-Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba. Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel`. Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement`. Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
+### <a name="42-rank-build"></a>4.2. Compilación de rango
+Las características pueden mejorar el modelo de recomendación, pero para ello se requiere el uso de características significativas. Con este fin se introdujo una nueva compilación, una compilación de rango. Esta compilación clasifica la utilidad de las características. Una característica significativa es una característica con una puntuación de rango de 2 para arriba.
+Una vez que conozca cuáles de las características son significativas, desencadene una compilación de recomendación con la lista (o sublista) de características significativas. Es posible utilizar estas características para la mejora de los elementos fríos y calientes. Para poder usarlas con los elementos calientes, se debe configurar el parámetro de compilación `UseFeatureInModel` . Para poder usarlas con los elementos fríos, se debe configurar el parámetro de compilación `AllowColdItemPlacement` .
+Nota: no es posible habilitar `AllowColdItemPlacement` sin habilitar `UseFeatureInModel`.
 
-### 4\.3. Razonamiento de recomendación
-El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Aprendizaje automático de Azure puede utilizar características para proporcionar explicaciones de recomendaciones (también conocido como razonamiento), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación. Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
+### <a name="43-recommendation-reasoning"></a>4.3. Razonamiento de recomendación
+El razonamiento de la recomendación es otro aspecto del uso de características. De hecho, el motor de recomendaciones de Azure Machine Learning puede utilizar funciones para proporcionar explicaciones de recomendación (también conocidas como razonamientos), lo que conduce a una mayor confianza en el elemento recomendado del consumidor de la recomendación.
+Para habilitar el razonamiento, los parámetros `AllowFeatureCorrelation` y `ReasoningFeatureList` deben configurarse antes de solicitar una compilación de recomendación.
 
-## 5\. Modelo básico
-### 5\.1. Crear modelo
+## <a name="5-model-basic"></a>5. Modelo básico
+### <a name="51-create-model"></a>5.1. Crear modelo
 Crea una solicitud "crear modelo".
 
 | Método HTTP | URI |
@@ -87,8 +95,8 @@ Crea una solicitud "crear modelo".
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| modelName |Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y caracteres de subrayado (\_).<br>Longitud máxima: 20 |
-| apiVersion |1\.0 |
+| modelName |Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácteres de subrayado (_).<br>Longitud máxima: 20 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -96,7 +104,8 @@ Crea una solicitud "crear modelo".
 
 código de estado HTTP: 200
 
-* `feed/entry/content/properties/id`: contiene el id. de modelo. **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
+* `feed/entry/content/properties/id`: contiene el id. de modelo.
+  **Nota**: el Id. de modelo distingue mayúsculas de minúsculas.
 
 OData XML
 
@@ -128,7 +137,7 @@ OData XML
       </entry>
     </feed>
 
-### 5\.2. Obtener modelo
+### <a name="52-get-model"></a>5.2. Obtener modelo
 Crea una solicitud "obtener modelo".
 
 | Método HTTP | URI |
@@ -137,8 +146,8 @@ Crea una solicitud "obtener modelo".
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| id |El identificador único del modelo (distingue mayúsculas de minúsculas) |
-| apiVersion |1\.0 |
+| id |El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -150,14 +159,14 @@ Los datos del modelo pueden encontrarse en los siguientes elementos:
 
 * `feed/entry/content/properties/Id`: id. único de modelo.
 * `feed/entry/content/properties/Name`: nombre del modelo.
-* `feed/entry/content/properties/Date`: fecha de creación del modelo.
-* `feed/entry/content/properties/Status`: estado del modelo. Uno de los siguientes:
+* `feed/entry/content/properties/Date` : fecha de creación del modelo.
+* `feed/entry/content/properties/Status` : estado del modelo. Uno de los siguientes:
   * Created: el modelo se crea y no contiene Catálogo ni Uso.
   * ReadyForBuild: el modelo se crea y contiene Catálogo y Uso.
 * `feed/entry/content/properties/HasActiveBuild`: indica si el modelo se creó correctamente.
 * `feed/entry/content/properties/BuildId` : id. de compilación activa del modelo.
 * `feed/entry/content/properties/Mpr`: clasificación percentil de promedio del modelo (MPR, consulte ModelInsight para obtener más información).
-* `feed/entry/content/properties/UserName`: nombre de usuario interno del modelo.
+* `feed/entry/content/properties/UserName` : nombre de usuario interno del modelo.
 
 OData XML
 
@@ -192,7 +201,7 @@ OData XML
       </entry>
     </feed>
 
-### 5\.3. Obtener todos los modelos
+### <a name="53-get-all-models"></a>5.3.    Obtener todos los modelos
 Recupera todos los modelos del usuario actual.
 
 | Método HTTP | URI |
@@ -201,7 +210,7 @@ Recupera todos los modelos del usuario actual.
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -211,18 +220,18 @@ código de estado HTTP: 200
 
 * `feed/entry/content/properties/Id`: id. único de modelo.
 * `feed/entry/content/properties/Name`: nombre del modelo.
-* `feed/entry/content/properties/Date`: fecha de creación del modelo.
-* `feed/entry/content/properties/Status`: estado del modelo. Uno de los siguientes:
+* `feed/entry/content/properties/Date` : fecha de creación del modelo.
+* `feed/entry/content/properties/Status` : estado del modelo. Uno de los siguientes:
   * Created: el modelo se crea y no contiene Catálogo ni Uso.
   * ReadyForBuild: el modelo se crea y contiene Catálogo y Uso.
 * `feed/entry/content/properties/HasActiveBuild`: indica si el modelo se creó correctamente.
 * `feed/entry/content/properties/BuildId` : id. de compilación activa del modelo.
 * `feed/entry/content/properties/Mpr`: MPR del modelo (consulte ModelInsight para obtener más información).
-* `feed/entry/content/properties/UserName`: nombre de usuario interno del modelo.
+* `feed/entry/content/properties/UserName` : nombre de usuario interno del modelo.
 * `feed/entry/content/properties/UsageFileNames`: lista de archivos de uso del modelo separados por coma.
 * `feed/entry/content/properties/CatalogId`: id. de catálogo del modelo.
 * `feed/entry/content/properties/Description`: descripción del modelo.
-* `feed/entry/content/properties/CatalogFileName`: nombre de archivo del catálogo de modelos.
+* `feed/entry/content/properties/CatalogFileName` : nombre de archivo del catálogo de modelos.
 
 OData XML
 
@@ -257,8 +266,10 @@ OData XML
         </entry>
     </feed>
 
-### 5\.4. Actualizar modelo
-Puede actualizar la descripción del modelo o el Id. de compilación activa.<br> <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un identificador de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan recomendaciones, si no se especifica el Id. de compilación que desea usar, se utilizará automáticamente el predeterminado.<br> Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
+### <a name="54-update-model"></a>5.4.    Actualizar modelo
+Puede actualizar la descripción del modelo o el identificador de compilación activa.<br>
+<ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un identificador de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan las recomendaciones, si no especifica el identificador de compilación que desea usar, se utilizará automáticamente el valor predeterminado.<br>
+Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -266,8 +277,8 @@ Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| id |El identificador único del modelo (distingue mayúsculas de minúsculas) |
-| apiVersion |1\.0 |
+| id |El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |`<ModelUpdateParams xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">`<br>`<Description>New Description</Description>`<br>`<ActiveBuildId>-1</ActiveBuildId>`<br>` </ModelUpdateParams>`<br><br>Tenga en cuenta que las etiquetas XML Description y ActiveBuildId son opcionales. Si no desea establecer Description o ActiveBuildId, elimine la etiqueta entera. |
 
@@ -275,7 +286,7 @@ Puede actualizar la descripción del modelo o el Id. de compilación activa.<br>
 
 código de estado HTTP: 200
 
-### 5\.5. Eliminar modelo
+### <a name="55-delete-model"></a>5.5.    Eliminar modelo
 Elimina un modelo existente por el Id.
 
 | Método HTTP | URI |
@@ -284,8 +295,8 @@ Elimina un modelo existente por el Id.
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| id |El identificador único del modelo (distingue mayúsculas de minúsculas) |
-| apiVersion |1\.0 |
+| id |El identificador único del modelo  (distingue mayúsculas de minúsculas) |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -315,8 +326,8 @@ OData XML
       </entry>
     </feed>
 
-## 6\. Modelo avanzado
-### 6\.1. Modelo de detalles de datos
+## <a name="6-model-advanced"></a>6. Modelo avanzado
+### <a name="61-model-data-insight"></a>6.1.    Modelo de detalles de datos
 Devuelve datos estadísticos sobre los datos de uso con los que se compiló este modelo.
 
 Disponible solo para la compilación de recomendación.
@@ -328,7 +339,7 @@ Disponible solo para la compilación de recomendación.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -338,8 +349,8 @@ código de estado HTTP: 200
 
 Los datos se devuelven como una colección de propiedades.
 
-* `feed/entry/id/content/properties/key`: contiene el nombre de propiedad.
-* `feed/entry/id/content/properties/value`: contiene el valor de propiedad.
+* `feed/entry/id/content/properties/key` : contiene el nombre de propiedad.
+* `feed/entry/id/content/properties/value` : contiene el valor de propiedad.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
@@ -552,20 +563,20 @@ OData XML
     </entry>
     </feed>
 
-### 6\.2. Perspectiva de modelo
+### <a name="62-model-insight"></a>6.2.    Perspectiva de modelo
 Devuelve información del modelo sobre la compilación activa o (si se indica) sobre una compilación concreta.
 
 Disponible solo para la compilación de recomendación.
 
 | Método HTTP | URI |
 |:--- |:--- |
-| GET |Con Id. de compilación activa:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Con Id. de compilación específica:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27` |
+| GET |Con identificador de compilación activa:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/GetModelInsight?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Con identificador de compilación específica:<br>`<rootURI>/GetModelInsight?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27` |
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | buildId |Opcional: número que identifica una compilación correcta. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -633,17 +644,17 @@ OData XML
     </entry>
     </feed>
 
-### 6\.3. Obtener el ejemplo de modelo
+### <a name="63-get-model-sample"></a>6.3.    Obtener el ejemplo de modelo
 Obtiene un ejemplo del modelo de recomendación.
 
 | Método HTTP | URI |
 |:--- |:--- |
-| GET |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Con Id. de compilación específica:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27` |
+| GET |`<rootURI>/GetModelSample?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27`<br><br>Con identificador de compilación específica:<br>`<rootURI>/GetModelSample?modelId=%27<model_id>%27&buildId=%27<build_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelSample?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&buildId=%271500068%27&apiVersion=%271.0%27` |
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -656,139 +667,19 @@ OData XML
 Se devuelve una respuesta en formato de texto sin formato:
 
 <pre>
-Nivel 1
----------------
-655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel
-    655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel Rating: 0.5215
-    3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War Rating: 0.5151
-    07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5148
-    6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica Rating: 0.5146
-    e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.514
-56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai
-    56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai Rating: 0.5218
-    53156702-cc0c-443d-b718-6fb74b2491d3, Son of \ Rating: 0.5212
-    fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188
-    8f5fe006-79e4-4679-816b-950989d1db4b, A Place I've Never Been (Contemporary American Fiction) Rating: 0.5156
-    d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness: A Novel Rating: 0.5156
-50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path
-    cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252
-    973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244
-    e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227
-    6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister: A Novel Rating: 0.5222
-5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club)
-    5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537
-    5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277
-    bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275
-    31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day: A Tale of Blood and Sweatsocks Rating: 0.5252
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5238
-68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived
-    68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379
-    6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345
-    cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325
-    382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309
-    6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285
-37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships
-    37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars, Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397
-    f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207
-    ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195
-    0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194
-    883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184
-ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball
-    d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416
-    ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403
-    49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394
-    cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379
-    8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377
-12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles
-    07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417
-    e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416
-    1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371
-    56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366
-    b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366
-df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish
-    56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417
-    0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416
-    df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408
-    400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383
-    f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358
-de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology
-    de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422
-    b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385
-    34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379
-    306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376
-    e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
+Level 1 --------------- 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel 655fc955-a5a3-4a26-9723-3090859cb27b, Prey: A Novel Rating: 0.5215 3f471802-f84f-44a0-99c8-6d2e7418eec1, Black Hawk Down: A Story of Modern War Rating: 0.5151 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5148 6afc18e4-8c2a-43d1-9021-57543d6b11d8, Imajica Rating: 0.5146 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.514 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai 56b61441-0eed-46cc-a8f6-112775b81892, Life and Death in Shanghai Rating: 0.5218 53156702-cc0c-443d-b718-6fb74b2491d3, Son of \ Rating: 0.5212 fb8cf7a6-8719-46ee-97d4-92f931d77a3a, Smoke and Mirrors: Short Fictions and Illusions Rating: 0.5188 8f5fe006-79e4-4679-816b-950989d1db4b, A Place I've Never Been (Contemporary American Fiction) Rating: 0.5156 d8db4583-cc0f-49ce-bc95-b7fa3491623f, Happiness: A Novel Rating: 0.5156 50471eec-9aeb-4900-84d7-21567ab18546, If the Buddha Dated: A Handbook for Finding Love on a Spiritual Path cfe922a1-7ca0-4f8d-ad9d-b7cc87bfe0ef, Divine Secrets of the Ya-Ya Sisterhood: A Novel Rating: 0.5266 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5252 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5244 e2cbf7ad-0636-4117-8b30-298da6df7077, Animal Dreams Rating: 0.5227 6c818fd3-5a09-417d-9ab4-7ffe090f0fef, Confessions of an Ugly Stepsister: A Novel Rating: 0.5222 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) 5e97148f-defb-4d74-af2d-80f4763bf531, The Deep End of the Ocean (Oprah's Book Club) Rating: 0.537 5dcbac37-2946-4f2a-a0b3-bbe710f9409a, Up Island: A Novel Rating: 0.5277 bc5b69db-733b-4346-adde-3927544258f7, Downtown Rating: 0.5275 31fe5c63-3e5a-48d0-802b-d3b0f989a634, Have a Nice Day: A Tale of Blood and Sweatsocks Rating: 0.5252 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5238 68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived 68f97068-ae1a-4163-9e94-396b800b743d, Modoc: The True Story of the Greatest Elephant That Ever Lived Rating: 0.5379 6724862e-e4e7-4022-9614-1468d8b902ff, Little House on the Prairie Rating: 0.5345 cdedb837-1620-496d-94c4-6ccfed888320, Little House in the Big Woods Rating: 0.5325 382164ba-406b-4187-b726-d7a54b9d790d, The Tao of Pooh Rating: 0.5309 6a068d6a-bb74-4ba3-b3f2-a956c4f9d1b5, On the Banks of Plum Creek Rating: 0.5285 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships 37ef8e74-e348-44e5-aabc-1d7f9efcb25b, Men Are from Mars, Women Are from Venus: A Practical Guide for Improving Communication and Getting What You Want in Your Relationships Rating: 0.5397 f2be16d4-5faf-4d32-ab83-7ba74d29261e, Politically Correct Bedtime Stories: Modern Tales for Our Life and Times Rating: 0.5207 ef732c5c-334b-4d6b-ab82-7255eb7286d0, Honor Among Thieves Rating: 0.5195 0b209b8c-7cdd-47fd-b940-05c7ff7c60fc, The Giving Tree Rating: 0.5194 883b360f-8b42-407f-b977-2f44ad840877, Scary Stories to Tell in the Dark: Collected from American Folklore (Scary Stories) Rating: 0.5184 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball d008dae9-c73a-40a1-9a9b-96d5cf546f36, The Gulag Archipelago 1918-1956: An Experiment in Literary Investigation I-II Rating: 0.5416 ff51b67e-fa8e-4c5e-8f4d-02a928de735d, Men at Work: The Craft of Baseball Rating: 0.5403 49dec30e-0adb-411a-b186-48eaabf6f8bc, Fatherland Rating: 0.5394 cc7964fd-d30f-478e-a425-93ddbdf094ed, Magic the Gathering: Arena Vol. 1 Rating: 0.5379 8a1e9f36-97af-4614-bed9-24e3940a05f3, More Sniglets: Any Word That Doesn't Appear in the Dictionary but Should Rating: 0.5377 12a6d988-be21-4a09-8143-9d5f4261ba16, A Dream of Eagles 07b10e28-9e7c-4032-90b7-10acab7f2460, Cryptonomicon Rating: 0.5417 e4cc5e69-3567-43ab-b00f-f0d8d0506870, Hit List Rating: 0.5416 1f1a34c4-9781-49f5-a3cc-acec3ae3c71d, The Family Rating: 0.5371 56daeffe-7d48-43cd-8ef8-7dffd0c103d3, Kilo Class Rating: 0.5366 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5366 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish 56d33036-dfda-46b9-8e2a-76cb03921bb0, The X-Files: Ground Zero Rating: 0.5417 0780cde8-6529-4e1d-b6c6-082c1b80e596, Twelve Red Herrings Rating: 0.5416 df87525b-e435-4bd6-8701-4e60ad344e28, Finding Fish Rating: 0.5408 400fe331-2c35-490c-adbc-b28b4b73d56c, Shall We Tell the President? Rating: 0.5383 f86ad7d0-5c03-42b3-aebf-13d44aec8b30, Shades of Grace Rating: 0.5358 de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology de1f62a4-89e6-44d2-aaee-992a4bf093f1, The Map That Changed the World: William Smith and the Birth of Modern Geology Rating: 0.5422 b303538f-e2c6-4a2c-b425-8d21e684fc3e, My Uncle Oswald Rating: 0.5385 34b84627-48af-4a4c-96c4-b26fb3863f56, Midnight In the Garden of Good and Evil Rating: 0.5379 306cbaa7-b1a8-4142-9d55-e11b5018a7a8, The Street Lawyer Rating: 0.5376 e53b4baa-8c09-45c4-95c0-b6a26b98770b, Miss Smillas Feeling for Snow Rating: 0.5367
 
-Nivel 2
+<a name="level-2"></a>Nivel 2
 ---------------
-352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony)
-    352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425
-    74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387
-    9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372
-    e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353
-    b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332
-c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days
-    0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5433
-    c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543
-    a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327
-    6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307
-    798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301
-73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics)
-    cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434
-    5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406
-    73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403
-    d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539
-    b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367
-271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings
-    271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445
-    2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329
-    d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316
-    c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305
-    8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289
-9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God
-    9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389
-    65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355
-    973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344
-5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback))
-    5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446
-    57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332
-    efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329
-    1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309
-    24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303
-4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl
-    4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449
-    cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329
-    19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267
-    15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235
-98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories
-    f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451
-    98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442
-    0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421
-    15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409
-    329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54
-5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover))
-    5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372
-    604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341
-    8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334
-    da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319
-d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven
-    d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491
-    ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401
-    c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393
-    8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382
-    973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
+352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) 352aaea1-6b12-454d-a3d5-46379d9e4eb2, The Sinister Pig (Hillerman Tony) Rating: 0.5425 74c49398-bc10-4af5-a658-a996a1201254, Children of the Storm (Peters Elizabeth) Rating: 0.5387 9ba80080-196e-43fd-8025-391d963f77e7, The Floating Girl Rating: 0.5372 e68f81d5-7745-4cc7-b943-fedb8fcc2ced, Killer Smile (Scottoline Lisa) Rating: 0.5353 b2fe511e-5cb9-4a56-b823-2801e63e6a96, Legal Tender Rating: 0.5332 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days 0adf981a-b65b-4c11-b36b-78aca2f948a2, The Perfect Storm: A True Story of Men Against the Sea Rating: 0.5433 c65c3995-abf7-4c7b-bb3c-8eb5aa9be7a5, Lake Wobegon days Rating: 0.543 a00ae6ad-4a7f-4211-9836-75ce8834eb11, Sniglets (Snig'lit: Any Word That Doesn't Appear in the Dictionary But Should) Rating: 0.5327 6f6e192e-0d64-49ca-9b63-f09413ea1ee6, Politically Correct Holiday Stories: For an Enlightened Yuletide Season Rating: 0.5307 798051a8-147d-4d46-b0dc-e836325029e6, AGE OF INNOCENCE (MOVIE TIE-IN) Rating: 0.5301 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) cba8163f-6536-436b-8130-47b4a43c827f, Trust No One (The Official Guide to the X-Files Vol. 2) Rating: 0.5434 5708e4cb-2492-49c0-94a8-cc413eec5d89, Small Gods (Discworld Novels (Paperback)) Rating: 0.5406 73f3e25a-e996-4162-9ed8-ff3d34075650, O Pioneers! (Penguin Twentieth-Century Classics) Rating: 0.5403 d885b0bd-ae4b-452d-bdf2-faa90197dbc9, The Color of Magic Rating: 0.539 b133a9c4-4784-4db3-b100-d0d6dffb94d2, The Truth Is Out There (The Official Guide to the X-Files Vol. 1) Rating: 0.5367 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings 271700a5-854a-4d5a-8409-6b57a5ee4de4, Fluke: Or I Know Why the Winged Whale Sings Rating: 0.5445 2de1c354-90ff-47c5-a0db-1bad7d88ef94, The Salaryman's Wife (Children of Violence Series) Rating: 0.5329 d279416e-19c0-43f8-9ec9-a585947879ca, Zen Attitude Rating: 0.5316 c8f854d7-3de3-4b23-8217-f4f851670fd4, Revenge of the Cootie Girls: A Robin Hudson Mystery (Robin Hudson Mysteries (Paperback)) Rating: 0.5305 8ef4751c-7074-409e-a3ac-d49b222fc864, Where the Wild Things Are Rating: 0.5289 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God 9ad1b620-0a7b-4543-8673-66d4c3bcb2f1, Their Eyes Were Watching God Rating: 0.5446 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5389 65ecbdd1-131c-40c3-a3d6-d86ca281377a, The God of Small Things Rating: 0.5387 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5355 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5344 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) 5f17d90a-2604-4fe8-8977-1a280b9098b1, One for the Money (Stephanie Plum Novels (Paperback)) Rating: 0.5446 57169b2b-9a8a-486b-9aac-1ed98ce57168, Final Appeal Rating: 0.5332 efcb1bc4-7278-4a8f-b491-befde02070d6, Moment of Truth Rating: 0.5329 1efa91a2-993b-4c43-9f5c-3454fc12612d, Burn Factor Rating: 0.5309 24c59962-458a-4ec8-b95d-d694e861919c, At Home in Mitford (The Mitford Years) Rating: 0.5303 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl 4fd48c46-1a20-4c57-bc7f-a02ef123dc52, As Nature Made Him: The Boy Who Was Raised As a Girl Rating: 0.5449 cd5f2c03-20cb-43be-a1fb-3b4233e63222, Pigs in Heaven Rating: 0.5329 19985fdb-d07a-4a25-ae4a-97b9cb61e5d1, Love in the Time of Cholera (Penguin Great Books of the 20th Century) Rating: 0.5267 15689d09-c711-4844-84d8-130a90237b26, Bel Canto Rating: 0.5245 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5235 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories f874b5a3-5d40-4436-94ff-0fa1c090ddf5, The Sun Also Rises (A Scribner classic) Rating: 0.5451 98df28ec-41e7-4fca-b77f-8b0d3109085d, Star Trek Memories Rating: 0.5442 0ce0014a-9a48-4013-a08a-7f2c11877930, H.M.S. Unseen Rating: 0.5421 15316ca6-1e38-425f-893d-691944a47000, More Scary Stories To Tell In The Dark Rating: 0.5409 329d5682-3dc3-4206-8aa2-eef4b1032258, Letters from the Earth Rating: 0.54 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) 5b9445d5-c072-419c-8d49-6f669bb1b0a9, Daughter of Fortune: A Novel (Oprah's Book Club (Hardcover)) Rating: 0.5462 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5372 604eb3bd-6026-4f51-bffd-9fb54f180400, Family Pictures: A Novel Rating: 0.5341 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5334 da45c4d5-aba1-413b-a9bd-50df98b1e1d2, The Bean Trees Rating: 0.5319 d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven d5358189-d70f-4e35-8add-34b83b4942b3, Pigs in Heaven Rating: 0.5491 ff91a483-1ce5-4b37-a6fd-5ffcf21f8745, The Poisonwood Bible: A Novel Rating: 0.5401 c78743bf-7947-4a0c-8db7-8a3bfe69ba70, The Stone Diaries Rating: 0.5393 8d06d01d-31cd-4678-b6b1-140a67987ce9, Songs in Ordinary Time (Oprah's Book Club (Paperback)) Rating: 0.5382 973f8cbd-0846-4f6b-9d28-4dd0d7dc3a19, Pigs in Heaven Rating: 0.5367
 
 </pre>
 
 
-## 7\. Reglas de negocio de modelo
+## <a name="7-model-business-rules"></a>7. Reglas de negocio de modelo
 Estos son los tipos de reglas admitidas:
 
-* <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no quiera que se devuelvan en los resultados de la recomendación.
+* <strong>BlockList</strong>: le permite proporcionar una lista de elementos que no quiera que se devuelvan en los resultados de la recomendación. 
 * <strong>FeatureBlockList</strong>: le permite bloquear los elementos en función de los valores de sus características.
 
 *No envíe más de 1000 elementos en una sola regla de lista de bloqueo. Si lo hace, es posible que se agote el tiempo de espera de la llamada. Si necesita bloquear más de 1000 elementos, puede hacer varias llamadas de listas de bloqueo.*
@@ -798,7 +689,7 @@ Estos son los tipos de reglas admitidas:
 * <strong>FeatureWhiteList</strong>: le permite recomendar solo los elementos que tienen valores de característica específicos.
 * <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
-### 7\.1. Obtener reglas de modelo
+### <a name="71-get-model-rules"></a>7.1.    Obtener reglas de modelo
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetModelRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
@@ -806,7 +697,7 @@ Estos son los tipos de reglas admitidas:
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -814,9 +705,9 @@ Estos son los tipos de reglas admitidas:
 
 código de estado HTTP: 200
 
-* `feed/entry/content/properties/Id`: el identificador único de esta regla.
-* `feed/entry/content/properties/Type`: el tipo de la regla.
-* `feed/entry/content/properties/Parameter`: el parámetro de regla.
+* `feed/entry/content/properties/Id` : el identificador único de esta regla.
+* `feed/entry/content/properties/Type` : el tipo de la regla.
+* `feed/entry/content/properties/Parameter` : el parámetro de regla.
 
 OData XML
 
@@ -855,7 +746,7 @@ OData XML
     </entry>
     </feed>
 
-### 7\.2. Agregar regla
+### <a name="72-add-rule"></a>7.2.    Agregar regla
 | Método HTTP | URI |
 |:--- |:--- |
 | POST |`<rootURI>/AddRule?apiVersion=%271.0%27` |
@@ -863,22 +754,20 @@ OData XML
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud | |
 
-<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el identificador externo del elemento (el mismo identificador que usó en el archivo de catálogo)</ins><br> 
-<ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Para agregar una regla FeatureBlockList:</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> 
-Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br> 
-<ins>Para agregar una regla WhiteList:</ins><br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins> 
-<ins>Para agregar una regla FeatureWhiteList:</ins><br> 
-<br> 
-`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> 
-Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
+<ins>Cada vez que se proporcionen identificadores de elemento para reglas de negocio, asegúrese de usar el Id. externo del elemento (el mismo Id. que usó en el archivo de catálogo)</ins><br>
+<ins>Para agregar una regla BlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>BlockList</Type><Value>{"ItemsToExclude":["2406E770-769C-4189-89DE-1C9283F93A96","3906E110-769C-4189-89DE-1C9283F98888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para agregar una regla FeatureBlockList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureBlockList</Type><Value>{"Name":"Movie_category","Values":["Adult","Drama"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla Upsale:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>Upsale</Type><Value>{"ItemsToUpsale":["2406E770-769C-4189-89DE-1C9283F93A96"],"NumberOfItemsToUpsale":5}</Value></ApiFilter>`<br><br>
+<ins>Para agregar una WhiteList:</ins><br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>WhiteList</Type><Value>{"ItemsToInclude":["2406E770-769C-4189-89DE-1C9283F93A96","1116E770-769C-4189-89DE-1C9283F88888"]}</Value></ApiFilter>`<br><br><ins>
+<ins>Para agregar una FeatureWhiteList:</ins><br>
+<br>
+`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>FeatureWhiteList</Type><Value>{"Name":"Movie_rating","Values":["PG13"]}</Value></ApiFilter>`<br><br><ins> Para agregar una regla PerSeedBlockList:</ins><br>`<ApiFilter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><ModelId>24024f7e-b45c-419e-bfa2-dfd947e0d253</ModelId><Type>PerSeedBlockList</Type><Value>{"SeedItems":["9949"],"ItemsToExclude":["9862","8158","8244"]}</Value></ApiFilter>`|
 
 **Respuesta**:
 
@@ -886,9 +775,9 @@ código de estado HTTP: 200
 
 La API devuelve la regla recién creada con sus detalles. La propiedad de las reglas se puede recuperar por los siguientes medios:
 
-* `feed/entry/content/properties/Id`: el identificador único de esta regla.
-* `feed/entry/content/properties/Type`: el tipo de regla, BlockList o Upsale.
-* `feed/entry/content/properties/Parameter`: el parámetro de regla.
+* `feed/entry/content/properties/Id` : el identificador único de esta regla.
+* `feed/entry/content/properties/Type` : el tipo de regla, BlockList o Upsale.
+* `feed/entry/content/properties/Parameter` : el parámetro de regla.
 
 OData XML
 
@@ -914,7 +803,7 @@ OData XML
     </entry>
     </feed>
 
-### 7\.3. Eliminar regla
+### <a name="73-delete-rule"></a>7.3.    Eliminar regla
 | Método HTTP | URI |
 |:--- |:--- |
 | DELETE |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27` |
@@ -923,7 +812,7 @@ OData XML
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | filterId |Identificador único del filtro |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -931,7 +820,7 @@ OData XML
 
 código de estado HTTP: 200
 
-### 7\.4. Eliminar todas las reglas
+### <a name="74-delete-all-rules"></a>7.4.    Eliminar todas las reglas
 | Método HTTP | URI |
 |:--- |:--- |
 | DELETE |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27` |
@@ -939,7 +828,7 @@ código de estado HTTP: 200
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -947,8 +836,8 @@ código de estado HTTP: 200
 
 código de estado HTTP: 200
 
-## 8\. Catálogo
-### 8\.1. Importar datos de catálogo
+## <a name="8-catalog"></a>8. Catálogo
+### <a name="81-import-catalog-data"></a>8.1.    Importar datos de catálogo
 Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, solo insertaremos los nuevos elementos de catálogo. Los elementos existentes permanecerán con los valores originales. Los datos del catálogo no se pueden actualizar con este método.
 
 Los datos del catálogo deben seguir el siguiente formato:
@@ -958,15 +847,15 @@ Los datos del catálogo deben seguir el siguiente formato:
 
 Nota: el tamaño máximo de archivo es de 200 MB.
 
-**Detalles de formato**
+** Detalles de formato **
 
 | Nombre | Obligatorio | Tipo | Description |
 |:--- |:--- |:--- |:--- |
-| Id. de elemento |Sí |[A-z], [a-z], [0-9], [\_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 |Identificador único de un elemento. |
-| Nombre del elemento |Sí |Cualquier carácter alfanumérico<br> Longitud máxima: 255 |Nombre del elemento. |
-| Categoría del elemento |Sí |Cualquier carácter alfanumérico <br> Longitud máxima: 255 |La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
-| Description |No, a menos que haya características (pero puede estar vacía) |Cualquier carácter alfanumérico <br> Longitud máxima: 4000 |Descripción de este elemento. |
-| Lista de características |No |Cualquier carácter alfanumérico <br> Longitud máxima: 4000; número máximo de características: 20 |Lista de nombres de característica = valores de característica separados por coma que se pueden usar para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics). |
+| Id. de elemento |Sí |[A-z], [a-z], [0-9], [_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br> Longitud máxima: 50 |Identificador único de un elemento. |
+| Nombre del elemento |Sí |Cualquier carácter alfanumérico<br>  Longitud máxima: 255 |Nombre del elemento. |
+| Categoría del elemento |Sí |Cualquier carácter alfanumérico <br>  Longitud máxima: 255 |La categoría a la que pertenece este elemento (por ejemplo, Libros de cocina, Drama...); puede estar vacía. |
+| Description |No, a menos que haya características (pero puede estar vacía) |Cualquier carácter alfanumérico <br>  Longitud máxima: 4000 |Descripción de este elemento. |
+| Lista de características |No |Cualquier carácter alfanumérico <br>  Longitud máxima: 4000; número máximo de características: 20 |Lista de nombres de característica = valores de característica separados por coma que se pueden usar para mejorar la recomendación del modelo; consulte la sección [Temas avanzados](#2-advanced-topics) . |
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -976,10 +865,10 @@ Nota: el tamaño máximo de archivo es de 200 MB.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| filename |Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
-| apiVersion |1\.0 |
+| filename |Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácteres de subrayado (_).<br>Longitud máxima: 50 |
+| apiVersion |1.0 |
 |  | |
-| Cuerpo de la solicitud |Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
+| Cuerpo de la solicitud |Ejemplo (con características):<br/>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book,the book  description,author=Richard Wright,publisher=Harper Flamingo Canada,year=2001<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book,,author=Nick Bantock,publisher=Harpercollins,year=1997<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book,,author=Timothy Findley, publisher=HarperFlamingo Canada, year=2001<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book,the book description,author=Magnus Mills, publisher=Arcade Publishing, year=1998</pre> |
 
 **Respuesta**:
 
@@ -987,8 +876,8 @@ código de estado HTTP: 200
 
 La API devuelve un informe de la importación.
 
-* `feed\entry\content\properties\LineCount`: número de líneas aceptadas.
-* `feed\entry\content\properties\ErrorCount`: número de líneas que no se insertaron debido a un error.
+* `feed\entry\content\properties\LineCount` : número de líneas aceptadas.
+* `feed\entry\content\properties\ErrorCount` : número de líneas que no se insertaron debido a un error.
 
 OData XML
 
@@ -1013,8 +902,9 @@ OData XML
     </entry>
     </feed>
 
-### 8\.2. Obtener catálogo
-Recupera todos los elementos del catálogo. El catálogo se recuperará de página en página. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
+### <a name="82-get-catalog"></a>8.2.    Obtener catálogo
+Recupera todos los elementos del catálogo.
+El catálogo se recuperará de página en página. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -1023,7 +913,7 @@ Recupera todos los elementos del catálogo. El catálogo se recuperará de pági
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1033,12 +923,12 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por cada elemento de catálogo. Cada entrada tiene los siguientes datos:
 
-* `feed/entry/content/properties/ExternalId`: identificador externo de elemento de catálogo, proporcionado por el cliente.
-* `feed/entry/content/properties/InternalId`: identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
-* `feed/entry/content/properties/Name`: nombre de elemento de catálogo.
-* `feed/entry/content/properties/Category`: categoría de elemento de catálogo.
-* `feed/entry/content/properties/Description`: descripción de elemento de catálogo.
-* `feed/entry/content/properties/Metadata`: metadatos de elemento de catálogo.
+* `feed/entry/content/properties/ExternalId` : identificador externo de elemento de catálogo, proporcionado por el cliente.
+* `feed/entry/content/properties/InternalId` : identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
+* `feed/entry/content/properties/Name` : nombre de elemento de catálogo.
+* `feed/entry/content/properties/Category` : categoría de elemento de catálogo.
+* `feed/entry/content/properties/Description` : descripción de elemento de catálogo.
+* `feed/entry/content/properties/Metadata` : metadatos de elemento de catálogo.
 
 OData XML
 
@@ -1115,7 +1005,7 @@ OData XML
     </entry>
     </feed>
 
-### 8\.3. Obtener elementos de catálogo por token
+### <a name="83-get-catalog-items-by-token"></a>8.3.    Obtener elementos de catálogo por token
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetCatalogItemsByToken?modelId=%27<modelId>%27&token=%27<token>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`GetCatalogItemsByToken?modelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&token=%27Cla%27&apiVersion=%271.0%27` |
@@ -1124,7 +1014,7 @@ OData XML
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | token |Token del nombre de elemento de catálogo. Debe contener al menos 3 caracteres. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1134,12 +1024,12 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por cada elemento de catálogo. Cada entrada tiene los siguientes datos:
 
-* `feed/entry/content/properties/InternalId`: identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
-* `feed/entry/content/properties/Name`: nombre de elemento de catálogo.
+* `feed/entry/content/properties/InternalId` : identificador interno de elemento de catálogo, que ha generado las Recomendaciones de Aprendizaje automático de Azure.
+* `feed/entry/content/properties/Name` : nombre de elemento de catálogo.
 * `feed/entry/content/properties/Rating`: (para un uso futuro)
 * `feed/entry/content/properties/Reasoning`: (para un uso futuro)
 * `feed/entry/content/properties/Metadata`: (para un uso futuro)
-* `feed/entry/content/properties/FormattedRating`: (para un uso futuro)
+* `feed/entry/content/properties/FormattedRating` : (para un uso futuro)
 
 OData XML
 
@@ -1168,9 +1058,9 @@ OData XML
         </entry>
     </feed>
 
-## 9\. Datos de uso
-### 9\.1. Importar datos de uso
-#### 9\.1.1. Carga de archivos
+## <a name="9-usage-data"></a>9. Datos de uso
+### <a name="91-import-usage-data"></a>9.1.    Importar datos de uso
+#### <a name="911-uploading-file"></a>9.1.1. Carga de archivos
 En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede llamar a esta API varias veces con datos de uso. Todos los datos de uso se guardarán para todas las llamadas.
 
 | Método HTTP | URI |
@@ -1180,18 +1070,18 @@ En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| filename |Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácter de subrayado (\_).<br>Longitud máxima: 50 |
-| apiVersion |1\.0 |
+| filename |Identificador textual del catálogo.<br>Solo se permiten letras (A-Z, a-z), números (0-9), guiones (-) y carácteres de subrayado (_).<br>Longitud máxima: 50 |
+| apiVersion |1.0 |
 |  | |
-| Cuerpo de la solicitud |Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Descripción</th></tr><tr><td>Id. de usuario</td><td></td><td>[A-z], [a-z], [0-9], [\_] &#40;Underscore&#41;, [-] &#40;Dash&#41;<br> Longitud máx.: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td></td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guión&#41;<br> Longitud máx.: 50</td><td>Identificador único de un elemento.</td></tr><tr><td></td><td>No</td><td>Fecha en formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)</td><td>.</td></tr><tr><td>Evento</td><td>No; también se debe indicar la fecha cuando se proporciona</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>• AddShopCart<br>• RemoveShopCart<br>• Purchase</td><td></td></tr></table><br>Tamaño máximo de archivo: 200 MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
+| Cuerpo de la solicitud |Datos de uso. Formato:<br>`<User Id>,<Item Id>[,<Time>,<Event>]`<br><br><table><tr><th>Nombre</th><th>Obligatorio</th><th>Tipo</th><th>Description</th></tr><tr><td>Id. de usuario</td><td>Sí</td><td>[A-z], [a-z], [0-9], [_] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br>  Longitud máxima: 255 </td><td>Identificador único de un usuario.</td></tr><tr><td>Id. de elemento</td><td>Sí</td><td>[A-z], [a-z], [0-9], [&#95;] &#40;Carácter de subrayado&#41;, [-] &#40;Guion&#41;<br>  Longitud máxima: 50</td><td>Identificador único de un elemento.</td></tr><tr><td>Hora</td><td>No</td><td>La fecha en este formato: AAAA/MM/DDTHH:MM:SS (por ejemplo, 2013/06/20T10:00:00)</td><td>Hora de los datos.</td></tr><tr><td>Evento</td><td>No, si se suministra también se debe colocar la fecha</td><td>Uno de los siguientes:<br>• Click<br>• RecommendationClick<br>•    AddShopCart<br>• RemoveShopCart<br>• compra</td><td></td></tr></table><br>Tamaño de archivo máximo: 200 MB<br><br>Ejemplo:<br><pre>149452,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>6360,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>50321,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>71285,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>224450,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>236645,1b3d95e2-84e4-414c-bb38-be9cf461c347<br>107951,1b3d95e2-84e4-414c-bb38-be9cf461c347</pre> |
 
 **Respuesta**:
 
 código de estado HTTP: 200
 
-* `Feed\entry\content\properties\LineCount`: número de líneas aceptadas.
-* `Feed\entry\content\properties\ErrorCount`: número de líneas que no se insertaron debido a un error.
-* `Feed\entry\content\properties\FileId`: identificador de archivo.
+* `Feed\entry\content\properties\LineCount` : número de líneas aceptadas.
+* `Feed\entry\content\properties\ErrorCount` : número de líneas que no se insertaron debido a un error.
+* `Feed\entry\content\properties\FileId` : identificador de archivo.
 
 OData XML
 
@@ -1218,7 +1108,7 @@ OData XML
     </feed>
 
 
-#### 9\.1.2. Uso de la adquisición de datos
+#### <a name="912-using-data-acquisition"></a>9.1.2. Uso de la adquisición de datos
 En esta sección se muestra cómo enviar eventos en tiempo real a las recomendaciones de Aprendizaje automático de Azure, normalmente desde su sitio web.
 
 | Método HTTP | URI |
@@ -1228,7 +1118,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 | Request body |Entrada de datos de eventos para cada evento que va a enviar. Debe enviar para la misma sesión de usuario o explorador el mismo identificador en el campo SessionId. (Vea el ejemplo del cuerpo de evento aparece a continuación). |
 
 * Ejemplo para evento 'Click':
@@ -1322,8 +1212,9 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 **Respuesta**: código de estado HTTP: 200
 
-### 9\.2. Mostrar archivos de uso de modelo
-Recupera los metadatos de todos los archivos de uso de modelo. Los archivos de uso se recuperarán de página en página. Cada página contiene 100 elementos. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
+### <a name="92-list-model-usage-files"></a>9.2.    Mostrar archivos de uso de modelo
+Recupera los metadatos de todos los archivos de uso de modelo.
+Los archivos de uso se recuperarán de página en página. Cada página contiene 100 elementos. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -1332,7 +1223,7 @@ Recupera los metadatos de todos los archivos de uso de modelo. Los archivos de u
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | forModelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1344,8 +1235,8 @@ La respuesta incluye una entrada por archivo de uso. Cada entrada tiene los sigu
 
 * `feed\entry\content\properties\Id`: id. de archivo de uso.
 * `feed\entry\content\properties\Length`: longitud del archivo uso en MB.
-* `feed\entry\content\properties\DateModified`: fecha en que se creó el archivo de uso.
-* `feed\entry\content\properties\UseInModel`: si el archivo de uso se emplea en el modelo.
+* `feed\entry\content\properties\DateModified` : fecha en que se creó el archivo de uso.
+* `feed\entry\content\properties\UseInModel` : si el archivo de uso se emplea en el modelo.
 
 OData XML
 
@@ -1386,7 +1277,7 @@ OData XML
     </entry>
 </feed>
 
-### 9\.3. Obtener estadísticas de uso
+### <a name="93-get-usage-statistics"></a>9.3.    Obtener estadísticas de uso
 Obtiene estadísticas de uso.
 
 | Método HTTP | URI |
@@ -1399,7 +1290,7 @@ Obtiene estadísticas de uso.
 | startDate |Fecha de inicio. Formato: aaaa/MM/ddTHH:mm:ss |
 | endDate |Fecha de fin. Formato: aaaa/MM/ddTHH:mm:ss |
 | eventTypes |Cadena de tipos de eventos separados por coma o null para obtener todos los eventos. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1409,8 +1300,8 @@ código de estado HTTP: 200
 
 Una colección de elementos de clave y valor. Cada uno contiene la suma de eventos para un tipo de evento concreto, agrupados por hora.
 
-* `feed\entry[i]\content\properties\Key`: contiene el tiempo (agrupado por hora) y el tipo de evento.
-* `feed\entry[i]\content\properties\Value`: recuento total de eventos.
+* `feed\entry[i]\content\properties\Key` : contiene el tiempo (agrupado por hora) y el tipo de evento.
+* `feed\entry[i]\content\properties\Value` : recuento total de eventos.
 
 OData XML
 
@@ -1471,7 +1362,7 @@ OData XML
     </entry>
     </feed>
 
-### 9\.4. Obtener ejemplo de archivo de uso
+### <a name="94-get-usage-file-sample"></a>9.4.    Obtener ejemplo de archivo de uso
 Recupera los primeros 2 KB de contenido de archivos de uso.
 
 | Método HTTP | URI |
@@ -1482,7 +1373,7 @@ Recupera los primeros 2 KB de contenido de archivos de uso.
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | fileId |Identificador único del archivo de uso de modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1493,25 +1384,11 @@ código de estado HTTP: 200
 Se devuelve una respuesta en formato de texto sin formato:
 
 <pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
 </pre>
 
 
-### 9\.5. Obtener el archivo de uso de modelo
+### <a name="95-get-model-usage-file"></a>9.5.    Obtener el archivo de uso de modelo
 Recupera el contenido completo del archivo de uso.
 
 | Método HTTP | URI |
@@ -1523,7 +1400,7 @@ Recupera el contenido completo del archivo de uso.
 | mId |Identificador único del modelo |
 | fid |Identificador único del archivo de uso de modelo |
 | descargar |1 |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1534,42 +1411,10 @@ código de estado HTTP: 200
 Se devuelve una respuesta en formato de texto sin formato:
 
 <pre>
-85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1
-274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1
-171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1
-189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
-144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
+85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
-### 9\.6. Eliminar archivo de uso
+### <a name="96-delete-usage-file"></a>9.6.    Eliminar archivo de uso
 Elimina el archivo de uso del modelo especificado.
 
 | Método HTTP | URI |
@@ -1580,7 +1425,7 @@ Elimina el archivo de uso del modelo especificado.
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | fileId |Identificador único del archivo que se va a eliminar |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1588,7 +1433,7 @@ Elimina el archivo de uso del modelo especificado.
 
 código de estado HTTP: 200
 
-### 9\.7. Eliminar todos los archivos de uso
+### <a name="97-delete-all-usage-files"></a>9.7.    Eliminar todos los archivos de uso
 Elimina todos los archivos de uso del modelo.
 
 | Método HTTP | URI |
@@ -1598,7 +1443,7 @@ Elimina todos los archivos de uso del modelo.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1606,12 +1451,12 @@ Elimina todos los archivos de uso del modelo.
 
 código de estado HTTP: 200
 
-## 10\. Características
-En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango. 
-El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones. 
+## <a name="10-features"></a>10. Características
+En esta sección se muestra cómo recuperar información de características, como las funciones importadas y sus valores, su rango, y cuándo se ha asignado este rango. Las características se importan como parte de los datos del catálogo y luego su rango se asocia cuando se realiza una compilación de rango.
+El rango de las características puede cambiar según el patrón de los datos de uso y el tipo de elementos. Pero para que el uso y los elementos sean coherentes, el rango debe tener solo pequeñas fluctuaciones.
 El rango de características es un número no negativo. El número 0 significa que la característica no fue clasificada (sucede si se invoca esta API antes de completar la primera compilación de rango). La fecha en que se atribuye el rango se conoce como la actualización de la puntuación.
 
-### 10\.1. Obtener información de características (para la última compilación de rango)
+### <a name="101-get-features-info-for-last-rank-build"></a>10.1. Obtener información de características (para la última compilación de rango)
 Recupera la información de características, incluida la clasificación de la última compilación correcta de rango.
 
 | Método HTTP | URI |
@@ -1621,8 +1466,8 @@ Recupera la información de características, incluida la clasificación de la �
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| samplingSize |Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo. <br/>Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica. |
-| apiVersion |1\.0 |
+| samplingSize |Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo. <br/>Los valores posibles son:<br>  -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica. |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1632,10 +1477,10 @@ código de estado HTTP: 200
 
 La respuesta contiene una lista de entradas de información de características. Cada entrada contiene:
 
-* `feed/entry/content/m:properties/d:Name`: nombre de la característica.
+* `feed/entry/content/m:properties/d:Name` : nombre de la característica.
 * `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica ('0001-01-01T00:00:00') significa que no se ha realizado ninguna compilación de rango.
 * `feed/entry/content/m:properties/d:Rank`: rango de característica (flotante). Un rango de 2.0 para arriba se considera una buena característica.
-* `feed/entry/content/m:properties/d:SampleValues`: lista de valores separados por coma hasta el tamaño de muestreo solicitado.
+* `feed/entry/content/m:properties/d:SampleValues` : lista de valores separados por coma hasta el tamaño de muestreo solicitado.
 
 OData XML
 
@@ -1690,7 +1535,7 @@ OData XML
     </entry>
 </feed>
 
-### 10\.2. Obtener información de características (para una compilación de rango específica)
+### <a name="102-get-features-info-for-specific-rank-build"></a>10.2. Obtener información de características (para una compilación de rango específica)
 Recupera la información de características, incluida la clasificación de una compilación de rango específica.
 
 | Método HTTP | URI |
@@ -1700,9 +1545,9 @@ Recupera la información de características, incluida la clasificación de una 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| samplingSize |Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo.<br/> Los valores posibles son:<br> -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica. |
+| samplingSize |Número de valores que se incluirán para cada característica de acuerdo con los datos presentes en el catálogo.<br/> Los valores posibles son:<br>  -1 - Todas las muestras. <br>0: sin muestreo. <br>N: se devuelven N muestras para cada nombre de característica. |
 | rankBuildId |Identificador único de la compilación de rango o -1 para la última compilación de rango |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -1712,10 +1557,10 @@ código de estado HTTP: 200
 
 La respuesta contiene una lista de entradas de información de características. Cada entrada contiene:
 
-* `feed/entry/content/m:properties/d:Name`: nombre de la característica.
+* `feed/entry/content/m:properties/d:Name` : nombre de la característica.
 * `feed/entry/content/m:properties/d:RankUpdateDate`:-fecha en la que se asignó el rango a esta característica, también conocida como característica de actualización de puntuación. Una fecha histórica ('0001-01-01T00:00:00') significa que no se ha realizado ninguna compilación de rango.
 * `feed/entry/content/m:properties/d:Rank`: rango de característica (flotante). Un rango de 2.0 para arriba se considera una buena característica.
-* `feed/entry/content/m:properties/d:SampleValues`: lista de valores separados por coma hasta el tamaño de muestreo solicitado.
+* `feed/entry/content/m:properties/d:SampleValues` : lista de valores separados por coma hasta el tamaño de muestreo solicitado.
 
 OData
 
@@ -1771,21 +1616,21 @@ OData
     </feed>
 
 
-## 11\. Compilación
+## <a name="11-build"></a>11. Compilación
   En esta sección se explican las diferentes API relacionadas con compilaciones. Hay tres tipos de compilación: una compilación de recomendación, una compilación de rango y una compilación FBT (artículos que con frecuencia se compran juntos).
 
 El objetivo de la compilación de recomendación es generar un modelo de recomendación que se usa en las predicciones. Las predicciones (para este tipo de compilación) se presentan en dos modos:
 
 * I2I - también conocida como Recomendaciones de elemento a elemento: dado un elemento o una lista de elementos, esta opción predirá una lista de elementos que pueden ser de gran interés.
-* U2I - también conocida como Recomendaciones de usuario a elemento: dado un id. de usuario (y opcionalmente una lista de elementos), esta opción predecirá una lista de elementos que pueden ser de gran interés para el usuario especificado (y su selección de elementos adicional). Las recomendaciones de U2I se basan en el historial de elementos que eran de interés para el usuario hasta el momento en que se creó el modelo.
+* U2I - también conocida como de usuario (y opcionalmente una lista de elementos), esta opción predecirá una lista de elementos que pueden ser de gran interés para el usuario especificado (y su selección de elementos adicional). Las recomendaciones de U2I se basan en el historial de elementos que eran de interés para el usuario hasta el momento en que se creó el modelo.
 
 Una compilación de rango es una compilación técnica que le permite aprender acerca de la utilidad de sus características. Normalmente, para obtener el mejor resultado para un modelo de recomendación que implique características, debe seguir estos pasos:
 
 * Desencadenar una compilación de rango (a menos que la puntuación de sus características sea estable) y esperar hasta que se obtenga la puntuación de la característica.
-* Recuperar el rango de las características mediante una llamada a la API [Get Features Info](#101-get-features-info-for-last-rank-build).
+* Recuperar el rango de las características mediante una llamada a la API [Get Features Info](#101-get-features-info-for-last-rank-build) .
 * Configurar una compilación de recomendación con los parámetros siguientes:
-  * `useFeatureInModel`: se establece en true.
-  * `ModelingFeatureList`: se establece en una lista de características separadas por coma con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
+  * `useFeatureInModel` : se establece en true.
+  * `ModelingFeatureList` : se establece en una lista de características separadas por coma con una puntuación de 2,0 o más (de acuerdo con los rangos que recuperó en el paso anterior).
   * `AllowColdItemPlacement`: se establece en True.
   * Opcionalmente, puede establecer `EnableFeatureCorrelation` en True y `ReasoningFeatureList` en la lista de características que quiere utilizar para obtener una explicación (normalmente la misma lista de características usada en el modelado o una sublista).
 * Desencadene la compilación de recomendación con los parámetros configurados.
@@ -1798,13 +1643,13 @@ Una compilación FBT (con frecuencia se compra junto) es otro algoritmo de recom
 
 Nota: si los archivos de uso que ha cargado contienen el campo opcional "tipo de evento", para el modelado FBT solo se usarán eventos "Purchase". Si no se proporciona ningún tipo de evento, todos los eventos se considerarán de compra.
 
-#### 11\.1 Parámetros de compilación
+#### <a name="111-build-parameters"></a>11.1 Parámetros de compilación
 Cada tipo de compilación puede configurarse a través de un conjunto de parámetros (se muestra a continuación). Si no configura los parámetros, el sistema atribuirá automáticamente valores a los parámetros según la información presente en el momento de desencadenar una compilación.
 
-##### 11\.1.1. Condensador de uso
+##### <a name="1111-usage-condenser"></a>11.1.1. Condensador de uso
 Los usuarios o elementos con pocos puntos de uso podrían contener más ruido de información. El sistema intenta predecir el número mínimo de puntos de uso por usuario o elemento que se usarán en un modelo. Este número estará dentro del intervalo definido por los parámetros ItemCutoffLowerBound y ItemCutoffUpperBound para elementos, y el intervalo definido por los parámetros UserCutOffLowerBound y UserCutoffUpperBound para usuarios. El efecto del condensador sobre los elementos o usuarios se puede reducir mediante el establecimiento de al menos uno de los límites correspondientes en cero.
 
-##### 11\.1.2. Parámetros de compilación de rango
+##### <a name="1112-rank-build-parameters"></a>11.1.2. Parámetros de compilación de rango
 En la tabla siguiente se describen los parámetros de compilación para una compilación de rango.
 
 | Clave | Description | Tipo | Valor válido |
@@ -1816,7 +1661,7 @@ En la tabla siguiente se describen los parámetros de compilación para una comp
 | UserCutOffLowerBound |Define el límite inferior de usuario para el condensador. Consulte el condensador de uso anteriormente. |Entero |2 o más (0 deshabilita el condensador) |
 | UserCutOffUpperBound |Define el límite superior de usuario para el condensador. Consulte el condensador de uso anteriormente. |Entero |2 o más (0 deshabilita el condensador) |
 
-##### 11\.1.3. Parámetros de compilación de recomendación
+##### <a name="1113-recommendation-build-parameters"></a>11.1.3. Parámetros de compilación de recomendación
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
 | Clave | Description | Tipo | Valor válido |
@@ -1836,7 +1681,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | ReasoningFeatureList |Lista separada por comas de nombres de características que se utilizará para el razonamiento de las oraciones (por ejemplo, explicaciones de recomendación). |String |Nombres de características, hasta 512 caracteres |
 | EnableU2I |Permite la recomendación personalizada también llamada U2I (recomendaciones de usuario a elemento). |Booleano |True/False (true de forma predeterminada) |
 
-##### 11\.1.4. Parámetros de compilación FBT
+##### <a name="1114-fbt-build-parameters"></a>11.1.4. Parámetros de compilación FBT
 En la siguiente tabla se describen los parámetros de compilación para una compilación de recomendación.
 
 | Clave | Description | Tipo | Valor válido (predeterminado) |
@@ -1846,7 +1691,7 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | FbtMinimalScore |Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. Cuanto mayor sea mejor. |Doble |0 y superior (0) |
 | FbtSimilarityFunction |Define la función de similitud que usará la compilación. Lift favorece la serendipia, Co-occurrence favorece la previsibilidad y Jaccard es un estupendo compromiso que comparten. |String |cooccurrence, lift, jaccard (lift) |
 
-### 11\.2. Desencadenar una compilación de recomendación
+### <a name="112-trigger-a-recommendation-build"></a>11.2. Desencadenar una compilación de recomendación
   De forma predeterminada, esta API desencadenará una compilación de modelo de recomendación. Para desencadenar una compilación de rango (a fin de puntuar características), debe usarse la variante de API de compilación con el parámetro de tipo de compilación.
 
 | Método HTTP | URI |
@@ -1857,8 +1702,8 @@ En la siguiente tabla se describen los parámetros de compilación para una comp
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
-| apiVersion |1\.0 |
+| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |Si se deja vacío, la compilación se ejecuta con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo, como en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación de los parámetros).`<NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance><EnableModelingInsights>true</EnableModelingInsights><UseFeaturesInModel>false</UseFeaturesInModel><ModelingFeatureList>feature_name_1,feature_name_2,...</ModelingFeatureList><AllowColdItemPlacement>false</AllowColdItemPlacement><EnableFeatureCorrelation>false</EnableFeatureCorrelation><ReasoningFeatureList>feature_name_a,feature_name_b,...</ReasoningFeatureList></BuildParametersList>` |
 
@@ -1921,7 +1766,7 @@ OData XML
       </entry>
     </feed>
 
-### 11\.3. Desencadenar compilación (recomendación, rango o FBT)
+### <a name="113-trigger-build-recommendation-rank-or-fbt"></a>11.3. Desencadenar compilación (recomendación, rango o FBT)
 | Método HTTP | URI |
 |:--- |:--- |
 | POST |`<rootURI>/BuildModel?modelId=%27<modelId>%27&userDescription=%27<description>%27&buildType=%27<buildType>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`<rootURI>/BuildModel?modelId=%27a658c626-2baa-43a7-ac98-f6ee26120a12%27&userDescription=%27First%20build%27&buildType=%27Ranking%27&apiVersion=%271.0%27` |
@@ -1930,9 +1775,9 @@ OData XML
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br>Longitud máxima: 50 |
-| buildType |Tipo de la compilación que se invocará: <br/> - 'Recomendación' para compilación de recomendación <br> - 'Rango' para compilación de rango <br/> - 'Fbt' para compilación FBT |
-| apiVersion |1\.0 |
+| userDescription |Identificador textual del catálogo. Tenga en cuenta que si usa espacios debe codificarlo en su lugar con un 20 %. Vea el ejemplo anterior.<br> Longitud máxima: 50 |
+| buildType |Tipo de la compilación que se invocará:  <br/> "Recomendación" para compilación de recomendación <br> -"Categoría" para una compilación de rango <br/>  - 'Fbt' para compilación FBT |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |Si se deja vacío, la compilación se ejecuta con los parámetros predeterminados.<br><br>Si quiere establecer los parámetros de compilación, envíelos como XML en el cuerpo del mismo modo que en el ejemplo siguiente. (Consulte la sección "Parámetros de compilación" para obtener una explicación y una lista completa de los mismos).`<BuildParametersList><NumberOfModelIterations>40</NumberOfModelIterations><NumberOfModelDimensions>20</NumberOfModelDimensions><MinItemAppearance>5</MinItemAppearance><MinUserAppearance>5</MinUserAppearance></BuildParametersList>` |
 
@@ -1998,7 +1843,7 @@ OData XML
 
 
 
-### 11\.4. Obtener el estado de compilación de un modelo
+### <a name="114-get-builds-status-of-a-model"></a>11.4. Obtener el estado de compilación de un modelo
 Recupera las compilaciones y su estado para un modelo especificado.
 
 | Método HTTP | URI |
@@ -2009,7 +1854,7 @@ Recupera las compilaciones y su estado para un modelo especificado.
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | onlyLastBuild |Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta**:
 
@@ -2017,19 +1862,19 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por compilación. Cada entrada tiene los siguientes datos:
 
-* `feed/entry/content/properties/UserName`: nombre del usuario.
-* `feed/entry/content/properties/ModelName`: nombre del modelo.
-* `feed/entry/content/properties/ModelId`: identificador único de modelo.
-* `feed/entry/content/properties/IsDeployed`: si se implementa la compilación (también conocido como compilación activa).
-* `feed/entry/content/properties/BuildId`: identificador único de compilación.
-* `feed/entry/content/properties/BuildType`: tipo de la compilación.
-* `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelling, Cancelled o Success.
-* `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica solo a estados concretos).
-* `feed/entry/content/properties/Progress`: progreso de la compilación (%).
-* `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
-* `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
-* `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
-* `feed/entry/content/properties/ProgressStep`: detalles sobre la fase actual de una compilación en curso.
+* `feed/entry/content/properties/UserName` : nombre del usuario.
+* `feed/entry/content/properties/ModelName` : nombre del modelo.
+* `feed/entry/content/properties/ModelId` : identificador único de modelo.
+* `feed/entry/content/properties/IsDeployed`: si se implementa la compilación (también conocida como compilación activa).
+* `feed/entry/content/properties/BuildId` : identificador único de compilación.
+* `feed/entry/content/properties/BuildType` : tipo de la compilación.
+* `feed/entry/content/properties/Status` : estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelling, Cancelled o Success.
+* `feed/entry/content/properties/StatusMessage` : mensaje de estado detallado (se aplica solo a estados concretos).
+* `feed/entry/content/properties/Progress` : progreso de la compilación (%).
+* `feed/entry/content/properties/StartTime` : hora de inicio de la compilación.
+* `feed/entry/content/properties/EndTime` : hora de finalización de la compilación.
+* `feed/entry/content/properties/ExecutionTime` : duración de la compilación.
+* `feed/entry/content/properties/ProgressStep` : detalles sobre la fase actual de una compilación en curso.
 
 Estado de compilación válido:
 
@@ -2082,7 +1927,7 @@ OData XML
     </feed>
 
 
-### 11\.5. Obtener estado de compilación
+### <a name="115-get-builds-status"></a>11.5. Obtener estado de compilación
 Recupera los estados de compilación de todos los modelos de un usuario
 
 | Método HTTP | URI |
@@ -2092,7 +1937,7 @@ Recupera los estados de compilación de todos los modelos de un usuario
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | onlyLastBuild |Indica si se devolverá todo el historial de compilaciones del modelo o solo el estado de la compilación más reciente. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta**:
 
@@ -2100,19 +1945,19 @@ código de estado HTTP: 200
 
 La respuesta incluye una entrada por compilación. Cada entrada tiene los siguientes datos:
 
-* `feed/entry/content/properties/UserName`: nombre del usuario.
-* `feed/entry/content/properties/ModelName`: nombre del modelo.
-* `feed/entry/content/properties/ModelId`: identificador único de modelo.
+* `feed/entry/content/properties/UserName` : nombre del usuario.
+* `feed/entry/content/properties/ModelName` : nombre del modelo.
+* `feed/entry/content/properties/ModelId` : identificador único de modelo.
 * `feed/entry/content/properties/IsDeployed` : si se implementa la compilación.
-* `feed/entry/content/properties/BuildId`: identificador único de compilación.
-* `feed/entry/content/properties/BuildType`: tipo de la compilación.
-* `feed/entry/content/properties/Status`: estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelled, Cancelling o Success.
-* `feed/entry/content/properties/StatusMessage`: mensaje de estado detallado (se aplica solo a estados concretos).
-* `feed/entry/content/properties/Progress`: progreso de la compilación (%).
-* `feed/entry/content/properties/StartTime`: hora de inicio de la compilación.
-* `feed/entry/content/properties/EndTime`: hora de finalización de la compilación.
-* `feed/entry/content/properties/ExecutionTime`: duración de la compilación.
-* `feed/entry/content/properties/ProgressStep`: detalles sobre la fase actual de una compilación en curso.
+* `feed/entry/content/properties/BuildId` : identificador único de compilación.
+* `feed/entry/content/properties/BuildType` : tipo de la compilación.
+* `feed/entry/content/properties/Status` : estado de la compilación. Puede ser uno de los siguientes: Error, Building, Queued, Cancelled, Cancelling o Success.
+* `feed/entry/content/properties/StatusMessage` : mensaje de estado detallado (se aplica solo a estados concretos).
+* `feed/entry/content/properties/Progress` : progreso de la compilación (%).
+* `feed/entry/content/properties/StartTime` : hora de inicio de la compilación.
+* `feed/entry/content/properties/EndTime` : hora de finalización de la compilación.
+* `feed/entry/content/properties/ExecutionTime` : duración de la compilación.
+* `feed/entry/content/properties/ProgressStep` : detalles sobre la fase actual de una compilación en curso.
 
 Estado de compilación válido:
 
@@ -2165,10 +2010,10 @@ OData XML
     </feed>
 
 
-### 11\.6. Eliminar compilación
+### <a name="116-delete-build"></a>11.6. Eliminar compilación
 Elimina una compilación.
 
-NOTA: <br>no se puede eliminar una compilación activa. El modelo se debe actualizar a una compilación activa diferente antes de eliminarlo.<br>No puede eliminar una compilación en curso. La compilación se debe cancelar primero llamando <strong>Cancelar compilación</strong>.
+NOTA:  <br>no se puede eliminar una compilación activa. El modelo se debe actualizar a una compilación activa diferente antes de eliminarlo.<br>No puede eliminar una compilación en curso. La compilación se debe cancelar primero llamando <strong>Cancelar compilación</strong>.
 
 | Método HTTP | URI |
 |:--- |:--- |
@@ -2177,13 +2022,13 @@ NOTA: <br>no se puede eliminar una compilación activa. El modelo se debe actual
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | buildId |Identificador único de la compilación. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
-### 11\.7. Cancelar compilación
+### <a name="117-cancel-build"></a>11.7. Cancelar compilación
 Cancela una compilación que se encuentra en estado Building.
 
 | Método HTTP | URI |
@@ -2193,13 +2038,13 @@ Cancela una compilación que se encuentra en estado Building.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | buildId |Identificador único de la compilación. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
 código de estado HTTP: 200
 
-### 11\.8. Obtener parámetros de compilación
+### <a name="118-get-build-parameters"></a>11.8. Obtener parámetros de compilación
 Recupera parámetros de compilación.
 
 | Método HTTP | URI |
@@ -2209,7 +2054,7 @@ Recupera parámetros de compilación.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | buildId |Identificador único de la compilación. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2217,8 +2062,8 @@ código de estado HTTP: 200
 
 Esta API devuelve una colección de elementos de clave y valor. Cada elemento representa un parámetro y su valor:
 
-* `feed/entry/content/properties/Key`: nombre del parámetro de compilación.
-* `feed/entry/content/properties/Value`: valor del parámetro de compilación.
+* `feed/entry/content/properties/Key` : nombre del parámetro de compilación.
+* `feed/entry/content/properties/Value` : valor del parámetro de compilación.
 
 En la tabla siguiente se muestra el valor que representa cada clave.
 
@@ -2405,8 +2250,8 @@ OData XML
         </entry>
     </feed>
 
-## 12\. Recomendación
-### 12\.1. Obtención de recomendaciones de elemento (para la compilación activa)
+## <a name="12-recommendation"></a>12. Recomendación
+### <a name="121-get-item-recommendations-for-active-build"></a>12.1. Obtención de recomendaciones de elemento (para la compilación activa)
 Obtenga recomendaciones de la compilación activa de tipo "Recommendation" o "Fbt" basadas en las lista de inicializaciones (entrada).
 
 | Método HTTP | URI |
@@ -2417,9 +2262,9 @@ Obtenga recomendaciones de la compilación activa de tipo "Recommendation" o "Fb
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | itemIds |Lista de elementos para recomendar separados por coma. <br>Si la compilación activa es de tipo FBT, entonces solo puede enviar un elemento. <br>Longitud máxima: 1024 |
-| numberOfResults |Número de resultados obligatorios <br> Máx.: 150 |
+| numberOfResults |Número de resultados obligatorios  <br>  Máx.: 150 |
 | includeMetatadata |Uso futuro, siempre es false |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2429,8 +2274,8 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo a continuación se incluyen 10 elementos recomendados.
 
@@ -2585,7 +2430,7 @@ OData XML
       </entry>
     </feed>
 
-### 12\.2. Obtención de recomendaciones de elemento (de una compilación concreta)
+### <a name="122-get-item-recommendations-of-a-specific-build"></a>12.2. Obtención de recomendaciones de elemento (de una compilación concreta)
 Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o "Fbt".
 
 | Método HTTP | URI |
@@ -2596,10 +2441,10 @@ Obtiene recomendaciones de una compilación concreta de tipo "Recomendación" o 
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | itemIds |Lista de elementos para recomendar separados por coma. <br>Si la compilación activa es de tipo FBT, entonces solo puede enviar un elemento. <br>Longitud máxima: 1024 |
-| numberOfResults |Número de resultados obligatorios <br> Máx.: 150 |
+| numberOfResults |Número de resultados obligatorios  <br>  Máx.: 150 |
 | includeMetatadata |Uso futuro, siempre es false |
 | buildId |el id. de compilación que se utilizará en esta solicitud de recomendación |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2609,12 +2454,12 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-### 12\.3. Obtención de recomendaciones de FBT (para la compilación activa)
+### <a name="123-get-fbt-recommendations-for-active-build"></a>12.3. Obtención de recomendaciones de FBT (para la compilación activa)
 Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las lista de inicializaciones (entrada).
 
 | Método HTTP | URI |
@@ -2625,10 +2470,10 @@ Obtenga recomendaciones de la compilación activa de tipo o "Fbt" basadas en las
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | itemId |Elemento para el que se recomienda. <br>Longitud máxima: 1024 |
-| numberOfResults |Número de resultados obligatorios <br> Máx.: 150 |
+| numberOfResults |Número de resultados obligatorios  <br> Máx.: 150 |
 | minimalScore |Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. |
 | includeMetatadata |Uso futuro, siempre es false |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2640,8 +2485,8 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 * `Feed\entry\content\properties\Name1`: nombre del elemento.
 * `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado (opcional).
 * `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 En la respuesta de ejemplo siguiente se incluyen 3 elementos recomendados.
 
@@ -2704,7 +2549,7 @@ OData XML
       </entry>
     </feed>
 
-### 12\.4. Obtención de recomendaciones FBT (de una compilación concreta)
+### <a name="124-get-fbt-recommendations-of-a-specific-build"></a>12.4. Obtención de recomendaciones FBT (de una compilación concreta)
 Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 
 | Método HTTP | URI |
@@ -2715,11 +2560,11 @@ Obtenga recomendaciones de una compilación concreta de tipo "Fbt".
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | itemId |Elemento para el que se recomienda. <br>Longitud máxima: 1024 |
-| numberOfResults |Número de resultados obligatorios <br> Máx.: 150 |
+| numberOfResults |Número de resultados obligatorios  <br> Máx.: 150 |
 | minimalScore |Puntuación mínima que debe tener un conjunto frecuente para incluirlo en los resultados devueltos. |
 | includeMetatadata |Uso futuro, siempre es false |
 | buildId |el id. de compilación que se utilizará en esta solicitud de recomendación |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2731,17 +2576,17 @@ La respuesta incluye una entrada por cada elemento recomendado (un conjunto de e
 * `Feed\entry\content\properties\Name1`: nombre del elemento.
 * `Feed\entry\content\properties\Id2`: id. del 2º elemento recomendado (opcional).
 * `Feed\entry\content\properties\Name2`: nombre del 2º elemento (opcional).
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.3
 
-### 12\.5. Obtención de recomendaciones de usuario (para la compilación activa)
+### <a name="125-get-user-recommendations-for-active-build"></a>12.5. Obtención de recomendaciones de usuario (para la compilación activa)
 Obtenga recomendaciones de la compilación activa de tipo "Recommendation" marcada como compilación activa.
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario.
 
-Notas:
+Notas: 
 
 1. No hay ninguna recomendación de usuario para la generación de FBT.
 2. Si la compilación activa es FBT, este método devuelve un error.
@@ -2756,7 +2601,7 @@ Notas:
 | userId |Identificador único del usuario |
 | numberOfResults |Número de resultados requeridos |
 | includeMetatadata |Uso futuro, siempre es false |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2766,17 +2611,17 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-### 12\.6. Obtención de recomendaciones de usuario con lista de elementos (para la compilación activa)
+### <a name="126-get-user-recommendations-with-item-list-for-active-build"></a>12.6. Obtención de recomendaciones de usuario con lista de elementos (para la compilación activa)
 Obtenga recomendaciones de la compilación activa de tipo "Recommendation" marcada como compilación activa con una lista de elementos adicional
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario y los elementos suministrados adicionales.
 
-Notas:
+Notas: 
 
 1. No hay ninguna recomendación de usuario para la generación de FBT.
 2. Si la compilación activa es FBT, este método devuelve un error.
@@ -2792,7 +2637,7 @@ Notas:
 | itemsIds |Lista de elementos para recomendar separados por coma. Longitud máxima: 1024 |
 | numberOfResults |Número de resultados requeridos |
 | includeMetatadata |Uso futuro, siempre es false |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2802,12 +2647,12 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-### 12\.7. Obtención de recomendaciones del usuario (de una compilación concreta)
+### <a name="127-get-user-recommendations-of-a-specific-build"></a>12.7. Obtención de recomendaciones del usuario (de una compilación concreta)
 Obtenga recomendaciones de una compilación concreta de tipo "Recomendación" o "Fbt".
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario (usados en la compilación específica).
@@ -2825,7 +2670,7 @@ Nota: no hay ninguna recomendación de usuario para la generación de FBT.
 | numberOfResults |Número de resultados requeridos |
 | includeMetatadata |Uso futuro, siempre es false |
 | buildId |el id. de compilación que se utilizará en esta solicitud de recomendación |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2835,12 +2680,12 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-### 12\.8. Obtención de recomendaciones de usuario con lista de elementos (de una compilación concreta)
+### <a name="128-get-user-recommendations-with-item-list-of-a-specific-build"></a>12.8. Obtención de recomendaciones de usuario con lista de elementos (de una compilación concreta)
 Obtenga recomendaciones de una compilación concreta de tipo "Recommendation" y la lista de elementos adicionales.
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario y la lista de elementos adicionales.
@@ -2855,11 +2700,11 @@ Nota: no hay ninguna recomendación de usuario para la generación de FBT.
 |:--- |:--- |
 | modelId |Identificador único del modelo |
 | userId |Identificador único del usuario |
-| itemIds |Lista de elementos para recomendar separados por coma. Longitud máxima: 1024 |
+| itemIds |Lista separada por comas de los elementos para recomendar. Longitud máxima: 1024 |
 | numberOfResults |Número de resultados requeridos |
 | includeMetatadata |Uso futuro, siempre es false |
 | buildId |el id. de compilación que se utilizará en esta solicitud de recomendación |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2869,29 +2714,30 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: clasificación de la recomendación; un número alto significa mayor confianza.
-* `Feed\entry\content\properties\Reasoning`: razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
+* `Feed\entry\content\properties\Rating` : clasificación de la recomendación; un número alto significa mayor confianza.
+* `Feed\entry\content\properties\Reasoning` : razonamiento de la recomendación (por ejemplo, explicaciones de recomendación).
 
 Vea un ejemplo de respuesta en 12.1
 
-## 13\. Historial de uso del usuario
-Una vez creado un modelo de recomendación, el sistema le permite recuperar el historial del usuario (los elementos asociados a un usuario específico) usado para la compilación. La API permite recuperar el historial del usuario
+## <a name="13-user-usage-history"></a>13. Historial de uso del usuario
+Una vez creado un modelo de recomendación, el sistema le permite recuperar el historial del usuario (los elementos asociados a un usuario específico) usado para la compilación.
+La API permite recuperar el historial del usuario
 
 Nota: el historial del usuario actualmente solo está disponible para compilaciones de recomendación.
 
-### 13\.1 Recuperación del historial del usuario
+### <a name="131-retrieve-user-history"></a>13.1 Recuperación del historial del usuario
 Recupere la lista de elementos usados en la compilación activa o en la compilación especificada para el identificador de usuario determinado.
 
 | Método HTTP | URI |
 |:--- |:--- |
-| GET |Obtenga el historial de usuarios para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtener el historial de usuarios para la compilación indicada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
+| GET |Obtenga el historial de usuarios para la compilación activa.<br/>`<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&apiVersion=%271.0%27`<br/><br/>Obtenga el historial de usuarios para la compilación dada `<rootURI>/GetUserHistory?modelId=%27<model_id>%27&userId=%27<userId>%27&buildId=<int>&apiVersion=%271.0%27`<br/><br/>Ejemplo:`<rootURI>/GetUserHistory?modelId=%2727967136e8-f868-4258-9331-10d567f87fae%27&&userId=%27u_1013%27&apiVersion=%271.0%277` |
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |identificador único del modelo. |
 | userId |identificador único del usuario. |
 | buildId |Parámetro opcional, permite indicar de qué compilación se debe obtener el historial del usuario |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 
 **Respuesta:**
 
@@ -2901,8 +2747,8 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 * `Feed\entry\content\properties\Id`: id. de elemento recomendado.
 * `Feed\entry\content\properties\Name`: nombre del elemento.
-* `Feed\entry\content\properties\Rating`: N/D.
-* `Feed\entry\content\properties\Reasoning`: N/D.
+* `Feed\entry\content\properties\Rating` : N/D.
+* `Feed\entry\content\properties\Reasoning` : N/D.
 
 OData XML
 
@@ -2931,24 +2777,24 @@ OData XML
     </entry>
 </feed>
 
-## 14\. Notificaciones
+## <a name="14-notifications"></a>14. Notificaciones
 Las recomendaciones de Aprendizaje automático de Azure crean notificaciones cuando se producen errores persistentes en el sistema. Hay 3 tipos de notificaciones:
 
 1. Error de compilación: esta notificación se desencadena con cada error de compilación.
 2. Error de procesamiento de adquisición de datos: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de eventos de uso por modelo.
 3. Error de consumo de recomendación: esta notificación se desencadena cuando tenemos más de 100 errores en los últimos 5 minutos en el procesamiento de solicitudes de recomendación por modelo.
 
-### 14\.1. Obtener notificaciones
+### <a name="141-get-notifications"></a>14.1. Obtener notificaciones
 Recupera todas las notificaciones para todos los modelos o para un solo modelo.
 
 | Método HTTP | URI |
 |:--- |:--- |
-| GET |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Obtener todas las notificaciones para todos los modelos:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>Ejemplo para obtener notificaciones para un modelo específico:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277` |
+| GET |`<rootURI>/GetNotifications?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Obtener todas las notificaciones de todos los modelos:<br>`<rootURI>/GetNotifications?apiVersion=%271.0%27`<br><br>Ejemplo de obtener las notificaciones para un modelo específico:<br>`<rootURI>/GetNotifications?modelId=%27967136e8-f868-4258-9331-10d567f87fae%27&apiVersion=%271.0%277` |
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Parámetro opcional. Cuando se omite, obtendrá todas las notificaciones para todos los modelos. <br>Valor válido: identificador único del modelo. |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -2989,7 +2835,7 @@ OData XML
         </entry>
     </feed>
 
-### 14\.2. Eliminar notificaciones de modelo
+### <a name="142-delete-model-notifications"></a>14.2. Eliminar notificaciones de modelo
 Elimina todas las notificaciones de lectura para un modelo.
 
 | Método HTTP | URI |
@@ -2999,7 +2845,7 @@ Elimina todas las notificaciones de lectura para un modelo.
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
 | modelId |Identificador único del modelo |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -3007,7 +2853,7 @@ Elimina todas las notificaciones de lectura para un modelo.
 
 código de estado HTTP: 200
 
-### 14\.3. Eliminar notificaciones de usuario
+### <a name="143-delete-user-notifications"></a>14.3. Eliminar notificaciones de usuario
 Elimina todas las notificaciones para todos los modelos.
 
 | Método HTTP | URI |
@@ -3016,7 +2862,7 @@ Elimina todas las notificaciones para todos los modelos.
 
 | Nombre de parámetro | Valores válidos |
 |:--- |:--- |
-| apiVersion |1\.0 |
+| apiVersion |1.0 |
 |  | |
 | Cuerpo de la solicitud |NINGUNA |
 
@@ -3024,7 +2870,15 @@ Elimina todas las notificaciones para todos los modelos.
 
 código de estado HTTP: 200
 
-## 15\. Información legal
-Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br> Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br> Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br> © 2015 Microsoft. Todos los derechos reservados.
+## <a name="15-legal"></a>15. Información legal
+Este documento se proporciona "como está". La información y las opiniones expresadas en este documento, como las direcciones URL y otras referencias a sitios web de Internet, pueden cambiar sin previo aviso.<br><br>
+ Algunos ejemplos mencionados se proporcionan únicamente con fines ilustrativos y son ficticios. No se pretende ninguna asociación o conexión real ni debe deducirse.<br><br>
+Este documento no proporciona ningún derecho legal a la propiedad intelectual de ningún producto de Microsoft. Puede copiar y usar este documento con fines internos y de referencia.<br><br>
+ © 2015 Microsoft. Todos los derechos reservados.
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

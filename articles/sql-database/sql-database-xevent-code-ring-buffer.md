@@ -1,23 +1,28 @@
 ---
-title: Código de Búfer de anillo de XEvent para Base de datos SQL | Microsoft Docs
-description: Proporciona un ejemplo de código de Transact-SQL más fácil y rápido mediante el uso del destino de Búfer de anillo, en Base de datos SQL de Azure.
+title: "Código de búfer en anillo de XEvent para SQL Database | Microsoft Docs"
+description: "Proporciona un ejemplo de código de Transact-SQL más fácil y rápido mediante el uso del destino de Búfer de anillo, en Base de datos SQL de Azure."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: MightyPen
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 2510fb3f-c8f2-437a-8f49-9d5f6c96e75b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: genemi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4421506f516e6a65b7ff9207ce13dfb86e7c3540
+
 
 ---
-# Código de destino de búfer de anillo para eventos extendidos en Base de datos SQL
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Código de destino de búfer de anillo para eventos extendidos en Base de datos SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
 Desea tener un ejemplo de código completo de la manera más rápida y fácil para capturar y notificar información de un evento extendido durante una prueba. El destino más fácil para los datos de eventos extendidos es el [destino de búfer de anillo](http://msdn.microsoft.com/library/ff878182.aspx).
@@ -25,34 +30,35 @@ Desea tener un ejemplo de código completo de la manera más rápida y fácil pa
 En este tema, se presenta un ejemplo de código de Transact-SQL que:
 
 1. Crea una tabla con datos con los cuales demostrarse.
-2. Crea una sesión para un evento extendido existente, es decir, **sqlserver.sql\_statement\_starting**.
+2. Crea una sesión para un evento extendido existente, es decir, **sqlserver.sql_statement_starting**.
    
    * El evento se limita a las instrucciones SQL que contienen una cadena Update determinada: **statement LIKE '%UPDATE tabEmployee%'**.
-   * Elige enviar la salida del evento a un destino de tipo Búfer de anillo, es decir, **package0.ring\_buffer**.
+   * Elige enviar la salida del evento a un destino de tipo búfer en anillo, es decir, **package0.ring_buffer**.
 3. Inicia la sesión de eventos.
 4. Emite un par de instrucciones SQL UPDATE simple.
 5. Emite una instrucción SQL SELECT para recuperar la salida de evento del Búfer de anillo.
    
-   * Se unen **sys.dm\_xe\_database\_session\_targets** y otras vistas de administración dinámicas (DMV).
+   * Se unen **sys.dm_xe_database_session_targets** y otras vistas de administración dinámica (DMV).
 6. Detiene la sesión de eventos.
 7. Anula el destino de Búfer de anillo para liberar sus recursos.
 8. Anula la sesión de eventos y la tabla de demostración.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Una cuenta y una suscripción de Azure. Puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Cualquier base de datos donde pueda crear una tabla.
   
   * De manera opcional, puede [crear una base de datos de **AdventureWorksLT** de demostración](sql-database-get-started.md) en cuestión de minutos.
-* SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. Puede descargar la versión más reciente de ssms.exe desde:
+* SQL Server Management Studio (ssms.exe), idealmente la versión de actualización mensual más reciente. 
+  Puede descargar la versión más reciente de ssms.exe desde:
   
   * El tema titulado [Descarga de SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
   * [Un vínculo directo a la descarga.](http://go.microsoft.com/fwlink/?linkid=616025)
 
-## Código de ejemplo
-Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Base de datos SQL de Azure o en Microsoft SQL Server. La diferencia es la presencia del nodo "\_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo:
+## <a name="code-sample"></a>Código de ejemplo
+Con modificaciones muy pequeñas, el siguiente ejemplo de código de Búfer de anillo se puede ejecutar en Base de datos SQL de Azure o en Microsoft SQL Server. La diferencia es la presencia del nodo "_database" en el nombre de algunas vistas de administración dinámica (DMV), como se usa en la cláusula FROM del paso 5. Por ejemplo:
 
-* sys.dm\_xe**\_database**\_session\_targets
-* sys.dm\_xe\_session\_targets
+* sys.dm_xe**_database**_session_targets
+* sys.dm_xe_session_targets
 
 &nbsp;
 
@@ -209,14 +215,14 @@ GO
 
 &nbsp;
 
-## Contenido del Búfer de anillo
+## <a name="ring-buffer-contents"></a>Contenido del Búfer de anillo
 Se usa ssms.exe para ejecutar el ejemplo de código.
 
-Para ver los resultados, hicimos clic en la celda bajo el encabezado de columna **target\_data\_XML**.
+Para ver los resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML**.
 
-Luego, en el panel de resultados, hicimos clic en la celda bajo el encabezado de columna **target\_data\_XML**. Al hace este clic, se creó otra pestaña de archivo en ssms.exe donde se mostró el contenido de la celda de resultado, como XML.
+Luego, en el panel de resultados, hemos hecho clic en la celda bajo el encabezado de columna **target_data_XML**. Al hace este clic, se creó otra pestaña de archivo en ssms.exe donde se mostró el contenido de la celda de resultado, como XML.
 
-El resultado se muestra en el bloque siguiente. Parece largo, pero son solo dos elementos **<event>**.
+El resultado se muestra en el bloque siguiente. Parece largo, pero son solo dos elementos **<event>** .
 
 &nbsp;
 
@@ -308,8 +314,8 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### Liberar los recursos contenidos en el Búfer de anillo
-Cuando termine de utilizar el Búfer de anillo, puede quitarlo y liberar sus recursos. Para ello, emita un comando **ALTER** como el siguiente:
+#### <a name="release-resources-held-by-your-ring-buffer"></a>Liberar los recursos contenidos en el Búfer de anillo
+Cuando termine de usar el búfer en anillo, puede quitarlo y liberar sus recursos. Para ello, emita un comando **ALTER** como el siguiente:
 
 ```
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -332,7 +338,7 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 ```
 
 
-## Más información
+## <a name="more-information"></a>Más información
 El tema principal de los eventos extendidos en Base de datos SQL de Azure es:
 
 * [Consideraciones de eventos extendidos en Base de datos SQL](sql-database-xevent-db-diff-from-svr.md), que compara algunos aspectos de los eventos extendidos que son distintos entre Base de datos SQL de Azure y Microsoft SQL Server.
@@ -348,4 +354,8 @@ Hay otros temas de ejemplo de código para eventos extendidos disponibles en los
 - Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

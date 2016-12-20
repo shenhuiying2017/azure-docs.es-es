@@ -1,12 +1,12 @@
 ---
-title: Muestra de datos en el almacenamiento de blobs de Azure | Microsoft Docs
-description: Datos de ejemplo en el almacenamiento de blobs de Azure
+title: Muestra de datos en Azure Blob Storage | Microsoft Docs
+description: Muestra de datos en el almacenamiento de blobs de Azure
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: e8d9ad2c-86c5-43d6-80b8-d355b5c0dccf
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,21 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: fashah;garye;bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 66eddd40d3aa5156762acd1b1783a527e9ab463d
+
 
 ---
-# <a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
+# <a name="a-nameheadingasample-data-in-azure-blob-storage"></a><a name="heading"></a>Muestra de datos en el almacenamiento de blobs de Azure
 En este documento se tratan los datos de muestreo almacenados en el almacenamiento de blobs de Azure descargándolos mediante programación y luego realizando un muestreo de los mismos con procedimientos escritos en Python.
 
-**¿Por qué realizar un muestreo de los datos?** Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
+**¿Por qué realizar un muestreo de los datos?**
+ Si el conjunto de datos que pretende analizar es grande, suele ser una buena idea reducirlo a un tamaño más pequeño, pero representativo, que sea más manejable. Esto facilita la comprensión y exploración de los datos, y el diseño de características. Su rol en el proceso de análisis de Cortana es permitir la rápida creación de prototipos de las funciones de procesamiento de datos y de los modelos de aprendizaje automático.
 
-El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento.
+El **menú** siguiente vincula a temas que describen cómo realizar un muestreo de datos desde varios entornos de almacenamiento. 
 
 [!INCLUDE [cap-sample-data-selector](../../includes/cap-sample-data-selector.md)]
 
 Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## Descarga y muestreado de datos
-1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente:
+## <a name="download-and-down-sample-data"></a>Descarga y muestreado de datos
+1. Descargar los datos del almacenamiento de blobs de Azure con el servicio BLOB desde el código de Python de ejemplo siguiente: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +66,7 @@ Esta tarea de muestreo es un paso en el [proceso de ciencia de datos en equipos 
 
 Ahora se puede trabajar con el marco de datos anterior, con el ejemplo del 1 por ciento, para la generación de características y exploración más a fondo.
 
-## <a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
+## <a name="a-nameheadingaupload-data-and-read-it-into-azure-machine-learning"></a><a name="heading"></a>Carga de datos y lectura en Aprendizaje automático de Azure
 Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos directamente en Aprendizaje automático de Azure:
 
 1. Escribir la trama de datos en un archivo local
@@ -92,4 +97,9 @@ Puede usar el código de ejemplo siguiente para muestrear los datos y usarlos di
 
 ![lector de blobs](./media/machine-learning-data-science-sample-data-blob/reader_blob.png)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

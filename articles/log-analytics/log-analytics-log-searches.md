@@ -1,12 +1,12 @@
 ---
-title: Búsquedas de registros en Log Analytics | Microsoft Docs
-description: Las búsquedas de registros permiten combinar y correlacionar datos de equipo procedentes de varios orígenes dentro de su entorno.
+title: "Búsquedas de registros en Log Analytics | Microsoft Docs"
+description: "Las búsquedas de registros permiten combinar y correlacionar datos de equipo procedentes de varios orígenes dentro de su entorno."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3e1810850651cff4680ea558178ebf92aeac4faa
+
 
 ---
 # <a name="log-searches-in-log-analytics"></a>Búsquedas de registros en Log Analytics
@@ -246,7 +250,7 @@ Se trata de un comando especialmente útil cuando desea controlar los resultados
 ## <a name="use-the-measure-command"></a>Uso del comando measure
 MEASURE es uno de los comandos más versátiles en las búsquedas de Log Analytics. Permite aplicar *funciones* estadísticas a los datos y agregar los resultados agrupados por un campo dado. Son muchas las funciones estadísticas que admite este comando.
 
-### <a name="measure-count()"></a>Measure count()
+### <a name="measure-count"></a>Measure count()
 La primera función estadística con la que se trabaja y una de las más fáciles de entender es la función *count()* .
 
 Los resultados de cualquier consulta de búsqueda como `Type=Event`, muestran filtros también llamados facetas en el lado izquierdo. Los filtros muestran una distribución de valores por un campo dado de los resultados de la búsqueda realizada.
@@ -571,6 +575,9 @@ Para más información acerca de las búsquedas de registros, consulte:
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) (Campos personalizados en Log Analytics) para ampliar las búsquedas de registros.
 * Revise la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md) para ver todos los campos de búsqueda y las facetas disponibles en Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

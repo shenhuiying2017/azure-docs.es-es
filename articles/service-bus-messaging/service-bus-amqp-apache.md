@@ -1,19 +1,23 @@
 ---
-title: Cómo instalar Apache Qpid Proton-C en una máquina virtual de Linux | Microsoft Docs
-description: Cómo crear una máquina virtual de CentOS Linux mediante máquinas virtuales de Azure y cómo generar e instalar la biblioteca Apache Qpid Proton-C.
-services: service-bus
+title: "Instalación de Apache Qpid Proton-C en una máquina virtual Linux | Microsoft Docs"
+description: "Cómo crear una máquina virtual de CentOS Linux mediante máquinas virtuales de Azure y cómo generar e instalar la biblioteca Apache Qpid Proton-C."
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 3158d69f-c409-494d-9a6c-32613c1a3c74
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 226703f9b4a4b295231ecd48d719638321ae55ef
+
 
 ---
 # <a name="install-apache-qpid-proton-c-on-an-azure-linux-vm"></a>Instalación de Apache Qpid Proton-C en una máquina virtual Linux de Azure
@@ -84,15 +88,15 @@ Para las aplicaciones PHP y Python, este ejemplo usa las bibliotecas de cliente 
    
    mkdir build cd build
    
-   # Set the install prefix. You may need to adjust depending on your      
-   # system.       
+   # Set the install prefix. You may need to adjust depending on your        
+   # system.        
    cmake -DCMAKE\_INSTALL\_PREFIX=/usr ..
    
-   # Omit the docs target if you do not wish to build or install       
+   # Omit the docs target if you do not wish to build or install        
    # documentation.        
    make all docs
    
-   # Note that this step will require root privileges.     
+   # Note that this step will require root privileges.        
    make install
    ```
 
@@ -115,6 +119,6 @@ Después de realizar estos pasos, Proton estará instalado en el equipo y listo 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,29 +1,33 @@
 ---
-title: Instalación del dispositivo StorSimple 8600 | Microsoft Docs
-description: Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software.
+title: "Instalación del dispositivo StorSimple 8600 | Microsoft Docs"
+description: "Describe cómo desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600 antes de implementar y configurar el software."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 10/24/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 5b250358c44e699082c27803027a6a861e206a7d
+
 
 ---
-# Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
-## Información general
+# <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600.
+## <a name="overview"></a>Información general
 Su Microsoft Azure StorSimple 8600 es un dispositivo de receptáculo dual que consta de un receptáculo principal y EBOD. En este tutorial se explica cómo desempaquetar, montar en bastidor y conectar los cables del hardware del dispositivo StorSimple 8600 antes de configurar el software de StorSimple.
 
-## Desempaquete el dispositivo StorSimple 8600
+## <a name="unpack-your-storsimple-8600-device"></a>Desempaquete el dispositivo StorSimple 8600
 En los pasos siguientes se proporcionan instrucciones claras y detalladas sobre cómo desempaquetar el dispositivo de almacenamiento StorSimple 8600. Este dispositivo se distribuye en dos cajas, una para el receptáculo principal y otra para el de EBOD. Después, estas dos cajas se colocan en un una sola caja.
 
-### Preparación para desempaquetar el dispositivo
+### <a name="prepare-to-unpack-your-device"></a>Preparación para desempaquetar el dispositivo
 Antes de desempaquetar el dispositivo, revise la información siguiente.
 
 ![Icono Advertencia](./media/storsimple-safety/IC740879.png)![icono de peso elevado](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **¡ADVERTENCIA!**
@@ -33,7 +37,7 @@ Antes de desempaquetar el dispositivo, revise la información siguiente.
 
 A continuación, complete los pasos siguientes para desempaquetar el dispositivo.
 
-#### Para desempaquetar el dispositivo
+#### <a name="to-unpack-your-device"></a>Para desempaquetar el dispositivo
 1. Compruebe si la caja y la espuma del embalaje presentan golpes, cortes, daños por agua o cualquier otro daño evidente. Si la caja o el embalaje están muy dañados, no abra la caja. Póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md) para ayudarle a determinar si el dispositivo está en buen estado.
 2. Abra la caja exterior y extraiga las dos cajas correspondiente a los receptáculos principal y EBOD. Ahora puede desempaquetar los receptáculos principal y EBOD. En la siguiente ilustración se muestra una vista desempaquetada de uno de los receptáculos.
    
@@ -41,7 +45,7 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
    
     **Vista del dispositivo de almacenamiento desempaquetado**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Caja de embalaje |
    |   2 |Cables SAS (en la bandeja de cables y accesorios) |
@@ -62,11 +66,11 @@ A continuación, complete los pasos siguientes para desempaquetar el dispositivo
    * 2 kits de montaje en bastidor (4 guías laterales con herramientas de montaje, 2 para el receptáculos y el EBOD), 1 en cada caja
    * Documentación de introducción
      
-     Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
+     Si no recibió alguno de los elementos enumerados anteriormente, póngase en contacto con el [soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).  
 
 El paso siguiente es el montaje en bastidor del dispositivo.
 
-## Montaje en bastidor del dispositivo StorSimple 8600
+## <a name="rack-mount-your-storsimple-8600-device"></a>Montaje en bastidor del dispositivo StorSimple 8600
 Siga los pasos siguientes para instalar el dispositivo de almacenamiento StorSimple 8600 en un bastidor de 19 pulgadas estándar con postes delanteros y traseros. Este dispositivo se suministra con dos receptáculos: un receptáculo principal y un EBOD. Ambos deben montarse en bastidor.
 
 La instalación consta de varios pasos, cada uno de los cuales se explica en los procedimientos siguientes.
@@ -76,10 +80,10 @@ La instalación consta de varios pasos, cada uno de los cuales se explica en los
 > 
 > 
 
-### Preparación del sitio
+### <a name="site-preparation"></a>Preparación del sitio
 Los receptáculos deben instalarse en un bastidor estándar de 19 pulgadas con postes delanteros y traseros. Utilice el procedimiento siguiente para preparar la instalación en bastidor.
 
-#### Para preparar el sitio para la instalación en bastidor
+#### <a name="to-prepare-the-site-for-rack-installation"></a>Para preparar el sitio para la instalación en bastidor
 1. Asegúrese de colocar los receptáculos principal y EBOD de forma segura sobre una superficie de trabajo plana, estable y nivelada (o similar).
 2. Compruebe que la ubicación en la que desea efectuar la instalación dispone de alimentación de CA estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con una fuente de alimentación ininterrumpida (UPS).
 3. Asegúrese de que haya disponible una ranura 4U (2 X 2U) en el bastidor en el que desea montar los receptáculos.
@@ -88,24 +92,24 @@ Los receptáculos deben instalarse en un bastidor estándar de 19 pulgadas con p
 
  Asegúrese de que haya dos personas disponibles para administrar el peso del dispositivo si está instalando el dispositivo de forma manual. Un receptáculo totalmente montado puede pesar hasta 32 kg.
 
-### Requisitos previos del bastidor
+### <a name="rack-prerequisites"></a>Requisitos previos del bastidor
 Los receptáculos están diseñados para instalarse en un armario de bastidor de 19 pulgadas estándar con:
 
 * Una profundidad mínima de 27,84 pulgadas de poste a poste del bastidor
 * Peso máximo de 32 kg para el dispositivo
 * Contrapresión máxima de 5 pascales (medidor de agua de 0,5 mm)
 
-### Kit de guías de montaje en bastidor
+### <a name="rack-mounting-rail-kit"></a>Kit de guías de montaje en bastidor
 Se proporcionará un conjunto de guías de montaje para utilizar con el armario de bastidor de 19 pulgadas. Las guías se han probado para soportar el peso máximo del receptáculo. Estas guías también permitirán la instalación de varios receptáculos sin pérdida de espacio en el bastidor. Instale primero el alojamiento EBOD.
 
-#### Para instalar el receptáculo EBOD en las guías
+#### <a name="to-install-the-ebod-enclosure-on-the-rails"></a>Para instalar el receptáculo EBOD en las guías
 1. Realice este paso únicamente si las guías internas no están instaladas en el dispositivo. Normalmente, las guías internas vienen instaladas de fábrica. En caso contrario, instale las guías del lado izquierdo y derecho en los laterales del chasis del receptáculo. Estas se instalan mediante seis tornillos métricos en cada lado. Para ayudarle con la orientación, las guías disponen de las marcas **LH – Front** y **RH – Front**, y el extremo que se fija en la parte trasera del receptáculo tiene un extremo ahusado.
    
     ![Fijación de las guías al chasis del receptáculo](./media/storsimple-8600-hardware-installation/HCSAttachingRailSlidestoEnclosureChassis.png)
    
     **Fijación de guías a los laterales de la caja**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    | --- | --- |
    |  1 |Tornillos de cabeza de botón M 3 x 4 |
    |  2 |Guías de chasis |
@@ -118,7 +122,7 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
    
     **Fijación de soportes de guía en el bastidor**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Tornillo de fijación |
    |   2 |Tornillo del poste del bastidor delantero de orificio cuadrado |
@@ -126,10 +130,10 @@ Se proporcionará un conjunto de guías de montaje para utilizar con el armario 
    |   4 |Tornillo de fijación |
    |   5 |Pasadores de ubicación de la guía trasera izquierda |
 
-### Montaje del receptáculo EBOD en el bastidor
+### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montaje del receptáculo EBOD en el bastidor
 Con las guías de bastidor que acaba de instalar, realice los pasos siguientes para montar el receptáculo EBOD en el bastidor.
 
-#### Para montar el receptáculo EBOD
+#### <a name="to-mount-the-ebod-enclosure"></a>Para montar el receptáculo EBOD
 1. Con la ayuda de otra persona, levante el receptáculo y alinéelo con las guías del bastidor.
 2. Inserte cuidadosamente el receptáculo en las guías y, a continuación, empújelo completamente hacia el armario del bastidor.
    
@@ -144,11 +148,11 @@ Con las guías de bastidor que acaba de instalar, realice los pasos siguientes p
    
     **Instalación de los topes de las bridas**
    
-   | Etiqueta | Description |
+   | Etiqueta | Descripción |
    | --- | --- |
    |   1 |Tornillo de fijación del receptáculo |
 
-### Montaje del receptáculo principal en el bastidor
+### <a name="mounting-the-primary-enclosure-in-the-rack"></a>Montaje del receptáculo principal en el bastidor
 Cuando haya terminado de montar el receptáculo EBOD, deberá montar el receptáculo principal siguiendo los mismos pasos.
 
 > [!NOTE]
@@ -160,10 +164,10 @@ Cuando haya terminado de montar el receptáculo EBOD, deberá montar el receptá
 
 El siguiente paso es la colocación de los cables de alimentación, red y acceso de serie del dispositivo.
 
-## Instalación de cables del dispositivo StorSimple 8600
+## <a name="cable-your-storsimple-8600-device"></a>Instalación de cables del dispositivo StorSimple 8600
 En los siguientes procedimientos se explica cómo pasar los cables del dispositivo StorSimple 8600 de alimentación, red y conexiones en serie.
 
-### Requisitos previos
+### <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar a pasar los cables del dispositivo, necesitará:
 
 * Desempaquetar por completo el receptáculo y EBOD.
@@ -176,7 +180,7 @@ Antes de comenzar a pasar los cables del dispositivo, necesitará:
 * Se proporcionan 4 adaptadores QSFP a SFP+ para su uso con interfaces de red de 10 GbE.
 * [Hardware compatible para interfaces de red de 10 GbE en el dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md)
 
-### SAS y cables de alimentación
+### <a name="sas-and-power-cabling"></a>SAS y cables de alimentación
 El dispositivo cuenta con una caja principal y una caja EBOD. Esto requiere que se realice el cableado de alimentación y conectividad de SCSI conectadas en serie (SAS) de las unidades en conjunto.
 
 Cuando configure este dispositivo por primera vez, realice primero los pasos para el cableado de SAS y luego complete los pasos para el cableado de alimentación.
@@ -185,12 +189,12 @@ Cuando configure este dispositivo por primera vez, realice primero los pasos par
 
 [!INCLUDE [storsimple-cable-8600-for-power](../../includes/storsimple-cable-8600-for-power.md)]
 
-### Cables de red
+### <a name="network-cabling"></a>Cables de red
 El dispositivo está en una configuración de dispositivo activo/en espera: en un momento dado, un módulo de controlador está activo y procesando todas las operaciones de disco y red mientras el otro módulo del controlador está en espera. Si se produce un error en un controlador, el controlador en modo de espera se activa inmediatamente y continúa todas las operaciones de discos y de red.
 
 Para admitir esta conmutación por error de controlador redundante, necesitará pasar los cables de red del dispositivo del modo mostrado en los pasos siguientes.
 
-#### Colocación de cables de conexión de red
+#### <a name="to-cable-for-network-connection"></a>Colocación de cables de conexión de red
 1. El dispositivo tiene seis interfaces de red en cada controlador: cuatro puertos Ethernet de 1 Gbps y dos de 10 Gbps. Consulte la ilustración siguiente para identificar los puertos de datos de la placa posterior del dispositivo.
    
      ![Panel posterior del dispositivo 8600](./media/storsimple-8600-hardware-installation/HCSBackplaneof2UDevicewithPortsLabeled.jpg)
@@ -208,7 +212,7 @@ Para admitir esta conmutación por error de controlador redundante, necesitará 
 
 **Cables de red del dispositivo**
 
-| Etiqueta | Description |
+| Etiqueta | Descripción |
 | --- | --- |
 | Encontrará |LAN con acceso a Internet |
 | B |Controlador 0 |
@@ -229,7 +233,7 @@ Cuando se realiza el cableado del dispositivo, la configuración mínima requier
 
 Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 
-* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
+* Cuando sea posible, configure un par de interfaz de red para el acceso a la nube (1 GbE) y otro par para iSCSI (se recomiendan 10 GbE) en cada controlador.
 * Cuando sea posible, conecte las interfaces de red desde cada controlador a dos conmutadores diferentes para garantizar la disponibilidad frente al error de un conmutador. En la ilustración se muestran las dos interfaces de red de 10 GbE, DATA 2 y DATA 3, desde cada controlador conectado a dos conmutadores distintos. Para obtener más información, consulte las **interfaces de red** en los [Requisitos de alta disponibilidad para el dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
@@ -237,17 +241,17 @@ Tenga en cuenta lo siguiente para alta disponibilidad y rendimiento:
 > 
 > 
 
-### Cableado del puerto serie
+### <a name="serial-port-cabling"></a>Cableado del puerto serie
 Realice los pasos siguientes para pasar el cable del puerto serie.
 
-#### Colocación de los cables de conexión en serie
+#### <a name="to-cable-for-serial-connection"></a>Colocación de los cables de conexión en serie
 1. El dispositivo tiene un puerto serie en cada controlador que se identifica mediante un icono de una llave inglesa. Para buscar los puertos serie, consulte la ilustración que muestra los puertos de datos en la parte posterior del dispositivo.
 2. Identifique el controlador activo en la placa posterior del dispositivo. Un LED que parpadeará en azul indica que el controlador está activo.
 3. Utilice el cable serie proporcionado (si es necesario, el convertidor de USB a serie de su equipo portátil) y conecte la consola o el equipo (con la emulación de terminales en el dispositivo) al puerto serie del controlador activo.
 4. Instale los controladores de serie a USB (incluidos con el dispositivo) en el equipo.
 5. Configure la conexión serie del modo indicado a continuación:
    
-   * 115\.200 baudios
+   * 115.200 baudios
    * Bits de datos: 8
    * Bit de parada: 1
    * Sin paridad
@@ -255,13 +259,18 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 6. Presione INTRO en la consola para comprobar que la conexión funciona. Debería aparecer un menú de consola serie.
 
 > [!NOTE]
-> **Administración de Lights-Out**: cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
+> **Administración de Lights-Out** : cuando el dispositivo está instalado en un centro de datos remoto o en una sala de equipos con acceso limitado, asegúrese de que las conexiones serie a ambos controladores estén siempre conectadas a un conmutador de consola serie o un equipo similar. Esto permite el control remoto de fuera de banda y las operaciones de soporte si hay interrupciones de red o errores inesperados.
 > 
 > 
 
 Ha completado el cableado de alimentación, acceso a la red y conexión en serie del dispositivo. El siguiente paso es configurar el software en el dispositivo.
 
-## Pasos siguientes
-Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+## <a name="next-steps"></a>Pasos siguientes
+Ahora está listo para [implementar y configurar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

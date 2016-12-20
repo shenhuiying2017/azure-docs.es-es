@@ -1,12 +1,12 @@
 ---
-title: Publicación de contenido de Servicios multimedia de Azure con.NET
-description: Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET.
+title: "Publicación de contenido de Servicios multimedia de Azure con.NET"
+description: "Aprenda a crear un localizador que se usa para generar una dirección URL de streaming. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET."
 author: juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: c53b1f83-4cb1-4b09-840f-9c145b7d6f8d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: f566b8f75d26e3d786ce3396dd133478af38da76
+
 
 ---
-# Publicación de contenido de Servicios multimedia de Azure con.NET
+# <a name="publish-azure-media-services-content-using-net"></a>Publicación de contenido de Servicios multimedia de Azure con.NET
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-deliver-streaming-content.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -24,30 +28,30 @@ ms.author: juliako
 > 
 > 
 
-## Información general
-Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable.
+## <a name="overview"></a>Información general
+Puede transmitir un conjunto de archivos MP4 de velocidad de bits adaptable creando un localizador de streaming a petición y compilando una dirección URL de streaming. El tema [Codificación de un recurso](media-services-encode-asset.md) muestra cómo codificar en un conjunto de MP4 de velocidad de bits adaptable. 
 
 > [!NOTE]
-> Si el contenido está cifrado, configure la directiva de entrega de recursos (como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md) tema) antes de crear un localizador.
+> Si el contenido está cifrado, configure la directiva de entrega de recursos (como se describe en [este](media-services-dotnet-configure-asset-delivery-policy.md) tema) antes de crear un localizador. 
 > 
 > 
 
-También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.
+También puede utilizar un localizador de streaming a petición para generar direcciones URL que señalen a archivos MP4 que se pueden descargar progresivamente.  
 
-En este tema se muestra cómo crear un localizador de streaming a petición para publicar el recurso y crear direcciones URL de streaming Smooth, MPEG DASH y HLS. También se muestra cómo generar direcciones URL de descarga progresiva.
+En este tema se muestra cómo crear un localizador de streaming a petición para publicar el recurso y crear direcciones URL de streaming Smooth, MPEG DASH y HLS. También se muestra cómo generar direcciones URL de descarga progresiva. 
 
-## Creación de un localizador de streaming a petición
+## <a name="create-an-ondemand-streaming-locator"></a>Creación de un localizador de streaming a petición
 Para crear el localizador de streaming a petición y obtener las direcciones URL, deberá hacer lo siguiente:
 
 1. Si se cifra el contenido, defina una directiva de acceso.
 2. Cree un localizador de streaming a petición.
-3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso.
+3. Si planea transmitir, obtenga el archivo de manifiesto de streaming (.ism) del recurso. 
    
-   Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.
-4. Genere direcciones URL para el archivo de manifiesto o archivos MP4.
+   Si planea la descarga progresiva, obtenga los nombres de los archivos MP4 del recurso.  
+4. Genere direcciones URL para el archivo de manifiesto o archivos MP4. 
 
-### Uso del SDK de .NET de Servicios multimedia
-Generación de direcciones URL de streaming
+### <a name="use-media-services-net-sdk"></a>Uso del SDK de .NET de Servicios multimedia
+Generación de direcciones URL de streaming 
 
     private static void BuildStreamingURLs(IAsset asset)
     {
@@ -97,11 +101,11 @@ El código produce la salida siguiente:
 
 
 > [!NOTE]
-> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS.
+> También puede transmitir el contenido por una conexión SSL. Para ello, asegúrese de que las URL de streaming comienzan por HTTPS. 
 > 
 > 
 
-Creación de direcciones URL de descarga progresiva
+Creación de direcciones URL de descarga progresiva 
 
     private static void BuildProgressiveDownloadURLs(IAsset asset)
     {
@@ -140,7 +144,7 @@ El código produce la salida siguiente:
 
     . . . 
 
-### Uso de Extensiones del SDK .NET de Servicios multimedia
+### <a name="use-media-services-net-sdk-extensions"></a>Uso de Extensiones del SDK .NET de Servicios multimedia
 El código siguiente llama a los métodos de extensiones del SDK de .NET que crean un localizador y generan las direcciones URL de Smooth Streaming, HLS y MPEG-DASH para el streaming adaptable.
 
     // Create a loctor.
@@ -160,13 +164,19 @@ El código siguiente llama a los métodos de extensiones del SDK de .NET que cre
     Console.WriteLine(mpegDashUri);
 
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-## Otras referencias
-[Descargar activos](media-services-deliver-asset-download.md) [Configuración de directivas de entrega de activos](media-services-dotnet-configure-asset-delivery-policy.md)
+## <a name="see-also"></a>Otras referencias
+[Descarga de recursos](media-services-deliver-asset-download.md)
+[Configuración de directivas de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md)
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

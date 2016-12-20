@@ -1,12 +1,12 @@
 ---
-title: Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo | Microsoft Docs
-description: El resumen de vídeo puede ayudarle a crear resúmenes de vídeos largos al seleccionar automáticamente fragmentos interesantes del vídeo original. Esto es útil si quiere proporcionar una rápida descripción de lo que se va a encontrar en un vídeo largo.
+title: "Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo | Microsoft Docs"
+description: "El resumen de vídeo puede ayudarle a crear resúmenes de vídeos largos al seleccionar automáticamente fragmentos interesantes del vídeo original. Esto es útil si quiere proporcionar una rápida descripción de lo que se va a encontrar en un vídeo largo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0c6f4a020430f464a97b0716dea2a40719c0b064
+
 
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Miniaturas de vídeo multimedia de Azure para crear un resumen de vídeo
@@ -33,7 +37,7 @@ Estos son algunos ejemplos de lo que puede hacer el procesador de multimedia Min
 ### <a name="video-thumbnail-result"></a>Resultado de miniaturas de vídeo
 [Resultado de miniaturas de vídeo](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
-## <a name="task-configuration-(preset)"></a>Configuración de tareas (valor preestablecido)
+## <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea de miniatura de vídeo con **Miniaturas de vídeo multimedia de Azure**, debe especificar un valor predeterminado de configuración. El ejemplo de miniatura anterior se creó con la siguiente configuración básica de JSON:
 
     {"version":"1.0"}
@@ -70,7 +74,7 @@ El programa siguiente muestra cómo:
 1. Crear un recurso y cargar un archivo multimedia en él.
 2. Crea un trabajo con una tarea de miniatura de vídeo basada en un archivo de configuración que contiene el siguiente valor predeterminado de JSON. 
    
-        {               
+        {                
             "version": "1.0",
             "options": {
                 "outputAudio": "true",
@@ -80,7 +84,7 @@ El programa siguiente muestra cómo:
         }
 3. Descarga los archivos de salida. 
 
-### <a name=".net-code"></a>Código .NET
+### <a name="net-code"></a>Código .NET
     using System;
     using System.Configuration;
     using System.IO;
@@ -259,6 +263,9 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

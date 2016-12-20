@@ -1,12 +1,12 @@
 ---
-title: Dependencias de tareas en Lote de Azure | Microsoft Docs
-description: Cree tareas que dependan de la finalización correcta de otras para procesar grandes cargas de trabajo de datos similares y de estilo MapReduce en Lote de Azure.
+title: Dependencias de tareas en Azure Batch | Microsoft Docs
+description: "Cree tareas que dependan de la finalización correcta de otras para procesar grandes cargas de trabajo de datos similares y de estilo MapReduce en Lote de Azure."
 services: batch
 documentationcenter: .net
 author: mmacy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
 ms.author: marsma
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: c16850788a4c22c964037f28bf955e570551142d
+
 
 ---
 # <a name="task-dependencies-in-azure-batch"></a>Dependencias de tareas en Lote de Azure
@@ -76,7 +80,7 @@ Hay tres escenarios de dependencia de tareas básicos que puede usar en Lote de 
 > 
 > 
 
-### <a name="onetoone"></a>Uno a uno
+### <a name="one-to-one"></a>Uno a uno
 Para crear una tarea que dependa de la correcta finalización de otra, proporcione un identificador de tarea único para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
@@ -90,8 +94,8 @@ new CloudTask("taskB", "cmd.exe /c echo taskB")
 },
 ```
 
-### <a name="onetomany"></a>Uno a varios
-Para crear una tarea que dependa de la correcta finalización de múltiples tareas, proporcione una serie de identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onid] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
+### <a name="one-to-many"></a>Uno a varios
+Para crear una tarea que dependa de la correcta finalización de múltiples tareas, proporcione una serie de identificadores de tarea para el método estático [TaskDependencies][net_taskdependencies].[OnId][net_onids] al rellenar la propiedad [DependsOn][net_dependson] de [CloudTask][net_cloudtask].
 
 ```csharp
 // 'Rain' and 'Sun' don't depend on any other tasks
@@ -165,6 +169,6 @@ Consulte el artículo [Installing applications and staging data on Batch compute
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

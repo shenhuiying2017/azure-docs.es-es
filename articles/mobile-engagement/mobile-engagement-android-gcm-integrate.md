@@ -1,12 +1,12 @@
 ---
-title: Integración del SDK de Android para Azure Mobile Engagement
-description: Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement
+title: "Integración del SDK de Android para Azure Mobile Engagement"
+description: "Procedimientos y actualizaciones más recientes para el SDK de Android para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: d72b5014-a22b-4a7f-a470-d2b8145b5b86
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,6 +14,10 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
+
 
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>Integración de GCM con Mobile Engagement
@@ -81,6 +85,6 @@ Siga [esta guía](mobile-engagement-android-get-started.md#grant-mobile-engageme
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -15,7 +15,7 @@ En esta sección se muestra cómo enviar notificaciones con una aplicación de c
 
 El código incluido se difunde tanto a los dispositivos de la Tienda Windows como a los iOS, dado que el back-end puede difundir a cualquiera de los dispositivos compatibles.
 
-### Para enviar notificaciones mediante una aplicación de consola de C
+### <a name="to-send-notifications-using-a-c-console-app"></a>Para enviar notificaciones mediante una aplicación de consola de C#
 Modifique el método `SendTemplateNotificationAsync` en la aplicación de consola que creó anteriormente con el código siguiente. Observe cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
 
         private static async void SendTemplateNotificationAsync()
@@ -54,7 +54,7 @@ Modifique el método `SendTemplateNotificationAsync` en la aplicación de consol
 
 Tenga en cuenta que esta simple llamada entregará la noticia localizada a **todos** los dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
 
-### Envío de la notificación con Servicios móviles
+### <a name="sending-the-notification-with-mobile-services"></a>Envío de la notificación con Servicios móviles
 En el programador de servicios móviles, puede usar el siguiente script:
 
     var azure = require('azure');
@@ -71,4 +71,8 @@ En el programador de servicios móviles, puede usar el siguiente script:
     });
 
 
-<!---HONumber=AcomDC_1217_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

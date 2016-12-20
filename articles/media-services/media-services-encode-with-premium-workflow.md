@@ -1,12 +1,12 @@
 ---
-title: Codificación avanzada con el flujo de trabajo de Media Encoder premium | Microsoft Docs
-description: Aprenda a codificar con el flujo de trabajo del Codificador multimedia Premium. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET.
+title: "Codificación avanzada con el flujo de trabajo de Media Encoder premium | Microsoft Docs"
+description: "Aprenda a codificar con el flujo de trabajo del Codificador multimedia Premium. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4e86a871222def32f7779f07eab5668d366ecec4
+
 
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium
@@ -59,12 +63,13 @@ Hay que seguir estos pasos:
    
     b. 2.º: el recurso de vídeo.
    
-    **Nota**: el recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia. La cadena de configuración para esta tarea debe estar vacía. 
+    **Nota**: el recurso de flujo de trabajo debe agregarse a la tarea antes que el recurso multimedia. 
+   La cadena de configuración para esta tarea debe estar vacía. 
 6. Envíe el trabajo de codificación.
 
 El siguiente ejemplo es un ejemplo completo. Para obtener información sobre cómo configurar con el desarrollo de .NET de Servicios multimedia, consulte [Desarrollo de Servicios multimedia con .NET](media-services-dotnet-how-to-use.md).
 
-    using System; 
+     using System; 
     using System.Linq;
     using System.Configuration;
     using System.IO;
@@ -272,6 +277,9 @@ Si tiene preguntas sobre el codificador premium, envíe un correo a mepd en Micr
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

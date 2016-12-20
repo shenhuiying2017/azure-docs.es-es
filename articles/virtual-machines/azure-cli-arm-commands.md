@@ -1,13 +1,13 @@
 ---
-title: Comandos de la CLI de Azure en el modo de Resource Manager | Microsoft Docs
-description: Comandos de la interfaz de la línea de comandos (CLI) de Azure para administrar recursos en el modelo de implementación de Resource Manager
+title: Comandos de la CLI de Azure en el modo Resource Manager | Microsoft Docs
+description: "Comandos de la interfaz de la línea de comandos (CLI) de Azure para administrar recursos en el modelo de implementación de Resource Manager"
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: ''
+documentationcenter: 
 author: dlepow
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
 ms.workload: multiple
 ms.tgt_pltfrm: command-line-interface
@@ -15,10 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2016
 ms.author: danlep
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 028e09c031037f3c4001eccfb4543122eef2c055
+
 
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos de la CLI de Azure en el modo de Resource Manager
-En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../resource-group-overview.md).  
+En este artículo se proporcionan la sintaxis y las opciones de los comandos de la interfaz de la línea de comandos (CLI) de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación de Azure Resource Manager. Para acceder a estos comandos, ejecute la CLI en el modo de Resource Manager (ARM). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. Para obtener una descripción general de los recursos y grupos de recursos de Azure, vea [Información general del grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md).  
 
 Para comenzar, primero [instale la CLI de Azure](../xplat-cli-install.md) y [conéctese a su suscripción de Azure](../xplat-cli-connect.md) mediante una cuenta profesional o educativa, o bien una identidad de cuenta de Microsoft.
 
@@ -38,7 +42,7 @@ Use el siguiente comando para habilitar los comandos de la CLI de Azure en modo 
 > 
 > 
 
-## <a name="azure-account:-manage-your-account-information"></a>cuenta de Azure: administración de la información de la cuenta
+## <a name="azure-account-manage-your-account-information"></a>cuenta de Azure: administración de la información de la cuenta
 La herramienta usa la información de la suscripción de Azure para la conexión a su cuenta.
 
 **Enumerar las suscripciones importadas**
@@ -65,7 +69,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     account env set [options] [environment]
     account env delete [options] [environment]
 
-## <a name="azure-ad:-commands-to-display-active-directory-objects"></a>Azure AD: comandos para mostrar los objetos de Active Directory
+## <a name="azure-ad-commands-to-display-active-directory-objects"></a>Azure AD: comandos para mostrar los objetos de Active Directory
 **Comandos para mostrar aplicaciones de Active Directory**
 
     ad app create [options]
@@ -92,7 +96,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     ad user list [options]
     ad user show [options]
 
-## <a name="azure-availset:-commands-to-manage-your-availability-sets"></a>azure availset: comandos para administrar los conjuntos de disponibilidad
+## <a name="azure-availset-commands-to-manage-your-availability-sets"></a>azure availset: comandos para administrar los conjuntos de disponibilidad
 **Crea un conjunto de disponibilidad dentro de un grupo de recursos**
 
     availset create [options] <resource-group> <name> <location> [tags]
@@ -109,7 +113,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
 
     availset delete [options] <resource-group> <name>
 
-## <a name="azure-config:-commands-to-manage-your-local-settings"></a>azure config: comandos para administrar la configuración local
+## <a name="azure-config-commands-to-manage-your-local-settings"></a>azure config: comandos para administrar la configuración local
 **Mostrar ajustes de configuración de la CLI de Azure**
 
     config list [options]
@@ -127,7 +131,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     config mode [options] <modename>
 
 
-## <a name="azure-feature:-commands-to-manage-account-features"></a>característica de Azure: comandos para administrar las características de la cuenta
+## <a name="azure-feature-commands-to-manage-account-features"></a>característica de Azure: comandos para administrar las características de la cuenta
 **Enumera todas las características disponibles para su suscripción**
 
     feature list [options]
@@ -140,7 +144,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
 
     feature register [options] <providerName> <featureName>
 
-## <a name="azure-group:-commands-to-manage-your-resource-groups"></a>azure group: comandos para administrar los grupos de recursos
+## <a name="azure-group-commands-to-manage-your-resource-groups"></a>azure group: comandos para administrar los grupos de recursos
 **Crea un grupo de recursos**
 
     group create [options] <name> <location>
@@ -179,7 +183,7 @@ La herramienta usa la información de la suscripción de Azure para la conexión
     group template download [options] [name] [file]
     group template validate [options] <resource-group>
 
-## <a name="azure-hdinsight:-commands-to-manage-your-hdinsight-clusters"></a>hdinsight de azure: comandos para administrar sus cuentas de HDInsight
+## <a name="azure-hdinsight-commands-to-manage-your-hdinsight-clusters"></a>hdinsight de azure: comandos para administrar sus cuentas de HDInsight
 **Comandos para crear o agregar a un archivo de configuración de clúster**
 
     hdinsight config create [options] <configFilePath> <overwrite>
@@ -297,21 +301,21 @@ Opciones de parámetro:
 
     hdinsight cluster disable-rdp-access [options] <clusterName>
 
-## <a name="azure-insights:-commands-related-to-monitoring-insights-(events,-alert-rules,-autoscale-settings,-metrics)"></a>azure insights: comandos relacionados con la supervisión con Insights (eventos, reglas de alerta, configuración de escalado automático, métricas)
+## <a name="azure-insights-commands-related-to-monitoring-insights-events-alert-rules-autoscale-settings-metrics"></a>azure insights: comandos relacionados con la supervisión con Insights (eventos, reglas de alerta, configuración de escalado automático, métricas)
 **Recuperar registros de operaciones de una suscripción, un correlationId, un grupo de recursos, un recurso o un proveedor de recursos**
 
     insights logs list [options]
 
-## <a name="azure-location:-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: comandos para obtener las ubicaciones disponibles para todos los tipos de recursos
+## <a name="azure-location-commands-to-get-the-available-locations-for-all-resource-types"></a>azure location: comandos para obtener las ubicaciones disponibles para todos los tipos de recursos
 **Enumerar las ubicaciones disponibles**
 
     location list [options]
 
-## <a name="azure-network:-commands-to-manage-network-resources"></a>azure network: comandos para administrar los recursos de red
+## <a name="azure-network-commands-to-manage-network-resources"></a>azure network: comandos para administrar los recursos de red
 **Comandos para administrar redes virtuales**
 
     network vnet create [options] <resource-group> <name> <location>
-Crea una red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
+Crea una red virtual. En el ejemplo siguiente, crearemos una red virtual denominada newvnet para myresourcegroup de grupo de recursos en la región Oeste de EE. UU.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create
@@ -334,18 +338,18 @@ Crea una red virtual. En el ejemplo siguiente, crearemos una red virtual denomin
 
 Opciones de parámetro:
 
-    -h, --help                                 output usage information
-    -v, --verbose                              use verbose output
+     -h, --help                                 output usage information
+     -v, --verbose                              use verbose output
     --json                                     use json output
-    -g, --resource-group <resource-group>      the name of the resource group
-    -n, --name <name>                          the name of the virtual network
-    -l, --location <location>                  the location
-    -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
+     -g, --resource-group <resource-group>      the name of the resource group
+     -n, --name <name>                          the name of the virtual network
+     -l, --location <location>                  the location
+     -a, --address-prefixes <address-prefixes>  the comma separated list of address prefixes for this virtual network
       For example -a 10.0.0.0/24,10.0.1.0/24.
       Default value is 10.0.0.0/8
 
     -d, --dns-servers <dns-servers>            the comma separated list of DNS servers IP addresses
-    -t, --tags <tags>                          the tags set on this virtual network.
+     -t, --tags <tags>                          the tags set on this virtual network.
       Can be multiple. In the format of "name=value".
       Name is required and value is optional.
       For example, -t tag1=value1;tag2
@@ -579,14 +583,14 @@ Quita una subred de una red virtual existente.
 
 Opciones de parámetro:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -e, --vnet-name <vnet-name>            the name of the virtual network
-    -n, --name <name>                      the subnet name
-    -s, --subscription <subscription>      the subscription identifier
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -e, --vnet-name <vnet-name>            the name of the virtual network
+     -n, --name <name>                      the subnet name
+     -s, --subscription <subscription>      the subscription identifier
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
 
 **Comandos para administrar los equilibradores de carga**
 
@@ -681,13 +685,13 @@ Elimina recursos de equilibrador de carga.
 
 Opciones de parámetro:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -n, --name <name>                      the name of the load balancer
-    -q, --quiet                            quiet mode, do not ask for delete confirmation
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -n, --name <name>                      the name of the load balancer
+     -q, --quiet                            quiet mode, do not ask for delete confirmation
+     -s, --subscription <subscription>      the subscription identifier
 
 **Comandos para administrar los sondeos de un equilibrador de carga**
 
@@ -704,9 +708,9 @@ Crear la configuración de sondeo de estado de mantenimiento en el equilibrador 
 
 Opciones de parámetro:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -l, --lb-name <lb-name>                the name of the load balancer
     -n, --name <name>                      the name of the probe
@@ -1031,12 +1035,12 @@ Enumerar el intervalo de grupo de direcciones IP de backend para un grupo de rec
 
 Opciones de parámetro:
 
-    -h, --help                             output usage information
-    -v, --verbose                          use verbose output
-    --json                                 use json output
-    -g, --resource-group <resource-group>  the name of the resource group
-    -l, --lb-name <lb-name>                the name of the load balancer
-    -s, --subscription <subscription>      the subscription identifier
+     -h, --help                             output usage information
+     -v, --verbose                          use verbose output
+     --json                                 use json output
+     -g, --resource-group <resource-group>  the name of the resource group
+     -l, --lb-name <lb-name>                the name of the load balancer
+     -s, --subscription <subscription>      the subscription identifier
 
 <BR>
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
@@ -1574,7 +1578,7 @@ Opciones de parámetro:
 
     network gateway list [options] <resource-group>
 
-## <a name="azure-provider:-commands-to-manage-resource-provider-registrations"></a>azure provider: comandos para administrar los registros de proveedor de recursos
+## <a name="azure-provider-commands-to-manage-resource-provider-registrations"></a>azure provider: comandos para administrar los registros de proveedor de recursos
 **Enumerar los proveedores registrados actualmente en Resource Manager**
 
     provider list [options]
@@ -1591,7 +1595,7 @@ Opciones de parámetro:
 
     provider unregister [options] <namespace>
 
-## <a name="azure-resource:-commands-to-manage-your-resources"></a>azure resource: comandos para administrar los recursos
+## <a name="azure-resource-commands-to-manage-your-resources"></a>azure resource: comandos para administrar los recursos
 **Crea un recurso en un grupo de recursos.**
 
     resource create [options] <resource-group> <name> <resource-type> <location> <api-version>
@@ -1612,7 +1616,7 @@ Opciones de parámetro:
 
     resource delete [options] <resource-group> <name> <resource-type> <api-version>
 
-## <a name="azure-role:-commands-to-manage-your-azure-roles"></a>azure role: comandos para administrar roles de Azure
+## <a name="azure-role-commands-to-manage-your-azure-roles"></a>azure role: comandos para administrar roles de Azure
 **Obtener todas las definiciones de rol disponibles**
 
     role list [options]
@@ -1627,7 +1631,7 @@ Opciones de parámetro:
     role assignment list [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
     role assignment delete [options] [objectId] [upn] [mail] [spn] [role] [scope] [resource-group] [resource-type] [resource-name]
 
-## <a name="azure-storage:-commands-to-manage-your-storage-objects"></a>azure storage: comandos para administrar los objetos de Almacenamiento
+## <a name="azure-storage-commands-to-manage-your-storage-objects"></a>azure storage: comandos para administrar los objetos de Almacenamiento
 **Comandos para administrar cuentas de Almacenamiento**
 
     storage account list [options]
@@ -1750,7 +1754,7 @@ Opciones de parámetro:
     storage table policy set [options] [table] [name]
     storage table policy delete [options] [table] [name]
 
-## <a name="azure-tag:-commands-to-manage-your-resource-manager-tag"></a>azure tag: comandos para administrar etiquetas del administrador de recursos
+## <a name="azure-tag-commands-to-manage-your-resource-manager-tag"></a>azure tag: comandos para administrar etiquetas del administrador de recursos
 **Agregar una etiqueta**
 
     tag create [options] <name> <value>
@@ -1767,7 +1771,7 @@ Opciones de parámetro:
 
     tag show [options] [name]
 
-## <a name="azure-vm:-commands-to-manage-your-azure-virtual-machines"></a>azure vm: comandos para administrar máquinas virtuales de Azure
+## <a name="azure-vm-commands-to-manage-your-azure-virtual-machines"></a>azure vm: comandos para administrar máquinas virtuales de Azure
 **Crear una máquina virtual**
 
     vm create [options] <resource-group> <name> <location> <os-type>
@@ -1857,6 +1861,6 @@ Opciones de parámetro:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

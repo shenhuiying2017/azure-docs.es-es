@@ -1,12 +1,12 @@
 ---
 title: Progreso de un modelo de Machine Learning de un experimento a un servicio web aplicado | Microsoft Docs
-description: Información general de cómo progresa el modelo de Azure Machine Learning desde un experimento de desarrollo a un servicio web aplicado.
+description: "Información general de cómo progresa el modelo de Azure Machine Learning desde un experimento de desarrollo a un servicio web aplicado."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 452cfc0f35810ffa6bdd8c36f8f5e0cf0814e563
+
 
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Progreso de un modelo de Machine Learning de un experimento a un servicio web aplicado
@@ -68,7 +72,7 @@ En este proceso de conversión no se descarta el experimento de entrenamiento. C
 ### <a name="the-web-service"></a>El servicio web
 Cuando crea firmemente que el experimento predictivo está listo, puede implementar el servicio como servicio web clásico o nuevo basado en Azure Resource Manager. Para aplicar el modelo implementándolo como *servicio web Machine Learning clásico*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [Classic]** (Implementar servicio web [clásico]). Para implementarlo como *servicio web Machine Learning nuevo*, haga clic en **Deploy Web Service** (Implementar servicio web) y seleccione **Deploy Web Service [New]** (Implementar servicio web [nuevo]). Hecho esto, los usuarios ya pueden enviar datos al modelo mediante la API de REST del servicio web y recibir los resultados de vuelta. Para obtener más información, consulte [Consumo de un servicio web Azure Machine Learning implementado en un experimento de Machine Learning](machine-learning-consume-web-services.md).
 
-## <a name="the-non-typical-case:-creating-a-non-predictive-web-service"></a>El caso no típico: creación de un servicio web no predictivo
+## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>El caso no típico: creación de un servicio web no predictivo
 Si el experimento no entrena un modelo de análisis predictivo, no tendrá que crear un experimento de entrenamiento y un experimento de puntuación, sino solo un experimento que puede implementar como un servicio web. Machine Learning Studio detecta si el experimento contiene un modelo predictivo analizando los módulos que se han usado.
 
 Después de que haya iterado en el experimento y esté satisfecho con él:
@@ -115,6 +119,9 @@ Para ver ejemplos de todo el proceso, consulte:
 * [Tutorial de Aprendizaje automático: Creación del primer experimento en Estudio de aprendizaje automático de Azure](machine-learning-create-experiment.md)
 * [Tutorial: Desarrollo de una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

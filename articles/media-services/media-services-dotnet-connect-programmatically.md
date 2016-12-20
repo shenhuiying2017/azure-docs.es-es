@@ -1,12 +1,12 @@
 ---
-title: Conexión con la cuenta de Servicios multimedia mediante .NET
-description: En este tema muestra cómo conectarse con los Servicios multimedia mediante .NET.
+title: "Conexión con la cuenta de Servicios multimedia mediante .NET"
+description: "En este tema muestra cómo conectarse con los Servicios multimedia mediante .NET."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a8412a29-59dc-44a0-ace0-be79a97dab63
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 72e94aeae9e210b25b8f22dd02feb0b98a5ddfeb
+
 
 ---
-# <a name="connecting-to-media-services-account-using-media-services-sdk-for-.net"></a>Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.
+# <a name="connecting-to-media-services-account-using-media-services-sdk-for-net"></a>Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-connect-programmatically.md)
 > * [.NET](media-services-dotnet-connect-programmatically.md)
@@ -182,6 +186,9 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,5 +1,5 @@
-## Obtener un token de administrador de recursos
-Azure Active Directory debe autenticar todas las tareas que se realizan en los recursos mediante el Administrador de recursos de Azure. En este ejemplo se usa la autenticación por contraseña, para otros enfoques, consulte [Solicitudes de autenticación del Administrador de recursos de Azure][lnk-authenticate-arm].
+## <a name="obtain-an-azure-resource-manager-token"></a>Obtención de un token de Azure Resource Manager
+Azure Active Directory debe autenticar todas las tareas que se realizan en los recursos mediante el Administrador de recursos de Azure. En este ejemplo se usa la autenticación por contraseña; para otros métodos, consulte [Autenticación de solicitudes de Azure Resource Manager][lnk-authenticate-arm].
 
 1. Agregue el código siguiente al método **Main** en Program.cs para recuperar un token de Azure AD mediante el identificador y la contraseña de la aplicación.
    
@@ -37,4 +37,6 @@ Azure Active Directory debe autenticar todas las tareas que se realizan en los r
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
 
-<!---HONumber=AcomDC_0218_2016-->
+<!--HONumber=Nov16_HO3-->
+
+

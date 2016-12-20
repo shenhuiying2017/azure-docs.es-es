@@ -1,13 +1,13 @@
 ---
-title: Autenticación de identidades sin contraseñas a través de Microsoft Passport | Microsoft Docs
-description: Ofrece información general de Microsoft Passport e información adicional sobre la implementación de Microsoft Passport.
+title: "Autenticación de identidades sin contraseñas a través de Microsoft Passport | Microsoft Docs"
+description: "Ofrece información general de Microsoft Passport e información adicional sobre la implementación de Microsoft Passport."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: cfe729f56ce0d1e4bc7f1fe7eedefd736c8ca0d0
+
 
 ---
 # <a name="authenticating-identities-without-passwords-through-microsoft-passport"></a>Autenticación de identidades sin contraseñas a través de Microsoft Passport
@@ -67,6 +71,9 @@ Para obtener instrucciones de implementación detalladas, consulte [Habilitar Mi
 * [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [Configuración de Azure AD Join](active-directory-azureadjoin-setup.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

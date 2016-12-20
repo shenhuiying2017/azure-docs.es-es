@@ -1,13 +1,13 @@
 ---
 title: Escalado del servicio web | Microsoft Docs
-description: Aprenda a aumentar la simultaneidad y a agregar nuevos puntos de conexión para escalar un servicio web.
+description: "Aprenda a aumentar la simultaneidad y a agregar nuevos puntos de conexión para escalar un servicio web."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: neerajkh
 manager: srikants
 editor: cgronlun
-keywords: aprendizaje automático de azure, servicios web, operacionalización, escalado, punto de conexión, simultaneidad
-
+keywords: "aprendizaje automático de azure, servicios web, operacionalización, escalado, punto de conexión, simultaneidad"
+ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
 ms.service: machine-learning
 ms.devlang: NA
 ms.workload: data-services
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: neerajkh
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 559db01d2c9f44af17b86f99031a8827dfeb5ab3
+
 
 ---
 # <a name="scaling-a-web-service"></a>Escalado de servicios web
@@ -42,6 +46,6 @@ Las API sincrónicas se usan normalmente en situaciones en las que se desea una 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

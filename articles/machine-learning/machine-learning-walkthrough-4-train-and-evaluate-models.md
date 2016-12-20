@@ -1,12 +1,12 @@
 ---
-title: 'Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Docs'
-description: 'Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Estudio de aprendizaje automático de Azure.'
+title: "Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Microsoft Docs"
+description: "Paso 4 del tutorial Desarrollo de una solución predictiva: entrenamiento, puntuación y evaluación de múltiples modelos en Estudio de aprendizaje automático de Azure."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 434e7e2c40f98956de44435c23642bdee6072379
+
 
 ---
-# <a name="walkthrough-step-4:-train-and-evaluate-the-predictive-analytic-models"></a>Paso 4 del tutorial: Entrenamiento y evaluación de los modelos de análisis predictivo
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>Paso 4 del tutorial: Entrenamiento y evaluación de los modelos de análisis predictivo
 Este tema contiene el cuarto paso del tutorial [Desarrollo de una solución de análisis predictivo en Azure Machine Learning](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Aprendizaje automático](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -119,7 +123,8 @@ Si examina estos valores, podrá decidir cuál es el modelo que más se acerca a
 > [!TIP]
 > Cada vez que ejecute el experimento, se guardará un registro de esa iteración en el Historial de ejecuciones. Puede ver estas iteraciones y volver a cualquiera de ellas haciendo clic en **VER HISTORIAL DE EJECUCIÓN** bajo el lienzo. También puede hacer clic en **Prior Run** (Ejecución anterior) en el panel **Propiedades** para volver a la iteración inmediatamente anterior a la que ha abierto.
 > 
-> Puede hacer una copia de cualquier iteración de su experimento si hace clic en **GUARDAR COMO** bajo el lienzo. Utilice las propiedades **Resumen** y **Descripción** para mantener un registro de lo que ha tratado de hacer en las iteraciones del experimento.
+> Puede hacer una copia de cualquier iteración de su experimento si hace clic en **GUARDAR COMO** bajo el lienzo. 
+> Utilice las propiedades **Resumen** y **Descripción** para mantener un registro de lo que ha tratado de hacer en las iteraciones del experimento.
 > 
 > Consulte [Administración de iteraciones de experimentos en Estudio de aprendizaje automático de Azure](machine-learning-manage-experiment-iterations.md)para obtener más detalles.  
 > 
@@ -146,6 +151,6 @@ Si examina estos valores, podrá decidir cuál es el modelo que más se acerca a
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

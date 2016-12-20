@@ -1,12 +1,12 @@
 ---
-title: Notas de la versión de StorSimple 8000 | Microsoft Docs
-description: Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de julio de 2014.
+title: "Notas de la versión de StorSimple 8000 | Microsoft Docs"
+description: "Describe las nuevas características, problemas y soluciones alternativas de la versión de Microsoft Azure StorSimple de julio de 2014."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 12f1796e-37c3-42b4-b997-a84fc1950c20
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,18 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 387b274a993454814f7238f4cd89a52351a6fc1f
+
 
 ---
-# Notas de la versión de StorSimple 8000 Series - julio de 2014
-## Información general
-Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.
+# <a name="storsimple-8000-series-release-version-release-notes---july-2014"></a>Notas de la versión de StorSimple 8000 Series - julio de 2014
+## <a name="overview"></a>Información general
+Las notas siguientes identifican los problemas críticos por resolver de la versión de disponibilidad general (GA) de julio de 2014 de StorSimple 8000 Series de Microsoft Azure StorSimple. Esta versión se corresponde con la versión de software 6.3.9600.17215.  
 
-A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.
+A menos que se especifique lo contrario, estas notas de la versión se aplican a todos los dispositivos de StorSimple. Las notas se actualizan continuamente y, a medida que se descubren, se van agregando problemas críticos que requieren una solución alternativa. Antes de implementar la solución de Microsoft Azure StorSimple, tenga en cuenta la siguiente información.  
 
-## Problemas conocidos en esta versión
-En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
+## <a name="known-issues-in-this-release"></a>Problemas conocidos en esta versión
+En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.  
 
-| N.º | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+| Nº | Característica | Problema | Comentarios/solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Restablecimiento de fábrica |En algunos casos, al realizar un restablecimiento de fábrica, el dispositivo StorSimple puede bloquearse y mostrar este mensaje: **Restablecimiento de fábrica en curso (fase 8)**. Esto sucede si presiona CTRL+C mientras el cmdlet está en curso. |No presione CTRL+C después de iniciar un restablecimiento de fábrica. Si ya está en este estado, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
 | 2 |Cuórum de disco |En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el bloque de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. |Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |No |
@@ -38,4 +42,9 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 9 |Instalación |Durante la instalación del adaptador de StorSimple para SharePoint, deberá proporcionar una dirección IP de dispositivo para que la instalación finalice correctamente. | |Sí |No |
 | 10 |Interfaces de red |Las interfaces de red DATA 2 y DATA 3 se intercambiaron en el software. |Póngase en contacto con el soporte técnico de Microsoft si necesita configurar estas interfaces. |Sí |No |
 
-<!---HONumber=AcomDC_0427_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

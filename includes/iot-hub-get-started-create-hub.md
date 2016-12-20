@@ -1,5 +1,5 @@
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
-Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los siguientes pasos se muestra cómo completar esta tarea mediante el Portal de Azure.
+Cree un Centro de IoT al que se pueda conectar la aplicación de dispositivo simulado. En los siguientes pasos se muestra cómo completar esta tarea mediante el Portal de Azure.
 
 1. Inicie sesión en [Azure Portal][lnk-portal].
 2. En la barra de salto, haga clic en **Nuevo** > **Internet de las cosas** > **Azure IoT Hub**.
@@ -11,7 +11,7 @@ Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los s
    
    * En el cuadro **Nombre** , escriba un nombre para identificar el Centro de IoT. Si el **Nombre** es válido y está disponible, aparecerá una marca de verificación verde en el cuadro **Nombre**.
    * Seleccione un [plan de tarifa y escalado][lnk-pricing]. Este tutorial no requiere ningún nivel determinado. Para este tutorial, use el nivel F1 gratis.
-   * En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure][lnk-resource-groups].
+   * En **Grupo de recursos**, cree un grupo de recursos o seleccione uno existente. Para más información, consulte [Using resource groups to manage your Azure resources][lnk-resource-groups] (Uso de grupos de recursos para administrar los recursos de Azure).
    * En **Ubicación**, seleccione la ubicación para hospedar su Centro de IoT. Para este tutorial, elija la ubicación más cercana.
 4. Cuando haya elegido las opciones de configuración del Centro de IoT, haga clic en **Crear**.  La creación del Centro de IoT puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio o en el panel de notificaciones.
    
@@ -19,7 +19,7 @@ Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los s
 5. Cuando se haya creado correctamente el centro de IoT, haga clic en el icono Nuevo del centro de IoT en Azure Portal para abrir la hoja del nuevo centro de IoT. Anote el **Nombre de host** y haga clic en **Directivas de acceso compartido**.
    
     ![Nueva hoja del Centro de IoT][4]
-6. En la hoja **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y copie y anote la cadena de conexión en la hoja **iothubowner**. Para más información, consulte [Control de acceso][lnk-access-control] en la Guía del desarrollador de Azure IoT Hub”.
+6. En la hoja **Directivas de acceso compartido**, haga clic en la directiva **iothubowner** y copie y anote la cadena de conexión de IoT Hub en la hoja **iothubowner**. Consulte [Control de acceso][lnk-access-control] en la Guía del desarrollador de Azure IoT Hub para más información.
    
     ![Hoja de directivas de acceso compartido][5]
 
@@ -37,6 +37,6 @@ Cree un Centro de IoT al que se pueda conectar el dispositivo simulado. En los s
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

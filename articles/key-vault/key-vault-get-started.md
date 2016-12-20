@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/24/2016
 ms.author: cabailey
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e30f98d541d0e6a79fab0e9b12619a2072e9ec70
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 115a718977906b3e647b628017f7ab46a588d7f2
 
 
 ---
@@ -41,7 +41,7 @@ Para obtener información general sobre el Almacén de claves de Azure, consulte
 Para realizar este tutorial, necesitará lo siguiente:
 
 * Una suscripción a Microsoft Azure. Si no tiene, puede registrarse para obtener una [cuenta gratis](https://azure.microsoft.com/pricing/free-trial/).
-* Azure PowerShell, **versión mínima: 1.1.0**. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para ver una lista de los cmdlets de Key Vault para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) (Cmdlets de Azure Key Vault). 
+* Azure PowerShell, **versión mínima: 1.1.0**. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `(Get-Module azure -ListAvailable).Version`. Si tiene Azure PowerShell versiones 0.9.1 a 0.9.8 instalado, también puede usar este tutorial con algunos cambios menores. Por ejemplo, debe usar el comando `Switch-AzureMode AzureResourceManager` y algunos de los comandos de Almacén de claves de Azure que cambiaron. Para ver una lista de los cmdlets de Key Vault para las versiones 0.9.1 a 0.9.8, consulte [Azure Key Vault Cmdlets](https://msdn.microsoft.com/library/azure/dn868052\(v=azure.98\).aspx) (Cmdlets de Azure Key Vault). 
 * Una aplicación que se configurará para utilizar la clave o contraseña creada en este tutorial. Hay una aplicación de ejemplo disponible en el [Centro de descarga de Microsoft](http://www.microsoft.com/en-us/download/details.aspx?id=45343). Para obtener instrucciones, consulte el archivo Léame adjunto.
 
 Este tutorial está diseñado para usuarios principiantes de Azure PowerShell, pero se presupone que conocen conceptos básicos tales como módulos, cmdlets y sesiones. Para obtener más información, consulte [Introducción a Windows PowerShell](https://technet.microsoft.com/library/hh857337.aspx).
@@ -56,7 +56,7 @@ Por ejemplo, para obtener ayuda para el cmdlet **Add-AzureRmAccount** , escriba:
 
 Lea también los siguientes tutoriales para familiarizarse con el Administrador de recursos de Azure en Azure PowerShell:
 
-* [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+* [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Uso de Azure PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md)
 
 ## <a name="a-idconnectaconnect-to-your-subscriptions"></a><a id="connect"></a>Conexión a las suscripciones
@@ -76,7 +76,7 @@ A continuación, para especificar la suscripción que se va a usar, escriba:
 
     Set-AzureRmContext -SubscriptionId <subscription ID>
 
-Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](../powershell-install-configure.md).
+Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-idresourceacreate-a-new-resource-group"></a><a id="resource"></a>Creación de un nuevo grupo de recursos
 Cuando se utiliza el Administrador de recursos de Azure, todos los recursos relacionados se crean dentro de un grupo de recursos. Crearemos un nuevo grupo de recursos denominado **ContosoResourceGroup** para este tutorial:
@@ -237,6 +237,6 @@ Para conocer las referencias de programación, consulte la [Guía del desarrolla
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

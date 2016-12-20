@@ -1,12 +1,12 @@
 ---
-title: Solución Azure Key Vault en Log Analytics | Microsoft Docs
-description: Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros de Azure Key Vault.
+title: "Solución Azure Key Vault en Log Analytics | Microsoft Docs"
+description: "Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros de Azure Key Vault."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 90ef2d32a00744decdb5a50ae1f707820e87f513
+
 
 ---
-# <a name="azure-key-vault-(preview)-solution-in-log-analytics"></a>Solución de Azure Key Vault (versión preliminar) en Log Analytics
+# <a name="azure-key-vault-preview-solution-in-log-analytics"></a>Solución de Azure Key Vault (versión preliminar) en Log Analytics
 > [!NOTE]
 > Se trata de una [solución preliminar](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
 > 
@@ -96,6 +100,9 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre los datos de Azure Key Vault.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

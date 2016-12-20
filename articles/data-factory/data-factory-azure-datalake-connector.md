@@ -1,12 +1,12 @@
 ---
-title: Movimiento de datos hacia y desde el almacén de Azure Data Lake | Microsoft Docs
-description: Obtenga información sobre cómo mover datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure.
+title: Movimiento de datos hacia y desde Azure Data Lake Store | Microsoft Docs
+description: "Obtenga información sobre cómo mover datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 25b1ff3c-b2fd-48e5-b759-bb2112122e30
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 701d82971b7da92fb0946cbfc7f708ad32501ef3
+ms.openlocfilehash: b3957c93a0b536b67f81d7e7be52d918a8e82ead
+
 
 ---
 # <a name="move-data-to-and-from-azure-data-lake-store-using-azure-data-factory"></a>Movimiento de datos hacia y desde el almacén de Azure Data Lake mediante la Factoría de datos de Azure
@@ -21,17 +25,17 @@ En este artículo se describe cómo se puede usar la actividad de copia en una f
 
 > [!NOTE]
 > Antes de crear una canalización con una actividad de copia para mover datos hacia y desde un almacén de Azure Data Lake, cree una cuenta de Azure Data Lake Store. Para más información sobre Azure Data Lake Store, consulte la [introducción a Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md).
-> 
+>
 > Revise el [tutorial sobre la compilación de la primera canalización](data-factory-build-your-first-pipeline.md) para ver los pasos detallados para crear una factoría de datos, servicios vinculados, conjuntos de datos y una canalización. Use los fragmentos de código JSON con el Editor de Factoría de datos, Visual Studio o Azure PowerShell para crear las entidades de Factoría de datos.
-> 
-> 
+>
+>
 
 ## <a name="copy-data-wizard"></a>Asistente para copia de datos
-La manera más sencilla de crear una canalización que copie datos hasta o desde Azure Data Lake Store es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos. 
+La manera más sencilla de crear una canalización que copie datos hasta o desde Azure Data Lake Store es usar el Asistente para copia de datos. Consulte [Tutorial: crear una canalización con la actividad de copia mediante el Asistente para copia de Data Factory](data-factory-copy-data-wizard-tutorial.md) para ver un tutorial rápido sobre la creación de una canalización mediante el Asistente para copiar datos.
 
-En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre Azure Data Lake Store y el Almacenamiento de blobs de Azure. En cambio, los datos se pueden copiar **directamente** de cualquiera de los orígenes a cualquiera de los receptores indicados [aquí](data-factory-data-movement-activities.md#supported-data-stores) mediante la actividad de copia en Data Factory de Azure.  
+En los siguientes ejemplos se proporcionan definiciones JSON que puede usar para crear una canalización mediante [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md) o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Muestran cómo copiar datos entre Azure Data Lake Store y el Almacenamiento de blobs de Azure. En cambio, los datos pueden copiarse **directamente** desde cualquiera de los orígenes a cualquiera de los receptores admitidos. Para más información, vea la sección "Almacenes de datos y formatos que se admiten" del artículo [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md).  
 
-## <a name="sample:-copy-data-from-azure-blob-to-azure-data-lake-store"></a>Ejemplo: copia de datos de un blob de Azure al almacén de Azure Data Lake
+## <a name="sample-copy-data-from-azure-blob-to-azure-data-lake-store"></a>Ejemplo: copia de datos de un blob de Azure al almacén de Azure Data Lake
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureStorage](#azure-storage-linked-service-properties)
@@ -74,16 +78,16 @@ El procedimiento siguiente proporciona los pasos para crear un servicio vinculad
 1. Haga clic en **Nuevo almacén de datos** en la barra de comandos y seleccione **Azure Data Lake Store**.
 2. En el editor de JSON, en la propiedad **dataLakeStoreUri** , especifique el URI de Data Lake.
 3. Haga clic en el botón **Autorizar** de la barra de comandos. Aparecerá una ventana emergente.
-   
+
     ![Botón Autorizar](./media/data-factory-azure-data-lake-connector/authorize-button.png)
 4. Use las credenciales para iniciar sesión; ahora debería asignarse un valor a la propiedad **authorization** de JSON.
 5. (Opcional) Especifique valores para los parámetros opcionales, como **accountName**, **subscriptionID** y **resourceGroupName**, del código JSON, o bien elimínelas de dicho código.
 6. Haga clic en **Implementar** en la barra de comandos para implementar el servicio vinculado.
 
 > [!IMPORTANT]
-> El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. **Vuelva a dar la autorización** con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. Para más información, vea [Propiedades del servicio vinculado de Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) . 
-> 
-> 
+> El código de autorización que se generó al hacer clic en el botón **Autorizar** expira poco tiempo después. **Vuelva a dar la autorización** con el botón **Autorizar** cuando el **token expire** y vuelva a implementar el servicio vinculado. Para más información, vea [Propiedades del servicio vinculado de Azure Data Lake Store](#azure-data-lake-store-linked-service-properties) .
+>
+>
 
 **Conjunto de datos de entrada de blob de Azure:**
 
@@ -153,17 +157,17 @@ El ejemplo copia los datos en un almacén de Azure Data Lake. Los nuevos datos s
 
     {
         "name": "AzureDataLakeStoreOutput",
-        "properties": {
+          "properties": {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
             "typeProperties": {
                 "folderPath": "datalake/output/"
             },
             "availability": {
-                "frequency": "Hour",
-                "interval": 1
+                  "frequency": "Hour",
+                  "interval": 1
             }
-        }
+          }
     }
 
 
@@ -181,46 +185,46 @@ La canalización contiene una actividad de copia que está configurada para usar
             "description":"pipeline with copy activity",
             "activities":
             [  
-                {
+                  {
                     "name": "AzureBlobtoDataLake",
                     "description": "Copy Activity",
                     "type": "Copy",
                     "inputs": [
-                    {
+                      {
                         "name": "AzureBlobInput"
-                    }
+                      }
                     ],
                     "outputs": [
-                    {
+                      {
                         "name": "AzureDataLakeStoreOutput"
-                    }
+                      }
                     ],
                     "typeProperties": {
                         "source": {
                             "type": "BlobSource",
                             "treatEmptyAsNull": true,
                             "blobColumnSeparators": ","
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "AzureDataLakeStoreSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
             ]
         }
     }
 
-## <a name="sample:-copy-data-from-azure-data-lake-store-to-azure-blob"></a>Ejemplo: copia de datos del almacén de Azure Data Lake a un blob de Azure
+## <a name="sample-copy-data-from-azure-data-lake-store-to-azure-blob"></a>Ejemplo: copia de datos del almacén de Azure Data Lake a un blob de Azure
 El ejemplo siguiente muestra:
 
 1. Un servicio vinculado de tipo [AzureDataLakeStore](#azure-data-lake-linked-service-properties).
@@ -247,8 +251,8 @@ El ejemplo copia los datos de la serie temporal desde un almacén de Azure Data 
 
 > [!NOTE]
 > Vea los pasos del ejemplo anterior para obtener la dirección URL de autorización.  
-> 
-> 
+>
+>
 
 **Servicio vinculado de Almacenamiento de Azure:**
 
@@ -268,7 +272,7 @@ Si se establece **"external": true** , se informa al servicio Data Factory de qu
 
     {
         "name": "AzureDataLakeStoreInput",
-        "properties":
+          "properties":
         {
             "type": "AzureDataLakeStore",
             "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -284,16 +288,16 @@ Si se establece **"external": true** , se informa al servicio Data Factory de qu
             "external": true,
             "availability": {
                 "frequency": "Hour",
-                "interval": 1
+                  "interval": 1
             },
             "policy": {
-                "externalData": {
+                  "externalData": {
                     "retryInterval": "00:01:00",
                     "retryTimeout": "00:10:00",
                     "maximumRetry": 3
-                }
+                  }
             }
-        }
+          }
     }
 
 **Conjunto de datos de salida de blob de Azure:**
@@ -365,7 +369,7 @@ La canalización contiene una actividad de copia que está configurada para usar
             "end":"2014-06-01T19:00:00",
             "description":"pipeline for copy activity",
             "activities":[  
-                {
+                  {
                     "name": "AzureDakeLaketoBlob",
                     "description": "copy activity",
                     "type": "Copy",
@@ -382,22 +386,22 @@ La canalización contiene una actividad de copia que está configurada para usar
                     "typeProperties": {
                         "source": {
                             "type": "AzureDataLakeStoreSource",
-                        },
-                        "sink": {
+                          },
+                          "sink": {
                             "type": "BlobSink"
-                        }
+                          }
                     },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
+                       "scheduler": {
+                          "frequency": "Hour",
+                          "interval": 1
                     },
                     "policy": {
-                        "concurrency": 1,
-                        "executionPriorityOrder": "OldestFirst",
-                        "retry": 0,
-                        "timeout": "01:00:00"
+                          "concurrency": 1,
+                          "executionPriorityOrder": "OldestFirst",
+                          "retry": 0,
+                          "timeout": "01:00:00"
                     }
-                }
+                  }
              ]
         }
     }
@@ -424,7 +428,7 @@ El código de autorización que genera al hacer clic en el botón **Autorizar** 
 | Cuentas de usuario NO administradas por Azure Active Directory (@hotmail.com, @live.com, etc). |12 horas |
 | Cuentas de usuario administradas por Azure Active Directory (AAD) |14 días después de la ejecución del último segmento. <br/><br/>Noventa días, si un segmento basado en el servicio vinculado basado en OAuth se ejecuta al menos una vez cada catorce días. |
 
-Si cambia la contraseña antes de esta hora de expiración del token, el token expira inmediatamente y aparece el error mencionado en esta sección. 
+Si cambia la contraseña antes de esta hora de expiración del token, el token expira inmediatamente y aparece el error mencionado en esta sección.
 
 Para evitar o resolver este error, vuelva a dar la autorización con el botón **Autorizar** cuando el **token expire** e implemente de nuevo el servicio vinculado. También puede generar valores para las propiedades **sessionId** y **authorization** mediante programación, para lo que usará el código de la sección siguiente:
 
@@ -452,7 +456,7 @@ Para evitar o resolver este error, vuelva a dar la autorización con el botón *
         }
     }
 
-Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a la versión **2.9.10826.1824** de **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** para la clase WindowsFormsWebAuthenticationDialog utilizada en el código. 
+Para más información sobre las clases de Data Factory que se usan en el código, consulte los temas [AzureDataLakeStoreLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) y [AuthorizationSessionGetResponse Class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx). Agregue una referencia a la versión **2.9.10826.1824** de **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll** para la clase WindowsFormsWebAuthenticationDialog utilizada en el código.
 
 ## <a name="azure-data-lake-dataset-type-properties"></a>Propiedades de tipo del conjunto de datos de Azure Data Lake
 Para obtener una lista completa de las secciones y propiedades JSON disponibles para definir conjuntos de datos, consulte el artículo [Creación de conjuntos de datos](data-factory-create-datasets.md). Las secciones como structure, availability y policy del código JSON del conjunto de datos son similares para todos los tipos de conjunto de datos (SQL Azure, blob de Azure, tabla de Azure, etc.).
@@ -503,39 +507,39 @@ Para especificar la compresión para un conjunto de datos, use la propiedad **co
 
     {  
         "name": "AzureDatalakeStoreDataSet",  
-        "properties": {  
+          "properties": {  
             "availability": {  
                 "frequency": "Day",  
-                "interval": 1  
+                  "interval": 1  
             },  
             "type": "AzureDatalakeStore",  
             "linkedServiceName": "DataLakeStoreLinkedService",  
             "typeProperties": {  
                 "fileName": "pagecounts.csv.gz",  
-                "folderPath": "compression/file/",  
-                "compression": {  
+                  "folderPath": "compression/file/",  
+                  "compression": {  
                     "type": "GZip",  
                     "level": "Optimal"  
-                }  
+                  }  
             }  
-        }  
+          }  
     }  
 
 La sección **compression** tiene dos propiedades:  
 
 * **Type**: el códec de compresión, que puede ser **GZIP**, **Deflate** o **BZIP2**.  
-* **Level**: la relación de compresión, que puede ser **Optimal** o **Fastest**. 
-  
-  * **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima. 
-  * **Optimal:**la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse. 
-    
-    Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . 
+* **Level**: la relación de compresión, que puede ser **Optimal** o **Fastest**.
+
+  * **Fastest:** la operación de compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante no se comprime de forma óptima.
+  * **Optimal:**la operación de compresión se debe comprimir óptimamente, incluso si tarda más tiempo en completarse.
+
+    Para más información, consulte el tema [Nivel de compresión](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) .
 
 Suponga que el conjunto de datos de ejemplo se utiliza como salida de una actividad de copia. La actividad de copia comprime los datos de salida mediante el códec GZIP con una relación óptima y, luego, escribe los datos comprimidos en un archivo denominado pagecounts.csv.gz en el almacén de Azure Data Lake.   
 
-Cuando se especifica la propiedad de compresión en el código JSON de un conjunto de datos de entrada, la canalización lee datos comprimidos del origen. Cuando se especifica la propiedad en el código JSON de un conjunto de datos de salida, la actividad de copia puede escribir datos comprimidos en el destino. Estos son algunos escenarios de ejemplo: 
+Cuando se especifica la propiedad de compresión en el código JSON de un conjunto de datos de entrada, la canalización lee datos comprimidos del origen. Cuando se especifica la propiedad en el código JSON de un conjunto de datos de salida, la actividad de copia puede escribir datos comprimidos en el destino. Estos son algunos escenarios de ejemplo:
 
-* Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos y escribir los datos de resultado en una base de datos SQL de Azure. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con la propiedad JSON compression en este caso. 
+* Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos y escribir los datos de resultado en una base de datos SQL de Azure. Defina el conjunto de datos del almacén de Azure Data Lake de entrada con la propiedad JSON compression en este caso.
 * Leer datos de un archivo de texto sin formato del sistema de archivos local, comprimirlos con formato GZip y escribir los datos comprimidos en un almacén de Azure Data Lake. Defina un conjunto de datos de Azure Data Lake de salida con la propiedad JSON compression en este caso.  
 * Leer datos comprimidos con GZIP de un almacén de Azure Data Lake, descomprimirlos, comprimirlos con BZIP2 y escribir los datos de resultado en un almacén de Azure Data Lake. Establecer el tipo de compresión como GZIP y BZIP2 para los conjuntos de datos de entrada y salida, respectivamente.   
 
@@ -565,6 +569,8 @@ Por otra parte, las propiedades disponibles en la sección typeProperties de la 
 ## <a name="performance-and-tuning"></a>Rendimiento y optimización
 Consulte [Guía de optimización y rendimiento de la actividad de copia](data-factory-copy-activity-performance.md) para más información sobre los factores clave que afectan al rendimiento del movimiento de datos (actividad de copia) en Azure Data Factory y las diversas formas de optimizarlo.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

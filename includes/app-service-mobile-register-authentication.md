@@ -11,6 +11,9 @@ En primer lugar, debe registrar la aplicación en el sitio del proveedor de iden
 2. Repita los pasos anteriores para cada proveedor que desee admitir en su aplicación.
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Portal de Azure]: https://portal.azure.com/
 
-<!---HONumber=Nov15_HO4-->
+
+<!--HONumber=Nov16_HO3-->
+
+

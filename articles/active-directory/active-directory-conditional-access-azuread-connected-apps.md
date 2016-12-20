@@ -1,12 +1,12 @@
 ---
-title: Acceso condicional de Azure a aplicaciones SaaS | Microsoft Docs
-description: 'El acceso condicional en Azure AD permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza. '
+title: Acceso condicional de Azure para aplicaciones SaaS | Microsoft Docs
+description: "El acceso condicional en Azure AD permite la configuración de reglas de acceso de autenticación multifactor por aplicación y la capacidad de bloquear el acceso de los usuarios en una red que no es de confianza. "
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 51a1ee61-3ffe-4f65-b8de-ff21903e1e74
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6c64b76c190efb6c9298487ca6c5e7fcf3b57b52
+
 
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>Introducción al acceso condicional de Azure Active Directory
@@ -28,7 +32,7 @@ Estas funcionalidades estarán disponibles para los clientes que hayan adquirido
 * Inquilino de Azure Active Directory federado o administrado
 * Para los inquilinos federados, es necesario que la autenticación multifactor esté habilitada.
 
-## <a name="configure-perapplication-access-rules"></a>Configuración de las reglas de acceso por aplicación
+## <a name="configure-per-application-access-rules"></a>Configuración de las reglas de acceso por aplicación
 En esta sección se describe cómo configurar las reglas de acceso por aplicación.
 
 1. Inicie sesión en el Portal de Azure clásico con una cuenta que sea administrador global en Azure AD.
@@ -68,7 +72,7 @@ El estado de la regla de acceso permite la activación o desactivación de las r
 ### <a name="access-rule-evaluation"></a>Evaluación de la regla de acceso
 Cuando un usuario tiene acceso a una aplicación federada que usa OAuth 2.0, OpenID Connect, SAML o WS-Federation, se evalúan las reglas de acceso. Además, las reglas de acceso se evalúan cuando OAuth 2.0 y OpenID Connect usan un token de actualización para adquirir un token de acceso. Si la evaluación de directivas da error cuando se usa un token de actualización, se muestra el error **invalid_grant**. Este error indica que el usuario debe volver a autenticarse en el cliente.
 
-### <a name="configure-federation-services-to-provide-multifactor-authentication"></a>Configuración de los servicios de federación para proporcionar autenticación multifactor
+### <a name="configure-federation-services-to-provide-multi-factor-authentication"></a>Configuración de los servicios de federación para proporcionar autenticación multifactor
 En el caso de inquilinos federados, puede que Azure Active Directory o el servidor local de AD FS ejecute MFA.
 
 De forma predeterminada, MFA se producirá en una página hospedada por Azure Active Directory. Para configurar MFA en el entorno local, el valor de la propiedad **–SupportsMFA** debe establecerse en **true** en Azure Active Directory usando el módulo de Azure AD para Windows PowerShell.
@@ -83,6 +87,9 @@ Además de establecer esta marca, la instancia de AD FS de inquilinos federados 
 * [Protección del acceso a Office 365 y otras aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

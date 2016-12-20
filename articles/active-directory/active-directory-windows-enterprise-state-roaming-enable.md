@@ -1,13 +1,13 @@
 ---
-title: Habilitación de Enterprise State Roaming en Azure Active Directory | Microsoft Docs
-description: Preguntas más frecuentes sobre la configuración Enterprise State Roaming en dispositivos de Windows. Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo.
+title: "Habilitación de Enterprise State Roaming en Azure Active Directory | Microsoft Docs"
+description: "Preguntas más frecuentes sobre la configuración Enterprise State Roaming en dispositivos de Windows. Enterprise State Roaming proporciona a los usuarios una experiencia unificada a través de sus dispositivos de Windows y reduce el tiempo necesario para configurar un nuevo dispositivo."
 services: active-directory
-keywords: enterprise state roaming, nube de windows, cómo habilitar enterprise state roaming
-documentationcenter: ''
+keywords: "enterprise state roaming, nube de windows, cómo habilitar enterprise state roaming"
+documentationcenter: 
 author: femila
 manager: swadhwa
 editor: curtand
-
+ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 7b7cc0fda8ee2acb417052b501afb0e6e3d0a199
+
 
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitación de Enterprise State Roaming en Azure Active Directory
@@ -71,6 +75,9 @@ Los datos sincronizados con Azure a través de Enterprise State Roaming se conse
 * [Configuración de MDM y directivas de grupo](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
 title: Uso de la API de Engagement en Android
-description: Último SDK de Android - Uso de la API de Engagement en Android
+description: "Último SDK de Android - Uso de la API de Engagement en Android"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
@@ -14,34 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
+
 
 ---
-# Uso de la API de Engagement en Android
-Este documento sirve de complemento al documento [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md) (Opciones de informes con Engagement en Android). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
+# <a name="how-to-use-the-engagement-api-on-android"></a>Uso de la API de Engagement en Android
+Este documento sirve de complemento al documento [Reporting Options with Engagement on Android](mobile-engagement-android-advanced-reporting.md)(Opciones de informes con Engagement en Android). En él se proporciona información detallada acerca de cómo usar la API de Engagement para informar de las estadísticas de la aplicación.
 
 Tenga en cuenta que si solamente desea que Engagement notifique las sesiones, actividades, bloqueos e información técnica de la aplicación, la forma más sencilla es hacer que todas las subclases `Activity` hereden de la clase `EngagementActivity` correspondiente.
 
-Si desea hacer más, por ejemplo, si necesita informar de eventos, errores y trabajos específicos de la aplicación, o si debe informar de las actividades de la aplicación de manera diferente de la que se implementa en las clases `EngagementActivity`, deberá usar la API de Engagement.
+Si desea hacer más, por ejemplo, si necesita informar de eventos, errores y trabajos específicos de la aplicación, o si debe informar de las actividades de la aplicación de manera diferente de la que se implementa en las clases `EngagementActivity` , deberá usar la API de Engagement.
 
-La API de Engagement la proporciona la clase `EngagementAgent`. Para recuperar una instancia de esta clase puede llamarse al método estático `EngagementAgent.getInstance(Context)` (tenga en cuenta que el objeto `EngagementAgent` que se devuelve es un singleton).
+La API de Engagement la proporciona la clase `EngagementAgent` . Para recuperar una instancia de esta clase puede llamarse al método estático `EngagementAgent.getInstance(Context)` (tenga en cuenta que el objeto `EngagementAgent` que se devuelve es un singleton).
 
-## Conceptos de Engagement
-En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md) para la plataforma Android.
+## <a name="engagement-concepts"></a>Conceptos de Engagement
+En las siguientes secciones se detallan los [conceptos de Mobile Engagement](mobile-engagement-concepts.md)para la plataforma Android.
 
-### `Session` y `Activity`
+### <a name="session-and-activity"></a>`Session` y `Activity`
 Si el usuario permanece inactivo entre dos *actividades* durante más de unos segundos, su secuencia de *actividades* se divide en dos *sesiones* distintas. Estos segundos se denominan "tiempo de espera de la sesión".
 
-Una *actividad* normalmente se asocia con una pantalla de la aplicación, es decir, la *actividad* se inicia cuando la pantalla se muestra y se detiene cuando se cierra la pantalla: este es el caso cuando se integra el SDK de Engagement utilizando las clases `EngagementActivity`.
+Una *actividad* suele asociarse con una pantalla de la aplicación (es decir, la *actividad* se inicia cuando la pantalla se muestra y se detiene cuando se cierra la pantalla, como cuando se integra el SDK de Engagement con el uso de las clases `EngagementActivity`).
 
 Sin embargo, las *actividades* también se pueden controlar manualmente mediante la API de Engagement. Esto permite dividir una pantalla dada en varias subpartes para obtener más detalles sobre el uso de esta pantalla (por ejemplo, para saber con qué frecuencia y durante cuánto tiempo se utilizan los cuadros de diálogo dentro de esta pantalla).
 
-## Informes sobre actividades
+## <a name="reporting-activities"></a>Informes sobre actividades
 > [!IMPORTANT]
 > Si usa la clase `EngagementActivity` y sus variantes según se explica en el documento Integración de Engagement en Android, no es necesario notificar las actividades de la forma descrita en esta sección.
 > 
 > 
 
-### El usuario inicia una nueva actividad
+### <a name="user-starts-a-new-activity"></a>El usuario inicia una nueva actividad
             EngagementAgent.getInstance(this).startActivity(this, "MyUserActivity", null);
             // Passing the current activity is required for Reach to display in-app notifications, passing null will postpone such announcements and polls.
 
@@ -49,15 +53,15 @@ Debe llamar a `startActivity()` cada vez que cambie la actividad de usuario. La 
 
 El lugar idóneo para llamar a esta función es cada devolución de llamada `onResume` de actividad.
 
-### El usuario finaliza su actividad actual
+### <a name="user-ends-his-current-activity"></a>El usuario finaliza su actividad actual
             EngagementAgent.getInstance(this).endActivity();
 
 Cuando el usuario finaliza su última actividad, se debe llamar a `endActivity()` al menos una vez. De esta manera se informa al SDK de Engagement de que el usuario está inactivo y que la sesión del usuario se debe cerrar cuando expire el tiempo de espera de la misma (si se llama a `startActivity()` antes de que expire dicho tiempo de espera, la sesión simplemente se reanuda).
 
 El lugar idóneo para llamar a esta función es cada devolución de llamada `onPause` de actividad.
 
-## Informes de eventos
-### Eventos de sesión
+## <a name="reporting-events"></a>Informes de eventos
+### <a name="session-events"></a>Eventos de sesión
 Los eventos de sesión se suelen usar para notificar las acciones que realiza el usuario durante su sesión.
 
 **Ejemplo sin datos adicionales:**
@@ -84,7 +88,7 @@ Los eventos de sesión se suelen usar para notificar las acciones que realiza el
               [...]
             }
 
-### Eventos independientes
+### <a name="standalone-events"></a>Eventos independientes
 Al contrario de los eventos de sesión, los eventos independientes pueden producirse fuera del contexto de una sesión.
 
 **Ejemplo:**
@@ -101,8 +105,8 @@ Supongamos que desea notificar los eventos que se producen al desencadenarse un 
               [...]
             }
 
-## Informes de errores
-### Errores de sesión
+## <a name="reporting-errors"></a>Informes de errores
+### <a name="session-errors"></a>Errores de sesión
 Los errores de sesión suelen usarse para notificar los errores que afectan al usuario durante su sesión.
 
 **Ejemplo:**
@@ -119,7 +123,7 @@ Los errores de sesión suelen usarse para notificar los errores que afectan al u
               [...]
             }
 
-### Errores independientes
+### <a name="standalone-errors"></a>Errores independientes
 Al contrario de los errores de sesión, los errores independientes se pueden producir fuera del contexto de una sesión.
 
 **Ejemplo:**
@@ -134,8 +138,8 @@ En el ejemplo siguiente se muestra cómo notificar un error siempre que quede po
               }
             }
 
-## Informes de trabajos
-### Ejemplo
+## <a name="reporting-jobs"></a>Informes de trabajos
+### <a name="example"></a>Ejemplo
 Supongamos que desea notificar la duración del proceso de inicio de sesión:
 
             [...]
@@ -154,7 +158,7 @@ Supongamos que desea notificar la duración del proceso de inicio de sesión:
             }
             [...]
 
-### Informe de errores durante un trabajo
+### <a name="report-errors-during-a-job"></a>Informe de errores durante un trabajo
 Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
 **Ejemplo:**
@@ -188,7 +192,7 @@ Supongamos que desea notificar un error durante el proceso de inicio de sesión:
             }
             [...]
 
-### Notificación de eventos durante un trabajo
+### <a name="reporting-events-during-a-job"></a>Notificación de eventos durante un trabajo
 Los errores pueden estar relacionados con un trabajo en ejecución en lugar de la sesión del usuario actual.
 
 **Ejemplo:**
@@ -214,7 +218,7 @@ El usuario puede recibir mensajes de sus amigos, este es un evento de trabajo.
             }
             [...]
 
-## Parámetros adicionales
+## <a name="extra-parameters"></a>Parámetros adicionales
 Se pueden adjuntar datos arbitrarios en eventos, errores, actividades y trabajos.
 
 Estos datos se pueden estructurar y usan la clase Bundle de Android (en realidad, funcionan como los parámetros adicionales en los elementos Intent de Android). Tenga en cuenta que una clase Bundle puede contener matrices u otras instancias de Bundle.
@@ -227,35 +231,35 @@ Estos datos se pueden estructurar y usan la clase Bundle de Android (en realidad
 > 
 > 
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
             Bundle extras = new Bundle();
             extras.putString("video_id", 123);
             extras.putString("ref_click", "http://foobar.com/blog");
             EngagementAgent.getInstance(context).sendEvent("video_clicked", extras);
 
-### Límites
-#### simétricas
+### <a name="limits"></a>Límites
+#### <a name="keys"></a>simétricas
 Cada clave de la `Bundle` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves tienen que empezar como mínimo con una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### Tamaño
+#### <a name="size"></a>Tamaño
 Los datos adicionales o extras se limitan a **1024** caracteres por llamada (una vez codificados en JSON por el servicio Engagement).
 
 En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 58 caracteres:
 
             {"ref_click":"http:\/\/foobar.com\/blog","video_id":"123"}
 
-## Información de la aplicación de informes
-Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función `sendAppInfo()`.
+## <a name="reporting-application-information"></a>Información de la aplicación de informes
+Puede notificar manualmente la información de seguimiento (o cualquier otro tipo de información específica de la aplicación) mediante la función `sendAppInfo()` .
 
 Tenga en cuenta que esta información se puede enviar de forma incremental: para un dispositivo dado solo se conservará el último valor de una clave determinada.
 
 Al igual que los datos adicionales de los eventos, la clase Bundle se usa para resumir la información de la aplicación. Tenga en cuenta que las matrices o subagrupaciones se tratarán como cadenas sin formato (con la serialización JSON).
 
-### Ejemplo
+### <a name="example"></a>Ejemplo
 Este es un ejemplo de código para enviar el género y la fecha de nacimiento del usuario:
 
             Bundle appInfo = new Bundle();
@@ -263,19 +267,23 @@ Este es un ejemplo de código para enviar el género y la fecha de nacimiento de
             appInfo.putString("expiration", "2016-12-07"); // December 7th 2016
             EngagementAgent.getInstance(context).sendAppInfo(appInfo);
 
-### Límites
-#### simétricas
+### <a name="limits"></a>Límites
+#### <a name="keys"></a>simétricas
 Cada clave de la `Bundle` debe coincidir con la siguiente expresión regular:
 
 `^[a-zA-Z][a-zA-Z_0-9]*`
 
-Esto significa que las claves deben empezar con al menos una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
+Esto significa que las claves tienen que empezar como mínimo con una letra, seguida de letras, dígitos o caracteres de subrayado (\_).
 
-#### Tamaño
+#### <a name="size"></a>Tamaño
 La información de la aplicación se limita a **1024** caracteres por llamada (una vez codificada en JSON por el servicio Engagement).
 
 En el ejemplo anterior, el JSON que se envía al servidor tiene una longitud de 44 caracteres:
 
             {"expiration":"2016-12-07","status":"premium"}
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,22 +1,26 @@
 ---
-title: Opciones de Group by en Almacenamiento de datos SQL | Microsoft Docs
+title: Opciones de Group by en SQL Data Warehouse | Microsoft Docs
 description: Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: f95a1e43-768f-4b7b-8a10-8a0509d0c871
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e8c486ca190ae2af650a7fa17843c84538dde8d9
+
 
 ---
-# Opciones de Group by en Almacenamiento de datos SQL
+# <a name="group-by-options-in-sql-data-warehouse"></a>Opciones de Group by en Almacenamiento de datos SQL
 La cláusula [GROUP BY][GROUP BY] se usa para agregar datos a un conjunto de filas de resumen. También cuenta con algunas opciones que amplían su funcionalidad y que es necesario solucionar ya que no son directamente compatibles con Almacenamiento de datos SQL de Azure.
 
 Estas opciones son:
@@ -25,10 +29,10 @@ Estas opciones son:
 * GROUPING SETS
 * GROUP BY con CUBE
 
-## Opciones Rollup y Grouping sets
+## <a name="rollup-and-grouping-sets-options"></a>Opciones Rollup y Grouping sets
 Aquí, la opción más sencilla consiste en usar `UNION ALL` en su lugar para realizar la acumulación en lugar de depender de la sintaxis explícita. El resultado es exactamente el mismo
 
-A continuación se muestra un ejemplo de una instrucción Group by mediante el uso de la opción `ROLLUP`:
+A continuación se muestra un ejemplo de una instrucción Group by mediante el uso de la opción `ROLLUP` :
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -49,7 +53,7 @@ Mediante el uso de ROLLUP hemos solicitado las agregaciones siguientes:
 * País
 * Total general
 
-Para reemplazar esta operación, deberá usar `UNION ALL` y especificar las agregaciones necesarias explícitamente para devolver los mismos resultados:
+Para reemplazar esta operación, deberá usar `UNION ALL`y especificar las agregaciones necesarias explícitamente para devolver los mismos resultados:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -78,7 +82,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 Para GROUPING SETS, todo lo que tenemos que hacer es adoptar la misma entidad de seguridad pero solo crear secciones UNION ALL para los niveles de agregación que queramos ver.
 
-## Opciones de Cube
+## <a name="cube-options"></a>Opciones de Cube
 Es posible crear una cláusula GROUP BY WITH CUBE con el método UNION ALL. El problema es que el código puede volverse rápidamente complicado y difícil de manejar. Para mitigar esta situación, puede usar este enfoque más avanzado.
 
 Vamos a usar el ejemplo anterior.
@@ -176,14 +180,14 @@ ORDER BY 1,2,3
 
 Al dividir el código en secciones y generar una construcción de bucle, el código resulta más fácil de administrar y mantener.
 
-## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-develop-group-by-options/sql-data-warehouse-develop-group-by-cube.png
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
 [GROUP BY]: https://msdn.microsoft.com/library/ms177673.aspx
@@ -191,4 +195,8 @@ Para obtener más sugerencias sobre desarrollo, consulte la [información genera
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

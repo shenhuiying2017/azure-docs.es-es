@@ -16,8 +16,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/03/2016
 ms.author: heidist
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dddbcbcd82900d7537c2d60631cc1753554d9486
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 02623fc3d663a674e2184380915d651dff5760bc
 
 
 ---
@@ -27,7 +27,7 @@ Este artículo es una introducción sin código a Búsqueda de Azure de Microsof
 En este tutorial se da por hecho que dispone de una [base de datos de Azure DocumentDB de ejemplo](#apdx-sampledata) que puede crear fácilmente con nuestras instrucciones y datos de ejemplo; sin embargo, también puede adaptar estos pasos a los datos existentes, bien en DocumentDB o en Base de datos SQL.
 
 > [!NOTE]
-> Para este tutorial de inicio se necesita una [suscripción de Azure](/pricing/free-trial/?WT.mc_id=A261C142F) y un [servicio Azure Search](search-create-service-portal.md). 
+> Para este tutorial de inicio se necesita una [suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) y un [servicio Azure Search](search-create-service-portal.md). 
 > 
 > 
 
@@ -181,6 +181,6 @@ Obtendrá un JSON de salida, que comienza por el número de documento 386 y term
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

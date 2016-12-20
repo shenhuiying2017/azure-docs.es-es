@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8c0d2b57f7a998ae52a08a5ae0cbc57a0a77f002
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 
 ---
@@ -176,7 +176,7 @@ Si se produce un error en un trabajo de Programador, es posible especificar una 
 
 Para establecer una directiva de reintentos, se pueden especificar dos configuraciones adicionales: un intervalo de reintento (**retryInterval**) y el número de reintentos (**retryCount**).
 
-El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora.  Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4, y su valor máximo es 20\.. **retryInterval** y **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
+El intervalo de reintentos, especificado con el objeto **retryInterval** , es el intervalo entre reintentos. Su valor predeterminado es de 30 segundos, su valor configurable mínimo es de 15 segundos y su valor máximo es de 18 meses. Los trabajos de las colecciones de trabajos gratis tienen un valor configurable mínimo de 1 hora.  Se define en el formato ISO 8601. Del mismo modo, se especifica el valor del número de reintentos con el objeto **retryCount** ; es el número de veces que se realiza un reintento. Su valor predeterminado es 4, y su valor máximo es 20\. **retryInterval** y **retryCount** son opcionales. Obtienen sus valores predeterminados si **retryType** está establecido en **fixed** y no se especifican explícitamente los valores.
 
 ## <a name="see-also"></a>Consulte también
  [¿Qué es Programador?](scheduler-intro.md)
@@ -200,6 +200,6 @@ El intervalo de reintentos, especificado con el objeto **retryInterval** , es el
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

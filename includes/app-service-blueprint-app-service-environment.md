@@ -1,5 +1,5 @@
 * [Configuración de una superficie de aplicaciones distribuidas geográficamente](../articles/app-service-web/app-service-app-service-environment-geo-distributed-scale.md)
-* [Implementación de una arquitectura de seguridad por niveles](../articles/app-service-web/app-service-app-service-environment-layered-security.md)
+* [Implementación de una arquitectura de seguridad por niveles](../articles/app-service-web/app-service-app-service-environment-layered-security.md) 
 * [Configuración de un firewall de aplicaciones web con un Entorno del Servicio de aplicaciones](../articles/app-service-web/app-service-app-service-environment-web-application-firewall.md)
 * [Creación de un entorno del Servicio de aplicaciones habilitado para ILB mediante plantillas de Resource Manager](../articles/app-service-web/app-service-app-service-environment-create-ilb-ase-resourcemanager.md)
 * [Usar el escalado automático con un Entorno del Servicio de aplicaciones](../articles/app-service/app-service-environment-auto-scale.md)
@@ -9,4 +9,8 @@
 * [Configuración personalizada para entornos de Servicio de aplicaciones, incluida la configuración de cumplimiento de PCI](../articles/app-service-web/app-service-app-service-environment-custom-settings.md)
 * [Hospedaje de aplicaciones de alta densidad con entornos del Servicio de aplicaciones](../articles/app-service/app-service-high-density-hosting.md#recommended-configuration-for-high-density-hosting)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

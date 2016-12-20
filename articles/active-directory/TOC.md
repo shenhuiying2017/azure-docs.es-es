@@ -12,7 +12,7 @@
 ## [Administración de licencias de AD](active-directory-licensing-what-is.md)
 ## [Obtención de Azure para su organización](sign-up-organization.md)
 ## [Preguntas más frecuentes](active-directory-faq.md)
-
+## [Tutoriales de aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
 # Cómo
 ## Administrar usuarios
@@ -279,7 +279,7 @@
 # Referencia
 ## [Cmdlets de PowerShell](/powershell/ )
 ## [Referencia de la API de Java](/java/api)
-## [API de .NET](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [API de .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Restricciones y límites del servicio](active-directory-service-limits-restrictions.md)
 
 # Temas relacionados
@@ -291,12 +291,12 @@
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/active-directory/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Foro de comentarios de Azure](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

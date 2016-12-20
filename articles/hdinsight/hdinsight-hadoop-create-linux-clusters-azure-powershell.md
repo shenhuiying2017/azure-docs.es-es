@@ -1,23 +1,27 @@
 ---
-title: Creación de clústeres de Hadoop, HBase, Storm o Spark en Linux en HDInsight con Azure PowerShell | Microsoft Docs
-description: Aprenda a crear clústeres de Hadoop, HBase, Storm o Spark en Linux para HDInsight con Azure PowerShell.
+title: "Creación de clústeres de Hadoop, HBase, Storm o Spark en Linux en HDInsight con Azure PowerShell | Microsoft Docs"
+description: "Aprenda a crear clústeres de Hadoop, HBase, Storm o Spark en Linux para HDInsight con Azure PowerShell."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 4208deca-d64a-45e1-8948-2673d5d7678c
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/08/2016
+ms.date: 10/05/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 71f1ca77180c7b06f8c883c8c227bda63f28ed1c
+
 
 ---
-# Creación de clústeres basados en Linux en HDInsight mediante Azure PowerShell
+# <a name="create-linux-based-clusters-in-hdinsight-by-using-azure-powershell"></a>Creación de clústeres basados en Linux en HDInsight mediante Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-selector-create-clusters.md)]
 
 Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Microsoft Azure. En este documento se ofrece información sobre cómo crear un clúster de HDInsight basado en Linux mediante Azure PowerShell. También se incluye un script de ejemplo.
@@ -27,15 +31,19 @@ Azure PowerShell es un eficaz entorno de scripting que puede usar para controlar
 > 
 > 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de iniciar este procedimiento, debe tener lo siguiente:
 
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Azure PowerShell. Para más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para ver la lista de cmdlets de Windows PowerShell para HDInsight, consulte la [referencia de cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
+* Azure PowerShell.
+    Para más información sobre el uso de Azure PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](hdinsight-administer-use-powershell.md). Para ver la lista de cmdlets de Windows PowerShell para HDInsight, consulte la [referencia de cmdlets de HDInsight](https://msdn.microsoft.com/library/azure/dn858087.aspx).
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Creación de clústeres
+### <a name="access-control-requirements"></a>Requisitos de control de acceso
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-clusters"></a>Creación de clústeres
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Para crear un clúster de HDInsight con Azure PowerShell, debe realizar los procedimientos siguientes:
@@ -144,35 +152,40 @@ En el siguiente ejemplo se muestra cómo agregar una cuenta de almacenamiento ad
         -SshCredential $sshCredentials `
         -Config $config
 
-## Personalización de los clústeres
+## <a name="customize-clusters"></a>Personalización de los clústeres
 * Consulte [Personalización de los clústeres de HDInsight con Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md#use-azure-powershell).
 * Consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Windows)](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).
 
-## Eliminación del clúster
+## <a name="delete-the-cluster"></a>Eliminación del clúster
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya ha creado con éxito un clúster de HDInsight, use los siguientes recursos para aprender a trabajar con él.
 
-### Clústeres Hadoop
+### <a name="hadoop-clusters"></a>Clústeres Hadoop
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
 * [Uso de MapReduce con HDInsight](hdinsight-use-mapreduce.md)
 
-### Clústeres HBase
+### <a name="hbase-clusters"></a>Clústeres HBase
 * [Introducción a HBase en HDInsight](hdinsight-hbase-tutorial-get-started-linux.md)
 * [Desarrollo de aplicaciones de Java para HBase en HDInsight](hdinsight-hbase-build-java-maven-linux.md)
 
-### Clústeres Storm
+### <a name="storm-clusters"></a>Clústeres Storm
 * [Desarrollo de topologías de Java para Storm en HDInsight](hdinsight-storm-develop-java-topology.md)
 * [Uso de componentes de Python en Storm en HDInsight](hdinsight-storm-develop-python-topology.md)
 * [Implementación y supervisión de topologías con Storm en HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md)
 
-### Clústeres de Spark
+### <a name="spark-clusters"></a>Clústeres de Spark
 * [Crear una aplicación independiente con Scala](hdinsight-apache-spark-create-standalone-application.md)
 * [Ejecutar trabajos de forma remota en un clúster de Spark mediante Livy](hdinsight-apache-spark-livy-rest-interface.md)
 * [Spark with BI: Realizar el análisis de datos interactivos con Spark en HDInsight con las herramientas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark con aprendizaje automático: uso de Spark en HDInsight para predecir los resultados de la inspección de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming con Spark: uso de Spark en HDInsight para compilar aplicaciones de streaming en tiempo real](hdinsight-apache-spark-eventhub-streaming.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

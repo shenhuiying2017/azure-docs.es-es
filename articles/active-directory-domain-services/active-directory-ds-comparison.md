@@ -1,12 +1,12 @@
 ---
-title: 'Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Docs'
-description: Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal
+title: "Azure AD Domain Services: comparación de Azure AD Domain Services con controladores de dominio de implementación personal | Microsoft Docs"
+description: "Comparación de Azure Active Directory Domain Services con controladores de dominio de implementación personal"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 92567d36632ae285377f41a6804ef04ef49d5628
+
 
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Cómo decidir si Active Directory Domain Services es adecuado para su caso de uso
@@ -87,7 +91,7 @@ No se admiten construcciones de directivas de grupo sofisticadas en el dominio a
 #### <a name="geo-dispersed-deployments"></a>Implementaciones dispersas geográficamente
 Los dominios administrativos de Azure AD Domain Services están disponibles en una sola red virtual en Azure. Para escenarios que requieren la presencia de controladores de dominio en varias regiones de Azure en todo el mundo, la mejor opción puede ser configurar controladores de dominio en máquinas virtuales IaaS de Azure.
 
-## <a name="'do-it-yourself'-(diy)-ad-deployment-options"></a>Opciones de implementación de AD personal
+## <a name="do-it-yourself-diy-ad-deployment-options"></a>Opciones de implementación de AD personal
 Puede que tenga casos de uso de implementación donde necesite algunas de las funcionalidades que ofrezca una instalación de Windows Server AD. En estos casos, considere una de las siguientes opciones de implementación personal:
 
 * **Dominio en la nube independiente** : puede configurar un dominio en la nube independiente con máquinas virtuales configuradas como controladores de dominio. Esta infraestructura no se integra con su entorno de AD local. Esta opción requeriría un conjunto diferente de credenciales en la nube para iniciar sesión o administrar máquinas virtuales en la nube.
@@ -106,6 +110,9 @@ Hemos publicado [directrices de implementación de Windows Server Active Directo
 * [Escenarios de implementación de Azure AD Domain Services](active-directory-ds-scenarios.md)
 * [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Microsoft Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

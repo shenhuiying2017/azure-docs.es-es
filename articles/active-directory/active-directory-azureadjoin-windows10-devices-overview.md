@@ -1,14 +1,14 @@
 ---
 title: 'Windows 10 para empresa: formas de usar dispositivos para trabajar | Microsoft Docs'
-description: Información general de la implementación de dispositivos de Windows 10 para empresas y cómo integrarlos con Azure Active Directory para la nube de Windows. Compara las distintas formas de aprovisionar y usar un dispositivo en una empresa mediante el Portal de Azure.
+description: "Información general de la implementación de dispositivos de Windows 10 para empresas y cómo integrarlos con Azure Active Directory para la nube de Windows. Compara las distintas formas de aprovisionar y usar un dispositivo en una empresa mediante el Portal de Azure."
 keywords: nube de Windows, Windows en Azure Active Directory, dispositivos Windows 10 en Azure, dispositivos Windows en Azure
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: femila
 manager: swadhwa
-editor: ''
+editor: 
 tags: azure-classic-portal
-
+ms.assetid: 2cb9ab6a-55b6-4658-b7f2-6e05ae015e1b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,9 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: aa6e78feb7ffaefcb8bce9c7f2293421c4859898
+
 
 ---
-# <a name="windows-10-for-the-enterprise:-ways-to-use-devices-for-work"></a>Windows 10 para empresa: formas de usar dispositivos para trabajar
+# <a name="windows-10-for-the-enterprise-ways-to-use-devices-for-work"></a>Windows 10 para empresa: formas de usar dispositivos para trabajar
 Windows 10 permite aprovechar Azure Active Directory (Azure AD). Puede conectar dispositivos de Windows 10 a Azure AD y los usuarios pueden iniciar sesión en Windows con cuentas de Azure AD o agregando sus identificadores de Azure para acceder a los recursos y las aplicaciones empresariales.
 
 ![Azure Active Directory con servicios en la nube de Windows](./media/active-directory-azureadjoin/windows10-overview.png)
@@ -32,6 +36,9 @@ En los temas siguientes, se proporciona información de utilidad acerca de disti
 | Implementación |[Escenarios de uso y consideraciones de implementación de Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md) <br><br> [Experiencias de conexión de dispositivos unidos a un dominio a Azure AD para Windows 10](active-directory-azureadjoin-devices-group-policy.md)<br><br>[Habilitación de Microsoft Passport for Work en su organización](active-directory-azureadjoin-passport-deployment.md)<br><br> [Habilitación de Enterprise State Roaming para Windows 10](active-directory-windows-enterprise-state-roaming-overview.md)<br><br> |
 | Tareas de usuario |[Configuración de un nuevo dispositivo de Windows 10 con Azure AD durante la instalación](active-directory-azureadjoin-user-frx.md) <br><br> [Configuración de un dispositivo de Windows 10 con Azure AD desde el menú de configuración](active-directory-azureadjoin-user-upgrade.md) <br><br> [Unión de un dispositivo de Windows 10 personal a su organización](active-directory-azureadjoin-personal-device.md) |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

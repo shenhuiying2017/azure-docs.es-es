@@ -1,19 +1,23 @@
 ---
-title: Recopilación de datos de Azure Storage en la información general de Log Analytics | Microsoft Docs
-description: Los recursos de Azure usan Diagnósticos de Azure para escribir registros y métricas en una cuenta de Azure Storage. Log Analytics puede indexar estos datos y facilitar su búsqueda.
+title: "Recopilación de datos de Azure Storage en la información general de Log Analytics | Microsoft Docs"
+description: "Los recursos de Azure usan Diagnósticos de Azure para escribir registros y métricas en una cuenta de Azure Storage. Log Analytics puede indexar estos datos y facilitar su búsqueda."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 84105740-3697-4109-bc59-2452c1131bfe
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 10/31/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2a160030ab51799199fc6df08133f811d4987feb
+
 
 ---
 # <a name="collecting-azure-storage-data-in-log-analytics-overview"></a>Recopilación de datos de Azure Storage en la información general de Log Analytics
@@ -40,8 +44,7 @@ Log Analytics pueden recopilar datos de los siguientes recursos de Azure:
 | Tipo de recurso | Registros (categorías de diagnóstico) | Solución de Log Analytics |
 | --- | --- | --- |
 | Application Insights |Disponibilidad <br> Eventos personalizados <br> Excepciones <br> Solicitudes <br> |Application Insights (versión preliminar) |
-| Administración de API | |*Ninguno* (versión preliminar) |
-| Automatización <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (versión preliminar) |
+| Automation <br> Microsoft.Automation/AutomationAccounts |JobLogs <br> JobStreams |AzureAutomation (versión preliminar) |
 | Almacén de claves <br> Microsoft.KeyVault/Vaults |AuditEvent |KeyVault (versión preliminar) |
 | Puerta de enlace de aplicaciones <br> Microsoft.Network/ApplicationGateways |ApplicationGatewayAccessLog <br> ApplicationGatewayPerformanceLog |AzureNetworking (versión preliminar) |
 | Grupo de seguridad de red (NSG) <br> Microsoft.Network/NetworkSecurityGroups |NetworkSecurityGroupEvent <br> NetworkSecurityGroupRuleCounter |AzureNetworking (versión preliminar) |
@@ -67,14 +70,15 @@ Puede ayudarnos a dar prioridad a otros registros para que OMS los analice; para
   * Roles de trabajo
   * Máquinas virtuales
 
-Application Insights es una versión preliminar privada y utiliza la exportación continua a Blob Storage. Para unirse a versión preliminar privada, póngase en contacto con el equipo de cuentas de Microsoft o consulte los detalles en el [sitio de comentarios](https://feedback.azure.com/forums/267889-log-analytics/suggestions/6519248-integration-with-app-insights).
-
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Análisis de los registros de diagnóstico de Azure mediante Log Analytics](log-analytics-azure-storage-json.md) para aprender a leer los registros de servicios de Azure que escriben diagnósticos en formato JSON en Blob Storage.
 * Consulte [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) (Uso de Blob Storage para IIS y de Table Storage para eventos) para aprender a leer los registros para servicios de Azure que escriben diagnósticos en Table Storage o registros ISS en Blob Storage.
 * [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md) para más información sobre los datos.
 * [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para analizar los datos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

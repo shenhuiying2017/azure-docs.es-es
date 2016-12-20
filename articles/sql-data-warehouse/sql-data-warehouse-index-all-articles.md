@@ -1,19 +1,23 @@
 ---
-title: Todos los temas del servicio Almacenamiento de datos SQL | Microsoft Docs
-description: Tabla de todos los temas del servicio Almacenamiento de datos SQL que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones.
+title: Todos los temas de SQL Data Warehouse | Microsoft Docs
+description: "Tabla de todos los temas del servicio Almacenamiento de datos SQL que se encuentra en http://azure.microsoft.com/documentation/articles/, con títulos y descripciones."
 services: sql-data-warehouse
-documentationcenter: ''
+documentationcenter: 
 author: barbkess
 manager: jhubbard
-editor: MightyPen
-
+editor: 
+ms.assetid: a26a6dec-9c08-4415-8f58-4ee1dd41f718
 ms.service: sql-data-warehouse
 ms.workload: sql-data-warehouse
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 10/31/2016
 ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab5b0c283d1bd3fd1b734082d5ccffa4125f6de4
+
 
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Todos los temas del servicio Almacenamiento de datos SQL de Azure
@@ -22,9 +26,9 @@ En este documento se muestran todos los temas relacionados directamente con el s
 ## <a name="new"></a>Nuevo
 | &nbsp; | Título | Descripción |
 | ---:|:--- |:--- |
-| 1 |[Copias de seguridad de SQL Data Warehouse](sql-data-warehouse-backup.md) |Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta. |
+| 1 |[Copias de seguridad de SQL Data Warehouse](sql-data-warehouse-backups.md) |Aprenda sobre las copias de seguridad de base de datos integradas de SQL Data Warehouse que permiten restaurar una instancia de Azure SQL Data Warehouse a un punto de restauración o una región geográfica distinta. |
 
-## <a name="updated-articles,-sql-data-warehouse"></a>Artículos actualizados, SQL Data Warehouse
+## <a name="updated-articles-sql-data-warehouse"></a>Artículos actualizados, SQL Data Warehouse
 En esta sección se enumeran los artículos que se han actualizado recientemente. Concretamente, aquellos en los que la actualización fuera grande o considerable. Para cada artículo actualizado, se muestra un fragmento del texto agregado. Los artículos se actualizaron dentro de este intervalo de fechas: del **22-08-2016** al **05-10-2016**.
 
 | &nbsp; | Artículo | Texto actualizado, fragmento | Se actualiza cuando |
@@ -55,7 +59,7 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | ---:|:--- |:--- |
 | 18 |[Optimización de transacciones para Almacenamiento de datos SQL](sql-data-warehouse-develop-best-practices-transactions.md) |Guía de procedimientos recomendados sobre la escritura de actualizaciones de transacciones eficientes en Almacenamiento de datos SQL de Azure |
 | 19 |[Simultaneidad y administración de cargas de trabajo en Almacenamiento de datos SQL](sql-data-warehouse-develop-concurrency.md) |Obtenga información sobre la simultaneidad y la administración de cargas de trabajo en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
-| 20 | |[Create Table As Select (CTAS) en Almacenamiento de datos SQL](sql-data-warehouse-develop-ctas.md) |
+| 20 | |[Create Table As Select (CTAS) en Almacenamiento de datos SQL](sql-data-warehouse-develop-ctas.md) |Sugerencias para la codificación con la instrucción Create table as select (CTAS) en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 21 |[SQL dinámico en Almacenamiento de datos SQL](sql-data-warehouse-develop-dynamic-sql.md) |Sugerencias para usar SQL dinámico en Almacenamiento de datos SQL Azure para desarrollar soluciones. |
 | 22 |[Opciones de Group by en Almacenamiento de datos SQL](sql-data-warehouse-develop-group-by-options.md) |Sugerencias para implementar opciones de Group by en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
 | 23 |[Uso de etiquetas para instrumentar consultas en Almacenamiento de datos SQL](sql-data-warehouse-develop-label.md) |Sugerencias para usar etiquetas para instrumentar las consultas en Almacenamiento de datos SQL de Azure para el desarrollo de soluciones. |
@@ -160,6 +164,9 @@ En esta sección se enumeran los artículos que se han actualizado recientemente
 | 86 |[Límites de capacidad de Almacenamiento de datos SQL](sql-data-warehouse-service-capacity-limits.md) |Valores máximos para las conexiones, bases de datos, tablas y consultas de Almacenamiento de datos SQL. |
 | 87 |[Solución de problemas de Almacenamiento de datos SQL de Azure](sql-data-warehouse-troubleshoot.md) |Cómo solucionar los problemas de Almacenamiento de datos SQL de Azure. |
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

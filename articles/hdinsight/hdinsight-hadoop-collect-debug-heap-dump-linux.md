@@ -1,13 +1,13 @@
 ---
-title: Habilitar los volcados de montón de los servicios de Hadoop en HDInsight | Microsoft Docs
-description: Habilitar los volcados de montón de los servicios de Hadoop en los clústeres de HDInsight basado en Linux para la depuración y el análisis.
+title: "Habilitar los volcados de montón de los servicios de Hadoop en HDInsight | Microsoft Docs"
+description: "Habilitar los volcados de montón de los servicios de Hadoop en los clústeres de HDInsight basado en Linux para la depuración y el análisis."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4bbd6f0033fd148832e56d0e0abef50c84a8422f
+
 
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-(preview)"></a>Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)
+# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight-preview"></a>Habilitar los volcados de montón de los servicios de Hadoop en HDInsight basado en Linux (vista previa)
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
 Los volcados de montón contienen una instantánea de la memoria de la aplicación, incluidos los valores de variables en el momento en el que se creó el volcado de memoria. Por ello, estos volcados son realmente útiles a la hora de diagnosticar cualquier problema que hubiera ocurrido durante el tiempo de ejecución.
@@ -27,7 +31,7 @@ Los volcados de montón contienen una instantánea de la memoria de la aplicaci�
 > 
 > 
 
-## <a name="<a-name="whichservices"></a>services"></a><a name="whichServices"></a>Servicios
+## <a name="a-namewhichservicesaservices"></a><a name="whichServices"></a>Servicios
 Puede habilitar los volcados de montón en los siguientes servicios:
 
 * **hcatalog** - tempelton
@@ -38,7 +42,7 @@ Puede habilitar los volcados de montón en los siguientes servicios:
 
 También puede habilitar los volcados de montón para los procesos de asignación y ejecución que ejecuta HDInsight.
 
-## <a name="<a-name="configuration"></a>understanding-heap-dump-configuration"></a><a name="configuration"></a>Información sobre cómo configurar el volcado de montón
+## <a name="a-nameconfigurationaunderstanding-heap-dump-configuration"></a><a name="configuration"></a>Información sobre cómo configurar el volcado de montón
 Son las opciones de paso (también conocidas como opciones o parámetros) las que habilitan los volcados de montón en JVM cuando se inicia un servicio. Puede realizar esto en la mayoría de los servicios Hadoop modificando el script de shell que se usó al iniciar el servicio.
 
 En cada script hay una exportación de **\*\_OPTS** que contiene las opciones que se pasan a JVM. Por ejemplo, en el script **hadoop env.sh**, la línea que comienza con `export HADOOP_NAMENODE_OPTS=` contiene las opciones del servicio NameNode.
@@ -127,6 +131,9 @@ Para modificar la configuración de un servicio, siga estos pasos:
    > 
 8. Una vez haya reiniciado los servicios, pulse el botón **Acciones de servicio** para **Desactivar el modo de mantenimiento**. Esto hará que Ambari reanude la supervisión de alertas para el servicio.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

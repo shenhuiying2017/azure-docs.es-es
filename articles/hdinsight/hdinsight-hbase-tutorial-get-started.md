@@ -1,60 +1,67 @@
 ---
-title: 'Tutorial de HBase: introducción a HBase en Hadoop | Microsoft Docs'
-description: Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive.
+title: "Tutorial de HBase: Introducción a HBase en Hadoop | Microsoft Docs"
+description: "Siga este tutorial de HBase para empezar a usar Apache HBase con Hadoop en HDInsight. Cree tablas desde el shell de HBase y consúltelas mediante Hive."
 keywords: apache hbase,hbase,shell de hbase,tutorial de hbase
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: fb56d00d-daf2-4a11-abd0-4005a663dd75
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 10/21/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: da4d723e343b47187fd6fef3b7a6eab649ef8a41
+
 
 ---
-# Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows
+# <a name="hbase-tutorial-get-started-using-apache-hbase-with-windows-based-hadoop-in-hdinsight"></a>Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight basado en Windows
 [!INCLUDE [hbase-selector](../../includes/hdinsight-hbase-selector.md)]
 
-Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general de HBase, vea [Información general de HBase de HDInsight][hdinsight-hbase-overview].
+Aprenda a crear un clúster de HBase en HDInsight, a crear tablas de HBase y a consultar las tablas mediante Apache Hive. Para obtener información general sobre HBase, consulte [Información general de HBase de HDInsight][hdinsight-hbase-overview].
 
 La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información acerca de los clústeres basados en Windows, utilice el Selector de pestañas de la parte superior de la página para cambiar.
 
 > [!NOTE]
-> HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
+> HBase (versión 0.98.0) en HDInsight basado en Windows solo está disponible para su uso con clústeres de HDInsight 3.1 (basados en Apache Hadoop y YARN 2.4.0). Para ver información de la versión, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
 > 
 > 
 
-### Antes de empezar
+## <a name="before-you-begin"></a>Antes de empezar
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 
 * **Una suscripción de Microsoft Azure válida**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Una estación de trabajo** con Visual Studio 2013 o posterior. Para obtener instrucciones, vea [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
+* **Una estación de trabajo** con Visual Studio 2013 o posterior; para ver las instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
-## Creación del clúster de HBase.
+### <a name="access-control-requirements"></a>Requisitos de control de acceso
+[!INCLUDE [access-control](../../includes/hdinsight-access-control-requirements.md)]
+
+## <a name="create-hbase-cluster"></a>Creación del clúster de HBase.
 [!INCLUDE [provisioningnote](../../includes/hdinsight-provisioning.md)]
 
 **Para crear un clúster de HBase mediante el Portal de Azure, siga estos pasos:**
 
-1. Inicie sesión en el [Portal de Azure][azure-management-portal].
-2. Haga clic en **Nuevo** o en **+** en la esquina superior izquierda y luego en **Datos y análisis**, **HDInsight**.
+1. Inicie sesión en el [Azure Portal][azure-management-portal].
+2. Haga clic en **Nuevo** o en **+** en la esquina superior izquierda, en **Datos y análisis**, y en **HDInsight**.
 3. Escriba los siguientes valores:
    
-   * **Nombre de clúster**: escriba un nombre que identifique este clúster.
+   * **Nombre de clúster** : escriba un nombre que identifique este clúster.
    * **Tipo de clúster**: seleccione **HBase**.
-   * **Sistema operativo de clústeres**: seleccione **Windows**. Para crear un clúster de HBase basado en Linux, vea [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
-   * **Versión**: seleccione una versión de HBase.
-   * **Suscripción**: seleccione la suscripción de Azure que se usará para crear este clúster.
-   * **Grupo de recursos**: cree un grupo de recursos de Azure o seleccione uno existente. Para más información, vea [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
-   * **Credenciales**: en el caso de clústeres basados en Windows, puede crear un usuario de clúster (también denominado usuario HTTP, usuario de servicio web HTTP) y un usuario de Escritorio remoto. Haga clic en **Habilitar Escritorio remoto** para agregar las credenciales de usuario de Escritorio remoto. La siguiente sección requiere RDP.
-   * **Origen de datos**: cree una cuenta de almacenamiento de Azure o seleccione una existente para usarla como sistema de archivos predeterminado para el clúster. La ubicación predeterminada de la cuenta de almacenamiento determina la ubicación del clúster. La cuenta de almacenamiento predeterminada y el clúster deben colocarse en el mismo centro de datos.
-   * **Niveles de precios de nodo**: seleccione el número de servidores de región para el clúster de HBase.
+   * **Sistema operativo del clústeres**: seleccione **Windows**.  Para crear un clúster de HBase basado en Linux, vea [Tutorial de HBase: Introducción al uso de Apache HBase con Hadoop en HDInsight (Linux)](hdinsight-hbase-tutorial-get-started-linux.md).
+   * **Versión** : seleccione una versión de HBase.
+   * **Suscripción** : seleccione la suscripción de Azure que se usará para crear este clúster.
+   * **Grupo de recursos**: cree un grupo de recursos de Azure o seleccione uno existente. Para más información, consulte [Información general de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   * **Credenciales** : en el caso de clústeres basados en Windows, puede crear un usuario de clúster (también denominado usuario HTTP, usuario de servicio web HTTP) y un usuario de Escritorio remoto. Haga clic en **Habilitar Escritorio remoto** para agregar las credenciales de usuario de Escritorio remoto. La siguiente sección requiere RDP.
+   * **Origen de datos** : cree una cuenta de almacenamiento de Azure o seleccione una existente para usarla como sistema de archivos predeterminado para el clúster. La ubicación predeterminada de la cuenta de almacenamiento determina la ubicación del clúster. La cuenta de almacenamiento predeterminada y el clúster deben colocarse en el mismo centro de datos.
+   * **Niveles de precios de nodo** : seleccione el número de servidores de región para el clúster de HBase.
      
      > [!WARNING]
      > Para lograr alta disponibilidad de servicios de HBase, debe crear un clúster que contenga al menos **tres** nodos. Esto garantiza que, si un nodo deja de funcionar, las regiones de datos de HBase están disponibles en otros nodos.
@@ -62,7 +69,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
      > Si está aprendiendo HBase, elija 1 siempre para el tamaño del clúster y elimine el clúster después de cada uso para reducir el coste.
      > 
      > 
-   * **Configuración opcional**: configure la red virtual de Azure, configure acciones de script y agregue otras cuentas de almacenamiento.
+   * **Configuración opcional** : configure la red virtual de Azure, configure acciones de script y agregue otras cuentas de almacenamiento.
 4. Haga clic en **Crear**.
 
 > [!NOTE]
@@ -70,7 +77,7 @@ Antes de empezar este tutorial de HBase, debe contar con lo siguiente:
 > 
 > 
 
-## Creación de tablas e inserción de datos
+## <a name="create-tables-and-insert-data"></a>Creación de tablas e inserción de datos
 Actualmente, hay dos formas de tener acceso a HBase. En esta sección se trata el uso del shell de HBase. En la sección siguiente se describe el uso del SDK de .NET.
 
 Para la mayoría de las personas, los datos aparecen en formato tabular:
@@ -81,11 +88,11 @@ En HBase, que es una implementación de BigTable, los mismos datos tienen un asp
 
 ![datos bigtable de hbase de hdinsight][img-hbase-sample-data-bigtable]
 
-Tendrá más sentido cuando termine el siguiente procedimiento.
+Tendrá más sentido cuando termine el siguiente procedimiento.  
 
 **Para usar el shell de HBase, siga estos pasos:**
 
-1. Use RDP para conectarse a su clúster de HBase en HDInsight. Para consultar las instrucciones de RDP, vea [Administración de clústeres en HDInsight mediante el Portal de Azure][hdinsight-manage-portal].
+1. Use RDP para conectarse a su clúster de HBase en HDInsight. Para consultar las instrucciones de RDP, consulte [Administración de clústeres en HDInsight mediante Azure Portal][hdinsight-manage-portal].
 2. En la sesión de RDP, haga clic en el acceso directo de la **línea de comandos de Hadoop** situada en el escritorio.
 3. Abra del shell de HBase:
    
@@ -110,7 +117,7 @@ Tendrá más sentido cuando termine el siguiente procedimiento.
    
     Verá los mismos resultados que con el comando de análisis porque solo hay una fila.
    
-    Para obtener más información acerca del esquema de la tabla de Hbase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
+    Para más información acerca del esquema de las tablas de HBase, consulte [Introducción al diseño de esquema de HBase][hbase-schema]. Para ver más comandos de HBase, consulte [Guía de referencia de Apache HBase][hbase-quick-start].
 7. Salga del shell
    
         exit
@@ -132,7 +139,7 @@ Se ha cargado un archivo de datos de ejemplo en un contenedor de blobs público,
     4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte [Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
+Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almacenamiento si lo desea. Para obtener instrucciones, consulte[ Carga de datos para trabajos de Hadoop en HDInsight][hdinsight-upload-data].
 
 > [!NOTE]
 > Este procedimiento usa la tabla HBase de contactos que creó en el último procedimiento.
@@ -151,7 +158,7 @@ Puede crear un archivo de texto y cargar el archivo en su propia cuenta de almac
         hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
 5. Puede abrir el shell de HBase y usar el comando de análisis para mostrar el contenido de la tabla.
 
-## Uso de Hive para consultar tablas de HBase
+## <a name="use-hive-to-query-hbase-tables"></a>Uso de Hive para consultar tablas de HBase
 Puede consultar datos en tablas de HBase mediante Hive. En esta sección se crea una tabla de Hive que se asigna a la tabla de HBase y se usa para consultar los datos en la tabla de HBase.
 
 **Para abrir el panel de clúster, siga estos pasos:**
@@ -182,13 +189,13 @@ Puede consultar datos en tablas de HBase mediante Hive. En esta sección se crea
 1. En la Consola de consultas, haga clic en **Explorador de archivos**.
 2. Haga clic en la cuenta de almacenamiento de Azure usada como sistema de archivos predeterminado para el clúster de HBase.
 3. Haga clic en el nombre del clúster de HBase. El contenedor de la cuenta de almacenamiento de Azure predeterminado usa el nombre del clúster.
-4. Haga clic en **Usuario**, y, a continuación, haga clic en **Admin**. Este es el nombre de usuario de Hadoop.
+4. Haga clic en **Usuario** y en **Admin**. Este es el nombre de usuario de Hadoop.
 5. Haga clic en el nombre del trabajo cuya hora de **Última modificación** coincida con la hora a la que se ejecutó la consulta SELECT de Hive.
 6. Haga clic en **stdout**. Guarde el archivo y ábralo con el Bloc de notas. Habrá un archivo de salida.
    
     ![Explorador de archivos de Editor de Hive de HBase para HDInsight][img-hdinsight-hbase-file-browser]
 
-## Usar la biblioteca de cliente la API de REST de HBase de .NET
+## <a name="use-the-net-hbase-rest-api-client-library"></a>Usar la biblioteca de cliente la API de REST de HBase de .NET
 Debe descargar la biblioteca de cliente de la API de REST de HBase para .NET desde GitHub y compilar el proyecto para que pueda usar el SDK para .NET de HBase. El siguiente procedimiento incluye las instrucciones para esta tarea.
 
 1. Cree una nueva aplicación C# de la consola de Escritorio de Windows de Visual Studio.
@@ -264,10 +271,10 @@ Debe descargar la biblioteca de cliente de la API de REST de HBase para .NET des
             Console.WriteLine("Press ENTER to continue ...");
             Console.ReadLine();
         }
-6. Establezca las tres primeras variables en la función **Main**.
+6. Establezca las tres primeras variables en la función **Main** .
 7. Presione **F5** para ejecutar la aplicación.
 
-## Comprobar el estado del clúster
+## <a name="check-cluster-status"></a>Comprobar el estado del clúster
 HBase en HDInsight se incluye con una interfaz de usuario web para la supervisión de clústeres. Mediante la interfaz de usuario web, puede solicitar estadísticas o información acerca de las regiones.
 
 Para abrir la interfaz de usuario web, debe aplicar RDP en el clúster y, a continuación, hacer clic en el acceso directo de la interfaz de usuario web de información de HMaster en su escritorio o usar la siguiente dirección URL en un explorador web:
@@ -276,18 +283,22 @@ Para abrir la interfaz de usuario web, debe aplicar RDP en el clúster y, a cont
 
 En un clúster de alta disponibilidad, encontrará un vínculo al nodo maestro de HBase activo actual que hospeda la interfaz de usuario web.
 
-## Eliminación del clúster
-Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster. [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+## <a name="delete-the-cluster"></a>Eliminación del clúster
+Para evitar incoherencias, recomendamos deshabilitar las tablas de HBase antes de eliminar el clúster.
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## Pasos siguientes
+## <a name="whats-next"></a>Pasos siguientes
 En este tutorial de HBase para HDInsight, ha aprendido a aprovisionar un clúster HBase, a crear tablas y a ver los datos de esas tablas en el shell de HBase. También ha aprendido a usar una consulta de datos de Hive en las tablas de HBase y a usar las API de REST de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla.
 
 Para más información, consulte:
 
-* [Información general de HBase de HDInsight][hdinsight-hbase-overview] HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
-* [Creación de clústeres de HBase en Red virtual de Azure][hdinsight-hbase-provision-vnet]. Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+* [Información general de HBase para HDInsight][hdinsight-hbase-overview].
+  HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que ofrece un acceso aleatorio y una coherencia fuerte para grandes cantidades de datos no estructurados y semiestructurados.
+* [Crear clústeres de HBase en red Virtual de Azure][hdinsight-hbase-provision-vnet].
+  Con la integración de red virtual, los clústeres de HBase se pueden implementar en la misma red que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
 * [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md). Aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-* [Análisis de opiniones de Twitter con HBase en HDInsight][hbase-twitter-sentiment]. Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
+* [Análisis de opinión en Twitter en tiempo real con HBase en HDInsight][hbase-twitter-sentiment].
+  Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sentiment_analysis) de macrodatos en tiempo real con HBase en un clúster de Hadoop en HDInsight.
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
@@ -316,4 +327,8 @@ Para más información, consulte:
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started/hdinsight-hbase-contacts-bigtable.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

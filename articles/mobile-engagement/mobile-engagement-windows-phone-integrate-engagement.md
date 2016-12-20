@@ -1,12 +1,12 @@
 ---
-title: Integración del SDK de Windows Phone Silverlight Engagement
-description: Cómo integrar Azure Mobile Engagement con aplicaciones Windows Phone Silverlight
+title: "Integración del SDK de Windows Phone Silverlight Engagement"
+description: "Cómo integrar Azure Mobile Engagement con aplicaciones Windows Phone Silverlight"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 447fea8d-f4e3-4ad4-8ec0-8e3cf1ad3ab0
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
@@ -14,14 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 67f69a5a92c922bc7357c1e4bcc88f55e16d1255
+
 
 ---
-# Integración del SDK de Windows Phone Silverlight Engagement
+# <a name="windows-phone-silverlight-engagement-sdk-integration"></a>Integración del SDK de Windows Phone Silverlight Engagement
 > [!div class="op_single_selector"]
-> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md)
-> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
-> * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-integrate-engagement.md)
+> * [Windows Universal](mobile-engagement-windows-store-integrate-engagement.md) 
+> * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
+> * [iOS](mobile-engagement-ios-integrate-engagement.md) 
+> * [Android](mobile-engagement-android-integrate-engagement.md) 
 > 
 > 
 
@@ -29,7 +33,7 @@ En este procedimiento se describe la manera más sencilla de activar las funcion
 
 Los siguientes pasos son suficientes para activar el informe de los registros necesarios para calcular todas las estadísticas en relación con los usuarios, las sesiones, las actividades, los bloqueos y los aspectos técnicos. El informe de los registros necesarios para calcular otras estadísticas, como eventos, errores y trabajos debe realizarse manualmente mediante la API de Engagement (vea [Cómo usar la API de Engagement en Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md) a continuación) debido a que estas estadísticas dependen de la aplicación.
 
-## Versiones compatibles
+## <a name="supported-versions"></a>Versiones compatibles
 El SDK de Mobile Engagement para Windows Silverlight solo se puede integrar en las aplicaciones destinadas a lo siguiente:
 
 * Windows Phone 8.0
@@ -40,10 +44,10 @@ El SDK de Mobile Engagement para Windows Silverlight solo se puede integrar en l
 > 
 > 
 
-## Instale el SDK de Mobile Engagement Silverlight
-El SDK de Mobile Engagement para Windows Silverlight está disponible como un paquete de Nuget llamado *MicrosoftAzure.MobileEngagement*. Puede instalarlo desde el Administrador de paquetes nuget de Visual Studio.
+## <a name="install-the-mobile-engagement-silverlight-sdk"></a>Instale el SDK de Mobile Engagement Silverlight
+El SDK de Mobile Engagement para Windows Silverlight está disponible como un paquete de Nuget llamado *MicrosoftAzure.MobileEngagement*. Puede instalarlo desde el Administrador de paquetes nuget de Visual Studio. 
 
-## Agregar las capacidades
+## <a name="add-the-capabilities"></a>Agregar las capacidades
 El SDK de Engagement necesita algunas capacidades del SDK de Windows Phone Silverlight para que funcione correctamente.
 
 Abra el archivo `WMAppManifest.xml` y asegúrese de que en el panel `Capabilities` se han declarado las siguientes capacidades:
@@ -51,13 +55,13 @@ Abra el archivo `WMAppManifest.xml` y asegúrese de que en el panel `Capabilitie
 * `ID_CAP_NETWORKING`
 * `ID_CAP_IDENTITY_DEVICE`
 
-## Inicializar el SDK de Engagement
-### Configuración de Engagement
+## <a name="initialize-the-engagement-sdk"></a>Inicializar el SDK de Engagement
+### <a name="engagement-configuration"></a>Configuración de Engagement
 La configuración de Engagement se centraliza en el archivo `Resources\EngagementConfiguration.xml` del proyecto.
 
 Edite este archivo para especificar lo siguiente:
 
-* La cadena de conexión de la aplicación entre las etiquetas `<connectionString>` y `<\connectionString>`.
+* La cadena de conexión de la aplicación entre las etiquetas `<connectionString>` and `<\connectionString>`.
 
 Si desea especificarla en tiempo de ejecución, puede llamar al método siguiente antes de la inicialización del agente de Engagement:
 
@@ -70,8 +74,8 @@ Si desea especificarla en tiempo de ejecución, puede llamar al método siguient
 
 La cadena de conexión de la aplicación se muestra en el Portal de Azure clásico.
 
-### Inicialización de Engagement
-Al crear un nuevo proyecto, se genera un archivo `App.xaml.cs`. Esta clase hereda de `Application` y contiene muchos métodos importantes. También se usará para inicializar el SDK de Engagement.
+### <a name="engagement-initialization"></a>Inicialización de Engagement
+Al crear un nuevo proyecto, se genera un archivo `App.xaml.cs` . Esta clase hereda de `Application` y contiene muchos métodos importantes. También se usará para inicializar el SDK de Engagement.
 
 Modifique `App.xaml.cs`:
 
@@ -96,13 +100,13 @@ Modifique `App.xaml.cs`:
 > 
 > 
 
-## Informes básicos
-### Método recomendado: sobrecargar las clases `PhoneApplicationPage`
+## <a name="basic-reporting"></a>Informes básicos
+### <a name="recommended-method-overload-your-phoneapplicationpage-classes"></a>Método recomendado: sobrecargar las clases `PhoneApplicationPage`
 Para activar el informe de todos los registros que Engagement necesita para calcular las estadísticas de usuarios, sesiones, actividades, bloqueos y aspectos técnicos, puede hacer que todas las subclases `PhoneApplicationPage` hereden de las clases `EngagementPage`.
 
 Este es un ejemplo de cómo hacer esto para una página de la aplicación. Puede hacer lo mismo para todas las páginas de la aplicación.
 
-#### Archivo de código fuente C
+#### <a name="c-source-file"></a>Archivo de código fuente C#
 Modifique el archivo `.xaml.cs` de página:
 
 * Agregue las instrucciones `using`:
@@ -137,7 +141,7 @@ Modifique el archivo `.xaml.cs` de página:
 > 
 > 
 
-#### Archivo XAML
+#### <a name="xaml-file"></a>Archivo XAML
 Modifique el archivo `.xaml` de página:
 
 * Agregue a las declaraciones de espacios de nombres:
@@ -159,7 +163,7 @@ Modifique el archivo `.xaml` de página:
             <!-- layout -->
         </engagement:EngagementPage >
 
-#### Invalidar el comportamiento predeterminado
+#### <a name="override-the-default-behavior"></a>Invalidar el comportamiento predeterminado
 De forma predeterminada, el nombre de clase de la página se informa como el nombre de actividad, sin más. Si la clase usa el sufijo "Página", Engagement también la quitará.
 
 Si desea invalidar el comportamiento predeterminado para el nombre, simplemente agregue lo siguiente a su código:
@@ -182,7 +186,7 @@ Si desea informar algunos datos adicionales con su actividad, puede agregar lo s
 
 Estos métodos se invocan desde el método `OnNavigatedTo` de la página.
 
-### Método alternativo: llamar a `StartActivity()` manualmente
+### <a name="alternate-method-call-startactivity-manually"></a>Método alternativo: llamar a `StartActivity()` manualmente
 Si no puede o no quiere sobrecargar las clases `PhoneApplicationPage`, en su lugar, puede iniciar las actividades mediante una llamada directa a los métodos `EngagementAgent`.
 
 Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de su PhoneApplicationPage.
@@ -200,13 +204,13 @@ Recomendamos que llame a `StartActivity` dentro del método `OnNavigatedTo` de s
 > 
 > 
 
-## Informes avanzados
+## <a name="advanced-reporting"></a>Informes avanzados
 Opcionalmente, es aconsejable informar eventos, errores y trabajos de aplicación específicos. Para ello, use los otros métodos que se encuentran en la clase `EngagementAgent`. La API de Engagement permite usar todas las capacidades avanzadas de Engagement.
 
 Para obtener más información, consulte [Cómo usar la API de etiquetado avanzado de Mobile Engagement en la aplicación de Windows Phone Silverlight](mobile-engagement-windows-phone-use-engagement-api.md).
 
-## Configuración avanzada
-### Deshabilitar los informes automáticos de bloqueo
+## <a name="advanced-configuration"></a>Configuración avanzada
+### <a name="disable-automatic-crash-reporting"></a>Deshabilitar los informes automáticos de bloqueo
 Puede deshabilitar la característica de informes automáticos de bloqueo de Engagement. A continuación, cuando se produce una excepción no controlada, Engagement no hará nada.
 
 > [!WARNING]
@@ -216,18 +220,18 @@ Puede deshabilitar la característica de informes automáticos de bloqueo de Eng
 
 Para deshabilitar los informes automáticos de bloqueo, personalice la configuración según la manera en que la declaró:
 
-#### Desde el archivo `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>Desde el archivo `EngagementConfiguration.xml`
 Establezca el informe de bloqueo en `false` entre las etiquetas `<reportCrash>` y `</reportCrash>`.
 
-#### Desde el objeto `EngagementConfiguration` en tiempo de ejecución
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>Desde el objeto `EngagementConfiguration` en tiempo de ejecución
 Establezca el informe de bloqueo mediante el objeto EngagementConfiguration.
 
         /* Engagement configuration. */
 
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration(); engagementConfiguration.Agent.ConnectionString = "Endpoint={appCollection}.{domain};AppId={appId};SdkKey={sdkKey}";
-        /* Disable Engagement crash reporting. */ engagementConfiguration.Agent.ReportCrash = false;
+        /\* Disable Engagement crash reporting. \*/ engagementConfiguration.Agent.ReportCrash = false;
 
-### Modo de ráfaga
+### <a name="burst-mode"></a>Modo de ráfaga
 De forma predeterminada, el servicio de Engagement informa los registros en tiempo real. Si la aplicación informa los registros con mucha frecuencia, es mejor almacenar los registros en el búfer e informarlos todos a la vez de forma periódica (esto se denomina "modo de ráfaga").
 
 Para ello, llame al método siguiente:
@@ -243,4 +247,9 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 > 
 > 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

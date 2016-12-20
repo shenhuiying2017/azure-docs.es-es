@@ -1,12 +1,12 @@
 ---
-title: Acceso a soporte técnico de publicador en Azure Marketplace | Microsoft Docs
-description: Acceso y envío de solicitudes de soporte técnico de publicador en Azure Marketplace
+title: "Acceso a soporte técnico de publicador en Azure Marketplace | Microsoft Docs"
+description: "Acceso y envío de solicitudes de soporte técnico de publicador en Azure Marketplace"
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: 9c0c981a-9e5e-437a-9b70-67a9f376302f
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2015
 ms.author: v-jeana; hascipio
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 45a8b94a1fabe8158bfc637fc48968ff677215c8
+
 
 ---
-# Acceso a soporte técnico de publicador en Azure Marketplace
+# <a name="accessing-publisher-support-for-the-azure-marketplace"></a>Acceso a soporte técnico de publicador en Azure Marketplace
 Microsoft ofrece soporte para una amplia variedad de productos y servicios. Es importante garantizar que la consulta encuentra el equipo de soporte técnico correcto para garantizar una respuesta oportuna y adecuada. Considere los siguientes escenarios que le ayudarán a dirigir su consulta al equipo adecuado:
 
 * Si es publicador en Azure Marketplace y todavía está desarrollando la máquina virtual, debe comunicarse con los equipos de incorporación o de proceso de Microsoft.
@@ -32,17 +36,17 @@ Este artículo le mostrará cómo realizar los siguientes procedimientos:
 * Ofrecer la información de contacto.
 * Describir el problema.
 
-## 1\. Iniciar sesión en su cuenta de Microsoft
-Navegue a https://publish.windowsazure.com/ e inicie sesión con las credenciales de la cuenta de Microsoft.
+## <a name="1-sign-in-to-your-microsoft-account"></a>1. Iniciar sesión en su cuenta de Microsoft
+Vaya a https://publish.windowsazure.com/ e inicie sesión con sus credenciales de cuenta de Microsoft.
 
   ![Pantalla de inicio de sesión][1]
 
-## 2\. Navegar a las páginas de soporte técnico de publicador
+## <a name="2-navigate-to-the-publisher-support-pages"></a>2. Navegar a las páginas de soporte técnico de publicador
 En el menú superior derecho, seleccione **Obtener soporte técnico**.
 
   ![Obtención de soporte técnico][2]
 
-## 3\. Seleccionar el tipo de problema y la categoría
+## <a name="3-select-the-problem-type-and-category"></a>3. Seleccionar el tipo de problema y la categoría
 ![Categoría y tipo de problema][3]
 
 Los tipos de problemas disponibles son los siguientes:
@@ -56,17 +60,17 @@ Los tipos de problemas disponibles son los siguientes:
 * **Centro de desarrolladores**
 * **Otros**
 
-## 4\. Solicitud de soporte técnico
-Después de seleccionar el tipo de problema y la categoría, haga clic en el botón **Solicitud de inicio**.
+## <a name="4-request-support"></a>4. Solicitud de soporte técnico
+Después de seleccionar el tipo de problema y la categoría, haga clic en el botón **Solicitud de inicio** .
 
 ![Inicio de soporte técnico][4]
 
-## 5\. Especificación de información de contacto y descripción del problema
+## <a name="5-provide-contact-information-and-describe-the-problem"></a>5. Especificación de información de contacto y descripción del problema
 Describa el problema tan detalladamente como pueda e incluya archivos (capturas de pantalla, trazas de red, etc.) que puedan resultar útiles para resolver el problema.
 
 ![Descripción del problema][5]
 
-## 6\. Confirmación de envío
+## <a name="6-submission-confirmation"></a>6. Confirmación de envío
 Una vez enviado el problema, acusaremos recibo en menos de 24 horas y asignaremos prioridad y gravedad al problema. Nuestro equipo especializado de ingenieros de soporte técnico le ayudará a su resolución según los tiempos de respuesta de nuestro contrato de nivel de servicio.
 
 ![Confirmación][6]
@@ -74,7 +78,7 @@ Una vez enviado el problema, acusaremos recibo en menos de 24 horas y asignaremo
 * Si necesita hablar con nosotros sobre su problema, use el número de confirmación que aparece en la correspondencia.
 * Puede ver la evolución del problema en cualquier momento.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo resolver problemas de soporte técnico concretos, vea [Solución de problemas comunes en Azure Marketplace](marketplace-publishing-support-common-issues.md).
 
 [1]: ./media/marketplace-publishing-get-publisher-support/step1.png
@@ -84,4 +88,8 @@ Para obtener información sobre cómo resolver problemas de soporte técnico con
 [5]: ./media/marketplace-publishing-get-publisher-support/step5.png
 [6]: ./media/marketplace-publishing-get-publisher-support/step6.png
 
-<!---HONumber=AcomDC_0615_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

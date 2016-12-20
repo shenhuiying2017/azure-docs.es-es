@@ -1,30 +1,34 @@
 ---
-title: Administración de varios entornos en Service Fabric | Microsoft Docs
-description: Las aplicaciones de Service Fabric se pueden ejecutar en clústeres cuyo tamaño oscila entre una y miles de máquinas. En algunos casos, deseará configurar su aplicación de forma diferente para cada uno de los entornos. Este artículo explica cómo definir distintos parámetros de aplicación por entorno.
+title: "Administración de varios entornos en Service Fabric | Microsoft Docs"
+description: "Las aplicaciones de Service Fabric se pueden ejecutar en clústeres cuyo tamaño oscila entre una y miles de máquinas. En algunos casos, deseará configurar su aplicación de forma diferente para cada uno de los entornos. Este artículo explica cómo definir distintos parámetros de aplicación por entorno."
 services: service-fabric
 documentationcenter: .net
 author: seanmck
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f406eac9-7271-4c37-a0d3-0a2957b60537
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2016
+ms.date: 11/01/2016
 ms.author: seanmck
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8cbeaaf6bfba41bbf52f26aa0e408b7b1ac9405e
+
 
 ---
-# Administración de los parámetros de la aplicación en varios entornos
+# <a name="manage-application-parameters-for-multiple-environments"></a>Administración de los parámetros de la aplicación en varios entornos
 Puede crear clústeres de Service Fabric de Azure con cualquier número de máquinas, desde una sola máquina hasta miles de ellas. Aunque los archivos binarios de una aplicación pueden ejecutarse sin modificación alguna en este amplio espectro de entornos, con frecuencia deseará configurar la aplicación de forma diferente en función del número de equipos en que vaya a implementarla.
 
-A modo de ejemplo simple, considere `InstanceCount` en un servicio sin estado. Cuando se ejecutan las aplicaciones de Azure, normalmente deseará establecer este parámetro en el valor especial de "-1". Esto garantiza que el servicio se ejecuta en cada nodo del clúster. Sin embargo, esta configuración no es adecuada para un clúster de una máquina, ya que no puede haber varios procesos que escuchen el mismo punto de conexión en una máquina individual. En su lugar, normalmente `InstanceCount` se establecerá en "1".
+A modo de ejemplo simple, considere `InstanceCount` en un servicio sin estado. Cuando se ejecutan las aplicaciones de Azure, normalmente deseará establecer este parámetro en el valor especial de "-1". Esto garantiza que el servicio se ejecute en cada nodo del clúster (o en cada nodo del tipo de nodo, si ha establecido una restricción de colocación). Sin embargo, esta configuración no es adecuada para un clúster de una máquina, ya que no puede haber varios procesos que escuchen el mismo punto de conexión en una máquina individual. En su lugar, normalmente `InstanceCount` se establecerá en "1".
 
-## Especificación de parámetros concretos del entorno
-La solución a este problema de configuración es un conjunto de servicios predeterminados con parámetros y los archivos de parámetros de la aplicación que rellene los valores de dichos parámetros para un entorno determinado. Los parámetros predeterminados de los servicios y las aplicaciones se configuran en los manifiestos de servicio y aplicación. La definición de esquema para los archivos ApplicationManifest.xml y ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\\Archivos de programa\\Microsoft SDKs\\Service Fabric\\schemas\\ServiceFabricServiceModel.xsd*.
+## <a name="specifying-environment-specific-parameters"></a>Especificación de parámetros concretos del entorno
+La solución a este problema de configuración es un conjunto de servicios predeterminados con parámetros y los archivos de parámetros de la aplicación que rellene los valores de dichos parámetros para un entorno determinado. Los parámetros predeterminados de los servicios y las aplicaciones se configuran en los manifiestos de servicio y aplicación. La definición de esquema para los archivos ApplicationManifest.xml y ServiceManifest.xml se instala con el SDK y las herramientas de Service Fabric en *C:\Archivos de programa\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-### Servicios predeterminados
+### <a name="default-services"></a>Servicios predeterminados
 Las aplicaciones de Service Fabric constan de una colección de instancias de servicio. Aunque se puede crear una aplicación vacía y, a continuación, crear todas las instancias del servicio de forma dinámica, la mayoría de las aplicaciones tienen un conjunto de servicios principales que se deben crear siempre que se crea una instancia de la aplicación. Estos se conocen como "servicios predeterminados". Se especifican en el manifiesto de aplicación con marcadores de posición para la configuración de cada entorno entre corchetes:
 
     <DefaultServices>
@@ -58,10 +62,10 @@ El atributo DefaultValue especifica el valor que se usará en ausencia de un par
 > 
 > 
 
-### Opciones de configuración del servicio de cada entorno
+### <a name="per-environment-service-configuration-settings"></a>Opciones de configuración del servicio de cada entorno
 El [modelo de aplicación de Service Fabric](service-fabric-application-model.md) permite a los servicios incluir paquetes de configuración que contienen pares clave-valor personalizados que se pueden leer en tiempo de ejecución. Los valores de estas opciones también se pueden diferenciar por entorno, para lo que se debe especificar `ConfigOverride` en el manifiesto de aplicación.
 
-Suponga que tiene la siguiente opción en Config\\Settings.xml para el servicio `Stateful1`:
+Suponga que tiene la siguiente opción en Config\Settings.xml para el servicio `Stateful1`:
 
     <Section Name="MyConfigSection">
       <Parameter Name="MaxQueueSize" Value="25" />
@@ -86,7 +90,7 @@ Este parámetro se puede configurar después por entorno, tal como se mostró an
 > 
 > 
 
-### Archivos de parámetros de la aplicación
+### <a name="application-parameter-files"></a>Archivos de parámetros de la aplicación
 El proyecto de aplicación de Service Fabric puede incluir uno o más archivos de parámetro de la aplicación. Cada uno de ellos define valores concretos para los parámetros que se definen en el manifiesto de aplicación:
 
     <!-- ApplicationParameters\Local.xml -->
@@ -99,33 +103,37 @@ El proyecto de aplicación de Service Fabric puede incluir uno o más archivos d
         </Parameters>
     </Application>
 
-De forma predeterminada, una aplicación nueva incluye dos archivos de parámetros de aplicación, denominados Local.xml y Cloud.xml:
+De forma predeterminada, una aplicación nueva incluye tres archivos de parámetros de aplicación, denominados Local.1Node.xml, Local.5Node.xml y Cloud.xml:
 
 ![Archivos de parámetros de la aplicación en el Explorador de soluciones][app-parameters-solution-explorer]
 
 Para crear un nuevo archivo de parámetros, basta con copiar y pegar uno existente y asignarle un nombre nuevo.
 
-## Identificación de parámetros específicos del entorno durante la implementación
+## <a name="identifying-environment-specific-parameters-during-deployment"></a>Identificación de parámetros específicos del entorno durante la implementación
 En el momento de la implementación, es preciso elegir el archivo de parámetros apropiado que se aplicará en la aplicación. Esto se puede realizar desde el cuadro de diálogo Publicar de Visual Studio o a través de PowerShell.
 
-### Implementación desde Visual Studio
+### <a name="deploy-from-visual-studio"></a>Implementación desde Visual Studio
 Al publicar una aplicación en Visual Studio, puede elegir en la lista de archivos de parámetros disponibles.
 
 ![Elección de un archivo de parámetros en el cuadro de diálogo Publicar][publishdialog]
 
-### Implementación a partir de PowerShell
+### <a name="deploy-from-powershell"></a>Implementación a partir de PowerShell
 El script de PowerShell `Deploy-FabricApplication.ps1` incluido en la plantilla de proyecto de aplicación acepta un perfil de publicación como un parámetro, y el elemento PublishProfile contiene una referencia al archivo de parámetros de la aplicación.
 
   ```PowerShell
     ./Deploy-FabricApplication -ApplicationPackagePath <app_package_path> -PublishProfileFile <publishprofile_path>
   ```
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre algunos de los conceptos principales descritos en este tema, vea la [Información técnica de Service Fabric](service-fabric-technical-overview.md). Para obtener más información sobre otras funcionalidades de administración de aplicaciones disponibles en Visual Studio, vea [Administración de aplicaciones de Service Fabric en Visual Studio](service-fabric-manage-application-in-visual-studio.md).
 
 <!-- Image references -->
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
-[app-parameters-solution-explorer]: ./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
+[app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
 
-<!---HONumber=AcomDC_0720_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

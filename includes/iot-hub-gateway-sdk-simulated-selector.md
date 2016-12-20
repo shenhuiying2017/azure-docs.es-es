@@ -4,7 +4,7 @@
 > 
 > 
 
-Este tutorial del [ejemplo de carga en la nube de dispositivos simulados] muestra cómo usar el [SDK de puerta de enlace de IoT de Microsoft Azure][lnk-sdk] para enviar los datos de telemetría que envían los dispositivos a la nube a IoT Hub desde dispositivos simulados.
+Este tutorial del [ejemplo de carga en la nube de dispositivos simulados] muestra cómo usar el [SDK de puerta de enlace de IoT de Azure][lnk-sdk] para enviar los datos de telemetría que envían los dispositivos a la nube a IoT Hub desde dispositivos simulados.
 
 En este tutorial, se describen los siguientes procedimientos:
 
@@ -46,7 +46,7 @@ Este módulo es el punto de partida para obtener datos de dispositivos mediante 
 > 
 > 
 
-### <a name="mac-ltgt-iot-hub-id-module"></a>Módulo de identificación MAC &lt;-&gt; IoT Hub
+### <a name="mac-lt-gt-iot-hub-id-module"></a>Módulo de identificación MAC &lt;-&gt; IoT Hub
 Este módulo busca los mensajes que incluyen una propiedad que contiene la dirección MAC, agregada por el módulo de ingesta de protocolos del dispositivo simulado. Si el módulo detecta esta propiedad, agrega otra propiedad con una clave de dispositivo del Centro de IoT al mensaje y luego hace que el mensaje esté disponible para el siguiente módulo de la cadena. Así es cómo en el ejemplo se asocian las identidades de dispositivos del Centro de IoT a los dispositivos simulados. El desarrollador configura la asignación entre las direcciones MAC y las identidades del centro de IoT manualmente como parte de la configuración del módulo. 
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Este módulo busca los mensajes que incluyen una propiedad que contiene la direc
 > 
 
 ### <a name="iot-hub-communication-module"></a>Módulo de comunicación del Centro de IoT
-Este módulo toma los mensajes que tienen una identidad de dispositivo del Centro de IoT asignada por el módulo anterior y envía el contenido del mensaje al Centro de IoT mediante HTTPS. HTTPS es uno de los tres protocolos que comprende el Centro de IoT.
+Este módulo toma los mensajes que tienen una identidad de dispositivo de IoT Hub asignada por el módulo anterior y envía el contenido del mensaje a IoT Hub mediante HTTP. HTTP es uno de los tres protocolos que IoT Hub comprende.
 
 En lugar de abrir una conexión al Centro de IoT para cada dispositivo simulado, este módulo abre una única conexión HTTP desde la puerta de enlace al Centro de IoT y multiplexa las conexiones desde todos los dispositivos simulados a través de esa conexión. Esto permite que una sola puerta de enlace conecte muchos más dispositivos, simulados o no, de lo que sería posible si abriera una conexión única para cada uno.
 
@@ -66,10 +66,10 @@ En lugar de abrir una conexión al Centro de IoT para cada dispositivo simulado,
 [2]: media/iot-hub-gateway-sdk-simulated-selector/image2.png
 
 <!-- Links -->
-[Ejemplo de carga en la nube de dispositivos simulados]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
+[ejemplo de carga en la nube de dispositivos simulados]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/sample_simulated_device_cloud_upload.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
 [lnk-gw-getstarted]: ../articles/iot-hub/iot-hub-linux-gateway-sdk-get-started.md
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

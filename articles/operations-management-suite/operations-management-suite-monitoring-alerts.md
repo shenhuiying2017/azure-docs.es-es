@@ -1,19 +1,23 @@
 ---
-title: Administración de alertas de productos de supervisión de Microsoft | Microsoft Docs
-description: Una alerta indica un problema que requiere la atención por parte del administrador.  Este artículo describe las diferencias en cómo las alertas se crean y administran en System Center Operations Manager (SCOM) y Log Analytics y proporciona prácticas recomendadas para aprovechar los dos productos para una estrategia de administración de alertas híbrida.
+title: "Administración de alertas de productos de supervisión de Microsoft | Microsoft Docs"
+description: "Una alerta indica un problema que requiere la atención por parte del administrador.  Este artículo describe las diferencias en cómo las alertas se crean y administran en System Center Operations Manager (SCOM) y Log Analytics y proporciona prácticas recomendadas para aprovechar los dos productos para una estrategia de administración de alertas híbrida."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 6572c3f8-78ca-4fa9-8fe1-d0b488590788
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
+
 
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Administración de alertas con la supervisión de Microsoft
@@ -70,6 +74,9 @@ Si usa SCOM como un origen de datos para Log Analytics, puede crear una alerta d
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre los detalles de las [alertas de System Center Operations Manager (SCOM)](https://technet.microsoft.com/library/hh212913.aspx).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

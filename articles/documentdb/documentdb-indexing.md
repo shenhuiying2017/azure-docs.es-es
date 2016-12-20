@@ -1,23 +1,27 @@
 ---
-title: Indexación automática en DocumentDB | Microsoft Docs
-description: Más información sobre cómo funciona la indexación automática en Azure DocumentDB.
+title: "Indexación automática en DocumentDB | Microsoft Docs"
+description: "Más información sobre cómo funciona la indexación automática en Azure DocumentDB."
 services: documentdb
 author: arramac
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 126bfd36-9332-4127-8747-1a1c806760f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 10/27/2016
 ms.author: arramac
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 9b88c62a7ea76d61ff593217392c3225624bb886
+
 
 ---
-# Indexación automática en Azure DocumentDB
-Este artículo es un extracto del documento ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) que se presentará en la [Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño](http://www.vldb.org/2015/) a celebrar entre el 31 de agosto y el 4 de septiembre de 2015 y es una introducción a la forma en la que funciona la indexación en Azure DocumentDB.
+# <a name="automatic-indexing-in-azure-documentdb"></a>Indexación automática en Azure DocumentDB
+Este artículo es un extracto del documento ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) que se presentará en la [Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño](http://www.vldb.org/2015/) a celebrar entre el 31 de agosto y el 4 de septiembre de 2015 y es una introducción a la forma en la que funciona la indexación en Azure DocumentDB. 
 
 Después de leerlo, podrá responder a las siguientes preguntas:
 
@@ -25,7 +29,7 @@ Después de leerlo, podrá responder a las siguientes preguntas:
 * ¿Cómo genera DocumentDB un índice en documentos dispares?
 * ¿Cómo realiza DocumentDB la indexación automática a escala?
 
-## <a id="HowDocumentDBIndexingWorks"></a> Funcionamiento de la indexación de DocumentDB
+## <a name="a-idhowdocumentdbindexingworksa-how-documentdb-indexing-works"></a><a id="HowDocumentDBIndexingWorks"></a> Funcionamiento de la indexación de DocumentDB
 [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) es una base de datos verdaderamente libre de esquemas creada específicamente para JSON. No espera ni requiere definiciones de esquema o de índice secundario para indexar los datos a escala. Esto permite definir e iterar rápidamente en modelos de datos de aplicación con DocumentDB. A medida que se agregan documentos a una colección, DocumentDB indexará automáticamente las propiedades de los documentos para que estén disponibles para su consulta. La indexación automática permite almacenar documentos que pertenezcan a esquemas completamente arbitrarios sin preocuparse por esquemas o índices secundarios.
 
 Con el objetivo de eliminar la discordancia de impedancia entre la base de datos y los modelos de programación de aplicaciones, DocumentDB aprovecha la sencillez de JSON y su falta de una especificación de esquema. No hace suposiciones sobre los documentos y permite que los documentos comprendidos en una colección de DocumentDB varíen de esquema, además de los valores específicos de la instancia. A diferencia de otras bases de datos documentales, el motor de base de datos de DocumentDB funciona directamente en el nivel de gramática JSON, que se mantiene independiente con respecto al concepto de un esquema de documento y desdibuja el límite entre los valores de instancia y de estructura de documentos. Lo que, a su vez, le permite indexar automáticamente documentos sin que sea necesario usar un esquema ni índices secundarios.
@@ -56,13 +60,18 @@ Una importante implicación de tratar los valores de esquema y de instancia unif
 
 A pesar de la ausencia de esquema, los lenguajes de consulta JavaScript y SQL de DocumentDB proporcionan filtros y proyecciones relacionales, navegación jerárquica entre documentos, operaciones espaciales e invocación de UDF escritos completamente en JavaScript. El tempo de ejecución de consulta de DocumentDB tiene capacidad para admitir estas consultas, ya que funciona directamente con esta representación de árbol de índice de los datos.
 
-La directiva de predeterminada de indexación indexa automáticamente todas las propiedades de todos los documentos y proporciona consultas coherentes (es decir, el índice se actualiza de forma sincrónica con la escritura de documento). ¿Cómo admite DocumentDB actualizaciones coherentes en el árbol de índice a escala? DocumentDB emplea técnicas de escritura optimizada, sin bloqueos, y de mantenimiento del índice estructurado de registros. Esto se traduce en que DocumentDB admite un volumen sostenido de escrituras rápidas mientras se sigue atendiendo consultas coherentes.
+La directiva de predeterminada de indexación indexa automáticamente todas las propiedades de todos los documentos y proporciona consultas coherentes (es decir, el índice se actualiza de forma sincrónica con la escritura de documento). ¿Cómo admite DocumentDB actualizaciones coherentes en el árbol de índice a escala? DocumentDB emplea técnicas de escritura optimizada, sin bloqueos, y de mantenimiento del índice estructurado de registros. Esto se traduce en que DocumentDB admite un volumen sostenido de escrituras rápidas mientras se sigue atendiendo consultas coherentes. 
 
 La indexación de DocumentDB está diseñada en función de la eficacia de almacenamiento y el control multiempresa. Para obtener rentabilidad, la sobrecarga de almacenamiento en el disco del índice es baja y predecible. Las actualizaciones del índice también se realizan dentro del presupuesto de recursos de sistema asignado por colección de DocumentDB.
 
-## <a name="NextSteps"></a> Pasos siguientes
-* Descargar ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) que se presentará en la Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño, a celebrar entre el 31 de agosto y el 4 de septiembre de 2015.
+## <a name="a-namenextstepsa-next-steps"></a><a name="NextSteps"></a> Pasos siguientes
+* Descargar ["Indexación independiente del esquema con Azure DocumentDB"](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)que se presentará en la Edición nº 41 de la conferencia interna sobre bases de datos de gran tamaño, a celebrar entre el 31 de agosto y el 4 de septiembre de 2015.
 * [Consulta con SQL de Base de datos de documentos](documentdb-sql-query.md)
 * Más información sobre cómo personalizar el índice de DocumentDB [aquí](documentdb-indexing-policies.md)
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

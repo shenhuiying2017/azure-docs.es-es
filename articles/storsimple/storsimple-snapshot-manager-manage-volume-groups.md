@@ -1,12 +1,12 @@
 ---
-title: Grupos de volúmenes de Administrador de instantáneas StorSimple | Microsoft Docs
-description: Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes.
+title: "Grupos de volúmenes de StorSimple Snapshot Manager | Microsoft Docs"
+description: "Describe cómo usar el complemento MMC para Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes."
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9137ed450481bed6d78d97c20b5796b5057092c5
+
 
 ---
-# Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
-## Información general
-Puede usar el nodo **Grupos de volúmenes** en el panel **Ámbito** para asignar volúmenes a los grupos de volúmenes, ver información acerca de un grupo de volúmenes, programar copias de seguridad y editar grupos de volúmenes.
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Uso de Administrador de instantáneas StorSimple para crear y administrar grupos de volúmenes
+## <a name="overview"></a>Información general
+Puede usar el nodo **Grupos de volúmenes** en el panel **Ámbito** para asignar volúmenes a los grupos de volúmenes, ver información sobre un grupo de volúmenes, programar copias de seguridad y editar grupos de volúmenes. 
 
 Los grupos de volúmenes son grupos de volúmenes relacionados que se usan para asegurarse de que las copias de seguridad son coherentes con las aplicaciones. Para obtener más información, consulte [Volúmenes y grupos de volúmenes](storsimple-what-is-snapshot-manager.md#volumes-and-volume-groups) e [Integración con el Servicio de instantáneas de volumen de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
 
@@ -30,7 +34,7 @@ Los grupos de volúmenes son grupos de volúmenes relacionados que se usan para 
 
 ![Nodo Grupos de volúmenes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Volume_groups.png)
 
-**Ilustración 1: Nodo de grupos de volúmenes de Administrador de instantáneas StorSimple**
+**Ilustración 1: Nodo de grupos de volúmenes de Administrador de instantáneas StorSimple** 
 
 Este tutorial explica cómo puede usar Administrador de instantáneas StorSimple para:
 
@@ -40,10 +44,10 @@ Este tutorial explica cómo puede usar Administrador de instantáneas StorSimple
 * Editar un grupo de volúmenes
 * Eliminar un grupo de volúmenes
 
-También tiene todas estas acciones disponibles en el panel **Acciones**.
+También tiene todas estas acciones disponibles en el panel **Acciones** .
 
-## Visualización de grupos de volúmenes
-Si hace clic en el nodo **Grupos de volúmenes**, el panel **Resultados** muestra la siguiente información acerca de cada grupo de volúmenes, según las columnas que seleccione. (Las columnas del panel **Resultados** son configurables. Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Vista** y, a continuación, seleccione **Agregar o quitar columnas**.)
+## <a name="view-volume-groups"></a>Visualización de grupos de volúmenes
+Si hace clic en el nodo **Grupos de volúmenes**, el panel **Resultados** muestra la siguiente información sobre cada grupo de volúmenes, según las columnas que seleccione. (Las columnas del panel **Resultados** son configurables. Haga clic con el botón derecho en el nodo **Volúmenes**, seleccione **Ver** y, después, seleccione **Agregar o quitar columnas**).
 
 | Columna Resultados | Descripción |
 |:--- |:--- |
@@ -57,73 +61,78 @@ Si hace clic en el nodo **Grupos de volúmenes**, el panel **Resultados** muestr
 > 
 > 
 
-## Crear un grupo de volúmenes
+## <a name="create-a-volume-group"></a>Crear un grupo de volúmenes
 Utilice el procedimiento siguiente para crear un grupo de volúmenes.
 
-#### Para crear un grupo de volúmenes
+#### <a name="to-create-a-volume-group"></a>Para crear un grupo de volúmenes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
-2. En el panel **Ámbito**, haga clic con el botón derecho en **Grupos de volúmenes** y, a continuación, haga clic en **Crear grupo de volúmenes**.
+2. En el panel **Ámbito**, haga clic con el botón derecho en **Grupos de volúmenes** y, luego, haga clic en **Crear grupo de volúmenes**. 
    
     ![Crear grupo de volúmenes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
-    Aparece el cuadro de diálogo **Crear un grupo de volúmenes**.
+    Aparece el cuadro de diálogo **Crear un grupo de volúmenes** . 
    
-    ![Cuadro de diálogo Crear un grupo de volúmenes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
-3. Escriba la siguiente información:
+    ![Cuadro de diálogo Crear un grupo de volúmenes](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png) 
+3. Escriba la siguiente información: 
    
-   1. En el cuadro **Nombre**, escriba un nombre único para el nuevo grupo de volúmenes. 
-   2. En el cuadro **Aplicaciones**, seleccione las aplicaciones asociadas a los volúmenes que va a agregar al grupo de volúmenes.
+   1. En el cuadro **Nombre** , escriba un nombre único para el nuevo grupo de volúmenes. 
+   2. En el cuadro **Aplicaciones** , seleccione las aplicaciones asociadas a los volúmenes que va a agregar al grupo de volúmenes. 
       
        Recuerde que el cuadro **Aplicaciones** solo enumera las aplicaciones que usan volúmenes de StorSimple y que tienen los escritores VSS habilitados. Un escritor de VSS está habilitado solo si todos los volúmenes que reconozca el sistema de escritura son volúmenes StorSimple. Si el cuadro de aplicaciones está vacío, quiere decir que no hay instaladas aplicaciones que utilicen volúmenes Azure StorSimple y tengan instalados escritores VSS admitidos. (Actualmente, Azure StorSimple admite Microsoft Exchange y SQL Server). Para obtener más información acerca de los escritores VSS, consulte [Integración con el Servicio de instantáneas de volumen de Windows](storsimple-what-is-snapshot-manager.md#integration-with-windows-volume-shadow-copy-service).
       
-       Si selecciona una aplicación, se seleccionan automáticamente todos los volúmenes asociados a ella. Por el contrario, si selecciona los volúmenes asociados a una aplicación específica, la aplicación se selecciona automáticamente en el cuadro **Aplicaciones**.
-   3. En el cuadro **Volúmenes**, seleccione los volúmenes StorSimple que agregará al grupo de volúmenes.
+       Si selecciona una aplicación, se seleccionan automáticamente todos los volúmenes asociados a ella. Por el contrario, si selecciona los volúmenes asociados a una aplicación específica, la aplicación se selecciona automáticamente en el cuadro **Aplicaciones** . 
+   3. En el cuadro **Volúmenes** , seleccione los volúmenes StorSimple que agregará al grupo de volúmenes. 
       
       * Puede incluir volúmenes con una o varias particiones. (Los volúmenes de varias particiones pueden ser discos dinámicos o discos básicos con varias particiones.) Un volumen que contiene varias particiones se trata como una sola unidad. Por lo tanto, si agrega solo una de las particiones a un grupo de volúmenes, todas las demás particiones se agregan automáticamente a ese grupo de volúmenes al mismo tiempo. Después de agregar un volumen de varias particiones a un grupo de volúmenes, el volumen de varias particiones continúa tratándose como una sola unidad.
-      * Puede crear grupos de volúmenes vacíos no asignándoles volúmenes.
-      * No mezcle los volúmenes compartidos de clúster (CSV) y no CSV en el mismo grupo de volúmenes. Administrador de instantáneas StorSimple no admite una mezcla de volúmenes CSV y no CSV en la misma instantánea.
+      * Puede crear grupos de volúmenes vacíos no asignándoles volúmenes. 
+      * No mezcle los volúmenes compartidos de clúster (CSV) y no CSV en el mismo grupo de volúmenes. Administrador de instantáneas StorSimple no admite una mezcla de volúmenes CSV y no CSV en la misma instantánea. 
 4. Haga clic en **Aceptar** para guardar el grupo de volúmenes.
 
-## Realizar una copia de seguridad de un grupo de volúmenes
+## <a name="back-up-a-volume-group"></a>Realizar una copia de seguridad de un grupo de volúmenes
 Utilice el procedimiento siguiente para realizar la copia de un grupo de volúmenes.
 
-#### Para realizar una copia de seguridad de un grupo de volúmenes
+#### <a name="to-back-up-a-volume-group"></a>Para realizar una copia de seguridad de un grupo de volúmenes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, a continuación, haga clic en **Realizar copia de seguridad**.
+2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, luego, haga clic en **Realizar copia de seguridad**. 
    
     ![Copia de seguridad de un grupo de volúmenes de forma inmediata](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. En el cuadro de diálogo **Realizar copia de seguridad** seleccione **Instantáneas locales** o **Instantáneas de nube** y, a continuación, haga clic en **Crear**.
+3. En el cuadro de diálogo **Realizar copia de seguridad** seleccione **Instantáneas locales** o **Instantáneas de nube** y, luego, haga clic en **Crear**. 
    
-    ![Cuadro de diálogo Realizar copia de seguridad](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
-4. Para confirmar que se está ejecutando la copia de seguridad, expanda el nodo **Trabajos** y, a continuación, haga clic en **En ejecución**. Tendría que aparecer la copia de seguridad.
-5. Para ver la instantánea completa, expanda el nodo **Catálogo de copia de seguridad**, expanda el nombre del grupo de volúmenes y, a continuación, haga clic en **Instantáneas locales** o **Instantáneas de nube**. La copia de seguridad se mostrarán si se finalizó correctamente.
+    ![Cuadro de diálogo Realizar copia de seguridad](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png) 
+4. Para confirmar que se está ejecutando la copia de seguridad, expanda el nodo **Trabajos** y, luego, haga clic en **En ejecución**. Tendría que aparecer la copia de seguridad.
+5. Para ver la instantánea completa, expanda el nodo **Catálogo de copias de seguridad**, expanda el nombre del grupo de volúmenes y, luego, haga clic en **Instantáneas locales** o **Instantáneas de nube**. La copia de seguridad se mostrarán si se finalizó correctamente. 
 
-## Edición de un grupo de volúmenes
+## <a name="edit-a-volume-group"></a>Editar un grupo de volúmenes
 Utilice el procedimiento siguiente para editar un grupo de volúmenes.
 
-#### Para editar un grupo de volúmenes
+#### <a name="to-edit-a-volume-group"></a>Para editar un grupo de volúmenes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple.
-2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, a continuación, haga clic en **Editar**.
-3. Aparece el cuadro de diálogo **Crear un grupo de volúmenes**. Puede cambiar las entradas **Nombre**, **Aplicaciones** y **Volúmenes**.
+2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y, luego, haga clic en **Editar**. 
+3. Aparece el cuadro de diálogo **Crear un grupo de volúmenes **. Puede cambiar las entradas **Nombre**, **Aplicaciones** y **Volúmenes**. 
 4. Haga clic en **Aceptar** para guardar los cambios.
 
-## Eliminación de un grupo de volúmenes
-Utilice el procedimiento siguiente para eliminar un grupo de volúmenes.
+## <a name="delete-a-volume-group"></a>Eliminar un grupo de volúmenes
+Utilice el procedimiento siguiente para eliminar un grupo de volúmenes. 
 
 > [!WARNING]
 > Esto también elimina todas las copias de seguridad asociadas con el grupo de volúmenes.
 > 
 > 
 
-#### Para eliminar un grupo de volúmenes
+#### <a name="to-delete-a-volume-group"></a>Para eliminar un grupo de volúmenes
 1. Haga clic en el icono del escritorio para iniciar Administrador de instantáneas StorSimple. 
-2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volumen y después haga clic en **Eliminar**.
-3. Aparece el cuadro de diálogo **Eliminar grupo de volúmenes**. Escriba **Confirmar** en el cuadro de texto y, a continuación, haga clic en **Aceptar**.
+2. En el panel **Ámbito**, expanda el nodo **Grupos de volúmenes**, haga clic con el botón derecho en el nombre de un grupo de volúmenes y, después, haga clic en **Eliminar**. 
+3. Aparece el cuadro de diálogo **Eliminar grupo de volúmenes** . Escriba **Confirmar** en el cuadro de texto y, luego, haga clic en **Aceptar**. 
    
     El grupo de volúmenes eliminado desaparecerá de la lista del panel **Resultados** y todas las copias de seguridad asociadas a ese grupo de volúmenes se eliminan desde el catálogo de copia de seguridad.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para administrar la solución de StorSimple](storsimple-snapshot-manager-admin.md).
 * Obtenga más información sobre el [uso de Snapshot Manager de StorSimple para crear y administrar las directivas de copia de seguridad](storsimple-snapshot-manager-manage-backup-policies.md).
 
-<!---HONumber=AcomDC_0511_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

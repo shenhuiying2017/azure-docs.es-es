@@ -1,12 +1,12 @@
 ---
-title: Actualización de Media Services después de revertir las claves de acceso de almacenamiento | Microsoft Docs
-description: En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento.
+title: "Actualización de Media Services después de revertir las claves de acceso de almacenamiento | Microsoft Docs"
+description: "En este artículo se proporcionan instrucciones sobre cómo actualizar Servicios multimedia tras rotar las claves de acceso de almacenamiento."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: milangada;cenkdin;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: a979519dc617f40e6f090a412d17aa7778cbcf69
+
 
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Actualización de Media Services después de revertir las claves de acceso de almacenamiento
@@ -25,15 +29,15 @@ Servicios multimedia depende de una clave de almacenamiento que se le ofrece. En
 
 > [!NOTE]
 > Si tiene varias cuentas de almacenamiento, realizaría este procedimiento con cada una.
-> 
+>
 > Antes de ejecutar los pasos que se describen en este tema en una cuenta de producción, asegúrese de probarlos en una cuenta de ensayo.
-> 
-> 
+>
+>
 
-## <a name="step-1:-regenerate-secondary-storage-access-key"></a>Paso 1: Regeneración de la clave de acceso de almacenamiento secundaria
-Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+## <a name="step-1-regenerate-secondary-storage-access-key"></a>Paso 1: Regeneración de la clave de acceso de almacenamiento secundaria
+Para comenzar, regenere la clave de almacenamiento secundaria. De forma predeterminada, Servicios multimedia no usa la clave secundaria.  Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="<a-id="step2"></a>step-2:-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Paso 2: Actualización de Media Services para usar la nueva clave de almacenamiento secundaria
+## <a name="a-idstep2astep-2-update-media-services-to-use-the-new-secondary-storage-key"></a><a id="step2"></a>Paso 2: Actualización de Media Services para usar la nueva clave de almacenamiento secundaria
 Actualice Servicios multimedia para usar la clave de acceso de almacenamiento secundaria. Puede usar uno de los dos métodos siguientes para sincronizar la clave de almacenamiento regenerada con Servicios multimedia.
 
 * Utilice Azure Portal: para buscar el nombre y la clave de valores, vaya a Azure Portal y seleccione la cuenta. Aparecerá la ventana Configuración a la derecha. En la ventana Configuración, seleccione Claves. Según la clave de almacenamiento con la que desee que se sincronice Servicios multimedia, seleccione el botón para sincronizar la clave principal o para sincronizar la clave secundaria. En este caso, use la clave secundaria.
@@ -79,14 +83,14 @@ Tras este paso, actualice los localizadores existentes (que tienen una dependenc
 
 > [!NOTE]
 > Espere 30 minutos antes de realizar ninguna operación con Servicios multimedia (por ejemplo, crear nuevos localizadores) a fin de impedir que los trabajos pendientes sea vean afectados.
-> 
-> 
+>
+>
 
-## <a name="step-3:-update-locators"></a>Paso 3: Actualización de los localizadores
+## <a name="step-3-update-locators"></a>Paso 3: Actualización de los localizadores
 > [!NOTE]
 > Al rotar las claves de acceso de almacenamiento, debe asegurarse de actualizar sus localizadores existentes para que no haya ninguna interrupción en su servicio de streaming.
-> 
-> 
+>
+>
 
 Espere al menos 30 minutos tras la sincronización de la nueva clave de almacenamiento con AMS. Después, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento especificada y mantengan la URL existente.
 
@@ -94,8 +98,8 @@ Tenga en cuenta que al actualizar (o volver a crear) un localizador de SAS, la d
 
 > [!NOTE]
 > Para asegurarse de que conserva las URL existentes de los localizadores OnDemand, deberá eliminar el localizador existente y crear uno nuevo con el mismo identificador.
-> 
-> 
+>
+>
 
 En el siguiente ejemplo de .NET se muestra cómo se puede volver a crear un localizador con el mismo identificador.
 
@@ -122,18 +126,18 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow) { throw new Exception(String.
     }
 
 
-## <a name="step-5:-regenerate-primary-storage-access-key"></a>Paso 5: Regeneración de la clave de acceso de almacenamiento principal
-Regenere la clave de acceso de almacenamiento principal. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+## <a name="step-5-regenerate-primary-storage-access-key"></a>Paso 5: Regeneración de la clave de acceso de almacenamiento principal
+Regenere la clave de acceso de almacenamiento principal. Para información sobre cómo rotar las claves de almacenamiento, vea [Vista, copia y regeneración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
-## <a name="step-6:-update-media-services-to-use-the-new-primary-storage-key"></a>Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
+## <a name="step-6-update-media-services-to-use-the-new-primary-storage-key"></a>Paso 6: Actualización de Servicios multimedia para usar la nueva clave de almacenamiento principal
 Use el mismo procedimiento que se describe en el [paso 2](media-services-roll-storage-access-keys.md#step2) , pero esta vez sincronice la nueva clave de acceso de almacenamiento principal con la cuenta de Media Services.
 
 > [!NOTE]
 > Espere 30 minutos antes de realizar ninguna operación con Servicios multimedia (por ejemplo, crear nuevos localizadores) a fin de impedir que los trabajos pendientes sea vean afectados.
-> 
-> 
+>
+>
 
-## <a name="step-7:-update-locators"></a>Paso 7: Actualización de los localizadores
+## <a name="step-7-update-locators"></a>Paso 7: Actualización de los localizadores
 Pasados 30 minutos, puede volver a crear los localizadores OnDemand de modo que tomen dependencia de la nueva clave de almacenamiento primaria y mantengan la URL existente.
 
 Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-access-keys.md#step-3-update-locators).
@@ -147,6 +151,8 @@ Use el mismo procedimiento descrito en el [paso 3](media-services-roll-storage-a
 ### <a name="acknowledgments"></a>Agradecimientos
 Nos gustaría mencionar a las siguientes personas que han contribuido a crear este documento: Cenk Dingiloglu, Gada Milán y Seva Titov.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

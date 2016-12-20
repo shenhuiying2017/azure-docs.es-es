@@ -1,12 +1,12 @@
 ---
-title: 'Guía técnica: recuperación ante errores locales en Azure | Microsoft Docs'
-description: Artículo para entender y diseñar aplicaciones resistentes, con alta disponibilidad y con tolerancia a errores, así como para planear la recuperación ante desastres centrada en errores locales dentro de Azure.
-services: ''
+title: "Guía técnica: recuperación ante errores locales en Azure | Microsoft Docs"
+description: "Artículo para entender y diseñar aplicaciones resistentes, con alta disponibilidad y con tolerancia a errores, así como para planear la recuperación ante desastres centrada en errores locales dentro de Azure."
+services: 
 documentationcenter: na
 author: adamglick
 manager: saladki
-editor: ''
-
+editor: 
+ms.assetid: 2e50f6c1-fa61-4c7d-ac26-566a142fbfc2
 ms.service: resiliency
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
+translationtype: Human Translation
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+
 
 ---
-# <a name="azure-resiliency-technical-guidance:-recovery-from-local-failures-in-azure"></a>Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure
+# <a name="azure-resiliency-technical-guidance-recovery-from-local-failures-in-azure"></a>Guía técnica sobre resistencia en Azure: recuperación ante errores locales en Azure
 Hay dos amenazas principales para la disponibilidad de las aplicaciones:
 
 * El error de los dispositivos, como las unidades de disco y los servidores
@@ -72,7 +76,7 @@ Azure entiende de manera nativa los niveles de una aplicación PaaS (rol web y r
 En el diagrama anterior, el nivel de Internet Information Services (IIS) (que funciona como nivel de aplicación web) y el nivel de SQL (que funciona como nivel de datos), se asignan a distintos conjuntos de disponibilidad. Esto garantiza que todas las instancias de cada nivel tienen redundancia de hardware mediante la distribución de máquinas virtuales entre los dominios de error y que no se quitan capas completas durante una actualización.
 
 ### <a name="load-balancing"></a>Equilibrio de carga
-Si hay que distribuir el tráfico entre las máquinas virtuales, tendrá que agruparlas en una aplicación y equilibrar la carga mediante un punto de conexión TCP o UDP específico. Para más información, consulte [Equilibrio de carga para servicios de infraestructura de Azure](../virtual-machines/virtual-machines-linux-load-balance.md). Si las máquinas virtuales reciben entradas de otro origen (por ejemplo, un mecanismo de puesta en cola), no será necesario un equilibrador de carga. El equilibrador de carga utiliza una comprobación básica de mantenimiento para determinar si se debe enviar tráfico al nodo. También es posible crear sondeos propios que implementen métricas de mantenimiento específicas de la aplicación que determinen si la máquina virtual debe recibir tráfico.
+Si hay que distribuir el tráfico entre las máquinas virtuales, tendrá que agruparlas en una aplicación y equilibrar la carga mediante un punto de conexión TCP o UDP específico. Para más información, consulte [Equilibrio de carga para servicios de infraestructura de Azure](../virtual-machines/virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Si las máquinas virtuales reciben entradas de otro origen (por ejemplo, un mecanismo de puesta en cola), no será necesario un equilibrador de carga. El equilibrador de carga utiliza una comprobación básica de mantenimiento para determinar si se debe enviar tráfico al nodo. También es posible crear sondeos propios que implementen métricas de mantenimiento específicas de la aplicación que determinen si la máquina virtual debe recibir tráfico.
 
 ## <a name="storage"></a>Almacenamiento
 Almacenamiento de Azure es el servicio de datos duradero de línea de base de Azure. Proporciona almacenamiento en blobs, tablas, colas y discos de máquinas virtuales. Utiliza una combinación de replicación y administración de recursos para proporcionar alta disponibilidad en un centro de datos individual. El Acuerdo de Nivel de Servicio de disponibilidad de Almacenamiento de Azure garantiza que al menos un 99,9% del tiempo:
@@ -121,16 +125,16 @@ Esta recomendación no tiene tanta validez con el trasvase de registros. Al trat
 
 En el caso de las máquinas virtuales en los servicios en la nube de Azure implementadas mediante el portal clásico en el mismo conjunto de disponibilidad, debe implementarlas en el mismo servicio en la nube. Las máquinas virtuales implementadas mediante Azure Resource Manager (el portal actual) no tienen esta limitación. En el caso de las máquinas virtuales implementadas mediante el portal clásico en el servicio en la nube de Azure, solo los nodos en el mismo servicio en la nube pueden participar en el mismo conjunto de disponibilidad. Además, las máquinas virtuales en los servicios en la nube deben estar en la misma red virtual para asegurarse de que conservan sus direcciones IP incluso después de la recuperación del servicio, ya que esto evita las interrupciones de actualización de DNS.
 
-### <a name="azure-only:-high-availability-solutions"></a>Solo Azure: soluciones de alta disponibilidad
+### <a name="azure-only-high-availability-solutions"></a>Solo Azure: soluciones de alta disponibilidad
 Puede tener una solución de alta disponibilidad para sus bases de datos SQL Server en Azure mediante el uso de grupos de disponibilidad AlwaysOn o de creación de reflejo de la base de datos.
 
-El siguiente diagrama muestra la arquitectura de los grupos de disponibilidad AlwaysOn que se ejecutan en Máquinas virtuales de Azure. Este diagrama se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md), en el que se analiza en profundidad este tema.
+El siguiente diagrama muestra la arquitectura de los grupos de disponibilidad AlwaysOn que se ejecutan en Máquinas virtuales de Azure. Este diagrama se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), en el que se analiza en profundidad este tema.
 
 ![Grupos de disponibilidad de AlwaysOn en Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 También puede aprovisionar automáticamente una implementación de grupos de disponibilidad AlwaysOn de un extremo a otro en máquinas virtuales de Azure mediante el uso de la plantilla de AlwaysOn en el Portal de Azure. Para obtener más información, consulte [Oferta de AlwaysOn de SQL Server en la Galería del Portal de Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-El diagrama siguiente muestra el uso de creación de reflejo de la base de datos en Máquinas virtuales de Azure. También se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md).
+El diagrama siguiente muestra el uso de creación de reflejo de la base de datos en Máquinas virtuales de Azure. También se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ![Creación de reflejo de la base de datos en Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -144,11 +148,6 @@ Las aplicaciones que se basan en Azure se benefician de las capacidades de la pl
 
 ### <a name="service-bus"></a>Bus de servicio
 Para mitigar una interrupción temporal del Bus de servicio de Azure, considere la posibilidad de crear una cola duradera en el lado de cliente. Con ello, utilizará temporalmente un mecanismo de almacenamiento local alternativo para almacenar los mensajes que no se puedan agregar a la cola del Bus de servicio. La aplicación puede decidir cómo controlar los mensajes almacenados temporalmente una vez restaurado el servicio. Para obtener más información, consulte [Prácticas recomendadas para la realización de mejoras con la mensajería asincrónica de Service Bus](../service-bus-messaging/service-bus-performance-improvements.md) y [Service Bus (recuperación ante desastres)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
-
-### <a name="mobile-services"></a>Servicios móviles
-Hay dos consideraciones que debe tener en cuenta sobre la disponibilidad de los Servicios móviles de Azure. En primer lugar, realice regularmente copias de seguridad de la base de datos SQL asociada con su servicio móvil. En segundo lugar, realice también una copia de seguridad de los scripts del servicio móvil. Para más información, consulte [Recuperación del servicio móvil en caso de un desastre](../mobile-services/mobile-services-disaster-recovery.md).
-
-Si los Servicios móviles experimentan una interrupción temporal, es posible que deba usar un centro de datos de Azure alternativo de forma transitoria. Para obtener más información, consulte [Servicios móviles (recuperación ante desastres)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
 
 ### <a name="hdinsight"></a>HDInsight
 Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en el Almacenamiento de blobs de Azure. Almacenamiento de Azure especifica las propiedades de durabilidad y alta disponibilidad de Almacenamiento de blobs. El procesamiento de varios nodos asociado a los trabajos MapReduce de Hadoop se realiza en un sistema de archivos distribuido Hadoop (HDFS) transitorio que se aprovisiona cuando HDInsight lo necesita. Los resultados de un trabajo MapReduce también se almacenan de forma predeterminada en Almacenamiento de blobs de Azure, con el fin de que los datos procesados sean duraderos y tengan una alta disponibilidad después de que el clúster de Hadoop se desaprovisione. Para obtener más información, consulte [HDInsight (recuperación ante desastres)](resiliency-technical-guidance-recovery-loss-azure-region.md#other-azure-platform-services).
@@ -195,6 +194,9 @@ Los datos asociados a HDInsight de Azure se almacenan de forma predeterminada en
 ## <a name="next-steps"></a>Pasos siguientes
 Este artículo forma parte de una serie que se centra en la [Guía técnica sobre resistencia en Azure](resiliency-technical-guidance.md). El siguiente artículo de esta serie es [Guía técnica sobre resistencia en Azure: recuperación ante una interrupción del servicio en toda la región](resiliency-technical-guidance-recovery-loss-azure-region.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

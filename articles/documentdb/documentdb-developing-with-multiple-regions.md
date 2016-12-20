@@ -1,12 +1,12 @@
 ---
-title: Developing with multiple regions in DocumentDB | Microsoft Docs
-description: Learn how to access your data in multiple regions from Azure DocumentDB, a fully managed NoSQL database service.
+title: Desarrollo con varias regiones en DocumentDB | Microsoft Docs
+description: Aprenda a acceder a sus datos en varias regiones desde Azure DocumentDB, un servicio de base de datos NoSQL totalmente administrado.
 services: documentdb
-documentationcenter: ''
+documentationcenter: 
 author: kiratp
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: d4579378-0b3a-44a5-9f5b-630f1fa4c66d
 ms.service: documentdb
 ms.devlang: multiple
 ms.topic: article
@@ -14,45 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2016
 ms.author: kipandya
+translationtype: Human Translation
+ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
+ms.openlocfilehash: b188c8d8d66f0af1afa6f357f4d67db7b778ec86
+
 
 ---
-# <a name="developing-with-multi-region-documentdb-accounts"></a>Developing with multi-region DocumentDB accounts
+# <a name="developing-with-multi-region-documentdb-accounts"></a>Desarrollo con cuentas de DocumentDB de varias regiones
 > [!NOTE]
-> Global distribution of DocumentDB databases is generally available and automatically enabled for any newly created DocumentDB accounts. We are working to enable global distribution on all existing accounts, but in the interim, if you want global distribution enabled on your account, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) and we’ll enable it for you now.
-> 
-> 
+> La distribución global de las bases de datos de DocumentDB está disponible con carácter general y habilitada automáticamente para cualquier cuenta de DocumentDB que se haya creado recientemente. Estamos trabajando para habilitar la distribución global en todas las cuentas existentes, pero, mientras tanto, si quiere que la habilitemos ahora en la suya, [póngase en contacto con el equipo de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) .
+>
+>
 
-In order to take advantage of [global distribution](documentdb-distribute-data-globally.md), client applications can specify the ordered preference list of regions to be used to perform document operations. This can be done by setting the connection policy. Based on the Azure DocumentDB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SDK to perform write and read operations. 
+Para aprovechar las ventajas de la [distribución global](documentdb-distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure DocumentDB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
-This preference list is specified when initializing a connection using the DocumentDB client SDKs. The SDKs accept an optional parameter "PreferredLocations" that is an ordered list of Azure regions.
+Esta lista de preferencias se especifica cuando se inicializa una conexión mediante los SDK de cliente de DocumentDB. Los SDK aceptan un parámetro opcional "PreferredLocations", que es una lista ordenada de regiones de Azure.
 
-The SDK will automatically send all writes to the current write region. 
+El SDK enviará automáticamente todas las escrituras a la región de escritura actual.
 
-All reads will be sent to the first available region in the PreferredLocations list. If the request fails, the client will fail down the list to the next region, and so on. 
+Todas las lecturas se enviarán a la primera región disponible en la lista de PreferredLocations. Si se produce un error en la solicitud, el cliente pasará a la siguiente región de la lista y así sucesivamente.
 
-The client SDKs will only attempt to read from the regions specified in PreferredLocations. So, for example, if the Database Account is available in three regions, but the client only specifies two of the non-write regions for PreferredLocations, then no reads will be served out of the write region, even in the case of failover.
+Los SDK de cliente solo intentarán leer en las regiones especificadas en PreferredLocations. Así que, por ejemplo, si la cuenta de base de datos está disponible en tres regiones, pero el cliente solo especifica dos de las regiones de no escritura para PreferredLocations, no se atenderá ninguna lectura desde la región de escritura, incluso en caso de conmutación por error.
 
-The application can verify the current write endpoint and read endpoint chosen by the SDK by checking two properties, WriteEndpoint and ReadEndpoint, available in SDK version 1.8 and above. 
+La aplicación puede comprobar los puntos de conexión de escritura y lectura actuales elegidos por el SDK. Para ello, comprueba dos propiedades, WriteEndpoint y ReadEndpoint, disponibles en el SDK 1.8 y versiones posteriores.
 
-If the PreferredLocations property is not set, all requests will be served from the current write region. 
+Si la propiedad PreferredLocations no está establecida, atenderá todas las solicitudes procedentes de la región de escritura actual.
 
-## <a name=".net-sdk"></a>.NET SDK
-The SDK can be used without any code changes. In this case, the SDK automatically directs both reads and writes to the current write region. 
+## <a name="net-sdk"></a>.NET SDK
+Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirige automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
-In version 1.8 and later of the .NET SDK, the ConnectionPolicy parameter for the DocumentClient constructor has a property called Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. This property is of type Collection `<string>` and should contain a list of region names. The string values are formatted per the Region Name column on the [Azure Regions][regions] page, with no spaces before or after the first and last character respectively.
+En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna Nombre de región en la página [Regiones de Azure][regiones], sin espacios antes ni después del primer y el último carácter, respectivamente.
 
-The current write and read endpoints are available in DocumentClient.WriteEndpoint and DocumentClient.ReadEndpoint respectively.
+Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.ReadEndpoint y DocumentClient.WriteEndpoint, respectivamente.
 
 > [!NOTE]
-> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK handles this change automatically.
-> 
-> 
+> Las direcciones URL de los puntos de conexión no deben considerarse constantes de larga duración. El servicio puede actualizarlas en cualquier momento. El SDK administra este cambio automáticamente.
+>
+>
 
     // Getting endpoints from application settings or other configuration location
     Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
     string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
 
-    //Setting read region selection preference 
+    //Setting read region selection preference
     connectionPolicy.PreferredLocations.Add(LocationNames.WestUS); // first preference
     connectionPolicy.PreferredLocations.Add(LocationNames.EastUS); // second preference
     connectionPolicy.PreferredLocations.Add(LocationNames.NorthEurope); // third preference
@@ -63,23 +67,23 @@ The current write and read endpoints are available in DocumentClient.WriteEndpoi
         accountKey,
         connectionPolicy);
 
-    // connect to DocDB 
+    // connect to DocDB
     await docClient.OpenAsync().ConfigureAwait(false);
 
 
-## <a name="nodejs,-javascript,-and-python-sdks"></a>NodeJS, JavaScript, and Python SDKs
-The SDK can be used without any code changes. In this case, the SDK will automatically direct both reads and writes to the current write region. 
+## <a name="nodejs-javascript-and-python-sdks"></a>SDK de NodeJS, JavaScript y Python
+Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirigirá automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
-In version 1.8 and later of each SDK, the ConnectionPolicy parameter for the DocumentClient constructor a new property called DocumentClient.ConnectionPolicy.PreferredLocations. This is parameter is an array of strings that takes a list of region names. The names are formatted per the Region Name column in the [Azure Regions][regions] page. You can also use the predefined constants in the convenience object AzureDocuments.Regions
+En la versión 1.8 y posteriores de cada SDK, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una nueva propiedad denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parámetro es una matriz de cadenas que acepta una lista de nombres de región. Se da formato a los nombres según la columna Nombre de región en la página [Regiones de Azure][regiones]. También puede usar las constantes predefinidas en el objeto de conveniencia AzureDocuments.Regions.
 
-The current write and read endpoints are available in DocumentClient.getWriteEndpoint and DocumentClient.getReadEndpoint respectively.
+Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.getReadEndpoint y DocumentClient.getWriteEndpoint, respectivamente.
 
 > [!NOTE]
-> The URLs for the endpoints should not be considered as long-lived constants. The service may update these at any point. The SDK will handle this change automatically.
-> 
-> 
+> Las direcciones URL de los puntos de conexión no deben considerarse constantes de larga duración. El servicio puede actualizarlas en cualquier momento. El SDK administrará este cambio automáticamente.
+>
+>
 
-Below is a code example for NodeJS/Javascript. Python and Java will follow the same pattern.
+A continuación, se muestra un ejemplo de código para JavaScript y NodeJS. Python y Java siguen el mismo patrón.
 
     // Creating a ConnectionPolicy object
     var connectionPolicy = new DocumentBase.ConnectionPolicy();
@@ -95,13 +99,13 @@ Below is a code example for NodeJS/Javascript. Python and Java will follow the s
 
 
 ## <a name="rest"></a>REST
-Once a database account has been made available in multiple regions, clients can query its availability by performing a GET request on the following URI.
+Una vez que una cuenta de base de datos está disponible en varias regiones, los clientes pueden consultar su disponibilidad llevando a cabo una solicitud GET en el siguiente URI.
 
     https://{databaseaccount}.documents.azure.com/
 
-The service will return a list of regions and their corresponding DocumentDB endpoint URIs for the replicas. The current write region will be indicated in the response. The client can then select the appropriate endpoint for all further REST API requests as follows.
+El servicio devolverá una lista de regiones y los URI de punto de conexión de DocumentDB correspondientes para las réplicas. Se indicará la región de escritura actual en la respuesta. Después, el cliente puede seleccionar el punto de conexión adecuado para las demás solicitudes de API de REST como sigue.
 
-Example response
+Respuesta de ejemplo
 
     {
         "_dbs": "//dbs/",
@@ -134,25 +138,25 @@ Example response
     }
 
 
-* All PUT, POST and DELETE requests must go to the indicated write URI
-* All GETs and other read-only requests (for example queries) may go to any endpoint of the client’s choice
+* Todas las solicitudes PUT, POST y DELETE deben ir al URI de escritura indicado.
+* Todas las solicitudes GET y las demás solicitudes de solo lectura (como las consultas) pueden ir a cualquier punto de conexión elegido por el cliente.
 
-Write requests to read-only regions will fail with HTTP error code 403 (“Forbidden”).
+Las solicitudes de escritura a regiones de solo lectura producirán un error con el código de error HTTP 403 ("Prohibido").
 
-If the write region changes after the client’s initial discovery phase, subsequent writes to the previous write region will fail with HTTP error code 403 (“Forbidden”). The client should then GET the list of regions again to get the updated write region.
+Si la región de escritura cambia después de la fase de descubrimiento inicial del cliente, se producirá un error en las escrituras posteriores a la región de escritura anterior con el código de error HTTP 403 ("Prohibido"). A continuación, el cliente debería de nuevo conseguir con GET la lista de regiones para obtener la región de escritura actualizada.
 
-## <a name="next-steps"></a>Next steps
-Learn more about the distributing data globally with DocumentDB in the following articles:
+## <a name="next-steps"></a>Pasos siguientes
+Más información sobre la distribución de datos global con DocumentDB en los siguientes artículos:
 
-* [Distribute data globally with DocumentDB](documentdb-distribute-data-globally.md)
-* [Consistency levels](documentdb-consistency-levels.md)
-* [How throughput works with multiple regions](documentdb-manage.md#how-throughput-works-with-multiple-regions)
-* [Add regions using the Azure portal](documentdb-portal-global-replication.md)
+* [Distribución de datos global con DocumentDB](documentdb-distribute-data-globally.md)
+* [Niveles de coherencia](documentdb-consistency-levels.md)
+* [Obtener información acerca del almacenamiento y el aprovisionamiento de rendimiento predecible en DocumentDB](documentdb-manage.md)
+* [Add regions using the Azure portal (Incorporación de regiones con el Portal de Azure)](documentdb-portal-global-replication.md)
 
-[regions]: https://azure.microsoft.com/regions/ 
+[regiones]: https://azure.microsoft.com/regions/
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

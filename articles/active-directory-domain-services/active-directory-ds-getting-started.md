@@ -1,12 +1,12 @@
 ---
-title: 'Servicios de dominio de Azure AD: creación del grupo de administradores de controlador de dominio de AAD | Microsoft Docs'
-description: Introducción a los Servicios de dominio de Azure Active Directory
+title: "Azure AD Domain Services: creación del grupo de administradores de controlador de dominio de AAD | Microsoft Azure"
+description: "Introducción a los Servicios de dominio de Azure Active Directory"
 services: active-directory-ds
-documentationcenter: ''
+documentationcenter: 
 author: mahesh-unnikrishnan
 manager: stevenpo
 editor: curtand
-
+ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory-ds
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: maheshu
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 0dfc373cc65033cfb7c2b1882dca41faa7c7bcae
+
 
 ---
 # <a name="get-started-with-azure-ad-domain-services"></a>Introducción a Azure AD Domain Services
 Este artículo le guía por las tareas de configuración necesarias para habilitar los Servicios de dominio de Azure AD para su inquilino de Azure AD.
 
-## <a name="task-1:-create-the-'aad-dc-administrators'-group"></a>Paso 1: Creación del grupo "Administradores de controladores de dominio de AAD"
+## <a name="task-1-create-the-aad-dc-administrators-group"></a>Paso 1: Creación del grupo "Administradores de controladores de dominio de AAD"
 El primer paso es crear un grupo administrativo en el inquilino de Azure Active Directory. Este grupo administrativo especial se llama **Administradores de DC de AAD**. A los miembros de este grupo se les concederán privilegios administrativos en las máquinas unidas a un dominio para el dominio de Azure AD Domain Services. En las máquinas unidas a un dominio, este grupo se agrega al grupo Administradores. Además, los miembros de este grupo también podrá usar Escritorio remoto para conectarse de forma remota a las máquinas unidas a un dominio.  
 
 > [!NOTE]
@@ -56,9 +60,12 @@ En esta tarea de configuración, creará el grupo administrativo y agregará uno
 
 <br>
 
-## <a name="task-2:-create-or-select-an-azure-virtual-network"></a>Tarea 2: Creación o selección de una red virtual de Azure.
+## <a name="task-2-create-or-select-an-azure-virtual-network"></a>Tarea 2: Creación o selección de una red virtual de Azure.
 La siguiente tarea de configuración es [crear o seleccionar una red virtual de Azure](active-directory-ds-getting-started-vnet.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

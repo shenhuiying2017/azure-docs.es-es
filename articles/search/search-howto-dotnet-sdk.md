@@ -1,12 +1,12 @@
 ---
-title: Uso de Búsqueda de Azure desde una aplicación .NET | Microsoft Docs
-description: Cómo usar Búsqueda de Azure desde una aplicación .NET
+title: "Uso de Azure Search desde una aplicación .NET | Microsoft Docs"
+description: "Cómo usar Búsqueda de Azure desde una aplicación .NET"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: brjohnstmsft
 manager: pablocas
-editor: ''
-
+editor: 
+ms.assetid: 93653341-c05f-4cfd-be45-bb877f964fcb
 ms.service: search
 ms.devlang: dotnet
 ms.workload: search
@@ -14,12 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/06/2016
 ms.author: brjohnst
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 21bd4f05eabfd685cb87b819621fe8d826f209b5
+
 
 ---
-# <a name="how-to-use-azure-search-from-a-.net-application"></a>Cómo usar Búsqueda de Azure desde una aplicación .NET
+# <a name="how-to-use-azure-search-from-a-net-application"></a>Cómo usar Búsqueda de Azure desde una aplicación .NET
 Este artículo es un tutorial para empezar a trabajar con el [SDK de Búsqueda de Azure para .NET](https://msdn.microsoft.com/library/azure/dn951165.aspx). Puede utilizar el SDK para .NET para implementar una experiencia de búsqueda enriquecida en la aplicación mediante Búsqueda de Azure.
 
-## <a name="what's-in-the-azure-search-sdk"></a>Qué es el SDK de Búsqueda de Azure
+## <a name="whats-in-the-azure-search-sdk"></a>Qué es el SDK de Búsqueda de Azure
 El SDK contiene una biblioteca de cliente, `Microsoft.Azure.Search`. Permite administrar los índices, los orígenes de datos y los indizadores, así como cargar y administrar documentos y ejecutar consultas, todo ello sin tener que ocuparse de los detalles de HTTP y JSON.
 
 La biblioteca de cliente define clases como `Index`, `Field` y `Document`, además de operaciones como `Indexes.Create` y `Documents.Search` en las clases `SearchServiceClient` y `SearchIndexClient`. Estas clases están organizadas en los espacios de nombres siguientes:
@@ -304,7 +308,7 @@ La tercera parte de este método es un bloque catch que controla un caso de erro
 
 Por último, el método se retrasa durante dos segundos. La indización ocurre de manera asincrónica en el servicio Búsqueda de Azure, por lo que la aplicación de ejemplo debe esperar unos momentos para asegurarse de que los documentos estén disponibles para la búsqueda. Retrasos así solo suelen ser necesarios en las pruebas, demostraciones y aplicaciones de ejemplo.
 
-#### <a name="how-the-.net-sdk-handles-documents"></a>Gestión de documentos del SDK de .NET
+#### <a name="how-the-net-sdk-handles-documents"></a>Gestión de documentos del SDK de .NET
 Quizás se pregunte cómo consigue el SDK de Azure para .NET cargar en el índice las instancias de una clase definida por el usuario como `Hotel` . Para responder mejor a esa pregunta, echemos un vistazo a la clase `Hotel` :
 
     [SerializePropertyNamesAsCamelCase]
@@ -367,7 +371,7 @@ Por este motivo, recomendamos utilizar tipos que aceptan valores NULL en las cla
 
 <a name="JsonDotNet"></a>
 
-#### <a name="custom-serialization-with-json.net"></a>Serialización personalizada con JSON.NET
+#### <a name="custom-serialization-with-jsonnet"></a>Serialización personalizada con JSON.NET
 El SDK usa JSON.NET para serializar y deserializar documentos. Puede personalizar la serialización y deserialización si lo necesita definiendo su propio `JsonConverter` o `IContractResolver` (consulte la [documentación JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) para obtener más detalles). Esto puede ser útil cuando desea adaptar una clase de modelo existente de la aplicación para usarla con Búsqueda de Azure y otros escenarios más avanzados. Por ejemplo, con la serialización personalizada, puede:
 
 * Incluir o excluir determinadas propiedades de la clase de modelo para que se almacenen como campos del documento.
@@ -663,6 +667,6 @@ namespace AzureSearch.SDKHowTo
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

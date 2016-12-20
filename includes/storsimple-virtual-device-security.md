@@ -6,4 +6,8 @@ Tenga en cuenta las siguientes consideraciones de seguridad al utilizar el dispo
 * La clave pública del certificado usada para cifrar los datos almacenados en Azure StorSimple está disponible de forma segura en el Portal de Azure clásico; la clave privada se conserva con el dispositivo StorSimple. En el dispositivo virtual de StorSimple, las claves públicas y privadas se almacenan en Azure.
 * El dispositivo virtual está hospedado en el centro de datos de Microsoft Azure.
 
-<!---HONumber=AcomDC_0128_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

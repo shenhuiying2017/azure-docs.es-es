@@ -1,30 +1,34 @@
 ---
-title: Creación y publicación de un producto en Administración de API de Azure
-description: Obtenga información acerca de cómo crear y publicar productos en Administración de API de Azure.
+title: "Creación y publicación de un producto en Administración de API de Azure"
+description: "Obtenga información acerca de cómo crear y publicar productos en Administración de API de Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 31de55cb-9384-490b-a2f2-6dfcf83da764
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4d9c5e52bc42116b03983ed3a9f5b4a7d9e87977
+
 
 ---
-# Creación y publicación de un producto en Administración de API de Azure
+# <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>Creación y publicación de un producto en Administración de API de Azure
 En Administración de API de Azure, un producto contiene una o varias API, así como una cuota de uso y los términos de uso. Una vez publicado un producto, los desarrolladores pueden suscribirse al producto y comenzar a usar las API del producto. Este tema ofrece una guía para crear un producto, agregarle una API y publicarlo para los desarrolladores.
 
 ## <a name="create-product"> </a>Creación de un producto
-Las operaciones se agregan y se configuran para una API en el portal del publicador. Para llegar al portal del publicador, haga clic en **Administrar** en el Portal de Azure clásico para el servicio Administración de API.
+Las operaciones se agregan y se configuran para una API en el portal del publicador. Para obtener acceso al portal del publicador, haga clic en el **portal del publicador** en Azure Portal para el servicio API Management.
 
 ![Portal del publicador][api-management-management-console]
 
-> Si todavía no ha creado una instancia del servicio Administración de API, consulte [Creación de una instancia del servicio de Administración de API][Creación de una instancia del servicio de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 > 
 > 
 
@@ -36,11 +40,11 @@ Haga clic en **Productos** en el menú de la izquierda para mostrar la página *
 
 Escriba un nombre descriptivo para el producto en el campo **Nombre** y una descripción del producto en el campo **Descripción**.
 
-Los productos de Administración de API pueden tener el estado **Abierto** o **Protegido**. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Active la opción **Requerir suscripción** para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
+Los productos de API Management pueden tener el estado **Abierto** o **Protegido**. Para poder usar los productos protegidos es necesario suscribirse antes a ellos, mientras que los productos abiertos pueden usarse sin suscripción. Active la opción **Requerir suscripción** para crear un producto protegido que requiera una suscripción. Esta es la configuración predeterminada.
 
-Active **Requerir aprobación de suscripción** si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto. Si la casilla no se activa, los intentos de suscripción se autoaprobarán. Para obtener más información sobre suscripciones, consulte [Vista de los suscriptores de un producto][Vista de los suscriptores de un producto].
+Active **Requerir aprobación de suscripción** si desea que un administrador revise y acepte o rechace los intentos de suscripción a este producto. Si la casilla no se activa, los intentos de suscripción se autoaprobarán. Para más información sobre suscripciones, consulte [Vista de los suscriptores de un producto][Vista de los suscriptores de un producto].
 
-Para permitir que las cuentas de desarrollador se suscriban varias veces al producto, active la casilla **Permitir varias suscripciones**. Si esta casilla no está activada, cada cuenta de desarrollador puede suscribirse una sola vez al producto.
+Para permitir que las cuentas de desarrollador se suscriban varias veces al producto, active la casilla **Permitir varias suscripciones** . Si esta casilla no está activada, cada cuenta de desarrollador puede suscribirse una sola vez al producto.
 
 ![Suscripciones múltiples ilimitadas][api-management-unlimited-multiple-subscriptions]
 
@@ -56,7 +60,7 @@ Una vez configuradas todas las opciones del nuevo producto, haga clic en **Guard
 > 
 > 
 
-Para configurar un producto, haga clic en el nombre del producto en la pestaña **Productos**.
+Para configurar un producto, haga clic en el nombre del producto en la pestaña **Productos** .
 
 ## <a name="add-apis"> </a>Incorporación de API a un producto
 La página **Productos** contiene cuatro vínculos de configuración: **Resumen**, **Configuración**, **Visibilidad** y **Suscriptores**. En la pestaña **Resumen** puede agregar API y publicar o anular la publicación de un producto.
@@ -94,7 +98,7 @@ La pestaña **Visibilidad** permite elegir los roles que pueden ver el producto 
 
 Para habilitar o deshabilitar la visibilidad de un producto para los desarrolladores de un grupo, active o desactive la casilla situada junto al grupo y haga clic en **Guardar**.
 
-> Para obtener más información, consulte [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure][Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure].
+> Para más información, consulte [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure][Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure].
 > 
 > 
 
@@ -104,7 +108,7 @@ La pestaña **Suscriptores** muestra la lista de desarrolladores que se han susc
 ![Desarrolladores][api-management-developer-list]
 
 ## <a name="next-steps"> </a>Pasos siguientes
-Una vez agregadas las API que se deseen y publicado el producto, los desarrolladores pueden suscribirse al producto y comenzar a llamar a las API. Para obtener un tutorial que demuestre estos elementos, además de la configuración avanzada del producto, consulte [Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure][Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure].
+Una vez agregadas las API que se deseen y publicado el producto, los desarrolladores pueden suscribirse al producto y comenzar a llamar a las API. Para un tutorial que demuestre estos elementos, además de la configuración avanzada del producto, consulte [Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure][Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure].
 
 Para obtener más información acerca de cómo trabajar con los productos, vea el siguiente vídeo.
 
@@ -112,13 +116,13 @@ Para obtener más información acerca de cómo trabajar con los productos, vea e
 > 
 > 
 
-[Create a product]: #create-product
-[Add APIs to a product]: #add-apis
-[Add descriptive information to a product]: #add-description
-[Publish a product]: #publish-product
-[Make a product visible to developers]: #make-visible
+[Creación de un producto]: #create-product
+[Incorporación de API a un producto]: #add-apis
+[Incorporación de información descriptiva a un producto]: #add-description
+[Publicación de un producto]: #publish-product
+[Visibilidad de un producto para los desarrolladores]: #make-visible
 [Vista de los suscriptores de un producto]: #view-subscribers
-[Next steps]: #next-steps
+[Pasos siguientes]: #next-steps
 
 [api-management-management-console]: ./media/api-management-howto-add-products/api-management-management-console.png
 [api-management-add-product]: ./media/api-management-howto-add-products/api-management-add-product.png
@@ -140,12 +144,16 @@ Para obtener más información acerca de cómo trabajar con los productos, vea e
 [api-management-]: ./media/api-management-howto-add-products/
 
 
-[How to add operations to an API]: api-management-howto-add-operations.md
-[How to create and publish a product]: api-management-howto-add-products.md
+[Incorporación de operaciones a una API]: api-management-howto-add-operations.md
+[Creación y publicación de un producto]: api-management-howto-add-products.md
 [Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio de Administración de API]: api-management-get-started.md#create-service-instance
-[Next steps]: #next-steps
+[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
+[Pasos siguientes]: #next-steps
 [Creación y uso de grupos para administrar cuentas de desarrollador en Administración de API de Azure]: api-management-howto-create-groups.md
-[Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure]: api-management-howto-product-with-rules.md
+[Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure]: api-management-howto-product-with-rules.md 
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

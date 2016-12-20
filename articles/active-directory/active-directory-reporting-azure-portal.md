@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96784e006b5986cbc6dfd4f264b22bd1d1bf208d
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e082470c8ad3ee02c528a4ca6e3326e5be4752a3
 
 
 ---
-# <a name="azure-active-directory-reporting-preview"></a>Informes de Azure Active Directory - versión preliminar
+# <a name="azure-active-directory-reporting---preview"></a>Informes de Azure Active Directory - versión preliminar
 > [!div class="op_single_selector"]
 > * [Portal de Azure](active-directory-reporting-azure-portal.md)
 > * [Portal de Azure clásico](active-directory-reporting-guide.md)
@@ -38,8 +38,8 @@ Hay dos áreas principales de informes:
 
 Según el ámbito de los datos que esté buscando, puede tener acceso a estos informes haciendo clic en **Usuarios y grupos** o **Aplicaciones empresariales** en la lista de servicios de [Azure Portal](https://portal.azure.com).
 
-## <a name="signin-activities"></a>Actividades de inicio de sesión
-### <a name="user-signin-activities"></a>Actividades de inicio de sesión del usuario
+## <a name="sign-in-activities"></a>Actividades de inicio de sesión
+### <a name="user-sign-in-activities"></a>Actividades de inicio de sesión del usuario
 Con la información proporcionada por el informe de inicio de sesión del usuario, puede encontrar respuestas a preguntas tales como:
 
 * ¿Cuál es el patrón de inicio de sesión de un usuario?
@@ -97,7 +97,7 @@ Con el selector de columnas, puede seleccionar los campos de datos que quiere mo
 
 ![Informes](./media/active-directory-reporting-azure-portal/column_chooser.png "Reporting")
 
-### <a name="filtering-signins"></a>Filtrado de inicios de sesión
+### <a name="filtering-sign-ins"></a>Filtrado de inicios de sesión
 Puede filtrar inicios de sesión para limitar la cantidad de datos que se muestran con los siguientes campos:
 
 * Fecha y hora 
@@ -203,6 +203,6 @@ Consulte la [guía de informes de Azure Active Directory](active-directory-repor
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

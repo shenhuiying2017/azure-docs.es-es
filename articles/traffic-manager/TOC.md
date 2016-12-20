@@ -17,10 +17,11 @@
 ## [Configuración de un método de enrutamiento](traffic-manager-configure-routing-method.md)
 ## [Prueba de la configuración](traffic-manager-testing-settings.md)
 ## [Solución de problemas de un punto de conexión degradado](traffic-manager-troubleshooting-degraded.md)
-## [Uso de recursos de red](../virtual-network/resource-groups-networking.md)
+## [Combinación de servicios de equilibrio de carga](traffic-manager-load-balancing-azure.md)
+## [Uso de recursos de red](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell (clásico)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
@@ -30,14 +31,15 @@
 ## [DNS de Azure](/azure/dns/)
 
 # resources
-##[Precios](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Precios](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Límites de servicio](../azure-subscription-service-limits.md#traffic-manager-limits)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking/)
-## [Foro](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

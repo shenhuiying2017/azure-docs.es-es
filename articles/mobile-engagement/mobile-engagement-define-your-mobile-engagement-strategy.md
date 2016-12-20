@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8cb91a8cdc6d16070034c79515731be7b820d389
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e3d6caee50a57648f4f775029a2e381cee0f1e72
 
 
 ---
@@ -49,7 +49,7 @@ Una vez definidos los casos de uso y el segmento, ofrece instrucciones para defi
 
 En función de la integración, una vez publicadas las aplicaciones, usted, como vendedor, podrá ver sus análisis en tiempo real, segmentar la audiencia y, a continuación, comenzar a enviar la notificación de inserción inteligente orientada para atraer a los usuarios finales en la aplicación o fuera de ella.
 
-### <a name="usecases-to-get-started"></a>Casos de uso para comenzar
+### <a name="use-cases-to-get-started"></a>Casos de uso para comenzar
 1. Estrategia de bienvenida: cree varias campañas de notificación de inserción en función del comportamiento del usuario final en el momento del lanzamiento de la aplicación para volver a conseguir la participación de los usuarios el D+2/5/10/15 después de la primera sesión y aumentar la retención de la primera ejecución.
 2. Promocione nuevo contenido (características, artículos y vídeos, productos, etc.) en función del comportamiento del usuario final para enviar la información únicamente a los usuarios finales con más probabilidades de participar.
 3. Valore la aplicación: céntrese en menos del 1 % de la base de usuarios con más probabilidad de asignar a la aplicación una valoración de 5 estrellas en la tienda.
@@ -66,13 +66,13 @@ Para ser lo más contextual posible al atraer la participación de la audiencia,
 > 
 > 
 
-### <a name="usecases-and-best-practices"></a>Casos de uso y prácticas recomendadas
+### <a name="use-cases-and-best-practices"></a>Casos de uso y prácticas recomendadas
 En las secciones siguientes trataremos brevemente algunos casos de uso clave que hemos experimentado con nuestros clientes para que pueda comenzar.
 
 #### <a name="media"></a>Multimedia
 Recopile el tipo de contenido que consume el usuario final y segmente la audiencia en función de ese comportamiento para dirigir un tipo de contenido específico solo a un público con más probabilidad de consumirlo. Esto evita el envío de correo no deseado a toda la base de usuarios y asegura una retención mejor.
 
-#### <a name="mcommerce"></a>Comercio móvil
+#### <a name="m-commerce"></a>Comercio móvil
 Recopile las categorías de productos más visitadas en la aplicación y diríjase a la audiencia para promocionar un descuento o un nuevo producto de una de esas categorías que sea más probable que compre el usuario final. Intente aumentar los ingresos. Nuevamente, el objetivo es no enviar correo no deseado.
 
 #### <a name="gaming"></a>Juegos
@@ -134,6 +134,6 @@ Todo este tipo de datos puede ampliarse con parámetros (*información adicional
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

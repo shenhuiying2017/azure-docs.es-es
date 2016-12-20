@@ -6,14 +6,18 @@
 2. Haga clic en la pestaña **Examinar** y, después, busque "Microsoft Azure Relay" y seleccione el elemento **Microsoft Azure Relay**. Haga clic en **Instalar** para completar la instalación y, a continuación, cierre este cuadro de diálogo.
 
 ### <a name="write-some-code-to-send-messages"></a>Escritura de código para enviar mensajes
-1. Agregue la siguiente instrucción `using` al principio del archivo Program.cs.
+1. Agregue las siguientes instrucciones `using` al principio del archivo Program.cs.
    
-    ```cs
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Threading;
+    using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
 2. Agregue constantes a la clase `Program` para los detalles de conexión de la conexión híbrida. Reemplace los marcadores de posición entre corchetes por los valores adecuados obtenidos al crear la conexión híbrida.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
@@ -21,7 +25,7 @@
     ```
 3. Agregue un nuevo método a la clase `Program` de manera similar a la siguiente:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -82,13 +86,13 @@
     ```
 4. Agregue la siguiente línea de código al método `Main` de la clase `Program`.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Este es el aspecto que debería tener Program.cs.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -172,6 +176,6 @@
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

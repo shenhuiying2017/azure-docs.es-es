@@ -15,19 +15,18 @@ ms.workload: NA
 ms.date: 09/26/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 567a998102558626df73878865b317b830ba1faa
+ms.sourcegitcommit: ff2e3c27f9fc02ebe30380798be00211113208e3
+ms.openlocfilehash: 4f3c0cee8fe686c5355ce460064a7188d35f3e44
 
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparación del entorno de desarrollo en Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  Para implementar y ejecutar [aplicaciones de Azure Service Fabric](service-fabric-application-model.md) en la máquina de desarrollo de Linux, instale el motor de tiempo de ejecución y el SDK común. También puede instalar SDK opcionales para Java y .NET Core.
 
@@ -71,7 +70,8 @@ Una vez actualizados los orígenes, puede instalar el SDK.
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
 
-## <a name="set-up-the-azure-crossplatform-cli"></a>Instalación de la CLI multiplataforma de Azure
+
+## <a name="set-up-the-azure-cross-platform-cli"></a>Instalación de la CLI multiplataforma de Azure
 La [CLI multiplataforma de Azure][azure-xplat-cli-github] incluye comandos para interactuar con las entidades de Service Fabric, incluidos los clústeres y las aplicaciones. Como se basa en Node.js, [asegúrese de que Node esté instalado][install-node] antes de continuar con las instrucciones siguientes.
 
 1. Clone el repositorio de github en la máquina de desarrollo.
@@ -128,7 +128,7 @@ El SDK de Java proporciona las bibliotecas y plantillas necesarias para compilar
 
 Puede instalar el complemento de Service Fabric para Eclipse desde el IDE de Eclipse Neon.
 
-1. En Eclipse, asegúrese de tener instalado Buildship 1.0.17 o versiones posteriores. Puede comprobar las versiones de los componentes instalados en **Help > Installation Details** (Ayuda > Detalles de la instalación). Para actualizar Buildship, siga [estas instrucciones][buildship-update]..
+1. En Eclipse, asegúrese de tener instalado Buildship 1.0.17 o versiones posteriores. Puede comprobar las versiones de los componentes instalados en **Help > Installation Details** (Ayuda > Detalles de la instalación). Para actualizar Buildship, siga [estas instrucciones][buildship-update].
 2. Para instalar el complemento de Service Fabric, elija **Help > Install New Software...** (Ayuda > Instalar nuevo software...).
 3. En el cuadro de texto "Trabajar con", escriba: http://dl.windowsazure.com/eclipse/servicefabric
 4. Haga clic en Agregar.
@@ -150,10 +150,20 @@ El SDK de .NET Core proporciona las bibliotecas y plantillas necesarias para com
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## <a name="updating-the-sdk-and-runtime"></a>Actualización del SDK y el tiempo de ejecución
+
+Para actualizar a la versión más reciente del SDK y el tiempo de ejecución, ejecute los siguientes pasos (quite los SDK de la lista que no desee actualizar o instalar):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+Para actualizar la CLI, vaya al directorio donde clonó la CLI y ejecute `git pull` para realizar la actualización. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Creación de su primera aplicación de Java en Linux](service-fabric-create-your-first-linux-application-with-java.md)
-* [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Preparación del entorno de desarrollo en OSX](service-fabric-get-started-mac.md)
 
 <!-- Links -->
 
@@ -168,6 +178,6 @@ El SDK de .NET Core proporciona las bibliotecas y plantillas necesarias para com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

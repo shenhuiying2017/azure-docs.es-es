@@ -2,7 +2,7 @@
 El diagnóstico de problemas con un servicio en la nube de Microsoft Azure requiere la recopilación de archivos de registro del servicio en máquinas virtuales cuando se producen los problemas. Puede usar la extensión AzureLogCollector a petición para realizar una recopilación única de registros provenientes de una o más máquinas virtuales del Servicio en la nube (desde roles web y roles de trabajo) y transferir los archivos recopilados a una cuenta de almacenamiento de Azure, sin iniciar sesión de manera remota en ninguna de las máquinas virtuales.
 
 > [!NOTE]
-> Puede encontrar descripciones para la mayoría de la información registrada en http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
+> En http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp puede encontrar descripciones de la mayor parte de la información registrada.
 > 
 > 
 
@@ -24,12 +24,12 @@ En ambos modos de recopilación, pueden especificarse carpetas de recopilación 
 * **SearchPattern**: el patrón de los nombres de archivos que se van a recopilar. El valor predeterminado es "*".
 * **Recursive**: si los archivos se recopilarán de forma recursiva en la carpeta.
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 * Debe tener una cuenta de almacenamiento como extensión para guardar los archivos zip generados.
 * Asegúrese de que está usando los cmdlets de Azure PowerShell V0.8.0 o superior. Para más información, consulte [Descargas de Azure](https://azure.microsoft.com/downloads/).
 
-## Adición de la extensión
-Puede usar los cmdlets de [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o las [API de REST de administración de servicios](https://msdn.microsoft.com/library/ee460799.aspx) para agregar la extensión AzureLogCollector.
+## <a name="add-the-extension"></a>Adición de la extensión
+Puede usar los cmdlets de [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) o las [API de REST de Service Management](https://msdn.microsoft.com/library/ee460799.aspx) para agregar la extensión AzureLogCollector.
 
 Para Servicios en la nube, se puede usar el cmdlet de Azure Powershell existente, **Set-AzureServiceExtension**, para habilitar la extensión en instancias del rol del servicio en la nube. Cada vez que esta extensión se habilita a través de este cmdlet, se desencadena la recopilación de registros en las instancias del rol seleccionado de los roles seleccionados.
 
@@ -37,7 +37,7 @@ Para Máquinas virtuales, se puede usar el cmdlet de Azure Powershell existente,
 
 Internamente, esta extensión usa las clases PublicConfiguration y PrivateConfiguration basadas en JSON. A continuación se describe el diseño de un JSON de ejemplo para la configuración pública y privada.
 
-### PublicConfiguration
+### <a name="publicconfiguration"></a>PublicConfiguration
     {
         "Instances":  "*",
         "Mode":  "Full",
@@ -59,19 +59,19 @@ Internamente, esta extensión usa las clases PublicConfiguration y PrivateConfig
         ]
     }
 
-### PrivateConfiguration
+### <a name="privateconfiguration"></a>PrivateConfiguration
     {
 
     }
 
 > [!NOTE]
-> Esta extensión no necesita la clase **privateConfiguration**. Basta con proporcionar una estructura vacía para el argumento **-PrivateConfiguration**.
+> Esta extensión no necesita la clase **privateConfiguration**. Basta con proporcionar una estructura vacía para el argumento **-PrivateConfiguration** .
 > 
 > 
 
 Puede seguir uno de los dos pasos siguientes para agregar AzureLogCollector a una o varias instancias de un servicio en la nube o una máquina virtual de los roles seleccionados, que desencadena las recopilaciones en cada máquina virtual que ejecute y envíe los archivos recopilados a la cuenta de Azure especificada.
 
-## Agregar como extensión de servicio
+## <a name="adding-as-a-service-extension"></a>Agregar como extensión de servicio
 1. Siga las instrucciones para conectar Azure PowerShell a la suscripción.
 2. Especifique el nombre de servicio, la ranura, los roles y las instancias de rol a los que desea agregar y habilitar la extensión AzureLogCollector.
    
@@ -153,9 +153,14 @@ A continuación se indica la definición de los parámetros pasados al script. (
 * *StorageAccountKey*: nombre de la clave de la cuenta de almacenamiento de Azure.
 * *AdditionalDataLocationList*: lista de la siguiente estructura:
   
-      { String Name, String Location, String SearchPattern, Bool Recursive }
+      {
+      String Name,
+      String Location,
+      String SearchPattern,
+      Bool   Recursive
+      }
 
-## Agregar como extensión de servicio de máquina virtual
+## <a name="adding-as-a-vm-extension"></a>Agregar como extensión de servicio de máquina virtual
 Siga las instrucciones para conectar Azure PowerShell a la suscripción.
 
 1. Especifique el nombre del servicio, la máquina virtual y el modo de recopilación.
@@ -185,7 +190,7 @@ Siga las instrucciones para conectar Azure PowerShell a la suscripción.
    
         $StorageAccountName = 'YourStorageAccountName'
         $StorageAccountKey  = ‘YouStorageAccountKey'
-3. Llame a SetAzureVMLogCollector.ps1 (incluido al final del artículo) como se indica a continuación para habilitar la extensión AzureLogCollector para un servicio en la nube. Una vez completada la ejecución, puede encontrar el archivo cargado en https://YouareStorageAccountName.blob.core.windows.net/vmlogs
+3. Llame a SetAzureVMLogCollector.ps1 (incluido al final del artículo) como se indica a continuación para habilitar la extensión AzureLogCollector para un servicio en la nube. Una vez que se complete la ejecución, el archivo cargado se puede encontrar en https://YouareStorageAccountName.blob.core.windows.net/vmlogs
 
 A continuación se indica la definición de los parámetros pasados al script. (También se copia a continuación).
 
@@ -227,7 +232,7 @@ A continuación se indica la definición de los parámetros pasados al script. (
       }
 ```
 
-## Archivos del script de PowerShell de extensión
+## <a name="extention-powershell-script-files"></a>Archivos del script de PowerShell de extensión
 SetAzureServiceLogCollector.ps1
 
     [CmdletBinding(SupportsShouldProcess = $true)]
@@ -475,7 +480,11 @@ SetAzureVMLogCollector.ps1
       Write-Output "VM name is not specified, the extension cannot be enabled"
     }
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora puede examinar o copiar los registros desde una ubicación muy sencilla.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

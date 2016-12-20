@@ -1,30 +1,34 @@
 ---
-title: Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio) | Microsoft Docs
+title: "Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio) | Microsoft Docs"
 description: Describe lo que sucede a su proyecto de MVC cuando se conecta a Azure AD mediante los servicios conectados de Visual Studio.
 services: active-directory
 documentationcenter: na
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
 ms.workload: web
 ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/18/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: abe30bca0e1d305b5bd0300c63c037ced30be1f5
+
 
 ---
-# ¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
+# <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>¿Qué ha ocurrido a mi proyecto MVC (servicio conectado a Azure Active Directory de Visual Studio)?
 > [!div class="op_single_selector"]
 > * [Introducción](vs-active-directory-dotnet-getting-started.md)
 > * [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
 > 
 > 
 
-## Se han agregado referencias
-### Referencias de paquetes de NuGet
+## <a name="references-have-been-added"></a>Se han agregado referencias
+### <a name="nuget-package-references"></a>Referencias de paquetes de NuGet
 * **Microsoft.IdentityModel.Protocol.Extensions**
 * **Microsoft.Owin**
 * **Microsoft.Owin.Host.SystemWeb**
@@ -34,7 +38,7 @@ ms.author: tarcher
 * **Owin**
 * **System.IdentityModel.Tokens.Jwt**
 
-### Referencias de .NET
+### <a name="net-references"></a>Referencias de .NET
 * **Microsoft.IdentityModel.Protocol.Extensions**
 * **Microsoft.Owin**
 * **Microsoft.Owin.Host.SystemWeb**
@@ -46,14 +50,14 @@ ms.author: tarcher
 * **System.IdentityModel.Tokens.Jwt**
 * **System.Runtime.Serialization**
 
-## Se ha agregado el código
-### Se han agregado archivos de código a su proyecto
-Se ha agregado una clase de inicio de autenticación, **App\_Start/Startup.Auth.cs**, a su proyecto que contiene la lógica de inicio para la autenticación de Azure AD. Además, se ha agregado una clase de controlador (Controllers/AccountController.cs) que contiene los métodos **SignIn()** y **SignOut()**. Por último, se ha agregado una vista parcial **Views/Shared/\_LoginPartial.cshtml** que contiene un vínculo de acción para SignIn/SignOut.
+## <a name="code-has-been-added"></a>Se ha agregado el código
+### <a name="code-files-were-added-to-your-project"></a>Se han agregado archivos de código a su proyecto
+Se ha agregado una clase de inicio de autenticación, **App_Start/Startup.Auth.cs**, a su proyecto que contiene la lógica de inicio para la autenticación de Azure AD. Además, se ha agregado una clase de controlador (Controllers/AccountController.cs) que contiene los métodos **SignIn()** y **SignOut()**. Por último, se ha agregado una vista parcial **Views/Shared/_LoginPartial.cshtml** que contiene un vínculo de acción para SignIn/SignOut.
 
-### Se ha agregado código de inicio a su proyecto.
+### <a name="startup-code-was-added-to-your-project"></a>Se ha agregado código de inicio a su proyecto.
 Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se ha actualizado para incluir una llamada a **ConfigureAuth(app)**. Si no era así, se ha agregado una clase de inicio a su proyecto.
 
-### Su archivo app.config o web.config tiene nuevos valores de configuración
+### <a name="your-appconfig-or-webconfig-has-new-configuration-values"></a>Su archivo app.config o web.config tiene nuevos valores de configuración
 Se han agregado las siguientes entradas de configuración.
 
     <appSettings>
@@ -64,37 +68,37 @@ Se han agregado las siguientes entradas de configuración.
         <add key="ida:PostLogoutRedirectUri" value="Your project start page" />
     </appSettings>
 
-### Se ha creado una aplicación de Azure Active Directory (AD)
+### <a name="an-azure-active-directory-ad-app-was-created"></a>Se ha creado una aplicación de Azure Active Directory (AD)
 Se ha creado una aplicación de Azure AD en el directorio que seleccionó en el asistente.
 
-## Si he activado la *deshabilitación de la autenticación de cuentas de usuario individuales*, ¿qué otros cambios se realizaron en mi proyecto?
+## <a name="if-i-checked-disable-individual-user-accounts-authentication-what-additional-changes-were-made-to-my-project"></a>Si he activado la *deshabilitación de la autenticación de cuentas de usuario individuales*, ¿qué otros cambios se realizaron en mi proyecto?
 Se han quitado las referencias al paquete NuGet y se han quitado los archivos y se ha realizado una copia de seguridad de los mismos. Según el estado del proyecto, tendrá que quitar referencias o archivos adicionales manualmente o modificar el código, según corresponda.
 
-### Referencias al paquete NuGet quitadas (si existen)
+### <a name="nuget-package-references-removed-for-those-present"></a>Referencias al paquete NuGet quitadas (si existen)
 * **Microsoft.AspNet.Identity.Core**
 * **Microsoft.AspNet.Identity.EntityFramework**
 * **Microsoft.AspNet.Identity.Owin**
 
-### Se ha realizado una copia de seguridad de los archivos y se han eliminado (si existen)
+### <a name="code-files-backed-up-and-removed-for-those-present"></a>Se ha realizado una copia de seguridad de los archivos y se han eliminado (si existen)
 Se ha realizado una copia de seguridad de cada uno de los siguientes archivos y se han eliminado del proyecto. Los archivos de copia de seguridad se encuentran en una carpeta 'Backup' en la raíz del directorio del proyecto.
 
-* **App\_Start\\IdentityConfig.cs**
-* **Controllers\\ManageController.cs**
-* **Models\\IdentityModels.cs**
-* **Models\\ManageViewModels.cs**
+* **App_Start\IdentityConfig.cs**
+* **Controllers\ManageController.cs**
+* **Models\IdentityModels.cs**
+* **Models\ManageViewModels.cs**
 
-### Copia de seguridad de los archivos de código (si existen)
+### <a name="code-files-backed-up-for-those-present"></a>Copia de seguridad de los archivos de código (si existen)
 Se realizó una copia de seguridad de cada uno de los siguientes archivos antes de ser reemplazados. Los archivos de copia de seguridad se encuentran en una carpeta 'Backup' en la raíz del directorio del proyecto.
 
 * **Startup.cs**
-* **App\_Start\\Startup.Auth.cs**
-* **Controllers\\AccountController.cs**
-* **Views\\Shared\_LoginPartial.cshtml**
+* **App_Start\Startup.Auth.cs**
+* **Controllers\AccountController.cs**
+* **Views\Shared\_LoginPartial.cshtml**
 
-## Si activé *Leer datos de directorio*, ¿qué otros cambios se realizaron en mi proyecto?
+## <a name="if-i-checked-read-directory-data-what-additional-changes-were-made-to-my-project"></a>Si activé *Leer datos de directorio*, ¿qué otros cambios se realizaron en mi proyecto?
 Se han agregado referencias adicionales.
 
-### Referencias de paquetes de NuGet adicionales
+### <a name="additional-nuget-package-references"></a>Referencias de paquetes de NuGet adicionales
 * **EntityFramework**
 * **Microsoft.Azure.ActiveDirectory.GraphClient**
 * **Microsoft.Data.Edm**
@@ -103,7 +107,7 @@ Se han agregado referencias adicionales.
 * **Microsoft.IdentityModel.Clients.ActiveDirectory**
 * **System.Spatial**
 
-### Referencias de .NET adicionales
+### <a name="additional-net-references"></a>Referencias de .NET adicionales
 * **EntityFramework**
 * **EntityFramework.SqlServer**
 * **Microsoft.Azure.ActiveDirectory.GraphClient**
@@ -114,13 +118,13 @@ Se han agregado referencias adicionales.
 * **Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms**
 * **System.Spatial**
 
-### Se han agregado archivos de código adicionales a su proyecto
-Se agregaron dos archivos para admitir el almacenamiento en caché de tokens: **Models\\ADALTokenCache.cs** y **Models\\ApplicationDbContext.cs**. Se han agregado un controlador y una vista adicionales para ilustrar el acceso a la información de perfil de usuario mediante las API Graph de Azure. Estos archivos son **Controllers\\UserProfileController.cs** y **Views\\UserProfile\\Index.cshtml**.
+### <a name="additional-code-files-were-added-to-your-project"></a>Se han agregado archivos de código adicionales a su proyecto
+Se agregaron dos archivos para admitir el almacenamiento en caché de tokens: **Models\ADALTokenCache.cs** y **Models\ApplicationDbContext.cs**.  Se han agregado un controlador y una vista adicionales para ilustrar el acceso a la información de perfil de usuario mediante las API Graph de Azure.  Estos archivos son **Controllers\UserProfileController.cs** y **Views\UserProfile\Index.cshtml**.
 
-### Se ha agregado código de inicio adicional al proyecto.
-En el archivo **startup.auth.cs**, se agregó un nuevo objeto **OpenIdConnectAuthenticationNotifications** al miembro **Notificaciones** de **OpenIdConnectAuthenticationOptions**. Esto permite recibir el código de OAuth y cambiarlo por un token de acceso.
+### <a name="additional-startup-code-was-added-to-your-project"></a>Se ha agregado código de inicio adicional al proyecto.
+En el archivo **startup.auth.cs**, se agregó un nuevo objeto **OpenIdConnectAuthenticationNotifications** al miembro **Notifications** de **OpenIdConnectAuthenticationOptions**.  Esto permite recibir el código de OAuth y cambiarlo por un token de acceso.
 
-### Se realizaron cambios adicionales en app.config o web.config
+### <a name="additional-changes-were-made-to-your-appconfig-or-webconfig"></a>Se realizaron cambios adicionales en app.config o web.config
 Se han agregado las siguientes entradas de configuración adicionales.
 
     <appSettings>
@@ -148,9 +152,14 @@ Se han agregado las siguientes secciones de configuración y la cadena de conexi
     </entityFramework>
 
 
-### Se ha actualizado la aplicación Azure Active Directory
+### <a name="your-azure-active-directory-app-was-updated"></a>Se ha actualizado la aplicación Azure Active Directory
 La aplicación Azure Active Directory se actualizó para incluir el permiso *Leer datos de directorio* y se creó una clave adicional que luego se usó como *ida:ClientSecret* en el archivo **web.config**.
 
 [Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

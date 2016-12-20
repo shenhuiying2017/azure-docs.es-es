@@ -1,12 +1,12 @@
 ---
-title: Límites del sistema de StorSimple | Microsoft Docs
-description: Describe los límites del sistema y los tamaños recomendados para conexiones y componentes de la serie StorSimple 8000.
+title: "Límites del sistema de StorSimple | Microsoft Docs"
+description: "Describe los límites del sistema y los tamaños recomendados para conexiones y componentes de la serie StorSimple 8000."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/06/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 884f9ad8cf3c0862fa0f235ee19efd0dbdadbab6
+
 
 ---
 # <a name="storsimple-system-limits"></a>Límites del sistema de StorSimple
@@ -43,7 +47,7 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 | Restauración del tiempo de recuperación de volúmenes anclados localmente |< 2 minutos |<ul><li>El volumen estará disponible en dos minutos de operación de restauración, independientemente del tamaño del volumen.</li><li>Es posible que el rendimiento del volumen resulte más lento de lo normal inicialmente, ya que la mayoría de los datos y metadatos todavía residen en la nube. Es posible que el rendimiento aumente a medida que los datos fluyan de la nube al dispositivo StorSimple.</li><li>El tiempo total para descargar los metadatos depende del tamaño del volumen asignado. Los metadatos se traen automáticamente al dispositivo en segundo plano a una velocidad de 5 minutos por cada TB de datos de volumen asignado. Es posible que esta velocidad se vea afectada por un ancho de banda de Internet a la nube.</li><li>A diferencia de los volúmenes en capas, en el caso de los volúmenes anclados localmente, también se descargan los datos del volumen localmente en el dispositivo. La operación de restauración finaliza cuando todos los datos de volúmenes se transfieren al dispositivo.</li><li>Las operaciones de restauración pueden durar bastante tiempo. El tiempo total para completar la restauración dependerá del tamaño del volumen local aprovisionado, el ancho de banda de Internet y los datos existentes en el dispositivo. Se permiten las operaciones de copia de seguridad en el volumen anclado localmente mientras la operación de restauración está en curso. |
 | Velocidad de procesamiento de instantáneas en la nube |15 minutos/TB. |<ul><li>Tiempo mínimo para que la instantánea en la nube esté lista para cargarse (por TB de datos del volumen asociado en la copia de seguridad). </li><li>  El tiempo total de la instantánea en la nube se calcula mediante la suma de este tiempo al de carga de la instantánea, que se ve afectado por el ancho de banda de Internet en la nube. |
 | Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa SSD)* |920/720 MB/s con una sola interfaz de red de 10 GbE |Hasta 2x con MPIO y dos interfaces de red. |
-| Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa HDD)* |120/250 MB/s | |
+| Rendimiento máximo de lectura y escritura del cliente (cuando se obtiene desde la capa HDD)* |120/250 MB/s | |
 | Rendimiento máximo de lectura y escritura de cliente (cuando se obtiene desde la capa de la nube)* para Update 3 y posterior** |40/60 MB/s para volúmenes en capas<br><br>80/60 MB/s para volúmenes en capas con una opción de archivado seleccionada durante la creación de volumen |El rendimiento de lectura depende de que los clientes generen y mantengan una profundidad de cola de E/S suficiente. <br><br>La velocidad conseguida depende de la velocidad de la cuenta de almacenamiento subyacente utilizada. |
 
 &#42; Se midió el rendimiento máximo por tipo de E/S con escenarios de escritura y de lectura del 100%. Es posible que el rendimiento real sea inferior y dependa de las condiciones de la red y de la mezcla de E/S.
@@ -53,6 +57,9 @@ StorSimple proporciona almacenamiento escalable y flexible para su centro de dat
 ## <a name="next-steps"></a>Pasos siguientes
 Revise los [Requisitos del sistema StorSimple](storsimple-system-requirements.md). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

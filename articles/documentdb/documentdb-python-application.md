@@ -13,11 +13,11 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/25/2016
+ms.date: 11/16/2016
 ms.author: syamk
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b55d61071dac6d173f37bdde7f9b60e53ae2485f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8dc246755c90686f890d2ac9df05b3a8b2a9341f
 
 
 ---
@@ -47,10 +47,14 @@ Siguiendo este tutorial, podrá compilar una aplicación de votación simple que
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
 
 * Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+ 
+    OR 
+
+    Una instalación local del [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md).
 * [Visual Studio 2013](http://www.visualstudio.com/) o versiones posteriores, o [Visual Studio Express](), que es la versión gratis. Las instrucciones de este tutorial están escritas específicamente para Visual Studio 2015. 
 * Herramientas de Python para Visual Studio desde [GitHub](http://microsoft.github.io/PTVS/). En este tutorial se usan las herramientas de Python para VS 2015. 
 * SDK de Azure Python para Visual Studio, versión 2.4 o posteriores disponible en [azure.com](https://azure.microsoft.com/downloads/). Usamos el SDK de Microsoft Azure para Python 2.7.
-* Python 2.7 de [python.org][2]. Usamos Python 2.7.11. 
+* Python 2.7 en [python.org][2]. Usamos Python 2.7.11. 
 
 > [!IMPORTANT]
 > Si va a instalar Python 2.7 por primera vez, asegúrese de que en la pantalla Personalizar Python 2.7.11 selecciona **Agregar python.exe a la ruta de acceso**.
@@ -59,10 +63,10 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 > 
 > 
 
-* Compilador de Microsoft Visual C++ para Python 2.7 del [centro de descarga de Microsoft][3].
+* Compilador de Microsoft Visual C++ para Python 2.7 desde el [Centro de descarga de Microsoft][3].
 
 ## <a name="step-1-create-a-documentdb-database-account"></a>Paso 1: Creación de una cuenta de base de datos de DocumentDB
-Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta, puede ir directamente al [Paso 2: Creación de una nueva aplicación web de Python Flask](#step-2:-create-a-new-python-flask-web-application).
+Comenzaremos por crear una cuenta de DocumentDB. Si ya tiene una cuenta o si usa el Emulador de DocumentDB en este tutorial, puede ir directamente al [Paso 2: Creación de una nueva aplicación web de Python Flask](#step-2:-create-a-new-python-flask-web-application).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -404,11 +408,11 @@ Para ver tutoriales adicionales sobre Python Flask, consulte el tutorial [The Fl
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [2]: https://www.python.org/downloads/windows/
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Portal de Azure]: http://portal.azure.com
+[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
+[Azure portal]: http://portal.azure.com
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

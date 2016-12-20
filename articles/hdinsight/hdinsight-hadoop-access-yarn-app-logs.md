@@ -1,23 +1,27 @@
 ---
-title: Acceso a los registros de aplicación de YARN de Hadoop mediante programación| Microsoft Docs
-description: La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight.
+title: "Acceso a los registros de aplicación de YARN de Hadoop mediante programación| Microsoft Docs"
+description: "La aplicación de Access se registra mediante programación en un clúster de Hadoop en HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
 ms.service: hdinsight
 ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 10/19/2016
 ms.author: jgao
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e36ddba193295fc474d09a484d6a99f4b522e00c
+
 
 ---
-# Acceso a registros de aplicación de YARN en HDInsight basado en Windows
+# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Acceso a registros de aplicación de YARN en HDInsight basado en Windows
 En este tema se explica cómo acceder a los registros de aplicaciones de YARN (del inglés Yet Another Resource Negotiator) que finalicen en un clúster Hadoop en HDInsight de Azure.
 
 > [!NOTE]
@@ -25,10 +29,10 @@ En este tema se explica cómo acceder a los registros de aplicaciones de YARN (d
 > 
 > 
 
-### Requisitos previos
-* Un clúster de HDInsight basado en Windows Consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md).
+### <a name="prerequisites"></a>Requisitos previos
+* Un clúster de HDInsight basado en Windows  Consulte [Creación de clústeres de Hadoop basados en Windows en HDInsight](hdinsight-provision-clusters.md).
 
-## Servidor de escala de tiempo de YARN
+## <a name="yarn-timeline-server"></a>Servidor de escala de tiempo de YARN
 El <a href="http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html" target="_blank">Servidor de escala de tiempo de YARN</a> proporciona información genérica acerca de las aplicaciones completadas, así como información de aplicaciones específicas de marco a través de dos interfaces diferentes. Concretamente:
 
 * Se ha habilitado el almacenamiento y la recuperación de información de aplicaciones genéricas en clústeres de HDInsight con la versión 3.1.1.374 o superiores.
@@ -46,8 +50,8 @@ En los clústeres de HDInsight, esta información la almacenará el Administrado
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
-## Registros y aplicaciones de YARN
-YARN admite varios modelos de programación (MapReduce es uno de ellos) al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Esto se realiza mediante un *Administrador de recursos* (RM) global, por nodo de trabajo *Administradores de nodos* (NM) y por aplicación *Maestros de aplicación* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
+## <a name="yarn-applications-and-logs"></a>Registros y aplicaciones de YARN
+YARN admite varios modelos de programación (MapReduce es uno de ellos) al desacoplar la administración de recursos de la programación/supervisión de aplicaciones. Esto se realiza mediante un *Resource Manager* (RM) global, por nodo de trabajo *Administradores de nodos* (NM) y por aplicación *Maestros de aplicación* (AM). El AM por aplicación negocia recursos (CPU, memoria, disco, red) para ejecutar la aplicación con el RM. El RM funciona con NM para conceder estos recursos como *contenedores*. El AM es responsable del seguimiento del progreso de los contenedores asignados a él por el RM. Una aplicación puede requerir muchos contenedores según la naturaleza de la aplicación.
 
 Además, cada aplicación puede constar de varios *intentos de aplicación* para completar la aplicación en el caso de bloqueos o debido a la pérdida de comunicación entre un AM y un RM. Por lo tanto, los contenedores se conceden a un intento específico de una aplicación. En cierto sentido, un contenedor ofrece el contexto para la unidad básica de trabajo realizado por una aplicación YARN, y todo el trabajo que se realiza en el contexto de un contenedor se lleva a cabo en el nodo de trabajo concreto en el que se ha asignado el contenedor. Consulte [Conceptos de YARN][YARN-concepts] para obtener más información.
 
@@ -63,18 +67,22 @@ Los registros agregados no son legibles directamente tal como se escriben en un 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
 
-## Interfaz de usuario de ResourceManager de YARN
-La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster, y puede tener acceso a ella mediante el panel del Portal de Azure:
+## <a name="yarn-resourcemanager-ui"></a>Interfaz de usuario de ResourceManager de YARN
+La interfaz de usuario de ResourceManager de YARN se ejecuta en el nodo principal del clúster, y puede tener acceso a ella mediante el panel del Portal de Azure: 
 
-1. Inicie sesión en el [portal de Azure](https://portal.azure.com/).
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com/). 
 2. En el menú de la izquierda, haga clic en **Examinar**, haga clic en **Clústeres de HDInsight** y haga clic en un clúster basado en Windows que desea que tenga acceso a los registros de aplicación de YARN.
 3. En el menú superior, haga clic en **Panel**. Verá una página abierta en una nueva pestaña del explorador denominada **Consola de consultas de HDInsight**.
 4. Desde **Consola de consultas de HDInsight**, haga clic en **IU de YARN**.
 
-[YARN-timeline-server]: http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
-[log-aggregation]: http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
-[T-file]: https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
-[binary-format]: https://issues.apache.org/jira/browse/HADOOP-3315
-[YARN-concepts]: http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+[YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
+[log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
+[T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
+[binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
+[YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

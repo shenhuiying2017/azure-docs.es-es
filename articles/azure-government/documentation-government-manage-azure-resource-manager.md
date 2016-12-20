@@ -1,13 +1,13 @@
 ---
-title: Azure Government documentation | Microsoft Docs
-description: This provides a comparison of features and guidance on developing applications for Azure Government.
+title: Resource Manager de Azure Government | Microsoft Docs
+description: "Ofrece una comparación de características e instrucciones sobre cómo desarrollar aplicaciones para Azure Government."
 services: Azure-Government
 cloud: gov
-documentationcenter: ''
+documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: ''
-
+editor: 
+ms.assetid: f270ebe4-dbbb-4e3d-8eba-efe1ca038988
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,55 +15,59 @@ ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
 ms.author: brendalee
+translationtype: Human Translation
+ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
+ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+
 
 ---
-# <a name="azure-resource-manager"></a>Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+# <a name="azure-resource-manager"></a>Administrador de recursos de Azure
+Para más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [aquí](../resource-manager-supported-services.md). En las tablas siguientes se enumeran los servicios que se admiten a través de Resource Manager en Azure Government.
 
-## <a name="compute"></a>Compute
-| Service | Resource Manager Enabled |
+## <a name="compute"></a>Proceso
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| Batch |Yes |
-| Container |No |
+| Batch |Sí |
+| Contenedor |No |
 | Dynamics Lifecycle Services |No |
-| Scale Sets |Yes |
-| Service Fabric |Yes |
-| Virtual Machines |Yes |
+| Conjuntos de escala |yes |
+| Service Fabric |Sí |
+| Máquinas virtuales |Sí |
 
-## <a name="networking"></a>Networking
-| Service | Resource Manager Enabled |
+## <a name="networking"></a>Redes
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| Application Gateway |Yes |
-| DNS |Yes |
-| ExpressRoute |Yes |
-| Load Balancer |Yes |
-| Traffic Manager |Yes |
-| Virtual Networks |Yes |
-| VPN Gateway |Yes |
+| Application Gateway |Sí |
+| DNS |Sí |
+| ExpressRoute |Sí |
+| Load Balancer |Sí |
+| Traffic Manager |Sí |
+| Redes virtuales |yes |
+| VPN Gateway |Sí |
 
-## <a name="data-&-storage"></a>Data & Storage
-| Service | Resource Manager Enabled |
+## <a name="data-storage"></a>Datos y almacenamiento
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | DocumentDB |No |
-| Redis Cache |Yes |
+| Redis Cache |Sí |
 | Search |No |
-| Storage |Yes |
-| SQL Database |Yes |
-| SQL Data Warehouse |Yes |
+| Almacenamiento |Sí |
+| SQL Database |yes |
+| SQL Data Warehouse |Sí |
 | StorSimple |No |
 
-## <a name="web-&-mobile"></a>Web & Mobile
-| Service | Resource Manager Enabled |
+## <a name="web-mobile"></a>Web y móvil
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| API Apps |Yes |
+| API Apps |Sí |
 | API Management |No |
-| Logic Apps |No |
-| Mobile Apps |Yes |
-| Mobile Engagements |No |
-| Web Apps |Yes |
+| Aplicaciones lógicas |No |
+| Mobile Apps |Sí |
+| Compromisos móviles |No |
+| Web Apps |yes |
 
-## <a name="analytics"></a>Analytics
-| Service | Resource Manager Enabled |
+## <a name="analytics"></a>Análisis
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | Data Catalog |No |
 | Data Factory |No |
@@ -73,57 +77,60 @@ For detailed information on Resource Manager providers, API versions, and schema
 | Machine Learning |No |
 | Power BI |No |
 
-## <a name="intelligence"></a>Intelligence
-| Service | Resource Manager Enabled |
+## <a name="intelligence"></a>Inteligencia
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | Cognitive Services |No |
 
-## <a name="internet-of-things"></a>Internet of Things
-| Service | Resource Manager Enabled |
+## <a name="internet-of-things"></a>Internet de las cosas
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| Event Hub |Yes |
+| Centro de eventos |Sí |
 | IoTHubs |No |
 | Notification Hubs |No |
 
-## <a name="media-&-cdn"></a>Media & CDN
-| Service | Resource Manager Enabled |
+## <a name="media-cdn"></a>Multimedia y CDN
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | CDN |No |
-| Media Service |No |
+| Servicio multimedia |No |
 
-## <a name="hybrid-integration"></a>Hybrid Integration
-| Service | Resource Manager Enabled |
+## <a name="hybrid-integration"></a>Integración híbrida
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| BizTalk Services |No |
-| Recovery Service |No |
-| Service Bus |Yes |
+| Servicios de BizTalk |No |
+| Servicio de recuperación |Sí (solo Hyper-V) |
+| Service Bus |yes |
 
-## <a name="developer-services"></a>Developer Services
-| Service | Resource Manager Enabled |
+## <a name="developer-services"></a>Servicios de desarrollador
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | Application Insights |No |
-| Bing Maps |No |
+| Mapas de Bing |No |
 | DevTest Labs |No |
-| Visual Studio account |No |
+| Cuenta de Visual Studio |No |
 
-## <a name="management-and-security"></a>Management and Security
-| Service | Resource Manager Enabled |
+## <a name="management-and-security"></a>Administración y seguridad
+| Servicio | Administrador de recursos habilitado |
 | --- | --- |
-| Automation |Yes |
-| Key Vault |Yes |
-| Operational Insights |Yes |
-| Scheduler |Yes |
-| Security (preview) |No |
+| Automation |Sí |
+| Key Vault |Sí |
+| Visión operativa |Sí |
+| Programador |Sí |
+| Seguridad (vista previa) |No |
 
 ## <a name="resource-manager"></a>Resource Manager
-| Feature | Resource Manager Enabled |
+| Característica | Administrador de recursos habilitado |
 | --- | --- |
-| Authorization |Yes |
-| Resources |Yes |
+| Autorización |Sí |
+| Recursos |Sí |
 
-## <a name="next-steps"></a>Next Steps
-For supplemental information and updates, subscribe to the <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+## <a name="next-steps"></a>Pasos siguientes
+Para información complementaria y actualizaciones suscríbase al <a href="https://blogs.msdn.microsoft.com/azuregov/">blog de Microsoft Azure Government. </a>
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

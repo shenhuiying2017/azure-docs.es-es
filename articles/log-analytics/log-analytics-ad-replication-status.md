@@ -1,12 +1,12 @@
 ---
-title: Solución de Estado de replicación de Active Directory en Log Analytics | Microsoft Docs
-description: El paquete de la solución de Estado de replicación de Active Directory supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación y muestra los resultados en el panel de OMS.
+title: "Solución de Estado de replicación de Active Directory en Log Analytics | Microsoft Docs"
+description: "El paquete de la solución de Estado de replicación de Active Directory supervisa con regularidad el entorno de Active Directory para comprobar si existen errores de replicación y muestra los resultados en el panel de OMS."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 49e5cc5045f5bd626826b4992b8b49f886ef7bde
+
 
 ---
 # <a name="active-directory-replication-status-solution-in-log-analytics"></a>Solución de Estado de replicación de Active Directory en Log Analytics
@@ -34,7 +38,7 @@ En la tabla siguiente se muestran los métodos de recolección de datos y otros 
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |![Sí](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![Sí](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![No](./media/log-analytics-ad-replication-status/oms-bullet-red.png) |![Sí](./media/log-analytics-ad-replication-status/oms-bullet-green.png) |cada 5 días |
 
-## <a name="optionally,-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Habilitación opcional de un controlador que no es de dominio para enviar datos de AD a OMS
+## <a name="optionally-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Habilitación opcional de un controlador que no es de dominio para enviar datos de AD a OMS
 Si no desea conectar ninguno de los controladores de dominio directamente a OMS, puede usar cualquier otro equipo conectado a OMS en el dominio para recopilar datos para el paquete de solución de Estado de replicación de AD y hacer que este envíe los datos.
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Para habilitar un controlador que no sea de dominio para enviar datos de AD a OMS
@@ -147,6 +151,9 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS 
 ## <a name="next-steps"></a>Pasos siguientes
 * Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

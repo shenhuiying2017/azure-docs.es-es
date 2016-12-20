@@ -1,12 +1,12 @@
 ---
-title: Administración de Análisis de Azure Data Lake mediante Azure PowerShell | Microsoft Docs
-description: 'Aprenda a administrar trabajos, orígenes de datos y usuarios de Análisis de Data Lake. '
+title: "Administración de Azure Data Lake Analytics con Azure PowerShell | Microsoft Docs"
+description: "Aprenda a administrar trabajos, orígenes de datos y usuarios de Análisis de Data Lake. "
 services: data-lake-analytics
-documentationcenter: ''
+documentationcenter: 
 author: edmacauley
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: edmaca
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 891461bd5069bd7ea5b3c20f301c9ddd9b2f035e
+
 
 ---
-# Administración de Análisis de Azure Data Lake mediante Azure PowerShell
+# <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Administración de Análisis de Azure Data Lake mediante Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Aprenda a administrar cuentas, orígenes de datos, usuarios y trabajos de Análisis de Azure Data Lake mediante Azure PowerShell. Para ver los temas de administración con otras herramientas, haga clic en el selector de pestañas de arriba.
@@ -31,13 +35,13 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 <!-- ################################ -->
 
 
-## Instalar Azure PowerShell 1.0 o versiones posteriores
+## <a name="install-azure-powershell-10-or-greater"></a>Instalar Azure PowerShell 1.0 o versiones posteriores
 Vea la sección de requisitos previos de [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md#prerequisites).
 
-## Administrar cuentas
-Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de Análisis de Data Lake. A diferencia de HDInsight de Azure, no se paga por una cuenta de Análisis cuando no está ejecutando un trabajo. Solo se paga por el tiempo en que se ejecuta un trabajo. Para obtener más información, consulte la página con [información general sobre Análisis con Azure Data Lake](data-lake-analytics-overview.md).
+## <a name="manage-accounts"></a>Administrar cuentas
+Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de Análisis de Data Lake. A diferencia de HDInsight de Azure, no se paga por una cuenta de Análisis cuando no está ejecutando un trabajo.  Solo se paga por el tiempo en que se ejecuta un trabajo.  Para obtener más información, consulte la página con [información general sobre Análisis con Azure Data Lake](data-lake-analytics-overview.md).  
 
-### Creación de cuentas
+### <a name="create-accounts"></a>Creación de cuentas
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeStoreName = "<DataLakeAccountName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
@@ -66,7 +70,7 @@ Antes de ejecutar un trabajo de Análisis de Data Lake, debe tener una cuenta de
         -ResourceGroupName $resourceGroupName `
         -Name $dataLakeAnalyticsAccountName  
 
-También puede usar una plantilla del grupo de recursos de Azure. En el [Apéndice A](#appendix-a) puede encontrar una plantilla para crear una cuenta de Análisis de Data Lake y la cuenta de Almacén de Data Lake dependiente. Guarde la plantilla en un archivo con plantilla .json y después use el siguiente script de PowerShell para llamarlo:
+También puede usar una plantilla del grupo de recursos de Azure. En el [Apéndice A](#appendix-a) puede encontrar una plantilla para crear una cuenta de Data Lake Analytics y la cuenta de Data Lake Store dependiente. Guarde la plantilla en un archivo con plantilla .json y después use el siguiente script de PowerShell para llamarlo:
 
     $AzureSubscriptionID = "<Your Azure Subscription ID>"
 
@@ -90,7 +94,7 @@ También puede usar una plantilla del grupo de recursos de Azure. En el [Apéndi
     New-AzureRmResourceGroupDeployment -Name $DeploymentName -ResourceGroupName $ResourceGroupName -TemplateFile $ARMTemplateFile -TemplateParameterObject $parameters 
 
 
-### Enumeración de cuentas
+### <a name="list-account"></a>Enumeración de cuentas
 Enumerar cuentas de Data Lake Analytics dentro de la suscripción actual
 
     Get-AzureRmDataLakeAnalyticsAccount
@@ -118,7 +122,7 @@ Probar la existencia de una cuenta específica de Análisis de Data Lake
 
 El cmdlet devolverá o bien **True** o **False**.
 
-### Eliminación de cuentas de Análisis de Data Lake
+### <a name="delete-data-lake-analytics-accounts"></a>Eliminación de cuentas de Análisis de Data Lake
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -135,21 +139,21 @@ Si elimina una cuenta de Análisis de Data Lake, no se eliminará la cuenta depe
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Administración de orígenes de datos de cuenta
+## <a name="manage-account-data-sources"></a>Administración de orígenes de datos de cuenta
 Actualmente, Análisis de Data Lake admite los siguientes orígenes de datos:
 
-* [Almacén de Azure Data Lake](data-lake-storage-overview.md)
+* [Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md)
 * [Almacenamiento de Azure](../storage/storage-introduction.md)
 
-Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Almacén de Data Lake y/o cuentas de Almacenamiento de Azure.
+Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azure Data Lake para que sea la cuenta de almacenamiento predeterminada. La cuenta predeterminada de Almacén de Data Lake sirve para almacenar los registros de auditoría y de metadatos de trabajos. Una vez creada la cuenta de Análisis, puede agregar más cuentas de Almacén de Data Lake y/o cuentas de Almacenamiento de Azure. 
 
-### Búsqueda de la cuenta predeterminada de Almacén de Data Lake
+### <a name="find-the-default-data-lake-store-account"></a>Búsqueda de la cuenta predeterminada de Almacén de Data Lake
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $dataLakeStoreName = (Get-AzureRmDataLakeAnalyticsAccount -ResourceGroupName $resourceGroupName -Name $dataLakeAnalyticAccountName).Properties.DefaultDataLakeAccount
 
 
-### Adición de más cuentas de almacenamiento de blobs de Azure
+### <a name="add-additional-azure-blob-storage-accounts"></a>Adición de más cuentas de almacenamiento de blobs de Azure
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureStorageAccountName = "<AzureStorageAccountName>"
@@ -157,14 +161,14 @@ Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azu
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -AzureBlob $AzureStorageAccountName -AccessKey $AzureStorageAccountKey
 
-### Adición de más cuentas de Almacén de Data Lake
+### <a name="add-additional-data-lake-store-accounts"></a>Adición de más cuentas de Almacén de Data Lake
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     $AzureDataLakeName = "<DataLakeStoreName>"
 
     Add-AzureRmDataLakeAnalyticsDataSource -ResourceGroupName $resourceGroupName -Account $dataLakeAnalyticAccountName -DataLake $AzureDataLakeName 
 
-### Enumeración de orígenes de datos:
+### <a name="list-data-sources"></a>Enumeración de orígenes de datos:
     $resourceGroupName = "<ResourceGroupName>"
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
@@ -175,10 +179,10 @@ Cuando crea una cuenta de Análisis, debe designar una cuenta de Almacén de Azu
 
 <!-- ################################ -->
 <!-- ################################ -->
-## Trabajos de administración
-Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo. Para obtener más información, consulte [Administración de cuentas de Análisis de Data Lake](#manage-data-lake-analytics-accounts).
+## <a name="manage-jobs"></a>Trabajos de administración
+Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo.  Para obtener más información, consulte [Administración de cuentas de Análisis de Data Lake](#manage-data-lake-analytics-accounts).
 
-### Enumeración de trabajos
+### <a name="list-jobs"></a>Enumeración de trabajos
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName
@@ -208,11 +212,11 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo. Par
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -SubmittedAfter (Get-Date).AddHours(-1)
 
-### Obtención de detalles del trabajo
+### <a name="get-job-details"></a>Obtención de detalles del trabajo
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
     Get-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName -JobID <Job ID>
 
-### Envío de trabajos
+### <a name="submit-jobs"></a>Envío de trabajos
     $dataLakeAnalyticsAccountName = "<DataLakeAnalyticsAccountName>"
 
     #Pass script via path
@@ -230,15 +234,15 @@ Debe tener una cuenta de Análisis de Data Lake para poder crear un trabajo. Par
 > 
 > 
 
-### Cancelación de trabajos
+### <a name="cancel-jobs"></a>Cancelación de trabajos
     Stop-AzureRmDataLakeAnalyticsJob -Account $dataLakeAnalyticAccountName `
         -JobID $jobID
 
 
-## Administración de elementos de catálogo
+## <a name="manage-catalog-items"></a>Administración de elementos de catálogo
 El catálogo de U-SQL se usa para estructurar datos y código, para que puedan compartirse mediante scripts de U-SQL. El catálogo permite el mayor rendimiento posible con los datos en Azure Data Lake. Para obtener más información, consulte [Uso del catálogo de U-SQL](data-lake-analytics-use-u-sql-catalog.md).
 
-### Enumeración de elementos del catálogo
+### <a name="list-catalog-items"></a>Enumeración de elementos del catálogo
     #List databases
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -252,7 +256,7 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
         -ItemType Table `
         -Path "master.dbo"
 
-### Obtención de detalles de elementos del catálogo
+### <a name="get-catalog-item-details"></a>Obtención de detalles de elementos del catálogo
     #Get a database
     Get-AzureRmDataLakeAnalyticsCatalogItem `
         -Account $adlAnalyticsAccountName `
@@ -265,19 +269,19 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
         -ItemType Table `
         -Path "master.dbo.mytable"
 
-### Comprobación de un elemento del catálogo
+### <a name="test-existence-of-catalog-item"></a>Comprobación de un elemento del catálogo
     Test-AzureRmDataLakeAnalyticsCatalogItem  `
         -Account $adlAnalyticsAccountName `
         -ItemType Database `
         -Path "master"
 
-### Creación del secreto del catálogo
+### <a name="create-catalog-secret"></a>Creación del secreto del catálogo
     New-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
             -Secret (Get-Credential -UserName "username" -Message "Enter the password")
 
-### Modificación del secreto del catálogo
+### <a name="modify-catalog-secret"></a>Modificación del secreto del catálogo
     Set-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master" `
@@ -285,14 +289,14 @@ El catálogo de U-SQL se usa para estructurar datos y código, para que puedan c
 
 
 
-### Eliminación del secreto del catálogo
+### <a name="delete-catalog-secret"></a>Eliminación del secreto del catálogo
     Remove-AzureRmDataLakeAnalyticsCatalogSecret  `
             -Account $adlAnalyticsAccountName `
             -DatabaseName "master"
 
 
-## Uso de grupos del Administrador de recursos de Azure
-Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../resource-group-overview.md).
+## <a name="use-azure-resource-manager-groups"></a>Uso de grupos del Administrador de recursos de Azure
+Las aplicaciones normalmente se componen de muchos componentes,por ejemplo una aplicación web, base de datos, servidor de base de datos, almacenamiento y servicios de terceros. El Administrador de recursos de Azure (ARM) permite trabajar con los recursos de la aplicación como un grupo al que se hace referencia como Grupo de recursos de Azures Puede implementar, actualizar, supervisar o eliminar todos los recursos de la aplicación en una operación única y coordinada. Para la implementación se utiliza una plantilla, y esta plantilla puede trabajar en diferentes entornos, como pruebas, ensayo y producción. Puede aclarar la facturación de la organización consultando los costes acumulados de todo el grupo. Para obtener más información, consulte [Información general del Administrador de recursos de Azure](../azure-resource-manager/resource-group-overview.md). 
 
 Un servicio Análisis de Data Lake puede incluir los siguientes componentes:
 
@@ -305,16 +309,17 @@ Puede crear todos estos componentes en un grupo de ARM para que sean más fácil
 
 ![Cuenta y almacenamiento de Análisis de Azure Data Lake](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
 
-La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure. Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.
+La cuenta de Análisis de Data Lake y las cuentas de almacenamiento dependientes deben ubicarse en el mismo centro de datos de Azure.
+Sin embargo, el grupo de ARM puede encontrarse en otro centro de datos.  
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
 * [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
 * [Introducción a Análisis de Data Lake mediante el Portal de Azure](data-lake-analytics-get-started-portal.md)
 * [Administración de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-manage-use-portal.md)
 * [Supervisión y solución de problemas de trabajos de Análisis de Azure Data Lake mediante el Portal de Azure](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
-## Apéndice A: Plantilla ARM de Análisis de Data Lake
-La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente. Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte [Implementación de una aplicación con la plantilla de Administrador de recursos de Azure](../resource-group-authoring-templates.md) y [Creación de plantillas de Administrador de recursos de Azure](../resource-group-template-deploy.md#deploy-with-powershell).
+## <a name="appendix-a---data-lake-analytics-arm-template"></a>Apéndice A: Plantilla ARM de Análisis de Data Lake
+La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Análisis de Data Lake y su cuenta de Almacén de Data Lake dependiente.  Guárdela como un archivo json y después use el script de PowerShell para llamar a la plantilla. Para obtener más información , consulte el artículo sobre cómo [implementar una aplicación con la plantilla de Azure Resource Manager](../resource-group-template-deploy.md#deploy-with-powershell) y [crear plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
 
     {
       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -369,4 +374,9 @@ La siguiente plantilla ARM puede utilizarse para implementar una cuenta de Anál
       }
     }
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

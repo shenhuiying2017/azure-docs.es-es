@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/16/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 597043b17993ebddc9cf730ddce849e1d6ff3bc9
+ms.sourcegitcommit: 7c289437beca78dacc7d3136680c54dde01f3798
+ms.openlocfilehash: fb4b12543ac4910ea9c4789f4ebe5ef0ca5997ae
 
 
 ---
@@ -32,7 +32,7 @@ Cada solución preconfigurada es una implementación completa que usa dispositiv
 Además de implementar y ejecutar las soluciones en Azure, puede descargar el código fuente completo y, después, personalizar y ampliar la solución para satisfacer sus necesidades de IoT específicas.
 
 > [!NOTE]
-> Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] (Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
+> Para implementar una de las soluciones preconfiguradas, visite [Microsoft Azure IoT Suite][lnk-azureiotsuite] (Conjunto de aplicaciones de IoT de Microsoft Azure). En el artículo de [Introducción a las soluciones de IoT preconfiguradas][lnk-getstarted-preconfigured] se describe cómo implementar y ejecutar una de las soluciones.
 > 
 > 
 
@@ -41,7 +41,7 @@ La tabla siguiente muestra cómo se asignan estas soluciones a las característi
 | Solución | Ingesta de datos | Identidad de dispositivos | Comando y control | Reglas y acciones | Análisis predictivo |
 | --- | --- | --- | --- | --- | --- |
 | [Supervisión remota][lnk-getstarted-preconfigured] |Sí |Sí |Sí |Sí |- |
-| [Mantenimiento predictivo][lnk-predictive-maintenance] |yes |Sí |Sí |Sí |Sí |
+| [Mantenimiento predictivo][lnk-predictive-maintenance] |Sí |Sí |Sí |Sí |Sí |
 
 * *Ingesta de datos*: entrada de datos a escala en la nube.
 * *Identidad de dispositivo*: administración de las identidades únicas de cada dispositivo conectado.
@@ -66,33 +66,33 @@ La primera vez que un dispositivo se conecta al Centro de IoT en la solución pr
 * *Stop Telemetry*: indica al dispositivo que detenga el envío de telemetría.
 * *Change Set Point Temperature*: controla los valores de telemetría de temperatura simulados que envía el dispositivo. Resulta útil para probar la lógica del back-end.
 * *Diagnostic Telemetry*: controla si el dispositivo debe enviar la temperatura exterior como telemetría.
-* *Change Device State*: establece la propiedad de metadatos de estado del dispositivo de la que el dispositivo informa. Resulta útil para probar la lógica del back-end.
+* *Change Device State*: establece la propiedad de metadatos de estado del dispositivo que el dispositivo notifica. Resulta útil para probar la lógica del back-end.
 
 Puede agregar más dispositivos simulados a la solución que emitan la misma telemetría y respondan a los mismos comandos. 
 
 ## <a name="iot-hub"></a>IoT Hub
-En esta solución preconfigurada, la instancia de IoT Hub corresponde a la *puerta de enlace en la nube* de una [arquitectura de soluciones de IoT] típica[lnk-what-is-azure-iot].
+En esta solución preconfigurada, la instancia de IoT Hub corresponde a la *puerta de enlace en la nube* de una típica [arquitectura de solución IoT][lnk-what-is-azure-iot].
 
-Un Centro de IoT recibe la telemetría de los dispositivos en un único punto de conexión. Un Centro de IoT también mantiene puntos de conexión específicos de dispositivo donde cada dispositivo puede recuperar los comandos que se le envían.
+Un Centro de IoT recibe la telemetría de los dispositivos en un único punto de conexión. Una instancia de IoT Hub también mantiene puntos de conexión específicos del dispositivo, con los cuales cada dispositivo puede recuperar los comandos que se le envían.
 
 El Centro de IoT hace que la telemetría recibida esté disponible mediante el punto de conexión de lectura de telemetría del lado del servicio.
 
 ## <a name="azure-stream-analytics"></a>Análisis de transmisiones de Azure
 La solución preconfigurada usa tres trabajos de [Azure Stream Analytics][lnk-asa] (ASA) para filtrar la transmisión de la telemetría procedente de los dispositivos:
 
-* *Trabajo DeviceInfo* : envía los datos a un Centro de eventos que enruta los mensajes específicos del registro del dispositivo que se envían cuando un dispositivo se conecta por primera vez o en respuesta a un comando **Change device state** , al registro de dispositivos de la solución (una base de datos de DocumentDB). 
+* *Trabajo DeviceInfo*: envía los datos a un centro de eventos que enruta mensajes específicos del registro del dispositivo, que se envían cuando un dispositivo se conecta por primera vez o en respuesta a un comando **Change device state**, al registro de dispositivos de la solución (una base de datos de DocumentDB). 
 * *Trabajo Telemetría* : envía toda la telemetría sin procesar a Almacenamiento de blobs de Azure para su almacenamiento en frío y calcula las agregaciones de telemetría que se muestran en el panel de la solución.
 * *Trabajo Reglas* : filtra del flujo de telemetría los valores que superan los umbrales de las reglas, y envía los datos a un Centro de eventos. Cuando se activa una regla, la vista de panel del portal de solución muestra este evento como una nueva fila en la tabla de historial de alarma y desencadena una acción basada en la configuración definida en las vistas Reglas y Acciones del portal de solución.
 
-En esta solución preconfigurada, los trabajos de ASA forman parte del **back-end de la solución de IoT** en una [arquitectura de soluciones de IoT] típica[lnk-what-is-azure-iot].
+En esta solución preconfigurada, los trabajos ASA forman parte del** back-end de la solución IoT** en una típica [arquitectura de solución IoT][lnk-what-is-azure-iot].
 
-## <a name="event-processor"></a>Procesador de eventos
-En esta solución preconfigurada, el procesador de eventos forman parte del **back-end de la solución de IoT** en una [arquitectura de soluciones de IoT] típica[lnk-what-is-azure-iot].
+## <a name="event-processor"></a>procesador de eventos
+En esta solución preconfigurada, el procesador de eventos forma parte del **back-end de la solución IoT** en una típica [arquitectura de solución IoT][lnk-what-is-azure-iot].
 
-Los trabajos de ASA **DeviceInfo** y **Rules** envían su salida a Event Hubs para entregarlos a otros servicios de back-end. La solución usa una instancia de [EventPocessorHost][lnk-event-processor], que se ejecuta en un [WebJob][lnk-web-job], para leer los mensajes de estos Event Hubs. **EventProcessorHost** usa los datos de **DeviceInfo** para actualizar los datos del dispositivo en la base de datos de DocumentDB y los datos de **Rules** para invocar la aplicación lógica y actualizar las alertas que se muestran en el portal de la solución.
+Los trabajos de ASA **DeviceInfo** y **Rules** envían su salida a Event Hubs para que se entregue a otros servicios de back-end. La solución usa una instancia de [EventPocessorHost][lnk-event-processor], que se ejecuta en un [trabajo web][lnk-web-job], para leer los mensajes de estos centros de eventos. **EventProcessorHost** usa los datos de **DeviceInfo** para actualizar los datos del dispositivo en la base de datos de DocumentDB y los datos de **Rules** para invocar la aplicación lógica y actualizar las alertas que se muestran en el portal de la solución.
 
 ## <a name="device-identity-registry-and-documentdb"></a>Registro de identidades de dispositivo y DocumentDB
-Cada IoT Hub incluye un [registro de identidades de dispositivo][lnk-identity-registry] que almacena las claves de dispositivo. El Centro de IoT usa esta información para autenticar dispositivos; un dispositivo debe estar registrado y tener una clave válida para poder conectarse al centro.
+Cada centro de IoT incluye un [registro de identidades de dispositivo][lnk-identity-registry] que almacena las claves de dispositivo. El Centro de IoT usa esta información para autenticar dispositivos; un dispositivo debe estar registrado y tener una clave válida para poder conectarse al centro.
 
 Esta solución almacena información adicional acerca de los dispositivos, como su estado, los comandos que admiten y otros metadatos. La solución usa una base de datos de DocumentDB para almacenar estos datos de dispositivo específicos de la solución, y el portal de la solución recupera los datos de esta base de datos DocumentDB para su presentación y edición.
 
@@ -109,12 +109,12 @@ El portal de solución es una interfaz de usuario basada en web que se implement
 * Enviar comandos a dispositivos específicos.
 * Administrar reglas y acciones.
 
-En esta solución preconfigurada, el portal de la solución forma parte tanto del **back-end de la solución de IoT** como de la **conectividad de procesamiento y empresarial** en la [arquitectura de soluciones de IoT] típica[lnk-what-is-azure-iot].
+En esta solución preconfigurada, el portal de la solución forma parte tanto del **back-end de la solución de IoT** como de la **conectividad de procesamiento y empresarial** en la típica [arquitectura de solución][lnk-what-is-azure-iot].
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las arquitecturas de soluciones de IoT, consulte [Microsoft Azure IoT services: Reference Architecture] (Servicios IoT de Microsoft Azure: arquitectura de referencia)[lnk-refarch].
+Para más información sobre las arquitecturas de solución de IoT, consulte el documento de [Servicios de IoT de Microsoft Azure: Arquitectura de referencia][lnk-refarch].
 
-Ahora que sabe qué es una solución preconfigurada, puede comenzar por implementar la solución preconfigurada de *supervisión remota*: [Introducción a las soluciones preconfiguradas][lnk-getstarted-preconfigured].
+Ahora que ya sabe qué es una solución preconfigurada, puede comenzar por implementar la solución preconfigurada de *supervisión remota*: [Introducción a las soluciones preconfiguradas][lnk-getstarted-preconfigured].
 
 [img-remote-monitoring-arch]: ./media/iot-suite-what-are-preconfigured-solutions/remote-monitoring-arch1.png
 [img-dashboard]: ./media/iot-suite-what-are-preconfigured-solutions/dashboard.png
@@ -130,6 +130,6 @@ Ahora que sabe qué es una solución preconfigurada, puede comenzar por implemen
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

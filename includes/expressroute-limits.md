@@ -1,22 +1,22 @@
-#### Límites de ExpressRoute
+#### <a name="expressroute-limits"></a>Límites de ExpressRoute
 Los límites siguientes se aplican a los recursos de ExpressRoute por suscripción.
 
 | Recurso | Límite predeterminado |
 | --- | --- |
 | Circuitos ExpressRoute por suscripción |10 |
 | Circuitos ExpressRoute por región por suscripción para ARM |10 |
-| Número máximo de rutas para emparejamiento privado de Azure con estándar ExpressRoute |4\.000 |
-| Número máximo de rutas para emparejamiento privado de Azure con complemento premium ExpressRoute |10\.000 |
+| Número máximo de rutas para emparejamiento privado de Azure con estándar ExpressRoute |4.000 |
+| Número máximo de rutas para emparejamiento privado de Azure con complemento premium ExpressRoute |10.000 |
 | Número máximo de rutas para emparejamiento público de Azure con estándar ExpressRoute |200 |
 | Número máximo de rutas para emparejamiento público de Azure con complemento premium ExpressRoute |200 |
 | Número máximo de rutas para emparejamiento de Microsoft de Azure con estándar ExpressRoute |200 |
 | Número máximo de rutas para emparejamiento de Microsoft de Azure con complemento premium ExpressRoute |200 |
 | Número de vínculos de red virtual permitidos por circuito ExpressRoute |consulte la tabla siguiente |
 
-#### Número de redes virtuales por circuito ExpressRoute
+#### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Número de redes virtuales por circuito ExpressRoute
 | **Tamaño del circuito** | **Número de vínculos de red virtual para estándar** | **Número de vínculos de red virtual con complemento Premium** |
 | --- | --- | --- |
-| 50 Mbps |10 |20 |
+| 50 Mbps |10 |20 | |
 | 100 Mbps |10 |25 |
 | 200 Mbps |10 |25 |
 | 500 Mbps |10 |40 |
@@ -25,4 +25,8 @@ Los límites siguientes se aplican a los recursos de ExpressRoute por suscripci�
 | 5 Gbps |10 |75 |
 | 10 Gbps |10 |100 |
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

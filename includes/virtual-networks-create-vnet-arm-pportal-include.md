@@ -28,6 +28,6 @@ Para crear una red virtual basada en el escenario anterior por medio del portal 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!---HONumber=Nov16_HO2-->
 
 

@@ -28,10 +28,9 @@
 
 ### [Información general](sql-data-warehouse-connect-overview.md)
 ### [Cadenas de conexión](sql-data-warehouse-connection-strings.md)
-### Consultar
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Instalación de Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Desarrollo
@@ -82,8 +81,7 @@
 ### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [BCP desde SQL Server](sql-data-warehouse-load-from-sql-server-with-bcp.md)
-### [Factoría de datos](sql-data-warehouse-get-started-load-with-azure-data-factory.md)
-### [Data Factory desde Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-data-factory.md)
+### [Factoría de datos](sql-data-warehouse-load-with-data-factory.md)
 ### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 ### [Guía de PolyBase](sql-data-warehouse-load-polybase-guide.md)
 ### [PolyBase desde Blob Storage](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
@@ -103,7 +101,7 @@
 ## Pausa y escalado
 
 ### [Información general](sql-data-warehouse-manage-compute-overview.md)
-### [Azure Portal](sql-data-warehouse-manage-compute-portal.md)
+### [Portal de Azure](sql-data-warehouse-manage-compute-portal.md)
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API DE REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
@@ -111,6 +109,7 @@
 ## Rendimiento
 
 ### [Información general](sql-data-warehouse-overview-manage-user-queries.md)
+### [Compresión de almacén de columnas](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Consultas](sql-data-warehouse-manage-monitor.md)
 ### [Carga de trabajo](sql-data-warehouse-develop-concurrency.md)
 ### [Solución de problemas](sql-data-warehouse-troubleshoot.md)
@@ -146,6 +145,6 @@
 ### [Administración de datos](sql-data-warehouse-partner-data-management.md)
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

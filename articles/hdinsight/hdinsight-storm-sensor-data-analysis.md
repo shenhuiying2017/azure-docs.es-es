@@ -1,12 +1,12 @@
 ---
-title: Análisis de los datos de los sensores con Apache Storm y HBase | Microsoft Docs
-description: Obtenga información acerca de cómo conectarse a Apache Storm con una red virtual. Utilice Storm con HBase para procesar los datos de sensores de un centro de eventos y visualizarlos con D3.js.
+title: "Análisis de los datos de los sensores con Apache Storm y HBase | Microsoft Docs"
+description: "Obtenga información acerca de cómo conectarse a Apache Storm con una red virtual. Utilice Storm con HBase para procesar los datos de sensores de un centro de eventos y visualizarlos con D3.js."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: a9a1ac8e-5708-4833-b965-e453815e671f
 ms.service: hdinsight
 ms.devlang: java
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+
 
 ---
-# Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight (Hadoop)
+# <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Análisis de datos de sensores con Apache Storm, Centro de eventos y HBase en HDInsight (Hadoop)
 Aprenda a usar Apache Storm en HDInsight para procesar datos de sensor desde el Centro de eventos de Azure, almacenarlos en Apache HBase en HDInsight y visualizarlos mediante D3.js que se ejecuta como una aplicación web de Azure.
 
 La plantilla de Azure Resource Manager utilizada en este documento muestra cómo crear varios recursos de Azure en un grupo de recursos. Concretamente, crea una Red virtual de Azure, dos clústeres de HDInsight (Storm y HBase) y una aplicación web de Azure. Se realiza automáticamente una implementación de node.js de un panel web en tiempo real en la aplicación web.
@@ -26,8 +30,8 @@ La plantilla de Azure Resource Manager utilizada en este documento muestra cómo
 > 
 > 
 
-## Requisitos previos
-* Una suscripción de Azure. Consulte [Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+## <a name="prerequisites"></a>Requisitos previos
+* Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
   
   > [!IMPORTANT]
   > No necesita un clúster de HDInsight existente; los pasos descritos en este documento crearán los recursos siguientes:
@@ -42,7 +46,7 @@ La plantilla de Azure Resource Manager utilizada en este documento muestra cómo
 * [Java y JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): se utiliza para desarrollar la topología de Storm.
 * [Maven](http://maven.apache.org/what-is-maven.html): se usa para crear y compilar el proyecto.
 * [Git](http://git-scm.com/): se utiliza para descargar el proyecto de GitHub.
-* Un cliente **SSH**: se usa para conectarse a los clústeres de HDInsight basados en Linux. Para más información sobre el uso de SSH con HDInsight, consulte los documentos siguientes.
+* Un cliente **SSH** : se usa para conectarse a los clústeres de HDInsight basados en Linux. Para más información sobre el uso de SSH con HDInsight, consulte los documentos siguientes.
   
   * [Utilización de SSH con HDInsight desde un cliente Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
   * [Utilización de SSH con HDInsight desde un cliente Linux, Unix o Mac](hdinsight-hadoop-linux-use-ssh-unix.md)
@@ -52,7 +56,7 @@ La plantilla de Azure Resource Manager utilizada en este documento muestra cómo
     > 
     > 
 
-## Arquitectura
+## <a name="architecture"></a>Arquitectura
 ![diagrama de arquitectura](./media/hdinsight-storm-sensor-data-analysis/devicesarchitecture.png)
 
 Este ejemplo consta de los siguientes componentes:
@@ -77,7 +81,12 @@ Este ejemplo consta de los siguientes componentes:
     > 
   * [D3.js](http://d3js.org/) se usa para representar los datos que se envían al sitio web.
 
-La topología lee datos desde el Centro de eventos mediante la clase [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) y escribe los datos en HBase usando la clase [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html). La comunicación con el sitio web se logra mediante [client.java socket.io](https://github.com/nkzawa/socket.io-client.java).
+> [!IMPORTANT]
+> Como no hay ningún método compatible para crear un clúster de HDInsight para Storm y HBase, se requieren dos clústeres
+> 
+> 
+
+La topología lee datos del Centro de eventos mediante la clase [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) y escribe los datos en HBase usando la clase [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/javadoc/apidocs/org/apache/storm/hbase/bolt/class-use/HBaseBolt.html). La comunicación con el sitio web se logra mediante [client.java socket.io](https://github.com/nkzawa/socket.io-client.java).
 
 A continuación, se muestra un diagrama de la topología.
 
@@ -91,7 +100,7 @@ A continuación, se muestra un diagrama de la topología.
 > 
 > 
 
-### Componentes de la topología
+### <a name="topology-components"></a>Componentes de la topología
 * **EventHub Spout**: el spout se proporciona como parte de Apache Storm versión 0.10.0 y versiones posteriores.
   
   > [!NOTE]
@@ -101,28 +110,28 @@ A continuación, se muestra un diagrama de la topología.
 * **ParserBolt.java**: los datos que emite el spout son JSON sin procesar y, en ocasiones, se emite más de un evento a la vez. Este bolt muestra cómo leer los datos que emite el spout, y los emite a una secuencia nueva como una tupla que contiene varios campos.
 * **DashboardBolt.java**: esto muestra cómo usar la biblioteca de cliente de Socket.io para Java para enviar datos en tiempo real al panel web.
 
-En este ejemplo se usa el marco [Flux](https://storm.apache.org/releases/0.10.0/flux.html), por lo que la definición de topología se encuentra en archivos YAML. Hay dos:
+En este ejemplo se usa el marco [Flux](https://storm.apache.org/releases/0.10.0/flux.html) , por lo que la definición de topología se encuentra en archivos YAML. Hay dos:
 
-* **no-hbase.yaml**: use este archivo cuando pruebe la topología en el entorno de desarrollo. No utiliza componentes de HBase, ya que no se puede acceder a la API de Java de HBase desde fuera de la red virtual donde se encuentra el clúster.
-* **with-hbase.yaml**: use este archivo cuando implemente la topología en el clúster de Storm. Usa componentes de HBase, ya que se ejecuta en la misma red virtual que el clúster de HBase.
+* **no-hbase.yaml** : use este archivo cuando pruebe la topología en el entorno de desarrollo. No utiliza componentes de HBase, ya que no se puede acceder a la API de Java de HBase desde fuera de la red virtual donde se encuentra el clúster.
+* **with-hbase.yaml** : use este archivo cuando implemente la topología en el clúster de Storm. Usa componentes de HBase, ya que se ejecuta en la misma red virtual que el clúster de HBase.
 
-## Preparación del entorno
+## <a name="prepare-your-environment"></a>Preparación del entorno
 Antes de usar este ejemplo, debe crear un Centro de eventos de Azure, desde el que lee la topología de Storm.
 
-### Configuración del centro de eventos
+### <a name="configure-event-hub"></a>Configuración del centro de eventos
 Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos siguientes para crear un centro de eventos.
 
-1. Desde [Azure Portal](https://portal.azure.com), seleccione **+ Nuevo** -> **Internet de las cosas** -> **Event Hubs**.
-2. En la hoja **Crear espacio de nombres**, realice las siguientes tareas:
+1. En [Azure Portal](https://portal.azure.com), seleccione **+ Nuevo** -> **Internet de las cosas** -> **Event Hubs**.
+2. En la hoja **Crear espacio de nombres** , realice las siguientes tareas:
    
    1. Escriba un valor en **Nombre** para el espacio de nombres.
    2. Seleccione un plan de tarifa. **Básico** es suficiente para este ejemplo.
-   3. Seleccione la suscripción de Azure que va a usar en **Suscripción**.
+   3. Seleccione la suscripción de Azure que va a usar en **Suscripción** .
    4. Seleccione un grupo de recursos existente o cree uno.
    5. Seleccione un valor en **Ubicación** para el centro de eventos.
-   6. Seleccione **Anclar al panel** y haga clic en **Crear**.
+   6. Seleccione **Anclar al panel** y luego haga clic en **Crear**.
 3. Cuando se completa el proceso de creación, se muestra la hoja Event Hubs para el espacio de nombres. Desde ahí, seleccione **+ Agregar Centro de eventos**. En la hoja **Create Event Hub** (Crear centro de eventos), escriba el nombre **sensordata** y seleccione **Crear**. Deje los demás campos con los valores predeterminados.
-4. En la hoja Event Hubs para el espacio de nombres, seleccione **Event Hubs**. Seleccione la entrada **sensordata**.
+4. En la hoja Event Hubs para el espacio de nombres, seleccione **Event Hubs**. Seleccione la entrada **sensordata** .
 5. En la hoja para el centro de eventos sensordata, seleccione **Directivas de acceso compartido**. Use el vínculo **+ Agregar** para agregar las siguientes directivas:
 
     | Nombre de la directiva | Notificaciones |
@@ -130,9 +139,9 @@ Centro de eventos es el origen de datos para este ejemplo. Utilice los pasos sig
     | devices | Enviar |
     | storm | Escuchar |
 
-1. Seleccione ambas directivas y tome nota del valor en **CLAVE PRINCIPAL**. Necesitará el valor para ambas directivas en pasos posteriores.
+1. Seleccione ambas directivas y tome nota del valor en **CLAVE PRINCIPAL** . Necesitará el valor para ambas directivas en pasos posteriores.
 
-## Descarga y configuración del proyecto
+## <a name="download-and-configure-the-project"></a>Descarga y configuración del proyecto
 Use lo siguiente para descargar el proyecto de GitHub.
 
     git clone https://github.com/Blackmist/hdinsight-eventhub-example
@@ -169,7 +178,7 @@ Abra el archivo **hdinsight-eventhub-example/TemperatureMonitor/dev.properties**
 
  Guarde el archivo después de agregar esta información.
 
-## Compilación y pruebas locales
+## <a name="compile-and-test-locally"></a>Compilación y pruebas locales
 Antes de las pruebas, debe iniciar el panel para ver el resultado de la topología y generar datos para almacenarlos en el Centro de eventos.
 
 > [!IMPORTANT]
@@ -177,8 +186,8 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
 > 
 > 
 
-### Inicio de la aplicación web
-1. Abra un nuevo símbolo de sistema o terminal, cambie los directorios a **hdinsight-eventhub-example/dashboard** y, después, use el siguiente comando para instalar las dependencias necesarias para la aplicación web:
+### <a name="start-the-web-application"></a>Inicio de la aplicación web
+1. Abra un nuevo símbolo de sistema o terminal, cambie los directorios a **hdinsight-eventhub-example/dashboard**y, después, use el siguiente comando para instalar las dependencias necesarias para la aplicación web:
    
         npm install
 2. Use el comando siguiente para iniciar la aplicación web:
@@ -188,19 +197,19 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
     Debe ver un mensaje similar al siguiente:
    
         Server listening at port 3000
-3. Abra un explorador web y escriba **http://localhost:3000/** como dirección. Debería ver una página similar a la siguiente:
+3. Abra un explorador web y escriba la dirección **http://localhost:3000/**. Debería ver una página similar a la siguiente:
    
     ![panel web](./media/hdinsight-storm-sensor-data-analysis/emptydashboard.png)
    
     Deje abierto este símbolo del sistema o terminal. Después de las pruebas, presione CTRL+C para detener el servidor web.
 
-### Inicio de la generación de datos
+### <a name="start-generating-data"></a>Inicio de la generación de datos
 > [!NOTE]
-> Los pasos de esta sección usan Node.js para que se puedan utilizar en cualquier plataforma. Para obtener ejemplos de otros lenguajes, consulte el directorio **SendEvents**.
+> Los pasos de esta sección usan Node.js para que se puedan utilizar en cualquier plataforma. Para obtener ejemplos de otros lenguajes, consulte el directorio **SendEvents** .
 > 
 > 
 
-1. Abra un nuevo símbolo del sistema, shell o terminal, cambie de directorio a **hdinsight-eventhub-example/SendEvents/nodejs** y use el siguiente comando para instalar las dependencias necesarias para la aplicación:
+1. Abra un nuevo símbolo del sistema, shell o terminal, cambie de directorio a **hdinsight-eventhub-example/SendEvents/nodejs**y use el siguiente comando para instalar las dependencias necesarias para la aplicación:
    
         npm install
 2. Abra el archivo **app.js** en un editor de texto y agregue la información del Centro de eventos que obtuvo anteriormente:
@@ -234,8 +243,8 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"8","Temperature":43}
         {"TimeStamp":"2015-02-10T14:43.05.00320Z","DeviceId":"9","Temperature":84}
 
-### Inicio de la topología
-1. Abra un nuevo símbolo del sistema, shell o terminal, cambie de directorio a **hdinsight-eventhub-example/TemperatureMonitor** y use el siguiente comando para iniciar la topología:
+### <a name="start-the-topology"></a>Inicio de la topología
+1. Abra un nuevo símbolo del sistema, shell o terminal, cambie de directorio a **hdinsight-eventhub-example/TemperatureMonitor**y use el siguiente comando para iniciar la topología:
    
         mvn compile exec:java -Dexec.args="--local -R /no-hbase.yaml --filter dev.properties"
    
@@ -246,7 +255,8 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
    > [!NOTE]
    > Si está en un sistema Linux, Unix u OS X y tiene [instalado Storm en el entorno de desarrollo](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), puede usar en su lugar los siguientes comandos:
    > 
-   > `mvn compile package` `storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml`
+   > `mvn compile package`
+   > `storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /no-hbase.yaml`
    > 
    > 
    
@@ -261,7 +271,7 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
    > 
 3. Después de comprobar que esto funciona, presione Ctrl +C para detener la topología. También puede presionar CTRL+C para detener el servidor web local.
 
-## Creación de un clúster de Storm y HBase
+## <a name="create-a-storm-and-hbase-cluster"></a>Creación de un clúster de Storm y HBase
 Para ejecutar la topología en HDInsight y para habilitar el bolt de HBase, debe crear un nuevo clúster de Storm y un clúster de HBase. En los pasos descritos en esta sección se usa una [plantilla de Azure Resource Manager](../resource-group-template-deploy.md) para crear una nueva Red virtual de Azure y un clúster de Storm y HBase en la red virtual. La plantilla también crea una aplicación web de Azure e implementa una copia del panel en ella.
 
 > [!NOTE]
@@ -269,12 +279,12 @@ Para ejecutar la topología en HDInsight y para habilitar el bolt de HBase, debe
 > 
 > 
 
-La plantilla de Resource Manager utilizada en este documento se encuentra en un contenedor de blobs público en \_\_https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json__.
+La plantilla de Resource Manager usada en este documento está ubicada en un contenedor de blobs público en **https://hditutorialdata.blob.core.windows.net/armtemplates/create-linux-based-hbase-storm-cluster-in-vnet.json**.
 
 1. Haga clic en el botón siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/es-ES/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. En la hoja **Parámetros**, escriba lo siguiente:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. En la hoja **Parámetros** , escriba lo siguiente:
    
     ![Parámetros de HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
    
@@ -300,17 +310,17 @@ Una vez creados los recursos, se le redirigirá a una hoja del grupo de recursos
 > 
 > 
 
-## Configuración del bolt del panel
-Para enviar datos al panel implementado como aplicación web, debe modificar la línea siguiente en el archivo **dev.properties**:
+## <a name="configure-the-dashboard-bolt"></a>Configuración del bolt del panel
+Para enviar datos al panel implementado como aplicación web, debe modificar la línea siguiente en el archivo **dev.properties** :
 
     dashboard.uri: http://localhost:3000
 
 Cambie `http://localhost:3000` por `http://BASENAME-dashboard.azurewebsites.net` y guarde el archivo. Reemplace **BASENAME** por el nombre base proporcionado en el paso anterior. También puede utilizar el grupo de recursos que creó anteriormente para seleccionar el panel y ver la dirección URL.
 
-## Creación de la tabla de HBase
+## <a name="create-the-hbase-table"></a>Creación de la tabla de HBase
 Para almacenar datos en HBase, primero hay que crear una tabla. Por lo general se crean previamente los recursos que necesita Storm para escribir, como intentar crear recursos desde dentro de una topología de Storm pueden dar lugar a varias copias distribuidas del código que intenta crear el mismo recurso. Cree los recursos fuera de la topología y solo use Storm para leer o escribir y para el análisis.
 
-1. Use SSH para conectarse al clúster de HBase con el usuario y la contraseña de SSH suministrados a la plantilla durante la creación del clúster. Por ejemplo, si se conecta con el comando `ssh`, debe usar la sintaxis siguiente:
+1. Use SSH para conectarse al clúster de HBase con el usuario y la contraseña de SSH suministrados a la plantilla durante la creación del clúster. Por ejemplo, si se conecta con el comando `ssh` , debe usar la sintaxis siguiente:
    
         ssh USERNAME@hbase-BASENAME-ssh.azurehdinsight.net
    
@@ -319,7 +329,7 @@ Para almacenar datos en HBase, primero hay que crear una tabla. Por lo general s
    
         hbase shell
    
-    Una vez cargado el shell, verá un símbolo del sistema de `hbase(main):001:0>`.
+    Una vez cargado el shell, verá un símbolo del sistema de `hbase(main):001:0>` .
 3. En el shell de HBase, escriba el comando siguiente para crear una tabla en la que se almacenarán los datos de los sensores:
    
         create 'SensorData', 'cf'
@@ -334,22 +344,22 @@ Para almacenar datos en HBase, primero hay que crear una tabla. Por lo general s
    
         exit
 
-## Configuración del bolt de HBase
-Para escribir en HBase desde el clúster de Storm, debe proporcionar el bolt de HBase con los detalles de configuración de su clúster de HBase. La manera más fácil de hacerlo es descargar el archivo **hbase-site.xml** del clúster e incluirlo en el proyecto. También debe quitar los comentarios de varias dependencias en el archivo **pom.xml**, que carga el componente storm-hbase y las dependencias necesarias.
+## <a name="configure-the-hbase-bolt"></a>Configuración del bolt de HBase
+Para escribir en HBase desde el clúster de Storm, debe proporcionar el bolt de HBase con los detalles de configuración de su clúster de HBase. La manera más fácil de hacerlo es descargar el archivo **hbase-site.xml** del clúster e incluirlo en el proyecto. También debe quitar los comentarios de varias dependencias en el archivo **pom.xml** , que carga el componente storm-hbase y las dependencias necesarias.
 
 > [!IMPORTANT]
 > También debe descargar el archivo storm-hbase.jar proporcionado en el clúster 3.3 o 3.4 de Storm en HDInsight; esta versión está compilada para funcionar con HBase 1.1.x, que se utiliza para HBase en los clústeres 3.3 y 3.4 de HDInsight. Si utiliza un componente de storm-hbase procedente de otra parte, se puede compilar con una versión anterior de HBase.
 > 
 > 
 
-### Descarga del archivo hbase-site.xml
+### <a name="download-the-hbase-sitexml"></a>Descarga del archivo hbase-site.xml
 Desde un símbolo del sistema, utilice SCP para descargar el archivo **hbase-site.xml** desde el clúster. En el ejemplo siguiente, reemplace **USERNAME** por el usuario de SSH que proporcionó al crear el clúster y **BASENAME** por el nombre base que proporcionó anteriormente. Cuando se le solicite, escriba la contraseña del usuario de SSH. Reemplace `/path/to/TemperatureMonitor/resources/hbase-site.xml` por la ruta de acceso a este archivo en el proyecto TemperatureMonitor.
 
     scp USERNAME@hbase-BASENAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml /path/to/TemperatureMonitor/resources/hbase-site.xml
 
 Esto descargará el archivo **hbase-site.xml** en la ruta especificada.
 
-### Descarga e instalación del componente de storm-hbase
+### <a name="download-and-install-the-storm-hbase-component"></a>Descarga e instalación del componente de storm-hbase
 1. Desde un símbolo del sistema, utilice SCP para descargar el archivo **storm-hbase.jar** desde el clúster de Storm. En el ejemplo siguiente, reemplace **USERNAME** por el usuario de SSH que proporcionó al crear el clúster y **BASENAME** por el nombre base que proporcionó anteriormente. Cuando se le solicite, escriba la contraseña del usuario de SSH.
    
         scp USERNAME@storm-BASENAME-ssh.azurehdinsight.net:/usr/hdp/current/storm-client/contrib/storm-hbase/storm-hbase*.jar .
@@ -363,7 +373,7 @@ Esto descargará el archivo **hbase-site.xml** en la ruta especificada.
    
         mvn install:install-file "-Dfile=storm-hbase-####.jar" "-DgroupId=org.apache.storm" "-DartifactId=storm-hbase" "-Dversion=####" "-Dpackaging=jar"
 
-### Habilitación del componente de storm-hbase en el proyecto
+### <a name="enable-the-storm-hbase-component-in-the-project"></a>Habilitación del componente de storm-hbase en el proyecto
 1. Abra el archivo **TemperatureMonitor/pom.xml** y elimine las líneas siguientes:
    
         <!-- uncomment this section to enable the hbase-bolt
@@ -387,16 +397,16 @@ Esto descargará el archivo **hbase-site.xml** en la ruta especificada.
    > El número de versión debe coincidir con la versión utilizada al instalar el componente en el repositorio de Maven local, ya que Maven usa esta información para cargar el componente al compilar el proyecto.
    > 
    > 
-3. Guarde el archivo **pom.xml**.
+3. Guarde el archivo **pom.xml** .
 
-## Compilación, empaquetado e implementación de la solución en HDInsight
+## <a name="build-package-and-deploy-the-solution-to-hdinsight"></a>Compilación, empaquetado e implementación de la solución en HDInsight
 En el entorno de desarrollo, siga estos pasos para implementar la topología de Storm en el clúster de storm.
 
-1. Desde el directorio **TemperatureMonitor**, use el comando siguiente para realizar una nueva compilación y crear un paquete JAR a partir del proyecto:
+1. Desde el directorio **TemperatureMonitor** , use el comando siguiente para realizar una nueva compilación y crear un paquete JAR a partir del proyecto:
    
         mvn clean compile package
    
-    Se creará un archivo denominado **TemperatureMonitor-1.0-SNAPSHOT.jar** en el directorio **target** del proyecto.
+    Se creará un archivo denominado **TemperatureMonitor-1.0-SNAPSHOT.jar** in the **target** del proyecto.
 2. Use scp para cargar el archivo **TemperatureMonitor-1.0-SNAPSHOT.jar** en el clúster de Storm. En el ejemplo siguiente, reemplace **USERNAME** por el usuario de SSH que proporcionó al crear el clúster y **BASENAME** por el nombre base que proporcionó anteriormente. Cuando se le solicite, escriba la contraseña del usuario de SSH.
    
         scp target\TemperatureMonitor-1.0-SNAPSHOT.jar USERNAME@storm-BASENAME-ssh.azurehdinsight.net:TemperatureMonitor-1.0-SNAPSHOT.jar
@@ -406,7 +416,7 @@ En el entorno de desarrollo, siga estos pasos para implementar la topología de 
    > 
    > 
    
-    Use scp para cargar el archivo **dev.properties**, ya que contiene la información que se usa para conectarse a Event Hubs y al panel.
+    Use scp para cargar el archivo **dev.properties** , ya que contiene la información que se usa para conectarse a Event Hubs y al panel.
    
         scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
 3. Una vez cargados los archivos, conéctese al clúster mediante SSH.
@@ -417,11 +427,11 @@ En el entorno de desarrollo, siga estos pasos para implementar la topología de 
         storm jar TemperatureMonitor-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /with-hbase.yaml --filter dev.properties
    
     Esto inicia la topología con la definición de topología del archivo **with-hbase.yaml** y los valores de configuración del archivo **dev.properties**.
-5. Cuando se haya iniciado la topología, abra un explorador con el sitio web publicado en Azure y use el comando `node app.js` para enviar datos a un Centro de eventos. Debería ver que el panel web se actualiza para mostrar la información.
+5. Cuando se haya iniciado la topología, abra un explorador con el sitio web publicado en Azure y  use el comando `node app.js` para enviar datos a un Centro de eventos. Debería ver que el panel web se actualiza para mostrar la información.
    
     ![dashboard](./media/hdinsight-storm-sensor-data-analysis/datadashboard.png)
 
-## Visualización de datos de HBase
+## <a name="view-hbase-data"></a>Visualización de datos de HBase
 Una vez enviados los datos a la topología mediante `node app.js`, siga estos pasos para conectarse a HBase y comprobar que los datos se han escrito en la tabla que creó anteriormente.
 
 1. Use SSH para conectarse al clúster de HBase.
@@ -431,7 +441,7 @@ Una vez enviados los datos a la topología mediante `node app.js`, siga estos pa
    
         hbase shell
    
-    Una vez cargado el shell, verá un símbolo del sistema de `hbase(main):001:0>`.
+    Una vez cargado el shell, verá un símbolo del sistema de `hbase(main):001:0>` .
 3. Vea las filas de la tabla:
    
         scan 'SensorData'
@@ -467,24 +477,28 @@ Una vez enviados los datos a la topología mediante `node app.js`, siga estos pa
    > 
    > 
 
-## Eliminación de los clústeres
+## <a name="delete-your-clusters"></a>Eliminación de los clústeres
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 Para eliminar los clústeres, el almacenamiento y la aplicación web al mismo tiempo, elimine el grupo de recursos que los contiene.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora ha aprendido a usar Storm para leer los datos de Event Hubs, almacenarlos en HBase y visualizar la información en un panel externo mediante Socket.io y D3.js.
 
 * Para más ejemplos de topologías de Storm con HDInsight, consulte:
   
   * [Topologías de ejemplo para Storm en HDInsight](hdinsight-storm-example-topology.md)
-* Para obtener más información sobre Apache Storm, consulte el sitio de [Apache Storm](https://storm.incubator.apache.org/).
+* Para obtener más información sobre Apache Storm, consulte el sitio de [Apache Storm](https://storm.incubator.apache.org/) .
 * Para obtener más información sobre HBase con HDInsight, consulte [Información general de HBase de HDInsight](hdinsight-hbase-overview.md).
-* Para obtener más información sobre Socket.io, consulte el sitio de [socket.io](http://socket.io/).
+* Para obtener más información sobre Socket.io, consulte el sitio de [socket.io](http://socket.io/) .
 * Para obtener más información sobre D3.js, consulte [D3.js: documentos controlados por datos](http://d3js.org/).
 * Para obtener información sobre la creación de topologías en Java, consulte [Desarrollo de topologías de Java para Apache Storm en HDInsight](hdinsight-storm-develop-java-topology.md).
 * Para obtener información sobre la creación de topologías en .NET, consulte [Desarrollo de topologías de C# para Apache Storm en HDInsight mediante Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://portal.azure.com
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

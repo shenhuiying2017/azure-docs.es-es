@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/03/2016
 ms.author: anandy;billmath
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8ed71ccd07385eb74f7afecf04590c2c00372c34
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 02d271e43c369e2aa6d716fc24a78cc9f4045c7c
 
 
 ---
@@ -291,7 +291,7 @@ En general, necesita las siguientes reglas para proteger eficazmente la subred i
 > 
 > 
 
-### <a name="10-test-the-ad-fs-signin"></a>10.    Prueba del inicio de sesión de AD FS
+### <a name="10-test-the-ad-fs-sign-in"></a>10.    Prueba del inicio de sesión de AD FS
 La forma más sencilla es probar AD FS mediante la página IdpInitiatedSignon.aspx. Para poder hacerlo, es necesario habilitar IdpInitiatedSignOn en las propiedades de AD FS. Siga estos pasos para comprobar la configuración de AD FS.
 
 1. Ejecute el siguiente cmdlet en el servidor AD FS, con PowerShell, para habilitarlo.
@@ -357,6 +357,6 @@ Puede usar una red virtual existente o crear una nueva red virtual durante la im
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

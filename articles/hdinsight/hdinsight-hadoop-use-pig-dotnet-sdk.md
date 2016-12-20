@@ -1,5 +1,5 @@
 ---
-title: Uso de Pig con Hadoop con .NET en HDInsight | Microsoft Docs
+title: Uso de Pig en Hadoop con .NET en HDInsight | Microsoft Docs
 description: Aprenda a usar el SDK de .NET de Hadoop para enviar trabajos de Pig a Hadoop en HDInsight.
 services: hdinsight
 documentationcenter: .net
@@ -7,35 +7,35 @@ author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 10/17/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 46acf298a489aae34866c90126f3df00fd10c6e3
+
 
 ---
-# Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
 Este documento proporciona un ejemplo de uso del SDK de .NET para Hadoop para enviar trabajos de Pig a un Hadoop en clúster de HDInsight.
 
 El SDK .NET de HDInsight proporciona bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight en .NET. Pig le permite crear operaciones de MapReduce al modelar una serie de transformaciones de datos. Aprenderá a utilizar una aplicación básica de C# para enviar un trabajo de Pig para un clúster de HDInsight.
 
-[!INCLUDE [azure-portal](../../includes/hdinsight-azure-portal.md)]
-
-* [Ejecución de trabajos de Pig con el SDK de .NET para Hadoop en HDInsight](hdinsight-hadoop-use-pig-dotnet-sdk-v1.md)
-
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (Windows o Linux)
 * Visual Studio 2012, 2013 o 2015
 
-## Creación de la aplicación
-El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET.
+## <a name="create-the-application"></a>Creación de la aplicación
+El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el trabajo con los clústeres de HDInsight de .NET. 
 
 1. Apertura de Visual Studio 2012 o 2013
 2. En el menú **Archivo**, seleccione **Nuevo** y, a continuación, seleccione **Proyecto**.
@@ -119,10 +119,10 @@ El SDK .NET de HDInsight ofrece bibliotecas de cliente .NET que facilitan el tra
 8. Presione **F5** para iniciar la aplicación.
 9. Presione **ENTRAR** para salir de la aplicación.
 
-## Resumen
+## <a name="summary"></a>Resumen
 Como puede observar, el SDK de .NET para Hadoop le permite crear aplicaciones .NET que envíen trabajos de Pig a un clúster de HDInsight y supervisar el estado del trabajo.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener información general sobre Pig en HDInsight.
 
 * [Uso de Pig con Hadoop en HDInsight](hdinsight-use-pig.md)
@@ -134,4 +134,8 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 [preview-portal]: https://portal.azure.com/
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

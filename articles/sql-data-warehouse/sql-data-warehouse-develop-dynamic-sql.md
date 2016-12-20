@@ -1,22 +1,26 @@
 ---
-title: SQL dinámico en Almacenamiento de datos SQL | Microsoft Docs
-description: Sugerencias para usar SQL dinámico en Almacenamiento de datos SQL Azure para desarrollar soluciones.
+title: "SQL dinámico en SQL Data Warehouse | Microsoft Docs"
+description: "Sugerencias para usar SQL dinámico en Almacenamiento de datos SQL Azure para desarrollar soluciones."
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: a948c2c3-3cd1-4373-90a9-79e59414b778
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 06/14/2016
-ms.author: jrj;barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: jrj;barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6da1efc35b624e0b06693037b4f91d71f0f40eb4
+
 
 ---
-# SQL dinámico en Almacenamiento de datos SQL
+# <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL dinámico en Almacenamiento de datos SQL
 Al desarrollar código de aplicación para Almacenamiento de datos SQL, puede que necesite usar SQL dinámico con el fin de proporcionar soluciones flexibles, genéricas y modulares. Almacenamiento de datos SQL no admite por el momento tipos de datos blob. Esto puede limitar el tamaño de las cadenas ya que los tipos de blob incluyen tipos varchar (max) y nvarchar (max). Si ha utilizado estos tipos en el código de aplicación al crear cadenas muy grandes, será necesario que divida el código en fragmentos y utilice en su lugar la instrucción EXEC.
 
 Un ejemplo sencillo:
@@ -29,24 +33,28 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Si la cadena es corta, puede usar [sp\_executesql][sp\_executesql] como de costumbre.
+Si la cadena es corta, puede usar [sp_executesql][sp_executesql] como de costumbre.
 
 > [!NOTE]
 > Las instrucciones ejecutadas como SQL dinámico seguirán sujetas a todas las reglas de validación de TSQL.
 > 
 > 
 
-## Pasos siguientes
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo][información general sobre desarrollo].
+## <a name="next-steps"></a>Pasos siguientes
+Para más sugerencias sobre desarrollo, consulte la [Introducción al desarrollo][Introducción al desarrollo].
 
 <!--Image references-->
 
 <!--Article references-->
-[información general sobre desarrollo]: sql-data-warehouse-overview-develop.md
+[Introducción al desarrollo]: sql-data-warehouse-overview-develop.md
 
 <!--MSDN references-->
-[sp\_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
+[sp_executesql]: https://msdn.microsoft.com/library/ms188001.aspx
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

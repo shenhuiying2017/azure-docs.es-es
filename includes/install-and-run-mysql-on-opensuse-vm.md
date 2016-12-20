@@ -46,7 +46,7 @@
         CREATE DATABASE testdatabase;
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Tenga en cuenta que los nombres de usuario y contraseñas de la base de datos solo los usan los scripts que se conectan a la base de datos. Los nombres de cuenta de usuario de la base de datos no representan necesariamente las cuentas de usuario reales en el sistema.
+    Tenga en cuenta que los nombres de usuario y contraseñas de la base de datos solo los usan los scripts que se conectan a la base de datos.  Los nombres de cuenta de usuario de la base de datos no representan necesariamente las cuentas de usuario reales en el sistema.
 9. Para iniciar sesión desde otro equipo, escriba:
    
         GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
@@ -56,10 +56,10 @@
     
         quit
 
-## Agregación de un extremo
-1. Cuando MySQL esté instalado, deberá configurar un extremo para que pueda acceder a MySQL de manera remota. Inicie sesión en el [Portal de Azure clásico][AzurePortal]. Haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y luego en **Extremos**.
+## <a name="add-an-endpoint"></a>Agregación de un extremo
+1. Cuando MySQL esté instalado, deberá configurar un extremo para que pueda acceder a MySQL de manera remota. Inicie sesión en el [Portal de Azure clásico][AzurePortal]. Haga clic en **Virtual Machines**, en el nombre de la nueva máquina virtual y, luego, en **Puntos de conexión**.
 2. Haga clic en **Agregar** en la parte inferior de la página.
-3. Agregue un extremo con el nombre "MySQL", con el protocolo **TCP** y los puertos **Público** y **Privado** establecidos en "3306".
+3. Agregue el punto de conexión "MySQL", con el protocolo **TCP** y los puertos **Público** y **Privado** establecidos en "3306".
 4. Para conectarse de forma remota a la máquina virtual desde su equipo, escriba:
    
         mysql -u mysqluser -p -h <yourservicename>.cloudapp.net
@@ -71,6 +71,9 @@
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePortal]: http://manage.windowsazure.com
 
-[Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
+[Imagen 9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
 
-<!---HONumber=AcomDC_0128_2016-->
+
+<!--HONumber=Nov16_HO3-->
+
+

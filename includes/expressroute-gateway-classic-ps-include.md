@@ -25,6 +25,6 @@ Utilice el siguiente comando para quitar una puerta de enlace.
 
     Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

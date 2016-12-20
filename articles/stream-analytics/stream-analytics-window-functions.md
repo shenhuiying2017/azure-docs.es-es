@@ -1,13 +1,13 @@
 ---
-title: Introducción a las funciones de ventana de Análisis de transmisiones | Microsoft Docs
-description: Obtenga información sobre las tres funciones de ventana de Análisis de transmisiones (saltos de tamaño constante, salto y deslizante).
-keywords: ventana de saltos de tamaño constante, ventana deslizante, ventana de salto
-documentationcenter: ''
+title: "Introducción a las funciones de ventana de Stream Analytics | Microsoft Docs"
+description: "Obtenga información sobre las tres funciones de ventana de Análisis de transmisiones (saltos de tamaño constante, salto y deslizante)."
+keywords: "ventana de saltos de tamaño constante, ventana deslizante, ventana de salto"
+documentationcenter: 
 services: stream-analytics
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 561a3b3f9c90274cfff95ab27c6cd745582f15e0
+
 
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introducción a las funciones de ventana de Análisis de transmisiones
@@ -47,6 +51,9 @@ Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de A
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

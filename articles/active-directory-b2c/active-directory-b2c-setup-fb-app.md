@@ -1,23 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: configuración de Facebook | Microsoft Docs'
-description: Proporcione a los consumidores la posibilidad de registro e inicio de sesión con cuentas de Facebook en las aplicaciones protegidas por Azure Active Directory B2C.
+title: "Azure Active Directory B2C: configuración de Facebook | Microsoft Docs"
+description: "Proporcione a los consumidores la posibilidad de registro e inicio de sesión con cuentas de Facebook en las aplicaciones protegidas por Azure Active Directory B2C."
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: bryanla
-
+ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 329e22f307a1db5b8ab957caaa7222e452e0b008
+
 
 ---
-# Azure Active Directory B2C: provisión de registro e inicio de sesión a los consumidores con cuentas de Facebook
-## Creación de una aplicación de Facebook
+# <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: provisión de registro e inicio de sesión a los consumidores con cuentas de Facebook
+## <a name="create-a-facebook-application"></a>Creación de una aplicación de Facebook
 Para usar Facebook como proveedor de identidades en Azure Active Directory (Azure AD) B2C, primero debe crear una aplicación de Facebook y suministrarle los parámetros correctos. Necesita una cuenta de Facebook para ello. Si no tiene una, puede obtenerla en [https://www.facebook.com/](https://www.facebook.com/).
 
 1. Vaya al sitio web [Facebook for developers](https://developers.facebook.com/) e inicie sesión con las credenciales de su cuenta de Facebook.
@@ -29,7 +33,7 @@ Para usar Facebook como proveedor de identidades en Azure Active Directory (Azur
     ![Facebook - Agregar una nueva aplicación - Sitio web](./media/active-directory-b2c-setup-fb-app/fb-add-new-app-website.png)
    
     ![Facebook - Crear identificador de aplicación](./media/active-directory-b2c-setup-fb-app/fb-new-app-skip.png)
-4. En el formulario, especifique un **nombre para mostrar**, un **correo electrónico de contacto** válido, una **categoría** adecuada y haga clic en **Create App ID** (Crear id. de aplicación). Debe aceptar las políticas de la plataforma de Facebook y realizar una comprobación de seguridad en línea.
+4. En el formulario, especifique un **nombre para mostrar**, un **correo electrónico de contacto** válido, una **categoría adecuada** y haga clic en **Create App ID** (Crear id. de aplicación). Debe aceptar las políticas de la plataforma de Facebook y realizar una comprobación de seguridad en línea.
    
     ![Facebook - Crear un nuevo identificador de aplicación](./media/active-directory-b2c-setup-fb-app/fb-create-app-id.png)
 5. En la barra de navegación de la izquierda, haga clic en **Settings** (Configuración).
@@ -41,7 +45,7 @@ Para usar Facebook como proveedor de identidades en Azure Active Directory (Azur
 7. Escriba [https://login.microsoftonline.com/](https://login.microsoftonline.com/) en el campo **Site URL** (URL del sitio) y, luego, haga clic en **Save Changes** (Guardar cambios).
    
     ![Facebook - Dirección URL del sitio](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
-8. Copie el valor de **App ID** (Id. de aplicación). Haga clic en **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Necesitará ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de aplicación** es una credencial de seguridad importante.
+8. Copie el valor de **App ID** (Id. de aplicación). Haga clic en **Show** (Mostrar) y copie el valor de **App Secret** (Secreto de la aplicación). Necesitará ambos para configurar Facebook como proveedor de identidades de su inquilino. El **secreto de la aplicación** es una credencial de seguridad importante.
    
     ![Facebook - Id. de aplicación y el secreto de la aplicación](./media/active-directory-b2c-setup-fb-app/fb-app-id-app-secret.png)
 9. Haga clic en **+ Add Product** (+ Agregar producto) en la barra de navegación izquierda y, luego, en el botón **Get Started** (Comenzar) situado junto a **Facebook Login** (Inicio de sesión de Facebook).
@@ -54,13 +58,18 @@ Para usar Facebook como proveedor de identidades en Azure Active Directory (Azur
     
     ![Facebook - Público de la aplicación](./media/active-directory-b2c-setup-fb-app/fb-app-public.png)
 
-## Configuración de Facebook como proveedor de identidades del inquilino
+## <a name="configure-facebook-as-an-identity-provider-in-your-tenant"></a>Configuración de Facebook como proveedor de identidades del inquilino
 1. Siga estos pasos para [ir a la hoja de características de B2C](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) del Portal de Azure.
 2. En la hoja de características B2C, haga clic en **Proveedores de identidades**.
 3. Haga clic en **+Agregar** en la parte superior de la hoja.
 4. Proporcione un **Nombre** descriptivo para la configuración del proveedor de identidades. Por ejemplo, "FB".
-5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **Facebook** y haga clic en **Aceptar**.
-6. Haga clic en **Set up this identity provider** (Configurar este proveedor de identidades), y escriba el id. y el secreto de la aplicación (de la aplicación de Facebook que creó anteriormente) en los campos **Id. de cliente** y **Secreto de cliente** respectivamente.
-7. Haga clic en **Aceptar** y, luego, en **Create** (Crear) para guardar la configuración de Facebook.
+5. Haga clic en **Identity provider type** (Tipo de proveedor de identidades), seleccione **Facebook** y haga clic en **OK** (Aceptar).
+6. Haga clic en **Set up this identity provider** (Configurar este proveedor de identidades), y escriba el id. y el secreto de la aplicación (de la aplicación de Facebook que creó anteriormente) en los campos **Client ID** y **Client secret** respectivamente.
+7. Haga clic en **OK** (Aceptar) y, luego, en **Create** (Crear) para guardar la configuración de Facebook.
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

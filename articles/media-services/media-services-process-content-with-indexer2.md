@@ -1,12 +1,12 @@
 ---
-title: Indexación de archivos multimedia con Azure Media Indexer 2 Preview | Microsoft Docs
-description: El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar Media Indexer 2 Preview.
+title: "Indexación de archivos multimedia con Azure Media Indexer 2 Preview | Microsoft Docs"
+description: "El Indizador multimedia de Azure permite que el contenido de los archivos multimedia se puedan buscar y genera una transcripción de texto completo para las palabras clave y subtítulos. En este tema se muestra cómo usar Media Indexer 2 Preview."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: adsolank;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indización de archivos multimedia con Azure Media Indexer 2 Preview
@@ -50,7 +54,7 @@ Un trabajo de indexación puede generar archivos de subtítulos en los siguiente
 
 Los archivos de subtítulos (CC) en estos formatos se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas.
 
-## <a name="task-configuration-(preset)"></a>Configuración de tareas (valor preestablecido)
+## <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea de indexación con **Azure Media Indexer 2 Preview**, debe especificar un valor predeterminado de configuración.
 
 El siguiente JSON establece los parámetros disponibles.
@@ -275,6 +279,9 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

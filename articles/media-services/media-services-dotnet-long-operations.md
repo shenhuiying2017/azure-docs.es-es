@@ -1,12 +1,12 @@
 ---
-title: Sondeo de operaciones de larga duración | Microsoft Docs
-description: En este tema se muestra cómo sondear las operaciones de larga duración.
+title: "Sondeo de operaciones de larga duración | Microsoft Docs"
+description: "En este tema se muestra cómo sondear las operaciones de larga duración."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9a68c4b1-6159-42fe-9439-a3661a90ae03
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 2a24c683b66878e4404a6baf879890453755bc0c
+
 
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>Entrega de transmisión en directo con Servicios multimedia de Azure
@@ -187,6 +191,9 @@ También se muestra cómo el cliente puede usar esta clase.
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

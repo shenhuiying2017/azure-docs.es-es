@@ -1,19 +1,23 @@
 ---
-title: Supervisión de Surface Hub con Log Analytics | Microsoft Docs
-description: Use la solución Surface Hub para realizar un seguimiento del estado de sus dispositivos con esta solución y comprender cómo se están utilizando.
+title: "Supervisión de Surface Hub con Log Analytics | Microsoft Docs"
+description: "Use la solución Surface Hub para realizar un seguimiento del estado de sus dispositivos con esta solución y comprender cómo se están utilizando."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 15858f7b7436536e6bae7fcfd6a50c722d2d04a2
+ms.openlocfilehash: 9ba6b1b3fcdaf090eee696ba3cb33be5d94be039
+
 
 ---
 # <a name="monitor-surface-hubs-with-log-analytics"></a>Supervisión de Surface Hub con Log Analytics
@@ -46,7 +50,7 @@ InTune es un producto de Microsoft que permite administrar de forma centralizada
 4. Vaya a la sección de OMS (Azure Operational Insights) de la directiva y agregue el *identificador de área de trabajo* y la *clave de área de trabajo* a la directiva.
 5. Guarde la directiva.
 6. Asocia la directiva con el grupo de dispositivos adecuado.
-   
+
    ![Directiva de InTune](./media/log-analytics-surface-hubs/intune.png)
 
 Después, InTune sincroniza la configuración de OMS con los dispositivos en el grupo de destino, con lo que se inscriben en el área de trabajo de OMS.
@@ -72,7 +76,7 @@ La supervisión de los dispositivos Surface Hubs con OMS es muy similar a la de 
 1. Inicie sesión en el portal de OMS.
 2. Desplácese hasta el panel de paquete de solución Surface Hub.
 3. Se muestra el estado del dispositivo.
-   
+
    ![Panel de Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
 Puede crear [alertas](log-analytics-alerts.md) en función de las búsquedas de registros existentes o personalizadas. Con los datos que recopile OMS de los dispositivos Surface Hub, puede buscar problemas y generar alertas sobre las condiciones que defina para sus dispositivos.
@@ -81,6 +85,8 @@ Puede crear [alertas](log-analytics-alerts.md) en función de las búsquedas de 
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de Surface Hub.
 * Cree [alertas](log-analytics-alerts.md) para recibir una notificación cuando se produzcan problemas con Surface Hub.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

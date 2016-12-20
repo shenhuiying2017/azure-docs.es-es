@@ -1,5 +1,5 @@
-## Equilibrador de carga
-Se utiliza un equilibrador de carga cuando desea escalar sus aplicaciones. Entre los escenarios de implementación habituales se encuentran las aplicaciones que se ejecutan en varias instancias de máquina virtual. Las instancias de máquina virtual están representadas por un equilibrador de carga que ayuda a distribuir el tráfico de red a las diversas instancias.
+## <a name="load-balancer"></a>Equilibrador de carga
+Se utiliza un equilibrador de carga cuando desea escalar sus aplicaciones. Entre los escenarios de implementación habituales se encuentran las aplicaciones que se ejecutan en varias instancias de máquina virtual. Las instancias de máquina virtual están representadas por un equilibrador de carga que ayuda a distribuir el tráfico de red a las diversas instancias. 
 
 ![NIC en una sola máquina virtual](./media/resource-groups-networking/figure8.png)
 
@@ -186,7 +186,11 @@ Ejemplo de plantilla de equilibrador de carga en formato Json:
       ]
     }
 
-### Recursos adicionales
+### <a name="additional-resources"></a>Recursos adicionales
 Lea el artículo [API de REST del Equilibrador de carga](https://msdn.microsoft.com/library/azure/mt163651.aspx) para obtener más información.
 
-<!---HONumber=AcomDC_1223_2015-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

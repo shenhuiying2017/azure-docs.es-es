@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 07/01/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c61d7a04d7d3e7f82ca8636dcd5d222e1a37a96
+ms.sourcegitcommit: 2050bda9c1a4390232d32370863e8d6a62ed5c2b
+ms.openlocfilehash: 66f1a0987960c9251922f1d22ed647d10bb0d10e
 
 
 ---
@@ -91,6 +91,7 @@ En este tutorial se muestra cómo crear una aplicación de [Node.js] sencilla e 
 8. Guarde los cambios y use git para implementar la aplicación en Azure:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    
@@ -117,7 +118,7 @@ El Servicio de aplicaciones de Azure usa [iisnode] para ejecutar aplicaciones de
   * Personalice el archivo web.config para preparar la aplicación para la depuración con Node-Inspector.
 
 ## <a name="use-a-nodejs-framework"></a>Uso de una plataforma de Node.js
-Si usa un marco de trabajo conocido de Node.js, como [Sails.js][SAILSJS] o [MEAN.js][MEANJS] para desarrollar aplicaciones, puede implementar estas en App Service. Las plataformas de Node.js populares tienen sus peculiaridades y sus dependencias de paquete se actualizan constantemente. Sin embargo, App Service hace que los registros de stdout y stderr estén disponibles, para que pueda saber exactamente lo que sucede con su aplicación y realizar cambios según corresponda. Para más información, consulte [Obtención de registros de stdout y stderr desde iisnode](#iisnodelog).
+Si utiliza una plataforma de Node.js popular para desarrollar las aplicaciones, como [Sails.js][SAILSJS] o [MEAN.js][MEANJS], puede implementarla en App Service. Las plataformas de Node.js populares tienen sus peculiaridades y sus dependencias de paquete se actualizan constantemente. Sin embargo, App Service hace que los registros de stdout y stderr estén disponibles, para que pueda saber exactamente lo que sucede con su aplicación y realizar cambios según corresponda. Para más información, consulte [Obtención de registros de stdout y stderr desde iisnode](#iisnodelog).
 
 Los tutoriales siguientes le mostrarán cómo trabajar con una plataforma específica en el Servicio de aplicaciones:
 
@@ -186,7 +187,7 @@ Para leer los registros de iisnode, siga estos pasos.
    
     ![Examen de un archivo de registro de iisnode.][iislog-kudu-console-read]
 
-## <a name="debug-your-app-with-nodeinspector"></a>Depuración de la aplicación con Node-Inspector
+## <a name="debug-your-app-with-node-inspector"></a>Depuración de la aplicación con Node-Inspector
 Si utiliza Node-Inspector para depurar las aplicaciones de Node.js, puede usarlo para su aplicación Servicio de aplicaciones activa. Node-Inspector está preinstalado en la instalación de iisnode para el Servicio de aplicaciones. Si realiza la implementación mediante Git, el archivo web.config generado automáticamente desde Kudu ya contiene toda la configuración que necesita para habilitar Node-Inspector.
 
 Para habilitar Node-Inspector, siga estos pasos:
@@ -235,7 +236,7 @@ Para habilitar Node-Inspector, siga estos pasos:
 [Node.js]: http://nodejs.org
 [SAILSJS]: http://sailsjs.org/
 [registrarse para una evaluación gratuita]: http://go.microsoft.com/fwlink/?LinkId=623901
-[aplicación web]: ./app-service-web-overview.md
+[web app]: ./app-service-web-overview.md
 [Yeoman]: http://yeoman.io/
 
 <!-- IMG List -->
@@ -247,6 +248,6 @@ Para habilitar Node-Inspector, siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

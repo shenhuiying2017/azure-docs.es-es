@@ -1,19 +1,23 @@
 ---
-title: Creación de una alerta de métrica con una plantilla de Resource Manager | Microsoft Docs
-description: Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una alerta de métrica con el fin de recibir notificaciones por correo electrónico o webhook.
+title: "Creación de una alerta de métrica con una plantilla de Resource Manager | Microsoft Docs"
+description: "Obtenga información sobre cómo utilizar una plantilla de Resource Manager para crear una alerta de métrica con el fin de recibir notificaciones por correo electrónico o webhook."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4788235f470fafb043f72dfb44dbe96ebb595df9
+
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
@@ -139,7 +143,7 @@ Para crear una alerta mediante una plantilla de Resource Manager, cree un recurs
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -177,7 +181,7 @@ Para crear una alerta mediante una plantilla de Resource Manager, cree un recurs
 La explicación del esquemas y las propiedades de una regla de alertas [está disponible aquí](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="resource-manager-template-for-a-resource-with-an-alert"></a>Plantilla de Resource Manager para un recurso con una alerta
-Una alerta en una plantilla de Resource Manager suele ser más útil al crear una alerta mientras se crea un recurso. Por ejemplo, desea asegurarse de que se configura una regla "CPU % > 80" cada vez que implementa una máquina virtual. Para ello, agregue la regla de alerta como un recurso en la matriz de recursos para la plantilla de máquina virtual y agregue también una dependencia utilizando la propiedad `dependsOn` para el identificador de recurso de máquina virtual. A continuación se presenta un ejemplo completo que crea una máquina virtual Windows y agrega una alerta que notifica a los administradores de la suscripción cuando el uso de CPU supera el 80 %.
+Una alerta en una plantilla de Resource Manager suele ser más útil al crear una alerta mientras se crea un recurso. Por ejemplo, desea asegurarse de que se configura una regla "CPU % > 80" cada vez que implementa una máquina virtual. Para ello, agregue la regla de alerta como un recurso en la matriz de recursos para la plantilla de máquina virtual y agregue también una dependencia utilizando la propiedad `dependsOn` para el identificador de recurso de máquina virtual. A continuación se presenta un ejemplo completo que crea una máquina virtual Windows y agrega una alerta que notifica a los administradores de la suscripción cuando el uso de CPU supera el 80 %.
 
 ```json
 {
@@ -361,7 +365,7 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
@@ -397,9 +401,12 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Más información sobre alertas](../azure-portal/insights-receive-alert-notifications.md)
+* [Más información sobre alertas](insights-receive-alert-notifications.md)
 * [Agregue la Configuración de diagnóstico](monitoring-enable-diagnostic-logs-using-template.md) a la plantilla de Resource Manager
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

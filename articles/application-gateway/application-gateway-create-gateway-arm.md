@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/10/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d4da5dd65b39011ed0abb8bbbd47542d66e73ad6
+ms.sourcegitcommit: 3a8e5583f213c6d35f8e41dd31fe2ccad7389977
+ms.openlocfilehash: 3185e396380e9a550dbc94517e50e9223ff518f6
 
 
 ---
@@ -124,7 +124,7 @@ Asigne una variable de subred en los pasos siguientes para crear una puerta de e
 $subnet=$vnet.Subnets[0]
 ```
 
-## <a name="create-a-public-ip-address-for-the-frontend-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Creación de una dirección IP pública para la configuración del front-end
 Cree un recurso IP público "publicIP01" en el grupo de recursos "appgw-rg" para la región West US.
 
 ```powershell
@@ -195,7 +195,7 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 > 
 > 
 
-## <a name="create-an-application-gateway-by-using-newazurermapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
+## <a name="create-an-application-gateway-by-using-new-azurermapplicationgateway"></a>Creación de una puerta de enlace de aplicaciones mediante New-AzureRmApplicationGateway
 Cree una puerta de enlace de aplicaciones con todos los elementos de configuración de los pasos anteriores. En el ejemplo, la puerta de enlace de aplicaciones se denomina "appgwtest".
 
 ```powershell

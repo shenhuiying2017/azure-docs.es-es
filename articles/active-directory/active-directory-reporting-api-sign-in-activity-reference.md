@@ -1,12 +1,12 @@
 ---
-title: Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs
-description: Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
+title: "Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs"
+description: "Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ddcd9ae0-f6b7-4f13-a5e1-6cbf51a25634
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 4c60c0fd364400c881f1b8b96598725f6bd11d26
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-reference"></a>Referencia de la API de informes de actividad de inicio de sesión de Azure Active Directory
@@ -28,7 +32,7 @@ Consulte:
 
 Para ver preguntas, problemas o comentarios, póngase en contacto con el equipo de [ayuda de informes de AAD](mailto:aadreportinghelp@microsoft.com).
 
-## <a name="who-can-access-the-api-data?"></a>¿Quién puede acceder a los datos de la API?
+## <a name="who-can-access-the-api-data"></a>¿Quién puede acceder a los datos de la API?
 * Usuarios de los roles de administrador o lector de seguridad
 * Administradores globales
 * Cualquier aplicación que tenga autorización para acceder a la API (la autorización de aplicaciones solo puede configurarse según los permisos del administrador global).
@@ -94,7 +98,7 @@ Para limitar el ámbito de los datos devueltos, puede crear combinaciones de los
 
 Uso de una fecha concreta
 
-    $filter=signinDateTime+eq+2016-04-25T23:59:00Z  
+    $filter=signinDateTime+eq+2016-04-25T23:59:00Z    
 
 
 
@@ -177,6 +181,9 @@ Hay dos opciones para loginStatus: 0: success; 1: failure
 * ¿Quiere ver ejemplos de actividades de inicio de sesión filtradas? Consulte [Azure Active Directory sign-in activity report API samples](active-directory-reporting-api-sign-in-activity-samples.md)(Ejemplos de API de informes de actividad de inicio de sesión de Azure Active Directory).
 * ¿Quiere obtener más información sobre la API de generación de informes de Azure AD? Consulte [Introducción a la API de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

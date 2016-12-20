@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con TimeOffManager | Microsoft Docs'
-description: Aprenda cómo usar TimeOffManager con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con TimeOffManager | Microsoft Docs"
+description: "Aprenda cómo usar TimeOffManager con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
-
+ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,9 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ef606389a71e58b671fe84d91b0dbb22a35aad7a
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integración de Azure Active Directory con TimeOffManager
+# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Tutorial: Integración de Azure Active Directory con TimeOffManager
 El objetivo de este tutorial es mostrar la integración de Azure y TimeOffManager.  
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
@@ -36,7 +40,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 ## <a name="enabling-the-application-integration-for-timeoffmanager"></a>Habilitación de la integración de aplicaciones para TimeOffManager
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para TimeOffManager.
 
-### <a name="to-enable-the-application-integration-for-timeoffmanager,-perform-the-following-steps:"></a>Siga estos pasos para habilitar la integración de aplicaciones para TimeOffManager:
+### <a name="to-enable-the-application-integration-for-timeoffmanager-perform-the-following-steps"></a>Siga estos pasos para habilitar la integración de aplicaciones para TimeOffManager:
 1. En el panel de navegación izquierdo del Portal de Azure clásico, haga clic en **Active Directory**.
    
    ![Active Directory](./media/active-directory-saas-timeoffmanager-tutorial/IC700993.png "Active Directory")
@@ -62,7 +66,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 Como parte de este procedimiento, es necesario cargar un certificado codificado en base 64 en su inquilino de TimeOffManager.  
 Si no está familiarizado con este procedimiento, consulte [Conversión de un certificado binario en un archivo de texto](http://youtu.be/PlgrzUZ-Y1o)
 
-### <a name="to-configure-single-sign-on,-perform-the-following-steps:"></a>Siga estos pasos para configurar el inicio de sesión único:
+### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **TimeOffManager**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
    ![Configurar inicio de sesión único](./media/active-directory-saas-timeoffmanager-tutorial/IC795912.png "Configure Single Sign-On")
@@ -143,7 +147,7 @@ Los usuarios se agregan automáticamente durante el primer inicio de sesión med
 ## <a name="assigning-users"></a>Asignación de usuarios
 Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a los que quiere permitir el uso de su aplicación.
 
-### <a name="to-assign-users-to-timeoffmanager,-perform-the-following-steps:"></a>Para asignar usuarios a TimeOffManager, lleve a cabo los siguientes pasos:
+### <a name="to-assign-users-to-timeoffmanager-perform-the-following-steps"></a>Para asignar usuarios a TimeOffManager, lleve a cabo los siguientes pasos:
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **TimeOffManager** haga clic en **Asignar usuarios**.
    
@@ -154,6 +158,9 @@ Para probar la configuración, debe conceder acceso a los usuarios de Azure AD a
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

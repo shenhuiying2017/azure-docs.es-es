@@ -1,19 +1,23 @@
 ---
-title: Detección de caras y emociones con Análisis multimedia de Azure | Microsoft Docs
-description: Este tema muestra cómo detectar caras y emociones con Análisis multimedia de Azure.
+title: "Detección de caras y emociones con Análisis multimedia de Azure | Microsoft Docs"
+description: "Este tema muestra cómo detectar caras y emociones con Análisis multimedia de Azure."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/15/2016
 ms.author: milanga;juliako;
+translationtype: Human Translation
+ms.sourcegitcommit: 48a4cdf7d50e765ee42cb44d12d1dafd49c13795
+ms.openlocfilehash: 3147eba8bd31d3d05bd990571a986316d6f5093f
+
 
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Detección de caras y emociones con Análisis multimedia de Azure
@@ -44,7 +48,7 @@ La API de detección y seguimiento de caras proporciona detección y seguimiento
 
 Las caras detectadas y seguidas se devuelven con coordenadas (izquierda, superior, ancho y alto) que indican la ubicación de caras en la imagen en píxeles, así como un número de identificación de cara que indica el seguimiento de esa persona. Los números de identificación de cara son propensos a restablecerse en circunstancias en las que la cara de frente se pierde o se superpone en el fotograma, lo que provoca que a algunas personas se les asigne varios identificadores.
 
-### <a name="<a-id="output_elements"></a>elements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
+### <a name="a-idoutputelementsaelements-of-the-output-json-file"></a><a id="output_elements"></a>Elementos del archivo JSON de salida
 Para la operación de detección y seguimiento de caras, el resultado de salida contiene los metadatos de las caras dentro del archivo especificado en formato JSON.
 
 El archivo JSON de detección y seguimiento de caras incluye los siguientes atributos:
@@ -70,18 +74,11 @@ Face Detector (Detector de caras) usa técnicas de fragmentación (donde los met
 * Inicio/Escala de tiempo = 2,1 segundos
 * Segundos x (Velocidad de fotogramas/Escala de tiempo) = 63 fotogramas
 
-A continuación se muestra un ejemplo sencillo de extracción de JSON en un formato por fotograma para detección y seguimiento de caras:
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
-
 ## <a name="face-detection-input-and-output-example"></a>Ejemplo de entrada y salida de detección de caras
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuración de tareas (valor preestablecido)
+### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración es solo para detección de caras.
 
     {"version":"1.0"}
@@ -140,7 +137,7 @@ El siguiente ejemplo de salida de JSON se truncó.
 ### <a name="input-video"></a>Vídeo de entrada
 [Vídeo de entrada](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Freferencestream-samplestream.streaming.mediaservices.windows.net%2Fc8834d9f-0b49-4b38-bcaf-ece2746f1972%2FMicrosoft%20Convergence%202015%20%20Keynote%20Highlights.ism%2Fmanifest&amp;autoplay=false)
 
-### <a name="task-configuration-(preset)"></a>Configuración de tareas (valor preestablecido)
+### <a name="task-configuration-preset"></a>Configuración de tareas (valor preestablecido)
 Al crear una tarea con **Azure Media Face Detector**(Detector de caras multimedia de Azure), debe especificar un valor predeterminado de configuración. El siguiente valor predeterminado de configuración especifica la creación de JSON basándose en la detección de emociones.
 
     {
@@ -514,6 +511,9 @@ El programa siguiente muestra cómo:
 
 [Demostraciones de Análisis multimedia de Azure](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

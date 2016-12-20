@@ -1,12 +1,12 @@
 ---
 title: Circuitos ExpressRoute y dominios de enrutamiento | Microsoft Docs
-description: Esta página proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento.
+description: "Esta página proporciona información general sobre los circuitos ExpressRoute y los dominios de enrutamiento."
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: bd3b8761c0390d9b1f55423ec3fde0301cf8a20b
+
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos ExpressRoute y dominios de enrutamiento
@@ -30,7 +34,7 @@ Un circuito ExpressRoute puede tener hasta tres emparejamientos: público de Azu
 
 Cada circuito tiene un ancho de banda fijo (50 Mbps, 100 Mbps, 200 Mbps, 500 Mbps, 1 Gbps, 10 Gbps) y se asigna a un proveedor de conectividad y una ubicación de emparejamiento. El ancho de banda que seleccione se comparte entre todos los emparejamientos del circuito. 
 
-### <a name="quotas,-limits,-and-limitations"></a>Cuotas, límites y limitaciones
+### <a name="quotas-limits-and-limitations"></a>Cuotas, límites y limitaciones
 Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Para obtener la información más actualizada sobre las cuotas, consulte [Suscripción de Azure y límites, cuotas y restricciones de servicio](../azure-subscription-service-limits.md) .
 
 ## <a name="expressroute-routing-domains"></a>Dominios de enrutamiento de ExpressRoute
@@ -82,6 +86,9 @@ Si decide tener las tres sesiones de emparejamiento, necesita tres pares de sesi
   * [Configuración del enrutamiento (emparejamientos de circuitos)](expressroute-howto-routing-classic.md)
   * [Vinculación de una red virtual a un circuito ExpressRoute](expressroute-howto-linkvnet-classic.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

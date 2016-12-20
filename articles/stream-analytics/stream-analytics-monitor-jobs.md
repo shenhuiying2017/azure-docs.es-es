@@ -1,13 +1,13 @@
 ---
-title: Supervisión de trabajos de Análisis de transmisiones mediante programación | Microsoft Docs
-description: Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell.
-keywords: supervisión de .net monitor, supervisión de trabajos, aplicación de supervisión
+title: "Supervisión de trabajos de Stream Analytics mediante programación | Microsoft Docs"
+description: "Obtenga información sobre cómo supervisar los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell."
+keywords: "supervisión de .net monitor, supervisión de trabajos, aplicación de supervisión"
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 2ec02cc9-4ca5-4a25-ae60-c44be9ad4835
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,23 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 09/26/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 183cc2025bd909ea4450564bc3598c2694b1c0db
+
 
 ---
-# Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
- En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada. Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
+# <a name="programmatically-create-a-stream-analytics-job-monitor"></a>Creación de supervisión de trabajos de Análisis de transmisiones mediante programación
+ En este artículo se demuestra cómo habilitar la supervisión de un trabajo de Análisis de transmisiones. Los trabajos de Análisis de transmisiones creados a través de las API de REST, el SDK de Azure o Powershell no tienen habilitada la supervisión de forma predeterminada.  Puede habilitarla manualmente en el Portal de Azure navegando hasta la página Supervisión del trabajo y haciendo clic en Habilitar, o bien puede automatizar este proceso siguiendo los pasos que se describen en este artículo. Los datos de supervisión se mostrarán en la pestaña "Supervisión" en el Portal de Azure para el trabajo de Análisis de transmisiones.
 
 ![Pestaña Trabajos de Supervisión de trabajos](./media/stream-analytics-monitor-jobs/stream-analytics-monitor-jobs-tab.png)
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar este artículo, debe tener lo siguiente:
 
-* Visual Studio 2012 o 2013
+* Visual Studio 2012 o 2013
 * Descargue e instale el [SDK de .NET de Azure](https://azure.microsoft.com/downloads/).
 * Un trabajo de Análisis de transmisiones existente que requiera la habilitación de supervisión.
 
-## Configuración de un proyecto
+## <a name="setup-a-project"></a>Configuración de un proyecto
 1. Cree una aplicación de consola .NET de Visual Studio C#.
-2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el SDK de Azure Insights que se usará para habilitar la supervisión. El último es el cliente de Azure Active Directory que se usará para autenticación.
+2. En la consola del administrador de paquetes, ejecute los siguientes comandos para instalar los paquetes NuGet. El primero es el SDK de .NET de administración de Análisis de transmisiones de Azure. El segundo es el SDK de Azure Monitor que se usará para habilitar la supervisión. El último es el cliente de Azure Active Directory que se usará para autenticación.
    
    ```
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -112,7 +116,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
              throw new InvalidOperationException("Failed to acquire token");
      }
 
-## Creación de clientes de administración
+## <a name="create-management-clients"></a>Creación de clientes de administración
 El código siguiente configurará las variables y los clientes de administración necesarios.
 
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
@@ -133,8 +137,8 @@ El código siguiente configurará las variables y los clientes de administració
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
 
-## Habilitación de supervisión para un trabajo de Análisis de transmisiones existente
-El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente**. La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
+## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>Habilitación de supervisión para un trabajo de Análisis de transmisiones existente
+El código siguiente habilitará la supervisión de un trabajo de Análisis de transmisiones **existente** . La primera parte del código realiza una solicitud GET en el servicio Análisis de transmisiones para recuperar información sobre el trabajo de Análisis de transmisiones en concreto. Usa la propiedad "Id" (recuperada de la solicitud GET) como parámetro del método Put en la segunda mitad del código que envía una solicitud PUT al servicio Insights para habilitar la supervisión para el trabajo de Análisis de transmisiones.
 
 > [!WARNING]
 > Si previamente ha habilitado la supervisión de otro trabajo de Análisis de transmisiones, a través del Portal de Azure o mediante programación con el siguiente código, **es recomendable proporcionar el mismo nombre de cuenta de almacenamiento que indicó cuando habilitó anteriormente la supervisión.**
@@ -166,14 +170,19 @@ El código siguiente habilitará la supervisión de un trabajo de Análisis de t
 
 
 
-## Obtención de soporte técnico
-Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/es-ES/home?forum=AzureStreamAnalytics).
+## <a name="get-support"></a>Obtención de soporte técnico
+Para obtener más ayuda, pruebe nuestro [foro de Análisis de transmisiones de Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Introducción al Análisis de transmisiones de Azure](stream-analytics-introduction.md)
 * [Introducción al uso de Análisis de transmisiones de Azure](stream-analytics-get-started.md)
 * [Escalación de trabajos de Análisis de transmisiones de Azure](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Análisis de transmisiones de Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

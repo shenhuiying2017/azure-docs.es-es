@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 875f9b8d-f1a1-4895-b717-f45570fb7f80
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
@@ -15,8 +16,8 @@ ms.workload: data-services
 ms.date: 09/13/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8d6e201ba5fb8283d883272e0cb2b8e7c11f43e5
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: 389c7c75bcc0c1a5a66f66a9692ebe2e4095db5e
 
 
 ---
@@ -31,9 +32,9 @@ Para seguir paso a paso este tutorial, necesita:
 * La utilidad de línea de comandos bcp instalada
 * La utilidad de línea de comandos sqlcmd instalada
 
-Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][Centro de descarga de Microsoft].
+Puede descargar las utilidades bcp y SQLCMD del [Centro de descarga de Microsoft][Microsoft Download Center].
 
-### <a name="data-in-ascii-or-utf16-format"></a>Datos en los formatos ASCII o UTF-16
+### <a name="data-in-ascii-or-utf-16-format"></a>Datos en los formatos ASCII o UTF-16
 Si va a probar este tutorial con sus propios datos, estos deben utilizar la codificación ASCII o UTF-16, ya que bcp no admite UTF-8. 
 
 ## <a name="1-create-a-destination-table"></a>1. Creación de una tabla de destino.
@@ -113,13 +114,13 @@ Para migrar una base de datos de SQL Server, consulte el artículo sobre la [mig
 
 <!--MSDN references-->
 [bcp]: https://msdn.microsoft.com/library/ms162802.aspx
-[sintaxis de CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
+[CREATE TABLE syntax]: https://msdn.microsoft.com/library/mt203953.aspx
 
 <!--Other Web references-->
-[Centro de descarga de Microsoft]: https://www.microsoft.com/download/details.aspx?id=36433
+[Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

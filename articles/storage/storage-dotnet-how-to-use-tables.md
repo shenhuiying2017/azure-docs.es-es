@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/18/2016
 ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0e6effa1e74a06a99a2a6bea9df3cfc6deedeb0e
+ms.sourcegitcommit: ee390dcdeefbc1ed87317ae2e167b3c054911723
+ms.openlocfilehash: a8149b38872a8d5b5a5e30280712ca38d983f80c
 
 
 ---
@@ -287,7 +287,7 @@ Para actualizar una entidad, recupérela del servicio Tabla, modifique su objeto
     else
        Console.WriteLine("Entity could not be retrieved.");
 ```
-## <a name="insertorreplace-an-entity"></a>Inserción o reemplazo de una entidad
+## <a name="insert-or-replace-an-entity"></a>Inserción o reemplazo de una entidad
 **Replace** darán error si la entidad se cambió desde su recuperación del servidor.  Asimismo, primero debe recuperar la entidad del servidor para que la operación **Replace** se realice correctamente.
 Sin embargo, en ocasiones no sabe si la entidad existe en el servidor y los valores actuales almacenados en él son irrelevantes. La actualización debe sobrescribir todos.  Para realizarlo, debe utilizar una operación **InsertOrReplace** .  Esta operación inserta la entidad si no existe o la reemplaza si ya existe, con independencia del momento en que se realizó la última actualización.  En el ejemplo de código siguiente, también se recupera la entidad de cliente Ben Smith pero, a continuación, se guarda de nuevo en el servidor mediante **InsertOrReplace**.  Las actualizaciones realizadas en la entidad entre las operaciones de recuperación y actualización se sobrescribirán.
 ```csharp
@@ -328,7 +328,7 @@ Sin embargo, en ocasiones no sabe si la entidad existe en el servidor y los valo
        Console.WriteLine("Entity could not be retrieved.");
 ```
 ## <a name="query-a-subset-of-entity-properties"></a>Consulta de un subconjunto de propiedades de las entidades
-Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una entidad en lugar de todas ellas. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente devuelve solo las direcciones de correo electrónico de las entidades de la tabla. Esto se consigue utilizando una consulta de **DynamicTableEntity** y también **EntityResolver**. Puede obtener más información sobre la proyección en la [entrada de blog Introducción de la proyección de upsert y consulta][Introducción de la proyección de upsert y consulta]. Tenga en cuenta que no se admite la proyección en el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando está usando una cuenta en el servicio Tabla.
+Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una entidad en lugar de todas ellas. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente devuelve solo las direcciones de correo electrónico de las entidades de la tabla. Esto se consigue utilizando una consulta de **DynamicTableEntity** y también **EntityResolver**. Puede obtener más información sobre la proyección en la [Introducción de la proyección de upsert y consulta][Introducción de la proyección de upsert y consulta]. Tenga en cuenta que no se admite la proyección en el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando está usando una cuenta en el servicio Tabla.
 ```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -449,7 +449,7 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de Ta
 [Blob8]: ./media/storage-dotnet-how-to-use-table-storage/blob8.png
 [Blob9]: ./media/storage-dotnet-how-to-use-table-storage/blob9.png
 
-[entrada de blog Introducción de la proyección de upsert y consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
+[Introducción de la proyección de upsert y consulta]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 [Referencia a la biblioteca de clientes de .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
 [Azure Storage Team blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Configuración de las cadenas de conexión de Azure Storage]: http://msdn.microsoft.com/library/azure/ee758697.aspx

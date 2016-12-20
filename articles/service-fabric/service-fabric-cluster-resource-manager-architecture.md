@@ -1,12 +1,12 @@
 ---
 title: Arquitectura de Resource Manager | Microsoft Docs
-description: Información general de la arquitectura de Service Fabric Cluster Resource Manager
+description: "Información general de la arquitectura de Service Fabric Cluster Resource Manager"
 services: service-fabric
 documentationcenter: .net
 author: masnider
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
 ms.service: Service-Fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: d6bfc5b7141eae5cb755679445176064f2e5b0d4
+
 
 ---
-# Información general de la arquitectura del Administrador de recursos de clúster
+# <a name="cluster-resource-manager-architecture-overview"></a>Información general de la arquitectura del Administrador de recursos de clúster
 Para administrar los recursos del clúster, Cluster Resource Manager de Service Fabric debe disponer de varios datos. Debe saber qué servicios existen actualmente y la cantidad actual (o predeterminada) de recursos que consumen esos servicios. También debe conocer la capacidad real de los nodos del clúster y, por lo tanto, la cantidad de recursos que están disponibles en el clúster como un conjunto y que quedan en un nodo concreto. Que el consumo de recursos de un servicio determinado puede cambiar a lo largo del tiempo y que los servicios suelen consumir más de un recurso. Entre muchos servicios diferentes, puede haber tanto recursos físicos reales que se estén midiendo y notificando como métricas, por ejemplo, el consumo de disco y memoria, como (y en realidad más comúnmente) métricas lógicas, cosas como "WorkQueueDepth" o "TotalRequests". Se pueden usar métricas lógicas y físicas en muchos tipos diferentes de servicios o de forma específica en solo un par de ellos.
 
-## Otras consideraciones
+## <a name="other-considerations"></a>Otras consideraciones
 Los propietarios y los operadores del clúster en ocasiones son distintos de los autores del servicio, o como mínimo son las mismas personas desempeñando funciones diferentes. Por ejemplo, cuando desarrolla su servicio sabe cuántos recursos requiere y cómo se deberían implementar idealmente los componentes, pero cuando debe controlar un incidente de un sitio activo para ese servicio en la producción, debe llevar a cabo otras tareas que requieren herramientas diferentes. Además, ni el clúster ni los servicios están configurados de manera estática: el número de nodos del clúster puede aumentar o reducirse, los nodos de diferentes tamaños pueden ir y venir, y los servicios pueden cambiar su asignación de recursos, crearse y eliminarse. Pueden producirse actualizaciones u otras operaciones de administración en el clúster y, por supuesto, en cualquier momento puede producirse un error.
 
-## Componentes y flujo de datos del Administrador de recursos de clúster
+## <a name="cluster-resource-manager-components-and-data-flow"></a>Componentes y flujo de datos del Administrador de recursos de clúster
 Cluster Resource Manager tendrá que saber muchas cosas acerca del clúster en general, así como los requisitos de los servicios individuales y las instancias sin estado o las réplicas con estado que lo constituyen. Para ello, contamos con agentes de Cluster Resource Manager que se ejecutan en nodos individuales con el fin de agregar información sobre el consumo de recursos locales, y un servicio de Cluster Resource Manager centralizado y tolerante a errores que agrega toda la información sobre los servicios y el clúster reacciona en función de su configuración actual. La tolerancia a errores del servicio de Cluster Resource Manager (y de todos los demás servicios) se consigue exactamente con el mismo mecanismo que usamos para sus servicios, en concreto la replicación del estado del servicio para cuórums de un número cualquiera de réplicas del clúster (por lo habitual 7).
 
 ![Arquitectura del equilibrador de recursos][Image1]
@@ -33,10 +37,14 @@ Vamos a examinar el siguiente diagrama y ver lo que sucede a continuación. Supo
 
 ![Arquitectura del equilibrador de recursos][Image2]
 
-## Pasos siguientes
-* El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo: [Describing a service fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md) (Descripción de un clúster de Service Fabric).
+## <a name="next-steps"></a>Pasos siguientes
+* El Administrador de recursos de clúster tiene muchas opciones para describir el clúster. Para más información sobre ellas, consulte este artículo: [Descripción de un clúster de Service Fabric](service-fabric-cluster-resource-manager-cluster-description.md)
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
+[Imagen 1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
+[Imagen 2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

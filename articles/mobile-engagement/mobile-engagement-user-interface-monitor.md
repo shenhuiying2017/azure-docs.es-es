@@ -1,12 +1,12 @@
 ---
-title: 'Interfaz de usuario de Azure Mobile Engagement: supervisión'
-description: Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement.
+title: "Interfaz de usuario de Azure Mobile Engagement: supervisión"
+description: "Obtenga información acerca de cómo supervisar datos en tiempo real acerca de la aplicación mediante Azure Mobile Engagement."
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,47 +14,51 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+
 
 ---
-# Supervisión de datos en tiempo real sobre la aplicación
-Este artículo describe la pestaña **SUPERVISIÓN** del portal **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement**.
+# <a name="how-to-monitor-real-time-data-about-your-application"></a>Supervisión de datos en tiempo real sobre la aplicación
+Este artículo describe la pestaña **SUPERVISIÓN** del portal de **Mobile Engagement**. Utilice el portal **Mobile Engagement** para supervisar y administrar sus aplicaciones móviles. Tenga en cuenta que, para comenzar a usar el portal, debe crear en primer lugar una cuenta de **Azure Mobile Engagement** . 
 
 La sección de supervisión de la interfaz de usuario proporciona información de análisis en tiempo real y le permite establecer alertas cuando se alcanzan los umbrales de la mayor parte de la misma información que está disponible históricamente en la sección [ANÁLISIS](mobile-engagement-user-interface-analytics.md) de la interfaz de usuario. Vea la sección **Glosario** en el tema [Conceptos](http://go.microsoft.com/fwlink/?LinkId=525555) para las definiciones de términos y abreviaturas en análisis y supervisión (como las siguientes: usuario activo, nuevo usuario, usuario retenido, sesión, gráfico de ruta de acceso de usuario, asignación de usuarios, direcciones URL de seguimiento, tendencias, actividad, evento, trabajo, error, información adicional, bloqueo e información de aplicación).
 
 > [!NOTE]
-> Muchas de las secciones de la interfaz de usuario del portal **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
+> Muchas de las secciones de la interfaz de usuario del portal de **Mobile Engagement** contienen el botón **MOSTRAR AYUDA**. Pulse este botón para obtener más información contextual sobre una sección.
 > 
 > 
 
-## Supervisión - Sesiones, trabajos, eventos, errores y bloqueos
-Puede ver cuántos usuarios están actualmente en sesión y en pantallas específicas o realizando acciones específicas. Puede ver la actividad de los usuarios dividida en sesiones, trabajos, eventos, errores y bloqueos. Puede ver la información actual y mostrar la información de la última hora, día o semana. Puede ver toda la información de cada categoría u ordenar por sesión, trabajo, evento, error y bloqueo específico. La supervisión activa es útil para utilizar durante eventos como una campaña de inserción para ver si hay un repunte en la acción justo después de enviar la notificación de inserción.
+## <a name="monitor---sessions-jobs-events-errors-and-crashes"></a>Supervisión - Sesiones, trabajos, eventos, errores y bloqueos
+Puede ver cuántos usuarios están actualmente en sesión y en pantallas específicas o realizando acciones específicas. Puede ver la actividad de los usuarios dividida en sesiones, trabajos, eventos, errores y bloqueos. Puede ver la información actual y mostrar la información de la última hora, día o semana. Puede ver toda la información de cada categoría u ordenar por sesión, trabajo, evento, error y bloqueo específico.  La supervisión activa es útil para utilizar durante eventos como una campaña de inserción para ver si hay un repunte en la acción justo después de enviar la notificación de inserción.
 
-![Monitor1][14]
+![Monitor1][14]  
 
-## Solución de problemas con Supervisión - Eventos - Detalles
+## <a name="troubleshooting-with-monitor---events---details"></a>Solución de problemas con Supervisión - Eventos - Detalles
 Generar un evento en la aplicación desde el dispositivo de prueba y encontrarlo en Supervisión - Eventos - Detalles es una de las maneras más fáciles de encontrar el identificador del dispositivo para el dispositivo de prueba y confirmar que la integración de Azure Mobile Engagement de Análisis, Segmentos y Supervisión está ejecutándose desde su aplicación. Una vez que dispone del identificador de dispositivo del dispositivo de prueba, puede agregarlo a sus dispositivos de prueba en "Mi cuenta – Dispositivos". Si no se puede generar un evento, asegúrese de que Azure Mobile Engagement está integrado correctamente en la aplicación Android/iOS/Web/Windows/Windows Phone con el SDK.
 
-Para obtener más información, consulte [Documentación de SDK][Link 5].
+Para más información, consulte [Documentación de SDK][Vínculo 5].
 
-![Monitor2][15]
+![Monitor2][15]  
 
-## Solución de problemas con Supervisión - Bloqueos - Detalles
+## <a name="troubleshooting-with-monitor---crashes---details"></a>Solución de problemas con Supervisión - Bloqueos - Detalles
 Puede revisar la información de bloqueos sobre la aplicación desde Supervisión - Bloqueos - Detalles para ayudar a determinar por qué se bloquea la aplicación. También debería buscar problemas conocidos relacionados con cada versión del SDK en las notas de la versión para cada versión del SDK de Android/iOS/Web/Windows/Windows Phone.
 
-Para obtener más información, consulte [Documentación de SDK - notas de la versión][Link 5]
+Para más información, consulte [Documentación de SDK - Notas de la versión][Vínculo 5]
 
 ![Monitor3][16]
 
-## Supervisión - Alertas
-También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico.
+## <a name="monitor---alerts"></a>Supervisión - Alertas
+También puede especificar condiciones para las alertas que se le enviarán automáticamente por correo electrónico o mensajes instantáneos. (Los servicios compatibles con XMPP como GTalk de Google o iChat de Apple son compatibles). Las alertas se basan en un umbral de detección predefinido mayor que (>) o menor que (<) un número específico de sesiones, trabajos, eventos, errores o bloqueos por hora, minuto o segundo. Las alertas pueden supervisar todas las actividades de un tipo determinado o supervisar un trabajo, evento o actividad de error específico. 
 
 También puede especificar una tasa de detección mínima, que es la cantidad mínima de minutos que separa dos notificaciones para la misma alerta para asegurarse de que cuando se desencadene la alerta, nunca recibirá más de una notificación cada intervalo especificado.
 
 ![Monitor4][17]
 
-## Otras referencias
-* [Conceptos][Link 6]
-* [Guía de solución de problemas de servicios][Link 24]
+## <a name="see-also"></a>Consulte también
+* [Conceptos][Vínculo 6]
+* [Guía de solución de problemas de servicio][Vínculo 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -117,38 +121,42 @@ También puede especificar una tasa de detección mínima, que es la cantidad m�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: ../mobile-engagement-how-tos-first-push.md
-[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Link 32]: ../mobile-engagement-how-tos-text-view.md
-[Link 33]: ../mobile-engagement-how-tos-web-view.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
+[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
+[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

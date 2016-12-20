@@ -1,12 +1,12 @@
 ---
-title: Cómo usar el Servicio de caché administrado de Azure
-description: Obtener más información acerca de cómo mejorar el rendimiento de sus aplicaciones de Azure con el Servicio de caché administrado de Azure
+title: "Cómo usar el Servicio de caché administrado de Azure"
+description: "Obtener más información acerca de cómo mejorar el rendimiento de sus aplicaciones de Azure con el Servicio de caché administrado de Azure"
 services: cache
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 80552353-6682-4b96-a4cc-4e975a25980c
 ms.service: cache
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,19 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 6feeeaef2bd5e5ff665ca870b61036365d75f53d
+
 
 ---
-# Cómo usar el Servicio de caché administrado de Azure
-En esta guía se explica cómo comenzar a usar el **Servicio de caché administrado de Azure**. Los ejemplos se escriben en código C# y usan la API .NET. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché**, la **incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y la **activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información acerca del uso del servicio de caché de Azure, consulte la sección [Pasos siguientes][Pasos siguientes].
+# <a name="how-to-use-azure-managed-cache-service"></a>Cómo usar el Servicio de caché administrado de Azure
+En esta guía se explica cómo comenzar a usar el **Servicio de caché administrado de Azure**. Los ejemplos se escriben en código C\# y usan la API .NET. Entre los escenarios tratados se incluyen la **creación y configuración de una caché**, la **configuración de clientes de caché**, la **incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y la **activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información sobre cómo utilizar Azure Cache, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 > [!IMPORTANT]
-> Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) del último año, Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Le recomendamos usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](../redis-cache/cache-migrate-to-redis.md).
+> Según el [anuncio](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)del año pasado, el Servicio de caché administrado de Azure y el servicio Caché en rol de Azure se retirarán el 30 de noviembre de 2016. Le recomendamos usar [Caché en Redis de Azure](https://azure.microsoft.com/services/cache/). Para más información sobre la migración, consulte [Migración desde el Servicio de caché administrado a Caché en Redis de Azure](../redis-cache/cache-migrate-to-redis.md).
 > 
 > 
 
 <a name="what-is"></a>
 
-## ¿Qué es el Servicio de caché administrado de Azure?
+## <a name="what-is-azure-managed-cache-service"></a>¿Qué es el Servicio de caché administrado de Azure?
 El Servicio de caché administrado de Azure es una solución escalable, distribuida y en memoria que permite al usuario desarrollar aplicaciones con gran capacidad de escalado y respuesta dotándolo de acceso ultrarrápido a los datos.
 
 El servicio de caché administrado de Azure incluye las características siguientes:
@@ -43,13 +47,13 @@ El Servicio de caché administrado está disponible en tres niveles:
 * Estándar: tamaños de caché de 1 GB a 10 GB
 * Premium: tamaños de caché de 5 GB a 150 GB
 
-Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché][Detalles de precios de caché].
+Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información sobre los precios consulte la página de [Detalles de precios de caché][Detalles de precios de caché].
 
-Esta guía contiene información general para iniciarse en el uso del Servicio de caché administrado. Para obtener información más detallada acerca de estas características, que van más allá del ámbito de esta guía introductoria, consulte [Información general del Servicio de caché administrado de Azure][Información general del Servicio de caché administrado de Azure].
+Esta guía contiene información general para iniciarse en el uso del Servicio de caché administrado. Para obtener información más detallada sobre estas características, que no se explican en esta guía introductoria, consulte el artículo de [Información general del Servicio de caché administrado de Azure][Información general del Servicio de caché administrado de Azure].
 
 <a name="getting-started-cache-service"></a>
 
-## Introducción al Servicio de caché
+## <a name="getting-started-with-cache-service"></a>Introducción al Servicio de caché
 Comenzar a usar el Servicio de caché administrado es muy fácil. En primer lugar, tiene que aprovisionar y configurar una caché. A continuación, debe configurar los clientes de caché para que puedan obtener acceso a la caché. Una vez que los clientes de caché estén configurados, ya puede empezar a trabajar con ellos.
 
 * [Creación de la memoria caché][Creación de la memoria caché]
@@ -58,22 +62,22 @@ Comenzar a usar el Servicio de caché administrado es muy fácil. En primer luga
 
 <a name="create-cache"></a>
 
-## Creación de una caché
-Las instancias de caché del Servicio de caché administrado se crean usando cmdlets de PowerShell.
+## <a name="create-a-cache"></a>Creación de una caché
+Las instancias de caché del Servicio de caché administrado se crean usando cmdlets de PowerShell. 
 
-> Una vez que se haya creado una instancia del Servicio de caché administrado con los cmdlets de PowerShell, esta se puede ver y configurar en el [Portal de Azure clásico][Portal de Azure clásico].
+> Una vez que se haya creado una instancia de Managed Cache Service con los cmdlets de PowerShell, se puede ver y configurar en el [Portal de Azure clásico][Portal de Azure clásico].
 > 
 > 
 
 Para crear una instancia del Servicio de caché administrado, abra una ventana de comandos de Azure PowerShell.
 
-> Para obtener instrucciones de instalación y uso de PowerShell de Azure, vea [Cómo instalar y configurar PowerShell de Azure][Cómo instalar y configurar PowerShell de Azure].
+> Para ver instrucciones sobre cómo instalar y usar Azure PowerShell, vea [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 > 
 > 
 
 Invoque el cmdlet [Add-AzureAccount][Add-AzureAccount] y escriba la dirección de correo electrónico y la contraseña asociadas a la cuenta. Hay una suscripción seleccionada de manera predeterminada que se muestra tras invocar el cmdlet [Add-AzureAccount][Add-AzureAccount]. Para cambiar la suscripción, invoque el cmdlet [Select-AzureSubscription][Select-AzureSubscription].
 
-> Si ha configurado Azure PowerShell con un certificado para la cuenta, puede pasar por alto este paso. Para obtener más información sobre la conexión de PowerShell de Azure con su cuenta de Azure, consulte [Instalación y configuración de PowerShell de Azure][Instalación y configuración de PowerShell de Azure].
+> Si ha configurado Azure PowerShell con un certificado para la cuenta, puede pasar por alto este paso. Para obtener más información sobre cómo conectar Azure PowerShell con su cuenta de Azure, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 > 
 > 
 
@@ -91,7 +95,7 @@ En **Ubicación**, seleccione una región para la memoria caché. Para optimizar
 * Estándar: Tamaños de caché de 1 GB a 10 GB en incrementos de 1 GB, compatible con las notificaciones, con hasta diez cachés con nombre.
 * Premium: Tamaños de caché de 5 GB a 150 GB en incrementos de 5 GB, compatible con las notificaciones, con alta disponibilidad y hasta diez cachés con nombre.
 
-Elija los valores de **Sku** y **Memoria** que se ajusten a las necesidades de su aplicación. Tenga en cuenta que algunas características de las cachés, como las notificaciones y la alta disponibilidad, solo están disponibles con determinadas ofertas de caché. Para obtener más información acerca de cómo elegir la oferta y el tamaño de caché que mejor se ajusten a su aplicación, consulte [Ofertas de caché][Ofertas de caché].
+Elija los valores de **Sku** y **Memoria** que se ajusten a las necesidades de su aplicación. Tenga en cuenta que algunas características de las cachés, como las notificaciones y la alta disponibilidad, solo están disponibles con determinadas ofertas de caché. Para obtener más información sobre cómo elegir la oferta y el tamaño de caché que mejor se ajusten a su aplicación, consulte la página de [Ofertas de caché][Ofertas de caché].
 
  En el siguiente ejemplo, se crea una caché de la oferta Basic de 128 MB con el nombre contosocache, en la región geográfica Centro-Sur de EE. UU.
 
@@ -101,9 +105,9 @@ Elija los valores de **Sku** y **Memoria** que se ajusten a las necesidades de s
 > 
 > 
 
-Tras invocar al cmdlet de PowerShell, la creación de la memoria caché puede tardar unos minutos. Una vez creada la memoria caché, su estado es `Running`, está preparada para usarse con la configuración predeterminada y se puede ver y configurar en el [Portal de Azure clásico][Portal de Azure clásico]. Para personalizar la configuración de la caché, consulte la sección siguiente, [Configuración de la memoria caché][Configuración de la memoria caché].
+Tras invocar al cmdlet de PowerShell, la creación de la memoria caché puede tardar unos minutos. Una vez creada la memoria caché, su estado es `Running` (y está preparada para usarse con la configuración predeterminada), y se puede ver y configurar en el [Portal de Azure clásico][Portal de Azure clásico]. Para personalizar la configuración de la caché, consulte la sección siguiente de [Configuración de la memoria caché][Configuración de la memoria caché].
 
-Puede supervisar el progreso de creación en la ventana de Azure PowerShell. Cuando la memoria caché está preparada para el uso, el cmdlet [New-AzureManagedCache][New-AzureManagedCache] mostrará la información de la caché, como se puede ver en el siguiente ejemplo.
+Puede supervisar el progreso de creación en la ventana de Azure PowerShell. Cuando la memoria caché está preparada para usarse, el cmdlet [New-AzureManagedCache][New-AzureManagedCache] mostrará la información de la caché, como se puede ver en el siguiente ejemplo.
 
     PS C:\> Add-AzureAccount
     VERBOSE: Account "user@domain.com" has been added.
@@ -133,59 +137,61 @@ Puede supervisar el progreso de creación en la ventana de Azure PowerShell. Cua
 
 <a name="enable-caching"></a>
 
-## Configuración de la memoria caché
-Para configurar las opciones de la caché, debe utilizar la pestaña **Configurar** correspondiente al servicio de caché del Portal de Azure clásico. Toda caché tiene una caché con nombre **predeterminada**, pero las ofertas de caché estándar y premium admiten hasta nueve cachés con nombre adicionales, que hacen un total de diez. Cada caché con nombre dispone de opciones propias que le permiten configurar la caché de una manera muy flexible.
+## <a name="configure-the-cache"></a>Configuración de la memoria caché
+Para configurar las opciones de la caché, debe utilizar la pestaña **Configurar** correspondiente al servicio de caché del Portal de Azure clásico. Toda caché tiene una caché con nombre **predeterminada** , pero las ofertas de caché estándar y premium admiten hasta nueve cachés con nombre adicionales, que hacen un total de diez. Cada caché con nombre dispone de opciones propias que le permiten configurar la caché de una manera muy flexible.
 
 ![CachésConNombre][NamedCaches]
 
-Para crear una caché con nombre, escriba el nombre de la nueva caché en el cuadro **Name**, especifique las opciones que desee, haga clic en **Save** y, a continuación, haga clic en **Yes** para confirmar. Para cancelar los cambios, haga clic en **Discard**.
+Para crear una caché con nombre, escriba el nombre de la nueva caché en el cuadro **Nombre**, especifique las opciones que desee, haga clic en **Guardar** y, luego, en **Sí** para confirmar. Para cancelar los cambios, haga clic en **Discard**.
 
-## Directiva de caducidad y tiempo (min)
-Los parámetros **Expiry Policy** y **Time (min)** determinan cuándo caducan los elementos almacenados en caché. Existen tres tipos de directivas de caducidad: **Absolute**, **Sliding** y **Never**.
+## <a name="expiry-policy-and-time-min"></a>Directiva de caducidad y tiempo (min)
+Los parámetros **Directiva de expiración** y **Tiempo (minutos)** determinan cuándo expiran los elementos almacenados en caché. Existen tres tipos de directivas de expiración: **Absoluta**, **Ventana deslizante** y **Nunca**. 
 
-Cuando se especifica **Absolute**, el intervalo de caducidad indicado por el parámetro **Time (min)** comienza cuando se agrega un elemento a la caché. Una vez que transcurre el intervalo indicado por el parámetro **Time (min)**, el elemento caduca.
+Cuando se especifica **Absoluta**, el intervalo de expiración indicado por el parámetro **Tiempo (minutos)** comienza cuando se agrega un elemento a la caché. Una vez que transcurre el intervalo indicado por el parámetro **Time (min)** , el elemento caduca. 
 
-Cuando se especifica **Sliding**, el intervalo de caducidad indicado por el parámetro **Time (min)** se restablece cada vez que se obtiene acceso a un elemento de la caché. El elemento no caduca hasta que transcurre el intervalo indicado por el parámetro **Time (min)** tras el último acceso al elemento.
+Cuando se especifica **Ventana deslizante**, el intervalo de expiración que indica el parámetro **Tiempo (minutos)** se restablece cada vez que se accede a un elemento de la caché. El elemento no caduca hasta que transcurre el intervalo indicado por el parámetro **Time (min)** tras el último acceso al elemento.
 
-Cuando se especifica **Never**, el parámetro **Time (min)**) debe establecerse en **0** y los elementos no caducan.
+Cuando se especifica **Nunca**, el parámetro **Tiempo (minutos)** debe establecerse en **0**; los elementos no expirarán.
 
-**Absolute** es la directiva de caducidad predeterminada y 10 minutos es la configuración predeterminada del parámetro **Time (min)**. La directiva de caducidad es la misma para todos los elementos de una caché con nombre, pero el valor **Time (min)** puede personalizarse para cada elemento mediante sobrecargas de **Add** y **Put** que utilizan un parámetro de tiempo de espera.
+**Absoluta** es la directiva de expiración predeterminada y 10 minutos es la configuración predeterminada del parámetro **Tiempo (minutos)**. La directiva de expiración es la misma para todos los elementos de una caché con nombre, pero el valor **Tiempo (minutos)** puede personalizarse para cada elemento mediante sobrecargas de **Add** y **Put** que utilizan un parámetro de tiempo de espera.
 
-Para obtener más información acerca de las directivas de expulsión y caducidad, consulte [Caducidad y expulsión][Caducidad y expulsión].
+Para obtener más información sobre las directivas de expulsión y expiración, consulte [Caducidad y expulsión][Caducidad y expulsión].
 
-## Notificaciones
+## <a name="notifications"></a>Notificaciones
 Las notificaciones de caché permiten a las aplicaciones recibir notificaciones asincrónicas cuando se producen diferentes operaciones de caché en el clúster de caché. Las notificaciones de caché también ofrecen invalidación automática de los objetos almacenados en caché localmente. Para obtener más información, consulte [Notificaciones][Notificaciones].
 
-> Las notificaciones solo están disponibles en las ofertas de caché estándar y premium, no en la oferta básica. Para obtener más información, consulte [Ofertas de caché][Ofertas de caché].
+> Las notificaciones solo están disponibles en las ofertas de caché estándar y premium, no en la oferta básica. Para ver más detalles, consulte la página de [Ofertas de caché][Ofertas de caché].
 > 
 > 
 
-## Alta disponibilidad
+## <a name="high-availability"></a>Alta disponibilidad
 Cuando está habilitada la alta disponibilidad, se realiza una copia de seguridad de todos los elementos que se agregan a la caché. Si se produce un error imprevisto en la copia principal del elemento, la copia de seguridad sigue estando disponible.
 
-Por definición, el uso de la alta disponibilidad multiplica por dos la cantidad de memoria necesaria para cada elemento almacenado en caché. Es importante tener en cuenta esto a la hora de planificar la capacidad. Para obtener más información, consulte [Alta disponibilidad][Alta disponibilidad].
+Por definición, el uso de la alta disponibilidad multiplica por dos la cantidad de memoria necesaria para cada elemento almacenado en caché. Es importante tener en cuenta esto a la hora de planificar la capacidad. Para obtener más información, consulte la página sobre [Alta disponibilidad][Alta disponibilidad].
 
-> La alta disponibilidad solo está disponible en la oferta de caché premium, no en las ofertas básica y estándar. Para obtener más información, consulte [Ofertas de caché][Ofertas de caché].
+> La alta disponibilidad solo está disponible en la oferta de caché premium, no en las ofertas básica y estándar. Para ver más detalles, consulte la página de [Ofertas de caché][Ofertas de caché].
 > 
 > 
 
-## Expulsión
-Para conservar la capacidad de memoria en las cachés, es posible expulsar los elementos menos usados recientemente. Cuando el consumo de memoria supera un cierto umbral, se eliminan objetos almacenados, independientemente de si están caducados o no, hasta que se alivia la carga de la memoria. La expulsión está habilitada de manera predeterminada. Si se deshabilita la expulsión, cuando se alcance el límite de capacidad no se expulsarán elementos de la caché, sino que las operaciones Put y Add darán error.
+## <a name="eviction"></a>Expulsión
+Para conservar la capacidad de memoria en las cachés, es posible expulsar los elementos menos usados recientemente. Cuando el consumo de memoria supera un cierto umbral, se eliminan objetos almacenados, independientemente de si están caducados o no, hasta que se alivia la carga de la memoria.
+La expulsión está habilitada de manera predeterminada. Si se deshabilita la expulsión, cuando se alcance el límite de capacidad no se expulsarán elementos de la caché, sino que las operaciones Put y Add darán error.
 
-Para obtener más información acerca de las directivas de expulsión y caducidad, consulte [Caducidad y expulsión][Caducidad y expulsión].
+Para obtener más información sobre las directivas de expulsión y expiración, consulte [Caducidad y expulsión][Caducidad y expulsión].
 
 Una vez configurada la caché, es posible configurar los clientes de caché para permitir el acceso a la misma.
 
 <a name="NuGet"></a>
 
-## Configuración de los clientes de caché
-Las memorias caché creadas a través del Servicio de caché administrado son accesibles desde aplicaciones de Azure que se ejecutan en Sitios web de Azure, roles web y de trabajo máquinas virtuales. Se proporciona un paquete de NuGet que facilita la configuración de las aplicaciones cliente de caché.
+## <a name="configure-the-cache-clients"></a>Configuración de los clientes de caché
+Las memorias caché creadas a través del Servicio de caché administrado son accesibles desde aplicaciones de Azure que se ejecutan en Sitios web de Azure, roles web y de trabajo máquinas virtuales. Se proporciona un paquete de NuGet que facilita la configuración de las aplicaciones cliente de caché. 
 
-Para configurar una aplicación cliente utilizando el paquete de NuGet para el servicio de caché, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**.
+Para configurar una aplicación cliente utilizando el paquete de NuGet de caché, haga clic con el botón derecho en el proyecto del **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. 
 
 ![MenúNuGetPackage][NuGetPackageMenu]
 
-Escriba **WindowsAzure.Caching** en el cuadro de texto **Buscar en línea** y seleccione **Windows** **Azure** **Cache** en los resultados. Haga clic en **Instalar** y luego en **Acepto**.
+Escriba **WindowsAzure.Caching** en el cuadro de texto **Buscar en línea** y seleccione **Windows**  
+**Azure** **Cache** en los resultados. Haga clic en **Instalar** y, luego, en **Acepto**.
 
 ![PaqueteDeNuGet][NuGetPackage]
 
@@ -195,7 +201,7 @@ El paquete NuGet realiza varias acciones: agrega la configuración necesaria par
 > 
 > 
 
-El paquete NuGet agrega los siguientes elementos de configuración al archivo web.config o app.config de la aplicación. Las secciones **dataCacheClients** y **cacheDiagnostics** se agregan bajo el elemento **configSections**. Si no existe el elemento **configSections**, se crea uno como elemento secundario del elemento **configuration**.
+El paquete NuGet agrega los siguientes elementos de configuración al archivo web.config o app.config de la aplicación. Las secciones **dataCacheClients** y **cacheDiagnostics** se agregan bajo el elemento **configSections**. Si no existe el elemento **configSections**, se crea uno como elemento secundario de **configuration**.
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
@@ -212,7 +218,7 @@ El paquete NuGet agrega los siguientes elementos de configuración al archivo we
         allowDefinition="Everywhere" />
 
 
-Estas nuevas secciones incluyen referencias a un elemento **dataCacheClients**, que también se agrega al elemento **configuration**.
+Estas nuevas secciones incluyen referencias a un elemento **dataCacheClients**, que también se agrega a **configuration**.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -237,7 +243,7 @@ Una vez agregada la configuración, reemplace los siguientes dos elementos de la
 1. Reemplace **[Nombre del rol de caché o punto de conexión de servicio]** por el punto de conexión, que aparece en el Panel del Portal de Azure clásico.
    
     ![Extremo][Endpoint]
-2. Quite la marca de comentario de la sección securityProperties y reemplace **[Clave de autenticación]** por la clave de autenticación, que se puede encontrar en el Portal de Azure clásico haciendo clic en **Administrar claves** en el panel de caché.
+2. Quite la marca de comentario de la sección securityProperties y reemplace **[Authentication Key]** por la clave de autenticación, que se puede encontrar en el Portal de Azure clásico haciendo clic en la opción **Administrar claves** del panel de caché.
    
     ![ClavesDeAcceso][AccessKeys]
 
@@ -245,7 +251,7 @@ Una vez agregada la configuración, reemplace los siguientes dos elementos de la
 > 
 > 
 
-Para los proyectos de servicios en la nube, el paquete de NuGet también agrega el parámetro **ClientDiagnosticLevel** al valor **ConfigurationSettings** del rol de cliente de caché en ServiceConfiguration.cscfg. El ejemplo siguiente es la sección **WebRole1** del archivo ServiceConfiguration.cscfg con el parámetro **ClientDiagnosticLevel de 1**, que es el valor predeterminado de **ClientDiagnosticLevel**.
+Para los proyectos de Cloud Services, el paquete de NuGet también agrega el parámetro **ClientDiagnosticLevel** al valor **ConfigurationSettings** del rol de cliente de caché en ServiceConfiguration.cscfg. El ejemplo siguiente es la sección **WebRole1** del archivo ServiceConfiguration.cscfg con el parámetro **ClientDiagnosticLevel de 1**, que es el valor predeterminado de **ClientDiagnosticLevel**.
 
     <Role name="WebRole1">
       <Instances count="1" />
@@ -256,7 +262,7 @@ Para los proyectos de servicios en la nube, el paquete de NuGet también agrega 
       </ConfigurationSettings>
     </Role>
 
-> El nivel de diagnóstico de cliente configura el nivel de la información de diagnóstico de almacenamiento en caché recopilada para los clientes de caché. Para obtener más información, consulte [Diagnóstico y solución de problemas][Diagnóstico y solución de problemas]
+> El nivel de diagnóstico de cliente configura el nivel de la información de diagnóstico de almacenamiento en caché recopilada para los clientes de caché. Para obtener más información, consulte el artículo de [Diagnóstico y solución de problemas][Diagnóstico y solución de problemas].
 > 
 > 
 
@@ -277,7 +283,7 @@ Cuando el proyecto de cliente ya está configurado para el almacenamiento en cac
 
 <a name="working-with-caches"></a>
 
-## Trabajo con cachés
+## <a name="working-with-caches"></a>Trabajo con cachés
 En esta sección se describe cómo realizar tareas comunes con el servicio de caché.
 
 * [Creación de un objeto DataCache][Creación de un objeto DataCache]
@@ -288,12 +294,12 @@ En esta sección se describe cómo realizar tareas comunes con el servicio de ca
 
 <a name="create-cache-object"></a>
 
-## Creación de un objeto DataCache
+## <a name="how-to-create-a-datacache-object"></a>Creación de un objeto DataCache
 Para trabajar con una caché mediante programación, necesita una referencia a la misma. Agregue lo siguiente en la parte superior de cualquier archivo desde el que desee utilizar el servicio de caché de Azure:
 
     using Microsoft.ApplicationServer.Caching;
 
-> Si Visual Studio no reconoce los tipos de la instrucción de uso incluso tras la instalación del paquete de NuGet para el servicio de caché, que agrega las referencias necesarias, asegúrese de que el perfil de destino del proyecto sea .NET Framework 4 o superior y seleccione un perfil que no especifique **Client Profile**. Para obtener instrucciones acerca de la configuración de los clientes de caché, consulte [Configuración de los clientes de caché][Configuración de los clientes de caché].
+> Si Visual Studio no reconoce los tipos de la instrucción de uso incluso tras la instalación del paquete de NuGet para el servicio de caché, que agrega las referencias necesarias, asegúrese de que el perfil de destino del proyecto sea .NET Framework 4 o superior y seleccione un perfil que no especifique **Client Profile**. Para obtener instrucciones sobre cómo configurar los clientes de caché, consulte [Configuración de los clientes de caché][Configuración de los clientes de caché].
 > 
 > 
 
@@ -301,9 +307,9 @@ Un objeto **DataCache** se puede crear de dos formas. La primera consiste sencil
 
     DataCache cache = new DataCache("default");
 
-Tras crear una instancia del objeto **DataCache**, puede usarlo para interactuar con la caché, tal y como se describe en las siguientes secciones.
+Tras crear una instancia del objeto **DataCache** , puede usarlo para interactuar con la caché, tal y como se describe en las siguientes secciones.
 
-La segunda forma se basa en crear un nuevo objeto **DataCacheFactory** en la aplicación con la utilización del constructor predeterminado. Esto da lugar a que el cliente de caché use los ajustes del archivo de configuración. Recurra al método **GetDefaultCache** de la nueva instancia **DataCacheFactory** que devuelve un objeto **DataCache**, o bien recurra al método **GetCache** y reemplace el nombre de la caché. Estos métodos devuelven un objeto **DataCache** que se puede usar para obtener acceso a la caché de manera programada.
+La segunda forma se basa en crear un nuevo objeto **DataCacheFactory** en la aplicación con la utilización del constructor predeterminado. Esto da lugar a que el cliente de caché use los ajustes del archivo de configuración. Recurra al método **GetDefaultCache** de la nueva instancia **DataCacheFactory** que devuelve un objeto **DataCache**, o bien el método **GetCache** y reemplace el nombre de la caché. Estos métodos devuelven un objeto **DataCache** que se puede usar para obtener acceso a la caché de manera programada.
 
     // Cache client configured by settings in application configuration file.
     DataCacheFactory cacheFactory = new DataCacheFactory();
@@ -313,8 +319,8 @@ La segunda forma se basa en crear un nuevo objeto **DataCacheFactory** en la apl
 
 <a name="add-object"></a>
 
-## Agregación y recuperación de un objeto de la caché
-Para incorporar un elemento a la caché, se puede usar el método **Add** o **Put**. El método **Add** incorpora el objeto especificado a la caché, cuya clave se corresponde con el valor del parámetro clave.
+## <a name="how-to-add-and-retrieve-an-object-from-the-cache"></a>Agregación y recuperación de un objeto de la caché
+Para incorporar un elemento a la caché, se pueden usar los métodos **Add** o **Put**. El método **Add** incorpora el objeto especificado a la caché, cuya clave se corresponde con el valor del parámetro clave.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value");
@@ -325,7 +331,7 @@ Si un objeto con la misma clave ya se encuentra en la caché, se producirá una 
 > 
 > 
 
-Para recuperar un objeto con una clave específica, se puede usar el método **Get**. Si el objeto existe, este se devuelve, y si no existe, se devuelve null.
+Para recuperar un objeto con una clave específica, se puede usar el método **Get** . Si el objeto existe, este se devuelve, y si no existe, se devuelve null.
 
     // Add the string "value" to the cache, keyed by "key"
     object result = cache.Get("Item");
@@ -349,19 +355,19 @@ El método **Put** agrega el objeto con la clave especificada a la caché si no 
 
 <a name="specify-expiration"></a>
 
-## Especificación de la expiración de un objeto en la memoria caché
+## <a name="how-to-specify-the-expiration-of-an-object-in-the-cache"></a>Especificación de la expiración de un objeto en la memoria caché
 De forma predeterminada, los elementos de la caché expiran 10 minutos después de colocarlos en la caché. Este valor se puede configurar en la sección **Tiempo (minutos)** de la pestaña Configurar para la caché en el Portal de Azure clásico.
 
 ![CachésConNombre][NamedCaches]
 
-Hay tres tipos de **directivas de seguridad**: **Never**, **Absolute** y **Sliding**. Estas opciones configuran cómo se usa **Time (min)** para determinar la expiración. El valor de **Tipo de expiración** predeterminado es **Absoluta**, que significa que el temporizador de cuenta regresiva de la expiración de un elemento comienza cuando el elemento se coloca en la caché. Cuando ha transcurrido la cantidad de tiempo especificada para un elemento, este expira. Si se especifica **Sliding**, la cuenta regresiva para la expiración de un elemento se restablece cada vez que se obtiene acceso al elemento en la caché, y el elemento no expirará hasta que haya transcurrido la cantidad de tiempo especificada desde el último acceso. Si se especifica **Never**, la opción **Time (min)** debe establecerse en **0**, y los elementos no expirarán y serán válidos mientras estén en la caché.
+Hay tres tipos de **directivas de expiración**: **Nunca**, **Absoluta** y **Ventana deslizante**. Estas opciones configuran cómo se usa **Time (min)** para determinar la expiración. El valor de **Tipo de expiración** predeterminado es **Absoluta**, que significa que el temporizador de cuenta regresiva de la expiración de un elemento comienza cuando el elemento se coloca en la caché. Cuando ha transcurrido la cantidad de tiempo especificada para un elemento, este expira. Si se especifica **Sliding** , la cuenta regresiva para la expiración de un elemento se restablece cada vez que se obtiene acceso al elemento en la caché, y el elemento no expirará hasta que haya transcurrido la cantidad de tiempo especificada desde el último acceso. Si se especifica **Nunca**, la opción **Tiempo (minutos)** debe establecerse en **0**, y los elementos no expirarán y serán válidos mientras estén en la caché.
 
-Si se desea un intervalo de tiempo de expiración más largo o más corto que el que se ha configurado en las propiedades de la caché, se puede definir una duración específica cuando se incorpora o actualiza un elemento en la caché mediante la utilización de la sobrecarga de **Add** y **Put** que consideran un parámetro **TimeSpan**. En el siguiente ejemplo, la cadena **value** se incorpora a la caché, con la clave de **item** y con un tiempo de expiración de 30 minutos.
+Si quiere un intervalo de tiempo de expiración más largo o más corto que el que se ha configurado en las propiedades del rol, se puede definir una duración específica cuando se incorpora o actualiza un elemento en la caché mediante la sobrecarga de **Add** y **Put** que consideran un parámetro **TimeSpan**. En el siguiente ejemplo, la cadena **value** se incorpora a la caché, con la clave de **item** y con un tiempo de expiración de 30 minutos.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value", TimeSpan.FromMinutes(30));
 
-Para ver el intervalo de tiempo de expiración restante de un elemento de la caché, se puede usar el método **GetCacheItem** para recuperar un objeto **DataCacheItem** que contiene información acerca del elemento de la caché, incluido el intervalo de tiempo de expiración restante.
+Para ver el intervalo de tiempo de expiración restante de un elemento de la caché, se puede usar el método **GetCacheItem** para recuperar un objeto **DataCacheItem** que contiene información del elemento de la caché, incluido el intervalo de tiempo de expiración restante.
 
     // Get a DataCacheItem object that contains information about
     // "item" in the cache. If there is no object keyed by "item" null
@@ -371,8 +377,8 @@ Para ver el intervalo de tiempo de expiración restante de un elemento de la cac
 
 <a name="store-session"></a>
 
-## Almacenamiento del estado de la sesión de ASP.NET en la memoria caché
-El proveedor del estado de sesión de la caché de Azure es un mecanismo de almacenamiento fuera de proceso para las aplicaciones ASP.NET. Este proveedor le permite almacenar el estado de sesión en una caché de Azure en lugar de en la memoria o en una base de datos de SQL Server. Para usar el proveedor de estado de sesión del almacenamiento en caché, debe configurar primero la caché y, a continuación, la aplicación ASP.NET para el almacenamiento en caché con la utilización del paquete NuGet para el almacenamiento en caché, tal y como se describe en [Introducción al Servicio de caché administrado][Introducción al Servicio de caché administrado]. Cuando el paquete de NuGet para caché está instalado, incorpora una sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor del estado de sesión para la caché de Azure.
+## <a name="how-to-store-aspnet-session-state-in-the-cache"></a>Almacenamiento del estado de la sesión de ASP.NET en la memoria caché
+El proveedor del estado de sesión de la caché de Azure es un mecanismo de almacenamiento fuera de proceso para las aplicaciones ASP.NET. Este proveedor le permite almacenar el estado de sesión en una caché de Azure en lugar de en la memoria o en una base de datos de SQL Server. Para usar el proveedor de estado de sesión del almacenamiento en caché, debe configurar primero la caché y, luego, la aplicación ASP.NET para el almacenamiento en caché mediante el paquete de NuGet de caché, tal y como se describe en el artículo de [Introducción al Servicio de caché administrado][Introducción al Servicio de caché administrado]. Cuando el paquete de NuGet para caché está instalado, incorpora una sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor del estado de sesión para la caché de Azure.
 
     <!--Uncomment this section to use Azure Caching for session state caching
     <system.web>
@@ -387,18 +393,18 @@ El proveedor del estado de sesión de la caché de Azure es un mecanismo de alma
       </sessionState>
     </system.web>-->
 
-> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][NuGet Package Manager Installation] \(Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet de caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][NuGet Package Manager Installation] (Instalación de NuGet Package Manager). Después, desinstale el paquete y vuelva a instalarlo.
 > 
 > 
 
-Para habilitar el proveedor del estado de sesión para la caché de Azure, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
+Para habilitar el proveedor del estado de sesión para la caché de Azure, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName** .
 
-Para obtener más información acerca del uso del proveedor del estado de sesión del Servicio de caché administrado, consulte [Proveedor de estado de sesión para la caché de Azure][Proveedor de estado de sesión para la caché de Azure].
+Para obtener más información sobre el uso del proveedor del estado de sesión del servicio Managed Cache, consulte el artículo sobre el [Proveedor de estado de sesión para la caché de Azure][Proveedor de estado de sesión para la caché de Azure].
 
 <a name="store-page"></a>
 
-## Almacenamiento de la caché de resultados de la página ASP.NET en la caché
-El proveedor de la caché de resultados para la caché de Azure es un mecanismo de almacenamiento fuera de proceso para los datos de la caché de resultados. Estos datos resultan necesarios específicamente para respuestas HTTP completas (caché de resultados de la página). El proveedor se conecta al nuevo punto de extensibilidad del proveedor de caché de salida que se introdujo en ASP.NET 4. Para utilizar el proveedor de caché de resultados, primero configure el clúster de caché y, a continuación, configure la aplicación de ASP.NET para el almacenamiento en caché con el paquete NuGet, tal como se describe en [Introducción al servicio de caché administrado][Introducción al servicio de caché administrado]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora la siguiente sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor de la caché de resultados para el almacenamiento en caché de Azure.
+## <a name="how-to-store-aspnet-page-output-caching-in-the-cache"></a>Almacenamiento de la caché de resultados de la página ASP.NET en la caché
+El proveedor de la caché de resultados para la caché de Azure es un mecanismo de almacenamiento fuera de proceso para los datos de la caché de resultados. Estos datos resultan necesarios específicamente para respuestas HTTP completas (caché de resultados de la página). El proveedor se conecta al nuevo punto de extensibilidad del proveedor de caché de salida que se introdujo en ASP.NET 4. Para utilizar el proveedor de la caché de resultados, primero configure el clúster de caché y, luego, configure la aplicación ASP.NET para el almacenamiento en caché mediante el paquete de NuGet de caché, tal y como se describe en el artículo de [Introducción al Servicio de caché administrado][Introducción al Servicio de caché administrado]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora la siguiente sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor de la caché de resultados para el almacenamiento en caché de Azure.
 
     <!--Uncomment this section to use Azure Caching for output caching
     <caching>
@@ -413,78 +419,78 @@ El proveedor de la caché de resultados para la caché de Azure es un mecanismo 
       </outputCache>
     </caching>-->
 
-> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para la caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][NuGet Package Manager Installation] \(Instalación de NuGet Package Manager) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet de caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página [NuGet Package Manager Installation][NuGet Package Manager Installation] (Instalación de NuGet Package Manager). Después, desinstale el paquete y vuelva a instalarlo.
 > 
 > 
 
-Para habilitar el proveedor de la caché de resultados para la caché de Azure, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
+Para habilitar el proveedor de la caché de resultados para la caché de Azure, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName** .
 
 Incorpore una directiva **OutputCache** a cada página cuyos resultados desea almacenar en caché.
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-En este ejemplo, los datos de la página almacenados en la caché permanecerán ahí durante 60 segundos y se almacenará en la caché una versión diferente de la página para cada combinación de parámetros. Para obtener más información acerca de las opciones disponibles, consulte [Directiva OutputCache][Directiva OutputCache].
+En este ejemplo, los datos de la página almacenados en la caché permanecerán ahí durante 60 segundos y se almacenará en la caché una versión diferente de la página para cada combinación de parámetros. Para obtener más información sobre las opciones disponibles, consulte [Directiva OutputCache][Directiva OutputCache].
 
-Para obtener más información acerca del uso del proveedor de la caché de resultados para la caché de Azure, consulte [Proveedor de la caché de resultados para la caché de Azure][Proveedor de la caché de resultados para la caché de Azure].
+Para obtener más información sobre el uso del proveedor de la caché de resultados para Azure Cache, consulte el artículo sobre el [Proveedor de la caché de resultados para la caché de Azure][Proveedor de la caché de resultados para la caché de Azure].
 
 <a name="next-steps"></a>
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del Servicio de caché administrado, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento en caché más complejas.
 
-* Consulte la referencia MSDN: [Servicio de caché administrado][Servicio de caché administrado]
-* Obtenga información acerca de cómo migrar al Servicio de caché administrado: [Migración al Servicio de caché administrado][Migración al Servicio de caché administrado]
-* Consulte los ejemplos: [Ejemplos del Servicio de caché administrado][Ejemplos del Servicio de caché administrado]
+* Consulte la referencia MSDN: [Servicio de caché administrado][Servicio de caché administrado].
+* Obtenga información sobre cómo migrar a Managed Cache Service: [Migración al Servicio de caché administrado][Migración al Servicio de caché administrado].
+* Consulte los ejemplos: [Ejemplos del Servicio de caché administrado][Ejemplos del Servicio de caché administrado].
 
 <!-- INTRA-TOPIC LINKS -->
 [Pasos siguientes]: #next-steps
-[What is Azure Managed Cache Service?]: #what-is
-[Create an Azure Cache]: #create-cache
-[Which type of caching is right for me?]: #choosing-cache
-[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
-[Configure Your Application to Use Caching]: #configure-app
+[¿Qué es el Servicio de caché administrado de Azure?]: #what-is
+[Creación de una memoria caché de Azure]: #create-cache
+[¿Qué tipo de almacenamiento en caché es el adecuado para mí?]: #choosing-cache
+[Preparación del proyecto de Visual Studio para usar el almacenamiento en caché de Azure]: #prepare-vs
+[Configuración de la aplicación para usar el almacenamiento en caché]: #configure-app
 [Introducción al Servicio de caché administrado]: #getting-started-cache-service
 [Creación de la memoria caché]: #create-cache
 [Configuración de la memoria caché]: #enable-caching
 [Configuración de los clientes de caché]: #NuGet
-[Working with Caches]: #working-with-caches
+[Trabajo con cachés]: #working-with-caches
 [Creación de un objeto DataCache]: #create-cache-object
 [Agregación y recuperación de un objeto de la caché]: #add-object
 [Especificación de la expiración de un objeto en la memoria caché]: #specify-expiration
 [Almacenamiento del estado de la sesión de ASP.NET en la memoria caché]: #store-session
 [Almacenamiento de la caché de resultados de la página ASP.NET en la caché]: #store-page
-[Target a Supported .NET Framework Profile]: #prepare-vs-target-net
+[Adaptación de perfiles de .NET Framework compatibles]: #prepare-vs-target-net
 
 <!-- IMAGES -->
 [NewCacheMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceNewCacheMenu.png
 
 [QuickCreate]: ./media/cache-dotnet-how-to-use-service/CacheServiceQuickCreate.png
 
-[Endpoint]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
+[Extremo]: ./media/cache-dotnet-how-to-use-service/CacheServiceEndpoint.png
 
-[AccessKeys]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
+[ClavesDeAcceso]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageAccessKeys.png
 
-[NuGetPackage]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png
+[PaqueteDeNuGet]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackage.png
 
-[NuGetPackageMenu]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png
+[MenúNuGetPackage]: ./media/cache-dotnet-how-to-use-service/CacheServiceManageNuGetPackagesMenu.png
 
-[NamedCaches]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
+[CachésConNombre]: ./media/cache-dotnet-how-to-use-service/CacheServiceNamedCaches.jpg
 
 
 <!-- LINKS -->
 [Portal de Azure clásico]: https://manage.windowsazure.com/
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Configuración de un cliente de caché mediante programación]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Proveedor de estado de sesión para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Caché de Azure AppFabric: almacenamiento en caché del estado de sesión]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Proveedor de la caché de resultados para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Blog del equipo]: http://blogs.msdn.com/b/windowsazure/
+[Almacenamiento en caché de Azure]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
+[Configuración de tamaños de la máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Consideraciones sobre el planeamiento de la capacidad de almacenamiento en la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Almacenamiento en caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
+[Establecimiento de la capacidad de almacenamiento en caché de una página ASP.NET mediante declaración]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Información general del Servicio de caché administrado de Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Servicio de caché administrado]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Directiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
@@ -492,20 +498,23 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
 [Detalles de precios de caché]: http://www.windowsazure.com/pricing/details/cache/
 [Ofertas de caché]: http://go.microsoft.com/fwlink/?LinkId=317277
-[Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167
+[Planificación de capacidad]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Caducidad y expulsión]: http://go.microsoft.com/fwlink/?LinkId=317278
 [Alta disponibilidad]: http://go.microsoft.com/fwlink/?LinkId=317329
 [Notificaciones]: http://go.microsoft.com/fwlink/?LinkId=317276
 [Migración al Servicio de caché administrado]: http://go.microsoft.com/fwlink/?LinkId=317347
 [Ejemplos del Servicio de caché administrado]: http://go.microsoft.com/fwlink/?LinkId=320840
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
-[Azure Managed Cache Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=398555
-[Cómo instalar y configurar PowerShell de Azure]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Instalación y configuración de PowerShell de Azure]: http://go.microsoft.com/fwlink/?LinkId=400494
+[Cmdlets de Managed Cache de Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
+[Instalación y configuración de Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=400494
 [Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[Which Azure Cache offering is right for me?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
+[¿Qué oferta de caché de Azure es adecuada para mí?]: cache-faq.md#which-azure-cache-offering-is-right-for-me
 
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

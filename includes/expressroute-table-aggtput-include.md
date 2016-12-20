@@ -5,6 +5,8 @@
 | **SKU de alto rendimiento** |2000 Mbps |Sí |
 | **SKU de UltraPerformance** |10 000 Mbps |Sí |
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO3-->
 
 

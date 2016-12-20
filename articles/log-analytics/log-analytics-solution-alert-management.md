@@ -1,22 +1,26 @@
 ---
-title: Solución de administración de alertas de Operations Management Suite (OMS) | Microsoft Docs
-description: La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de OMS, importa las alertas de los grupos de administración de System Center Operations Manager (SCOM) conectados en Log Analytics.
+title: "Solución de administración de alertas de Operations Management Suite (OMS) | Microsoft Docs"
+description: "La solución Administración de alertas de Log Analytics le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de OMS, importa las alertas de los grupos de administración de System Center Operations Manager (SCOM) conectados en Log Analytics."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 2caa3118785fab6919dd088e440bf3483a77bd69
+
 
 ---
-# <a name="alert-management-solution-in-operations-management-suite-(oms)"></a>Solución de administración de alertas de Operations Management Suite (OMS)
+# <a name="alert-management-solution-in-operations-management-suite-oms"></a>Solución de administración de alertas de Operations Management Suite (OMS)
 ![Icono Administración de alertas](media/log-analytics-solution-alert-management/icon.png) La solución Administración de alertas le ayuda a analizar todas las alertas de su entorno.  Además de consolidar las alertas generadas dentro de OMS, importa las alertas de los grupos de administración de System Center Operations Manager (SCOM) conectados en Log Analytics.  En entornos con varios grupos de administración, la solución Administración de alertas proporcionará una vista consolidada de alertas en todos los grupos de administración.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -114,6 +118,9 @@ La tabla siguiente proporciona búsquedas de registros de ejemplo para los regis
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre [alertas en Log Analytics](log-analytics-alerts.md) para más detalles sobre la generación de alertas desde Log Analytics.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

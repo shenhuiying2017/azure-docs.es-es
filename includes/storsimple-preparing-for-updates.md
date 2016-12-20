@@ -1,6 +1,6 @@
 <!--author=jgerend last changed: 03/16/16-->
 
-## Preparación de las actualizaciones
+## <a name="preparing-for-updates"></a>Preparación de las actualizaciones
 Deberá realizar los siguientes pasos antes de buscar y aplicar la actualización:
 
 1. Tome una instantánea de la nube de los datos del dispositivo.
@@ -30,4 +30,8 @@ Deberá realizar los siguientes pasos antes de buscar y aplicar la actualizació
 
 Después de haber completado correctamente estas comprobaciones previas manuales, puede buscar e instalar las actualizaciones.
 
-<!---HONumber=AcomDC_0323_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

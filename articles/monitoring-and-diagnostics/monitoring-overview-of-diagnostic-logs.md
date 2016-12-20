@@ -1,12 +1,12 @@
 ---
-title: Información general sobre los registros de diagnóstico de Azure | Microsoft Docs
-description: Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure.
+title: "Información general sobre los registros de diagnóstico de Azure | Microsoft Docs"
+description: "Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure."
 author: johnkemnetz
 manager: rboucher
-editor: ''
+editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-
+ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: johnkem; magoedte
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 61a54b3cb170b7961a4900d2c353bea48ae83d64
+
 
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Información general sobre los registros de diagnóstico de Azure
@@ -35,7 +39,7 @@ Los registros de diagnóstico para recursos no de proceso se configuran mediante
 * Qué categorías de registro se envían.
 * Cuánto tiempo debe retenerse cada categoría de registro en una cuenta de almacenamiento: con una retención de cero días los registros se mantienen indefinidamente. De lo contrario, este valor puede oscilar entre 1 y 2147483647. Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones de centros de eventos u OMS), las directivas de retención no surten ningún efecto.
 
-Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos para un recurso en el Portal de Azure, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos para un recurso en Azure Portal, mediante los comandos de Azure PowerShell y de la CLI, o mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 
 > [!WARNING]
 > Los registros de diagnóstico y las métricas para recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) usan [un mecanismo diferente para la configuración y la selección de salidas](../azure-diagnostics.md).
@@ -43,7 +47,7 @@ Estas configuraciones se establecen con facilidad mediante la hoja Diagnósticos
 > 
 
 ## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Cómo habilitar la recopilación de registros de diagnóstico
-La recopilación de registros de diagnóstico se puede habilitar como parte de la creación de un recurso o después de crear un recurso mediante la hoja del recurso en el Portal. También puede habilitar los registros de diagnóstico en cualquier momento mediante comandos de Azure PowerShell o de la CLI, o con la API de REST Insights.
+La recopilación de registros de diagnóstico se puede habilitar como parte de la creación de un recurso o después de crear un recurso mediante la hoja del recurso en el Portal. También puede habilitar los registros de diagnóstico en cualquier momento mediante comandos de Azure PowerShell o de la CLI, o con la API de REST de Azure Monitor.
 
 > [!TIP]
 > Es posible que estas instrucciones no se apliquen directamente a cada recurso. Consulte los vínculos de esquema al final de esta página para ver los pasos especiales que se pueden aplicar a determinados tipos de recursos.
@@ -53,7 +57,7 @@ La recopilación de registros de diagnóstico se puede habilitar como parte de l
 [Este artículo muestra cómo puede usar una plantilla de recursos para habilitar Configuración de diagnóstico al crear un recurso.](monitoring-enable-diagnostic-logs-using-template.md)
 
 ### <a name="enable-diagnostic-logs-in-the-portal"></a>Habilitación de los registros de diagnóstico en el portal
-Para habilitar los registros de diagnóstico en el Portal de Azure al crear algunos tipos de recursos, haga lo siguiente:
+Puede habilitar los registros de diagnóstico en Azure Portal al crear tipos de recursos de proceso al habilitar la extensión de Diagnósticos de Azure de Windows o Linux:
 
 1. Vaya a **Nuevo** y elija el recurso que le interesa.
 2. Después de establecer la configuración básica y seleccionar un tamaño, en la hoja **Configuración**, en **Supervisión**, seleccione **Habilitado** y elija una cuenta de almacenamiento donde almacenar los registros de diagnóstico. Cuando envíe diagnósticos a una cuenta de almacenamiento, se le cobra según las tarifas de datos normales relativas a almacenamiento y transacciones.
@@ -61,7 +65,7 @@ Para habilitar los registros de diagnóstico en el Portal de Azure al crear algu
    ![Habilitar los registros de diagnóstico durante la creación de recursos](./media/monitoring-overview-of-diagnostic-logs/enable-portal-new.png)
 3. Haga clic en **Aceptar** y cree el recurso.
 
-Para habilitar los registros de diagnóstico en el Portal de Azure una vez creado un recurso, haga lo siguiente:
+Para los recursos que no son de proceso, puede habilitar los registros de diagnóstico en Azure Portal una vez creado un recurso de la forma siguiente:
 
 1. Vaya a la hoja del recurso y abra la hoja **Diagnósticos** .
 2. Haga clic en **Activado** y seleccione una cuenta de almacenamiento o un centro de eventos.
@@ -70,7 +74,7 @@ Para habilitar los registros de diagnóstico en el Portal de Azure una vez cread
 3. En **Registros**, seleccione qué **categorías de registro** desea recopilar o transmitir.
 4. Haga clic en **Guardar**.
 
-### <a name="enable-diagnostic-logs-programmatically"></a>Habilitación de los registros de diagnóstico mediante programación
+### <a name="enable-diagnostic-logs-via-powershell"></a>Habilitación de los registros de diagnóstico en PowerShell
 Para habilitar los registros de diagnóstico con cmdlets de Azure PowerShell, use los siguientes comandos.
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
@@ -98,6 +102,7 @@ Puede obtener el identificador de área de trabajo de Log Analytics en Azure Por
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
+### <a name="enable-diagnostic-logs-via-cli"></a>Habilitación de los registros de diagnóstico en CLI
 Para habilitar los registros de diagnóstico con la CLI de Azure, use los siguientes comandos:
 
 Para habilitar el almacenamiento de registros de diagnóstico en una cuenta de almacenamiento, use este comando:
@@ -125,7 +130,8 @@ Puede obtener el identificador de área de trabajo de Log Analytics en Azure Por
 
 Puede combinar estos parámetros para habilitar varias opciones de salida.
 
-Para cambiar Configuración de diagnóstico con la API de REST Insights, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+### <a name="enable-diagnostic-logs-via-rest-api"></a>Habilitación de los registros de diagnóstico en la API de REST
+Para cambiar la configuración de diagnóstico con la API de REST de Azure Monitor, consulte [este documento](https://msdn.microsoft.com/library/azure/dn931931.aspx).
 
 ## <a name="manage-diagnostic-settings-in-the-portal"></a>Administración de Configuración de diagnóstico en el portal
 Para asegurarse de que todos los recursos se han definido correctamente con Configuración de diagnóstico, puede navegar a la hoja **Supervisión** del portal y abrir la hoja **Registros de diagnóstico**.
@@ -146,6 +152,8 @@ Al hacer clic en un recurso, se mostrarán todos los registros que se han almace
 > Los registros de diagnóstico solo aparecerán en esta vista y estarán disponibles para su descarga si ha configurado las opciones de diagnóstico para guardarlos en una cuenta de almacenamiento.
 > 
 > 
+
+Al hacer clic en el vínculo de **Configuración de diagnóstico**, se abrirá la hoja Configuración de diagnóstico, donde puede habilitar, deshabilitar o modificar la configuración para el recurso seleccionado.
 
 ## <a name="supported-services-and-schema-for-diagnostic-logs"></a>Servicios admitidos y esquema para registros de diagnóstico
 El esquema para los registros de diagnóstico varía según la categoría de registro y el recurso. A continuación, se muestran los servicios admitidos y su esquema.
@@ -196,9 +204,12 @@ El esquema para los registros de diagnóstico varía según la categoría de reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Transmisión de registros de diagnóstico de Azure a **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Cambio de Configuración de diagnóstico mediante la API de REST Insights](https://msdn.microsoft.com/library/azure/dn931931.aspx)
+* [Cambio de la configuración de diagnóstico con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [Análisis de los registros con Log Analytics de OMS](../log-analytics/log-analytics-azure-storage-json.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

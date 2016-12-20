@@ -1,6 +1,6 @@
 <!--author=alkohli last changed:02/22/16-->
 
-#### Conexión de los cables SAS
+#### <a name="to-attach-the-sas-cables"></a>Conexión de los cables SAS
 1. Identifique los receptáculos principal y EBOD Los dos alojamientos pueden identificarse examinando sus respectivos planos posteriores. Consulta la siguiente imagen para obtener instrucciones. 
    
     ![Plano posterior del alojamiento principal y de EBOD](./media/storsimple-sas-cable-8600/HCSBackplaneofprimaryandEBODenclosure.png)
@@ -24,7 +24,7 @@
    
    1. Identifica los cuatro puertos SAS en el alojamiento principal y en el alojamiento de EBOD. Los puertos SAS se etiquetan como EBOD en el alojamiento principal y se corresponden con el puerto A en el alojamiento de EBOD, tal y como se muestra en la ilustración del cableado de SAS.
    2. Use los cables SAS proporcionados para conectar el puerto EBOD al puerto A.
-   3. El puerto EBOD del controlador 0 debe estar conectado al puerto A del controlador EBOD 0. El puerto EBOD del controlador 1 debe estar conectado al puerto A del controlador EBOD 1. Vea la ilustración siguiente como guía.
+   3. El puerto EBOD del controlador 0 debe estar conectado al puerto A del controlador EBOD 0. El puerto EBOD del controlador 1 debe estar conectado al puerto A del controlador EBOD 1. Vea la ilustración siguiente como guía. 
       
       ![Cableado SAS para tu dispositivo](./media/storsimple-sas-cable-8600/HCSSAScablingforyourdevice.png)
       
@@ -41,4 +41,8 @@
       | 5, 6 |Puertos SAS del receptáculo principal (con la etiqueta EBOD) |
       | 7, 8 |Puertos SAS del receptáculo EBOD (puerto A) |
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

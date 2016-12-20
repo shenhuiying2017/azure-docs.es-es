@@ -1,20 +1,20 @@
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Después de habilitar la integración de Almacén de claves de Azure, puede habilitar el cifrado de SQL Server en la máquina virtual de SQL. En primer lugar, tendrá que crear una clave asimétrica en el Almacén de claves y una clave simétrica dentro de SQL Server en la máquina virtual. A continuación, podrá ejecutar las instrucciones de T-SQL para habilitar el cifrado de las bases de datos y las copias de seguridad.
 
 Hay varias formas de cifrado que puede aprovechar:
 
-* [Cifrado de datos transparente (TDE) ](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Cifrado de datos transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Copias de seguridad cifradas](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Cifrado de nivel de columna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
 Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de estas áreas.
 
 > [!NOTE]
-> Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica del Almacén de claves denominada **CONTOSO\_KEY** y una credencial creada por la característica de integración de AKV llamada **Azure\_EKM\_TDE\_cred**.
+> Cada ejemplo se basa en los dos requisitos previos: una clave asimétrica de Key Vault denominada **CONTOSO_KEY** y una credencial creada por la característica de integración de AKV denominada **Azure_EKM_TDE_cred**.
 > 
 > 
 
-### Cifrado de datos transparente (TDE)
+### <a name="transparent-data-encryption-tde"></a>Cifrado de datos transparente (TDE) 
 1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para TDE, después agréguele la credencial.
    
         USE master;
@@ -45,7 +45,7 @@ Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de es
         SET ENCRYPTION ON;
         GO
 
-### Copias de seguridad cifradas
+### <a name="encrypted-backups"></a>Copias de seguridad cifradas
 1. Cree un inicio de sesión de SQL Server que el motor de base de datos usará para cifrar las copias de seguridad, después agréguele la credencial.
    
         USE master;
@@ -69,7 +69,7 @@ Los siguientes scripts de Transact-SQL proporcionan ejemplos para cada una de es
         ENCRYPTION(ALGORITHM = AES_256, SERVER ASYMMETRIC KEY = [CONTOSO_KEY]);
         GO
 
-### Cifrado de nivel de columna (CLE)
+### <a name="column-level-encryption-cle"></a>Cifrado de nivel de columna (CLE)
 Este script crea una clave simétrica protegida por la clave asimétrica en el Almacén de claves y, a continuación, usa la clave simétrica para cifrar los datos de la base de datos.
 
     CREATE SYMMETRIC KEY DATA_ENCRYPTION_KEY
@@ -91,9 +91,13 @@ Este script crea una clave simétrica protegida por la clave asimétrica en el A
     --Close the symmetric key
     CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 
-## Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 Para más información sobre cómo usar estas características de cifrado, vea [Uso de la administración extensible de claves con las características de cifrado de SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
-Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, vea [Aprovisionamiento de una máquina virtual de SQL Server en Azure](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md) Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, vea [Información general sobre SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md).
+Tenga en cuenta que en los pasos descritos en este artículo se supone que ya tiene SQL Server en ejecución en una máquina virtual de Azure. De lo contrario, consulte [Aprovisionamiento de una máquina virtual de SQL Server en Azure Portal](../articles/virtual-machines/virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Para otros temas sobre la ejecución de SQL Server en máquinas virtuales de Azure, consulte [Información general de SQL Server en Azure Virtual Machines](../articles/virtual-machines/virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!---HONumber=AcomDC_0413_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

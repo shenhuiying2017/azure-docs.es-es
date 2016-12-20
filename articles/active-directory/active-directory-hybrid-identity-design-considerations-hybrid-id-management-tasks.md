@@ -1,12 +1,12 @@
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de las tareas de administración de identidad híbrida| Microsoft Docs'
-description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory - determinar las tareas de administración de identidad híbrida | Microsoft Docs"
+description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: c290266a09bf6f75ab7eb9247120b921c7f841fb
+
 
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan para el ciclo de vida de identidad híbrida
@@ -53,9 +57,9 @@ Al definir esos requisitos, asegúrese de que al menos puede contestar a las sig
 ## <a name="synchronization-management"></a>Administración de la sincronización
 Uno de los objetivos de un administrador de identidades es poder reunir todos los proveedores de identidades y mantenerlos sincronizados. Los datos se mantienen sincronizados en función de un proveedor de identidades maestro autorizado. En un escenario de identidad híbrida, con un modelo de administración sincronizada, todas las identidades de los usuarios y de los dispositivos se administran en un servidor local y la cuentas y, opcionalmente las contraseñas, se sincronizan con la nube. El usuario escribe la misma contraseña en el entorno local y en la nube y, en el inicio de sesión, la solución de identidad la comprueba. En este modelo se emplea una herramienta de sincronización de directorios.
 
-![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Para diseñar correctamente la sincronización de la solución de identidad híbrida, asegúrese de que tiene una respuesta a las siguientes preguntas: • ¿Cuáles son las soluciones de sincronización disponibles para la solución de identidad híbrida?
-• ¿Qué funcionalidades de inicio de sesión único hay disponibles?
-• ¿Cuáles son las opciones para la federación de identidades entre B2B y B2C?
+![](./media/hybrid-id-design-considerations/Directory_synchronization.png) Para diseñar correctamente la sincronización de una solución de identidad híbrida, asegúrese de que tiene una respuesta a las siguientes preguntas: •  ¿Cuáles son las soluciones de sincronización disponibles para la solución de identidad híbrida?
+•  ¿Qué funcionalidades de inicio de sesión único están disponibles?
+•  ¿Cuáles son las opciones para la federación de identidades entre B2B y B2C?
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de la estrategia de adopción de administración de identidad híbrida](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
@@ -63,6 +67,9 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

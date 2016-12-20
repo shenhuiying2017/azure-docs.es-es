@@ -1,12 +1,12 @@
 ---
-title: Solución de problemas comunes de soporte técnico de publicador | Microsoft Docs
-description: Conozca cómo solucionar problemas comunes de soporte técnico de publicador y cómo obtener soporte técnico.
+title: "Solución de problemas comunes de soporte técnico de publicador | Microsoft Docs"
+description: "Conozca cómo solucionar problemas comunes de soporte técnico de publicador y cómo obtener soporte técnico."
 services: marketplace-publishing
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f8465448-8328-41f3-8288-48c1c4098134
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3849aa88b5314d36a98d3caf5f3307e656e1a931
+
 
 ---
-# Solución de problemas comunes de publicador de Azure Marketplace
+# <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Solución de problemas comunes de publicador de Azure Marketplace
 En este artículo se explica cómo resolver u obtener soporte técnico para algunos escenarios comunes de Marketplace.
 
-## Abonos y reembolsos
-En algunas circunstancias, puede que necesite solicitar un abono o un reembolso en nombre de un cliente. El servicio de soporte técnico de Microsoft puede ayudar a que las solicitudes de abono y reembolso del cliente se tengan en cuenta y se reciba respuesta a su debido tiempo.
+## <a name="credits-and-refunds"></a>Abonos y reembolsos
+En algunas circunstancias, puede que necesite solicitar un abono o un reembolso en nombre de un cliente.  El servicio de soporte técnico de Microsoft puede ayudar a que las solicitudes de abono y reembolso del cliente se tengan en cuenta y se reciba respuesta a su debido tiempo.
 
 A continuación se muestra cómo solicitar un abono o un reembolso en nombre de un cliente.
 
@@ -29,17 +33,17 @@ A continuación se muestra cómo solicitar un abono o un reembolso en nombre de 
 > 
 > 
 
-  ![1\_RequestRefund][1]
+  ![1_RequestRefund][1]
 
-1. Visite las páginas de soporte técnico aquí: [https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start\_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/es-ES/getsupport?tenant=ClassicCommercial&locale=es-ES&supportregion=es-ES&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
-2. En el cuadro **Tipo de problema**, seleccione **Administración de clientes**.
-3. En el cuadro **Categoría**, seleccione **Aprobar o solicitar una devolución del cliente**.
+1. Visite las páginas de soporte técnico aquí: [https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884](https://support.microsoft.com/en-us/getsupport?tenant=ClassicCommercial&locale=en-us&supportregion=en-us&pesid=15635&sd=&oaspworkflow=start_1.0.0.0&wf=0&ccsid=635562546535117884).
+2. En el cuadro **Tipo de problema**, seleccione **Administrar clientes**.
+3. En el cuadro **Categoría**, seleccione **Aprobar o solicitar el reembolso de un cliente**.
 4. Haga clic en **Solicitud de inicio**.
    
-   ![2\_RequestRefund][2]
+   ![2_RequestRefund][2]
 
 1. Ofrecer la información de contacto.
-2. En el cuadro **¿Cuál es el problema?**, escriba la siguiente información:
+2. En el cuadro **¿Cuál es el problema?** , escriba la siguiente información:
    
    * Identificador de suscripción del cliente afectado
    * Nombre del cliente
@@ -50,7 +54,7 @@ A continuación se muestra cómo solicitar un abono o un reembolso en nombre de 
 
 Antes de 24 horas, recibirá un correo electrónico de confirmación de que hemos recibido la información. Una vez tomada una decisión con respecto a su solicitud, se le informará del resultado.
 
-## Validación de la suscripción de cliente
+## <a name="customer-subscription-validation"></a>Validación de la suscripción de cliente
 En algunas circunstancias, puede que necesite validar los detalles de suscripción para uno de sus clientes. Puede ponerse en contacto con el servicio de soporte técnico de Microsoft para que le ayude con esto. El servicio de soporte técnico de Microsoft le ayudará a confirmar que un identificador de suscripción y la dirección de facturación pertenecen a un cliente conocido.
 
   ![subscriptionvalidation][3]
@@ -61,7 +65,7 @@ En algunas circunstancias, puede que necesite validar los detalles de suscripci�
 * Tendrá que proporcionar un identificador de la suscripción y la dirección de facturación del cliente.
 * Microsoft se comunicará con usted para confirmarle que conocemos la dirección de facturación y el identificador de la suscripción.
 
-## ¿Cómo puedo actualizar mi perfil de publicador?
+## <a name="how-do-i-update-my-publisher-profile"></a>¿Cómo puedo actualizar mi perfil de publicador?
 Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro de desarrollo de Microsoft:
 
 **1. Inicie sesión en el Centro de desarrollo de Windows**.
@@ -71,7 +75,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 ![inprivate][4]
 
-**2. Inicie sesión con la cuenta profesional o educativa de su compañía** (es decir, AzureStore@yourcompany.com).
+**2. Inicie sesión con la cuenta profesional o educativa de su compañía** (es decir, AzureStore@yourcompany.com).).
 
 ![signin][5]
 
@@ -88,7 +92,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 
 ![acctdetails][7]
 
-## ¿Cómo se agrega o elimina un administrador de mi cuenta de Publicación?
+## <a name="how-do-i-add-or-delete-an-administrator-from-my-publishing-account"></a>¿Cómo se agrega o elimina un administrador de mi cuenta de Publicación?
 ![manageadmins][8]
 
 1. Navegue al Portal de publicación.
@@ -97,7 +101,7 @@ Si quiere actualizar su perfil de publicador, puede hacerlo a través del Centro
 4. Agregue la dirección de correo electrónico del coadministrador que quiere agregar o quitar.
 5. Seleccione **Guardar**.
 
-## Siguientes pasos: Otras consultas de soporte técnico
+## <a name="next-steps-other-support-queries"></a>Siguientes pasos: Otras consultas de soporte técnico
 Para los siguientes problemas, registre un problema en [https://portal.azure.com](https://portal.azure.com):
 
 * ¿Cómo se notifica un error de facturación?
@@ -118,4 +122,8 @@ Para los problemas siguientes, cree una solicitud de soporte técnico en [http:/
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

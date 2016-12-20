@@ -1,12 +1,12 @@
 ---
-title: 'Sincronización de Azure AD Connect: Programador | Microsoft Docs'
-description: En este tema se describe la característica de Programador incorporada en la sincronización de Azure AD Connect.
+title: "Sincronización de Azure AD Connect: Scheduler | Microsoft Docs"
+description: "En este tema se describe la característica de Programador incorporada en la sincronización de Azure AD Connect."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: AndKjell
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 41b2cdf8fec8a0e3cb83682afdfb5c974452fe47
+
 
 ---
-# <a name="azure-ad-connect-sync:-scheduler"></a>Sincronización de Azure AD Connect: Programador
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Programador
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (también denominado motor de sincronización).
 
 Esta característica se introdujo con la compilación 1.1.105.0 (publicada en febrero de 2016).
@@ -157,6 +161,9 @@ Obtenga más información sobre la configuración de la [Sincronización de Azur
 
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

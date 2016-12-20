@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2016
 ms.author: iainfou
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8156467ac97445576517ed7280307f6ca94ff0bf
+ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
+ms.openlocfilehash: 92f97b2ebff344e8ce70d983be74c3790ba608a8
 
 
 ---
@@ -27,7 +27,7 @@ En Azure, tiene la flexibilidad crear una máquina virtual Linux con las herrami
 ## <a name="azure-cli"></a>Azure CLI
 La CLI de Azure está disponible entre plataformas mediante un paquete de npm, paquetes proporcionados por la distribución o un contenedor de Docker. Puede leer más sobre [cómo instalar y configurar la CLI de Azure](../xplat-cli-install.md). Los siguientes tutoriales proporcionan ejemplos sobre el uso de la CLI de Azure. Lea cada artículo para más información sobre los comandos de inicio rápido de la CLI mostrados:
 
-* [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md)
+* [Creación de una máquina virtual con Linux en Azure mediante la CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * En el ejemplo siguiente se crea una máquina virtual de CoreOS con una clave pública llamada `azure_id_rsa.pub`:
     
@@ -35,7 +35,7 @@ La CLI de Azure está disponible entre plataformas mediante un paquete de npm, p
     azure vm quick-create -ssh-publickey-file ~/.ssh/azure_id_rsa.pub \
       --image-urn CoreOS
     ```
-* [Creación de una VM de Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
+* [Creación de una VM de Linux protegida mediante una plantilla de Azure](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * En el ejemplo siguiente se crea una máquina virtual mediante una plantilla almacenada en GitHub:
     
@@ -43,10 +43,10 @@ La CLI de Azure está disponible entre plataformas mediante un paquete de npm, p
     azure group create --name myResourceGroup --location WestUS 
       --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
     ```
-* [Creación de un entorno de Linux completo mediante la CLI de Azure](virtual-machines-linux-create-cli-complete.md)
+* [Creación de un entorno de Linux completo mediante la CLI de Azure](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * Incluye la creación de un equilibrador de carga y varias máquinas virtuales en un conjunto de disponibilidad.
-* [Adición de un disco a una máquina virtual de Linux](virtual-machines-linux-add-disk.md)
+* [Adición de un disco a una máquina virtual de Linux](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   
   * En el ejemplo siguiente se agrega un disco de 5 GB a una máquina virtual existente llamada `TestVM`:
     
@@ -58,8 +58,8 @@ La CLI de Azure está disponible entre plataformas mediante un paquete de npm, p
 ## <a name="azure-portal"></a>Portal de Azure
 [Azure Portal](https://portal.azure.com) le permite crear rápidamente una máquina virtual porque no hay nada que instalar en el sistema. Use el Portal de Azure para crear la máquina virtual:
 
-* [Creación de una máquina virtual Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md) 
-* [Conexión de un disco mediante el Portal de Azure](virtual-machines-linux-attach-disk-portal.md)
+* [Creación de una máquina virtual Linux en Azure mediante el Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+* [Conexión de un disco mediante el Portal de Azure](virtual-machines-linux-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="operating-system-and-image-choices"></a>Sistema operativo y opciones de imagen
 Al crear una máquina virtual, elija una imagen basada en el sistema operativo que desee ejecutar. Azure y sus socios ofrecen muchas imágenes, algunas de las cuales incluyen aplicaciones y herramientas preinstaladas. O bien, cargue una de sus propias imágenes (consulte [la siguiente sección](#use-your-own-image)).
@@ -91,7 +91,7 @@ Lista de todas las imágenes disponibles para una versión determinada:
 azure vm image list --location WestUS --publisher Canonical --offer UbuntuServer --sku 16.04.0-LTS
 ```
 
-Consulte [Selección de imágenes de máquinas virtuales con la CLI de Azure](virtual-machines-linux-cli-ps-findimage.md)para ver ejemplos sobre cómo buscar y usar las imágenes disponibles.
+Consulte [Selección de imágenes de máquinas virtuales con la CLI de Azure](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)para ver ejemplos sobre cómo buscar y usar las imágenes disponibles.
 
 Los comandos `azure vm quick-create` y `azure vm create` tienen alias que se pueden usar para acceder rápidamente a las distribuciones más comunes y sus versiones más recientes. Usar alias es más fácil que tener que especificar el publicador, la oferta, el SKU y la versión cada vez que cree una máquina virtual:
 
@@ -108,9 +108,9 @@ Los comandos `azure vm quick-create` y `azure vm create` tienen alias que se pue
 ### <a name="use-your-own-image"></a>Uso de su propia imagen
 Si necesita realizar cambios personalizados específicos, use una imagen basada en una máquina virtual de Azure existente; para ello, *capture* esa máquina virtual. También puede cargar una imagen creada de forma local. Para más información sobre las distribuciones compatibles y cómo usar sus propias imágenes, consulte los artículos siguientes:
 
-* [Distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md)
-* [Información para las distribuciones no aprobadas](virtual-machines-linux-create-upload-generic.md)
-* [Captura de una máquina virtual Linux para usarla como plantilla de Resource Manager](virtual-machines-linux-capture-image.md).
+* [Distribuciones aprobadas por Azure](virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Información para las distribuciones no aprobadas](virtual-machines-linux-create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Captura de una máquina virtual Linux para usarla como plantilla de Resource Manager](virtual-machines-linux-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
   
   * Comandos de ejemplo para capturar una máquina virtual existente:
     
@@ -121,9 +121,9 @@ Si necesita realizar cambios personalizados específicos, use una imagen basada 
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Cree una máquina virtual Linux desde el [portal](virtual-machines-linux-quick-create-portal.md), con la [CLI](virtual-machines-linux-quick-create-cli.md) o mediante una [plantilla de Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md).
-* Después de crear una máquina virtual Linux, [agregue un disco de datos](virtual-machines-linux-add-disk.md).
-* Pasos rápidos para [restablecer una contraseña o las claves SSH y administrar usuarios](virtual-machines-linux-using-vmaccess-extension.md)
+* Cree una máquina virtual Linux desde el [portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), con la [CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) o mediante una [plantilla de Azure Resource Manager](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Después de crear una máquina virtual Linux, [agregue un disco de datos](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Pasos rápidos para [restablecer una contraseña o las claves SSH y administrar usuarios](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 

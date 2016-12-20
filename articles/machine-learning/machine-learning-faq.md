@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/26/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 36fd6b01dae6aa9a48985a252766d3f2d0b19342
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd0e8f5bd41fcf105571f76aab2f192c2f6dd21d
 
 
 ---
@@ -101,7 +101,7 @@ En el caso de conjuntos de datos que tengan más de dos gigas, hay que cargar lo
 
 **¿Se pueden leer datos de Amazon S3?**
 
-Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dirección URL http, puede usar el módulo [Importar datos][import-data]. Si la cantidad de datos es mayor, primero debe transferirlos a Azure Storage y luego utilizar el módulo [Importar datos][import-data] para incluirlos en el experimento.
+Si tiene una pequeña cantidad de datos y desea exponerlos mediante una dirección URL HTTP, puede usar el módulo [Import Data][import-data]. Si la cantidad de datos es mayor, primero debe transferirlos a Azure Storage y luego usar el módulo [Import Data][import-data] para incluirlos en el experimento.
 <!--
 
 <SEE CLOUD DS PROCESS>
@@ -109,7 +109,7 @@ Si tiene una pequeña cantidad de datos y desea exponerlos a través de una dire
 
 **¿Hay una capacidad integrada para usar una entrada de imagen?**
 
-Puede obtener información sobre la funcionalidad de introducción de imágenes en la referencia de [Import images] (Importar imágenes)[image-reader].
+Puede obtener información sobre la funcionalidad de entrada de imágenes en la referencia de [Import Images][image-reader].
 
 ### <a name="modules"></a>Módulos
 **El algoritmo, el origen de datos, el formato de datos o la operación de transformación de datos que busco no están en Estudio de aprendizaje automático de Azure. ¿Qué opciones tengo?**
@@ -140,7 +140,7 @@ Como los datos se transmiten al explorador y pueden ser grandes, su tamaño est�
 ### <a name="algorithms"></a>Algoritmos
 **¿Qué algoritmos existentes se admiten en Machine Learning Studio?**
 
-Machine Learning Studio ofrece los algoritmos mas innovadores, como árboles de decisión incrementados escalables, sistemas de recomendaciones bayesianas, redes neuronales profundas y selvas de decisión, que se han desarrollado en Microsoft Research. También se incluyen paquetes de Aprendizaje automático escalables de código abierto como Vowpal Wabbit. Estudio de aprendizaje automático admite algoritmos de aprendizaje automático para clasificación, regresión y agrupación en clústeres y binarias y multiclase. Consulte la lista completa de [Módulos de Machine Learning][machine-learning-modules].
+Machine Learning Studio ofrece los algoritmos mas innovadores, como árboles de decisión incrementados escalables, sistemas de recomendaciones bayesianas, redes neuronales profundas y selvas de decisión, que se han desarrollado en Microsoft Research. También se incluyen paquetes de Aprendizaje automático escalables de código abierto como Vowpal Wabbit. Estudio de aprendizaje automático admite algoritmos de aprendizaje automático para clasificación, regresión y agrupación en clústeres y binarias y multiclase. Consulte la lista completa de [módulos de Machine Learning][machine-learning-modules].
 
 **¿Se sugiere automáticamente el algoritmo de Machine Learning adecuado para utilizarlo con mis datos?**
 
@@ -185,7 +185,7 @@ No. No hay ningún entorno de REPL para R en el estudio.
 ### <a name="python-module"></a>Módulo de Python
 **¿Es posible crear un módulo personalizado de Python?**
 
-En la actualidad no es posible. Sin embargo, puede utilizar uno o varios módulos de [ejecución de scripts de Python][python] para obtener el mismo resultado.
+Aunque en estos momentos no es posible, puede usar uno o varios módulos [Execute Python Script][python] para obtener el mismo resultado.
 
 **¿Hay un entorno de REPL para Python?**
 
@@ -224,7 +224,7 @@ Cuando el modelo predictivo se ha implementado, puede supervisarlo desde el Port
 
 **¿Hay algún lugar donde pueda ver la salida de mi RRS/BES?**
 
-Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. El resultado también se puede escribir en una base de datos o en una tabla con el módulo [Exportar datos][export-data].
+Para RRS, en la respuesta del servicio web normalmente es donde se verá el resultado. También puede escribir el resultado en Almacenamiento de blobs de Azure. Para BES, el resultado se escribe en un blob de manera predeterminada. También puede escribir el resultado en una base de datos o en una tabla con el módulo [Export Data][export-data].
 
 **¿Solamente puedo crear servicios web a partir de modelos creados en Estudio de aprendizaje automático?**
 
@@ -245,7 +245,7 @@ Nº
 
 **¿Cuántos datos se pueden usar para el entrenamiento?**
 
-Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, el tamaño total de todas las entradas juntas es 10 GB. También puede realizar un muestreo de conjuntos de datos mayores mediante consultas de Azure SQL Database o de Hive, o bien mediante el procesamiento previo con los módulos de [Learning with Counts][counts] antes de la ingesta.  
+Los módulos en Estudio de aprendizaje automático admiten conjuntos de datos de hasta 10 GB de datos numéricos densos para casos de uso comunes. Si un módulo ocupa más de una entrada, el tamaño total de todas las entradas juntas es 10 GB. También puede realizar un muestreo de conjuntos de datos mayores mediante consultas de Azure SQL Database o de Hive, o bien mediante el procesamiento previo con los módulos de [aprendizaje con recuentos][counts] antes de la ingesta.  
 
 Los siguientes tipos de datos se pueden expandir en conjuntos de datos grandes durante la normalización de características. Están limitados a menos de 10 GB:
 
@@ -332,7 +332,7 @@ Para más información sobre los precios y la facturación, consulte los [precio
 
  Azure Machine Learning tiene una opción de suscripción gratuita (para más información, consulte los [precios de Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/)), mientras que Machine Learning Studio dispone de una versión de evaluación rápida de ocho horas (para acceder a esta versión, inicie sesión en [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2)).
 
- Además, al registrarse para obtener una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para más información sobre la prueba gratuita de Azure, visite [Preguntas más frecuentes sobre la evaluación gratuita de Azure](/pricing/free-trial-faq/).
+ Además, al registrarse para obtener una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para más información sobre la prueba gratuita de Azure, visite [Preguntas más frecuentes sobre la evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **¿Qué es una transacción?**
 
@@ -432,7 +432,7 @@ Los nuevos planes de facturación están disponibles en las tres regiones de pro
 
 Sí. Los precios del plan varían según la región. Cuando un servicio web se implementa en otra región, es preciso asignarlo a un plan específico de dicha región.
 
-### <a name="new-web-services-overages"></a>Nuevos servicios web - Uso por encima del límite
+### <a name="new-web-services---overages"></a>Nuevos servicios web - Uso por encima del límite
 **¿Cómo puedo saber si el uso de mi servicio web está por encima del límite?**
 
 Puede consultar el uso de todos los planes en la página Planes del portal de servicios web de Aprendizaje automático de Azure. Inicie sesión en el portal y haga clic en la opción del menú Planes.
@@ -545,6 +545,6 @@ El acceso de invitado es una funcionalidad de evaluación restringida que permit
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

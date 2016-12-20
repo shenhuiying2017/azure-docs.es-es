@@ -1,31 +1,37 @@
 ---
 title: Vulnerabilidades detectadas por Azure Active Directory Identity Protection | Microsoft Docs
-description: Información general de las vulnerabilidades detectadas por Azure Active Directory Identity Protection.
+description: "Información general de las vulnerabilidades detectadas por Azure Active Directory Identity Protection."
 services: active-directory
-keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
-documentationcenter: ''
+keywords: "azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad"
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/11/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
+ms.openlocfilehash: f526af67a94ce0cab61591d9250f4742b1ede579
+
 
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovechados por un atacante. Se recomienda solucionar estas vulnerabilidades para mejorar la posición de seguridad de su organización y evitar que los atacantes se aprovechen de ellas.
-<br><br>
+
+
 ![vulnerabilidades](./media/active-directory-identityprotection-vulnerabilities/101.png "vulnerabilities")
-<br>
+
+
 
 En las siguientes secciones se ofrece información general de las vulnerabilidades de las que informa Identity Protection.
 
-## <a name="multifactor-authentication-registration-not-configured"></a>Registro de la autenticación multifactor no configurado
+## <a name="multi-factor-authentication-registration-not-configured"></a>Registro de la autenticación multifactor no configurado
 Este punto vulnerable ayuda a controlar la implementación de Azure Multi-Factor Authentication en su organización. 
 
 Azure Multi-Factor Authentication proporciona una segunda capa de seguridad a la autenticación de usuario. Azure Multi-Factor Authentication ayuda a proteger el acceso a los datos y las aplicaciones, al tiempo que satisface la demanda de los usuarios de un proceso de inicio de sesión simple. Ofrece una autenticación segura a través de una gran variedad de opciones sencillas, como llamadas telefónicas, mensajes de texto o notificaciones de aplicaciones móviles, lo que permite a los usuarios elegir el mecanismo que prefieran.
@@ -55,6 +61,9 @@ Para obtener más detalles, consulte [Azure AD Privileged Identity Management](a
 ## <a name="see-also"></a>Otras referencias
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Programaciones en Automatización de Azure | Microsoft Docs
-description: Las programaciones de Automatización se usan para programar runbooks en Automatización de Azure para que se inicien automáticamente. Describe cómo crear y administrar una programación de modo que pueda iniciar automáticamente un Runbook en un momento determinado o en una programación periódica.
+title: Programaciones Azure Automation | Microsoft Docs
+description: "Las programaciones de Automatización se usan para programar runbooks en Automatización de Azure para que se inicien automáticamente. Describe cómo crear y administrar una programación de modo que pueda iniciar automáticamente un Runbook en un momento determinado o en una programación periódica."
 services: automation
-documentationcenter: ''
+documentationcenter: 
 author: MGoedtel
 manager: jwhit
 editor: tysonn
-
+ms.assetid: 1c2da639-ad20-4848-920b-88e471b2e1d9
 ms.service: automation
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: mgoedtel
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 26cbd468e6aa1613bd5f6c9944aedaafbd865a14
+
 
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Automatización de Azure
@@ -162,6 +166,9 @@ Los siguientes comandos de ejemplo muestran cómo deshabilitar una programación
 ## <a name="next-steps"></a>Pasos siguientes
 * Para empezar a trabajar con Runbooks, vea [Inicio de un runbook en Automatización de Azure](automation-starting-a-runbook.md) 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

@@ -1,22 +1,22 @@
 ---
 title: "Introducción a las colas de Service Bus | Microsoft Docs"
 description: "Cómo escribir una aplicación de consola en C# para la mensajería del Bus de servicio"
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: 
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 08/23/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c6405a6353cfcc56c79a6f842c6b150d10db75ee
+ms.sourcegitcommit: 560e73eb7129e665d254c3e93b08f29cfb6b1aa9
+ms.openlocfilehash: d80bedba1909de671ef96ac5372d9ff15a90764e
 
 
 ---
@@ -51,7 +51,8 @@ Si ya ha creado una cola de Service Bus, vaya a la sección [Envío de mensajes 
 Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con Visual Studio.
 
 ### <a name="create-a-console-application"></a>Creación de una aplicación de consola
-1. Inicie Visual Studio y cree una aplicación de consola.
+
+- Inicie Visual Studio y cree una aplicación de consola.
 
 ### <a name="add-the-service-bus-nuget-package"></a>Agregar el paquete NuGet del bus de servicio
 1. Haga clic con el botón derecho en el proyecto recién creado y seleccione **Administrar paquetes NuGet**.
@@ -62,12 +63,12 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
 ### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Escritura de código para enviar un mensaje a la cola
 1. Agregue la siguiente instrucción using al principio del archivo Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 2. Agregue el siguiente código al método `Main`, establezca la variable **connectionString** en la cadena de conexión que se obtuvo al crear el espacio de nombres y establezca **queueName** en el nombre de cola que usó cuando la creó.
    
-    ```
+    ```csharp
     var connectionString = "<Your connection string>";
     var queueName = "<Your queue name>";
    
@@ -78,7 +79,7 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
    
     Este es el aspecto que debería tener Program.cs.
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -107,12 +108,12 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
 1. Cree una nueva aplicación de consola y agregue una referencia al paquete NuGet del Bus de servicio, al igual que con la aplicación de envío anterior.
 2. Agregue la siguiente instrucción `using` al principio del archivo Program.cs.
    
-    ```
+    ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
 3. Agregue el siguiente código al método `Main`, establezca la variable **connectionString** en la cadena de conexión que se obtuvo al crear el espacio de nombres y establezca **queueName** en el nombre de cola que usó cuando la creó.
    
-    ```
+    ```csharp
     var connectionString = "";
     var queueName = "samplequeue";
    
@@ -129,7 +130,7 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
    
     Este es el aspecto que debería tener el archivo Program.cs:
    
-    ```
+    ```csharp
     using System;
     using Microsoft.ServiceBus.Messaging;
    
@@ -162,7 +163,7 @@ Para enviar mensajes a la cola, escribirá una aplicación de consola en C# con 
 ¡Enhorabuena! Ha creado una cola, ha enviado un mensaje y ha recibido un mensaje.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte nuestro [repositorio de GitHub](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) con ejemplos que muestran algunas de las características más avanzadas de mensajería de Service Bus de Azure.
+Consulte nuestro [repositorio de GitHub con ejemplos](https://github.com/Azure-Samples/azure-servicebus-messaging-samples) que muestran algunas de las características más avanzadas de mensajería de Azure Service Bus.
 
 <!--Image references-->
 
@@ -177,6 +178,6 @@ Consulte nuestro [repositorio de GitHub](https://github.com/Azure-Samples/azure-
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

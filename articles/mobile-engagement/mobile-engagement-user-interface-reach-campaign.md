@@ -1,12 +1,12 @@
 ---
-title: Interfaz de usuario de Azure Mobile Engagement - Campaña de cobertura
-description: Aprenda cómo crear y administrar campañas de notificaciones de inserción mediante Azure Mobile Engagement
+title: "Interfaz de usuario de Azure Mobile Engagement - Campaña de cobertura"
+description: "Aprenda cómo crear y administrar campañas de notificaciones de inserción mediante Azure Mobile Engagement"
 services: mobile-engagement
-documentationcenter: ''
+documentationcenter: 
 author: piyushjo
 manager: dwrede
-editor: ''
-
+editor: 
+ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
 ms.topic: article
@@ -14,94 +14,97 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
+ms.openlocfilehash: 75c2b2a467a03b51519cad530bf3d03ed32c4300
+
 
 ---
-# Cómo crear y administrar campañas de notificaciones de inserción
+# <a name="how-to-create-and-manage-push-notification-campaigns"></a>Cómo crear y administrar campañas de notificaciones de inserción
 Puede utilizar la sección de cobertura de la interfaz de usuario para crear una nueva campaña de inserción con una fórmula compleja proporcionando toda la información que necesita para enviar una notificación de inserción. Las opciones de una campaña de inserción varían ligeramente en función de los cuatro tipos de campaña: anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone).
 
-### La opción se aplica a:
-* Idiomas: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Campaña: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Notificación: anuncios y sondeos
-* Contenido: único para cada tipo de campaña
-* Público: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Período de tiempo: anuncios, sondeos, mosaicos
-* Prueba: todo (anuncios, sondeos, inserciones de datos, mosaicos)
+### <a name="option-applies-to"></a>La opción se aplica a:
+* Idiomas: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Campaña: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Notificación: anuncios y sondeos.
+* Contenido: único para cada tipo de campaña.
+* Público: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Período de tiempo: anuncios, sondeos, iconos.
+* Prueba: todo (anuncios, sondeos, inserciones de datos, mosaicos).
 
 ![Reach-Campaign1][20]
 
-## Idiomas
-Puede utilizar el menú desplegable de idiomas para enviar una versión diferente de la inserción a los dispositivos que están configurados para utilizar distintos idiomas. De forma predeterminada, todos los dispositivos recibirán la misma inserción independientemente del lenguaje que están configurados para utilizar. Los usuarios con su dispositivo configurado en un idioma diferente recibirán la versión del idioma predeterminado de la inserción. Muchas de las opciones de la campaña de inserción le permiten especificar contenido alternativo para cada uno de los idiomas adicionales que seleccione.
+## <a name="languages"></a>Idiomas
+Puede utilizar el menú desplegable de idiomas para enviar una versión diferente de la inserción a los dispositivos que están configurados para utilizar distintos idiomas. De forma predeterminada, todos los dispositivos recibirán la misma inserción independientemente del lenguaje que están configurados para utilizar. Los usuarios con su dispositivo configurado en un idioma diferente recibirán la versión del idioma predeterminado de la inserción. Muchas de las opciones de la campaña de inserción le permiten especificar contenido alternativo para cada uno de los idiomas adicionales que seleccione. 
 
 ![Reach-Campaign2][21]
 
-### Las diferencias de los idiomas se aplican a:
-* Idiomas: se pueden seleccionar idiomas únicos además del idioma predeterminado
-* Campaña: igual para todos los idiomas
-* Notificación: único para cada idioma además del idioma predeterminado
-* Contenido: único para cada idioma además del idioma predeterminado
-* Audiencia: se puede filtrar por un criterio de idioma independiente
-* Período de tiempo: igual para todos los idiomas
-* Prueba: se puede enviar a cada idioma a la vez
+### <a name="language-differences-apply-to"></a>Las diferencias de los idiomas se aplican a:
+* Idiomas: se pueden seleccionar idiomas únicos además del idioma predeterminado.
+* Campaña: igual para todos los idiomas.
+* Notificación: única para cada idioma además del idioma predeterminado.
+* Contenido: único para cada idioma además del idioma predeterminado.
+* Audiencia: se puede filtrar por un criterio de idioma independiente.
+* Período de tiempo: igual para todos los idiomas.
+* Prueba: se puede enviar a cada idioma a la vez.
 
-### Idiomas admitidos
-* Árabe (ar)
-* Búlgaro (bg)
-* Catalán (ca)
-* Chino (zh)
-* Croata (hr)
-* Checo (cs)
-* Danés (da)
-* Neerlandés (Países Bajos)
-* Español (es)
-* Finés (fi)
-* Francés (fr)
-* Alemán (de)
-* Griego (el)
-* Hebreo (he)
-* Hindi (hi)
-* Húngaro (hu)
-* Indonesio (id)
-* Italiano (it)
-* Japonés (ja)
-* Coreano (ko)
-* Letón (lv)
-* Lituano (lt)
-* Malayo (macroidioma) (ms)
-* Noruego Bokmål (nb)
-* Polaco (pl)
-* Portugués (pt)
-* Rumano (ro)
-* Ruso (ru)
-* Serbio (sr)
-* Eslovaco (sk)
-* Esloveno (sl)
-* Español (es)
-* Sueco (sv)
-* Tagalo (tl)
-* Tailandés (th)
-* Turco (tr)
-* Ucraniano (uk)
-* Vietnamita (vi)
+### <a name="supported-languages"></a>Idiomas admitidos
+* Árabe (ar) 
+* Búlgaro (bg) 
+* Catalán (ca) 
+* Chino (zh) 
+* Croata (hr) 
+* Checo (cs) 
+* Danés (da) 
+* Neerlandés (Países Bajos) 
+* Español (es) 
+* Finés (fi) 
+* Francés (fr) 
+* Alemán (de) 
+* Griego (el) 
+* Hebreo (he) 
+* Hindi (hi) 
+* Húngaro (hu) 
+* Indonesio (id) 
+* Italiano (it) 
+* Japonés (ja) 
+* Coreano (ko) 
+* Letón (lv) 
+* Lituano (lt) 
+* Malayo (macroidioma) (ms) 
+* Noruego Bokmål (nb) 
+* Polaco (pl) 
+* Portugués (pt) 
+* Rumano (ro) 
+* Ruso (ru) 
+* Serbio (sr) 
+* Eslovaco (sk) 
+* Esloveno (sl) 
+* Español (es) 
+* Sueco (sv) 
+* Tagalo (tl) 
+* Tailandés (th) 
+* Turco (tr) 
+* Ucraniano (uk) 
+* Vietnamita (vi) 
 
-## Campaña
+## <a name="campaign"></a>Campaña
 Puede utilizar la sección Campaña para establecer el nombre y la categoría de la campaña, así como si planea pasar por alto la sección de audiencia de una campaña de inserción y enviar esta campaña a través de la API de cobertura (y algunos elementos de la API de inserción de nivel bajo) en su lugar. Las categorías se pueden utilizar con una plantilla de notificación personalizada para controlar las notificaciones de aplicaciones basadas en configuraciones predefinidas. Puede obtener una lista de las "Categorías" existentes mediante la API de cobertura.
 
-> Advertencia: si usa la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
-> 
-> 
+> [!WARNING]
+> Si utiliza la opción "Omitir audiencia, la inserción se enviará a los usuarios a través de la API" de la sección "Campaña" de una campaña de cobertura, la campaña NO se enviará automáticamente, deberá enviarla de forma manual mediante la API de cobertura.
 
 ![Reach-Campaign3][22]
 
-### La opción se aplica a:
-* Nombre: todo
-* Categoría: anuncios, sondeos
-* Omitir la audiencia, la inserción se enviará a los usuarios a través de la API: todo
+### <a name="option-applies-to"></a>La opción se aplica a:
+* Nombre: todo.
+* Categoría: anuncios, sondeos.
+* Omitir la audiencia, la inserción se enviará a los usuarios a través de la API: todo.
 
-## Notificación
+## <a name="notification"></a>Notificación
 Puede utilizar la sección Notificación para establecer la configuración básica de la inserción, incluido: el título de la inserción, el mensaje, una imagen de la aplicación, o si se pueden pasar por alto. Muchas opciones de notificación son específicas de la plataforma del dispositivo. Puede seleccionar si desea enviar la inserción "en la aplicación", "fuera de la aplicación" o a ambas ubicaciones. (Recuerde que los usuarios pueden participar o no participar en las inserciones fuera de la aplicación a nivel del sistema operativo en sus dispositivos, y Azure Mobile Engagement no podrá invalidar esta configuración. Recuerde también que la API de cobertura maneja inserciones "dentro de la aplicación" y "fuera de la aplicación". La API de inserción puede utilizarse para controlar también inserciones "fuera de la aplicación"). Las inserciones pueden personalizarse con imágenes o contenido HTML, incluidos vínculos profundos para vincular fuera de la aplicación o en otra ubicación de la aplicación (se requieren categorías preventivas del SDK de Android 2.1.0 o posteriores). Puede cambiar el icono o el distintivo de iOS y enviar contenido de texto o web (una ventana emergente con contenido html, un vínculo de URL a otra ubicación dentro o fuera de la aplicación). También puede hacer que dispositivos Android suenen o vibren con la inserción. (Recuerde que necesitará los permisos correctos del SDK en su archivo de manifiesto de Android para hacer sonar o vibrar un dispositivo). Actualmente no hay ningún estándar del sector para tamaños de Android de "Imagen grande", puesto que los tamaños de pantalla son diferentes en cada dispositivo, pero las imágenes de 400 x 100 funcionan en casi cualquier tamaño de pantalla.
 
-### Tipos de entrega:
+### <a name="delivery-types"></a>Tipos de entrega:
 * Solo fuera de la aplicación: la notificación se entregará cuando el usuario no utilice la aplicación.
 * La notificación solo fuera de la aplicación requiere un certificado de Apple o Google (certificado APN o GCM).
 * Solo dentro de la aplicación: la notificación aparece solo cuando se ejecuta la aplicación.
@@ -110,68 +113,66 @@ Puede utilizar la sección Notificación para establecer la configuración bási
 
 ![Reach-Campaign4][23]
 
-### La opción se aplica a:
-* Notificación: anuncios y sondeos
+### <a name="option-applies-to"></a>La opción se aplica a:
+* Notificación: anuncios y sondeos.
 
-## Contenido
-Puede utilizar la sección de contenido para modificar el contenido de los anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone). La configuración del contenido de las campañas de inserción es específica del tipo de campaña.
+## <a name="content"></a>Contenido
+Puede utilizar la sección de contenido para modificar el contenido de los anuncios, sondeos, inserciones de datos y mosaicos (solo en Windows Phone). La configuración del contenido de las campañas de inserción es específica del tipo de campaña. 
 
-### Otras referencias
-* [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Link 29]
+### <a name="see-also"></a>Consulte también
+* [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Vínculo 29]
 
 ![Reach-Campaign5][24]
 
-## Público
+## <a name="audience"></a>Público
 Puede utilizar la sección de audiencia para definir una lista estándar de elementos para limitar su campaña o limitar la campaña en función de criterios personalizados. El conjunto estándar de opciones para limitar la audiencia le permite insertar a los usuarios nuevos o antiguos o solo a los usuarios de inserción nativa. También puede establecer una cuota para limitar el número de usuarios que reciben la inserción. Puede editar manualmente la expresión sobre cómo se filtra su campaña para incluir uno o más criterios para los usuarios de destino. Manualmente puede escribir una expresión de audiencia. Este tipo de expresión debe definir explícitamente la relación entre los criterios. Un criterio se describe mediante un identificador que debe comenzar con una letra mayúscula y no puede contener espacios. La relación entre los criterios se puede describir mediante los operadores 'and', 'or', 'not', así como '(', ')'. Ejemplo: "Criterio1 o (Criterio1 y no Criterio2)".
 
-> Nota: con una amplia audiencia incluida en las campañas, el análisis de orientación del servidor puede ralentizarse, especialmente si intenta iniciar varias campañas al mismo tiempo.
-> 
-> 
+> [!NOTE]
+> Con una amplia audiencia incluida en las campañas, el análisis de orientación del servidor puede ralentizarse, especialmente si intenta iniciar varias campañas al mismo tiempo.
 
 * Si es posible, inicie una sola campaña de cada vez.
 * Como máximo, inicie solamente cuatro campañas de cada vez.
-* Realice la inserción únicamente a sus usuarios activos (casilla de verificación "Atraer solo a los usuarios con los que se pueda contactar mediante inserción nativa" y "Atraer solo a usuarios activos") para que solo se tengan que analizar los usuarios que aún tienen la aplicación instalada y la utilicen. Una vez definida la audiencia, puede utilizar el botón de simulación para averiguar cuántos usuarios recibirán esta inserción. Esto calculará el número de usuarios conocidos a los que se dirige potencialmente este público (esta es una estimación basada en una muestra aleatoria de usuarios). Tenga en cuenta que los usuarios que han desinstalado la aplicación también forman parte de esta audiencia, pero no se puede contactar con ellos.
+* Realice la inserción únicamente a sus usuarios activos (casilla de verificación "Atraer solo a los usuarios con los que se pueda contactar mediante inserción nativa" y "Atraer solo a usuarios activos") para que solo se tengan que analizar los usuarios que aún tienen la aplicación instalada y la utilicen.
+  Una vez definida la audiencia, puede utilizar el botón de simulación para averiguar cuántos usuarios recibirán esta inserción. Esto calculará el número de usuarios conocidos a los que se dirige potencialmente este público (esta es una estimación basada en una muestra aleatoria de usuarios). Tenga en cuenta que los usuarios que han desinstalado la aplicación también forman parte de esta audiencia, pero no se puede contactar con ellos.
 
-### Otras referencias
-* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Link 28]
+### <a name="see-also"></a>Consulte también
+* [Documentación de la interfaz de usuario - Cobertura - Nuevo criterio de inserción][Vínculo 28]
 
 ![Reach-Campaign6][25]
 
-### Editar expresión
+### <a name="edit-expression"></a>Editar expresión
 ![Reach-Campaign7][26]
 
-### Limitar la opción de audiencia se aplica a:
-* Haga participar a tan solo un subconjunto de usuarios: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Haga participar solo a los usuarios antiguos: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Haga participar solo a los usuarios nuevos: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Haga participar solo a los usuarios inactivos: anuncios, sondeos, mosaicos
-* Haga participar solo a los usuarios activos: todo (anuncios, sondeos, inserciones de datos, mosaicos)
-* Haga participar solo a los usuarios con los que se pueda contactar mediante la inserción nativa: anuncios, sondeos
+### <a name="limit-your-audience-option-applies-to"></a>Limitar la opción de audiencia se aplica a:
+* Captar solo un subconjunto de usuarios: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Captar solo usuarios antiguos: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Captar solo usuarios nuevos: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Captar solo usuarios en espera: anuncios, sondeos, iconos.
+* Captar solo usuarios activos: todo (anuncios, sondeos, inserciones de datos, iconos).
+* Captar solo a los usuarios con los que se puede contactar usando la inserción nativa: anuncios, sondeos.
 
-## Período de tiempo
+## <a name="time-frame"></a>Período de tiempo
 Puede utilizar la sección de intervalo de tiempo para establecer cuándo se enviará la inserción o puede dejar el intervalo de tiempo en blanco para iniciar la campaña inmediatamente. Recuerde que utilizando la zona horaria de los usuarios finales puede comenzar la campaña un día antes de lo esperado para los usuarios finales de Asia y enviar lotes pequeños de inserciones a la vez hasta que todas las zonas horarias del mundo coincidan con el intervalo de tiempo establecido para la campaña. Utilizar la zona horaria de los usuarios finales también puede provocar retrasos en las campañas porque tiene que solicitar el tiempo desde el teléfono antes de iniciar la inserción.
 
-> Nota: sin una fecha de finalización puede almacenar en caché inserciones localmente y todavía mostrarlas después de completar manualmente las campañas. Para evitar este comportamiento, especifique una hora de finalización para campañas.
-> 
-> 
+> [!NOTE]
+> Sin una fecha de finalización puede almacenar en caché de campañas inserciones localmente y todavía mostrarlos después de completar manualmente las campañas. Para evitar este comportamiento, especifique una hora de finalización para campañas.
 
-### Otras referencias
-* [Cobertura - Guía práctica - Programación][Link 3]
+### <a name="see-also"></a>Consulte también
+* [Cobertura - Guía práctica - Programación][Vínculo 3] 
 
 ![Reach-Campaign8][27]
 
-### La configuración se aplica a:
-* Período de tiempo: anuncios, sondeos, mosaicos
+### <a name="settings-apply-to"></a>La configuración se aplica a:
+* Período de tiempo: anuncios, sondeos, iconos.
 
-## Prueba
+## <a name="test"></a>Prueba
 Puede utilizar la sección de prueba para enviar esta inserción a su propio dispositivo de prueba antes de guardar la campaña. Si ha configurado algún idioma personalizado para esta campaña, puede probar la inserción en cada idioma. Puede configurar un dispositivo de prueba desde "Mi cuenta".
 
-> Nota: no se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
-> 
-> 
+> [!NOTE]
+> No se registra ningún dato del servidor cuando utiliza el botón para "probar" inserciones, los datos solo se registran para campañas de inserción real.
 
-### Otras referencias
-* [Documentación de la interfaz de usuario - Mi cuenta][Link 14]
+### <a name="see-also"></a>Consulte también
+* [Documentación de la interfaz de usuario - Mi cuenta][Vínculo 14]
 
 ![Reach-Campaign9][28]
 
@@ -236,35 +237,39 @@ Puede utilizar la sección de prueba para enviar esta inserción a su propio dis
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Link 1]: mobile-engagement-user-interface.md
-[Link 2]: mobile-engagement-troubleshooting-guide.md
-[Link 3]: mobile-engagement-how-tos.md
-[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Link 7]: https://account.windowsazure.com/PreviewFeatures
-[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Link 12]: mobile-engagement-user-interface-navigation.md
-[Link 13]: mobile-engagement-user-interface-home.md
-[Link 14]: mobile-engagement-user-interface-my-account.md
-[Link 15]: mobile-engagement-user-interface-analytics.md
-[Link 16]: mobile-engagement-user-interface-monitor.md
-[Link 17]: mobile-engagement-user-interface-reach.md
-[Link 18]: mobile-engagement-user-interface-segments.md
-[Link 19]: mobile-engagement-user-interface-dashboard.md
-[Link 20]: mobile-engagement-user-interface-settings.md
-[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Link 24]: mobile-engagement-troubleshooting-guide-service.md
-[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Link 27]: mobile-engagement-user-interface-reach-campaign.md
-[Link 28]: mobile-engagement-user-interface-reach-criterion.md
-[Link 29]: mobile-engagement-user-interface-reach-content.md
+[Vínculo 1]: mobile-engagement-user-interface.md
+[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
+[Vínculo 3]: mobile-engagement-how-tos.md
+[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
+[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Vínculo 12]: mobile-engagement-user-interface-navigation.md
+[Vínculo 13]: mobile-engagement-user-interface-home.md
+[Vínculo 14]: mobile-engagement-user-interface-my-account.md
+[Vínculo 15]: mobile-engagement-user-interface-analytics.md
+[Vínculo 16]: mobile-engagement-user-interface-monitor.md
+[Vínculo 17]: mobile-engagement-user-interface-reach.md
+[Vínculo 18]: mobile-engagement-user-interface-segments.md
+[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
+[Vínculo 20]: mobile-engagement-user-interface-settings.md
+[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
+[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Vínculo 27]: mobile-engagement-user-interface-reach-campaign.md
+[Vínculo 28]: mobile-engagement-user-interface-reach-criterion.md
+[Vínculo 29]: mobile-engagement-user-interface-reach-content.md
 
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

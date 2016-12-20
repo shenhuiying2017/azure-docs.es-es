@@ -1,15 +1,15 @@
-En esta sección, se actualiza el código del proyecto de back-end de Aplicaciones móviles existente con el objetivo de enviar una notificación de inserción cada vez que se agrega un nuevo elemento. Dado que los clientes se registran para recibir notificaciones de inserción mediante un registro de plantilla, puede enviar un único mensaje de notificación de inserción a todas las plataformas cliente. Cada registro de plantilla de cliente contiene un parámetro *messageParam*. Cuando se envía la notificación, *messageParam* contendrá una cadena, que es el texto del elemento que se va a insertar. Para obtener más información sobre cómo utilizar plantillas con Centros de notificaciones, consulte [Plantillas](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+En esta sección, se actualiza el código del proyecto de back-end de Aplicaciones móviles existente con el objetivo de enviar una notificación de inserción cada vez que se agrega un nuevo elemento. Esto funciona con las [plantillas](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) de Notification Hubs, que permite inserciones multiplataforma. Los diversos clientes se registran para recibir notificaciones push mediante plantillas, y una solo notificación push puede acceder a todas las plataformas de cliente.
 
-Elija el procedimiento de abajo que se corresponda con el tipo de proyecto de back-end: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
+Elija uno de los procedimientos siguientes que se ajusten al tipo de proyecto de back-end&mdash;: [back-end de .NET](#dotnet) o [back-end de Node.js](#nodejs).
 
-### <a name="dotnet"></a>Proyecto de back-end de .NET
+### <a name="a-namedotnetanet-backend-project"></a><a name="dotnet"></a>Proyecto de back-end de .NET
 1. En Visual Studio, haga clic con el botón derecho en el proyecto de servidor, haga clic en **Administrar paquetes de NuGet**, busque `Microsoft.Azure.NotificationHubs` y, por último, haga clic en **Instalar**. Esto instala la biblioteca de los Centros de notificaciones para enviar notificaciones desde el back-end.
 2. En el proyecto de servidor, abra **Controladores** > **TodoItemController.cs** y agregue las siguientes instrucciones using:
    
         using System.Collections.Generic;
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.Mobile.Server.Config;
-3. En el método **PostTodoItem**, agregue el código siguiente después de la llamada a **InsertAsync**:
+3. En el método **PostTodoItem**, agregue el código siguiente después de la llamada a **InsertAsync**:  
    
         // Get the settings for the server project.
         HttpConfiguration config = this.Configuration;
@@ -46,10 +46,10 @@ Elija el procedimiento de abajo que se corresponda con el tipo de proyecto de ba
         }
    
     Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
-4. Vuelva a publicar el proyecto de servidor.
+4. Vuelva a publicar el proyecto de servidor. 
 
-### <a name="nodejs"></a>Proyecto de back-end de Node.js
-1. Si no lo ha hecho todavía, [descargue el proyecto de back-end inicio rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o utilice el [editor en línea del Portal de Azure](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
+### <a name="a-namenodejsanodejs-backend-project"></a><a name="nodejs"></a>Proyecto de back-end de Node.js
+1. Si no lo ha hecho todavía, [descargue el proyecto de back-end de inicio rápido](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart) o use el [editor en línea de Azure Portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Reemplace el código existente en el archivo todoitem.js por lo siguiente:
    
         var azureMobileApps = require('azure-mobile-apps'),
@@ -94,4 +94,8 @@ Elija el procedimiento de abajo que se corresponda con el tipo de proyecto de ba
     Esta acción envía una notificación de plantilla que contiene el archivo item.text cuando se inserta un nuevo elemento.
 3. Cuando edite el archivo en el equipo local, vuelva a publicar el proyecto de servidor.
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

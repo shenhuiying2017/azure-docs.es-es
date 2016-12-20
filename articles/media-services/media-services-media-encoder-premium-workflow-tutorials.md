@@ -1,26 +1,30 @@
 ---
 title: Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
-description: Este documento contiene tutoriales que muestran cómo realizar tareas avanzadas con el flujo de trabajo premium del codificador multimedia y también cómo crear flujos de trabajo complejos con el Diseñador de flujo de trabajo.
+description: "Este documento contiene tutoriales que muestran cómo realizar tareas avanzadas con el flujo de trabajo premium del codificador multimedia y también cómo crear flujos de trabajo complejos con el Diseñador de flujo de trabajo."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: xstof
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2016
-ms.author: xstof;xpouyat;juliako
+ms.date: 10/03/2016
+ms.author: christoc;xpouyat;juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
+ms.openlocfilehash: 5cb610b4b2387af48ef29acdcc5e40e154f515a7
+
 
 ---
-# Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
-## Información general
-Este documento contiene tutoriales que muestran cómo personalizar los flujos de trabajo con el **Diseñador de flujo de trabajo**. Puede encontrar los archivos de flujo de trabajo reales [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).
+# <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Tutoriales avanzados sobre el flujo de trabajo premium del codificador multimedia
+## <a name="overview"></a>Información general
+Este documento contiene tutoriales que muestran cómo personalizar los flujos de trabajo con el **Diseñador de flujo de trabajo**. Encontrará los archivos de flujo de trabajo reales [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-## TABLA DE CONTENIDO
+## <a name="toc"></a>TABLA DE CONTENIDO
 Se tratan los siguientes temas:
 
 * [Codificación de MXF en un MP4 de velocidad de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
@@ -39,12 +43,12 @@ Se tratan los siguientes temas:
   * [Incorporación de una pista de audio independiente](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_audio_tracks)
   * [Incorporación del archivo SMIL .ISM](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging_ism_file)
 * [Codificación de MXF en archivos MP4 de varias velocidades de bits: plano mejorado](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4)
-  * [Información general del flujo de trabajo a mejorar](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_overview)
-  * [Convenciones de nomenclatura de los archivos](vMXF_to__multibitrate_MP4_file_naming.md)
+  * [Información general del flujo de trabajo a mejorar](#workflow-overview-to-enhance)
+  * [Convenciones de nomenclatura de los archivos](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_file_naming)
   * [Publicación de propiedades de componente en la raíz del flujo de trabajo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_publishing)
   * [Se han generado nombres de archivo de salida que se basan en los valores de propiedad publicados](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to__multibitrate_MP4_output_files)
 * [Incorporación de miniaturas a la salida MP4 de varias velocidades de bits](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)
-  * [Información general del flujo de trabajo al que agregar miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to_multibitrate_MP4_overview)
+  * [Información general del flujo de trabajo al que agregar miniaturas](#workflow-overview-to-add-thumbnails-to)
   * [Incorporación de codificación JPG](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4__with_jpg)
   * [Relación con la conversión de espacio de colores](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_color_space)
   * [Escritura de las miniaturas](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4_writing_thumbnails)
@@ -62,23 +66,23 @@ Se tratan los siguientes temas:
   * [Modificación de la lista de clips desde un componente generado por script](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
   * [Incorporación de una propiedad de conveniencia ClippingEnabled](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
-## <a id="MXF_to_MP4"></a>Codificación de MXF en un MP4 de velocidad de bits única
+## <a name="a-idmxftomp4aencoding-mxf-into-a-single-bitrate-mp4"></a><a id="MXF_to_MP4"></a>Codificación de MXF en un MP4 de velocidad de bits única
 En este tutorial crearemos un archivo .MP4 de velocidad de bits única con audio codificado AAC-HE a partir de un archivo de entrada .MXF.
 
-### <a id="MXF_to_MP4_start_new"></a>Inicio de un nuevo flujo de trabajo
+### <a name="a-idmxftomp4startnewastarting-a-new-workflow"></a><a id="MXF_to_MP4_start_new"></a>Inicio de un nuevo flujo de trabajo
 Abra el Diseñador de flujo de trabajo y seleccione "File" (Archivo), "New Workspace" (Nueva área de trabajo), "Transcode Blueprint" (Transcodificar plano)
 
 El nuevo flujo de trabajo muestra 3 elementos:
 
 * Primary Source File (Archivo de origen principal)
 * Clip List XML (XML de la lista de clips)
-* Output File/Asset (Recurso/Archivo de salida)
+* Output File/Asset (Recurso/Archivo de salida)  
 
 ![Nuevo flujo de trabajo de codificación](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
 *Nuevo flujo de trabajo de codificación*
 
-### <a id="MXF_to_MP4_with_file_input"></a>Utilización de la entrada de archivo multimedia
+### <a name="a-idmxftomp4withfileinputausing-the-media-file-input"></a><a id="MXF_to_MP4_with_file_input"></a>Utilización de la entrada de archivo multimedia
 Para aceptar el archivo multimedia de entrada, debe empezar con la incorporación de un componente Media File Input (Entrada de archivo multimedia). Para agregar un componente al flujo de trabajo, busque en el cuadro de búsqueda del repositorio y arrastre la entrada deseada al panel del diseñador. Haga esto para la entrada de archivo multimedia y conecte el componente Primary Source File (Archivo de origen principal) a la clavija de entrada de Filename (Nombre de archivo) de la entrada de archivo multimedia.
 
 ![Entrada de archivo multimedia conectada](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
@@ -97,7 +101,7 @@ Aunque esto especifica con qué entrada nos gustaría trabajar, no indica aún a
 
 *Propiedades de entrada y salida configuradas*
 
-### <a id="MXF_to_MP4_streams"></a>Inspección de transmisiones multimedia
+### <a name="a-idmxftomp4streamsainspecting-media-streams"></a><a id="MXF_to_MP4_streams"></a>Inspección de transmisiones multimedia
 A menudo se quiere saber qué aspecto tendrá la transmisión que se ejecuta mediante el flujo de trabajo. Para inspeccionar una transmisión en cualquier punto del flujo de trabajo, solo tiene que hacer clic en una clavija de entrada o salida en cualquiera de los componentes. En este caso, intente hacer clic en la clavija de salida Uncompressed Video (Vídeo sin comprimir) de la entrada de archivo multimedia. Se abrirá un cuadro de diálogo que permite inspeccionar el vídeo saliente.
 
 ![Inspección de la clavija de salida de vídeo sin comprimir](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
@@ -106,12 +110,12 @@ A menudo se quiere saber qué aspecto tendrá la transmisión que se ejecuta med
 
 En nuestro caso, nos dice por ejemplo que estamos trabajando con una entrada de 1920 x 1080 a 24 fotogramas por segundo en un muestreo 4:2:2 para ver un vídeo de casi 2 minutos.
 
-### <a id="MXF_to_MP4_file_generation"></a>Incorporación de un codificador de vídeo para la generación de archivos .MP4
+### <a name="a-idmxftomp4filegenerationaadding-a-video-encoder-for-mp4-file-generation"></a><a id="MXF_to_MP4_file_generation"></a>Incorporación de un codificador de vídeo para la generación de archivos .MP4
 Tenga en cuenta que ahora, una clavija de salida de vídeo sin comprimir y varias de audio sin comprimir están disponibles para su utilización en la entrada de archivo multimedia. Para codificar el vídeo de entrada, necesitamos un componente de codificación, en este caso para la generación de archivos .MP4.
 
 Para codificar la secuencia de vídeo en H.264, agregue el componente AVC Video Encoder (Codificador de vídeo AVC) a la superficie del diseñador. Este componente toma una secuencia de vídeo sin comprimir como entrada y entrega una secuencia de vídeo comprimida AVC en su clavija de salida.
 
-![Codificador AVC no conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
+![Codificador de AVC no conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
 *Codificador de AVC no conectado*
 
@@ -132,10 +136,10 @@ Para alimentar al codificador AVC, conecte la clavija de salida Uncompressed Vid
 
 *Codificador principal AVC conectado*
 
-### <a id="MXF_to_MP4_audio"></a>Codificación de la secuencia de audio
+### <a name="a-idmxftomp4audioaencoding-the-audio-stream"></a><a id="MXF_to_MP4_audio"></a>Codificación de la secuencia de audio
 En este punto, ya hemos codificado el vídeo pero la secuencia de audio sin comprimir original aún debe comprimirse. Para ello, utilizaremos la codificación AAC mediante el componente AAC Encoder (Dolby). Agréguelo al flujo de trabajo.
 
-![Codificador AVC no conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
+![Codificador de AVC no conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
 *Codificador de AAC no conectado*
 
@@ -157,14 +161,14 @@ Configure el asignador de posiciones de altavoz para la utilización de una tran
 
 Conecte la salida del asignador de posiciones de altavoz a la entrada del codificador AAC. A continuación, indique al codificador AAC que debe trabajar con un canal preestablecido "2.0 (L, R)" para que sepa que va a tratar con audio estéreo como entrada.
 
-### <a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexación de secuencias de audio y vídeo en un contenedor MP4
+### <a name="a-idmxftomp4audioandfideoamultiplexing-audio-and-video-streams-into-an-mp4-container"></a><a id="MXF_to_MP4_audio_and_fideo"></a>Multiplexación de secuencias de audio y vídeo en un contenedor MP4
 Una vez que tenemos nuestra secuencia de vídeo codificado AVC y nuestra secuencia de audio codificada AAC, podemos capturar ambas en un contenedor .MP4. El proceso de mezclar transmisiones diferentes en una sola se denomina "multiplexación" (o "muxing"). En este caso, estamos entrelazando las secuencias de audio y de vídeo en un solo paquete coherente de .MP4. El componente encargado de coordinar esta operación para un contenedor .MP4 se denomina ISO MPEG-4 Multiplexer (Multiplexor ISO MPEG-4). Agregue uno a la superficie del diseñador y conecte el codificador de vídeo AVC y el codificador AAC a sus entradas.
 
 ![Multiplexor MPEG4 conectado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
 *Multiplexor MPEG4 conectado*
 
-### <a id="MXF_to_MP4_writing_mp4"></a>Escritura del archivo MP4
+### <a name="a-idmxftomp4writingmp4awriting-the-mp4-file"></a><a id="MXF_to_MP4_writing_mp4"></a>Escritura del archivo MP4
 Al escribir un archivo de salida, se utiliza el componente de salida de archivo. Podemos conectar este a la salida del multiplexor ISO MPEG-4 para que su salida se grabe en el disco. Para ello, conecte la clavija de salida Container (MPEG-4) (Contenedor (MPEG-4)) a la clavija de entrada Write (Grabar) del componente File Output (Salida de archivo).
 
 ![Salida de archivo conectada](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
@@ -189,8 +193,8 @@ El editor de expresiones permite escribir cualquier valor literal y combinarlo c
 
 > [!NOTE]
 > Para poder ver un archivo de salida del trabajo de codificación en Azure, debe proporcionar un valor en el editor de expresiones.
-> 
-> 
+>
+>
 
 Después de hacer clic en Aceptar para confirmar la expresión, la ventana de propiedades mostrará una vista previa del valor que resuelve la propiedad de archivo en este momento.
 
@@ -198,7 +202,7 @@ Después de hacer clic en Aceptar para confirmar la expresión, la ventana de pr
 
 *La expresión de archivo resuelve el directorio de salida*
 
-### <a id="MXF_to_MP4_asset_from_output"></a>Creación de un recurso de Servicios multimedia desde el archivo de salida
+### <a name="a-idmxftomp4assetfromoutputacreating-a-media-services-asset-from-the-output-file"></a><a id="MXF_to_MP4_asset_from_output"></a>Creación de un recurso de Servicios multimedia desde el archivo de salida
 Aunque ya hemos grabado un archivo de salida MP4, todavía es necesario indicar que este archivo pertenece al recurso de salida que generarán los servicios multimedia como resultado de ejecutar este flujo de trabajo. Para ello, se utiliza el nodo Output File/Asset (Recurso/Archivo de salida) en el lienzo del flujo de trabajo. Todos los archivos que entren en este nodo formarán parte del recurso resultante de Servicios multimedia de Azure.
 
 Conecte el componente File Output (Salida de archivo) al componente Output File/Asset (Recurso/Archivo de salida) para finalizar el flujo de trabajo.
@@ -207,10 +211,10 @@ Conecte el componente File Output (Salida de archivo) al componente Output File/
 
 *Flujo de trabajo finalizado*
 
-### <a id="MXF_to_MP4_test"></a>Comprobación local del flujo de trabajo terminado
+### <a name="a-idmxftomp4testatest-the-finished-workflow-locally"></a><a id="MXF_to_MP4_test"></a>Comprobación local del flujo de trabajo terminado
 Para probar el flujo de trabajo de forma local, haga clic en el botón Reproducir en la barra de herramientas de la parte superior. Cuando el flujo de trabajo haya terminado de ejecutarse, inspeccione la salida generada en la carpeta de salida configurada. Allí podrá ver el archivo de salida MP4 terminado que se codificó desde el archivo de origen de entrada MXF.
 
-## <a id="MXF_to_MP4_with_dyn_packaging"></a>Codificación de MXF en archivos MP4: empaquetado dinámico de varias velocidades de bits habilitado
+## <a name="a-idmxftomp4withdynpackagingaencoding-mxf-into-mp4---multibitrate-dynamic-packaging-enabled"></a><a id="MXF_to_MP4_with_dyn_packaging"></a>Codificación de MXF en archivos MP4: empaquetado dinámico de varias velocidades de bits habilitado
 En este tutorial crearemos un conjunto de archivos .MP4 de varias velocidades de bits con audio codificado AAC a partir de un archivo de entrada .MXF.
 
 Cuando se desea una salida de recurso de varias velocidades de bits para su utilización en combinación con las características de empaquetado dinámico que ofrece Servicios multimedia de Azure, deberán generarse varios archivos MP4 alineados con GOP, cada uno de ellos con velocidad de bits y resolución diferentes. Para ello, el tutorial [Codificación de MXF en un MP4 de velocidad de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4) nos proporciona un buen punto de partida.
@@ -219,7 +223,7 @@ Cuando se desea una salida de recurso de varias velocidades de bits para su util
 
 *Inicio del flujo de trabajo*
 
-### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Incorporación de una o más salidas MP4 adicionales
+### <a name="a-idmxftomp4withdynpackagingmoreoutputsaadding-one-or-more-additional-mp4-outputs"></a><a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Incorporación de una o más salidas MP4 adicionales
 Cada archivo MP4 en el recurso resultante de Servicios multimedia de Azure será compatible con una velocidad de bits y resolución diferentes. Vamos a agregar uno o más archivos de salida MP4 al flujo de trabajo.
 
 Para asegurarse de que tenemos todos nuestros codificadores de vídeo creados con la misma configuración, resulta más conveniente duplicar el codificador de vídeo AVC ya existente y configurar otra combinación de resolución y velocidad de bits (agreguemos una de 960x540 a 25 fotogramas por segundo a 2,5 Mbps). Para duplicar el codificador existente, cópielo y péguelo en la superficie del diseñador.
@@ -254,14 +258,15 @@ Para la compatibilidad con el empaquetado dinámico de Servicios multimedia de A
 
 Nota: puede repetir este proceso para todas las combinaciones de velocidad de bits y resolución que desee agregar a la salida del recurso.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Configuración de los nombres de salida de archivo
+### <a name="a-idmxftomp4withdynpackagingconfoutputnamesaconfiguring-the-file-output-names"></a><a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Configuración de los nombres de salida de archivo
 Tenemos más de un único archivo agregado al recurso de salida. Esto hace que sea necesario asegurarse de que los nombres de archivo para cada uno de los archivos de salida son diferentes entre sí y quizás incluso aplicar una convención de nomenclatura de archivos para que resulte evidente viendo el nombre del archivo aquello con lo que está tratando.
 
 La nomenclatura de archivos de salida se puede controlar mediante expresiones en el diseñador. Abra el panel de propiedades para uno de los componentes de salida de archivo y abra el editor de expresiones para la propiedad del archivo. Nuestro primer archivo de salida se configuró mediante la siguiente expresión (consulte el tutorial para pasar de [MXF a una salida MP4 de velocidad de bits única](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}.MP4
 
-Esto significa que el nombre de archivo viene determinado por dos variables: el directorio de salida en el que escribir y el nombre base del archivo de origen. El primero se expone como una propiedad en la raíz del flujo de trabajo mientras que el segundo viene determinado por el archivo entrante. Tenga en cuenta que el directorio de salida es el que se utiliza para las pruebas locales. El motor del flujo de trabajo invalidará esta propiedad cuando el procesador de multimedia basado en la nube ejecute el flujo de trabajo en Servicios multimedia de Azure. Para dar a todos nuestros archivos de salida un nombre de salida coherente, cambie la primera expresión de nomenclatura de archivos a:
+Esto significa que el nombre de archivo viene determinado por dos variables: el directorio de salida en el que escribir y el nombre base del archivo de origen. El primero se expone como una propiedad en la raíz del flujo de trabajo mientras que el segundo viene determinado por el archivo entrante. Tenga en cuenta que el directorio de salida es el que se utiliza para las pruebas locales. El motor del flujo de trabajo invalidará esta propiedad cuando el procesador de multimedia basado en la nube ejecute el flujo de trabajo en Servicios multimedia de Azure.
+Para dar a todos nuestros archivos de salida un nombre de salida coherente, cambie la primera expresión de nomenclatura de archivos a:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_640x360_1.MP4
 
@@ -271,7 +276,7 @@ y la segunda a:
 
 Ejecute una prueba intermedia para asegurarse de que ambos archivos MP4 de salida se generan correctamente.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Incorporación de una pista de audio independiente
+### <a name="a-idmxftomp4withdynpackagingaudiotracksaadding-a-separate-audio-track"></a><a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Incorporación de una pista de audio independiente
 Como veremos más adelante, cuando se genera un archivo .ism para que vaya con los archivos MP4 de salida, necesitaremos también un archivo MP4 de solo audio como la pista de audio para el streaming adaptable. Para crear este archivo, agregue un multiplexor adicional al flujo de trabajo (multiplexor ISO-MPEG-4) y conecte la clavija de salida del codificador AAC con su clavija de entrada para la pista 1.
 
 ![Multiplexor de audio agregado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
@@ -286,7 +291,7 @@ Cree un tercer componente de salida de archivo para generar la transmisión sali
 
 *Multiplexor de audio creando una salida de archivo*
 
-### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Incorporación del archivo SMIL .ISM
+### <a name="a-idmxftomp4withdynpackagingismfileaadding-the-ism-smil-file"></a><a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Incorporación del archivo SMIL .ISM
 Para que el empaquetado dinámico funcione en combinación con ambos archivos MP4 (y con los archivos MP4 de solo audio) en nuestro recurso de Servicios multimedia, también es necesario un archivo de manifiesto (también denominado archivo "SMIL": en inglés, lenguaje de integración multimedia sincronizada). Este archivo indica a Servicios multimedia de Azure qué archivos MP4 están disponibles para el empaquetado dinámico y cuáles de ellos debe tener en cuenta para el streaming de audio. Un archivo de manifiesto típico para un conjunto de archivos MP4 con una única secuencia de audio tiene el siguiente aspecto:
 
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -318,17 +323,17 @@ El flujo de trabajo finalizado tiene el siguiente aspecto:
 
 *Flujo de trabajo finalizado de MXF a MP4 con varias velocidades de bits*
 
-## <a id="MXF_to__multibitrate_MP4"></a>Codificación de MXF en archivos MP4 de varias velocidades de bits: plano mejorado
+## <a name="a-idmxftomultibitratemp4aencoding-mxf-into-multibitrate-mp4---enhanced-blueprint"></a><a id="MXF_to__multibitrate_MP4"></a>Codificación de MXF en archivos MP4 de varias velocidades de bits: plano mejorado
 En el [tutorial anterior sobre flujos de trabajo](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) hemos visto cómo se puede convertir un solo recurso de entrada MXF en un recurso de salida con archivos MP4 de varias velocidades de bits, un archivo MP4 de solo audio y un archivo de manifiesto para su utilización junto con el empaquetado dinámico de Servicios multimedia de Azure.
 
 Este tutorial le mostrará cómo se pueden mejorar algunos de los aspectos y hacerlos más fáciles.
 
-### <a id="MXF_to_multibitrate_MP4_overview"></a>Información general del flujo de trabajo a mejorar
+### <a name="a-idmxftomultibitratemp4overviewaworkflow-overview-to-enhance"></a><a id="MXF_to_multibitrate_MP4_overview"></a>Información general del flujo de trabajo a mejorar
 ![Flujo de trabajo a mejorar para archivos MP4 con varias velocidades de bits](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
 *Flujo de trabajo a mejorar para archivos MP4 con varias velocidades de bits*
 
-### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Convenciones de nomenclatura de los archivos
+### <a name="a-idmxftomultibitratemp4filenamingafile-naming-conventions"></a><a id="MXF_to__multibitrate_MP4_file_naming"></a>Convenciones de nomenclatura de los archivos
 En el flujo de trabajo anterior se especificó una expresión simple como base para generar nombres de archivo de salida. No obstante, tenemos algunas duplicaciones: todos los componentes de archivo de salida individuales especificaron dicha expresión.
 
 Por ejemplo, el componente de salida de archivo del primer archivo de vídeo se configura con esta expresión:
@@ -343,7 +348,7 @@ Mientras que para la segunda salida de vídeo, tenemos la siguiente expresión:
 
 Supongamos que definimos la configuración de nombres de archivo a partir de las velocidades de bits de los archivos MP4 individuales. Queremos configurar estas velocidades de bits en un lugar central (en la raíz de nuestro gráfico), desde el que podrá obtener acceso para configurar e impulsar la generación de nombres de archivo. Para ello, empezaremos por publicar la propiedad de velocidad de bits de ambos codificadores AVC en la raíz de nuestro flujo de trabajo para que sea accesible desde la raíz y desde los codificadores AVC. (Incluso aunque se muestren en dos lugares diferentes, hay solo un valor subyacente).
 
-### <a id="MXF_to__multibitrate_MP4_publishing"></a>Publicación de propiedades de componente en la raíz del flujo de trabajo
+### <a name="a-idmxftomultibitratemp4publishingapublishing-component-properties-onto-the-workflow-root"></a><a id="MXF_to__multibitrate_MP4_publishing"></a>Publicación de propiedades de componente en la raíz del flujo de trabajo
 Abra el primer codificador AVC, vaya a la propiedad de velocidad de bits (kbps) y en la lista desplegable, elija Publicar.
 
 ![Publicación de la propiedad de velocidad de bits](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
@@ -365,7 +370,7 @@ Si ahora inspeccionamos las propiedades de la raíz del flujo de trabajo, veremo
 Siempre que desee tener acceso a estas propiedades desde el código o desde una expresión, podemos hacerlo así:
 
 * desde el código alineado desde un componente justo debajo de la raíz: node.getPropertyAsString('../video1bitrate',null)
-* dentro de una expresión: ${ROOT\_video1bitrate}
+* dentro de una expresión: ${ROOT_video1bitrate}
 
 Vamos a completar el grupo "Velocidades de bits de streaming" publicando también la velocidad de bits de nuestra pista de audio en él. Dentro de las propiedades del codificador AAC, busque la opción Bitrate (Velocidad de bits) y seleccione Publish (Publicar) en la lista desplegable situada junto a él. Publique en la raíz del gráfico con el nombre "audio1bitrate" y el nombre para mostrar "Velocidad de bits de audio 1" dentro del grupo personalizado "Velocidades de bits de streaming".
 
@@ -379,7 +384,7 @@ Vamos a completar el grupo "Velocidades de bits de streaming" publicando tambié
 
 Tenga en cuenta que si se cambia cualquiera de estos tres valores también se volverán a configurar y a cambiar los valores de los respectivos componentes con los que están vinculados (y desde donde se han publicado).
 
-### <a id="MXF_to__multibitrate_MP4_output_files"></a>Se han generado nombres de archivo de salida que se basan en los valores de propiedad publicados
+### <a name="a-idmxftomultibitratemp4outputfilesahave-generated-output-file-names-rely-on-published-property-values"></a><a id="MXF_to__multibitrate_MP4_output_files"></a>Se han generado nombres de archivo de salida que se basan en los valores de propiedad publicados
 En vez de codificar los nombres de archivo generados, es posible cambiar ahora la expresión de nombre de archivo en cada uno de los componentes de salida de archivo que se basan en las propiedades de velocidad de bits que acabamos de publicar en la raíz del gráfico. A partir de nuestra primera salida de archivo, busque la propiedad de archivo y edite la expresión de la siguiente forma:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
@@ -400,15 +405,15 @@ y para la salida de archivo de solo audio:
 
 Si ahora cambiamos la velocidad de bits de cualquiera de los archivos de audio o vídeo, se volverá a configurar el codificador respectivo y la convención de nomenclatura de archivo basada en la velocidad de bits se respetará de forma automática.
 
-## <a id="thumbnails_to__multibitrate_MP4"></a>Incorporación de miniaturas a la salida MP4 de varias velocidades de bits
+## <a name="a-idthumbnailstomultibitratemp4aadding-thumbnails-to-multibitrate-mp4-output"></a><a id="thumbnails_to__multibitrate_MP4"></a>Incorporación de miniaturas a la salida MP4 de varias velocidades de bits
 A partir de un flujo de trabajo que genera [una salida MP4 de varias velocidades de bits a partir de una entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), veremos ahora la incorporación de miniaturas a la salida.
 
-### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Información general del flujo de trabajo al que agregar miniaturas
+### <a name="a-idthumbnailstomultibitratemp4overviewaworkflow-overview-to-add-thumbnails-to"></a><a id="thumbnails_to__multibitrate_MP4_overview"></a>Información general del flujo de trabajo al que agregar miniaturas
 ![Flujo de trabajo de MP4 con varias velocidades de bits con el que empezar a trabajar](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
 
 *Flujo de trabajo de MP4 con varias velocidades de bits con el que empezar a trabajar*
 
-### <a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Incorporación de codificación JPG
+### <a name="a-idthumbnailstomultibitratemp4withjpgaadding-jpg-encoding"></a><a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>Incorporación de codificación JPG
 El núcleo de la generación de miniaturas será el componente de codificador JPG, capaz de generar archivos JPG.
 
 ![Codificador JPG](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
@@ -429,7 +434,7 @@ La puerta de fotogramas permite pasar un fotograma de vídeo cada cierto número
 
 Vamos a crear una miniatura cada minuto estableciendo el modo en Time (seconds) (Tiempo (segundos)) y la opción Interval (Intervalo) en 60.
 
-### <a id="thumbnails_to__multibitrate_MP4_color_space"></a>Relación con la conversión de espacio de colores
+### <a name="a-idthumbnailstomultibitratemp4colorspaceadealing-with-color-space-conversion"></a><a id="thumbnails_to__multibitrate_MP4_color_space"></a>Relación con la conversión de espacio de colores
 Aunque podría parecer lógico que ahora se puedan conectar las dos clavijas de vídeo sin comprimir de la puerta de fotogramas y la entrada del archivo multimedia, obtendríamos una advertencia si lo hacemos.
 
 ![Error de espacio de colores de entrada](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
@@ -446,14 +451,14 @@ Arrastre al flujo de trabajo el componente Color Space Converter - Intel (Conver
 
 En la ventana de propiedades, seleccione la entrada BGR 24 de la lista de valores preestablecidos.
 
-### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Escritura de las miniaturas
+### <a name="a-idthumbnailstomultibitratemp4writingthumbnailsawriting-the-thumbnails"></a><a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Escritura de las miniaturas
 A diferencia del vídeo MP4, el componente de codificador JPG generará más de un archivo. Para afrontar esto, puede utilizarse el componente Scene Search JPG File Writer (Escritura de archivos JPG de búsqueda de escenas): este tomará las miniaturas JPG entrantes y escribirá en ellas, y proporcionará un sufijo para cada nombre de archivo mediante un número. (Este número indica normalmente el número de segundos o unidades en la secuencia de la que se ha extraído la miniatura).
 
 ![Presentación de la escritura de archivos JPG de búsqueda de escenas](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
 *Presentación de la escritura de archivos JPG de búsqueda de escenas*
 
-Configure la propiedad de ruta de acceso de la carpeta de salida con la expresión: ${ROOT\_outputWriteDirectory}
+Configure la propiedad de ruta de acceso de la carpeta de salida con la expresión: ${ROOT_outputWriteDirectory}
 
 y la propiedad del prefijo del nombre de archivo con:
 
@@ -467,7 +472,7 @@ El prefijo determinará cómo se denominan los archivos de miniaturas. Se agrega
 
 Conecte el componente de escritura de archivos JPG de búsqueda de escenas en el nodo Output File/Asset (Recurso/Archivo de salida).
 
-### <a id="thumbnails_to__multibitrate_MP4_errors"></a>Detección de errores en un flujo de trabajo
+### <a name="a-idthumbnailstomultibitratemp4errorsadetecting-errors-in-a-workflow"></a><a id="thumbnails_to__multibitrate_MP4_errors"></a>Detección de errores en un flujo de trabajo
 Conecte la entrada del convertidor de espacio de colores a la salida de vídeo sin comprimir y sin procesar. Ahora, ejecute una prueba del flujo de trabajo de forma local. Es muy probable que el flujo de trabajo deje de ejecutarse repentinamente e indique con un contorno rojo el componente en que se encontró un error:
 
 ![Error de convertidor de espacio de colores](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
@@ -488,22 +493,22 @@ Para solucionar este problema, indicaremos en los metadatos de la secuencia que 
 
 *Actualización del espacio de colores estándar en el actualizador de tipo de datos*
 
-### <a id="thumbnails_to__multibitrate_MP4_finish"></a>Flujo de trabajo finalizado
+### <a name="a-idthumbnailstomultibitratemp4finishafinished-workflow"></a><a id="thumbnails_to__multibitrate_MP4_finish"></a>Flujo de trabajo finalizado
 Ahora que el flujo de trabajo está acabado, realice otra prueba para comprobar su ejecución.
 
 ![Flujo de trabajo terminado para varias salidas MP4 con miniaturas](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
 *Flujo de trabajo terminado para varias salidas MP4 con miniaturas*
 
-## <a id="time_based_trim"></a>Recorte basado en tiempo de salida MP4 de varias velocidades de bits
+## <a name="a-idtimebasedtrimatime-based-trimming-of-multibitrate-mp4-output"></a><a id="time_based_trim"></a>Recorte basado en tiempo de salida MP4 de varias velocidades de bits
 A partir de un flujo de trabajo que genera [una salida MP4 de varias velocidades de bits a partir de una entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), veremos ahora el recorte del vídeo de origen basado en marcas de tiempo.
 
-### <a id="time_based_trim_start"></a>Información general del flujo de trabajo al que empezar a agregar el recorte
+### <a name="a-idtimebasedtrimstartaworkflow-overview-to-start-adding-trimming-to"></a><a id="time_based_trim_start"></a>Información general del flujo de trabajo al que empezar a agregar el recorte
 ![Flujo de trabajo inicial al que agregar el recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
 
 *Flujo de trabajo inicial al que agregar el recorte*
 
-### <a id="time_based_trim_use_stream_trimmer"></a>Utilización del recortador de transmisiones
+### <a name="a-idtimebasedtrimusestreamtrimmerausing-the-stream-trimmer"></a><a id="time_based_trim_use_stream_trimmer"></a>Utilización del recortador de transmisiones
 El componente Stream Trimmer (Recortador de secuencias) permite recortar el principio y el final de una secuencia de entrada según la información de tiempo (segundos, minutos, etc.). El recortador no admite el recorte basado en fotogramas.
 
 ![Recortador de transmisiones](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
@@ -548,12 +553,12 @@ y para el tiempo de finalización:
 
     ${ROOT_TrimmingEndTime}
 
-### <a id="time_based_trim_finish"></a>Flujo de trabajo finalizado
+### <a name="a-idtimebasedtrimfinishafinished-workflow"></a><a id="time_based_trim_finish"></a>Flujo de trabajo finalizado
 ![Flujo de trabajo finalizado](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
 *Flujo de trabajo finalizado*
 
-## <a id="scripting"></a>Introducción al componente generado por script
+## <a name="a-idscriptingaintroducing-the-scripted-component"></a><a id="scripting"></a>Introducción al componente generado por script
 Los componentes generados por script pueden ejecutar scripts arbitrarios durante las fases de ejecución de nuestro flujo de trabajo. Hay cuatro scripts diferentes que se pueden ejecutar, cada uno con características específicas y su propio lugar en el ciclo de vida del flujo de trabajo:
 
 * **commandScript**
@@ -563,7 +568,7 @@ Los componentes generados por script pueden ejecutar scripts arbitrarios durante
 
 La documentación del componente generado por script ofrece más detalles de cada uno de los scripts anteriores. En [la siguiente sección](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), el componente generado por script **realizeScript** se utiliza para generar un archivo xml de la lista de clips directamente cuando se inicia el flujo de trabajo. Se llama a este script durante la configuración del componente, lo que sucede una sola vez en su ciclo de vida.
 
-### <a id="scripting_hello_world"></a>Scripting en un flujo de trabajo: hola a todos
+### <a name="a-idscriptinghelloworldascripting-within-a-workflow-hello-world"></a><a id="scripting_hello_world"></a>Scripting en un flujo de trabajo: hola a todos
 Arrastre un componente generado por script a la superficie del diseñador y cámbiele el nombre (por ejemplo, "SetClipListXML").
 
 ![Incorporación de un componente generado por script](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
@@ -594,18 +599,18 @@ El objeto de nodo en el que llamamos al método de registro, hace referencia a n
 
 Desde dentro del entorno de scripting, también tenemos acceso a las propiedades de otros componentes. Pruebe esto:
 
-    //inspect current node: 
-    def nodepath = node.getNodePath(); 
+    //inspect current node:
+    def nodepath = node.getNodePath();
     node.log("this node path: " + nodepath);
 
-    //walking up to other nodes: 
-    def parentnode = node.getParentNode(); 
-    def parentnodepath = parentnode.getNodePath(); 
+    //walking up to other nodes:
+    def parentnode = node.getParentNode();
+    def parentnodepath = parentnode.getNodePath();
     node.log("parent node path: " + parentnodepath);
 
-    //read properties from a node: 
-    def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null ); 
-    def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null); 
+    //read properties from a node:
+    def sourceFileExt = parentnode.getPropertyAsString( "sourceFileExtension", null );
+    def sourceFileName = parentnode.getPropertyAsString("sourceFileBaseName", null);
     node.log("source file name with extension " + sourceFileExt + " is: " + sourceFileName);
 
 La ventana de registro nos mostrará lo siguiente:
@@ -614,15 +619,15 @@ La ventana de registro nos mostrará lo siguiente:
 
 *Salida de registro para obtener acceso a las rutas de acceso del nodo*
 
-## <a id="frame_based_trim"></a>Recorte basado en fotogramas de salida MP4 de varias velocidades de bits
+## <a name="a-idframebasedtrimaframe-based-trimming-of-multibitrate-mp4-output"></a><a id="frame_based_trim"></a>Recorte basado en fotogramas de salida MP4 de varias velocidades de bits
 A partir de un flujo de trabajo que genera [una salida MP4 de varias velocidades de bits a partir de una entrada MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), veremos ahora el recorte del vídeo de origen basado en el recuento de fotogramas.
 
-### <a id="frame_based_trim_start"></a>Información general del plano al que empezar a agregar el recorte
+### <a name="a-idframebasedtrimstartablueprint-overview-to-start-adding-trimming-to"></a><a id="frame_based_trim_start"></a>Información general del plano al que empezar a agregar el recorte
 ![Flujo de trabajo al que empezar a agregar el recorte](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
 
 *Flujo de trabajo al que empezar a agregar el recorte*
 
-### <a id="frame_based_trim_clip_list"></a>Utilización del XML de la lista de clips
+### <a name="a-idframebasedtrimcliplistausing-the-clip-list-xml"></a><a id="frame_based_trim_clip_list"></a>Utilización del XML de la lista de clips
 En todos los tutoriales sobre flujos de trabajo anteriores, hemos utilizado el componente de entrada de archivo multimedia como origen de entrada del vídeo. No obstante, para este escenario concreto, vamos a utilizar el componente Clip List Source (Origen de lista de clips) en su lugar. Tenga en cuenta que esta no debería ser la forma preferida de trabajar. Utilice únicamente el origen de lista de clips cuando haya un motivo real para hacerlo (como en el siguiente caso, donde estamos haciendo uso de las funcionalidades de recorte de la lista de clips).
 
 Para cambiar de nuestra entrada de archivo multimedia al origen de lista de clips, arrastre este último componente a la superficie de diseño y conecte la clavija Clip List XML (XML de la lista de clips) con el nodo correspondiente del diseñador de flujo de trabajo. Esto rellenará el origen de la lista de clips con clavijas de salida según nuestro vídeo de entrada. Conecte ahora las clavijas de vídeo y audio sin comprimir desde el origen de la lista de clips a los respectivos codificadores AVC y al entrelazador de secuencias de audio. Quite ahora la entrada de archivo multimedia.
@@ -667,10 +672,10 @@ Cuando inspeccione las propiedades del componente generado por script, se mostra
 
 *Propiedades de componente generado por script*
 
-### <a id="frame_based_trim_modify_clip_list"></a>Modificación de la lista de clips desde un componente generado por script
+### <a name="a-idframebasedtrimmodifycliplistamodifying-the-clip-list-from-a-scripted-component"></a><a id="frame_based_trim_modify_clip_list"></a>Modificación de la lista de clips desde un componente generado por script
 Antes de que podamos volver a escribir el xml de la lista de clips que se genera durante el inicio del flujo de trabajo, necesitaremos tener acceso a la propiedad y al contenido del xml de la lista de clips. Para ello podemos hacer lo siguiente:
 
-    // get cliplist xml: 
+    // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: " + clipListXML);
 
@@ -712,20 +717,20 @@ Ahora, desde dentro del script, podemos acceder a ambas propiedades, de la forma
 
 Vamos a redistribuir las cadenas de código de tiempo de una forma más fácil de utilizar, mediante una expresión regular simple:
 
-    //parse the start timing: 
-    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-    startregresult.matches(); 
-    def starttimecode = startregresult.group(1); 
-    node.log("timecode start is: " + starttimecode); 
-    def startframerate = startregresult.group(2); 
+    //parse the start timing:
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
+    startregresult.matches();
+    def starttimecode = startregresult.group(1);
+    node.log("timecode start is: " + starttimecode);
+    def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse the end timing: 
-    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend); 
-    endregresult.matches(); 
-    def endtimecode = endregresult.group(1); 
-    node.log("timecode end is: " + endtimecode); 
-    def endframerate = endregresult.group(2); 
+    //parse the end timing:
+    def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
+    endregresult.matches();
+    def endtimecode = endregresult.group(1);
+    node.log("timecode end is: " + endtimecode);
+    def endframerate = endregresult.group(2);
     node.log("framerate end is: " + endframerate);
 
 ![Ventana de registro con salida de código de tiempo redistribuida](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
@@ -744,19 +749,19 @@ Esto se realizó mediante operaciones de manipulación de cadenas normales. El x
 
 *Registro de la lista resultante de clips*
 
-Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo la primera vez que se han establecido los puntos de inicio y de finalización se transformará el xml; el resto de las veces, nuestra cláusula de restricción (if(clipListXML.indexOf("<trim>") == -1)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya hay uno presente.
+Realice una ejecución de prueba para ver cómo se han recortado las secuencias de audio y vídeo. Como llevará a cabo la ejecución de más de una prueba con valores diferentes para los puntos de recorte, observará que, sin embargo, estos no se tienen en cuenta. La razón de esto es que el diseñador, a diferencia del tiempo de ejecución de Azure, NO reemplaza el xml de la lista de clips en cada ejecución. Esto significa que solo se transformará el XML la primera vez que se hayan configurado los puntos de inicio y de finalización; el resto de las veces, nuestra cláusula de restricción (if(clipListXML.indexOf("<trim>") == -1)) impedirá que el flujo de trabajo agregue otro elemento de recorte cuando ya haya uno presente.
 
 Para facilitar que el flujo de trabajo realice la prueba localmente, es conveniente agregar algún código de mantenimiento interno que inspeccione si ya existe un elemento de recorte. Si es así, podemos quitarlo antes de continuar, modificando el xml con los nuevos valores. En lugar de usar manipulaciones de cadenas simples, probablemente es más seguro hacerlo mediante la redistribución de modelos de objeto xml reales.
 
 Sin embargo, antes de que podamos agregar dicho código, primero necesitaremos agregar un número de instrucciones de importación al principio del script:
 
-    import javax.xml.parsers.*; 
-    import org.xml.sax.*; 
+    import javax.xml.parsers.*;
+    import org.xml.sax.*;
     import org.w3c.dom.*;
     import javax.xml.*;
-    import javax.xml.xpath.*; 
-    import javax.xml.transform.*; 
-    import javax.xml.transform.stream.*; 
+    import javax.xml.xpath.*;
+    import javax.xml.transform.*;
+    import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
 
 Después de esto, podemos agregar el código de limpieza necesario:
@@ -764,40 +769,40 @@ Después de esto, podemos agregar el código de limpieza necesario:
     //for local testing: delete any pre-existing trim elements from the clip list xml by parsing the xml into a DOM:
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
     DocumentBuilder builder=factory.newDocumentBuilder();
-    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
-    //find the trim element inside videoSource and audioSource and remove it if it exists already: 
+    //find the trim element inside videoSource and audioSource and remove it if it exists already:
     XPath xpath = XPathFactory.newInstance().newXPath();
-    String findAllTrimElements = "//trim"; 
+    String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements,dom,XPathConstants.NODESET);
 
-    //copy trim nodes into a "to-be-deleted" collection 
-    Set<Element> elementsToDelete = new HashSet<Element>(); 
-    for (int i = 0; i < trimelems.getLength(); i++) { 
-        Element e = (Element)trimelems.item(i); 
-        elementsToDelete.add(e); 
+    //copy trim nodes into a "to-be-deleted" collection
+    Set<Element> elementsToDelete = new HashSet<Element>();
+    for (int i = 0; i < trimelems.getLength(); i++) {
+        Element e = (Element)trimelems.item(i);
+        elementsToDelete.add(e);
     }
 
     node.log("about to delete any existing trim nodes");
-     //delete the trim nodes: 
-    elementsToDelete.each{ 
+     //delete the trim nodes:
+    elementsToDelete.each{
         e -> e.getParentNode().removeChild(e);
-    }; 
+    };
     node.log("deleted any existing trim nodes");
 
-    //serialize the modified clip list xml dom into a string: 
+    //serialize the modified clip list xml dom into a string:
     def transformer = TransformerFactory.newInstance().newTransformer();
     StreamResult result = new StreamResult(new StringWriter());
     DOMSource source = new DOMSource(dom);
-    transformer.transform(source, result); 
+    transformer.transform(source, result);
     clipListXML = result.getWriter().toString();
 
 Este código va justo sobre el punto en el que agregamos el elemento de recorte al XML de la lista de clips.
 
-En este punto, podemos ejecutar y modificar el flujo de trabajo tanto como sea necesario y al mismo tiempo lograr que los cambios se apliquen siempre.
+En este punto, podemos ejecutar y modificar el flujo de trabajo tanto como sea necesario y al mismo tiempo lograr que los cambios se apliquen siempre.    
 
-### <a id="frame_based_trim_clippingenabled_prop"></a>Incorporación de una propiedad de conveniencia ClippingEnabled
+### <a name="a-idframebasedtrimclippingenabledpropaadding-a-clippingenabled-convenience-property"></a><a id="frame_based_trim_clippingenabled_prop"></a>Incorporación de una propiedad de conveniencia ClippingEnabled
 Como puede que no siempre desee realizar un recorte, vamos a terminar nuestro flujo de trabajo agregando una sencilla marca booleana que indica si queremos habilitar o no el recorte.
 
 Al igual que antes, publique una nueva propiedad en la raíz del flujo de trabajo denominada "ClippingEnabled" de tipo "BOOLEAN".
@@ -808,75 +813,75 @@ Al igual que antes, publique una nueva propiedad en la raíz del flujo de trabaj
 
 Con la siguiente cláusula de restricción simple, podemos comprobar si es necesario el recorte y decidir si nuestra lista de clips como tal debe modificarse o no.
 
-    //check if clipping is required: 
-    def clippingrequired = node.getProperty("../ClippingEnabled"); 
-    node.log("clipping required: " + clippingrequired.toString()); 
-    if(clippingrequired == null || clippingrequired == false) 
+    //check if clipping is required:
+    def clippingrequired = node.getProperty("../ClippingEnabled");
+    node.log("clipping required: " + clippingrequired.toString());
+    if(clippingrequired == null || clippingrequired == false)
     {
-        node.setProperty("../clipListXml",clipListXML); 
-        node.log("no clipping required"); 
-        return; 
+        node.setProperty("../clipListXml",clipListXML);
+        node.log("no clipping required");
+        return;
     }
 
 
-### <a id="code"></a>Código completo
-    import javax.xml.parsers.*; 
-    import org.xml.sax.*; 
+### <a name="a-idcodeacomplete-code"></a><a id="code"></a>Código completo
+    import javax.xml.parsers.*;
+    import org.xml.sax.*;
     import org.w3c.dom.*;
     import javax.xml.*;
-    import javax.xml.xpath.*; 
-    import javax.xml.transform.*; 
-    import javax.xml.transform.stream.*; 
+    import javax.xml.xpath.*;
+    import javax.xml.transform.*;
+    import javax.xml.transform.stream.*;
     import javax.xml.transform.dom.*;
 
-    // get cliplist xml: 
+    // get cliplist xml:
     def clipListXML = node.getProperty("../clipListXml");
     node.log("clip list xml coming in: \n" + clipListXML);
-    // get start and end of clipping: 
+    // get start and end of clipping:
     def clipstart = node.getProperty("../ClippingTimeStart").toString();
     def clipend = node.getProperty("../ClippingTimeEnd").toString();
 
     //parse the start timing:
-    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart); 
-    startregresult.matches(); 
+    def startregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipstart);
+    startregresult.matches();
     def starttimecode = startregresult.group(1);
     node.log("timecode start is: " + starttimecode);
     def startframerate = startregresult.group(2);
     node.log("framerate start is: " + startframerate);
 
-    //parse the end timing: 
+    //parse the end timing:
     def endregresult = (~/(\d\d:\d\d:\d\d:\d\d)\/(\d\d)/).matcher(clipend);
-    endregresult.matches(); 
-    def endtimecode = endregresult.group(1); 
-    node.log("timecode end is: " + endtimecode); 
+    endregresult.matches();
+    def endtimecode = endregresult.group(1);
+    node.log("timecode end is: " + endtimecode);
     def endframerate = endregresult.group(2);
 
     node.log("framerate end is: " + endframerate);
 
-    //for local testing: delete any pre-existing trim elements 
+    //for local testing: delete any pre-existing trim elements
     //from the clip list xml by parsing the xml into a DOM:
 
     DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
-    DocumentBuilder builder=factory.newDocumentBuilder(); 
-    InputSource is=new InputSource(new StringReader(clipListXML)); 
+    DocumentBuilder builder=factory.newDocumentBuilder();
+    InputSource is=new InputSource(new StringReader(clipListXML));
     Document dom=builder.parse(is);
 
     //find the trim element inside videoSource and audioSource and remove it if it exists already:
-    XPath xpath = XPathFactory.newInstance().newXPath(); 
-    String findAllTrimElements = "//trim"; 
+    XPath xpath = XPathFactory.newInstance().newXPath();
+    String findAllTrimElements = "//trim";
     NodeList trimelems = xpath.evaluate(findAllTrimElements, dom, XPathConstants.NODESET);
 
-    //copy trim nodes into a "to-be-deleted" collection 
-    Set<Element> elementsToDelete = new HashSet<Element>(); 
-    for (int i = 0; i < trimelems.getLength(); i++) { 
-        Element e = (Element)trimelems.item(i); 
-        elementsToDelete.add(e); 
+    //copy trim nodes into a "to-be-deleted" collection
+    Set<Element> elementsToDelete = new HashSet<Element>();
+    for (int i = 0; i < trimelems.getLength(); i++) {
+        Element e = (Element)trimelems.item(i);
+        elementsToDelete.add(e);
     }
 
     node.log("about to delete any existing trim nodes");
     //delete the trim nodes:
-    elementsToDelete.each{ e -> 
-        e.getParentNode().removeChild(e); 
+    elementsToDelete.each{ e ->
+        e.getParentNode().removeChild(e);
     };
     node.log("deleted any existing trim nodes");
 
@@ -889,38 +894,38 @@ Con la siguiente cláusula de restricción simple, podemos comprobar si es neces
 
     //check if clipping is required:
     def clippingrequired = node.getProperty("../ClippingEnabled");
-    node.log("clipping required: " + clippingrequired.toString()); 
-    if(clippingrequired == null || clippingrequired == false) 
+    node.log("clipping required: " + clippingrequired.toString());
+    if(clippingrequired == null || clippingrequired == false)
     {
         node.setProperty("../clipListXml",clipListXML);
         node.log("no clipping required");
-        return; 
+        return;
     }
 
-    //add trim elements to cliplist xml 
-    if ( clipListXML.indexOf("<trim>") == -1 ) 
+    //add trim elements to cliplist xml
+    if ( clipListXML.indexOf("<trim>") == -1 )
     {
-        //trim video 
-        clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=""+ 
-            startframerate +"">" + starttimecode + 
-            "</inPoint>\n" + "<outPoint fps="" + endframerate +""> " + endtimecode + 
-            " </outPoint>\n </trim> \n"); 
-        //trim audio 
-        clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=""+ 
-            startframerate +"">" + starttimecode + 
-            "</inPoint>\n" + "<outPoint fps=""+ endframerate +"">" + 
+        //trim video
+        clipListXML = clipListXML.replace("<videoSource>","<videoSource>\n <trim>\n <inPoint fps=\""+
+            startframerate +"\">" + starttimecode +
+            "</inPoint>\n" + "<outPoint fps=\"" + endframerate +"\"> " + endtimecode +
+            " </outPoint>\n </trim> \n");
+        //trim audio
+        clipListXML = clipListXML.replace("<audioSource>","<audioSource>\n <trim>\n <inPoint fps=\""+
+            startframerate +"\">" + starttimecode +
+            "</inPoint>\n" + "<outPoint fps=\""+ endframerate +"\">" +
             endtimecode + "</outPoint>\n </trim>\n");
-        node.log( "clip list going out: \n" +clipListXML ); 
-        node.setProperty("../clipListXml",clipListXML); 
+        node.log( "clip list going out: \n" +clipListXML );
+        node.setProperty("../clipListXml",clipListXML);
     }
 
 
-## Consulte también:
+## <a name="also-see"></a>Consulte también:
 [Introducción de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
 [Uso de la codificación Premium en Servicios multimedia de Azure](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
-[Codificación de contenido a petición con Servicios multimedia de Azure](media-services-encode-asset.md#media_encoder_premium_workflow)
+[Codificación de contenido a petición con Azure Media Services](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 [Códecs y formatos de flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md)
 
@@ -928,10 +933,14 @@ Con la siguiente cláusula de restricción simple, podemos comprobar si es neces
 
 [Explorador de Servicios multimedia de Azure](http://aka.ms/amse)
 
-## Rutas de aprendizaje de Servicios multimedia
+## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0713_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

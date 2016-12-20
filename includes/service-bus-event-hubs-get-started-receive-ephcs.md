@@ -1,9 +1,9 @@
 ## <a name="receive-messages-with-eventprocessorhost"></a>Recepción de mensajes con EventProcessorHost
-[EventProcessorHost][EventProcessorHost] es una clase de .NET que simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Event Hubs. Con [EventProcessorHost][EventProcessorHost], puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar [EventProcessorHost][EventProcessorHost] para un solo destinatario. El ejemplo de [procesamiento de eventos escalados horizontalmente][procesamiento de eventos escalados horizontalmente] muestra cómo utilizar [EventProcessorHost][EventProcessorHost] con varios receptores.
+[EventProcessorHost][EventProcessorHost] es una clase de .NET que simplifica la recepción de eventos desde Event Hubs mediante la administración de puntos de control persistentes y recepciones paralelas desde dichas instancias de Event Hubs. Con [EventProcessorHost][EventProcessorHost], puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar [EventProcessorHost][EventProcessorHost] para un solo destinatario. El ejemplo de [procesamiento de eventos escalados horizontalmente][Scaled out event processing] muestra cómo usar [EventProcessorHost][EventProcessorHost] con varios destinatarios.
 
-Para usar [EventProcessorHost][EventProcessorHost], debe tener una [cuenta de Azure Storage][cuenta de Azure Storage]:
+Para usar [EventProcessorHost][EventProcessorHost], debe tener una [cuenta de Azure Storage][Azure Storage account]:
 
-1. Inicie sesión en [Azure Portal][Azure Portal] y, luego, haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
+1. Inicie sesión en [Azure Portal][Azure portal] y haga clic en **Nuevo** en la parte superior izquierda de la pantalla.
 2. Haga clic en **Datos y almacenamiento** y luego en **Cuenta de almacenamiento**.
    
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-storage1.png)
@@ -28,14 +28,14 @@ Para usar [EventProcessorHost][EventProcessorHost], debe tener una [cuenta de Az
     ![](./media/service-bus-event-hubs-getstarted-receive-ephcs/create-receiver-csharp2.png)
 10. Agregue las siguientes instrucciones en la parte superior del archivo SimpleEventProcessor.cs:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      using System.Diagnostics;
      ```
     
      A continuación, sustituya el código siguiente por el cuerpo de la clase:
     
-     ```
+     ```csharp
      class SimpleEventProcessor : IEventProcessor
      {
          Stopwatch checkpointStopWatch;
@@ -80,13 +80,13 @@ Para usar [EventProcessorHost][EventProcessorHost], debe tener una [cuenta de Az
      **EventProcessorHost** llamará a esta clase para procesar los eventos recibidos del Centro de eventos. Tenga en cuenta que la clase `SimpleEventProcessor` usa un cronómetro para llamar periódicamente al método de punto de control en el contexto **EventProcessorHost** . Esto garantiza que, si se reinicia el destinatario, no perderá más de cinco minutos de trabajo de procesamiento.
 11. En la clase **Program.cs**, agregue la siguiente instrucción `using` al principio del archivo:
     
-     ```
+     ```csharp
      using Microsoft.ServiceBus.Messaging;
      ```
     
      Después, reemplace el método `Main` de la clase `Program` con el código siguiente, sustituyendo el nombre del Centro de eventos y la cadena de conexión de nivel del espacio de nombres que ha guardado anteriormente, y la cuenta de almacenamiento y la clave que ha copiado en las secciones anteriores. 
     
-     ```
+     ```csharp
      static void Main(string[] args)
      {
        string eventHubConnectionString = "{Event Hub connection string}";
@@ -109,18 +109,18 @@ Para usar [EventProcessorHost][EventProcessorHost], debe tener una [cuenta de Az
      ```
 
 > [!NOTE]
-> Este tutorial usa una sola instancia de [EventProcessorHost][EventProcessorHost]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][EventProcessorHost], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente][procesamiento de eventos escalados horizontalmente]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup** . Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][EventProcessorHost] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte [Información general de Event Hubs][Información general de Event Hubs] y [Guía de programación de Event Hubs][Guía de programación de Event Hubs].
+> Este tutorial usa una sola instancia de [EventProcessorHost][EventProcessorHost]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost][EventProcessorHost], como se muestra en el ejemplo de [procesamiento de eventos escalados horizontalmente][Scaled out event processing]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen *todos* los eventos, debe usar el concepto **ConsumerGroup** . Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost][EventProcessorHost] según los equipos (o roles) en que se implementan. Para más información acerca de estos temas, consulte [Información general de Event Hubs][Event Hubs Overview] y [Guía de programación de Event Hubs][Event Hubs Programming Guide].
 > 
 > 
 
 <!-- Links -->
-[Información general de Event Hubs]: ../articles/event-hubs/event-hubs-overview.md
-[Guía de programación de Centros de eventos]: ../articles/event-hubs/event-hubs-programming-guide.md
-[procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-[Cuenta de Azure Storage]: ../articles/storage/storage-create-storage-account.md
-[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx
-[portal de Azure]: https://portal.azure.com
+[Event Hubs Overview]: ../articles/event-hubs/event-hubs-overview.md
+[Event Hubs Programming Guide]: ../articles/event-hubs/event-hubs-programming-guide.md
+[Scaled out event processing]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Azure Storage account]: ../articles/storage/storage-create-storage-account.md
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Azure portal]: https://portal.azure.com
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

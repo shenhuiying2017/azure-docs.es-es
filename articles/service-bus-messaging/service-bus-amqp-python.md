@@ -1,22 +1,26 @@
 ---
-title: Bus de servicio y Python con AMQP 1.0 | Microsoft Docs
+title: Uso de Service Bus desde Python con AMQP 1.0 | Microsoft Docs
 description: Uso del Bus de servicio desde Python con AMQP
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: 375396e7-cbec-4d25-9b98-63ef8de75fef
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 97e90f5429fe4f2535a246db8dfbe81c772b3c88
+
 
 ---
-# <a name="using-service-bus-from-python-with-amqp-1.0"></a>Uso del Bus de servicio desde Python con AMQP 1.0
+# <a name="using-service-bus-from-python-with-amqp-10"></a>Uso del Bus de servicio desde Python con AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-Python es un lenguaje Python que se enlaza con Proton-C; es decir, Proton-Python se implementa como un contenedor en torno a un motor implementado en C.
@@ -26,7 +30,7 @@ Puede descargar Proton-C y los enlaces asociados (incluido Python) desde [http:/
 
 Tenga en cuenta que en el momento de redactar este artículo, la compatibilidad con SSL en Proton-C solo está disponible para los sistemas operativos Linux. Dado que Bus de servicio de Azure requiere el uso de SSL, en este momento solo puede usarse Proton-C (y los enlaces de lenguaje) para acceder al Bus de servicio desde Linux. Se está trabajando para habilitar Proton-C con SSL en Windows, así que consulte periódicamente si existen actualizaciones.
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-python"></a>Uso de colas, temas y suscripciones de Service Bus desde Python
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-python"></a>Uso de colas, temas y suscripciones de Service Bus desde Python
 En el código siguiente se muestra cómo enviar y recibir mensajes de una entidad de mensajería de Bus de servicio.
 
 ### <a name="send-messages-using-proton-python"></a>Envío de mensajes con Proton-Python
@@ -58,9 +62,9 @@ if messenger.incoming:
 messenger.stop()
 ```
 
-## <a name="messaging-between-.net-and-proton-python"></a>Mensajería entre .NET y Proton-Python
+## <a name="messaging-between-net-and-proton-python"></a>Mensajería entre .NET y Proton-Python
 ### <a name="application-properties"></a>Propiedades de la aplicación
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python a las API .de NET del Bus de servicio
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python a las API .de NET del Bus de servicio
 Los mensajes de Proton-Python admiten propiedades de la aplicación de los siguientes tipos: **int**, **long**, **float**, **uuid**, **bool**, **string**. En el siguiente código de Python se muestra cómo establecer propiedades en un mensaje con cada uno de estos tipos de propiedades.
 
 ```
@@ -71,7 +75,7 @@ message.properties[u"TestFloat"] = 1.5
 message.properties[u"TestGuid"] = uuid.uuid1()    
 ```
 
-En la API de .NET de Service Bus, las propiedades de la aplicación de mensajes se realizan en la colección **Properties** de [BrokeredMessage][BrokeredMessage]. En el código siguiente se muestra cómo se leen las propiedades de aplicación de un mensaje recibido de un cliente Python.
+En la API de .NET de Service Bus, las propiedades de la aplicación de mensajes se transmiten en la colección **Properties** de [BrokeredMessage][BrokeredMessage]. En el código siguiente se muestra cómo se leen las propiedades de aplicación de un mensaje recibido de un cliente Python.
 
 ```
 if (message.Properties.Keys.Count > 0)
@@ -96,8 +100,8 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de Pyth
 | booleano |booleano |
 | string |string |
 
-#### <a name="service-bus-.net-apis-to-proton-python"></a>API de .NET del Bus de servicio a Proton-Python
-El tipo [BrokeredMessage][BrokeredMessage] admite propiedades de la aplicación de los siguientes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** y **TimeSpan**. El código .NET siguiente muestra cómo establecer las propiedades en un objeto [BrokeredMessage][BrokeredMessage] con cada uno de estos tipos de propiedades.
+#### <a name="service-bus-net-apis-to-proton-python"></a>API de .NET del Bus de servicio a Proton-Python
+El tipo [BrokeredMessage][BrokeredMessage] admite propiedades de aplicación de los siguientes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** y **TimeSpan**. El código .NET siguiente muestra cómo establecer las propiedades en un objeto [BrokeredMessage][BrokeredMessage] con cada uno de estos tipos de propiedades.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -155,9 +159,9 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de .NET
 | Identificador URI |DescribedType |Uri.AbsoluteUri asignado al tipo AMQP:<type name=”uri” class=restricted source=”string”> <descriptor name=”com.microsoft:uri” /></type> |
 
 ### <a name="standard-properties"></a>Propiedades estándar
-En las tablas siguientes se muestra la asignación entre las propiedades estándar de mensajes de Proton-Python y las propiedades estándar de mensajes de [BrokeredMessage][BrokeredMessage].
+En las tablas siguientes se muestra la asignación entre las propiedades de mensajes estándar Proton-PHP y las propiedades de mensajes estándar [BrokeredMessage][BrokeredMessage].
 
-#### <a name="proton-python-to-service-bus-.net-apis"></a>Proton-Python a las API .de NET del Bus de servicio
+#### <a name="proton-python-to-service-bus-net-apis"></a>Proton-Python a las API .de NET del Bus de servicio
 | Proton-Python | .NET del Bus de servicio | Notas |
 | --- | --- | --- |
 | duradero |N/D |El Bus de servicio solo admite mensajes duraderos. |
@@ -207,6 +211,6 @@ En las tablas siguientes se muestra la asignación entre las propiedades estánd
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

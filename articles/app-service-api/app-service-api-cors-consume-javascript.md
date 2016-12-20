@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 08/27/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 14de66f6035d8cd0579351d64b85bd7e1c8f2ab2
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: be48f1f0b9c3c749c13fd89f63d41fbaff6a62ee
 
 
 ---
@@ -51,7 +51,7 @@ Puede configurar CORS en Azure Portal o mediante las herramientas de [Azure Reso
    Tras hacer clic en **Guardar**, la aplicación de API aceptará llamadas de JavaScript desde las direcciones URL especificadas.
 
 #### <a name="configure-cors-by-using-azure-resource-manager-tools"></a>Configuración de CORS mediante las herramientas del Administrador de recursos de Azure
-También puede configurar CORS para una aplicación de API mediante las [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md) de herramientas de línea de comandos como [Azure PowerShell](../powershell-install-configure.md) y la [CLI de Azure](../xplat-cli-install.md). 
+También puede configurar CORS para una aplicación de API mediante las [plantillas de Azure Resource Manager](../resource-group-authoring-templates.md) de herramientas de línea de comandos como [Azure PowerShell](/powershell/azureps-cmdlets-docs) y la [CLI de Azure](../xplat-cli-install.md). 
 
 Para ver un ejemplo de una plantilla de Azure Resource Manager que establece la propiedad de CORS, abra el archivo [azuredeploy.json del repositorio de la aplicación de ejemplo de este tutorial](https://github.com/azure-samples/app-service-api-dotnet-todo-list/blob/master/azuredeploy.json). Busque la sección de la plantilla similar a la del ejemplo siguiente:
 
@@ -61,7 +61,7 @@ Para ver un ejemplo de una plantilla de Azure Resource Manager que establece la 
             ]
         }
 
-## <a name="a-idtutorialstarta-continuing-the-net-gettingstarted-tutorial"></a><a id="tutorialstart"></a> Continuación del tutorial de introducción de .NET
+## <a name="a-idtutorialstarta-continuing-the-net-getting-started-tutorial"></a><a id="tutorialstart"></a> Continuación del tutorial de introducción de .NET
 Si está siguiendo las series de introducción de Node.js o de Java para aplicaciones de API, la ha completado. Vaya a la sección [Pasos siguientes](#next-steps) para ver sugerencias para aprender más acerca de las aplicaciones de API.
 
 El resto de este artículo es una continuación de la serie de introducción de .NET y se supone que ha completado correctamente [el primer tutorial](app-service-api-dotnet-get-started.md).
@@ -252,6 +252,6 @@ En este artículo, se ha explicado cómo habilitar la compatibilidad con CORS de
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

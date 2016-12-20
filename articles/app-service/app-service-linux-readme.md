@@ -1,13 +1,13 @@
 ---
-title: App Service on Linux | Microsoft Docs
-description: What is Azure App Service on Linux? An introduction to App Service on Linux.
+title: App Service en Linux | Microsoft Docs
+description: "¿Qué es Azure App Service en Linux? Introducción a App Service en Linux."
 keywords: azure app service, linux, oss
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: naziml
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: b6a85bc6-5fe2-45d7-aae6-3bf93c314548
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,22 +15,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: naziml
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ea9e29aa4fc4d88a4c2109e898b1d90f6efb5757
+
 
 ---
-# <a name="app-service-on-linux-documentation"></a>App Service on Linux Documentation
-App Service on Linux is currently in Public Preview and enables customers to run their web apps natively on a Linux platform. This allows for better application compatibility for certain kinds of applications and makes it easier to migrate existing web apps hosted on a Linux platform elsewhere onto Azure App Services.
+# <a name="app-service-on-linux-documentation"></a>Documentación de App Service en Linux
+App Service en Linux está actualmente en versión preliminar pública y permite a los clientes ejecutar sus aplicaciones web de forma nativa en una plataforma Linux, lo que mejora la compatibilidad de ciertos tipos de aplicaciones y facilita la migración de las aplicaciones web existentes hospedadas en una plataforma de Linux a otra parte de Azure App Services.
 
-Customers can create web apps on Linux only within a Linux enabled App Service Plan and this App Service Plan can only host Linux-based web apps. 
+Los clientes pueden crear aplicaciones web en Linux solo dentro un plan de App Service habilitado para Linux y dicho plan solo puede hospedar aplicaciones web basadas en Linux. 
 
-> Public Preview pricing for App Service on Linux is 50% of the regular price, and the price is calculated by halving the number of compute-hours consumed by your App Service Plan.
+> El precio de la versión preliminar pública de App Service en Linux es un 50 % del precio normal y se calcula mediante la reducción a la mitad del número de horas de proceso que consume el plan de App Service.
 > 
-> No SLA is offered during the public preview period. 
+> No se ofrece Acuerdo de Nivel de Servicio durante el período de versión preliminar pública. 
 > 
 > 
 
-* [What is App Service on Linux?](../app-service-web/app-service-linux-intro.md)
-* [Creating Apps in an App Service on Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
+* [¿Qué es App Service en Linux?](../app-service-web/app-service-linux-intro.md)
+* [Creación de aplicaciones en App Service en Linux](../app-service-web/app-service-linux-how-to-create-a-web-app.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

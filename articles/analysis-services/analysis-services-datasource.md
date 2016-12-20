@@ -1,0 +1,80 @@
+---
+title: Conexiones a origen de datos | Microsoft Docs
+description: "Describe las conexiones a orígenes de datos para los modelos de datos en Azure Analysis Services."
+services: analysis-services
+documentationcenter: 
+author: minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 11/28/2016
+ms.author: owend
+translationtype: Human Translation
+ms.sourcegitcommit: 193c939065979dc48243d31e7f97cd87d96bf9a8
+ms.openlocfilehash: 1b439e2b48cc009e727a49c271318cfd4ead9ef2
+
+
+---
+# <a name="datasource-connections"></a>Conexiones a origen de datos
+Los modelos de datos de Azure Analysis Services pueden requerir distintos proveedores de datos al conectarse a algunos orígenes de datos. En algunos casos, los modelos tabulares se conectan a orígenes de datos mediante proveedores nativos como SQL Server Native Client (SQLNCLI11) pueden devolver un error.
+
+Por ejemplo, si tiene un modelo de datos en memoria o DirectQuery que se conecta a un origen de datos en la nube, como Azure SQL Database, si utiliza proveedores nativos que no sean SQLOLEDB, puede ver el mensaje de error: **"El proveedor 'SQLNCLI11.1' no está registrado"**.
+
+O bien, si tiene un modelo DirectQuery conectarse a orígenes de datos locales, si utiliza los proveedores nativos, puede ver el mensaje de error: **"Error al crear el conjunto de filas OLE DB. Sintaxis incorrecta cerca de 'LIMIT'”**.
+
+## <a name="data-source-providers"></a>Proveedores de orígenes de datos
+Los siguientes proveedores de orígenes de datos se admiten en los modelos de datos en memoria o DirectQuery cuando se conecta a orígenes de datos locales o en la nube:
+
+|  | **Origen de datos** | **En memoria** | **DirectQuery** |
+| --- | --- | --- | --- |
+| **Nube** |Almacenamiento de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server |
+| Base de datos SQL de Azure |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
+| **Local** (mediante puerta de enlace) |SQL Server |SQL Server Native Client 11.0 |Proveedor de datos .NET Framework para SQL Server |
+| SQL Server |Proveedor OLE DB de Microsoft para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
+| SQL Server |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
+| Oracle |Proveedor OLE DB de Microsoft para Oracle |Proveedor de datos de Oracle para .NET | |
+| Oracle |Proveedor de datos de Oracle para .NET |Proveedor de datos de Oracle para .NET | |
+| Teradata |Proveedor OLE DB para Teradata |Proveedor de datos de Teradata para .NET | |
+| Teradata |Proveedor de datos de Teradata para .NET |Proveedor de datos de Teradata para .NET | |
+| Analytics Platform System |Proveedor de datos .NET Framework para SQL Server |Proveedor de datos .NET Framework para SQL Server | |
+
+> [!NOTE]
+> Asegúrese de que están instalados proveedores de 64 bits cuando se utiliza la puerta de enlace local.
+> 
+> 
+
+Cuando se migra un modelo tabular de SQL Server Analysis Services local a Azure Analysis Services, puede ser necesario cambiar el proveedor.
+
+**Para especificar un proveedor de origen de datos**
+
+1. En SSDT > **Tabular Model Explorer**(Explorador de modelos tabulares) > **Orígenes de datos**, haga clic en una conexión de origen de datos y en **Editar origen de datos**.
+2. En **Editar conexión**, haga clic en **Avanzadas** para abrir la ventana de propiedades avanzadas.
+3. En **Establecer propiedades avanzadas** > **Proveedores**, seleccione el proveedor adecuado.
+
+## <a name="impersonation"></a>Suplantación
+En algunos casos, puede ser necesario especificar otra cuenta de suplantación. La cuenta de suplantación se puede especificar en SSDT o SSMS.
+
+Para orígenes de datos locales:
+
+* Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
+* Si se utiliza la autenticación de Windows, establezca la contraseña y el usuario de Windows. Para SQL Server, se admite la autenticación de Windows con una cuenta de suplantación específica solo para los modelos de datos en memoria.
+
+Para orígenes de datos en la nube:
+
+* Si se utiliza la autenticación de SQL, la suplantación debe ser la Cuenta de servicio.
+
+## <a name="next-steps"></a>Pasos siguientes
+Si tiene orígenes de datos locales, asegúrese de instalar la [puerta de enlace local](analysis-services-gateway.md). Para aprender más acerca de la administración del servidor en SSDT o SSMS, consulte el artículo sobre la[administración del servidor](analysis-services-manage.md).
+
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -1,12 +1,12 @@
 ---
-title: Guía del desarrollador del Almacén de claves | Microsoft Docs
-description: 'Los desarrolladores pueden usar el Almacén de clave de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure. '
+title: "Guía del desarrollador de Key Vault | Microsoft Docs"
+description: "Los desarrolladores pueden usar el Almacén de clave de Azure para administrar las claves criptográficas en el entorno de Microsoft Azure. "
 services: key-vault
-documentationcenter: ''
+documentationcenter: 
 author: BrucePerlerMS
 manager: mbaldwin
 editor: bruceper
-
+ms.assetid: b2b1bd28-e149-4d69-b08b-97f6c50ebe30
 ms.service: key-vault
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2016
 ms.author: bruceper
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 3b4664cdfebad63307c0e964527fc5ecf6500348
+
 
 ---
-# <a name="azure-key-vault-developer's-guide"></a>Guía del desarrollador del Almacén de claves de Azure
+# <a name="azure-key-vault-developers-guide"></a>Guía del desarrollador del Almacén de claves de Azure
 Con el Almacén de claves, podrá obtener acceso seguro a información confidencial sobre el acceso desde sus aplicaciones, por ejemplo:
 
 * Las claves y los secretos estarán protegidos sin tener que escribir el código manualmente, y podrá usarlos fácilmente en sus aplicaciones.
@@ -102,6 +106,9 @@ En estos artículos se describen otros escenarios y servicios que pueden integra
 * [Blog de Almacén de claves](http://aka.ms/kvblog)
 * [Foro sobre Almacén de claves](http://aka.ms/kvforum)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

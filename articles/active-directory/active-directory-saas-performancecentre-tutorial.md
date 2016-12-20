@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con PerformanceCentre | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y PerformanceCentre.
+title: "Tutorial: Integración de Azure Active Directory con PerformanceCentre | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y PerformanceCentre."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 65288c32-f7e6-4eb3-a6dc-523c3d748d1c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 9b8c63d512f49a9b1478642f9f6733c849e3f48d
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integración de Azure Active Directory con PerformanceCentre
+# <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integración de Azure Active Directory con PerformanceCentre
 El objetivo de este tutorial es mostrar cómo integrar PerformanceCentre con Azure Active Directory (Azure AD).  
 La integración de PerformanceCentre con Azure AD proporciona las siguientes ventajas: 
 
@@ -229,7 +233,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
 Al hacer clic en el icono de PerformanceCentre en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de PerformanceCentre.
 
@@ -278,6 +282,6 @@ Al hacer clic en el icono de PerformanceCentre en el Panel de acceso, debería i
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

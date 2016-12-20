@@ -1,13 +1,13 @@
 ---
-title: Incorporación del conector de Excel | Microsoft Docs
-description: Información general del conector de Excel con parámetros de la API de REST
-services: ''
-documentationcenter: ''
+title: "Incorporación del conector de Excel | Microsoft Docs"
+description: "Información general del conector de Excel con parámetros de la API de REST"
+services: 
+documentationcenter: 
 author: msftman
 manager: erikre
-editor: ''
+editor: 
 tags: connectors
-
+ms.assetid: 03af8652-9223-4348-9490-602872a680f0
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,12 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2016
 ms.author: deonhe
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 4fe8a9dfd00ef85382733dcb2488c62ab651bc56
+
 
 ---
-# Introducción al conector de Excel
-Actualmente, no hay ningún conector de Excel en Logic Apps.
+# <a name="get-started-with-the-excel-connector"></a>Introducción al conector de Excel
+Actualmente, no hay ningún conector de Excel en Logic Apps. 
 
-## Para utilizar datos de Excel
+## <a name="to-use-excel-data"></a>Para utilizar datos de Excel
 Puede almacenar datos de Excel como un archivo de valores separados por comas (CSV) en una carpeta de almacenamiento, como [OneDrive](connectors-create-api-onedrive.md). También puede utilizar este archivo CSV con el [conector de archivos planos](../app-service-logic/app-service-logic-enterprise-integration-flatfile.md).
 
 <!---
@@ -213,4 +217,8 @@ Applies to version: 1.0.
 
 -->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

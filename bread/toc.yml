@@ -1,4 +1,4 @@
-- name: "Las tablas de Azure"
+- name: "Azure"
   tocHref: /azure/
   topicHref: /azure/index
   items:
@@ -24,34 +24,41 @@
   - name: "Analysis Services"
     tocHref: /azure/analysis-services/
     topicHref: /azure/analysis-services/analysis-services-overview
-  - name: "Administración de API"
+  - name: "API Management"
     tocHref: /azure/api-management/
     topicHref: /azure/api-management/api-management-key-concepts
-  - name: "Servicio de aplicaciones"
+  - name: "App Service"
     tocHref: /azure/app-service/
     topicHref: /azure/app-service/app-service-how-works-readme
-  - name: "Aplicaciones de API"
-    tocHref: /azure/app-service-api/
-    topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+    items:
+    - name: "Web Apps"
+      tocHref: /azure/app-service-web/
+      topicHref: /azure/app-service-web/app-service-web-overview
+    - name: "Aplicaciones móviles"
+      tocHref: /azure/app-service-mobile/
+      topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
+    - name: "API Apps"
+      tocHref: /azure/app-service-api/
+      topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+  - name: "Advisor"
+    tocHref: /azure/advisor/
+    topicHref: /azure/advisor/advisor-overview
   - name: "Aplicaciones lógicas"
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
-  - name: "App Service Mobile"
-    tocHref: /azure/app-service-mobile/
-    topicHref: /azure/app-service-mobile/app-service-mobile-value-prop
-  - name: "App Service Web"
-    tocHref: /azure/app-service-web/
-    topicHref: /azure/app-service-web/app-service-web-overview
   - name: "Application Gateway"
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/application-gateway-introduction
   - name: "Application Insights"
     tocHref: /azure/application-insights/
     topicHref: /azure/application-insights/app-insights-overview
-  - name: "Automatización"
+  - name: "Automation"
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
-  - name: "Funciones"
+  - name: "Container Registry"
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-intro
+  - name: "Functions"
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
   - name: "Government"
@@ -69,10 +76,10 @@
   - name: "Compatibilidad"
     tocHref: /azure/azure-supportability/
     topicHref: /azure/azure-supportability/
-  - name: "Copia de seguridad"
+  - name: "Backup"
     tocHref: /azure/backup/
     topicHref: /azure/backup/backup-introduction-to-azure-backup
-  - name: "Lote"
+  - name: "Batch"
     tocHref: /azure/batch/
     topicHref: /azure/batch/batch-technical-overview
   - name: "Facturación"
@@ -84,10 +91,10 @@
   - name: "Memoria caché"
     tocHref: /azure/cache/
     topicHref: /azure/cache/
-  - name: "Servicio CDN"
+  - name: "CDN"
     tocHref: /azure/cdn/
     topicHref: /azure/cdn/cdn-overview
-  - name: "Servicios en la nube"
+  - name: "Cloud Services"
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/cloud-services-choose-me
   - name: "Cognitive Services"
@@ -99,16 +106,16 @@
   - name: "Container Service"
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/container-service-intro
-  - name: "Catálogo de datos"
+  - name: "Data Catalog"
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/data-catalog-what-is-data-catalog
-  - name: "Factoría de datos"
+  - name: "Data Factory"
     tocHref: /azure/data-factory/
     topicHref: /azure/data-factory/data-factory-introduction
-  - name: "Análisis de Data Lake"
+  - name: "Data Lake Analytics"
     tocHref: /azure/data-lake-analytics/
     topicHref: /azure/data-lake-analytics/data-lake-analytics-overview
-  - name: "Almacén de Data Lake"
+  - name: "Data Lake Store"
     tocHref: /azure/data-lake-store/
     topicHref: /azure/data-lake-store/data-lake-store-overview
   - name: "DevTest Lab"
@@ -120,7 +127,7 @@
   - name: "DocumentDB"
     tocHref: /azure/documentdb/
     topicHref: /azure/documentdb/documentdb-introduction
-  - name: "Centros de eventos"
+  - name: "Event Hubs"
     tocHref: /azure/event-hubs/
     topicHref: /azure/event-hubs/event-hubs-what-is-event-hubs
   - name: "ExpressRoute"
@@ -132,22 +139,22 @@
   - name: "HDInsight"
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/hdinsight-hadoop-introduction
-  - name: "Centro de IoT"
+  - name: "IoT Hub"
     tocHref: /azure/iot-hub/
     topicHref: /azure/iot-hub/iot-hub-what-is-azure-iot
-  - name: "Conjunto de aplicaciones de IoT"
+  - name: "IoT Suite"
     tocHref: /azure/iot-suite/
     topicHref: /azure/iot-suite/iot-suite-what-is-azure-iot
-  - name: "Almacén de claves"
+  - name: "Key Vault"
     tocHref: /azure/key-vault/
     topicHref: /azure/key-vault/key-vault-whatis
-  - name: "Equilibrador de carga"
+  - name: "Load Balancer"
     tocHref: /azure/load-balancer/
     topicHref: /azure/load-balancer/load-balancer-overview
   - name: "Log Analytics"
     tocHref: /azure/log-analytics/
     topicHref: /azure/log-analytics/log-analytics-overview
-  - name: "Aprendizaje automático"
+  - name: "Machine Learning"
     tocHref: /azure/machine-learning/
     topicHref: /azure/machine-learning/machine-learning-faq
   - name: "Consumidor de Marketplace"
@@ -156,13 +163,13 @@
   - name: "Publicación de Marketplace"
     tocHref: /azure/marketplace-publishing/
     topicHref: /azure/marketplace-publishing/
-  - name: "Servicios multimedia"
+  - name: "Media Services"
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/media-services-overview
   - name: "Mobile Engagement"
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/mobile-engagement-overview
-  - name: "Servicios móviles"
+  - name: "Mobile Services"
     tocHref: /azure/mobile-services/
     topicHref: /azure/mobile-services/
   - name: "Supervisión y diagnóstico"
@@ -175,7 +182,7 @@
       - name: "Guía de usuario"
         tocHref: /azure/multi-factor-authentication/end-user/
         topicHref: /azure/multi-factor-authentication/end-user/
-  - name: "Centros de notificaciones"
+  - name: "Notification Hubs"
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/notification-hubs-push-notification-overview
   - name: "Operations Management Suite"
@@ -184,7 +191,7 @@
   - name: "Power BI Embedded"
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/power-bi-embedded-what-is-power-bi-embedded
-  - name: "Caché en Redis"
+  - name: "Redis Cache"
     tocHref: /azure/redis-cache/
     topicHref: /azure/redis-cache/cache-faq
   - name: "RemoteApp"
@@ -196,7 +203,7 @@
   - name: "Estado de los recursos"
     tocHref: /azure/resource-health/
     topicHref: /azure/resource-health/
-  - name: "Programador"
+  - name: "Scheduler"
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/scheduler-intro
   - name: "Search"
@@ -208,37 +215,37 @@
   - name: "Centro de seguridad"
     tocHref: /azure/security-center/
     topicHref: /azure/security-center/security-center-intro
-  - name: "Bus de servicio"
+  - name: "Service Bus"
     tocHref: /azure/service-bus/
     topicHref: /azure/service-bus/../service-bus-messaging/service-bus-queues-topics-subscriptions
   - name: "Mensajería de Service Bus"
     tocHref: /azure/service-bus-messaging/
     topicHref: /azure/service-bus-messaging/service-bus-queues-topics-subscriptions
-  - name: "Retransmisión de bus de servicio"
+  - name: "Service Bus Relay"
     tocHref: /azure/service-bus-relay/
     topicHref: /azure/service-bus-relay/service-bus-relay-overview
   - name: "Service Fabric"
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/service-fabric-overview
-  - name: "Recuperación de sitios"
+  - name: "Site Recovery"
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/site-recovery-overview
-  - name: "Almacenamiento de datos SQL"
+  - name: "SQL Data Warehouse"
     tocHref: /azure/sql-data-warehouse/
     topicHref: /azure/sql-data-warehouse/sql-data-warehouse-overview-what-is
-  - name: "Base de datos SQL"
+  - name: "SQL Database"
     tocHref: /azure/sql-database/
     topicHref: /azure/sql-database/sql-database-technical-overview
   - name: "SQL Server Stretch Database"
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/sql-server-stretch-database-overview
-  - name: "Almacenamiento"
+  - name: "Storage"
     tocHref: /azure/storage/
     topicHref: /azure/storage/storage-introduction
   - name: "StorSimple"
     tocHref: /azure/storsimple/
     topicHref: /azure/storsimple/storsimple-ova-overview
-  - name: "Análisis de transmisiones"
+  - name: "Stream Analytics"
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/stream-analytics-introduction
   - name: "Traffic Manager"
@@ -247,7 +254,7 @@
   - name: "Conjuntos de escalado de máquina virtual"
     tocHref: /azure/virtual-machine-scale-sets/
     topicHref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-  - name: "Máquinas virtuales"
+  - name: "Virtual Machines"
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
     items:
@@ -265,9 +272,9 @@
           - name: "Implementación clásica"
             tocHref: /azure/virtual-machines/windows/classic/
             topicHref: /azure/virtual-machines/windows/classic/
-  - name: "Red virtual"
+  - name: "Virtual Network"
     tocHref: /azure/virtual-network/
     topicHref: /azure/virtual-network/virtual-networks-overview
-  - name: "Puerta de enlace de VPN"
+  - name: "VPN Gateway"
     tocHref: /azure/vpn-gateway/
     topicHref: /azure/vpn-gateway/vpn-gateway-about-vpn-devices

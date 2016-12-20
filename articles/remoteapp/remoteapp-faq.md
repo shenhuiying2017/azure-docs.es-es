@@ -3,7 +3,7 @@ title: P+F de Azure RemoteApp| Microsoft Docs
 description: "Conozca las respuestas para las preguntas más frecuentes acerca de Azure RemoteApp."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: 
 ms.assetid: bad66603-91f9-437f-8a70-236405d2a27f
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f3a2927164a01dd4b76e264cd1b7152f170f79cb
+ms.sourcegitcommit: fcc53e4073a6957fae263cfb5d38023ed9710d21
+ms.openlocfilehash: 31df73e3fc4142ba8c3634ac9d2b6fea4cc1b2d9
 
 
 ---
@@ -45,7 +45,7 @@ Si no puede encontrar la información que necesita o tiene alguna pregunta adici
 * **¿Cuánto cuesta RemoteApp?** Consulte [Detalles de precios de RemoteApp de Azure ](https://azure.microsoft.com/pricing/details/remoteapp/).
 * **¿Un tipo de colección cuesta más que otro?**  Sí, puede que sí, según los requisitos de la colección. Una colección híbrida requiere una conexión desde Azure RemoteApp hasta la red local. Si utiliza una ruta de red virtual (VNET) o una ExpressRoute existente, no se genera ningún costo adicional. Pero si usa una red virtual de Azure nueva y una puerta de enlace o una ExpressRoute, se le cobrará por la [VPN Gateway](https://azure.microsoft.com/pricing/details/vpn-gateway) o por la [ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/). Este costo (detallado en los vínculos) se suma a los costos mensuales de Azure RemoteApp.
 
-## <a name="collections-whats-supported-which-should-you-use-and-others"></a>Colecciones: cuáles son compatibles, cuáles debe usar, etc.
+## <a name="collections---whats-supported-which-should-you-use-and-others"></a>Colecciones: cuáles son compatibles, cuáles debe usar, etc.
 * **¿Son compatibles las aplicaciones personalizadas de línea de negocio (LOB)?**  Sí. Para usar una aplicación personalizada de RemoteApp de Azure, cree una [imagen de plantilla personalizada](remoteapp-create-custom-image.md), y cárguela en la colección de RemoteApp.
 * **¿Funcionará mi aplicación personalizada de LOB en RemoteApp de Azure?**  La mejor manera de averiguarlo es probándola. Consulte el [centro de compatibilidad de Escritorio remoto](http://www.rdcompatibility.com/compatibility/default.aspx).
 * **¿Qué método de implementación (nube o híbrida) es mejor para mi organización?**  Las colecciones híbridas ofrecen una mejor experiencia si desea una integración completa y segura con el inicio de sesión único (SSO) en entornos locales de conectividad de red. Las colecciones de nube ofrecen una manera fácil y ágil para aislar la implementación usando varios métodos de autenticación. Obtenga más información sobre las [Opciones de implementación](remoteapp-whatis.md).
@@ -69,7 +69,7 @@ Si no puede encontrar la información que necesita o tiene alguna pregunta adici
 
 * **¿Por qué no puedo ofrecer mi acceso a la cuenta de Azure Active Directory?**  Los usuarios de Azure Active Directory deben proceder del directorio asociado a la suscripción. Puede ver o modificar ese directorio en la pestaña Configuración del portal. Consulte [Cambio del inquilino de Azure Active Directory que usa RemoteApp](remoteapp-changetenant.md) para obtener más información.
 
-## <a name="clients-what-device-can-i-use-to-access-azure-remoteapp"></a>Clientes: ¿qué dispositivos puedo utilizar para acceder a Azure RemoteApp?
+## <a name="clients---what-device-can-i-use-to-access-azure-remoteapp"></a>Clientes: ¿qué dispositivos puedo utilizar para acceder a Azure RemoteApp?
 Puede encontrar toda la información del cliente, incluidos los pasos para instalar los distintos clientes en [Acceso a las aplicaciones de Azure RemoteApp](remoteapp-clients.md).
 
 * **¿Qué dispositivos y sistemas operativos admiten las aplicaciones cliente?**
@@ -126,6 +126,6 @@ Puede encontrar toda la información del cliente, incluidos los pasos para insta
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

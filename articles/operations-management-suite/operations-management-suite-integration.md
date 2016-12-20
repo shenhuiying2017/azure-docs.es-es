@@ -1,22 +1,26 @@
 ---
-title: Integración con Operations Management Suite (OMS) | Microsoft Docs
-description: Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con OMS y vínculos a artículos que proporcionan información técnica detallada.
+title: "Integración con Operations Management Suite (OMS) | Microsoft Docs"
+description: "Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con OMS y vínculos a artículos que proporcionan información técnica detallada."
 services: operations-management-suite
-documentationcenter: ''
+documentationcenter: 
 author: bwren
 manager: jwhit
 editor: tysonn
-
+ms.assetid: fc5f3a8a-77f7-4103-bd7e-744c15ffcca7
 ms.service: operations-management-suite
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/09/2016
 ms.author: bwren
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 31291a9b0f452adeae42f744a976c14e61a4b303
+
 
 ---
-# <a name="integrating-with-operations-management-suite-(oms)"></a>Integración con Operations Management Suite (OMS)
+# <a name="integrating-with-operations-management-suite-oms"></a>Integración con Operations Management Suite (OMS)
 Operations Management Suite es la solución de administración de TI basada en la nube de Microsoft que le ayuda a administrar y proteger su infraestructura local y en la nube.  Además de usar las funciones estándar de OMS, puede integrarlas con otras aplicaciones de administración y servicios para proporcionar un entorno de administración híbrido, proporcionar escenarios de administración personalizados únicos para su entorno o proporcionar una experiencia de administración personalizada para sus clientes.  Este artículo proporciona una visión general de las diferentes opciones para la integración con vínculos y servicios de OMS que proporcionan información técnica detallada. 
 
 ## <a name="log-analytics"></a>Log Analytics
@@ -102,6 +106,9 @@ Por ejemplo, la solución podría incluir un runbook de Automation para recopila
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte el [SDK de OMS](operations-management-suite-sdk.md) para obtener información técnica sobre la automatización de servicios OMS.  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

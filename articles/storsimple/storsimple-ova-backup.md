@@ -1,12 +1,12 @@
 ---
 title: Tutorial de copia de seguridad de la matriz virtual de StorSimple | Microsoft Docs
-description: Describe cómo realizar copias de seguridad de recursos compartidos y volúmenes de la matriz virtual de StorSimple.
+description: "Describe cómo realizar copias de seguridad de recursos compartidos y volúmenes de la matriz virtual de StorSimple."
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: ''
-
+editor: 
+ms.assetid: a4f55053-a664-4f7c-ba9d-0cb1fb200ff4
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,15 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/07/2016
 ms.author: alkohli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 61bc9e86cde18bf00291fa36c7ea12ca263db82f
+
 
 ---
-# Crear una copia de seguridad de la matriz virtual de StorSimple
-## Información general
+# <a name="back-up-your-storsimple-virtual-array"></a>Crear una copia de seguridad de la matriz virtual de StorSimple
+## <a name="overview"></a>Información general
 Este tutorial se aplica a la matriz virtual de Microsoft Azure StorSimple (también conocida como dispositivo virtual local de StorSimple o dispositivo virtual de StorSimple) que se ejecuta en la versión de disponibilidad general de marzo de 2016 o versiones posteriores.
 
 La matriz virtual de StorSimple es un dispositivo virtual local de almacenamiento en nube híbrida que se puede configurar como servidor de archivos o servidor iSCSI. Puede crear copias de seguridad, restaurar copias de seguridad y realizar la conmutación por error de dispositivos si se necesita recuperación ante desastres. Cuando se configura como servidor de archivos, también permite la recuperación a nivel de elemento. En este tutorial se describe cómo usar el portal clásico de Azure o la interfaz de usuario web de StorSimple para crear copias de seguridad programadas y manuales de la matriz virtual de StorSimple.
 
-## Hacer copias de seguridad de recursos compartidos y volúmenes
+## <a name="back-up-shares-and-volumes"></a>Hacer copias de seguridad de recursos compartidos y volúmenes
 Las copias de seguridad proporcionan seguridad a partir de un momento específico y mejoran la capacidad de recuperación, al mismo tiempo que reducen los tiempos de restauración de recursos compartidos y volúmenes. Puede hacer una copia de seguridad de un recurso compartido o de un volumen de su dispositivo StorSimple de dos maneras: **Programada** o **Manual**. En las siguientes secciones se detallan cada uno de los métodos.
 
 > [!NOTE]
@@ -30,20 +34,20 @@ Las copias de seguridad proporcionan seguridad a partir de un momento específic
 > 
 > 
 
-## Establecer la programación de copias de seguridad
+## <a name="change-the-backup-schedule"></a>Establecer la programación de copias de seguridad
 El dispositivo virtual StorSimple tiene una directiva de copia de seguridad predeterminada que se inicia a una hora determinada del día (22:30) y hace una copia de seguridad de todos los recursos compartidos o volúmenes en el dispositivo una vez al día. Puede cambiar la hora a la que se inicia la copia de seguridad, pero no puede cambiar la frecuencia y la retención (que especifica el número de copias de seguridad para conservar). Durante estas copias de seguridad, se copia todo el dispositivo virtual; por lo tanto, recomendamos que programe estas copias de seguridad durante horas de poca actividad.
 
 Siga estos pasos en el [Portal de Azure clásico](https://manage.windowsazure.com/) para cambiar la hora de inicio predeterminada de las copias de seguridad.
 
-#### Para cambiar la hora de inicio para la directiva de copia de seguridad predeterminada
+#### <a name="to-change-the-start-time-for-the-default-backup-policy"></a>Para cambiar la hora de inicio para la directiva de copia de seguridad predeterminada
 1. Vaya a la pestaña **Configuración** del dispositivo.
-2. En la sección **Copia de seguridad**, especifique la hora de inicio de la copia de seguridad diaria.
+2. En la sección **Copia de seguridad** , especifique la hora de inicio de la copia de seguridad diaria.
 3. Haga clic en **Guardar**.
 
-### Creación de una copia de seguridad manual
+### <a name="take-a-manual-backup"></a>Creación de una copia de seguridad manual
 Además de las copias de seguridad programadas, puede crear una copia de seguridad manual (a petición) en cualquier momento.
 
-#### Para crear una copia de seguridad manual (a petición)
+#### <a name="to-create-a-manual-on-demand-backup"></a>Para crear una copia de seguridad manual (a petición)
 1. Vaya a la pestaña **Recursos compartidos** o la pestaña **Volúmenes**.
 2. En la parte inferior de la página, haga clic en **Realizar copia de seguridad general**. Se le pedirá que verifique que desea realizar la copia de seguridad ahora. Haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png) para continuar con la copia de seguridad.
    
@@ -57,18 +61,18 @@ Además de las copias de seguridad programadas, puede crear una copia de segurid
    
     ![trabajo de copia de seguridad creado](./media/storsimple-ova-backup/image7.png)
 3. Para realizar un seguimiento del progreso del trabajo, haga clic en **Ver trabajo**.
-4. Una vez finalizado el trabajo de copia de seguridad, vaya a la pestaña **Catálogo de copia de seguridad**. Debería ver la copia de seguridad completada.
+4. Una vez finalizado el trabajo de copia de seguridad, vaya a la pestaña **Catálogo de copia de seguridad** . Debería ver la copia de seguridad completada.
    
     ![Copia de seguridad completada](./media/storsimple-ova-backup/image8.png)
-5. Establezca las selecciones de filtro en el dispositivo, la directiva de copia de seguridad y el intervalo de tiempo adecuados y, a continuación, haga clic en el icono de marca de verificación ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png).
+5. Establezca las selecciones de filtro en el dispositivo, la directiva de copia de seguridad y el intervalo de tiempo adecuados y, a continuación, haga clic en el icono de marca de verificación  ![icono de marca de verificación](./media/storsimple-ova-backup/image3.png).
    
     La copia de seguridad debe aparecer en la lista de conjuntos de copia de seguridad que se muestra en el catálogo.
 
-## Ver copias de seguridad existentes
+## <a name="view-existing-backups"></a>Ver copias de seguridad existentes
 Siga estos pasos en el Portal de Azure clásico para ver las copias de seguridad existentes.
 
-#### Para ver copias de seguridad existentes
-1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad**.
+#### <a name="to-view-existing-backups"></a>Para ver copias de seguridad existentes
+1. En la página del servicio de Administrador de StorSimple, haga clic en la pestaña **Catálogo de copias de seguridad** .
 2. Seleccione una copia de seguridad de la siguiente manera:
    
    1. Seleccione el dispositivo.
@@ -78,7 +82,7 @@ Siga estos pasos en el Portal de Azure clásico para ver las copias de seguridad
       
       Las copias de seguridad asociadas al recurso compartido o al volumen seleccionado deben aparecer en la lista de conjuntos de copias de seguridad.
 
-![video\_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponible**
+![video_icon](./media/storsimple-ova-backup/video_icon.png) **Vídeo disponible**
 
 Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar copias de seguridad de los recursos compartidos y restaurar datos en una matriz virtual de StorSimple.
 
@@ -86,7 +90,12 @@ Consulte este vídeo para ver cómo puede crear recursos compartidos, realizar c
 > 
 > 
 
-## Pasos siguientes
-Más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
+## <a name="next-steps"></a>Pasos siguientes
+Obtenga más información sobre la [administración de la matriz virtual de StorSimple](storsimple-ova-web-ui-admin.md).
 
-<!---HONumber=AcomDC_0622_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

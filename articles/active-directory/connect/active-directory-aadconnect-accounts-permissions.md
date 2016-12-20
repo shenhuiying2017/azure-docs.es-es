@@ -1,12 +1,12 @@
 ---
 title: Cuentas y permisos de Azure AD Connect | Microsoft Docs
-description: En este tema se describen las cuentas usadas y creadas, así como los permisos necesarios.
+description: "En este tema se describen las cuentas usadas y creadas, así como los permisos necesarios."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: b2baa9ea093a36cadb2251bbd1f4390552d8ec0e
+
 
 ---
-# <a name="azure-ad-connect:-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
+# <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: cuentas y permisos
 El asistente para instalación de Azure AD Connect ofrece dos itinerarios diferentes:
 
 * En configuración rápida, el asistente requiere más privilegios para que podamos realizar su configuración fácilmente, sin necesidad de crear o configurar permisos por separado.
@@ -127,6 +131,9 @@ La cuenta de servicio se crea con una contraseña larga compleja que no expira. 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](../active-directory-aadconnect.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

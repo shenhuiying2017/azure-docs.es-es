@@ -15,8 +15,8 @@ ms.workload: big-compute
 ms.date: 07/27/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a91c56d774ea81e175fa170e09b39548c6ae4d2
+ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
+ms.openlocfilehash: 87f8b1651ea429663c621a64d7f668a175fa675f
 
 
 ---
@@ -87,10 +87,10 @@ Aquí hay más información sobre el proceso, los datos, las redes y los servici
 > 
 
 ### <a name="compute-services"></a>Servicios de proceso
-Servicios de proceso de Azure son el núcleo de una solución Big Compute y los diversos servicios de proceso ofrecen ventajas para diferentes escenarios. En un nivel básico, estos servicios ofrecen modos distintos para que las aplicaciones se ejecuten en instancias de proceso basadas en máquinas virtuales que Azure proporciona mediante tecnología Windows Server Hyper-V. Estas instancias pueden ejecutar herramientas y sistemas operativos Linux y Windows estándar y personalizados. Azure permite elegir entre varios [tamaños de instancia](../virtual-machines/virtual-machines-windows-sizes.md) con diferentes configuraciones de núcleos de CPU, memoria, capacidad de disco y otras características. En función de sus necesidades puede escalar las instancias a miles de núcleos y, luego, reducirlas verticalmente cuando necesite menos recursos.
+Servicios de proceso de Azure son el núcleo de una solución Big Compute y los diversos servicios de proceso ofrecen ventajas para diferentes escenarios. En un nivel básico, estos servicios ofrecen modos distintos para que las aplicaciones se ejecuten en instancias de proceso basadas en máquinas virtuales que Azure proporciona mediante tecnología Windows Server Hyper-V. Estas instancias pueden ejecutar herramientas y sistemas operativos Linux y Windows estándar y personalizados. Azure permite elegir entre varios [tamaños de instancia](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) con diferentes configuraciones de núcleos de CPU, memoria, capacidad de disco y otras características. En función de sus necesidades puede escalar las instancias a miles de núcleos y, luego, reducirlas verticalmente cuando necesite menos recursos.
 
 > [!NOTE]
-> Saque provecho de las instancias de Azure con un proceso intensivo para mejorar el rendimiento y la escalabilidad de las cargas de trabajo de HPC, incluidas las aplicaciones MPI paralelas que requieren una red de aplicaciones de baja latencia y alto rendimiento. Consulte [Acerca de las máquinas virtuales de la serie H y A de procesos intensivos](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md).  
+> Saque provecho de las instancias de Azure con un proceso intensivo para mejorar el rendimiento y la escalabilidad de las cargas de trabajo de HPC, incluidas las aplicaciones MPI paralelas que requieren una red de aplicaciones de baja latencia y alto rendimiento. Consulte [Acerca de las máquinas virtuales de la serie H y A de procesos intensivos](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
 > 
 

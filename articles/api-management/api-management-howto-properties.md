@@ -1,23 +1,27 @@
 ---
-title: Uso de propiedades en directivas de Administración de API de Azure
-description: Aprenda a usar las propiedades en directivas de Administración de API de Azure.
+title: "Uso de propiedades en directivas de Administración de API de Azure"
+description: "Aprenda a usar las propiedades en directivas de Administración de API de Azure."
 services: api-management
-documentationcenter: ''
+documentationcenter: 
 author: steved0x
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6f39b00f-cf6e-4cef-9bf2-1f89202c0bc0
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2016
+ms.date: 10/25/2016
 ms.author: sdanie
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: a85dc1388701c750af48249c818a5227d73e77e6
+
 
 ---
-# Uso de propiedades en directivas de Administración de API de Azure
-En Administración de API, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y propiedades.
+# <a name="how-to-use-properties-in-azure-api-management-policies"></a>Uso de propiedades en directivas de Administración de API de Azure
+En Administración de API, las directivas constituyen una eficaz funcionalidad del sistema que permite al editor cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y propiedades. 
 
 Cada instancia del servicio de Administración de API tiene una colección de propiedades de pares clave-valor que son globales para la instancia del servicio. Estas propiedades se pueden utilizar para administrar los valores constantes de la cadena en todas las directivas y la configuración de API. Cada propiedad tiene también los siguientes atributos.
 
@@ -28,9 +32,9 @@ Cada instancia del servicio de Administración de API tiene una colección de pr
 | Secret |boolean |Determina si el valor es secreto y si se debe cifrar. |
 | Etiquetas |matriz de cadena |Etiquetas opcionales que, cuando se proporcionan, pueden usarse para filtrar la lista de propiedades. |
 
-Las propiedades se configuran en el portal del editor, en la pestaña **Properties (Propiedades)**. En el ejemplo siguiente, se configuran tres propiedades.
+Las propiedades se configuran en el portal del editor, en la pestaña **Properties (Propiedades)** . En el ejemplo siguiente, se configuran tres propiedades.
 
-![Propiedades][api-management-properties]
+![Properties (Propiedades)][api-management-properties]
 
 Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx). En la siguiente tabla se muestran las tres propiedades de ejemplo anteriores y sus atributos. El valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
 
@@ -40,7 +44,7 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
 | ExpressionProperty |@(DateTime.Now.ToString()) |False | |
 
-## Uso de una propiedad
+## <a name="to-use-a-property"></a>Uso de una propiedad
 Para utilizar una propiedad en una directiva, coloque el nombre de la propiedad dentro de un par doble de llaves (como `{{ContosoHeader}}`), de la misma forma que se muestra en el ejemplo siguiente.
 
     <set-header name="{{ContosoHeader}}" exists-action="override">
@@ -61,7 +65,7 @@ Cuando esta directiva se evalúa, se reemplaza `{{ExpressionProperty}}` por su v
 
 Puede probarlo en el portal para desarrolladores si llama a una operación que tenga dentro de su ámbito una directiva con propiedades. En el ejemplo siguiente, se llama a una operación con las dos directivas `set-header` de ejemplo anteriores con propiedades. Tenga en cuenta que la respuesta contiene dos encabezados personalizados que se han configurado mediante directivas con propiedades.
 
-![Portal para desarrolladores][api-management-send-results]
+![portal para desarrolladores][api-management-send-results]
 
 Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector.md) una llamada que incluya las dos directivas de ejemplo anteriores con propiedades, verá las dos directivas `set-header` con los valores de propiedad insertados, así como la evaluación de la expresión de directiva para la propiedad que la contiene.
 
@@ -69,22 +73,22 @@ Si busca en el [seguimiento de API Inspector](api-management-howto-api-inspector
 
 Tenga en cuenta que, a pesar de que los valores de propiedad pueden contener expresiones de directiva, no pueden contener otras propiedades. Si se utiliza texto que contiene una referencia de propiedad para un valor de propiedad, como `Property value text {{MyProperty}}`, esa referencia de propiedad no se reemplazará y se incluirá como parte del valor de la propiedad.
 
-## Creación de una propiedad
-Para crear una propiedad, haga clic en **Add property (Agregar propiedad)** en la pestaña **Properties (Propiedades)**.
+## <a name="to-create-a-property"></a>Creación de una propiedad
+Para crear una propiedad, haga clic en **Agregar propiedad** en la pestaña **Propiedades**.
 
 ![Agregar propiedad][api-management-properties-add-property-menu]
 
-Los campos **Name (Nombre)** y **Value (Valor)** son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla de verificación **This is a secret (Es secreto)**. Escriba una o varias etiquetas opcionales para ayudar a organizar las propiedades y haga clic en **Save (Guardar)**.
+Los campos **Nombre** y **Valor** son necesarios. Si el valor de esta propiedad es un secreto, marque la casilla de verificación **This is a secret (Es secreto)** . Escriba una o varias etiquetas opcionales para ayudar a organizar las propiedades y haga clic en **Save (Guardar)**.
 
 ![Agregar propiedad][api-management-properties-add-property]
 
 Cuando se guarda una nueva propiedad, el cuadro de texto **Search property (Buscar propiedad)** se rellena con el nombre de la nueva propiedad y esta se muestra. Para mostrar todas las propiedades, borre el cuadro de texto **Search property (Buscar propiedad)** y pulse la tecla Entrar.
 
-![Propiedades][api-management-properties-property-saved]
+![Properties (Propiedades)][api-management-properties-property-saved]
 
-Para obtener información sobre cómo crear una propiedad mediante la API de REST, consulte [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put) (Creación de una propiedad mediante la API de REST).
+Para obtener información sobre cómo crear una propiedad mediante la API de REST, consulte [Create a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Put)(Creación de una propiedad mediante la API de REST).
 
-## Edición de una propiedad
+## <a name="to-edit-a-property"></a>Edición de una propiedad
 Para editar una propiedad, haga clic en **Edit (Editar)** junto a la propiedad que se va a editar.
 
 ![Editar propiedad][api-management-properties-edit]
@@ -93,9 +97,9 @@ Realice los cambios necesarios y haga clic en **Save (Guardar)**. Si cambia el n
 
 ![Editar propiedad][api-management-properties-edit-property]
 
-Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch) (Edición de una propiedad mediante la API de REST).
+Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)(Edición de una propiedad mediante la API de REST).
 
-## Eliminación de una propiedad
+## <a name="to-delete-a-property"></a>Eliminación de una propiedad
 Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propiedad que se va a eliminar.
 
 ![Eliminar propiedad][api-management-properties-delete]
@@ -109,24 +113,24 @@ Haga clic en **Sí, eliminar** para confirmar.
 > 
 > 
 
-Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete) (Eliminación de una propiedad mediante la API de REST).
+Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)(Eliminación de una propiedad mediante la API de REST).
 
-## Búsqueda y filtrado de propiedades
-En la pestaña **Properties (Propiedades)** se incluyen las funcionalidades de búsqueda y filtrado para ayudarle a administrar las propiedades. Para filtrar la lista de propiedades por el nombre de la propiedad, escriba un término de búsqueda en el cuadro de texto **Search property (Buscar propiedad)**. Para mostrar todas las propiedades, borre el cuadro de texto **Search property (Buscar propiedad)** y pulse la tecla Entrar.
+## <a name="to-search-and-filter-properties"></a>Búsqueda y filtrado de propiedades
+En la pestaña **Properties (Propiedades)** se incluyen las funcionalidades de búsqueda y filtrado para ayudarle a administrar las propiedades. Para filtrar la lista de propiedades por el nombre de la propiedad, escriba un término de búsqueda en el cuadro de texto **Search property (Buscar propiedad)** . Para mostrar todas las propiedades, borre el cuadro de texto **Search property (Buscar propiedad)** y pulse la tecla Entrar.
 
 ![Search][api-management-properties-search]
 
-Para filtrar la lista de propiedades por valores de etiqueta, escriba una o varias etiquetas en el cuadro de texto **Filtrar por etiquetas**. Para mostrar todas las propiedades, borre el cuadro de texto **Filter by tags (Filtrar por etiquetas)** y pulse la tecla Entrar.
+Para filtrar la lista de propiedades por valores de etiqueta, escriba una o varias etiquetas en el cuadro de texto **Filtrar por etiquetas** . Para mostrar todas las propiedades, borre el cuadro de texto **Filter by tags (Filtrar por etiquetas)** y pulse la tecla Entrar.
 
 ![Filtrar][api-management-properties-filter]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre cómo trabajar con directivas
   * [Directivas de Administración de API de Azure](api-management-howto-policies.md)
   * [Referencia de directiva](https://msdn.microsoft.com/library/azure/dn894081.aspx)
   * [Policy expressions (Expresiones de directiva)](https://msdn.microsoft.com/library/azure/dn910913.aspx)
 
-## Vea un vídeo de introducción.
+## <a name="watch-a-video-overview"></a>Vea un vídeo de introducción.
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Use-Properties-in-Policies/player]
 > 
 > 
@@ -144,4 +148,9 @@ Para filtrar la lista de propiedades por valores de etiqueta, escriba una o vari
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

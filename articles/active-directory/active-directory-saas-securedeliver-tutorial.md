@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SECURE DELIVER.
+title: "Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y SECURE DELIVER."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: fccd5668-fe6f-4e6d-a9ce-ba4f321c33d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 8885f776250d44419e73bcfecaa4c49359f198bf
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: Integración de Azure Active Directory con SECURE DELIVER
+# <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: Integración de Azure Active Directory con SECURE DELIVER
 El objetivo de este tutorial es mostrar cómo integrar SECURE DELIVER con Azure Active Directory (Azure AD).  
 Integrar SECURE DELIVER con Azure AD le proporciona las siguientes ventajas:
 
@@ -212,7 +216,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
 Al hacer clic en el icono de SECURE DELIVER en el panel de acceso, debería iniciar sesión automáticamente en su aplicación SECURE DELIVER.
 
@@ -240,6 +244,6 @@ Al hacer clic en el icono de SECURE DELIVER en el panel de acceso, debería inic
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

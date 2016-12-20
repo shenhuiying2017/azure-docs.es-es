@@ -1,19 +1,23 @@
 ---
-title: Creación de características para los datos de almacenamiento de blobs de Azure mediante Panda | Microsoft Docs
-description: Cómo crear características para los datos almacenados en un contenedor de blobs de Azure mediante el paquete Panda de Python.
+title: "Creación de características para los datos de Azure Blob Storage mediante Panda | Microsoft Docs"
+description: "Cómo crear características para los datos almacenados en un contenedor de blobs de Azure mediante el paquete Panda de Python."
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: bradsev;garye
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: b6751bf2367ca849f35c81a7857b4f85d75ef6a2
+
 
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Creación de características para los datos de almacenamiento de blobs de Azure mediante Panda
@@ -53,10 +57,10 @@ Para explorar y manipular un conjunto de datos, se debe descargar desde el orige
 
 Ya puede explorar los datos y generar características en este conjunto de datos.
 
-## <a name="a-nameblobfeaturegenafeature-generation"></a><a name="blob-featuregen"></a>Generación de características
+## <a name="a-nameblob-featuregenafeature-generation"></a><a name="blob-featuregen"></a>Generación de características
 Las dos secciones siguientes muestran cómo generar características de categorías con valores de indicador y características de discretización mediante scripts de Python.
 
-### <a name="a-nameblobcountfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
+### <a name="a-nameblob-countfeatureaindicator-value-based-feature-generation"></a><a name="blob-countfeature"></a>Generación de características basada en el valor de indicador
 Las características de categorías se pueden crear como sigue:
 
 1. Inspeccione la distribución de la columna de categorías:
@@ -75,7 +79,7 @@ Las características de categorías se pueden crear como sigue:
         #Remove the original column rate_code in df1_with_dummy
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
-### <a name="a-nameblobbinningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Generación de características de discretización
+### <a name="a-nameblob-binningfeatureabinning-feature-generation"></a><a name="blob-binningfeature"></a>Generación de características de discretización
 Para generar características discretizadas, se procede de la siguiente manera:
 
 1. Agregue una secuencia de columnas para discretizar una columna numérica
@@ -89,7 +93,7 @@ Para generar características discretizadas, se procede de la siguiente manera:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="a-namesqlfeaturegenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
+## <a name="a-namesql-featuregenawriting-data-back-to-azure-blob-and-consuming-in-azure-machine-learning"></a><a name="sql-featuregen"></a>Reescritura de datos en un blob de Azure y consumo en Aprendizaje automático de Azure
 Cuando haya explorado los datos y creado las características necesarias, puede cargar los datos (muestreados o con características) en un blob de Azure y consumirlos en Aprendizaje automático de Azure, mediante los siguientes pasos. Tenga en cuenta que también se pueden crear características adicionales en Estudio de aprendizaje automático de Azure
 
 1. Escriba la trama de datos en el archivo local
@@ -114,12 +118,15 @@ Cuando haya explorado los datos y creado las características necesarias, puede 
         #perform upload
         output_blob_service.put_block_blob_from_path(CONTAINERNAME,BLOBNAME,localfileprocessed)
    
-        except:         
+        except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
 3. Ahora se pueden leer los datos del blob mediante el módulo [Importar datos](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) de Aprendizaje automático de Azure, como se muestra en la pantalla siguiente:
 
 ![lector de blobs](./media/machine-learning-data-science-process-data-blob/reader_blob.png)
 
-<!---HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

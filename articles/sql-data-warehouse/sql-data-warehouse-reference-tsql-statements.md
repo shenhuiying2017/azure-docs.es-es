@@ -1,23 +1,27 @@
 ---
-title: Referencia de Transact-SQL de Almacenamiento de datos SQL | Microsoft Docs
-description: Vínculos a contenido de referencia para los temas de lenguaje Transact-SQL utilizados por Almacenamiento de datos SQL.
+title: Referencia de Transact-SQL de SQL Data Warehouse | Microsoft Docs
+description: "Vínculos a contenido de referencia para los temas de lenguaje Transact-SQL utilizados por Almacenamiento de datos SQL."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
-manager: barbkess
-editor: ''
-
+manager: jhubbard
+editor: 
+ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 08/22/2016
-ms.author: barbkess;sonyama
+ms.date: 10/31/2016
+ms.author: barbkess
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: ab42fce8cd49d9ae1585072a173e0c2b928f9f35
+
 
 ---
-# Temas de Transact-SQL
-## Instrucciones del Lenguaje de definición de datos (DDL)
+# <a name="transact-sql-topics"></a>Temas de Transact-SQL
+## <a name="data-definition-language-ddl-statements"></a>Instrucciones del Lenguaje de definición de datos (DDL)
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
 * [ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
@@ -50,23 +54,23 @@ ms.author: barbkess;sonyama
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
-## Instrucciones del Lenguaje de manipulación de datos (DML)
+## <a name="data-manipulation-language-dml-statements"></a>Instrucciones del Lenguaje de manipulación de datos (DML)
 * [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
-## Comandos de consola de base de datos
+## <a name="database-console-commands"></a>Comandos de consola de base de datos
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
-* [DBCC PDW\_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
-* [DBCC PDW\_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
-* [DBCC PDW\_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
-* [DBCC SHOW\_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
+* [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
+* [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
+* [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
+* [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
-## Instrucciones de consulta
+## <a name="query-statements"></a>Instrucciones de consulta
 * [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
-* [WITH common\_table\_expression](https://msdn.microsoft.com/library/ms175972.aspx)
+* [WITH common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [EXCEPT e INTERSECT](https://msdn.microsoft.com/library/ms188055.aspx)
 * [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
 * [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
@@ -82,7 +86,7 @@ ms.author: barbkess;sonyama
 * [Condición de búsqueda](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Subconsultas](https://msdn.microsoft.com/library/mt631613.aspx)
 
-## Instrucciones de seguridad
+## <a name="security-statements"></a>Instrucciones de seguridad
 * Permisos: [GRANT](https://msdn.microsoft.com/library/ms187965.aspx), [DENY](https://msdn.microsoft.com/library/ms188338.aspx), [REVOKE](https://msdn.microsoft.com/library/ms187728.aspx)
 * [ALTER AUTHORIZATION](https://msdn.microsoft.com/library/ms187359.aspx)
 * [ALTER CERTIFICATE](https://msdn.microsoft.com/library/ms189511.aspx)
@@ -107,17 +111,21 @@ ms.author: barbkess;sonyama
 * [DROP USER](https://msdn.microsoft.com/library/ms189438.aspx)
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
-## Pasos siguientes
-Para obtener más ejemplos de TSQL, consulte [Temas de referencia de Almacenamiento de datos SQL][Temas de referencia de Almacenamiento de datos SQL].
+## <a name="next-steps"></a>Pasos siguientes
+Para más ejemplos de TSQL, consulte [Información general de referencia de Almacenamiento de datos SQL][Información general de referencia de Almacenamiento de datos SQL].
 
 <!--Image references-->
 
 <!--Article references-->
-[Temas de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
+[Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
 
 <!--Other Web references-->
 
-<!---HONumber=AcomDC_0824_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

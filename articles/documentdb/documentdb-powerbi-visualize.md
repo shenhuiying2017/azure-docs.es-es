@@ -6,8 +6,8 @@ services: documentdb
 author: h0n
 manager: jhubbard
 editor: mimig
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,9 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: hawong
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 35c469ce0cfb99dc6a26fbcc0734938ad6b66fd7
+
 
 ---
-# <a name="power-bi-tutorial-for-documentdb:-visualize-data-using-the-power-bi-connector"></a>Tutorial de Power BI para DocumentDB: visualizar datos mediante el conector de Power BI
+# <a name="power-bi-tutorial-for-documentdb-visualize-data-using-the-power-bi-connector"></a>Tutorial de Power BI para DocumentDB: visualizar datos mediante el conector de Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) es un servicio en línea, en el que se pueden crear paneles e informes, y compartirlos, con los datos que son importantes para el usuario y su organización.  Power BI Desktop es una herramienta dedicada de creación de informes que permite recuperar datos de varios orígenes de datos, combinar y transformar los datos, crear visualizaciones e informes eficaces y publicar los informes en Power BI.  Con la versión más reciente de Power BI Desktop, ahora puede conectarse a su cuenta de DocumentDB a través del conector DocumentDB para Power BI.   
 
 En este tutorial de Power BI, se le guiará por los pasos para conectarse a una cuenta de DocumentDB en Power BI Desktop, desplazarse a una colección donde queremos extraer los datos mediante el navegador, transformar datos JSON en formato tabular mediante el Editor de consultas de Power BI Desktop y generar y publicar un informe en PowerBI.com.
@@ -42,24 +46,24 @@ Antes de seguir las instrucciones de este tutorial de Power BI, asegúrese de co
 
 Para compartir los informes en PowerBI.com, debe tener una cuenta en PowerBI.com.  Para más información sobre la versión gratuita de Power BI y de Power BI Pro, visite [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="let's-get-started"></a>Comencemos.
+## <a name="lets-get-started"></a>Comencemos.
 En este tutorial, imaginemos que usted es un geólogo que estudia los volcanes de todo el mundo.  Los datos de los volcanes se almacenan en una cuenta de DocumentDB y los documentos JSON tiene el aspecto que se muestra a continuación.
 
     {
         "Volcano Name": "Rainier",
-        "Country": "United States",
-        "Region": "US-Washington",
-        "Location": {
+           "Country": "United States",
+          "Region": "US-Washington",
+          "Location": {
             "type": "Point",
             "coordinates": [
-            -121.758,
-            46.87
+              -121.758,
+              46.87
             ]
-        },
-        "Elevation": 4392,
-        "Type": "Stratovolcano",
-        "Status": "Dendrochronology",
-        "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
+          },
+          "Elevation": 4392,
+          "Type": "Stratovolcano",
+          "Status": "Dendrochronology",
+          "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
     }
 
 Quiere recuperar los datos de los volcanes de la cuenta DocumentDB y visualizar datos en un informe de Power BI interactivo como el siguiente.
@@ -171,7 +175,7 @@ Para compartir el informe, debe tener una cuenta en PowerBI.com.
    
     ![La publicación en Power BI se realizó correctamente Abrir tutorial de Power BI](./media/documentdb-powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
-## <a name="create-a-dashboard-in-powerbi.com"></a>Creación de un panel en PowerBi.com
+## <a name="create-a-dashboard-in-powerbicom"></a>Creación de un panel en PowerBi.com
 Ahora que tiene un informe, vamos a compartirlo en PowerBi.com
 
 Cuando publica su informe de Power BI Desktop en PowerBI.com, se genera un **informe** y un **conjunto de datos** en su inquilino de PowerBI.com. Por ejemplo, después de que publique un informe llamado **PowerBITutorial** en PowerBI.com, podrá ver PowerBITutorial tanto en la sección de **informes** como en la sección de **onjuntos de datos** en PowerBI.com.
@@ -186,7 +190,7 @@ Luego, siga las instrucciones que aparecen en [Anclar un icono de un informe](ht
 
 También puede realizar modificaciones ad hoc en el informe antes de crear un panel. Sin embargo, se recomienda que use Power BI Desktop para realizar las modificaciones y vuelva a publicar el informe en PowerBI.com.
 
-## <a name="refresh-data-in-powerbi.com"></a>Actualización de datos en PowerBI.com
+## <a name="refresh-data-in-powerbicom"></a>Actualización de datos en PowerBI.com
 Hay dos formas de actualizar los datos: actualización ad hoc y actualización programada.
 
 En el caso de una actualización ad hoc, solo debe hacer clic en los tres puntos suspensivos (…) junto al **conjunto de datos**; por ejemplo, PowerBITutorial. Debería ver una lista de acciones, incluyendo **Actualizar ahora**. Haga clic en **Actualizar ahora** para actualizar los datos.
@@ -209,6 +213,9 @@ Para realizar una actualización programada, haga lo siguiente.
 * Para más información sobre Power BI, consulte [Introducción a Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/).
 * Para más información sobre DocumentDB, consulte la [página de aterrizaje de la documentación de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

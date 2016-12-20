@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con CloudPassage | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CloudPassage.
+title: "Tutorial: integración de Azure Active Directory con CloudPassage | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y CloudPassage."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: bfe1f14e-74e4-4680-ac9e-f7355e1c94cc
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 01676cbaf2b677b43a223cf33699710c77da41fa
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integración de Azure Active Directory con CloudPassage
+# <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: integración de Azure Active Directory con CloudPassage
 El objetivo de este tutorial es mostrar cómo integrar CloudPassage con Azure Active Directory (Azure AD).  
 La integración de CloudPassage con Azure AD proporciona las siguientes ventajas: 
 
@@ -52,7 +56,7 @@ La situación descrita en este tutorial consta de dos bloques de creación princ
 ## <a name="adding-cloudpassage-from-the-gallery"></a>Adición de CloudPassage desde la galería
 Para configurar la integración de CloudPassage en Azure AD, deberá agregar CloudPassage desde la galería a la lista de aplicaciones SaaS administradas.
 
-### <a name="to-add-cloudpassage-from-the-gallery,-perform-the-following-steps:"></a>Para agregar CloudPassage desde la galería, realice los pasos siguientes:
+### <a name="to-add-cloudpassage-from-the-gallery-perform-the-following-steps"></a>Para agregar CloudPassage desde la galería, realice los pasos siguientes:
 1. En el panel de navegación izquierdo del **Portal de Azure clásico**, haga clic en **Active Directory**. 
    
     ![Active Directory][1]
@@ -225,7 +229,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 ### <a name="creating-a-cloudpassage-test-user"></a>Creación de un usuario de prueba de CloudPassage
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en CloudPassage.
 
-#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage,-perform-the-following-steps:"></a>Para crear un usuario llamado Britta Simon en CloudPassage, realice los pasos siguientes:
+#### <a name="to-create-a-user-called-britta-simon-in-cloudpassage-perform-the-following-steps"></a>Para crear un usuario llamado Britta Simon en CloudPassage, realice los pasos siguientes:
 1. Inicie sesión en su sitio de la compañía de **CloudPassage** como administrador. 
 2. En la barra de herramientas de la parte superior, haga clic en **Settings** (Configuración) y en **Site Administration** (Administración del sitio). 
    
@@ -268,7 +272,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][29]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.  
 Al hacer clic en el icono de CloudPassage en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación de CloudPassage.
 
@@ -331,6 +335,6 @@ Al hacer clic en el icono de CloudPassage en el Panel de acceso, debería inicia
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

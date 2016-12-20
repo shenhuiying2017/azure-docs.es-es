@@ -1,22 +1,26 @@
 ---
-title: Administración de cuentas de Servicios multimedia de Azure con PowerShell
+title: "Administración de cuentas de Servicios multimedia de Azure con PowerShell"
 description: Aprenda a administrar las cuentas de Servicios multimedia de Azure con los cmdlets de PowerShell.
 author: Juliako
 manager: erikre
-editor: ''
+editor: 
 services: media-services
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 17a10c25-d94f-421c-b6bc-ae0958e2ac96
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2016
+ms.date: 10/03/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 87f6d18ddc97921b62cbf111738044f24a0a940b
+
 
 ---
-# Administración de cuentas de Servicios multimedia de Azure con PowerShell
+# <a name="manage-azure-media-services-accounts-with-powershell"></a>Administración de cuentas de Servicios multimedia de Azure con PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-create-account.md)
 > * [PowerShell](media-services-manage-with-powershell.md)
@@ -27,16 +31,16 @@ ms.author: juliako
 > 
 > 
 
-## Información general
-En este artículo se muestran los cmdlets de Azure PowerShell para Servicios multimedia de Azure (AMS) en el marco de trabajo de Azure Resource Manager. Los cmdlets existen en el espacio de nombres **Microsoft.Azure.Commands.Media**.
+## <a name="overview"></a>Información general
+En este artículo se muestran los cmdlets de Azure PowerShell para Servicios multimedia de Azure (AMS) en el marco de trabajo de Azure Resource Manager. Los cmdlets existen en el espacio de nombres **Microsoft.Azure.Commands.Media** .
 
-## Versiones
-**ApiVersion**: "2015-10-01"
+## <a name="versions"></a>Versiones
+**ApiVersion**:   "2015-10-01"
 
-## New-AzureRmMediaService
+## <a name="new-azurermmediaservice"></a>New-AzureRmMediaService
 Crea un servicio multimedia.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
 Conjunto de parámetros: StorageAccountIdParamSet
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccountId] <string> [-Tags <hashtable>]  [<CommonParameters>]
@@ -45,7 +49,7 @@ Conjunto de parámetros: StorageAccountsParamSet
 
     New-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Location] <string> [-StorageAccounts] <PSStorageAccount[]> [-Tags <hashtable>]  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -98,7 +102,7 @@ Especifica una cuenta de almacenamiento principal asociada con el servicio multi
 | Nombre del conjunto de parámetros |StorageAccountIdParamSet |
 | ¿Aceptar caracteres comodín? |false |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Especifica cuentas de almacenamiento asociadas con el servicio multimedia.
 
@@ -133,19 +137,19 @@ Especifica una tabla hash de las etiquetas asociadas con el servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Set-AzureRmMediaService
+## <a name="set-azurermmediaservice"></a>Set-AzureRmMediaService
 Actualiza un servicio multimedia.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
     Set-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string> [-Tags <hashtable>] [-StorageAccounts <PSStorageAccount[]>]  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -164,13 +168,13 @@ Especifica el nombre del servicio multimedia.
 
 | Alias | Nombre |
 | --- | --- |
-| ¿Necesario? |True |
+| ¿Necesario? |true |
 | ¿Posición? |1 |
-| Valor predeterminado |None |
+| Valor predeterminado |Ninguna |
 | ¿Aceptar la entrada de la canalización? |true(ByPropertyName) |
 | ¿Aceptar caracteres comodín? |False |
 
-**-StorageAccounts &lt;PSStorageAccount[]&gt;**
+**-StorageAccounts &lt;PSStorageAccount\[\]&gt;**
 
 Especifica cuentas de almacenamiento asociadas con el servicio multimedia.
 
@@ -195,9 +199,9 @@ Especifica una tabla hash de las etiquetas asociadas con este servicio multimedi
 
 | Alias | Ninguna |
 | --- | --- |
-| ¿Necesario? |False |
+| ¿Necesario? |false |
 | ¿Posición? |con nombre |
-| Valor predeterminado |None |
+| Valor predeterminado |Ninguna |
 | ¿Aceptar la entrada de la canalización? |true(ByPropertyName) |
 | ¿Aceptar caracteres comodín? |false |
 
@@ -205,19 +209,19 @@ Especifica una tabla hash de las etiquetas asociadas con este servicio multimedi
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Remove-AzureRmMediaService
+## <a name="remove-azurermmediaservice"></a>Remove-AzureRmMediaService
 Quita un servicio multimedia.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
     Remove-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -238,7 +242,7 @@ Especifica el nombre del servicio multimedia.
 | --- | --- |
 | ¿Necesario? |true |
 | ¿Posición? |2 |
-| Valor predeterminado |None |
+| Valor predeterminado |Ninguna |
 | ¿Aceptar la entrada de la canalización? |true(ByPropertyName) |
 | ¿Aceptar caracteres comodín? |False |
 
@@ -246,16 +250,16 @@ Especifica el nombre del servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Get-AzureRmMediaService
+## <a name="get-azurermmediaservice"></a>Get-AzureRmMediaService
 Obtiene todos los servicios multimedia de un grupo de recursos o un servicio multimedia con un nombre determinado.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
 ParameterSet: ResourceGroupParameterSet
 
     Get-AzureRmMediaService [-ResourceGroupName] <string>  [<CommonParameters>]    
@@ -264,7 +268,7 @@ ParameterSet: AccountNameParameterSet
 
     Get-AzureRmMediaService [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -277,7 +281,7 @@ Especifica el nombre del grupo de recursos al que pertenece este servicio multim
 | ¿Aceptar la entrada de la canalización? |true(ByPropertyName) |
 | Nombre del conjunto de parámetros |ResourceGroupParameterSet, AccountNameParameterSet |
 
-¿Aceptar caracteres comodín? false
+¿Aceptar caracteres comodín?   false
 
 **-AccountName &lt;String&gt;**
 
@@ -296,19 +300,19 @@ Especifica el nombre del servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Get-AzureRmMediaServiceKeys
+## <a name="get-azurermmediaservicekeys"></a>Get-AzureRmMediaServiceKeys
 Obtiene las claves de un servicio multimedia.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
     Get-AzureRmMediaServiceKeys [-ResourceGroupName] <string> [-AccountName] <string>  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -337,19 +341,19 @@ Especifica el nombre del servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Set-AzureRmMediaServiceKey
+## <a name="set-azurermmediaservicekey"></a>Set-AzureRmMediaServiceKey
 Regenera una clave principal o secundaria de un servicio multimedia.
 
-### Sintaxis
+### <a name="syntax"></a>Sintaxis
     Set-AzureRmMediaServiceKey [-ResourceGroupName] <string> [-AccountName] <string> [-KeyType] <KeyType> {Primary | Secondary}  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -392,19 +396,19 @@ Especifica el tipo de clave del servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Sync-AzureRmMediaServiceStorageKeys
+## <a name="sync-azurermmediaservicestoragekeys"></a>Sync-AzureRmMediaServiceStorageKeys
 Sincroniza las claves de cuenta de almacenamiento de una cuenta de almacenamiento asociada con el servicio multimedia.
 
-### Sintaxis
-    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountName] <string>  [<CommonParameters>]
+### <a name="syntax"></a>Sintaxis
+    Sync-AzureRmMediaServiceStorageKeys [-ResourceGroupName] <string> [-MediaServiceAccountName] <string>    [-StorageAccountId] <string>  [<CommonParameters>]
 
-### Parámetros
+### <a name="parameters"></a>Parámetros
 **-ResourceGroupName &lt;String&gt;**
 
 Especifica el nombre del grupo de recursos al que pertenece este servicio multimedia.
@@ -445,18 +449,23 @@ Especifica la cuenta de almacenamiento asociada con el servicio multimedia.
 
 Este cmdlet admite los parámetros comunes siguientes: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction y -WarningVariable.
 
-### Entradas
+### <a name="inputs"></a>Entradas
 El tipo de entrada es el tipo de los objetos que puede canalizar al cmdlet.
 
-### Salidas
+### <a name="outputs"></a>Salidas
 El tipo de salida es el tipo de los objetos que emite el cmdlet.
 
-## Paso siguiente
+## <a name="next-step"></a>Paso siguiente
 Revise las rutas de aprendizaje de Servicios multimedia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-## Envío de comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

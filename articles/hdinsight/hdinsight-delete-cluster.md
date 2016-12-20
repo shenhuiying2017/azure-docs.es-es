@@ -1,12 +1,12 @@
 ---
-title: How to delete an HDInsight cluster | Microsoft Docs
-description: Information on the various ways that you can delete an HDInsight cluster.
+title: "Eliminación de un clúster de HDInsight | Microsoft Docs"
+description: "Información sobre las distintas formas de eliminar un clúster de HDInsight."
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 55f7838b-9786-47ff-96db-1b64437bd0bb
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -14,38 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 67442bf4b04f6f3799d30f7ce26547c8145d9168
+
 
 ---
-# <a name="how-to-delete-an-hdinsight-cluster"></a>How to delete an HDInsight cluster
-HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted and is pro-rated per minute, so you should always delete your cluster when it is no longer in use. In this document, you will learn how to delete a cluster using the Azure Portal, Azure PowerShell, and the Azure CLI.
+# <a name="how-to-delete-an-hdinsight-cluster"></a>Eliminación de un clúster de HDInsight
+La facturación de los clústeres de HDInsight comienza una vez que se crea el clúster y se detiene cuando el clúster se elimina y se prorratea por minuto, por lo que siempre debe eliminar el clúster cuando ya no esté en uso. En este documento, obtendrá información sobre cómo eliminar un clúster mediante el Portal de Azure, Azure PowerShell y la CLI de Azure.
 
 > [!IMPORTANT]
-> Deleting an HDInsight cluster does not delete the Azure Storage account(s) associated with the cluster. This allows you to preserve and reuse any data stored by the cluster.
+> Al eliminar un clúster de HDInsight, no se eliminan las cuentas de Almacenamiento de Azure asociadas a este. Por tanto, podrá conservar y reutilizar los datos almacenados por el clúster.
 > 
 > 
 
-## <a name="azure-portal"></a>Azure Portal
-1. Login to the [Azure portal](https://portal.azure.com) and select your HDInsight cluster. If your HDInsight cluster is not pinned to the dashboard, you can search for it by name using the search field (magnifying glass icon,) on the right side of the navigation bar.
+## <a name="azure-portal"></a>Portal de Azure
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com) y seleccione su clúster de HDInsight. Si este no está anclado al panel, puede buscarlo por su nombre utilizando el campo de búsqueda (icono de lupa) situado en la parte derecha de la barra de navegación.
    
-    ![portal search](./media/hdinsight-delete-cluster/navbar.png)
-2. Once the blade opens for the cluster, select the **Delete** icon. When prompted, select **Yes** to delete the cluster.
+    ![búsqueda del portal](./media/hdinsight-delete-cluster/navbar.png)
+2. Una vez que se abra la hoja para el clúster, seleccione el icono **Eliminar**. Cuando se le pida, seleccione **Sí** para eliminar el clúster.
    
-    ![delete icon](./media/hdinsight-delete-cluster/deletecluster.png)
+    ![eliminar icono](./media/hdinsight-delete-cluster/deletecluster.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-From a PowerShell prompt, use the following command to delete the cluster:
+Desde un símbolo del sistema de PowerShell, utilice el siguiente comando para eliminar el clúster:
 
     Remove-AzureRmHDInsightCluster -ClusterName CLUSTERNAME
 
-Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
 ## <a name="azure-cli"></a>Azure CLI
-From a prompt, use the following to delete the cluster:
+Desde un símbolo del sistema, utilice el siguiente comando para eliminar el clúster:
 
     azure hdinsight cluster delete CLUSTERNAME
 
-Replace **CLUSTERNAME** with the name of your HDInsight cluster.
+Reemplace **CLUSTERNAME** por el nombre del clúster de HDInsight.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

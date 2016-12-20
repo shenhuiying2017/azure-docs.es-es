@@ -16,12 +16,12 @@ ms.topic: hero-article
 ms.date: 05/31/2016
 ms.author: dendeli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dc946619fa3134594d3891ffdf78417d054293e3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 
 ---
-# <a name="geofenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notificaciones push geovalladas con los Centros de notificaciones de Azure y datos espaciales de Bing
+# <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Notificaciones push geovalladas con los Centros de notificaciones de Azure y datos espaciales de Bing
 > [!NOTE]
 > Para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02).
 > 
@@ -394,6 +394,6 @@ Para más información acerca de las funcionalidades de Centros de notificacione
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

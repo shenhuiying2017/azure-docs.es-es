@@ -1,12 +1,12 @@
 ---
-title: Copiar un blob existente en un recurso de Media Services | Microsoft Docs
-description: En este tema se muestra cómo copiar un blob existente en un recurso de Media Services.
+title: Copia de un blob existente en un recurso de Media Services | Microsoft Docs
+description: "En este tema se muestra cómo copiar un blob existente en un recurso de Media Services."
 services: media-services
-documentationcenter: ''
+documentationcenter: 
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 10/13/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 62e675d3e87e40a09d67eb5d00b58ea8857e9610
+
 
 ---
 # <a name="copying-an-existing-blob-into-a-media-services-asset"></a>Copiar un blob existente en un activo de Servicios multimedia
@@ -317,6 +321,9 @@ El ejemplo de código siguiente realiza las siguientes tareas:
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO3-->
 
 

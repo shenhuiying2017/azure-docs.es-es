@@ -1,37 +1,41 @@
 ---
-title: Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
-description: Opciones de configuración para Azure Mobile Engagement con aplicaciones universales de Windows
+title: "Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows"
+description: "Opciones de configuración para Azure Mobile Engagement con aplicaciones universales de Windows"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 6d85dd5d-ac07-43ba-bbe4-e91c3a17690b
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-store
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/12/2016
+ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
+translationtype: Human Translation
+ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
+ms.openlocfilehash: 6fbb542a7887151bbfa2b13ec8fe7874d1f455de
+
 
 ---
-# Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
+# <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>Configuración avanzada del SDK de Engagement para aplicaciones universales de Windows
 > [!div class="op_single_selector"]
 > * [Windows universal](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
 > * [iOS](mobile-engagement-ios-integrate-engagement.md)
-> * [Android](mobile-engagement-android-advan.mdced-configuration.md)
+> * [Android](mobile-engagement-android-advanced-configuration.md)
 > 
 > 
 
 Este procedimiento describe cómo configurar diversas opciones de configuración de aplicaciones de Android para Azure Mobile Engagement.
 
-## Requisitos previos
-[!INCLUDE [Requisitos previos](../../includes/mobile-engagement-windows-store-prereqs.md)]
+## <a name="prerequisites"></a>Requisitos previos
+[!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
 
-## Configuración avanzada
-### Deshabilitar los informes automáticos de bloqueo
+## <a name="advanced-configuration"></a>Configuración avanzada
+### <a name="disable-automatic-crash-reporting"></a>Deshabilitar los informes automáticos de bloqueo
 Puede deshabilitar la característica de informes automáticos de bloqueo de Engagement. Cuando se produzca una excepción no controlada, Engagement no hará nada.
 
 > [!WARNING]
@@ -41,10 +45,10 @@ Puede deshabilitar la característica de informes automáticos de bloqueo de Eng
 
 Para deshabilitar los informes automáticos de bloqueo, personalice la configuración según la manera en que la declaró:
 
-#### Desde el archivo `EngagementConfiguration.xml`
+#### <a name="from-engagementconfigurationxml-file"></a>Desde el archivo `EngagementConfiguration.xml`
 Establezca el informe de bloqueo en `false` entre las etiquetas `<reportCrash>` y `</reportCrash>`.
 
-#### Desde el objeto `EngagementConfiguration` en tiempo de ejecución
+#### <a name="from-engagementconfiguration-object-at-run-time"></a>Desde el objeto `EngagementConfiguration` en tiempo de ejecución
 Establezca el informe de bloqueo mediante el objeto EngagementConfiguration.
 
         /* Engagement configuration. */
@@ -54,7 +58,7 @@ Establezca el informe de bloqueo mediante el objeto EngagementConfiguration.
         /* Disable Engagement crash reporting. */
         engagementConfiguration.Agent.ReportCrash = false;
 
-### Deshabilitar los informes en tiempo real
+### <a name="disable-real-time-reporting"></a>Deshabilitar los informes en tiempo real
 De forma predeterminada, el servicio de Engagement informa los registros en tiempo real. Si su aplicación notifica registros con mucha frecuencia, es mejor almacenar en búfer los registros y notificarlos todos a la vez de manera periódica. Esto se denomina "modo de ráfaga".
 
 Para ello, llame al método siguiente:
@@ -70,7 +74,11 @@ El modo de ráfaga aumenta ligeramente la duración de la batería, pero afecta 
 > 
 > 
 
-[here]: http://www.nuget.org/packages/Capptain.WindowsCS
-[NuGet website]: http://docs.nuget.org/docs/start-here/overview
+[aquí]:http://www.nuget.org/packages/Capptain.WindowsCS
+[Sitio web de NuGet]:http://docs.nuget.org/docs/start-here/overview
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

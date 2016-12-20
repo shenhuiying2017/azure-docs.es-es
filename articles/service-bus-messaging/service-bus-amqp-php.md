@@ -1,22 +1,26 @@
 ---
-title: Bus de servicio y PHP con AMQP 1.0 | Microsoft Docs
+title: Service Bus y PHP con AMQP 1.0 | Microsoft Docs
 description: Uso del Bus de servicio desde PHP con AMQP
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-
-ms.service: service-bus
+editor: 
+ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2016
 ms.author: sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 122865f056d6bd7fc8c75665d29753542a83405c
+
 
 ---
-# <a name="using-service-bus-from-php-with-amqp-1.0"></a>Uso del Bus de servicio desde PHP con AMQP 1.0
+# <a name="using-service-bus-from-php-with-amqp-10"></a>Uso del Bus de servicio desde PHP con AMQP 1.0
 [!INCLUDE [service-bus-selector-amqp](../../includes/service-bus-selector-amqp.md)]
 
 Proton-PHP es un lenguaje PHP que se enlaza con Proton-C; es decir, Proton-PHP se implementa como un contenedor en torno a un motor implementado en C.
@@ -29,7 +33,7 @@ Puede descargar Proton-C y los enlaces asociados (incluido PHP) desde [http://qp
 > 
 > 
 
-## <a name="working-with-service-bus-queues,-topics,-and-subscriptions-from-php"></a>Uso de colas, temas y suscripciones de Service Bus desde PHP
+## <a name="working-with-service-bus-queues-topics-and-subscriptions-from-php"></a>Uso de colas, temas y suscripciones de Service Bus desde PHP
 En el código siguiente se muestra cómo enviar y recibir mensajes de una entidad de mensajería de Bus de servicio.
 
 ### <a name="sending-messages-using-proton-php"></a>Envío de mensajes con Proton-PHP
@@ -65,9 +69,9 @@ if($messenger->incoming())
 $messenger->stop();
 ```
 
-## <a name="messaging-between-.net-and-proton-php"></a>Mensajería entre .NET y Proton-PHP
+## <a name="messaging-between-net-and-proton-php"></a>Mensajería entre .NET y Proton-PHP
 ### <a name="application-properties"></a>Propiedades de la aplicación
-#### <a name="protonphp-to-service-bus-.net-apis"></a>ProtonPHP a las API de .NET de Bus de servicio
+#### <a name="protonphp-to-service-bus-net-apis"></a>ProtonPHP a las API de .NET de Bus de servicio
 Los mensajes de Proton-PHP admiten propiedades de aplicación de los tipos siguientes: **integer**, **double**, **Boolean**, **string** y **object**. En el siguiente código PHP se muestra cómo establecer propiedades en un mensaje con cada uno de estos tipos de propiedades.
 
 ```
@@ -110,8 +114,8 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de PHP 
 | string |string |
 | objeto |Objeto |
 
-#### <a name="service-bus-.net-apis-to-php"></a>API de .NET de Bus de servicio a PHP
-El tipo [BrokeredMessage][BrokeredMessage] admite propiedades de la aplicación de los siguientes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** y **TimeSpan**. El código .NET siguiente muestra cómo establecer las propiedades en un objeto [BrokeredMessage][BrokeredMessage] con cada uno de estos tipos de propiedades.
+#### <a name="service-bus-net-apis-to-php"></a>API de .NET de Bus de servicio a PHP
+El tipo [BrokeredMessage][BrokeredMessage] admite propiedades de la aplicación de los siguientes tipos: **byte**, **sbyte**, **char**, **short**, **ushort**, **int**, **uint**, **long**, **ulong**, **float**, **double**, **decimal**, **bool**, **Guid**, **string**, **Uri**, **DateTime**, **DateTimeOffset** y **TimeSpan**. En el siguiente código de .NET se muestra cómo establecer las propiedades en un objeto [BrokeredMessage][BrokeredMessage] con cada uno de estos tipos de propiedad.
 
 ```
 message.Properties["TestByte"] = (byte)128;
@@ -172,7 +176,7 @@ En la tabla siguiente se muestra cómo se asignan los tipos de propiedad de JHP 
 | Identificador URI |DescribedType |Uri.AbsoluteUri asignado al tipo AMQP:<type name="uri" class=restricted source="string"> <descriptor name="com.microsoft:uri" /></type> |
 
 ### <a name="standard-properties"></a>Propiedades estándar
-En las tablas siguientes se muestra la asignación entre las propiedades de mensajes estándares de Proton-PHP y las propiedades de mensajes estándar de [BrokeredMessage][BrokeredMessage].
+En las tablas siguientes se muestra la asignación entre las propiedades de mensajes estándares de Proton-PHP y las propiedades de mensajes estándares de [BrokeredMessage][BrokeredMessage].
 
 | Proton-PHP | .NET del Bus de servicio | Notas |
 | --- | --- | --- |
@@ -196,7 +200,7 @@ En las tablas siguientes se muestra la asignación entre las propiedades de mens
 | reply\_to\_group\_id |Message.ReplyToSessionId |- |
 | Formato |N/D |- |
 
-#### <a name="service-bus-.net-apis-to-proton-php"></a>API de .NET de Bus de servicio a Proton-PHP
+#### <a name="service-bus-net-apis-to-proton-php"></a>API de .NET de Bus de servicio a Proton-PHP
 | .NET del Bus de servicio | Proton-PHP | Notas |
 | --- | --- | --- |
 | ContentType |Message-\>content\_type |- |
@@ -223,6 +227,6 @@ En las tablas siguientes se muestra la asignación entre las propiedades de mens
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO3-->
 
 

@@ -2,11 +2,11 @@
 title: Uso de PowerShell tanto para realizar copias de seguridad de aplicaciones del Servicio de aplicaciones como para restaurarlas
 description: Aprenda a usar PowerShell para realizar copias de seguridad de las aplicaciones del Servicio de aplicaciones de Azure y restaurarlas
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: NKing92
 manager: wpickett
-editor: ''
-
+editor: 
+ms.assetid: 7ea8661e-aefb-4823-9626-6bff980cdebf
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,24 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: d2095543e6cb964c9f1aa036c62e9ff6f80dc7c3
+
 
 ---
-# Uso de PowerShell tanto para realizar copias de seguridad de aplicaciones del Servicio de aplicaciones como para restaurarlas
+# <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>Uso de PowerShell tanto para realizar copias de seguridad de aplicaciones del Servicio de aplicaciones como para restaurarlas
 > [!div class="op_single_selector"]
 > * [PowerShell](app-service-powershell-backup.md)
 > * [API DE REST](../app-service-web/websites-csm-backup.md)
 > 
 > 
 
-Aprenda a usar Azure PowerShell tanto para realizar copias de seguridad de [aplicaciones del Servicio de aplicaciones](https://azure.microsoft.com/services/app-service/web/) como para restaurarlas Para más información sobre copias de seguridad de aplicaciones web, incluidos los requisitos y las restricciones, consulte [Hacer copia de seguridad de una aplicación web en el servicio de aplicaciones de Azure](../app-service-web/web-sites-backup.md).
+Aprenda a usar Azure PowerShell para realizar copias de seguridad de [aplicaciones de App Service](https://azure.microsoft.com/services/app-service/web/) y restaurarlas. Para más información acerca de copias de seguridad de aplicaciones web, incluidos los requisitos y las restricciones, consulte [Realizar una copia de seguridad de la aplicación en Azure](../app-service-web/web-sites-backup.md).
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Si quiere usar PowerShell para administrar las copias de seguridad de las aplicaciones, necesitará lo siguiente:
 
-* **Una dirección URL de SAS** que permita el acceso de lectura y escritura a un contenedor de Almacenamiento de Azure. Para obtener más información sobre las direcciones URL de SAS, consulte [Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md). Consulte [Usar Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md) para ver ejemplos de administración de Almacenamiento de Azure mediante PowerShell.
+* **Una dirección URL de SAS** que permita el acceso de lectura y escritura a un contenedor de Almacenamiento de Azure. Para obtener más información sobre las direcciones URL de SAS, consulte [Descripción del modelo de firmas de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) . Consulte [Usar Azure PowerShell con Almacenamiento de Azure](../storage/storage-powershell-guide-full.md) para ver ejemplos de administración de Almacenamiento de Azure mediante PowerShell.
 * **Una cadena de conexión de base de datos** si quiere realizar una copia de seguridad de una base de datos junto con la aplicación web.
 
-### Procedimiento para generar una dirección URL de SAS que vaya a usarse con los cmdlets de copia de seguridad de la aplicación web
+### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>Procedimiento para generar una dirección URL de SAS que vaya a usarse con los cmdlets de copia de seguridad de la aplicación web
 Las direcciones URL de SAS pueden generarse con PowerShell. Este es un ejemplo de cómo generar una que pueda usarse con los cmdlets que se explican en este artículo.
 
         $storageAccountName = "<your storage account's name>"
@@ -44,10 +48,10 @@ Las direcciones URL de SAS pueden generarse con PowerShell. Este es un ejemplo d
         $blobContainerName = "<name of blob container for app backups>"
         $sasUrl = New-AzureStorageContainerSASToken -Name $blobContainerName -Permission rwdl -Context $context -ExpiryTime (Get-Date).AddMonths(1) -FullUri
 
-## Instalación de Azure PowerShell 1.3.2, o superior
-Para obtener instrucciones sobre cómo instalar y utilizar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+## <a name="install-azure-powershell-132-or-greater"></a>Instalación de Azure PowerShell 1.3.2, o superior
+Para obtener instrucciones sobre cómo instalar y utilizar Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
 
-## Creación de una copia de seguridad
+## <a name="create-a-backup"></a>Creación de una copia de seguridad
 Use el cmdlet New-AzureRmWebAppBackup para crear una copia de seguridad de una aplicación web.
 
         $sasUrl = "<your SAS URL>"
@@ -66,7 +70,7 @@ Para incluir una base de datos en la copia de seguridad, cree antes una configur
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         $dbBackup = New-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -BackupName MyBackup -StorageAccountUrl $sasUrl -Databases $dbSetting1,$dbSetting2
 
-## Obtención de copias de seguridad
+## <a name="get-backups"></a>Obtención de copias de seguridad
 El cmdlet Get-AzureRmWebAppBackupList devuelve una matriz de todas las copias de seguridad de una aplicación web. Debe especificar el nombre de la aplicación web y su grupo de recursos.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -83,19 +87,19 @@ También puede canalizar un objeto de aplicación web en cualquiera de los cmdle
         $backupList = $app | Get-AzureRmWebAppBackupList
         $backup = $app | Get-AzureRmWebAppBackup -BackupId 10102
 
-## Programación de copias de seguridad automáticas
+## <a name="schedule-automatic-backups"></a>Programación de copias de seguridad automáticas
 Puede programar se realicen automáticamente copias de seguridad a intervalos especificados. Para configurar una programación de copias de seguridad, use el cmdlet Edit-AzureRmWebAppBackupConfiguration. Este cmdlet acepta varios parámetros:
 
-* **Name**: el nombre de la aplicación web.
-* **ResourceGroupName**: el nombre del grupo de recursos que contiene la aplicación web.
-* **Slot**: este parámetro es opcional. El nombre de la ranura de la aplicación web.
-* **StorageAccountUrl**: la dirección URL de SAS del contenedor de Almacenamiento de Azure que se usa para almacenar las copias de seguridad.
-* **FrequencyInterval**: el valor numérico de la frecuencia con la que deben realizarse las copias de seguridad. Debe ser un entero positivo.
-* **FrequencyUnit**: la unidad de tiempo de la frecuencia con la que deben realizarse las copias de seguridad. Las opciones son por hora y por día.
-* **RetentionPeriodInDays**: el número de días que las copias de seguridad automáticas deben guardarse antes de eliminarse automáticamente.
-* **StartTime**: este parámetro es opcional. La hora a la que deben iniciarse las copias de seguridad automáticas. Si el valor es null, las copias de seguridad se iniciarán de inmediato. Debe ser una fecha y hora.
-* **Databases**: este parámetro es opcional. Una matriz de DatabaseBackupSettings para las bases de datos de las que se va a realizar una copia de seguridad.
-* **KeepAtLeastOneBackup**: se trata de un parámetro conmutado opcional. Especifíquelo si se debe mantener una copia de seguridad en la cuenta de almacenamiento en todo momento, independientemente de su antigüedad.
+* **Name** : el nombre de la aplicación web.
+* **ResourceGroupName** : el nombre del grupo de recursos que contiene la aplicación web.
+* **Slot** : este parámetro es opcional. El nombre de la ranura de la aplicación web.
+* **StorageAccountUrl** : la dirección URL de SAS del contenedor de Almacenamiento de Azure que se usa para almacenar las copias de seguridad.
+* **FrequencyInterval** : el valor numérico de la frecuencia con la que deben realizarse las copias de seguridad. Debe ser un entero positivo.
+* **FrequencyUnit** : la unidad de tiempo de la frecuencia con la que deben realizarse las copias de seguridad. Las opciones son por hora y por día.
+* **RetentionPeriodInDays** : el número de días que las copias de seguridad automáticas deben guardarse antes de eliminarse automáticamente.
+* **StartTime** : este parámetro es opcional. La hora a la que deben iniciarse las copias de seguridad automáticas. Si el valor es null, las copias de seguridad se iniciarán de inmediato. Debe ser una fecha y hora.
+* **Databases** : este parámetro es opcional. Una matriz de DatabaseBackupSettings para las bases de datos de las que se va a realizar una copia de seguridad.
+* **KeepAtLeastOneBackup** : se trata de un parámetro conmutado opcional. Especifíquelo si se debe mantener una copia de seguridad en la cuenta de almacenamiento en todo momento, independientemente de su antigüedad.
 
 A continuación, verá un ejemplo de cómo usar este cmdlet.
 
@@ -119,7 +123,7 @@ Para obtener la programación de copias de seguridad actual, use el cmdlet Get-A
         # Apply the new configuration by piping it into the Edit-AzureRmWebAppBackupConfiguration cmdlet
         $configuration | Edit-AzureRmWebAppBackupConfiguration
 
-## Restauración de una aplicación web desde una copia de seguridad
+## <a name="restore-a-web-app-from-a-backup"></a>Restauración de una aplicación web desde una copia de seguridad
 Para restaurar una aplicación web desde una copia de seguridad, use el cmdlet Restore-AzureRmWebAppBackup. La manera más fácil de usar este cmdlet es canalizarlo en un objeto de copia de seguridad recuperado del cmdlet Get-AzureRmWebAppBackup o del cmdlet Get-AzureRmWebAppBackupList.
 
 Una vez que tenga un objeto de copia de seguridad, puede canalizarlo al cmdlet Restore-AzureRmWebAppBackup. Especifique el parámetro Overwrite para indicar que quiere sobrescribir el contenido de la aplicación web por el de la copia de seguridad. Si la copia de seguridad contiene bases de datos, también se restaurarán.
@@ -136,7 +140,7 @@ A continuación, se muestra un ejemplo de cómo utilizar Restore-AzureRmWebAppBa
         $dbSetting2 = New-AzureRmWebAppDatabaseBackupSetting -Name DB2 -DatabaseType SqlAzure -ConnectionString "<connection_string>"
         Restore-AzureRmWebAppBackup -ResourceGroupName $resourceGroupName -Name $appName -Slot $slotName -StorageAccountUrl "<your SAS URL>" -BlobName $blobName -Databases $dbSetting1,$dbSetting2 -Overwrite
 
-## Eliminación de una copia de seguridad
+## <a name="delete-a-backup"></a>Eliminación de una copia de seguridad
 Para eliminar una copia de seguridad, use el cmdlet Remove-AzureRmWebAppBackup. De esta forma, se elimina la copia de seguridad de la cuenta de almacenamiento. Especifique el nombre de la aplicación, su grupo de recursos y el identificador de la copia de seguridad que quiere eliminar.
 
         $resourceGroupName = "Default-Web-WestUS"
@@ -148,4 +152,8 @@ También puede canalizar un objeto de copia de seguridad en el cmdlet Remove-Azu
         $backup = Get-AzureRmWebAppBackup -Name $appName -ResourceGroupName $resourceGroupName -BackupId 10102
         $backup | Remove-AzureRmWebAppBackup -Overwrite
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Nov16_HO3-->
+
+

@@ -3,25 +3,29 @@ title: Referencia de cmdlets de PowerShell de Programador
 description: Referencia de cmdlets de PowerShell de Programador
 services: scheduler
 documentationcenter: .NET
-author: krisragh
-manager: dwrede
-editor: ''
-
+author: derek1ee
+manager: kevinlam1
+editor: 
+ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: krisragh
+ms.author: deli
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e36a52f44bc30662a01299d2d4a2f3c36d9033a7
+
 
 ---
-# Referencia de cmdlets de PowerShell de Programador
+# <a name="scheduler-powershell-cmdlets-reference"></a>Referencia de cmdlets de PowerShell de Programador
 En la tabla siguiente aparece una descripción y vínculos a la página de referencia de cada uno de los cmdlets importantes de Programador de Azure.
 
-Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). 
 
-Para obtener más información sobre los [cmdlets de Azure PowerShell](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+Para más información sobre los [cmdlets de Azure PowerShell](https://msdn.microsoft.com/library/mt125356\(v=azure.200\).aspx), consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 | Cmdlet | Descripción del cmdlet |
 | --- | --- |
@@ -43,7 +47,7 @@ Para obtener más información sobre los [cmdlets de Azure PowerShell](https://m
 | [Set-AzureRmSchedulerServiceBusTopicJob](https://msdn.microsoft.com/library/mt490137\(v=azure.200\).aspx) |Modifica un trabajo de tema de Service Bus. |
 | [Set-AzureRmSchedulerStorageQueueJob](https://msdn.microsoft.com/library/mt490128\(v=azure.200\).aspx) |Modifica un trabajo de cola de almacenamiento. |
 
-Para obtener información más detallada, puede ejecutar cualquiera de los siguientes cmdlets:
+Para obtener información más detallada, puede ejecutar cualquiera de los siguientes cmdlets: 
 
 ```
 Get-Help <cmdlet name> -Detailed
@@ -55,7 +59,7 @@ Get-Help <cmdlet name> -Examples
 Get-Help <cmdlet name> -Full
 ```
 
-## Otras referencias
+## <a name="see-also"></a>Otras referencias
  [¿Qué es Programador?](scheduler-intro.md)
 
  [Conceptos, terminología y jerarquía de entidades de Programador de Azure](scheduler-concepts-terms.md)
@@ -72,4 +76,9 @@ Get-Help <cmdlet name> -Full
 
  [Autenticación de salida de Programador de Azure](scheduler-outbound-authentication.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+

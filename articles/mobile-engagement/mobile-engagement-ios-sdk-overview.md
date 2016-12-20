@@ -1,12 +1,12 @@
 ---
-title: Información general de SDK de iOS de Azure Mobile Engagement | Microsoft Docs
-description: Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement
+title: "Información general de SDK de iOS de Azure Mobile Engagement | Microsoft Docs"
+description: "Actualizaciones y procedimientos más recientes para el SDK de iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
@@ -14,34 +14,38 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 09/14/2016
 ms.author: piyushjo
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 8bfadc110b8b2e0de470185ec9d84343125c960d
+
 
 ---
-# SDK de iOS para Azure Mobile Engagement
+# <a name="ios-sdk-for-azure-mobile-engagement"></a>SDK de iOS para Azure Mobile Engagement
 Comience aquí a obtener todos los detalles sobre cómo integrar Azure Mobile Engagement en una aplicación de iOS. Si primero quiere probarlo, asegúrese de seguir nuestro [tutorial de 15 minutos](mobile-engagement-ios-get-started.md)
 
 Haga clic para ver el [contenido del SDK](mobile-engagement-ios-sdk-content.md)
 
-## Procedimientos de integración
+## <a name="integration-procedures"></a>Procedimientos de integración
 1. Comience aquí: [Cómo integrar Mobile Engagement en su aplicación de iOS](mobile-engagement-ios-integrate-engagement.md)
 2. Para las notificaciones: [Integración de cobertura (notificaciones) en su aplicación iOS](mobile-engagement-ios-integrate-engagement-reach.md)
 3. Implementación del plan de etiquetas: [Uso de la API de etiquetado de Mobile Engagement avanzada en su aplicación iOS](mobile-engagement-ios-use-engagement-api.md)
 
-## Notas de la versión
-### 4\.0.0 (09/12/2016)
+## <a name="release-notes"></a>Notas de la versión
+### <a name="400-09122016"></a>4.0.0 (09/12/2016)
 * Notificación fija no ejecutada en dispositivos iOS 10.
 * XCode 7 en desuso.
 
 Para la versión anterior, consulte las [notas de la versión completas](mobile-engagement-ios-release-notes.md)
 
-## Procedimientos de actualización
+## <a name="upgrade-procedures"></a>Procedimientos de actualización
 Si ya integró una versión anterior de Engagement en la aplicación, debería tener en cuenta los siguientes puntos a la hora de actualizar el SDK.
 
 Es posible que tenga que seguir varios procedimientos si se perdió varias versiones del SDK, consulte la sección completa [Procedimientos de actualización](mobile-engagement-ios-upgrade-procedure.md).
 
 Para cada nueva versión del SDK debe reemplazar primero (quitar y volver a importar en xcode) las carpetas EngagementSDK y EngagementReach.
 
-### De 3.0.0 a 4.0.0
-### XCode 8
+### <a name="from-300-to-400"></a>De 3.0.0 a 4.0.0
+### <a name="xcode-8"></a>XCode 8
 XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 
 > [!NOTE]
@@ -60,18 +64,18 @@ XCode 8 es obligatorio a partir de la versión 4.0.0 del SDK.
 > 
 > 
 
-#### Marco de UserNotifications
+#### <a name="usernotifications-framework"></a>Marco de UserNotifications
 Debe agregar el marco `UserNotifications` en sus fases de compilación.
 
 En el Explorador de proyectos, abra su panel de proyectos y seleccione el destino adecuado. A continuación, abra la pestaña **"Build phases"** (Fases de compilación) y en el menú **"Link Binary With Libraries"** (Vincular binarios con bibliotecas), agregue el marco `UserNotifications.framework` y establezca el vínculo como `Optional`.
 
-#### Funcionalidad de inserción de la aplicación
+#### <a name="application-push-capability"></a>Funcionalidad de inserción de la aplicación
 XCode 8 puede restablecer la funcionalidad de inserción de su aplicación, solo tiene que marcarla dos veces en la pestaña `capability` del destino seleccionado.
 
-#### Adición del nuevo código de registro de notificaciones de iOS 10
-El fragmento de código anterior para registrar la aplicación para las notificaciones aún funciona, pero está utilizando API obsoletas mientras se ejecuta en iOS 10.
+#### <a name="add-the-new-ios-10-notification-registration-code"></a>Adición del nuevo código de registro de notificaciones de iOS 10
+El fragmento de código anterior para registrar la aplicación para las notificaciones aún funciona, pero está utilizando API obsoletas mientras se ejecuta en iOS 10. 
 
-Importe la plataforma `User Notification`:
+Importe la plataforma `User Notification` :
 
         #import <UserNotifications/UserNotifications.h>
 
@@ -104,7 +108,7 @@ por:
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
 
-#### Si ya tiene su propia implementación de UNUserNotificationCenterDelegate
+#### <a name="if-you-already-have-your-own-unusernotificationcenterdelegate-implementation"></a>Si ya tiene su propia implementación de UNUserNotificationCenterDelegate
 El SDK tiene su propia implementación del protocolo UNUserNotificationCenterDelegate. Se usa para supervisar el ciclo de vida de las notificaciones de Engagement en dispositivos que se ejecutan en iOS 10 o superior. Si el SDK detecta que el delegado no usa su propia implementación porque puede que solo haya un delegado UNUserNotificationCenter por aplicación. Esto significa que tendrá que agregar la lógica de Engagement a su propio delegado.
 
 Hay dos formas de hacerlo:
@@ -167,4 +171,9 @@ O bien, heredarla de la clase `AEUserNotificationHandler`
 > 
 > 
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Nov16_HO3-->
+
+
