@@ -1,22 +1,26 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con Lesson.ly | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Lesson.ly.
+title: "Tutorial: integración de Azure Active Directory con Lesson.ly | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Lesson.ly."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/21/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 33f4c13930017bdcbaf899b16d32ba84bdfbf9ee
+ms.openlocfilehash: e51deb2cb890669c4800c232e2b781c5f27117f2
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-lesson.ly"></a>Tutorial: Integración de Azure Active Directory con Lesson.ly
+# <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: Integración de Azure Active Directory con Lesson.ly
 El objetivo de este tutorial es mostrar cómo integrar Lesson.ly con Azure Active Directory (Azure AD).
 
 Integrar Lesson.ly con Azure AD le proporciona las siguientes ventajas:
@@ -51,7 +55,7 @@ La situación descrita en este tutorial consta de dos bloques de creación princ
 1. Adición de Lesson.ly desde la galería
 2. Configuración y comprobación del inicio de sesión único de Azure AD
 
-## <a name="adding-lesson.ly-from-the-gallery"></a>Adición de Lesson.ly desde la galería
+## <a name="adding-lessonly-from-the-gallery"></a>Adición de Lesson.ly desde la galería
 Para configurar la integración de Lesson.ly en Azure AD, es preciso agregar Lesson.ly desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Lesson.ly desde la galería, realice los pasos siguientes:**
@@ -127,7 +131,7 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_04.png) 
 
-    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios usan para iniciar sesión en su aplicación Lesson.ly con el siguiente patrón: **“https://nombreDeCompañía.Lesson.ly/signin”**. Cuando se hace referencia a un nombre genérico, debe reemplazar **nombreDeCompañía** por un nombre real.
+    a. En el cuadro de texto URL de inicio de sesión, escriba la dirección URL que los usuarios utilizan para iniciar sesión en su aplicación Lessonly con el siguiente patrón: **“https://nombreDeCompañía.lesson.ly/signin”**. Cuando se hace referencia a un nombre genérico, debe reemplazar **nombreDeCompañía** por un nombre real.
 
 
 1. En la página **Configurar inicio de sesión único en Lesson.ly** , siga estos pasos:
@@ -137,7 +141,7 @@ La siguiente captura de pantalla le muestra un ejemplo de esto.
     a. Haga clic en **Descargar certificado**y después guarde el archivo en el equipo.
    
     b. Haga clic en **Siguiente**.
-2. Para obtener SSO configurado para su aplicación, póngase en contacto con el equipo de soporte de Lesson.ly a través de dev@lesson.ly. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de metadatos (identidad de entidad, dirección URL de inicio de sesión SSO y dirección URL de cierre de sesión de SSO) con el equipo de Lesson.ly para configurar SSO en su lado.
+2. Para obtener SSO configurado para su aplicación, póngase en contacto con el equipo de soporte de Lesson.ly a través de dev@lessonly.com. Adjunte el archivo de certificado descargado a su correo y comparta las direcciones URL de metadatos (identidad de entidad, dirección URL de inicio de sesión SSO y dirección URL de cierre de sesión de SSO) con el equipo de Lesson.ly para configurar SSO en su lado.
 3. En el Portal de Azure clásico, seleccione la confirmación de la configuración de inicio de sesión único y haga clic en **Siguiente**.
    
    ![Inicio de sesión único de Azure AD ][10]
@@ -173,17 +177,18 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     c. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-lessonly-tutorial/create_aaduser_07.png) 
@@ -195,7 +200,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
    
     b. Haga clic en **Completo**.   
 
-### <a name="creating-a-lesson.ly-test-user"></a>Creación de un usuario de prueba de Lesson.ly
+### <a name="creating-a-lessonly-test-user"></a>Creación de un usuario de prueba de Lesson.ly
 El objetivo de esta sección es crear un usuario llamado a Britta Simon en Lesson.ly. Lesson.ly admite el aprovisionamiento Just-In-Time, que está habilitado de manera predeterminada.
 
 No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Lesson.ly se creará un nuevo usuario, si aún no existe. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
@@ -226,7 +231,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Lesson.ly.
@@ -255,6 +260,6 @@ Al hacer clic en el icono de Lesson.ly en el panel de acceso, debería iniciar s
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

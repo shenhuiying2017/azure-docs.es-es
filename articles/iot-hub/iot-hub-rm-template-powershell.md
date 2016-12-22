@@ -1,12 +1,12 @@
 ---
-title: Creación de un centro de IoT con una plantilla de Resource Manager y PowerShell | Microsoft Docs
-description: Siga este tutorial para empezar a usar las plantillas del Administrador de recursos para crear un Centro de IoT con PowerShell.
+title: "Creación de un centro de IoT Hub con una plantilla de Azure Resource Manager y PowerShell | Microsoft Docs"
+description: Siga este tutorial para empezar a usar las plantillas de Azure Resource Manager para crear un IoT Hub con PowerShell.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 7eade855-c289-4ffb-b5ef-02be8c5f670f
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,30 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2016
 ms.author: dobett
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: cbd9c2a5d3e3f03fd9136feb35a82be0cd1ee420
+
 
 ---
-# Creación de un Centro de IoT con Powershell
+# <a name="create-an-iot-hub-using-powershell"></a>Creación de un Centro de IoT con Powershell
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-## Introducción
-Puede usar el Administrador de recursos de Azure para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla de Resource Manager para crear un centro de IoT con PowerShell.
+## <a name="introduction"></a>Introducción
+Puede usar el Administrador de recursos de Azure para crear y administrar los centros de IoT de Azure mediante programación. En este tutorial se muestra cómo usar una plantilla de Azure Resource Manager para crear un IoT Hub con PowerShell.
 
 > [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [el Administrador de recursos y el clásico](../resource-manager-deployment-model.md). Este artículo trata sobre el uso del modelo de implementación del Administrador de recursos.
+> Azure tiene dos modelos de implementación diferentes para crear y trabajar con recursos: [Azure Resource Manager y clásico](../azure-resource-manager/resource-manager-deployment-model.md).  Este artículo trata sobre el uso del modelo de implementación de Azure Resource Manager.
 > 
 > 
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][lnk-free-trial].
+* Una cuenta de Azure activa. <br/>Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
 * [Microsoft Azure PowerShell 1.0][lnk-powershell-install] o versiones posteriores.
 
 > [!TIP]
-> El artículo [Uso de Azure PowerShell con Azure Resource Manager][lnk-powershell-arm] proporciona más información acerca de cómo usar scripts de PowerShell y plantillas de Resource Manager para crear recursos de Azure.
+> El artículo [Using Azure PowerShell with Azure Resource Manager][lnk-powershell-arm] (Uso de Azure PowerShell con Azure Resource Manager) contiene más información sobre cómo utilizar scripts de PowerShell y plantillas de Azure Resource Manager para crear recursos de Azure. 
 > 
 > 
 
-## Conexión a su suscripción de Azure
+## <a name="connect-to-your-azure-subscription"></a>Conexión a su suscripción de Azure
 En un símbolo del sistema de PowerShell, escriba el siguiente comando para iniciar sesión en su suscripción de Azure:
 
 ```
@@ -57,10 +61,10 @@ Cree un grupo de recursos para que contenga su Centro de IoT mediante el siguien
 New-AzureRmResourceGroup -Name MyIoTRG1 -Location "East US"
 ```
 
-## Enviar una plantilla para crear un centro de IoT
-Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recursos. También puede usar la plantilla para realizar cambios en un centro de IoT existente.
+## <a name="submit-an-azure-resource-manager-template-to-create-an-iot-hub"></a>Enviar una plantilla de Azure Resource Manager para crear IoT Hub
+Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recursos. También puede usar una plantilla de Azure Resource Manager para realizar cambios en un IoT Hub existente.
 
-1. Use un editor de texto para crear una plantilla de Resource Manager llamada **template.json**, con la siguiente definición de recursos, para crear un nuevo centro de IoT estándar. Este ejemplo agrega el Centro de IoT e la región **Este de EE. UU.**, crea dos grupos de consumidores (**cg1** y **cg2**) en el punto de conexión compatible con Centro de eventos y usa la versión de API **2016-02-03**. En esta plantilla se espera también que pase el nombre del centro de IoT como un parámetro denominado **hubName**. Para obtener la lista actualizada de ubicaciones que admiten IoT Hub, consulte [Estado de Azure][lnk-status].
+1. Use un editor de texto para crear una plantilla de Azure Resource Manager llamada **template.json** , con la siguiente definición de recursos, para crear un nuevo IoT Hub estándar. Este ejemplo agrega el IoT Hub e la región **Este de EE. UU.**, crea dos grupos de consumidores (**cg1** and **cg2**) en el punto de conexión compatible con Centro de eventos y usa la versión de API **2016-02-03**. En esta plantilla se espera también que pase el nombre del centro de IoT como un parámetro denominado **hubName**. Para ver una lista actualizada de las ubicaciones admitidas en IoT Hub, consulte [Estado de Azure][lnk-status].
    
     ```
     {
@@ -111,37 +115,34 @@ Use una plantilla de JSON para crear un nuevo centro de IoT en el grupo de recur
       }
     }
     ```
-2. Guarde el archivo de plantilla en el equipo local. En este ejemplo, se da por supuesto que lo guarda en una carpeta llamada **c:\\templates**.
+2. Guarde el archivo de plantilla de Azure Resource Manager. En este ejemplo, se da por supuesto que lo guarda en una carpeta llamada **c:\templates**.
 3. Ejecute el comando siguiente para implementar el nuevo Centro de IoT, pasando el nombre de su Centro de IoT como un parámetro. En este ejemplo, el nombre del centro de IoT es **abcmyiothub** (tenga en cuenta que debe ser un nombre único global, por lo que debe incluir su nombre o sus iniciales):
    
     ```
     New-AzureRmResourceGroupDeployment -ResourceGroupName MyIoTRG1 -TemplateFile C:\templates\template.json -hubName abcmyiothub
     ```
 4. El resultado muestra las claves para el Centro de IoT que ha creado.
-5. Para comprobar que su aplicación ha agregado el nuevo centro de IoT, visite el [portal][lnk-azure-portal] y vea la lista de recursos o use el cmdlet de PowerShell **Get-AzureRmResource**.
+5. Para comprobar que la aplicación ha agregado el nuevo centro de IoT Hub, visite [Azure Portal][lnk-azure-portal] y consulte la lista de recursos. También puede utilizar el cmdlet de PowerShell **Get-AzureRmResource**.
 
 > [!NOTE]
-> Esta aplicación de ejemplo agrega un Centro de IoT estándar S1 por el que se le cobrará. Puede eliminar el centro de IoT a través del [portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell cuando haya terminado.
+> Esta aplicación de ejemplo agrega un Centro de IoT estándar S1 por el que se le cobrará. Cuando haya terminado, podrá eliminar el centro de IoT Hub a través de [Azure Portal][lnk-azure-portal] o mediante el cmdlet **Remove-AzureRmResource** de PowerShell.
 > 
 > 
 
-## Pasos siguientes
-Ahora que ha implementado un centro de IoT mediante una plantilla de Resource Manager con PowerShell, quizá desee seguir explorando:
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ha implementado un IoT Hub mediante una plantilla de Azure Resource Manager con PowerShell, quizá desee seguir explorando:
 
-* Lea sobre las funcionalidades de la API de REST en [IoT Hub Resource Provider REST API][lnk-rest-api] \(API de REST del proveedor de recursos del centro de IoT).
-* Lea la [Información general de Administrador de recursos de Azure][lnk-azure-rm-overview] para más información sobre las capacidades del Administrador de recursos de Azure.
+* Consulte las funcionalidades de la [API de REST del proveedor de recursos de IoT Hub][lnk-rest-api].
+* Para más información sobre las funcionalidades de Azure Resource Manager, consulte [Información general de Azure Resource Manager][lnk-azure-rm-overview].
 
 Para más información acerca del desarrollo para el Centro de IoT, consulte lo siguiente:
 
 * [Introducción a C SDK][lnk-c-sdk]
-* [SDK de Centro de IoT][lnk-sdks]
+* [SDK de IoT de Azure][lnk-sdks]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Diseño de la solución][lnk-design]
-* [Exploración de la administración de dispositivos desde Centro de IoT de Azure con la IU de ejemplo][lnk-dmui]
-* [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux][lnk-gateway]
-* [Administración de Centros de IoT a través del portal de Azure][lnk-portal]
+* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -149,15 +150,16 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-powershell-install]: ../powershell-install-configure.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-azure-rm-overview]: ../resource-group-overview.md
-[lnk-powershell-arm]: ../powershell-azure-resource-manager.md
+[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
+[lnk-powershell-arm]: ../azure-resource-manager/powershell-azure-resource-manager.md
 
 [lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-sdks-summary.md
+[lnk-sdks]: iot-hub-devguide-sdks.md
 
-[lnk-design]: iot-hub-guidance.md
-[lnk-dmui]: iot-hub-device-management-ui-sample.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
-[lnk-portal]: iot-hub-manage-through-portal.md
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+<!--HONumber=Nov16_HO5-->
+
+

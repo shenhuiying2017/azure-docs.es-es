@@ -1,12 +1,12 @@
 ---
-title: Get started with twins | Microsoft Docs
-description: This tutorial shows you how to use twins
+title: "Introducción a los dispositivos gemelos | Microsoft Docs"
+description: "En este tutorial se muestra cómo usar los dispositivos gemelos."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f7e23b6e-bfde-4fba-a6ec-dbb0f0e005f4
 ms.service: iot-hub
 ms.devlang: node
 ms.topic: article
@@ -14,47 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: 4b90b2529fa6d763ed3ce9c3b4da07afeb860f0e
+
 
 ---
-# <a name="tutorial:-get-started-with-device-twins-(preview)"></a>Tutorial: Get started with device twins (preview)
+# <a name="tutorial-get-started-with-device-twins"></a>Tutorial: Introducción a los dispositivos gemelos
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
-At the end of this tutorial, you will have a .NET and a Node.js console application:
+Al final de este tutorial tendrá una aplicación de consola Node.js y .NET:
 
-* **AddTagsAndQuery.sln**, a .NET app meant to be run from the back end, which adds tags and queries device twins.
-* **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
+* **AddTagsAndQuery.sln**, una aplicación .NET diseñada para ejecutarse desde el back-end, que agrega etiquetas y consulta dispositivos gemelos.
+* **TwinSimulatedDevice.js**, una aplicación de Node.js que simula un dispositivo que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente e informa de su estado de conectividad.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
+> En el artículo [SDK de IoT de Azure][lnk-hub-sdks] se proporciona información sobre los SDK que puede usar para crear aplicaciones de dispositivo y de back-end.
 > 
 > 
 
-To complete this tutorial you need the following:
+Para completar este tutorial, necesitará lo siguiente:
 
 * Microsoft Visual Studio 2015.
-* Node.js version 0.10.x or later.
-* An active Azure account. (If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial][lnk-free-trial].)
+* Node.js versión 0.10.x, o posteriores.
+* Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-## <a name="create-the-service-app"></a>Create the service app
-In this section, you create a Node.js console app that adds location meta-data to the twin associated with **myDeviceId**. It then queries the twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
+## <a name="create-the-service-app"></a>Creación de la aplicación de servicio
+En esta sección, creará una aplicación de consola de Node.js que agrega metadatos de ubicación al dispositivo gemelo asociado con **myDeviceId**. A continuación, consulta los dispositivos gemelos almacenados en IoT Hub mediante la selección de los dispositivos ubicados en Estados Unidos y, a continuación los que informan de una conexión de red de telefonía móvil.
+
+1. En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución actual mediante la plantilla de proyecto **Aplicación de consola** . Asigne el nombre **AddTagsAndQuery** al proyecto.
    
-    ![New Visual C# Windows Classic Desktop project][img-createapp]
-2. In Solution Explorer, right-click the **AddTagsAndQuery** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+    ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][img-createapp]
+2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **AddTagsAndQuery** y luego seleccione **Administrar paquetes NuGet**.
+3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet de [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] (SDK de Servicio IoT de Microsoft Azure) y a sus dependencias.
    
-    ![Nuget Package Manager window][img-servicenuget]
-4. Add the following `using` statements at the top of the **Program.cs** file:
+    ![Ventana del Administrador de paquetes NuGet][img-servicenuget]
+4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión del Centro de IoT que creó en la sección anterior.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
-6. Add the following method to the **Program** class:
+6. Agregue el método siguiente a la clase **Program** :
    
         public static async Task AddTagsAndQuery()
         {
@@ -79,38 +85,38 @@ In this section, you create a Node.js console app that adds location meta-data t
             Console.WriteLine("Devices in Redmond43 using cellular network: {0}", string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
         }
    
-    The **RegistryManager** class exposes all the methods required to interact with device twins from the service. The previous code first initializes the **registryManager** object, then retrieves the twin for **myDeviceId**, and finally updates its tags with the desired location information.
+    La clase **RegistryManager** expone todos los métodos necesarios para interactuar con dispositivos gemelos del servicio. El código anterior inicializa primero el objeto **registryManager**, luego recupera el dispositivo gemelo de **myDeviceId** y, por último, actualiza sus etiquetas con la información de la ubicación deseada.
    
-    After the updating, it executes two queries: the first selects only the device twins of devices located in the **Redmond43** plant, and the second refines the query to select only the devices that are also connected through cellular network.
+    Después de la actualización, ejecuta dos consultas: la primera selecciona solo los dispositivos gemelos que se encuentran en la planta **Redmond43** y la segunda mejora la consulta para seleccionar solo los dispositivos que están también conectados a través de la red de telefonía móvil.
    
-    Note that the previous code, when it creates the **query** object, specifies a maximum number of returned documents. The **query** object contains a **HasMoreResults** boolean property that you can use to invoke the **GetNextAsTwinAsync** methods multiple times to retrieve all results. A method called **GetNextAsJson** is available for results that are not device twins for example, results of aggregation queries.
-7. Finally, add the following lines to the **Main** method:
+    Tenga en cuenta que el código anterior, cuando crea el objeto de **consulta**, especifica un número máximo de documentos devueltos. El objeto **consulta** contiene una propiedad booleana **HasMoreResults** que puede utilizar para invocar a los métodos **GetNextAsTwinAsync** varias veces para recuperar todos los resultados. Un método llamado **GetNextAsJson** está disponible para los resultados que no son dispositivos gemelos, por ejemplo, los resultados de consultas de agregación.
+7. Por último, agregue las líneas siguientes al método **Main** :
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
         AddTagsAndQuery().Wait();
         Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
-8. Run this application, and you should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
+8. Ejecute esta aplicación y debería ver un dispositivo en los resultados de la consulta que pregunta por todos los dispositivos que se encuentran en **Redmond43** y ninguno para la consulta que restringe los resultados a los dispositivos que utilizan una red de telefonía móvil.
    
-    ![Query results in window][img-addtagapp]
+    ![Resultados de consulta en ventana][img-addtagapp]
 
-In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
+En la siguiente sección, creará una aplicación de dispositivo que notifica la información de conectividad y cambia el resultado de la consulta en la sección anterior.
 
-## <a name="create-the-device-app"></a>Create the device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its twin's reported properties to contain the information that it is connected using a cellular network.
+## <a name="create-the-device-app"></a>Creación de la aplicación del dispositivo
+En esta sección, creará una aplicación de consola de Node.js que se conecta al centro como **myDeviceId**, y luego actualiza las propiedades notificadas para contener la información que está conectada mediante una red de telefonía móvil.
 
-1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Cree una nueva carpeta vacía denominada **reportconnectivity**. En la carpeta **reportconnectivity** , cree un nuevo archivo package.json con el siguiente comando en el símbolo del sistema. Acepte todos los valores predeterminados:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
+2. En el símbolo del sistema, en la carpeta **reportconnectivity**, ejecute el siguiente comando para instalar **azure-iot-device** y el paquete **azure-iot-device-mqtt**:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
-4. Add the following code to the **ReportConnectivity.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:
+3. Con un editor de texto, cree un nuevo archivo **ReportConnectivity.js** en la carpeta **reportconnectivity**.
+4. Agregue el código siguiente al archivo **ReportConnectivity.js** y sustituya el marcador de posición **{device connection string}** con la cadena de conexión que copió al crear la identidad de dispositivo **myDeviceId**:
    
         'use strict';
         var Client = require('azure-iot-device').Client;
@@ -148,24 +154,24 @@ In this section, you create a Node.js console app that connects to your hub as *
         }
         });
    
-    The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the twin for **myDeviceId** and updates its reported property with the connectivity information.
-5. Run the device app
+    El objeto **Cliente** expone todos los métodos necesarios para interactuar con dispositivos gemelos del dispositivo. El código anterior, una vez que inicialice el objeto **Cliente**, recupera el dispositivo gemelo de **myDeviceId**, y actualiza su propiedad notificada con la información de conectividad.
+5. Ejecute la aplicación del dispositivo
    
         node ReportConnectivity.js
    
-    You should see the message `twin state reported`.
-6. Now that the device reported its connectivity information, it should appear in both queries. Run the .NET **AddTagsAndQuery** app to run the queries again. This time **myDeviceId** should appear in both query results.
+    Verá el mensaje `twin state reported`.
+6. Ahora que el dispositivo ha informado sobre su información de conectividad, debe aparecer en ambas consultas. Ejecute la aplicación **AddTagsAndQuery** .NET para volver a ejecutar las consultas. Esta vez **myDeviceId** debe aparecer en los resultados de ambas consulta.
    
     ![][img-addtagapp2]
 
-## <a name="next-steps"></a>Next steps
-In this tutorial, you configured a new IoT hub in the portal, and then created a device identity in the hub's identity registry. You added device meta-data as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+## <a name="next-steps"></a>Pasos siguientes
+En este tutorial, configuró un centro de IoT nuevo en Azure Portal y, después, creó una identidad de dispositivo en el registro de identidades del centro de IoT. Ha agregado metadatos de dispositivo como etiquetas desde una aplicación back-end y ha escrito una aplicación de dispositivo simulado para notificar la información de conectividad de dispositivos en el dispositivo gemelo. También ha aprendido cómo consultar esta información mediante el lenguaje de consulta de IoT Hub de tipo SQL.
 
-Use the following resources to learn how to:
+Use los siguientes recursos para obtener información sobre cómo:
 
-* send telemetry from devices with the [Get started with IoT Hub][lnk-iothub-getstarted] tutorial,
-* configure devices using twin's desired properties with the [Use desired properties to configure devices][lnk-twin-how-to-configure] tutorial,
-* control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods][lnk-methods-tutorial] tutorial.
+* enviar telemetría desde dispositivos con el tutorial [Introducción a IoT Hub][lnk-iothub-getstarted];
+* configurar dispositivos mediante las propiedades deseadas del dispositivo gemelo con el tutorial [Uso de las propiedades deseadas para configurar dispositivos][lnk-twin-how-to-configure];
+* controlar los dispositivos de forma interactiva (por ejemplo, encender un ventilador desde una aplicación controlada por el usuario), con el tutorial [Use direct methods][lnk-methods-tutorial] (Uso de métodos directos).
 
 <!-- images -->
 [img-servicenuget]: media/iot-hub-csharp-node-twin-getstarted/servicesdknuget.png
@@ -176,7 +182,7 @@ Use the following resources to learn how to:
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0-preview-004
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
@@ -185,7 +191,7 @@ Use the following resources to learn how to:
 [lnk-identity]: iot-hub-devguide-identity-registry.md
 
 [lnk-iothub-getstarted]: iot-hub-node-node-getstarted.md
-[lnk-methods-tutorial]: iot-hub-c2d-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
@@ -193,6 +199,6 @@ Use the following resources to learn how to:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO5-->
 
 

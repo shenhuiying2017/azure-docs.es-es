@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 638054fb49ace081a7d67817d9dcecb8f5ca1a94
-ms.openlocfilehash: b2ad194b62b61e3b16d660718aee155ff2dbf197
+ms.sourcegitcommit: 8d7823b6ecbc1a762839fc620f76d0bf4687d8fa
+ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
 
 
 ---
@@ -35,9 +35,9 @@ Para poder crear la primera función, es necesario tener una cuenta de Azure act
 1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. Haga clic en **+Nuevo**  >  **Compute** > **Function App**, seleccione su **Suscripción**, escriba un **Nombre de la aplicación** único, que identifica la aplicación de función, y especifique la siguiente configuración:
    
-   * **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)**: seleccione **Crear nuevo** y escriba un nombre para el nuevo grupo de recursos. También puede elegir un grupo de recursos existente; sin embargo, es posible que no pueda crear un plan de App Service dinámico para la aplicación de función.
+   * **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)**: seleccione **Crear nuevo** y escriba un nombre para el nuevo grupo de recursos. También puede elegir un grupo de recursos existente; sin embargo, es posible que no pueda crear un plan de App Service basado en el consumo para la aplicación de función.
    * **[Plan de hospedaje](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)** puede ser cualquiera de los siguientes: 
-     * **Plan dinámico**: el tipo de plan predeterminado para Azure Functions. Al elegir un plan dinámico, también debe elegir la ubicación en el campo **Ubicación** y establecer el valor de **Asignación de memoria** (en MB). Para más información sobre cómo afecta la asignación de memoria a los costos, consulte [Precios de Functions](https://azure.microsoft.com/pricing/details/functions/). 
+     * **Plan de consumo**: el tipo de plan predeterminado para Azure Functions. Al elegir un plan de consumo, también debe elegir la ubicación en el campo **Ubicación** y establecer el valor de **Asignación de memoria** (en MB). Para más información sobre cómo afecta la asignación de memoria a los costos, consulte [Precios de Functions](https://azure.microsoft.com/pricing/details/functions/). 
      * **Plan de App Service**: este plan requiere que se cree un **plan de App Service/ubicación** o se seleccione uno existente. Esta configuración determina la [ubicación, características, costo y recursos de procesos](https://azure.microsoft.com/pricing/details/app-service/) asociados a la aplicación.  
    * **Cuenta de almacenamiento**: cada aplicación de función requiere una cuenta de almacenamiento. Puede elegir una cuenta de almacenamiento existente o crear una. 
      
@@ -77,7 +77,7 @@ Este inicio rápido demuestra una ejecución sencilla de una función desencaden
 * [Prueba de Azure Functions](functions-test-a-function.md)  
    describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
-  Aborda los planes de servicio disponibles con Azure Functions, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado. 
+  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de App Service basado en el consumo, y cómo elegir el plan adecuado. 
 * [¿Qué es Servicios de aplicaciones de Azure?](../app-service/app-service-value-prop-what-is.md)  
    Azure Functions aprovecha la plataforma Azure App Service para obtener una funcionalidad básica, como implementaciones, variables de entorno y diagnósticos. 
 
