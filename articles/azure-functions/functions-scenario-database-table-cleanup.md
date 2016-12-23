@@ -1,13 +1,13 @@
 ---
-title: Uso de funciones de Azure para realizar una tarea de limpieza programada | Microsoft Docs
-description: Utilice Funciones de Azure para crear una función de C# que se ejecuta según un temporizador de eventos.
+title: Uso de Azure Functions para realizar una tarea de limpieza programada | Microsoft Docs
+description: "Utilice Funciones de Azure para crear una función de C# que se ejecuta según un temporizador de eventos."
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: erikre
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2016
 ms.author: glenga
+translationtype: Human Translation
+ms.sourcegitcommit: b873a7d0ef9efa79c9a173a8bfd3522b12522322
+ms.openlocfilehash: c0b4a963275dae5bbf203388cb61086393803b15
+
 
 ---
 # <a name="use-azure-functions-to-perform-a-scheduled-clean-up-task"></a>Uso de funciones de Azure para realizar una tarea de limpieza programada
@@ -48,16 +52,20 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
    
     ![Creación de una nueva función desencadenada por un temporizador](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. En el panel **Código** de la pestaña **Desarrollar**, agregue las siguientes referencias de ensamblado en la parte superior del código de función existente:
-   
+    ```cs
         #r "System.Configuration"
         #r "System.Data"
+    ```
+
 3. Agregue las siguientes instrucciones `using` a la función:
-   
+    ```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+    ```
+
 4. Reemplace la función **Run** existente por el siguiente código:
-   
+    ```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -73,6 +81,8 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
                 }
             }
         }
+    ```
+
 5. Haga clic en **Guardar**, inspeccione la ventana **Registros** durante la ejecución de la siguiente función y luego anote el número de filas eliminadas de la tabla TodoItems.
 6. (Opcional) Mediante la [aplicación de inicio rápido de Aplicaciones móviles](../app-service-mobile/app-service-mobile-ios-get-started.md), marque los elementos adicionales como "completados", vuelva a la ventana **Registros** y vea que la función elimina el mismo número de filas durante la próxima ejecución. 
 
@@ -80,14 +90,17 @@ Ahora, puede agregar el código de función de C# que conecta con la base de dat
 Consulte estos temas para más información sobre Azure Functions.
 
 * [Referencia para desarrolladores de Funciones de Azure](functions-reference.md)  
-  contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
+   contiene las referencias del programador para codificar funciones y definir desencadenadores y enlaces.
 * [Prueba de Azure Functions](functions-test-a-function.md)  
-  describe las diversas herramientas y técnicas para probar sus funciones.
+   describe las diversas herramientas y técnicas para probar sus funciones.
 * [How to scale Azure Functions](functions-scale.md)  
-  (Cómo escalar Funciones de Azure) aborda los planes de servicio disponibles con Funciones de Azure, incluido el plan de servicio dinámico, y cómo elegir el plan adecuado.  
+  Trata los planes de servicio disponibles con Azure Functions, incluido el plan de consumo, y cómo elegir el plan adecuado.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

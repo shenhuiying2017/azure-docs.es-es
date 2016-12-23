@@ -1,12 +1,12 @@
 ---
-title: Actualizar a la Base de datos SQL V12 de Azure mediante PowerShell | Microsoft Docs
-description: Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluyendo cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante PowerShell.
+title: "Actualizar a la versión 12 de Azure SQL Database mediante PowerShell | Microsoft Docs"
+description: "Explicación acerca de cómo actualizar a la Base de datos SQL V12 de Azure, incluyendo cómo actualizar las bases de datos de tipo Web y Business y cómo actualizar un servidor V11 migrando sus bases de datos directamente a un grupo de bases de datos elásticas mediante PowerShell."
 services: sql-database
-documentationcenter: ''
+documentationcenter: 
 author: stevestein
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: bb87b726-496c-4429-a43a-103a3e89abc4
 ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: sstein
+translationtype: Human Translation
+ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
+ms.openlocfilehash: 966bf884187dd9aaef81d83750c99168f69b52c8
+
 
 ---
-# Actualización a la Base de datos SQL V12 de Azure mediante PowerShell
+# <a name="upgrade-to-azure-sql-database-v12-using-powershell"></a>Actualización a la Base de datos SQL V12 de Azure mediante PowerShell
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-upgrade-server-portal.md)
 > * [PowerShell](sql-database-upgrade-server-powershell.md)
 > 
 > 
 
-La versión V12 de la Base de datos SQL es la versión más reciente, por lo que le recomendamos que realice esta actualización para la Base de datos SQL V12. La versión V12 de la Base de datos SQL le ofrece muchas más [ventajas con respecto a la versión anterior](sql-database-v12-whats-new.md), entre las que se incluyen:
-
-* Compatibilidad mejorada con SQL Server.
-* Rendimiento de tipo Premium mejorado y nuevos niveles de rendimiento.
-* [Grupos de bases de datos elásticas](sql-database-elastic-pool.md).
+La versión V12 de la Base de datos SQL es la versión más reciente, por lo que le recomendamos que realice esta actualización para la Base de datos SQL V12. Vea las [características de Azure SQL Database](sql-database-features.md) para una matriz de funciones mediante la comparación de Azure SQL Database con SQL Server.
 
 Este artículo proporciona instrucciones para actualizar los servidores y las bases de datos existentes de la Base de datos SQL V11 a la versión V12 de la misma.
 
@@ -37,21 +37,21 @@ Asimismo, la migración a un [grupo de bases de datos elásticas](sql-database-e
 
 Puede seguir los pasos de este artículo para migrar de forma fácil las bases de datos de los servidores V11 a grupos de bases de datos elásticas.
 
-Tenga en cuenta que las bases de datos permanecerán en línea y seguirán funcionando durante toda la operación de actualización. En el momento en que realice la transición al nuevo nivel de rendimiento, es posible que se produzca una caída temporal de las conexiones a la base de datos, aunque no durarán mucho; normalmente oscilarán entre los 90 segundos y los 5 minutos. Si su aplicación tiene una [gestión de errores temporal para terminaciones de conexiones](sql-database-connectivity-issues.md), entonces es suficiente con que tome precauciones contra las interrupciones de la conexión al final de la actualización.
+Tenga en cuenta que las bases de datos permanecerán en línea y seguirán funcionando durante toda la operación de actualización. En el momento en que realice la transición al nuevo nivel de rendimiento, es posible que se produzca una caída temporal de las conexiones a la base de datos, aunque no durarán mucho; normalmente oscilarán entre los 90 segundos y los 5 minutos. Si su aplicación tiene una [gestión de errores temporal para terminaciones de conexiones](sql-database-connectivity-issues.md) , entonces es suficiente con que tome precauciones contra las interrupciones de la conexión al final de la actualización.
 
 Recuerde que la actualización a la Base de datos SQL V12 no se puede deshacer. Después de realizar la actualización, no podrá revertir el servidor a la versión V11.
 
-Después de realizar la actualización a V12, las [recomendaciones de nivel de servicio](sql-database-service-tier-advisor.md) y las [recomendaciones de grupos elásticos](sql-database-elastic-pool-create-portal.md) no estarán disponibles de forma inmediata; para ello, deberá esperar a que el servicio evalúe las cargas de trabajo en el nuevo servidor. El historial de recomendaciones del servidor V11 no se aplica a los servidores V12, así que no se conservará.
+Después de realizar la actualización a V12, las [recomendaciones de nivel de servicio](sql-database-service-tier-advisor.md) y las [recomendaciones de grupos elásticos](sql-database-elastic-pool-create-portal.md) no estarán disponibles de forma inmediata; para ello, deberá esperar a que el servicio evalúe las cargas de trabajo en el nuevo servidor. El historial de recomendaciones del servidor V11 no se aplica a los servidores V12, así que no se conservará.  
 
-## Preparación de la actualización
-* **Actualizar todas las bases de datos de tipo Web y Business**: consulte la sección [Actualizar todas las bases de datos de tipo Web y Business](sql-database-v12-upgrade.md#upgrade-all-web-and-business-databases) que tiene a continuación o use [PowerShell para actualizar las bases de datos y el servidor](sql-database-upgrade-server-powershell.md).
+## <a name="prepare-to-upgrade"></a>Preparación de la actualización
+* **Actualizar todas las bases de datos de tipo Web y Business**: usar el portal, o [PowerShell para actualizar las bases de datos y servidor](sql-database-upgrade-server-powershell.md).
 * **Revisar y suspender la replicación geográfica**: si la base de datos SQL de Azure está configurada para la replicación geográfica, debe documentar la configuración actual y [detener la replicación geográfica](sql-database-geo-replication-portal.md#remove-secondary-database). Una vez completada la actualización, debe volver a configurar la base de datos para la replicación geográfica.
 * **Abra los siguientes puertos si tiene clientes en una máquina virtual de Azure**: si el programa cliente se conecta a la Base de datos SQL V12, mientras el cliente se ejecuta en una máquina virtual (VM) de Azure, debe abrir los intervalos de puerto 11000 a 11999 y de 14000 a 14999 en la máquina virtual. Para obtener más información, consulte [Puertos de la Base de datos SQL V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 Para actualizar un servidor a V12 con PowerShell, debe tener la versión más reciente de Azure PowerShell instalada y ejecutándose. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
 
-## Configuración de las credenciales y selección de la suscripción
+## <a name="configure-your-credentials-and-select-your-subscription"></a>Configuración de las credenciales y selección de la suscripción
 Para ejecutar los cmdlets de PowerShell en su suscripción de Azure debe establecer el acceso a su cuenta de Azure. Ejecute lo siguiente y aparecerá una pantalla de inicio de sesión para especificar sus credenciales. Use el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
 
     Add-AzureRmAccount
@@ -66,14 +66,14 @@ Ejecute el siguiente cmdlet con la información de suscripción para establecer 
 
 Los siguientes comandos se ejecutarán en la suscripción que acaba de seleccionar.
 
-## Obtener recomendaciones
+## <a name="get-recommendations"></a>Obtener recomendaciones
 Para obtener la recomendación para la actualización del servidor, ejecute el siguiente cmdlet:
 
     $hint = Get-AzureRmSqlServerUpgradeHint -ResourceGroupName “resourcegroup1” -ServerName “server1”
 
-Para obtener más información, consulte el artículo sobre [creación de un grupo de bases de datos elásticas escalables para Azure SQL Database en Azure Portal](sql-database-elastic-pool-create-portal.md) y [recomendaciones sobre el plan de tarifa de Azure SQL Database](sql-database-service-tier-advisor.md).
+Para obtener más información, consulte [Creación de un nuevo grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-create-portal.md) y [Recomendaciones sobre el plan de tarifas de SQL Database](sql-database-service-tier-advisor.md).
 
-## Iniciar la actualización
+## <a name="start-the-upgrade"></a>Iniciar la actualización
 Para iniciar la actualización del servidor, ejecute el siguiente cmdlet:
 
     Start-AzureRmSqlServerUpgrade -ResourceGroupName “resourcegroup1” -ServerName “server1” -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
@@ -81,7 +81,7 @@ Para iniciar la actualización del servidor, ejecute el siguiente cmdlet:
 
 Cuando ejecute este comando, comenzará el proceso de actualización. Puede personalizar la salida de la recomendación y ofrecer la recomendación editada para este cmdlet.
 
-## Actualización de un servidor
+## <a name="upgrade-a-server"></a>Actualización de un servidor
     # Adding the account
     #
     Add-AzureRmAccount
@@ -105,7 +105,7 @@ Cuando ejecute este comando, comenzará el proceso de actualización. Puede pers
     Start-AzureRmSqlServerUpgrade -ResourceGroupName $ResourceGroupName -ServerName $ServerName -ServerVersion 12.0 -DatabaseCollection $hint.Databases -ElasticPoolCollection $hint.ElasticPools  
 
 
-## Asignación de actualización personalizada
+## <a name="custom-upgrade-mapping"></a>Asignación de actualización personalizada
 Si las recomendaciones no son adecuadas para su servidor y el caso de negocios, puede elegir cómo se actualizan las bases de datos y asignarlas a bases de datos únicas o elásticas.
 
 Los parámetros ElasticPoolCollection y DatabaseCollection son opcionales:
@@ -139,12 +139,12 @@ Los parámetros ElasticPoolCollection y DatabaseCollection son opcionales:
 
 
 
-## Supervisión de las bases de datos después de actualizar a la Base de datos SQL V12
+## <a name="monitor-databases-after-upgrading-to-sql-database-v12"></a>Supervisión de las bases de datos después de actualizar a la Base de datos SQL V12
 Después de la actualización, es recomendable que supervise la base de datos de forma activa para asegurarse de que todas las aplicaciones se están ejecutando correctamente y que tienen el rendimiento adecuado; de esta manera, podrá optimizar el uso según sea necesario.
 
-Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-manage-portal.md) o mediante [PowerShell](sql-database-elastic-pool-manage-powershell.md).
+Además de supervisar las bases de datos individuales, también puede supervisar los grupos de bases de datos elásticas [mediante el portal](sql-database-elastic-pool-manage-portal.md) o con [PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
-**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm_ db_ resource\_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
+**Datos de consumo de recursos**: para las bases de datos de niveles Básico, Estándar y Premium, tiene disponibles datos de consumo de recursos a través de una vista de administración dinámica (DMV) denominada [sys.dm_ db_ resource_stats](http://msdn.microsoft.com/library/azure/dn800981.aspx) en la base de datos del usuario. Esta vista de administración dinámica proporciona información de consumo de recursos casi en tiempo real a intervalos de 15 segundos para la hora de funcionamiento anterior. El consumo de porcentaje de DTU para un intervalo se calcula como el consumo de porcentaje máximo de las dimensiones de CPU, E/S y de registro. Esta es una consulta para calcular el consumo medio de porcentaje de DTU durante la última hora:
 
     SELECT end_time
          , (SELECT Max(v)
@@ -163,15 +163,20 @@ Información de supervisión adicional:
 
 **Alertas:** configure “Alertas” en el Portal de Azure para recibir una notificación cuando el consumo de DTU de una base de datos actualizada alcance un determinado nivel. Las alertas de la base de datos pueden configurarse en Azure Portal con diferentes métricas de rendimiento como DTU, CPU, E/S y registro. Vaya a la base de datos y seleccione **Reglas de alerta** en la hoja **Configuración**.
 
-Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md) para obtener más información acerca de cómo configurar las notificaciones de alerta.
+Por ejemplo, puede configurar una alerta de correo electrónico en "Porcentaje de DTU" si el valor de porcentaje medio de DTU supera el 75 % en los últimos 5 minutos. Consulte [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md) (Recibir notificaciones de alerta) para más información sobre cómo configurar las notificaciones de alerta.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * [Cree un grupo de bases de datos elásticas](sql-database-elastic-pool-create-portal.md) y agregue algunas o todas las bases de datos al grupo.
-* [Cambio del nivel de servicio y del nivel de rendimiento de la base de datos](sql-database-scale-up.md).
+* [Cambie el nivel de servicio y el nivel de rendimiento de su base de datos](sql-database-scale-up.md).
 
-## Información relacionada
+## <a name="related-information"></a>Información relacionada
 * [Get-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603582.aspx)
 * [Start-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt619403.aspx)
 * [Stop-AzureRmSqlServerUpgrade](https://msdn.microsoft.com/library/azure/mt603589.aspx)
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

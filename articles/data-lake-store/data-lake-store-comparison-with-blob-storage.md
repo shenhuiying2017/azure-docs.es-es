@@ -1,22 +1,26 @@
 ---
-title: Comparación de Azure Data Lake Store con Almacenamiento de blobs de Azure | Microsoft Docs
-description: Comparación de Azure Data Lake Store con Almacenamiento de blobs de Azure
+title: "Comparación de Azure Data Lake Store con Azure Storage Blob| Microsoft Docs"
+description: "Comparación de Azure Data Lake Store con Almacenamiento de blobs de Azure"
 services: data-lake-store
-documentationcenter: ''
+documentationcenter: 
 author: nitinme
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2016
+ms.date: 11/28/2016
 ms.author: nitinme
+translationtype: Human Translation
+ms.sourcegitcommit: 267b281c33049e65e82a5e5b2453ff1a80983453
+ms.openlocfilehash: 744e5a093cb99463224d42a69711f41f6132a2ee
+
 
 ---
-# Comparación de Azure Data Lake Store y Almacenamiento de blobs de Azure
+# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparación de Azure Data Lake Store y Almacenamiento de blobs de Azure
 La tabla de este artículo resume las diferencias entre Azure Data Lake Store y Almacenamiento de blobs de Azure en algunos aspectos clave del procesamiento de macrodatos. Almacenamiento de blobs de Azure es un almacén de objetos general escalable que está diseñado para una amplia variedad de escenarios de almacenamiento. Azure Data Lake Store un repositorio a hiperescala optimizado cargas de trabajo de análisis de macrodatos.
 
 |  | Almacén de Azure Data Lake | Almacenamiento de blobs de Azure |
@@ -30,20 +34,25 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Store y 
 | Cliente de sistema de archivos de Hadoop |Sí |Sí |
 | Operaciones de datos: autenticación |Basado en las [identidades de Azure Active Directory](../active-directory/active-directory-authentication-scenarios.md) |Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/storage-create-storage-account.md#manage-your-storage-account) y [claves de firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md). |
 | Operaciones de datos: protocolo de autenticación |OAuth 2.0. Las llamadas deben contener un JWT válido (JSON Web Token) emitido por Azure Active Directory |Código de autenticación de mensajes basado en hash (HMAC). Las llamadas deben contener un hash SHA-256 codificado en Base64 en una parte de la solicitud HTTP. |
-| Operaciones de datos: autorización |Listas de control de acceso (ACL) de POSIX. Las ACL basadas en identidades de Azure Active Directory se pueden establecer a nivel de archivo y de carpeta. |Para la autorización de nivel de cuenta: use [teclas de acceso de cuenta](../storage/storage-create-storage-account.md#manage-your-storage-account)<br>Para la autorización de cuenta, contenedor o blob, use [claves de firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) |
-| Operaciones de datos: auditoría |Disponible. Más información [aquí](data-lake-store-diagnostic-logs.md). |Disponible |
-| Cifrado de datos en reposo |Transparente, en el servidor (próximamente)<ul><li>con claves administradas por el servicio</li><li>con claves administradas por el cliente en KeyVault de Azure</li></ul> |<ul><li>Transparente, en el servidor</li> <ul><li>con claves administradas por el servicio</li><li>con claves administradas por el cliente en KeyVault de Azure (próximamente)</li></ul><li>cifrado de cliente</li></ul> |
+| Operaciones de datos: autorización |Listas de control de acceso (ACL) de POSIX.  Las ACL basadas en identidades de Azure Active Directory se pueden establecer a nivel de archivo y de carpeta. |Para la autorización de nivel de cuenta: usar [claves de acceso de cuenta](../storage/storage-create-storage-account.md#manage-your-storage-account)<br>Para la cuenta, el contenedor o la autorización de blob - Usar [claves de firma de acceso compartido](../storage/storage-dotnet-shared-access-signature-part-1.md) |
+| Operaciones de datos: auditoría |Disponible. Más información [aquí](data-lake-store-diagnostic-logs.md) . |Disponible |
+| Cifrado de datos en reposo |Transparente, en el servidor (próximamente)<ul><li>Con claves administradas por servicios</li><li>Con claves administradas por clientes en Azure KeyVault</li></ul> |<ul><li>Transparente, en el servidor</li> <ul><li>Con claves administradas por servicios</li><li>Con claves administradas por clientes en Azure KeyVault (próximamente)</li></ul><li>cifrado de cliente</li></ul> |
 | Operaciones de administración (por ejemplo, creación de cuentas) |[Control de acceso basado en rol](../active-directory/role-based-access-control-what-is.md) (RBAC) proporcionado por Azure para la administración de cuentas |[Control de acceso basado en rol](../active-directory/role-based-access-control-what-is.md) (RBAC) proporcionado por Azure para la administración de cuentas |
 | SDK para desarrolladores |.NET, Java, Node.js |.Net, Java, Python, Node.js, C++, Ruby |
 | Rendimiento de la carga de trabajo de análisis |Rendimiento optimizado para cargas de trabajo de análisis paralelas. Gran capacidad de procesamiento e IOPS |No está optimizado para cargas de trabajo de análisis |
 | Límites de tamaño |Sin límites para el tamaño de cuenta, de archivo o el número de archivos |Los límites específicos se documentan [aquí](../azure-subscription-service-limits.md#storage-limits) |
 | Redundancia geográfica |Con redundancia local (varias copias de datos en una región de Azure) |Con redundancia local (LRS) o global (GRS) y acceso de lectura redundante global (RA-GRS). Más información [aquí](../storage/storage-redundancy.md) |
-| Estado de servicio |Vista previa pública |Disponibilidad general |
+| Estado de servicio |Disponibilidad general |Disponibilidad general |
 | Disponibilidad regional |Consulte [aquí](https://azure.microsoft.com/regions/#services) |Consulte [aquí](https://azure.microsoft.com/regions/#services) |
 | Precio |Consulte [Precios](https://azure.microsoft.com/pricing/details/data-lake-store/) |Consulte [Precios](https://azure.microsoft.com/pricing/details/storage/) |
 
-### Pasos siguientes
+### <a name="next-steps"></a>Pasos siguientes
 * [Información general del Almacén de Azure Data Lake](data-lake-store-overview.md)
 * [Introducción al Almacén de Data Lake](data-lake-store-get-started-portal.md)
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Nov16_HO5-->
+
+
