@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar la versión preliminar de Azure Stack para prestar servicios de Azure desde el centro de datos. Aprenda y demuestre características desde un entorno de prueba de concepto."
 translationtype: Human Translation
-ms.sourcegitcommit: cc7cf80b26a0bdc79448fc87d2d8b6fff1931d49
-ms.openlocfilehash: eb675cc7a401583cf0f2dc0605a16d5dda8b306f
+ms.sourcegitcommit: c93027a575b2f9d6507448f9f68011723b165bf3
+ms.openlocfilehash: c964ed3b3fe8b3af31c50f0aacb2ef1c0a8aad74
 
 ---
 #<a name="azure-stack-documentation"></a>Documentación de Azure Stack
 
-Microsoft Azure Stack es un nuevo producto de plataforma en la nube híbrida que le permite proporcionar servicios de Azure desde el centro de datos de la organización. Microsoft Azure Stack Technical Preview 2 estará disponible a través de una prueba de concepto (POC). La POC es un entorno de aprendizaje y demostración de características de Azure Stack. Le permite implementar todos los componentes necesarios en un solo equipo físico para crear un entorno para la evaluación de capacidades y conceptos clave, y validar el modelo de extensibilidad para las API.
+Aprenda a usar la versión Technical Preview de Azure Stack para prestar servicios de Azure desde el centro de datos de su organización. En los tutoriales y otra documentación, se muestra cómo usar el entorno de prueba de concepto para conocer y demostrar las características de Azure Stack.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -96,6 +97,6 @@ Descarga de la documentación de Azure Stack </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a configurar y administrar una conexión ExpressRoute privada con los servicios en la nube de Microsoft desde su infraestructura local o una instalación de colocalización."
 translationtype: Human Translation
-ms.sourcegitcommit: 448cccdf35510db9bac9cdb5648739b18302c90b
-ms.openlocfilehash: 146078c8caf1bcd757d3e19aae5860aba9049ab9
+ms.sourcegitcommit: e8ae00040354ca800d893bc3d73ec96fc9356b39
+ms.openlocfilehash: f27eeb74d07064c616e1a77200b56a7aee154f48
 
 ---
 #<a name="expressroute-documentation"></a>Documentación de ExpressRoute
 
-Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a través de una conexión privada y dedicada que facilita un proveedor de conectividad. La conectividad puede ser desde una red de conectividad universal (IP VPN), una red Ethernet de punto a punto, o una conexión cruzada virtual a través de un proveedor de conectividad en una instalación de ubicación compartida.
-
+Aprenda a usar ExpressRoute para configurar una conexión privada rápida con los servicios en la nube de Microsoft desde su infraestructura local o una instalación de colocalización. Los tutoriales, las API de REST y otra documentación lo ayudan a configurar y administrar un circuito ExpressRoute.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -69,37 +69,32 @@ Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/mt586720">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de ExpressRoute</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt586720">Referencia de API de REST</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn606310">Referencia de API de REST (clásico)</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -107,12 +102,12 @@ Azure ExpressRoute le permite ampliar sus redes locales a la nube de Microsoft a
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/expressroute.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de ExpressRoute </div>
+Descargar la documentación sobre ExpressRoute </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
