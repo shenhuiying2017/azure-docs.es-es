@@ -1,8 +1,8 @@
 
-En primer lugar, debe registrar la aplicación en el sitio del proveedor de identidades y, a continuación, establecerá las credenciales generadas por el proveedor en el back-end de la aplicación móvil.
+En primer lugar, debe registrar la aplicación en el sitio del proveedor de identidades y, a continuación, establecerá las credenciales generadas por el proveedor en el back-end de Mobile Apps.
 
-1. Configure el proveedor de identidades preferido siguiendo las instrucciones específicas del proveedor: 
-   
+1. Configure el proveedor de identidades preferido siguiendo las instrucciones específicas del proveedor:
+
    * [Azure Active Directory](../articles/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)
    * [Facebook](../articles/app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)
    * [Google](../articles/app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md)
@@ -11,9 +11,9 @@ En primer lugar, debe registrar la aplicación en el sitio del proveedor de iden
 2. Repita los pasos anteriores para cada proveedor que desee admitir en su aplicación.
 
 <!-- URLs. -->
-[Portal de Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

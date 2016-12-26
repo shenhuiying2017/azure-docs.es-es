@@ -1,26 +1,30 @@
 ---
-title: Creación de recursos de Application Insights mediante PowerShell
-description: Cree recursos de Application Insights mediante programación como parte de la compilación.
+title: "Creación de pruebas de recursos, alertas y disponibilidad de Application Insights en PowerShell | Microsoft Docs"
+description: "Automatice la administración de recursos de Application Insights mediante una plantilla de Azure Resource Manager."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: fc2d3c3fee5abbab0eab16c106c88c8753e703cc
+ms.openlocfilehash: f6302d7d11691635c286164f11be74ff3a1ad8dd
+
 
 ---
-# Creación de recursos de Application Insights mediante PowerShell
+# <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
 En este artículo se muestra cómo crear un recurso de [Application Insights](app-insights-overview.md) en Azure automáticamente. Puede hacerlo, por ejemplo, como parte de un proceso de compilación. Junto con el recurso básico de Application Insights, puede crear [pruebas web de disponibilidad](app-insights-monitor-web-app-availability.md), [configurar alertas](app-insights-alerts.md) y crear otros recursos de Azure.
 
-La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../powershell-azure-resource-manager.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
+La clave para crear estos recursos es las plantillas JSON para el [Administrador de recursos de Azure](../azure-resource-manager/powershell-azure-resource-manager.md). En pocas palabras, el procedimiento es: descargar las definiciones JSON de los recursos existentes; parametrizar determinados valores como los nombres; y luego ejecutar la plantilla siempre que se quiera crear un nuevo recurso. Puede empaquetar varios recursos juntos para crearlos todos en un solo paso, por ejemplo, un monitor de aplicaciones con pruebas de disponibilidad, alertas y almacenamiento para la exportación continua. Existen algunos matices a algunas de las parametrizaciones automáticas, que se explican aquí.
 
-## Instalación única
+## <a name="one-time-setup"></a>Instalación única
 Si no ha usado PowerShell con su suscripción de Azure antes:
 
 Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los scripts.
@@ -28,7 +32,7 @@ Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los 
 1. Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](http://www.microsoft.com/web/downloads/platform.aspx).
 2. Úselo para instalar Microsoft Azure Powershell.
 
-## Copia de JSON para los recursos existentes
+## <a name="copy-the-json-for-existing-resources"></a>Copia de JSON para los recursos existentes
 1. Configure [Application Insights](app-insights-overview.md) para un proyecto similar a los que quiere generar automáticamente. Si lo desea, agregue pruebas web y alertas.
 2. Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. Copie este contenido en él:
 
@@ -70,29 +74,31 @@ Instale el módulo de Azure Powershell en la máquina donde quiere ejecutar los 
     Esta plantilla configurará una prueba de disponibilidad además del recurso principal.
 
 
-1. Abra el [Administrador de recursos de Azure](https://resources.azure.com/). Desplácese por las suscripciones, los grupos de recursos y los componentes hasta su recurso de aplicación.
+1. Abra el [Administrador de recursos de Azure](https://resources.azure.com/). Desplácese hacia abajo por `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` hasta el recurso de la aplicación. 
    
-    ![](./media/app-insights-powershell/01.png)
+    ![Navegación en el Explorador de recursos de Azure](./media/app-insights-powershell/01.png)
    
     *Componentes* son los recursos básicos de Application Insights para mostrar aplicaciones. Existen recursos distintos para las reglas de alerta asociadas y las pruebas web de disponibilidad.
 2. Copie el código JSON del componente en el lugar adecuado en `template1.json`.
 3. Elimine estas propiedades:
+   
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
+   * `TenantId`
 4. Abra las secciones de pruebas web y reglas de alertas y copie el código JSON para los elementos individuales de la plantilla. (No copie de los nodos de pruebas web o reglas de alerta: vaya a los elementos que hay debajo de ellos).
    
     Cada prueba web tiene una regla de alerta asociada, por lo que tiene que copiar las dos.
    
-    La prueba web debe ir antes que la regla de alerta.
-5. Para satisfacer el esquema, inserte esta línea en cada recurso:
+    Cada prueba web tiene una regla de alerta correspondiente. La prueba web debe ir primero.
    
-    `"apiVersion": "2014-04-01",`
+    También puede incluir alertas en las métricas. [Nombres de métricas](app-insights-powershell-alerts.md#metric-names).
+5. Inserte esta línea en cada recurso:
    
-    (El esquema también reclama el uso de mayúsculas en los nombres de tipo de recurso `Microsoft.Insights/*`, pero *no* los cambie).
+    `"apiVersion": "2015-05-01",`
 
-## Parametrización de la plantilla
-Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](../resource-group-authoring-templates.md), escriba expresiones mediante un [conjunto de funciones auxiliares](../resource-group-template-functions.md).
+## <a name="parameterize-the-template"></a>Parametrización de la plantilla
+Ahora, debe reemplazar los nombres específicos por parámetros. Para [parametrizar una plantilla](../azure-resource-manager/resource-group-authoring-templates.md), escriba expresiones mediante un [conjunto de funciones auxiliares](../azure-resource-manager/resource-group-template-functions.md). 
 
 No se puede parametrizar solo una parte de una cadena, así que use `concat()` para compilar las cadenas.
 
@@ -107,39 +113,21 @@ No se puede parametrizar solo una parte de una cadena, así que use `concat()` p
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
 | `"myappname"` (minúscula) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name="myWebTest" ...`<br/>` Url="http://fabrikam.com/home" ...>"` |`[concat('<WebTest Name="',` <br/> `parameters('webTestName'),` <br/> `'" ... Url="', parameters('Url'),` <br/> `'"...>')]" ` |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Elimine el Guid y el identificador. |
 
-## Si la aplicación es una aplicación web de Azure
-Agregue este recurso, o si ya existe ahí un recurso `siteextensions`, parametrícelo de este modo:
-
-```json
-    {
-      "apiVersion": "2014-06-01",
-      "name": "Microsoft.ApplicationInsights.AzureWebSites",
-      "type": "siteextensions",
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/Sites', parameters('siteName'))]",
-        "[resourceId('Microsoft.Web/Sites/config', parameters('siteName'), 'web')]",
-        "[resourceId('Microsoft.Web/sites/sourcecontrols', parameters('siteName'), 'web')]"
-      ],
-      "properties": { }
-    }
-
-```
-
-Este recurso implementa el SDK de Application Insights en la aplicación web de Azure.
-
-## Establecimiento de dependencias entre los recursos
+## <a name="set-dependencies-between-the-resources"></a>Establecimiento de dependencias entre los recursos
 Azure debe instalar los recursos en un orden estricto. Para tener la seguridad de que una instalación finaliza antes de que comience la siguiente, agregue líneas de dependencia:
 
-* En el recurso de prueba web:
+* En el recurso de la prueba de disponibilidad:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
 * En el recurso de alerta:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
-## Creación de recursos de Application Insights
+Observe que una prueba de disponibilidad consta realmente de dos partes: la misma prueba y una regla de alerta que se activa según los resultados de la prueba.
+
+## <a name="create-application-insights-resources"></a>Creación de recursos de Application Insights
 1. En PowerShell, inicie sesión en Azure
    
     `Login-AzureRmAccount`
@@ -151,9 +139,8 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
                -templateFile .\template1.json `
                -appName myNewApp `
                -webTestName aWebTest `
-               -Url http://myapp.com `
+               -url http://myapp.com `
                -text "Welcome!"
-               -siteName "MyAzureSite"
    
     ``` 
    
@@ -163,13 +150,20 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
    * -webTestName es el nombre de la prueba web para crear.
    * -Url es la dirección URL de la aplicación web.
    * -text es una cadena que aparece en la página web.
-   * -siteName: se utiliza si es un sitio web de Azure
 
-## Definición de alertas de métrica
-Existe un [método de PowerShell de configuración de alertas](app-insights-alerts.md#set-alerts-by-using-powershell).
+## <a name="to-get-the-instrumentation-key"></a>Para obtener la clave de instrumentación
+Después de crear un recurso de aplicación, querrá el iKey: 
 
-## los cmdlets
-A continuación se muestra el componente completo, la prueba web y la plantilla de alerta de prueba web que he creado:
+```PS
+
+    $resource = Get-AzureRmResource -ResourceId "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<YOUR RESOURCE GROUP>/providers/Microsoft.Insights/components/<YOUR APP NAME>"
+
+    $resource.Properties.InstrumentationKey
+```
+
+
+## <a name="an-example"></a>los cmdlets
+Aquí se muestra la plantilla completa creada. Tiene el componente de aplicación, la prueba de disponibilidad, la alerta de prueba de disponibilidad y una alerta en la métrica de tiempo de respuesta.
 
 ``` JSON
 
@@ -180,49 +174,54 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
     "webTestName": { "type": "string" },
     "appName": { "type": "string" },
     "URL": { "type": "string" },
-    "text": { "type" : "string" }
+    "text": { "type": "string" }
   },
   "variables": {
     "alertRuleName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')), '-', subscription().subscriptionId)]",
-    "testName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')))]"
+    "testName": "[concat(parameters('webTestName'), '-', toLower(parameters('appName')))]",
+    "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
   },
   "resources": [
     {
-      //"id": "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+      //
+      // App resource
+      //
+      "name": "[parameters('appName')]",
+      "type": "Microsoft.Insights/components",
       "apiVersion": "2014-04-01",
       "kind": "web",
-      "location": "Central US",
-      "name": "[parameters('appName')]",
+      "location": "East US", // Set to preferred location 
       "properties": {
-        "TenantId": "9122605a-471fc50f8438",
         "Application_Type": "web",
         "Flow_Type": "Brownfield",
         "Request_Source": "VSIX3.3.1.0",
         "Name": "[parameters('appName')]",
-        //"CreationDate": "2015-10-14T15:55:10.0917441+00:00",
         "PackageId": null,
         "ApplicationId": "[parameters('appName')]"
       },
-      "tags": { },
-      "type": "microsoft.insights/components"
+      "tags": { "applicationType": "web" }
     },
     {
-      //"id": "[resourceId('Microsoft.Insights/webtests', variables('testName'))]",
+      //
+      // Availability test
+      //
       "name": "[variables('testName')]",
+      "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "type": "microsoft.insights/webtests",
-      "location": "Central US",
+      "location": "East US", // Set to preferred location
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
+      ],
       "tags": {
-        "[concat('hidden-link:', resourceId('microsoft.insights/components', parameters('appName')))]": "Resource"
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
       },
       "properties": {
-        "provisioningState": "Succeeded",
         "Name": "[parameters('webTestName')]",
-        "Description": "",
+        "Description": "n",
         "Enabled": true,
-        "Frequency": 900,
-        "Timeout": 120,
-        "Kind": "ping",
+        "Frequency": 900, // 15 minutes
+        "Timeout": 120, // 2 minutes
+        "Kind": "ping", // single URL test
         "RetryEnabled": true,
         "Locations": [
           {
@@ -232,30 +231,24 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
             "Id": "emea-nl-ams-azr"
           },
           {
-            "Id": "emea-gb-db3-azr"
+            "Id": "apac-jp-kaw-edge"
           }
         ],
         "Configuration": {
-          "WebTest": "[concat(
-             '<WebTest   Name="', 
-                parameters('webTestName'), 
-              '"  Id="32cfc791-aaad-4b50-9c8d-993c21beb218"   Enabled="True"         CssProjectStructure=""    CssIteration=""  Timeout="120"  WorkItemIds=""         xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010"         Description=""  CredentialUserName=""  CredentialPassword=""         PreAuthenticate="True"  Proxy="default"  StopOnError="False"         RecordedResultFile=""  ResultsLocale="">  <Items>  <Request Method="GET"         Guid="a6f2c90b-61bf-b28hh06gg969"  Version="1.1"  Url="', 
-              parameters('Url'), 
-              '" ThinkTime="0"  Timeout="300" ParseDependentRequests="True"         FollowRedirects="True" RecordResult="True" Cache="False"         ResponseTimeGoal="0"  Encoding="utf-8"  ExpectedHttpStatusCode="200"         ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />        </Items>  <ValidationRules> <ValidationRule  Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Find Text"         Description="Verifies the existence of the specified text in the response."         Level="High"  ExectuionOrder="BeforeDependents">  <RuleParameters>        <RuleParameter Name="FindText" Value="', 
-              parameters('text'), 
-              '" />  <RuleParameter Name="IgnoreCase" Value="False" />  <RuleParameter Name="UseRegularExpression" Value="False" />  <RuleParameter Name="PassIfTextFound" Value="True" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
+          "WebTest": "[concat('<WebTest   Name=\"', parameters('webTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExectuionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('text'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
         },
         "SyntheticMonitorId": "[variables('testName')]"
       }
     },
     {
-      //"id": "[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",
+      //
+      // Alert rule for the availability test
+      //
       "name": "[variables('alertRuleName')]",
+      "type": "Microsoft.Insights/alertrules",
       "apiVersion": "2014-04-01",
-      "type": "microsoft.insights/alertrules",
-      "location": "East US",
+      "location": "East US", // Must be East US at present
       "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
         "[resourceId('Microsoft.Insights/webtests', variables('testName'))]"
       ],
       "tags": {
@@ -264,7 +257,7 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
       },
       "properties": {
         "name": "[variables('alertRuleName')]",
-        "description": "",
+        "description": "alert for web test",
         "isEnabled": true,
         "condition": {
           "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
@@ -275,32 +268,81 @@ A continuación se muestra el componente completo, la prueba web y la plantilla 
             "resourceUri": "[resourceId('microsoft.insights/webtests', variables('testName'))]",
             "metricName": "GSMT_AvRaW"
           },
-          "windowSize": "PT15M",
+          "windowSize": "PT15M", // Take action if changed state for 15 minutes
           "failedLocationCount": 2
         },
-        "action": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-          "sendToServiceOwners": true,
-          "customEmails": [ ]
-        },
-        "provisioningState": "Succeeded",
-        "actions": [ ]
+        "actions": [
+          {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+            "sendToServiceOwners": true,
+            "customEmails": []
+          }
+        ]
       }
 
+    },
+    {
+      //
+      // Metric alert on response time
+      //
+      "name": "[variables('responseAlertName')]",
+      "type": "Microsoft.Insights/alertrules",
+      "apiVersion": "2014-04-01",
+      "location": "East US", // Must be East US at present
+      "dependsOn": [
+        "[resourceId('Microsoft.Insights/components', parameters('appName'))]",
+        "[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]"
+      ],
+      "tags": {
+        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
+      },
+      "properties": {
+        "name": "[variables('responseAlertName')]",
+        "description": "response time alert",
+        "isEnabled": true,
+        "condition": {
+          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
+          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+          "dataSource": {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+            "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
+            "metricName": "request.duration"
+          },
+          "threshold": 3, //seconds
+          "windowSize": "PT15M" // Take action if changed state for 15 minutes
+        },
+        "actions": [
+          {
+            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
+            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+            "sendToServiceOwners": true,
+            "customEmails": []
+          }
+        ]
+      }
     }
   ]
 }
 
+
 ```
 
-## Consulte también
+
+## <a name="next-steps"></a>Pasos siguientes
 Otros artículos de automatización:
 
-* [Script de PowerShell para crear un recurso de Application Insights](app-insights-powershell-script-create-resource.md): método rápido sin necesidad de plantilla.
+* [Script de PowerShell para crear un recurso de Application Insights](app-insights-powershell-script-create-resource.md) : método rápido sin necesidad de plantilla.
 * [Uso de PowerShell para configurar alertas en Application Insights](app-insights-powershell-alerts.md)
 * [Creación de pruebas web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Envío de Azure Diagnostics a Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Implementación de Azure desde Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Creación de anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

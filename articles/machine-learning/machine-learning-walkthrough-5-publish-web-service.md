@@ -1,12 +1,12 @@
 ---
-title: 'Paso 5: Implementación del servicio web Machine Learning | Microsoft Docs'
-description: 'Paso 5 del tutorial Desarrollo de una solución predictiva: Implementación de un experimento predictivo en Machine Learning Studio como servicio web.'
+title: "Paso 5: Implementación del servicio web Machine Learning | Microsoft Docs"
+description: "Paso 5 del tutorial Desarrollo de una solución predictiva: Implementación de un experimento predictivo en Machine Learning Studio como servicio web."
 services: machine-learning
-documentationcenter: ''
+documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2016
 ms.author: garye
+translationtype: Human Translation
+ms.sourcegitcommit: c7e5bf29aacbcb11bfa1db01738d234ae64b46b2
+ms.openlocfilehash: 141586d880e6a8f069ec26b3279d9787c5e046b4
+
 
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Paso 5 del tutorial: Implementación del servicio web Azure Machine Learning
@@ -172,13 +176,11 @@ Cuando se haya implementado el servicio web clásico, podrá administrarlo desde
 6. Haga clic en el punto de conexión "predeterminado".
 
 Desde aquí, puede hacer tareas como supervisar el funcionamiento del servicio web y realizar ajustes de rendimiento cambiando el volumen de llamadas simultáneas que el servicio puede controlar.
-Incluso puede publicar el servicio web en Azure Marketplace.
 
 Para obtener información, consulte:
 
 * [Creación de extremos](machine-learning-create-endpoint.md)
 * [Escalado de servicios web](machine-learning-scaling-webservice.md)
-* [Publicación de los servicios web Azure Machine Learning en Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Administración de un servicio web en el portal Servicios web Azure Machine Learning**
 
@@ -215,6 +217,7 @@ Para supervisar el rendimiento del servicio web, siga estos pasos:
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO4-->
 
 

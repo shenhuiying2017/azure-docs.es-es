@@ -1,42 +1,13 @@
 ---
-title: "Sincronización de Azure AD Connect: interfaz de usuario de Synchronization Service Manager | Microsoft Docs"
-description: "Conozca la pestaña Diseñador de metaverso de Synchronization Service Manager para Azure AD Connect."
-services: active-directory
-documentationcenter: 
-author: andkjell
-manager: femila
-editor: 
-ms.assetid: abaa9eb2-f105-42d1-b00a-2a63129a8ffb
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/07/2016
-ms.author: billmath
+redirect_url: /azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvdesigner
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e5200a12f0be338ebc8da45e1e912fcf7bb142c
-
+ms.sourcegitcommit: aa20b20c86763791eb579883b5273ea79cc714b5
+ms.openlocfilehash: e1b29cdade7760d01cd79d1cceb559c2936b27aa
 
 ---
-# <a name="azure-ad-connect-sync-synchronization-service-manager"></a>Sincronización de Azure AD Connect: Synchronization Service Manager
-| [Operaciones](active-directory-aadconnectsync-service-manager-ui-operations.md) | [Conectores](active-directory-aadconnectsync-service-manager-ui-connectors.md) | [Diseñador de metaverso](active-directory-aadconnectsync-service-manager-ui-mvdesigner.md) | [Búsqueda de metaverso](active-directory-aadconnectsync-service-manager-ui-mvsearch.md) |
-| --- | --- | --- | --- |
-|  | | | |
-
-![Sync Service Manager](./media/active-directory-aadconnectsync-service-manager-ui/mvdesigner.png)
-
-La mayoría de los clientes no tienen que configurar nada aquí.
-
-## <a name="next-steps"></a>Pasos siguientes
-Obtenga más información sobre la configuración de la [Sincronización de Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
-
-Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

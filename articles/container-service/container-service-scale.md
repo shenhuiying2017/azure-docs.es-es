@@ -3,8 +3,8 @@ title: "Escalado del clúster de ACS con la CLI de Azure | Microsoft Docs"
 description: "Cómo escalar el clúster de Azure Container Service mediante la CLI de Azure."
 services: container-service
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: 
 tags: acs, azure-container-service
 keywords: Docker, contenedores, microservicios, Mesos, Azure
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: timlt
+ms.author: saudas
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 9e8df2e68b1b7018d76da89ba9ab332b6ea216fb

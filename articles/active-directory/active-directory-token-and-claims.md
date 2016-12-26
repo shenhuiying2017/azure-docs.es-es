@@ -1,12 +1,12 @@
 ---
 title: Referencia de tokens de Azure AD | Microsoft Docs
-description: Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)
+description: "Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)"
 documentationcenter: na
 author: bryanla
 services: active-directory
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/06/2016
 ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: dc74b712953a545608a3107388a761c9c7ba84cf
+ms.openlocfilehash: ac602b649ecbe58570338e47abe5366b6a5f92bb
+
 
 ---
 # <a name="azure-ad-token-reference"></a>Referencia de tokens de Azure AD
@@ -26,14 +30,14 @@ Un token portador es un token de seguridad ligero que concede al "portador" acce
 
 Muchos de los tokens emitidos por Azure AD se implementan como tokens web JSON o JWT.  Un JWT es un medio compacto y seguro de la dirección URL para transferir información entre dos partes.  La información contenida en los JWT se conoce como "notificaciones", o aserciones de información sobre el portador y el asunto del token.  Las notificaciones de JWT son los objetos JSON codificados y serializados para su transmisión.  Puesto que los JWT emitidos por Azure AD están firmados, pero no cifrados, puede inspeccionar fácilmente el contenido de un JWT con fines de depuración.  Hay varias herramientas disponibles para hacerlo, como [jwt.calebb.net](http://jwt.calebb.net). Para obtener más información sobre los JWT, consulte la [especificación de JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-## <a name="id_tokens"></a>Id_Tokens
+## <a name="idtokens"></a>Id_Tokens
 Los id_tokens son una forma de token de seguridad de inicio de sesión que recibe la aplicación cuando la autenticación se realiza mediante [OpenID Connect](active-directory-protocols-openid-connect-code.md).  Se representan como [JWT](#types-of-tokens) y contienen notificaciones que se pueden usar para que el usuario inicie sesión en la aplicación.  Puede utilizar las notificaciones de un id_token como le convenga. Normalmente se usan para mostrar información de la cuenta o tomar decisiones de control de acceso en una aplicación.
 
 En ese momento los id_tokens están firmados, pero no cifrados.  Cuando la aplicación recibe un id_token tiene que [validar la firma](#validating-tokens) para probar la autenticidad del token y validar algunas notificaciones en el token para probar su validez.  Las notificaciones validadas por una aplicación varían dependiendo de los requisitos de escenario, pero hay algunas [validaciones de notificación comunes](#validating-tokens) que la aplicación debe realizar en todos los escenarios.
 
 Para obtener información sobre las notificaciones de id_tokens, así como un id_token de ejemplo, consulte la siguiente sección.  Tenga en cuenta que  las notificaciones de los id_tokens no se devuelven en ningún orden concreto.  Además, se pueden introducir nuevas notificaciones en los id_tokens en cualquier momento y no se debe interrumpir la aplicación cuando se introducen nuevas notificaciones.  La siguiente lista incluye las notificaciones que la aplicación puede interpretar de forma confiable en el momento de redactar este artículo.  Si es necesario, se pueden encontrar más detalles en la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
-#### <a name="sample-id_token"></a>Ejemplo de id_token
+#### <a name="sample-idtoken"></a>Ejemplo de id_token
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0yNzRhNzJhNzMwOWUiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83ZmU4MTQ0Ny1kYTU3LTQzODUtYmVjYi02ZGU1N2YyMTQ3N2UvIiwiaWF0IjoxMzg4NDQwODYzLCJuYmYiOjEzODg0NDA4NjMsImV4cCI6MTM4ODQ0NDc2MywidmVyIjoiMS4wIiwidGlkIjoiN2ZlODE0NDctZGE1Ny00Mzg1LWJlY2ItNmRlNTdmMjE0NzdlIiwib2lkIjoiNjgzODlhZTItNjJmYS00YjE4LTkxZmUtNTNkZDEwOWQ3NGY1IiwidXBuIjoiZnJhbmttQGNvbnRvc28uY29tIiwidW5pcXVlX25hbWUiOiJmcmFua21AY29udG9zby5jb20iLCJzdWIiOiJKV3ZZZENXUGhobHBTMVpzZjd5WVV4U2hVd3RVbTV5elBtd18talgzZkhZIiwiZmFtaWx5X25hbWUiOiJNaWxsZXIiLCJnaXZlbl9uYW1lIjoiRnJhbmsifQ.
 ```
@@ -43,7 +47,8 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 > 
 > 
 
-#### <a name="claims-in-id_tokens"></a>Notificaciones en los id_tokens
+#### <a name="claims-in-idtokens"></a>Notificaciones en los id_tokens
+> [!div class="mx-codeBreakAll"]
 | Notificación de JWT | Nombre | Description |
 | --- | --- | --- |
 | `appid` |Identificador de aplicación |Identifica la aplicación que usa el token para acceder a un recurso. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. <br><br> **Valor de JWT de ejemplo**: <br> `"appid":"15CB020F-3984-482A-864D-1D92265E8268"` |
@@ -69,11 +74,15 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `ver` |Versión |Almacena el número de versión del token. <br><br> **Valor de JWT de ejemplo**: <br> `"ver": "1.0"` |
 
 ## <a name="access-tokens"></a>Tokens de acceso
-En este momento, solo Microsoft Services puede utilizar los tokens de acceso.  Tus aplicaciones no necesitan realizar ninguna validación o inspección de los tokens de acceso para ninguno de los escenarios admitidos actualmente.  Puedes tratar los tokens de acceso como totalmente opacos, ya que simplemente son cadenas que tu aplicación puede pasar a Microsoft en las solicitudes HTTP.
+
+Si la aplicación solo *utiliza* tokens de acceso para obtener acceso a las API, puede (y debe) tratar los tokens de acceso como completamente opacos: son simplemente cadenas que su aplicación puede pasar a los recursos en las solicitudes HTTP.
 
 Al solicitar un token de acceso, Azure AD también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación.  Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido.  Esto permite a la aplicación realizar un almacenamiento inteligente en caché de los tokens de acceso sin tener que analizar y abrir el mismo token de acceso.
 
+Si la aplicación es una API protegida con Azure AD que espera tokens de acceso en las solicitudes HTTP, debe llevar a cabo la validación y la inspección de los tokens que recibe. Para obtener más información acerca de cómo hacer esto con. NET, consulte cómo [proteger una API web mediante tokens de portador de Azure AD](active-directory-devquickstarts-webapi-dotnet.md).
+
 ## <a name="refresh-tokens"></a>Tokens de actualización
+
 Los tokens de actualización son tokens de seguridad que la aplicación puede utilizar para adquirir nuevos tokens de acceso en un flujo de OAuth 2.0.  Permite a la aplicación obtener acceso a largo plazo a los recursos en nombre de un usuario sin necesidad de que intervenga el usuario.
 
 Los tokens de actualización tienen varios recursos, lo que significa que se pueden recibir en una solicitud de token para un recurso, pero se pueden canjear por tokens de acceso para un recurso completamente diferente. Para especificar la existencia de varios recursos, establezca el parámetro `resource` en la solicitud para el recurso de destino.
@@ -83,14 +92,16 @@ Los tokens de actualización son totalmente opacos para su aplicación. También
 Al canjear un token de actualización por un nuevo token de acceso, recibirá un nuevo token de actualización en la respuesta del token.  Tienes que guardar el token de actualización recién emitido reemplazando el utilizado en la solicitud.  Esto garantizará que los tokens de actualización sigan siendo válidos mientras sea posible.
 
 ## <a name="validating-tokens"></a>Validación de los tokens
-En este momento, la única validación de tokens que la aplicación cliente debería realizar es la validación de id_tokens.  Para validar un id_token, la aplicación tiene que validar la firma del id_token y las notificaciones del id_token.
+
+Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token.
 
 Proporcionamos bibliotecas y ejemplos de código que muestran cómo realizar fácilmente la validación de tokens, por si se desea conocer el proceso subyacente.  También hay varias bibliotecas de código abierto de terceros para la validación de JWT; como mínimo hay una opción para casi todos los lenguajes y plataformas. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md).
 
 #### <a name="validating-the-signature"></a>Validación de la firma
-Un JWT contiene tres segmentos, que están separados por el carácter `.` .  El primer segmento se conoce como el **encabezado**, el segundo como el **cuerpo** y el tercero como la **firma**.  El segmento de firma se puede utilizar para validar la autenticidad del id_token para que la aplicación pueda confiar en él.
 
-Los id_tokens se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. El encabezado del id_token contiene información sobre el método de cifrado y la clave utilizados para firmar el token:
+Un JWT contiene tres segmentos, que están separados por el carácter `.` .  El primer segmento se conoce como el **encabezado**, el segundo como el **cuerpo** y el tercero como la **firma**.  El segmento de firma se puede utilizar para validar la autenticidad del token con el fin de que la aplicación pueda confiar en él.
+
+Los tokens emitidos por Azure AD se firman con algoritmos de cifrado asimétrico estándar del sector, como RSA 256. El encabezado de JWT contiene información acerca de clave y el método de cifrado utilizados para firmar el token:
 
 ```
 {
@@ -122,21 +133,22 @@ También incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves 
 La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarte a hacerlo si es necesario.
 
 #### <a name="validating-the-claims"></a>Validación de las notificaciones
-Cuando la aplicación recibe un id_token al inicio de sesión del usuario, también tiene que realizar algunas comprobaciones de las notificaciones del id_token.  Estas incluyen, pero no se limitan a:
 
-* Notificación **Audiencia**: comprueba que estaba previsto proporcionar el id_token a la aplicación.
-* Notificaciones **No antes de** y **Fecha de expiración**: comprueba que el id_token no ha expirado.
+Cuando la aplicación recibe un token (un id_token al inicio de sesión de usuario o un token de acceso como token de portador en la solicitud HTTP), debe realizar algunas comprobaciones respecto a las notificaciones del token.  Estas incluyen, pero no se limitan a:
+
+* Notificación **Audience** (Audiencia): comprueba que el token estuviera previsto para proporcionarlo a la aplicación.
+* Notificaciones **Not Before** (No antes de) y **Fecha de expiración**: comprueban que el token no haya expirado.
 * Notificación **Emisor** : comprueba que el token fue emitido realmente a la aplicación por Azure AD.
 * **Nonce**: mitiga ataques de reproducción de tokens.
 * y mucho más...
 
-Para ver una lista completa de las validaciones de notificaciones que la aplicación debe realizar, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation).
-
-En la [sección sobre id_token](#id-tokens) anterior se proporciona información detallada sobre los valores esperados para estas notificaciones.
+Para ver una lista completa de las validaciones de notificaciones que la aplicación debe realizar con los tokens de identificador, consulte la [especificación de OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#IDTokenValidation). En la [sección sobre id_token](#id-tokens) anterior se proporciona información detallada sobre los valores esperados para estas notificaciones.
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
+
 Esta sección muestra ejemplos de tokens SAML y JWT que Azure AD devuelve. Estos ejemplos le permiten ver las notificaciones en contexto.
-Token SAML
+
+### <a name="saml-token"></a>Token SAML
 
 Este es un ejemplo de token SAML típico.
 
@@ -289,6 +301,9 @@ Además de las notificaciones, el token incluye un número de versión en **ver*
 * Para más información acerca de la administración de la directiva de vigencia de token mediante la API de Azure AD Graph, consulte las [operaciones de directivas](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) y la [entidad de directiva](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) de Azure AD Graph.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](active-directory-configurable-token-lifetimes.md) (Vigencias de tokens configurables en Azure Active Directory). 
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

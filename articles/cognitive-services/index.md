@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Conozca cómo agregar funcionalidades inteligentes a las aplicaciones como, por ejemplo, visión, voz y análisis del lenguaje. Obtenga guías de inicio rápido y referencias de API."
 translationtype: Human Translation
-ms.sourcegitcommit: 87b9d22ec066108adb282606305315919b901ea0
-ms.openlocfilehash: b266164f44b36fbfbe3b8a662653a978877643fc
+ms.sourcegitcommit: d08cbd179ffb64630a37dd04e33ae50dfda3c615
+ms.openlocfilehash: 9e31044fb3be93befb18939210e0bc703462fbd6
 
 ---
 #<a name="cognitive-services-documentation"></a>Documentación de Cognitive Services
 
-Cognitive Services (versión preliminar) es una serie de API que pueden utilizarse para habilitar la interacción natural y contextual dentro de las aplicaciones.  Cognitive Services ofrece las API Language, Speech, Vision, Search y Knowledge.
+Aprenda a habilitar las interacciones naturales y contextuales de las aplicaciones con Cognitive Services. Tutoriales de inicio rápido y referencias de API le ayudan a incorporar las funcionalidades de inteligencia artificial para texto, voz, visión y búsqueda. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -68,52 +69,31 @@ Cognitive Services (versión preliminar) es una serie de API que pueden utilizar
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia administrada de Cognitive Services</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Cognitive Services</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -121,12 +101,12 @@ Cognitive Services (versión preliminar) es una serie de API que pueden utilizar
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cognitive-services.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de Cognitive Services </div>
+Descargar la documentación sobre Cognitive Services </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -11,20 +11,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/07/2016
+ms.date: 11/16/2016
 ms.author: awills
 translationtype: Human Translation
-ms.sourcegitcommit: b70c8baab03703bc00b75c2c611f69e3b71d6cd7
-ms.openlocfilehash: d3478ef704c0029f69cca141bd3fa0b3ac54de15
+ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
+ms.openlocfilehash: c5c2742065536805cd032f2d814ad668b8ad3b6e
 
 
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
-Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Application Insights de Visual Studio](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
+Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas web para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
 
 ![Ejemplo de prueba web](./media/app-insights-monitor-web-app-availability/appinsights-10webtestresult.png)
 
-Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet.
+Puede configurar pruebas web para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet. No tiene que agregar nada en el sitio web que se está probando. Ni siquiera tiene que ser su sitio: puede probar un servicio de API de REST de los que dependa.
 
 Existen dos tipos de prueba web:
 
@@ -58,7 +58,7 @@ En el recurso de Application Insights, busque el icono de disponibilidad. Haga c
 
     **Respuesta HTTP**: el código de estado devuelto que se considera correcto. 200 es el código que indica que se ha devuelto una página web normal.
 
-    **Coincidencia de contenido**: una cadena, como "Bienvenido". Realizamos una prueba que tiene lugar en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
+    **Coincidencia de contenido**: una cadena, como "Bienvenido". Probamos que se produce una coincidencia exacta entre mayúsculas y minúsculas en todas las respuestas. Debe ser una cadena sin formato, sin caracteres comodín. No se olvide de que si el contenido cambia, es posible que tenga que actualizarla.
 * **alertas** cuando hay errores en tres ubicaciones durante cinco minutos. Es probable que un error en una ubicación sea un problema de red y no un problema con su sitio. No obstante, puede cambiar el umbral a más o menos sensible, y también puede cambiar las personas a quienes se deben enviar los correos electrónicos.
 
     Puede configurar un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) que se llama cuando se genera una alerta. (Pero tenga en cuenta que, en la actualidad, los parámetros de consulta no se pasan como propiedades).
@@ -102,8 +102,20 @@ También puede descargar el archivo de resultados e inspeccionarlo en Visual Stu
 
 *¿Parece que se ha completado correctamente pero se notifica como un error?*  Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
-## <a name="multistep-web-tests"></a>Pruebas web de varios pasos
+### <a name="open-the-server-request-and-exceptions"></a>Abra la solicitud del servidor y las excepciones
+
+En las propiedades detalladas de una prueba determinada, puede abrir el informe del lado servidor de la solicitud y cualquier otro evento, por ejemplo, las excepciones.
+
+![Webtest run result](./media/app-insights-monitor-web-app-availability/web-test-linked-to-server-telemetry.png)
+
+Si no ve elementos relacionados, puede deberse a que hay un [muestreo](app-insights-sampling.md) en curso.
+
+## <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 Puede supervisar un escenario que implique una secuencia de direcciones URL. Por ejemplo, si está supervisando un sitio web de ventas, puede probar que la incorporación de elementos al carro de la compra funciona correctamente.
+
+> [!NOTE] 
+> Las pruebas web de varios pasos conllevan un coste. [Esquema de precios](http://azure.microsoft.com/pricing/details/application-insights/).
+> 
 
 Para crear una prueba de varios pasos, grabe el escenario con Visual Studio y, a continuación, cargue la grabación en Application Insights. Application Insights reproduce el escenario a intervalos y comprueba las respuestas.
 
@@ -153,7 +165,7 @@ No olvide que todos los recursos de una página se deben cargar correctamente pa
 
 Tenga en cuenta que la prueba web debe estar contenida totalmente en el archivo .webtest: no puede usar las funciones codificadas en la prueba.
 
-### <a name="plugging-time-and-random-numbers-into-your-multistep-test"></a>Conexión de tiempo y números aleatorios a su prueba de varios pasos
+### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Conexión de tiempo y números aleatorios a su prueba de varios pasos
 Suponga que está probando una herramienta que obtiene datos que dependen del tiempo, como acciones de una fuente externa. Cuando se graba la prueba web, debe utilizar horas específicas, pero las establece como parámetros de la prueba, StartTime y EndTime.
 
 ![Una prueba web con parámetros.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-parameters.png)
@@ -176,7 +188,7 @@ Los complementos de prueba web proporcionan la manera de parametrizar los tiempo
 
 Ahora puede cargar la prueba en el portal. Utiliza los valores dinámicos en cada ejecución de la prueba.
 
-## <a name="dealing-with-signin"></a>Tratamiento del inicio de sesión
+## <a name="dealing-with-sign-in"></a>Tratamiento del inicio de sesión
 Si los usuarios inician sesión en la aplicación, tiene varias opciones para simular el inicio de sesión a fin de poder probar páginas detrás del inicio de sesión. El enfoque que utilice dependerá del tipo de seguridad proporcionada por la aplicación.
 
 En todos los casos, debe crear una cuenta en su aplicación para realizar pruebas. Si es posible, restrinja los permisos de esta cuenta de prueba para que sea totalmente imposible que las pruebas web afecten a usuarios reales.
@@ -282,6 +294,6 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

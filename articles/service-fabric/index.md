@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a usar la plataforma de middleware Service Fabric para empaquetar e implementar microservicios para aplicaciones a escala de nube. Tutoriales, referencias de API y ejemplos de código."
 translationtype: Human Translation
-ms.sourcegitcommit: c6d2e90a58359c809a2b01a97cb25c12f7600008
-ms.openlocfilehash: 798d728c163df6647fb2607e14decf880f43b053
+ms.sourcegitcommit: 553950d52f53f7911e6de6dde3e2d92fd2e0395a
+ms.openlocfilehash: b6e7175ab63490907bb147ab519c20ebdee6bfc0
 
 ---
 #<a name="service-fabric-documentation"></a>Documentación de Service Fabric
 
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. 
+Aprenda a usar Service Fabric para empaquetar, implementar y administrar microservicios escalables y confiables. En los tutoriales, las referencias de API y los ejemplos de código, se muestra cómo usar esta plataforma de middleware para crear y administrar aplicaciones a escala de nube.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,64 +107,44 @@ Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el 
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/servicefabric/vlatest/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de PowerShell de Service Fabric</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/servicefabric/vlatest/servicefabric">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/java/api">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referencia de la API de Java</p>
+                        <h3>Idiomas</h3>
+                        <p><a href="/java/api/microsoft.servicefabric.services">API de Java</a></p>
+                        <p><a href="/dotnet/api/microsoft.servicefabric.services">.NET</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>API de referencia administrada de .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Service Fabric</p>
+                        <p><a href="/rest/api/servicefabric">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>   
 
@@ -172,12 +153,12 @@ Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el 
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de la documentación de Service Fabric </div>
+Descargar la documentación sobre Service Fabric </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 
