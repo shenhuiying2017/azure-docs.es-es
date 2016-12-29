@@ -1,32 +1,37 @@
 ---
-title: Salida de los Análisis de transmisiones del Almacén de Data Lake | Microsoft Docs
-description: Configuración de la autenticación y la autorización de un Almacén de Azure Data Lake en un trabajo de Análisis de transmisiones
-keywords: ''
+title: Salida de Stream Analytics Data Lake Store | Microsoft Docs
+description: "Configuración de la autenticación y la autorización de un Almacén de Azure Data Lake en un trabajo de Análisis de transmisiones"
+keywords: 
 services: stream-analytics
-documentationcenter: ''
+documentationcenter: 
 author: jeffstokes72
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: jeffstok
+translationtype: Human Translation
+ms.sourcegitcommit: 9c800007ccac453744937807f54aa003732aa6a9
+ms.openlocfilehash: 68b52e1e5b5b65a4690eedacd62806f4ee15d6df
+
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Salida de los Análisis de transmisiones del Almacén de Data Lake
 Los trabajos de Análisis de transmisiones admiten varios métodos de salida, y uno de ellos es el [Almacén de Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). El Almacén de Azure Data Lake es un repositorio de gran escala en toda la empresa para cargas de trabajo de análisis de macrodatos. El Almacén de Data Lake permite almacenar datos de cualquier tamaño, tipo y velocidad de ingesta para realizar análisis exploratorios y operativos.
 
 ## <a name="authorize-a-data-lake-store-account"></a>Autorización de una cuenta del Almacén de Data Lake
-1. Cuando se selecciona el Almacén de Data Lake como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de su Almacén de Data Lake existente o pida acceso a la vista previa del Almacén de Data Lake mediante el Portal de Azure clásico.
+1. Cuando se selecciona Data Lake Store como una salida en el Portal de administración de Azure, se le pedirá que autorice el uso de la instancia de Data Lake Store existente o pida acceso a la vista previa de Data Lake Store mediante el Portal de Azure clásico.
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
+   
 2. Si ya dispone de acceso al Almacén de Data Lake, haga clic en “Autorizar ahora” y, durante unos segundos, se mostrará una página con el mensaje “Redirigiendo a la autorización...”. Esta página se cerrará automáticamente y se le mostrará la página donde podrá configurar la salida del Almacén de Data Lake.
 
-Si no se registró para la versión preliminar de Data Lake Store, puede hacer clic en el vínculo "Suscribirme ahora" para iniciar la solicitud, o bien siga las [instrucciones de introducción](../data-lake-store/data-lake-store-get-started-portal.md).
+Si no se registró en Data Lake Store, puede hacer clic en el vínculo "Suscribirme ahora" para iniciar la solicitud, o bien siga las [instrucciones de introducción](../data-lake-store/data-lake-store-get-started-portal.md).
 
 ## <a name="configure-the-data-lake-store-output-properties"></a>Configuración de las propiedades de salida del Almacén de Data Lake
 Una vez que se haya autenticado la cuenta del Almacén de Data Lake, podrá configurar las propiedades para su salida del Almacén de Data Lake. En la siguiente tabla podrá encontrar una lista de nombres de propiedades y su descripción para configurar la salida del Almacén de Data Lake.
@@ -83,6 +88,9 @@ Para resolver este problema, detenga su trabajo en ejecución y vaya a la salida
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 
