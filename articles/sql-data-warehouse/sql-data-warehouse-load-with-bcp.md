@@ -82,7 +82,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 ```
 
 > [!NOTE]
-> Consulte la [información general sobre las tablas][información general sobre las tablas] o la [sintaxis de CREATE TABLE][sintaxis de CREATE TABLECREATE TABLE syntax] para más información sobre cómo crear una tabla en SQL Data Warehouse y las opciones disponibles en la cláusula WITH.
+> Consulte la [Información general sobre las tablas][Información general sobre las tablas] o la [sintaxis de CREATE TABLE][sintaxis de CREATE TABLE] para más información sobre cómo crear una tabla en SQL Data Warehouse y las opciones disponibles en la cláusula WITH.
 > 
 > 
 
@@ -184,8 +184,8 @@ Puede comprobar que los datos se exportaron correctamente abriendo el nuevo arch
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener información general sobre la carga, vea [Carga de datos en SQL Data Warehouse][Carga de datos en SQL Data Warehouse].
-Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de SQL Data Warehouse][información general sobre desarrollo de SQL Data Warehouse].
+Para obtener información general sobre la carga, vea [Carga de datos en Almacenamiento de datos SQL][Carga de datos en Almacenamiento de datos SQL].
+Para obtener más sugerencias sobre desarrollo, consulte la [información general sobre desarrollo de Almacenamiento de datos SQL][información general sobre desarrollo de Almacenamiento de datos SQL].
 
 <!--Image references-->
 
