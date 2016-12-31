@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 7383380ee07f9ee52858038bd4d623be4689a31a
+ms.sourcegitcommit: 6ab02779d65dfc1519b457486678ace5fafc9fb5
+ms.openlocfilehash: 60733f973e7b88389816c1ea7cc15532ba967693
 
 
 ---
@@ -59,16 +59,6 @@ Desde esta hoja puede conectarse a la máquina virtual a través de Escritorio r
 5. Elija un usuario y un rol.
 
 ![Administración de un recurso][ManageResource]
-
-## <a name="how-to-customize-a-resource-blade"></a>Cómo personalizar una hoja de recursos
-Azure configura previamente las hojas correspondientes a los recursos, pero los mosaicos de estas hojas quedan bajo su control.  Puede personalizar fácilmente el modo para agregar, quitar, cambiar el tamaño o volver a organizar los mosaicos. Para personalizar una hoja, realice las siguientes acciones.
-
-1. Vaya a su sitio.
-2. Haga clic en "…" en la parte superior de la hoja que desea personalizar.
-3. Haga clic en "Agregar elementos".
-4. Comience a arrastrar y soltar elementos.  
-
-![Personalización de hojas][CustomizeBlades]
 
 ## <a name="how-to-get-help"></a>Cómo obtener ayuda
 Estamos aquí para ayudarle en caso de tener problemas.  El portal cuenta con una página de ayuda y soporte técnico que puede señalarle la dirección correcta.  Dependiendo del [plan de soporte técnico](https://azure.microsoft.com/support/plans/)que tenga, también puede crear incidencias de soporte técnico directamente en el portal.  Después de crear una incidencia de soporte técnico, puede administrar el ciclo de vida de la incidencia desde el portal. Para tener acceso a la página de ayuda y soporte técnico, navegue a Examinar > Ayuda y soporte técnico  

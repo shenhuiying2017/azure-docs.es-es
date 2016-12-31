@@ -12,11 +12,11 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi;mikhegn
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 515daddf2c118f26721a557b0caf5d5415cb22c5
+ms.sourcegitcommit: efe9845280de3bcd882a7c879b53576600aae0a7
+ms.openlocfilehash: 1bc418f3cadfc83fbec0f2e2c508c77d97b84285
 
 
 ---
@@ -56,7 +56,7 @@ El SDK proporciona dos maneras de configurar un clúster local: un script de Win
 ## <a name="deploy-an-application"></a>Implementar una aplicación
 El SDK de Service Fabric incluye un amplio conjunto de marcos y herramientas para desarrolladores para crear aplicaciones. Si está interesado en aprender a crear aplicaciones en Visual Studio, consulte [Creación de la primera aplicación de Service Fabric en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
 
-En este tutorial, se usará una aplicación de ejemplo existente (denominada WordCount), con el fin de que nos podamos centrar en los aspectos de la administración de la plataforma, entre los que se incluyen la implementación, supervisión y actualización.
+En este tutorial, se usará una aplicación de ejemplo existente (llamada WordCount) de forma que puada centrarse en los aspectos de administración de la plataforma: implementación, supervisión y actualización.
 
 1. Inicie una ventana nueva de PowerShell como administrador.
 2. Importe el módulo de PowerShell del SDK de Service Fabric.
@@ -82,14 +82,14 @@ En este tutorial, se usará una aplicación de ejemplo existente (denominada Wor
    Publish-NewServiceFabricApplication -ApplicationPackagePath c:\ServiceFabric\WordCountV1.sfpkg -ApplicationName "fabric:/WordCount"
     ```
    
-    Si todo va bien, debería ver un resultado como el siguiente:
+    Si todo va bien, debería ver el siguiente resultado:
    
     ![Implementación de una aplicación en el clúster local][deploy-app-to-local-cluster]
 7. Para ver la aplicación en acción, inicie el explorador y vaya a [http://localhost:8081/wordcount/índex.html](http://localhost:8081/wordcount/index.html). Debería ver lo siguiente:
    
     ![Interfaz de usuario de aplicación implementada][deployed-app-ui]
    
-    La aplicación WordCount es muy simple. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra. El código fuente de la aplicación WordCount se puede encontrar en los [ejemplos de introducción](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
+    La aplicación WordCount es sencilla. Incluye código JavaScript del lado cliente para generar "palabras" aleatorias de cinco caracteres, que, posteriormente, se retransmiten a la aplicación mediante ASP.NET Web API. Un servicio con estado realiza el seguimiento del recuento de palabras. Se crean particiones basadas en el primer carácter de la palabra. El código fuente de la aplicación WordCount se puede encontrar en los [ejemplos de introducción](https://azure.microsoft.com/documentation/samples/service-fabric-dotnet-getting-started/).
    
     La aplicación que hemos implementado contiene cuatro particiones. Por tanto las palabras que empiezan de la A a la G se almacenan en la primera partición, las que comienzan de la H a la N en la segunda partición, y así sucesivamente.
 
@@ -134,21 +134,21 @@ Ahora que hemos implementado la aplicación, echemos un vistazo a algunos de los
    > 
 
 ## <a name="upgrade-an-application"></a>Actualizar una aplicación
-Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Vamos realizar una actualización simple de la aplicación WordCount.
+Service Fabric proporciona actualizaciones sin tiempo de inactividad mediante la supervisión del estado de la aplicación cuando se implementa en el clúster. Realice una actualización de la aplicación WordCount.
 
 La nueva versión de la aplicación ahora contará solo las palabras que comiencen por vocal. Cuando se implemente la actualización, veremos dos cambios en el comportamiento de la aplicación. En primer lugar, la velocidad a la que crece el recuento debe reducirse, ya que se cuentan menos palabras. En segundo lugar, dado que la primera partición tiene dos vocales (A y E) y las restantes particiones contienen solo una, su recuento debería finalmente debería empezar a superar a los demás.
 
-1. [Descargue el paquete de WordCount v2](http://aka.ms/servicefabric-wordcountappv2) a la misma ubicación en que descargó el paquete de v1.
+1. [Descargue el paquete de WordCount versión 2](http://aka.ms/servicefabric-wordcountappv2) en la misma ubicación en la que descargó el paquete de la versión 1.
 2. Vuelva a la ventana de PowerShell y use el comando de actualización del SDK para registrar la nueva versión en el clúster. Después, empiece a actualizar la aplicación fabric:/WordCount.
    
     ```powershell
     Publish-UpgradedServiceFabricApplication -ApplicationPackagePath C:\ServiceFabric\WordCountV2.sfpkg -ApplicationName "fabric:/WordCount" -UpgradeParameters @{"FailureAction"="Rollback"; "UpgradeReplicaSetCheckTimeout"=1; "Monitored"=$true; "Force"=$true}
     ```
    
-    Al comenzar la actualización, debería ver la salida en PowerShell, cuyo aspecto es similar al siguiente.
+    Debería ver el siguiente resultado en PowerShell cuando comience la actualización.
    
     ![Progreso de la actualización en PowerShell][ps-appupgradeprogress]
-3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y navegue a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicaciones** en el árbol de la izquierda, elija **WordCount** y finalmente **fabric:/WordCount**. En la pestaña Essentials, verá el estado de la actualización mientras progresa por los dominios de actualización del clúster.
+3. Mientras que la actualización se lleva a cabo, le resultará más fácil supervisar su estado desde el Explorador de Service Fabric. Inicie una ventana del explorador y navegue a [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expanda **Aplicaciones** en el árbol de la izquierda, elija **WordCount** y finalmente **fabric:/WordCount**. En la pestaña de información básica, verá el estado de la actualización mientras progresa por los dominios de actualización del clúster.
    
     ![Progreso de la actualización en el Explorador de Service Fabric][sfx-upgradeprogress]
    
@@ -161,7 +161,7 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
    
     ![Consultar servicios de aplicación después de la actualización][ps-getsfsvc-postupgrade]
    
-    Esto destaca cómo Service Fabric administra las actualizaciones de aplicaciones. Toca solo el conjunto de servicios (o los paquetes de código/configuración de dichos servicios) que cambiaron, lo que hace que el proceso de actualización sea más rápido y confiable.
+    Este ejemplo resalta cómo Service Fabric administra las actualizaciones de aplicaciones. Toca solo el conjunto de servicios (o los paquetes de código/configuración de dichos servicios) que cambiaron, lo que hace que el proceso de actualización sea más rápido y confiable.
 5. Por último, vuelva al explorador para observar el comportamiento de la nueva versión de la aplicación. Como se esperaba, el recuento avanza más lentamente y la primera partición termina con un poco más del volumen.
    
     ![Ver la nueva versión de la aplicación en el explorador][deployed-app-ui-v2]
@@ -169,13 +169,13 @@ La nueva versión de la aplicación ahora contará solo las palabras que comienc
 ## <a name="cleaning-up"></a>Limpiar
 Antes de concluir, es importante recordar que el clúster local es real. Las aplicaciones seguirán ejecutándose en segundo plano hasta que se quiten.  Según la naturaleza de las aplicaciones, una aplicación en ejecución puede consumir importantes recursos en su máquina. Tiene varias opciones para administrar aplicaciones y el clúster:
 
-1. Para quitar una aplicación particular y todos sus datos, ejecute lo siguiente:
+1. Para quitar una aplicación determinada y todos sus datos, ejecute el siguiente comando:
    
     ```powershell
     Unpublish-ServiceFabricApplication -ApplicationName "fabric:/WordCount"
     ```
    
-    También puede eliminar la aplicación del menú **ACCIONES** de Service Fabric Explorer o del menú contextual en la vista de lista de aplicaciones del panel izquierdo.
+    O bien, elimine la aplicación del menú **ACCIONES** de Service Fabric Explorer o del menú contextual en la vista de lista de aplicaciones del lado izquierdo.
    
     ![Eliminación de una aplicación en el explorador de Service Fabric][sfe-delete-application]
 2. Después de eliminar la aplicación del clúster, puede anular el registro de las versiones 1.0.0 y 2.0.0 del tipo de aplicación WordCount. La eliminación quita del almacén de imágenes del clúster los paquetes de la aplicación, incluido el código y la configuración.
@@ -189,19 +189,21 @@ Antes de concluir, es importante recordar que el clúster local es real. Las apl
 3. Para cerrar el clúster pero mantener los datos y los seguimientos de la aplicación, haga clic en **Stop Local Cluster** (Detener clúster local) en la aplicación de bandeja del sistema.
 4. Para eliminar totalmente el clúster, haga clic en **Remove Local Cluster** (Quitar clúster local) en la aplicación de la bandeja del sistema. Esta opción generará otra implementación lenta la próxima vez que presione F5 en Visual Studio. Quite el clúster local solo si no tiene intención utilizarlo durante algún tiempo o si necesita reclamar recursos.
 
-## <a name="1-node-and-5-node-cluster-mode"></a>Modo de clúster de un nodo y de cinco nodos
-Cuando se trabaja con el clúster local para desarrollar aplicaciones, a menudo se encuentra realizando iteraciones rápidas de escritura de código, depuración, cambio del código, depuración, etc. Para ayudar a optimizar este proceso, el clúster local se puede ejecutar de dos modos: en un nodo o en cinco. Ambos modos de clúster tienen sus ventajas.
-El modo de clúster de 5 nodos le permite trabajar con un clúster real. Puede probar escenarios de conmutación por error, trabajar con más instancias y réplicas de los servicios.
-El modo de clúster de un nodo está optimizado para una rápida implementación y registro de servicios que le ayudarán a validar rápidamente código mediante el tiempo de ejecución de Service Fabric.
+## <a name="one-node-and-five-node-cluster-mode"></a>Modo de clúster de uno y cinco nodos
+Al desarrollar aplicaciones, a menudo se encuentra realizando iteraciones rápidas de escritura de código, depuración, cambio de código y depuración. Para ayudar a optimizar este proceso, el clúster local se puede ejecutar de dos modos: con uno o cinco nodos. Ambos modos de clúster tienen sus ventajas. El modo de clúster de cinco nodos le permite trabajar con un clúster real. Puede probar escenarios de conmutación por error, trabajar con más instancias y réplicas de los servicios. El modo de clúster de un nodo está optimizado para la implementación y el registro de servicios de forma rápida, para ayudarle a validar rápidamente el código mediante el entorno de tiempo de ejecución de Service Fabric.
 
-Ni el modo de clúster de un nodo ni el de cinco son emuladores o simuladores. Ejecuta el mismo código de plataforma que se encuentra en clústeres de varias máquinas.
+Ni el modo de clúster de un nodo ni el de cinco nodos es un emulador o un simulador. El clúster de desarrollo local ejecuta el mismo código de plataforma que se encuentra en los clústeres de varias máquinas.
 
-> [!NOTE]
-> Esta característica está disponible en el SDK versión 5.2 y posteriores.
+> [!WARNING]
+> Al cambiar el modo de clúster, el clúster actual se quita del sistema y se crea un nuevo clúster. Cuando se cambia el modo de clúster, se eliminan los datos almacenados en el clúster.
 > 
 > 
 
-Para cambiar el modo de clúster a un clúster de un nodo, utilice el administrador de clústeres local de Service Fabric o use PowerShell de la siguiente manera:
+Para cambiar al modo de clúster de un nodo, seleccione **Switch Cluster Mode** (Cambiar modo de clúster) en la instancia local de Cluster Manager de Service Fabric.
+
+![Cambio del modo de clúster][switch-cluster-mode]
+
+O bien, cambie el modo de clúster mediante PowerShell:
 
 1. Inicie una ventana nueva de PowerShell como administrador.
 2. Ejecute el script de instalación del clúster desde la carpeta del SDK:
@@ -213,15 +215,6 @@ Para cambiar el modo de clúster a un clúster de un nodo, utilice el administra
     La instalación del clúster tardará unos instantes. Una vez finalizada la instalación, debería ver una salida similar a esta:
    
     ![Salida de instalación de clúster][cluster-setup-success-1-node]
-
-Si está usando el administrador de clústeres local de Service Fabric:
-
-![Cambio del modo de clúster][switch-cluster-mode]
-
-> [!WARNING]
-> Al cambiar el modo de clúster, el clúster actual se quita del sistema y se crea un nuevo clúster. Si cambia el modo de clúster, se eliminarán los datos almacenados en el clúster.
-> 
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Tras la implementación y actualización de algunas aplicaciones pregeneradas, puede [intentar compilar la suya propia en Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md).
@@ -250,6 +243,6 @@ Si está usando el administrador de clústeres local de Service Fabric:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

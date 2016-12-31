@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 translationtype: Human Translation
-ms.sourcegitcommit: a977cb509fb64d7c986e2e0f7e2b5e4e3e45dec0
-ms.openlocfilehash: a7c95f9219920932d56487c0e9b96499cc963af0
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 7d582960e615962a3952dd2f58c74ed91e5c450d
 
 
 ---
@@ -122,9 +122,6 @@ En este flujo, la aplicación ejecuta [directivas](active-directory-b2c-referenc
 ## <a name="current-limitations"></a>Limitaciones actuales
 Azure AD B2C no admite actualmente los siguientes tipos de aplicaciones, pero están en los planes para el futuro. En [Limitaciones y restricciones](active-directory-b2c-limitations.md)se describen limitaciones y restricciones adicionales relacionadas con Azure AD B2C.
 
-### <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
-Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo usan un marco como AngularJS, Ember.js o Durandal. Los servicios de Azure AD disponibles con carácter general admiten estas aplicaciones mediante el flujo implícito de OAuth 2.0. Este flujo no está disponible todavía en la versión preliminar de Azure AD B2C.
-
 ### <a name="daemonsserver-side-apps"></a>Demonios o aplicaciones del lado del servidor
 Las aplicaciones que contienen procesos de larga duración o que funcionan sin la presencia de un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticar y obtener tokens con la identidad de la aplicación (en lugar de una identidad delegada del usuario) y mediante el flujo de credenciales de cliente de OAuth 2.0.
 
@@ -137,6 +134,6 @@ Este escenario de API web encadenadas puede admitirse mediante la concesión de 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

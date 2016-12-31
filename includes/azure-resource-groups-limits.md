@@ -1,6 +1,6 @@
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
-| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |800 |
+| Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |Varía por tipo de recurso |
 | Implementaciones por grupo de recursos |800 |800 |
 | Recursos por implementación |800 |800 |
 | Bloqueos de administración (por ámbito único) |20 |20 |
@@ -10,6 +10,6 @@
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

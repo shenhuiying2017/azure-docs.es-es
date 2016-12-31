@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/21/2016
 ms.author: davidmu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6a78e83d84df9bdd4fedd9c90aa02dc26e9d94c9
+ms.sourcegitcommit: 45a45b616b4de005da66562c69eef83f2f48cc79
+ms.openlocfilehash: 819b40302f158d1d6224878c164cf7ff71947887
 
 
 ---
@@ -27,7 +27,7 @@ En este artículo se muestra cómo crear rápidamente una máquina virtual de Az
 Todos los pasos de este artículo son necesarios para crear una máquina virtual; se tardará unos 30 minutos en realizarlos. Reemplace los valores de parámetros de ejemplo en los comandos por nombres que tengan sentido para su entorno.
 
 ## <a name="step-1-install-azure-powershell"></a>Paso 1: Instalación de Azure PowerShell
-Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
+Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener más información sobre cómo instalar la versión más reciente de Azure PowerShell, seleccionar la suscripción que quiere usar e iniciar sesión en su cuenta.
 
 ## <a name="step-2-create-a-resource-group"></a>Paso 2: Creación de un grupo de recursos
 Todos los recursos deben encontrarse en un grupo de recursos, así que es lo primero que hay que crear.  
@@ -114,7 +114,7 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
     $myVm = New-AzureRmVMConfig -VMName "myVM" -VMSize "Standard_DS1_v2"
     ```
    
-    Consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-windows-sizes.md) para ver una lista de los tamaños disponibles para una máquina virtual.
+    Consulte [Tamaños de las máquinas virtuales Linux en Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver una lista de los tamaños disponibles para una máquina virtual.
 3. Configure el sistema operativo para la máquina virtual. Este comando establece el nombre del equipo, el tipo de sistema operativo y las credenciales de cuenta para la máquina virtual.
    
     ```powershell
@@ -128,13 +128,13 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
         -Offer "WindowsServer" -Skus "2012-R2-Datacenter" -Version "latest"
     ```
    
-    Para más información sobre cómo seleccionar las imágenes que se van a usar, consulte [Navegación y selección de las imágenes de máquina virtual Windows en Azure con PowerShell o CLI](virtual-machines-windows-cli-ps-findimage.md).
+    Para más información sobre cómo seleccionar las imágenes que se van a usar, consulte [Navegación y selección de las imágenes de máquina virtual Windows en Azure con PowerShell o CLI](virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 5. Agregue la interfaz de red que creó a la configuración.
    
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Defina el nombre y la ubicación del disco duro de la máquina virtual. El archivo de disco duro virtual se almacena en un contenedor. Este comando crea el disco en un contenedor denominado **vhds/WindowsVMosDisk.vhd** en la cuenta de almacenamiento que ha creado.
+6. Defina el nombre y la ubicación del disco duro de la máquina virtual. El archivo de disco duro virtual se almacena en un contenedor. Este comando crea el disco en un contenedor denominado **vhds/myOsDisk1.vhd** en la cuenta de almacenamiento que ha creado.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -143,7 +143,7 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
 7. Agregue la información del disco de sistema operativo a la configuración de máquina virtual. Reemplace el valor de **$diskName** por el nombre del disco del sistema operativo. Cree la variable y agregue la información del disco a la configuración.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Finalmente, cree la máquina virtual.
    
@@ -153,12 +153,12 @@ Ahora que tiene todas las piezas en su sitio, es el momento de crear la máquina
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si se han producido problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../resource-manager-troubleshoot-deployments-portal.md)
-* Aprenda a administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md).
-* Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md)
+* Aprenda a administrar la máquina virtual que ha creado. Para ello, consulte [Administración de máquinas virtuales con Azure Resource Manager y PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Aproveche las ventajas de usar una plantilla para crear una máquina virtual con la información que se muestra en [Creación de una máquina virtual Windows con una plantilla de Resource Manager](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

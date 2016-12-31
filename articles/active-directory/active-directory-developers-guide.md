@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 3e587c9422e008a7b3c46e34fed4d0f1b2a8189c
+ms.sourcegitcommit: 0500d903438e0fb062ca848e6f488860e214a705
+ms.openlocfilehash: 55b6f6e03bfd1877d4f204cb5751ae46379d6951
 
 
 ---
@@ -58,10 +58,12 @@ En estos artículos se describe cómo realizar tareas específicas con Azure Act
 
 * [Obtención de un inquilino de Azure AD](active-directory-howto-tenant.md)
 * [Inicio de sesión de cualquier usuario de AD mediante el patrón de aplicación multiinquilino](active-directory-devhowto-multi-tenant-overview.md)
+* [Autenticación de una aplicación de servicio o de demonio con un certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * Habilitación de SSO entre aplicaciones con ADAL, en dispositivos [Android](active-directory-sso-android.md) e [iOS](active-directory-sso-ios.md)
 * [Certificación de la aplicación AppSource para Azure AD](active-directory-devhowto-appsource-certified.md)
 * [Presentación de la aplicación en la galería de aplicaciones de Azure AD](active-directory-app-gallery-listing.md)
 * [Envío de aplicaciones web para Office 365 al panel de vendedores](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)
+* [Registro de una aplicación con Azure Active Directory mediante Azure Portal](active-directory-app-registration.md)
 * [Descripción del manifiesto de aplicación de Azure Active Directory](active-directory-application-manifest.md)
 * [Comprender las directrices de personalización de marca para los botones de adquisición de aplicación y de inicio de sesión en la aplicación cliente](active-directory-branding-guidelines.md)
 * [Vista previa: compilación de aplicaciones que inician sesión para los usuarios tanto con cuentas personales como profesionales o educativas](active-directory-appmodel-v2-overview.md)
@@ -121,7 +123,6 @@ Para obtener instrucciones sobre el uso del desarrollo de Windows Server y Servi
 
 * [Escenarios de AD FS para desarrolladores](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers): proporciona información general de los componentes de AD FS y de cómo funcionan, con detalles sobre los escenarios de autenticación y autorización compatibles.
 * [Tutoriales de AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/ad-fs-development): una lista de artículos de tutoriales que proporcionan instrucciones paso a paso sobre la implementación de los flujos de autenticación y autorización relacionados.
-
 
 
 
