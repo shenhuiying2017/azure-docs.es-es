@@ -19,7 +19,7 @@ Gracias por su interés en la documentación de Azure.
 ## <a name="ways-to-contribute"></a>Formas de colaborar
 Puede enviar actualizaciones a la [documentación de Azure](http://docs.microsoft.com/azure) como se indica a continuación:
 
-* Puede colaborar fácilmente en artículos técnicos en la interfaz de usuario de GitHub. Busque el artículo en este repositorio, o acceda al artículo en [http://docs.microsoft.com/azur](http://docs.microsoft.com/azur) y haga clic en el vínculo que abre el archivo de origen del artículo en GitHub.
+* Puede colaborar fácilmente en artículos técnicos en la interfaz de usuario de GitHub. Busque el artículo en este repositorio, o acceda al artículo en [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) y haga clic en el vínculo que abre el archivo de origen del artículo en GitHub.
 * Si realiza cambios sustanciales en un artículo existente, agrega o cambia imágenes, o colabora en un nuevo artículo, necesitará bifurcar este repositorio, instalar GIT Bash, MarkdownPad y obtener información acerca de algunos comandos de GIT.
 
 ## <a name="code-of-conduct"></a>Código de conducta
@@ -48,7 +48,7 @@ Puede crear secciones de contenido reutilizable para incluirlo en uno o varios a
 ### <a name="markdown-templates"></a>\markdown templates
 Esta carpeta contiene la plantilla de Markdown estándar con el formato de Markdown básico que se necesita para un artículo.
 
-### <a name="contributorguide"></a>\contributor-guide
+### <a name="contributor-guide"></a>\contributor-guide
 Esta carpeta contiene artículos que forman parte de nuestra guía del colaborador.  
 
 ## <a name="use-github-git-and-this-repository"></a>Uso de GitHub, GIT y este repositorio
@@ -87,6 +87,6 @@ Consulte en el [índice de la guía del colaborador](contributor-guide/contribut
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO5-->
 
 

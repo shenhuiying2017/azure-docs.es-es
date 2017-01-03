@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a configurar la mensajería para conectar aplicaciones y servicios en entornos locales y en la nube.  Tutoriales, vídeos, referencias de API y mucho más."
 translationtype: Human Translation
-ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
-ms.openlocfilehash: 0ecc51f19240ecfa49852ed1eafcf78d1227af16
+ms.sourcegitcommit: 37d0de5343692516cc9644d817384ad31f58fb40
+ms.openlocfilehash: a0b419acc990e3973432540fb9907e31ddedf41c
 
 ---
 #<a name="service-bus-documentation"></a>Documentación de Service Bus
 
-Service Bus proporciona comunicación habilitada para la nube, con mensajería empresarial y comunicación retransmitida que ayuda a conectar las soluciones locales con la nube. 
+Aprenda a usar Service Bus para establecer conexiones en entornos locales y en la nube. En los tutoriales, los vídeos, las referencias de API y otra documentación, se muestra cómo configurar la mensajería en la nube entre aplicaciones y servicios.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -244,6 +245,6 @@ Descargar la documentación sobre Service Bus </div>
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
-ms.openlocfilehash: 6d5f4640556f98f9601139c318ffc578e9df2539
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: 3d45ec5a6636de4213c6c02dca0e5288ec3aa0e3
 
 
 ---
@@ -27,7 +27,7 @@ En este tema, se ofrece información general sobre las bases de datos de Azure S
 ## <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
 Cada base de datos de Azure SQL Database está asociada a un servidor lógico. La base de datos puede revestir cualquiera de las siguientes formas:
 
-- Una base de datos independiente con su [propio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU).
+- Una base de datos única con su [propio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU).
 - Parte de un [grupo elástico](sql-database-elastic-pool.md) que [comparte un conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU).
 - Parte de un [conjunto escalado horizontalmente de bases de datos particionadas](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), que pueden ser simples o agrupadas.
 - Parte de un conjunto de bases de datos que participa en un [modelo de diseño de SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md) y cuyas bases de datos pueden ser simples o agrupadas (o ambas). 
@@ -53,7 +53,7 @@ Para obtener información sobre las características admitidas, consulte el [art
 ## <a name="how-do-i-manage-an-azure-sql-database"></a>¿Cómo se puede administrar una base de datos de Azure SQL Database?
 
 Puede administrar servidores lógicos de Azure SQL Database mediante varios métodos:
-- [Azure Portal](sql-database-manage-portal.md)
+- [Portal de Azure](sql-database-manage-portal.md)
 - [PowerShell](sql-database-manage-powershell.md)
 - [Transact-SQL](sql-database-manage-azure-ssms.md)
 - [REST](/rest/api/sql/)
@@ -71,6 +71,6 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

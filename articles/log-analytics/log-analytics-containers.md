@@ -1,22 +1,26 @@
 ---
-title: Solución Containers en Log Analytics | Microsoft Docs
-description: La solución Containers en Log Analytics le ayuda a ver y administrar los hosts de contenedores de Docker en una sola ubicación.
+title: "Solución Containers en Log Analytics | Microsoft Docs"
+description: "La solución Containers en Log Analytics le ayuda a ver y administrar los hosts de contenedores de Docker en una sola ubicación."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
 manager: jwhit
-editor: ''
-
+editor: 
+ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/28/2016
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 6cdc0730d7632e41b393c4abb17badc255e21a8d
+ms.openlocfilehash: 0bc5366417f08c63f5fd5588c94381faf6a2397d
+
 
 ---
-# <a name="containers-(preview)-solution-log-analytics"></a>Solución Containers (versión preliminar) en Log Analytics
+# <a name="containers-preview-solution-log-analytics"></a>Solución Containers (versión preliminar) en Log Analytics
 En este artículo se describe cómo configurar y usar la solución Containers de Log Analytics, que le permite ver y administrar los hosts de contenedores de Docker en una sola ubicación. Docker es un sistema de virtualización de software que usa para crear contenedores que automatizan la implementación de software en su infraestructura de TI.
 
 Con la solución, puede ver qué contenedores se ejecutan en sus hosts de contenedores y qué imágenes se ejecutan en los contenedores. Puede ver información de auditoría detallada que muestra los comandos que se usan con los contenedores. Y, para solucionar los problemas de los contenedores, puede ver y buscar registros centralizados sin tener que ver los hosts de Docker de forma remota. Puede encontrar los contenedores que están causando ruido o realizando un consumo excesivo de recursos en un host. También puede ver la información centralizada acerca de la CPU, la memoria, el almacenamiento y el uso y el rendimiento de la red en relación con los contenedores.
@@ -29,75 +33,42 @@ Agregue la solución Containers a su área de trabajo de OMS mediante el proceso
 Hay dos maneras de instalar y usar Docker con OMS:
 
 * En sistemas operativos compatibles con Linux, instale y ejecute Docker y, después, instale y configure el agente de OMS para Linux.
-* En CoreOS, instale y ejecute Docker y, después, configure OMSAgent para que se ejecute dentro de un contenedor.
+* En CoreOS, no se puede ejecutar el agente de OMS para Linux. En su lugar, ejecute una versión en contenedores del agente de OMS para Linux.
 
 Consulte las versiones del sistema operativo Linux y de Docker compatibles con su host de contenedores en [GitHub](https://github.com/Microsoft/OMS-docker).
 
 > [!IMPORTANT]
 > Docker se debe estar ejecutando **antes de** instalar el [agente de OMS para Linux](log-analytics-linux-agents.md) en los hosts de contenedores. Si ya ha instalado el agente antes de instalar Docker, debe volver a instalar el agente de OMS para Linux. Para más información acerca de Docker, consulte el [sitio web de Docker](https://www.docker.com).
-> 
-> 
+>
+>
 
 Necesita configurar las siguientes opciones en sus hosts de contenedores para poder supervisar los contenedores.
 
 ## <a name="configure-settings-for-the-linux-container-host"></a>Configuración de las opciones del host de contenedores de Linux
-Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. CoreOS no admite este método de configuración.
 
-### <a name="to-configure-settings-for-the-container-host---systemd-(suse,-opensuse,-centos-7.x,-rhel-7.x,-and-ubuntu-15.x-and-higher)"></a>Para configurar las opciones del host de contenedores: systemd (SUSE, openSUSE, CentOS 7.x, RHEL 7.x y Ubuntu 15.x y versiones posteriores)
-1. Edite docker.service para agregar lo siguiente:
-   
-    ```
-    [Service]
-    ...
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ...
-    ```
-2. Add $DOCKER\_OPTS in &quot;ExecStart=/usr/bin/docker daemon&quot; al archivo docker.service. Consulte el ejemplo siguiente.
-   
-    ```
-    [Service]
-    Environment="DOCKER_OPTS=--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ExecStart=/usr/bin/docker daemon -H fd:// $DOCKER_OPTS
-    ```
-3. Reinicie el servicio Docker. Por ejemplo:
-   
-    ```
-    sudo systemctl restart docker.service
-    ```
+Las siguientes distribuciones x64 de Linux se admiten como hosts de contenedor:
 
-### <a name="to-configure-settings-for-the-container-host---upstart-(ubuntu-14.x)"></a>Para configurar las opciones del host de contenedores: Upstart (Ubuntu 14.x)
-1. Edite /etc/default/docker y agregue lo siguiente:
-   
-    ```
-    DOCKER_OPTS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Guarde el archivo y reinicie los servicios Docker y OMS.
-   
-    ```
-    sudo service docker restart
-    ```
+- Ubuntu 14.04 LTS, 16.04 LTS
+- CoreOS(stable)
+- Amazon Linux 2016.03
+- openSUSE 13.2
+- CentOS 7
+- SLES 12
+- RHEL 7.2
 
-### <a name="to-configure-settings-for-the-container-host---amazon-linux"></a>Para configurar las opciones del host de contenedores: Amazon Linux
-1. Edite /etc/sysconfig/docker y agregue lo siguiente:
-   
-    ```
-    OPTIONS="--log-driver=fluentd --log-opt fluentd-address=localhost:25225"
-    ```
-2. Guarde el archivo y reinicie el servicio Docker.
-   
-    ```
-    sudo service docker restart
-    ```
+Después de instalar Docker, use la siguientes opciones para el host de contenedores para configurar el agente que se usará con Docker. Necesitará [identificador y la clave de su área de trabajo de OMS](log-analytics-linux-agents.md).
 
-## <a name="configure-settings-for-coreos-containers"></a>Configuración de las opciones de los contenedores de CoreOS
-Después de instalar Docker, use la siguiente configuración de CoreOS para ejecutar Docker y crear un contenedor. Puede usar cualquier versión compatible de Linux, incluida CoreOS, con este método de configuración. Necesitará [identificador y la clave de su área de trabajo de OMS](log-analytics-linux-agents.md).
+### <a name="for-all-container-hosts-except-coreos"></a>Para todos los hosts de contenedor excepto CoreOS
 
-### <a name="to-use-oms-for-all-containers-with-coreos"></a>Para usar OMS para todos los contenedores con CoreOS
-* Inicie el contenedor de OMS que desea supervisar. Modifique y use el ejemplo siguiente.
-  
-  ```
-  sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25224:25224/udp -p 127.0.0.1:25225:25225 --name="omsagent" --log-driver=none --restart=always microsoft/oms
-  ```
+- Siga las instrucciones en [Steps to install the OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md)(Pasos para instalar el agente de OMS para Linux).
+
+### <a name="for-all-container-hosts-including-coreos"></a>Para todos los hosts de contenedor incluido CoreOS
+
+Inicie el contenedor de OMS que desea supervisar. Modifique y use el ejemplo siguiente.
+
+```
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+```
 
 ### <a name="switching-from-using-an-installed-agent-to-one-in-a-container"></a>Cambio de un agente instalado a un agente en un contenedor
 Si antes usaba el agente instalado directamente y ahora desea usar un agente que se ejecuta en un contenedor, primero debe quitar OMSAgent. Consulte los [pasos para instalar el agente de OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md).
@@ -109,17 +80,17 @@ La siguiente tabla muestra los métodos de recopilación de datos y otros detall
 
 | plataforma | Agente de OMS para Linux | Agente de SCOM | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![Sí](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |Cada 3 minutos |
+|  Linux |![Sí](./media/log-analytics-containers/oms-bullet-green.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |![No](./media/log-analytics-containers/oms-bullet-red.png) |Cada 3 minutos |
 
-En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la solución Containers:
+En la tabla siguiente se muestran ejemplos de tipos de datos recopilados por la solución Containers y los tipos de datos que se usan en las búsquedas de registros y los resultados:
 
-| Tipo de datos | Fields |
-| --- | --- |
-| Rendimiento de hosts y contenedores |Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
-| Inventario de contenedor |TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Inventario de imágenes de contenedor |TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Registro de contenedor |TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Registro del servicio de contenedores |TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
+| Tipo de datos | Tipo de datos en la búsqueda de registros | Fields |
+| --- | --- | --- |
+| Rendimiento de hosts y contenedores | `Type=Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| Inventario de contenedor | `Type=ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContinerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
+| Inventario de imágenes de contenedor | `Type=ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
+| Registro de contenedor | `Type=ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
+| Registro del servicio de contenedores | `Type=ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
 
 ## <a name="monitor-containers"></a>Supervisión de contenedores
 Una vez habilitada la solución en el portal de OMS, verá el icono **Containers** que muestra la información de resumen de los hosts de contenedores y de los contenedores que se ejecutan en los hosts.
@@ -180,7 +151,7 @@ Cuando está solucionando un error específico, puede resultar de ayuda ver dón
 ### <a name="to-search-logs-for-container-data"></a>Para buscar registros de datos de contenedor
 * Elija una imagen que sabe que ha tenido errores recientemente y busque los registros de errores de ella. Para empezar, busque un nombre de contenedor que esté ejecutando esa imagen con una búsqueda **ContainerInventory**. Por ejemplo, busque `Type=ContainerInventory ubuntu Failed`.  
     ![Búsqueda de contenedores de Ubuntu](./media/log-analytics-containers/search-ubuntu.png)
-  
+
   Anote el nombre del contenedor junto a **Nombre** y busque los registros. En este ejemplo, es `Type=ContainerLog adoring_meitner`.
 
 **Ver información de rendimiento**
@@ -220,6 +191,8 @@ Después de crear una consulta que encuentre útil, guárdela haciendo clic en *
 ## <a name="next-steps"></a>Pasos siguientes
 * [Búsqueda de registros](log-analytics-log-searches.md), para ver los registros de datos detallados de los contenedores.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO5-->
 
 

@@ -1,19 +1,23 @@
 ---
-title: Administración de unidades administrativas en Azure Active Directory
-description: Uso de unidades administrativas para una delegación más detallada de permisos en Azure Active Directory
+title: "Administración de unidades administrativas en Azure Active Directory"
+description: "Uso de unidades administrativas para una delegación más detallada de permisos en Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 8464cd6b-1d1a-470d-a4fb-ee29b8eab4c4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b30ed9727229c082bff65023bfe4900640caa995
+
 
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Administración de unidades administrativas en Azure AD: vista previa pública
@@ -23,8 +27,8 @@ Esto es útil en organizaciones con divisiones independientes, por ejemplo, una 
 
 > [!IMPORTANT]
 > Puede crear y usar unidades administrativas solo si habilita Azure Active Directory Premium. Para obtener más información, consulte [Introducción a Azure AD Premium](active-directory-get-started-premium.md).
-> 
-> 
+>
+>
 
 Desde el punto de vista del administrador central, una unidad administrativa es un objeto de directorio que se puede crear y rellenar con recursos. **En esta versión, estos recursos solo pueden ser usuarios.**  Una vez creada y rellenada, la unidad administrativa puede usarse como ámbito para restringir el permiso otorgado para los recursos que contiene la unidad administrativa.
 
@@ -36,6 +40,8 @@ Para obtener más información sobre los requisitos de software y la instalació
 ## <a name="next-steps"></a>Pasos siguientes
 [Ediciones de Azure Active Directory](active-directory-editions.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

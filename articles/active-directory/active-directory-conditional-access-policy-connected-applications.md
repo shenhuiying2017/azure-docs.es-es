@@ -37,11 +37,11 @@ Puede establecer directivas de acceso condicional basado en dispositivos para pr
 
 Para establecer una directiva de acceso condicional basado en dispositivos, en Azure Portal, vaya a la aplicación específica en el directorio.
 
-  ![Lista de aplicaciones en el directorio de Azure Portal](./media/active-directory-conditional-access-policy-connected-applications/01.png "Applications")
+  ![Lista de aplicaciones en el directorio de Azure Portal](./media/active-directory-conditional-access-policy-connected-applications/01.png "Aplicaciones")
 
 Seleccione la aplicación y haga clic en la pestaña **Configurar** para establecer la directiva de acceso condicional.  
 
-  ![Configuración de la aplicación](./media/active-directory-conditional-access-policy-connected-applications/02.png "Device based access rules")
+  ![Configuración de la aplicación](./media/active-directory-conditional-access-policy-connected-applications/02.png "Reglas de acceso basado en dispositivos")
 
 Para establecer una directiva de acceso condicional basado en dispositivos, en la sección **Reglas de acceso basadas en dispositivos**, en **Habilitar reglas de acceso**, seleccione **Activado**.
 
@@ -51,7 +51,7 @@ Una directiva de acceso condicional basado en dispositivos consta de tres compon
 * **Reglas del dispositivo**. Las condiciones que debe cumplir un dispositivo para poder acceder a la aplicación.
 * **Cumplimiento de la aplicación**. Las aplicaciones cliente (nativas en comparación con las de explorador) a las que se aplica la directiva.
   
-  ![Los tres componentes de una directiva de acceso basado en dispositivos](./media/active-directory-conditional-access-policy-connected-applications/03.png "Device based access rules")
+  ![Los tres componentes de una directiva de acceso basado en dispositivos](./media/active-directory-conditional-access-policy-connected-applications/03.png "Reglas de acceso basado en dispositivos")
 
 ## <a name="select-the-users-the-policy-applies-to"></a>Selección de los usuarios a los que se aplica la directiva
 En la sección **Aplicar a** , puede seleccionar el ámbito de los usuarios a los que se aplica esta directiva.
@@ -61,7 +61,7 @@ Tiene dos opciones cuando crea un ámbito de directiva de acceso para los usuari
 * **Todos los usuarios**. Aplique la directiva a todos los usuarios que acceden a la aplicación.
 * **Grupos**. Limite la directiva a los usuarios que sean miembros de un grupo específico.
 
-![Aplicar la directiva a todos los usuarios o a un grupo](./media/active-directory-conditional-access-policy-connected-applications/11.png "Apply to")
+![Aplicación de la directiva a todos los usuarios o a un grupo](./media/active-directory-conditional-access-policy-connected-applications/11.png "Aplicar a")
 
  Para excluir un usuario de una directiva, active la casilla **Excepto**. Esto resulta útil cuando necesita conceder permisos a un usuario específico para acceder de forma temporal a la aplicación. Por ejemplo, seleccione esta opción si algunos de los usuarios tienen dispositivos que no están preparados para el acceso condicional. Es posible que los dispositivos aún no estén registrados o que estén a punto de entrar en incumplimiento.
 
@@ -77,7 +77,7 @@ Puede establecer el acceso condicional basado en dispositivos para estos tipos d
 
 La compatibilidad para Mac se agregará próximamente.
 
-  ![Aplicar la directiva a los dispositivos](./media/active-directory-conditional-access-policy-connected-applications/04.png "Applications")
+  ![Aplicación de la directiva a los dispositivos](./media/active-directory-conditional-access-policy-connected-applications/04.png "Aplicaciones")
 
 > [!NOTE]
 > Para más información sobre las diferencias entre dispositivos unidos a un dominio y a Azure AD, consulte [Uso de dispositivos de Windows 10 en el área de trabajo](active-directory-azureadjoin-windows10-devices.md).
@@ -89,7 +89,7 @@ Tiene dos opciones para las reglas de dispositivos:
 * **Todos los dispositivos deben ser compatibles**. Todas las plataformas de dispositivos que accedan a la aplicación deben ser compatibles. Se deniega el acceso a los dispositivos que se ejecuten en plataformas que no admitan el acceso condicional basado en dispositivos.
 * **Solo los dispositivos seleccionados deben ser compatibles**. Solo plataformas de dispositivos específicas deben ser compatibles. Las demás plataformas, o aquellas que pueden acceder a la aplicación, tienen acceso.
   
-  ![Establecer el ámbito para reglas de dispositivos](./media/active-directory-conditional-access-policy-connected-applications/05.png "Applications")
+  ![Establecimiento del ámbito de las reglas de dispositivo](./media/active-directory-conditional-access-policy-connected-applications/05.png "Aplicaciones")
 
 Los dispositivos unidos a Azure AD son compatibles si están marcados como **compatibles** en el directorio en Intune o un sistema de administración de dispositivos móviles de terceros que se integre con Azure AD.
 
@@ -98,7 +98,7 @@ Un dispositivo unido a un dominio es compatible si:
 * Está registrado con Azure AD. Muchas organizaciones tratan los dispositivos unidos a un dominio como dispositivos de confianza.
 * Está marcado como **compatible** en Azure AD mediante System Center Configuration Manager.
   
-  ![Dispositivos unidos a un dominio que son compatibles](./media/active-directory-conditional-access-policy-connected-applications/06.png "Device Rules")
+  ![Dispositivos unidos a un dominio que son compatibles](./media/active-directory-conditional-access-policy-connected-applications/06.png "Reglas de dispositivo")
 
 Los dispositivos personales Windows son compatibles si están marcados como **compatibles** en el directorio en Intune o un sistema de administración de dispositivos móviles de terceros que se integre con Azure AD.
 
@@ -112,7 +112,7 @@ Los dispositivos que no son de Windows son compatibles si se marcan como **compa
 Puede seleccionar una o varias plataformas de dispositivos para una directiva de acceso basado en dispositivos. Entre ellas, se incluyen Android, iOS, Windows Mobile (teléfonos y tabletas con Windows 8.1) y Windows (todos los demás dispositivos Windows, incluidos todos aquellos con Windows 10).
 La evaluación de directivas solo se produce en las plataformas seleccionadas. Si un dispositivo que intenta obtener acceso no se está ejecutando en una de las plataformas seleccionadas, puede acceder a la aplicación si el usuario tiene acceso. No se evalúa ninguna directiva de dispositivos.
 
-![Seleccionar plataformas para las reglas de dispositivo](./media/active-directory-conditional-access-policy-connected-applications/07.png "Device Rules")
+![Selección de plataformas para las reglas de dispositivo](./media/active-directory-conditional-access-policy-connected-applications/07.png "Reglas de dispositivo")
 
 ## <a name="set-policy-evaluation-for-a-type-of-application"></a>Establecimiento de la evaluación de directivas para un tipo de aplicación
 En la sección **Cumplimiento de la aplicación**, establezca el tipo de aplicaciones en las que la directiva evaluará el acceso de dispositivos o usuarios.
@@ -122,7 +122,7 @@ Tiene dos opciones para el tipo de aplicación que se incluya:
 * Aplicaciones nativas y de explorador
 * Solo aplicaciones nativas
 
-![Elija aplicaciones nativas o de explorador](./media/active-directory-conditional-access-policy-connected-applications/08.png "Applications")
+![Elección de aplicaciones nativas o de explorador](./media/active-directory-conditional-access-policy-connected-applications/08.png "Aplicaciones")
 
 Para aplicar la directiva de acceso para las aplicaciones, seleccione **Para aplicaciones nativas y de explorador**. Después, puede incluir:
 
@@ -137,9 +137,9 @@ Para aplicar la directiva de acceso para las aplicaciones, seleccione **Para apl
 ## <a name="help-protect-email-access-from-exchange-activesync-based-applications"></a>Contribución a la protección del acceso de correo electrónico desde aplicaciones basadas en Exchange ActiveSync
 En las aplicaciones de Office 365 Exchange Online, puede usar Exchange ActiveSync para bloquear el acceso de correo electrónico a las aplicaciones de correo basadas en Exchange ActiveSync.
 
-![Opciones de cumplimiento de Exchange ActiveSync](./media/active-directory-conditional-access-policy-connected-applications/09.png "Applications")
+![Opciones de cumplimiento de Exchange ActiveSync](./media/active-directory-conditional-access-policy-connected-applications/09.png "Aplicaciones")
 
-![Requerir un dispositivo compatible para acceder al correo electrónico](./media/active-directory-conditional-access-policy-connected-applications/10.png "Applications")
+![Requerir un dispositivo compatible para acceder al correo electrónico](./media/active-directory-conditional-access-policy-connected-applications/10.png "Aplicaciones")
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Acceso condicional de Azure Active Directory](active-directory-conditional-access.md)
@@ -147,6 +147,6 @@ En las aplicaciones de Office 365 Exchange Online, puede usar Exchange ActiveSyn
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -8,15 +8,16 @@ manager: jhubbard
 editor: monicar
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: a91b60f20394c236d64bfae242f820e56dd3ed79
-ms.openlocfilehash: 83ff32bb99ba0cf08f61ba4f2a97dee74bd6e1c5
+ms.sourcegitcommit: adad6b8e27e0996559d5e6dacb8dd60fbf52a631
+ms.openlocfilehash: 0c1ce1c29e447d9db4ef0df7873ef89cb835abee
 
 
 ---
@@ -30,6 +31,10 @@ ms.openlocfilehash: 83ff32bb99ba0cf08f61ba4f2a97dee74bd6e1c5
 
 En este tema se muestran los cmdlets de PowerShell que se usan para realizar numerosas tareas de Azure SQL Database. Para ver la lista completa, consulte [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx)(Cmdlets de Azure SQL Database).
 
+> [!TIP]
+> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started-powershell.md).
+>
+
 ## <a name="how-do-i-create-a-resource-group"></a>¿Cómo se crea un grupo de recursos?
 Para crear un grupo de recursos para la base de datos SQL y los recursos de Azure relacionados, use el cmdlet [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/azure/mt759837\(v=azure.300\).aspx).
 
@@ -40,7 +45,7 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 ```
 
 Para obtener más información, vea [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
-Para ver un script de ejemplo, consulte [Creación de un script de PowerShell de SQL Database](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Para obtener un tutorial completo, consulte [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server"></a>¿Cómo se crea un servidor de base de datos SQL?
 Para crear un servidor de base de datos de SQL, use el cmdlet [New-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603715\(v=azure.300\).aspx). Reemplace *server1* por el nombre del servidor. Los nombres de servidores deben ser únicos en todos los servidores de base de datos de Azure SQL. Recibirá un mensaje de error si ya existe el nombre del servidor. Este comando puede tardar varios minutos en completarse. El grupo de recursos ya debe existir en la suscripción.
@@ -62,7 +67,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-Para obtener más información, consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md). Para ver un script de ejemplo, consulte [Creación de un script de PowerShell de SQL Database](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Para más información sobre los servidores, consulte [Características de SQL Database](sql-database-features.md). Para obtener un tutorial completo, consulte [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database-server-firewall-rule"></a>¿Cómo se crea una regla de firewall de servidor de base de datos SQL?
 Para crear una regla de firewall para acceder al servidor, use el cmdlet [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx). Ejecute el comando siguiente, reemplazando las direcciones IP inicial y final con los valores válidos para el cliente. El grupo de recursos y el servidor ya deben existir en la suscripción.
@@ -82,7 +87,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
 
 Para permitir que otros servicios de Azure accedan al servidor, cree una regla de firewall y establezca `-StartIpAddress` y `-EndIpAddress` en**0.0.0.0**. Con esta acción se agrega una regla de firewall especial que permite el acceso a todo el tráfico de Azure.
 
-Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx). Para ver un script de ejemplo, consulte [Creación de un script de PowerShell de SQL Database](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Para obtener más información, consulte [Firewall de Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/ee621782.aspx). Para obtener un tutorial completo, consulte [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-create-a-sql-database"></a>¿Cómo se crea una base de datos SQL?
 Para crear una base de datos SQL, use el cmdlet [New-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619339\(v=azure.300\).aspx). El grupo de recursos y el servidor ya deben existir en la suscripción. 
@@ -100,7 +105,7 @@ $currentDatabase = New-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName 
  -Edition $databaseEdition -RequestedServiceObjectiveName $databaseServiceLevel
 ```
 
-Para obtener más información, consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md). Para ver un script de ejemplo, consulte [Creación de un script de PowerShell de SQL Database](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+Para obtener más información, consulte el artículo de [introducción a SQL Database](sql-database-technical-overview.md). Para obtener un tutorial completo, consulte [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure PowerShell](sql-database-get-started-powershell.md).
 
 ## <a name="how-do-i-change-the-performance-level-of-a-sql-database"></a>¿Cómo se cambia el nivel de rendimiento de una base de datos SQL?
 Para cambiar el nivel de rendimiento, escale o reduzca la base de datos verticalmente con el cmdlet [Set-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt619433\(v=azure.300\).aspx). El grupo de recursos, el servidor y la base de datos ya deben existir en la suscripción. Establezca `-RequestedServiceObjectiveName` en un único espacio (como en el siguiente fragmento) para el nivel Básico. Para otros niveles, establézcalo en *S0*, *S1*, *P1*, *P6*, etc., como en el ejemplo anterior.
@@ -162,10 +167,10 @@ $sqlServerName = "server1"
 Remove-AzureRmSqlServer -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## <a name="how-do-i-create-and-manage-elastic-database-pools-using-powershell"></a>¿Cómo se crean y administran grupos de bases de datos elásticas mediante PowerShell?
-Para obtener información sobre cómo crear grupos de bases de datos elásticas mediante PowerShell, consulte [Creación de un nuevo grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-create-powershell.md).
+## <a name="how-do-i-create-and-manage-elastic-pools-using-powershell"></a>¿Cómo se crean y administran grupos elásticos mediante PowerShell?
+Para obtener información sobre cómo crear grupos elásticos mediante PowerShell, consulte [Creación de un nuevo grupo elástico con PowerShell](sql-database-elastic-pool-create-powershell.md).
 
-Si quiere consultar más información sobre cómo administrar grupos de bases de datos elásticas mediante PowerShell, consulte el artículo sobre [supervisión y administración de grupos de bases de datos elásticas con PowerShell](sql-database-elastic-pool-manage-powershell.md).
+Para obtener información sobre cómo administrar grupos elásticos mediante PowerShell, consulte [Supervisión, administración y ajuste de tamaño de un grupo de bases de datos elásticas con PowerShell](sql-database-elastic-pool-manage-powershell.md).
 
 ## <a name="related-information"></a>Información relacionada
 * [Cmdlets de la Base de datos SQL de Azure](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx)
@@ -174,6 +179,6 @@ Si quiere consultar más información sobre cómo administrar grupos de bases de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

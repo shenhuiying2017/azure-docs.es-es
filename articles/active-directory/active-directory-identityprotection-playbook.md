@@ -131,7 +131,7 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 10. Ahora puede probar el acceso condicional basado en riesgos mediante la simulación de los eventos de riesgo de IP anónima o ubicaciones desconocidas, porque son eventos de riesgo **Medio** .
 
 
-![Guía](./media/active-directory-identityprotection-playbook/200.png "Playbook")
+![Guía de](./media/active-directory-identityprotection-playbook/200.png "Guía")
 
 
 ## <a name="see-also"></a>Otras referencias
@@ -140,6 +140,6 @@ Los puntos vulnerables son puntos débiles de un entorno de Azure AD que puede s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

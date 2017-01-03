@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a configurar el modelado de datos con Analysis Services en la nube. La documentación muestra cómo crear una solución de BI empresarial con datos tabulares."
 translationtype: Human Translation
-ms.sourcegitcommit: 1cea7999fcb9ba3d4f0febdac5acb298ec5a489a
-ms.openlocfilehash: 76a07ecf333fec4d7e406a6c6b4dc796058e664b
+ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
+ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
 
 ---
 # <a name="analysis-services-documentation"></a>Documentación de Analysis Services
 
-Azure Analysis Services, que se basa en el motor analítico de eficacia probada de Microsoft SQL Server Analysis Services, ofrece un modelado de datos de categoría empresarial en la nube.
+Aprenda a configurar y administrar modelado de datos con Analysis Services. Los tutoriales y otra documentación muestran cómo crear una solución de BI empresarial que usa datos tabulares en la nube o locales.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/">
+        <a href="https://azure.microsoft.com/documentation/videos/index/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -67,36 +68,32 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
 </ul>
 
 ---
-## <a name="reference"></a>Referencia
 
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell con cmdlets de Azure Resource Manager</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/rest/api/analysisservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST con referencia de API de REST de Azure Analysis Services</p>
+                        <p><a href="/rest/api/analysisservices/">Referencia de API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -106,12 +103,12 @@ Azure Analysis Services, que se basa en el motor analítico de eficacia probada 
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de Analysis Services </div>
+Descargar la documentación sobre Analysis Services </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

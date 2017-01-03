@@ -283,6 +283,6 @@ Cuando quisimos sincronizar el almacén local con el servidor, usamos el método
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

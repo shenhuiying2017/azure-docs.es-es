@@ -17,8 +17,8 @@ ms.workload: NA
 ms.date: 10/13/2016
 ms.author: carlrab;sashan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b2653afe1aeb920ef7e14f3e15501c8541c43219
+ms.sourcegitcommit: 9e331f3536bfde96d15ff5bb3a21683f67b25da2
+ms.openlocfilehash: d726a886717826368693cda6ca4141c136ea236d
 
 
 ---
@@ -38,7 +38,7 @@ La tabla siguiente compara los valores de ERT y RPO para los tres escenarios má
 | Replicación geográfica activa |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |
 
 ### <a name="use-database-backups-to-recover-a-database"></a>Uso de copias de seguridad para recuperar bases de datos
-Base de datos SQL realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 minutos con el fin de proteger su empresa contra la pérdida de datos. Estas copias de seguridad se guardan en un almacenamiento con redundancia local durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium, y durante siete días para las de Básico. Obtenga más información sobre los niveles de servicio en [este artículo](sql-database-service-tiers.md). Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-scale-up.md). Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Consulte el artículo sobre [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md) para más información.
+Base de datos SQL realiza automáticamente una combinación de copias de seguridad completas semanales, copias de seguridad diferenciales cada hora y copias de seguridad del registro de transacciones cada 5 minutos con el fin de proteger su empresa contra la pérdida de datos. Estas copias de seguridad se guardan en un almacenamiento con redundancia geográfica durante 35 días en el caso de las bases de datos de los niveles de servicio Estándar y Premium, y durante siete días en el nivel Básico. Para más información sobre los niveles de servicio, consulte los [niveles de servicio](sql-database-service-tiers.md). Si el período de retención del nivel de servicio no se ajusta a los requisitos de su empresa, puede ampliarlo [cambiando dicho nivel de servicio](sql-database-scale-up.md). Las copias de seguridad completas y diferenciales de bases de datos también se replican en un [centro de datos asociado](../best-practices-availability-paired-regions.md) con el fin de brindar protección frente a interrupciones en el centro de datos. Consulte el artículo sobre [copias de seguridad automáticas de bases de datos](sql-database-automated-backups.md) para más información.
 
 Si el período de retención integrado no es suficiente para la aplicación, puede ampliarlo mediante la configuración de la directiva de retención a largo plazo para las bases de datos. Para más información, consulte [retención a largo plazo](sql-database-long-term-retention.md). 
 
@@ -75,6 +75,10 @@ Use la replicación geográfica activa si su aplicación cumple los criterios si
 * El tiempo de inactividad incurrirá en responsabilidades financieras.
 * Tiene una tasa de cambio de datos elevada y no se acepta perder una hora de datos.
 * El costo adicional por utilizar la replicación geográfica activa es menor que el de la posible responsabilidad financiera y la pérdida de negocio asociada que habría que asumir.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Recuperación de bases de datos tras un error del usuario o la aplicación
 Nadie es perfecto. Un usuario podría eliminar de forma involuntaria algunos datos, una tabla importante o, incluso, una base de datos entera. O bien, una aplicación podría sobrescribir accidentalmente datos correctos por otros no válidos debido a un defecto en esta. 
@@ -136,7 +140,7 @@ Si utiliza copias de seguridad automatizadas con replicación de almacenamiento 
 > 
 > 
 
-### <a name="perform-post-failover-recovery-tasks"></a>Realización de tareas posteriores a la recuperación y conmutación por error
+### <a name="perform-post-failover--recovery-tasks"></a>Realización de tareas posteriores a la recuperación y conmutación por error
 Cuando efectúe la recuperación con cualquiera de los mecanismos para llevarla a cabo, debe realizar las siguientes tareas adicionales antes de que los usuarios y las aplicaciones vuelvan a conectarse:
 
 * Redirija los clientes y las aplicaciones cliente al nuevo servidor y a la base de datos restaurada.
@@ -154,6 +158,6 @@ Para ver una explicación de las consideraciones de diseño de las aplicaciones 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

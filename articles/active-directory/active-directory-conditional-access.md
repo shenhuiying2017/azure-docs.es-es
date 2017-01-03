@@ -1,88 +1,104 @@
 ---
 title: Acceso condicional de Azure Active Directory | Microsoft Docs
-description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
+description: "Use el control de acceso condicional en Azure Active Directory para comprobar la existencia de condiciones específicas durante la autenticación para acceder a aplicaciones."
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
-documentationcenter: ''
-author: markusvi
+documentationcenter: 
+author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: da3f0a44-1399-4e0b-aefb-03a826ae4ead
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: af104d47d316b3e46108e7e2ed0771bd06f360af
+ms.openlocfilehash: 6c3b547b052bca6999e47ddc10fcce5e1e56fe09
+
 
 ---
-# Acceso condicional de Azure Active Directory
-La protección del acceso a los recursos de la empresa es importante para todas las organizaciones. Con la llegada de los dispositivos móviles y los servicios en la nube, han cambiado significativamente las formas en que los usuarios acceden a los recursos de la empresa. La proliferación de dispositivos personales y de empresa requiere un enfoque nuevo respecto al acceso a recursos corporativos y a la seguridad.
+# <a name="conditional-access-in-azure-active-directory"></a>Acceso condicional en Azure Active Directory
 
-## ¿Por qué el acceso condicional?
-Las funcionalidades de control del acceso condicional de Azure Active Directory ofrecen a las empresas formas sencillas de proteger sus recursos locales y en la nube. Las directivas de acceso condicional pueden proteger frente al riesgo de que las credenciales sean objeto de robo y suplantación de identidad (phishing) gracias a la autenticación multifactor. Asimismo, es posible aplicar directivas de acceso condicional para proteger los datos de la empresa. Con ello, solo se concedería acceso a servicios con contenido confidencial a los dispositivos inscritos en un sistema de administración de dispositivos móviles, como Microsoft Intune.
+> [!div class="op_single_selector"]
+> * [Portal de Azure clásico](active-directory-conditional-access.md)
+> * [Portal de Azure](active-directory-conditional-access-azure-portal.md)
 
-## Requisitos previos
-El acceso condicional de Azure Active Directory es una característica de [Azure AD Premium](http://www.microsoft.com/identity). Todos los usuarios que tengan acceso a una aplicación a la que se ha aplicado la directiva de acceso condicional, deben tener una licencia de Azure AD Premium. Más información acerca del uso con el [informe de usuarios sin licencia](https://aka.ms/utc5ix).
+Las funcionalidades de control del acceso condicional en Azure Active Directory (Azure AD) ofrecen maneras sencillas de proteger los recursos locales y en la nube. Las directivas de acceso condicional, como la autenticación multifactor, contribuyen a proteger frente al riesgo de que las credenciales sean objeto de robo y suplantación de identidad (phishing). Otras directivas de acceso condicional pueden ayudar a mantener seguros los datos de su organización. Por ejemplo, además de requerir credenciales, podría tener una directiva por la cual solo los dispositivos que estén inscritos en un sistema de administración de dispositivos móviles como Microsoft Intune puedan acceder a los servicios confidenciales de su organización.
 
-## ¿Cómo se aplica el control de acceso condicional?
-Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que elige al autenticar a un usuario, antes de permitirle el acceso a una aplicación. Cuando estos requisitos se cumplen, se autentica al usuario y se permite el acceso a la aplicación.
+## <a name="prerequisites"></a>Requisitos previos
+El acceso condicional de Azure AD es una característica de [Azure Active Directory Premium](http://www.microsoft.com/identity). Cada usuario que acceda a una aplicación a la que se hayan aplicado directivas de acceso condicional debe tener una licencia de Azure AD Premium. Puede obtener más información sobre los requisitos de licencia en [Informe de uso sin licencia](https://aka.ms/utc5ix).
 
-![](./media/active-directory-conditional-access/conditionalaccess-overview.png)
+## <a name="how-is-conditional-access-control-enforced"></a>¿Cómo se aplica el control de acceso condicional?
+Con el control de acceso condicional instaurado, Azure AD comprueba si se dan las condiciones específicas que establezca para que un usuario acceda a una aplicación. Una vez que estos requisitos se cumplen, se autentica al usuario, quien puede acceder a la aplicación.  
 
-## Condiciones
-* **Pertenencia a un grupo**: control del nivel de acceso que se proporciona a un usuario en función de su pertenencia a un grupo.
-* **Ubicación**: uso de la ubicación del usuario para desencadenar la autenticación multifactor (MFA) y bloquear controles cuando un usuario no se encuentre en una red de confianza.
-* **Plataforma de dispositivo**: uso del tipo de plataforma del dispositivo, como iOS, Android, Windows Mobile y Windows, como condición para aplicar la directiva.
-* **Dispositivo habilitado**: validación del estado de habilitación o deshabilitación del dispositivo durante la evaluación de la directiva. Si se deshabilita un dispositivo perdido o robado en el directorio, no se podrá volver a usar para cumplir los requisitos de la directiva.
-* **Inicio de sesión y riesgo del usuario**: disponibilidad de directivas de riesgo del acceso condicional con [Azure AD Identity Protection](active-directory-identityprotection.md), que proporcionan protección avanzada en función de eventos de riesgo y actividades de inicio de sesión inusuales.
+![Introducción al acceso condicional](./media/active-directory-conditional-access/conditionalaccess-overview.png)
 
-## Controles
-* **Multi-Factor Authentication (MFA)**: puede requerir una autenticación sólida con MFA. La MFA puede proporcionarla Azure MFA o un proveedor de MFA local con Active Directory Federation Server (AD FS). La MFA contribuye a proteger el acceso a los recursos por parte de un usuario no autorizado que haya conseguido el nombre de usuario y la contraseña de un usuario válido.
-* **Bloqueo**: posibilidad de aplicar condiciones como la ubicación del usuario para bloquear el acceso de este. Por ejemplo, se puede bloquear el acceso cuando un usuario no está en una red de confianza.
-* **Dispositivos conformes**: posibilidad de establecer, en el nivel de dispositivo, directivas que otorguen acceso solo a los equipos unidos a un dominio o a los dispositivos móviles inscritos en una aplicación de administración de dispositivos móviles (MDM) y que, además, cumplan con los requisitos definidos. Por ejemplo, puede utilizarse Microsoft Intune con el fin de comprobar la conformidad de los dispositivos e informar del resultado a Azure Active Directory para que se apliquen las directivas durante el acceso a la aplicación. Para obtener instrucciones detalladas acerca de cómo usar Microsoft Intune para proteger los datos y las aplicaciones, consulte [Proteger aplicaciones y datos con Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). También es posible aplicar la protección de datos para dispositivos perdidos o robados mediante Microsoft Intune. Para obtener más información, consulte [Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
+## <a name="conditions"></a>Condiciones
+Puede incluir las siguientes condiciones en una directiva de acceso condicional:
 
-## Aplicaciones
-* El nivel de acceso que se puede establecer mediante estas directivas se puede aplicar tanto servicios como a aplicaciones locales o en la nube. La directiva se aplica directamente al servicio o sitio web. Después, la directiva se exige tanto para al acceso del explorador como a las aplicaciones que acceden al servicio. Aquí se puede encontrar la lista de servicios a los que se pueden aplicar la directiva.
+* **Pertenencia a grupos**. Controle el acceso de un usuario en función de su pertenencia a un grupo.
+* **Ubicación**. Use la ubicación del usuario para desencadenar la autenticación multifactor y use controles de bloqueo cuando un usuario no se encuentre en una red de confianza.
+* **Plataforma de dispositivo**. Use la plataforma de dispositivo, como iOS, Android, Windows Mobile o Windows, como condición para aplicar la directiva.
+* **Dispositivo habilitado**. El estado del dispositivo, habilitado o deshabilitado, se valida durante la evaluación de la directiva de dispositivo. Si deshabilita un dispositivo perdido o robado en el directorio, dejará de cumplir los requisitos de la directiva.
+* **Inicio de sesión y riesgo de usuario**. Puede usar [Azure AD Identity Protection](active-directory-identityprotection.md) para directivas de riesgo de acceso condicional. Las directivas de riesgo de acceso condicional proporcionan a su organización una protección anticipada en función de eventos de riesgo y actividades de inicio de sesión no habituales.
 
-## Acceso condicional basado en dispositivos
-También puede restringir el acceso a aplicaciones desde dispositivos que se registran con Azure AD que cumplen ciertas condiciones. El acceso condicional basado en dispositivos protege los recursos de la organización del acceso de usuarios desde los siguientes orígenes:
+## <a name="controls"></a>Controles
+Estos son los controles que puede usar para aplicar una directiva de acceso condicional:
+
+* **Autenticación multifactor**. Puede requerir una autenticación sólida por medio de la autenticación multifactor. Puede usar la autenticación multifactor con Azure Multi-Factor Authentication o mediante un proveedor de autenticación multifactor local, en combinación con Servicios de federación de Active Directory (AD FS). La autenticación multifactor ayuda a proteger los recursos ante el acceso por parte de un usuario no autorizado que haya conseguido el nombre de usuario y la contraseña de un usuario válido.
+* **Bloqueo**. Puede aplicar condiciones como la ubicación del usuario para bloquear el acceso. Por ejemplo, puede bloquear el acceso cuando el usuario no esté en una red de confianza.
+* **Dispositivos compatibles**. Puede establecer directivas de acceso condicional en el nivel de dispositivo. Podría configurar una directiva para que solo puedan acceder a los recursos de su organización aquellos equipos que estén unidos a un dominio o aquellos dispositivos móviles que estén inscritos en una aplicación de administración de dispositivos móviles. Por ejemplo, puede usar Intune para comprobar el cumplimiento del dispositivo y después notificarlo a Azure AD para que aplique la directiva cuando el usuario intente acceder a una aplicación. Para instrucciones detalladas sobre cómo usar Intune para proteger datos y aplicaciones, consulte [Proteger aplicaciones y datos con Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/protect-apps-and-data-with-microsoft-intune). También puede usar Intune para aplicar la protección de datos a dispositivos perdidos o robados. Para obtener más información, consulte [Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune).
+
+## <a name="applications"></a>Aplicaciones
+Puede aplicar una directiva de acceso condicional en el nivel de aplicación. Establezca niveles de acceso para las aplicaciones y los servicios locales o en la nube. La directiva se aplica directamente al servicio o sitio web. La directiva se aplica para el acceso al explorador, y a las aplicaciones que acceden al servicio.
+
+## <a name="device-based-conditional-access"></a>Acceso condicional basado en dispositivos
+Puede restringir el acceso a aplicaciones desde dispositivos que estén registrados con Azure AD y que cumplan ciertas condiciones. El acceso condicional basado en dispositivos protege los recursos de una organización ante los usuarios que intentan acceder a ellos desde:
 
 * Dispositivos desconocidos o no administrados.
-* Dispositivos que no cumplen las directivas de seguridad tal como define la organización.
+* Dispositivos que no cumplan las directivas de seguridad de la organización.
 
-Las directivas se pueden establecer en función de los siguientes requisitos:
+Puede establecer directivas basadas en estos requisitos:
 
-* **Dispositivos unidos a un dominio**: Puede establecer una directiva para restringir el acceso a dispositivos que están unidos a un dominio de Active Directory local y también están registrados con Azure AD. Esta directiva se aplica a los escritorios, equipos portátiles o tabletas de empresa con Windows que pertenecen a un dominio de Active Directory local que se han registrado con Azure AD. Para obtener más información sobre cómo configurar el registro automático de dispositivos unidos a dominio con Azure AD, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
-* **Dispositivos compatibles**: Puede establecer una directiva para restringir el acceso a los dispositivos que el sistema de administración marca como **compatibles**. Esta directiva garantiza que solo se permite el acceso a los dispositivos que cumplen las directivas de seguridad, como exigir el cifrado de archivos en un dispositivo. Esta directiva puede usarse para restringir el acceso desde los siguientes dispositivos:
+* **Dispositivos unidos a un dominio**. Establezca una directiva para restringir el acceso a dispositivos que estén unidos a un dominio local de Active Directory y que también estén registrados con Azure AD. Esta directiva se aplica a los escritorios, portátiles y tabletas de empresa Windows.
+  Para más información sobre cómo configurar el registro automático de dispositivos unidos a un dominio con Azure AD, consulte [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md).
+* **Dispositivos compatibles**. Establezca una directiva para restringir el acceso a los dispositivos que estén marcados como **compatibles** en el directorio del sistema de administración. Esta directiva garantiza que solo se permite el acceso a los dispositivos que cumplen las directivas de seguridad, como exigir el cifrado de archivos en un dispositivo. Puede usar esta directiva para restringir el acceso desde los siguientes dispositivos:
   
-  * **Dispositivos unidos a un dominio de Windows** administrados mediante System Center Configuration Manager (rama actual) en una configuración híbrida.
-  * **Dispositivos móviles personales o profesionales con Windows 10** administrados mediante Windows Intune o un sistema compatible de administración de dispositivos móviles (MDM) de terceros.
-  * **Dispositivos iOS y Android** administrados mediante Microsoft Intune.
+  * **Dispositivos unidos a un dominio de Windows**. Administrados mediante System Center Configuration Manager (en la rama actual) en una configuración híbrida.
+  * **Dispositivos Windows 10 Mobile para uso personal o profesional**. Administrados con Intune o un sistema de administración de dispositivos móviles de terceros compatible.
+  * **Dispositivos iOS y Android**. Administrados con Intune.
 
-Los usuarios que acceden a aplicaciones que están protegidas por la directiva de CA basado en dispositivo necesitan hacer esto desde dispositivos que cumplen esta directiva. El acceso se deniega cuando se realiza desde un dispositivo que no cumple la directiva.
+Los usuarios que acceden a aplicaciones protegidas con una directiva de una entidad de certificación basada en dispositivos deben acceder a la aplicación desde un dispositivo que cumpla los requisitos de esta directiva. Se deniega el acceso si intentan acceder en un dispositivo que no cumpla los requisitos de la directiva.
 
-Para información sobre cómo configurar la directiva de CA basado en dispositivo en Azure AD, consulte [How to configure Device-based Conditional Access policy for access control to Azure Active Directory connected applications](active-directory-conditional-access-policy-connected-applications.md) (Configurar la directiva de acceso condicional basado en dispositivo para control de acceso a aplicaciones conectadas a Azure Active Directory).
+Para información sobre cómo configurar una directiva de entidad de certificación basada en dispositivos en Azure AD, consulte [Establecimiento de una directiva de acceso condicional basado en dispositivos para aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md).
 
-## Índice del artículo para acceso condicional de Azure Active Directory
-El mapa de contenido siguiente enumera los documentos que debe consultar para obtener más información sobre la habilitación de acceso condicional en su implementación actual.
+## <a name="resources"></a>Recursos
+Consulte las categorías de recursos y los artículos siguientes para más información sobre cómo establecer el acceso condicional para su organización.
 
-### Directivas de MFA y de ubicación
-* [Introducción al acceso condicional a Azure AD](active-directory-conditional-access-azuread-connected-apps.md)
-* [Compatibilidad con el acceso condicional de las aplicaciones](active-directory-conditional-access-supported-apps.md)
+### <a name="multi-factor-authentication-and-location-policies"></a>Directivas de ubicación y autenticación multifactor
+* [Introducción al acceso condicional a aplicaciones conectadas a Azure AD según directivas de grupo, ubicación y autenticación multifactor](active-directory-conditional-access-azuread-connected-apps.md)
+* [Aplicaciones compatibles](active-directory-conditional-access-supported-apps.md)
 
-### Acceso condicional basado en dispositivos
-* [Establecer una directiva de acceso condicional basado en dispositivo para control de acceso a aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
-* [Configurar el registro automático de dispositivos unidos a dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
-* [Corrección de usuario al acceder a aplicaciones protegidas con acceso condicional basado en dispositivos de Azure AD](active-directory-conditional-access-device-remediation.md)
+### <a name="device-based-conditional-access"></a>Acceso condicional basado en dispositivos
+* [Establecimiento de una directiva de acceso condicional basado en dispositivos para aplicaciones conectadas a Azure Active Directory](active-directory-conditional-access-policy-connected-applications.md)
+* [Configuración del registro automático de dispositivos unidos a un dominio de Windows con Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
+* [Solución de problemas de acceso de Azure Active Directory](active-directory-conditional-access-device-remediation.md)
 * [Ayudar a proteger los datos con el borrado selectivo o completo mediante Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
 
-### Protección de recursos basada en el riesgo de inicio de sesión
-[Azure AD Identity Protection](active-directory-identityprotection.md)
+### <a name="protect-resources-based-on-sign-in-risk"></a>Protección de recursos basada en el riesgo de inicio de sesión
+* [Azure AD Identity Protection](active-directory-identityprotection.md)
 
-### Información adicional
-* [Preguntas más frecuentes sobre acceso condicional](active-directory-conditional-faqs.md)
+### <a name="next-steps"></a>Pasos siguientes
+* [Preguntas más frecuentes acerca del acceso condicional](active-directory-conditional-faqs.md)
 * [Referencia técnica](active-directory-conditional-access-technical-reference.md)
 
-<!---HONumber=AcomDC_0928_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

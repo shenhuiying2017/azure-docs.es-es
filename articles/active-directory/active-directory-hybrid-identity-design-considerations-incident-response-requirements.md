@@ -1,13 +1,12 @@
-
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de respuesta a incidentes| Microsoft Docs'
-description: Determine las funcionalidades de supervisión e informes de la solución de identidad híbrida que puede aprovechar el responsable de TI para realizar acciones de cara a identificar y mitigar las posibles amenazas.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de respuesta a incidentes | Microsoft Docs"
+description: "Determine las funcionalidades de supervisión e informes de la solución de identidad híbrida que puede aprovechar el responsable de TI para realizar acciones de cara a identificar y mitigar las posibles amenazas."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: bc8e3b76aad18e8d7a73de8bc12e6527e415035d
+
 
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de respuesta a incidentes para su solución de identidad híbrida
@@ -63,6 +66,9 @@ Durante la fase de control de daños y reducción de riesgos, es importante redu
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

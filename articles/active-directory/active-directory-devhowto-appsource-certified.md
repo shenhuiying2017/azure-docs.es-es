@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/28/2016
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f34c5c10ec57f46fc9179362ddb77fce41bccf14
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 01c6d3c3fa8648ef9ecaefcf43191315380d13d4
 
 
 ---
@@ -25,14 +25,14 @@ Para recibir la certificación de AppSource para Azure AD, la aplicación debe i
 
 Si no está familiarizado con el desarrollo de aplicaciones multiempresa o el inicio de sesión de Azure AD, siga estos pasos:
 
-1. Para comenzar, consulte [Escenarios de autenticación para Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].  
-2. A continuación, consulte las [guías de inicio rápido de aplicaciones web de Azure AD][AAD-QuickStart-Web-Apps], que muestran cómo implementar el inicio de sesión e incluyen ejemplos de código complementarios. 
+1. Para comenzar lea [Escenarios de autenticación para Azure AD][AAD-Auth-Scenarios-Browser-To-WebApp].  
+2. A continuación, consulte las [guías de inicio rápido de aplicaciones web][AAD-QuickStart-Web-Apps] de Azure AD, que muestran cómo implementar el inicio de sesión e incluyen ejemplos de código complementarios. 
    
    > [!TIP]
    > Pruebe la versión preliminar de nuestro nuevo [portal para desarrolladores](https://identity.microsoft.com/Docs/Web) , que lo ayudará a empezar a trabajar con Azure Active Directory en tan solo unos minutos.  El portal para desarrolladores lo guiará a través del proceso de registro de una aplicación y de integración de Azure AD en el código.  Cuando haya terminado, tendrá una aplicación sencilla que podrá autenticar a los usuarios del inquilino, así como un back-end con capacidad para aceptar tokens y realizar validaciones.
    > 
    > 
-3. Para aprender a implementar el patrón de inicio de sesión multiempresa con Azure AD, consulte [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiempresa][AAD-Howto-Multitenant-Overview].
+3. Para aprender a implementar el patrón de inicio de sesión multiinquilino con Azure AD, consulte [Inicio de sesión de cualquier usuario de Azure Active Directory (AD) mediante el patrón de aplicación multiinquilino][AAD-Howto-Multitenant-Overview].
 
 ## <a name="related-content"></a>Contenido relacionado
 Para más información sobre la compilación de aplicaciones compatibles con el inicio de sesión de Azure AD, o para obtener ayuda y soporte técnico, consulte la [guía del desarrollador de Azure AD][AAD-Dev-Guide].
@@ -61,6 +61,6 @@ Use la sección de comentarios DISQUS a continuación de este artículo para pro
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

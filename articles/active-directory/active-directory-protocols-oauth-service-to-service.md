@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 87c73981c74fc763fd1aec6c283e934c77008441
-ms.openlocfilehash: 9d9ddbddb1039f56c420cb8f10dfa9bb82788b72
+ms.sourcegitcommit: 3fdd561bba898b0e790f69a82ed731d7fd87d8c8
+ms.openlocfilehash: 7cf9fe659a91816e42394c1377232e122fe924a6
 
 
 ---
@@ -48,7 +48,7 @@ Una solicitud de token de acceso entre servicios contiene los parámetros siguie
 
 | Parámetro |  | Descripción |
 | --- | --- | --- |
-| response_type |requerido |Especifica el tipo de respuesta solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
+| grant_type |requerido |Especifica el tipo de respuesta solicitado. En un flujo de concesión de credenciales de cliente, el valor debe ser **client_credentials**. |
 | client_id |requerido |Especifica el identificador de cliente de Azure AD del servicio web que realiza la llamada. Para buscar el identificador del cliente de la aplicación de llamada, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en la aplicación y, finalmente, en **Configurar**. |
 | client_secret |requerido |Escriba una clave registrada para el servicio web de llamada de Azure AD. Para crear una clave, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en la aplicación y, finalmente, en **Configurar**. |
 | resource |requerido |Escriba el URI del identificador de la aplicación del servicio web de recepción. Para buscar el URI del identificador, en el Portal de administración de Azure, haga clic sucesivamente en **Active Directory**, en el directorio, en la aplicación y, finalmente, en **Configurar**. |
@@ -93,6 +93,6 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

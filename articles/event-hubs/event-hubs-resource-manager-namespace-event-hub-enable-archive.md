@@ -1,19 +1,23 @@
 ---
-title: Creación de un espacio de nombres de Event Hubs con un Centro de eventos y habilitación del Archivado mediante una plantilla de Azure Resource Manager | Microsoft Docs
-description: Creación de un espacio de nombres de Event Hubs con un Centro de eventos y habilitación del Archivado mediante una plantilla de Azure Resource Manager
+title: "Creación de un espacio de nombres de Event Hubs con un centro de eventos y habilitación del archivado mediante una plantilla de Azure Resource Manager | Microsoft Docs"
+description: "Creación de un espacio de nombres de Event Hubs con un Centro de eventos y habilitación del Archivado mediante una plantilla de Azure Resource Manager"
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 8bdda6a2-5ff1-45e3-b696-c553768f1090
 ms.service: event-hubs
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 09/14/2016
-ms.author: ShubhaVijayasarathy
+ms.date: 11/21/2016
+ms.author: shvija;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: 188e3638393262a8406f322a5720e7e3eadf3e49
+ms.openlocfilehash: 6fb396063f4944a3043314cfbc58121f45a5c0c6
+
 
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-enable-archive-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Event Hubs con un Centro de eventos y habilitación del Archivado mediante una plantilla de Azure Resource Manager
@@ -21,19 +25,19 @@ En este artículo se muestra cómo utilizar una plantilla de Azure Resource Mana
 
 Para más información sobre la creación de plantillas, consulte [Creación de plantillas de Azure Resource Manager][Creación de plantillas de Azure Resource Manager].
 
-Para obtener más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Recommended naming conventions for Azure resources][](Convenciones de nomenclatura recomendadas para los recursos de Azure.md).
+Para más información sobre prácticas y patrones de convenciones de nomenclatura de recursos de Azure, consulte [Convenciones de nomenclatura de recursos de Azure][Convenciones de nomenclatura de recursos de Azure].
 
-Para ver la plantilla completa, consulte [Event Hub and enable Archive template][](Plantilla de Centro de eventos y habilitación de Archivado.md) en GitHub.
+Para ver la plantilla completa, consulte [Centro de eventos y habilitación de la plantilla de archivado][Centro de eventos y habilitación de la plantilla de archivado] en GitHub.
 
 > [!NOTE]
-> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Centros de eventos.
+> Para buscar las últimas plantillas, visite la galería de [Plantillas de inicio rápido de Azure][Plantillas de inicio rápido de Azure] y busque Event Hubs.
 > 
 > 
 
-## <a name="what-you-deploy?"></a>¿Qué se puede implementar?
-Con esta plantilla, implementará un espacio de nombres de Event Hubs con un Centro de eventos y se habilitará el Archivado.
+## <a name="what-will-you-deploy"></a>¿Qué va a implementar?
+Con esta plantilla, implementará un espacio de nombres de Event Hubs con un centro de eventos y se habilitará Event Hubs Archive.
 
-[Centros de eventos](event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. El Archivado de Event Hubs le permite entregar automáticamente los datos de streaming de sus Centros de eventos a un servicio Azure Blob Storage de su elección dentro de la hora especificada o el intervalo de tamaño que prefiera.
+[Centros de eventos](event-hubs-what-is-event-hubs.md) es un servicio de procesamiento de eventos que se usa para ofrecer la entrada de telemetría y eventos en Azure a escala masiva, con una latencia baja y una alta confiabilidad. Event Hubs Archive le permite entregar automáticamente los datos de streaming de sus centros de eventos a una instancia de Azure Blob Storage de su elección dentro de la hora especificada o el intervalo de tamaño que prefiera.
 
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente:
 
@@ -47,7 +51,7 @@ La plantilla define los parámetros siguientes.
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 El nombre del espacio de nombres de Centros de eventos que se creará.
 
-```
+```json
 "eventHubNamespaceName":{  
      "type":"string",
      "metadata":{  
@@ -59,7 +63,7 @@ El nombre del espacio de nombres de Centros de eventos que se creará.
 ### <a name="eventhubname"></a>eventHubName
 El nombre del centro de eventos creado en el espacio de nombres de Centros de eventos.
 
-```
+```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
@@ -71,7 +75,7 @@ El nombre del centro de eventos creado en el espacio de nombres de Centros de ev
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 El número de días que desea que los mensajes se conserven en el Centro de eventos. 
 
-```
+```json
 "messageRetentionInDays":{
     "type":"int",
     "defaultValue": 1,
@@ -86,7 +90,7 @@ El número de días que desea que los mensajes se conserven en el Centro de even
 ### <a name="partitioncount"></a>partitionCount
 El número de particiones que desea en el Centro de eventos.
 
-```
+```json
 "partitionCount":{
     "type":"int",
     "defaultValue":2,
@@ -99,9 +103,9 @@ El número de particiones que desea en el Centro de eventos.
 ```
 
 ### <a name="archiveenabled"></a>archiveEnabled
-Habilitar el Archivado en el Centro de eventos.
+Habilite el archivado en Event Hubs.
 
-```
+```json
 "archiveEnabled":{
     "type":"string",
     "defaultValue":"true",
@@ -116,7 +120,7 @@ Habilitar el Archivado en el Centro de eventos.
 ### <a name="archiveencodingformat"></a>archiveEncodingFormat
 El formato de codificación que especifica para serializar los datos de eventos.
 
-```
+```json
 "archiveEncodingFormat":{
     "type":"string",
     "defaultValue":"Avro",
@@ -129,9 +133,9 @@ El formato de codificación que especifica para serializar los datos de eventos.
 ```
 
 ### <a name="archivetime"></a>archiveTime
-El intervalo de tiempo en que el Archivado empieza a archivar datos en Azure Blob Storage.
+El intervalo de tiempo en que el archivado empieza a archivar datos en Azure Blob Storage.
 
-```
+```json
 "archiveTime":{
     "type":"int",
     "defaultValue":300,
@@ -144,9 +148,9 @@ El intervalo de tiempo en que el Archivado empieza a archivar datos en Azure Blo
 ```
 
 ### <a name="archivesize"></a>archiveSize
-El intervalo de tamaño en que el Archivado empieza a archivar datos en Azure Blob Storage.
+El intervalo de tamaño en que el archivado empieza a archivar datos en Azure Blob Storage.
 
-```
+```json
 "archiveSize":{
     "type":"int",
     "defaultValue":314572800,
@@ -159,9 +163,9 @@ El intervalo de tamaño en que el Archivado empieza a archivar datos en Azure Bl
 ```
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
-El Archivado requiere un identificador de recurso de la cuenta de almacenamiento para habilitar esta funcionalidad en la instancia deseada de Azure Storage.
+El archivado requiere un identificador de recurso de cuenta de Azure Storage para habilitar esta funcionalidad en la cuenta deseada de Storage.
 
-```
+```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
@@ -171,13 +175,13 @@ El Archivado requiere un identificador de recurso de la cuenta de almacenamiento
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
-El contenedor del blob en el que quiere que se archiven los datos de eventos.
+El contenedor de blobs en el que quiere que se archiven los datos de eventos.
 
-```
+```json
  "blobContainerName":{
     "type":"string",
     "metadata":{
-        "description":"Your existing storage Container that you want the blobs archived in"
+        "description":"Your existing storage container that you want the blobs archived in"
     }
 }
 ```
@@ -186,7 +190,7 @@ El contenedor del blob en el que quiere que se archiven los datos de eventos.
 ### <a name="apiversion"></a>apiVersion
 La versión de API de la plantilla.
 
-```
+```json
  "apiVersion":{  
     "type":"string",
     "defaultValue":"2015-08-01",
@@ -197,9 +201,9 @@ La versión de API de la plantilla.
 ```
 
 ## <a name="resources-to-deploy"></a>Recursos para implementar
-Crea un espacio de nombres de tipo **Event Hubs**con un Centro de eventos y habilita el Archivado.
+Crea un espacio de nombres de tipo **EventHubs**con un centro de eventos y habilita el archivado.
 
-```
+```json
 "resources":[  
       {  
          "apiVersion":"[variables('ehVersion')]",
@@ -248,7 +252,7 @@ Crea un espacio de nombres de tipo **Event Hubs**con un Centro de eventos y habi
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
-```
+```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json
 ```
 
@@ -269,6 +273,6 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

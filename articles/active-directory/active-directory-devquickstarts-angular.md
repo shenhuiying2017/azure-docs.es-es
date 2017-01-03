@@ -155,6 +155,6 @@ Como referencia, [aquí](https://github.com/AzureADQuickStarts/SinglePageApp-Ang
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 
