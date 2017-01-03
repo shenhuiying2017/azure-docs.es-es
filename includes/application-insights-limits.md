@@ -1,34 +1,28 @@
 Hay algunos límites en el número de métricas y eventos por aplicación (es decir, por clave de instrumentación). 
 
-Los límites dependen del [esquema de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
+Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/details/application-insights/) que elija.
 
-| **Recurso** | **Límite predeterminado** | **Límite máximo** |
+| **Recurso** | **Límite predeterminado** | **Nota:**
 | --- | --- | --- |
-| Puntos de datos de sesión<sup>1, 2</sup> por mes |sin límite | |
-| Puntos de datos totales por mes de solicitud, evento, dependencia, seguimiento, excepción y vista de página |5 millones |50 millones<sup>3</sup> |
-| [seguimiento y registro](../articles/application-insights/app-insights-search-diagnostic-logs.md)  |200 dp/s |500 dp/s |
-| [excepción](../articles/application-insights/app-insights-asp-net-exceptions.md)  |50 dp/s |50 dp/s |
-| Velocidad total de datos de solicitud, evento, dependencia y telemetría de vista de página |200 dp/s |500 dp/s |
-| Retención de datos sin procesar para [Search](../articles/application-insights/app-insights-diagnostic-search.md) y [Analytics](../articles/application-insights/app-insights-analytics.md) |7 días | |
-| Retención de datos agregada para [Explorador de métricas](../articles/application-insights/app-insights-metrics-explorer.md) |90 días | |
-| [propiedad](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)  |100 | |
-| Longitud del nombre de la propiedad |150 | |
-| Longitud del valor de la propiedad |8192 | |
-| Longitud del mensaje de seguimiento y excepción |10000 | |
-| [métrica](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)  |100 | |
-| Longitud del nombre de métrica |150 | |
-| [Pruebas de disponibilidad](../articles/application-insights/app-insights-monitor-web-app-availability.md) |10 | |
+| Total de datos por día | 100 GB* | Se puede reducir si se establece un límite. Si necesita más información, envíe un correo electrónico a AIDataCap@microsoft.com. 
+| Datos gratis por mes<br/> (plan de precios Básico) | 1 GB | Datos adicionales cobrados por GB
+| Retención de datos | 90 días | para [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) y el [Explorador de métricas](../articles/application-insights/app-insights-metrics-explorer.md)
+| Retención de resultados detallados para la [prueba de disponibilidad de varios pasos](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 días | Resultados detallados de cada paso
+| Número de nombres de [propiedades](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) y [métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
+| Longitud de nombres de propiedades y métricas | 150 |
+| Longitud de cadena del valor de propiedad | 8192 |
+| Valores distintos para propiedades<sup>3,4</sup> | 100 | >100 => no puede usar propiedad como filtro en el Explorador de métricas
+| Longitud del mensaje de seguimiento y excepción | 10000 |
+| Número de [pruebas de disponibilidad](../articles/application-insights/app-insights-monitor-web-app-availability.md) por aplicación  | 10 |
 
-<sup>1</sup> Un punto de datos es un evento o valor métrico individual, con propiedades adjuntas y medidas.
+1. Todos estos números corresponden a cada clave de instrumentación.
+2. Los nombres de métrica se definen tanto en TrackMetric como en el parámetro measurement de otras llamadas Track*(). Los nombres de métricas son globales para cada clave de instrumentación.
+3. Las propiedades se pueden usar para filtrar y agrupar por solo cuando tienen menos de 100 valores únicos para cada propiedad. Cuando el número de valores únicos sea superior a 100, podrá seguir buscando la propiedad, pero no podrá utilizarlos en los filtros ni agruparlos.
+4. Las propiedades estándar como el nombre de la solicitud y la URL de página se limitan a 1000 valores únicos por semana. Después de 1000 valores únicos, los valores adicionales se marcan como "Otros valores". Los valores originales pueden seguir usándose para buscar texto completo y filtrar.
 
-<sup>2</sup> Un punto de datos de sesión registra el inicio o el final de una sesión y registra la identidad del usuario.
-
-<sup>3</sup> Puede comprar capacidad adicional por encima de 50 millones.
 
 [Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Everbridge | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Everbridge.
+title: "Tutorial: Integración de Azure Active Directory con Everbridge | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Everbridge."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58d7cd22-98c0-4606-9ce5-8bdb22ee8b3e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2016
+ms.date: 11/22/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: 5608f38de6ae78772499a40c4e2d449cd5efc79c
+ms.openlocfilehash: 511a3883cadd9bf2fe1cc39a8626c49fa19a7d8e
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con Everbridge
+# <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integración de Azure Active Directory con EverBridge
 El objetivo de este tutorial es mostrar cómo integrar Everbridge con Azure Active Directory (Azure AD).
 
 La integración de Everbridge con Azure AD proporciona las siguientes ventajas:
@@ -173,17 +177,18 @@ En la lista Usuarios, seleccione **Britta Simon**.
     c. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_06.png)
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-everbridge-tutorial/create_aaduser_07.png)
@@ -219,7 +224,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Everbridge en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Everbridge.
@@ -248,6 +253,6 @@ Al hacer clic en el icono de Everbridge en el panel de acceso, debería iniciar 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

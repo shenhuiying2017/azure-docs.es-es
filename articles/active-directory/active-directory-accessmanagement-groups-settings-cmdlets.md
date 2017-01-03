@@ -1,12 +1,12 @@
 ---
 title: Cmdlets de Azure Active Directory para configurar las opciones de grupo | Microsoft Docs
-description: Administración de la configuración de grupos mediante cmdlets de Azure Active Directory.
+description: "Administración de la configuración de grupos mediante cmdlets de Azure Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c18ef38661e31e16114b88bdfad36320776ef12b
+
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets de Azure Active Directory para configurar las opciones de grupo
@@ -98,7 +102,7 @@ Con estos pasos se elimina la configuración en el nivel de directorio, lo cual 
 ## <a name="cmdlet-syntax-reference"></a>Referencia de sintaxis de cmdlet
 Puede encontrar más documentación de Azure Active Directory PowerShell en el artículo sobre los [cmdlets de Azure Active Directory](http://go.microsoft.com/fwlink/p/?LinkId=808260).
 
-## <a name="settingstemplate-object-reference-(group.unified-settingstemplate-object)"></a>Referencia de objeto SettingsTemplate (objeto Group.Unified de SettingsTemplate)
+## <a name="settingstemplate-object-reference-groupunified-settingstemplate-object"></a>Referencia de objeto SettingsTemplate (objeto Group.Unified de SettingsTemplate)
 * "name": "EnableGroupCreation", "type": "System.Boolean", "defaultValue": "true", "description": "Una marca booleana que indica si la característica de creación de grupos unificados está activada".
 * "name": "GroupCreationAllowedGroupId", "type": "System.Guid", "defaultValue": "", "description": "GUID del grupo de seguridad que está en la lista de permitidos para crear grupos unificados".
 * "name": "ClassificationList", "type": "System.String", "defaultValue": "", "description": "Una lista de valores de clasificación válidos delimitados por coma que se pueden aplicar a grupos unificados".
@@ -119,6 +123,9 @@ Se pueden encontrar instrucciones adicionales en [Rob's Groups Blog](http://robs
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

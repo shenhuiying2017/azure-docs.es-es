@@ -1,23 +1,27 @@
 ---
-title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
-description: Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
+title: "Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs"
+description: "Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: 3b9b7ade-3374-4596-afb1-51b695f481c2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/21/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: b39cd142925be91bd7a90183cada7ba040a344c0
+ms.openlocfilehash: b8ebf6a2b3c8d2e5b173e429f39c9836e7d214ac
+
 
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
-Puede usar los [cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
+Puede usar los [cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
 
 * Crear un área de trabajo
 * Agregar o quitar una solución
@@ -31,7 +35,7 @@ Puede usar los [cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.co
 * Agregar al agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
-Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para otras funciones.
+Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para otras funciones.
 
 > [!NOTE]
 > Log Analytics se llamaba anteriormente Operational Insights, razón por la cual se utiliza este nombre en los cmdlets.
@@ -39,16 +43,8 @@ Este artículo proporciona dos ejemplos de código que muestran algunas de las f
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para usar PowerShell con el área de trabajo de Log Analytics debe tener:
+Estos ejemplos funcionan con la versión 2.3.0 o posteriores del módulo AzureRm.OperationalInsights.
 
-* Una suscripción de Azure, y 
-* El área de trabajo de Log Analytics de Azure vinculada a su suscripción de Azure.
-
-Si ha creado un área de trabajo de OMS, pero aún no está vinculada a una suscripción de Azure, puede crear el vínculo:
-
-* En el Portal de Azure
-* En el portal OMS. 
-* Con los cmdlets Get-AzureRmOperationalInsightsLinkTargets y New-AzureRmOperationalInsightsWorkspace cmdlets.
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Creación y configuración de un área de trabajo de Log Analytics
 El siguiente ejemplo de script muestra cómo:
@@ -161,8 +157,12 @@ foreach ($search in $ExportedSearches) {
 # Export Saved Searches
 (Get-AzureRmOperationalInsightsSavedSearch -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName).Value.Properties | ConvertTo-Json 
 
-# Create Computer Group
+# Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
+
+# Create a computer group based on names (up to 5000)
+$computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
+New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
 # Enable IIS Log Collection using agent
 Enable-AzureRmOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
@@ -187,15 +187,49 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 ```
 
 ## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Configuración de Log Analytics para indizar Diagnósticos de Azure
-Para la supervisión de recursos de Azure, los recursos que necesitan tener los Diagnósticos de Azure habilitados y configurados para escribir en una cuenta de almacenamiento. Log Analytics puede configurarse para recopilar los registros de la cuenta de almacenamiento. Algunos de los recursos que necesita para realizar la configuración anterior son los siguientes:
+Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente a Log Analytics y no requiere que los datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
+
+| Tipo de recurso | Registros | Métricas |
+| --- | --- | --- |
+| Puertas de enlace de aplicaciones    | Sí | Sí |
+| Cuentas de automatización     | Sí | |
+| Cuentas de Batch          | Sí | Sí |
+| Data Lake Analytics     | yes | | 
+| Data Lake Store         | Sí | |
+| Elastic SQL Pool        |     | Sí |
+| Espacio de nombres del Centro de eventos     |     | Sí |
+| IoT Hubs                |     | Sí |
+| Key Vault               | Sí | |
+| Equilibradores de carga          | Sí | |
+| Logic Apps              | yes | Sí |
+| Grupos de seguridad de red | Sí | |
+| Caché en Redis             |     | yes |
+| Servicios de búsqueda         | Sí | Sí |
+| Espacio de nombres de Bus de servicio   |     | Sí |
+| SQL (v12)               |     | Sí |
+| Sitios web               |     | yes |
+| Granjas de servidores web        |     | yes |
+
+Para obtener información detallada sobre las métricas disponibles, consulte las [métricas admitidas con Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+
+Para obtener información detallada sobre los registros disponibles, consulte los [servicios admitidos y el esquema de los registros de diagnóstico](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs).
+
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
+```
+
+También puede usar el cmdlet anterior para recopilar registros de recursos que se encuentran en distintas suscripciones. El cmdlet funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso que crea los registros y como el del área de trabajo al que se envían los registros.
+
+
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Configuración de Log Analytics para indizar diagnósticos de Azure desde el almacenamiento
+Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. Después, Log Analytics se puede configurar para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
 
 * Servicios en la nube clásicos (roles web y de trabajo)
 * Clústeres de Service Fabric
-* Grupos de seguridad de red
-* Almacenes de claves 
-* Puertas de enlace de aplicaciones
-
-También puede usar PowerShell para configurar un área de trabajo de Log Analytics en una suscripción de Azure para recopilar registros de distintas suscripciones de Azure.
 
 El ejemplo siguiente muestra cómo:
 
@@ -219,16 +253,22 @@ Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -StorageAccountResourceId $storageId -StorageAccountKey $key -Tables @("WADWindowsEventLogsTable") -Containers @("wad-iis-logfiles")
 
 # Update existing insight
-Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles", "insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/DEMO")
+Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
 # Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-## <a name="next-steps"></a>Pasos siguientes
-* [Revise los cmdlets de PowerShell de Log Analytics](http://msdn.microsoft.com/library/mt188224.aspx) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
+También puede usar el script anterior para recopilar registros de cuentas de almacenamiento que se encuentran en distintas suscripciones. El script funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso de cuenta de almacenamiento como la clave de acceso correspondiente. Cuando se cambia la clave de acceso, hay que actualizar los datos del almacenamiento para que tenga la nueva clave.
 
-<!--HONumber=Oct16_HO2-->
+
+## <a name="next-steps"></a>Pasos siguientes
+* [Revise los cmdlets de PowerShell de Log Analytics](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) para obtener información adicional sobre cómo usar PowerShell para la configuración de Log Analytics.
+
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

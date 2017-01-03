@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con NetSuite | Microsoft Docs'
-description: Aprenda cómo usar NetSuite con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con NetSuite | Microsoft Docs"
+description: "Aprenda cómo usar NetSuite con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,20 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
 ms.author: asmalser-msft
+translationtype: Human Translation
+ms.sourcegitcommit: 789ec6f0a230f49ecd935bc85ea4ad984e936da9
+ms.openlocfilehash: 74642e0e8e0420bb1226c53713ccf50e0a46b776
+
 
 ---
-# <a name="tutorial:-how-to-integrate-netsuite-with-azure-active-directory"></a>Tutorial: Integración de NetSuite con Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integración de Azure Active Directory con NetSuite
 Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active Directory (Azure AD). Obtendrá información sobre cómo configurar un inicio de sesión único en NetSuite, cómo habilitar el aprovisionamiento automático de usuarios y cómo asignar usuarios para que dispongan de acceso a NetSuite. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 1. Para acceder a Azure Active Directory a través del [Portal de Azure clásico](https://manage.windowsazure.com), primero debe tener una suscripción de Azure válida.
-2. Debe tener acceso de administrador a una suscripción de [NetSuite](http://www.netsuite.com/portal/home.shtml) . Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
+2. Debe tener acceso de administrador a una suscripción de [NetSuite](http://www.netsuite.com/portal/home.shtml). Puede usar una cuenta de prueba gratuita de cualquiera de los servicios.
 
-## <a name="step-1:-add-netsuite-to-your-directory"></a>Paso 1: Adición de NetSuite a su directorio
-1. En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
+## <a name="step-1-add-netsuite-to-your-directory"></a>Paso 1: Incorporación de NetSuite a Directory
+1. En el panel de navegación izquierdo del [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Active Directory**.
    
     ![Seleccione Active Directory en el panel de navegación izquierdo.][0]
-2. En la lista **Directorio** , seleccione el directorio que desee agregar a NetSuite.
+2. En la lista d **Directory**, seleccione el directorio al que desee agregar NetSuite.
 3. Haga clic en **Aplicaciones** en el menú superior.
    
     ![Haga clic en Aplicaciones.][1]
@@ -39,16 +43,16 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
     ![Haga clic en Agregar una aplicación de la galería.][3]
 6. En el **cuadro de búsqueda**, escriba **NetSuite**. A continuación, seleccione **NetSuite** en los resultados y haga clic en **Completar** para agregar la aplicación.
    
-    ![Agregue NetSuite.][4]
+    ![Incorporación de NetSuite][4]
 7. Ahora debería ver la página de inicio rápido para NetSuite:
    
     ![Página de inicio rápido de NetSuite en Azure AD][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
-1. En Azure AD, en la página de inicio rápido para NetSuite, haga clic en el botón **Configurar inicio de sesión único** .
+## <a name="step-2-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
+1. En Azure AD, en la página de inicio rápido para NetSuite, haga clic en el botón **Configurar inicio de sesión único**.
    
     ![Botón de inicio de sesión único de configuración][6]
-2. Se abrirá un cuadro de diálogo y verá una pantalla que le pregunta "¿Cómo desea que los usuarios inicien sesión NetSuite?". Seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.
+2. Se abrirá un cuadro de diálogo y verá una pantalla que le pregunta "¿Cómo desea que los usuarios inicien sesión NetSuite?" Seleccione **Inicio de sesión único de Azure AD** y haga clic en **Siguiente**.
    
     ![Selección del inicio de sesión único e Azure AD][7]
    
@@ -81,14 +85,14 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
     ![Vaya al inicio de sesión único SAML][12]
 9. En la página **Configuración de SAML** , realice los pasos siguientes:
    
-   * En Azure Active Directory, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el campo **Página de inicio de sesión del proveedor de identidad** en NetSuite.
+   * En Azure Active Directory, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el campo **Identity Provider Login Page** (Página de inicio de sesión del proveedor de identidad) en NetSuite.
      
        ![La página Configuración de SAML.][13]
-   * En NetSuite, seleccione **Método de autenticación principal**.
+   * En NetSuite, seleccione **Primary Authentication Method** (Método de autenticación principal).
    * Para el campo con la etiqueta **Metadatos del proveedor de identidades de SAMLV2**, seleccione **Cargar archivo de metadatos de IDP**. A continuación, haga clic en **Examinar** para cargar el archivo de metadatos que descargó en el paso 4.
      
        ![Carga de metadatos][16]
-   * Haga clic en **Enviar**.
+   * Haga clic en **Submit**(Enviar).
 10. En Azure AD, seleccione la casilla de confirmación de configuración de inicio de sesión único para habilitar el certificado que cargó en NetSuite. A continuación, haga clic en **Siguiente**.
     
      ![Activación de la casilla de confirmación][14]
@@ -101,11 +105,11 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 13. Haga clic en **Agregar atributo de usuario**.
     
     ![Haga clic en Agregar atributo de usuario.][18]
-14. Para el campo **Nombre de atributo**, escriba `account`. Para el campo **Valor del atributo**, escriba el identificador de cuenta de NetSuite. A continuación se incluyen instrucciones sobre cómo encontrar el identificador de la cuenta:
+14. Para el campo **Nombre de atributo**, escriba `account`. Para el campo **Valor de atributo**, escriba el identificador de cuenta de NetSuite. A continuación se incluyen instrucciones sobre cómo encontrar el identificador de la cuenta:
     
     ![Agregue el identificador de cuenta NetSuite.][19]
     
-    * En NetSuite, haga clic en **Instalar** en el menú de navegación superior.
+    * En NetSuite, haga clic en **Setup** (Instalar) en el menú de navegación superior.
     * A continuación, haga clic en la sección **Tareas de configuración** del menú de navegación izquierdo, seleccione la sección **Integración** y haga clic en **Preferencias de servicios web**.
     * Copie el identificador de la cuenta NetSuite y péguelo en el campo **Valor del atributo** en Azure AD.
       
@@ -146,7 +150,7 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
     * Haga clic en **Guardar**.
 17. Para probar la configuración, consulte la sección siguiente titulada [Asignación de usuarios a NetSuite](#step-4-assign-users-to-netsuite).
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
+## <a name="step-3-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
 > [!NOTE]
 > De forma predeterminada, los usuarios aprovisionados se agregarán a la subsidiaria raíz del entorno NetSuite.
 > 
@@ -163,16 +167,16 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
     ![Confirme.][30]
 4. Haga clic en **Completar** para cerrar el cuadro de diálogo.
 
-## <a name="step-4:-assign-users-to-netsuite"></a>Paso 4: Asignación de usuarios a NetSuite
+## <a name="step-4-assign-users-to-netsuite"></a>Paso 4: Asignación de usuarios a NetSuite
 1. Para probar la configuración, empiece a crear una nueva cuenta de prueba en el directorio.
-2. En la página de inicio rápido de NetSuite, haga clic en el botón **Asignar usuarios** .
+2. En la página de inicio rápido de NetSuite, haga clic en el botón **Asignar usuarios**.
    
     ![Haga clic en Asignar usuarios][31]
 3. Seleccione el usuario de prueba y haga clic en el botón **Asignar** situado en la parte inferior de la pantalla:
    
    * Si no lo ha habilitado el aprovisionamiento automático de usuarios, verá el mensaje siguiente de confirmación:
      
-        ![Confirm the assignment.][32]
+        ![Confirmación de la asignación.][32]
    * Si ha habilitado el aprovisionamiento automático de usuarios, verá un símbolo del sistema para definir qué tipo de rol debe tener el usuario en NetSuite. Los usuarios recién aprovisionados deberían aparecer en su entorno NetSuite después de unos minutos.
 4. Para probar la configuración de inicios de sesión únicos, abra el panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/), inicie sesión en la cuenta de prueba y haga clic en **NetSuite**.
 
@@ -216,6 +220,6 @@ Este tutorial le mostrará cómo conectar el entorno de NetSuite a Azure Active 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

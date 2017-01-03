@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Google Apps | Microsoft Docs'
-description: Aprenda cómo usar Google Apps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc.
+title: "Tutorial: Integración de Azure Active Directory con Google Apps | Microsoft Docs"
+description: "Aprenda cómo usar Google Apps con Azure Active Directory para habilitar el inicio de sesión único, el aprovisionamiento automatizado, etc."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 38a6ca75-7fd0-4cdc-9b9f-fae080c5a016
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2016
 ms.author: asmalser-msft
+translationtype: Human Translation
+ms.sourcegitcommit: 0edd2d9b2d71d95260aa122545930aab64612106
+ms.openlocfilehash: cc7348b933b1ed4a79bf282c1d9a8e073b1f3ba4
+
 
 ---
-# <a name="tutorial:-how-to-integrate-google-apps-with-azure-active-directory"></a>Tutorial: Integración de Google Apps con Azure Active Directory
+# <a name="tutorial-azure-active-directory-integration-with-google-apps"></a>Tutorial: Integración de Azure Active Directory con Google Apps
 Este tutorial le mostrará cómo conectar el entorno de Google Apps a Azure Active Directory (Azure AD). Obtendrá información sobre cómo configurar un inicio de sesión único en Google Apps, cómo habilitar el aprovisionamiento automático de usuarios y cómo asignar usuarios para que dispongan de acceso a Google Apps. 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -44,7 +48,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
    
     R: Hay dos opciones para habilitar este escenario. En primer lugar, los usuarios podrían iniciar sesión en dispositivos Windows 10 a través de [Azure Active Directory Join](active-directory-azureadjoin-overview.md). Como alternativa, los usuarios podrían iniciar sesión en dispositivos Windows que están unidos a un dominio en un entorno Active Directory local que se ha habilitado para el inicio de sesión único en Azure AD a través de una implementación de los [Servicios de federación de Active Directory (AD FS)](active-directory-aadconnect-user-signin.md) . Por supuesto, ambas opciones requieren que realice el tutorial siguiente para permitir el inicio de sesión único entre Azure AD y Google Apps.
 
-## <a name="step-1:-add-google-apps-to-your-directory"></a>Paso 1: Adición de Google Apps a su directorio
+## <a name="step-1-add-google-apps-to-your-directory"></a>Paso 1: Adición de Google Apps a su directorio
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), en el panel de navegación izquierdo, haga clic en **Active Directory**.
    
     ![Seleccione Active Directory en el panel de navegación izquierdo.][0]
@@ -65,7 +69,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
    
     ![Página de inicio rápido de Google Apps en Azure AD][5]
 
-## <a name="step-2:-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
+## <a name="step-2-enable-single-sign-on"></a>Paso 2: Habilitación del inicio de sesión único
 1. En Azure AD, en la página de inicio rápido de Google Apps, haga clic en el botón **Configurar inicio de sesión único** .
    
     ![Botón de inicio de sesión único de configuración][6]
@@ -97,7 +101,7 @@ Habilitación del inicio de sesión único en Google Apps en 2 minutos:
    ![Escriba la dirección de correo electrónico.][14]
 8. Haga clic en **Completar** para cerrar el cuadro de diálogo. Para probar la configuración, consulte la sección [Asignación de usuarios a Google Apps](#step-4-assign-users-to-google-apps), que encontrará a continuación.
 
-## <a name="optional-step:-manually-configure-single-sign-on"></a>Paso opcional: configuración manual del inicio de sesión único
+## <a name="optional-step-manually-configure-single-sign-on"></a>Paso opcional: configuración manual del inicio de sesión único
 Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos:
 
 1. En Azure AD, en la página de inicio rápido de Google Apps, haga clic en el botón **Configurar inicio de sesión único** .
@@ -145,7 +149,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
     ![Escriba la dirección de correo electrónico.][14]
 12. Haga clic en **Completar** para cerrar el cuadro de diálogo. Para probar la configuración, consulte la sección [Asignación de usuarios a Google Apps](#step-4-assign-users-to-google-apps), que encontrará a continuación.
 
-## <a name="step-3:-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
+## <a name="step-3-enable-automated-user-provisioning"></a>Paso 3: Habilitación del aprovisionamiento automático de usuarios
 > [!NOTE]
 > Otra opción viable para la automatización del aprovisionamiento de usuarios en Google Apps es usar [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en) , que aprovisiona las identidades de Active Directory locales en Google Apps. En cambio, la solución en este tutorial realiza el aprovisionamiento de los usuarios de Azure Active Directory (nube) y a los grupos habilitados para correo en Google Apps.
 > 
@@ -221,7 +225,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
     ![Confirme los permisos.][28]
 12. Haga clic en **Completar** para cerrar el cuadro de diálogo.
 
-## <a name="step-4:-assign-users-to-google-apps"></a>Paso 4: Asignación de usuarios a Google Apps
+## <a name="step-4-assign-users-to-google-apps"></a>Paso 4: Asignación de usuarios a Google Apps
 1. Para probar la configuración, empiece a crear una nueva cuenta de prueba en el directorio.
 2. En la página de inicio rápido de Google Apps, haga clic en el botón **Asignar usuarios** .
    
@@ -230,7 +234,7 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
    
    * Si no lo ha habilitado el aprovisionamiento automático de usuarios, verá el mensaje siguiente de confirmación:
      
-        ![Confirm the assignment.][30]
+        ![Confirmación de la asignación.][30]
    * Si ha habilitado el aprovisionamiento automático de usuarios, verá un símbolo del sistema para definir qué tipo de rol debe tener el usuario en Google Apps. Los usuarios recién aprovisionados deberían aparecer en su entorno de Google Apps después de unos minutos.
 4. Para probar la configuración del inicio de sesión único, abra el panel de acceso en [https://myapps.microsoft.com](https://myapps.microsoft.com/)y, a continuación, inicie sesión en la cuenta de prueba y haga clic en **Google Apps**.
 
@@ -272,6 +276,6 @@ Si prefiere configurar el inicio de sesión único manualmente, siga estos pasos
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Nov16_HO4-->
 
 

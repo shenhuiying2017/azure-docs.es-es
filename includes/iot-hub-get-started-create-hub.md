@@ -2,7 +2,7 @@
 Cree un Centro de IoT al que se pueda conectar la aplicación de dispositivo simulado. En los siguientes pasos se muestra cómo completar esta tarea mediante el Portal de Azure.
 
 1. Inicie sesión en [Azure Portal][lnk-portal].
-2. En la barra de salto, haga clic en **Nuevo** > **Internet de las cosas** > **Azure IoT Hub**.
+2. En la barra de salto, haga clic en **Nuevo** > **Internet de las cosas** > **IoT Hub**.
    
     ![Barra de accesos del Portal de Azure][1]
 3. En la hoja **Centro de IoT** , elija la configuración para su Centro de IoT.
@@ -31,12 +31,12 @@ Cree un Centro de IoT al que se pueda conectar la aplicación de dispositivo sim
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 
 <!-- Links -->
-[lnk-resource-groups]: ../articles/azure-portal/resource-group-portal.md
+[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
 [lnk-access-control]: ../articles/iot-hub/iot-hub-devguide-security.md
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

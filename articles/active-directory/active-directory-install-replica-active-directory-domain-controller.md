@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/30/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 21adeddc5896a4c9123bf3525e9b9ab4abbf6fa5
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 56dd9b73a31d27c2c953bf4350e55e851f634b79
 
 
 ---
@@ -45,7 +45,7 @@ Es buena idea crear un sitio de Active Directory que represente la región de re
 
 ## <a name="create-an-azure-virtual-network"></a>Creación de una red virtual de Azure
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Nuevo** > **Network Services** > **Virtual Network** > **Creación personalizada** y use los siguientes valores para completar el asistente.
-   
+
    | En esta página del asistente… | Especifique estos valores |
    | --- | --- |
    |  **Detalles de red virtual** |<p>Nombre: escriba un nombre para la red virtual, como WestUSVNet.</p><p>Región: elija la región más cercana.</p> |
@@ -60,7 +60,7 @@ Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol 
 Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfaz de usuario, consulte [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), haga clic en **Nuevo** > **Compute** > **Máquina virtual** > **De la galería**. Utilice los valores siguientes para completar el asistente. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
-   
+
    | En esta página del asistente… | Especifique estos valores |
    | --- | --- |
    |  **Elija una imagen** |Windows Server 2012 R2 Datacenter |
@@ -69,8 +69,8 @@ Para crear las máquinas virtuales con Windows PowerShell en lugar de la interfa
    |  **Configuración de la máquina virtual** |<p>Seleccione <b>Instalar el agente de máquina virtual</b> y cualquier otra extensión que necesite.</p> |
 2. Conecte un disco a cada máquina virtual que ejecutará el rol de servidor de controlador de dominio. Se necesita el disco adicional para almacenar la base de datos, los registros y SYSVOL de AD. Especifique un tamaño para el disco (por ejemplo, 10 GB) y deje la **Preferencia de caché de host** establecida en **Ninguno**. Para ver los pasos, consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](../virtual-machines/virtual-machines-windows-classic-attach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 3. Una vez que inicie sesión por primera vez en la máquina virtual, abra **Administrador del servidor** > **Servicios de archivos y almacenamiento** para crear un volumen en este disco con NTFS.
-4. Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](../powershell-install-configure.md) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo:
-   
+4. Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](/powershell/azureps-cmdlets-docs) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo:
+
     'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
 Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configuración de una dirección IP interna estática para una máquina virtual](../virtual-network/virtual-networks-reserved-private-ip.md).
@@ -84,7 +84,7 @@ Inicie sesión en una máquina virtual y compruebe que tiene conectividad a trav
 
 ## <a name="create-vms-for-application-servers"></a>Crear máquinas virtuales para servidores de aplicaciones
 1. Repita los pasos siguientes para crear VM que se ejecuten como servidores de aplicaciones. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
-   
+
    | En esta página del asistente… | Especifique estos valores |
    | --- | --- |
    |  **Elija una imagen** |Windows Server 2012 R2 Datacenter |
@@ -112,6 +112,6 @@ Para más información acerca del uso de Windows PowerShell, consulte [Introducc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

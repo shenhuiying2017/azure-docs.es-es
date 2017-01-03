@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 10/31/2016
 ms.author: markvi
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d264d63aeeff584fca96595f1d2f2d5a2f7ba792
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: e81ef1d182108114305291273227ce2ac4dacf3f
 
 
 ---
@@ -58,13 +58,13 @@ Los administradores pueden:
 
 1. En el primer paso, el usuario recibe una notificación sobre la necesidad de configurar la cuenta para la autenticación multifactor. 
    
-    ![Corrección](./media/active-directory-identityprotection-flows/140.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/140.png "Corrección")
 2. Para configurar la autenticación multifactor, debe indicar al sistema cómo desea que se pongan en contacto con usted.
    
-    ![Corrección](./media/active-directory-identityprotection-flows/141.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/141.png "Corrección")
 3. El sistema envía una comprobación que debe responder.
    
-    ![Corrección](./media/active-directory-identityprotection-flows/142.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/142.png "Corrección")
 
 ## <a name="risky-sign-in-recovery"></a>Recuperación de inicios de sesión peligrosos
 Cuando un administrador ha configurado una directiva de riesgo de inicio de sesión, se notifica a los usuarios afectados cuando intentan iniciar sesión. 
@@ -73,15 +73,15 @@ Cuando un administrador ha configurado una directiva de riesgo de inicio de sesi
 
 1. Se informa al usuario de que se ha detectado algún aspecto inusual en su inicio de sesión, como que se haya realizado desde una nueva ubicación, dispositivo o aplicación. 
    
-    ![Corrección](./media/active-directory-identityprotection-flows/120.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/120.png "Corrección")
 2. Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor necesitan devolver un código de seguridad enviado a su número de teléfono. Puesto que solo se trata de un inicio de sesión peligroso, y no de una cuenta en peligro, el usuario no tendrá que cambiar la contraseña en este flujo. 
    
-    ![Corrección](./media/active-directory-identityprotection-flows/121.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/121.png "Corrección")
 
 ## <a name="risky-sign-in-blocked"></a>Inicios de sesión peligrosos bloqueados
 Los administradores también pueden elegir establecer una directiva de seguridad de riesgo de inicio de sesión para bloquear a los usuarios al iniciar sesión en función del nivel de riesgo. Para ser desbloqueados, los usuarios finales deben ponerse en contacto con un administrador o el departamento de soporte técnico, o bien pueden intentar iniciar sesión desde una ubicación o dispositivo conocidos. La recuperación automática al resolver la autenticación multifactor no es una opción en este caso.
 
-![Corrección](./media/active-directory-identityprotection-flows/200.png "Remediation")
+![Corrección](./media/active-directory-identityprotection-flows/200.png "Corrección")
 
 ## <a name="compromised-account-recovery"></a>Recuperación de cuentas en peligro
 Cuando se ha configurado una directiva de seguridad de riesgo del usuario, los usuarios que cumplen el nivel especificado en dicha directiva (y, por tanto, se supone que está en peligro) deben pasar por el flujo de recuperación del peligro antes de poder iniciar sesión. 
@@ -90,31 +90,31 @@ Cuando se ha configurado una directiva de seguridad de riesgo del usuario, los u
 
 1. Se informa al usuario que la seguridad de su cuenta está en peligro debido a actividad sospechosa o credenciales con fugas.
    
-    ![Corrección](./media/active-directory-identityprotection-flows/101.png "Remediation")
+    ![Corrección](./media/active-directory-identityprotection-flows/101.png "Corrección")
 2. Para demostrar su identidad, el usuario debe resolver un desafío de seguridad. Si el usuario está registrado para la autenticación multifactor, puede recuperarse automáticamente cuando está en peligro. Necesitará devolver un código de seguridad enviado a su número de teléfono. 
    
-   ![Corrección](./media/active-directory-identityprotection-flows/110.png "Remediation")
+   ![Corrección](./media/active-directory-identityprotection-flows/110.png "Corrección")
 3. Por último, el usuario debe cambiar su contraseña, ya que es posible que otra persona haya tenido acceso a su cuenta. 
    A continuación se muestran capturas de pantalla de esta experiencia.
    
-   ![Corrección](./media/active-directory-identityprotection-flows/111.png "Remediation")
+   ![Corrección](./media/active-directory-identityprotection-flows/111.png "Corrección")
 
 ## <a name="compromised-account-blocked"></a>Cuenta en peligro bloqueada
 Para desbloquear un usuario bloqueado por una directiva de seguridad de riesgo del usuario, el usuario debe ponerse en contacto con un administrador o el departamento de soporte técnico. La recuperación automática al resolver la autenticación multifactor no es una opción en este caso.
 
-![Corrección](./media/active-directory-identityprotection-flows/104.png "Remediation")
+![Corrección](./media/active-directory-identityprotection-flows/104.png "Corrección")
 
 ## <a name="reset-password"></a>Restablecer contraseña
 Si se bloquea el inicio de sesión de los usuarios en peligro, un administrador puede generar una contraseña temporal para ellos, quienes tendrán que cambiar las contraseñas en el siguiente inicio de sesión.
 
-![Corrección](./media/active-directory-identityprotection-flows/160.png "Remediation")
+![Corrección](./media/active-directory-identityprotection-flows/160.png "Corrección")
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md) 
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

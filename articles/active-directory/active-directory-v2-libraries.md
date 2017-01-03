@@ -1,41 +1,45 @@
 ---
-title: Bibliotecas de la versión 2.0 de Azure Active Directory | Microsoft Docs
-description: Proporciona una lista de todas las bibliotecas de cliente compatibles y de middleware de servidor, junto con vínculos dlibrary/source/samples relacionados, para el punto de conexión v2.0 de Azure Active Directory.
+title: "Bibliotecas de autenticación de Azure Active Directory v2.0 | Microsoft Docs"
+description: "Las bibliotecas de cliente y de middleware de servidor compatibles, junto con vínculos dlibrary/source/samples relacionados, para el punto de conexión Azure Active Directory v2.0."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: skwan
 manager: mbaldwin
-editor: ''
-
+editor: 
+ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/30/2016
+ms.date: 11/29/2016
 ms.author: skwan;bryanla
+translationtype: Human Translation
+ms.sourcegitcommit: 5ba85485737a6f1ee8908834a74d34863429aeca
+ms.openlocfilehash: e68a83936e6ae0b7349444cb24bafd6908166945
+
 
 ---
-# <a name="azure-active-directory-(ad)-v2.0-and-authentication-libraries"></a>Azure Active Directory (AD) v2.0 y bibliotecas de autenticación
-El punto de conexión v2.0 de Azure AD admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector.  Una variedad de bibliotecas de Microsoft y de otros clientes pueden utilizarse con el punto de conexión v2.0.
+# <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticación de Azure Active Directory v2.0
+El punto de conexión Azure Active Directory (Azure AD) v2.0 admite los protocolos OAuth 2.0 y OpenID Connect 1.0 estándar del sector. Puede utilizar diversas bibliotecas de Microsoft y otras organizaciones con el punto de conexión de v2.0.
 
-Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar bibliotecas que hayan escrito expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL), [como la que sigue Microsoft][Microsoft-SDL].  Si decide codificar manualmente los protocolos, se recomienda seguir SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada uno de los protocolos.
+Al compilar una aplicación que utiliza el punto de conexión v2.0, se recomienda usar bibliotecas que hayan escrito expertos en los dominios del protocolo que sigan una metodología de ciclo de vida de desarrollo de seguridad (SDL), como [a la que sigue Microsoft][Microsoft-SDL]. Si decide codificar manualmente los protocolos, se recomienda seguir la metodología SDL y observar detenidamente las consideraciones de seguridad de las especificaciones de los estándares de cada protocolo.
 
 ## <a name="types-of-libraries"></a>Tipos de bibliotecas
-Hay dos tipos de bibliotecas que funcionan con la versión 2.0: 
+Azure AD v2.0 funciona con dos tipos de bibliotecas:
 
-* **Bibliotecas de cliente**: se usan en los clientes nativos y en servidores con el fin de obtener tokens de acceso para llamar a un recurso, como Microsoft Graph.
-* **Bibliotecas de middleware de servidor**: las utilizan las aplicaciones web para iniciar la sesión de un usuario y las API web para validar los tokens que envían los clientes nativos u otros servidores.
+* **Bibliotecas de cliente**. Los servidores y clientes nativos utilizan bibliotecas de clientes para obtener tokens de acceso para llamar a un recurso, como Microsoft Graph.
+* **Bibliotecas de middleware de servidores**. Las aplicaciones web usan bibliotecas de middleware de servidor para el inicio de sesión de usuario. Las API de web utilizan bibliotecas de middleware de servidor para validar los tokens que se envían mediante clientes nativos o mediante otros servidores.
 
 ## <a name="library-support"></a>Compatibilidad con bibliotecas
-Puesto que puede elegir cualquier biblioteca que cumpla los estándares al utilizar el punto de conexión v2.0, es importante saber dónde obtener soporte técnico.  Los problemas y las solicitudes de características del código de la biblioteca pasan al propietario de la biblioteca. Los problemas y las solicitudes de características de la implementación del protocolo en el servicio van a Microsoft.
+Puesto que puede elegir cualquier biblioteca que cumpla los estándares al utilizar el punto de conexión v2.0, es importante saber dónde obtener soporte técnico. Para problemas y solicitudes de características en el código de la biblioteca, póngase en contacto con el propietario de la biblioteca. Para problemas y solicitudes de características de la implementación del protocolo en el servicio, póngase en contacto con Microsoft.
 
 Las bibliotecas se dividen en dos categorías de soporte técnico:
 
-* **Compatibles con Microsoft**: Microsoft ofrece correcciones para estas bibliotecas.  Microsoft ha realizado la diligencia debida del ciclo de vida de desarrollo de seguridad en estas bibliotecas. 
-* **Compatibles**: Microsoft ha probado un conjunto de bibliotecas en escenarios básicos y ha confirmado que funcionan con el punto de conexión v2.0.  Microsoft no proporciona correcciones para estas bibliotecas y no ha realizado una revisión de estas bibliotecas.  Los problemas y las solicitudes de características deben dirigirse al proyecto de código abierto de la biblioteca.
+* **Soporte técnico de Microsoft**. Microsoft proporciona soluciones para estas bibliotecas y ha hecho las diligencias necesarias con SDL para estas bibliotecas.
+* **Compatible**. Microsoft ha probado estas bibliotecas en escenarios básicos y ha confirmado que funcionan con el punto de conexión v2.0. Microsoft no proporciona correcciones para estas bibliotecas y no ha realizado una revisión de estas bibliotecas. Los problemas y las solicitudes de características deben dirigirse al proyecto de código abierto de la biblioteca.
 
-Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2.0, lea las secciones siguientes. 
+Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2.0, lea las secciones siguientes de este artículo.
 
 ## <a name="microsoft-supported-client-libraries"></a>Bibliotecas de cliente compatibles con Microsoft
 | Plataforma | Nombre de la biblioteca | Descargar | Código fuente | Muestra |
@@ -52,22 +56,24 @@ Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2
 ## <a name="microsoft-supported-server-middleware-libraries"></a>Bibliotecas de middleware de servidor compatibles de Microsoft
 | Plataforma | Nombre de la biblioteca | Descargar | Código fuente | Muestra |
 |:---:|:---:|:---:|:---:|:---:|
-| .NET 4.x |Middleware de OWIN OpenID Connect para ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Proyecto Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Ejemplo de aplicación web][ServerLib-Net4-Owin-Oidc-Sample] |
-| .NET 4.x |Middleware de OWIN OAuth Bearer para ASP.Net |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Proyecto Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Ejemplo de API web][ServerLib-Net4-Owin-Oauth-Sample] |
+| .NET 4.x |Middleware de OWIN OpenID Connect para ASP.NET |[Microsoft.Owin.Security.OpenIdConnect (NuGet)][ServerLib-Net4-Owin-Oidc-Lib] |[Proyecto de Katana (CodePlex)][ServerLib-Net4-Owin-Oidc-Repo] |[Ejemplo de aplicación web][ServerLib-Net4-Owin-Oidc-Sample] |
+| .NET 4.x |Middleware de OWIN OAuth Bearer para ASP.Net |[Microsoft.Owin.Security.OAuth (NuGet)][ServerLib-Net4-Owin-Oauth-Lib] |[Proyecto de Katana (CodePlex)][ServerLib-Net4-Owin-Oauth-Repo] |[Ejemplo de API web][ServerLib-Net4-Owin-Oauth-Sample] |
 | .NET Core |Middleware OWIN OpenID Connect para .Net Core |[Microsoft.AspNetCore.Authentication.OpenIdConnect (NuGet)][ServerLib-NetCore-Owin-Oidc-Lib] |[Seguridad de ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oidc-Repo] |[Ejemplo de aplicación web][ServerLib-NetCore-Owin-Oidc-Sample] |
-| .NET Core |Middleware de OWIN OAuth Bearer para .Net Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Seguridad de ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Próximamente |
+| .NET Core |Middleware de OWIN OAuth Bearer para .NET Core |[Microsoft.AspNetCore.Authentication.OAuth (NuGet)][ServerLib-NetCore-Owin-Oauth-Lib] |[Seguridad de ASP.Net (GitHub)][ServerLib-NetCore-Owin-Oauth-Repo] |Próximamente |
 | Node.js |Complemento de Passport.js para Microsoft Azure Active Directory |[Passport-Azure-AD (npm)][ServerLib-Node-Lib] |[Passport-Azure-AD (GitHub)][ServerLib-Node-Repo] |[Ejemplo de aplicación web][ServerLib-Node-Sample] |
 
 <!--- COMMENTING UNTIL SAMPLE IS AVAILABLE
-| .NET 4.x, .NET Core | JSON Web Token Handler for .Net | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .Net (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
+| .NET 4.x, .NET Core | JSON Web Token Handler for .NET | [System.IdentityModel.Tokens.Jwt (NuGet)][ServerLib-Net-Jwt-Lib] | [Azure AD identity model extensions for .NET (GitHub)][ServerLib-Net-Jwt-Repo] | Coming soon |
 --->
 ## <a name="compatible-client-libraries"></a>Bibliotecas de cliente compatibles
-| Plataforma | Nombre | Versión probada | Código fuente | Muestra |
+| Plataforma | Nombre de la biblioteca | Versión probada | Código fuente | Muestra |
 |:---:|:---:|:---:|:---:|:---:|
 | Android |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib/wiki) |0.2.1 |[OIDCAndroidLib](https://github.com/kalemontes/OIDCAndroidLib) |[Ejemplo de aplicación nativa](active-directory-v2-devquickstarts-android.md) |
 | iOS |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |1.2.8 |[NXOAuth2Client](https://github.com/nxtbgthng/OAuth2Client) |[Ejemplo de aplicación nativa](active-directory-v2-devquickstarts-ios.md) |
+| Java | [Scribejava Scribe Java](https://github.com/scribejava/scribejava) | [Versión 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/archive/scribejava-3.2.0.zip) | Próximamente |
 | JavaScript |[Hello.js](https://adodson.com/hello.js/) |1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |Próximamente |
-| Python - Flask |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |Próximamente |
+| PHP | [PHP League oauth2-cliente](https://github.com/thephpleague/oauth2-client) | [Versión 1.4.2](https://github.com/thephpleague/oauth2-client/releases/tag/1.4.2) | [oauth2-client](https://github.com/thephpleague/oauth2-client/archive/1.4.2.zip) | Próximamente |
+| Python-Flask |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |0.9.3 |[Matraz OAuthlib](https://github.com/lepture/flask-oauthlib) |Próximamente |
 | Ruby |[OmniAuth](https://github.com/omniauth/omniauth/wiki) |omniauth:1.3.1</br>omniauth-oauth2:1.4.0 |[OmniAuth](https://github.com/omniauth/omniauth)</br>[OmniAuth OAuth2](https://github.com/intridea/omniauth-oauth2) |Próximamente |
 
 <!--- REMOVING BRANDON'S FOR NOW
@@ -83,9 +89,9 @@ Para obtener una lista de bibliotecas que funcionan con el punto de conexión v2
 Próximamente
 
 ## <a name="related-content"></a>Contenido relacionado
-Para más información sobre el punto de conexión V2.0 de Azure AD, consulte [Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación][AAD-App-Model-V2-Overview]. 
+Para obtener más información sobre el punto de conexión de Azure AD v2.0, consulte la [introducción a la versión 2.0 del modelo de aplicaciones de Azure AD][AAD-App-Model-V2-Overview].
 
-Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a afinar y remodelar nuestro contenido.
+Para ayudarnos a perfeccionar y dar forma a nuestro contenido, utilice la característica de comentarios Disqus al final de este artículo para proporcionar sus comentarios.
 
 <!--Image references-->
 
@@ -96,16 +102,16 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 [ClientLib-NET-Sample]: active-directory-v2-devquickstarts-wpf.md
 [ClientLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ClientLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad
-[ClientLib-Node-Sample]:
-[ClientLib-Iosmac-Lib]:
-[ClientLib-Iosmac-Repo]:
-[ClientLib-Iosmac-Sample]:
-[ClientLib-Android-Lib]:
-[ClientLib-Android-Repo]:
-[ClientLib-Android-Sample]:
-[ClientLib-Js-Lib]:
-[ClientLib-Js-Repo]:
-[ClientLib-Js-Sample]:
+[ClientLib-Node-Sample]:/
+[ClientLib-Iosmac-Lib]:/
+[ClientLib-Iosmac-Repo]:/
+[ClientLib-Iosmac-Sample]:/
+[ClientLib-Android-Lib]:/
+[ClientLib-Android-Repo]:/
+[ClientLib-Android-Sample]:/
+[ClientLib-Js-Lib]:/
+[ClientLib-Js-Repo]:/
+[ClientLib-Js-Sample]:/
 
 [Microsoft-SDL]: http://www.microsoft.com/sdl/default.aspx
 [ServerLib-Net4-Owin-Oidc-Lib]: https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/
@@ -129,7 +135,6 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

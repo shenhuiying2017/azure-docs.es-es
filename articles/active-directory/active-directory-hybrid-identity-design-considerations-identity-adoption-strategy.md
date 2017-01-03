@@ -1,12 +1,12 @@
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: definición de una estrategia de adopción de identidades híbridas| Microsoft Docs'
-description: Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: definición de una estrategia de adopción de identidades híbridas| Microsoft Docs"
+description: "Con el control de acceso condicional, Azure Active Directory comprueba las condiciones específicas que se eligen al autenticar al usuario y antes de permitirle acceso a la aplicación. Si se cumplen las condiciones, el usuario queda autenticado y se le permite el acceso a la aplicación."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 8a4e26b7ccf4da27b58a6d0bcfe98fc2b5533df8
+ms.openlocfilehash: 47fb1724ac72df8b83012bcacdc435ea847547da
+
 
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definición de una estrategia de adopción de identidad híbrida
@@ -38,7 +42,7 @@ Los escenarios definidos en la ilustración anterior son:
 * **Federada**: estas identidades existen tanto localmente como en la nube.  Con Azure AD Connect, los usuarios se crean o se conectan con las cuentas de Azure AD existentes.  
 
 > [!NOTE]
-> Para obtener más información sobre las opciones de sincronización, consulte [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
+> Para obtener más información sobre las opciones de sincronización, consulte [Integración de las identidades locales con Azure Active Directory](connect/active-directory-aadconnect.md).
 > 
 > 
 
@@ -106,7 +110,7 @@ Al definir una estrategia de sincronización, es preciso determinar la topologí
 ![](./media/hybrid-id-design-considerations/single-forest.png) Escenario de bosque único Es muy común que las organizaciones grandes, e incluso las pequeñas, tengan varios bosques, como se muestra en la Ilustración 5.
 
 > [!NOTE]
-> Para obtener más información acerca de las diferentes topologías locales y de Azure AD con sincronización con Azure AD Connect, consulte el artículo [Topologías de Azure AD Connect](active-directory-aadconnect-topologies.md).
+> Para obtener más información acerca de las diferentes topologías locales y de Azure AD con sincronización con Azure AD Connect, consulte el artículo [Topologías de Azure AD Connect](connect/active-directory-aadconnect-topologies.md).
 > 
 > 
 
@@ -126,7 +130,7 @@ En este caso, debe tenerse en cuenta la topología única de Azure AD de bosques
 * Si tiene un buzón vinculado, hay también otra cuenta en otro bosque que se usa para el inicio de sesión.
 
 > [!NOTE]
-> Los objetos que existen en tanto localmente como en la nube están conectados "conectados" mediante un identificador único. En el contexto de sincronización de directorios, este identificador único se conoce como SourceAnchor. En el contexto del inicio de sesión único, se conoce como ImmutableId. [Conceptos de diseño de Azure AD Connect](active-directory-aadconnect-design-concepts.md#sourceanchor) .
+> Los objetos que existen en tanto localmente como en la nube están conectados "conectados" mediante un identificador único. En el contexto de sincronización de directorios, este identificador único se conoce como SourceAnchor. En el contexto del inicio de sesión único, se conoce como ImmutableId. [Conceptos de diseño de Azure AD Connect](connect/active-directory-aadconnect-design-concepts.md#sourceanchor) .
 > 
 > 
 
@@ -167,7 +171,7 @@ Tenga en cuenta que los siguientes elementos no se admiten y no deben elegirse c
 > 
 > 
 
-## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication
+## <a name="define-multi-factor-authentication-strategy"></a>Definición de una estrategia de Multi-Factor Authentication 
 En esta tarea definirá la estrategia de Multi-Factor Authentication que va a usar.  Azure Multi-Factor Authentication está disponible en dos versiones diferentes.  Una está basada en la nube y la otra es local con el servidor MFA de Azure.  Basándose en la evaluación que realizó anteriormente, puede determinar qué solución es la correcta para su estrategia.  Use la tabla siguiente para determinar qué opción de diseño cumple mejor el requisito de seguridad de su compañía:
 
 Opciones de diseño multifactor:
@@ -209,6 +213,9 @@ La autenticación multifactor está disponible de forma predeterminada para los 
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

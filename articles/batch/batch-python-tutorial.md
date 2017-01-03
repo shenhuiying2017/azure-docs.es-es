@@ -3,7 +3,7 @@ title: "Tutorial: Introducción al cliente Python de Azure Batch | Microsoft Doc
 description: "Aprenda los conceptos básicos de Lote de Azure y cómo desarrollar el servicio Lote con un escenario simple."
 services: batch
 documentationcenter: python
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
@@ -13,10 +13,10 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 11/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 64f70aab802ed377de1686fcdb7e641c30299b9c
-ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 3c1efaa277c6fba7965d6fe10cc5991cb02281d7
 
 
 ---
@@ -29,7 +29,7 @@ ms.openlocfilehash: 6630899081a76d7a8bc54f53a33c76dda9f1b0fa
 
 Aprenda los conceptos básicos del cliente de [Azure Batch][azure_batch] y [Python de Batch][py_azure_sdk] gracias a una pequeña aplicación de Batch escrita en Python que verá. Se examina la forma en que dos scripts de ejemplo usan el servicio Batch para procesar una carga de trabajo paralela en máquinas virtuales Linux en la nube, y cómo interactúan con [Azure Storage](../storage/storage-introduction.md) para almacenar provisionalmente archivos y recuperarlos. Aprenderá un flujo de trabajo de la aplicación Lote habitual y obtenga un conocimiento básico de los componentes principales de Lote, como trabajos, tareas, grupos y nodos de proceso.
 
-![Flujo de trabajo de soluciones de Lote (básico)][11]<br/>
+![Flujo de trabajo de soluciones de Batch (básico)][11]<br/>
 
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se considera que tiene conocimientos prácticos de Python y está familiarizado con Linux. También se asume que puede cumplir los requisitos para la creación de cuentas que se especifican a continuación en Azure y los servicios Lote y Almacenamiento.
@@ -97,7 +97,7 @@ El ejemplo de código del tutorial de Python de Lote está formado por dos scrip
 
 El siguiente diagrama ilustra las operaciones principales realizadas por los scripts de cliente y de tarea. Este flujo de trabajo básico es típico de muchas soluciones de proceso que se crean con Lote. Aunque no muestra todas las características disponibles en el servicio Lote, casi todos los escenarios de Lote incluyen partes de este flujo de trabajo.
 
-![Flujo de trabajo de ejemplo de Lote][8]<br/>
+![Flujo de trabajo de ejemplo de Batch][8]<br/>
 
 [**Paso 1.**](#step-1-create-storage-containers) Crear **contenedores** en Azure Blob Storage.<br/>
 [**Paso 2.**](#step-2-upload-task-script-and-data-files) Cargue un script de tarea y archivos de entrada en los contenedores.<br/>
@@ -375,7 +375,7 @@ En el fragmento de código anterior, también cabe destacar el uso de dos variab
 >
 
 ## <a name="step-4-create-batch-job"></a>Paso 4: Crear el trabajo de Lote
-![Crear trabajo de Lote][4]<br/>
+![Crear un trabajo de Batch][4]<br/>
 
 Un **trabajo** de Lote es una colección de tareas y está asociado a un grupo de nodos de proceso. Las tareas de un trabajo se ejecutan en los nodos de proceso del grupo asociado.
 
@@ -525,7 +525,7 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ```
 
 ## <a name="step-7-download-task-output"></a>Paso 7: Descargar el resultado de la tarea
-![Descargar el resultado de la tarea desde Almacenamiento][7]<br/>
+![Descargar el resultado de la tarea desde Storage][7]<br/>
 
 Ahora que se ha completado el trabajo, el resultado de las tareas se puede descargar desde Almacenamiento de Azure. Esto se realiza mediante una llamada a `download_blobs_from_container` en *python_tutorial_client.py*:
 
@@ -708,6 +708,6 @@ Ahora que está familiarizado con el flujo de trabajo básico de una solución d
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Información general de desarrollo de SQL Database | Microsoft Docs"
+title: "Introducción al desarrollo de aplicaciones en SQL Database | Microsoft Docs"
 description: Aprenda sobre las bibliotecas de conectividad disponibles y los procedimientos recomendados para las aplicaciones que se conectan a Base de datos SQL.
 services: sql-database
 documentationcenter: 
@@ -8,20 +8,25 @@ manager: jhubbard
 editor: genemi
 ms.assetid: 67c02204-d1bd-4622-acce-92115a7cde03
 ms.service: sql-database
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: df13648c8a76b216f596df49dd3ef617d0b35ccc
+ms.sourcegitcommit: 72a20c51416cd3022e2a749c51f25c4b3d9268df
+ms.openlocfilehash: 88b8076e740f80154e410050cd55cd2fa4783b38
 
 
 ---
-# <a name="sql-database-development-overview"></a>Información general de desarrollo de Base de datos SQL
+# <a name="sql-database-application-development-overview"></a>Introducción al desarrollo de aplicaciones en SQL Database
 Este artículo le lleva por las consideraciones básicas que debe tener en cuenta un desarrollador al escribir código para conectarse a Base de datos SQL de Azure.
+
+> [!TIP]
+> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
+>
 
 ## <a name="language-and-platform"></a>Plataforma y lenguaje
 Existen ejemplos de código para diferentes lenguajes de programación y plataformas. Puede encontrar vínculos a los ejemplos de código en: 
@@ -72,6 +77,6 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

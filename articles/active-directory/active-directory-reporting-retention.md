@@ -12,48 +12,55 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/07/2016
+ms.date: 11/30/2016
 ms.author: dhanyahk
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7e0e1ede67509de9f47293eb7257ecc56c0df93d
+ms.sourcegitcommit: 8a7d1bd1db8abdac5b741d79b10c9b363afecd24
+ms.openlocfilehash: 9f8d9c845c391ec24aa3b265aa3078840fe3240a
 
 
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Directivas de retención de informes de Azure Active Directory
 *Esta documentación forma parte de la [guía de informes de Azure Active Directory](active-directory-reporting-guide.md).*
 
-Los informes de Azure Active Directory (Azure AD) conservan los datos durante un número determinado de días, que indicamos a continuación.
 
-| Informe | Description |
-| --- | --- |
-| Inicios de sesión desde orígenes desconocidos |30 días |
-| Inicios de sesión tras varios errores |30 días |
-| Inicios de sesión desde varias ubicaciones geográficas |30 días |
-| Inicios de sesión desde direcciones IP con actividad sospechosa |30 días |
-| Inicios de sesión desde dispositivos posiblemente infectados |30 días |
-| Actividad de inicio de sesión irregular |30 días |
-| Usuarios con actividad de inicio de sesión anómala |30 días |
-| Usuarios con credenciales perdidas |30 días |
-| Informe de auditoría |180 días |
-| Actividad de restablecimiento de contraseña (Azure AD) |30 días |
-| Actividad de restablecimiento de contraseña (Identity Manager) |30 días |
-| Actividad de registro de restablecimiento de contraseña (Azure AD) |30 días |
-| Actividad de registro de restablecimiento de contraseña (Identity Manager) |30 días |
-| Actividad de los grupos de autoservicio (Azure AD) |30 días |
-| Actividad de los grupos de autoservicio (Identity Manager) |30 días |
-| Uso de la aplicación |30 días |
-| Actividad de aprovisionamiento de cuentas |30 días |
-| Estado de la sustitución de contraseña |30 días |
-| Errores de aprovisionamiento de cuentas |30 días |
-| Uso de RMS |30 días |
-| Usuarios de RMS más activos |30 días |
-| Uso de dispositivos RMS |30 días |
-| Uso de aplicaciones habilitadas para RMS |30 días |
+Este tema proporciona respuestas a las preguntas más frecuentes en relación a la retención de datos de los distintos informes de actividad de Azure Active Directory. 
+
+¿Cómo puede empezar la recopilación de datos de actividad?
+
+| Edición de Azure AD | Inicio de la recopilación |
+| :--              | :--   |
+|Premium y Premium 2 | Cuando se suscribe a una licencia |
+| Gratuito | La primera vez que abra la [hoja de Azure Active Directory](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) o use las [API de informes](https://aka.ms/aadreports)  |
 
 
+¿Cuándo estarán disponibles los datos de actividad en Azure Portal?
+
+- **Inmediatamente**: si ya ha estado trabajando con informes en el Portal de Azure clásico
+- **Dentro de 2 horas**: si no ha activado la generación de informes en el Portal de Azure clásico
+
+¿Cómo puede empezar la recopilación de señales de seguridad?  
+En el caso de las señales de seguridad, el proceso de recopilación se inicia cuando decide usar Identity Protection Center. 
+
+¿Durante cuánto tiempo se almacenan los datos recopilados?
+
+**Informes de actividad**    
+
+| Informe | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| :--    | :--           | :--                | :--                |
+| Auditoría de directorio | 7 días | 30 días | 30 días |
+| Actividad de inicio de sesión |    7 días | 30 días | 30 días |
+
+**Señales de seguridad**
+
+| Informe | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
+| :--    | :--           | :--                | :--                |
+| Inicios de sesión no seguros | 7 días | 30 días | 90 días |
 
 
-<!--HONumber=Nov16_HO3-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

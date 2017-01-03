@@ -1,19 +1,23 @@
 ---
-title: Características de Log Analytics para proveedores de servicios | Microsoft Docs
+title: "Características de Log Analytics para proveedores de servicios | Microsoft Docs"
 description: Log Analytics puede ayudar a proveedores de servicios administrados (MSP), grandes empresas, proveedores de software independientes (ISV) y proveedores de servicios de hospedaje a administrar y supervisar servidores en infraestructuras locales en la nube del cliente.
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: richrundmsft
 manager: jochan
-editor: ''
-
+editor: 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/22/2016
 ms.author: richrund
+translationtype: Human Translation
+ms.sourcegitcommit: d5e4a19ddb2b60a6796ba48c864d443164de86c1
+ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
+
 
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Características de Log Analytics para proveedores de servicios
@@ -47,7 +51,7 @@ Los *clientes* de un proveedor de soluciones en la nube, puede realizar las sigu
 * Ver y usar la página de administración de usuarios en la aplicación Configuración del portal de OMS.
 
 > [!NOTE]
-> Las soluciones de copia de seguridad y recuperación del sitio para Log Analytics no pueden conectarse a un almacén de Recovery Services y no se puede configurar en una suscripción de CSP.
+> Las soluciones de copia de seguridad y recuperación del sitio incluidas para Log Analytics no pueden conectarse a un almacén de Recovery Services y no se puede configurar en una suscripción de CSP. 
 > 
 > 
 
@@ -61,13 +65,15 @@ Se recomienda crear un área de trabajo de Log Analytics para cada cliente que a
 
 Al crear un área de trabajo por cliente, se pueden separar los datos de cada cliente y hacer un seguimiento del uso que hace cada uno de ellos.
 
-Para obtener más información sobre cuándo y por qué crear varias áreas de trabajo se describe en el artículo sobre cómo [administrar el acceso para Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+Para más información sobre cuándo y por qué se debe crear varias áreas de trabajo, consulte [administración del acceso a Log Analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
 
 La creación y configuración de áreas de trabajo de cliente se pueden automatizar mediante [PowerShell](log-analytics-powershell-workspace-configuration.md), las [plantillas de Resource Manager](log-analytics-template-workspace-configuration.md) o la [API de REST](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
 
 El uso de plantillas de Resource Manager para la configuración de áreas de trabajo permite tener una configuración maestra que puede usarse para crear y configurar áreas de trabajo. Puede estar seguro de que cuando cree áreas de trabajo para los clientes se configuran automáticamente de acuerdo con sus requisitos. Al actualizar los requisitos, la plantilla se actualiza y se vuelve a aplicar a las áreas de trabajo existentes. Este proceso garantiza que incluso los espacios de trabajo existentes cumplan los nuevos estándares.    
 
 Al administrar varias áreas de trabajo de Log Analytics, se recomienda integrar cada una de ellas en su propio sistema de control de vales o consola de operaciones mediante la funcionalidad de [alertas](log-analytics-alerts.md). Mediante la integración con los sistemas existentes, el personal de soporte técnico puede continuar con sus procesos habituales. Log Analytics comprueba con regularidad cada área de trabajo con los criterios de alerta que especifique y genera una alerta cuando tenga que tomar medidas.
+
+Para obtener vistas personalizadas de los datos, use la funcionalidad [panel](../azure-portal/azure-portal-dashboards.md) en Azure Portal.  
 
 Para los informes de nivel ejecutivo que resumen los datos entre áreas de trabajo puede usar la integración entre Log Analytics y [PowerBI](log-analytics-powerbi.md). Si necesita integrarlas con otro sistema informes, puede utilizar la API de búsqueda (a través de PowerShell o [REST](log-analytics-log-search-api.md)) para ejecutar consultas y exportar los resultados de búsqueda.
 
@@ -77,6 +83,9 @@ Para los informes de nivel ejecutivo que resumen los datos entre áreas de traba
 * Use [alertas](log-analytics-alerts.md) para integrarse con sistemas existentes.
 * Genere informes de resumen con [PowerBI](log-analytics-powerbi.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

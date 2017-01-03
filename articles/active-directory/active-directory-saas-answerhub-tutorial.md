@@ -35,7 +35,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Scenario")
+![Escenario](./media/active-directory-saas-answerhub-tutorial/IC785165.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-answerhub"></a>Habilitación de la integración de aplicaciones para AnswerHub
 El objetivo de esta sección es describir cómo se habilita la integración de aplicaciones para AnswerHub.
@@ -47,16 +47,16 @@ El objetivo de esta sección es describir cómo se habilita la integración de a
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Applications](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Applications")
+   ![Aplicaciones](./media/active-directory-saas-answerhub-tutorial/IC700994.png "Aplicaciones")
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicación](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Add application")
+   ![Agregar aplicaciones](./media/active-directory-saas-answerhub-tutorial/IC749321.png "Agregar aplicaciones")
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Add an application from gallerry")
+   ![Agregar una aplicación de la galería](./media/active-directory-saas-answerhub-tutorial/IC749322.png "Agregar una aplicación de la galería")
 6. En el **cuadro de búsqueda**, escriba **AnswerHub**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Application Gallery")
+   ![Galería de aplicaciones](./media/active-directory-saas-answerhub-tutorial/IC785166.png "Galería de aplicaciones")
 7. En el panel de resultados, seleccione **AnswerHub** y, luego, haga clic en **Completar** para agregar la aplicación.
    
    ![AnswerHub](./media/active-directory-saas-answerhub-tutorial/IC785167.png "AnswerHub")
@@ -69,16 +69,16 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **AnswerHub**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configure single sign-on")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785168.png "Configurar inicio de sesión único")
 2. En la página **¿Cómo desea que los usuarios inicien sesión en AnswerHub?**, seleccione **Inicio de sesión único de Microsoft Azure AD** y haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configure single sign-on")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785169.png "Configurar inicio de sesión único")
 3. En la página **Configurar dirección URL de la aplicación**, en el cuadro de texto **URL de inicio de sesión en AnswerHub**, escriba su dirección URL con el siguiente patrón "*https://company.answerhub.com*" y haga clic en **Siguiente**.
    
-   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configure App URL")
+   ![Configurar dirección URL de la aplicación](./media/active-directory-saas-answerhub-tutorial/IC785170.png "Configurar dirección URL de la aplicación")
 4. En la página **Configurar inicio de sesión único en AnswerHub**, para descargar el certificado, haga clic en **Descargar certificado** y guarde el archivo de certificado en el equipo.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configure single sign-on")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785171.png "Configurar inicio de sesión único")
 5. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de AnswerHub como administrador.
    
    > [!NOTE]
@@ -91,7 +91,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 9. Haga clic en la pestaña **Configuración de IDP** .
 10. En la pestaña **Configuración de IDP** , lleve a cabo estos pasos:
     
-    ![Configuración de SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "SAML Setup")
+    ![Configuración de SAML](./media/active-directory-saas-answerhub-tutorial/IC785172.png "Configuración de SAML")
     
     1. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de inicio de sesión remoto** y péguelo en el cuadro de texto **IDP Login URL** (Dirección URL de inicio de sesión de IDP).
     2. En el Portal de Azure clásico, en la página de diálogo **Configurar inicio de sesión único en AnswerHub**, copie el valor de **Dirección URL de cierre de sesión remoto** y péguelo en el cuadro de texto **IDP Logout URL** (Dirección URL de cierre de sesión de IDP).
@@ -99,7 +99,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
     4. Haga clic en **Claves y certificados**.
 11. En la pestaña Claves y certificados, realice los pasos siguientes:
     
-    ![Claves y certificados](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Keys and Certificates")
+    ![Claves y certificados](./media/active-directory-saas-answerhub-tutorial/IC785173.png "Claves y certificados")
     
     1. Cree un archivo **codificado en base 64** a partir del certificado descargado.  
        
@@ -112,7 +112,7 @@ Si no está familiarizado con este procedimiento, consulte [Conversión de un ce
 12. En la pestaña **IDP Config** (Configuración de IDP), haga clic en **Save** (Guardar).
 13. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
     
-    ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configure single sign-on")
+    ![Configurar inicio de sesión único](./media/active-directory-saas-answerhub-tutorial/IC785174.png "Configurar inicio de sesión único")
 
 ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 Para permitir que los usuarios de Azure AD inicien sesión en AnswerHub, tienen que aprovisionarse en AnswerHub.  
@@ -124,7 +124,7 @@ En el caso de AnswerHub, el aprovisionamiento es una tarea manual.
 3. Haga clic en la pestaña **Users & Groups** (Usuarios y grupos).
 4. En el panel de navegación izquierdo, en la sección **Manage Users** (Administrar usuarios), haga clic en **Create or import users** (Crear o importar usuarios).
    
-   ![Usuarios y grupos](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Users & Groups")
+   ![Usuarios y grupos](./media/active-directory-saas-answerhub-tutorial/IC785175.png "Usuarios y grupos")
 5. Escriba la **dirección de correo electrónico**, el **nombre de usuario** y la **contraseña** de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto relacionados y haga clic en **Save** (Guardar).
 
 > [!NOTE]
@@ -139,16 +139,16 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **AnswerHub**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Assign users")
+   ![Asignar usuarios](./media/active-directory-saas-answerhub-tutorial/IC785176.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Yes")
+   ![Sí](./media/active-directory-saas-answerhub-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

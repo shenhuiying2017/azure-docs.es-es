@@ -1,19 +1,23 @@
 ---
-title: Guía de optimización y rendimiento de la actividad de copia | Microsoft Docs
-description: Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Data Factory de Azure cuando se usa la actividad de copia.
+title: "Guía de optimización y rendimiento de la actividad de copia | Microsoft Docs"
+description: "Conozca los factores más importantes que afectan al rendimiento del movimiento de datos en Data Factory de Azure cuando se usa la actividad de copia."
 services: data-factory
-documentationcenter: ''
+documentationcenter: 
 author: linda33wj
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 4b9a6a4f-8cf5-4e0a-a06f-8133a2b7bc58
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 11/23/2016
 ms.author: jingwang
+translationtype: Human Translation
+ms.sourcegitcommit: 32b8f2ba9acd315a8ad05659b014ad41ed77a498
+ms.openlocfilehash: f3756f7a89ac6875b01b099e23021ed73227c4ea
+
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guía de optimización y rendimiento de la actividad de copia
@@ -21,7 +25,7 @@ Copiar actividad de Azure Data Factory ofrece una solución de carga de datos de
 
 Azure proporciona un conjunto de soluciones de almacén de datos y almacenamiento de datos de clase empresarial, y la actividad de copia ofrece una experiencia de carga de datos enormemente optimizada que es fácil de configurar e instalar. Con solo una actividad de copia, puede conseguir:
 
-* Cargar datos en **Azure SQL Data Warehouse** a **1,2 GBps**
+* Cargar datos en **Azure SQL Data Warehouse** a **1,2 GBps**. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
 * Cargar datos en **Azure Blob Storage** a **1,0 GBps**
 * Cargar datos en **Azure Data Lake Store** a **1,0 GBps**
 
@@ -33,11 +37,16 @@ En este artículo se describe:
 
 > [!NOTE]
 > Si no está familiarizado con la actividad de copia, consulte [Movimiento de datos con la actividad de copia](data-factory-data-movement-activities.md) antes de leer este artículo.
-> 
-> 
+>
+>
 
 ## <a name="performance-reference"></a>Referencia de rendimiento
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
+
+> [!NOTE]
+> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 8 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de 1 gigabyte por segundo. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
+>
+>
 
 Puntos a tener en cuenta:
 
@@ -110,14 +119,14 @@ Normalmente, el comportamiento predeterminado debe proporcionar el mejor rendimi
 
 Puntos a tener en cuenta:
 
-* Cuando se copian datos entre almacenes basados en archivos, se produce paralelismo en el nivel de archivo. No hay fragmentación dentro de un único archivo. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo.
+* Cuando copie datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un único archivo sucedería debajo de forma automática y transparente, y está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a parallelCopies. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
 * Cuando especifique un valor para la propiedad **parallelCopies** , tenga en cuenta el aumento de la carga en los almacenes de datos de origen y receptor, y en la puerta de enlace si se trata de una copia híbrida. Esto sucede especialmente si tiene varias actividades o ejecuciones simultáneas de las mismas actividades que se ejecutan en el mismo almacén de datos. Si observa que el almacén de datos o la puerta de enlace están sobrecargados, disminuya el valor de la propiedad **parallelCopies** para aliviar la carga.
 * Cuando se copian datos de almacenes no basados en archivos en almacenes basados en archivos, el servicio de movimiento de datos ignora la propiedad **parallelCopies** . Aunque se especifica el paralelismo, no se aplica en este caso.
 
 > [!NOTE]
 > Debe usar Data Management Gateway versión 1.11 o superior para emplear la característica **parallelCopies** cuando realice una copia híbrida.
-> 
-> 
+>
+>
 
 ### <a name="cloud-data-movement-units"></a>Unidades de movimiento de datos de nube
 Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa la eficacia (una combinación de CPU, memoria y asignación de recursos de red) de una única unidad en Data Factory. Una DMU podría utilizarse en una operación de copia de una nube a otra, pero no en una copia híbrida.
@@ -143,12 +152,12 @@ De forma predeterminada, Data Factory usa una única DMU para realizar una únic
         }
     ]
 
-Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4 y 8. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos. 
+Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4 y 8. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
 
 > [!NOTE]
-> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se copian varios archivos de Blob Storage a Blob Storage, Data Lake Store o Azure SQL Database, y el tamaño de archivo es mayor o igual que 16 MB de forma individual.
-> 
-> 
+> Si necesita más DMU de nube para aumentar el rendimiento, póngase en contacto con el [servicio técnico de Azure](https://azure.microsoft.com/support/). La configuración de 8 o más solo funciona actualmente cuando se **copian varios archivos de Blob Storage, Data Lake Store o Amazon S3 a Blob Storage, Data Lake Store o Azure SQL Database**, y el tamaño de archivo es mayor o igual que 16 MB de forma individual.
+>
+>
 
 Para un uso mejor de estas dos propiedades, y para mejorar el rendimiento del movimiento de datos, consulte los [casos de uso de ejemplo](#case-study-use-parallel-copy). No es necesario configurar **parallelCopies** para aprovechar el comportamiento predeterminado. Si configura **parallelCopies** y lo hace en un valor demasiado pequeño, es posible que varias DMU de nube no se utilicen completamente.  
 
@@ -157,7 +166,7 @@ Es **importante** recordar que se cobra en función del tiempo total de la opera
 ## <a name="staged-copy"></a>copia almacenada provisionalmente
 Al copiar datos de un almacén de datos de origen a un almacén de datos receptor, podría elegir usar Almacenamiento de blobs como almacenamiento provisional. El almacenamiento provisional es especialmente útil en los siguientes casos:
 
-1. **Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. Almacenamiento de datos SQL emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Almacenamiento de datos SQL. Sin embargo, los datos de origen deben estar en Almacenamiento de blobs y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Almacenamiento de blobs, puede activar la copia de datos mediante el Almacenamiento de blobs provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en Almacenamiento de datos SQL. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse).
+1. **Quiere realizar la ingesta de datos de varios almacenes de datos en SQL Data Warehouse mediante PolyBase**. Almacenamiento de datos SQL emplea PolyBase como mecanismo de alto rendimiento para cargar una gran cantidad de datos en Almacenamiento de datos SQL. Sin embargo, los datos de origen deben estar en Almacenamiento de blobs y deben satisfacer criterios adicionales. Al cargar datos desde un almacén de datos distinto de Almacenamiento de blobs, puede activar la copia de datos mediante el Almacenamiento de blobs provisional. En ese caso, Data Factory realiza las transformaciones de datos necesarias para garantizar que se cumplen los requisitos de PolyBase. A continuación, se usa PolyBase para cargar datos en Almacenamiento de datos SQL. Para más información, consulte [Uso de PolyBase para cargar datos en Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
 2. **En ocasiones, realizar un movimiento de datos híbridos lleva tiempo (es decir, copiar entre un almacén de datos local y un almacén de datos en la nube) a través de una conexión de red lenta**. Para mejorar el rendimiento, puede comprimir los datos locales de modo que se tarde menos tiempo en mover datos al almacén de datos provisional en la nube. Luego, puede descomprimir los datos en el almacenamiento provisional antes de cargarlos en el almacén de datos de destino.
 3. **No quiere abrir otros puertos que no sean el 80 y el 443 en el firewall, debido a las directivas de TI corporativas**. Por ejemplo, al copiar datos de un almacén de datos local a un receptor de Base de datos SQL de Azure o a un receptor de Almacenamiento de datos SQL de Azure, debe activar la comunicación TCP saliente en el puerto 1433 tanto para el firewall de Windows como para el firewall corporativo. En ese escenario, aproveche la ventaja de la puerta de enlace para copiar primero los datos en una instancia de ensayo de Blob Storage mediante HTTP o HTTPS en el puerto 443. Luego, puede cargar los datos en Base de datos SQL o en Almacenamiento de datos SQL desde el Almacenamiento de blobs provisional. En este flujo, no es necesario habilitar el puerto 1433.
 
@@ -213,7 +222,7 @@ Este es un ejemplo de definición de actividad de copia con las propiedades que 
 
 
 ### <a name="billing-impact"></a>Impacto en la facturación
-Los cargos que se le realizan se basan en dos elementos: duración de la copia y tipo de copia. 
+Los cargos que se le realizan se basan en dos elementos: duración de la copia y tipo de copia.
 
 * Al utilizar almacenamiento provisional durante una copia de nube (copia de datos de un almacén de datos en la nube a otro de este tipo), se le cobrará de la siguiente forma: [suma de la duración de la copia de los pasos 1 y 2] x [precio unitario de la copia de nube].
 * Al utilizar almacenamiento provisional durante una copia híbrida (copia de datos de un almacén de datos local a uno en la nube), se le cobrará de la siguiente forma: [duración de la copia híbrida] x [precio unitario de la copia híbrida] + [duración de la copia de nube] x [precio unitario de la copia de nube].
@@ -222,14 +231,14 @@ Los cargos que se le realizan se basan en dos elementos: duración de la copia y
 Para optimizar el rendimiento del servicio Data Factory con la actividad de copia, sugerimos que realice estos pasos:
 
 1. **Establezca una línea base**. Durante la fase de desarrollo, pruebe la canalización usando la actividad de copia en un ejemplo de datos representativo. Puede usar el [modelo de segmentación](data-factory-scheduling-and-execution.md#time-series-datasets-and-data-slices) de Data Factory para limitar la cantidad de datos con los que trabaja.
-   
+
    Recopile características de tiempo de ejecución y rendimiento mediante la **Aplicación de supervisión y administración**. Elija **Supervisión y administración** en la página de inicio de Data Factory. En la vista de árbol, elija el **conjunto de datos de salida**. En la lista **Activity Windows** (Ventanas de actividad), elija la ejecución de la actividad de copia. **Activity Windows** (Ventanas de actividad) se muestra la duración de la actividad de copia y el tamaño de los datos que se copian. El rendimiento se muestra en **Activity Window Explorer**(Explorador de ventanas de actividad). Para más información sobre la aplicación, consulte [Supervisión y administración de canalizaciones de Data Factory de Azure mediante la nueva Aplicación de supervisión y administración](data-factory-monitor-manage-app.md).
-   
+
    ![Detalles de ejecución de actividad](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
-   
+
    Más adelante en este artículo, puede comparar el rendimiento y la configuración de su escenario con la [referencia de rendimiento](#performance-reference) de la actividad de copia de nuestras pruebas.
 2. **Diagnostique y optimice el rendimiento**. Si el rendimiento que observa no satisface sus expectativas, deberá identificar los cuellos de botella. A continuación, optimice el rendimiento para eliminar o reducir el efecto de los cuellos de botella. Aunque la descripción completa del diagnóstico de rendimiento escapa del ámbito de este artículo, aquí hay algunos aspectos comunes a tener en cuenta:
-   
+
    * Características de rendimiento:
      * [Copia paralela](#parallel-copy)
      * [Unidades de movimiento de datos de nube](#cloud-data-movement-units)
@@ -245,11 +254,11 @@ Para optimizar el rendimiento del servicio Data Factory con la actividad de copi
 
 ## <a name="considerations-for-the-source"></a>Consideraciones sobre el origen
 ### <a name="general"></a>General
-Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él o contra él. 
+Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él o contra él.
 
 Para almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) específicos de los almacenes de datos que le ayuden a comprender las características de rendimiento del almacén de datos, a reducir los tiempos de respuesta y a maximizar la capacidad de proceso.
 
-Si copia los datos de Almacenamiento de blobs a Almacenamiento de datos SQL, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
+Si copia los datos de Almacenamiento de blobs a Almacenamiento de datos SQL, considere el uso de **PolyBase** para mejorar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
 
 ### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
 *(Incluye Blob Storage, Data Lake Store, Amazon S3, sistemas de archivos locales y HDFS local)*
@@ -267,11 +276,11 @@ Si copia los datos de Almacenamiento de blobs a Almacenamiento de datos SQL, con
 
 ## <a name="considerations-for-the-sink"></a>Consideraciones sobre el receptor
 ### <a name="general"></a>General
-Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él o contra él. 
+Asegúrese de que el almacén de datos subyacente no esté saturado con otras cargas de trabajo que se ejecutan en él o contra él.
 
 Para información sobre los almacenes de datos de Microsoft, consulte los [temas sobre supervisión y optimización](#performance-reference) que son específicos de los almacenes de datos. Estos temas pueden ayudarle a comprender las características de rendimiento de los almacenes de datos y a saber cómo reducir los tiempos de respuesta y aumentar la capacidad de proceso.
 
-Si va a copiar datos de **Blob Storage** a **SQL Data Warehouse**, considere la posibilidad de usar **PolyBase** para aumentar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md###use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información.
+Si va a copiar datos de **Blob Storage** a **SQL Data Warehouse**, considere la posibilidad de usar **PolyBase** para aumentar el rendimiento. Consulte [Uso de PolyBase para cargar datos en el Almacenamiento de datos SQL](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obtener más información. Para un tutorial con un caso de uso, consulte [Load 1 TB into Azure SQL Data Warehouse under 15 minutes with Azure Data Factory](data-factory-load-sql-data-warehouse.md) (Carga de 1 TB en Azure SQL Data Warehouse en 15 minutos con Azure Data Factory).
 
 ### <a name="file-based-data-stores"></a>Almacenes de datos basados en archivos
 *(Incluye Blob Storage, Data Lake Store, Amazon S3, sistemas de archivos locales y HDFS local)*
@@ -329,7 +338,7 @@ La propiedad **columnMappings** se puede establecer en la actividad de copia par
 Si el almacén de datos de origen es consultable, por ejemplo, si es un almacén relacional como Base de datos SQL o SQL Server, o es un almacén NoSQL como Almacenamiento de tablas o DocumentDB, considere la posibilidad de insertar la lógica de filtrado y reordenación de columnas en la propiedad **query** en lugar de usar la asignación de columnas. De esta forma, la proyección se produce mientras el servicio de movimiento de datos lee los datos del almacén de datos de origen, donde es mucho más eficaz.
 
 ## <a name="considerations-for-data-management-gateway"></a>Consideraciones sobre Data Management Gateway
-Para ver las recomendaciones de configuración de la puerta de enlace, consulte [Consideraciones sobre el uso de Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md#Considerations-for-using-Data-Management-Gateway).
+Para ver las recomendaciones de configuración de la puerta de enlace, consulte [Consideraciones sobre el uso de Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
 **Entorno de la máquina de puerta de enlace:**recomendamos usar una máquina dedicada para hospedar Data Management Gateway. Use herramientas como PerfMon para examinar el uso de CPU, memoria y ancho de banda durante una operación de copia en la máquina de puerta de enlace. Cambie a un equipo con más capacidad si la CPU, la memoria o el ancho de banda de red se convierten en un cuello de botella.
 
@@ -340,7 +349,7 @@ Si el tamaño de los datos que quiere copiar es grande, puede ajustar la lógica
 
 Tenga cuidado con el número de conjuntos de datos y actividades de copia que necesitan Data Factory para conectarse al mismo almacén de datos al mismo tiempo. Muchos trabajos de copia simultáneos podrían limitar un almacén de datos y llevar a una degradación en el rendimiento, reintentos internos de trabajos de copia y, en ocasiones, errores de ejecución.
 
-## <a name="sample-scenario:-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
+## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Escenario de ejemplo: Copia de una instancia local de SQL Server a Blob Storage
 **Escenario**: se crea una canalización para copiar datos de una instancia de SQL Server local a Almacenamiento de blobs en formato CSV. Para acelerar el trabajo de copia, los archivos CSV se deben comprimir en formato bzip2.
 
 **Análisis y pruebas**: el rendimiento de la actividad de copia es inferior a 2 MBps, que es mucho más lento que la referencia de rendimiento.
@@ -368,7 +377,7 @@ Puede que uno o varios de los siguientes factores provoquen el cuello de botella
 
 En este caso, la compresión de datos bzip2 podría estar ralentizando la canalización entera. El cambio a un códec de compresión gzip podría aliviar este cuello de botella.
 
-## <a name="sample-scenarios:-use-parallel-copy"></a>Escenarios de ejemplo: uso de la copia en paralelo
+## <a name="sample-scenarios-use-parallel-copy"></a>Escenarios de ejemplo: uso de la copia en paralelo
 **Escenario I:** se copian 1000 archivos de 1 MB del sistema de archivos local a Almacenamiento de blobs.
 
 **Análisis y optimización del rendimiento**: por ejemplo, si ha instalado la puerta de enlace en una máquina de cuatro núcleos, Data Factory usa 16 copias en paralelo para mover los archivos del sistema de archivos a Blob Storage de manera simultánea. Esta ejecución en paralelo debe tener como resultado un alto rendimiento. También puede especificar explícitamente el número de copias en paralelo. Al copiar muchos archivos pequeños, las copias en paralelo ayudan considerablemente al rendimiento al usar los recursos de forma más eficaz.
@@ -391,12 +400,14 @@ En este caso, la compresión de datos bzip2 podría estar ralentizando la canali
 Estas son algunas referencias para la supervisión y la optimización del rendimiento para algunos de los almacenes de datos admitidos:
 
 * Azure Storage (que incluyeBlob Storage y Table Storage): [Objetivos de escalabilidad de Azure Storage](../storage/storage-scalability-targets.md) y [Lista de comprobación de rendimiento y escalabilidad de Azure Storage](../storage/storage-performance-checklist.md)
-* Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-service-tiers.md#monitoring-performance) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
+* Base de datos SQL de Azure: puede [supervisar el rendimiento](../sql-database/sql-database-single-database-monitor.md) y comprobar el porcentaje de unidades de transacción de base de datos (DTU).
 * Almacenamiento de datos SQL de Azure: su capacidad se mide en unidades de almacenamiento de datos (DWU); consulte [Administración de la potencia de proceso en Almacenamiento de datos SQL de Azure (información general)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure DocumentDB: [Niveles de rendimiento en DocumentDB](../documentdb/documentdb-performance-levels.md)
 * Instancia de SQL Server local: [Supervisión y optimización del rendimiento](https://msdn.microsoft.com/library/ms189081.aspx)
 * Servidor de archivos local: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Nov16_HO4-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 11/10/2016
 ms.author: markgal; jimpark
 translationtype: Human Translation
-ms.sourcegitcommit: 85b291e3916d1274fefc71bc0c1f12cac2920bb4
-ms.openlocfilehash: 77b4f6e5ee18cb3772487820bc72d7794f82162f
+ms.sourcegitcommit: d18cd2c117ced64e407e87bcc96da38b0351a341
+ms.openlocfilehash: 0b3409074e0b4929fdf1f5a6b915e3814facedf6
 
 
 ---
@@ -49,26 +49,27 @@ En función del número de máquinas virtuales que desea proteger, puede comenza
 
 ## <a name="configure-backup-from-vm-management-blade"></a>Configuración de la copia de seguridad desde la hoja de administración de máquinas virtuales
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Virtual Machines**.  Aparecerá la lista de máquinas virtuales. En la lista de máquinas virtuales, seleccione la máquina virtual de la que desea realizar la copia de seguridad. Se abrirá la hoja de administración de máquinas virtuales. 
+2. En el menú central, haga clic en **Más servicios** y, en la lista de recursos, escriba **Virtual Machines**.  Aparecerá la lista de máquinas virtuales. En la lista de máquinas virtuales, seleccione la máquina virtual de la que desea realizar la copia de seguridad. Se abrirá la hoja de administración de máquinas virtuales.
  ![Hoja de administración de máquinas virtuales](./media/backup-azure-vms-first-look-arm/vm-management-blade.png)
- 
+
 3. En la hoja de administración de máquinas virtuales, haga clic en la opción "Copia de seguridad" situada en el lado izquierdo en Configuración.
 ![Opción Copia de seguridad en la hoja de administración de máquinas virtuales](./media/backup-azure-vms-first-look-arm/backup-option-vm-management-blade.png)
 
-4. Esto permite abrir la hoja Habilitar copia de seguridad. Esta hoja espera dos entradas: el almacén de Recovery Services, que es un recurso de Azure Backup que se utiliza para almacenar las copias de seguridad de las máquinas virtuales, y una directiva de copia de seguridad que especifica la programación de las copias de seguridad y cuánto tiempo se deben conservar. Esta hoja incluye opciones predeterminadas. Puede personalizarlas según los requisitos de las copias de seguridad. 
-![Asistente para habilitar copias de seguridad](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+4. Esto permite abrir la hoja Habilitar copia de seguridad. Esta hoja espera dos entradas: el almacén de Recovery Services, que es un recurso de Azure Backup que se utiliza para almacenar las copias de seguridad de las máquinas virtuales, y una directiva de copia de seguridad que especifica la programación de las copias de seguridad y cuánto tiempo se deben conservar. Esta hoja incluye opciones predeterminadas. Puede personalizarlas según los requisitos de las copias de seguridad.
 
-5. Para el almacén de Recovery Services, puede seleccionar un almacén existente o crear uno nuevo. Si va a crear un nuevo almacén, este se creará en el mismo grupo de recursos que la máquina virtual y la ubicación será la misma de la máquina virtual. Si desea crear un almacén de Recovery Services con valores diferentes, [cree un almacén de servicios de recuperación](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) antes de hacer clic en la opción Copia de seguridad del paso 3 y seleccione esa opción en esta hoja. 
+  ![Habilitar el Asistente para copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-blade-enable-backup.png)
+
+5. Para el almacén de Recovery Services, puede seleccionar un almacén existente o crear uno nuevo. Si va a crear un nuevo almacén, este se creará en el mismo grupo de recursos que la máquina virtual y la ubicación será la misma de la máquina virtual. Si desea crear un almacén de Recovery Services con valores diferentes, [cree un almacén de servicios de recuperación](backup-azure-vms-first-look-arm.md#create-a-recovery-services-vault-for-a-vm) antes de hacer clic en la opción Copia de seguridad del paso 3 y seleccione esa opción en esta hoja.
 
 6. En la hoja Directiva de copia de seguridad, seleccione la que quiera aplicar al almacén y haga clic en **Aceptar**.
     ![Seleccionar directiva de copia de seguridad](./media/backup-azure-vms-first-look-arm/setting-rs-backup-policy-new.png)
 
     En los detalles se muestran los datos de la directiva predeterminada. Si desea crear una directiva, seleccione **Crear nuevo** en el menú desplegable. El menú desplegable también proporciona una opción para cambiar la hora a la que se tomó la instantánea. Si quiere instrucciones para definir una directiva de copia de seguridad, consulte [Definición de una directiva de copia de seguridad](backup-azure-vms-first-look-arm.md#defining-a-backup-policy). Al hacer clic en **Aceptar**, la directiva de copia de seguridad se asocia con la máquina virtual.
-    
-7. Haga clic en "Habilitar copia de seguridad" para configurar la copia de seguridad en la máquina virtual. Esto desencadenará una implementación. 
+
+7. Haga clic en "Habilitar copia de seguridad" para configurar la copia de seguridad en la máquina virtual. Esto desencadenará una implementación.
 ![Botón Habilitar copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-button.png)
 
-8. Puede realizar un seguimiento del progreso de la configuración a través de notificaciones. 
+8. Puede realizar un seguimiento del progreso de la configuración a través de notificaciones.
 ![Notificaciones de la opción Habilitar copia de seguridad](./media/backup-azure-vms-first-look-arm/vm-management-blade-enable-backup-notification.png)
 
 9. Una vez completada la implementación de la opción Configurar copia de seguridad, si hace clic en la opción "copia de seguridad" en la hoja de administración de máquinas virtuales, esto le llevará a la hoja Elemento de copia de seguridad correspondiente a una máquina virtual de la que se ha realizado una copia de seguridad.
@@ -245,6 +246,6 @@ Si tiene alguna pregunta o hay alguna característica que le gustaría que se in
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

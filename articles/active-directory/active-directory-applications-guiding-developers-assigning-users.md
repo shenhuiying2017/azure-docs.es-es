@@ -40,6 +40,6 @@ Para poder asignar usuarios y grupos a una aplicación, debe requerir la asignac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

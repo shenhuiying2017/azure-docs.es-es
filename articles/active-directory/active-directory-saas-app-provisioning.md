@@ -1,23 +1,27 @@
 ---
-title: Aprovisionamiento automático de usuarios para aplicaciones SaaS | Microsoft Docs
-description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
+title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azure AD | Microsoft Docs
+description: "Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: asmalser-msft
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/09/2016
-ms.author: asmalser-msft
+ms.author: asmalser
+translationtype: Human Translation
+ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
+ms.openlocfilehash: 1bee9573e23e1c814626d19a3df1eb7ab12486ab
+
 
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
-## <a name="what-is-automated-user-provisioning-for-saas-apps?"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
+## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>¿Qué es el aprovisionamiento automático de usuarios para aplicaciones SaaS?
 Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimiento y la eliminación de identidades de usuario en aplicaciones de nube ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) como Dropbox, Salesforce, ServiceNow y muchas más.
 
 **A continuación se muestran algunos ejemplos de lo que esta característica permite hacer:**
@@ -34,7 +38,7 @@ Azure Active Directory (Azure AD) permite automatizar la creación, el mantenimi
 * Alertas de correo electrónico opcionales para errores de aprovisionamiento.
 * Informes y registros de actividades para facilitar la supervisión y solución de problemas.
 
-## <a name="why-use-automated-provisioning?"></a>¿Por qué usar el aprovisionamiento automático?
+## <a name="why-use-automated-provisioning"></a>¿Por qué usar el aprovisionamiento automático?
 Las razones habituales por las que se debe usar esta característica son:
 
 * Evitar los costes, las ineficiencias y los errores humanos asociados con los procesos de aprovisionamiento manuales.
@@ -67,7 +71,7 @@ Para la mayoría de las aplicaciones SaaS, el aprovisionamiento es sólo de sali
 
 Póngase en contacto con nosotros a través del [foro de comentarios de Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
-## <a name="how-does-automated-provisioning-work?"></a>¿Cómo funciona el aprovisionamiento automático?
+## <a name="how-does-automated-provisioning-work"></a>¿Cómo funciona el aprovisionamiento automático?
 Azure AD aprovisiona a los usuarios para aplicaciones SaaS mediante la conexión de los extremos de aprovisionamiento proporcionados por el proveedor de cada aplicación. Estos extremos permiten a Azure AD crear, actualizar y quitar usuarios mediante programación. A continuación se ofrece una breve introducción de los diferentes pasos que Azure AD realiza para automatizar el aprovisionamiento.
 
 1. Al habilitar el aprovisionamiento de una aplicación por primera vez, se realizan las siguientes acciones:
@@ -109,6 +113,9 @@ Si desea ponerse en contacto con el equipo de ingeniería de Azure AD para solic
 * [Notificaciones de aprovisionamiento de cuentas](active-directory-saas-account-provisioning-notifications.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](active-directory-saas-tutorial-list.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

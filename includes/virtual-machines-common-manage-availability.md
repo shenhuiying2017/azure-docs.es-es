@@ -9,6 +9,7 @@ Para reducir el impacto del tiempo de parada debido a uno o más de estos evento
 * [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
 * [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]
 * [Combinación de un equilibrador de carga con conjuntos de disponibilidad]
+* [Uso de varias cuentas de almacenamiento para cada conjunto de disponibilidad]
 
 ## <a name="configure-multiple-virtual-machines-in-an-availability-set-for-redundancy"></a>Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia
 Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información, consulte [Acuerdo de Nivel de Servicio para máquinas virtuales](https://azure.microsoft.com/support/legal/sla/virtual-machines/).
@@ -38,14 +39,22 @@ Combine [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.m
 
 Si el equilibrador de carga no está configurado para equilibrar el tráfico entre varias máquinas virtuales, cualquier evento de mantenimiento planeado afectará a la única máquina virtual dedicada al tráfico, lo que provocará una interrupción en el nivel de la aplicación. Si se colocan varias máquinas virtuales del mismo nivel en el mismo equilibrador de carga y conjunto de disponibilidad, se permitirá tener un tráfico continuamente disponible asistido por, al menos, una instancia.
 
+## <a name="use-multiple-storage-accounts-for-each-availability-set"></a>Uso de varias cuentas de almacenamiento para cada conjunto de disponibilidad
+Hay procedimientos recomendados que deben seguirse con respecto a las cuentas de almacenamiento utilizadas por los discos duros virtuales en la máquina virtual. Cada disco (VHD) es un blob en páginas en una cuenta de Azure Storage. Es importante asegurarse de que hay aislamiento y redundancia en las cuentas de almacenamiento con el fin de proporcionar una alta disponibilidad para las máquinas virtuales en el conjunto de disponibilidad.
+
+1. **Mantenga todos los discos (sistema operativo y datos) asociados a una máquina virtual en la misma cuenta de almacenamiento.**
+2. **Los [límites](../articles/storage/storage-scalability-targets.md) de la cuenta de almacenamiento deben tenerse en cuenta** cuando se agregan más discos duros virtuales a una cuenta de almacenamiento.
+3. **Utilice una cuenta de almacenamiento independiente para cada máquina virtual de un conjunto de disponibilidad.** Varias máquinas virtuales en el mismo conjunto de disponibilidad NO deben compartir la misma cuenta de almacenamiento. Las máquinas virtuales en distintos conjuntos de disponibilidad pueden compartir las cuentas de almacenamiento mientras se sigan los procedimientos recomendados anteriores.
+
 <!-- Link references -->
 [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-sets
 [Combinación de un equilibrador de carga con conjuntos de disponibilidad]: #combine-a-load-balancer-with-availability-sets
-[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets (Evitación de máquinas virtuales de instancia única en los conjuntos de disponibilidad)
+[Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
+[Uso de varias cuentas de almacenamiento para cada conjunto de disponibilidad]: #use-multiple-storage-accounts-for-each-availability-set
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
