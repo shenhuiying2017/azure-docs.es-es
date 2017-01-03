@@ -1,23 +1,28 @@
 ---
-title: Replicación geográfica activa para Base de datos SQL de Azure
-description: La replicación geográfica activa permite configurar cuatro réplicas de la base de datos en cualquiera de los centros de datos de Azure.
+title: "Replicación geográfica activa para Base de datos SQL de Azure"
+description: "La replicación geográfica activa permite configurar cuatro réplicas de la base de datos en cualquiera de los centros de datos de Azure."
 services: sql-database
 documentationcenter: na
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: monicar
-
+ms.assetid: 2a29f657-82fb-4283-9a83-e14a144bfd93
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/26/2016
-ms.author: sstein
+ms.author: sashan;carlrab
+translationtype: Human Translation
+ms.sourcegitcommit: 521bdc1bc13451210ccc3f5eefcfa903166031bc
+ms.openlocfilehash: ad5172865becf203cc42d84805ecaf40b046bd98
+
 
 ---
-# <a name="overview:-sql-database-active-geo-replication"></a>Información general: Replicación geográfica activa para Base de datos SQL de Azure
-La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y la conmutación por error en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal.
+# <a name="overview-sql-database-active-geo-replication"></a>Información general: Replicación geográfica activa para Base de datos SQL de Azure
+La replicación geográfica activa le permite configurar hasta cuatro bases de datos secundarias legibles en las mismas ubicaciones de centros de datos (regiones) o en otras. Las bases de datos secundarias están disponibles para la consulta y la conmutación por error en caso de una interrupción del centro de datos o de imposibilidad para conectarse a la base de datos principal. La replicación geográfica activa debe producirse entre bases de datos de la misma suscripción.
 
 > [!NOTE]
 > La replicación geográfica activa (bases de datos secundarias legibles) está ahora disponible para todas las bases de datos en todos los niveles de servicio. En abril de 2017 se retirará el tipo secundario no legible y las bases de datos no legibles existentes se actualizarán automáticamente a secundarias legibles.
@@ -74,7 +79,7 @@ La característica Replicación geográfica activa ofrece la funcionalidad esenc
 > 
 
 * **Replicación geográfica activa de bases de datos de grupos elásticos**: se puede configurar la replicación geográfica activa para cualquier base de datos en un grupo de bases de datos elásticas. La base de datos secundaria puede estar en otro grupo de bases de datos elásticas. Para las bases de datos normales, la base de datos secundaria puede ser un grupo de bases de datos elásticas y viceversa, siempre que los niveles de servicio sean los mismos. 
-* **Nivel de rendimiento configurable de la base de datos secundaria**: se puede crear una base de datos secundaria con un nivel de rendimiento inferior al de la principal. Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. No se recomienda esta opción para las aplicaciones con elevada actividad de escritura en la base de datos porque el mayor retraso de replicación aumenta el riesgo de perder una cantidad considerable de datos después de una conmutación por error. Además, después de la conmutación por error, el rendimiento de la aplicación se ve afectado hasta que la nueva base de datos principal se actualice a un nivel de rendimiento mayor. El gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el nivel mínimo de rendimiento de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) o [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).  Para más información sobre los niveles de rendimiento de Base de datos SQL, consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md). 
+* **Nivel de rendimiento configurable de la base de datos secundaria**: se puede crear una base de datos secundaria con un nivel de rendimiento inferior al de la principal. Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. No se recomienda esta opción para las aplicaciones con elevada actividad de escritura en la base de datos porque el mayor retraso de replicación aumenta el riesgo de perder una cantidad considerable de datos después de una conmutación por error. Además, después de la conmutación por error, el rendimiento de la aplicación se ve afectado hasta que la nueva base de datos principal se actualice a un nivel de rendimiento mayor. El gráfico de porcentaje de E/S de registro en Azure Portal proporciona un buen método para estimar el nivel mínimo de rendimiento de la base de datos secundaria que es necesario para mantener la carga de replicación. Por ejemplo, si la base de datos principal es P6 (1000 DTU) y su porcentaje de E/S de registro es 50 %, la base de datos secundaria debe ser al menos P4 (500 DTU). También puede recuperar los datos de E/S de registro mediante las vistas de base de datos [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) o [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).  Para más información sobre los niveles de rendimiento de Base de datos SQL, consulte [Opciones y rendimiento de Base de datos SQL: comprender lo que está disponible en cada nivel de servicio](sql-database-service-tiers.md). 
 * **Conmutación por error y conmutación por recuperación controladas por el usuario**: la aplicación o el usuario puede cambiar explícitamente una base de datos secundaria al rol principal en cualquier momento. Durante una interrupción real, debe utilizarse la opción "no planeada", que promueve inmediatamente una base de datos secundaria a principal. Cuando la base de datos principal que generó el error se recupera y vuelve a estar disponible, el sistema la marca automáticamente como secundaria y la pone al día con la nueva base de datos principal. Por la naturaleza asincrónica de la replicación, se puede perder una pequeña cantidad de datos durante las conmutaciones por error no planeadas antes de que se repliquen los cambios más recientes a la base de datos secundaria. Cuando una base de datos principal con varias secundarias conmuta por error, el sistema vuelve a configurar automáticamente las relaciones de replicación y vincula las bases de datos secundarias restantes a la principal recién promovida sin necesidad de que intervenga el usuario. Una vez que se mitiga la interrupción que causó la conmutación por error, sería conveniente devolver la aplicación a la región primaria. Para hacer esto, se debe invocar el comando de conmutación por error con la opción "planeada". 
 * **Mantenimiento de las credenciales y las reglas de firewall sincronizadas**: se recomienda usar las [reglas de firewall de base de datos](sql-database-firewall-configure.md) para las bases de datos con replicación geográfica. Así, estas reglas se pueden replicar con la base de datos para asegurarse de que todas las bases de datos secundarias tengan las mismas reglas de firewall que la principal. Este enfoque elimina la necesidad de que los clientes configuren y mantengan manualmente las reglas de firewall en los servidores que hospedan tanto la base de datos principal como las secundarias. Igualmente, la utilización de [usuarios de base de datos independiente](sql-database-manage-logins.md) para el acceso a los datos garantiza que la base de datos principal y las secundarias tengan siempre las mismas credenciales de usuario. Por tanto, durante una conmutación por error, no hay interrupciones debidas a discrepancias en los inicios de sesión y las contraseñas. Con la adición de [Azure Active Directory](../active-directory/active-directory-whatis.md), los clientes pueden administrar el acceso de usuarios a la base de datos principal y a las secundarias, por lo que ya no es necesario administrar credenciales en las bases de datos.
 
@@ -97,7 +102,7 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 * **API de Azure Resource Manager y seguridad basada en roles**: la replicación geográfica activa incluye un conjunto de [API de Azure Resource Manager](https://msdn.microsoft.com/library/azure/mt163571.aspx) para la administración, en el que se incluyen [cmdlets de PowerShell basados en Azure Resource Manager](sql-database-geo-replication-powershell.md). Estas API requieren que se usen grupos de recursos y admiten la seguridad basada en roles (RBAC). Para más información sobre cómo implementar los roles de acceso, consulte [Control de acceso basado en roles de Azure](../active-directory/role-based-access-control-configure.md).
 
 > [!NOTE]
-> Muchas de las nuevas características de la replicación geográfica activa solo se admiten con [Azure Resource Manager](../resource-group-overview.md), que se basa en la [API de REST de Azure SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) y los [cmdlets de PowerShell de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx). La API de REST (clásica) (https://msdn.microsoft.com/library/azure/dn505719.aspx) y los [cmdlets de Azure SQL Database (clásicos)](https://msdn.microsoft.com/library/azure/dn546723.aspx) se admiten por compatibilidad con versiones anteriores, por lo que se recomienda usar las API basadas en Azure Resource Manager. 
+> Muchas de las nuevas características de la replicación geográfica activa solo se admiten con [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md), que se basa en la [API de REST de Azure SQL](https://msdn.microsoft.com/library/azure/mt163571.aspx) y los [cmdlets de PowerShell de Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx). La API de REST (clásica) (https://msdn.microsoft.com/library/azure/dn505719.aspx) y los [cmdlets de Azure SQL Database (clásicos)](https://msdn.microsoft.com/library/azure/dn546723.aspx) se admiten por compatibilidad con versiones anteriores, por lo que se recomienda usar las API basadas en Azure Resource Manager. 
 > 
 > 
 
@@ -141,6 +146,9 @@ Como se dijo antes, la replicación geográfica activa también puede administra
 * Si quiere aprender a utilizar las copias de seguridad automatizadas para procesos de archivado, consulte el procedimiento para [copiar una base de datos](sql-database-copy.md).
 * Para obtener información acerca de los requisitos de autenticación para un nuevo servidor principal y la base de datos, consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

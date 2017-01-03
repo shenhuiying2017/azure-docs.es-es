@@ -1,12 +1,12 @@
 ---
 title: 'Azure AD y aplicaciones: guiar a los desarrolladores | Microsoft Docs'
-description: Escrito para los profesionales de TI, este artículo ofrece instrucciones para integrar las aplicaciones de Azure con Active Directory.
+description: "Escrito para los profesionales de TI, este artículo ofrece instrucciones para integrar las aplicaciones de Azure con Active Directory."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: kgremban
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: dd69f2bc-37c5-457c-857d-27acb84267fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: kgremban
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 1fcba586e44396378849d5162e75387e84fca905
+
 
 ---
-# Azure AD y aplicaciones: desarrollo de aplicaciones de línea de negocio
+# <a name="azure-ad-and-applications-develop-line-of-business-apps"></a>Azure AD y aplicaciones: desarrollo de aplicaciones de línea de negocio
 Esta guía proporciona información general sobre el desarrollo de aplicaciones de línea de negocio (LoB) para Azure Active Directory (AD) y se ha diseñado expresamente para administradores globales de Active Directory y Office 365.
 
-## Información general
+## <a name="overview"></a>Información general
 La creación de aplicaciones integradas con Azure AD proporciona a los usuarios de la organización inicio de sesión único con Office 365. Si tiene la aplicación en Azure AD, podrá controlar la directiva de autenticación de dicha aplicación. Para obtener más información sobre el acceso condicional y cómo proteger las aplicaciones con Multi-Factor Authentication (MFA), consulte [Configuración de las reglas de acceso](active-directory-conditional-access-azuread-connected-apps.md).
 
 Registro de la aplicación para utilizar Azure Active Directory Registrar la aplicación significa que los programadores pueden usar Azure AD para autenticar usuarios y solicitar acceso a recursos de usuarios; por ejemplo, correo electrónico, calendario y documentos.
@@ -51,29 +55,35 @@ A continuación, se indica lo que el administrador global tendrá que hacer para
 * Configurar la aplicación para requerir asignación de usuarios y asignar usuarios
 * Suprimir la experiencia de consentimiento del usuario predeterminada
 
-## Configuración de las reglas de acceso
-Configure las reglas de acceso por aplicación a las aplicaciones SaaS. Por ejemplo, puede obligar a utilizar MFA o solo permitir el acceso a usuarios de redes de confianza. En el documento de [configuración de las reglas de acceso](active-directory-conditional-access-azuread-connected-apps.md) se muestran los detalles pertinentes.
+## <a name="configure-access-rules"></a>Configuración de las reglas de acceso
+Configure las reglas de acceso por aplicación a las aplicaciones SaaS. Por ejemplo, puede obligar a utilizar MFA o solo permitir el acceso a usuarios de redes de confianza. En el documento de [configuración de las reglas de acceso](active-directory-conditional-access-azuread-connected-apps.md)se muestran los detalles pertinentes.
 
-## Configurar la aplicación para requerir asignación de usuarios y asignar usuarios
+## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configurar la aplicación para requerir asignación de usuarios y asignar usuarios
 De forma predeterminada, los usuarios pueden acceder a las aplicaciones sin asignación previa. Sin embargo, si la aplicación expone roles o si quiere que aparezca en el panel de acceso de un usuario, debe requerir la asignación de usuarios.
 
 [Necesidad de asignación de usuarios](active-directory-applications-guiding-developers-requiring-user-assignment.md)
 
 Si es un suscriptor de Azure AD Premium o Enterprise Mobility Suite (EMS), se recomienda encarecidamente utilizar grupos. La asignación de grupos a la aplicación permite delegar la administración del acceso continuo al propietario del grupo. Puede crear el grupo o pedir a la parte responsable de la organización que lo haga usando sus recursos de administración de grupos.
 
-[Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md) [Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md)
+[Asignación de usuarios a una aplicación](active-directory-applications-guiding-developers-assigning-users.md)  
+[Asignación de grupos a una aplicación](active-directory-applications-guiding-developers-assigning-groups.md)
 
-## Supresión del consentimiento del usuario
+## <a name="suppress-user-consent"></a>Supresión del consentimiento del usuario
 De forma predeterminada, los usuarios otorgan su consentimiento para iniciar sesión. El consentimiento, que se solicita para conceder permisos a una aplicación, puede desconcertar a los usuarios que no estén familiarizados con la toma de este tipo de decisiones.
 
 Para aplicaciones de confianza, puede otorgar el consentimiento para la aplicación en nombre de su organización con el fin de simplificar la experiencia de los usuarios.
 
 Para obtener más información sobre el consentimiento de usuarios y cómo se utiliza esta característica en Azure, consulte [Integración de aplicaciones con Azure Active Directory](active-directory-integrating-applications.md).
 
-## Artículos relacionados
+## <a name="related-articles"></a>Artículos relacionados
 * [Provisión de acceso remoto seguro a aplicaciones locales](active-directory-application-proxy-get-started.md)
 * [Acceso condicional de Azure en versión de vista previa para aplicaciones SaaS](active-directory-conditional-access-azuread-connected-apps.md)
 * [Administración del acceso a las aplicaciones con Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

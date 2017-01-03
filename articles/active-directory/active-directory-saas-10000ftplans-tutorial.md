@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e5ed7edef886c9a3308f3f30f983124c46db3452
+ms.sourcegitcommit: b1dded643a2526b7df799eddaca071c95ea35442
+ms.openlocfilehash: fbc47fe42fabbe65233364d86252d2e722600975
 
 
 ---
@@ -111,7 +111,8 @@ El objetivo de esta sección es habilitar el inicio de sesión único de Azure A
 
     b. En el cuadro de texto **Identificador**, escriba: `https://app.10000ft.com/saml/metadata`.
 
-    > [AZURE.NOTE] El valor de **Identificador** es distinto si tiene un dominio personalizado. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de 10,000ft Plans](mailto:support@10000ft.com).  
+    > [!NOTE] 
+    > El valor de **Identificador** es distinto si tiene un dominio personalizado. Si necesita ayuda, póngase en contacto con el [equipo de soporte técnico de 10,000ft Plans](mailto:support@10000ft.com).  
 
     c. Haga clic en **Siguiente**
 
@@ -159,17 +160,18 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     c. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-10000ftplans-tutorial/create_aaduser_07.png) 
@@ -240,6 +242,6 @@ Al hacer clic en el icono de 10,000ft Plans en el panel de acceso, debería inic
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

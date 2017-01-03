@@ -73,6 +73,6 @@ Entre las características de Azure AD que permiten el uso compartido de las cue
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

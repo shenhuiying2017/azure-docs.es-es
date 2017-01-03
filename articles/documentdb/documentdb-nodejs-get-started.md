@@ -1,6 +1,6 @@
 ---
 title: Tutorial de NoSQL para Node.js para DocumentDB | Microsoft Docs
-description: "Tutorial de NoSQL para Node.js que crea una aplicación de consola y la base de datos de nodos con el SDK de DocumentDB de Node.js. DocumentDB es una base de datos NoSQL para JSON."
+description: "Tutorial de NoSQL para Node.js que crea una aplicación de consola y la base de datos de NoSQL con el SDK de DocumentDB de Node.js. DocumentDB es una base de datos NoSQL para JSON."
 keywords: tutorial de Node.js, base de datos de nodos
 services: documentdb
 documentationcenter: node.js
@@ -13,22 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 08/11/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 06707b45944ee6b0810fbd45abbf69dccc1e00e1
+ms.sourcegitcommit: a1cd22bb4d5719493e32071879f1dc601901941f
+ms.openlocfilehash: 481e5d664ae4ae029135e06350e8c053eb6832c1
 
 
 ---
 # <a name="nosql-nodejs-tutorial-documentdb-nodejs-console-application"></a>Tutorial de NoSQL Node.js: aplicación de consola Node.js de DocumentDB
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
 > 
 
-Bienvenido al tutorial de Node.js para el SDK de Node.js de Azure DocumentDB. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos, incluida una base de datos de nodos.
+Bienvenido al tutorial de Node.js para el SDK de Node.js de Azure DocumentDB. Después de seguir este tutorial, tendrá una aplicación de consola que crea recursos de DocumentDB y realiza consultas en ellos.
 
 Describiremos:
 
@@ -52,10 +53,11 @@ Comencemos.
 Asegúrese de que dispone de lo siguiente:
 
 * Una cuenta de Azure activa. Si no tiene una, puede registrarse para obtener una [prueba gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+    * Como alternativa, puede usar el [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md) en este tutorial.
 * [Node.js](https://nodejs.org/) versión v0.10.29 o superior
 
 ## <a name="step-1-create-a-documentdb-account"></a>Paso 1: Creación de una cuenta de DocumentDB
-Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la aplicación de Node.js](#SetupNode).
+Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede ir directamente a [Configuración de la aplicación de Node.js](#SetupNode). Si está usando el Emulador de DocumentDB, siga los pasos que se indican en [Emulador de Azure DocumentDB](documentdb-nosql-local-emulator.md) para configurar el emulador e ir directamente a la [instalación de la aplicación de Node.js](#SetupNode).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
@@ -65,10 +67,10 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 3. Cree dos archivos de JavaScript vacíos con los siguientes comandos:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Instale el módulo documentdb mediante npm. Use el comando siguiente:
    * ```npm install documentdb --save```
 
@@ -263,7 +265,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 
 Para crear una [colección](documentdb-resources.md#collections), puede usar la función [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) de la clase **DocumentClient**. Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript.
 
-Copie y pegue la función **getCollection** debajo de la función **getDatabase** para crear la colección nueva con el ```id``` especificado en el objeto ```config```. Vuelva a comprobar que no existe ninguna colección con el mismo identificador ```FamilyCollection``` . Si existe, usaremos esa colección en lugar de crear una nueva.
+Copie y pegue la función **getCollection** debajo de la función **getDatabase** del archivo app.js para crear la colección nueva con el ```id``` especificado en el objeto ```config```. Vuelva a comprobar que no existe ninguna colección con el mismo identificador ```FamilyCollection``` . Si existe, usaremos esa colección en lugar de crear una nueva.
 
                 } else {
                     resolve(result);
@@ -366,7 +368,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 ## <a name="a-idqueryastep-8-query-documentdb-resources"></a><a id="Query"></a>Paso 8: Consulta de recursos de DocumentDB
 DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los documentos JSON almacenados en cada colección. El código de ejemplo siguiente muestra una consulta que se puede ejecutar en los documentos de la colección.
 
-Copie y pegue la función **queryCollection** debajo de la función **getFamilyDocument**. DocumentDB admite consultas del tipo SQL tal y como se muestra a continuación. Para más información sobre cómo crear consultas complejas, consulte [Query Playground](https://www.documentdb.com/sql/demo) y la [documentación sobre consultas](documentdb-sql-query.md).
+Copie y pegue la función **queryCollection** debajo de la función **getFamilyDocument** del archivo app.js. DocumentDB admite consultas del tipo SQL tal y como se muestra a continuación. Para más información sobre cómo crear consultas complejas, consulte [Query Playground](https://www.documentdb.com/sql/demo) y la [documentación sobre consultas](documentdb-sql-query.md).
 
                 } else {
                     resolve(result);
@@ -423,7 +425,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 ## <a name="a-idreplacedocumentastep-9-replace-a-document"></a><a id="ReplaceDocument"></a>Paso 9: Reemplazo de un documento
 DocumentDB admite el reemplazo de documentos JSON.
 
-Copie y pegue la función **replaceDocument** debajo de la función **queyCollection**.
+Copie y pegue la función **replaceFamilyDocument** debajo de la función **queryCollection** del archivo app.js.
 
                     }
                     console.log();
@@ -470,7 +472,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 ## <a name="a-iddeletedocumentastep-10-delete-a-document"></a><a id="DeleteDocument"></a>Paso 10: Eliminación de un documento
 DocumentDB admite la eliminación de documentos JSON.
 
-Copie y pegue la función **deleteDocument** debajo de la función **replaceDocument**.
+Copie y pegue la función **deleteFamilyDocument** debajo de la función **replaceFamilyDocument**.
 
                 else {
                     resolve(result);
@@ -514,7 +516,7 @@ En el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app
 ## <a name="a-iddeletedatabaseastep-11-delete-the-node-database"></a><a id="DeleteDatabase"></a>Paso 11: Eliminación de la base de datos de nodos
 La eliminación de la base de datos creada quitará la base de datos y todos los recursos secundarios (colecciones, documentos, etc.).
 
-Copie y pegue el siguiente fragmento de código (función **cleanup**) para quitar la base de datos y todos los recursos secundarios.
+Copie y pegue la función **cleanup** debajo de la función **deleteFamilyDocument** para quitar la base de datos y todos los recursos secundarios.
 
                 else {
                     resolve(result);
@@ -535,7 +537,7 @@ Copie y pegue el siguiente fragmento de código (función **cleanup**) para quit
         });
     }
 
-Copie y pegue el código de debajo de la llamada a **deleteDocument** para ejecutar la función **cleanup**.
+Copie y pegue el código de debajo de la llamada a **deleteFamilyDocument** para ejecutar la función **cleanup**.
 
     .then(() => deleteFamilyDocument(config.documents.Andersen))
 
@@ -598,7 +600,9 @@ Ahora debería ver la salida de la aplicación GetStarted. La salida debe coinci
 ¡Enhorabuena! Ha completado el tutorial de Node.js y tiene su primera aplicación de consola de DocumentDB.
 
 ## <a name="a-idgetsolutionaget-the-complete-nodejs-tutorial-solution"></a><a id="GetSolution"></a>Obtención de la solución completa del tutorial de Node.js
-Para compilar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
+Si no dispuso de tiempo para completar los pasos de este tutorial, o simplemente desea descargar el código, puede obtenerlo de [Github](https://github.com/Azure-Samples/documentdb-node-getting-started).
+
+Para ejecutar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
 
 * [Cuenta de DocumentDB][documentdb-create-account].
 * La solución [GetStarted](https://github.com/Azure-Samples/documentdb-node-getting-started) está disponible en GitHub.
@@ -607,7 +611,11 @@ Instale el módulo **documentdb** mediante npm. Use el comando siguiente:
 
 * ```npm install documentdb --save```
 
-Después, en el archivo ```config.js``` , actualice los valores de config.endpoint y config.authKey tal como se describe en el [paso 3: Configuración de las opciones de la aplicación](#Config).
+Después, en el archivo ```config.js``` , actualice los valores de config.endpoint y config.authKey tal como se describe en el [paso 3: Configuración de las opciones de la aplicación](#Config). 
+
+Posteriormente, en el terminal, busque el archivo ```app.js``` y ejecute el comando: ```node app.js```.
+
+Y, eso es todo, genérela y habrá terminado. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * ¿Desea un ejemplo más complejo de Node.js? Consulte [Compilación de una aplicación web Node.js mediante DocumentDB](documentdb-nodejs-application.md).
@@ -622,6 +630,6 @@ Después, en el archivo ```config.js``` , actualice los valores de config.endpoi
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

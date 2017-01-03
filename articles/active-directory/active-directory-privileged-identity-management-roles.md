@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/01/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b7084b2ea7e10ab69c1ac934724d0aa05ed70208
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0831755c619fb33c49a6df87141ca3a0a4714f71
 
 
 ---
@@ -92,6 +92,6 @@ El acceso a Microsoft Online Services puede requerir que se le asigne una licenc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -1,13 +1,12 @@
-
 ---
-title: Pasos siguientes para la administración de acceso mediante grupos| Microsoft Docs
+title: "Pasos siguientes para la administración de acceso mediante grupos| Microsoft Docs"
 description: Procedimientos avanzados para administrar grupos de seguridad y uso de estos grupos para administrar el acceso a un recurso.
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 44350a3c-8ea1-4da1-aaac-7fc53933dd21
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 8c4920107b5d05716021bcef80d3c52c25f6eade
+
 
 ---
 # <a name="managing-owners-for-a-group"></a>Administración de propietarios de un grupo
@@ -44,6 +47,9 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [¿Qué es Azure Active Directory?](active-directory-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

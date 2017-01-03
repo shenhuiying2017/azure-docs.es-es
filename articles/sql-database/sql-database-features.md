@@ -8,15 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: carlrab
+ms.author: carlrab; jognanay
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: c7cb4b872723e07b720c87ecef9d9d8f136c25eb
 
 
 ---
@@ -24,14 +25,14 @@ ms.openlocfilehash: 10dcc43035169ec399dfe93835c2d872a518170a
 En este tema se proporciona información general sobre las bases de datos y los servidores lógicos de Azure SQL Database y, además, se incluye una matriz de compatibilidad de características con vínculos para cada característica enumerada. 
 
 ## <a name="what-is-an-azure-sql-database-logical-server"></a>¿Qué es un servidor lógico de Azure SQL Database?
-Un servidor lógico de Azure SQL Database actúa como el punto central de administración de varias bases de datos. En SQL Database, un servidor es una construcción lógica distinta de una instancia de SQL Server, con la que puede estar familiarizado en el mundo de implementaciones locales. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos con respecto a sus servidores lógicos y no expone ningún acceso de nivel de instancia ni característica. Para obtener más información sobre los servidores lógicos de Azure SQL, consulte el [artículo al respecto](sql-database-server-overview.md). 
+Un servidor lógico de Azure SQL Database actúa como el punto central de administración de varias bases de datos. En SQL Database, un servidor es una construcción lógica distinta de una instancia de SQL Server, con la que puede estar familiarizado en el mundo de implementaciones locales. En concreto, el servicio SQL Database no ofrece ninguna garantía con respecto a la ubicación de las bases de datos con respecto a sus servidores lógicos y no expone ningún acceso de nivel de instancia ni características. Para obtener más información sobre los servidores lógicos de Azure SQL, consulte el [artículo al respecto](sql-database-server-overview.md). 
 
-## <a name="what-is-azure-sql-database"></a>¿Qué es Azure SQL Database?
-Cada base de datos de Azure SQL Database está asociada a un servidor lógico. La base de datos puede ser:
+## <a name="what-is-an-azure-sql-database"></a>¿Qué son las bases de datos de Azure SQL Database?
+Cada base de datos de Azure SQL Database está asociada a un servidor lógico. La base de datos puede revestir cualquiera de las siguientes formas:
 
 - Una base de datos única con su [propio conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU).
-- Parte de un [grupo de bases de datos](sql-database-elastic-pool.md) que [comparta un conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU).
-- Parte de un [conjunto escalado horizontalmente de bases de datos particionadas](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), las cuales pueden ser simples o agrupadas.
+- Parte de un [grupo de bases de datos](sql-database-elastic-pool.md) que [comparte un conjunto de recursos](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU).
+- Parte de un [conjunto escalado horizontalmente de bases de datos particionadas](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), que pueden ser simples o agrupadas.
 - Parte de un conjunto de bases de datos que participan en un [modelo de diseño de SaaS multiinquilino](sql-database-design-patterns-multi-tenancy-saas-applications.md) y cuyas bases de datos pueden ser simples o agrupadas (o ambas). 
 
 Para obtener más información sobre las bases de datos de Azure SQL, consulte el [artículo al respecto](sql-database-overview.md).
@@ -68,7 +69,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | Seguimiento de cambios | [Compatible](https://msdn.microsoft.com/library/bb933875.aspx) | [Compatible](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Instrucciones de intercalación | [Compatible](https://msdn.microsoft.com/library/ff848763.aspx) | [Compatible](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Índices de almacén de columnas | [Compatible](https://msdn.microsoft.com/library/gg492088.aspx) | [Solo en Premium Edition](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Common Language Runtime (CLR) | [Compatible](https://msdn.microsoft.com/library/ms131102.aspx) | [Compatible](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Common Language Runtime (CLR) | [Compatible](https://msdn.microsoft.com/library/ms131102.aspx) | No compatible |
 | Bases de datos independientes | [Compatible](https://msdn.microsoft.com/library/ff929071.aspx) | Característica integrada |
 | Usuarios contenidos | [Compatible](https://msdn.microsoft.com/library/ff929188.aspx) | [Compatible](sql-database-manage-logins.md#non-administrator-users) |
 | Palabras clave del lenguaje de control de flujo | [Compatible](https://msdn.microsoft.com/library/ms174290.aspx) | [Compatible](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -89,7 +90,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | Instrucciones DML | [Compatible](https://msdn.microsoft.com/library/ff848766.aspx) | [La mayoría](https://msdn.microsoft.com/library/ff848766.aspx) |
 | Desencadenadores DML | [Compatible](https://msdn.microsoft.com/library/ms178110.aspx) | [Compatible](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMV | [Todo](https://msdn.microsoft.com/library/ms188754.aspx) | [Algunas](https://msdn.microsoft.com/library/ms188754.aspx) |
-| Grupos de bases de datos elásticas | No compatible | [Compatible](sql-database-elastic-pool.md) |
+| grupos elásticos | No compatible | [Compatible](sql-database-elastic-pool.md) |
 | Trabajos elásticos | No compatible; consulte [Agente SQL Server](https://msdn.microsoft.com/library/ms189237.aspx). | [Compatible](sql-database-elastic-jobs-getting-started.md) | 
 | Consultas elásticas | No compatible; consulte [Consultas entre bases de datos](https://msdn.microsoft.com/library/dn584627.aspx). | [Compatible](sql-database-elastic-query-overview.md) |
 | Notificaciones de eventos | [Compatible](https://msdn.microsoft.com/library/ms186376.aspx) | [Compatible](sql-database-insights-alerts-portal.md) |
@@ -122,7 +123,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | Instrucciones de seguridad | [Compatible](https://msdn.microsoft.com/library/ff848791.aspx) | [Algunas](https://msdn.microsoft.com/library/ff848791.aspx) |
 | Búsqueda semántica | [Compatible](https://msdn.microsoft.com/library/gg492075.aspx) | No compatible |
 | Números de secuencia | [Compatible](https://msdn.microsoft.com/library/ff878058.aspx) | [Compatible](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [Compatible](https://msdn.microsoft.com/library/bb522893.aspx) | [Solo dentro de la base de datos](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Service Broker | [Compatible](https://msdn.microsoft.com/library/bb522893.aspx) | No compatible |
 | Opciones de configuración del servidor | [Compatible](https://msdn.microsoft.com/library/ms189631.aspx) | No compatible; consulte el artículo sobre las [opciones de configuración de la base de datos](https://msdn.microsoft.com/library/mt629158.aspx). |
 | Instrucciones SET | [Compatible](https://msdn.microsoft.com/library/ms190356.aspx) | [La mayoría](https://msdn.microsoft.com/library/ms190356.aspx) 
 | Espacial | [Compatible](https://msdn.microsoft.com/library/bb933790.aspx) | [Compatible](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -131,7 +132,7 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 | SQL Server Integration Services (SSIS) | [Compatible](https://msdn.microsoft.com/library/ms141026.aspx) | No compatible; consulte [Data Factory de Azure](https://azure.microsoft.com/services/data-factory/). |
 | SQL Server PowerShell | [Compatible](https://msdn.microsoft.com/library/hh245198.aspx) | [Compatible](https://msdn.microsoft.com/library/hh245198.aspx) |
 | Analizador de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms181091.aspx) | No compatible; consulte el artículo sobre los [eventos extendidos](https://msdn.microsoft.com/library/ms181091.aspx). |
-| Replicación de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo los suscriptores de replicación de transacciones](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| Replicación de SQL Server | [Compatible](https://msdn.microsoft.com/library/ms151198.aspx) | [Solo los suscriptores de replicación transaccional y replicación de instantáneas](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services (SSRS) | [Compatible](https://msdn.microsoft.com/library/ms159106.aspx) | No compatible |
 | Procedimientos almacenados | [Compatible](https://msdn.microsoft.com/library/ms190782.aspx) | [Compatible](https://msdn.microsoft.com/library/ms190782.aspx) |
 | Funciones almacenadas del sistema | [Compatible](https://msdn.microsoft.com/library/ff848780.aspx) | [Algunos](https://msdn.microsoft.com/library/ff848780.aspx) |
@@ -154,12 +155,12 @@ Seguimos agregando características a la V12. Por lo tanto, le recomendamos que 
 - Para acceder a información general sobre los servidores lógicos de Azure SQL Database, lea [este resumen sobre el particular](sql-database-server-overview.md).
 - Para acceder a información general acerca de las bases de datos de Azure SQL Database, lea [este resumen sobre el particular](sql-database-overview.md).
 - Para conocer los detalles sobre la compatibilidad y las diferencias de Transact-SQL, consulte [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Diferencias de Transact-SQL de Azure SQL Database).
-- Obtenga más información sobre las cuotas y los límites específicos de recursos según su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
+- En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
 - Para obtener directrices relacionadas con la seguridad, consulte [Instrucciones y limitaciones de seguridad de la Base de datos SQL de Azure](sql-database-security-guidelines.md).
 - Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,30 +1,35 @@
 ---
-title: 'Analytics: la herramienta de búsqueda eficaz de Application Insights | Microsoft Docs'
-description: 'Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights. '
+title: "Analytics: la eficaz herramienta de búsqueda de Azure Application Insights | Microsoft Docs"
+description: "Información general de Analytics, la eficaz herramienta de búsqueda de Application Insights. "
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
-manager: douge
-
+manager: carmonm
+ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 11/23/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: f760494cbe7341391f0ce51bb1161cb1395cbe5c
+ms.openlocfilehash: b56ac6e0b75492e8d784c5fc67e555f8f450b65f
+
 
 ---
-# Analytics de Application Insights
-[Analytics](app-insights-analytics.md) es la característica de búsqueda eficaz de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics.
+# <a name="analytics-in-application-insights"></a>Analytics de Application Insights
+[Analytics](app-insights-analytics.md) es la eficaz característica de búsqueda de [Application Insights](app-insights-overview.md). En estas páginas se describe el lenguaje de consulta de Analytics. 
 
-* **[Ver el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Probar Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
+* **[Vea el vídeo de introducción](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Use una versión de prueba de Analytics en nuestros datos simulados](https://analytics.applicationinsights.io/demo)** si su aplicación aún no envía datos a Application Insights.
+* **[La hoja de referencia rápida de usuarios de SQL](https://aka.ms/sql-analytics)** traduce las expresiones más comunes.
 
-## Funciones de consultas de Analytics
-Una consulta típica consta de una tabla de *origen* seguida de una serie de *operadores* separados por `|`.
+## <a name="queries-in-analytics"></a>Funciones de consultas de Analytics
+Una consulta típica consta de una tabla de *origen* seguida de una serie de *operadores* separados por `|`. 
 
-Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hyderabad nuestra aplicación web. Y ya puestos, veamos qué códigos de resultados se devuelven a sus solicitudes HTTP.
+Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hyderabad nuestra aplicación web. Y ya puestos, veamos qué códigos de resultados se devuelven a sus solicitudes HTTP. 
 
 ```AIQL
 
@@ -35,7 +40,7 @@ Por ejemplo, vamos a averiguar a qué hora del día prueban los ciudadanos de Hy
     | extend local_hour = (tod_UTC + 5h + 30min) % 24h + datetime("2001-01-01") 
 ```
 
-Contamos direcciones IP de cliente únicas agrupándolas por la hora del día durante los últimos 7 días.
+Contamos direcciones IP de cliente únicas agrupándolas por la hora del día durante los últimos 7 días. 
 
 Vamos a mostrar los resultados con la presentación de gráficos de barras y con la opción de apilar los resultados de distintos códigos de respuesta:
 
@@ -51,21 +56,30 @@ El lenguaje tiene muchas características atractivas:
 
 * [Filtre](app-insights-analytics-reference.md#where-operator) la telemetría de la aplicación sin procesar por cualquier campo, incluidas sus métricas y propiedades personalizadas.
 * [Una](app-insights-analytics-reference.md#join-operator) varias tablas: ponga en correlación las solicitudes con vistas de página, llamadas de dependencia, excepciones y seguimiento de registros.
-* [Agregaciones](app-insights-analytics-reference.md#aggregations) estadísticas de gran eficacia.
+* [Agregaciones](app-insights-analytics-reference.md#aggregations)estadísticas de gran eficacia.
 * Son tan eficaces como SQL, pero mucho más fáciles de usar para las consultas complejas: en lugar de anidar instrucciones, canaliza los datos de una operación básica a la siguiente.
 * Visualizaciones inmediatas y potentes.
+* [Ancle gráficos a los paneles de Azure](app-insights-analytics-using.md#pin-to-dashboard).
+* [Exporte consultas a Power BI](app-insights-analytics-using.md#export-to-power-bi).
+* Hay una [API de REST](https://dev.applicationinsights.io/) que puede usar para ejecutar consultas mediante programación, por ejemplo de Powershell.
 
-## Conexión a los datos de Application Insights
-Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights:
+
+## <a name="connect-to-your-application-insights-data"></a>Conexión a los datos de Application Insights
+Abra Analytics desde la [hoja de información general](app-insights-dashboards.md) de su aplicación en Application Insights: 
 
 ![Abra portal.azure.com, abra su recurso de Application Insights y haga clic en Análisis.](./media/app-insights-analytics/001.png)
 
-## Límites
-En la actualidad, los resultados de consulta están limitados exclusivamente a solo una semana de datos antiguos.
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 * Se recomienda empezar por el [paseo por el lenguaje](app-insights-analytics-tour.md).
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+
+
+<!--HONumber=Nov16_HO4-->
+
+

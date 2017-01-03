@@ -1,13 +1,13 @@
 ---
-title: Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery | Microsoft Docs
-description: Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona.
+title: "Búsqueda de aplicaciones en la nube no administradas con Cloud App Discovery | Microsoft Docs"
+description: "Ofrece información sobre la búsqueda y la administración de aplicaciones con Cloud App Discovery, sobre cuáles son los beneficios y sobre cómo funciona."
 services: active-directory
 keywords: cloud app discovery, administrar aplicaciones
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -15,6 +15,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: 011cdf5f1e1b78832a8e4f18f4eef0f376860c45
+
 
 ---
 # <a name="finding-unmanaged-cloud-applications-with-cloud-app-discovery"></a>Búsqueda de aplicaciones de nube no administradas con Cloud App Discovery
@@ -48,6 +52,9 @@ Para empezar con Cloud App Discovery, vea [Introducción a Cloud App Discovery](
 * [Preguntas más frecuentes de Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx)
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO4-->
 
 

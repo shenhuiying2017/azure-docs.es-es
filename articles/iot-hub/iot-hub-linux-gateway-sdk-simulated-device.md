@@ -1,12 +1,12 @@
 ---
-title: Simulación de un dispositivo con el SDK de puerta de enlace | Microsoft Docs
-description: Tutorial del SDK de puerta de enlace de del Centro de IoT de Azure usando Linux para ilustrar el envío de datos de telemetría desde un dispositivo simulado mediante el SDK de puerta de enlace del Centro de IoT de Azure.
+title: "Simulación de un dispositivo con el SDK de puerta de enlace de IoT | Microsoft Docs"
+description: "Tutorial del SDK de puerta de enlace de IoT de Azure con Linux para ilustrar el envío de datos de telemetría desde un dispositivo simulado mediante el SDK de puerta de enlace de IoT de Azure."
 services: iot-hub
-documentationcenter: ''
+documentationcenter: 
 author: chipalost
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: 11e7bf28-ee3d-48d6-a386-eb506c7a31cf
 ms.service: iot-hub
 ms.devlang: cpp
 ms.topic: article
@@ -14,17 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2016
 ms.author: andbuc
+translationtype: Human Translation
+ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
+ms.openlocfilehash: a6a97202c8221680f13bd8b29fe8d616578629cd
+
 
 ---
-# <a name="iot-gateway-sdk-beta-send-devicetocloud-messages-with-a-simulated-device-using-linux"></a>SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo simulado usando Linux
+# <a name="azure-iot-gateway-sdk--send-device-to-cloud-messages-with-a-simulated-device-using-linux"></a>SDK de puerta de enlace de IoT de Azure: envío de mensajes de dispositivo a la nube con un dispositivo simulado mediante Linux
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## <a name="build-and-run-the-sample"></a>Compilación y ejecución del ejemplo
 Antes de comenzar, realice los siguientes pasos:
 
 * [Configure el entorno de desarrollo][lnk-setupdevbox] para trabajar con el SDK en Linux.
-* [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; necesitará el nombre de su centro para realizar este tutorial. Si aún no tiene una suscripción de Azure, puede obtener una [cuenta gratuita][lnk-free-trial].
-* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar los dispositivos al centro de IoT que ha creado en el paso anterior y recuperar sus claves.
+* [Cree un centro de IoT][lnk-create-hub] en su suscripción de Azure; que necesitará el nombre de su centro para realizar este tutorial. Si no tiene ninguna, puede crear una [cuenta gratuita][lnk-free-trial] en tan solo unos minutos.
+* Agregue dos dispositivos en su Centro de IoT y tome nota de sus identificadores y claves de dispositivo. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para agregar los dispositivos al centro de IoT que creó en el paso anterior y recuperar las claves.
 
 Para compilar el ejemplo:
 
@@ -50,68 +54,98 @@ En un editor de texto, abra el archivo **samples/simulated_device_cloud_upload/s
 
 ```
 {
-    "modules" :
-    [ 
+    "modules": [
         {
-            "module name" : "IoTHub",
-            "module path" : "./build/modules/iothub/libiothub_hl.so",
-            "args" : 
-            {
-                "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net",
-                "Transport": "HTTP"
+            "name": "IotHub",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/iothub/libiothub.so"
             }
-        },
+            },
+            "args": {
+              "IoTHubName": "<<insert here IoTHubName>>",
+              "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
+              "Transport": "HTTP"
+            }
+          },
         {
-            "module name" : "mapping",
-            "module path" : "./build/modules/identitymap/libidentity_map_hl.so",
-            "args" : 
-            [
-                {
-                    "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID 1}",
-                    "deviceKey"  : "{Device key 1}"
-                },
-                {
-                    "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID 2}",
-                    "deviceKey"  : "{Device key 2}"
-                }
+            "name": "mapping",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/identitymap/libidentity_map.so"
+            }
+            },
+            "args": [
+              {
+                "macAddress": "01:01:01:01:01:01",
+                "deviceId": "<<insert here deviceId>>",
+                "deviceKey": "<<insert here deviceKey>>"
+              },
+              {
+                "macAddress": "02:02:02:02:02:02",
+                "deviceId": "<<insert here deviceId>>",
+                "deviceKey": "<<insert here deviceKey>>"
+              }
             ]
-        },
+          },
         {
-            "module name":"BLE1",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
-            "args":
-            {
-                "macAddress" : "01-01-01-01-01-01"
+            "name": "BLE1",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/simulated_device/libsimulated_device.so"
             }
-        },
+            },
+            "args": {
+              "macAddress": "01:01:01:01:01:01"
+            }
+          },
         {
-            "module name":"BLE2",
-            "module path" : "./build/modules/simulated_device/libsimulated_device_hl.so",
-            "args":
-            {
-                "macAddress" : "02-02-02-02-02-02"
+            "name": "BLE2",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/simulated_device/libsimulated_device.so"
             }
-        },
+            },
+            "args": {
+              "macAddress": "02:02:02:02:02:02"
+            }
+          },
         {
-            "module name":"Logger",
-            "module path" : "./build/modules/logger/liblogger_hl.so",
-            "args":
-            {
-                "filename":"./deviceCloudUploadGatewaylog.log"
+            "name": "Logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "./modules/logger/liblogger.so"
             }
-        }
+            },
+            "args": {
+              "filename": "deviceCloudUploadGatewaylog.log"
+            }
+          }
     ],
-    "links" : [
-        { "source" : "*", "sink" : "Logger" },
-        { "source" : "BLE1", "sink" : "mapping" },
-        { "source" : "BLE2", "sink" : "mapping" },
-        { "source" : "mapping", "sink" : "IoTHub" }
+    "links": [
+        {
+            "source": "*",
+            "sink": "Logger"
+        },
+        {
+            "source": "BLE1",
+            "sink": "mapping"
+        },
+        {
+            "source": "BLE2",
+            "sink": "mapping"
+        },
+        {
+            "source": "mapping",
+            "sink": "IotHub"
+        }
     ]
 }
-
 ```
 
 Guarde los cambios realizados en el archivo de configuración.
@@ -124,18 +158,18 @@ Para ejecutar el ejemplo:
     ```
     ./build/samples/simulated_device_cloud_upload/simulated_device_cloud_upload_sample ./samples/simulated_device_cloud_upload/src/simulated_device_cloud_upload_lin.json
     ```
-3. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que IoT Hub recibe de la puerta de enlace.
+3. Puede usar la herramienta [Explorador de dispositivos o iothub-explorer][lnk-explorer-tools] para supervisar los mensajes que el centro de IoT recibe de la puerta de enlace.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si desea una descripción más avanzada del SDK de puerta de enlace y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
+Si desea una descripción más avanzada del SDK de puerta de enlace de IoT y experimentar con algunos ejemplos de código, consulte los siguientes tutoriales y recursos para desarrolladores:
 
-* [SDK de puerta de enlace de IoT (beta): envío de mensajes del dispositivo a la nube con un dispositivo real a través de Linux][lnk-physical-device]
-* [SDK de puerta de enlace de Azure IoT][lnk-gateway-sdk]
+* [Envío de mensajes de un dispositivo físico a la nube con el SDK de puerta de enlace de IoT][lnk-physical-device]
+* [SDK de puerta de enlace de IoT de Azure][lnk-gateway-sdk]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía para desarrolladores][lnk-devguide]
-* [Seguridad de la solución de IoT desde el principio][lnk-securing]
+* [Guía del desarrollador][lnk-devguide]
+* [Protección total de la solución de IoT][lnk-securing]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
@@ -150,6 +184,7 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 [lnk-create-hub]: iot-hub-create-through-portal.md
 
 
-<!--HONumber=Oct16_HO2-->
+
+<!--HONumber=Nov16_HO5-->
 
 

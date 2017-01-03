@@ -11,11 +11,11 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 12/08/2016
 ms.author: brjohnst
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
+ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
+ms.openlocfilehash: e862002a5b1406196516e5ddd786790da7bd5a4d
 
 
 ---
@@ -28,7 +28,7 @@ ms.openlocfilehash: d638e79517053fa758d9695c297ef09f4d9a806d
 > 
 > 
 
-En este artículo se muestra cómo realizar una consulta en un índice con el [SDK de .NET de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn951165.aspx).
+En este artículo se muestra cómo realizar una consulta en un índice con el [SDK de .NET de Búsqueda de Azure](https://aka.ms/search-sdk).
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md).
 
@@ -37,7 +37,7 @@ Tenga en cuenta que todo el código de ejemplo de este artículo está escrito e
 ## <a name="i-identify-your-azure-search-services-query-api-key"></a>I. Identificación de la clave de API de consulta del servicio de Búsqueda de Azure
 Ahora que ha creado un índice de Búsqueda de Azure, está casi listo para emitir consultas mediante el SDK de .NET. En primer lugar, debe obtener una de las claves de API de consulta que se generaron para aprovisionar el servicio de búsqueda. El SDK para .NET enviará esta clave de API en cada solicitud al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. Para buscar las claves de API del servicio debe iniciar sesión en el [Portal de Azure](https://portal.azure.com/)
+1. Para buscar las claves de API del servicio, debe iniciar sesión en [Azure Portal](https://portal.azure.com/).
 2. Vaya a la hoja de servicio de Búsqueda de Azure
 3. Haga clic en el icono "Claves"
 
@@ -162,7 +162,6 @@ Name: Roach Motel       Last renovated on: 4/28/1982 12:00:00 AM +00:00
 Search the entire index for the term 'motel':
 
 ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
-
 ```
 
 El código de ejemplo anterior envía los resultados de búsqueda a la consola. Del mismo modo, necesitará mostrar los resultados de búsqueda en su propia aplicación. Consulte [este ejemplo en GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetSample) para ver cómo representar los resultados de búsqueda en una aplicación web basada en ASP.NET MVC.

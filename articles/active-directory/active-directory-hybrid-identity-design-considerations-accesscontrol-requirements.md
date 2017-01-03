@@ -1,13 +1,12 @@
-
 ---
-title: 'Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de control de acceso| Microsoft Docs'
-description: Cubre los pilares de identidad y la identificación de los requisitos de acceso de los recursos para los usuarios de un entorno híbrido.
-documentationcenter: ''
+title: "Consideraciones sobre el diseño de identidad híbrida de Azure Active Directory: determinación de los requisitos de control de acceso| Microsoft Docs"
+description: "Cubre los pilares de identidad y la identificación de los requisitos de acceso de los recursos para los usuarios de un entorno híbrido."
+documentationcenter: 
 services: active-directory
 author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -15,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2016
 ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 032467e0885d574a7b0f4a1c043e1800e5cc4071
+
 
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de control de acceso para la solución de identidad híbrida
@@ -77,6 +80,9 @@ Si bien la autenticación y la autorización son elementos esenciales para permi
 ## <a name="see-also"></a>Otras referencias
 [Información general sobre las consideraciones de diseño](active-directory-hybrid-identity-design-considerations-overview.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

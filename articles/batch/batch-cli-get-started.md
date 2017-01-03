@@ -3,7 +3,7 @@ title: "Introducción a la CLI de Azure Batch | Microsoft Docs"
 description: "Obtenga una introducción rápida a los comandos de Batch en la CLI de Azure para administrar los recursos del servicio Azure Batch"
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,10 +13,10 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 09/30/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a874623c7ab24478af14e6cf4391dcc29052590f
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: cb1f049597d53263f0f92fe1192b285c09d78eeb
 
 
 ---
@@ -129,7 +129,7 @@ Al crear recursos de Batch, como grupos y trabajos, puede especificar un archivo
 
 Aunque puede realizar muchas operaciones de creación de recursos utilizando solo las opciones de línea de comandos, algunas características requieren un archivo con formato JSON que contenga los detalles de los recursos. Por ejemplo, si desea especificar archivos de recursos para una tarea de inicio, debe utilizar un archivo JSON.
 
-Para encontrar el archivo JSON necesario para crear un recurso, consulte la documentación de [Referencia de API de REST de Azure Batch][rest_api] en MSDN. Cada tema de "Agregar *tipo de recurso*" contiene JSON de ejemplo para crear el recurso, que puede utilizar como plantillas para los archivos JSON. Por ejemplo, en [Agregar un grupo a una cuenta][rest_add_pool], puede encontrar JSON para la creación de grupos.
+Para encontrar el archivo JSON necesario para crear un recurso, consulte la documentación de [Referencia de API de REST de Batch][rest_api] en MSDN. Cada tema de "Agregar *tipo de recurso*" contiene JSON de ejemplo para crear el recurso, que puede utilizar como plantillas para los archivos JSON. Por ejemplo, en [Add a pool to an account][rest_add_pool] (Incorporación de un grupo a una cuenta) puede encontrar JSON para crear grupos.
 
 > [!NOTE]
 > Si especifica un archivo JSON al crear un recurso, se ignoran los restantes parámetros que especifique en la línea de comandos de dicho recurso.
@@ -259,12 +259,12 @@ Esta sección pretende proporcionar los recursos que se pueden utilizar al soluc
 * Use `-h` para obtener **texto de ayuda** de cualquier comando de CLI.
 * Use `-v` y `-vv` para mostrar la salida **detallada** del comando; `-vv` proporciona detalles adicionales y muestra las solicitudes y respuestas de REST reales. Estos modificadores son útiles para mostrar la salida completa del error.
 * Puede ver la **salida del comando como JSON** con la opción `--json`. Por ejemplo, `azure batch pool show "pool001" --json` muestra las propiedades de pool001 en formato JSON. Puede copiar y modificar esta salida para usarla en `--json-file` (consulte [Archivos JSON](#json-files) en este mismo artículo).
-* El [foro de Batch en MSDN][batch_forum] es un recurso muy útil que se supervisan muy de cerca los miembros del equipo de Batch. Publique en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
+* El [foro de Batch en MSDN][batch_forum] es un recurso muy útil que supervisan muy de cerca los miembros del equipo de Batch. Publique en él sus preguntas si experimenta problemas o desea obtener ayuda acerca de una operación concreta.
 * La CLI de Azure no es compatible actualmente con todas las operaciones de los recursos de Batch. Por ejemplo, actualmente no se puede especificar una *versión* del paquete de aplicación para un grupo, solo el identificador de paquete. En tales casos, es preciso proporcionar un `--json-file` para el comando, en lugar de utilizar opciones de línea de comandos. Asegúrese de mantenerse al día y tener la versión más reciente de la CLI para poder disfrutar las mejoras futuras.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Implementación de aplicaciones con paquetes de aplicación de Azure Batch](batch-application-packages.md) para averiguar cómo utilizar esta característica para administrar e implementar las aplicaciones que se ejecutan en nodos de proceso de Batch.
-* Para más información acerca de cómo reducir el número de elementos y el tipo de información que se devuelve en las consultas a Lote, consulte [Consulta eficaz del servicio Lote de Azure](batch-efficient-list-queries.md) .
+* Para más información acerca de cómo reducir el número de elementos y el tipo de información que se devuelve en las consultas a Batch, consulte [Consulta eficaz del servicio Azure Batch](batch-efficient-list-queries.md) .
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
@@ -273,6 +273,6 @@ Esta sección pretende proporcionar los recursos que se pueden utilizar al soluc
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

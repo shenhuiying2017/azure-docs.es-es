@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 10/11/2016
 ms.author: skwan;bryanla
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 624908a1f65240be1fa9f320d078c30ebcec0788
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 60874690edfe647c97849bd4099052ab7bc33f80
 
 
 ---
@@ -36,10 +36,10 @@ Para convertir la aplicación en una aplicación multiempresa de Azure AD, siga 
 3. Actualice el código para administrar varios valores issuer
 4. Comprenda el consentimiento de administrador y usuario y realice los cambios apropiados en el código
 
-Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiempresa][AAD-Samples-MT].
+Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiinquilino][AAD-Samples-MT].
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Actualización del registro para que sea multiempresa
-De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino.  Para convertir su registro en multiempresa, busque el modificador "La aplicación es multiempresa" en la página de configuración del registro de la aplicación en el [Portal de Azure clásico][AZURE-classic-portal] y establézcalo en "Sí".
+De forma predeterminada, los registros de API y de aplicación web en Azure son de un solo inquilino.  Para convertir su registro en multiinquilino, busque el modificador "La aplicación es multiinquilino" en la página de configuración del registro de la aplicación en el [Portal de Azure clásico][AZURE-classic-portal] y establézcalo en "Sí".
 
 Nota: Para que la aplicación pueda convertirse en multiempresa, Azure AD requiere que el URI de id. de aplicación sea único a nivel global. El URI de id. de aplicación es una de las maneras en que una aplicación se identifica en los mensajes de protocolo.  Cuando la aplicación es de un solo inquilino, es suficiente con que el URI de id. de aplicación sea único en dicho inquilino.  En el caso de una aplicación multiempresa, debe ser único a nivel global de forma que Azure AD pueda encontrar la aplicación entre todos los inquilinos.  El carácter globalmente único viene impuesto por la necesidad de que el URI de id. de aplicación tenga un nombre de host que coincida con un dominio comprobado del inquilino de Azure AD.  Por ejemplo, si el nombre del inquilino era contoso.onmicrosoft.com, un identificador 
 URI de id. de aplicación válido sería `https://contoso.onmicrosoft.com/myapp`.  Si el inquilino tenía el dominio comprobado `contoso.com`, también sería un URI de id. de aplicación válido `https://contoso.com/myapp`.  La configuración de una aplicación como multiempresa dará error si el URI de id. de aplicación no sigue este patrón.
@@ -102,9 +102,9 @@ En los ejemplos de multiinquilino que encontrará en la sección [Contenido rela
 Ahora veamos la experiencia para los usuarios que inician sesión en aplicaciones multiempresa.
 
 ## <a name="understanding-user-and-admin-consent"></a>Comprensión del consentimiento de usuario y administrador
-Para que un usuario inicie sesión en una aplicación en Azure AD, la aplicación debe estar representada en el inquilino del usuario.  Esto permite que la organización realice cosas como aplicar directivas únicas cuando los usuarios de su inquilino inician sesión en la aplicación.  En el caso de una aplicación de un solo inquilino, este registro es sencillo; es lo que sucede cuando la aplicación se registra en el [Portal de Azure clásico][AZURE-classic-portal].
+Para que un usuario inicie sesión en una aplicación en Azure AD, la aplicación debe estar representada en el inquilino del usuario.  Esto permite que la organización realice cosas como aplicar directivas únicas cuando los usuarios de su inquilino inician sesión en la aplicación.  Para una aplicación de un solo inquilino, este registro es sencillo; es lo que sucede cuando registra la aplicación en el [Portal de Azure clásico][AZURE-classic-portal].
 
-Para una aplicación multiempresa, el registro inicial de la aplicación reside en el inquilino de Azure AD utilizado por el desarrollador.  Cuando usuarios de otro inquilino inician sesión en la aplicación por primera vez, Azure AD les pide que den su consentimiento a los permisos solicitados por ella.  Si aceptan, se crea una representación de la aplicación llamada *entidad de servicio* en el inquilino del usuario y el inicio de sesión puede continuar. También se crea una delegación en el directorio que registra el consentimiento del usuario a la aplicación. Para más información sobre los objetos Application y ServicePrincipal, y cómo se relacionan entre sí, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory][AAD-App-SP-Objects].
+Para una aplicación multiempresa, el registro inicial de la aplicación reside en el inquilino de Azure AD utilizado por el desarrollador.  Cuando usuarios de otro inquilino inician sesión en la aplicación por primera vez, Azure AD les pide que den su consentimiento a los permisos solicitados por ella.  Si aceptan, se crea una representación de la aplicación llamada *entidad de servicio* en el inquilino del usuario y el inicio de sesión puede continuar. También se crea una delegación en el directorio que registra el consentimiento del usuario a la aplicación. Para más información sobre los objetos Application y ServicePrincipal y cómo se relacionan entre sí, consulte [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects].
 
 ![Consentimiento para aplicaciones de nivel sencillo][Consent-Single-Tier] 
 
@@ -126,10 +126,10 @@ El parámetro `prompt=admin_consent` también puede utilizarse con aplicaciones 
 
 Si una aplicación requiere el consentimiento del administrador y el administrador inicia sesión en la aplicación, pero el parámetro `prompt=admin_consent` no se envía, el administrador podrá dar su consentimiento a la aplicación pero solo la dará para su cuenta de usuario.  Los usuarios normales seguirán sin poder iniciar sesión y dar su consentimiento a la aplicación.  Esto resulta útil si quiere dar al administrador de inquilinos la posibilidad de explorar la aplicación antes de permitir el acceso a otros usuarios.
 
-Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones.  En este caso, para que la aplicación se instale en el inquilino siempre se solicitará el consentimiento del administrador.  Si desea probar la aplicación con el consentimiento de usuarios normales deshabilitado, puede encontrar el modificador de configuración en la sección de configuración de inquilinos de Azure AD del [Portal de Azure clásico][AZURE-classic-portal].
+Un administrador de inquilinos puede deshabilitar la posibilidad de que los usuarios normales den su consentimiento a las aplicaciones.  En este caso, para que la aplicación se instale en el inquilino siempre se solicitará el consentimiento del administrador.  Si quiere probar la aplicación con el consentimiento de usuarios normales deshabilitado, puede encontrar el modificador de configuración en la sección de configuración de inquilinos de Azure AD del [Portal de Azure clásico][AZURE-classic-portal].
 
 > [!NOTE]
-> En algunas aplicaciones se busca una experiencia en la que los usuarios normales puedan dar su consentimiento inicialmente; más tarde, se puede hacer partícipe al administrador y solicitar permisos que requieran su consentimiento.  Esto no hay forma de hacerlo actualmente con un solo registro de aplicación en Azure AD.  El punto de conexión de Azure AD v2 que se lanzará próximamente permitirá que las aplicaciones soliciten permisos en tiempo de ejecución, en lugar de en el momento del registro, lo que permitirá este escenario.  Para más información, consulte [Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación][AAD-V2-Dev-Guide].
+> En algunas aplicaciones se busca una experiencia en la que los usuarios normales puedan dar su consentimiento inicialmente; más tarde, se puede hacer partícipe al administrador y solicitar permisos que requieran su consentimiento.  Esto no hay forma de hacerlo actualmente con un solo registro de aplicación en Azure AD.  El punto de conexión de Azure AD v2 que se lanzará próximamente permitirá que las aplicaciones soliciten permisos en tiempo de ejecución, en lugar de en el momento del registro, lo que permitirá este escenario.  Para más información, consulte la [Guía del desarrollador para el modelo de aplicaciones v2 de Azure AD][AAD-V2-Dev-Guide].
 > 
 > 
 
@@ -140,7 +140,7 @@ Esto puede ser un problema si la aplicación lógica consta de dos o más regist
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
-Esta propiedad se puede actualizar mediante el [manifiesto de aplicación][AAD-App-Manifest] del recurso y se demuestra en un ejemplo de API web que llama a un cliente nativo de niveles múltiples en la sección [Contenido relacionado](#related-content) al final de este artículo. El diagrama siguiente proporciona una visión general del consentimiento para una aplicación de niveles múltiples:
+Esta propiedad se puede actualizar mediante el [manifiesto de aplicación][AAD-App-Manifest] del recurso y se demuestra en un ejemplo de llamada a la API web de un cliente nativo de niveles múltiples en la sección [Contenido relacionado](#related-content) al final de este artículo. El diagrama siguiente proporciona una visión general del consentimiento para una aplicación de niveles múltiples:
 
 ![Consentimiento para aplicaciones cliente conocidas con niveles múltiples][Consent-Multi-Tier-Known-Client] 
 
@@ -165,14 +165,14 @@ El consentimiento se admite en Azure AD mediante los protocolos OAuth, OpenID Co
 Las aplicaciones multiempresa también pueden obtener tokens de acceso para llamar a las API que están protegidas por Azure AD.  Un error común al usar la biblioteca de autenticación de Active Directory (ADAL) con una aplicación multiempresa es solicitar inicialmente un token para un usuario que utiliza /common, recibir una respuesta y, luego, solicitar posteriormente un token para ese mismo usuario también mediante /common.  Dado que la respuesta de Azure AD proviene de un inquilino, y no de /common, ADAL almacena en caché el token como si fuera el inquilino. La posterior llamada a /common para obtener un token de acceso para el usuario carece de la entrada de caché, y se pide al usuario que inicie la sesión de nuevo.  Para evitar la pérdida de la caché, asegúrese de que las posteriores llamadas para un usuario que ya ha iniciado sesión se realizan al punto de conexión del inquilino.
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Ejemplos de aplicación multiempresa][AAD-Samples-MT]
+* [Ejemplos de aplicación multiinquilino][AAD-Samples-MT]
 * [Directrices de personalización de marca para aplicaciones][AAD-App-Branding]
-* [Guía del desarrollador de Azure Active Directory][AAD-Dev-Guide]
-* [Objetos de aplicación y de entidad de servicio de Azure Active Directory][AAD-App-SP-Objects]
+* [Guía del desarrollador de Azure AD][AAD-Dev-Guide]
+* [Objetos Application y objetos ServicePrincipal][AAD-App-SP-Objects]
 * [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps]
 * [Información general sobre el marco de consentimiento][AAD-Consent-Overview]
-* [Microsoft Graph API Permission Scopes][MSFT-Graph-AAD] (Ámbitos de permiso de API Graph de Microsoft)
-* [Ámbitos de permiso | Conceptos de API Graph][AAD-Graph-Perm-Scopes]
+* [Ámbitos de permiso de la API Graph de Microsoft][MSFT-Graph-AAD]
+* [Ámbitos de permiso de la API Graph de Azure AD][AAD-Graph-Perm-Scopes]
 
 Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones y ayudarnos a refinar y remodelar nuestro contenido.
 
@@ -240,6 +240,6 @@ Use la siguiente sección de comentarios DISQUS para proporcionar sus opiniones 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

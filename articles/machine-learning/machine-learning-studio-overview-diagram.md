@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/21/2016
+ms.date: 12/16/2016
 ms.author: haining;garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 23954b17c96fd33159892b6f9254b4ae9d02ecf9
+ms.sourcegitcommit: 5e9aa39ccf91f98336e5db179b532930f7e83313
+ms.openlocfilehash: 35bf8b41288afd31ba7e6f861beb7a7bf2a36d94
 
 
 ---
@@ -27,7 +27,7 @@ El diagrama **Información general de las funcionalidades de Estudio de aprendiz
 [Estudio de aprendizaje automático de Azure](https://studio.azureml.net/) dispone de un gran número de algoritmos de aprendizaje automático, junto con módulos que ayudan con la entrada, la salida, la preparación y la visualización de los datos. Mediante estos componentes puede desarrollar un experimento de análisis predictivo, realizar iteraciones sobre él y usarlo para entrenar su modelo.
 Luego, con un solo clic puede poner en marcha su modelo en la nube de Azure de forma que se pueda usar para puntuar nuevos datos.
 
-En este diagrama se muestra cómo encajan todas esas piezas juntas.
+En este diagrama, se muestra cómo encajan todas las piezas juntas.
 
 > [!NOTE]
 > Consulte la [hoja de referencia de algoritmos de aprendizaje automático para Estudio de aprendizaje automático de Microsoft Azure](machine-learning-algorithm-cheat-sheet.md) para obtener información adicional sobre cómo revisar y elegir los algoritmos de aprendizaje automático disponibles en Estudio de aprendizaje automático.
@@ -54,6 +54,6 @@ Descargue el diagrama **Información general de las funcionalidades de Estudio d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

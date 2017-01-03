@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 497d8b17fe29328008fd2d13cf61432a913aa898
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5172ce4edbea0f5587075308c97d07aac98e9699
 
 
 ---
@@ -393,7 +393,7 @@ Por razones de rendimiento y tolerancia a errores, lo ideal es instalar el servi
 
 Las máquinas virtuales registran su nombre DNS automáticamente al iniciarse o cuando hay un cambio de nombre.
 
-Para obtener más información acerca de este ejemplo y otro ejemplo que muestra cómo aprovisionar la primera máquina virtual e instalar AD DS en ella, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Si desea conocer más detalles sobre el uso de Windows PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) y [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841) (Cmdlets de administración de Azure).
+Para obtener más información acerca de este ejemplo y otro ejemplo que muestra cómo aprovisionar la primera máquina virtual e instalar AD DS en ella, consulte [Instalación de un bosque nuevo de Active Directory en una red virtual de Azure](active-directory-new-forest-virtual-machine.md). Si desea conocer más detalles sobre el uso de Windows PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) y [Azure Management Cmdlets](https://msdn.microsoft.com/library/azure/jj152841) (Cmdlets de administración de Azure).
 
 ### <a name="a-namebkmkdistributeddcsageo-distributed-dcs"></a><a name="BKMK_DistributedDCs"></a>Controladores de dominio distribuidos geográficamente
 Azure ofrece diversas ventajas cuando se hospedan varios controladores de dominio en redes virtuales diferentes:
@@ -501,6 +501,6 @@ Consulte [Consideraciones sobre la topología de implementación de AD FS 2.0](h
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

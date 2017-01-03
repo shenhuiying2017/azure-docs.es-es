@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/19/2016
 ms.author: asaxton
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b8748ffac2159661d9496b7033b510e6e584fe0f
+ms.sourcegitcommit: f1b3464526b99cad1beb8f7604887a4cc32b0706
+ms.openlocfilehash: a8d787acb4bc3f6f8a7cd408d6f5ac4313a2121f
 
 
 ---
@@ -70,7 +70,10 @@ Aunque se muestran dos claves, solo se necesita una cada vez. La segunda clave s
 Ahora que tiene una instancia de Power BI para la aplicación y las **claves de acceso**, puede importar un informe en la propia aplicación. Antes de aprender a importar un informe, en la sección siguiente se describe la creación de conjuntos de datos e informes de Power BI para insertar en una aplicación.
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app"></a>Creación de conjuntos de datos e informes de Power BI para insertar en una aplicación
-Ahora que ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop gratis](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/). Por otro lado, si desea empezar a trabajar rápidamente, también puede descargar el [archivo PBIX con un ejemplo de análisis de minoristas](http://go.microsoft.com/fwlink/?LinkID=780547). Para aprender más acerca de cómo usar **Power BI Desktop**, consulte [Introducción a Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
+Ahora que ha creado una instancia de Power BI para su aplicación y tiene las **claves de acceso**, deberá crear los conjuntos de datos y los informes de Power BI que quiere insertar. Los conjuntos de datos y los informes se pueden crear con **Power BI Desktop**. Puede descargar [Power BI Desktop gratis](https://go.microsoft.com/fwlink/?LinkId=521662). Por otro lado, si desea empezar a trabajar rápidamente, también puede descargar el [archivo PBIX con un ejemplo de análisis de minoristas](http://go.microsoft.com/fwlink/?LinkID=780547).
+
+> [!NOTE]
+> Para aprender más acerca de cómo usar **Power BI Desktop**, consulte [Introducción a Power BI Desktop](https://powerbi.microsoft.com/en-us/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop).
 
 Con **Power BI Desktop**, para conectarse al origen de datos, puede importar una copia de los datos en **Power BI Desktop** o conectarse directamente al origen de datos mediante **DirectQuery**.
 
@@ -86,14 +89,11 @@ Cuando guarde el trabajo en **Power BI Desktop**, se creará un archivo PBIX. Es
 
 > [!NOTE]
 > **Power BI Embedded** incluye API adicionales que permiten cambiar el servidor y la base de datos a los que apunta el conjunto de datos y definir una credencial de cuenta de servicio, que será la que use el conjunto de datos para conectarse a la base de datos. Consulte [Post SetAllConnections](https://msdn.microsoft.com/library/mt711505.aspx) y [Patch Gateway Datasource](https://msdn.microsoft.com/library/mt711498.aspx) (Revisión de origen de datos de puerta de enlace).
-> 
-> 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En los pasos anteriores, ha creado una colección de áreas de trabajo y su primer informe y conjunto de datos. Ahora es el momento de aprender a escribir código en **Power BI Embedded**. Para ayudarle a empezar, hemos creado una aplicación web de ejemplo: [Introducción al ejemplo de Microsoft Power BI Embedded](power-bi-embedded-get-started-sample.md). El ejemplo le muestra cómo:
 
 * Aprovisionar contenido
-  
   * Crear un área de trabajo
   * Importar un archivo PBIX
   * Actualizar las cadenas de conexión y establecer las credenciales para los conjuntos de datos.
@@ -104,9 +104,11 @@ En los pasos anteriores, ha creado una colección de áreas de trabajo y su prim
 * [Autenticación y autorización con Power BI Embedded](power-bi-embedded-app-token-flow.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
+¿Tiene más preguntas? [Pruebe la comunidad de Power BI](http://community.powerbi.com/)
 
 
 
-<!--HONumber=Nov16_HO2-->
+
+<!--HONumber=Jan17_HO1-->
 
 

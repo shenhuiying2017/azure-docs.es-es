@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b37d419f799e5a56c67344ca634bdecec2f3c1f2
+ms.sourcegitcommit: 9cc0081588f54f77a69ded336d063651b12c8dd8
+ms.openlocfilehash: a185e802a2713c6b6d4101477f0fc61bca0bf29c
 
 
 ---
@@ -25,7 +25,8 @@ Esta característica ofrece un control más preciso, [por directivas](active-dir
 
 1. La vigencia de los tokens de seguridad emitidos por Azure Active Directory (Azure AD) B2C.
 2. La duración de las sesiones de aplicación web administradas por Azure AD B2C.
-3. El comportamiento de inicio de sesión único (SSO) entre varias aplicaciones y directivas en el inquilino B2C.
+3. Formatos de notificaciones importantes en los tokens de seguridad emitidos por Azure AD B2C.
+4. El comportamiento de inicio de sesión único (SSO) entre varias aplicaciones y directivas en el inquilino B2C.
 
 Puede utilizar esta característica en el inquilino B2C como sigue:
 
@@ -37,8 +38,6 @@ Puede utilizar esta característica en el inquilino B2C como sigue:
 6. Realice los cambios deseados. Obtenga información acerca de las propiedades disponibles en las secciones siguientes.
 7. Haga clic en **Aceptar**.
 8. Haga clic en **Guardar** en la parte superior de la hoja.
-
-![Captura de pantalla de configuración de token, sesión e inicio de sesión único](./media/active-directory-b2c-token-session-sso/token-session-sso.png)
 
 ## <a name="token-lifetimes-configuration"></a>Configuración de la vigencia de los tokens
 Azure AD B2C admite el [protocolo de autorización de OAuth 2.0](active-directory-b2c-reference-protocols.md) para habilitar un acceso seguro a los recursos protegidos. Para implementar esta compatibilidad, Azure AD B2C emite varios [tokens de seguridad](active-directory-b2c-reference-tokens.md). Estas son las propiedades que puede utilizar para administrar la vigencia de los tokens de seguridad emitidos por Azure AD B2C:
@@ -61,7 +60,20 @@ Aquí puede ver un par de casos de uso que puede habilitar mediante el uso de es
 * Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Para ello, establezca el conmutador **Vigencia (en días) de la ventana deslizante del token de actualización** en **Unbounded** (Sin enlazar) en la directiva de inicio de sesión.
 * Cumpla los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la vigencia adecuada del token de acceso.
 
-## <a name="session-configuration"></a>Configuración de sesión
+## <a name="token-compatibility-settings"></a>Configuración de compatibilidad de tokens
+Hemos realizado cambios de formato en notificaciones importantes de los tokens de seguridad emitidos por Azure AD B2C. con el fin de mejorar la compatibilidad del protocolo estándar y para mejorar la interoperabilidad con las bibliotecas de identidades de otros fabricantes. Sin embargo, para no interrumpir las aplicaciones existentes, hemos creado las siguientes propiedades, con el fin de que los clientes puedan optar por recibirlas cuando sea necesario:
+
+* **Notificación de emisor (iss)**: identifica el inquilino de Azure AD B2C que emitió el token.
+  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: este es el valor predeterminado.
+  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: este valor incluye los identificadores tanto del inquilino B2C como de la directiva utilizada en la solicitud de token. Si una aplicación o biblioteca necesita que Azure AD B2C sea compatible con la [especificación OpenID Connect Discovery 1.0](http://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
+* **Notificación de asunto (sub)**: identifica la entidad, es decir, el usuario, para que el token valida la información.
+  * **ObjectID**: este es el valor predeterminado. Rellena el identificador de objeto del usuario del directorio de la notificación `sub` del token.
+  * **No se admite**: solo se proporciona para que haya compatibilidad con las versiones anteriores y se recomienda cambiar a **ObjectID** lo antes posible.
+* **Notificación que representa el identificador de la directiva**: identifica el tipo de notificación en el que se rellena el identificador de directiva utilizado en la solicitud de token.
+  * **tfp**: este es el valor predeterminado.
+  * **acr**: solo se proporciona para que haya compatibilidad con las versiones anteriores y se recomienda cambiar a `tfp` lo antes posible.
+
+## <a name="session-behavior"></a>Comportamiento de la sesión
 Azure AD B2C admite el [protocolo de autenticación OpenID Connect](active-directory-b2c-reference-oidc.md) para habilitar el inicio de sesión seguro en las aplicaciones web. Estas son las propiedades que puede usar para administrar sesiones de la aplicación web:
 
 * **Vigencia (en minutos) de la sesión de la aplicación web**: la vigencia de la cookie de sesión de Azure AD B2C almacenada en el explorador del usuario tras una autenticación correcta.
@@ -86,6 +98,6 @@ Si tiene varias aplicaciones y directivas en el inquilino de B2C, puede administ
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

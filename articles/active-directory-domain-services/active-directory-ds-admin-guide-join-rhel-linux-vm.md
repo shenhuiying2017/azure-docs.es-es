@@ -161,6 +161,6 @@ Consulte el artículo [Solución de problemas de unión al dominio](active-direc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

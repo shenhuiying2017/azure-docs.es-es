@@ -14,8 +14,8 @@ ms.workload: identity
 ms.date: 09/29/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 652b0cef09625ed354c2c72178cc98a0482bb789
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0e21378d3ce568917296665a134c8d376d488091
 
 
 ---
@@ -35,7 +35,7 @@ La situación descrita en este tutorial consta de los siguientes bloques de crea
 3. Configuración del aprovisionamiento de usuario
 4. Asignación de usuarios
 
-![Escenario](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.png "Scenario")
+![Escenario](./media/active-directory-saas-adaptive-suite-tutorial/IC805637.png "Escenario")
 
 ## <a name="enabling-the-application-integration-for-adaptive-suite"></a>Habilitación de la integración de aplicaciones para Adaptive Suite
 El objetivo de esta sección es describir cómo habilitar la integración de aplicaciones para Adaptive Suite.
@@ -47,16 +47,16 @@ El objetivo de esta sección es describir cómo habilitar la integración de apl
 2. En la lista **Directory** , seleccione el directorio cuya integración desee habilitar.
 3. Para abrir la vista de aplicaciones, haga clic en **Applications** , en el menú superior de la vista de directorios.
    
-   ![Applications](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.png "Applications")
+   ![Aplicaciones](./media/active-directory-saas-adaptive-suite-tutorial/IC700994.png "Aplicaciones")
 4. Haga clic en **Agregar** en la parte inferior de la página.
    
-   ![Agregar aplicación](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "Add application")
+   ![Agregar aplicaciones](./media/active-directory-saas-adaptive-suite-tutorial/IC749321.png "Agregar aplicaciones")
 5. En el cuadro de diálogo **¿Qué desea hacer?**, haga clic en **Agregar una aplicación de la galería**.
    
-   ![Agregar una aplicación de la galería](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "Add an application from gallerry")
+   ![Agregar una aplicación de la galería](./media/active-directory-saas-adaptive-suite-tutorial/IC749322.png "Agregar una aplicación de la galería")
 6. En el **cuadro de búsqueda**, escriba **Adaptive Suite**.
    
-   ![Galería de aplicaciones](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.png "Application Gallery")
+   ![Galería de aplicaciones](./media/active-directory-saas-adaptive-suite-tutorial/IC805638.png "Galería de aplicaciones")
 7. En el panel de resultados, seleccione **Adaptive Suite** y luego haga clic en **Completar** para agregar la aplicación.
    
    ![Adaptive Suite](./media/active-directory-saas-adaptive-suite-tutorial/IC805639.png "Adaptive Suite")
@@ -70,10 +70,10 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
 ### <a name="to-configure-single-sign-on-perform-the-following-steps"></a>Siga estos pasos para configurar el inicio de sesión único:
 1. En el Portal de Azure clásico, en la página de integración de aplicaciones de **Adaptive Suite**, haga clic en **Configurar inicio de sesión único** para abrir el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805640.png "Configurar inicio de sesión único")
 2. En la página **How would you like users to sign on to Adaptive Suite** (¿Cómo desea que los usuarios inicien sesión en Adaptive Suite?), seleccione **Inicio de sesión único de Microsoft Azure AD** y luego haga clic en **Siguiente**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805641.png "Configurar inicio de sesión único")
 3. En la página **Configurar las opciones de la aplicación**, en el cuadro de texto **URL de respuesta**, escriba la dirección URL siguiendo este patrón "*https://login.adaptiveinsights.com:443/samlsso/RlJFRVRSSUFMMTI3MTE=*" y luego haga clic en **Siguiente**.
    
    > [!NOTE]
@@ -81,20 +81,20 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
    > 
    > 
    
-   ![Configurar las opciones de la aplicación](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configure App Settings")
+   ![Configurar las opciones de la aplicación](./media/active-directory-saas-adaptive-suite-tutorial/IC805642.png "Configurar las opciones de la aplicación")
 4. En la página **Configurar inicio de sesión único en Adaptive Suite**, para descargar el certificado, haga clic en **Descargar certificado** y, a continuación, guarde el archivo de certificado en el equipo.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805643.png "Configurar inicio de sesión único")
 5. En otra ventana del explorador web, inicie sesión en el sitio de la compañía de Adaptive Suite como administrador.
-6. Vaya a **Admin**(Administración).
+6. Vaya a **Administración**.
    
-   ![Administrador](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
+   ![Administración](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Administración")
 7. En la sección **Users and Roles** (Usuarios y roles), haga clic en **Manage SAML SSO Settings** (Administrar configuración de SSO de SAML).
    
-   ![Manage SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.png "Manage SAML SSO Settings")
+   ![Manage SAML SSO Settings (Administrar configuración de SSO de SAML)](./media/active-directory-saas-adaptive-suite-tutorial/IC805645.png "Manage SAML SSO Settings (Administrar configuración de SSO de SAML)")
 8. En la página **SAML SSO Settings** (Configuración de SSO de SAML), realice los pasos siguientes:
    
-   ![SAML SSO Settings](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings")
+   ![SAML SSO Settings (Configuración de SSO de) SAML](./media/active-directory-saas-adaptive-suite-tutorial/IC805646.png "SAML SSO Settings (Configuración de SSO de) SAML")
    
    1. En el cuadro de texto **Identity provider name** (Nombre del proveedor de identidades), escriba el nombre de la configuración.
    2. En el Portal de Azure clásico, en la página del cuadro de diálogo **Configurar inicio de sesión único en Adaptive Suite**, copie el valor de **Id. de entidad** y péguelo en el cuadro de texto **Identity provider Entity ID** (Id. de entidad de proveedor de identidades).
@@ -108,7 +108,7 @@ Si no está familiarizado con este procedimiento, consulte [Recuperación del va
    10. Haga clic en **Guardar**.
 9. En el Portal de Azure clásico, seleccione la confirmación de configuración de inicio de sesión único y haga clic en **Completar** para cerrar el cuadro de diálogo **Configurar inicio de sesión único**.
    
-   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configure Single Sign-On")
+   ![Configurar inicio de sesión único](./media/active-directory-saas-adaptive-suite-tutorial/IC805647.png "Configurar inicio de sesión único")
    
    ## <a name="configuring-user-provisioning"></a>Configuración del aprovisionamiento de usuario
 
@@ -117,15 +117,15 @@ En el caso de Adaptive Suite, el aprovisionamiento es una tarea manual.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Siga estos pasos para configurar el aprovisionamiento de usuario:
 1. Inicie sesión en el sitio de la compañía de **Adaptive Suite** como administrador.
-2. Vaya a **Admin**(Administración).
+2. Vaya a **Administración**.
    
-   ![Administrador](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Admin")
+   ![Administración](./media/active-directory-saas-adaptive-suite-tutorial/IC805644.png "Administración")
 3. En la sección **Users and Roles** (Usuarios y roles), haga clic en **Add User** (Agregar usuario).
    
-   ![Agregar usuario](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.png "Add User")
+   ![Agregar usuario](./media/active-directory-saas-adaptive-suite-tutorial/IC805648.png "Agregar usuario")
 4. En la sección **Nuevo usuario** , lleve a cabo estos pasos:
    
-   ![Enviar](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "Submit")
+   ![Enviar](./media/active-directory-saas-adaptive-suite-tutorial/IC805649.png "Enviar")
    
    1. Escriba el **nombre**, el **inicio de sesión**, la **dirección de correo electrónico** y la **contraseña** o de un usuario válido de Azure Active Directory que quiera aprovisionar en los cuadros de texto relacionados.
    2. Seleccione un **Role**(rol).
@@ -143,16 +143,16 @@ Para probar la configuración, tiene que conceder acceso, mediante su asignació
 1. En el Portal de Azure clásico, cree una cuenta de prueba.
 2. En la página de integración de aplicaciones de **Adaptive Suite**, haga clic en **Asignar usuarios**.
    
-   ![Asignar usuarios](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "Assign Users")
+   ![Asignar usuarios](./media/active-directory-saas-adaptive-suite-tutorial/IC805650.png "Asignar usuarios")
 3. Seleccione su usuario de prueba, haga clic en **Asignar** y en **Sí** para confirmar la asignación.
    
-   ![Sí](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "Yes")
+   ![Sí](./media/active-directory-saas-adaptive-suite-tutorial/IC767830.png "Sí")
 
 Si desea probar la configuración de inicio de sesión único, abra el Panel de acceso. Para obtener más información sobre el Panel de acceso, vea [Introducción al Panel de acceso](active-directory-saas-access-panel-introduction.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

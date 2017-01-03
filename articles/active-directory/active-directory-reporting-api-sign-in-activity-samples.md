@@ -1,12 +1,12 @@
 ---
-title: Ejemplos de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs
-description: Introducción a la API de informes de Azure Active Directory
+title: "Ejemplos de la API de informes de actividad de inicio de sesión de Azure Active Directory | Microsoft Docs"
+description: "Introducción a la API de informes de Azure Active Directory"
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: dhanyahk
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -14,6 +14,10 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/25/2016
 ms.author: dhanyahk;markvi
+translationtype: Human Translation
+ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
+ms.openlocfilehash: e6b1137c8ca33774ef9852b9441b541cf7723ebd
+
 
 ---
 # <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Ejemplos de la API de informe de actividad de inicio de sesión de Azure Active Directory
@@ -84,6 +88,9 @@ El script devuelve la salida del informe de inicio de sesión en formato JSON. T
 * Si quiere obtener una descripción completa del uso de la API de generación de informes de Azure Active Directory, consulte el artículo de [introducción a la API de generación de informes de Azure Active Directory](active-directory-reporting-api-getting-started.md).
 * Si quiere obtener más información sobre informes de Azure Active Directory, consulte la [guía de generación de informes de Azure Active Directory](active-directory-reporting-guide.md).  
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

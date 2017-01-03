@@ -1,13 +1,13 @@
 ---
-title: Cómo conectar redes virtuales clásicas a redes virtuales de Resource Manager con PowerShell | Microsoft Docs
-description: Aprenda a crear una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante la Puerta de enlace de VPN y PowerShell
+title: "Conexión de redes virtuales clásicas a redes virtuales de Resource Manager con PowerShell | Microsoft Docs"
+description: "Aprenda a crear una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante la Puerta de enlace de VPN y PowerShell"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: f17c3bf0-5cc9-4629-9928-1b72d0c9340b
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
+ms.openlocfilehash: 5aa628ce651c3d768f461f5bcea2c63d693f091e
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
@@ -35,7 +39,8 @@ La siguiente tabla se actualiza cada vez que hay nuevos artículos y nuevas herr
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Emparejamiento de VNET
+**Emparejamiento de VNET**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Antes de comenzar
@@ -46,7 +51,7 @@ Los siguientes pasos le guiarán a través de los valores necesarios para config
 * Los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
 * Tiene instalados los últimos cmdlets de PowerShell (versión 1.0.2 o posterior). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
 
-### <a name="<a-name="exampleref"></a>example-settings"></a><a name="exampleref"></a>Configuración de ejemplo
+### <a name="a-nameexamplerefaexample-settings"></a><a name="exampleref"></a>Configuración de ejemplo
 Puede usar la configuración de ejemplo como referencia.
 
 **Configuración de redes virtuales clásicas**
@@ -72,7 +77,7 @@ Puerta de enlace de red local = LocalRedVClásica <br>
 Nombre de la puerta de enlace de red virtual = PuertaDeEnlaceRM <br>
 Configuración de direccionamiento IP de puerta de enlace = configpeip
 
-## <a name="<a-name="createsmgw"></a>section-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sección 1: configuración de la red virtual clásica
+## <a name="a-namecreatesmgwasection-1---configure-the-classic-vnet"></a><a name="createsmgw"></a>Sección 1: configuración de la red virtual clásica
 ### <a name="part-1---download-your-network-configuration-file"></a>Parte 1: exportación del archivo de configuración de red
 1. Inicie sesión en su cuenta de Azure en la consola de PowerShell con derechos elevados. El siguiente cmdlet pide las credenciales de inicio de sesión de la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta a fin de ponerla a disposición para Azure PowerShell. Va a usar los cmdlets de PowerShell de SM para completar esta parte de la configuración.
    
@@ -148,14 +153,14 @@ Para crear una puerta de enlace de enrutamiento dinámico, utilice el siguiente 
 
 Puede comprobar el estado de la puerta de enlace usando el cmdlet `Get-AzureVNetGateway` .
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sección 2: configuración de la puerta de enlace de la red virtual de RM
+## <a name="a-namecreatermgwasection-2-configure-the-rm-vnet-gateway"></a><a name="creatermgw"></a>Sección 2: configuración de la puerta de enlace de la red virtual de RM
 Para crear una puerta de enlace de VPN para la red virtual de RM, siga estas instrucciones. No empiece con los pasos hasta que haya recuperado la dirección IP pública de la puerta de enlace de la red virtual clásica. 
 
 1. **Inicie sesión en su cuenta de Azure** en la consola de PowerShell. El siguiente cmdlet pide las credenciales de inicio de sesión de la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta para que esté disponible para Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Si tiene más de una suscripción de Azure, obtenga una lista de todas ellas.
+     Si tiene más de una suscripción de Azure, obtenga una lista de todas ellas.
    
         Get-AzureRmSubscription
    
@@ -201,7 +206,7 @@ Para crear una puerta de enlace de VPN para la red virtual de RM, siga estas ins
    
         Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Sección 3: modificación de la red local para la red virtual clásica
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Sección 3: modificación de la red local para la red virtual clásica
 Para realizar este paso, puede exportar el archivo de configuración de red, editarlo y guardarlo e importarlo de nuevo a Azure. O bien, puede modificar esta configuración en el portal clásico. 
 
 ### <a name="to-modify-in-the-portal"></a>Modificación en el portal
@@ -217,7 +222,7 @@ Para realizar este paso, puede exportar el archivo de configuración de red, edi
         <VPNGatewayAddress>13.68.210.16</VPNGatewayAddress>
 3. Guarde los cambios e importe el archivo editado a Azure.
 
-## <a name="<a-name="connect"></a>section-4:-create-a-connection-between-the-gateways"></a><a name="connect"></a>Sección 4: creación de una conexión entre las puertas de enlace
+## <a name="a-nameconnectasection-4-create-a-connection-between-the-gateways"></a><a name="connect"></a>Sección 4: creación de una conexión entre las puertas de enlace
 La creación de una conexión entre las puertas de enlace requiere PowerShell. Debe agregar su cuenta de Azure para usar los cmdlets de PowerShell clásicos. Puede utilizar el siguiente cmdlet: 
 
     Add-AzureAccount
@@ -243,11 +248,14 @@ La creación de una conexión entre las puertas de enlace requiere PowerShell. D
    
         Get-AzureRmVirtualNetworkGatewayConnection -Name RM-Classic -ResourceGroupName RG1
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 Vea los detalles de preguntas más frecuentes para más información acerca de las conexiones de red virtual a red virtual.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

@@ -1,20 +1,23 @@
-
 ---
 title: Uso de atributos para crear reglas avanzadas| Microsoft Docs
-description: Procedimientos para crear reglas avanzadas para un grupo, entre los que se incluyen parámetros y operadores de reglas de expresiones.
+description: "Procedimientos para crear reglas avanzadas para un grupo, entre los que se incluyen parámetros y operadores de reglas de expresiones."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: curtand
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 04813a42-d40a-48d6-ae96-15b7e5025884
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/01/2016
 ms.author: curtand
+translationtype: Human Translation
+ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
+ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+
 
 ---
 # <a name="using-attributes-to-create-advanced-rules"></a>Uso de atributos para crear reglas avanzadas
@@ -42,11 +45,18 @@ Los siguientes son ejemplos de una regla avanzada construida correctamente:
 
 Para obtener una lista completa de los parámetros y los operadores de regla de expresión admitidos, vea las secciones siguientes.
 
+Tenga en cuenta que la propiedad debe llevar un prefijo con el tipo de objeto correcto: usuario o dispositivo.
+La regla que aparece a continuación producirá un error de validación: mail –ne null
+
+La regla correcta sería: 
+
+user.mail –ne null
+
 La longitud total del cuerpo de la regla avanzada no puede superar los 2048 caracteres.
 
 > [!NOTE]
-> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. También puede realizar comprobaciones Null, usando $null como constante; por ejemplo, user.department -eq $null.
-> Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
+> Las operaciones de cadena y regex no distinguen mayúsculas de minúsculas. Las cadenas que contienen comillas " deben convertirse en escape con caracteres '; por ejemplo, user.department -eq \`"Sales".
+> Utilice comillas solamente para los valores de tipo cadena y solo use comillas inglesas.
 > 
 > 
 
@@ -63,6 +73,20 @@ En la tabla siguiente se enumeran todos los operadores de regla de expresión ad
 | Contains |-contains |
 | Not Match |-notMatch |
 | Match |-match |
+
+## <a name="operator-precedence"></a>Precedencia de operadores
+
+Todos los operadores se enumeran a continuación por orden de precedencia, de menor a mayor, los operadores en la misma línea tienen la misma prioridad -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch
+ 
+Todos los operadores se pueden utilizar con o sin prefijo de guión.
+
+Tenga en cuenta que no siempre se necesitan paréntesis, solo necesita agregar paréntesis si la precedencia no cumple sus requisitos como, por ejemplo:
+
+   user.department –eq "Marketing" –and user.country –eq "US" 
+   
+equivale a: 
+
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 
 ## <a name="query-error-remediation"></a>Corrección de errores de consulta
 En la tabla siguiente se enumeran los posibles errores y se indica cómo corregirlos si se producen.
@@ -138,6 +162,12 @@ Operadores permitidos
 | otherMails |Cualquier valor de cadena |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
+## <a name="use-of-null-values"></a>Uso de valores nulos
+
+Para especificar un valor nulo en una regla, puede usar "null" o $null. Ejemplo: 
+
+   user.mail –ne null equivale a user.mail –ne $null
+
 ## <a name="extension-attributes-and-custom-attributes"></a>Atributos de extensión y atributos personalizados
 Se admiten los atributos de extensión y los atributos personalizados en las reglas de pertenencia dinámica.
 
@@ -151,10 +181,16 @@ Un ejemplo de una regla que utiliza un atributo personalizado es
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Microsoft Azure AD Graph y la búsqueda del nombre en cuestión.
+El nombre de atributo personalizado se puede encontrar en el directorio mediante la consulta de un atributo de usuario a través del explorador de Windows Azure AD Graph y la búsqueda del nombre en cuestión.
 
+## <a name="support-for-multi-value-properties"></a>Compatibilidad con las propiedades de varios valores
+
+Para incluir una propiedad de varios valores en una regla, use el operador "-any", como en
+
+  user.assignedPlans -any assignedPlan.service -startsWith "SCO"
+  
 ## <a name="direct-reports-rule"></a>Regla de informes directos
-Ahora puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
+Puede rellenar los miembros de un grupo en función del atributo de administrador de un usuario.
 
 **Para configurar un grupo como un grupo de  “Administrador”**
 
@@ -178,16 +214,16 @@ También puede crear una regla que selecciona objetos de dispositivo para la per
 | DisplayName |Cualquier valor de cadena |(device.displayName -eq "Rob Iphone”) |
 | deviceOSType |Cualquier valor de cadena |(device.deviceOSType -eq "IOS") |
 | deviceOSVersion |Cualquier valor de cadena |(device.OSVersion -eq "9.1") |
-| isDirSynced |true false null |(device.isDirSynced -eq "true") |
-| isManaged |true false null |(device.isManaged -eq "false") |
-| isCompliant |true false null |(device.isCompliant -eq "true") |
+| isDirSynced |true false null |(device.isDirSynced -eq true) |
+| isManaged |true false null |(device.isManaged -eq false) |
+| isCompliant |true false null |(device.isCompliant -eq true) |
 | deviceCategory |Cualquier valor de cadena |(device.deviceCategory -eq "") |
 | deviceManufacturer |Cualquier valor de cadena |(device.deviceManufacturer - eq "Microsoft") |
 | deviceModel |Cualquier valor de cadena |(device.deviceModel -eq "IPhone 7+") |
 | deviceOwnership |Cualquier valor de cadena |(device.deviceOwnership -eq "") |
 | domainName |Cualquier valor de cadena |(device.domainName -eq "contoso.com") |
 | enrollmentProfileName |Cualquier valor de cadena |(device.enrollmentProfileName -eq "") |
-| isRooted |true false null |(device.deviceOSType -eq "true") |
+| isRooted |true false null |(device.isRooted -eq true) |
 | managementType |Cualquier valor de cadena |(device.managementType -eq "") |
 | organizationalUnit |Cualquier valor de cadena |(device.organizationalUnit -eq "") |
 | deviceId |un valor válido de deviceId |(device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d" |
@@ -206,6 +242,9 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 * [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
 * [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO1-->
 
 

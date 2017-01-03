@@ -4,7 +4,7 @@ description: "Esta página proporciona información general sobre el servicio Ap
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
 ms.service: application-gateway
@@ -12,21 +12,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: a7cf17e7c84ca6ec69b8a88b78bb0bbc91db0b5b
-ms.openlocfilehash: b365a44d59b7d6f4d0f1eec42aa02a565412b18e
+ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
+ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
 
 
 ---
 # <a name="application-gateway-overview"></a>Introducción a Puerta de enlace de aplicaciones
+
 ## <a name="what-is-application-gateway"></a>¿Qué es Application Gateway?
+
 Microsoft Azure Application Gateway cuenta con un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7. Permite a los clientes optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway. Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web detrás de una única puerta de enlace de aplicaciones. Application Gateway dispone también de un firewall de aplicaciones web (WAF) que protege la aplicación contra la mayoría de las vulnerabilidades web más comunes identificadas por OWASP. Application Gateway puede configurarse como una puerta de enlace orientada a Internet, una puerta de enlace solo para uso interno o una combinación de las dos. Application Gateway está completamente administrada por Azure, es escalable y tiene una elevada disponibilidad. Cuenta con un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración. Application Gateway puede usarse con máquinas virtuales, servicios en la nube y aplicaciones web de uso externo o interno.
 
 Application Gateway es un servicio virtual dedicado para su aplicación y dispone de numerosas instancias de trabajo para ofrecer una gran escalabilidad y disponibilidad. Cuando se crea una puerta de enlace de aplicaciones, se asocia un punto de conexión (una VIP pública o una IP de ILB interna) que se utiliza como dirección IP pública para el tráfico de red de entrada. Esta dirección IP de ILB o VIP la proporciona la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP) y hace que toda la carga del tráfico de red entrante se equilibre en las instancias de trabajo de Application Gateway. Application Gateway enruta el tráfico HTTP/HTTPS en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube o una dirección IP interna o externa. Para información sobre el contrato de nivel de servicio y los precios, consulte las páginas de [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) y [recios](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Características
+
 En estos momentos, Application Gateway admite la entrega de aplicaciones de nivel 7 con las siguientes características:
 
 * **[Firewall de aplicaciones web (versión preliminar)](application-gateway-webapplicationfirewall-overview.md)**: el firewall de aplicaciones web (WAF) de Azure Application Gateway protege las aplicaciones web de ataques web comunes, como inyección de código SQL, ataques de scripts entre sitios y secuestros de sesiones.
@@ -41,6 +44,7 @@ En estos momentos, Application Gateway admite la entrega de aplicaciones de nive
 * **[Diagnóstico avanzado](application-gateway-diagnostics.md)**: Application Gateway proporciona registros de diagnóstico y acceso completos. Los registros de firewall están disponibles para los recursos de puerta de enlace de aplicaciones que tienen WAF habilitado.
 
 ## <a name="benefits"></a>Ventajas
+
 Application Gateway resulta de utilidad para:
 
 * Aplicaciones que requieren solicitudes de la misma sesión de usuario o cliente para llegar a la misma máquina virtual back-end. Ejemplos de estas aplicaciones serían las aplicaciones de carro de la compra y los servidores de correo web.
@@ -56,11 +60,12 @@ El equilibrio de carga de Puerta de enlace de aplicaciones  como servicio admini
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## <a name="gateway-sizes-and-instances"></a>Tamaños e instancias de puerta de enlace
-Puerta de enlace de aplicaciones actualmente se ofrece en tres tamaños: pequeño, mediano y grande. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
 
-Actualmente hay dos SKU para Application Gateway: WAF y estándar.
+La puerta de enlace de aplicaciones actualmente se ofrece en tres tamaños: **pequeño**, **mediano** y **grande**. Tamaños pequeños de instancia están pensados para escenarios de desarrollo y pruebas.
 
-Puede crear hasta 50 puertas de enlace de aplicaciones por suscripción y cada una de esas puertas de enlace de aplicaciones puede tener un máximo de 10 instancias. Cada puerta de enlace de aplicaciones puede constar de 20 agentes de escucha HTTP. Para obtener una lista completa de los límites de la puerta de enlace de aplicaciones, consulte [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md) (Suscripción de Azure y límites de servicio, cuotas y restricciones).
+Actualmente hay dos SKU para Application Gateway: **WAF** y **estándar**.
+
+Puede crear hasta 50 puertas de enlace de aplicaciones por suscripción y cada una de esas puertas de enlace de aplicaciones puede tener un máximo de 10 instancias. Cada puerta de enlace de aplicaciones puede constar de 20 agentes de escucha HTTP. Para ver una lista completa de los límites de la puerta de enlace de aplicaciones, consulte el tema sobre los [límites de servicio de Application Gateway](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 En la tabla siguiente se muestra un promedio de rendimiento para cada instancia de puerta de enlace de aplicaciones:
 
@@ -70,25 +75,26 @@ En la tabla siguiente se muestra un promedio de rendimiento para cada instancia 
 | 100 k |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página. Para conocer los números exactos sobre el rendimiento, debe ejecutar sus propias pruebas; estos valores solo se proporcionan como guía para el planeamiento de la capacidad.
->
->
+> Se trata de valores aproximados para un rendimiento de puerta de enlace de aplicaciones. El rendimiento real depende de varios detalles del entorno, como el tamaño medio de página, la ubicación de las instancias de back-end y el tiempo de procesamiento para proporcionar una página. Para los números de rendimiento exactos, debe ejecutar sus propias pruebas. Estos valores solo se proporcionan para obtener instrucciones de planeamiento de capacidad.
 
 ## <a name="health-monitoring"></a>Supervisión del estado
+
 Application Gateway de Azure supervisa el estado de las instancias back-end automáticamente mediante sondeos de estado básicos o personalizados. Mediante sondeos de mantenimiento, se tiene la seguridad de que solo los hosts con un estado correcto responden al tráfico. Para obtener más información, consulte [Información general sobre la supervisión de estado de la puerta de enlace de aplicaciones](application-gateway-probe-overview.md).
 
 ## <a name="configuring-and-managing"></a>Configuración y administración
+
 Para su punto de conexión, Application Gateway puede tener una dirección IP pública, privada o ambas al configurarse. Application Gateway se configura dentro de una red virtual de su propia subred. La subred que se cree o utilice para la puerta de enlace de aplicaciones no puede contener otros tipos de recursos; en la subred solo se permiten otras puertas de enlace de aplicaciones. Para proteger los recursos de back-end, los servidores back-end pueden estar en una subred diferente en la misma red virtual que la puerta de enlace de aplicaciones. Esta subred adicional no es necesaria para las aplicaciones de back-end. Mientras la puerta de enlace de aplicaciones pueda alcanzar la dirección IP, será capaz de proporcionar funcionalidades ADC para los servidores back-end.
 
 Puede crear y administrar una puerta de enlace de aplicaciones mediante las API de REST, los cmdlets de PowerShell, la CLI de Azure o el [Portal de Azure](https://portal.azure.com/).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Ahora que ya conoce cómo funciona Application Gateway, puede [crear una puerta de enlace de aplicaciones](application-gateway-create-gateway-portal.md) o bien puede [crear una descarga de SSL de puerta de enlace de aplicaciones](application-gateway-ssl-arm.md) para equilibrar la carga de las conexiones HTTPS.
 
 Para aprender a crear una puerta de enlace de aplicaciones mediante el enrutamiento de contenido basado en direcciones URL, vaya a [Creación de una puerta de enlace de aplicaciones mediante enrutamiento basado en direcciones URL](application-gateway-create-url-route-arm-ps.md) para obtener más información.
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
