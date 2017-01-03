@@ -138,7 +138,7 @@ La compatibilidad con el cifrado solo está disponible en la biblioteca de clien
 > 
 > 
 
-## <a name="client-api-interface"></a>Interfaz/API de cliente
+## <a name="client-api--interface"></a>Interfaz/API de cliente
 Al crear un objeto de EncryptionPolicy, los usuarios pueden proporcionar solo una clave (implementación de IKey), solo una resolución (implementación de IKeyResolver) o ambas. IKey es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. IKeyResolver se utiliza para resolver una clave durante el proceso de descifrado. Define un método ResolveKey que devuelve un IKey concreto (identificador de clave). Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
 
 * Para el cifrado, se utiliza siempre la clave. Si no hay clave, se producirá un error.

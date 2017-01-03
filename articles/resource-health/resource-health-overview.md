@@ -77,7 +77,7 @@ En este caso el servicio ha detectado un problema en curso en la plataforma que 
 
 ![Recurso no está disponible](./media/resource-health-overview/Unavailable.png)
 
-### <a name="unavailable-customer-initiated"></a>No disponible: iniciado por el cliente
+### <a name="unavailable--customer-initiated"></a>No disponible: iniciado por el cliente
 El recurso no está disponible debido a una solicitud de cliente, como la detención de un recurso o la petición de reinicio. Esto se indica mediante un icono azul de información. 
 
 ![Recurso no está disponible debido a una acción iniciada por el usuario](./media/resource-health-overview/userInitiated.png)

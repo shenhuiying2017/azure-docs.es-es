@@ -31,7 +31,7 @@ ms.openlocfilehash: aa438680348748a771f9016ecdcc68372c6c5e86
 4. Seleccione el grupo de recursos denominado "__ElasticDatabaseJob".
 5. Elimine el grupo de recursos.
 
-## <a name="uninstall-elastic-database-jobs-components-using-powershell"></a>Desinstalación de componentes de Trabajos de base de datos elástica mediante PowerShell
+## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>Desinstalación de componentes de Trabajos de base de datos elástica mediante PowerShell
 1. Inicie una ventana de comandos de Microsoft Azure PowerShell y navegue hasta el subdirectorio tools en la carpeta Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x: escriba **cd tools**.
    
      PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools

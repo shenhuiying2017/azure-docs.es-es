@@ -21,7 +21,7 @@ ms.openlocfilehash: 06c1dfbcfa365f6c34708021f63a756e295e2ab4
 
 
 ---
-# <a name="sql-database---downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría
+# <a name="sql-database----downlevel-clients-support-and-ip-endpoint-changes-for-auditing"></a>SQL Database: compatibilidad con clientes de nivel inferior y cambios de punto de conexión IP para auditoría
 [Auditoría](sql-database-auditing-get-started.md) funciona automáticamente con los clientes SQL que admiten el redireccionamiento de TDS.
 
 ## <a name="a-idsubheading-1adownlevel-clients-support"></a><a id="subheading-1"></a>Compatibilidad con clientes de nivel inferior

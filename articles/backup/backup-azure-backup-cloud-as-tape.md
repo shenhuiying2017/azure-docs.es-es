@@ -45,7 +45,7 @@ La directiva de retención especifica el tiempo durante el que debe almacenarse 
 
 El número total de "puntos de retención" especificado en esta directiva es de 90 (puntos diarios) + 40 (uno cada trimestre durante 10 años) = 130.
 
-## <a name="example-putting-both-together"></a>Ejemplo: reunir ambos
+## <a name="example--putting-both-together"></a>Ejemplo: reunir ambos
 ![Pantalla de ejemplo](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Directiva de retención diaria**: las copias de seguridad realizadas diariamente se almacenan durante 7 días.

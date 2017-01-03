@@ -104,7 +104,7 @@ Para cargar y ejecutar un archivo de prueba web de Visual Studio:
    
     ![Nueva ejecución de la prueba](./media/app-service-web-app-performance-test/multiple-rerun-test.png)
 
-## <a name="q-a"></a>Preguntas y respuestas
+## <a name="q--a"></a>Preguntas y respuestas
 #### <a name="q-is-there-a-limit-on-how-long-i-can-run-a-test"></a>P: ¿Hay un límite en el tiempo durante el cual puedo ejecutar una prueba?
 **R**: Sí, puede ejecutar la prueba durante una hora, como máximo, en el Portal de Azure.
 

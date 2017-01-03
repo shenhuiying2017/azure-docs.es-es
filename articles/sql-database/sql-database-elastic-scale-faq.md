@@ -40,7 +40,7 @@ No, la creación del Administrador de asignación de particiones (por ejemplo, *
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Tengo preguntas acerca del uso de las herramientas de Base de datos elástica, ¿cómo puedo obtener ayuda?
 Póngase en contacto con nosotros a través del [foro de Base de datos SQL de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
-#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard-is-this-by-design"></a>Al obtener una conexión de base de datos mediante una clave de particionamiento, puedo consultar los datos de otras claves de particionamiento en la misma partición.  ¿Esto es así por defecto?
+#### <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Al obtener una conexión de base de datos mediante una clave de particionamiento, puedo consultar los datos de otras claves de particionamiento en la misma partición.  ¿Esto es así por defecto?
 Las API de Escalado elástico ofrecen una conexión a la base de datos correcta para su clave de particionamiento, pero no proporcionan filtrado de claves de particionamiento.  Agregue cláusulas **WHERE** a su consulta para restringir el ámbito a la clave de particionamiento proporcionada, si es necesario.
 
 #### <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>¿Puedo usar una edición diferente de Base de datos de Azure para cada partición en mi conjunto de particiones?

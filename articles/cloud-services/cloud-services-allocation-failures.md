@@ -27,7 +27,7 @@ Al implementar instancias en un servicio en la nube o agregar nuevas instancias 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background-how-allocation-works"></a>Información de contexto: cómo funciona la asignación
+### <a name="background--how-allocation-works"></a>Información de contexto: cómo funciona la asignación
 Los servidores de los centros de datos de Azure están particionados en clústeres. Se intenta una nueva solicitud de asignación de servicio en la nube en varios clústeres. Cuando se implementa la primera instancia a un servicio en la nube (ya sea en ensayo o producción), ese servicio en la nube se ancla a un clúster. Todas las implementaciones posteriores para el servicio en la nube tendrán lugar en el mismo clúster. En este artículo, haremos referencia a esto como que la solicitud está "anclada a un clúster". En el diagrama 1 siguiente se ilustra el caso de una asignación normal que se intenta en varios clústeres; en el diagrama 2 se ilustra el caso de una asignación que está anclada al clúster 2 porque es ahí donde se hospeda el servicio en la nube CS_1.
 
 ![Diagrama de asignación](./media/cloud-services-allocation-failure/Allocation1.png)
