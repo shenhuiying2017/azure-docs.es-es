@@ -4,7 +4,7 @@ description: "Las búsquedas de registros permiten combinar y correlacionar dato
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 0d7b6712-1722-423b-a60f-05389cde3625
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -180,8 +180,8 @@ Type=Event EventLog="Operations Manager" EventID:[2100..2199]
 
 > [!NOTE]
 > La sintaxis de intervalo que debe usar es el separador dos puntos (:) field:value y *no* el signo igual (=). Incluya el extremo inferior y superior del intervalo entre corchetes y sepárelos con dos puntos (..).
-> 
-> 
+>
+>
 
 ## <a name="manipulate-search-results"></a>Manipulación de los resultados de búsqueda
 Al buscar datos, querrá refinar la consulta de búsqueda y tener un buen nivel de control sobre los resultados. Cuando se recuperen los resultados, puede aplicar comandos para transformarlos.
@@ -574,7 +574,6 @@ Para más información acerca de las búsquedas de registros, consulte:
 
 * Use [Custom fields in Log Analytics](log-analytics-custom-fields.md) (Campos personalizados en Log Analytics) para ampliar las búsquedas de registros.
 * Revise la [Referencia sobre búsqueda de registros de Log Analytics](log-analytics-search-reference.md) para ver todos los campos de búsqueda y las facetas disponibles en Log Analytics.
-
 
 
 

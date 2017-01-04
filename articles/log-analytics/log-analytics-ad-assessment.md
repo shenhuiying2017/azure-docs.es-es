@@ -4,7 +4,7 @@ description: "Puede usar periódicamente la solución de evaluación de Active D
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 81eb41b8-eb62-4eb2-9f7b-fde5c89c9b47
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -41,11 +41,11 @@ Use la siguiente información para instalar y configurar las soluciones.
 * Los agentes deben instalarse en controladores que sean miembros del dominio que se va a evaluar.
 * La solución de evaluación de Active Directory requiere que .NET Framework 4 esté instalado en cada equipo que tenga un agente de OMS.
 * Agregue la solución de evaluación de Active Directory al área de trabajo de OMS mediante el proceso descrito en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  No es necesario realizar ninguna configuración más.
-  
+
   > [!NOTE]
   > Después de agregar la solución, el archivo AdvisorAssessment.exe se agrega a servidores con agentes. Los datos de configuración se leen y, luego, se envían al servicio de OMS en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos.
-  > 
-  > 
+  >
+  >
 
 ## <a name="active-directory-assessment-data-collection-details"></a>Detalles de la recopilación de datos para la evaluación de Active Directory
 La evaluación de Active Directory recopila datos WMI, datos del registro y datos de rendimiento con los agentes habilitados.
@@ -99,11 +99,11 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar las recomendaciones que omitirá
 1. Inicie sesión en su área de trabajo y abra Búsqueda de registros. Use la siguiente consulta para mostrar las recomendaciones para los equipos que presentan errores en el entorno.
-   
+
    ```
    Type=ADAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-   
+
    Captura de pantalla que muestra la consulta de Búsqueda de registros: ![recomendaciones fallidas](./media/log-analytics-ad-assessment/ad-failed-recommendations.png)
 2. Elija las recomendaciones que desea omitir. Usará los valores para RecommendationId en el procedimiento siguiente.
 
@@ -118,7 +118,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que OMS
 Después de que se ejecute la siguiente evaluación programada, de forma predeterminada cada 7 días, las recomendaciones especificadas se marcan como *omitidas* y no aparecen en el panel de evaluación.
 
 1. Puede usar las consultas de búsqueda de registros siguientes para enumerar todas las recomendaciones omitidas.
-   
+
     ```
     Type=ADAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
@@ -170,7 +170,6 @@ Después de que se ejecute la siguiente evaluación programada, de forma predete
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver recomendaciones y datos detallados de evaluación de AD.
-
 
 
 

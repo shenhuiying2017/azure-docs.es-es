@@ -4,7 +4,7 @@ description: "Log Analytics puede leer los registros de los servicios de Azure q
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -47,8 +47,8 @@ Para que Log Analytics recopile estos registros de Diagnóstico de Azure, deben 
 
 > [!NOTE]
 > Los registros de IIS de Sitios web Azure no son compatibles actualmente.
-> 
-> 
+>
+>
 
 Para máquinas virtuales, también tiene la opción de instalar el [agente de Log Analytics](log-analytics-azure-vm-extension.md) en la máquina virtual para permitir información adicional. Además de poder analizar registros de IIS y registros de eventos, también podrá realizar análisis adicionales, como seguimiento de cambios de configuración, evaluación de SQL y evaluación de actualizaciones.
 
@@ -57,12 +57,12 @@ Use el siguiente procedimiento para habilitar Diagnósticos de Azure en una máq
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>Pasos para habilitar Diagnósticos de Azure en una máquina virtual con Azure Portal
 1. Instale al agente de máquina virtual cuando cree una máquina virtual. Si la máquina virtual ya existe, compruebe que el agente de máquina virtual ya está instalado.
-   
+
    * En Azure Portal, acceda a la máquina virtual, seleccione **Configuración opcional**, luego **Diagnósticos** y establezca **Estado** en **Activado**.
-     
+
      Tras la finalización, la máquina virtual tendrá la extensión de Diagnósticos de Azure instalada y ejecutándose. Esta extensión se encarga de recopilar datos de diagnóstico.
 2. Habilite la supervisión y configure el registro de eventos en una máquina virtual existente. Puede habilitar el diagnóstico en el nivel de máquina virtual. Para activar el diagnóstico y, a continuación, configurar el registro de eventos, realice los siguientes pasos:
-   
+
    1. Seleccione la máquina virtual.
    2. Haga clic en **Supervisión**.
    3. Haga clic en **Diagnósticos**.
@@ -143,8 +143,8 @@ En aproximadamente 30 minutos podrá ver los datos de la cuenta de almacenamient
 
 > [!NOTE]
 > El portal no valida la existencia del origen en la cuenta de almacenamiento o si se escriben nuevos datos.
-> 
-> 
+>
+>
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection-using-powershell"></a>Habilitación de Diagnósticos de Azure en una máquina virtual para la recopilación de registros de IIS y de eventos con PowerShell
 Siga los pasos de [Configuración de Log Analytics para indizar Diagnósticos de Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) para usar PowerShell con el fin de leer datos desde los diagnósticos de Azure que se escribe en Table Storage.
@@ -198,7 +198,6 @@ Revise el siguiente ejemplo de script, cópielo, modifíquelo según sea necesar
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

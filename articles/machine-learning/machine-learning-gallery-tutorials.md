@@ -39,9 +39,9 @@ Desde esta página, puede examinar todos los tutoriales en la galería, o puede 
  Haga clic en cualquier tutorial para abrir la página de detalles del tutorial y leer más información sobre ella.
 En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al tutorial para invitar a otros usuarios a ver la página.
 
-![Compartir este elemento con amigos](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Compartir este elemento con amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Agregar sus comentarios](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Agregar sus comentarios](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="contribute"></a>Contribuciones
 Puede aportar un tutorial a la galería para ayudar a otros usuarios a solucionar un problema u obtener un concepto.
@@ -52,16 +52,16 @@ Siga estos pasos para crear un tutorial y contribuir con él a la Galería de Co
 * Inicie sesión en la galería con su cuenta Microsoft.
 * Haga clic en la imagen en la parte superior de la ventana y después haga clic en su nombre
   
-    ![Haga clic en el nombre de cuenta](media\\machine-learning-gallery-tutorials\\click-account-name.png)
+    ![Haga clic en el nombre de cuenta](media/machine-learning-gallery-tutorials/click-account-name.png)
 * Haga clic en **Nuevo elemento**
   
-    ![Haga clic en "Nuevo elemento"](media\\machine-learning-gallery-collections\\click-new-item.png)
+    ![Haga clic en "Nuevo elemento"](media/machine-learning-gallery-collections/click-new-item.png)
 * Seleccione **Colección** para **Tipo de elemento** y luego asigne un nombre a la colección, un breve resumen, una descripción y algunas etiquetas que ayuden a los usuarios a encontrarla
   
-    ![Especifique información para la nueva colección](media\\machine-learning-gallery-tutorials\\create-tutorial-page-1.png)
+    ![Especifique información para la nueva colección](media/machine-learning-gallery-tutorials/create-tutorial-page-1.png)
 * Haga clic en **Siguiente**: puede cargar un archivo de imagen o seleccionar una imagen de archivo que se encuentre con la colección; elija algo que ayude a los usuarios identificar el contenido y el propósito de la colección
   
-    ![Especifique información para la nueva colección](media\\machine-learning-gallery-tutorials\\create-tutorial-page-2.png)
+    ![Especifique información para la nueva colección](media/machine-learning-gallery-tutorials/create-tutorial-page-2.png)
 * Haga clic en **Siguiente**: puede decidir si el tutorial es **Público** (lo puede ver cualquier persona) o **No enumerado** (solo las personas con un vínculo directo pueden ver el tutorial)
   
   > [!IMPORTANT]
@@ -69,7 +69,7 @@ Siga estos pasos para crear un tutorial y contribuir con él a la Galería de Co
   > 
   > 
   
-    ![Seleccione Público o No enumerado](media\\machine-learning-gallery-tutorials\\create-tutorial-page-3.png)
+    ![Seleccione Público o No enumerado](media/machine-learning-gallery-tutorials/create-tutorial-page-3.png)
 * Haga clic en **Crear**
 
 Con ello, el tutorial pasa a formar parte de la Galería de Cortana Intelligence. Se mostrará en la página de la cuenta en la pestaña **Elementos**.
@@ -81,6 +81,6 @@ Con ello, el tutorial pasa a formar parte de la Galería de Cortana Intelligence
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
