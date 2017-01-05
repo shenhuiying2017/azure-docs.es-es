@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 12/14/2016
+ms.date: 01/04/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
 ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
@@ -73,6 +73,7 @@ En la tabla siguiente se describen las características de los niveles de servic
 [!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 Además, todas las bases de datos de un grupo se ajustan a las características de base de datos única de ese nivel. Por ejemplo, el grupo Básico tiene un límite máximo de entre 4800 y 28 800 sesiones por grupo, mientras que una base de datos de un grupo Básico tiene un límite de 300 sesiones.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

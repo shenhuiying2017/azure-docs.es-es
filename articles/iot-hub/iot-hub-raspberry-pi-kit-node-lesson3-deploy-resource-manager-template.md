@@ -78,6 +78,6 @@ Ha creado una instancia de Azure Function App para procesar mensajes de IoT Hub,
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 

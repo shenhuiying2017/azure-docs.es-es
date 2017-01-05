@@ -181,6 +181,6 @@ En este documento, ha aprendido cómo cifrar una máquina virtual de Azure. Para
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

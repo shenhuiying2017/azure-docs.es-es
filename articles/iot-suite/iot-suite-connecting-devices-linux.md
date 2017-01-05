@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/05/2016
+ms.date: 01/04/2017
 ms.author: dobett
 translationtype: Human Translation
 ms.sourcegitcommit: 6fdcdc323cff07d7debd46ab10b17ba7e9d8781a
@@ -430,6 +430,6 @@ En los pasos siguientes se describe cómo puede utilizar *CMake* para compilar l
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

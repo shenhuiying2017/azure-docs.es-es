@@ -66,6 +66,6 @@ El panel **Uso de Log Analytics** muestra la siguiente información:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

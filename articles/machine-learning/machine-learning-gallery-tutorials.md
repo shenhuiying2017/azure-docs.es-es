@@ -81,6 +81,6 @@ Con ello, el tutorial pasa a formar parte de la Galería de Cortana Intelligence
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

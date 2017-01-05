@@ -87,6 +87,6 @@ Puede crear [alertas](log-analytics-alerts.md) en función de las búsquedas de 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO3-->
 
 

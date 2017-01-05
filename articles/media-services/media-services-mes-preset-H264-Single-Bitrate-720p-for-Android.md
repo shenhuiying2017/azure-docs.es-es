@@ -117,6 +117,6 @@ Este valor predeterminado genera un único archivo MP4 con una velocidad de bits
 ```
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO5-->
 
 
