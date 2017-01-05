@@ -62,32 +62,35 @@ En primer lugar, configure Data Management Gateway. Las instrucciones se encuent
 
 **Servicio vinculado de Teradata:**
 
-    {
-        "name": "OnPremTeradataLinkedService",
-        "properties": {
-            "type": "OnPremisesTeradata",
-            "typeProperties": {
-                "server": "<server>",
-                "authenticationType": "<authentication type>",
-                "username": "<username>",
-                "password": "<password>",
-                "gatewayName": "<gatewayName>"
-            }
+```JSON
+{
+    "name": "OnPremTeradataLinkedService",
+    "properties": {
+        "type": "OnPremisesTeradata",
+        "typeProperties": {
+            "server": "<server>",
+            "authenticationType": "<authentication type>",
+            "username": "<username>",
+            "password": "<password>",
+            "gatewayName": "<gatewayName>"
         }
     }
+}
+```
 
 **Servicio vinculado de almacenamiento de blobs de Azure:**
 
-    {
-        "name": "AzureStorageLinkedService",
-        "properties": {
-            "type": "AzureStorageLinkedService",
-            "typeProperties": {
-                "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-            }
+```JSON
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorageLinkedService",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
         }
     }
-
+}
+```
 
 **Conjunto de datos de entrada de Teradata:**
 
@@ -95,139 +98,141 @@ El ejemplo supone que ha creado una tabla "MyTable" en Teradata y que contiene u
 
 Si se establece "external": true, se informa al servicio Data Factory de que la tabla es externa a la factoría de datos y no la produce ninguna actividad de dicha factoría.
 
-    {
-        "name": "TeradataDataSet",
-        "properties": {
-            "published": false,
-            "type": "RelationalTable",
-            "linkedServiceName": "OnPremTeradataLinkedService",
-            "typeProperties": {
-            },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            },
-            "external": true,
-            "policy": {
-                "externalData": {
-                    "retryInterval": "00:01:00",
-                    "retryTimeout": "00:10:00",
-                    "maximumRetry": 3
-                }
+```JSON
+{
+    "name": "TeradataDataSet",
+    "properties": {
+        "published": false,
+        "type": "RelationalTable",
+        "linkedServiceName": "OnPremTeradataLinkedService",
+        "typeProperties": {
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
+        },
+        "external": true,
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
             }
         }
     }
-
+}
+```
 
 **Conjunto de datos de salida de blob de Azure:**
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
 
-    {
-        "name": "AzureBlobTeradataDataSet",
-        "properties": {
-            "published": false,
-            "location": {
-                "type": "AzureBlobLocation",
-                "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
-                "format": {
-                    "type": "TextFormat",
-                    "rowDelimiter": "\n",
-                    "columnDelimiter": "\t"
-                },
-                "partitionedBy": [
-                    {
-                        "name": "Year",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "yyyy"
-                        }
-                    },
-                    {
-                        "name": "Month",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "MM"
-                        }
-                    },
-                    {
-                        "name": "Day",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "dd"
-                        }
-                    },
-                    {
-                        "name": "Hour",
-                        "value": {
-                            "type": "DateTime",
-                            "date": "SliceStart",
-                            "format": "HH"
-                        }
-                    }
-                ],
-                "linkedServiceName": "AzureStorageLinkedService"
+```JSON
+{
+    "name": "AzureBlobTeradataDataSet",
+    "properties": {
+        "published": false,
+        "location": {
+            "type": "AzureBlobLocation",
+            "folderPath": "mycontainer/teradata/yearno={Year}/monthno={Month}/dayno={Day}/hourno={Hour}",
+            "format": {
+                "type": "TextFormat",
+                "rowDelimiter": "\n",
+                "columnDelimiter": "\t"
             },
-            "availability": {
-                "frequency": "Hour",
-                "interval": 1
-            }
+            "partitionedBy": [
+                {
+                    "name": "Year",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "yyyy"
+                    }
+                },
+                {
+                    "name": "Month",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "MM"
+                    }
+                },
+                {
+                    "name": "Day",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "dd"
+                    }
+                },
+                {
+                    "name": "Hour",
+                    "value": {
+                        "type": "DateTime",
+                        "date": "SliceStart",
+                        "format": "HH"
+                    }
+                }
+            ],
+            "linkedServiceName": "AzureStorageLinkedService"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
-
-
+}
+```
 **Canalización con actividad de copia:**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los datos de la última hora que se van a copiar.
 
-    {
-        "name": "CopyTeradataToBlob",
-        "properties": {
-            "description": "pipeline for copy activity",
-            "activities": [
-                {
-                    "type": "Copy",
-                    "typeProperties": {
-                        "source": {
-                            "type": "RelationalSource",
-                            "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
-                        },
-                        "sink": {
-                            "type": "BlobSink",
-                            "writeBatchSize": 0,
-                            "writeBatchTimeout": "00:00:00"
-                        }
+```JSON
+{
+    "name": "CopyTeradataToBlob",
+    "properties": {
+        "description": "pipeline for copy activity",
+        "activities": [
+            {
+                "type": "Copy",
+                "typeProperties": {
+                    "source": {
+                        "type": "RelationalSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', SliceStart, SliceEnd)"
                     },
-                    "inputs": [
-                        {
-                            "name": "TeradataDataSet"
-                        }
-                    ],
-                    "outputs": [
-                        {
-                            "name": "AzureBlobTeradataDataSet"
-                        }
-                    ],                    
-                    "policy": {
-                        "timeout": "01:00:00",
-                        "concurrency": 1
-                    },
-                    "scheduler": {
-                        "frequency": "Hour",
-                        "interval": 1
-                    },
-                    "name": "TeradataToBlob"
-                }
-            ],
-            "start": "2014-06-01T18:00:00Z",
-            "end": "2014-06-01T19:00:00Z",
-            "isPaused": false
-        }
+                    "sink": {
+                        "type": "BlobSink",
+                        "writeBatchSize": 0,
+                        "writeBatchTimeout": "00:00:00"
+                    }
+                },
+                "inputs": [
+                    {
+                        "name": "TeradataDataSet"
+                    }
+                ],
+                "outputs": [
+                    {
+                        "name": "AzureBlobTeradataDataSet"
+                    }
+                ],                    
+                "policy": {
+                    "timeout": "01:00:00",
+                    "concurrency": 1
+                },
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "TeradataToBlob"
+            }
+        ],
+        "start": "2014-06-01T18:00:00Z",
+        "end": "2014-06-01T19:00:00Z",
+        "isPaused": false
     }
-
+}
+```
 
 ## <a name="teradata-linked-service-properties"></a>Propiedades del servicio vinculado de Teradata
 En la tabla siguiente se proporciona la descripción de los elementos JSON específicos al servicio vinculado de Teradata.
