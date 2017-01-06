@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 07/22/2016
+ms.date: 12/16/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 58ba7a82281a21d38d4c785d1d01bbd25e5aa9b3
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: 4a0d72f46fada5112563d10d22f61abc439730a7
 
 
 ---
@@ -61,8 +61,8 @@ Este tutorial está escrito para Visual Studio 2015 con [Azure SDK para. NET](..
 
 Si tiene Visual Studio 2013 y prefiere usar esa versión, puede [descargar el último Azure SDK para Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkID=324322). Algunas pantallas pueden no coincidir exactamente con las ilustraciones.
 
-## <a name="configure-a-new-web-project"></a>Configuración de un proyecto web nuevo
-El siguiente paso es crear un proyecto web en Visual Studio y una aplicación web en el Servicio de aplicaciones de Azure. En esta sección del tutorial configurará el nuevo proyecto web. 
+## <a name="create-a-web-application"></a>Creación de una aplicación web
+El siguiente paso es crear un proyecto de aplicación web en Visual Studio y una aplicación web en Azure App Service. En esta sección del tutorial configurará el nuevo proyecto web. 
 
 1. Abra Visual Studio 2015.
 2. Haga clic en **Archivo > Nuevo > Proyecto**.
@@ -89,7 +89,7 @@ El siguiente paso es crear un proyecto web en Visual Studio y una aplicación we
     Con esta configuración se indica a Visual Studio que cree una aplicación web de Azure para su proyecto web.
 10. Haga clic en **Aceptar**
 
-## <a name="configure-azure-resources-for-a-new-web-app"></a>Configuración de recursos de Azure para una aplicación web nueva
+## <a name="create-the-azure-resources"></a>Creación de recursos de Azure
 Ahora va a indicar a Visual Studio los recursos de Azure que desea que cree.
 
 1. En el cuadro de diálogo **Crear servicio de aplicaciones**, haga clic en **Agregar una cuenta** y, luego, inicie sesión en Azure con el identificador y la contraseña de la cuenta que utiliza para administrar la suscripción de Azure.
@@ -128,14 +128,14 @@ Ahora va a indicar a Visual Studio los recursos de Azure que desea que cree.
 8. En el cuadro de diálogo **Configurar el plan de servicio de aplicaciones**, haga clic en **Aceptar**.
 9. En el cuadro de diálogo **Crear servicio de aplicaciones**, haga clic en **Crear**.
 
-## <a name="visual-studio-creates-the-project-and-web-app"></a>Visual Studio crea el proyecto y la aplicación web
+## <a name="inspect-the-azure-resources-in-visual-studio"></a>Inspección de los recursos de Azure en Visual Studio
 En poco tiempo, normalmente menos de un minuto, Visual Studio crea el proyecto web y la aplicación web.  
 
 La ventana del **Explorador de soluciones** ventana muestra los archivos y carpetas del nuevo proyecto.
 
 ![Explorador de soluciones](./media/web-sites-dotnet-get-started/solutionexplorer.png)
 
-La ventana **Actividad del Servicio de aplicaciones de Azure** muestra que se ha creado la aplicación web.
+La ventana **Actividad de Azure App Service** muestra que los recursos de App Service se han creado en Azure. Puede hacer clic en el vínculo que aparece en la ventana para empezar a publicar el proyecto nuevo inmediatamente. No obstante, más adelante, el tutorial le mostrará cómo publicar los archivos en cualquier momento.
 
 ![Aplicación web creada en la ventana Actividad del Servicio de aplicaciones de Azure](./media/web-sites-dotnet-get-started/GS13sitecreated1.png)
 
@@ -143,8 +143,8 @@ La ventana **Cloud Explorer** le permite ver y administrar los recursos de Azure
 
 ![Aplicación web creada en Cloud Explorer](./media/web-sites-dotnet-get-started/siteinse.png)
 
-## <a name="deploy-the-web-project-to-the-azure-web-app"></a>Implementación del proyecto web en la aplicación web de Azure
-En esta sección se implementa el proyecto web en la aplicación web.
+## <a name="deploy-the-web-project-to-azure"></a>Implementación del proyecto web en Azure
+En esta sección, se implementará el proyecto web en el recurso de la aplicación web que creó en Azure App Service.
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho y elija **Publicar**.
    
@@ -152,7 +152,10 @@ En esta sección se implementa el proyecto web en la aplicación web.
    
     En unos segundos aparecerá el Asistente para **publicación web** . El asistente abre un *perfil de publicación* que incluye la configuración para implementar el proyecto web en la nueva aplicación web.
    
-    El perfil de publicación incluye un nombre de usuario y una contraseña para la implementación.  Estas credenciales se han generado automáticamente y no es preciso que las escriba. La contraseña está cifrada en un archivo oculto específico del usuario, que se encuentra en la carpeta `Properties\PublishProfiles` .
+    > [!TIP] 
+    > El perfil de publicación incluye un nombre de usuario y una contraseña para la implementación.  Estas credenciales se han generado automáticamente y no es preciso que las escriba. La contraseña está cifrada en un archivo oculto específico del usuario, que se encuentra en la carpeta `Properties\PublishProfiles` .
+    >
+    >
 2. En la pestaña **Conexión** del Asistente para **publicación web**, haga clic en **Siguiente**.
    
     ![Acción de hacer clic en Siguiente en la pestaña Conexión del Asistente para publicación web](./media/web-sites-dotnet-get-started/GS13ValidateConnection.png)
@@ -213,12 +216,12 @@ En este tutorial, aprendió a crear una aplicación web sencilla e implementarla
   * [Habilitación de HTTPS en un sitio web de Azure](web-sites-configure-ssl-certificate.md)
 * Eliminación del grupo de recursos que contiene la aplicación web y todos los recursos de Azure relacionados cuando haya terminado con ellos.
   
-    Para más información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../resource-group-template-deploy-portal.md).   
+    Para más información acerca de cómo trabajar con grupos de recursos en el Portal de Azure, consulte [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).   
 * Para ver más ejemplos de creación de una aplicación web ASP.NET en App Service, consulte [Create and deploy an ASP.NET web app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service) (Creación e implementación de una aplicación web ASP.NET en Azure App Service) y [Create and deploy a mobile app in Azure App Service](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-a-mobile-app-in-Azure-App-Service) (Creación e implementación de una aplicación móvil en Azure App Service) en la [demostración](https://github.com/Microsoft/HealthClinic.biz) de [HealthClinic.biz](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/) 2015 Connect. Para ver más guías rápidas de la demostración de HealthClinic.biz, consulte las [guías rápidas de las herramientas de desarrollador de Azure](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

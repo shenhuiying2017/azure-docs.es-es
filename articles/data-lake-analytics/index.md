@@ -1,13 +1,14 @@
 ---
 layout: LandingPage
+description: "Aprenda a realizar análisis de macrodatos con Data Lake Analytics. Los tutoriales muestran cómo ejecutar análisis por lotes, en tiempo real e interactivos, y cómo escribir consultas U-SQL."
 translationtype: Human Translation
-ms.sourcegitcommit: 98fdd8ee3dc1b90aae349652e471a218ef44a44e
-ms.openlocfilehash: aff52fe8a31d7ef9fe30f271a2885dca1cd9a861
+ms.sourcegitcommit: 003cc86e182c55621db9e41fa35d871f37245a91
+ms.openlocfilehash: dcf7aea439c02e2bdb1563c6573376a3f87765d1
 
 ---
 # <a name="data-lake-analytics-documentation"></a>Documentación de Data Lake Analytics
 
-Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el análisis de macrodatos. Este servicio le permite centrarse en escribir, ejecutar y administrar los trabajos, en lugar de en la infraestructura distribuida. En lugar de implementar, configurar y ajustar el hardware, escribirá consultas para transformar los datos y extraer ideas valiosas. El servicio de análisis puede tratar trabajos de cualquier escala al instante, simplemente estableciendo el ajuste adecuado. Solo tiene que pagar por su trabajo cuando se está ejecutando, lo que da lugar a una solución económica. El servicio de análisis admite Azure Active Directory, lo que le permite administrar de forma sencilla el acceso y los roles, que se integran con su sistema de identidad local. También incluye U-SQL, un lenguaje que unifica las ventajas de SQL con el poder expresivo del código del usuario. El tiempo de ejecución distribuido escalable de U-SQL permite analizar de forma eficiente los datos del almacén y entre servidores SQL Server en Azure, Base de datos SQL de Azure y Almacenamiento de datos SQL de Azure.
+Aprenda a usar Data Lake Analytics para ejecutar trabajos de análisis de macrodatos con capacidad de escalado a conjuntos de datos masivos. Los tutoriales y otra documentación muestran cómo crear y administrar trabajos de análisis por lotes, en tiempo real e interactivos, y cómo realizar consultas mediante el lenguaje U-SQL.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -29,7 +30,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=data-lake-analytics">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=data-lake-analytics">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -75,7 +76,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Introducción a Análisis de Azure Data Lake mediante Azure PowerShell</h3>
+                        <h3>Introducción a Azure Data Lake Analytics mediante Azure PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -161,7 +162,7 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -172,71 +173,68 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/data-lake-analytics/data-lake-analytics-get-started-python">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/python.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Introducción al uso de Python por parte de Azure Data Lake Store</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
-
-## <a name="reference"></a>Referencia
-
+ 
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Cmdlets de PowerShell de Resource Manager para Data Lake Analytics</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/java/api/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referencia de API de REST de Data Lake Analytics</p>
+                        <h3>Idiomas</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
+                        <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-analytics.html">Python</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="/dotnet/api">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia administrada de Data Lake Analytics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/datalakeanalytics/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Referencia de la API de REST de Data Lake Analytics</p>
+                        <p><a href="/rest/api/datalakeanalytics/">API de REST</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
@@ -246,12 +244,12 @@ Análisis de Azure Data Lake es un nuevo servicio, creado para facilitar el aná
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-analytics.pdf">
         <div class="img"></div>
         <div class="text">
-Descarga de documentación de Data Lake Analytics </div>
+Descargar la documentación sobre Data Lake Analytics </div>
     </a>
 </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -2,18 +2,18 @@
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 
 # Primeros pasos
-## [Implementación con una plantilla de Resource Manager](../resource-group-template-deploy.md)
+## [Implementación con una plantilla de Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 
 # Procedimientos
 ## Implementación
-### [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md)
+### [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Administrar
-### [Uso del Portal de vista previa para administrar los recursos](resource-group-portal.md)
+### [Uso del Portal de vista previa para administrar los recursos](../azure-resource-manager/resource-group-portal.md)
 ### [Administración de acceso con RBAC](../active-directory/role-based-access-control-configure.md)
-### [Uso de etiquetas para organizar los recursos](../resource-group-using-tags.md)
+### [Uso de etiquetas para organizar los recursos](../azure-resource-manager/resource-group-using-tags.md)
 ### [Escalado de los recursos](../monitoring-and-diagnostics/insights-how-to-scale.md)
-### [Creación de una entidad de servicio de Azure](../resource-group-create-service-principal-portal.md)
+### [Creación de una entidad de servicio de Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## Supervisión
 ### [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)
 ### [Habilitación de supervisión y diagnóstico](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md)
@@ -23,7 +23,7 @@
 ### [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 # Temas relacionados
-## [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md)
+## [Funciones de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 ## [Procedimientos recomendados de escalado automático](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Métricas comunes de escalado automático](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
 ## [Webhooks para notificaciones de escalado automático](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 890ca8d9b7a3a76c6584f9d06cc8bdf3b36f87c0
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 1f7a1f6f4cc970cf12851e48d0f1b3c6ae46279c
 
 
 ---
@@ -77,7 +77,7 @@ Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde ap
 Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Protección de bases de datos](sql-database-security.md)
+* [Protección de bases de datos](sql-database-security-overview.md)
 * [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -87,6 +87,6 @@ Para saber cómo obtener acceso a las bases de datos, consulte [Manage database 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 09/16/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
-ms.openlocfilehash: 6bb9415180f7235b7521d5a4dc9d8a6f0e060756
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: ac1c60e04b42e2804ef17ba35368dd28c1d748a4
 
 
 ---
@@ -43,7 +43,7 @@ Este tutorial muestra cómo crear y supervisar una factoría de datos de Azure m
 ## <a name="prerequisites"></a>Requisitos previos
 * Consulte [Copia de datos de Almacenamiento de blobs en Base de datos SQL mediante Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos** .
 * Instale [Curl](https://curl.haxx.se/dlwiz/) en su máquina. Utilice la herramienta CURL con comandos de REST para crear una factoría de datos. 
-* Siga las instrucciones de [este artículo](../resource-group-create-service-principal-portal.md) para: 
+* Siga las instrucciones de [este artículo](../azure-resource-manager/resource-group-create-service-principal-portal.md) para: 
   1. Cree una aplicación web denominada **ADFCopyTutorialApp** en Azure Active Directory.
   2. Obtenga el **Id. de cliente** y la **Clave secreta**. 
   3. Obtenga el **Identificador de inquilino**. 
@@ -578,6 +578,6 @@ En este tutorial, ha usado una API de REST para crear una factoría de datos de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
