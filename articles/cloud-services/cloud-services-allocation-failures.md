@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 1/6/2017
 ms.author: v-six
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -53,25 +53,24 @@ A continuación se presentan los escenarios de asignación comunes que ocasionan
 
 ## <a name="solutions"></a>Soluciones
 1. Volver a implementar un nuevo servicio en la nube - Esta solución es probable que sea más exitosa, ya que permite a la plataforma elegir entre todos los clústeres de esa región.
-   
+
    * Implementar la carga de trabajo en un nuevo servicio en la nube.  
    * Actualizar el registro CNAME o A para que apunte el tráfico al nuevo servicio en la nube.
    * Una vez que ya no se dirige tráfico al sitio antiguo, puede eliminar el servicio en la nube antiguo. Esta solución debe incurrir en tiempo de inactividad cero.
 2. Eliminar las ranuras de producción y ensayo - Esta solución conservará el nombre de DNS existente, pero provocará tiempo de inactividad en la aplicación.
-   
+
    * Eliminar las ranuras de producción y ensayo de un servicio en la nube existente para que dicho esté vacío y después
    * Crear una nueva implementación en el servicio en la nube existente. Esto volverá a intentar la asignación en todos los clústeres de la región. Asegúrese de que el servicio en la nube no está asociado a un grupo de afinidad.
 3. Dirección IP reservada: esta solución conservará su dirección IP existente, pero provocará tiempo de inactividad en la aplicación.  
-   
+
    * Crear una dirección IP reservada para la implementación mediante Powershell.
-     
+
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
    * Siga el punto 2 anterior y asegúrese de especificar la nueva dirección IP reservada en el CSCFG del servicio.
 4. Quitar el grupo de afinidad para nuevas implementaciones - Ya no se recomienda utilizar grupos de afinidad. Siga los pasos del punto 1 anterior para implementar un nuevo servicio en la nube. Asegúrese de que el servicio en la nube no se encuentra en un grupo de afinidad.
 5. Convertir a una red virtual regional - Consulte [Migración de grupos de afinidad a una red virtual regional](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
-
 
 
 
