@@ -4,7 +4,7 @@ description: "Puede usar la solución de planeamiento de capacidad de Log Analyt
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 57e7fbdaa393e078b62a6d6a0b181b67d532523d
@@ -27,8 +27,8 @@ Por ejemplo, una proyección puede identificar cuándo se requieren núcleos de 
 
 > [!NOTE]
 > La solución de administración de capacidad no está disponible para agregarse a áreas de trabajo. Los clientes que tengan instalada la solución de administración de capacidad pueden seguir usándola.  
-> 
-> 
+>
+>
 
 La solución de reemplazo Capacidad y rendimiento está disponible en versión preliminar privada. Se ha diseñado para abordar los siguientes problemas de la solución Administración de capacidad original que nos han comunicado los clientes:
 
@@ -173,7 +173,6 @@ Mediante la herramienta de proyección, puede ver las tendencias históricas del
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados sobre la administración de capacidad.
-
 
 
 

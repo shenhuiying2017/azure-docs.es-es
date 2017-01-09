@@ -70,14 +70,14 @@ RemoteApp de Azure admite tanto cuentas de Microsoft como cuentas de Azure Activ
 | Proveedores de identidades de terceros compatibles con Azure (por ejemplo, Ping) |Sí |Sí |Sí | |
 | Multi-Factor Authentication | |Sí |Sí |Sí |
 
-### <a name="cloud-and-cloud-vnet"></a>Nube y nube + red virtual
+### <a name="cloud-and-cloud--vnet"></a>Nube y nube + red virtual
 Con las colecciones de la nube, puede usar cuentas de Microsoft, cuentas de Azure AD o una combinación de ambas. Use las cuentas que funcionan mejor para los usuarios.
 
 No hay ningún requisito específico en cuanto al uso de cuentas Microsoft. 
 
 Si desea usar cuentas de Azure AD, deberá asegurarse de que el inquilino de Azure AD coincide con el asociado a su suscripción. Cuando se creó la suscripción de RemoteApp de Azure, el inquilino de Azure AD que estaba usando se asocia automáticamente a su suscripción. Los usuarios de Azure AD a los que conceda permiso deberá usar el mismo inquilino. Si es necesario, puede [cambiar el inquilino de Azure AD](remoteapp-changetenant.md) asociado a su suscripción.
 
-### <a name="hybrid-or-cloud-azure-ad-ad"></a>Híbrida (o nube + Azure AD + AD)
+### <a name="hybrid-or-cloud--azure-ad--ad"></a>Híbrida (o nube + Azure AD + AD)
 El uso de Azure AD + Active Directory local es un requisito previo para las colecciones híbridas. Debe usar AD Connect para integrar los dos directorios. Sin embargo, tendrá algunas opciones en cuanto a la configuración de AD Connect. 
 
 Existen 2 escenarios de AD Connect: uso de sincronización de contraseñas o uso de la federación de AD. Consulte la [Información de AD Connect](../active-directory/active-directory-aadconnect.md) para averiguar cuál de estas opciones es la que más le conviene.

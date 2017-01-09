@@ -30,7 +30,7 @@
 ### [Configuración de webhook en una alerta del registro de actividad](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
 ### [Archivo del registro de actividad](../monitoring-and-diagnostics/monitoring-archive-activity-log.md)
 ### [Transmitir el registro de actividades a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-### [Operaciones de auditoría con Resource Manager](../resource-group-audit.md)
+### [Operaciones de auditoría con Resource Manager](../azure-resource-manager/resource-group-audit.md)
 ## Administración de registros de diagnósticos
 ### [Archivar](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
 ### [Transmisión a Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -40,12 +40,15 @@
 
 
 # Referencia
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [CLI de Azure](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
-## [Lista de métricas compatibles](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [API DE REST](https://msdn.microsoft.com/library/azure/dn931943)
+## [REST](/rest/api/monitor/)
 
-<!--HONumber=Nov16_HO4-->
+# Recursos
+## [Ejemplos de PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Ejemplos de la versión preliminar de la CLI de Azure 2.0](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [Lista de métricas compatibles](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
+
+<!--HONumber=Jan17_HO1-->
 
 

@@ -19,6 +19,6 @@ Una vez que complete la configuración y el registro, el dispositivo se conectar
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

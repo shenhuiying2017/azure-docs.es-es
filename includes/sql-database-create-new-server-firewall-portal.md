@@ -5,45 +5,38 @@ includes/sql-database-create-new-server-firewall-portal.md
 Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
-articles/sql-database/sql-database-get-started-tutorial.md
+articles/sql-database/sql-database-get-started.md
 articles/sql-database/sql-database-configure-firewall-settings
+articles/sql-data-warehouse-get-started-provision.md
 
 -->
-## <a name="create-a-new-azure-sql-server-level-firewall"></a>Creación de un nuevo firewall de nivel de servidor SQL de Azure
-Utilice los pasos siguientes en el portal de Azure para crear una regla de firewall de nivel de servidor que permita conexiones desde una dirección IP individual (el equipo cliente) o un intervalo completo de direcciones IP a un servidor lógico de Base de datos SQL.
+## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creación de una regla de firewall de nivel a servidor en Azure Portal
 
-1. Si no está conectado, conéctese a [Azure Portal](http://portal.azure.com).
-2. En la hoja predeterminada, haga clic en **Servidores SQL Server**.
-   
-      ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. En la hoja **SQL Server**, haga clic en el servidor para el que va a crear la regla de firewall.
-   
-     ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Revise las propiedades del servidor y haga clic en **Firewall**.
-   
-     ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-   
-   > [!NOTE]
-   > También puede acceder a la hoja **Configuración de firewall** en el nivel de servidor desde la barra de herramientas de la hoja **Base de datos**.
+1. En la hoja SQL Server, en Configuración, haga clic en **Firewall** para abrir la hoja Firewall para el servidor SQL Server.
+
+    ![firewall de sql server](../articles/sql-database/media/sql-database-get-started/sql-server-firewall.png)
     
-    
-6. Haga clic en **Agregar IP de cliente** para que Azure rellene la dirección IP en los cuadros de regla.
-   
-      ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
-7. Opcionalmente, haga clic en la dirección IP que se agregó para editar la dirección del firewall y permitir el acceso a un intervalo de direcciones IP.
-   
-      ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-6.png)
-8. Haga clic en **Guardar** para crear la regla de firewall en el nivel de servidor.
-   
-     ![Nuevo firewall de servidor](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-7.png)
-   
-   > [!IMPORTANT]
-   > Puede que la dirección IP de su cliente cambie de vez en cuando, y es posible que no pueda acceder al servidor hasta que cree una nueva regla de firewall. Puede comprobar la dirección IP mediante [Bing](http://www.bing.com/search?q=my%20ip%20address). A continuación, agregue una única dirección IP o un intervalo de direcciones IP. Consulte [Manage firewall settings](../articles/sql-database/sql-database-configure-firewall-settings.md#manage-existing-server-level-firewall-rules-through-the-azure-portal) (Administración de la configuración de firewall) para obtener más información.
-   > 
-   > 
+2. Revise la dirección IP del cliente que se muestra y compruebe que se trata de la dirección IP en Internet en el explorador que desee (pregunte "¿Cuál es mi dirección IP?”). En ocasiones no coinciden por distintas razones.
+
+    ![su dirección IP](../articles/sql-database/media/sql-database-get-started/your-ip-address.png)
+
+3. Si las direcciones IP coinciden, haga clic en **Agregar IP de cliente**, en la barra de herramientas.
+
+    ![agregar IP de cliente](../articles/sql-database/media/sql-database-get-started/add-client-ip.png)
+
+    > [!NOTE]
+    > Puede abrir el firewall de SQL Database en el servidor para una sola dirección IP o para un intervalo de direcciones. Abrir el firewall permite a los administradores y usuarios de SQL iniciar sesión en cualquier base de datos del servidor para el que tengan unas credenciales válidas.
+    >
+
+4. Haga clic en **Guardar** en la barra de herramientas para guardar esta regla de firewall de nivel de servidor y, después, haga clic en **Aceptar**.
+
+    ![agregar IP de cliente](../articles/sql-database/media/sql-database-get-started/save-firewall-rule.png)
+
+> [!Tip]
+> Para ver un tutorial, consulte [Tutorial de SQL Database: crear un servidor, una regla de firewall de nivel de servidor, una base de datos de ejemplo, una regla de firewall de nivel de base de datos y conectar con SQL Server](../articles/sql-database/sql-database-get-started.md).    
+>
 
 
-
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

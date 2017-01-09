@@ -150,7 +150,7 @@ Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer
 2. Garantizar que todas las aplicaciones tienen el mismo conjunto de SharedUserID.
 3. Garantizar que todas las aplicaciones comparten el mismo certificado de firma de Google Play Store para que puedan compartir el almacenamiento.
 
-#### <a name="step-1-using-the-same-client-id-application-id-for-all-the-applications-in-your-suite-of-apps"></a>Paso 1: Uso del mismo identificador de cliente o aplicación para todas las aplicaciones de su conjunto
+#### <a name="step-1-using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Paso 1: Uso del mismo identificador de cliente o aplicación para todas las aplicaciones de su conjunto
 A fin de que la plataforma Microsoft Identity sepa que puede compartir tokens entre las aplicaciones, es necesario que todas ellas compartan el mismo identificador de cliente o aplicación. Se trata del identificador único que se le suministró al registrar su primera aplicación en el portal.
 
 Quizás se pregunte cómo se puede identificar a las diferentes aplicaciones en el servicio Microsoft Identity si todas utilizan el mismo identificador. Pues bien, esto es posible gracias a los **URI de redirección**. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. A continuación se muestra un ejemplo típico de su aspecto:

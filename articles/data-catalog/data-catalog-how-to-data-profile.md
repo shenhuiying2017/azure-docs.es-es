@@ -48,15 +48,15 @@ Incluir los perfiles de datos al registrar lo recursos de datos ayuda a los usua
 
 > [!NOTE]
 > También puede agregar documentación a un recurso para describir cómo se pueden integrar los datos en una aplicación. Consulte [Documentación de los orígenes de datos](data-catalog-how-to-documentation.md).
-> 
-> 
+>
+>
 
 <a name="howto"/>
 
 ## <a name="how-to-include-a-data-profile-when-registering-a-data-source"></a>Cómo incluir un perfil de datos al registrar un origen de datos
 Es fácil incluir un perfil de sus origen de datos. Al registrar un origen de datos, en el panel **Objetos que se registrarán** de la herramienta de registro de orígenes de datos, elija **Incluir perfil de datos**.
 
-![](media\\data-catalog-data-profile\\data-catalog-register-profile.png)
+![](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 Para más información sobre cómo registrar orígenes de datos, vea [Registro de orígenes de datos](data-catalog-how-to-register.md) e [Introducción a Azure Data Catalog](data-catalog-get-started.md).
 
@@ -65,13 +65,13 @@ Para detectar los recursos de datos que incluyen un perfil de datos, puede inclu
 
 > [!NOTE]
 > Al seleccionar **Incluir perfil de datos** en la herramienta de registro de orígenes de datos, se incluye la información de perfil de nivel de columna y tabla. Sin embargo, la API de Data Catalog permite que los recursos de datos se registren con un único conjunto de información de perfil.
-> 
-> 
+>
+>
 
 ## <a name="viewing-data-profile-information"></a>Visualización de la información del perfil de datos
 Una vez que encuentre un origen de datos adecuado con un perfil, puede ver los detalles del perfil de datos. Para ver el perfil de datos, seleccione un recurso de datos y elija **Perfil de datos** en la ventana del portal de Catálogo de datos.
 
-![](media\\data-catalog-data-profile\\data-catalog-view.png)
+![](media/data-catalog-data-profile/data-catalog-view.png)
 
 Un perfil de datos del **Catálogo de datos de Azure** muestra la información del perfil de tabla y columna, incluido lo siguiente:
 
@@ -92,7 +92,6 @@ La generación de perfiles de datos proporciona estadísticas e información sob
 ## <a name="see-also"></a>Otras referencias
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md)
-
 
 
 

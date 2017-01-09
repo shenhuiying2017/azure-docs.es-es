@@ -3,7 +3,7 @@ title: "ACS de grupos de agentes de DC/OS públicos y privados | Microsoft Docs"
 description: "Cómo funcionan los grupos de agentes públicos y privados con un clúster de Azure Container Service."
 services: container-service
 documentationcenter: 
-author: Thraka
+author: dlepow
 manager: timlt
 editor: 
 tags: acs, azure-container-service
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2016
-ms.author: timlt
+ms.author: danlep
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: a6d9ab6d95de936e4f1d28d47d4e1d74c080bdae

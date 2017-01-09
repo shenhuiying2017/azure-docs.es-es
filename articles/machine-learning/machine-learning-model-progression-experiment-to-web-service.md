@@ -44,7 +44,7 @@ Aunque Azure Machine Learning Studio está diseñado para ayudarle a desarrollar
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Desarrollo e implementación de un servicio web predictivo
 Estas son las fases que sigue una solución típica cuando la desarrolla e implementa mediante Estudio de aprendizaje automático:
 
-![Flujo de implementación](media\\machine-learning-model-progression-experiment-to-web-service\\model-stages-from-experiment-to-web-service.png)
+![Flujo de implementación](media/machine-learning-model-progression-experiment-to-web-service/model-stages-from-experiment-to-web-service.png)
 
 *Ilustración 1 - Fases de un modelo de análisis predictivo típico*
 

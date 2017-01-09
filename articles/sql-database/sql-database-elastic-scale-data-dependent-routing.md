@@ -90,7 +90,7 @@ Un procedimiento recomendado para el desarrollo de aplicaciones de acceso a dato
 
 El control de errores transitorios puede coexistir naturalmente con el patrón de Enrutamiento dependiente de los datos. El requisito clave es volver a intentar la solicitud de acceso a los datos completa, incluido el bloque **using** que obtuvo la conexión de enrutamiento dependiente de los datos. El ejemplo anterior se podría reescribir de la siguiente manera (observe el cambio resaltado). 
 
-### <a name="example-data-dependent-routing-with-transient-fault-handling"></a>Ejemplo: enrutamiento dependiente de los datos con control de errores temporales
+### <a name="example--data-dependent-routing-with-transient-fault-handling"></a>Ejemplo: enrutamiento dependiente de los datos con control de errores temporales
 <pre><code>int customerId = 12345; 
 int newPersonId = 4321; 
 

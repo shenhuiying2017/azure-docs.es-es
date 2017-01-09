@@ -31,17 +31,17 @@ En [Anotación de orígenes de datos](data-catalog-how-to-annotate.md), sabrá q
 
 Las etiquetas y descripciones son excelentes para anotaciones simples. Sin embargo, para ayudar a los consumidores de datos a comprender mejor el uso de un origen de datos y los escenarios empresariales para un origen de datos, un experto puede proporcionar documentación completa y detallada. Es fácil documentar un origen de datos. Simplemente, seleccione un recurso de datos o un contenedor y elija **Documentación**.
 
-![](media\\data-catalog-documentation\\data-catalog-documentation.png)
+![](media/data-catalog-documentation/data-catalog-documentation.png)
 
 ## <a name="documenting-data-assets"></a>Documentación de los recursos de datos
 La ventaja del **Catálogo de datos de Azure** es que la documentación le permite usar el Catálogo de datos como un repositorio de contenido para crear una descripción completa de los recursos de datos. Puede explorar el contenido detallado que describe los contenedores y las tablas. Si ya tiene contenido en otro repositorio de contenido, como SharePoint o un recurso compartido de archivos, puede agregar los vínculos de documentación de recursos para hacer referencia a este contenido existente. Esta característica hace que los documentos existentes sean más detectables.
 
 > [!NOTE]
 > La documentación no se incluye en el índice de búsqueda.
-> 
-> 
+>
+>
 
-![](media\\data-catalog-documentation\\data-catalog-documentation2.png)
+![](media/data-catalog-documentation/data-catalog-documentation2.png)
 
 El nivel de documentación puede oscilar desde describir las características y el valor de un contenedor de recursos de datos para una descripción detallada del esquema de tabla dentro de un contenedor. El nivel de documentación proporcionado debe basarse en las necesidades del negocio. En general, hay algunas ventajas y desventajas de documentar los recursos de datos:
 
@@ -51,7 +51,6 @@ El nivel de documentación puede oscilar desde describir las características y 
 
 ## <a name="summary"></a>Resumen
 La documentación de orígenes de datos con el **Catálogo de datos de Azure** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.
-
 
 
 

@@ -1,6 +1,6 @@
 # Información general
 ## [¿Qué es Machine Learning?](machine-learning-what-is-machine-learning.md)
-## Estudio de aprendizaje automático
+## Machine Learning Studio
 ### [¿Qué es Studio?](machine-learning-what-is-ml-studio.md)
 ### [Funcionalidad de Studio](machine-learning-studio-overview-diagram.md)
 ### [Infografía: Introducción a ML](machine-learning-basics-infographic-with-algorithm-examples.md)
@@ -10,7 +10,7 @@
 ### [Tutoriales](data-science-process-walkthroughs.md)
 ## [Preguntas más frecuentes](machine-learning-faq.md)
 ## [Novedades](machine-learning-whats-new.md)
-# Primeros pasos
+# Introducción
 ## [Creación de su primer experimento](machine-learning-create-experiment.md)
 ## Tutorial de ejemplo
 ### [Creación de una solución predictiva](machine-learning-walkthrough-develop-predictive-solution.md)
@@ -24,8 +24,12 @@
 ### [1: Cinco preguntas](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)
 ### [2: ¿Están preparados los datos?](machine-learning-data-science-for-beginners-is-your-data-ready-for-data-science.md)
 ### [3: Formulación de la pregunta correcta](machine-learning-data-science-for-beginners-ask-a-question-you-can-answer-with-data.md)
-### [4:Predicción de una respuesta](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
+### [4: Predicción de una respuesta](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copia del trabajo de otras personas](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
+
+## [Inicio rápido de R](machine-learning-r-quickstart.md)
+
+
 # Procedimientos
 ## Configuración de herramientas y utilidades
 ### [Configuración de entornos](machine-learning-data-science-environment-setup.md)
@@ -52,7 +56,7 @@
 ### Carga de datos en almacenamiento
 #### [Información general](machine-learning-data-science-ingest-data.md)
 #### [Blob storage](machine-learning-data-science-move-azure-blob.md)
-#### [Uso del explorador de almacenamiento](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
+#### [Uso del Explorador de Storage](machine-learning-data-science-move-data-to-azure-blob-using-azure-storage-explorer.md)
 #### [Uso de AzCopy](machine-learning-data-science-move-data-to-azure-blob-using-azcopy.md)
 #### [Uso de Python](machine-learning-data-science-move-data-to-azure-blob-using-python.md)
 #### [Uso de SSIS](machine-learning-data-science-move-data-to-azure-blob-using-ssis.md)
@@ -167,14 +171,14 @@
 #### [Conjunto de distribución normal](machine-learning-r-csharp-normal-distribution.md)
 #### [Conjunto de distribución binomial](machine-learning-r-csharp-binomial-distribution.md)
 #### [Preguntas más frecuentes sobre Marketplace](machine-learning-marketplace-faq.md)
+
 # Referencia
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [Módulo de PowerShell para Machine Learning](machine-learning-powershell-module.md)
-## [Referencia del algoritmo](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Inicio rápido de R](machine-learning-r-quickstart.md)
-## [Lenguaje de redes neuronales Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
-## [API de REST de administración](/rest/api/machinelearning/index)
+## [PowerShell](machine-learning-powershell-module.md)
+## [Referencia de módulos y algoritmos](https://msdn.microsoft.com/library/azure/dn905974.aspx)
+## [REST](/rest/api/machinelearning)
+
 # Temas relacionados
+
 ## Galería de Cortana Intelligence
 ### [Información general](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Industrias](machine-learning-gallery-industries.md)
@@ -196,7 +200,7 @@
 ##### [Inicio rápido](machine-learning-recommendation-api-quick-start-guide.md)
 ##### [Referencia](machine-learning-recommendation-api-documentation.md)
 ##### [Uso de JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-##### [P+F](machine-learning-recommendation-api-faq.md)
+##### [Preguntas más frecuentes](machine-learning-recommendation-api-faq.md)
 #### Mantenimiento predictivo
 ##### [Información general](cortana-analytics-playbook-predictive-maintenance.md)
 ##### [Arquitectura](cortana-analytics-architecture-predictive-maintenance.md)
@@ -205,7 +209,10 @@
 ##### [Información general](cortana-analytics-playbook-vehicle-telemetry.md)
 ##### [Guía](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
 ##### [Configuración](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+
 # Recursos
+## [Códigos de error de REST de Machine Learning](/machine-learning/machine-learning-web-service-error-codes)
+## [Lenguaje de redes neuronales Net#](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Precios](https://azure.microsoft.com/pricing/details/machine-learning/)
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [Blog](http://blogs.technet.com/b/machinelearning/)
@@ -214,6 +221,7 @@
 ## [Vídeos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 ## [Obtención de ayuda por chat](machine-learning-live-chat.md)
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Jan17_HO1-->
 
 

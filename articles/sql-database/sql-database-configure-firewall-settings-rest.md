@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/09/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
-ms.openlocfilehash: cd5d47aa012b21a283e3d6482fe0afddcfa14033
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: cc0faa49daaafe19c71d2c765b8e865be04f81e2
 
 
 ---
@@ -39,7 +39,7 @@ Base de datos SQL de Microsoft Azure usa reglas de firewall para permitir conexi
 > 
 
 ## <a name="manage-server-level-firewall-rules-through-rest-api"></a>Administración de reglas de firewall de nivel de servidor a través de la API de REST
-1. La administración de reglas de firewall a través de la API de REST debe autenticarse. Para obtener más información, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](../resource-manager-api-authentication.md).
+1. La administración de reglas de firewall a través de la API de REST debe autenticarse. Para obtener más información, consulte [Guía del desarrollador para la autorización con la API de Azure Resource Manager](../azure-resource-manager/resource-manager-api-authentication.md).
 2. Las reglas de nivel de servidor se pueden crear, actualizar o eliminar mediante la API de REST
    
     Para crear o actualizar una regla de firewall de nivel de servidor, ejecute el método PUT mediante lo siguiente:
@@ -79,7 +79,7 @@ Si desea obtener ayuda para conectarse a una base de datos SQL de Azure desde ap
 Para saber cómo obtener acceso a las bases de datos, consulte [Manage database access and login security](https://msdn.microsoft.com/library/azure/ee336235.aspx)(Administrar la seguridad del inicio de sesión y el acceso a la base de datos).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Protección de bases de datos](sql-database-security.md)
+* [Protección de bases de datos](sql-database-security-overview.md)
 * [Centro de seguridad para el Motor de base de datos de SQL Server y Base de datos SQL Azure](https://msdn.microsoft.com/library/bb510589)
 
 <!--Image references-->
@@ -91,6 +91,6 @@ Para saber cómo obtener acceso a las bases de datos, consulte [Manage database 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

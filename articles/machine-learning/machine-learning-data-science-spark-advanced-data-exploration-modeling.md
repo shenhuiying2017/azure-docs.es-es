@@ -184,7 +184,7 @@ Este es el código para la incorporación de los datos.
 
 Time taken to execute above cell: 276.62 seconds
 
-## <a name="data-exploration-visualization"></a>Visualización y exploración de datos
+## <a name="data-exploration--visualization"></a>Visualización y exploración de datos
 Una vez incorporados los datos en Spark, el siguiente paso del proceso de la ciencia de los datos es conocer mejor los datos mediante la exploración y la visualización. En esta sección, examinaremos los datos de taxi mediante consultas SQL y trazaremos las variables de destino y las posibles características para su inspección visual. En concreto, trazaremos la frecuencia de los recuentos de pasajeros en las carreras de taxi, la frecuencia de los importes de las propinas y cómo varían las propinas según el tipo y el importe del pago.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Trazado de un histograma de frecuencias de recuento de pasajeros en el ejemplo de carreras de taxi

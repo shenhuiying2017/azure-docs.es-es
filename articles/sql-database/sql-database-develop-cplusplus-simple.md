@@ -39,10 +39,10 @@ Actualmente, Azure tiene dos opciones para hospedar cargas de trabajo de SQL Ser
 ## <a name="a-idodbcadata-access-technologies-odbc-and-ole-db"></a><a id="ODBC"></a>Tecnologías de acceso a datos: ODBC y OLE DB
 La conexión a Azure SQL DB es similar. Actualmente hay dos formas de conectarse a las bases de datos: ODBC (Open Database Connectivity) y OLE DB (Object Linking and Embedding database). En los últimos años, Microsoft se ha alineado con [ODBC para el acceso a datos relacionales nativos](https://blogs.msdn.microsoft.com/sqlnativeclient/2011/08/29/microsoft-is-aligning-with-odbc-for-native-relational-data-access/). ODBC es relativamente sencillo y también mucho más rápido que OLE DB. El único inconveniente aquí es que ODBC utiliza una API de estilo C anterior. 
 
-## <a name="a-idcreateastep-1-creating-your-azure-sql-database"></a><a id="Create"></a>Paso 1: Creación de una base de datos de Azure SQL
+## <a name="a-idcreateastep-1--creating-your-azure-sql-database"></a><a id="Create"></a>Paso 1: Creación de una base de datos de Azure SQL
 Vea la [página de introducción](sql-database-get-started.md) para aprender a crear una base de datos de ejemplo.  Como alternativa, puede seguir este [breve vídeo de dos minutos](https://azure.microsoft.com/documentation/videos/azure-sql-database-create-dbs-in-seconds/) para crear una base de datos de Azure SQL mediante Azure Portal.
 
-## <a name="a-idconnectionstringastep-2-get-connection-string"></a><a id="ConnectionString"></a>Paso 2: Obtención de la cadena de conexión
+## <a name="a-idconnectionstringastep-2--get-connection-string"></a><a id="ConnectionString"></a>Paso 2: Obtención de la cadena de conexión
 Después de aprovisionar la base de datos de Azure SQL, debe llevar a cabo los pasos siguientes para determinar la información de conexión y agregar la dirección IP de cliente para el acceso de firewall. 
 
 En [Azure Portal](https://portal.azure.com/), vaya a la cadena de conexión de ODBC de la base de datos de Azure SQL mediante la opción **Mostrar las cadenas de conexión de la base de datos** que aparece como parte de la sección de información general de la base de datos: 
@@ -53,7 +53,7 @@ En [Azure Portal](https://portal.azure.com/), vaya a la cadena de conexión de O
 
 Copie el contenido de la cadena **ODBC (Incluye Node.js) [autenticación de SQL]**. Esta cadena se usará más adelante para conectarse desde el intérprete de línea de comandos ODBC de C++. Esta cadena proporciona detalles como el controlador, el servidor y otros parámetros de conexión de base de datos. 
 
-## <a name="a-idfirewallastep-3-add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Paso 3: Incorporación de la IP al firewall
+## <a name="a-idfirewallastep-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Paso 3: Incorporación de la IP al firewall
 Vaya a la sección del firewall para el servidor de bases de datos y agregue la [IP del cliente al firewall siguiendo estos pasos](sql-database-configure-firewall-settings.md) para asegurarse de que se puede establecer una conexión correcta: 
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)

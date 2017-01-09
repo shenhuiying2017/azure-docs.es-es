@@ -10,6 +10,6 @@ En este escenario, creará una red virtual denominada **TestVNet** con un bloque
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -30,7 +30,7 @@ ms.openlocfilehash: facba2ca8ad0b65965cd761a4d2403226902ed9a
 ## <a name="requiring-authentication-to-access-controllers"></a>Requerimiento de autenticación para obtener acceso a los controladores
 Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize** . Este atributo requerirá que el usuario se autentique antes de tener acceso a estos controladores. Para permitir el acceso anónimo al controlador, quite este atributo del controlador. Si desea establecer los permisos a un nivel más detallado, aplique el atributo a cada método que requiere autorización en vez de aplicarlo a la clase del controlador.
 
-## <a name="adding-signin-signout-controls"></a>Incorporación de controles SignIn / SignOut
+## <a name="adding-signin--signout-controls"></a>Incorporación de controles SignIn / SignOut
 Para agregar controles SignIn/SignOut a su vista, puede usar la vista parcial **_LoginPartial.cshtml** para agregar esta función a alguna de sus vistas. Aquí se presenta un ejemplo de la función agregada a la vista estándar **_Layout.cshtml**. Observe el último elemento de la sección div con la clase navbar-collapse:
 
 <pre>

@@ -111,6 +111,6 @@ Siempre que tenga que mover los datos de StorSimple a la cuenta de almacenamient
 [Use the .Net SDK to initiate data transformation](storsimple-data-manager-dotnet-jobs.md) (Uso del SDK de .NET para iniciar la transformación de datos).
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

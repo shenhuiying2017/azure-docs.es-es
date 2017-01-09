@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 01/06/2017
 ms.author: asaxton
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -53,35 +53,35 @@ El token de la aplicación puede contener las siguientes notificaciones:
 
 Un ejemplo de token de aplicación tendrá este aspecto:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-coded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-coded.png)
 
 Cuando se descodifica, tendrá un aspecto similar al siguiente:
 
-![](media\\power-bi-embedded-app-token-flow\\power-bi-embedded-app-token-flow-sample-decoded.png)
+![](media/power-bi-embedded-app-token-flow/power-bi-embedded-app-token-flow-sample-decoded.png)
 
 ## <a name="heres-how-the-flow-works"></a>Funcionamiento del flujo
 1. Copie las claves de API a la aplicación. Puede obtener las claves en el **Portal de Azure**.
    
-    ![](media\\powerbi-embedded-get-started-sample\\azure-portal.png)
+    ![](media/powerbi-embedded-get-started-sample/azure-portal.png)
 2. El token impone una notificación y tiene un tiempo de expiración.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-2.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-2.png)
 3. El token se firma con las claves de acceso de la API.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-3.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-3.png)
 4. El usuario solicita ver un informe.
    
-    ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-4.png)
+    ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-4.png)
 5. El token se valida con claves de acceso de una API.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-5.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-5.png)
 6. Power BI Embedded envía un informe al usuario.
    
-   ![](media\\powerbi-embedded-get-started-sample\\power-bi-embedded-token-6.png)
+   ![](media/powerbi-embedded-get-started-sample/power-bi-embedded-token-6.png)
 
 Después de que **Power BI Embedded** envíe un informe al usuario, este puede ver el informe en su aplicación personalizada. Por ejemplo, si ha importado el [ejemplo .pbix de análisis de datos de venta](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), la aplicación web de ejemplo tendría el siguiente aspecto:
 
-![](media\\powerbi-embedded-get-started-sample\\sample-web-app.png)
+![](media/powerbi-embedded-get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Otras referencias
 * [Get started with Microsoft Power BI Embedded sample (Introducción al ejemplo de Microsoft Power BI Embedded)](power-bi-embedded-get-started-sample.md)

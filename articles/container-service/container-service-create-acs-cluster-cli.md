@@ -42,7 +42,7 @@ Tendrán que ir a este [vínculo](https://login.microsoftonline.com/common/oauth
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 ```azurecli
-az resource group create -n acsrg1 -l "westus"
+az group create -n acsrg1 -l "westus"
 ```
 
 ![Crear grupo de recursos de imagen](media/container-service-create-acs-cluster-cli/rg-create.png)
