@@ -150,7 +150,7 @@ Para habilitar el SSO entre aplicaciones de las que es el propietario debe hacer
 3. Solicitar los mismos permisos de llaveros para cada una de las aplicaciones.
 4. Indicar a los SDK de Microsoft Identity cuál es el llavero compartido que quiere que utilicemos.
 
-#### <a name="using-the-same-client-id-application-id-for-all-the-applications-in-your-suite-of-apps"></a>Uso del mismo identificador de cliente o aplicación para todas las aplicaciones de su conjunto
+#### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Uso del mismo identificador de cliente o aplicación para todas las aplicaciones de su conjunto
 A fin de que la plataforma Microsoft Identity sepa que puede compartir tokens entre las aplicaciones, es necesario que todas ellas tengan el mismo identificador de cliente o aplicación. Se trata del identificador único que se le suministró al registrar su primera aplicación en el portal.
 
 Quizás se pregunte cómo se puede identificar a las diferentes aplicaciones en el servicio Microsoft Identity si todas utilizan el mismo identificador. Pues bien, esto es posible gracias a los **URI de redirección**. Cada aplicación puede tener varios URI de redirección registrados en el portal de incorporación. Cada una de las aplicaciones de su conjunto tendrá diferentes URI de redirección. A continuación se muestra un ejemplo típico de su aspecto:

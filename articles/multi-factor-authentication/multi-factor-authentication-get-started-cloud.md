@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 01/04/2017
 ms.author: kgremban
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
@@ -25,8 +25,6 @@ En este artículo aprenderá a usar Azure Multi-Factor Authentication en la nube
 
 > [!NOTE]
 > La siguiente documentación proporciona información sobre cómo habilitar usuarios mediante el **Portal de Azure clásico**. Si busca información sobre cómo configurar Azure Multi-Factor Authentication para usuarios de Office 365, consulte [Configurar la autenticación multifactor para usuarios de Office 365](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6?ui=en-US&rs=en-US&ad=US).
-> 
-> 
 
 ![MFA en la nube](./media/multi-factor-authentication-get-started-cloud/mfa_in_cloud.png)
 
@@ -38,8 +36,6 @@ Los siguientes requisitos previos son necesarios para poder habilitar Azure Mult
 
 > [!NOTE]
 > Las licencias están disponibles para los usuarios con Azure MFA, Azure AD Premium o Enterprise Mobility Suite (EMS).  MFA se incluye en Azure AD Premium y en EMS. Si dispone de suficientes licencias, no necesitará crear un proveedor de autenticación.
-> 
-> 
 
 ## <a name="turn-on-two-step-verification-for-users"></a>Activación de la verificación en dos pasos para los usuarios
 Para solicitar la verificación en dos pasos de un usuario, cambie el estado del usuario de deshabilitado a habilitado.  Para más información sobre los estados de usuario, consulte [Estados de usuario en Azure Multi-Factor Authentication](multi-factor-authentication-get-started-user-states.md)
@@ -75,13 +71,11 @@ Para cambiar el [estado](multi-factor-authentication-whats-next.md) con [Azure A
 
 > [!IMPORTANT]
 > No es aconsejable mover usuarios directamente desde el estado deshabilitado al estado forzado. Las aplicaciones que no son de explorador dejarán de funcionar porque el usuario no ha pasado a través del proceso de registro de MFA y obtenido una [contraseña de aplicación](multi-factor-authentication-whats-next.md#app-passwords). Si tiene aplicaciones que no son de explorador y requiere contraseñas de aplicación, se recomienda que pase del estado deshabilitado al habilitado. Esto permitirá a los usuarios registrar y obtener sus contraseñas de aplicación. Después, podrá pasar al estado forzado.
-> 
-> 
 
 El uso de PowerShell sería una opción para habilitar usuarios de forma masiva. Actualmente no hay ninguna característica de habilitación de forma masiva en el Portal de Azure y debe seleccionar cada usuario individualmente. Si tiene muchos usuarios, esto puede suponer bastante trabajo. Con la creación de un script de PowerShell mediante las opciones que aparecen a continuación, puede recorrer en iteración una lista de usuarios y habilitarlos.
 
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
@@ -92,7 +86,7 @@ Aquí tiene un ejemplo:
     foreach ($user in $users)
     {
         $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "\*"
+        $st.RelyingParty = "*"
         $st.State = “Enabled”
         $sta = @($st)
         Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta

@@ -38,9 +38,9 @@ Desde esta página, puede examinar todos los blocs de notas en la galería, o pu
 
  Haga clic en cualquier bloc de notas para abrir la página de detalles del bloc de notas y obtenga más información. En esta página puede comentar, dar opiniones o formular preguntas en la sección de comentarios. Incluso puede compartirlo con amigos o colegas mediante las funcionalidades de uso compartido de LinkedIn o Twitter. También puede enviar por correo electrónico un vínculo al bloc de notas para invitar a otros usuarios a ver la página.
 
-![Compartir este elemento con amigos](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Compartir este elemento con amigos](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Agregar sus comentarios](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Agregar sus comentarios](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## <a name="download"></a>Descargar
 Puede descargar una copia de cualquier bloc de notas de la galería en el área de trabajo de Machine Learning Studio.
@@ -52,7 +52,7 @@ Para descargar una copia de un bloc de notas de la galería:
 2. Haga clic en **Abrir en Studio**
 3. Seleccionar la región y el área de trabajo que desea usar
    
-    ![Abrir Jupyter notebook desde la Galería](media\\machine-learning-gallery-jupyter-notebooks\\open-notebook-from-gallery.png)
+    ![Abrir Jupyter notebook desde la Galería](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-gallery.png)
 
 Al hacer clic en **Abrir en Studio**, el bloc de notas se carga en el área de trabajo de Machine Learning Studio y se abre (si es todavía no ha iniciado sesión en Studio, se le pedirá que inicie sesión con su cuenta de Microsoft antes de que el bloc de notas se copie en el área de trabajo). Puede encontrar más adelante el bloc de notas haciendo clic en **Blocs de notas** en el lado izquierdo de la página principal de Studio.
 
@@ -63,7 +63,7 @@ También puede abrir cualquiera de los mismos blocs de notas de la galería mien
 2. Seleccione **Bloc de notas**: se muestra una lista de blocs de notas de la galería que puede elegir, o puede encontrar un bloc de notas específico mediante el cuadro de búsqueda
 3. Señale con el mouse en un bloc de notas y seleccione **Abrir bloc de notas**
    
-    ![Abrir bloc de notas de la galería desde dentro de Machine Learning Studio](media\\machine-learning-gallery-jupyter-notebooks\\open-notebook-from-studio.png)
+    ![Abrir bloc de notas de la galería desde dentro de Machine Learning Studio](media/machine-learning-gallery-jupyter-notebooks/open-notebook-from-studio.png)
 
 Se descarga una copia del bloc de notas y se abre en el área de trabajo en la sección Jupyter Notebooks de Machine Learning Studio.
 El bloc de notas se mostrará, junto con los otros blocs de notas, en la página **Blocs de notas** de Studio (en la [página principal de Studio](https://studio.azureml.net/), haga clic en **Blocs de notas** a la izquierda).

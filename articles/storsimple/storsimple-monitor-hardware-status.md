@@ -87,7 +87,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 | Grupo de almacenamiento de la unidad de estado sólido |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de estado sólido del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado del controlador y si está en modo activo o en espera dentro del chasis. |
 | Sensores de temperatura en el controlador |E/S |Física |Controller |No |En numerosos sensores de temperatura como los sensores del módulo de E/S, de temperatura de la CPU, de DIMM y de PCI se muestra el estado, que indica si la temperatura se encuentra dentro de la tolerancia. |
-| ﻿Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador del SCSI acoplado en serie (SAS), que se usa para conectar el almacenamiento integrado al controlador. |
 | Conector SAS [0-1] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
 | Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
 | Núcleo del procesador |E/S |Física |Controller |No |Indica el estado de los núcleos del procesador en cada controlador. |
@@ -116,7 +116,7 @@ En la tabla siguiente se describen los componentes físicos y lógicos que conti
 | Almacenamiento local [HDD] |N/D |Lógicos |Compartido |N/D |Muestra el estado del grupo de almacenamiento lógico que se crea desde las unidades de disco duro del dispositivo. |
 | Controller [0-1] [estado] |E/S |Física |Controller |Sí |Muestra el estado de los controladores en el módulo EBOD. |
 | Sensores de temperatura en el EBOD |E/S |Física |Controller |No |En numerosos sensores de temperatura de cada controlador se muestra el estado, que indica si la temperatura está dentro de la tolerancia. |
-| ﻿Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
+| Ampliador SAS |E/S |Física |Controller |No |Indica el estado del ampliador SAS, que se usa para conectar el almacenamiento integrado al controlador. |
 | Conector SAS [0-2] |E/S |Física |Controller |No |Indica el estado de cada conector SAS, que se usa para conectar el almacenamiento integrado al ampliador SAS. |
 | Interconexión de plano medio de SBB |E/S |Física |Controller |No |Indica el estado del conector de plano medio, que se usa para conectar cada controlador al plano medio. |
 | Potencia de la electrónica del revestimiento |E/S |Física |Controller |No |Indica el estado del sistema de alimentación que usa el revestimiento. |

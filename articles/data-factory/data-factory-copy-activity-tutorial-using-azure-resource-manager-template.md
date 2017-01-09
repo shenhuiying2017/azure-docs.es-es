@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: d175d3d4d7d7a58f071dab0f32e3fdd3cb3146ce
-ms.openlocfilehash: 8020a4863f0432480dd985870676a714d9abd52e
+ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
+ms.openlocfilehash: 9ad4378ab27433858d14237fe451b16690711f3a
 
 
 ---
@@ -38,7 +38,7 @@ En este tutorial se muestra cómo crear y supervisar una factoría de datos de A
 ## <a name="prerequisites"></a>Requisitos previos
 * Consulte [el tutorial de introducción y de requisitos previos](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) y complete los pasos de los **requisitos previos**.
 * Siga las instrucciones del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar la última versión de Azure PowerShell en su equipo. En este tutorial, utiliza PowerShell para implementar las entidades de Data Factory. 
-* (Opcional) Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+* (Opcional) Para más información sobre las plantillas de Azure Resource Manager (ARM), consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ## <a name="in-this-tutorial"></a>Apartados de este tutorial
 En este tutorial, va a crear una factoría de datos con las siguientes entidades de Data Factory:
@@ -583,6 +583,6 @@ También puede volver a usar la plantilla para llevar a cabo tareas repetidas. P
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

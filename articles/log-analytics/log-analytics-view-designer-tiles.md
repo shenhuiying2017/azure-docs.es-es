@@ -131,7 +131,7 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 | Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
 | Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
 
-## <a name="line-chart-callout-tile"></a>Icono de Llamada de gráfico de líneas
+## <a name="line-chart--callout-tile"></a>Icono de Llamada de gráfico de líneas
 El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas con varias series de una consulta de registro en un periodo y una llamada con un valor resumido.  
 
 ![Icono de Llamada de gráfico de líneas](media/log-analytics-view-designer/tile-line-chart-callout.png)

@@ -120,7 +120,7 @@ Para realizar operaciones de consulta, debe especificar a una resolución de cla
 
 La biblioteca de cliente de almacenamiento espera la KEK proporcionada y la resolución de claves para implementar la interfaz siguiente. [Almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) con la administración de KEK de Python está pendiente y se integrará a esta biblioteca cuando se complete.
 
-## <a name="client-api-interface"></a>Interfaz/API de cliente
+## <a name="client-api--interface"></a>Interfaz/API de cliente
 Una vez que se crea un objeto de servicio de almacenamiento (es decir, blockblobservice), el usuario puede asignar valores a los campos que constituyen una directiva de cifrado: key_encryption_key, key_resolver_function y require_encryption. Los usuarios pueden proporcionar solo una KEK, solo una resolución o ambos. key_encryption_key es el tipo de clave básico que se identifica mediante un identificador de claves y que proporciona la lógica para la encapsulación y desencapsulación. key_resolver_function se usa para resolver una clave durante el proceso de descifrado. Devuelve una KEK válida en función de un identificador de clave. Esto ofrece a los usuarios la posibilidad de elegir entre varias claves que se administran en varias ubicaciones.
 
 La KEK debe implementar los métodos siguientes para cifrar correctamente los datos:

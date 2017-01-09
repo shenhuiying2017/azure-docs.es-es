@@ -58,7 +58,7 @@ Muestra una lista de las consultas de búsqueda de registros.  El usuario puede 
 | Consulta de búsqueda |La consulta que se ejecutará. |
 | Nombre descriptivo |Nombre descriptivo de la consulta que se mostrará al usuario. |
 
-## <a name="number-list-part"></a>Elemento Number & list (Número y lista)
+## <a name="number--list-part"></a>Elemento Number & list (Número y lista)
 El encabezado tiene un solo número que muestra la cantidad de registros de una consulta de búsqueda de registros.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo.
 
 ![Vista Lista de consultas](media/log-analytics-view-designer/view-number-list.png)
@@ -86,7 +86,7 @@ El encabezado tiene un solo número que muestra la cantidad de registros de una 
 | **Lista** |**> Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
 
-## <a name="two-numbers-list-part"></a>Elemento Dos números y lista
+## <a name="two-numbers--list-part"></a>Elemento Dos números y lista
 El encabezado tiene dos números que muestran la cantidad de registros de consultas de búsqueda de registros independientes.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo.
 
 ![Vista Dos números y lista](media/log-analytics-view-designer/view-two-numbers-list.png)
@@ -115,7 +115,7 @@ El encabezado tiene dos números que muestran la cantidad de registros de consul
 | **Lista** |**> Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
 
-## <a name="donut-list-part"></a>Elemento Donut & list (Anillo y lista)
+## <a name="donut--list-part"></a>Elemento Donut & list (Anillo y lista)
 El encabezado muestra un solo número resumido obtenido a partir de una columna de valor de una consulta de registros.  El anillo muestra gráficamente los resultados de los tres registros principales.
 
 ![Vista Donut & list (Anillo y lista)](media/log-analytics-view-designer/view-donut-list.png)
@@ -155,7 +155,7 @@ El encabezado muestra un solo número resumido obtenido a partir de una columna 
 | **Lista** |**> Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
 
-## <a name="two-timelines-list-part"></a>Elemento Dos escalas de tiempo y lista
+## <a name="two-timelines--list-part"></a>Elemento Dos escalas de tiempo y lista
 El encabezado muestra los resultados de dos consultas de registro en un periodo como gráficos de columnas con una llamada que presenta un solo número resumido obtenido a partir de una columna de valor de una consulta de registro.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo.
 
 ![Vista Dos escalas de tiempo y lista](media/log-analytics-view-designer/view-two-timelines-list.png)
@@ -206,7 +206,7 @@ El encabezado muestra texto estático y un vínculo opcional.  La lista muestra 
 | Título |Texto que se muestra en el título de cada elemento. |
 | Contenido |Texto que se muestra en cada elemento. |
 
-## <a name="line-chart-callout-list-part"></a>Elemento Gráfico de líneas, llamada, lista
+## <a name="line-chart-callout--list-part"></a>Elemento Gráfico de líneas, llamada, lista
 El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un periodo y una llamada con un valor resumido.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo.
 
 ![Vista Gráfico de líneas, llamada, lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
@@ -245,7 +245,7 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | **Lista** |**> Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione esta opción para habilitar los umbrales.  Consulte [Configuración común](#thresholds) para obtener más información. |
 
-## <a name="line-chart-list-part"></a>Elemento gráfico de líneas y lista
+## <a name="line-chart--list-part"></a>Elemento gráfico de líneas y lista
 El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un periodo.  La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un periodo.
 
 ![Vista Gráfico de líneas y lista](media/log-analytics-view-designer/view-line-chart-callout-list.png)
@@ -304,7 +304,7 @@ Muestra tres gráficos de líneas independientes con varias series de una consul
 ## <a name="common-settings"></a>Configuración común
 En las secciones siguientes se describe la configuración común a varios elementos de visualización.
 
-### <a name="a-namename-value-separatorname-value-separatora"></a><a name="name-value-separator">Name & Value Separator</a> (Separador de nombre y valor)
+### <a name="a-namename-value-separatorname--value-separatora"></a><a name="name-value-separator">Name & Value Separator</a> (Separador de nombre y valor)
 Delimitador de carácter único en caso de que quiera analizar la propiedad text de una consulta de lista en varios valores.  Si especifica un delimitador, puede proporcionar nombres para cada campo separándolos con el mismo delimitador del cuadro Nombre.
 
 Por ejemplo, una propiedad llamada "*location*" que incluya valores como *Redmond-Building41* y *Bellevue-Building12*.  Puede especificar "–" para el separador de nombre y valor, y *City-Building* para el nombre.  De este modo, se analizaría cada valor en dos propiedades denominadas "*City*" y "*Building*". 

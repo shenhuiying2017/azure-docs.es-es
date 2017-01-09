@@ -122,7 +122,7 @@ En la siguiente tabla se comparan los atributos más importantes de STLF y LTLF:
 
 Como se puede ver en esta tabla, es muy importante distinguir entre escenarios de pronóstico a corto y largo plazo, ya que representan diferentes necesidades empresariales y pueden tener patrones de implementación y consumo diferentes.
 
-### <a name="example-use-case-1-esmart-systems-overload-optimization"></a>Caso de uso de ejemplo 1: eSmart Systems (optimización de la sobrecarga)
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Caso de uso de ejemplo 1: eSmart Systems (optimización de la sobrecarga)
 Un rol importante de una [red de distribución inteligente de electricidad](https://en.wikipedia.org/wiki/Smart_grid) es optimizar y ajustar de forma dinámica y constante los cambiantes patrones de consumo. El consumo de energía puede verse afectado por los cambios a corto plazo que suelen causar principalmente las fluctuaciones de temperatura (*por ejemplo,*, se usa más electricidad para la calefacción o el aire condición). Al mismo tiempo, el consumo eléctrico también se ve influenciado por las tendencias a largo plazo. Dichas tendencias pueden incluir los efectos de las estacionalidad, los días festivos nacionales, el crecimiento del consumo a largo plazo e incluso factores económicos como el índice de consumo, el precio de petróleo y el PIB.
 
 En este caso de uso, [eSmart](http://www.esmartsystems.com/) deseaba implementar una solución basada en la nube que permitiera predecir la tendencia de una situación de sobrecarga en cualquier subestación dada de la red de distribución de electricidad. En concreto, eSmart deseaba identificar las subestaciones que probablemente se sobrecarguen en la próxima hora, con el fin de poderse tomar una acción inmediata para evitar dicha situación, o resolverla.
@@ -139,7 +139,7 @@ Los modelos a corto y a largo plazo se implementan individualmente en cada subes
 
 [Aquí](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945)puede encontrar más información acerca de este caso de uso.
 
-#### <a name="use-case-qualification-criteria-prerequisites"></a>Criterios de cualificación de casos de uso: requisitos previos
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Criterios de cualificación de casos de uso: requisitos previos
 El principal punto fuerte de Cortana Intelligence radica en su eficaz capacidad para implementar y escalar soluciones que giran en torno al aprendizaje automático. Está diseñado para admitir miles de predicciones que se ejecutan simultáneamente. Se puede escalar automáticamente para seguir un patrón de consumo cambiante. Por tanto el enfoque de la solución se encuentra en la precisión y el rendimiento de cálculo. Por ejemplo, una compañía de servicios está interesada en la producción del pronóstico preciso de la demanda de energía en la próxima hora y en cada hora del día. Por otra parte, nos interesa menos responder la pregunta de por qué la demanda se prevé que sea como es (el propio modelo se encargará de eso).
 
 Por lo tanto, es importante tener en cuenta que no todos los casos de uso y problemas empresariales pueden resolverse de forma eficaz mediante el aprendizaje automático.

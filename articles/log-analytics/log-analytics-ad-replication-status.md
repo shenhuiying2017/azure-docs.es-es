@@ -4,7 +4,7 @@ description: "El paquete de la solución de Estado de replicación de Active Dir
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -45,15 +45,15 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS,
 1. Compruebe que el equipo es miembro del dominio que desea supervisar mediante la solución de Estado de replicación de AD.
 2. [Conecte el equipo Windows a OMS](log-analytics-windows-agents.md) o [conéctelo con su entorno existente de Operations Manager a OMS](log-analytics-om-agents.md), si no está conectado aún.
 3. En el equipo, configure la siguiente clave del Registro:
-   
+
    * Clave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
    * Valor: **IsTarge**
    * Datos del valor: **true**
-   
+
    > [!NOTE]
    > Estos cambios no surtirán efecto hasta que reinicie el servicio Microsoft Monitoring Agent (HealthService.exe).
-   > 
-   > 
+   >
+   >
 
 ## <a name="understanding-replication-errors"></a>Descripción de los errores de replicación
 Una vez que se hayan enviado los datos de Estado de replicación de AD a OMS, verá un icono similar al siguiente en el panel de OMS que indica cuántos errores de replicación hay actualmente.  
@@ -97,8 +97,8 @@ Como se indicó anteriormente, el icono del panel de la solución de Estado de r
 
 > [!NOTE]
 > Todos los cálculos de porcentaje de la vigencia de objetos de desecho se basan en la vigencia de objetos de desecho real para el bosque de Active Directory, por lo que puede confiar en que los porcentajes son precisos, incluso si ha configurado un valor personalizado para la vigencia de objetos de desecho.
-> 
-> 
+>
+>
 
 ### <a name="ad-replication-status-details"></a>Detalles del Estado de replicación de AD
 Al hacer clic en cualquier elemento de una de las listas, verá detalles adicionales sobre el mismo utilizando la búsqueda de registros. Los resultados se filtran para mostrar solo los errores relacionados con ese elemento. Por ejemplo, si hace clic en el primer controlador de dominio que aparece en **Estado del servidor de destino (ADDC02)**, podrá ver los resultados de búsqueda filtrados para mostrar errores con ese controlador de dominio cuando figura como servidor de destino:
@@ -150,7 +150,6 @@ Si no desea conectar ninguno de los controladores de dominio directamente a OMS 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Utilice [Búsquedas de registros en Log Analytics](log-analytics-log-searches.md) para ver datos detallados de estado de replicación de Active Directory.
-
 
 
 

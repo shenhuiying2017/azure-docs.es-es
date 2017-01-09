@@ -46,7 +46,7 @@ Los [flujos de trabajo predeterminados](media-services-workflow-designer.md#exis
 
 Los vídeos siguientes muestran cómo usar el diseñador.
 
-### <a name="day-1-getting-started"></a>Día 1 – Introducción
+### <a name="day-1--getting-started"></a>Día 1 – Introducción
 El vídeo del día 1 trata de:
 
 * Información general del diseñador

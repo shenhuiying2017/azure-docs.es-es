@@ -201,7 +201,7 @@ OData XML
       </entry>
     </feed>
 
-### <a name="53-get-all-models"></a>5.3.    Obtener todos los modelos
+### <a name="53----get-all-models"></a>5.3.    Obtener todos los modelos
 Recupera todos los modelos del usuario actual.
 
 | Método HTTP | URI |
@@ -266,7 +266,7 @@ OData XML
         </entry>
     </feed>
 
-### <a name="54-update-model"></a>5.4.    Actualizar modelo
+### <a name="54----update-model"></a>5.4.    Actualizar modelo
 Puede actualizar la descripción del modelo o el identificador de compilación activa.<br>
 <ins>Id. de compilación activa</ins>: cada compilación para cada modelo tiene un identificador de compilación. El Id. de compilación activa es la primera compilación correcta de cada nuevo modelo. Una vez que tiene un Id. de compilación activa y realiza compilaciones adicionales para el mismo modelo, necesitará establecerlo explícitamente como el Id. de compilación predeterminado si lo desea. Cuando se usan las recomendaciones, si no especifica el identificador de compilación que desea usar, se utilizará automáticamente el valor predeterminado.<br>
 Este mecanismo le permite tener un modelo de recomendación en producción para compilar nuevos modelos y probarlos antes de promoverlos a producción.
@@ -286,7 +286,7 @@ Este mecanismo le permite tener un modelo de recomendación en producción para 
 
 código de estado HTTP: 200
 
-### <a name="55-delete-model"></a>5.5.    Eliminar modelo
+### <a name="55----delete-model"></a>5.5.    Eliminar modelo
 Elimina un modelo existente por el Id.
 
 | Método HTTP | URI |
@@ -327,7 +327,7 @@ OData XML
     </feed>
 
 ## <a name="6-model-advanced"></a>6. Modelo avanzado
-### <a name="61-model-data-insight"></a>6.1.    Modelo de detalles de datos
+### <a name="61----model-data-insight"></a>6.1.    Modelo de detalles de datos
 Devuelve datos estadísticos sobre los datos de uso con los que se compiló este modelo.
 
 Disponible solo para la compilación de recomendación.
@@ -563,7 +563,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="62-model-insight"></a>6.2.    Perspectiva de modelo
+### <a name="62----model-insight"></a>6.2.    Perspectiva de modelo
 Devuelve información del modelo sobre la compilación activa o (si se indica) sobre una compilación concreta.
 
 Disponible solo para la compilación de recomendación.
@@ -644,7 +644,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="63-get-model-sample"></a>6.3.    Obtener el ejemplo de modelo
+### <a name="63----get-model-sample"></a>6.3.    Obtener el ejemplo de modelo
 Obtiene un ejemplo del modelo de recomendación.
 
 | Método HTTP | URI |
@@ -689,7 +689,7 @@ Estos son los tipos de reglas admitidas:
 * <strong>FeatureWhiteList</strong>: le permite recomendar solo los elementos que tienen valores de característica específicos.
 * <strong>PerSeedBlockList</strong>; le permite proporcionar por elemento una lista de elementos que no se pueden devolver como resultados de recomendación.
 
-### <a name="71-get-model-rules"></a>7.1.    Obtener reglas de modelo
+### <a name="71----get-model-rules"></a>7.1.    Obtener reglas de modelo
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetModelRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br>Ejemplo:<br>`<rootURI>/GetModelRules?modelId=%271cac7b76-def4-41f1-bc81-29b806adb1de%27&apiVersion=%271.0%27` |
@@ -746,7 +746,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="72-add-rule"></a>7.2.    Agregar regla
+### <a name="72----add-rule"></a>7.2.    Agregar regla
 | Método HTTP | URI |
 |:--- |:--- |
 | POST |`<rootURI>/AddRule?apiVersion=%271.0%27` |
@@ -803,7 +803,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="73-delete-rule"></a>7.3.    Eliminar regla
+### <a name="73----delete-rule"></a>7.3.    Eliminar regla
 | Método HTTP | URI |
 |:--- |:--- |
 | DELETE |`<rootURI>/DeleteRule?modelId=%27<model_id>%27&filterId=%27<filter_Id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`DeleteRule?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&filterId=%271000011%27&apiVersion=%271.0%27` |
@@ -820,7 +820,7 @@ OData XML
 
 código de estado HTTP: 200
 
-### <a name="74-delete-all-rules"></a>7.4.    Eliminar todas las reglas
+### <a name="74----delete-all-rules"></a>7.4.    Eliminar todas las reglas
 | Método HTTP | URI |
 |:--- |:--- |
 | DELETE |`<rootURI>/DeleteAllRules?modelId=%27<model_id>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`DeleteAllRules?modelId=%2724024f7e-b45c-419e-bfa2-dfd947e0d253%27&apiVersion=%271.0%27` |
@@ -837,7 +837,7 @@ código de estado HTTP: 200
 código de estado HTTP: 200
 
 ## <a name="8-catalog"></a>8. Catálogo
-### <a name="81-import-catalog-data"></a>8.1.    Importar datos de catálogo
+### <a name="81----import-catalog-data"></a>8.1.    Importar datos de catálogo
 Si carga varios archivos de catálogo para el mismo modelo con varias llamadas, solo insertaremos los nuevos elementos de catálogo. Los elementos existentes permanecerán con los valores originales. Los datos del catálogo no se pueden actualizar con este método.
 
 Los datos del catálogo deben seguir el siguiente formato:
@@ -902,7 +902,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="82-get-catalog"></a>8.2.    Obtener catálogo
+### <a name="82----get-catalog"></a>8.2.    Obtener catálogo
 Recupera todos los elementos del catálogo.
 El catálogo se recuperará de página en página. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
 
@@ -1005,7 +1005,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="83-get-catalog-items-by-token"></a>8.3.    Obtener elementos de catálogo por token
+### <a name="83----get-catalog-items-by-token"></a>8.3.    Obtener elementos de catálogo por token
 | Método HTTP | URI |
 |:--- |:--- |
 | GET |`<rootURI>/GetCatalogItemsByToken?modelId=%27<modelId>%27&token=%27<token>%27&apiVersion=%271.0%27`<br><br>Ejemplo:<br>`GetCatalogItemsByToken?modelId=%270dbb55fa-7f11-418d-8537-8ff2d9d1d9c6%27&token=%27Cla%27&apiVersion=%271.0%27` |
@@ -1059,7 +1059,7 @@ OData XML
     </feed>
 
 ## <a name="9-usage-data"></a>9. Datos de uso
-### <a name="91-import-usage-data"></a>9.1.    Importar datos de uso
+### <a name="91----import-usage-data"></a>9.1.    Importar datos de uso
 #### <a name="911-uploading-file"></a>9.1.1. Carga de archivos
 En esta sección se muestra cómo cargar datos de uso mediante un archivo. Puede llamar a esta API varias veces con datos de uso. Todos los datos de uso se guardarán para todas las llamadas.
 
@@ -1212,7 +1212,7 @@ En esta sección se muestra cómo enviar eventos en tiempo real a las recomendac
 
 **Respuesta**: código de estado HTTP: 200
 
-### <a name="92-list-model-usage-files"></a>9.2.    Mostrar archivos de uso de modelo
+### <a name="92----list-model-usage-files"></a>9.2.    Mostrar archivos de uso de modelo
 Recupera los metadatos de todos los archivos de uso de modelo.
 Los archivos de uso se recuperarán de página en página. Cada página contiene 100 elementos. Si desea obtener elementos en un índice determinado, puede utilizar el parámetro de OData $skip. Por ejemplo, si desea obtener elementos a partir de la posición 100, agregue el parámetro $skip=100 a la solicitud.
 
@@ -1277,7 +1277,7 @@ OData XML
     </entry>
 </feed>
 
-### <a name="93-get-usage-statistics"></a>9.3.    Obtener estadísticas de uso
+### <a name="93----get-usage-statistics"></a>9.3.    Obtener estadísticas de uso
 Obtiene estadísticas de uso.
 
 | Método HTTP | URI |
@@ -1362,7 +1362,7 @@ OData XML
     </entry>
     </feed>
 
-### <a name="94-get-usage-file-sample"></a>9.4.    Obtener ejemplo de archivo de uso
+### <a name="94----get-usage-file-sample"></a>9.4.    Obtener ejemplo de archivo de uso
 Recupera los primeros 2 KB de contenido de archivos de uso.
 
 | Método HTTP | URI |
@@ -1388,7 +1388,7 @@ Se devuelve una respuesta en formato de texto sin formato:
 </pre>
 
 
-### <a name="95-get-model-usage-file"></a>9.5.    Obtener el archivo de uso de modelo
+### <a name="95----get-model-usage-file"></a>9.5.    Obtener el archivo de uso de modelo
 Recupera el contenido completo del archivo de uso.
 
 | Método HTTP | URI |
@@ -1414,7 +1414,7 @@ Se devuelve una respuesta en formato de texto sin formato:
 85526,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 210926,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 116866,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 177458,2406E770-769C-4189-89DE-1C9283F93A96,2014/11/02T13:40:15,True,1 274004,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 123883,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 37712,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 152249,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 250948,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 235588,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 158254,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 271195,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 141157,21BF8088-B6C0-4509-870C-E1C7AC78304A,2014/11/02T13:40:15,True,1 171118,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 225087,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 244881,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 50547,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 213090,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 260655,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 72214,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 36326,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189336,3BB5CB44-D143-4BDD-A55C-443964BF4B23,2014/11/02T13:40:15,True,1 189334,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260655,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 162100,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 54946,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 260965,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 102758,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 112602,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 163925,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 262998,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1 144717,552A1940-21E4-4399-82BB-594B46D7ED54,2014/11/02T13:40:15,True,1
 </pre>
 
-### <a name="96-delete-usage-file"></a>9.6.    Eliminar archivo de uso
+### <a name="96----delete-usage-file"></a>9.6.    Eliminar archivo de uso
 Elimina el archivo de uso del modelo especificado.
 
 | Método HTTP | URI |
@@ -1433,7 +1433,7 @@ Elimina el archivo de uso del modelo especificado.
 
 código de estado HTTP: 200
 
-### <a name="97-delete-all-usage-files"></a>9.7.    Eliminar todos los archivos de uso
+### <a name="97----delete-all-usage-files"></a>9.7.    Eliminar todos los archivos de uso
 Elimina todos los archivos de uso del modelo.
 
 | Método HTTP | URI |
@@ -2652,7 +2652,7 @@ La respuesta incluye una entrada por cada elemento recomendado. Cada entrada tie
 
 Vea un ejemplo de respuesta en 12.1
 
-### <a name="127-get-user-recommendations-of-a-specific-build"></a>12.7. Obtención de recomendaciones del usuario (de una compilación concreta)
+### <a name="127-get-user-recommendations--of-a-specific-build"></a>12.7. Obtención de recomendaciones del usuario (de una compilación concreta)
 Obtenga recomendaciones de una compilación concreta de tipo "Recomendación" o "Fbt".
 
 La API devolverá una lista de elementos predichos según el historial de uso del usuario (usados en la compilación específica).

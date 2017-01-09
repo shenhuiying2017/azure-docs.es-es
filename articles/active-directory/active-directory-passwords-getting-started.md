@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 10/05/2016
 ms.author: asteen
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 93e02bc36c0502623316d6b896dd802ac8bdc284
+ms.sourcegitcommit: e2e5c302d04a41386bfc98dd4e3f8546265dd9f3
+ms.openlocfilehash: e686952a7363e4758f8a3532b54cf5e7f05ce865
 
 
 ---
@@ -185,7 +185,7 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
   > Si ejecuta una versión anterior de Windows Server 2008 o 2008 R2, puede seguir utilizando esta característica, pero necesita [descargar e instalar KB 2386717](https://support.microsoft.com/kb/2386717) antes de poder aplicar la directiva de contraseña de AD local en la nube.
   > 
   > 
-* Tiene instalada la herramienta Azure AD Connect y preparó el entorno de AD para que se sincronice con la nube.  Para obtener más instrucciones, consulte [Uso de la infraestructura de identidad local en la nube](active-directory-aadconnect.md).
+* Tiene instalada la herramienta Azure AD Connect y preparó el entorno de AD para que se sincronice con la nube.  Para obtener más instrucciones, consulte [Uso de la infraestructura de identidad local en la nube](connect/active-directory-aadconnect.md).
   
   > [!NOTE]
   > Antes de probar la escritura diferida de contraseñas, asegúrese de finalizar primero una importación y sincronización completas de AD y Azure AD en Azure AD Connect.
@@ -199,7 +199,7 @@ Antes de poder habilitar y utilizar la escritura diferida, debe asegurarse de co
   > 
 
 ### <a name="step-1-download-the-latest-version-of-azure-ad-connect"></a>Paso 1: descargar la versión más reciente de Azure AD Connect
-La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior.  La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](active-directory-aadconnect.md#install-azure-ad-connect).
+La escritura diferida de contraseñas está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0419.0911** o posterior.  La escritura diferida de contraseñas con desbloqueo automático de cuenta está disponible en las versiones de Azure AD Connect o en la herramienta Sincronización de Azure AD con el número de versión **1.0.0485.0222** o posterior. Si ejecuta una versión anterior, al menos actualice a esta versión antes de continuar. [Haga clic aquí para descargar la versión más reciente de Azure AD Connect](connect/active-directory-aadconnect.md#install-azure-ad-connect).
 
 #### <a name="to-check-the-version-of-azure-ad-sync"></a>Para comprobar la versión de Sincronización de Azure AD
 1. Navegue a **%ProgramFiles%\Azure Active Directory Sync\**.
@@ -236,7 +236,7 @@ Ahora que descargó la herramienta Azure AD Connect, está listo para habilitar 
 #### <a name="to-enable-password-writeback-using-windows-powershell"></a>Para habilitar la escritura diferida de contraseñas con Windows PowerShell
 1. En el equipo con **Sincronización de directorios**, abra una nueva ventana de **Windows PowerShell con privilegios elevados**.
 2. Si el módulo todavía no está cargado, escriba el comando `import-module ADSync` para cargar los cmdlets de Azure AD Connect en la sesión actual.
-3. Para obtener la lista de los conectores de Azure AD del sistema, ejecute el cmdlet `Get-ADSyncConnector` y almacene los resultados en `$aadConnectorName`, como `$connectors = ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
+3. Para obtener la lista de los conectores de Azure AD del sistema, ejecute el cmdlet `Get-ADSyncConnector` y almacene los resultados en `$aadConnectorName`, como `$connectors = Get-ADSyncConnector|where-object {$\_.name -like "\*AAD"}`
 4. Para obtener el estado actual de la escritura diferida del conector actual, ejecute el siguiente cmdlet: `Get-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name`
 5. Habilite la escritura diferida de contraseñas mediante la ejecución del cmdlet: `Set-ADSyncAADPasswordResetConfiguration –Connector $aadConnectorName.name –Enable $true`
 
@@ -256,12 +256,40 @@ También puede comprobar que el servicio se ha instalado correctamente. Para ell
   ![][023]
 
 ### <a name="step-3-configure-your-firewall"></a>Paso 3: configurar el firewall
-Una vez que haya habilitado la escritura diferida de contraseñas en la herramienta Azure AD Connect, deberá asegurarse de que el servicio se puede conectar a la nube.
+Después de haber habilitado la Escritura diferida de contraseñas, debe asegurarse de que la máquina que ejecuta Azure AD Connect puede llegar a los servicios en la nube de Microsoft para recibir las solicitudes de escritura diferida de contraseñas. Este paso implica actualizar las reglas de conexión de los dispositivos de red (servidores proxy, firewalls, etc.) para permitir conexiones salientes a determinadas direcciones URL propiedad de Microsoft y a direcciones IP a través de puertos de red específicos. Estos cambios pueden variar en función de la versión de la herramienta Azure AD Connect. Para obtener más contexto, puede leer más sobre el [Funcionamiento de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#how-password-writeback-works) y el [Modelo de seguridad de la escritura diferida de contraseñas](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Una vez que finalice la instalación, si bloquea las conexiones salientes desconocidas en el entorno, también deberá agregar las reglas siguientes al firewall. Asegúrese de reiniciar su máquina con AAD Connect después de realizar estos cambios:
-   * Permita conexiones salientes en el puerto TCP 443
-   * Permita conexiones salientes a https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   * Cuando use un servidor proxy o tenga problemas generales de conectividad, permita conexiones salientes en el puerto 9350-9354 y el puerto TCP 5671.
+#### <a name="why-do-i-need-to-do-this"></a>¿Por qué tengo que hacerlo?
+
+Para que la Escritura diferida de contraseñas funcione correctamente, la máquina que ejecuta Azure AD Connect debe poder establecer conexiones HTTPS salientes a **.servicebus.windows.net* y la dirección IP específica usada por Azure, tal como se define en la [lista de intervalos de IP del centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+Para la herramienta Azure AD Connect, versiones 1.0.8667.0 y posteriores:
+
+- **Opción 1:** permitir todas las conexiones HTTPS salientes a través del puerto 443 (mediante la dirección URL o la dirección IP).
+    - Cuándo utilizarlo:
+        - Utilice esta opción si desea tener la configuración más sencilla, que no es necesario actualizar a medida que cambian los intervalos IP del centro de datos de Azure a lo largo del tiempo.
+    - Pasos necesarios:
+        - Permitir todas las conexiones HTTPS salientes a través del puerto 443 mediante la dirección URL o la dirección IP.
+<br><br>
+- **Opción 2:** permitir conexiones HTTPS salientes a direcciones URL e intervalos de IP específicos.
+    - Cuándo utilizarlo:
+        - Use esta opción si está en un entorno de red restringido, o bien si no se siente cómodo al permitir conexiones salientes.
+        - En esta configuración, para que la escritura diferida de contraseñas continúe funcionando, debe asegurarse de que los dispositivos de conexión de red se actualizan cada semana con las direcciones IP más recientes de la lista de intervalos de IP del centro de datos de Microsoft Azure. Estos intervalos de IP están disponibles como un archivo XML que se actualiza todos los miércoles (hora del Pacífico), y entran en vigor el lunes siguiente (hora del Pacífico).
+    - Pasos necesarios:
+        - Permitir todas las conexiones HTTPS salientes a *.servicebus.windows.net.
+        - Permitir todas las conexiones HTTPS salientes a todas las direcciones IP de la lista de intervalos de IP del centro de datos de Microsoft Azure y mantener esta configuración actualizada semanalmente.
+
+> [!NOTE]
+> Si ha configurado la Escritura diferida de contraseñas, sigue las instrucciones anteriores y no ve ningún error en el registro de eventos de Azure AD Connect, pero recibe errores de conectividad al realizar pruebas, puede ser que un dispositivo de conexión de red en su entorno esté bloqueando las conexiones HTTPS a direcciones IP. Por ejemplo, aunque se permita una conexión a *https://*.servicebus.windows.net*, es posible que una determinada dirección IP de ese intervalo esté bloqueada. Para resolver este problema, necesita configurar el entorno de red para permitir todas las conexiones HTTPS salientes a través del puerto 443 a cualquier dirección URL o dirección IP (opción 1 anterior) o trabajar con el equipo de red para permitir explícitamente las conexiones HTTPS a direcciones IP específicas (opción 2 anterior).
+
+**Para versiones anteriores:**
+
+- Permitir conexiones TCP salientes a través de los puertos 443, 9350-9354 y 5671. 
+- Permitir conexiones salientes a *https://ssprsbprodncu-sb.accesscontrol.windows.net/*.
+
+> [!NOTE]
+> Si está en una versión de Azure AD Connect anterior a la 1.0.8667.0, Microsoft recomienda encarecidamente actualizar a la [versión más reciente de Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), que incluye una serie de mejoras de red para la escritura diferida, con el fin de facilitar la configuración.
+
+Una vez configurados los dispositivos de red, reinicie el equipo que ejecuta la herramienta Azure AD Connect.
 
 ### <a name="step-4-set-up-the-appropriate-active-directory-permissions"></a>Paso 4: configurar los permisos adecuados de Active Directory
 En todos los bosques que contengan usuarios cuyas contraseñas se van a restablecer, si X es la cuenta que se especificó para ese bosque en el Asistente para configuración (durante la configuración inicial), X debe contar con los derechos extendidos **Restablecer contraseña**, **Cambiar contraseña**, **Escribir permisos** en `lockoutTime` y **Escribir permisos** en `pwdLastSet` sobre el objeto raíz de cada dominio de dicho bosque. El derecho debe estar marcado como heredado por todos los objetos de usuario.  
@@ -365,6 +393,6 @@ A continuación se muestran vínculos a todas las páginas de documentación de 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

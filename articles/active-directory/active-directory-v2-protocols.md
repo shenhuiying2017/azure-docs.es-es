@@ -20,7 +20,7 @@ ms.openlocfilehash: 08bb7e14c0eac8003df7ea867fbd93f86475d0e8
 
 
 ---
-# <a name="v20-protocols---oauth-20-openid-connect"></a>Protocolos de v2.0: OAuth 2.0 y OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>Protocolos de v2.0: OAuth 2.0 y OpenID Connect
 El punto de conexión v2.0 puede usar Azure AD para identidad como servicio con protocolos estándar del sector, OpenID Connect y OAuth 2.0.  Aunque el servicio sea compatible con el estándar, puede haber diferencias sutiles entre dos implementaciones cualquiera de estos protocolos.  La información que aquí se describe será útil si decide escribir su código mediante el envío y la administración directos de solicitudes HTTP o mediante el uso de una biblioteca de código abierto de terceros, en lugar de usar una de nuestras bibliotecas de código abierto.
 <!-- TODO: Need link to libraries above -->
 

@@ -410,7 +410,7 @@ Cuando haya terminado de crear modelos, seleccione la pestaña **Log** (Registra
 >
 >
 
-## <a name="postgresql-squirrel-sql"></a>PostgreSQL & Squirrel SQL
+## <a name="postgresql--squirrel-sql"></a>PostgreSQL & Squirrel SQL
 La DSVM viene con PostgreSQL instalado. PostgreSQL es una base de datos relacional sofisticada de código abierto. En esta sección se muestra cómo cargar nuestro conjunto de datos de correo no deseado en PostgreSQL y luego consultarlo.
 
 Antes de cargar los datos, debe permitir la autenticación de contraseña desde el host local. En un símbolo del sistema:

@@ -172,7 +172,7 @@ Tras la reprotección, la máquina virtual se mueve a la versión de conmutació
 2. En **Confirmar conmutación por error** , compruebe la dirección de conmutación por error (a Azure) y seleccione el punto de recuperación que quiere usar para esta (el último). Si habilitó **Multi-VM** (Varias máquinas virtuales) al configurar las propiedades de replicación, puede realizar la recuperación al último punto de recuperación coherente con el bloqueo o la aplicación. Haga clic en la marca de verificación para iniciar la conmutación por error.
 3. Durante la conmutación por error, se cerrarán las máquinas virtuales de Azure en Site Recovery. Después de comprobar que la conmutación por recuperación se ha completado como se esperaba, puede comprobar que las máquinas virtuales de Azure se han cerrado según lo previsto.
 
-### <a name="reprotect-the-on-premises-site"></a>Volver a proteger el sitio local
+### <a name="reprotect-the--on-premises-site"></a>Volver a proteger el sitio local
 Después de completarse la conmutación por recuperación, los datos vuelven al sitio local, pero no están protegidos. Para volver a iniciar la replicación en Azure, vuelva a hacer lo siguiente:
 
 1. En el portal de Site Recovery > pestaña **Máquinas**, seleccione las máquinas virtuales que se han conmutado por recuperación y haga clic en **Volver a proteger**. 

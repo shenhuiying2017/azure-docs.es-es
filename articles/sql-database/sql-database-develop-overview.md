@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/17/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 72a20c51416cd3022e2a749c51f25c4b3d9268df
-ms.openlocfilehash: 88b8076e740f80154e410050cd55cd2fa4783b38
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 18dc3cce7451d90b6b65b990b80c05e7f6decb56
 
 
 ---
@@ -41,7 +41,7 @@ Base de datos SQL de Azure administra los recursos disponibles para una base de 
 ## <a name="security"></a>Seguridad
 Base de datos SQL de Azure proporciona recursos para limitar el acceso, proteger los datos y supervisar las actividades en una base de datos SQL.
 
-* Más información: [Protección de bases de datos SQL](sql-database-security.md)
+* Más información: [Protección de bases de datos SQL](sql-database-security-overview.md)
 
 ## <a name="authentication"></a>Autenticación
 * Base de datos SQL de Azure admite inicios de sesión y usuarios de autenticación de SQL Server, así como de [autenticación de Azure Active Directory](sql-database-aad-authentication.md) .
@@ -77,6 +77,6 @@ Explore todas las [funcionalidades de Base de datos SQL](https://azure.microsoft
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

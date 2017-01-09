@@ -80,6 +80,6 @@ Obtenga más información para [administrar la matriz virtual de StorSimple](sto
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Nov16_HO4-->
 
 

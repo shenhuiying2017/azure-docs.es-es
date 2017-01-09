@@ -116,7 +116,7 @@ El usuario que ejecuta la Herramienta de registro para el Catálogo de datos de 
 ## <a name="q-will-azure-data-catalog-be-made-available-for-on-premises-deployment-as-well"></a>P: ¿Estará el catálogo de datos de Azure estará disponible para las implementaciones locales también?
 El Catálogo de datos de Azure es un servicio en la nube que puede funcionar con orígenes de datos en la nube y locales, por lo que ofrece una solución de detección de orígenes de datos híbrida. Actualmente no está prevista la creación de una versión del servicio Catálogo de datos de Azure que se ejecute de forma local.
 
-## <a name="q-can-we-extract-more-richer-metadata-from-the-data-sources-we-register"></a>P: ¿Podemos extraer más metadatos o más ricos de los orígenes de datos que registramos?
+## <a name="q-can-we-extract-more--richer-metadata-from-the-data-sources-we-register"></a>P: ¿Podemos extraer más metadatos o más ricos de los orígenes de datos que registramos?
 Estamos trabajando activamente para ampliar las funciones del Catálogo de datos de Azure. Si durante el registro hay metadatos adicionales que desea extraer del origen de datos, sugiéralo (o vote por ello si ya se ha planteado) en el [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). En el futuro permitiremos a terceros agregar nuevos tipos de orígenes de datos a través de una API de extensibilidad.
 
 ## <a name="q-how-do-i-restrict-the-visibility-of-registered-data-assets-so-that-only-certain-people-can-discover-them"></a>P: ¿Cómo se restringe la visibilidad de los recursos de datos registrados para que solo determinadas personas puedan detectarlos?
@@ -125,7 +125,7 @@ R: Seleccionar los recursos de datos en el Catálogo de datos de Azure y haga cl
 ## <a name="q-how-do-i-update-the-registration-for-a-data-asset-to-that-changes-in-the-data-source-are-reflected-in-the-catalog"></a>P: ¿Cómo se actualiza el registro de un recurso de datos para que los cambios en el origen de datos se reflejen en el catálogo?
 R: Para actualizar los metadatos de los recursos de datos que ya están registrados en el catálogo, simplemente vuelva a registrar el origen de datos que contiene los recursos. Los cambios en el origen de datos, como las columnas que se agregan o quitan de tablas o vistas, se actualizará en el catálogo, pero se mantendrá las anotaciones proporcionadas por los usuarios.
 
-## <a name="q-my-question-isnt-answered-here-what-should-i-do"></a>P: Mi pregunta no está respondida aquí. ¿Qué debo hacer?
+## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>P: Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
 
 

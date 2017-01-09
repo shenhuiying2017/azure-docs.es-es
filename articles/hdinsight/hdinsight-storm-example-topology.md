@@ -51,7 +51,7 @@ La siguiente es una lista de ejemplos creada y mantenida por Microsoft para su u
 
 [2b8c3488]: hdinsight-apache-storm-tutorial-get-started-linux.md "Aprenda a crear un clúster de Storm en HDInsight y a utilizar el panel de Storm para implementar topologías de ejemplo."
 [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "Aprenda a implementar y administrar topologías mediante el panel de Storm basado en web y la interfaz de usuario de Storm o las Herramientas de HDInsight para Visual Studio."
-[16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Aprenda a crear topologías de Storm en C# mediante las Herramientas de HDInsight para Visual Studio".
+[16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "Aprenda a crear topologías de Storm en C# mediante las Herramientas de HDInsight para Visual Studio."
 [5797064f]: hdinsight-storm-develop-java-topology.md "Aprenda a crear topologías de Storm en Java mediante Maven creando una topología de recuento de palabras básica."
 [94d15238]: hdinsight-storm-power-bi-topology.md "Muestra cómo escribir datos en Power BI desde una topología de C# y, a continuación, crear un gráfico y un panel a partir de los datos."
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "Muestra una topología básica de Storm que realiza un recuento de palabras, implementada en C#. También muestra cómo crear varios flujos de datos dentro de una topología en C#."
