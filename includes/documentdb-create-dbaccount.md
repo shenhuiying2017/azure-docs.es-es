@@ -1,4 +1,4 @@
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
+1. En una nueva ventana, inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En la barra de salto, haga clic en **Nuevo**, en **Bases de datos** y en **NoSQL (DocumentDB)**.
    
    ![Captura de pantalla del Portal de Azure, con Más servicios y DocumentDB (NoSQL) resaltados](./media/documentdb-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)  
@@ -20,13 +20,13 @@
 
    ![Captura de pantalla que muestra cómo abrir la cuenta de base de datos de Azure DocumentDB en Azure Portal](./media/documentdb-create-dbaccount/azure-documentdb-database-open-account-portal.png)  
 
-   La coherencia predeterminada de la cuenta de DocumentDB está establecida en **Sesión**.  Para ajustar la coherencia predeterminada, haga clic en **Coherencia predeterminada** en el menú de recursos. Para aprender más acerca de los niveles de coherencia que ofrece DocumentDB, consulte [Niveles de coherencia en DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
+   La coherencia predeterminada de la cuenta de DocumentDB está establecida en **Sesión**.  Puede ajustar la coherencia de manera predeterminada, mediante la selección de una de las otras opciones de coherencia disponibles. Para aprender más acerca de los niveles de coherencia que ofrece DocumentDB, consulte [Niveles de coherencia en DocumentDB](../articles/documentdb/documentdb-consistency-levels.md).
 
 [How to: Create a DocumentDB account]: #Howto
 [Next steps]: #NextSteps
 [documentdb-manage]:../articles/documentdb/documentdb-manage.md
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

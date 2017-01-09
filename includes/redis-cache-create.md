@@ -35,6 +35,6 @@ Una vez que las nuevas opciones de caché estén configuradas, haga clic en **Cr
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
