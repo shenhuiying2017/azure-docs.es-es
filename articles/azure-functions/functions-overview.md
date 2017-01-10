@@ -1,6 +1,6 @@
 ---
 title: "Información general sobre Azure Functions | Microsoft Docs"
-description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asíncronas en minutos."
+description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asincrónicas en minutos"
 services: functions
 documentationcenter: na
 author: mattchenderson
