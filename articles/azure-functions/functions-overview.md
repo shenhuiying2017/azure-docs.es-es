@@ -1,6 +1,6 @@
 ---
 title: "Información general sobre Azure Functions | Microsoft Docs"
-description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asincrónicas en minutos."
+description: "Entender cómo utilizar las funciones de Azure para optimizar las cargas de trabajo asíncronas en minutos."
 services: functions
 documentationcenter: na
 author: mattchenderson
@@ -50,7 +50,7 @@ Funciones de Azure ofrece plantillas para comenzar con situaciones clave, inclui
 * **HTTPTrigger** : desencadenar la ejecución del código mediante una solicitud HTTP.
 * **QueueTrigger** : responder a mensajes conforme llegan a una cola de Almacenamiento de Azure. Para ver un ejemplo, consulte [Creación de una función de Azure que se enlaza a un servicio de Azure](functions-create-an-azure-connected-function.md).
 * **ServiceBusQueueTrigger** : conectar el código a otros servicios de Azure o servicios locales, escuchando las colas de mensajes. 
-* **ServiceBusQueueTrigger** : conectar el código a otros servicios de Azure o a servicios locales mediante la suscripción a temas. 
+* **ServiceBusTopicTrigger** : conectar el código a otros servicios de Azure o a servicios locales mediante la suscripción a temas. 
 * **TimerTrigger** : ejecutar limpieza u otras tareas de lote dentro de una programación predefinida. Para ver un ejemplo, consulte [Creación de una función de Azure de procesamiento de eventos](functions-create-an-event-processing-function.md).
 
 Azure Functions admite *desencadenadores* que son formas de iniciar la ejecución del código, y *enlaces* que son formas de simplificar la codificación para los datos de entrada y salida. Para una descripción detallada de los desencadenadores y los enlaces que proporciona Funciones de Azure, consulte [Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure](functions-triggers-bindings.md).
