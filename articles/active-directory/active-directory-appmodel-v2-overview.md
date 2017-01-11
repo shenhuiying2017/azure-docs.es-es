@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 01/07/2017
 ms.author: dastrock
 translationtype: Human Translation
 ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
@@ -20,7 +20,7 @@ ms.openlocfilehash: e98ec55dbe5ff0411af124b45bd7ef6177aa957e
 
 
 ---
-# <a name="sign-in-microsoft-account-azure-ad-users-in-a-single-app"></a>Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
+# <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Inicio de sesión de usuarios de cuentas de Microsoft y de Azure AD en una sola aplicación
 Antes, un desarrollador de aplicaciones que deseara admitir cuentas de Microsoft y Azure Active Directory debía realizar la integración con dos sistemas independientes.  Hemos incorporado una nueva versión de API de autenticación que permite el inicio de sesión de los usuarios con ambos tipos de cuentas mediante el sistema de Azure AD.  Este sistema de autenticación convergente se conoce como **punto de conexión v2.0**.  Con el punto de conexión v2.0, una integración sencilla le permite llegar a una audiencia que abarca millones de usuarios con cuentas personales, así como profesionales y educativas.
 
 Las aplicaciones que usan el punto de conexión v2.0 también pueden usar las API de REST de [Microsoft Graph](https://graph.microsoft.io) y [Office 365](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) con cualquier tipo de cuenta.
@@ -59,6 +59,6 @@ Estos vínculos le servirán para explorar la plataforma en profundidad:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 
