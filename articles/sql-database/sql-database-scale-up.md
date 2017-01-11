@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 1e297de81be07a107691c54875ca638ae73d43df
-ms.openlocfilehash: 3f283166f09437611aa04d7cadf5b161d0e52f8a
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: a4d68b4365c6c5865b19a0b2e9b78afdb7a04014
 
 
 ---
@@ -88,6 +89,6 @@ Abra la hoja Base de datos SQL correspondiente a la base de datos que desea esca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

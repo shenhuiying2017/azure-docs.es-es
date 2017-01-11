@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: kumud
 translationtype: Human Translation
-ms.sourcegitcommit: c5df6d998812568c764ccb6914b3c81fe4e568ec
-ms.openlocfilehash: d9d9630487f9eeb381198230a20d01c1c5f6678d
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: f97ba8ebc940d4b3eec5d2610503f8a86af8dbe2
 
 ---
 
@@ -52,7 +52,7 @@ Al hacer referencia a un punto de conexión de tipo "AzureEndpoints" para una ap
 
 En estas instrucciones se usa PowerShell para Microsoft Azure. En el siguiente artículo se explica cómo instalar y configurar Azure PowerShell.
 
-* [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md)
+* [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 En los ejemplos de este artículo se da por supuesto que ya tiene un grupo de recursos. Puede crear uno mediante el siguiente comando:
 
@@ -342,6 +342,6 @@ Get-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remov
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

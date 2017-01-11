@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Novatus.
+title: "Tutorial: Integración de Azure Active Directory con Novatus | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y Novatus."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: d2f13779-bdb7-4408-9738-be67ed3de4e5
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f14f89b10145787bb2729f741ce8620238a7f246
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
+# <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: integración de Azure Active Directory con Novatus
 El objetivo de este tutorial es mostrar cómo integrar Novatus con Azure Active Directory (Azure AD).
 
 La integración de Novatus con Azure AD le proporciona las siguientes ventajas:
@@ -205,7 +209,7 @@ El objetivo de esta sección es permitir que Britta Simon use el inicio de sesi�
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 El objetivo de esta sección es probar la configuración del inicio de sesión único de Azure AD mediante el panel de acceso.
 
 Al hacer clic en el icono de Novatus en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Novatus.
@@ -234,6 +238,6 @@ Al hacer clic en el icono de Novatus en el panel de acceso, debería iniciar ses
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

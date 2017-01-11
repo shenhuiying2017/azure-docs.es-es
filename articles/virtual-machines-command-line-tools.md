@@ -16,15 +16,14 @@ ms.topic: article
 ms.date: 09/22/2016
 ms.author: danlep
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 614adbd3536d6740e6a46895b36575f0f4c66a8c
+ms.sourcegitcommit: cff4e05de2a9e2f0603fd4beebe26e44b4652dc8
+ms.openlocfilehash: d168c6e477eff07b8f499c1be869f85506c2fabc
 
 
 ---
 # <a name="azure-cli-commands-in-azure-service-management-asm-mode"></a>Comandos CLI de Azure en modo de Administración de servicios de Azure (asm)
-[!INCLUDE [learn-about-deployment-models](../includes/learn-about-deployment-models-classic-include.md)]
-
-También puede [leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
+> [!IMPORTANT]
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../articles/azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. También puede [leer información sobre los comandos del modelo de Resource Manager](virtual-machines/azure-cli-arm-commands.md) y usar la CLI para [migrar recursos](virtual-machines/virtual-machines-linux-cli-migration-classic-resource-manager.md) desde el modelo clásico al de Resource Manager.
 
 En este artículo se proporcionan la sintaxis y las opciones de los comandos CLI de Azure que normalmente se usan para crear y administrar recursos de Azure en el modelo de implementación clásico. Para acceder a estos comandos, ejecute la CLI en el modo de Administración de servicios de Azure (asm). Tenga en cuenta que esta no es una referencia completa y que la versión de CLI puede mostrar algunos comandos o parámetros diferentes. 
 
@@ -2354,6 +2353,6 @@ Permite eliminar una entrada del servidor DNS de la configuración de red.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

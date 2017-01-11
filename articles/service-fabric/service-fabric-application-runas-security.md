@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/22/2016
 ms.author: mfussell
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6a441b34e84d95410bb0dad6360ea7084c1808b1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9484de017b9903cc22b27b26bba753b09b311749
 
 
 ---
@@ -377,10 +377,10 @@ El siguiente manifiesto de aplicación muestra muchos de los diferentes valores:
 * [Especificación de los recursos en un manifiesto de servicio](service-fabric-service-manifest-resources.md)
 * [Implementar una aplicación](service-fabric-deploy-remove-applications.md)
 
-[Imagen 1]: ./media/service-fabric-application-runas-security/copy-to-output.png
+[image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

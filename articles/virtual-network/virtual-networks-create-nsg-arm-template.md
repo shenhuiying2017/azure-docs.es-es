@@ -1,5 +1,5 @@
 ---
-title: Creación de grupos de seguridad de red en el modo ARM mediante una plantilla | Microsoft Docs
+title: "Creación de grupos de seguridad de red en el modo ARM mediante una plantilla | Microsoft Docs"
 description: Aprenda a crear e implementar grupos de seguridad de red en ARM mediante una plantilla
 services: virtual-network
 documentationcenter: na
@@ -7,7 +7,7 @@ author: jimdial
 manager: carmonm
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: f3e7385d-717c-44ff-be20-f9aa450aa99b
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,9 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 5e5a0283fee79b9068784ad88017e96d3ab8e729
+
 
 ---
-# Creación de grupos de seguridad de red mediante una plantilla
+# <a name="how-to-create-nsgs-using-a-template"></a>Creación de grupos de seguridad de red mediante una plantilla
 [!INCLUDE [virtual-networks-create-nsg-selectors-arm-include](../../includes/virtual-networks-create-nsg-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-create-nsg-intro-include](../../includes/virtual-networks-create-nsg-intro-include.md)]
@@ -28,83 +32,86 @@ Este artículo trata sobre el modelo de implementación del Administrador de rec
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-## Recursos de grupo de seguridad de red en un archivo de plantilla
+## <a name="nsg-resources-in-a-template-file"></a>Recursos de grupo de seguridad de red en un archivo de plantilla
 Puede ver y descargar la [plantilla de ejemplo](https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/NSGs.json).
 
-La sección siguiente muestra la definición del grupo de seguridad de red de front-end, según el escenario anterior.
+En la sección siguiente se muestra la definición del grupo de seguridad de red de front-end, según el escenario.
 
-      "apiVersion": "2015-06-15",
-      "type": "Microsoft.Network/networkSecurityGroups",
-      "name": "[parameters('frontEndNSGName')]",
-      "location": "[resourceGroup().location]",
-      "tags": {
-        "displayName": "NSG - Front End"
-      },
+```json
+"apiVersion": "2015-06-15",
+"type": "Microsoft.Network/networkSecurityGroups",
+"name": "[parameters('frontEndNSGName')]",
+"location": "[resourceGroup().location]",
+"tags": {
+  "displayName": "NSG - Front End"
+},
+"properties": {
+  "securityRules": [
+    {
+      "name": "rdp-rule",
       "properties": {
-        "securityRules": [
-          {
-            "name": "rdp-rule",
-            "properties": {
-              "description": "Allow RDP",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "3389",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 100,
-              "direction": "Inbound"
-            }
-          },
-          {
-            "name": "web-rule",
-            "properties": {
-              "description": "Allow WEB",
-              "protocol": "Tcp",
-              "sourcePortRange": "*",
-              "destinationPortRange": "80",
-              "sourceAddressPrefix": "Internet",
-              "destinationAddressPrefix": "*",
-              "access": "Allow",
-              "priority": 101,
-              "direction": "Inbound"
-            }
-          }
-        ]
+        "description": "Allow RDP",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "3389",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 100,
+        "direction": "Inbound"
       }
+    },
+    {
+      "name": "web-rule",
+      "properties": {
+        "description": "Allow WEB",
+        "protocol": "Tcp",
+        "sourcePortRange": "*",
+        "destinationPortRange": "80",
+        "sourceAddressPrefix": "Internet",
+        "destinationAddressPrefix": "*",
+        "access": "Allow",
+        "priority": 101,
+        "direction": "Inbound"
+      }
+    }
+  ]
+}
+```
+Para asociar el grupo de seguridad de red a la subred front-end, debe cambiar la definición de la subred en la plantilla y utilizar el identificador de referencia para el grupo de seguridad de red.
 
-Para asociar el grupo de seguridad de red a la subred front-end, deberá cambiar la definición de la subred en la plantilla y utilizar el identificador de referencia para el grupo de seguridad de red .
+```json
+"subnets": [
+  {
+    "name": "[parameters('frontEndSubnetName')]",
+    "properties": {
+      "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
+      "networkSecurityGroup": {
+      "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
+      }
+    }
+  }, 
+```
 
-        "subnets": [
-          {
-            "name": "[parameters('frontEndSubnetName')]",
-            "properties": {
-              "addressPrefix": "[parameters('frontEndSubnetPrefix')]",
-              "networkSecurityGroup": {
-                "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('frontEndNSGName'))]"
-              }
-            }
-          }, ...
+Se hace lo mismo para el grupo de seguridad de red de back-end y la subred back-end en la plantilla.
 
-Haremos lo mismo para el grupo de seguridad de red de back-end y la subred back-end en la plantilla.
-
-## Implementar la plantilla ARM por medio de un solo clic para implementar
+## <a name="deploy-the-arm-template-by-using-click-to-deploy"></a>Implementar la plantilla ARM por medio de un solo clic para implementar
 La plantilla de ejemplo disponible en el repositorio público usa un archivo de parámetros que contiene los valores predeterminados utilizados para generar el escenario descrito anteriormente. Para implementar esta plantilla mediante el método de hacer clic para implementar, siga [esta plantilla](http://github.com/telmosampaio/azure-templates/tree/master/201-IaaS-WebFrontEnd-SQLBackEnd-NSG), haga clic en **Implementar en Azure**, reemplace los valores de parámetro predeterminados si es necesario y siga las instrucciones del portal.
 
-## Implementar la plantilla ARM mediante PowerShell
+## <a name="deploy-the-arm-template-by-using-powershell"></a>Implementar la plantilla ARM mediante PowerShell
 Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos.
 
-[!INCLUDE [powershell-preview-include.md](../../includes/powershell-preview-include.md)]
-
-1. Si es la primera vez que usa Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) y siga las instrucciones hasta el final para iniciar sesión en Azure y seleccionar su suscripción.
+1. Si no ha usado nunca Azure PowerShell, consulte las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalarlo y configurarlo.
 2. Ejecute el cmdlet **`New-AzureRmResourceGroup`** para crear un grupo de recursos con esta plantilla.
-   
-        New-AzureRmResourceGroup -Name TestRG -Location uswest `
-            -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
-            -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
+
+    ```powershell
+    New-AzureRmResourceGroup -Name TestRG -Location uswest `
+    -TemplateFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' `
+    -TemplateParameterFile 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
+
     Resultado esperado:
-   
+
         ResourceGroupName : TestRG
         Location          : westus
         ProvisioningState : Succeeded
@@ -137,23 +144,28 @@ Para implementar la plantilla ARM que descargó con PowerShell, siga estos pasos
                             testvnetstorageprm  Microsoft.Storage/storageAccounts        westus  
                             testvnetstoragestd  Microsoft.Storage/storageAccounts        westus  
    
-        ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG
+        ResourceId        : /subscriptions/[Subscription Id]/resourceGroups/TestRG
 
-## Implementar la plantilla ARM mediante la CLI de Azure
+## <a name="deploy-the-arm-template-by-using-the-azure-cli"></a>Implementar la plantilla ARM mediante la CLI de Azure
 Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
 
 1. Si nunca ha usado la CLI de Azure, consulte [Instalación y configuración de la CLI de Azure](../xplat-cli-install.md) y siga las instrucciones hasta el punto donde deba seleccionar su cuenta y suscripción de Azure.
 2. Ejecute el comando **`azure config mode`** para cambiar al modo de Administrador de recursos, como se muestra a continuación.
-   
-        azure config mode arm
-   
-    Este es el resultado esperado del comando anterior:
-   
+
+    ```azurecli
+    azure config mode arm
+    ```
+
+    Se espera esta salida del comando:
+
         info:    New mode is arm
-3. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual con la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
-   
-        azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
-   
+
+3. Ejecute el cmdlet **`azure group deployment create`** para implementar la nueva red virtual mediante la plantilla y los archivos de parámetros que descargó y modificó anteriormente. En la lista que se muestra en la salida se explican los parámetros utilizados.
+
+    ```azurecli
+    azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
+    ```
+
     Resultado esperado:
    
         info:    Executing command group create
@@ -176,4 +188,9 @@ Para implementar la plantilla ARM mediante la CLI de Azure, siga estos pasos.
    * **-f (o --template-file)**. Ruta de acceso al archivo de plantilla ARM.
    * **-e (o --parameters-file)**. Ruta de acceso al archivo de parámetros ARM.
 
-<!----HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

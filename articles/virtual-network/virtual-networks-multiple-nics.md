@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 32b6ebe59f042b71567c37d5dbef7db5ae1e21d0
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: d10ae92ba79014d9700613c06ef37a437089f5ac
 
 
 ---
@@ -76,7 +76,7 @@ Necesitará cumplir los siguientes requisitos previos antes de poder ejecutar lo
 
 * Una suscripción de Azure.
 * Una red virtual configurada. Para obtener más información sobre redes virtuales, consulte [Información general sobre redes virtuales](virtual-networks-overview.md) .
-* La versión más reciente de Azure PowerShell descargada e instalada. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* La versión más reciente de Azure PowerShell descargada e instalada. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Para crear una máquina virtual con varias NIC, complete los pasos siguientes escribiendo cada comando en una única sesión de PowerShell:
 
@@ -231,6 +231,6 @@ En cuanto a las máquinas virtuales de Linux, puesto que el comportamiento prede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
