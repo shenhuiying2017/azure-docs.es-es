@@ -1,11 +1,11 @@
 # Información general
 ## [¿Qué es Azure Backup?](backup-introduction-to-azure-backup.md)
-# Primeros pasos
+# Introducción
 ## [Realización de copias de seguridad de archivos y carpetas](backup-try-azure-backup-in-10-mins.md)
 ## [Copia de seguridad de máquinas virtuales de Azure](backup-azure-vms-first-look.md)
 ## [Protección de máquinas virtuales de Azure](backup-azure-vms-first-look-arm.md)
 ## [Preguntas más frecuentes](backup-azure-backup-faq.md)
-# Cómo
+# Procedimientos
 ## Automatizar la copia de seguridad mediante PowerShell
 ### [Máquinas virtuales de Azure en Azure Portal](backup-azure-vms-automation.md)
 ### [Máquinas virtuales de Azure en el portal clásico](backup-azure-vms-classic-automation.md)
@@ -27,8 +27,8 @@
 ### [Preparación de máquinas virtuales de Azure](backup-azure-vms-prepare.md)
 ### [Preparación de máquinas virtuales implementadas según el modelo de Resource Manager](backup-azure-arm-vms-prepare.md)
 ### [Planeación de la infraestructura de copia de seguridad de máquinas virtuales](backup-azure-vms-introduction.md)
-### [Copia de seguridad de Azure Virtual Machines en el almacén de copias de seguridad](backup-azure-vms.md)
-### [Copia de seguridad de Azure Virtual Machines en un almacén de Recovery Services](backup-azure-arm-vms.md)
+### [Copia de seguridad de máquinas virtuales de Azure en el almacén de copias de seguridad](backup-azure-vms.md)
+### [Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services](backup-azure-arm-vms.md)
 ### [Copia de seguridad y restauración de máquinas virtuales cifradas](backup-azure-vms-encryption.md)
 ### [Administración y supervisión de copias de seguridad de VM de Azure en el portal clásico](backup-azure-manage-vms-classic.md)
 ### [Administración de copias de seguridad de VM de Azure en Azure Portal](backup-azure-manage-vms.md)
@@ -52,6 +52,10 @@
 ### [Se ha producido un error en la copia de seguridad de VM de Azure: no se pudo comunicar con el agente de VM para el estado de la instantánea: la subtarea de la VM de la instantánea agotó el tiempo de espera](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Lentitud en la copia de seguridad de archivos y carpetas en Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
 
+# Referencia
+## [PowerShell](/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/azurerm.recoveryservices.backup)
+## [.NET](/dotnet/api/microsoft.azure.management.recoveryservices.backup)
+
 # Recursos
 ## [Precios](https://azure.microsoft.com/pricing/details/backup/)
 ## [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
@@ -59,6 +63,6 @@
 ## [Actualizaciones del servicio](https://azure.microsoft.com/updates/?product=backup)
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

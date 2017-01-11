@@ -1,13 +1,12 @@
-
 ---
-title: Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
-description: Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
+title: "Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1"
+description: "Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1"
 services: app-service\web
 documentationcenter: .net
 author: Juliako
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 877d070a-9bd5-49b3-8fac-6bb5f65c3554
 ms.service: app-service
 ms.devlang: multiple
 ms.topic: article
@@ -15,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/17/2016
 ms.author: juliako
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
+
 
 ---
-# <a name="azure-sdk-for-.net-2.7-and-.net-2.7.1-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
+# <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notas de la versión de SDK de Azure para .NET 2.7 y .NET 2.7.1
 ## <a name="overview"></a>Información general
 Este documento contiene las notas de la versión de SDK de Azure para la versión .NET 2.7. 
 
@@ -27,7 +30,7 @@ Azure SDK 2.7 solo es compatible en Visual Studio 2015 y Visual Studio 2013. [SD
 
 Para información detallada acerca de esta publicación, consulte la[ Publicación de anuncio de SDK de Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) y [Publicación de anuncio de SDK de Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
 
-## <a name="azure-sdk-for-.net-2.7"></a>SDK de Azure para .NET 2.7
+## <a name="azure-sdk-for-net-27"></a>SDK de Azure para .NET 2.7
 ### <a name="sign-in-improvements-for-visual-studio-2015"></a>Mejoras en el inicio de sesión de Visual Studio de 2015
 Azure SDK 2.7 para Visual Studio 2015 es compatible con las nuevas características de administración de identidades en Visual Studio 2015.  Esto incluye la compatibilidad para las cuentas de acceso a Azure mediante control de acceso basado en rol, proveedores de soluciones en la nube, DreamSpark y otros tipos de cuenta y suscripción.
 
@@ -61,7 +64,7 @@ En esta versión se han realizado las siguientes actualizaciones en Web Tools Ex
 #### <a name="known-issues"></a>Problemas conocidos
 Los nodos de ranura de implementación de aplicación web no aparecen en el nodo de ranura en Explorador de servidores  los nodos secundarios de ranura de implementación de aplicación web no se cargan en Cloud Explorer. Este problema se ha resuelto y preparado en la próxima versión SDK. 
 
-### <a name="<a-name="cloud_explorer"></a>cloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Cloud Explorer para Visual Studio de 2015
+### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>Cloud Explorer para Visual Studio de 2015
 Azure SDK 2.7  incluye Cloud Explorer para Visual Studio de 2015, que le permitirá ver los recursos de Azure, inspeccionar sus propiedades y realizar acciones de desarrollador clave desde dentro de Visual Studio. 
 
 Cloud Explorer admite lo siguiente:
@@ -95,7 +98,7 @@ Introducción a **Herramientas de Factoría de datos de Azure** para Visual Stud
 * **Publicación en varios entornos**: publique canalizaciones creadas para desarrollar, probar o producir un entorno mediante la creación de archivos de configuración para cada entorno.
 * **Soporte técnico de procesamiento de datos basado en Pig, Hive y .Net**: soporte técnico para scripts de Pig y Hive en el proyecto de Factoría de datos. Soporte técnico para hacer referencia al proyecto de C# para la administración de .Net Activity.
 
-## <a name="azure-sdk-for-.net-2.7.1"></a>SDK de Azure para .NET 2.7.1
+## <a name="azure-sdk-for-net-271"></a>SDK de Azure para .NET 2.7.1
 La sección siguiente contiene las actualizaciones que se introdujeron con SDK de Azure para la versión .NET 2.7.1.
 
 ### <a name="hdinsight-tools"></a>Herramientas de HDInsight
@@ -135,6 +138,9 @@ Los proyectos de LightSwitch no son compatibles con esta versión. Este problema
 
 [Información de compatibilidad y retirada del SDK de Azure para .NET y API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 
