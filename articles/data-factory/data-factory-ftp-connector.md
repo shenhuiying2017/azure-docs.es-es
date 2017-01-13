@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 01/12/2017
 ms.author: spelluru
 translationtype: Human Translation
 ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
@@ -258,7 +258,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 ```
 
 ### <a name="using-port-enablessl-enableservercertificatevalidation"></a>Uso de puerto, enableSsl, enableServerCertificateValidation
- 
+
 ```JSON
 {
     "name": "FTPLinkedService",
@@ -278,7 +278,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 ```
 
 ### <a name="using-encryptedcredential-for-authentication-and-gateway"></a>Uso de encryptedCredential para la autenticación y la puerta de enlace
-    
+
 ```JSON
 {
     "name": "FTPLinkedService",
