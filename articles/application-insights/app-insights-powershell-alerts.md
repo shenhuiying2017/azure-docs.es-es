@@ -1,26 +1,35 @@
 ---
-title: Uso de Powershell para configurar alertas en Application Insights
-description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
+title: Uso de PowerShell para configurar alertas en Application Insights | Microsoft Docs
+description: "Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas."
 services: application-insights
-documentationcenter: ''
+documentationcenter: 
 author: alancameronwills
 manager: douge
-
+ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2016
+ms.date: 10/31/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 710663e122bdebff575c762a501a0d261056e1bc
+
 
 ---
-# Uso de PowerShell para configurar alertas en Application Insights
-Puede automatizar la configuración de [alertas](app-insights-alerts.md) en [Visual Studio Application Insights](app-insights-overview.md).
+# <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
+Puede automatizar la configuración de [alertas](app-insights-alerts.md) en [Application Insights](app-insights-overview.md).
 
-Además, puede [establecer Webhook para automatizar la respuesta en una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
+Además, puede [establecer webhooks para automatizar su respuesta ante una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md).
 
-## Instalación única
+> [!NOTE]
+> Si quiere crear alertas y recursos al mismo tiempo, considere la posibilidad de [usar una plantilla de Azure Resource Manager](app-insights-powershell.md).
+>
+>
+
+## <a name="one-time-setup"></a>Instalación única
 Si no ha usado PowerShell con su suscripción de Azure antes:
 
 Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scripts.
@@ -28,20 +37,19 @@ Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scr
 * Instale el [Instalador de plataforma web de Microsoft (v5 o superior)](http://www.microsoft.com/web/downloads/platform.aspx).
 * Úselo para instalar Microsoft Azure Powershell.
 
-## Conexión a Azure
-Inicie Azure PowerShell y [conéctese a su suscripción](../powershell-install-configure.md):
+## <a name="connect-to-azure"></a>Conexión a Azure
+Inicie Azure PowerShell y [conéctese a su suscripción](/powershell/azureps-cmdlets-docs):
 
 ```PowerShell
 
     Add-AzureAccount
-    Switch-AzureMode AzureResourceManager
 ```
 
 
-## Obtención de alertas
-    Get-AlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+## <a name="get-alerts"></a>Obtención de alertas
+    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
-## Agregar alerta
+## <a name="add-alert"></a>Agregar alerta
     Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
@@ -51,15 +59,15 @@ Inicie Azure PowerShell y [conéctese a su suscripción](../powershell-install-c
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US"
+     -Location "East US" // must be East US at present
      -RuleType Metric
 
 
 
-## Ejemplo 1
+## <a name="example-1"></a>Ejemplo 1
 Enviarme un correo electrónico si la respuesta del servidor a las solicitudes HTTP, calculada durante 5 minutos, tarda más de 1 segundo. Mi recurso de Application Insights se denomina IceCreamWebApp, y está en el grupo de recursos Fabrikam. Soy el propietario de la suscripción de Azure.
 
-El GUID es el id. de la suscripción (no la clave de instrumentación de la aplicación).
+El GUID es el identificador de la suscripción (no la clave de instrumentación de la aplicación).
 
     Add-AlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
@@ -72,7 +80,7 @@ El GUID es el id. de la suscripción (no la clave de instrumentación de la apli
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## Ejemplo 2
+## <a name="example-2"></a>Ejemplo 2
 Tengo una aplicación en la que uso [TrackMetric()](app-insights-api-custom-events-metrics.md#track-metric) para informar de una métrica denominada "salesPerHour". Enviar un correo electrónico a mis colegas si "salesPerHour" es menor que 100, calculado durante 24 horas.
 
     Add-AlertRule -Name "poor sales" `
@@ -88,7 +96,7 @@ Tengo una aplicación en la que uso [TrackMetric()](app-insights-api-custom-even
 
 La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](app-insights-api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
 
-## Nombres de métrica
+## <a name="metric-names"></a>Nombres de métrica
 | Nombre de métrica | Nombre de pantalla | Descripción |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Excepciones de explorador |Recuento de excepciones no detectadas en el explorador. |
@@ -112,24 +120,28 @@ La misma regla puede usarse con la métrica notificada mediante el [parámetro d
 | `request.rate` |Velocidad de solicitudes |Velocidad de todas las solicitudes a la aplicación por segundo. |
 | `requestFailed.count` |Error en las solicitudes |Recuento de solicitudes HTTP que dieron lugar a un código de respuesta >= 400 |
 | `view.count` |Vistas de página |Recuento de solicitudes de usuario de cliente de una página web. Se filtra el tráfico sintético. |
-| {el nombre de métrica personalizado} |{El nombre de métrica} |El valor de métrica notificado por [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) o en el [parámetro de medidas de una llamada de seguimiento](app-insights-api-custom-events-metrics.md#properties). |
+| {el nombre de métrica personalizado} |{El nombre de métrica} |El valor de métrica que notifica [TrackMetric](app-insights-api-custom-events-metrics.md#track-metric) o en el [parámetro de medidas de una llamada de seguimiento](app-insights-api-custom-events-metrics.md#properties). |
 
 Las métricas se envían por módulos de telemetría diferentes:
 
 | Grupo de métricas | Módulo de recopilador |
 | --- | --- |
 | basicExceptionBrowser,<br/>clientPerformance,<br/>view |[JavaScript de explorador](app-insights-javascript.md) |
-| performanceCounter |[Rendimiento](app-insights-configuration-with-applicationinsights-config.md#nuget-package-3) |
-| remoteDependencyFailed |[Dependencia](app-insights-configuration-with-applicationinsights-config.md#nuget-package-1) |
-| request,<br/>requestFailed |[Solicitud de servidor](app-insights-configuration-with-applicationinsights-config.md#nuget-package-2) |
+| performanceCounter |[Rendimiento](app-insights-configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependencia](app-insights-configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Solicitud de servidor](app-insights-configuration-with-applicationinsights-config.md) |
 
-## Webhooks
-También puede [automatizar la respuesta a una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
+## <a name="webhooks"></a>Webhooks
+También puede [automatizar la respuesta ante una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
 
-## Consulte también
+## <a name="see-also"></a>Consulte también
 * [Script para configurar Application Insights](app-insights-powershell-script-create-resource.md)
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](app-insights-powershell.md)
 * [Uso de PowerShell para enviar Diagnósticos de Azure a Application Insights](app-insights-powershell-azure-diagnostics.md)
-* [Automatización de la respuesta a una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [Automatización de la respuesta ante una alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 
-<!---HONumber=AcomDC_0224_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

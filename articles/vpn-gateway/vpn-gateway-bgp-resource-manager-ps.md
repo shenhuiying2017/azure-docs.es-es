@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/15/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: d6d9834bca2a7248ebec0a614a6edfbb8657e895
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: e999970954d199fa75ad4a3e4d8916d4aea4048e
 
 
 ---
@@ -53,7 +53,7 @@ Los siguientes pasos de configuración le permitirán configurar los parámetros
 
 ### <a name="before-you-begin"></a>Antes de empezar
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+* Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar los cmdlets de PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Paso 1: Creación y configuración de VNet1
 #### <a name="1-declare-your-variables"></a>1. Declaración de las variables
@@ -275,6 +275,6 @@ Una vez completada la conexión, puede agregar máquinas virtuales a las redes v
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

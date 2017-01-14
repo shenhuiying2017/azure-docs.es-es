@@ -1,13 +1,13 @@
 ---
-title: Conexión de redes virtuales implementadas con el modelo clásico a redes virtuales con el modelo de Resource Manager en el portal | Microsoft Docs
-description: Aprenda a crear una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante la Puerta de enlace de VPN y el portal
+title: "Conexión de redes virtuales implementadas con el modelo clásico a redes virtuales con el modelo de Resource Manager en el portal | Microsoft Docs"
+description: "Aprenda a crear una conexión VPN entre redes virtuales clásicas y redes de Resource Manager mediante la Puerta de enlace de VPN y el portal"
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-service-management,azure-resource-manager
-
+ms.assetid: 5a90498c-4520-4bd3-a833-ad85924ecaf9
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/03/2016
 ms.author: cherylmc
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 2c6ffb6c175612c57ddff3a71b2c7a1855c52348
+
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-in-the-portal"></a>Conexión a redes virtuales a partir de diferentes modelos de implementación del portal
@@ -24,7 +28,7 @@ ms.author: cherylmc
 > 
 > 
 
-Actualmente, Azure tiene dos modelos de administración: el clásico y el de Resource Manager (RM). Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Este artículo le guiará a través de la conexión de redes virtuales clásicas a redes virtuales de Resource Manager para permitir que los recursos que se encuentran en modelos de implementación independientes se comuniquen entre sí mediante una conexión de puerta de enlace. 
+Actualmente, Azure tiene dos modelos de administración: el clásico y el de Resource Manager (RM). Si lleva un tiempo usando Azure, es probable que tenga máquinas virtuales de Azure y roles de instancia que se ejecuten en una red virtual clásica. Es posible que sus máquinas virtuales e instancias de roles más recientes se estén ejecutando en una red virtual creada en Resource Manager. Este artículo le guiará a través de la conexión de redes virtuales clásicas a redes virtuales de Resource Manager para permitir que los recursos que se encuentran en modelos de implementación independientes se comuniquen entre sí mediante una conexión de puerta de enlace.
 
 Puede crear una conexión entre redes virtuales que estén en diferentes suscripciones y en diferentes regiones. También puede conectar redes virtuales que tengan ya conexiones a redes locales, siempre que la puerta de enlace con la que se hayan configurado sea dinámica o basada en ruta. Para más información acerca de las conexiones de red virtual a red virtual, consulte [P+F sobre conexiones de red virtual a red virtual](#faq) al final de este artículo.
 
@@ -37,7 +41,8 @@ La siguiente tabla se actualiza cada vez que hay nuevos artículos y nuevas herr
 
 [!INCLUDE [vpn-gateway-table-vnet-vnet](../../includes/vpn-gateway-table-vnet-to-vnet-include.md)]
 
-#### <a name="vnet-peering"></a>Emparejamiento de VNET
+**Emparejamiento de VNET**
+
 [!INCLUDE [vpn-gateway-vnetpeeringlink](../../includes/vpn-gateway-vnetpeeringlink-include.md)]
 
 ## <a name="before-beginning"></a>Antes de comenzar
@@ -48,9 +53,9 @@ En este artículo se usan el portal clásico, el Portal de Azure y PowerShell. A
 ### <a name="prerequisites"></a>Requisitos previos
 * Se han creado ambas redes virtuales.
 * Los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
-* Tiene instalados los últimos cmdlets de PowerShell (versión 1.0.2 o posterior). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
+* Tiene instalados los últimos cmdlets de PowerShell (versión 1.0.2 o posterior). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
 
-### <a name="<a-name="values"></a>example-settings"></a><a name="values"></a>Configuración de ejemplo
+### <a name="a-namevaluesaexample-settings"></a><a name="values"></a>Configuración de ejemplo
 Puede usar la configuración de ejemplo como referencia.
 
 **Configuración de redes virtuales clásicas**
@@ -76,7 +81,7 @@ Tipo de puerta de enlace = VPN <br>
 Tipo de VPN = basada en enrutamiento <br>
 Puerta de enlace de red local = LocalRedVClásica <br>
 
-## <a name="<a-name="createsmgw"></a>section-1:-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Sección 1: configuración de la red virtual con el modelo clásico
+## <a name="a-namecreatesmgwasection-1-configure-classic-vnet-settings"></a><a name="createsmgw"></a>Sección 1: configuración de la red virtual con el modelo clásico
 En esta sección, se crean la red local y la puerta de enlace de la red virtual con el modelo clásico. Las instrucciones de esta sección utilizan el portal clásico. Actualmente, el Portal de Azure no ofrece todos los valores que pertenecen a una red virtual clásica.
 
 ### <a name="part-1---create-a-new-local-network"></a>Parte 1: creación de una nueva red local
@@ -95,10 +100,10 @@ Abra el [portal clásico](https://manage.windowsazure.com) e inicie sesión con 
 1. Después de guardar la configuración, haga clic en **Panel** en la parte superior de la página para cambiar a la página Panel. En la parte inferior de la página Panel, haga clic en **Crear puerta de enlace** y luego en **Enrutamiento dinámico**. Haga clic en **Sí** para empezar a crear la puerta de enlace. Para esta configuración es obligatorio usar una puerta de enlace con enrutamiento dinámico.
 2. Espere hasta que se cree la puerta de enlace. Esta operación a veces puede tardar 45 minutos, o incluso más, en completarse.
 
-### <a name="<a-name="ip"></a>part-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Parte 4: visualización la dirección IP pública de la puerta de enlace
+### <a name="a-nameipapart-4---view-the-gateway-public-ip-address"></a><a name="ip"></a>Parte 4: visualización la dirección IP pública de la puerta de enlace
 Una vez que se haya creado la puerta de enlace, puede ver su dirección IP en la página **Panel**. Se trata de la dirección IP pública de la puerta de enlace. Escriba o copie la dirección IP pública, ya que se utilizará en pasos posteriores al crear la red local para la configuración de la red virtual de Resource Manager.
 
-## <a name="<a-name="creatermgw"></a>section-2:-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a>Sección 2: configuración de redes virtuales de Resource Manager
+## <a name="a-namecreatermgwasection-2-configure-resource-manager-vnet-settings"></a><a name="creatermgw"></a>Sección 2: configuración de redes virtuales de Resource Manager
 En esta sección se creará la puerta de enlace de la red virtual y la red local de la red virtual con el modelo de Resource Manager. No empiece a realizar los siguientes pasos hasta que haya recuperado la dirección IP pública de la puerta de enlace de la red virtual con la implementación mediante el modelo clásico.
 
 Las capturas de pantalla se proporcionan a modo de ejemplos. Asegúrese de reemplazar los valores por los suyos. Si va a crear esta configuración como un ejercicio, haga referencia a estos [valores](#values).
@@ -125,21 +130,21 @@ Asigne a la puerta de enlace de la red local un nombre a través del que Azure p
 ### <a name="part-4---copy-the-public-ip-address"></a>Parte 4: copia de la dirección IP pública
 Una vez que la puerta de enlace de la red virtual haya terminado de crearse, copie la dirección IP pública asociada a dicha puerta de enlace. Utilícela cuando configure la red local para la red virtual implementada con el modelo clásico. 
 
-## <a name="section-3:-modify-the-local-network-for-the-classic-vnet"></a>Sección 3: modificación de la red local para la red virtual clásica
+## <a name="section-3-modify-the-local-network-for-the-classic-vnet"></a>Sección 3: modificación de la red local para la red virtual clásica
 Abra el [portal clásico](https://manage.windowsazure.com).
 
 1. En el portal clásico, desplácese hacia la izquierda y haga clic en **Redes**. En la página de **redes**, haga clic en **Redes locales** en la parte superior de la página. 
 2. Haga clic para seleccionar la red local que configuró en la parte 1. En la parte inferior de la página, haga clic en **Edición**.
 3. En la página **Especifique los datos de la red local** , reemplace la dirección IP del marcador de posición por la dirección IP pública de la puerta de enlace de Resource Manager que creó en la sección anterior. Haga clic en la flecha para pasar a la siguiente página. Compruebe que el **espacio de direcciones** es correcto y haga clic en la marca de verificación para aceptar los cambios.
 
-## <a name="<a-name="connect"></a>section-4:-create-the-connection"></a><a name="connect"></a>Sección 4: creación de la conexión
+## <a name="a-nameconnectasection-4-create-the-connection"></a><a name="connect"></a>Sección 4: creación de la conexión
 En esta sección, se crea la conexión entre las redes virtuales. Los pasos para hacerlo requieren PowerShell. Esta conexión no se puede crear en ninguno de los portales. Asegúrese de que ha descargado e instalado los cmdlets de PowerShell tanto del modelo clásico (SM) como del modelo de Resource Manager (RM).
 
 1. Inicie sesión en su cuenta de Azure en la consola de PowerShell. El siguiente cmdlet pide las credenciales de inicio de sesión de la cuenta de Azure. Después de iniciar la sesión, se descarga la configuración de la cuenta para que esté disponible para Azure PowerShell.
    
         Login-AzureRmAccount 
    
-    Si tiene más de una suscripción de Azure, obtenga una lista de todas ellas.
+     Si tiene más de una suscripción de Azure, obtenga una lista de todas ellas.
    
         Get-AzureRmSubscription
    
@@ -172,11 +177,14 @@ La conexión se puede comprobar mediante el portal clásico, el Portal de Azure 
 
 [!INCLUDE [vpn-gateway-verify connection](../../includes/vpn-gateway-verify-connection-rm-include.md)]
 
-## <a name="<a-name="faq"></a>vnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
+## <a name="a-namefaqavnet-to-vnet-faq"></a><a name="faq"></a>P+F sobre conexiones de red virtual a red virtual
 Vea los detalles de preguntas más frecuentes para más información acerca de las conexiones de red virtual a red virtual.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

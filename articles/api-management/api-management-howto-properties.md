@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a85dc1388701c750af48249c818a5227d73e77e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 146aa7706b5ff2a613dd94c75f3ad447ace82834
 
 
 ---
@@ -47,9 +47,11 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 ## <a name="to-use-a-property"></a>Uso de una propiedad
 Para utilizar una propiedad en una directiva, coloque el nombre de la propiedad dentro de un par doble de llaves (como `{{ContosoHeader}}`), de la misma forma que se muestra en el ejemplo siguiente.
 
-    <set-header name="{{ContosoHeader}}" exists-action="override">
-      <value>{{ContosoHeaderValue}}</value>
-    </set-header>
+```xml
+<set-header name="{{ContosoHeader}}" exists-action="override">
+  <value>{{ContosoHeaderValue}}</value>
+</set-header>
+```
 
 En este ejemplo, `ContosoHeader` se utiliza como el nombre de un encabezado en una directiva `set-header`, y `ContosoHeaderValue` se utiliza como valor de ese encabezado. Cuando esta directiva se evalúa durante una solicitud o responde a la pasarela de Administración de API, `{{ContosoHeader}}` y `{{ContosoHeaderValue}}` se reemplazan por sus respectivos valores de propiedad.
 
@@ -57,9 +59,11 @@ Las propiedades se pueden utilizar como atributo completo como o valores de elem
 
 Las propiedades también pueden contener expresiones de directiva. En el ejemplo siguiente, se utiliza la propiedad `ExpressionProperty`.
 
-    <set-header name="CustomHeader" exists-action="override">
-        <value>{{ExpressionProperty}}</value>
-    </set-header>
+```xml
+<set-header name="CustomHeader" exists-action="override">
+    <value>{{ExpressionProperty}}</value>
+</set-header>
+```
 
 Cuando esta directiva se evalúa, se reemplaza `{{ExpressionProperty}}` por su valor: `@(DateTime.Now.ToString())`. Puesto que el valor es una expresión de directiva, la expresión se evalúa y la directiva continúa con su ejecución.
 
@@ -151,6 +155,6 @@ Para filtrar la lista de propiedades por valores de etiqueta, escriba una o vari
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

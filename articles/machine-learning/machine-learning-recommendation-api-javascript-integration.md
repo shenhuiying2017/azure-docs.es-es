@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: luisca
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 53a57ed45276e793dab16a3b62dd1477339e5331
+ms.sourcegitcommit: dc07007eec860e0ad7342a4926c6797341719c5b
+ms.openlocfilehash: 20791d5729a65497b5f76f929bf331906ac65818
 
 
 ---
@@ -76,10 +76,10 @@ Los siguientes pasos permiten enviar eventos:
          if (typeof AzureMLRecommendationsEvent=="undefined") {         
                      AzureMLRecommendationsEvent = []; } AzureMLRecommendationsEvent.push({ event: "click", item: "18321116" });   </script>
 
-### <a name="31-limitations-and-browser-support"></a>3.1.    Limitaciones y compatibilidad con exploradores
+### <a name="31----limitations-and-browser-support"></a>3.1.    Limitaciones y compatibilidad con exploradores
 Esta es una implementación de referencia y se proporciona tal cual. Debe admitir todos los exploradores principales.
 
-### <a name="32-type-of-events"></a>3.2.    Tipos de eventos
+### <a name="32----type-of-events"></a>3.2.    Tipos de eventos
 Hay cinco tipos de eventos que admite la biblioteca: hacer clic, clic de recomendación, agregar al carro de la compra , quitar del carro de la compra y comprar. Hay un evento adicional que se utiliza para establecer el contexto de usuario denominado Inicio de sesión.
 
 #### <a name="321-click-event"></a>3.2.1. Evento de clic
@@ -235,6 +235,6 @@ Ejemplo: El siguiente código solicita 8 recomendaciones para el elemento "64f6e
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Administración de VM en un conjunto de escalado de máquinas virtuales 
 description: "Administración de máquinas de un conjunto de escalado de máquinas virtuales mediante Azure PowerShell."
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: davidmu1
+author: Thraka
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
 translationtype: Human Translation
 ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 96560927bd9dd93c9313be7392e0cea427a50980

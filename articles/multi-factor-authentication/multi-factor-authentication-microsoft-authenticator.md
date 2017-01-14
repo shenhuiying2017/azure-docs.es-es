@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f4b00f2c5a4849e1dc874dd6d70f7c282408255b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dae4fa5f621cd1ea59b67204474af1767b401e09
 
 
 ---
@@ -39,33 +39,32 @@ Siga uno de los procedimientos siguientes para cada cuenta que desee agregar a l
 ### <a name="add-an-account-to-the-app-by-using-the-qr-code-scanner"></a>Incorporación de una cuenta a la aplicación con el escáner de códigos QR
 1. Vaya a la pantalla de configuración de comprobación de seguridad.  Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md).
 2. Seleccione **Configurar**.
-   
+
     ![Botón Configurar en la pantalla de configuración de la comprobación de seguridad](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
-   
+
     Aparecerá una pantalla con un código QR.
-   
+
     ![Pantalla que proporciona el código QR](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 3. Abra la aplicación Microsoft Authenticator. En la pantalla **Cuentas**, seleccione **+** y especifique que quiere agregar una cuenta profesional o educativa.
-   
+
     ![Pantalla Cuentas con el signo más](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
-   
-    ![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+
+    ![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-azure-authenticator/scan.png)
 4. Utilice la cámara para digitalizar el código QR y seleccione **Listo** para cerrar la pantalla de código QR.
-   
-    ![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
-   
+
+    ![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
+
     Si la cámara no funciona correctamente, puede escribir manualmente la dirección URL y el código QR. Para más información, consulte [Incorporación manual de una cuenta a la aplicación](#add-an-account-to-the-app-manually).
 5. Espere mientras se activa la cuenta. Cuando termine la activación, seleccione **Contact me**(Contacto).  Con esto se envía una notificación o un código de verificación al teléfono.  Seleccione **Comprobar**.
-   
-    ![Pantalla para seleccionar la comprobación de inicio de sesión](./media/multi-factor-authentication-end-user-first-time-mobile-app/verify.png)
+
+    ![Pantalla para seleccionar la comprobación de inicio de sesión](./media/multi-factor-authentication-azure-authenticator/verify.png)
 6. Si su empresa requiere un PIN para aprobar la comprobación de inicio de sesión, escríbalo.
-   
-    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+
+    ![Cuadro para escribir un NIP](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 7. Cuando haya terminado de escribir el PIN, seleccione **Cerrar**. A estas alturas, la verificación debería haberse realizado correctamente.
 8. Lo recomendable es introducir el número de teléfono móvil por si perdiera el acceso a la aplicación. Especifique el país en la lista desplegable y escriba su número de teléfono móvil en la casilla junto al país. Seleccione **Siguiente**.
 9. Llegados a este punto, ya ha configurado el método de contacto. Ahora es el momento de configurar contraseñas para aplicaciones que no son aplicaciones de explorador, como Outlook 2010 o anteriores. Si no utiliza estas aplicaciones, seleccione **Listo**. De lo contrario, continúe con el paso siguiente.
-   
-    ![Pantalla para crear una contraseña de aplicación](./media/multi-factor-authentication-end-user-first-time-mobile-app/step4.png)
+
 10. Si está usando aplicaciones sin explorador, copie la contraseña de aplicación proporcionada y péguela en la aplicación sin explorador. Para información acerca de aplicaciones específicas como Outlook y Lync, consulte How to change the password in your email to the app password (Cómo cambiar la contraseña del correo electrónico por la de aplicación) y How to change the password in your application to the app password (Cómo cambiar la contraseña de la aplicación por la contraseña de aplicación).
 11. Seleccione **Listo**.
 
@@ -76,25 +75,25 @@ Ahora debería ver la nueva cuenta en la pantalla **Cuentas** .
 ### <a name="add-an-account-to-the-app-manually"></a>Incorporación manual de una cuenta a la aplicación
 1. Vaya a la pantalla de configuración de comprobación de seguridad.  Para información sobre cómo ir a esta pantalla, consulte la sección sobre el [cambio de la configuración de seguridad](multi-factor-authentication-end-user-manage-settings.md).
 2. Seleccione **Configurar**.
-   
+
     ![Botón Configurar en la pantalla de configuración de la comprobación de seguridad](./media/multi-factor-authentication-azure-authenticator/azureauthe.png)
-   
+
     Aparecerá una pantalla con un código QR.  Anote la dirección URL y el código.
-   
+
     ![Pantalla que proporciona el código QR y la dirección URL](./media/multi-factor-authentication-azure-authenticator/barcode2.png)
 3. Abra la aplicación Microsoft Authenticator. En la pantalla **Cuentas**, seleccione **+** y especifique que quiere agregar una cuenta profesional o educativa.
-   
+
     ![Pantalla Cuentas con el signo más](./media/multi-factor-authentication-azure-authenticator/addaccount3.png)
-   
-    ![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan.png)
+
+    ![Pantalla para especificar una cuenta profesional o de formación](./media/multi-factor-authentication-azure-authenticator/scan.png)
 4. En el digitalizador, elija **escribir el código manualmente**.
-   
-    ![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+
+    ![Pantalla para digitalizar un código QR](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 5. En la aplicación, escriba el código y la dirección URL en los cuadros correspondientes.
-   
+
     ![Pantalla para escribir el código y la dirección URL](./media/multi-factor-authentication-azure-authenticator/manual.png)
-   
-    ![Pantalla para escribir el código y la dirección URL](./media/multi-factor-authentication-end-user-first-time-mobile-app/addaccount2.png)
+
+    ![Pantalla para escribir el código y la dirección URL](./media/multi-factor-authentication-azure-authenticator/addaccount2.png)
 6. Espere mientras se activa la cuenta. Cuando termine la activación, seleccione **Contact me**(Contacto). Con esto se envía una notificación o un código de verificación al teléfono. Seleccione **Comprobar**.
 
 Ahora debería ver la nueva cuenta en la pantalla **Cuentas** .
@@ -122,7 +121,6 @@ Para quitar una cuenta de la aplicación Microsoft Authenticator, selecciónela 
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

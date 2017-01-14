@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 536cb4cd7975283dd61c8c4f2fe1a707a735504e
-ms.openlocfilehash: 7e05ab9c6ba1d23399d2ded63eb9b413c422f7bc
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 67f2f420eecc89a9ffce2fb9ba4781a8fcb0d03b
 
 
 ---
@@ -116,7 +116,7 @@ La plantilla de ejemplo disponible en el repositorio público usa un archivo de 
 
 Para implementar la plantilla que descargó con PowerShell, siga estos pasos.
 
-1. Si nunca usó Azure PowerShell, complete los pasos del artículo [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) (Cómo instalar y configurar Azure PowerShell).
+1. Si nunca usó Azure PowerShell, complete los pasos del artículo [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) (Cómo instalar y configurar Azure PowerShell).
 2. En una consola de PowerShell, ejecute el cmdlet `New-AzureRmResourceGroup` para crear un nuevo grupo de recursos, si fuera necesario. Si ya tiene un grupo de recursos creado, vaya al paso 3.
 
     ```powershell
@@ -207,6 +207,6 @@ Para implementar la plantilla mediante la CLI de Azure, complete los siguientes 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

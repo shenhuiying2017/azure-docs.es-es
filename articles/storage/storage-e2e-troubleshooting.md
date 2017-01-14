@@ -4,18 +4,18 @@ description: "Tutorial en el que se explica cómo solucionar problemas totalment
 services: storage
 documentationcenter: dotnet
 author: robinsh
-manager: carmonm
+manager: timlt
 ms.assetid: 643372a3-1c07-4e88-b4ef-042512a43086
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: f2032f3a4fa559b9772ee63d39d66408b3f92175
-ms.openlocfilehash: 12cacb0abebf69a644aa34d78c047e99b23d4aaf
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: 2c8b4226b89c196fa69a1ab3fdeb11b110192a20
 
 
 ---
@@ -103,7 +103,7 @@ Para configurar el registro y las métricas de la cuenta de almacenamiento media
 
 **Con PowerShell**
 
-Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](../powershell-install-configure.md).
+Para empezar a usar PowerShell para Azure, vea el tema sobre [cómo instalar y configurar PowerShell de Azure](/powershell/azureps-cmdlets-docs).
 
 1. Use el cmdlet [Add-AzureAccount](http://msdn.microsoft.com/library/azure/dn722528.aspx) para agregar la cuenta de usuario de Azure a la ventana de PowerShell:
    
@@ -374,6 +374,6 @@ Para más información sobre los escenarios de solución integral de problemas e
 * [Guía de funcionamiento del analizador de mensajes de Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 
