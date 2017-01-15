@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 07/05/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f9ce6c56598e2318821c2e81a1bab1b876d6a866
+ms.sourcegitcommit: 84d3aa963f8538c0721f6c0a02cee5b8e7269770
+ms.openlocfilehash: 33433fb4e71ea6a88522c0bd50695d271fee1884
 
 
 ---
@@ -63,10 +63,10 @@ El Centro de notificaciones está configurado para funcionar con GCM y el usuari
 ### <a name="create-a-new-android-project"></a>Creación de un nuevo proyecto de Android
 1. En Android Studio, inicie un nuevo proyecto de Android Studio.
    
-       ![Android Studio - new project][13]
+     ![Android Studio: nuevo proyecto][13]
 2. Elija el factor de forma **Teléfono y tableta** y el **SDK mínimo** que desea admitir. A continuación, haga clic en **Siguiente**.
    
-       ![Android Studio - project creation workflow][14]
+     ![Android Studio: flujo de trabajo de creación de proyecto][14]
 3. Elija **Empty Activity** (Actividad vacía) para la actividad principal, haga clic en **Next** (Siguiente) y, luego, en **Finish** (Finalizar).
 
 ### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
@@ -660,10 +660,10 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones push en Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencias a un proyecto de biblioteca]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Portal de Azure clásico]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [Introducción a los centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 [Notificación a los usuarios con los Centros de notificaciones de Azure]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Uso de Notification Hubs para enviar noticias de última hora]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
@@ -671,6 +671,6 @@ Para más información sobre los Centros de notificaciones, consulte [Introducci
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
