@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: d07d1c838d99d0de0c5b62aaf42330b447df102c
-ms.openlocfilehash: eeb75df30811a83ecd1285ec7a38929c65995edc
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 9d6d4ca99d5733f4e586ccba44307d8f5ffa09e8
 
 
 ---
@@ -246,7 +246,7 @@ Realice los pasos siguientes para pasar el cable del puerto serie.
 Ahora su dispositivo dispondrá de los cables de alimentación, de acceso a la red y de conectividad serie. El siguiente paso es configurar el software e implementar el dispositivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Aprenda cómo [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough.md).
+Aprenda cómo [Implementar el dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
 
 
 

@@ -1,26 +1,30 @@
 ---
-title: Escalado automático de conjuntos de escalado de máquinas virtuales Linux | Microsoft Docs
-description: Configuración del escalado automático para un conjunto de escalado de máquinas virtuales Linux mediante la CLI de Azure
+title: "Escalado automático de conjuntos de escalado de máquinas virtuales Linux | Microsoft Docs"
+description: "Configuración del escalado automático para un conjunto de escalado de máquinas virtuales Linux mediante la CLI de Azure"
 services: virtual-machine-scale-sets
-documentationcenter: ''
-author: davidmu1
+documentationcenter: 
+author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
-ms.author: davidmu
+ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 655bb950ad21ab2df0e88db52b8f54b89d35f871
+ms.openlocfilehash: d095814e32b7354419d454d0d7bd3df772b6f01e
+
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>Escalado automático de máquinas de Linux en un conjunto de escalado de máquinas virtuales
 Los conjuntos de escalado de máquinas virtuales facilitan la implementación y administración de máquinas virtuales idénticas como conjunto. Los conjuntos de escala proporcionan una capa de proceso altamente escalable y personalizable para aplicaciones de gran escala y admiten imágenes de la plataforma Windows, imágenes de la plataforma Linux, imágenes personalizadas y extensiones. Para obtener más información, consulte [Virtual Machine Scale Sets Overview (Información general de conjuntos de escalado de máquinas virtuales)](virtual-machine-scale-sets-overview.md).
 
-En este tutorial se muestra cómo crear un conjunto de escalado de máquinas virtuales de Linux con la versión más reciente de Ubuntu Linux. En el tutorial también se muestra cómo escalar automáticamente las máquinas del conjunto. El conjunto de escalado se crea y la configuración de escalado se configura mediante la creación de una plantilla de Azure Resource Manager que se implementa con la CLI de Azure. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md). Para obtener más información sobre el escalado automático de conjuntos de escalado, consulte [Automatic scaling and Virtual Machine Scale Sets (Escalado automático y conjuntos de escalado de máquinas virtuales)](virtual-machine-scale-sets-autoscale-overview.md).
+En este tutorial se muestra cómo crear un conjunto de escalado de máquinas virtuales de Linux con la versión más reciente de Ubuntu Linux. En el tutorial también se muestra cómo escalar automáticamente las máquinas del conjunto. El conjunto de escalado se crea y la configuración de escalado se configura mediante la creación de una plantilla de Azure Resource Manager que se implementa con la CLI de Azure. Para más información sobre las plantillas, consulte [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md). Para obtener más información sobre el escalado automático de conjuntos de escalado, consulte [Automatic scaling and Virtual Machine Scale Sets (Escalado automático y conjuntos de escalado de máquinas virtuales)](virtual-machine-scale-sets-autoscale-overview.md).
 
 En este tutorial, implemente los recursos y las extensiones siguientes:
 
@@ -34,19 +38,19 @@ En este tutorial, implemente los recursos y las extensiones siguientes:
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-Para más información sobre los recursos del Administrador de recursos, consulte [Proveedores de procesos, redes y almacenamiento de Azure en el Administrador de recursos de Azure](../virtual-machines/virtual-machines-linux-compare-deployment-models.md).
+Para más información sobre los recursos de Resource Manager, consulte [Implementación mediante Azure Resource Manager frente al modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Antes de empezar con los pasos de este tutorial, [instale la CLI de Azure](../xplat-cli-install.md).
 
-## <a name="step-1:-create-a-resource-group-and-a-storage-account"></a>Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
-1. **Iniciar sesión en Microsoft Azure** : en la interfaz de línea de comandos (Bash, Terminal, símbolo del sistema), cambie al modo Resource Manager e [inicie sesión con su Id. profesional o educativa](../xplat-cli-connect.md#use-the-log-in-method). Siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
+## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>Paso 1: Creación de un grupo de recursos y una cuenta de almacenamiento
+1. **Iniciar sesión en Microsoft Azure** : en la interfaz de línea de comandos (Bash, Terminal, símbolo del sistema), cambie al modo Resource Manager e [inicie sesión con su Id. profesional o educativa](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login). Siga las indicaciones para una experiencia de inicio de sesión interactiva a su cuenta de Azure.
    
         azure config mode arm
    
         azure login
    
    > [!NOTE]
-   > Si tiene un identificador profesional o educativo y no tiene habilitada la autenticación en dos fases, use `azure login -u` junto con el identificador para iniciar sesión que no sea interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../virtual-machines/virtual-machines-linux-create-aad-work-id.md).
+   > Si tiene un identificador profesional o educativo y no tiene habilitada la autenticación en dos fases, use `azure login -u` junto con el identificador para iniciar sesión que no sea interactiva. Si no tiene un identificador profesional o educativo, puede [crear uno desde su cuenta personal de Microsoft](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 2. **Cree un grupo de recursos** : todos los recursos deben implementarse en un grupo de recursos. Para este tutorial, asigne el nombre **vmsstest1**al grupo de recursos.
@@ -56,7 +60,7 @@ Antes de empezar con los pasos de este tutorial, [instale la CLI de Azure](../xp
    
         azure storage account create -g vmsstestrg1 -l centralus --kind Storage --sku-name LRS vmsstestsa
 
-## <a name="step-2:-create-the-template"></a>Paso 2: Creación de la plantilla
+## <a name="step-2-create-the-template"></a>Paso 2: Creación de la plantilla
 Las plantillas del Administrador de recursos de Azure le permiten implementar y administrar los distintos recursos de Azure en conjunto mediante una descripción de JSON de los recursos y los parámetros de implementación asociados.
 
 1. En el editor que prefiera, cree el archivo VMSSTemplate.json y agregue la estructura inicial de JSON para admitir la plantilla.
@@ -109,7 +113,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
    * Los nombres de direcciones IP y los prefijos para la red virtual y las subredes.
    * Los nombres y los identificadores de la red virtual, el equilibrador de carga y las interfaces de red.
    * Los nombres de cuentas de almacenamiento para las cuentas asociadas a las máquinas en el conjunto de escala.
-   * Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+   * Configuración de la extensión de diagnósticos que se instala en las máquinas virtuales. Para más información sobre la extensión de diagnósticos, consulte [Crear una máquina virtual de Windows con supervisión y diagnóstico mediante la plantilla de Azure Resource Manager](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 4. Agregue el recurso de la cuenta de almacenamiento en el elemento primario de recursos que agregó a la plantilla. Esta plantilla utiliza un bucle para crear las cinco cuentas de almacenamiento recomendadas donde se guardan los discos del sistema operativo y los datos de diagnóstico. Este conjunto de cuentas puede admitir hasta 100 máquinas virtuales en un conjunto de escala, lo cual es el máximo actual. Cada cuenta de almacenamiento se denomina con un indicador de letra, que se definió en las variables, y se combina con el sufijo que proporcionó en los parámetros de la plantilla.
    
         {
@@ -277,153 +281,153 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
         },
 10. Agregue el recurso de conjunto de escalado de máquinas virtuales y especifique la extensión de diagnóstico instalada en todas las máquinas virtuales del conjunto. Muchos de los valores para este recurso son similares al recurso de máquina virtual. Las principales diferencias son el elemento de capacidad, que especifica el número de máquinas virtuales del conjunto de escalado, y upgradePolicy, que especifica cómo se realizan las actualizaciones en las máquinas virtuales. El conjunto de escalado no se crea hasta que se crean todas las cuentas de almacenamiento como se especifica en el elemento dependsOn.
     
-            {
-              "type": "Microsoft.Compute/virtualMachineScaleSets",
-              "apiVersion": "2016-03-30",
-              "name": "[parameters('vmSSName')]",
-              "location": "[resourceGroup().location]",
-              "dependsOn": [
-                "storageLoop",
-                "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
-                "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
-              ],
-              "sku": {
-                "name": "Standard_A1",
-                "tier": "Standard",
-                "capacity": "[parameters('instanceCount')]"
-              },
-              "properties": {
-                "upgradePolicy": {
-                  "mode": "Manual"
-                },
-                "virtualMachineProfile": {
-                  "storageProfile": {
-                    "osDisk": {
-                      "vhdContainers": [
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3],'.blob.core.windows.net/vmss')]",
-                        "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4],'.blob.core.windows.net/vmss')]"
-                      ],
-                      "name": "vmssosdisk",
-                      "caching": "ReadOnly",
-                      "createOption": "FromImage"
-                    },
-                    "imageReference": {
-                      "publisher": "Canonical",
-                      "offer": "UbuntuServer",
-                      "sku": "14.04.4-LTS",
-                      "version": "latest"
-                    }
-                  },
-                  "osProfile": {
-                    "computerNamePrefix": "[parameters('vmSSName')]",
-                    "adminUsername": "[parameters('adminUsername')]",
-                    "adminPassword": "[parameters('adminPassword')]"
-                  },
-                  "networkProfile": {
-                    "networkInterfaceConfigurations": [
-                      {
-                        "name": "networkconfig1",
-                        "properties": {
-                          "primary": "true",
-                          "ipConfigurations": [
-                            {
-                              "name": "ip1",
-                              "properties": {
-                                "subnet": {
-                                  "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
-                                },
-                                "loadBalancerBackendAddressPools": [
-                                  {
-                                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
-                                  }
-                                ],
-                                "loadBalancerInboundNatPools": [
-                                  {
-                                    "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
-                                  }
-                                ]
-                              }
-                            }
-                          ]
-                        }
-                      }
-                    ]
-                  },
-                  "extensionProfile": {
-                    "extensions": [
-                      {
-                        "name":"LinuxDiagnostic",
-                        "properties": {
-                          "publisher":"Microsoft.OSTCExtensions",
-                          "type":"LinuxDiagnostic",
-                          "typeHandlerVersion":"2.1",
-                          "autoUpgradeMinorVersion":false,
-                          "settings": {
-                            "xmlCfg":"[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-                            "storageAccount":"[variables('diagnosticsStorageAccountName')]"
-                          },
-                          "protectedSettings": {
-                            "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
-                            "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
-                            "storageAccountEndPoint":"https://core.windows.net"
-                          }
-                        }
-                      }
-                    ]
-                  }
-                }
-              }
-            },
-11. Agregue el recurso autoscaleSettings que define cómo el conjunto de escala se ajusta según el uso del procesador en las máquinas del conjunto. 
+         {
+           "type": "Microsoft.Compute/virtualMachineScaleSets",
+           "apiVersion": "2016-03-30",
+           "name": "[parameters('vmSSName')]",
+           "location": "[resourceGroup().location]",
+           "dependsOn": [
+             "storageLoop",
+             "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+             "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]"
+           ],
+           "sku": {
+             "name": "Standard_A1",
+             "tier": "Standard",
+             "capacity": "[parameters('instanceCount')]"
+           },
+           "properties": {
+             "upgradePolicy": {
+               "mode": "Manual"
+             },
+             "virtualMachineProfile": {
+               "storageProfile": {
+                 "osDisk": {
+                   "vhdContainers": [
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[0],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[1],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[2],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[3],'.blob.core.windows.net/vmss')]",
+                     "[concat('https://', parameters('resourcePrefix'), variables('storageAccountSuffix')[4],'.blob.core.windows.net/vmss')]"
+                   ],
+                   "name": "vmssosdisk",
+                   "caching": "ReadOnly",
+                   "createOption": "FromImage"
+                 },
+                 "imageReference": {
+                   "publisher": "Canonical",
+                   "offer": "UbuntuServer",
+                   "sku": "14.04.4-LTS",
+                   "version": "latest"
+                 }
+               },
+               "osProfile": {
+                 "computerNamePrefix": "[parameters('vmSSName')]",
+                 "adminUsername": "[parameters('adminUsername')]",
+                 "adminPassword": "[parameters('adminPassword')]"
+               },
+               "networkProfile": {
+                 "networkInterfaceConfigurations": [
+                   {
+                     "name": "networkconfig1",
+                     "properties": {
+                       "primary": "true",
+                       "ipConfigurations": [
+                         {
+                           "name": "ip1",
+                           "properties": {
+                             "subnet": {
+                               "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'),'/subnets/subnet1')]"
+                             },
+                             "loadBalancerBackendAddressPools": [
+                               {
+                                 "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/backendAddressPools/bepool1')]"
+                               }
+                             ],
+                             "loadBalancerInboundNatPools": [
+                               {
+                                 "id": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Network/loadBalancers/',variables('loadBalancerName'),'/inboundNatPools/natpool1')]"
+                               }
+                             ]
+                           }
+                         }
+                       ]
+                     }
+                   }
+                 ]
+               },
+               "extensionProfile": {
+                 "extensions": [
+                   {
+                     "name":"LinuxDiagnostic",
+                     "properties": {
+                       "publisher":"Microsoft.OSTCExtensions",
+                       "type":"LinuxDiagnostic",
+                       "typeHandlerVersion":"2.1",
+                       "autoUpgradeMinorVersion":false,
+                       "settings": {
+                         "xmlCfg":"[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
+                         "storageAccount":"[variables('diagnosticsStorageAccountName')]"
+                       },
+                       "protectedSettings": {
+                         "storageAccountName":"[variables('diagnosticsStorageAccountName')]",
+                         "storageAccountKey":"[listkeys(variables('accountid'), '2015-06-15').key1]",
+                         "storageAccountEndPoint":"https://core.windows.net"
+                       }
+                     }
+                   }
+                 ]
+               }
+             }
+           }
+         },
+11. Agregue el recurso autoscaleSettings que define cómo el conjunto de escala se ajusta según el uso del procesador en las máquinas del conjunto.
     
-            {
-              "type": "Microsoft.Insights/autoscaleSettings",
-              "apiVersion": "2015-04-01",
-              "name": "[concat(parameters('resourcePrefix'),'as1')]",
-              "location": "[resourceGroup().location]",
-              "dependsOn": [
-                "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-              ],
-              "properties": {
-                "enabled": true,
-                "name": "[concat(parameters('resourcePrefix'),'as1')]",
-                "profiles": [
-                  {
-                    "name": "Profile1",
-                    "capacity": {
-                      "minimum": "1",
-                      "maximum": "10",
-                      "default": "1"
-                    },
-                    "rules": [
-                      {
-                        "metricTrigger": {
-                          "metricName": "\\Processor\\PercentProcessorTime",
-                          "metricNamespace": "",
-                          "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
-                          "timeGrain": "PT1M",
-                          "statistic": "Average",
-                          "timeWindow": "PT5M",
-                          "timeAggregation": "Average",
-                          "operator": "GreaterThan",
-                          "threshold": 50.0
-                        },
-                        "scaleAction": {
-                          "direction": "Increase",
-                          "type": "ChangeCount",
-                          "value": "1",
-                          "cooldown": "PT5M"
-                        }
-                      }
-                    ]
-                  }
-                ],
-                "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-              }
-            }
+         {
+           "type": "Microsoft.Insights/autoscaleSettings",
+           "apiVersion": "2015-04-01",
+           "name": "[concat(parameters('resourcePrefix'),'as1')]",
+           "location": "[resourceGroup().location]",
+           "dependsOn": [
+             "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+           ],
+           "properties": {
+             "enabled": true,
+             "name": "[concat(parameters('resourcePrefix'),'as1')]",
+             "profiles": [
+               {
+                 "name": "Profile1",
+                 "capacity": {
+                   "minimum": "1",
+                   "maximum": "10",
+                   "default": "1"
+                 },
+                 "rules": [
+                   {
+                     "metricTrigger": {
+                       "metricName": "\\Processor\\PercentProcessorTime",
+                       "metricNamespace": "",
+                       "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]",
+                       "timeGrain": "PT1M",
+                       "statistic": "Average",
+                       "timeWindow": "PT5M",
+                       "timeAggregation": "Average",
+                       "operator": "GreaterThan",
+                       "threshold": 50.0
+                     },
+                     "scaleAction": {
+                       "direction": "Increase",
+                       "type": "ChangeCount",
+                       "value": "1",
+                       "cooldown": "PT5M"
+                     }
+                   }
+                 ]
+               }
+             ],
+             "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
+           }
+         }
     
     Para este tutorial, destacan estos valores:
     
@@ -441,7 +445,7 @@ Las plantillas del Administrador de recursos de Azure le permiten implementar y 
     * **cooldown** : este valor es la cantidad de tiempo de espera desde la última acción de escalado hasta antes de que se produzca la siguiente acción. Debe estar comprendido entre un minuto y una semana.
 12. Guarde el archivo de plantilla.    
 
-## <a name="step-3:-upload-the-template-to-storage"></a>Paso 3: Carga de la plantilla en el almacenamiento
+## <a name="step-3-upload-the-template-to-storage"></a>Paso 3: Carga de la plantilla en el almacenamiento
 La plantilla se puede cargar siempre y cuando conozca el nombre de cuenta y la clave principal de la cuenta de almacenamiento que creó en el paso 1.
 
 1. En la interfaz de línea de comandos (Bash, Terminal, símbolo del sistema), ejecute estos comandos para establecer las variables de entorno que se necesitan para acceder a la cuenta de almacenamiento:
@@ -457,7 +461,7 @@ La plantilla se puede cargar siempre y cuando conozca el nombre de cuenta y la c
    
         azure storage blob upload VMSSTemplate.json templates VMSSTemplate.json
 
-## <a name="step-4:-deploy-the-template"></a>Paso 4: Implementación de la plantilla
+## <a name="step-4-deploy-the-template"></a>Paso 4: Implementación de la plantilla
 Ahora que ha creado la plantilla, puede empezar a implementar los recursos. Use este comando para iniciar el proceso:
 
     azure group deployment create --template-uri https://vmsstestsa.blob.core.windows.net/templates/VMSSTemplate.json vmsstestrg1 vmsstestdp1
@@ -478,7 +482,7 @@ Para que todos los recursos se implementen correctamente se tardará unos 15 min
 > 
 > 
 
-## <a name="step-5:-monitor-resources"></a>Paso 5: Supervisión de recursos
+## <a name="step-5-monitor-resources"></a>Paso 5: Supervisión de recursos
 Puede obtener información acerca de los conjuntos de escala de máquinas virtuales mediante estos métodos:
 
 * El portal de Azure: actualmente puede obtener una cantidad limitada de información mediante el portal.
@@ -495,17 +499,20 @@ Puede obtener información acerca de los conjuntos de escala de máquinas virtua
 > 
 > 
 
-## <a name="step-6:-remove-the-resources"></a>Paso 6: Eliminación de recursos
+## <a name="step-6-remove-the-resources"></a>Paso 6: Eliminación de recursos
 Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveniente eliminar los recursos que ya no sean necesarios. No es necesario eliminar por separado cada recurso de un grupo de recursos. Puede eliminar el grupo de recursos para que se eliminen automáticamente todos sus recursos.
 
         azure group delete vmsstestrg1
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md)
-* Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md) 
-* Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Encuentre ejemplos de las características de supervisión de Azure Monitor en [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md)
+* Aprenda sobre las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+* Aprenda cómo [usar registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 * Consulte la plantilla [Autoscale a VM Scale Set running a Ubuntu/Apache/PHP app (Escalado automático de un conjunto de escala de VM que ejecuta una aplicación Ubuntu, Apache o PHP)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) , en la que se define una pila LAMP para ejercer la funcionalidad de escalado automático de los conjuntos de escalas de máquina virtual.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO4-->
 
 

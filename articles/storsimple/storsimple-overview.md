@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 10/05/2016
 ms.author: v-sharos@microsoft.com
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 96779fef9604a12609c53561e2591dfded3ef616
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 34b09279785d87f75d16e3baf320ffb66cf9b682
 
 
 ---
@@ -133,7 +133,7 @@ Puede tener acceso a Windows PowerShell para StorSimple desde una consola serial
 Para obtener más información, consulte [Uso de Windows PowerShell para StorSimple para administrar su dispositivo](storsimple-windows-powershell-administration.md).
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Cmdlets de Azure PowerShell StorSimple
-Los cmdlets de StorSimple de Azure PowerShell son un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas migración y de nivel de servicio desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [referencia de los cmdlets](https://msdn.microsoft.com/library/dn920427.aspx).
+Los cmdlets de StorSimple de Azure PowerShell son un conjunto de cmdlets de Windows PowerShell que permiten automatizar las tareas migración y de nivel de servicio desde la línea de comandos. Para obtener más información sobre los cmdlets de Azure PowerShell, consulte la [referencia de los cmdlets](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
 
 ## <a name="storsimple-snapshot-manager"></a>Snapshot Manager de StorSimple
 StorSimple Snapshot Manager es un complemento de Microsoft Management Console (MMC) que se puede usar para crear copias de seguridad puntuales y coherentes de datos locales y en la nube. El complemento se ejecuta en un host basado en Windows Server. Puede utilizar StorSimple Snapshot Manager para:
