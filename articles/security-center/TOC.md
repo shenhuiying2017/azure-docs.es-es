@@ -70,6 +70,6 @@
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)
 
 
-<!--HONumber=Jan17_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 
