@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ee70cb290f8da874ff378ded97430acd3a0fc1cd
+ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
+ms.openlocfilehash: e5a090acb88db0139ad1cea627060e5076ece1b4
 
 
 ---
@@ -167,7 +167,7 @@ Para crear el grupo de recursos del entorno de preproducción, escriba el comand
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### <a name="powershell"></a>PowerShell
-Asegúrese de que tiene Azure PowerShell 1.01 o posterior instalado en un equipo Windows y de que ha conectado su [cuenta de Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (también denominada profesional o educativa) a la suscripción como se detalla en el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo.
+Asegúrese de que tiene Azure PowerShell 1.01 o posterior instalado en un equipo Windows y de que ha conectado su [cuenta de Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (también denominada profesional o educativa) a la suscripción como se detalla en el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -364,6 +364,6 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

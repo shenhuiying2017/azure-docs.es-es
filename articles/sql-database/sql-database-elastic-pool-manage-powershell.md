@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/22/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 8b0893b159b6ed086cd3fcb41f7671c7c41cd176
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 2f8b2bc9ddac435582306d0105a636666aebbac7
 
 
 ---
@@ -36,7 +37,7 @@ Para ver los códigos de error comunes, consulte [Códigos de error para las apl
 Se pueden encontrar valores para los grupos en el artículo sobre [límites de almacenamiento y de eDTU](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell 1.0 o posterior. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Los grupos de bases de datos elásticas solo están disponibles en los servidores de la versión 12 de Base de datos SQL de Azure. Si tiene un servidor de la versión 11 de Base de datos SQL, [use PowerShell para actualizarlo a la versión 12 y crear un grupo](sql-database-upgrade-server-portal.md) en un solo paso.
 
 ## <a name="move-a-database-into-an-elastic-pool"></a>Movimiento de una base de datos a un grupo elástico
@@ -270,6 +271,6 @@ El cmdlet Stop- significa cancelar, no pausar. La única forma de reanudar una a
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

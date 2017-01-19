@@ -1,13 +1,13 @@
 ---
-title: Optimizar las consultas de Hive para una ejecución más rápida en HDInsight | Microsoft Docs
+title: "Optimizar las consultas de Hive para una ejecución más rápida en HDInsight | Microsoft Docs"
 description: Aprenda a optimizar sus consultas de Hive para Hadoop en HDInsight.
 services: hdinsight
-documentationcenter: ''
+documentationcenter: 
 author: rashimg
 manager: mwinkle
 editor: cgronlun
 tags: azure-portal
-
+ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
@@ -15,25 +15,30 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/28/2015
 ms.author: rashimg
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5054865a4321bb5d2c188e485b033b16f49cb525
+
 
 ---
-# Optimizar consultas de Hive para Hadoop en HDInsight
+# <a name="optimize-hive-queries-for-hadoop-in-hdinsight"></a>Optimizar consultas de Hive para Hadoop en HDInsight
 De manera predeterminada, los clústeres de Hadoop no están optimizados para el rendimiento. En este artículo se tratan algunos de los métodos de optimización de rendimiento de Hive más comunes que se pueden aplicar a nuestras consultas.
 
-## Escalar horizontalmente nodos de trabajo
+## <a name="scale-out-worker-nodes"></a>Escalar horizontalmente nodos de trabajo
 El aumento del número de nodos de trabajo de un clúster puede aprovechar más asignadores y reductores para ejecutarse en paralelo. Hay dos maneras de aumentar la escala horizontal en HDInsight:
 
-* En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el Portal de Azure, PowerShell de Azure y la interfaz de la línea de comandos entre plataformas. Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de Azure:
+* En el momento de aprovisionamiento, puede especificar el número de nodos de trabajo mediante el Portal de Azure, PowerShell de Azure y la interfaz de la línea de comandos entre plataformas.  Para obtener más información, consulte [Aprovisionamiento de clústeres de HDInsight](hdinsight-provision-clusters.md). En la siguiente pantalla se muestra la configuración del nodo de trabajo en el portal de Azure:
   
-    ![scaleout\_1][image-hdi-optimize-hive-scaleout\_1]
-* En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación. ![scaleout\_1][image-hdi-optimize-hive-scaleout\_2]2]
+    ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
+* En tiempo de ejecución, también puede escalar horizontalmente un clúster sin volver a crear uno. Esto se muestra a continuación.
+  ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
 Para obtener más detalles sobre las distintas máquinas virtuales admitidas por HDInsight, vea [precios HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## Habilitar Tez
+## <a name="enable-tez"></a>Habilitar Tez
 [Apache Tez](http://hortonworks.com/hadoop/tez/) es un motor de ejecución alternativa al motor de MapReduce:
 
-![tez\_1][image-hdi-optimize-hive-tez\_1]
+![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez es más rápido porque:
 
@@ -43,7 +48,7 @@ Tez es más rápido porque:
 * **Reutiliza contenedores** Siempre que es posible, Tez puede reutilizar contenedores para asegurarse de que se reduce la latencia debido al reinicio de contenedores.
 * **Técnicas de optimización continua** Tradicionalmente, la optimización se realizó durante la fase de compilación. Sin embargo, hay más información disponible acerca de las entradas que permiten una mejor optimización en tiempo de ejecución. Tez usa las técnicas de optimización continua que le permiten optimizar más el plan en la fase de tiempo de ejecución.
 
-Para obtener más detalles sobre estos conceptos, haga clic en [aquí](http://hortonworks.com/hadoop/tez/).
+Para obtener más detalles sobre estos conceptos, haga clic en [aquí](http://hortonworks.com/hadoop/tez/)
 
 Puede realizar cualquier consulta de Hive habilitada con Tez anteponiendo a la consulta la siguiente configuración:
 
@@ -81,20 +86,20 @@ Para los clústeres de HDInsight basados en Windows, Tez debe estar habilitada e
 > 
 > 
 
-## Creación de particiones de Hive
+## <a name="hive-partitioning"></a>Creación de particiones de Hive
 La operación de E/S es el principal cuello de botella de rendimiento para ejecutar consultas de Hive. El rendimiento se puede mejorar si se puede reducir la cantidad de datos que deben leerse. De forma predeterminada, las consultas de Hive examinan tablas completas de Hive. Esto es excelente para las consultas como recorridos de tabla; sin embargo, para las consultas que sólo necesitan analizar una pequeña cantidad de datos (por ejemplo, consultas con filtrado), esto crea una sobrecarga innecesaria. La creación de particiones de Hive permite a las consultas de Hive tener acceso solo a la cantidad de datos necesaria en las tablas de Hive.
 
 La creación de particiones de Hive se implementa mediante la reorganización de los datos sin procesar en nuevos directorios teniendo cada partición su propio directorio (donde la partición se define por el usuario). En el siguiente diagrama se ilustra la creación de particiones de una tabla de Hive por la columna *Año*. Se crea un nuevo directorio para cada año.
 
-![partitioning][image-hdi-optimize-hive-partitioning\_1]
+![creación de particiones][image-hdi-optimize-hive-partitioning_1]
 
 Algunas consideraciones de particiones:
 
-* **No cree particiones insuficientes**: la creación de particiones en columnas con solo unos pocos valores puede generar muy pocas particiones. Por ejemplo, la creación de particiones por sexo solo creará dos particiones (hombres y mujeres); por tanto, solo se reduce la latencia a un máximo de la mitad.
-* **No cree particiones excesivas**: en el otro extremo, la creación de una partición en una columna con un valor único (por ejemplo, userid) hará que varias particiones provoquen un gran esfuerzo en el namenode del clúster ya que tendrá que controlar la gran cantidad de directorios.
-* **Evite el sesgo de datos**: elija su clave de creación de particiones con cuidado de manera que todas las particiones tengan el mismo tamaño. Un ejemplo es que la creación de particiones en *Estado* puede hacer que el número de registros en California 30 veces superior al de Vermont debido a la diferencia en la población.
+* **No cree particiones insuficientes** : la creación de particiones en columnas con solo unos pocos valores puede generar muy pocas particiones. Por ejemplo, la creación de particiones por sexo solo creará dos particiones (hombres y mujeres); por tanto, solo se reduce la latencia a un máximo de la mitad.
+* **No cree particiones excesivas** : en el otro extremo, la creación de una partición en una columna con un valor único (por ejemplo, userid) hará que varias particiones provoquen un gran esfuerzo en el namenode del clúster ya que tendrá que controlar la gran cantidad de directorios.
+* **Evite el sesgo de datos** : elija su clave de creación de particiones con cuidado de manera que todas las particiones tengan el mismo tamaño. Un ejemplo es que la creación de particiones en *Estado* puede hacer que el número de registros en California 30 veces superior al de Vermont debido a la diferencia en la población.
 
-Para crear una tabla de particiones, use la cláusula *Particionado por*:
+Para crear una tabla de particiones, use la cláusula *Particionado por* :
 
     CREATE TABLE lineitem_part
         (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
@@ -108,7 +113,7 @@ Para crear una tabla de particiones, use la cláusula *Particionado por*:
 
 Cuando se cree la tabla con particiones, puede crear las particiones estáticas o las particiones dinámicas.
 
-* Las **particiones estáticas** indican que ya ha particionado datos en los directorios adecuados y que puede pedir particiones de Hive manualmente según la ubicación del directorio. Esto se muestra en el siguiente fragmento de código.
+* **particiones estáticas** indican que ya ha particionado datos en los directorios adecuados y que puede pedir particiones de Hive manualmente según la ubicación del directorio. Esto se muestra en el siguiente fragmento de código.
   
         INSERT OVERWRITE TABLE lineitem_part
         PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
@@ -130,7 +135,7 @@ Cuando se cree la tabla con particiones, puede crear las particiones estáticas 
 
 Para obtener más información, vea [Tablas con particiones](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
-## Usar el formato ORCFile
+## <a name="use-the-orcfile-format"></a>Usar el formato ORCFile
 Hive admite diferentes formatos de archivo. Por ejemplo:
 
 * **Texto**: este es el formato de archivo predeterminado y funciona con la mayoría de escenarios
@@ -140,7 +145,7 @@ Hive admite diferentes formatos de archivo. Por ejemplo:
 El formato ORC (Optimized Row Columnar) es una manera muy eficaz de almacenar datos de Hive. En comparación con otros formatos, ORC tiene las siguientes ventajas:
 
 * compatibilidad con tipos complejos incluidos DateTime y tipos complejos y semiestructurados
-* hasta un 70 % de compresión
+* hasta un 70 % de compresión
 * indiza cada 10.000 filas, lo que permite omitir filas
 * un gran descenso en la ejecución del tiempo de ejecución
 
@@ -178,7 +183,7 @@ A continuación, inserte datos en la tabla ORC desde la tabla de almacenamiento 
 
 Puede leer más sobre el formato ORC [aquí](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
-## Vectorización
+## <a name="vectorization"></a>Vectorización
 La vectorización permite a Hive procesar un lote de 1024 filas juntas en lugar de procesar una fila cada vez. Esto significa que las operaciones sencillas se realizan con mayor rapidez porque se necesita ejecutar menos código interno.
 
 Para habilitar la vectorización, anteponga a su consulta de Hive la siguiente configuración:
@@ -187,14 +192,14 @@ Para habilitar la vectorización, anteponga a su consulta de Hive la siguiente c
 
 Para obtener más información, vea [Ejecución de consultas vectorizadas](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
-## Otros métodos de optimización
+## <a name="other-optimization-methods"></a>Otros métodos de optimización
 Hay más métodos de optimización que puede considerar, por ejemplo:
 
 * **Creación de depósitos de Hive:** una técnica que permite agrupar o segmentar grandes conjuntos de datos para optimizar el rendimiento de las consultas.
 * **Optimización de combinación:** optimización de la planeación de la ejecución de consultas de Hive para mejorar la eficacia de las combinaciones y reducir la necesidad de sugerencias de usuario. Para obtener más información, vea [Optimización de combinación](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+JoinOptimization#LanguageManualJoinOptimization-JoinOptimization).
 * **Aumentar reductores**
 
-## <a id="nextsteps"></a> Pasos siguientes
+## <a name="a-idnextstepsa-next-steps"></a><a id="nextsteps"></a> Pasos siguientes
 En este artículo, ha aprendido varios métodos comunes de optimización de consultas de Hive. Para obtener más información, consulte los artículos siguientes:
 
 * [Uso de Apache Hive en HDInsight](hdinsight-use-hive.md)
@@ -203,6 +208,13 @@ En este artículo, ha aprendido varios métodos comunes de optimización de cons
 * [Análisis de datos de sensor mediante la consola de consultas de Hive en Hadoop con HDInsight](hdinsight-hive-analyze-sensor-data.md)
 * [Uso de Hive con HDInsight para analizar registros de sitios web](hdinsight-hive-analyze-website-log.md)
 
-[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png [image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png [image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png [image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
+[image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png
+[image-hdi-optimize-hive-scaleout_2]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_2.png
+[image-hdi-optimize-hive-tez_1]: ./media/hdinsight-hadoop-optimize-hive-query/tez_1.png
+[image-hdi-optimize-hive-partitioning_1]: ./media/hdinsight-hadoop-optimize-hive-query/partitioning_1.png
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+<!--HONumber=Dec16_HO2-->
+
+

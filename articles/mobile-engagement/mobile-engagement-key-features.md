@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a3b64e99d46eba00d814192a590eda9420d08abd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
 
 
 ---
@@ -65,7 +65,7 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
   
     ![][12]    
 
-## <a name="targeted-personalized-push-notifications"></a>**Notificaciones push específicas y personalizadas**
+## <a name="targeted--personalized-push-notifications"></a>**Notificaciones push específicas y personalizadas**
 * **Cree un segmento basado en los datos recopilados.** Para ello, puede usar cualquiera de los datos de evento, sesión, actividad, trabajo, bloqueo, error o etiqueta.
   
     ![][13]
@@ -153,6 +153,6 @@ En este artículo se proporciona una introducción de alto nivel sobre las carac
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

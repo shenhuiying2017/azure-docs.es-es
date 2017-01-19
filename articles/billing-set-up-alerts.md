@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2016
+ms.date: 01/07/2017
 ms.author: vikdesai
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76e72abdb4876af7a3ca9be082ff125a2c70c6c7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ce21f881d95b369073168d205c315d74de9f24ef
 
 
 ---
@@ -44,12 +44,12 @@ Azure admite cualquier dirección de correo electrónico pero no comprueba que l
 ## <a name="check-on-your-alerts"></a>Comprobación de las alertas
 Después de configurar las alertas, el centro de cuentas enumera y muestra cuántas más se pueden configurar. Para cada alerta, se mostrará la fecha y la hora de envío, si es una alerta de total de facturación o de crédito monetario, así como el límite configurado. El formato de fecha y hora es de 24 horas según el horario universal coordinado (UTC) y la fecha tiene el formato aaaa-mm-dd. Haga clic en el signo más de una alerta de la lista para modificarla o haga clic en la papelera para eliminarla.
 
-[Imagen 1]: ./media/azure-billing-set-up-alerts/billingalert1.png
-[Imagen 2]: ./media/azure-billing-set-up-alerts/billingalert2.png
-[Imagen 3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
+[Image1]: ./media/azure-billing-set-up-alerts/billingalert1.png
+[Image2]: ./media/azure-billing-set-up-alerts/billingalert2.png
+[Image3]: ./media/azure-billing-set-up-alerts/billingalerts3.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

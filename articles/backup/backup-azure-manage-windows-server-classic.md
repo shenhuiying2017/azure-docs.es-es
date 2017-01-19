@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 41d02237708517c782d64aeadcafd053fcd6523d
 
 
 ---
@@ -29,7 +29,8 @@ ms.openlocfilehash: ee95dd7f96adcb2a271f3bddf56a4b6c85c4afd5
 
 En este artículo encontrará información general sobre las tareas de administración de copias de seguridad que tiene disponibles en el Portal de Azure clásico y el agente de Copia de seguridad de Microsoft Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT]
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos.
 
 ## <a name="management-portal-tasks"></a>Tareas del Portal de administración
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
@@ -195,6 +196,6 @@ Para habilitar la limitación, siga estos pasos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

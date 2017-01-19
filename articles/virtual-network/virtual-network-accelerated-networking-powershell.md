@@ -1,13 +1,13 @@
 ---
-title: Accelerated Networking para una máquina virtual - PowerShell | Microsoft Docs
-description: Aprenda a configurar Accelerated Networking para una máquina virtual de Azure con PowerShell.
+title: "Accelerated Networking para una máquina virtual | Microsoft Docs"
+description: "Aprenda a configurar Accelerated Networking para una máquina virtual de Azure con PowerShell."
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: a0b63599-c23b-40b5-a8ab-23af8b07dded
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: jdial
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 979ff03320063fc02366c738a10f028bcecba76b
+
 
 ---
 # <a name="accelerated-networking-for-a-virtual-machine"></a>Accelerated Networking para una máquina virtual
@@ -50,12 +54,12 @@ Cuando se utiliza esta funcionalidad, existen las siguientes limitaciones:
 * **Creación de máquina virtual:** una interfaz de red con Accelerated Networking habilitada solo se puede asociar a una máquina virtual cuando esta se crea. La interfaz de red no puede asociarse a una máquina virtual existente.
 * **Regiones:** solo se ofrece en las regiones Centro occidental de EE. UU. y Europa Occidental de Azure. El conjunto de regiones se expandirá en el futuro.
 * **Sistema operativo compatible:** Microsoft Windows Server 2012 R2 y Windows Server 2016 Technical Preview 5. Próximamente se agregará compatibilidad con Linux y Windows Server 2012.
-* **Tamaño de máquina virtual:** Standard_D15_v2 y Standard_DS15_v2 son los únicos tamaños de instancia de máquina virtual admitidos. Para más información, consulte el artículo sobre los [tamaños de máquina virtual Windows](../virtual-machines/virtual-machines-windows-sizes.md) . El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
+* **Tamaño de máquina virtual:** Standard_D15_v2 y Standard_DS15_v2 son los únicos tamaños de instancia de máquina virtual admitidos. Para más información, consulte el artículo sobre los [tamaños de máquina virtual Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . El conjunto de tamaños de instancia de máquina virtual compatibles se ampliará en el futuro.
 
 Los cambios en estas limitaciones se anunciarán a través de la página con [actualizaciones para redes virtuales de Azure](https://azure.microsoft.com/updates/accelerated-networking-in-preview) .
 
 ## <a name="create-a-windows-vm-with-accelerated-networking"></a>Creación de una máquina virtual Windows con Accelerated Networking
-1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
+1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 2. Para registrarse para la versión preliminar, envíe un correo electrónico a [Accelerated Networking Subscriptions](mailto:axnpreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) con el identificador de suscripción y el uso previsto. No complete los pasos restantes hasta después de recibir una notificación por correo electrónico de que se le acepta en la versión preliminar.
 3. Registre la funcionalidad con su suscripción mediante los siguientes comandos:
    
@@ -111,7 +115,7 @@ Los cambios en estas limitaciones se anunciarán a través de la página con [ac
 10. Si decide no agregar un recurso de dirección IP pública a la interfaz, quite *-PublicIPAddress $PIP1* del final del comando que sigue. Cree la interfaz de red con Accelerated Networking mediante el siguiente comando:
     
         $nic = New-AzureRmNetworkInterface -Location $locName -Name $NICName -ResourceGroupName $rgName -Subnet $Subnet -EnableAcceleratedNetworking -PublicIpAddress $PIP1 
-11. Asigne la interfaz de red a una máquina virtual al crear está siguiendo las instrucciones de los pasos 3 y 6 del artículo sobre cómo [crear una máquina virtual](../virtual-machines/virtual-machines-windows-ps-create.md) . En el paso 6-2, reemplace *Standard_A1* por uno de los tamaños de máquina virtual que aparecen en la sección [Limitaciones](#limitations) de este artículo.
+11. Asigne la interfaz de red a una máquina virtual al crear está siguiendo las instrucciones de los pasos 3 y 6 del artículo sobre cómo [crear una máquina virtual](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . En el paso 6-2, reemplace *Standard_A1* por uno de los tamaños de máquina virtual que aparecen en la sección [Limitaciones](#limitations) de este artículo.
     
     > [!NOTE]
     > Si cambió el *nombre* de las variables $locName, $rgName o $nic en este artículo, el paso 6 del artículo sobre cómo crear una máquina virtual producirá un error. Sin embargo, sí puede cambiar los *valores* de las variables.
@@ -122,6 +126,9 @@ Los cambios en estas limitaciones se anunciarán a través de la página con [ac
     
     ![Administrador de dispositivos](./media/virtual-network-accelerated-networking-powershell/image2.png)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

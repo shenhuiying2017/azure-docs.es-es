@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -15,8 +16,8 @@ ms.workload: NA
 ms.date: 07/14/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 293dc178b955f8b3a24c2dde7d97fe44cb1fe91f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 605f7d33c197af60579e30f0b2823968865c7229
 
 
 ---
@@ -42,7 +43,7 @@ Para configurar la replicación geográfica activa mediante PowerShell, necesita
 
 * Una suscripción de Azure. 
 * Una base de datos SQL de Azure: la base de datos principal que quiere replicar.
-* Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell 1.0 o posterior. Para descargar e instalar los módulos de Azure PowerShell, siga las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="configure-your-credentials-and-select-your-subscription"></a>Configuración de las credenciales y selección de la suscripción
 En primer lugar debe establecer el acceso a su cuenta de Azure; por tanto, inicie PowerShell y luego ejecute el siguiente cmdlet. En la pantalla de inicio de sesión escriba el mismo correo electrónico y la misma contraseña que usa para iniciar sesión en el portal de Azure.
@@ -140,6 +141,6 @@ El comando siguiente recupera el estado del vínculo de replicación entre la ba
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cb840bf9432fb03bb35db3fa082abde1f035d5eb
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a48fa69b198f832de8c0ee42564dfea15bd871c1
 
 
 ---
@@ -46,7 +46,7 @@ Para obtener más información sobre las plantillas del Administrador de recurso
 ### <a name="azure-sdk-26-for-visual-studio"></a>SDK de Azure 2.6 para Visual Studio
 El SDK más reciente contiene mejoras en la compatibilidad de la plantilla del Administrador de recursos en el editor de JSON. Puede utilizar esto para crear rápidamente una plantilla de grupo de recursos desde el principio o abrir una plantilla existente de JSON (por ejemplo, una plantilla descargada de la Galería) para modificarla, rellenar el archivo de parámetros e incluso implementar el grupo de recursos directamente desde una solución de grupo de recursos de Azure.
 
-Para obtener más información, consulte [SDK de Azure 2.6 para Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
+Para obtener más información, consulte [SDK de Azure 2.6 para Visual Studio](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 o posterior
 A partir de la versión 0.8.0, la instalación de Azure PowerShell incluye el módulo Administrador de recursos de Azure además del módulo de Azure. Este nuevo módulo permite crear un script de la implementación de grupos de recursos.
@@ -57,7 +57,7 @@ Para obtener más información, consulte [Uso de Azure PowerShell con el Adminis
 Esta [herramienta de vista previa](https://resources.azure.com) le permite explorar las definiciones de JSON de todos los grupos de recursos en su suscripción y los recursos individuales. En la herramienta, puede editar las definiciones de JSON de un recurso, eliminar una jerarquía completa de recursos y crear nuevos recursos.  La información disponible en esta herramienta es muy útil para la creación de plantillas, ya que muestra las propiedades que debe establecer para un tipo determinado de recursos, los valores correctos, etc. Incluso puede crear el grupo de recursos en [Azure Portal](https://portal.azure.com/); a continuación, examinar sus definiciones de JSON en la herramienta de explorador a fin de facilitarle el uso de plantillas para el grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure
-Si utiliza GitHub para el control de código fuente, puede colocar un [botón de implementación en Azure](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) en el archivo README.MD, que habilita una IU de implementación inmediata para Azure. Aunque puede hacerlo para cualquier aplicación web sencilla, se puede extender para habilitar la implementación de un grupo de recursos completo colocando un archivo azuredeploy.json en la raíz del repositorio. Este archivo JSON, que contiene la plantilla de grupo de recursos, lo utilizará el botón Implementación en Azure para crear el grupo de recursos. Para obtener un ejemplo, consulte el ejemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que se utilizará en este tutorial.
+Si utiliza GitHub para el control de código fuente, puede colocar un [botón de implementación en Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) en el archivo README.MD, que habilita una IU de implementación inmediata para Azure. Aunque puede hacerlo para cualquier aplicación web sencilla, se puede extender para habilitar la implementación de un grupo de recursos completo colocando un archivo azuredeploy.json en la raíz del repositorio. Este archivo JSON, que contiene la plantilla de grupo de recursos, lo utilizará el botón Implementación en Azure para crear el grupo de recursos. Para obtener un ejemplo, consulte el ejemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que se utilizará en este tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obtención de la plantilla de grupo de recursos de ejemplo
 Ahora vamos a centrarnos en ello.
@@ -275,6 +275,6 @@ Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
-ms.custom: overview
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 420b2153f6115dd712d3033e30f11f79b18cd80f
-ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
+ms.sourcegitcommit: 09c2332589b1170b411c6f45f4109fb8048887e2
+ms.openlocfilehash: dde22adda13b88a6cd0f1d033c2730ddc3288050
 
 
 ---
@@ -30,9 +30,6 @@ ms.openlocfilehash: be89a2799af3bdc2938f73e3d54f00f81d9ab9cd
 > 
 
 [Azure Portal](https://portal.azure.com/) le permite crear, supervisar y administrar servidores y bases de datos SQL de Azure. Este artículo proporciona una descripción rápida y vínculos a información detallada de las tareas más comunes.
-
-> [!TIP]
-> Para ver un tutorial sobre cómo crear servidores y firewalls basados en servidores, consultar las propiedades del servidor, establecer la conexión y consultar la base de datos maestra, crear una base de datos de ejemplo y una base de datos vacía, consultar las propiedades de la base de datos, establecer la conexión y consultar la base de datos de ejemplo, consulte este [tutorial introductorio](sql-database-get-started.md).
 
 ## <a name="view-your-azure-sql-databases-servers-and-pools"></a>Visualización de los servidores, grupos y bases de datos SQL de Azure
 Para ver los servicios de SQL Database disponibles, haga clic en **Más servicios** y escriba **SQL** en el cuadro de búsqueda:
@@ -106,7 +103,7 @@ Para crear un BACPAC de una base de datos SQL, haga clic en **Exportar** en la h
 ![Exportación de la base de datos SQL](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## <a name="how-do-i-restore-a-sql-database-to-a-previous-point-in-time"></a>¿Cómo se restaura una base de datos SQL a un momento dado anterior?
-Para restaurar una base de datos SQL, haga clic en **Restaurar** en la hoja **Base de datos SQL**. Para más información, consulte [Restauración de una base de datos de Azure SQL a un momento dado anterior con Azure Portal](sql-database-point-in-time-restore.md).
+Para restaurar una base de datos SQL, haga clic en **Restaurar** en la hoja **Base de datos SQL**. Para más información, consulte [Restauración de una base de datos de Azure SQL a un momento dado anterior con Azure Portal](sql-database-point-in-time-restore-portal.md).
 
 ![Configuración de la base de datos SQL](./media/sql-database-manage-portal/sql-database-restore.png)
 
@@ -125,11 +122,11 @@ Para eliminar una base de datos SQL, haga clic en **Eliminar** en la hoja **Base
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Base de datos SQL](sql-database-technical-overview.md)
-* [Supervisión y administración de un grupo elástico con Azure Portal](sql-database-elastic-pool-manage-portal.md)
+* [Supervisión y administración de un grupo de bases de datos elásticas con el Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO1-->
 
 

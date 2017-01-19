@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 844c86a762d861f87422740c1d4d6d4f342ee728
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
 
 
 ---
@@ -230,7 +230,7 @@ Más detalles aquí:
 [Instrucciones para plantillas]: https://msdn.microsoft.com/library/dn530748.aspx 
 [Instrucciones para APNS]: https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW4
 [Instrucciones para GCM]: http://developer.android.com/google/gcm/adv.html
-[Exportación e importación de registros]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export/Import Registrations]: http://msdn.microsoft.com/library/dn790624.aspx
 [Explorador de Bus de servicio]: http://msdn.microsoft.com/library/dn530751.aspx
 [Código del explorador de Bus de servicio]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
 [Introducción al Explorador de servidores de VS]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx 
@@ -243,6 +243,6 @@ Más detalles aquí:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
