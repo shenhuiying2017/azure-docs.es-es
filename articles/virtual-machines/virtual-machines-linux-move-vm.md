@@ -1,13 +1,13 @@
 ---
-title: Mover una máquina virtual Linux | Microsoft Docs
-description: Mueva una máquina virtual Linux a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager.
+title: "Movimiento de una máquina virtual Linux | Microsoft Docs"
+description: "Mueva una máquina virtual Linux a otro grupo de recursos o suscripción de Azure en el modelo de implementación de Resource Manager."
 services: virtual-machines-linux
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,22 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 0dee2c3b92adc4098a51014dd7379aa3d53c1627
+ms.openlocfilehash: 2978fee770b70378dfbffcbd97e57a6b82d2e2fa
+
 
 ---
-# Traslado de una máquina virtual Linux a otra suscripción o grupo de recursos
+# <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Traslado de una máquina virtual Linux a otra suscripción o grupo de recursos
 Este artículo le guiará en el procedimiento para mover una máquina virtual Linux entre suscripciones o grupos de recursos. Mover una máquina virtual entre suscripciones puede ser útil si ha creado una máquina virtual en una suscripción personal y ahora quiere moverla a la suscripción de su compañía.
 
 > [!NOTE]
-> Como parte de esta operación, se crean nuevos identificadores de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos identificadores de recursos.
+> Como parte de esta operación, se crean nuevos identificadores de recurso. Cuando la máquina virtual se ha movido, debe actualizar sus herramientas y scripts para usar los nuevos identificadores de recursos. 
 > 
 > 
 
-## Usar la CLI de Azure para mover una máquina virtual
+## <a name="use-the-azure-cli-to-move-a-vm"></a>Usar la CLI de Azure para mover una máquina virtual
 Para mover correctamente una máquina virtual, debe mover la máquina virtual y los recursos de apoyo. Use el comando **azure group show** para enumerar todos los recursos de un grupo de recursos y sus identificadores. Ayuda a canalizar la salida de este comando a un archivo para que pueda copiar y pegar los identificadores en comandos posteriores.
 
     azure group show <resourceGroupName>
 
-Para mover una máquina virtual y sus recursos a otro grupo de recursos, use el comando de CLI **azure resource move**. En el ejemplo siguiente se muestra cómo mover una máquina virtual y los recursos más comunes que necesita. Usamos el parámetro **-i** que pasa una lista separada por comas (sin espacios) de identificadores de los recursos que se van a mover.
+Para mover una máquina virtual y sus recursos a otro grupo de recursos, use el comando de CLI **azure resource move** . En el ejemplo siguiente se muestra cómo mover una máquina virtual y los recursos más comunes que necesita. Usamos el parámetro **-i** que pasa una lista separada por comas (sin espacios) de identificadores de los recursos que se van a mover.
 
     vm=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Compute/virtualMachines/<vmName>
     nic=/subscriptions/<sourceSubscriptionID>/resourceGroups/<sourceResourceGroup>/providers/Microsoft.Network/networkInterfaces/<nicName>
@@ -50,7 +54,12 @@ Se le pedirá que confirme que quiere mover el recurso especificado. Escriba **Y
 
 [!INCLUDE [virtual-machines-common-move-vm](../../includes/virtual-machines-common-move-vm.md)]
 
-## Pasos siguientes
-Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../resource-group-move-resources.md).
+## <a name="next-steps"></a>Pasos siguientes
+Puede mover muchos tipos diferentes de recursos entre suscripciones y grupos de recursos. Para obtener más información, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).    
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO1-->
+
+

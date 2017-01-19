@@ -1,19 +1,23 @@
 ---
-title: Visualización del mantenimiento agregado de entidades de Azure Service Fabric | Microsoft Docs
-description: Se describe cómo consultar, ver y evaluar el mantenimiento agregado de entidades de Azure Service Fabric, a través de consultas de mantenimiento y consultas generales.
+title: "Visualización del mantenimiento agregado de entidades de Azure Service Fabric | Microsoft Docs"
+description: "Se describe cómo consultar, ver y evaluar el mantenimiento agregado de entidades de Azure Service Fabric, a través de consultas de mantenimiento y consultas generales."
 services: service-fabric
 documentationcenter: .net
 author: oanapl
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: fa34c52d-3a74-4b90-b045-ad67afa43fe5
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2016
+ms.date: 01/12/2017
 ms.author: oanapl
+translationtype: Human Translation
+ms.sourcegitcommit: 2573f300231ceb080343dad5c1c2aa65cc31c59e
+ms.openlocfilehash: f62a7a8f594c67cac687159d72bfdb00a3355025
+
 
 ---
 # <a name="view-service-fabric-health-reports"></a>Vista de los informes de estado de Service Fabric
@@ -55,27 +59,27 @@ Vista del clúster con el Explorador de Service Fabric.
 
 > [!NOTE]
 > Obtenga más información sobre el [Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 ## <a name="health-queries"></a>Consultas de mantenimiento
 Service Fabric expone las consultas de mantenimiento para cada uno de los [tipos de entidad](service-fabric-health-introduction.md#health-entities-and-hierarchy)admitidos. Se puede acceder e ellas mediante la API (los métodos se pueden encontrar en **FabricClient.HealthManager**), los cmdlets de PowerShell y REST. Estas consultas devuelven información completa de mantenimiento sobre la entidad: el estado de mantenimiento agregado, los eventos de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las evaluaciones de mantenimiento incorrecto cuando el mantenimiento de la entidad no es correcto.
 
 > [!NOTE]
 > Se devuelve una entidad de mantenimiento cuando se rellena completamente en el Almacén de estado. La entidad debe estar activa (no eliminada) y tener un informe de sistema. Sus entidades primarias en la cadena de jerarquía deben tener también informes del sistema. Si no se cumple alguna de estas condiciones, las consultas de mantenimiento devuelven una excepción que muestra por qué no se devuelve la entidad.
-> 
-> 
+>
+>
 
 Las consultas de mantenimiento requieren pasar el identificador de entidad, que depende del tipo de entidad. Las consultas aceptan parámetros de directivas de mantenimiento opcionales. Si no se especifican directivas de mantenimiento, se usan para la evaluación las [directivas de mantenimiento](service-fabric-health-introduction.md#health-policies) del manifiesto de aplicación o de clúster. También aceptan filtros para devolver solo los elementos secundarios o eventos parciales, los que respetan los filtros especificados.
 
 > [!NOTE]
 > Los filtros de salida se aplican en el servidor, por lo que se reduce el tamaño de la respuesta del mensaje. Recomendamos usar los filtros de salida para limitar los datos devueltos en lugar de aplicar filtros en el cliente.
-> 
-> 
+>
+>
 
 Contiene el mantenimiento de la entidad:
 
-* El estado de mantenimiento agregado de la entidad. El Almacén de estado lo calcula en función de los informes de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las directivas de mantenimiento. Lea más sobre la [evaluación del mantenimiento de entidades](service-fabric-health-introduction.md#entity-health-evaluation).  
+* El estado de mantenimiento agregado de la entidad. El Almacén de estado lo calcula en función de los informes de mantenimiento de la entidad, los estados de mantenimiento de los elementos secundarios (si procede) y las directivas de mantenimiento. Lea más sobre la [evaluación del mantenimiento de entidades](service-fabric-health-introduction.md#health-evaluation).  
 * Eventos de mantenimiento de la entidad.
 * La colección de los estados de mantenimiento de todos los elementos secundarios de las entidades que pueden tener elementos secundarios. Los estados de mantenimiento contienen identificadores de entidad y el estado de mantenimiento agregado. Para obtener el mantenimiento completo de un elemento secundario, llame al mantenimiento de consultas del tipo de entidad secundaria y pase el identificador de elementos secundarios.
 * Si la entidad no es correcta, las evaluaciones de mantenimiento incorrecto apuntan al informe que desencadenó el estado de la entidad.
@@ -988,8 +992,8 @@ Las consultas generales devuelven una lista de entidades de Service Fabric de un
 
 > [!NOTE]
 > Las consultas generales devuelven el estado de mantenimiento agregado de la entidad y no contienen los datos completos de mantenimiento. Si el mantenimiento de una entidad no es correcto, puede seguir con las consultas de mantenimiento para obtener toda su información de mantenimiento, como eventos, estados de mantenimiento de los elementos secundarios y evaluaciones de mantenimiento incorrecto.
-> 
-> 
+>
+>
 
 Si las consultas generales devuelven un estado de mantenimiento desconocido para una entidad, es posible que el almacén de estado no tenga datos completos sobre la entidad. También es posible que una subconsulta al almacén de estado no fuera correcta (por ejemplo, se produjo un error de comunicación o se limitó el almacén de estado). Realice un seguimiento con una consulta de mantenimiento para la entidad. Si la subconsulta se encontró con errores transitorios, como problemas de red, esta consulta de seguimiento puede ser de ayuda. También le puede proporcionar más detalles del almacén de estado sobre por qué no se expone la entidad.
 
@@ -1019,8 +1023,8 @@ Las consultas que contienen **HealthState** para las entidades son las siguiente
 
 > [!NOTE]
 > Algunas de las consultas devuelven resultados paginados. La devolución de estas consultas es una lista que se deriva de [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). Si los resultados no caben en un mensaje, solo se devuelve una página y ContinuationToken, que realiza el seguimiento de dónde se detuvo la enumeración. Debe continuar llamando a la misma consulta y pasar el token de continuación de la consulta anterior para obtener los siguientes resultados.
-> 
-> 
+>
+>
 
 ### <a name="examples"></a>Ejemplos
 El código siguiente obtiene las aplicaciones incorrectas en el clúster:
@@ -1134,8 +1138,8 @@ Siempre que haya un problema con el clúster o una aplicación, consulte el mant
 
 > [!NOTE]
 > Las evaluaciones de mantenimiento incorrecto muestran la razón principal de que la entidad se evaluara con el estado de mantenimiento actual. Puede haber muchos otros eventos que desencadenen este estado pero no se reflejan en las evaluaciones. Para más información, explore en profundidad las entidades de mantenimiento para averiguar todos los informes de mantenimiento incorrecto en el clúster.
-> 
-> 
+>
+>
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Utilización de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -1148,6 +1152,8 @@ Siempre que haya un problema con el clúster o una aplicación, consulte el mant
 
 [Actualización de la aplicación de Service Fabric](service-fabric-application-upgrade.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Jan17_HO2-->
 
 

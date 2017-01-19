@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/01/2016
 ms.author: curtand
 translationtype: Human Translation
-ms.sourcegitcommit: c404c8708ec6d33f272733e438b8c3559fa40ce9
-ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
+ms.sourcegitcommit: d83372fbce5f49d7cd038a15bd271e9d8a463b7b
+ms.openlocfilehash: f1cff67f31da87d6361603f0216a68c55686db0e
 
 
 ---
@@ -24,6 +24,15 @@ ms.openlocfilehash: 07cf3e27f34c705367aa62650d2b17ed1ea3ec82
 El Portal de Azure clásico proporciona la capacidad necesaria para crear reglas avanzadas para habilitar pertenencias dinámicas basadas en atributos más complejas para grupos de Azure Active Directory (Azure AD).  
 
 Cuando los atributos de un usuario cambian, el sistema evalúa todas las reglas de grupos dinámicos de un directorio para ver si la modificación de los atributos del usuario en cuestión desencadenaría adiciones o retiradas en el grupo. Si un usuario cumple una regla de un grupo, se agrega a este como miembro. Si, por el contrario, deja de cumplir la regla del grupo al que pertenece, se le quita como miembro de este.
+
+> [!NOTE]
+> Puede configurar una regla de pertenencia dinámica a grupos de seguridad o en grupos de Office 365. Actualmente, las pertenencias a grupos anidados no son compatibles con la asignación basada en grupos a aplicaciones.
+> 
+> La pertenencia dinámica a grupos requiere que haya una licencia de Azure AD Premium asignada
+> 
+> * Al administrador que administra la regla en un grupo
+> * Todos los miembros del grupo
+> 
 
 ## <a name="to-create-the-advanced-rule"></a>Para crear la regla avanzada
 1. En el [Portal de Azure clásico](https://manage.windowsazure.com), seleccione **Active Directory**y luego abra el directorio de su organización.
@@ -245,6 +254,6 @@ Estos artículos proporcionan información adicional sobre Azure Active Director
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

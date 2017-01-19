@@ -1,81 +1,58 @@
 ---
 title: Niveles de rendimiento en DocumentDB | Microsoft Docs
-description: Obtenga información sobre cómo los niveles de rendimiento de DocumentDB le permiten reservar capacidad de proceso para cada colección.
+description: "Obtenga información sobre cómo los niveles de rendimiento de DocumentDB le permiten reservar capacidad de proceso para cada colección."
 services: documentdb
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: ''
-
+documentationcenter: 
+ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 12/13/2016
 ms.author: mimig
+translationtype: Human Translation
+ms.sourcegitcommit: ed44ca2076860128b175888748cdaa8794c2310d
+ms.openlocfilehash: 237a92713ee8dca72a09550c47519189f2fd23cc
+
 
 ---
-# Niveles de rendimiento en DocumentDB
+# <a name="performance-levels-and-pricing-tiers-in-documentdb"></a>Niveles de rendimiento y planes de tarifa de DocumentDB
 Este artículo proporciona información general sobre los niveles de rendimiento en [DocumentDB de Microsoft Azure](https://azure.microsoft.com/services/documentdb/).
 
-Después de leer este artículo, podrá responder a las preguntas siguientes:
+Después de leer este artículo, podrá responder a las preguntas siguientes:  
 
 * ¿Qué es un nivel de rendimiento?
 * ¿Cómo se reserva la capacidad de proceso para una cuenta de base de datos?
 * ¿Cómo se trabaja con los niveles de rendimiento?
 * ¿Cómo se me facturará por los niveles de rendimiento?
 
-## Introducción a los niveles de rendimiento
-Cada colección de DocumentDB creada con una cuenta estándar se aprovisiona con un nivel de rendimiento asociado. Cada colección incluida en una base de datos puede tener un nivel de rendimiento diferente que permite asignar una mayor capacidad de proceso a las colecciones de acceso frecuente y menos capacidad de proceso a las colecciones que a las que se accede con menos frecuencia. DocumentDB admite tanto niveles de rendimiento definidos por el usuario como niveles de rendimiento predefinidos.
+## <a name="introduction-to-performance-levels"></a>Introducción a los niveles de rendimiento
+Cada colección de DocumentDB creada con una cuenta estándar de DocumentDB se aprovisiona con un nivel de rendimiento asociado. Cada colección incluida en una base de datos puede tener un nivel de rendimiento diferente que permite asignar una mayor capacidad de proceso a las colecciones de acceso frecuente y menos capacidad de proceso a las colecciones que a las que se accede con menos frecuencia. 
 
-Cada nivel de rendimiento tiene asociado un límite de velocidad de la [unidad de solicitud (RU)](documentdb-request-units.md). Esta es la capacidad de proceso que se reservará para una colección en función de su nivel de rendimiento, el cual estará disponible para uso exclusivo de esa colección.
+DocumentDB admite tanto niveles de rendimiento **definidos por el usuario** como niveles de rendimiento **predefinidos**, como se muestra en la tabla siguiente.  El rendimiento definido por el usuario permite obtener una capacidad de proceso reservada en unidades de 100 RU/s y tiene un almacenamiento ilimitado, mientras que los tres niveles de rendimiento predefinidos tienen opciones de capacidad de proceso especificadas y una cuota de almacenamiento de 10 GB. En la siguiente tabla se compara el rendimiento **definido por el usuario** con el rendimiento **predefinido**.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p>Detalles</p></td>
-            <td valign="top"><p>Límites de rendimiento</p></td>
-            <td valign="top"><p>Límites de almacenamiento</p></td>
-            <td valign="top"><p>Versión</p></td>
-             <td valign="top"><p>API existentes</p></td>            
-        </tr>
-        <tr>
-            <td valign="top"><p>Rendimiento definido por el usuario</p></td>
-            <td valign="top"><p>Almacenamiento medido según el uso en GB.</p><p>Rendimiento en unidades de 100 RU/s</p></td>
-            <td valign="top"><p>Sin límite. 400-250 000 unidades de solicitud/s de forma predeterminada (puede aumentar a petición)</p></td>
-            <td valign="top"><p>Sin límite. 250 GB de forma predeterminada (puede aumentar a petición) </p></td>
-            <td valign="top"><p>V2</p></td>
-             <td valign="top"><p>API 2015-12-16 y versiones más recientes</p></td>  
-        </tr>
-        <tr>
-            <td valign="top"><p>Rendimiento predefinido</p></td>
-            <td valign="top"><p>Almacenamiento reservado de 10 GB.</p><p>S1 = 250 RU/s, S2 = 1000 RU/s, S3 = 2500 RU/s</p></td>
-            <td valign="top"><p>2500 RU/s</p></td>
-            <td valign="top"><p>10 GB</p></td>
-            <td valign="top"><p>V1</p></td>
-             <td valign="top"><p>Cualquiera</p></td>  
-        </tr>        
-    </tbody>
-</table>                
+|Tipo de rendimiento|Detalles|Rendimiento|Almacenamiento|Versión|API existentes|
+|----------------|-------|----------|-------|-------|----|
+|Rendimiento definido por el usuario|El usuario define la capacidad de proceso en unidades de 100 RU/s|Sin límite|Sin límite|V2|API 2015-12-16 y versiones más recientes|
+|Rendimiento predefinido|Almacenamiento reservado de 10 GB.<br><br>S1 = 250 RU/s<br>S2 = 1000 RU/s<br>S3 = 2500 RU/s|2500 RU/s|10 GB|V1|Cualquiera|
 
-
-DocumentDB permite efectuar una amplia gama de operaciones de base de datos, por ejemplo, consultas, consultas con funciones definidas por el usuario (UDF), procedimientos almacenados y desencadenadores. El coste de procesamiento asociado a cada una de estas operaciones variará en función de la CPU, las E/S y la memoria que se necesite para completar la operación. En lugar de pensar en los recursos de hardware y administrarlos, puede considerar que una unidad de solicitud (RU) es como una medida única para los recursos necesarios para realizar varias operaciones de base de datos y dar servicio a una solicitud de la aplicación.
-
-Se pueden crear colecciones a través del [Portal de Microsoft Azure](https://portal.azure.com), la [API de REST](https://msdn.microsoft.com/library/azure/mt489078.aspx) o cualquiera de los [SDK de DocumentDB](https://msdn.microsoft.com/library/azure/dn781482.aspx). Las API de DocumentDB permiten especificar el nivel de rendimiento de una colección.
+La capacidad de proceso está reservada por colección y está disponible para su uso en esa colección exclusivamente. La capacidad de proceso se mide en [unidades de solicitud (RU)](documentdb-request-units.md), que identifican la cantidad de recursos necesarios para realizar diversas operaciones de base de datos de DocumentDB.
 
 > [!NOTE]
-> El nivel de rendimiento de una colección se puede ajustar a través de las API o del [Portal de Microsoft Azure](https://portal.azure.com/). Se espera que los cambios de nivel de rendimiento se completen en 3 minutos.
+> El nivel de rendimiento de una colección se puede ajustar a través de los [SDK](documentdb-sdk-dotnet.md) o de [Azure Portal](https://portal.azure.com/). Se espera que los cambios de nivel de rendimiento se completen en 3 minutos.
 > 
 > 
 
-## Definición de los niveles de rendimiento para las colecciones
+## <a name="setting-performance-levels-for-collections"></a>Definición de los niveles de rendimiento para las colecciones
 Una vez que se crea una colección, la asignación completa de RU según el nivel de rendimiento designado se reserva para la colección.
 
-Tenga en cuenta que, tanto en los niveles de rendimiento definidos por el usuario como en los predefinidos, DocumentDB funciona según la reserva de rendimiento. Al crear una colección, una aplicación tiene un rendimiento reservado por el que se le factura, independientemente de cuánto rendimiento se use de forma activa. Con los niveles de rendimiento definidos por el usuario, el almacenamiento se mide en función del consumo, pero con los niveles de rendimiento predefinidos, se reservan 10 GB de almacenamiento en el momento de creación de la colección.
+Tenga en cuenta que, tanto en los niveles de rendimiento definidos por el usuario como en los predefinidos, DocumentDB funciona según la reserva de rendimiento. Al crear una colección, una aplicación tiene un rendimiento reservado por el que se le factura, independientemente de cuánto rendimiento se use de forma activa. Con los niveles de rendimiento definidos por el usuario, el almacenamiento se mide en función del consumo, pero con los niveles de rendimiento predefinidos, se reservan 10 GB de almacenamiento en el momento de creación de la colección.  
 
-Una vez creadas las colecciones, puede modificar el nivel de rendimiento a través de los SDK de DocumentDB o desde el Portal de Azure clásico.
+Una vez creadas las colecciones, puede modificar el nivel de rendimiento o la capacidad de proceso a través de los [SDK](documentdb-sdk-dotnet.md) o de [Azure Portal](https://portal.azure.com/).
 
 > [!IMPORTANT]
 > Las colecciones estándares de DocumentDB se facturan por horas y cada colección que se cree se facturará por un mínimo de una hora de uso.
@@ -91,7 +68,7 @@ Las unidades de solicitud se reservan para cada colección en función del nivel
 > 
 > 
 
-## Trabajo con niveles de rendimiento
+## <a name="working-with-performance-levels"></a>Trabajo con niveles de rendimiento
 Las colecciones de DocumentDB permiten agrupar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Con la función de indexación automática y de consultas de DocumentDB, es bastante habitual ubicar documentos heterogéneos en la misma colección. Estas son algunas de las consideraciones clave que se deben tener en cuenta a la hora de decidir si hay que utilizar colecciones independientes:
 
 * Consultas: una colección es el ámbito para la ejecución de la consulta. Si necesita efectuar consultas en un conjunto de documentos, los patrones de lectura más eficaces se consiguen al colocar los documentos en una sola colección.
@@ -105,40 +82,34 @@ Las colecciones de DocumentDB permiten agrupar los datos según los patrones de 
 
 Es recomendable que la aplicación haga uso de un pequeño número de colecciones a menos que tenga requisitos de almacenamiento o rendimiento elevados. Asegúrese de que ha comprendido bien patrones de aplicación para la creación de nuevas colecciones. Puede optar por reservar la creación de la colección como una acción de administración gestionada fuera de la aplicación. De forma similar, ajustar el nivel de rendimiento para una colección cambiará el precio por hora a la que se factura a la colección. Los niveles de rendimiento de la colección se deben supervisar en caso de que la aplicación los ajuste dinámicamente.
 
-## <a id="changing-performance-levels-using-the-azure-portal"></a>Cambio de los niveles S1, S2 o S3 a un rendimiento definido por el usuario
-Siga estos pasos para pasar del uso de niveles de rendimiento predefinidos a niveles de rendimiento definidos por el usuario en el Portal de Azure. Mediante los niveles de rendimiento definidos por el usuario, puede adaptar el rendimiento a sus necesidades. Y si aún utiliza una cuenta de S1, puede aumentar el rendimiento predeterminado de 250 RU/s a 400 RU/s con unos cuantos clics.
+## <a name="a-idchanging-performance-levels-using-the-azure-portalachange-from-s1-s2-s3-to-user-defined-performance"></a><a id="changing-performance-levels-using-the-azure-portal"></a>Cambio de los niveles S1, S2 o S3 a un rendimiento definido por el usuario
+Siga estos pasos para pasar del uso de niveles de rendimiento predefinidos a niveles de rendimiento definidos por el usuario en el Portal de Azure. Mediante los niveles de rendimiento definidos por el usuario, puede adaptar el rendimiento a sus necesidades. Y si aún utiliza una cuenta de S1, puede aumentar el rendimiento predeterminado de 250 RU/s a 400 RU/s con unos cuantos clics. Tenga en cuenta que después de mover una colección de S1, S2 o S3 a estándar (definida por el usuario), no se puede volver a migrar a S1, S2 o S3; sin embargo puede modificar la capacidad de proceso de una colección estándar en cualquier momento.
 
-Para obtener más información sobre los cambios de precio relativos al rendimiento predefinido y definido por el usuario, consulte la entrada del blob [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/) (DocumentDB: todo lo que necesita saber sobre el uso de las nuevas opciones de precio).
+Para obtener más información sobre los cambios de precio relativos al rendimiento predefinido y definido por el usuario, consulte la entrada del blob [DocumentDB: Everything you need to know about using the new pricing options](https://azure.microsoft.com/blog/documentdb-use-the-new-pricing-options-on-your-existing-collections/)(DocumentDB: todo lo que necesita saber sobre el uso de las nuevas opciones de precio).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureDocumentDB/ChangeDocumentDBCollectionPerformance/player]
 > 
 > 
 
-1. En el explorador, vaya al [**Portal de Azure**](https://portal.azure.com).
-2. Haga clic en **Examinar** -> **Cuentas de DocumentDB** y luego seleccione la cuenta de DocumentDB que quiere modificar.
-3. En la lente **Bases de datos**, seleccione la base de datos que quiere modificar, y, en la hoja **Base de datos**, seleccione la colección que modificará. Las cuentas con un rendimiento predefinido tienen un plan de tarifa de S1, S2 o S3.
-   
-      ![Captura de pantalla de la hoja Base de datos con una colección S1](./media/documentdb-performance-levels/documentdb-change-performance-S1.png)
-4. En la hoja **Colecciones**, haga clic en **Más** y, luego, **Configuración** en la barra superior.
-5. En la hoja **Configuración**, haga clic en **Plan de tarifa** y observe que el costo estimado mensual de cada plan se muestra en la hoja **Elija un plan de tarifa**. Para cambiar al rendimiento definido por el usuario, haga clic en **Estándar** y haga clic en **Seleccionar** para guardar el cambio.
-   
-      ![Captura de pantalla de las hojas Configuración y Elija un plan de tarifa de DocumentDB](./media/documentdb-performance-levels/documentdb-change-performance.png)
-6. En la hoja **Configuración**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Rendimiento (RU/s)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](documentdb-request-units.md)/segundo (RU/s). La opción **Resumen de precios** en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. Haga clic en **Aceptar** para guardar los cambios.
-   
-    ![Captura de pantalla de la hoja Configuración que muestra dónde cambiar el valor de rendimiento](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
-7. En la hoja **Base de datos**, puede comprobar el nuevo rendimiento de la colección.
-   
-    ![Captura de pantalla de la hoja Base de datos con la colección modificada](./media/documentdb-performance-levels/documentdb-change-performance-confirmation.png)
+1. En [**Azure Portal**](https://portal.azure.com), haga clic en **NoSQL (DocumentDB)** y luego seleccione la cuenta de DocumentDB que quiere modificar. 
+ 
+    Si **NoSQL (DocumentDB)** no está en la barra de accesos, haga clic en >, vaya a **Bases de datos**, seleccione **NoSQL (DocumentDB)** y luego seleccione la cuenta de DocumentDB.  
 
-Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte el [artículo sobre cómo crear una colección](documentdb-create-collection.md).
+2. En el menú de recursos, en **Colecciones**, haga clic en **Escala**, seleccione la colección que desea modificar en la lista desplegable y luego haga clic en **Plan de tarifa**. Las cuentas con un rendimiento predefinido tienen un plan de tarifa de S1, S2 o S3.  En la hoja **Elegir su nivel de precios**, haga clic en **Estándar** para cambiar la capacidad de proceso definida por el usuario y luego haga clic en **Seleccionar** para guardar el cambio.
+
+    ![Captura de pantalla de la hoja Configuración que muestra dónde cambiar el valor de rendimiento](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+
+3. En la hoja **Escala**, el **plan de tarifa** cambia a **Estándar** y el cuadro **Procesamiento (RU/s)** se muestra con un valor predeterminado de 400. Establezca el rendimiento entre 400 y 10 000 [unidades de solicitud](documentdb-request-units.md)/segundo (RU/s). La opción **Estimated Monthly Bill** (Factura mensual estimada) en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. Haga clic en **Guardar** para guardar los cambios.
+
+    Si cree que necesita más rendimiento (superior a 10 000 RU/s) o espacio de almacenamiento (mayor que 10 GB), puede crear una colección con particiones. Para crear una colección con particiones, consulte el [artículo sobre cómo crear una colección](documentdb-create-collection.md).
 
 > [!NOTE]
 > Cambiar los niveles de rendimiento de una colección puede llevar hasta 2 minutos.
 > 
 > 
 
-## Cambio de los niveles de rendimiento mediante el SDK de .NET
-Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. Esta sección solo cubre el cambio del nivel de rendimiento de una colección mediante el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), pero el proceso es similar para otros [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si no está familiarizado con SDK. de NET, visite nuestro [tutorial de inicio](documentdb-get-started.md).
+## <a name="changing-performance-levels-using-the-net-sdk"></a>Cambio de los niveles de rendimiento mediante el SDK de .NET
+Otra opción para cambiar los niveles de rendimiento de las colecciones es a través de nuestros SDK. En esta sección solo se trata el cambio del nivel de rendimiento de una colección mediante el [SDK de .NET](https://msdn.microsoft.com/library/azure/dn948556.aspx), pero el proceso es similar para otros [SDK](https://msdn.microsoft.com/library/azure/dn781482.aspx). Si no está familiarizado con SDK. de NET, visite nuestro [tutorial de inicio](documentdb-get-started.md).
 
 A continuación se muestra un fragmento de código para cambiar el rendimiento de la oferta a 50 000 unidades de solicitud por segundo:
 
@@ -175,33 +146,42 @@ Visite [MSDN](https://msdn.microsoft.com/library/azure/microsoft.azure.documents
 * [**ReplaceOfferAsync**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.replaceofferasync.aspx)
 * [**CreateOfferQuery**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.documentqueryable.createofferquery.aspx)
 
-## <a id="change-throughput"></a>Cambio del rendimiento de una colección
+## <a name="a-idchange-throughputachanging-the-throughput-of-a-collection"></a><a id="change-throughput"></a>Cambio del rendimiento de una colección
 Si ya utiliza el rendimiento definido por el usuario, puede cambiar el rendimiento de la colección mediante el procedimiento siguiente. Si necesita cambiar un nivel de rendimiento S1, S2 o S3 (rendimiento predefinidos) a uno definido por el usuario, consulte [Cambio de los niveles S1, S2 o S3 a un rendimiento definido por el usuario](#changing-performance-levels-using-the-azure-portal).
 
-1. En el explorador, vaya al [**Portal de Azure**](https://portal.azure.com).
-2. Haga clic en **Examinar** -> **Cuentas de DocumentDB** y luego seleccione la cuenta de DocumentDB que quiere modificar.
-3. En la hoja **Cuenta de DocumentDB**, en la lente **Bases de datos**, seleccione la base de datos que quiere modificar, y, en la hoja **Base de datos**, seleccione la colección que modificará.
-4. En la hoja **Colecciones**, haga clic en **Configuración** en la barra superior.
-5. En la hoja **Configuración**, aumente el valor del cuadro **PROCESAMIENTO (RU/s)** y, después, haga clic en **Aceptar** para guardar el cambio. La parte inferior de la hoja **Resumen precios** se actualiza para mostrar el nuevo costo mensual estimado de esa colección en una sola región.
+1. En [**Azure Portal**](https://portal.azure.com), haga clic en **NoSQL (DocumentDB)** y luego seleccione la cuenta de DocumentDB que quiere modificar.    
+2. En el menú de recursos, en **Colecciones**, haga clic en **Escala** y seleccione la colección que desea modificar en la lista desplegable.
+3. En el cuadro **Procesamiento (RU/s)**, escriba el nuevo nivel de capacidad de proceso. 
    
-    ![Captura de pantalla de la hoja Configuración, donde se resalta el cuadro de rendimiento y el resumen de precios](./media/documentdb-performance-levels/documentdb-change-performance-set-thoughput.png)
+    La opción **Estimated Monthly Bill** (Factura mensual estimada) en la parte inferior de la página se actualiza automáticamente para ofrecer una estimación del costo mensual. Haga clic en **Guardar** para guardar los cambios.
 
-Si no está seguro de cuánto aumentar el rendimiento, consulte [Estimación de necesidades de rendimiento](documentdb-request-units.md#estimating-throughput-needs) y [Calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
+    Si no está seguro de cuánto aumentar la capacidad de proceso, vea [Estimación de necesidades de rendimiento](documentdb-request-units.md#estimating-throughput-needs) y [Calculadora de unidades de solicitud](https://www.documentdb.com/capacityplanner).
 
-## Pasos siguientes
+## <a name="troubleshooting"></a>Solución de problemas
+
+Si no ve la opción para cambiar entre los niveles de rendimiento S1, S2 o S3 en la hoja **Elegir su nivel de precios**, haga clic en **Ver todo** para mostrar los niveles de rendimiento estándar, S1, S2 y S3. Si usa el plan de tarifa estándar, no se puede cambiar entre S1, S2 y S3.
+
+![Captura de pantalla de la hoja Elegir su nivel de precios con la opción Ver todo seleccionada](./media/documentdb-performance-levels/azure-documentdb-database-view-all-performance-levels.png)
+
+Una vez que se cambia una colección de S1, S2 o S3 a estándar, no se puede volver a migrar a S1, S2 o S3.
+
+## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información sobre los precios y la administración de datos con Azure DocumentDB, consulte estos recursos:
 
 * [Precios de DocumentDB](https://azure.microsoft.com/pricing/details/documentdb/)
-* [Administración de la capacidad de DocumentDB](documentdb-manage.md)
 * [Modelado de datos en DocumentDB](documentdb-modeling-data.md)
 * [Partición de datos en DocumentDB](documentdb-partition-data.md)
 * [Unidades de solicitud](http://go.microsoft.com/fwlink/?LinkId=735027)
 
-Para obtener más información acerca de DocumentDB, consulte la [documentación](https://azure.microsoft.com/documentation/services/documentdb/) de Azure DocumentDB.
+Para obtener más información acerca de DocumentDB, consulte la [documentación](https://azure.microsoft.com/documentation/services/documentdb/)de Azure DocumentDB.
 
 Para empezar a utilizar pruebas de escala y rendimiento con DocumentDB, consulte [Pruebas de escala y rendimiento con Azure DocumentDB](documentdb-performance-testing.md).
 
 [1]: ./media/documentdb-performance-levels/documentdb-change-collection-performance7-9.png
 [2]: ./media/documentdb-performance-levels/documentdb-change-collection-performance10-11.png
 
-<!---HONumber=AcomDC_0831_2016-->
+
+
+<!--HONumber=Jan17_HO2-->
+
+
