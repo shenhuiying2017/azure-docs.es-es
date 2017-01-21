@@ -4,7 +4,7 @@ description: "Describe cómo puede configurar alertas en su factura de Azure par
 services: 
 documentationcenter: 
 author: vikdesai
-manager: mbaldwin
+manager: vikdesai
 editor: 
 tags: billing
 ms.assetid: 9b7b3eeb-cd9d-4690-86a3-51b1e2a8974f
