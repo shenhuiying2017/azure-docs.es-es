@@ -6,18 +6,18 @@ documentationcenter:
 author: mgoedtel
 manager: jwhit
 editor: 
-keywords: "nombre de la entidad de servicio, setspn, autenticación de azure"
+keywords: "nombre de entidad de servicio, setspn, autenticación de azure"
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
 ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 01/05/2017
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 32afda1861c2c558f8bb9ffedf897cd8d1df0b5c
+ms.sourcegitcommit: aec8fd057bd31fc933d19996567437b2a897623b
+ms.openlocfilehash: 889c9a53e3ce454ee9ac9fc0f24b2ff8244e87c6
 
 
 ---
@@ -54,7 +54,7 @@ Antes de hacerlo, hay algunas cosas que debe conocer y considerar.
 En esta sección, realizará los pasos que se describen a continuación para crear una nueva cuenta de Azure Automation desde Azure Portal.  Así se crean tanto la cuenta de ejecución como la cuenta de ejecución de Azure clásico.  
 
 > [!NOTE]
-> El usuario que realice estos pasos *debe* ser miembro del rol Administradores de suscripciones y coadministrador de la suscripción que concede el acceso a la suscripción al usuario.  También se debe agregar como usuario a la instancia predeterminada de Azure Active Directory de dicha suscripción; no es preciso asignar un rol con privilegios a la cuenta.
+> El usuario que realice estos pasos debe ser miembro del rol Administradores de suscripciones o coadministrador de la suscripción que concede el acceso a la suscripción al usuario. También se debe agregar como usuario a la instancia predeterminada de Azure Active Directory de dicha suscripción; no es preciso asignar un rol con privilegios a la cuenta. Los usuarios que no sean miembros de Active Directory de la suscripción antes de agregarse al rol de Coadministrador de la suscripción se agregarán a Active Directory como Invitado y verán la advertencia "No tiene permisos para crear..." en la hoja **Agregar cuenta de Automation**. Los usuarios que se han agregado al rol de Coadministrador se pueden quitar de Active Directory de las suscripciones y se vuelven a agregar para que sean un usuario completo en Active Directory. Esta situación se puede comprobar desde el panel **Azure Active Directory** de Azure Portal mediante la selección de **Usuarios y grupos**, después **Todos los usuarios** y, tras seleccionar el usuario específico, seleccione **Perfil**.  El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.  
 > 
 > 
 
@@ -394,6 +394,6 @@ Puede usar el código de ejemplo actualizado siguiente, procedente del Runbook d
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

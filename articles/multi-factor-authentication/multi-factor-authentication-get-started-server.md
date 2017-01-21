@@ -1,5 +1,5 @@
 ---
-title: "Introducción a Servidor Azure Multi-Factor Authentication"
+title: "Introducción al Servidor Azure Multi-Factor Authentication | Microsoft Docs"
 description: "En esta página de Azure Multi-Factor Authentication se describe cómo empezar a trabajar con Servidor Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 keywords: "servidor de autenticación, página de activación de la aplicación de azure multi factor autenticación, descarga del servidor de autenticación"
@@ -13,23 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/29/2016
+ms.date: 01/03/2017
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 2e2d680a0f54830f6086a4d6ac98f4a550f4ee46
-ms.openlocfilehash: 66726c39c09ed867beb999f9589dfef3f7cf65bb
+ms.sourcegitcommit: 0fec7a18e098891374b3b0d7313a72918b630918
+ms.openlocfilehash: 7fb107922af9d2316fb7490670002f4255572458
 
 ---
 
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introducción a Servidor Azure Multi-Factor Authentication
 <center>![MFA local](./media/multi-factor-authentication-get-started-server/server2.png)</center>
 
-Ahora que hemos determinado que se usa una instancia local de Multi-Factor Authentication, vamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor de Phonefactor y desea actualizarlo, consulte [Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md) o si busca información acerca de cómo instalar solo el servicio web, consulte [Implementación del servicio web de aplicación móvil del servidor Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
+Ahora que hemos determinado que se usa una instancia local del Servidor Multi-Factor Authentication, vayamos al paso siguiente. Esta página describe una nueva instalación del servidor y su configuración con una instancia loal de Active Directory. Si ya tiene instalado el servidor de Phonefactor y desea actualizarlo, consulte [Actualización de PhoneFactor Agent al Servidor Azure Multi-Factor Authentication](multi-factor-authentication-get-started-server-upgrade.md) o si busca información acerca de cómo instalar solo el servicio web, consulte [Implementación del servicio web de aplicación móvil del servidor Multi-Factor Authentication](multi-factor-authentication-get-started-server-webservice.md).
 
 ## <a name="download-the-azure-multi-factor-authentication-server"></a>Descarga de Servidor Azure Multi-Factor Authentication
-Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través de Azure Portal. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un Proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
+Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authentication. Ambas se pueden hacer a través de Azure Portal. La primera es administrando el proveedor de autenticación multifactor directamente. La segunda es mediante la configuración del servicio. La segunda opción requiere un proveedor de Multi-Factor Authentication o una licencia de Azure MFA, Azure AD Premium o Enterprise Mobility Suite.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Para descargar el SDK de Servidor Azure Multi-Factor Authentication del Portal de Azure clásico
+> [!Important]
+> Estas dos opciones parecen similares pero, sin embargo, es importante saber cuál utilizar. Si los usuarios tienen licencias incluidas con MFA, no cree un proveedor de Multi-Factor Authentication para conseguir la descarga del servidor. En su lugar, use la opción 2 para descargar el servidor de la página de configuración del servicio. 
+
+### <a name="option-1-download-azure-multi-factor-authentication-server-from-the-azure-classic-portal"></a>Opción 1: descargue el Servidor Azure Multi-Factor Authentication del Portal de Azure clásico.
+
+Utilice esta opción de descarga si ya tiene un proveedor de Multi-Factor Authentication dado que ya paga MFA por cada usuario habilitado o por autenticación. 
 
 1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. En la parte izquierda, seleccione **Active Directory**.
@@ -41,7 +46,10 @@ Hay dos maneras diferentes de descargar Servidor Azure Multi-Factor Authenticati
    ![Descargar](./media/multi-factor-authentication-get-started-server/download4.png)
 7. Guarde el archivo descargado.
 
-### <a name="to-download-the-azure-multi-factor-authentication-server-from-the-service-settings"></a>Para descargar Servidor Azure Multi-Factor Authentication mediante la configuración del servicio
+### <a name="option-2-download-azure-multi-factor-authentication-server-from-the-service-settings"></a>Opción 2: descargue el Servidor Azure Multi-Factor Authentication mediante la configuración del servicio
+
+Utilice esta opción de descarga si tiene licencias Enterprise Mobility Suite, Azure AD Premium o Enterprise Cloud Suite. 
+
 1. Inicie sesión como administrador en el [Portal de Azure clásico](https://manage.windowsazure.com).
 2. En la parte izquierda, seleccione **Active Directory**.
 3. Haga doble clic en la instancia de Azure AD.
@@ -140,8 +148,8 @@ Cuando se usa Servidor Azure Multi-Factor Authentication (MFA) local, los datos 
 
 Además de los campos anteriores, el resultado (éxito o denegación) de la verificación y el motivo de las denegaciones también se almacenan con los datos de autenticación y están disponibles en informes de uso y autenticación.
 
-## <a name="advanced-azure-multi-factor-authentication-server-configurations"></a>Configuraciones de servidor de Azure Multi-Factor Authentication avanzadas
-Para más información sobre las opciones de configuración e instalación avanzadas, consulte la tabla siguiente:
+## <a name="next-steps"></a>Pasos siguientes
+Para más información sobre las opciones de configuración e instalación avanzadas, use los vínculos de la tabla siguiente:
 
 | Método | Description |
 |:--- |:--- |
@@ -158,6 +166,6 @@ Para más información sobre las opciones de configuración e instalación avanz
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 

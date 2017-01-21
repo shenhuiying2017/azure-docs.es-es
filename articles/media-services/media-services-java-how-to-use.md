@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
+ms.sourcegitcommit: 18054a72c3ead02311465d97dc13b7b5e4d87321
+ms.openlocfilehash: 401b3c931fa046ee2bdf0a12e9e837b820ec5464
 
 
 ---
@@ -24,14 +24,14 @@ ms.openlocfilehash: 97af28a2f225fa7f5db2086687c38c64e03ebc8f
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## <a name="setting-up-an-azure-account-for-media-services"></a>Configuración de una cuenta de Azure para Servicios multimedia
-Para configurar su cuenta de Servicios multimedia, use el Portal de Azure clásico. Vea el tema [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md). Después de crear la cuenta en el Portal de Azure clásico, estará listo para configurar el equipo para el desarrollo de Servicios multimedia.
+Para configurar su cuenta de Media Services, use Azure Portal. Vea el tema [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md). Después de crear la cuenta en Azure Portal, estará listo para configurar el equipo para el desarrollo de Media Services.
 
 ## <a name="setting-up-for-media-services-development"></a>Configuración para el desarrollo de Servicios multimedia
 Esta sección contiene los requisitos previos generales para el desarrollo de Servicios multimedia usando el SDK de Servicios multimedia para Java.
 
 ### <a name="prerequisites"></a>Requisitos previos
 * Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Vea el tema [Cómo crear una cuenta de Media Services](media-services-portal-create-account.md).
-* Las bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][Centro para desarrolladores de Java para Azure].
+* Las Bibliotecas de Azure para Java, que puede instalar desde el [Centro para desarrolladores de Java para Azure][Azure Java Developer Center].
 
 ## <a name="how-to-use-media-services-with-java"></a>Uso de Servicios multimedia con Java
 El siguiente código muestra cómo crear un recurso, cargar un archivo multimedia en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y crear un localizador para transmitir el vídeo.
@@ -260,16 +260,16 @@ Sustituya los valores de las variables 'clientId' y 'clientSecret'. El código t
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
-Para obtener la documentación de Javadoc de Media Services, consulte [Documentación de las bibliotecas de Azure para Java][Documentación de las bibliotecas de Azure para Java].
+Para ver la documentación de Javadoc de Media Services, consulte la [documentación de las Bibliotecas de Azure para Java][Azure Libraries for Java documentation].
 
 <!-- URLs. -->
 
-[Centro para desarrolladores de Java para Azure]: http://azure.microsoft.com/develop/java/
-[Documentación de las bibliotecas de Azure para Java]: http://dl.windowsazure.com/javadoc/
-[Desarrollo de clientes de Media Services]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+[Azure Java Developer Center]: http://azure.microsoft.com/develop/java/
+[Azure Libraries for Java documentation]: http://dl.windowsazure.com/javadoc/
+[Media Services Client Development]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

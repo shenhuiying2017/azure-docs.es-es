@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9078d36789c3cc653b298b7a4eaee1cbe888b85f
+ms.sourcegitcommit: 0b87ec728891d4f64bb7b2e4b7b4f0f2276b1ffc
+ms.openlocfilehash: ca75ddf8d099f411c4ae1af00e922f26e145f939
 
 
 ---
@@ -51,7 +51,7 @@ Otra manera de acceder a la hoja es hacer clic en **Examinar** y luego en **Azur
 7. Haga clic en la aplicación que acaba de crear y copie el **Id. de cliente de aplicación** único global que usará más adelante en el código.
 
 > [!IMPORTANT]
-> Las aplicaciones creadas en la hoja de características B2C tienen que administrar en la misma ubicación. Si edita las aplicaciones B2C mediante PowerShell u otro portal, ya no serán compatibles y probablemente no funcionen con Azure AD B2C.
+> Las aplicaciones creadas en la hoja de características de B2C tienen que administrarse en la misma ubicación. Si edita las aplicaciones B2C mediante PowerShell u otro portal, ya no serán compatibles y probablemente no funcionen con Azure AD B2C.
 > 
 > 
 
@@ -63,6 +63,6 @@ Ahora que tiene una aplicación registrada en Azure AD B2C, puede completar uno 
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

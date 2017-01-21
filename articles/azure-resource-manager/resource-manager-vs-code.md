@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2016
+ms.date: 01/03/2017
 ms.author: chmatsk;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f839784aaef511c60ec1c3eea0b64bfdd5f67a4f
+ms.sourcegitcommit: 10c7051c9b1218081d95cb10403006bfd95126ba
+ms.openlocfilehash: 2ac1c2cce7a9e045990894b0bbaa045df3d48954
 
 
 ---
 # <a name="working-with-azure-resource-manager-templates-in-visual-studio-code"></a>Trabajo con plantillas de Azure Resource Manager en Visual Studio Code
-Las plantillas de Azure Resource Manager son archivos JSON que describen un recurso y dependencias relacionadas. A veces, estos archivos pueden ser grandes y complicados, por lo que es importante la compatibilidad con las herramientas. Visual Studio Code es un editor de código nuevo, ligero, de código abierto y multiplataforma. Permite crear y editar plantillas de Resource Manager mediante una [nueva extensión](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code se ejecuta en todas partes y no requiere acceso a Internet a menos que también desee implementar las plantillas de Resource Manager.
+Las plantillas de Azure Resource Manager son archivos JSON que describen un recurso y dependencias relacionadas. A veces, estos archivos pueden ser grandes y complicados, por lo que es importante la compatibilidad con las herramientas. Visual Studio Code es un editor de código nuevo, ligero, de código abierto y multiplataforma. Permite crear y editar plantillas de Resource Manager mediante una [nueva extensión](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). VS Code se ejecuta en todas partes y no requiere acceso a Internet cuando desea implementar las plantillas de Resource Manager en la suscripción de Azure.
 
 Si todavía no dispone de VS Code, puede instalarlo en [https://code.visualstudio.com/](https://code.visualstudio.com/).
 
@@ -42,7 +42,7 @@ En los pasos anteriores se instala la compatibilidad con las herramientas, pero 
 
 1. Copie el contenido del archivo del repositorio [azure-xplat-arm-tooling](https://raw.githubusercontent.com/Azure/azure-xplat-arm-tooling/master/VSCode/armsnippets.json) en el Portapapeles.
 2. Ejecutar VS Code 
-3. En VS Code, puede abrir el archivo de fragmentos JSON desplazándose a **File (Archivo)** -> **Preferences (Preferencias)** -> **User Snippets (Fragmentos de código de usuario)** -> ** JSON**, o mediante la selección de **F1** y escribiendo **preferences** hasta que pueda seleccionar **Preferences: Snippets** (Preferencias: Fragmentos).
+3. En VS Code, puede abrir el archivo de fragmentos de código JSON navegando a **Archivo** -> **Preferencias** -> **User Snippets (Fragmentos de código del usuario)** -> **JSON**. O bien, seleccione **F1**y escriba **preferencias** hasta que pueda seleccionar **Preferencias: Fragmentos de código**.
    
     ![fragmentos de código de preferencia](./media/resource-manager-vs-code/preferences-snippets.png)
    
@@ -61,22 +61,22 @@ La manera más fácil de empezar a trabajar con una plantilla es tomar una de la
 1. Si exporta una plantilla desde un grupo de recursos, abra los archivos extraídos en VS Code.
    
     ![mostrar archivos](./media/resource-manager-vs-code/show-files.png)
-2. Abra el archivo template.json para que pueda modificarlo y agregar algunos recursos adicionales. Después de **"resources": [** presione ENTRAR para iniciar una nueva línea. Si escribe **arm**, verá una lista de opciones. Estas opciones son los fragmentos de código de la plantilla que ha instalado. Debería ser parecido a este: 
+2. Abra el archivo template.json para que pueda modificarlo y agregar algunos recursos adicionales. Después de `"resources": [`, presione ENTRAR para iniciar una nueva línea. Si escribe **arm**, verá una lista de opciones. Estas opciones son los fragmentos de código de la plantilla que ha instalado. 
    
     ![mostrar fragmentos de código](./media/resource-manager-vs-code/type-snippets.png)
-3. Seleccione el fragmento de código que desee. En este artículo, he elegido **arm ip** para crear una nueva dirección IP pública. Incluya una coma después del corchete de cierre "}" del recurso recién creado para asegurarse de que la sintaxis de la plantilla es válida.
+3. Seleccione el fragmento de código que desee. En este artículo, he elegido **arm ip** para crear una nueva dirección IP pública. Incluya una coma después del corchete de cierre `}` del recurso recién creado para asegurarse de que la sintaxis de la plantilla es válida.
    
      ![agregar coma](./media/resource-manager-vs-code/add-comma.png)
-4. VS Code tiene IntelliSense integrado. A medida que modifica las plantillas, VS Code sugiere los valores disponibles. Por ejemplo, para agregar una sección de variables a la plantilla, agregue **""** (dos comillas dobles) y seleccione **Ctrl+Barra espaciadora** entre las comillas. Se le presentarán opciones, como **variables**.
+4. VS Code tiene IntelliSense integrado. A medida que modifica las plantillas, VS Code sugiere los valores disponibles. Por ejemplo, para agregar una sección de variables a la plantilla, agregue `""` (dos comillas dobles) y seleccione **Ctrl+Barra espaciadora** entre las comillas. Se le presentarán opciones, como **variables**.
    
     ![agregar variables](./media/resource-manager-vs-code/add-variables.png)
-5. IntelliSense también puede sugerir valores o funciones disponibles. Para establecer una propiedad en un valor de parámetro, cree una expresión con **"[]"** y **Ctrl+Barra espaciadora**. Puede empezar a escribir el nombre de una función. Seleccione **Tabulador** cuando haya encontrado la función que desee.
+5. IntelliSense también puede sugerir valores o funciones disponibles. Para establecer una propiedad en un valor de parámetro, cree una expresión con `"[]"` y **Ctrl+Barra espaciadora**. Puede empezar a escribir el nombre de una función. Seleccione **Tabulador** cuando haya encontrado la función que desee.
    
     ![agregar parámetro](./media/resource-manager-vs-code/select-parameters.png)
 6. Seleccione de nuevo **CTRL+BARRA ESPACIADORA** dentro de la función para ver una lista de los parámetros disponibles dentro de la plantilla.
    
     ![agregar parámetro](./media/resource-manager-vs-code/select-avail-parameters.png)
-7. Si tiene cualquier problema de validación de esquema en la plantilla, verá los familiares subrayados ondulados en el editor. Puede ver la lista de errores y advertencias escribiendo **Ctrl + Mayús + M** o seleccionando los glifos en la barra de estado en la parte inferior izquierda.
+7. Si tiene cualquier problema de validación de esquema en la plantilla, verá los conocidos subrayados ondulados del editor. Puede ver la lista de errores y advertencias escribiendo **Ctrl + Mayús + M** o seleccionando los glifos en la barra de estado en la parte inferior izquierda.
    
     ![errors](./media/resource-manager-vs-code/errors.png)
    
@@ -91,29 +91,45 @@ Cuando la plantilla está lista, puede implementar los nuevos recursos con las i
 1. Abrir un símbolo del sistema de PowerShell 
 2. Para iniciar sesión, escriba: 
    
-        Login-AzureRmAccount 
+  ```powershell
+  Login-AzureRmAccount
+  ```
+
 3. Si tiene varias suscripciones, obtenga una lista de ellas con:
-   
-        Get-AzureRmSubscription
+
+  ```powershell 
+  Get-AzureRmSubscription
+  ```
    
     Y seleccione la que desea usar.
-   
-        Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionId <Subscription Id>
+  ```
+
 4. Actualizar los parámetros en el archivo parameters.json
 5. Ejecutar deploy.ps1 para implementar la plantilla en Azure
 
 ### <a name="osxlinux"></a>OSX y Linux
 1. Abrir una ventana del terminal 
 2. Para iniciar sesión, escriba:
-   
-        azure login 
+
+  ```azurecli
+  azure login
+  ```
+
 3. Si tiene varias suscripciones, seleccione la correcta con:
-   
-        azure account set <subscriptionNameOrId> 
+
+  ```azurecli
+  azure account set <subscriptionNameOrId> 
+  ```
+
 4. Actualice los parámetros en el archivo parameters.json.
 5. Para implementar la plantilla, ejecute:
-   
-        azure group deployment create -f <PathToTemplate> 
+
+  ```azurecli 
+  azure group deployment create -f <PathToTemplate>
+  ``` 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Para más información sobre las plantillas, consulte [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
@@ -123,6 +139,6 @@ Cuando la plantilla está lista, puede implementar los nuevos recursos con las i
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
