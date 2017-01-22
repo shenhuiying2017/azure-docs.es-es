@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 109ca4a4672d21969096af26a094390673de25d9
-ms.openlocfilehash: e5a090acb88db0139ad1cea627060e5076ece1b4
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 01a554815a48cf1b81037eaa2f55bc4f07838721
 
 
 ---
@@ -235,7 +235,7 @@ Después de ver durante unos minutos un mensaje en el que indica que es preciso 
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-troubleshoot-deployments-cli.md) .
+Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-common-deployment-errors.md) .
 
 En la línea de comandos CLI, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de pruebas, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
@@ -278,7 +278,7 @@ Después de ver durante unos minutos un cursor intermitente, el comando devolver
 
     Outputs           :
 
-  Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-troubleshoot-deployments-powershell.md) .
+  Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-common-deployment-errors.md) .
 
   En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de pruebas, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
@@ -364,6 +364,6 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

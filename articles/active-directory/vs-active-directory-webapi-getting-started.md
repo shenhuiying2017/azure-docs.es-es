@@ -1,31 +1,12 @@
 ---
-title: Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de WebApi) | Microsoft Docs
-description: Cómo empezar a usar Azure Active Directory en los proyectos de WebApi después de crear un Azure AD usando los servicios conectados de Visual Studio o de conectarse a él
-services: active-directory
-documentationcenter: ''
-author: TomArcher
-manager: douge
-editor: ''
-
-ms.service: active-directory
-ms.workload: web
-ms.tgt_pltfrm: vs-getting-started
-ms.devlang: na
-ms.topic: article
-ms.date: 08/15/2016
-ms.author: tarcher
+redirect_url: /azure/active-directory/develop/vs-active-directory-webapi-getting-started
+translationtype: Human Translation
+ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
+ms.openlocfilehash: 593c6484bb5583c45774d82d45238f98f4a70c85
 
 ---
-# Introducción a Azure Active Directory y servicios conectados de Visual Studio (proyectos de WebApi)
-> [!div class="op_single_selector"]
-> * [Introducción](vs-active-directory-webapi-getting-started.md)
-> * [¿Qué ha ocurrido?](vs-active-directory-webapi-what-happened.md)
-> 
-> 
 
-## Requerimiento de autenticación para obtener acceso a los controladores
-Todos los controladores de su proyecto cuentan ahora con el atributo **Authorize**. Este atributo requerirá que el usuario se autentique antes de tener acceso a las API definidas por estos controladores. Para permitir el acceso anónimo al controlador, quite este atributo del controlador. Si desea establecer los permisos a un nivel más detallado, aplique el atributo a cada método que requiere autorización en vez de aplicarlo a la clase del controlador.
 
-[Más información acerca de Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+<!--HONumber=Jan17_HO3-->
 
-<!---HONumber=AcomDC_0817_2016-->
+

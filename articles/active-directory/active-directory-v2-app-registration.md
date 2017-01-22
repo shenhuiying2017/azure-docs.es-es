@@ -1,63 +1,12 @@
 ---
-title: Registro de aplicaciones v2.0 | Microsoft Docs
-description: "Cómo registrar una aplicación con Microsoft para habilitar el inicio de sesión y obtener acceso a servicios de Microsoft con el punto de conexión v2.0"
-services: active-directory
-documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
-ms.assetid: bb2f701f-3bc3-4759-94a5-8b9d53a8a0b6
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
+redirect_url: /azure/active-directory/develop/active-directory-v2-app-registration
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 856e57d2bee68b1fc7329b603d69e3b9a3e60a37
-
+ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
+ms.openlocfilehash: a93a12a93bff2de8d5f7edce5a2b412193b31176
 
 ---
-# <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Cómo registrar una aplicación con el punto de conexión v2.0
-Para crear una aplicación que acepte tanto el inicio de sesión de MSA como de Azure AD, tendrá que registrar primero una aplicación con Microsoft.  En este momento, no podrá usar ninguna aplicación existente que tenga con Azure AD o MSA. Tendrá que crear una completamente nueva.
-
-> [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con el punto de conexión v2.0.  Para determinar si debe usar el punto de conexión v2.0, lea acerca de las [limitaciones de v2.0](active-directory-v2-limitations.md).
-> 
-> 
-
-## <a name="visit-the-microsoft-app-registration-portal"></a>Visitar el Portal de registro para aplicaciones de Microsoft
-Lo primero es lo primero: vaya a [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList).  Este es un nuevo portal de registro para aplicaciones donde puede administrar sus aplicaciones de Microsoft.
-
-Inicie sesión con una cuenta personal o una cuenta profesional o educativa de Microsoft.  Si no tiene ninguna de ellas, suscríbase para una nueva cuenta personal. Adelante, no le llevará mucho tiempo; aquí le esperamos.
-
-¿Ha acabado? Ahora debería estar viendo su lista de aplicaciones de Microsoft, que probablemente esté vacía.  Cambiemos eso.
-
-Haga clic en **Agregar una aplicación** y asígnele un nombre.  El portal le asignará a su aplicación un identificador de aplicación único global que usará más adelante en su código.  Si su aplicación incluye un componente del lado del servidor que necesita tokens de acceso para llamar a las API (como Office, Azure o su propia API web), aquí también le interesará crear un **Secreto de la aplicación**.
-<!-- TODO: Link for app secrets -->
-
-A continuación, agregue las plataformas que usará la aplicación.
-
-* Para las aplicaciones basadas en web, proporcione un **URI de redirección** adonde se puedan enviar los mensajes de inicio de sesión.
-* Para las aplicaciones móviles, copie el URI de redirección predeterminado creado automáticamente para usted.
-
-Si lo desea, puede personalizar la apariencia de la página de inicio de sesión en la sección Perfil.  Asegúrese de hacer clic en **Guardar** antes de continuar.
-
-> [!NOTE]
-> Cuando cree una aplicación con [https://apps.dev.microsoft.com/?deeplink=/appList](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), la aplicación se registrará en el inquilino principal de la cuenta que use para iniciar sesión en el portal.  Esto significa que no se puede registrar una aplicación en el inquilino de Azure AD con una cuenta personal de Microsoft.  Si desea registrar explícitamente una aplicación en un inquilino determinado, inicie sesión con una cuenta creada originalmente en ese inquilino.
-> 
-> 
-
-## <a name="build-a-quick-start-app"></a>Compilar una aplicación de inicio rápido
-Ahora que tiene una aplicación de Microsoft, puede completar uno de nuestros tutoriales de inicio rápido de v2.0.  Estas son algunas recomendaciones:
-
-[!INCLUDE [active-directory-v2-quickstart-table](../../includes/active-directory-v2-quickstart-table.md)]
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
