@@ -12,11 +12,11 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2016
+ms.date: 01/04/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 9029b6a0fc97525ff8a462a725a256b3997e44f1
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 25fef9472f023c37538cfc2f5f7c37c0bfca746e
 
 
 ---
@@ -34,23 +34,25 @@ Puede revisar los incidentes de seguridad actuales en el icono Alertas de seguri
 1. En el panel Security Center, verá el icono **Alertas de seguridad** .
    
     ![Icono Alertas de seguridad en Security Center](./media/security-center-incident/security-center-incident-fig1.png)
+
 2. Haga clic en este icono para expandirlo y, si se detecta un incidente de seguridad, aparecerá en el gráfico de alertas de seguridad, tal como se muestra a continuación:
    
-   ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig2.png)
+    ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig2.png)
+
 3. Observe que la descripción de incidentes de seguridad tiene un icono diferente si se compara con otras alertas. Haga clic en él para ver más detalles sobre este incidente.
    
-   ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig3.png)
-4. En la hoja de **incidentes** encontrará más detalles sobre este incidente de seguridad, como su descripción completa, su gravedad (en este caso alta), su estado actual (en este caso aún *activo*, lo que implica que el usuario no ha realizado acción alguna para *descartarlo* - lo que se puede hacer haciendo clic con el botón derecho en el incidente en la hoja **Alertas de seguridad**), el recurso asociado (en este caso *VM1*) y los pasos de corrección del incidente. Además, en el panel inferior tiene las alertas que se incluyeron en este incidente. Para más información sobre cada alerta, solo tiene que hacer clic en ella y se abrirá otra hoja, tal como se muestra a continuación:
+    ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig3.png)
+
+4. En la hoja de **incidentes** encontrará más detalles sobre este incidente de seguridad, como su descripción completa, su gravedad (en este caso alta), su estado actual (en este caso aún *activo*, lo que implica que el usuario no ha realizado acción alguna, para lo cual debería hacer clic con el botón derecho en el incidente en la hoja **Alertas de seguridad**), el recurso asociado (en este caso *VM1*) y los pasos de corrección del incidente. Además, en el panel inferior tiene las alertas que se incluyeron en este incidente. Para más información sobre cada alerta, solo tiene que hacer clic en ella y se abrirá otra hoja, tal como se muestra a continuación:
    
-   ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig4.png)
+    ![Incidente de seguridad](./media/security-center-incident/security-center-incident-fig4.png)
 
 La información sobre esta hoja variará según la alerta. Para más información sobre cómo administrar estas alertas, consulte [Administración y respuesta a las alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md) . Algunas consideraciones importantes con respecto a esta funcionalidad son las siguientes:
 
 * Un nuevo filtro le permite personalizar la vista a solo incidente, solo alertas o ambos. 
 * La misma alerta puede existir como parte de un incidente (si procede), así como a estar visible como alerta independiente. 
-* Si se descarta un incidente, no se descartarán las alertas relacionadas.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Consulte también
 En este documento, aprendió a usar la funcionalidad de incidente de seguridad en el Security Center. Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 
 * [Administración y respuesta a las alertas de seguridad en el Centro de seguridad de Azure](security-center-managing-and-responding-alerts.md)
@@ -63,6 +65,6 @@ En este documento, aprendió a usar la funcionalidad de incidente de seguridad e
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

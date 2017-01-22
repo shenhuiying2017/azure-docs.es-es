@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 11/28/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 717d84bbfbc51912bca7c2d279a6a0603ea97107
-ms.openlocfilehash: 1ea0b7032d35e793033c0d4ca96c2f4c3ff6671b
+ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
+ms.openlocfilehash: 17e2830dceeaa313dd0fd7d406bf68a75b6f900e
 
 
 ---
@@ -51,7 +51,7 @@ Un servidor lógico de Azure Database:
 - **Autenticación y autorización**: Azure SQL Database admite la autenticación de SQL y la de Azure Active Directory (con ciertas limitaciones: consulte el artículo sobre la [conexión con SQL Database con la autenticación de Azure Active Directory](sql-database-aad-authentication.md) para conocer los detalles a este respecto). Puede conectarse a bases de datos de Azure SQL Database y autenticarse en ellas a través de la base de datos maestra del servidor o efectuando ambas acciones directamente con una base de datos de usuario. Para obtener más información, consulte el artículo sobre la [administración de bases de datos e inicios de sesión en Azure SQL Database](sql-database-manage-logins.md). La autenticación de Windows no es compatible. 
 - **TDS**: Microsoft Azure SQL Database admite la versión 7.3 (o posterior) del cliente del protocolo de flujo TDS.
 - **TCP/IP**: se permiten únicamente las conexiones TCP/IP.
-- **Firewall de SQL Database**: para mantener sus datos protegidos, el firewall de SQL Database impide todo acceso al servidor de bases de datos o a estas últimas mientras no se especifique qué equipos cuentan con permiso. Consulte el artículo sobre [firewalls](sql-database-firewall-configure.md).
+- **Firewall de SQL Database**: para mantener sus datos protegidos, el firewall de SQL Database impide todo acceso al servidor de bases de datos o a estas últimas mientras no se especifiquen qué equipos cuentan con permiso. Consulte el artículo sobre [firewalls](sql-database-firewall-configure.md).
 
 ## <a name="what-collations-are-supported"></a>¿Qué intercalaciones son compatibles?
 
@@ -79,12 +79,12 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 - Para acceder a información general acerca de las bases de datos de Azure SQL Database, lea [este resumen sobre el particular](sql-database-overview.md).
 - Para conocer los detalles sobre la compatibilidad y las diferencias de Transact-SQL, consulte [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) (Diferencias de Transact-SQL de Azure SQL Database).
 - En el siguiente vínculo, encontrará información sobre las cuotas y limitaciones aplicables a recursos específicos en función de su **nivel de servicio**. Para obtener una descripción general de los niveles de servicio, consulte [Niveles de servicio de la Base de datos SQL](sql-database-service-tiers.md).
-- Para conocer directrices relacionadas con la seguridad, consulte [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md) (Instrucciones y limitaciones de seguridad de Azure SQL Database).
-- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para Base de datos SQL y SQL Server](sql-database-libraries.md).
+- Para obtener información general sobre la seguridad, consulte [Introducción a la seguridad de Azure SQL Database](sql-database-security-overview.md).
+- Para obtener información sobre la disponibilidad de controladores y la compatibilidad con Base de datos SQL, consulte [Bibliotecas de conexiones para SQL Database y SQL Server](sql-database-libraries.md).
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -12,227 +12,221 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/05/2016
+ms.date: 01/02/2017
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 94250becb238adad7983d4b45939eb988411fca3
+ms.sourcegitcommit: bd8082c46ee36c70e372208d1bd15337acc558a1
+ms.openlocfilehash: eb97f66901efa336942dee56d9a8a62ade1f6842
 
 
 ---
 # <a name="how-does-azure-site-recovery-work"></a>¿Cómo funciona Azure Site Recovery?
+
 Lea este artículo para conocer la arquitectura subyacente del servicio Azure Site Recovery y los componentes que hacen que funcione.
 
-Publique cualquier comentario o pregunta que tenga en la parte inferior de este artículo, o bien en el [foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-
-## <a name="overview"></a>Información general
 Las organizaciones necesitan una estrategia de recuperación ante desastres y continuidad empresarial (BCDR) que determine cómo seguirán en funcionamiento y disponibles las aplicaciones, las cargas de trabajo y los datos durante los tiempos de inactividad planeados y no planeados, y cómo recuperar las condiciones de funcionamiento normales lo antes posible. Su estrategia de BCDR se centra en soluciones que mantengan los datos empresariales seguros y recuperables, y garanticen que las cargas de trabajo estarán disponibles continuamente en caso de desastre.
 
 Site Recovery es un servicio de Azure que contribuye a su estrategia de BCDR mediante la coordinación de la replicación de servidores físicos locales y máquinas virtuales en la nube (Azure) o en un centro de datos secundario. Cuando se producen interrupciones en la ubicación principal, se realiza la conmutación por error a la ubicación secundaria para mantener disponibles las aplicaciones y cargas de trabajo. La conmutación por recuperación a la ubicación principal se produce cuando vuelve a su funcionamiento normal. Más información en [¿Qué es Site Recovery?](site-recovery-overview.md)
 
-## <a name="site-recovery-in-the-azure-portal"></a>Site Recovery en el Portal de Azure
-Azure tiene dos [modelos de implementación](../resource-manager-deployment-model.md) diferentes para crear recursos y trabajar con ellos: el modelo de Azure Resource Manager y el modelo clásico de administración de servicios. Azure también tiene dos portales: el [Portal de Azure clásico](https://manage.windowsazure.com/) que admite el modelo de implementación clásico y [Azure Portal](https://portal.azure.com) que es compatible con ambos modelos de implementación.
+En este artículo se describe cómo realizar la implementación en [Azure Portal](https://portal.azure.com). El [Portal de Azure clásico](https://manage.windowsazure.com/) se puede utilizar para conservar los almacenes de Site Recovery existentes, pero no podrá crear almacenes nuevos.
 
-Site Recovery está disponible tanto en el portal clásico como en el Portal de Azure. En el Portal de Azure clásico, Site Recovery se puede usar con el modelo de administración de servicios clásico. En el Portal de Azure, se pueden usar tanto el modelo de implementación clásica como el modelo de Resource Manager. [Más información](site-recovery-overview.md#site-recovery-in-the-azure-portal) acerca de la implementación con el Portal de Azure.
+Publique sus comentarios en la parte inferior de este artículo. Formule cualquier pregunta técnica en el [Foro de Servicios de recuperación de Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-La información de este artículo se aplica a las tanto a la implementación clásica como a la del Portal de Azure. Las diferencias se indicarán cuando corresponda.
 
 ## <a name="deployment-scenarios"></a>Escenarios de implementación
+
 Site Recovery se puede implementar para organizar la replicación en varios escenarios:
 
-* **Réplica de máquinas virtuales de VMware**: las máquinas virtuales VMware locales se pueden replicar en Azure o en un centro de datos secundario.
-* * **Réplica de máquinas físicas**: las máquinas físicas que ejecutan Windows o Linux se pueden replicar en Azure o en un centro de datos secundario. El proceso para la replicación de máquinas físicas es prácticamente el mismo que el proceso para la replicación de máquinas virtuales de VMware
-* **Réplica de máquinas virtuales de Hyper-V (sin VMM)**: las máquinas virtuales de Hyper-V que no administrada VMM se pueden replicar en Azure.
-* **Réplica de máquinas virtuales de Hyper-V administradas en nubes de System Center VMM**: las máquinas virtuales de Hyper-V locales que se ejecutan en servidores host de Hyper-V en nubes de VMM se pueden replicar en Azure o en un centro de datos secundario. La réplica se puede realizar mediante la réplica de Hyper-V estándar o mediante la replicación de SAN.
-* **Migración de VM**: Site Recovery se puede usar para [migrar VM de IaaS de Azure](site-recovery-migrate-azure-to-azure.md) de una región a otra o para [migrar instancias de Windows en Amazon Web Services (AWS)](site-recovery-migrate-aws-to-azure.md) a VM de IaaS de Azure. Actualmente solo se admite la migración, lo que significa que estás máquinas virtuales se pueden conmutar por error, pero no es posible conmutarlas por recuperación.
+- **Réplica de máquinas virtuales de VMware**: las máquinas virtuales de VMware locales se pueden replicar en Azure o en un centro de datos secundario.
+- **Réplica de máquinas físicas**: las máquinas físicas (Windows o Linux) se pueden replicar en Azure o en un centro de datos secundario. El proceso para la replicación de máquinas físicas es prácticamente el mismo que el proceso para la replicación de máquinas virtuales de VMware.
+- **Replica de máquinas virtuales de Hyper-V**: puede replicar máquinas virtuales de Hyper-V en Azure o en un sitio secundario de VMM. Si quiere replicarlas en un sitio secundario, se deben administrar en nubes de System Center Virtual Machine Manager (VMM).
+- **Migración de máquinas virtuales**: además de replicar (réplica, conmutación por error y conmutación por recuperación) máquinas virtuales locales y servidores físicos en Azure, también puede migrarlos a máquinas virtuales de Azure (réplica, conmutación por error, sin conmutación por recuperación). Esto es lo que se puede migrar:
+    - Migre cargas de trabajo en ejecución en máquinas virtuales de Hyper-V locales, máquinas virtuales de VMware y servidores físicos, para que pasen a ejecutarse en máquinas virtuales de Azure.
+    - Migre [máquinas virtuales de IaaS de Azure](site-recovery-migrate-azure-to-azure.md) entre regiones de Azure. Actualmente, en este escenario solo se admite la migración, lo que significa que no se admite la conmutación por recuperación.
+    - Migre [instancias de AWS Windows](site-recovery-migrate-aws-to-azure.md) a máquinas virtuales de IaaS de Azure. Actualmente, en este escenario solo se admite la migración, lo que significa que no se admite la conmutación por recuperación.
 
-Site Recovery puede replicar la mayoría de las aplicaciones que se ejecutan en estas máquinas virtuales y estos servidores físicos. En [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](site-recovery-workload.md)
+Site Recovery permite replicar aplicaciones que se ejecutan en máquinas virtuales y servidores físicos admitidos. En [¿Qué cargas de trabajo se pueden proteger con Azure Site Recovery?](site-recovery-workload.md)
 
-## <a name="replicate-to-azure-vmware-virtual-machines-or-physical-windowslinux-servers"></a>Réplica en Azure: máquinas virtuales de VMware o servidores físicos con Windows/Linux
-Hay dos maneras de replicar las máquinas virtuales de VMware con Site Recovery.
+## <a name="replicate-vmware-vmsphysical-servers-to-azure"></a>Replicación de máquinas virtuales de VMware o servidores físicos en Azure
 
-* **Mediante el Portal de Azure**: al implementar Site Recovery en el Portal de Azure puede conmutar por error máquinas virtuales en el almacenamiento de administrador de servicios clásico o en Resource Manager. La replicación de máquinas virtuales de VMware en el Portal de Azure ofrece varias ventajas, incluida la capacidad de realizar la replicación en almacenamiento clásico o de Resource Manager en Azure. [Más información](site-recovery-vmware-to-azure.md).
-* **Mediante el portal clásico**: Site Recovery se puede implementar en el portal clásico mediante una experiencia mejorada. Se debe usar para todas las implementaciones nuevas en el portal clásico. En esta implementación solo se pueden conmutar por error máquinas virtuales en el almacenamiento clásico de Azure, pero no en el almacenamiento de Resource Manager. [Más información](site-recovery-vmware-to-azure-classic.md). También hay un [experiencia heredada](site-recovery-vmware-to-azure-classic-legacy.md) para configurar la replicación de VMware en el portal clásico. No debe utilizarse para nuevas implementaciones.  Si ya ha realizado una implementación mediante la experiencia heredada, [obtenga información acerca de la migración](site-recovery-vmware-to-azure-classic-legacy.md#migrate-to-the-enhanced-deployment) a la implementación mejorada.
+### <a name="components"></a>Componentes
 
-Lo requisitos arquitectónicos para implementar Site Recovery para replicar máquinas virtuales de VMware/servidores físicos en el Portal de Azure o en Portal de Azure clásico (mejorada) son similares, solo hay un par de diferencias:
+**Componente** | **Detalles**
+--- | ---
+**Las tablas de Azure** | En Azure, necesitará una cuenta de Microsoft Azure, una cuenta de almacenamiento de Azure y una red de Azure.<br/><br/> Las de almacenamiento y red pueden ser cuentas de Resource Manager o cuentas clásicas.<br/><br/>  Los datos replicados se almacenan en la cuenta de almacenamiento y las máquinas virtuales de Azure se crean con los datos replicados cuando se produce la conmutación por error desde el sitio local. Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
+**Servidor de configuración** | Configure un servidor de configuración local para coordinar las comunicaciones entre el sitio local y Azure y para administrar la replicación de datos.
+**Servidor de proceso** | Se instala de forma predeterminada en el servidor de configuración local.<br/><br/> Actúa como puerta de enlace de replicación. Recibe datos de replicación de máquinas de origen protegidas, los optimiza con almacenamiento en caché, compresión y cifrado, y los envía al Almacenamiento de Azure.<br/><br/> Controla la instalación de inserción del Servicio de movilidad en máquinas protegidas y realiza la detección automática de máquinas virtuales de VMware.<br/><br/> A medida que crezca la implementación, podrá agregar más servidores de procesos dedicados independientes para controlar mayores volúmenes de tráfico de replicación.
+**Servidor de destino principal** | Se instala de forma predeterminada en el servidor de configuración local.<br/><br/> Controla los datos de replicación durante la conmutación por recuperación desde Azure. Si los volúmenes de tráfico de la conmutación por recuperación son altos, puede implementar un servidor de destino maestro independiente para la conmutación por recuperación.
+**Servidores de VMware** | Agregue servidores de vCenter y vSphere a su almacén de Recovery Services para replicar máquinas virtuales de VMware.<br/><br/> Si se replican servidores físicos, necesitará una infraestructura de VMware local para la conmutación por recuperación. No se puede realizar la conmutación por recuperación en una máquina física.
+**Máquinas replicadas** | El servicio de movilidad se deberá instalar en cada máquina que desee replicar. Se puede instalar manualmente en cada equipo o con una instalación de inserción desde el servidor de procesos.
 
-* Si la implementación se realiza en el Portal de Azure, la replicación se puede hacer en un almacenamiento basado en Resource Manager y se pueden usar las redes de Resource Manager para conectar las máquinas virtuales de Azure después de la conmutación por error.
-* Si la implementación se realiza en el Portal de Azure, se admiten tanto el almacenamiento LRS como el almacenamiento GRS. En el portal clásico se requiere GRS.
-* El proceso de implementación es más simple y fácil de usar en el Portal de Azure.
+**Figura 1: VMware en componentes de Azure**
 
-Esto es lo que necesita:
+![Componentes](./media/site-recovery-components/arch-enhanced.png)
 
-* **Cuenta de Azure**: necesitará una cuenta de Microsoft Azure.
-* **Almacenamiento de Azure**: necesitará una cuenta de Almacenamiento de Azure para almacenar los datos replicados. Puede usar una cuenta clásica o una cuenta de almacenamiento de Resource Manager. Cuando la implementación se realiza en el Portal de Azure, la cuenta puede ser LRS o GRS. Los datos replicados se almacenan en el almacenamiento de Azure y las máquinas virtuales de Azure se ponen en marcha cuando se produce la conmutación por error.
-* **Red de Azure**: necesitará una red virtual de Azure a la que se conectarán las máquinas virtuales de Azure cuando se crean en la conmutación por error. En el Portal de Azure pueden ser las redes creadas en el modelo de almacenamiento de administrador de servicios clásico o en el modelo de Resource Manager.
-* **Servidor de configuración local**: necesitará una máquina con Windows Server 2012 R2 local que ejecuta el servidor de configuración y otros componentes de Site Recovery. Si va a replicar máquinas virtuales de VMware, debe ser una máquina virtual VMware con alta disponibilidad. Si desea replicar servidores físicos, la máquina puede ser física. Estos componentes de Site Recovery se instalará en la máquina:
-  * **Servidor de configuración**: coordina la comunicación entre el entorno local y Azure, además de administrar la replicación y recuperación de datos.
-  * **Servidor de procesos**: actúa como puerta de enlace de replicación. Recibe datos de replicación de máquinas de origen protegidas, los optimiza con almacenamiento en caché, compresión y cifrado, y los envía al Almacenamiento de Azure. También controla la instalación de inserción del Servicio de movilidad en máquinas protegidas y realiza al detección automática de máquinas virtuales de VMware. A medida que crezca la implementación, podrá agregar más servidores de procesos dedicados independientes para controlar mayores volúmenes de tráfico de replicación.
-  * **Servidor de destino maestro**: controla los datos de replicación durante la conmutación por recuperación desde Azure.
-* **Máquinas virtuales WMware o servidores físicos que se replican**: todas las máquinas que desee replicar en Azure deberán tener instalado el componente Mobility Service. Este servicio captura las escrituras de datos en la máquina y las reenvía al servidor de procesos. Este componente se puede instalar manualmente, o bien puede insertarlo e instalarlo automáticamente el servidor de procesos cuando se habilita la replicación en una máquina.
-* **Hosts de vSphere y servidor de vCenter**: necesitará uno o varios servidores de host de vSphere en los que se ejecuten máquinas virtuales de VMware. Se recomienda implementar un servidor vCenter para administrar dichos hosts.
-* **Conmutación por recuperación**: esto es lo que necesita:
-  * **No se admite la conmutación por recuperación de físico a físico**: esto significa que si realiza la conmutación por error de los servidores físicos a Azure y luego desea realizar la conmutación por recuperación, debe realizarla a una máquina virtual de VMware. No se puede realizar la conmutación por recuperación a un servidor físico. Necesitará una máquina virtual de Azure a la que realizar la conmutación por recuperación y si no ha implementado el servidor de configuración como una máquina virtual de VMware, será preciso que configure un servidor de destino maestro independiente como una máquina virtual de VMware. Esto es necesario porque el servidor de destino maestro interactúa y se adjunta al almacenamiento de VMware para restaurar los discos a una máquina virtual de VMware.
-  * * **Servidor de procesos temporal en Azure**: si desea realizar la conmutación por recuperación desde Azure después de una conmutación por error, será preciso que configure una máquina virtual de Azure como servidor de procesos para que controle la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
-  * **Conexión VPN**: para realizar la conmutación por recuperación, necesitará que se haya configurado una conexión VPN (o Azure ExpressRoute) desde la red de Azure y el sitio local.
-  * **Servidor de destino maestro local independiente**: el servidor de destino maestro local controla la conmutación por recuperación. El servidor de destino maestro se instala de forma predeterminada en el servidor de administración, pero si se va a realizar la conmutación por recuperación de grandes volúmenes de tráfico, se debe configurar un servidor de destino maestro local independiente para este propósito.
+### <a name="replication-process"></a>Proceso de replicación
 
-**Arquitectura general**
+1. Configure la implementación, incluidos los componentes de Azure y un almacén de Recovery Services. En el almacén, especifique el origen y el destino de la replicación, configure el servidor de configuración, agregue servidores de VMware, cree una directiva de replicación, implemente el servicio de movilidad, habilite la replicación y ejecute una prueba de conmutación por error.
+2.  Las máquinas se empiezan a replicar de acuerdo con la directiva de replicación y una copia inicial de los datos se replica en el almacenamiento de Azure.
+4. La replicación de los cambios diferenciales en Azure comienza después de que finaliza la replicación inicial. Las marcas de revisión de una máquina se conservan en un archivo .hrl.
+    - Las máquinas que están en replicación se comunican con el servidor de configuración en el puerto HTTPS 443 entrante para la administración de la replicación.
+    - Las máquinas que están en replicación envían datos de replicación al servidor de procesos en el puerto HTTPS 9443 entrante (se puede configurar).
+    - El servidor de configuración organiza la administración de la replicación con Azure a través del puerto HTTPS 443 saliente.
+    - El servidor de procesos recibe datos de las máquinas de origen, los optimiza y los cifra y los envía al almacenamiento de Azure a través del puerto 443 saliente.
+    - Si habilita la coherencia entre varias máquinas virtuales, las máquinas del grupo de replicación se comunican entre sí a través del puerto 20004. La implementación de varias máquinas virtuales se usa si agrupa varias máquinas en grupos de replicación que tienen puntos de recuperación coherentes con los bloqueos y coherentes con la aplicación cuando conmutan por error. Esto resulta útil si las máquinas ejecutan la misma carga de trabajo y necesitan ser coherentes.
+5. El tráfico se replica en los puntos de conexión públicos del almacenamiento de Azure a través de Internet. Como alternativa, puede usar el [emparejamiento público](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-circuit-peerings#public-peering) de Azure ExpressRoute. No se admite la replicación del tráfico a través de una VPN de sitio a sitio desde un sitio local en Azure.
 
-![Mejorada](./media/site-recovery-components/arch-enhanced.png)
+**Figura 2: VMware en replicación de Azure**
 
-**Componentes de implementación**
+![Mejorada](./media/site-recovery-components/v2a-architecture-henry.png)
 
-![Mejorada](./media/site-recovery-components/arch-enhanced2.png)
+### <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 
-**Conmutación por recuperación**
+1. Puede realizar conmutaciones por error no planeadas desde máquinas virtuales de VMware locales y servidores físicos en Azure. No se admite la conmutación por error planeada.
+2. Puede conmutar por error una única máquina o crear [planes de recuperación](site-recovery-create-recovery-plans.md) para organizar la conmutación por error de varias máquinas.
+3. Cuando se ejecuta una conmutación por error, las máquinas virtuales de la réplica se crearán en Azure. Realice una conmutación por error para iniciar el acceso a la carga de trabajo desde la máquina virtual de Azure de la réplica.
+4. Cuando el sitio local principal esté disponible de nuevo, podrá realizar una conmutación por recuperación. Configure una infraestructura de conmutación por recuperación, empiece a replicar la máquina desde el sitio secundario al principal y ejecute una conmutación por error no planeada desde el sitio secundario. Después de ejecutar esta conmutación por error, los datos volverán a la ubicación local y deberá habilitar la replicación en Azure de nuevo. [Más información](site-recovery-failback-azure-to-vmware.md)
 
-![Conmutación tras recuperación mejorada](./media/site-recovery-components/enhanced-failback.png)
+Hay varios requisitos para la conmutación por recuperación:
 
-* [Más información](site-recovery-vmware-to-azure.md#azure-prerequisites) acerca de los requisitos para la implementación del Portal de Azure.
-* [Más información](site-recovery-vmware-to-azure-classic.md#before-you-start-deployment) acerca de los requisitos de la implementación mejorada en el portal clásico.
-* [Más información](site-recovery-failback-azure-to-vmware.md) acerca de la conmutación por recuperación en Azure Portal.
-* [Más información](site-recovery-failback-azure-to-vmware-classic.md) acerca de la conmutación por recuperación en el portal clásico.
+- **No se admite la conmutación por recuperación de físico a físico**: esto significa que si realiza la conmutación por error de los servidores físicos a Azure y luego desea realizar la conmutación por recuperación, debe realizarla a una máquina virtual de VMware. No se puede realizar la conmutación por recuperación a un servidor físico. Necesitará una máquina virtual de Azure a la que realizar la conmutación por recuperación y si no ha implementado el servidor de configuración como una máquina virtual de VMware, será preciso que configure un servidor de destino maestro independiente como una máquina virtual de VMware. Esto es necesario porque el servidor de destino maestro interactúa y se adjunta al almacenamiento de VMware para restaurar los discos a una máquina virtual de VMware.
+- **Servidor de procesos temporal en Azure**: si desea realizar la conmutación por recuperación desde Azure después de una conmutación por error, será preciso que configure una máquina virtual de Azure como servidor de procesos para que controle la replicación desde Azure. Dicha máquina virtual se puede eliminar cuando finalice la conmutación por recuperación.
+- **Conexión VPN**: para realizar la conmutación por recuperación, necesitará que se haya configurado una conexión VPN (o Azure ExpressRoute) desde la red de Azure y el sitio local.
+- **Servidor de destino maestro local independiente**: el servidor de destino maestro local controla la conmutación por recuperación. El servidor de destino maestro se instala de forma predeterminada en el servidor de administración, pero si se va a realizar la conmutación por recuperación de grandes volúmenes de tráfico, se debe configurar un servidor de destino maestro local independiente para este propósito.
+- **Directiva de conmutación por recuperación**: para replicar de nuevo en el sitio local, necesita una directiva de conmutación por recuperación. Esta se crea automáticamente al crear la directiva de replicación.
 
-## <a name="replicate-to-azure-hyperv-vms-not-managed-by-vmm"></a>Replicación en Azure: máquinas virtuales de Hyper-V no administradas por VMM
-Puede replicar las máquinas virtuales de Hyper-V que no están administradas por System Center VMM en Azure con Site Recovery como se indica a continuación:
+**Figura 3: VMware y conmutación por recuperación física**
 
-* **Mediante el Portal de Azure**: al implementar Site Recovery en el Portal de Azure puede conmutar por error máquinas virtuales en el almacenamiento clásico o en Resource Manager. [Más información](site-recovery-hyper-v-site-to-azure.md).
-* **Mediante el portal clásico**: Site Recovery se puede implementar en el portal clásico. En esta implementación solo se pueden conmutar por error máquinas virtuales en el almacenamiento clásico de Azure, pero no en el almacenamiento de Resource Manager. [Más información](site-recovery-hyper-v-site-to-azure-classic.md).
+![Conmutación por recuperación](./media/site-recovery-components/enhanced-failback.png)
 
-La arquitectura de ambas implementaciones es similar, salvo que:
 
-* Si la implementación se realiza en el Portal de Azure, la replicación se puede hacer en un almacenamiento de Resource Manager y se pueden usar las redes de Resource Manager para conectar las máquinas virtuales de Azure después de la conmutación por error.
-* El proceso de implementación es más simple y fácil de usar en el Portal de Azure.
+## <a name="replicate-vmware-vmsphysical-servers-to-a-secondary-site"></a>Replicación de máquinas virtuales de VMware o servidores físicos en un sitio secundario
 
-Esto es lo que necesita:
+### <a name="components"></a>Componentes
 
-* **Cuenta de Azure**: necesitará una cuenta de Microsoft Azure.
-* **Almacenamiento de Azure**: necesitará una cuenta de Almacenamiento de Azure para almacenar los datos replicados. En el Portal de Azure, puede usar una cuenta clásica o una cuenta de almacenamiento de Resource Manager. En el portal clásico, solo se pueden usar cuentas clásicas. Los datos replicados se almacenan en el almacenamiento de Azure y las máquinas virtuales de Azure se crean cuando se produce la conmutación por error.
-* **Red de Azure**: necesitará una red de Azure a la que se conectarán las máquinas virtuales de Azure cuando se crean después de la conmutación por error.
-* **Host de Hyper-V**: necesitará uno o varios servidores host de Hiper-V con Windows Server 2012 R2. Durante la implementación de Site Recovery, instalará el proveedor de Azure Site Recovery y el Agente de Microsoft Azure Recovery Services en el host.
-* **Máquinas virtuales de Hyper-V**: necesitará una o varias máquinas virtuales en el servidor host de Hyper-V. El proveedor de Azure Site Recovery y el agente de Servicios de recuperación de Microsoft Azure en el servidor host de Hyper-V durante la implementación de Site Recovery. El proveedor coordina y organiza la replicación con el servicio Site Recovery a través de Internet. El agente se encarga de la replicación de datos a través de HTTPS 443. Las comunicaciones del proveedor y el agente son seguras y cifradas. También se cifran los datos replicados en el almacenamiento de Azure.
+**Componente** | **Detalles**
+--- | ---
+**Las tablas de Azure** | Este escenario se implementa con InMage Scout. Para obtenerlo, necesitará una suscripción a Azure.<br/><br/> Después de crear un almacén de Recovery Services descargue InMage Scout e instale las actualizaciones más recientes para configurar la implementación.
+**Servidor de proceso** | Implemente el componente de servidor de proceso en el sitio principal para administrar el almacenamiento en caché, la compresión y la optimización de los datos.<br/><br/> También controla la instalación por inserción del agente unificada en las máquinas que desea proteger.
+**Servidor de VMware ESX/ESXi y vCenter** |  Necesita una infraestructura de VMware para replicar máquinas virtuales de VMware.
+**Máquinas virtuales y servidores físicos** |  Instale el agente unificado en máquinas virtuales de VMware o en los servidores físicos Windows o Linux que desee replicar.<br/><br/> Dicho agente actúa como un proveedor de comunicación entre todos los componentes.
+**Servidor de configuración** | El servidor de configuración se instala en el sitio secundario para administrar, configurar y supervisar la implementación, ya sea mediante el sitio web de administración o la consola de vContinuum.
+**Servidor de vContinuum** | Se instala en la misma ubicación que el servidor de configuración.<br/><br/> Proporciona una consola para administrar y supervisar su entorno protegido.
+**Servidor de destino maestro (sitio secundario)** | El servidor de destino maestro contiene los datos replicados. Recibe los datos del servidor de proceso, crea una máquina de réplica en el sitio secundario y contiene los puntos de retención de datos.<br/><br/> El número de servidores de destino maestros que necesita depende del número de equipos que va a proteger.<br/><br/> Si desea realizar una conmutación por recuperación al sitio principal, necesita un servidor de destino maestro allí también. El agente unificado se instala en este servidor.
 
-**Arquitectura general**
+### <a name="replication-process"></a>Proceso de replicación
 
-![Sitio de Hyper-V a Azure](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
+1. Configure los servidores de componentes de cada sitio (configuración, proceso y destino principal) e instale Unified Agent en las máquinas que desee replicar.
+2. Después de la replicación inicial, el agente de cada máquina envía los cambios de replicación diferencial al servidor de procesos.
+3. Por su parte, el servidor de procesos optimiza los datos y los transfiere al servidor de destino maestro del sitio secundario. El servidor de configuración administra el proceso de replicación.
 
-* [Más información](site-recovery-hyper-v-site-to-azure.md#azure-prerequisites) acerca de los requisitos para la implementación del Portal de Azure.
-* [Más información](site-recovery-hyper-v-site-to-azure-classic.md#azure-prerequisites) acerca de los requisitos para la implementación del portal clásico.
-
-## <a name="replicate-to-azure-hyperv-vms-managed-by-vmm"></a>Replicación en Azure: máquinas virtuales de Hyper-V administradas por VMM
-Las máquinas virtuales de Hyper-V en nubes de VMM se pueden replicar en Azure con Site Recovery como se indica a continuación:
-
-* **Mediante el Portal de Azure**: al implementar Site Recovery en el Portal de Azure puede conmutar por error máquinas virtuales en el almacenamiento clásico o en Resource Manager. [Más información](site-recovery-vmm-to-azure.md).
-* **Mediante el portal clásico**: Site Recovery se puede implementar en el portal clásico. En esta implementación solo se pueden conmutar por error máquinas virtuales en el almacenamiento clásico de Azure, pero no en el almacenamiento de Resource Manager. [Más información](site-recovery-vmm-to-azure-classic.md).
-
-La arquitectura de ambas implementaciones es similar, salvo que:
-
-* Si la implementación se realiza en el Portal de Azure, la replicación se puede hacer en un almacenamiento basado en Resource Manager y se pueden usar las redes de Resource Manager para conectar las máquinas virtuales de Azure después de la conmutación por error.
-* El proceso de implementación es más simple y fácil de usar en el Portal de Azure.
-
-Esto es lo que necesita:
-
-* **Cuenta de Azure**: necesitará una cuenta de Microsoft Azure.
-* **Almacenamiento de Azure**: necesitará una cuenta de Almacenamiento de Azure para almacenar los datos replicados. En el Portal de Azure, puede usar una cuenta clásica o una cuenta de almacenamiento de Resource Manager. En el portal clásico, solo se pueden usar cuentas clásicas. Los datos replicados se almacenan en el almacenamiento de Azure y las máquinas virtuales de Azure se crean cuando se produce la conmutación por error.
-* **Red de Azure**: será preciso que configure la asignación de red de forma que las máquinas virtuales de Azure estén conectadas a las redes apropiadas cuando se crean después de la conmutación por error.
-* **Servidor VMM**: se necesitan uno o varios servidores VMM locales que se ejecuten en System Center 2012 R2 y configurados con una o varias nubes privadas. Si la implementación se realiza en el Portal de Azure portal, se necesitarán redes lógicas y de máquinas virtuales para poder configurar la asignación de red. En el portal clásico es opcional.  Una red de VM debe estar vinculada a una red lógica asociada con la nube.
-* **Host de Hyper-V**: necesitará uno o varios servidores host de Hiper-V con Windows Server 2012 R2 en la nube de VMM.
-* **Máquinas virtuales de Hyper-V**: necesitará una o varias máquinas virtuales en el servidor host de Hyper-V.
-
-**Arquitectura general**
-
-![VMM a Azure](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
-
-* [Más información](site-recovery-vmm-to-azure.md#azure-requirements) acerca de los requisitos para la implementación del Portal de Azure.
-* [Más información](site-recovery-vmm-to-azure-classic.md#before-you-start) acerca de los requisitos para la implementación del portal clásico.
-
-## <a name="replicate-to-a-secondary-site-vmware-virtual-machines-or-physical-servers"></a>Replicación en un sitio secundario: máquinas virtuales de VMware o servidores físicos
-Para replicar máquinas virtuales de VMware o servidores físicos en un sitio secundario, descargue InMage Scout, que se incluye en la suscripción de Azure Site Recovery. Se puede descargar desde el Portal de Azure o desde el Portal de Azure clásico.
-
-Configure los servidores de componentes de cada sitio (configuración, proceso y destino principal) e instale Unified Agent en las máquinas que desee replicar. Después de la replicación inicial el agente de cada máquina envía los cambios de replicación diferencial al servidor de procesos. Por su parte, el servidor de procesos optimiza los datos y los transfiere al servidor de destino maestro del sitio secundario. El servidor de configuración administra el proceso de replicación.
-
-Esto es lo que necesita:
-
-**Cuenta de Azure**: este escenario se implementa mediante InMage Scout. Para obtenerlo, necesitará una suscripción a Azure. Después de crear un almacén de Site Recovery descargue InMage Scout e instale las actualizaciones más recientes para configurar la implementación.
-**Servidor de procesos (sitio principal)**: configure el componente de servidor de procesos en el sitio principal que controla el almacenamiento en caché, la compresión y la optimización de los datos. También controla la instalación por inserción del agente unificada en las máquinas que desea proteger.
-**VMware ESX/ESXi y servidor vCenter (servidor principal)**: si va a proteger máquinas virtuales de VMware, necesitará un hipervisor VMware EXS/ESXi y, opcionalmente, un servidor de VMware vCenter que administre hipervisores.
-
-* **Máquinas virtuales/servidores físicos (servidor principal)**: las máquinas virtuales de VMware o los servidores físicos con Windows o Linux que desee proteger deberán tener Unified Agent instalado. También se instala el agente unificado en las máquinas que actúan de servidor de destino maestro. Dicho agente actúa como un proveedor de comunicación entre todos los componentes.
-* * **Servidor de configuración (sitio secundario)**: el servidor de configuración es el primer componente que se instala, y se instala en el sitio secundario para administrar, configurar y supervisar la implementación, ya sea mediante el sitio web de administración o la consola de vContinuum. Solo hay un servidor de configuración en una implementación y debe instalarse en una máquina que se ejecute en Windows Server 2012 R2.
-* **Servidor de vContinuum (sitio secundario)**: se instala en la misma ubicación (sitio secundario) que el servidor de configuración. Proporciona una consola para administrar y supervisar su entorno protegido. En una instalación predeterminada, el servidor de vContinuum es el primer servidor de destino maestro y tiene instalado Unified Agent.
-* **Servidor de destino maestro (sitio secundario)**: el servidor de destino maestro contiene los datos replicados. Recibe los datos del servidor de proceso, crea una máquina de réplica en el sitio secundario y contiene los puntos de retención de datos. El número de servidores de destino maestros que necesita depende del número de equipos que va a proteger. Si desea realizar una conmutación por recuperación al sitio principal, necesitará un servidor de destino maestro allí también.
-
-**Arquitectura general**
+**Figura 4: VMware en replicación de VMware**
 
 ![VMware a VMware](./media/site-recovery-components/vmware-to-vmware.png)
 
-## <a name="replicate-to-a-secondary-site-hyperv-vms-managed-by-vmm"></a>Replicación en un sitio secundario: máquinas virtuales de Hyper-V administradas por VMM
-Puede replicar las máquinas virtuales de Hyper-V que están administradas por System Center VMM en un centro de datos secundario con Site Recovery como se indica a continuación:
 
-* **Mediante el Portal de Azure**: cuando se implementa Site Recovery en el Portal de Azure. [Más información](site-recovery-hyper-v-site-to-azure.md).
-* **Mediante el portal clásico**: Site Recovery se puede implementar en el portal clásico. [Más información](site-recovery-hyper-v-site-to-azure-classic.md).
 
-La arquitectura de ambas implementaciones es similar, salvo que:
+## <a name="replicate-hyper-v-vms-to-azure"></a>Replicación de máquinas virtuales de Hyper-V en Azure
 
-* Si realiza la implementación en el Portal de Azure, debe configurar la asignación de red. Esto es opcional en el portal clásico.
-* El proceso de implementación es más simple y fácil de usar en el Portal de Azure.
-* * Si realiza la implementación en el Portal de Azure clásico, la [asignación de almacenamiento](site-recovery-storage-mapping.md) estará disponible.
 
-Esto es lo que necesita:
+### <a name="components"></a>Componentes
 
-* **Cuenta de Azure**: necesitará una cuenta de Microsoft Azure.
-* **Servidor VMM**: se recomienda que haya un servidor VMM en el sitio principal y otro en el sitio secundario, y que cada uno contenga al menos una nube privada de VMM. El servidor debe ejecutar al menos System Center 2012 SP1 con las actualizaciones más recientes y que esté conectado a Internet. Las nubes deben tener establecido el perfil de funcionalidad de Hyper-V. El proveedor de Azure Site Recovery se instalará en el servidor VMM. El proveedor coordina y organiza la replicación con el servicio Site Recovery a través de Internet. Las comunicaciones entre el proveedor y Azure son seguras y cifradas.
-* **Servidor Hyper-V**: los servidores host de Hyper-V se deben encontrar en las nubes VMM principal y secundaria. Los servidores host se deben ejecutar como mínimo en Windows Server 2012 con las últimas actualizaciones instaladas y estar conectados a Internet. Los datos se replican entre los servidores host de Hyper-V principales y secundarios a través de la LAN o VPN mediante autenticación Kerberos o de certificado.  
-* **Máquinas protegidas**: el servidor host de Hyper-V de origen debe tener, como mínimo, una máquina virtual que se desee proteger.
+**Componente** | **Detalles**
+--- | ---
+**Las tablas de Azure** | En Azure, necesitará una cuenta de Microsoft Azure, una cuenta de almacenamiento de Azure y una red de Azure.<br/><br/> Las de almacenamiento y red pueden basarse en cuentas de Resource Manager o cuentas clásicas.<br/><br/> Los datos replicados se almacenan en la cuenta de almacenamiento y las máquinas virtuales de Azure se crean con los datos replicados cuando se produce la conmutación por error desde el sitio local.<br/><br/> Las máquinas virtuales de Azure se conectan a la red virtual de Azure cuando se crean.
+**Servidor VMM** | Si los hosts de Hyper-V se encuentran en nubes de VMM, debe configurar redes lógicas y de máquinas virtuales para configurar la [asignación de red](site-recovery-network-mapping.md). Una red de VM debe estar vinculada a una red lógica asociada con la nube.
+**Host de Hyper-V** | Necesita uno o varios servidores host de Hyper-V.
+**Máquinas virtuales de Hyper-V** | Necesita una o varias máquinas virtuales en el servidor host de Hyper-V. El proveedor en ejecución en el host de Hyper-V coordina y organiza la replicación con el servicio de Site Recovery a través de Internet. El agente se encarga de la replicación de datos a través de HTTPS 443. Las comunicaciones del proveedor y el agente son seguras y cifradas. También se cifran los datos replicados en el almacenamiento de Azure.
 
-**Arquitectura general**
+
+## <a name="replication-process"></a>Proceso de replicación
+
+1. Configure los componentes de Azure. Se recomienda que configure las cuentas de almacenamiento y de red antes de comenzar la implementación de Site Recovery.
+2. Cree un almacén de servicios de replicación para Site Recovery y configure el almacén, incluyendo:
+    - Si no está administrando hosts de Hyper-V en una nube de VMM, cree un contenedor de sitios de Hyper-V y agréguele hosts de Hyper-V.
+    - El origen y destino de la replicación. Si los hosts de Hyper-V se administran en VMM, el origen es la nube de VMM. En caso contrario, el origen es el sitio de Hyper-V.
+    - Instalación del proveedor de Azure Site Recovery y del agente de Microsoft Azure Recovery Services. Si tiene VMM, el proveedor se instalará en este y el agente en cada host de Hyper-V. Si no dispone de VMM, el proveedor y el agente se instalarán en cada host.
+    - Cree una directiva de replicación para el sitio de Hyper-V o la nube de VMM. La directiva se aplica a todas las máquinas virtuales ubicadas en los hosts del sitio o la nube.
+    - Habilite la replicación de máquinas virtuales de Hyper-V. La replicación inicial se produce según la configuración de la directiva de replicación.
+4. Los cambios en los datos se registran y la replicación de los cambios diferenciales en Azure comienza después de que finaliza la replicación inicial. Las marcas de revisión de un elemento se conservan en un archivo .hrl.
+5. Ejecute una conmutación por error de prueba para asegurarse de que todo funciona.
+
+### <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
+
+1. Puede ejecutar una [conmutación por error](site-recovery-failover.md), planeada o no, desde máquinas virtuales de Hyper-V locales en Azure. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
+2. Puede conmutar por error una única máquina o crear [planes de recuperación](site-recovery-create-recovery-plans.md) para organizar la conmutación por error de varias máquinas.
+4. Después de ejecutar la conmutación por error, podrá ver las máquinas virtuales de la réplica creadas en Azure. Puede asignar una dirección IP pública a la máquina virtual si es necesario.
+5. Después, ejecute una conmutación por error para iniciar el acceso a la carga de trabajo desde la máquina virtual de Azure de la réplica.
+6. Cuando el sitio local principal esté disponible de nuevo, podrá realizar una conmutación por recuperación. Inicie una conmutación por error planeada desde Azure al sitio principal. Para una conmutación por error planeada puede elegir realizar una conmutación por recuperación en la misma máquina virtual o en una ubicación alternativa y sincronizar los cambios entre Azure y el sitio local para garantizar que no se produzca ninguna pérdida de datos. Cuando las máquinas virtuales se crean en una ubicación local, puede ejecutar la conmutación por error.
+
+**Figura 5: Sitio de Hyper-V en replicación de Azure**
+
+![Componentes](./media/site-recovery-components/arch-onprem-azure-hypervsite.png)
+
+**Figura 6: Hyper-V en nubes de VMM en replicación de Azure**
+
+![Componentes](./media/site-recovery-components/arch-onprem-onprem-azure-vmm.png)
+
+
+
+## <a name="replicate-hyper-v-vms-to-a-secondary-site"></a>Replicación de máquinas virtuales de Hyper-V a un sitio secundario
+
+### <a name="components"></a>Componentes
+
+**Componente** | **Detalles**
+--- | ---
+**Cuenta de Azure** | Necesita una cuenta de Microsoft Azure.
+**Servidor VMM** | Se recomienda un servidor VMM en el sitio principal y otro en el sitio secundario, conectados a Internet.<br/><br/> Cada servidor debe tener al menos una nube privada de VMM con el perfil de funcionalidad de Hyper-V.<br/><br/> Instale el proveedor de Azure Site Recovery en el servidor VMM. El proveedor coordina y organiza la replicación con el servicio Site Recovery a través de Internet. Las comunicaciones entre el proveedor y Azure son seguras y cifradas.
+**Servidor de Hyper-V** |  Necesita uno o varios servidores host de Hyper-V en las nubes VMM principal y secundaria. Los servidores deben estar conectados a Internet.<br/><br/> Los datos se replican entre los servidores host de Hyper-V principales y secundarios a través de la LAN o VPN mediante autenticación Kerberos o de certificado.  
+**Máquinas de origen** | El servidor host de Hyper-V de origen debe tener, como mínimo, una máquina virtual que se desee replicar.
+
+## <a name="replication-process"></a>Proceso de replicación
+
+1. Configure la cuenta de Azure.
+2. Cree un almacén de servicios de replicación para Site Recovery y configure el almacén, incluyendo:
+
+    - El origen y destino de la replicación (sitios principales y secundarios).
+    - Instalación del proveedor de Azure Site Recovery y del agente de Microsoft Azure Recovery Services. El proveedor está instalado en servidores VMM y el agente en cada host de Hyper-V.
+    - Cree una directiva de replicación para la nube de VMM de origen. La directiva se aplica a todas las máquinas virtuales ubicadas en los hosts de la nube.
+    - Habilite la replicación de máquinas virtuales de Hyper-V. La replicación inicial se produce según la configuración de la directiva de replicación.
+4. Los cambios en los datos se registran y la replicación de los cambios diferenciales comienza después de que finaliza la replicación inicial. Las marcas de revisión de un elemento se conservan en un archivo .hrl.
+5. Ejecute una conmutación por error de prueba para asegurarse de que todo funciona.
+
+**Figura 7: VMM en replicación de VMM**
 
 ![De local a local](./media/site-recovery-components/arch-onprem-onprem.png)
 
-* [Más información](site-recovery-vmm-to-vmm.md#azure-prerequisites) acerca de los requisitos de implementación en el Portal de Azure.
-* * [Más información](site-recovery-vmm-to-vmm-classic.md#before-you-start) acerca de los requisitos para la implementación del Portal de Azure clásico.
+### <a name="failover-and-failback-process"></a>Proceso de conmutación por error y conmutación por recuperación
 
-## <a name="replicate-to-a-secondary-site-with-san-replication-hyperv-vms-managed-by-vmm"></a>Replicación en un sitio secundario con la replicación de SAN: máquinas virtuales de Hyper-V administradas por VMM
-Puede replicar máquinas virtuales de Hyper-V que se administran en nubes VMM en un sitio secundario que use la replicación de SAN mediante el Portal de Azure clásico. Este escenario no se admite actualmente en el nuevo Portal de Azure.
+1. Puede ejecutar una [conmutación por error](site-recovery-failover.md), planeada o no, entre sitios locales. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.
+2. Puede conmutar por error una única máquina o crear [planes de recuperación](site-recovery-create-recovery-plans.md) para organizar la conmutación por error de varias máquinas.
+4. Si realiza una conmutación por error no planeada en un sitio secundario, tras ella las máquinas de la ubicación secundaria no están habilitadas para su protección ni replicación. Si realizó una conmutación por error planeada, tras ella las máquinas de la ubicación secundaria están protegidas.
+5. Después, ejecute una conmutación por error para iniciar el acceso a la carga de trabajo desde la máquina virtual de la réplica.
+6. Cuando el sitio principal esté disponible de nuevo, inicie la replicación inversa para replicar desde el sitio secundario al principal. La replicación inversa pone las máquinas virtuales en un estado protegido pero el centro de datos secundario sigue siendo la ubicación activa.
+7. Para que el sitio principal se convierta de nuevo en la ubicación activa, debe iniciar una conmutación por error planeada desde el secundario al principal, seguida de otra replicación inversa.
 
-En este escenario, durante la implementación de Site Recovery, será preciso que el proveedor de Azure Site Recovery se instale en los servidores VMM. El proveedor coordina y organiza la replicación con el servicio Site Recovery a través de Internet. Los datos se replican entre las matrices de almacenamiento principal y secundaria mediante replicación SAN sincrónica.
 
-Esto es lo que necesita:
+### <a name="hyper-v-replication-workflow"></a>Flujo de trabajo de replicación de Hyper-V
 
-**Cuenta de Azure**: necesitará una suscripción de Azure
+**Fase de flujo de trabajo** | **Acción**
+--- | ---
+1. **Habilitar la protección** | Después de habilitar la protección de una máquina virtual de Hyper-V el trabajo **Habilitar la protección** se inicia para comprobar que la máquina cumple los requisitos previos. El trabajo invoca dos métodos:<br/><br/> [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) para configurar la replicación con las opciones que haya configurado.<br/><br/> [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), para inicializar una réplica completa de la máquina virtual.
+2. **Replicación inicial** |  Se toma una instantánea de la máquina virtual y se replican los discos duros virtuales uno por uno hasta que todos se copian en la ubicación secundaria.<br/><br/> El tiempo necesario para completar esta tarea depende del tamaño de la máquina virtual, del ancho de banda de la red y del método de replicación inicial.<br/><br/> Si se producen cambios en el disco mientras la replicación inicial está en curso, el seguimiento de replicaciones de Réplica de Hyper-V realiza un seguimiento de esos cambios en registros de replicación de Hyper-V (.hrl) que se encuentran en la misma carpeta que los discos.<br/><br/> Cada disco tiene un archivo .hrl asociado que se enviará al almacenamiento secundario.<br/><br/> Los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso. Cuando la replicación inicial finaliza, se elimina la instantánea de la máquina virtual y se sincronizan y se combinan los cambios diferenciales del disco en el registro.
+3. **Finalizar la protección** | Una vez que finaliza la replicación inicial, el trabajo **Finalizar la protección** configura la red y otras opciones posteriores a la replicación, con el fin de que la máquina virtual esté protegida.<br/><br/> Si replica en Azure, es posible que tenga que ajustar la configuración de la máquina virtual para que esté preparada para la conmutación por error.<br/><br/> En este momento puede ejecutar una conmutación por error de prueba para comprobar que todo funciona según lo esperado.
+4. **Replicación** | Después de la replicación inicial, comienza la sincronización diferencial según la configuración de replicación.<br/><br/> **Error de replicación**: si se produce un error en la replicación diferencial y una replicación completa sería costosa, en términos de ancho de banda o de tiempo, se produce una resincronización. Por ejemplo, si los archivos .hrl alcanzan el 50 % del tamaño del disco, la máquina virtual se marcará para repetir la sincronización. La resincronización minimiza la cantidad de datos que se envían; para ello, calcula las sumas de comprobación de las máquinas virtuales de origen y destino, y envía solo los datos diferenciales. Una vez finalizada la resincronización, se reanudará la replicación diferencial. De forma predeterminada, la resincronización está programada para ejecutarse automáticamente fuera del horario de oficina, pero puede resincronizar una máquina virtual manualmente.<br/><br/> **Error de replicación**: si se produce un error de replicación, se realiza un reintento de forma predefinida. Si el error es irrecuperable, como un error de autenticación o de autorización, o una máquina de réplica se encuentra en un estado no válido, no se realizará ningún reintento. Si se produce un error recuperable, como un error de red o poco espacio en disco o memoria, se realizarán reintentos, con intervalos cada vez mayores entre cada reintento (1, 2, 4, 8, 10 y después cada 30 minutos).
+5. **Conmutación por error planeada o no planeada** | Las conmutaciones por error planeadas o no planeadas se pueden ejecutar cuando sea necesario.<br/><br/> Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para garantizar que no se pierdan datos.<br/><br/> Una vez creadas las máquinas virtuales de réplica, se colocan en estado pendiente de confirmación. Debe ejecutar y, a continuación, completar la conmutación por error.<br/><br/> Una vez que el sitio principal está en funcionamiento, puede realizar una conmutación por recuperación a este, cuando esté disponible.
 
-* **Matriz SAN**: una [matriz SAN admitida](http://social.technet.microsoft.com/wiki/contents/articles/28317.deploying-azure-site-recovery-with-vmm-and-san-supported-storage-arrays.aspx) administrada por el servidor VMM principal. La SAN comparte infraestructura de red con otra matriz de SAN en el sitio secundario.
-* **Servidor VMM**: se recomienda que haya un servidor VMM en el sitio principal y otro en el sitio secundario, y que cada uno contenga al menos una nube privada de VMM. El servidor debe ejecutar al menos System Center 2012 SP1 con las actualizaciones más recientes y que esté conectado a Internet. Las nubes deben tener establecido el perfil de funcionalidad de Hyper-V.
-* **Servidor de Hyper-V**: los servidores host de Hyper-V se encuentran en las nubes VMM principal y secundaria. Los servidores host se deben ejecutar como mínimo en Windows Server 2012 con las últimas actualizaciones instaladas y estar conectados a Internet.
-* **Máquinas protegidas**: el servidor host de Hyper-V de origen debe tener, como mínimo, una máquina virtual que se desee proteger.
 
-**Arquitectura de replicación de SAN**
-
-![Replicación de SAN](./media/site-recovery-components/arch-onprem-onprem-san.png)
-
-[Más información](site-recovery-vmm-san.md#before-you-start) acerca de los requisitos para la implementación.
-
-### <a name="onpremises"></a>Local
-## <a name="hyperv-protection-lifecycle"></a>Ciclo de vida de protección de Hyper-V
-Este flujo de trabajo muestra el proceso de protección, replicación y conmutación por error de máquinas virtuales Hyper-V.
-
-1. **Habilitar la protección**: se configura el almacén de Site Recovery, se configuran las opciones de replicación para una nube de VMM o un sitio de Hyper-V y se habilita la protección de las máquinas virtuales. Se inicia un trabajo llamado **Habilitar la protección** y se puede supervisar en la pestaña **Trabajos**. El trabajo comprueba que el equipo cumple los requisitos previos y después se invoca el método [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) donde se configura la replicación en Azure con la configuración establecida. El trabajo **Habilitar la protección** también invoca el método [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) para inicializar una replicación completa de la máquina virtual.
-2. **Replicación inicial**: se toma una instantánea de la máquina virtual y se replican los discos duros virtuales uno por uno hasta que todos se copian en Azure o en el centro de datos secundario. El tiempo necesario para completar esta tarea depende del tamaño de la máquina virtual, del ancho de banda de la red y del método de replicación inicial. Si se producen cambios en el disco mientras la replicación inicial está en curso, el seguimiento de replicaciones de Réplica de Hyper-V realiza un seguimiento de esos cambios en registros de replicación de Hyper-V (.hrl) que se encuentran en la misma carpeta que los discos. Cada disco tiene un archivo .hrl asociado que se enviará al almacenamiento secundario. Tenga en cuenta que los archivos de instantáneas y de registro consumen recursos de disco mientras la replicación inicial está en curso. Cuando la replicación inicial finaliza, se elimina la instantánea de la máquina virtual y se sincronizan y se combinan los cambios diferenciales del disco en el registro.
-3. **Finalizar la protección**: una vez que finaliza la replicación inicial, el trabajo **Finalizar la protección** configura la red y otras opciones posteriores a la replicación, con el fin de que la máquina virtual esté protegida. Si va a replicar en Azure, debe ajustar la configuración de la máquina virtual para que esté preparada para conmutación por error. En este momento puede ejecutar una conmutación por error de prueba para comprobar que todo funciona según lo esperado.
-4. **Replicación**: después de la replicación inicial comienza la sincronización diferencial según la configuración de replicación.
-   * **Error de replicación**: si se produce un error en la replicación diferencial y una replicación completa sería costosa, en términos de ancho de banda o de tiempo, se produce una resincronización. Por ejemplo, si los archivos .hrl alcanzan el 50% del tamaño del disco, la máquina virtual se marcará para su resincronización. La resincronización minimiza la cantidad de datos que se envían; para ello, calcula las sumas de comprobación de las máquinas virtuales de origen y destino y envía solo los datos diferenciales. Una vez finalizada la resincronización, se reanudará la replicación diferencial. De forma predeterminada, la resincronización está programada para ejecutarse automáticamente fuera del horario de oficina, pero puede resincronizar una máquina virtual manualmente.
-   * **Error de replicación**: si se produce un error de replicación, se realiza un reintento de forma predefinida. Si el error es irrecuperable, como un error de autenticación o de autorización, o una máquina de réplica se encuentra en un estado no válido, no se realizará ningún reintento. Si se produce un error recuperable, como un error de red o poco espacio en disco o memoria, se realizarán reintentos, con intervalos cada vez mayores entre cada reintento (1, 2, 4, 8, 10 y después cada 30 minutos).
-5. **Conmutaciones por error planeadas y no planeadas**: las conmutaciones por error planeadas o no planeadas se pueden ejecutar cuando sea necesario. Si ejecuta una conmutación por error planeada, las máquinas virtuales de origen se apagan para que no haya pérdida de datos. Después de que se crean máquinas virtuales de réplica, se colocan en estado pendiente de confirmación. Para completar la conmutación por error será preciso que las confirmen, a menos que vaya a realizar una réplica con SAN, en cuyo caso la confirmación es automática. Una vez configurado y en marcha el sitio primario, puede producirse la conmutación por recuperación. Si replicó en Azure, la replicación inversa es automática. De lo contrario, inicie una replicación inversa de forma manual.
+**Figura 8: Flujo de trabajo de Hyper-V**
 
 ![flujo de trabajo](./media/site-recovery-components/arch-hyperv-azure-workflow.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 [Preparación de la implementación](site-recovery-best-practices.md)
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 
