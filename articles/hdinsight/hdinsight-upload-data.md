@@ -13,16 +13,16 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 28cc7f8ac707068b5517f7dfe45687fff5a0eed3
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 6e6f7793e03930cc002183172ccfbed6305378bd
 
 
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carga de datos para trabajos de Hadoop en HDInsight
-HDInsight de Azure ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través del servicio de almacenamiento de blobs de Azure. Está diseñado como una extensión de HDFS para ofrecer una experiencia continua para los clientes. Habilita que el conjunto completo de componentes en el ecosistema de Hadoop opere directamente en los datos que administra. El almacenamiento de blobs de Azure y HDFS son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para más información sobre las ventajas del uso de Azure Blob Storage, consulte [Uso de Azure Blob Storage con HDInsight][hdinsight-storage].
+HDInsight de Azure ofrece un sistema de archivos distribuido de Hadoop (HDFS) completo a través del servicio de almacenamiento de blobs de Azure. Está diseñado como una extensión de HDFS para ofrecer una experiencia continua para los clientes. Habilita que el conjunto completo de componentes en el ecosistema de Hadoop opere directamente en los datos que administra. El almacenamiento de blobs de Azure y HDFS son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para obtener más información sobre las ventajas del uso de Azure Blob Storage, consulte [Uso de Azure Blob Storage con HDInsight][hdinsight-storage].
 
 **Requisitos previos**
 
@@ -98,13 +98,13 @@ La CLI de Azure es una herramienta multiplataforma que le permite administrar lo
 >
 
 ### <a name="a-idpowershellaazure-powershell"></a><a id="powershell"></a>Azure PowerShell
-Azure PowerShell es un eficaz entorno de scripting que se puede usar para controlar y automatizar la implementación y la administración de cargas de trabajo en Azure. Para obtener información sobre cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+Azure PowerShell es un eficaz entorno de scripting que se puede usar para controlar y automatizar la implementación y la administración de cargas de trabajo en Azure. Para obtener información sobre cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell.md)]
 
 **Para cargar un archivo local en el almacenamiento de blobs de Azure**
 
-1. Abra la consola de Azure PowerShell como se indica en [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+1. Abra la consola de Azure PowerShell como se indica en [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 2. Configure los valores de las cinco primeras variables del script siguiente:
 
         $resourceGroupName = "<AzureResourceGroupName>"
@@ -126,13 +126,13 @@ Azure PowerShell es un eficaz entorno de scripting que se puede usar para contro
 Por ejemplo los scripts de PowerShell creados para trabajar con HDInsight, consulte [HDInsight tools (Herramientas de HDInsight)](https://github.com/blackmist/hdinsight-tools).
 
 ### <a name="a-idazcopyaazcopy"></a><a id="azcopy"></a>AzCopy
-AzCopy es una herramienta de la línea de comandos diseñada para simplificar la tarea de transferir datos dentro y fuera de una cuenta de almacenamiento de Azure. Puede usarla como una herramienta independiente o incorporarla a una aplicación existente. [Descarga de AzCopy][azure-azcopy-download].
+AzCopy es una herramienta de la línea de comandos diseñada para simplificar la tarea de transferir datos dentro y fuera de una cuenta de almacenamiento de Azure. Puede usarla como una herramienta independiente o incorporarla a una aplicación existente. [Descarga de AzCopy][azure-azcopy-download]
 
 La sintaxis de AzCopy es la siguiente:
 
     AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
-Para más información, consulte [AzCopy: carga y descarga de archivos pata blobs de Azure][azure-azcopy].
+Para obtener más información, consulte [AzCopy: carga y descarga de archivos para blobs de Azure][azure-azcopy].
 
 ### <a name="a-idcommandlineahadoop-command-line"></a><a id="commandline"></a>Línea de comandos de Hadoop
 La línea de comandos de Hadoop sólo es útil para almacenar los datos en el almacenamiento de blobs cuando los datos ya están presentes en el nodo principal del clúster.
@@ -140,7 +140,7 @@ La línea de comandos de Hadoop sólo es útil para almacenar los datos en el al
 Para usar la línea de comando de Hadoop, primero es preciso conectarse al nodo principal a través de uno de los métodos siguientes:
 
 * **HDInsight para Windows**: [conectar mediante Escritorio remoto](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **HDInsight basado en Linux**: conectar mediante SSH ([el comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster) o [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md#connect-to-a-linux-based-hdinsight-cluster))
+* **HDInsight basado en Linux**: conectar mediante SSH ([el comando SSH](hdinsight-hadoop-linux-use-ssh-unix.md) o [PuTTY](hdinsight-hadoop-linux-use-ssh-windows.md))
 
 Una vez conectado, puede utilizar la siguiente sintaxis para cargar un archivo al almacenamiento.
 
@@ -181,7 +181,7 @@ Para obtener más información, consulte [Navegación por los recursos vinculado
 ### <a name="a-idstorageexploreraazure-storage-explorer"></a><a id="storageexplorer"></a>Explorador de almacenamiento de Azure
 *Explorador de almacenamiento de Azure* es una práctica herramienta para inspeccionar y modificar los datos de blobs. Se trata de una herramienta gratuita que se puede descargar de [http://storageexplorer.com/](http://storageexplorer.com/). El código fuente también está disponible en este vínculo.
 
-Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones sobre cómo conseguir esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].  
+Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para ver instrucciones sobre cómo obtener esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de una cuenta de almacenamiento][azure-create-storage-account].
 
 1. Ejecute el explorador de almacenamiento de Azure. Si es la primera vez que ejecuta el Explorador de almacenamiento, se le pedirá el **nombre de la cuenta de almacenamiento** y la **clave de cuenta de almacenamiento**. Si ya lo ejecutó antes, use el botón **Agregar** para agregar un nombre y una clave de cuenta de almacenamiento nuevos.
 
@@ -212,7 +212,7 @@ Para obtener más información, consulte [Documentación de Factoría de datos](
 ### <a name="a-idsqoopaapache-sqoop"></a><a id="sqoop"></a>Apache Sqoop
 Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS), como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos de Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS.
 
-Para más información sobre Sqoop, consulte [Uso de Sqoop con HDInsight][hdinsight-use-sqoop].
+Para obtener más información, consulte [Use Sqoop with Hadoop in HDInsight (Uso de Sqoop con HDInsight)][hdinsight-use-sqoop].
 
 ## <a name="development-sdks"></a>SDK de desarrollo
 También es posible obtener acceso al almacenamiento de blobs de Azure mediante un SDK de Azure desde los siguientes lenguajes de programación:
@@ -272,7 +272,7 @@ Para más información sobre el uso de Ambari, consulte [Administración de clú
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguientes para aprender a realizar el análisis:
 
-* [Introducción a HDInsight de Azure][hdinsight-get-started]
+* [Introducción a Azure HDInsight][hdinsight-get-started]
 * [Envío de trabajos de Hadoop mediante programación][hdinsight-submit-jobs]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
@@ -299,7 +299,7 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [azurecli]: ../xplat-cli-install.md
 
@@ -310,6 +310,6 @@ Ahora que ya sabe cómo enviar datos a HDInsight, consulte los artículos siguie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

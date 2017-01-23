@@ -71,6 +71,6 @@ Puede administrar servidores lógicos de Azure SQL Database mediante varios mét
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO4-->
 
 

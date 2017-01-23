@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1e8ff1a27941984ae3fcd16dc8648cd8dc9b5e7c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f3c20ee0d5abb40d7650eeaa722e87142275448d
 
 
 ---
@@ -40,7 +40,7 @@ Le permite seleccionar todos los proyectos en los que desea que aparezca la apli
 
 También puede buscar un proyecto y ver el nombre, descripción, propietario y los permisos del rol de cualquier proyecto del que forme parte la aplicación.
 
-Para más información, consulte [Documentación de la interfaz de usuario - Inicio][Vínculo 13].
+Para obtener más información, consulte [Documentación de la interfaz de usuario - Inicio][Link 13].
 
   ![settings3][48]
 
@@ -52,7 +52,7 @@ Después de proporcionar las credenciales o certificados para al menos un servic
 ### <a name="apple-push-notification-service-apns"></a>Servicio de notificaciones de inserción de Apple (APNS)
 Para habilitar la inserción nativa mediante el servicio de notificación de inserción de Apple deberá registrar su certificado. Deberá especificar el tipo de certificado como de desarrollo (DEV) o de producción (PROD). A continuación, necesitará cargar su certificado y la contraseña.
 
-Para más información, consulte [Documentación del SDK - iOS - Cómo preparar la aplicación para las notificaciones de inserción de Apple][Vínculo 5].
+Para obtener más información, consulte [Documentación del SDK - iOS - Cómo preparar la aplicación para las notificaciones de inserción de Apple][Link 5]
 
 ![settings4][49]
 
@@ -66,7 +66,7 @@ Para habilitar la inserción nativa mediante GCM, deberá seguir las instruccion
 
 Para más información, consulte: 
 
-* [Documentación del SDK - Android - Cómo integrar GCM][Vínculo 5]
+* [Documentación del SDK - Android - Cómo integrar GCM][Link 5]
 * [Guía sobre GCM de Google Developers](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Mensajería de dispositivos de Amazon para Android (ADM)
@@ -74,7 +74,7 @@ Para habilitar la inserción nativa con ADM, debe proporcionar <OAuth credential
 
 Para más información, consulte: 
 
-* [Documentación del SDK - Android - Cómo integrar ADM][Vínculo 5]
+* [Documentación del SDK - Android - Cómo integrar ADM][Link 5]
 * [Documentación sobre ADM para desarrolladores de Amazon](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
@@ -91,8 +91,8 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 ![settings12][57]
 
 ## <a name="see-also"></a>Consulte también
-* [Conceptos][Vínculo 6]
-* [Guía de solución de problemas de servicio][Vínculo 24]
+* [Conceptos][Link 6]
+* [Guía de solución de problemas de servicios][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -155,43 +155,43 @@ Muestra la velocidad de inserción actual de la aplicación y le permite definir
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
-[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
-[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

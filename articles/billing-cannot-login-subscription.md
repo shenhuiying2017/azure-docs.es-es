@@ -4,7 +4,7 @@ description: "Se describe cómo solucionar algunos problemas comunes de inicio d
 services: 
 documentationcenter: 
 author: genlin
-manager: mbaldwin
+manager: jlian
 editor: 
 tags: billing
 ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/2/2016
 ms.author: genli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1ef20a830c96b0f0d5e85186f757441f256746f5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 030b41eaa405ff70081a4c15cabded08a1b0b07a
 
 
 ---
@@ -36,7 +36,7 @@ Si la página del explorador de Internet se bloquea, pruebe cada uno de los sigu
   B.    Vaya a [Azure Portal](https://portal.azure.com)e inicie sesión en el portal.
 
 ## <a name="error-message-no-subscriptions-found"></a>Mensaje de Error No se han encontrado suscripciones
-Si su cuenta no tiene los permisos necesarios, puede ver un mensaje de error **No se encontró ninguna suscripción**. Solo un administrador de cuenta puede acceder al [Centro de cuentas](https://account.windowsazure.com/), no los administradores de servicios (SA) o coadministradores (CA).
+Si su cuenta no tiene los permisos necesarios, puede ver un mensaje de error **No se encontró ninguna suscripción**. Asegúrese de que inicie sesión como el administrador correcto. Un administrador de cuenta solo puede acceder al [Centro de cuentas](https://account.windowsazure.com/Subscriptions). Los administradores de cuenta (CA) y los administradores de servicios (SA) y los coadministradores (CA) solo tienen acceso a [Azure Portal](https://portal.azure.com) o al Portal de Azure clásico.
 
 **Escenario 1: Se recibe un mensaje de error en [Azure Portal](https://portal.azure.com)**
 
@@ -66,6 +66,6 @@ Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte té
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: Lista de las actualizaciones aplicadas a las versiones del SO invit
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
@@ -12,16 +12,41 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 12/1/2016
 ms.author: raiye
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf1faabe3ea12af0ee5fd8a825975e30947b03a
-ms.openlocfilehash: 8bc848f96ad1c5b6942692eb38646537b796ebbb
+ms.sourcegitcommit: f21cf5318cc3fe0a0fc18dec4d85e8bc020a2c8a
+ms.openlocfilehash: 4beac394fbb975b8956ff62a54cc605bacd2a505
 
 
 ---
 # <a name="azure-guest-os"></a>SO invitado de Azure
-En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre son acumulativas para la [familia][family-explain] concreta en la que se introdujeron.
+En las tablas siguientes se muestran las actualizaciones del Centro de respuestas de seguridad de Microsoft (MSRC) aplicadas al sistema operativo invitado de Azure. Busque en este artículo para determinar si una actualización concreta se aplica al SO invitado que usa. Las actualizaciones siempre se pasan a la [familia][family-explain] concreta en que se introdujeron.
+
+## <a name="november-guest-os"></a>SO invitado de noviembre
+| Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Actualización de seguridad acumulativa para Microsoft Edge |5.3 |8 de noviembre de 2016 |
+| MS16-130 |[3199172] |Actualización de seguridad Microsoft Windows |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-131 |[3199151]   |Actualización de seguridad para Control de vídeo de Microsoft |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-132 |[3199120] |Actualización de seguridad para componentes de Microsoft |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-134 |[3193706] |Actualización de seguridad para el controlador del Sistema de archivos de registro común |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-135 |[3199135] |Actualización de seguridad para controladores de modo kernel |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-137 |[3199173]   |Actualización de seguridad para los métodos de autenticación de Windows |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| MS16-138 |[3199647] |Actualización de seguridad para la unidad de disco duro virtual de Microsoft |5.3, 4.38 y 3.45 |8 de noviembre de 2016 |
+| MS16-139 |[3199720] |Actualización de seguridad para el kernel de Windows |2.57 |8 de noviembre de 2016 |
+| MS16-140 |[3193479] |Actualización de seguridad para el Administrador de arranque |5.3, 4.38 y 3.45 |8 de noviembre de 2016 |
+| MS16-142 |[3198467] |Actualización de seguridad acumulativa para Internet Explorer |2.57, 4.38 y 5.3 |8 de noviembre de 2016 |
+| N/D |[3192321] |Turquía finaliza el cumplimiento del horario de verano |5.3, 4.38, 3.45, 2.57 |8 de noviembre de 2016 |
+| N/D |[3185330] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de octubre de 2016 para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.57 |8 de noviembre de 2016 |
+| N/D |[3192403] |Versión preliminar de octubre de 2016 del paquete acumulativo de calidad mensual para Windows 7 SP1 y Windows Server 2008 R2 SP1 |2.57 |8 de noviembre de 2016 |
+| N/D |[3177467] |Actualización de la pila de mantenimiento para Windows 7 SP1 y Windows Server 2008 R2 SP1: 20 de septiembre de 2016 |2.57 |8 de noviembre de 2016 |
+| N/D |[3185332] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de octubre de 2016 para Windows Server 2012 |3.45 |8 de noviembre de 2016 |
+| N/D |[3192406] |Versión preliminar de octubre de 2016 del paquete acumulativo de calidad mensual para Windows Server 2012 |3.45 |8 de noviembre de 2016 |
+| N/D |[3185331] |Paquete acumulativo de calidad mensual de actualizaciones de seguridad de octubre de 2016 para Windows 8.1 y Windows Server 2012 R2 |4.38 |8 de noviembre de 2016 |
+| N/D |[3192404] |Versión preliminar de octubre de 2016 del paquete acumulativo de calidad mensual para Windows 8.1 y Windows Server 2012 R2 |4.38 |8 de noviembre de 2016 |
+| N/D |[3199986] |Actualización para Windows 10 versión 1607 de conjunto de servicios: 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
+| N/D |[3197954] |Actualización acumulativa para Windows 10 versión 1607 y Windows Server 2016. 27 de octubre de 2016 |5.3 |8 de noviembre de 2016 |
 
 ## <a name="october-guest-os"></a>SO invitado de octubre
 | Identificador de boletín | Artículo de KB principal | Descripción de las vulnerabilidades | SO invitado | Fecha de primera introducción |
@@ -357,6 +382,28 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 | N/D |[2999802] |Se imprimen líneas sólidas en lugar de líneas de puntos en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 | N/D |[2896881] |Tiempo de inicio de sesión largo cuando se usa el comando de VBScript AddPrinterConnection para asignar impresoras a usuarios durante el proceso de inicio de sesión en Windows |4,15; 3,22; 2,34 |13 de enero de 2015 |
 
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
+
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
 [3192892]: http://support.microsoft.com/kb/3192892
@@ -631,11 +678,11 @@ En las tablas siguientes se muestran las actualizaciones del Centro de respuesta
 
 
 
-[archivar]: https://msdn.microsoft.com/library/azure/dn391773.aspx
+[archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx
 [family-explain]: cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

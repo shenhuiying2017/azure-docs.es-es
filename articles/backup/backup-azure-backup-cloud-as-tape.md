@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/27/2016
+ms.date: 1/10/2017
 ms.author: jimpark;trinadhk;markgal
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -64,8 +64,8 @@ El número total de puntos de recuperación es 56.
 
 > [!NOTE]
 > La copia de seguridad de Azure no tiene una restricción sobre el número de puntos de recuperación.
-> 
-> 
+>
+>
 
 ## <a name="advanced-configuration"></a>Configuración avanzada
 Al hacer clic en **Modificar** en la pantalla anterior, los clientes tienen más flexibilidad para especificar programaciones de retención.
@@ -77,7 +77,6 @@ Para obtener más información sobre Azure Backup, vea
 
 * [Introducción a la Copia de seguridad de Azure](backup-introduction-to-azure-backup.md)
 * [Probar Copia de seguridad de Azure](backup-try-azure-backup-in-10-mins.md)
-
 
 
 

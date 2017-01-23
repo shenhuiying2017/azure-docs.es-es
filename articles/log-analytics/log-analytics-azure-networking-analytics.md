@@ -12,52 +12,75 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/1/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eed3bd763edb94d7bea28b4039c03afa7359fee1
+ms.sourcegitcommit: a86819102797b0e243d28cd9ddb3d2c88c74bfca
+ms.openlocfilehash: 7ea593885c1b380236a49ec030c00ad19097e2fa
 
 
 ---
 # <a name="azure-networking-analytics-preview-solution-in-log-analytics"></a>Solución Azure Networking Analytics (versión preliminar) en Log Analytics
+
+Puede usar la solución Azure Networking Analytics de Log Analytics para revisar lo siguiente:
+
+* Registros de Azure Application Gateway
+* Métricas de Azure Application Gateway 
+* Registros del grupo de seguridad de red de Azure
+
 > [!NOTE]
-> Se trata de una [solución preliminar](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> Azure Networking Analytics es una [solución en versión preliminar](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 > 
 > 
 
-Puede usar la solución Azure Networking Analytics en Log Analytics para revisar los registros de los grupos de seguridad de red de Azure y los registros de Azure Application Gateway.
-
-Puede habilitar el registro para los registros de Azure Application Gateway y los grupos de seguridad de red de Azure. Estos registros se escriben en Blob Storage, donde Log Analytics los puede indexar para la búsqueda y el análisis.
+Para usar la solución, habilite los diagnósticos para registros de Azure Application Gateway y los grupos de seguridad de red de Azure y dirigir los diagnósticos a un área de trabajo de Log Analytics. No se requiere escribir los registros en Azure Blob Storage.
 
 Para Application Gateway se admiten los siguientes registros:
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
+* ApplicationGatewayFirewallLog
+
+Las métricas siguientes son compatibles con Application Gateway:
+
+* Rendimiento de 5 minutos
 
 Para los grupos de seguridad de red se admiten los siguientes registros:
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter
+* NetworkSecurityGroupFlowEvent
 
 ## <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Para instalar y configurar la solución Azure Networking Analytics, siga estas instrucciones:
 
 1. Habilite el registro de diagnóstico para los recursos que desea supervisar:
-   * [Puerta de enlace de aplicaciones](../application-gateway/application-gateway-diagnostics.md)
+   * [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
    * [Grupo de seguridad de red](../virtual-network/virtual-network-nsg-manage-log.md)
-2. Configure Log Analytics para leer los registros de Blob Storage mediante el proceso que se describe en el artículo sobre [archivos JSON en Blob Storage](log-analytics-azure-storage-json.md).
-3. Habilite la solución Azure Networking Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  
+2. Habilite la solución Azure Networking Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](log-analytics-add-solutions.md).  
+
+El siguiente script de PowerShell proporciona un ejemplo de cómo habilitar el registro de diagnóstico para puertas de enlace de aplicaciones y grupos de seguridad de red. 
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$gateway = Get-AzureRmApplicationGateway -Name 'ContosoGateway'
+
+Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+
+$nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
+
+Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+
 
 Si no habilita el registro de diagnóstico para un tipo de recurso en particular, las hojas de panel para ese recurso estarán en blanco.
 
 ## <a name="review-azure-networking-analytics-data-collection-details"></a>Revisión de los detalles de recopilación de datos de Azure Networking Analytics
-La solución Azure Networking Analytics recopila registros de diagnóstico de Azure Blob Storage para Azure Application Gateways y grupos de seguridad de red.
-Para la recopilación de datos no se necesita ningún agente.
+La solución de administración Azure Networking Analytics recopila registros de diagnóstico directamente de Azure Application Gateways y grupos de seguridad de red. No es necesario escribir los registros en Azure Blob Storage y no se requiere ningún agente para la recopilación de datos.
 
 En la siguiente tabla se muestran los métodos de recopilación de datos y otros detalles sobre cómo se reúnen los datos para Azure Networking Analytics.
 
-| Plataforma | Agente directo | Agente System Center Operations Manager (SCOM) | Almacenamiento de Azure | ¿Se necesita SCOM? | Datos del agente de SCOM enviados a través del grupo de administración | Frecuencia de recopilación |
+| Plataforma | Agente directo | Agente System Center Operations Manager | Azure | ¿Se requiere Operations Manager? | Se envían los datos del agente de Operations Manager a través del grupo de administración | Frecuencia de recopilación |
 | --- | --- | --- | --- | --- | --- | --- |
 | Las tablas de Azure |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![Sí](./media/log-analytics-azure-networking/oms-bullet-green.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |![No](./media/log-analytics-azure-networking/oms-bullet-red.png) |10 minutos |
 
@@ -103,6 +126,6 @@ Tras hacer clic en el icono de **Overview** (Información general), puede ver re
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

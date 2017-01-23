@@ -1,13 +1,13 @@
 ---
-title: Protección del dominio personalizado de la aplicación con HTTPS | Microsoft Docs
-description: Aprenda cómo proteger el nombre de dominio personalizado para la aplicación en el Servicio de aplicaciones de Azure mediante la configuración de un enlace de certificado SSL. También aprenderá cómo obtener un certificado SSL desde varias herramientas.
+title: "Protección del dominio personalizado de la aplicación con HTTPS | Microsoft Docs"
+description: "Aprenda cómo proteger el nombre de dominio personalizado para la aplicación en el Servicio de aplicaciones de Azure mediante la configuración de un enlace de certificado SSL. También aprenderá cómo obtener un certificado SSL desde varias herramientas."
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: wpickett
 editor: jimbe
 tags: top-support-issue
-
+ms.assetid: 613d7932-73aa-4318-867c-1ce1416224dc
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cb8d77588bbac30a67dab9a20e0e81d2537c977f
+
 
 ---
-# Protección del dominio personalizado de la aplicación con HTTPS
+# <a name="secure-your-apps-custom-domain-with-https"></a>Protección del dominio personalizado de la aplicación con HTTPS
 > [!div class="op_single_selector"]
 > * [Compra de un certificado SSL en Azure](web-sites-purchase-ssl-web-site.md)
 > * [Uso del certificado SSL desde cualquier lugar](web-sites-configure-ssl-certificate.md)
 > 
 > 
 
-En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md), que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para el Servicio de aplicaciones](app-service-web-configure-tls-mutual-auth.md).
+En este artículo se muestra cómo habilitar HTTPS para una aplicación web, un back-end de aplicación móvil o una aplicación de API en el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) , que usa un nombre de dominio personalizado. Se ocupa de la autenticación solo del servidor. Si necesita la autenticación mutua (incluida la autenticación del cliente), consulte [Configuración de la autenticación mutua de TLS para el Servicio de aplicaciones](app-service-web-configure-tls-mutual-auth.md).
 
-Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De forma predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes puedan acceder a su aplicación en **https://*&lt;appname>*.azurewebsites.net**. Pero si desea utilizar un dominio personalizado, como **contoso.com**, **www.contoso.com** y **\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como utilizar un dominio personalizado y un certificado para él.
+Para proteger con HTTPS una aplicación que tiene un nombre de dominio personalizado, agregue un certificado para ese nombre de dominio. De manera predeterminada, Azure protege el dominio con comodín **\*.azurewebsites.net** con un certificado SSL único para que los clientes ya puedan tener acceso a su aplicación en **https://*&lt;nombreaplicación>*.azurewebsites.net**. Pero si desea usar un dominio personalizado, como **contoso.com**, **www.contoso.com** y **\*.contoso.com**, el certificado predeterminado no puede protegerlo. Además, al igual que todos los [certificados con comodín](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/), el certificado predeterminado no es tan seguro como usar un dominio personalizado y un certificado para él.   
 
 > [!NOTE]
 > Puede obtener ayuda de expertos de Azure en cualquier momento en los [foros de Azure](https://azure.microsoft.com/support/forums/). Para obtener un soporte técnico más personalizado, vaya a [Soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico**.
@@ -35,37 +39,39 @@ Para proteger con HTTPS una aplicación que tiene un nombre de dominio personali
 
 <a name="bkmk_domainname"></a>
 
-## Lo que necesita
+## <a name="what-you-need"></a>Lo que necesita
 Para proteger su nombre de dominio personalizado con HTTPS, enlace un certificado SSL personalizado para ese dominio personalizado en Azure. Antes de enlazar un certificado personalizado, debe hacer lo siguiente:
 
-* **Configurar el dominio personalizado**: el Servicio de aplicaciones solo permite agregar un certificado para un nombre de dominio que ya está configurado en la aplicación. Para ver instrucciones, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](web-sites-custom-domain-name.md).
-* **Escalar verticalmente al nivel básico o superior**: los planes del Servicio de aplicaciones en los niveles de precios más bajos no son compatibles con los certificados SSL personalizados. Para ver instrucciones, consulte [Escalado vertical de aplicaciones en Azure](web-sites-scale.md).
-* **Obtener un certificado SSL**: si aún no tiene ninguno, necesitará obtener uno en una [entidad de certificación](http://en.wikipedia.org/wiki/Certificate_authority) (CA) de confianza. El certificado debe cumplir todos los requisitos siguientes:
+* **Configurar el dominio personalizado** : el Servicio de aplicaciones solo permite agregar un certificado para un nombre de dominio que ya está configurado en la aplicación. Para ver instrucciones, consulte [Asignación de un nombre de dominio personalizado a una aplicación de Azure](web-sites-custom-domain-name.md). 
+* **Escalar verticalmente al nivel básico o superior** : los planes del Servicio de aplicaciones en los niveles de precios más bajos no son compatibles con los certificados SSL personalizados. Para ver instrucciones, consulte [Escalado vertical de aplicaciones en Azure](web-sites-scale.md). 
+* **Obtener un certificado SSL** : si aún no tiene ninguno, necesitará obtener uno en una [entidad de certificación](http://en.wikipedia.org/wiki/Certificate_authority) (CA) de confianza. El certificado debe cumplir todos los requisitos siguientes:
   
   * Está firmado por una CA de confianza (sin servidores de CA privados).
   * Contiene una clave privada.
   * Se ha creado para el intercambio de claves y se ha exportado a un archivo PFX.
   * Usa como mínimo un cifrado de 2048 bits.
-  * El nombre de su asunto coincide con el dominio personalizado que debe proteger. Para proteger varios dominios con un certificado, debe usar un nombre con comodín (por ejemplo, ***.contoso.com**) o especificar valores subjectAltName.
-  * Se combina con todos los **[certificados intermedios](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** utilizados por la entidad de certificación. De lo contrario, puede encontrarse con problemas de interoperabilidad irreproducibles en algunos clientes.
+  * El nombre de su asunto coincide con el dominio personalizado que debe proteger. Para varios dominios con un certificado, debe usar un nombre con comodín (por ejemplo, **\*.contoso.com**) o especificar valores subjectAltName.
+  * Se combina con todos los **[certificados intermedios](http://en.wikipedia.org/wiki/Intermediate_certificate_authorities)** usados por la entidad de certificación. De lo contrario, puede encontrarse con problemas de interoperabilidad irreproducibles en algunos clientes.
     
     > [!NOTE]
     > La forma más sencilla de obtener un certificado SSL que cumple todos los requisitos es [comprar uno en el Portal de Azure directamente](web-sites-purchase-ssl-web-site.md). En este artículo se muestra cómo hacerlo de forma manual y, a continuación, enlazarlo a su dominio personalizado en el Servicio de aplicaciones.
     > 
-    > Los **certificados de criptografía de curva elíptica (ECC)** pueden trabajar con el Servicio de aplicaciones, pero están fuera del ámbito de este artículo. Trabaje con la entidad de certificación sobre los pasos exactos para crear los certificados ECC.
+    > **certificados de criptografía de curva elíptica (ECC)** pueden trabajar con el Servicio de aplicaciones, pero están fuera del ámbito de este artículo. Trabaje con la entidad de certificación sobre los pasos exactos para crear los certificados ECC.
     > 
     > 
 
 <a name="bkmk_getcert"></a>
 
-## Paso 1. Obtener un certificado SSL
-Puesto que las entidades de certificación proporcionan los distintos tipos de certificados SSL a diferentes precios, debe empezar por decidir qué tipo de certificado SSL para comprar. Para proteger un nombre de dominio (**www.contoso.com**), solo necesitará un certificado básico. Si necesita proteger varios nombres de dominio, (**contoso.com** *,* **www.contoso.com** *y* **mail.contoso.com**), puede obtener un [certificado con comodín](http://en.wikipedia.org/wiki/Wildcard_certificate) o un [certificado con un nombre de sujeto alternativo](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`).
+## <a name="step-1-get-an-ssl-certificate"></a>Paso 1. Obtener un certificado SSL
+Puesto que las entidades de certificación proporcionan los distintos tipos de certificados SSL a diferentes precios, debe empezar por decidir qué tipo de certificado SSL para comprar. Para proteger un nombre de dominio (**www.contoso.com**), solo necesitará un certificado básico. Si necesita proteger varios nombres de dominio, (**contoso.com** *y* **www.contoso.com** 
+*y* **mail.contoso.com**), puede obtener un [certificado con comodín](http://en.wikipedia.org/wiki/Wildcard_certificate) o un [certificado con un nombre de sujeto alternativo](http://en.wikipedia.org/wiki/SubjectAltName) (`subjectAltName`).
 
 Una vez que sepa qué certificado SSL desea comprar, envíe una Solicitud de firma de certificado (CSR) a una entidad de certificación. Cuando recibe el certificado solicitado de la entidad de certificación, genere un archivo .pfx a partir del certificado. Puede realizar estos pasos con la herramienta de su elección. A continuación se proporcionan instrucciones para las herramientas comunes:
 
-* [Pasos para Certreq.exe](#bkmk_certreq): utilidad de Windows para crear solicitudes de certificado. Ha formado parte de Windows desde Windows XP y Windows Server 2000.
-* [Pasos para IIS Manager](#bkmk_iismgr): la herramienta preferida si ya está familiarizado con ella.
-* [Pasos para OpenSSL](#bkmk_openssl): [herramienta de código abierto y multiplataforma](https://www.openssl.org). Úsela para ayudarle a obtener un certificado SSL desde cualquier plataforma.
+* [Pasos para Certreq.exe](#bkmk_certreq) : utilidad de Windows para crear solicitudes de certificado. 
+  Ha formado parte de Windows desde Windows XP y Windows Server 2000.
+* [Pasos para IIS Manager](#bkmk_iismgr) : la herramienta preferida si ya está familiarizado con ella.
+* [Pasos para OpenSSL](#bkmk_openssl): una [herramienta de código abierto y multiplataforma](https://www.openssl.org). Úsela para ayudarle a obtener un certificado SSL desde cualquier plataforma.
 * [Pasos para subjectAltName con OpenSSL](#bkmk_subjectaltname): pasos para obtener certificados `subjectAltName`.
 
 Si desea probar la configuración en el Servicio de aplicaciones antes de comprar un certificado, puede generar un [certificado autofirmado](https://en.wikipedia.org/wiki/Self-signed_certificate). Este tutorial le ofrece dos formas de generarlo:
@@ -75,8 +81,9 @@ Si desea probar la configuración en el Servicio de aplicaciones antes de compra
 
 <a name="bkmk_certreq"></a>
 
-### Obtención de un certificado con Certreq.exe
-1. Cree un archivo (por ejemplo, **myrequest.txt**), copie en él el texto siguiente y guárdelo en un directorio de trabajo. Reemplace el marcador de posición `<your-domain>` por el nombre de dominio personalizado de la aplicación.
+### <a name="get-a-certificate-using-certreqexe"></a>Obtención de un certificado con Certreq.exe
+1. Cree un archivo (por ejemplo, **myrequest.txt**), copie en él el texto siguiente y guárdelo en un directorio de trabajo. 
+   Reemplace el marcador de posición `<your-domain>` por el nombre de dominio personalizado de la aplicación.
    
         [NewRequest]
         Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
@@ -84,7 +91,7 @@ Si desea probar la configuración en el Servicio de aplicaciones antes de compra
         KeyLength = 2048              ; Required minimum is 2048
         KeySpec = 1
         KeyUsage = 0xA0
-        MachineKeySet = True
+        MachineKeySet = FALSE
         ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
         ProviderType = 12
         HashAlgorithm = SHA256
@@ -108,17 +115,18 @@ Si desea probar la configuración en el Servicio de aplicaciones antes de compra
     Este comando almacena el certificado terminado en el almacén de certificados de Windows.
 5. Si la entidad de certificación utiliza certificados intermedios, instálelos antes de continuar. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión de Microsoft IIS.
    
-    Una vez descargados los certificados, haga clic con el botón derecho en cada uno de ellos en el Explorador de Windows y seleccione **Instalar certificado**. Use los valores predeterminados del **Asistente para importación de certificados** y seleccione repetidamente **Siguiente** hasta que la importación haya finalizado.
-6. Para exportar el certificado SSL desde el almacén de certificados, presione `Win`+`R` y ejecute **certmgr.msc** para iniciar el Administrador de certificados. Seleccione **Personal** > **Certificados**. En la columna **Emitido para**, verá una entrada con el nombre de su dominio personalizado y la entidad de certificación que usó para generar el certificado en la columna **Emitido por**.
+    Una vez descargados los certificados, haga clic con el botón derecho en cada uno de ellos en el Explorador de Windows y seleccione  **Instalar certificado**. Use los valores predeterminados del **Asistente para importación de certificados** y seleccione repetidamente **Siguiente** hasta que la importación haya finalizado.
+6. Para exportar el certificado SSL desde el almacén de certificados, presione `Win`+`R` y ejecute **certmgr.msc** para iniciar el Administrador de certificados. 
+   Seleccione **Personal** > **Certificados**. En la columna **Emitido para**, verá una entrada con el nombre de su dominio personalizado y la entidad de certificación que usó para generar el certificado en la columna **Emitido por**.
    
     ![Insertar imagen del administrador de certificados aquí][certmgr]
-7. Haga clic con el botón derecho en el certificado, seleccione **Todas las tareas** > **Exportar**. En el **Asistente para exportar certificados**, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y vuelva a hacer clic en **Siguiente**.
+7. Haga clic con el botón derecho en el certificado y seleccione **Todas las tareas** > **Exportar**. En el **Asistente para exportar certificados**, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y vuelva a hacer clic en **Siguiente**.
    
     ![Exportar la clave privada][certwiz1]
 8. Seleccione **Intercambio de información personal: PKCS #12**, **Si es posible, incluir todos los certificados en la ruta de acceso de certificación** y **Exportar todas las propiedades extendidas**. A continuación, haga clic en **Siguiente**.
    
    ![incluir todos los certificados y propiedades extendidas][certwiz2]
-9. Seleccione **Contraseña** y, a continuación, escriba y confirme la contraseña. Haga clic en **Siguiente**.
+9. Seleccione **Contraseña**y, a continuación, escriba y confirme la contraseña. Haga clic en **Siguiente**.
    
    ![especificar una contraseña][certwiz3]
 10. Proporcione una ruta y un nombre de archivo para el certificado exportado, con la extensión **.pfx**. Haga clic en **Siguiente** para finalizar.
@@ -129,19 +137,20 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_iismgr"></a>
 
-### Obtención de un certificado con el Administrador de IIS
-1. Genere un archivo CSR con el Administrador de IIS para enviarlo a la entidad de certificación. Para obtener más información acerca de la generación de solicitudes CSR, consulte [Solicitar un certificado de servidor de Internet (IIS 7)][iiscsr].
+### <a name="get-a-certificate-using-the-iis-manager"></a>Obtención de un certificado con el Administrador de IIS
+1. Genere un archivo CSR con el Administrador de IIS para enviarlo a la entidad de certificación. Para obtener más información sobre la generación de solicitudes CSR, consulte [Solicitar un certificado de servidor de Internet (IIS 7)][iiscsr].
 2. Envíe el CSR a una entidad de certificación para obtener un certificado SSL. Para obtener una lista de las entidades de certificación de confianza de Microsoft, consulte el [programa de certificados raíz de confianza de Microsoft: participantes][cas].
-3. Complete el CSR con el certificado que la CA le envía. Para obtener más información acerca de la realización de solicitudes CSR, consulte [Instalación de un certificado de servidor de Internet (IIS 7)][installcertiis].
+3. Complete el CSR con el certificado que la CA le envía. Para obtener más información sobre la realización de solicitudes CSR, consulte [Instalación de un certificado de servidor de Internet (IIS 7)][installcertiis].
 4. Si la entidad de certificación utiliza certificados intermedios, instálelos antes de continuar. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión de Microsoft IIS.
    
-    Una vez descargados los certificados, haga clic con el botón derecho en cada uno de ellos en el Explorador de Windows y seleccione **Instalar certificado**. Use los valores predeterminados del **Asistente para importación de certificados** y seleccione repetidamente **Siguiente** hasta que la importación haya finalizado.
-5. Exporte el certificado SSL desde el Administrador de IIS. Para más información acerca de cómo exportar el certificado, consulte [Export a Server Certificate (IIS 7)][exportcertiis] \(Exportación de un certificado de servidor [IIS 7]).
+    Una vez descargados los certificados, haga clic con el botón derecho en cada uno de ellos en el Explorador de Windows y seleccione **Instalar certificado**. 
+    Use los valores predeterminados del **Asistente para importación de certificados** y seleccione repetidamente **Siguiente** hasta que la importación haya finalizado.
+5. Exporte el certificado SSL desde el Administrador de IIS. Para obtener más información sobre cómo exportar el certificado, consulte [Export a Server Certificate (IIS 7)][exportcertiis] (Exportación de un certificado de servidor [IIS 7]). 
    
    > [!IMPORTANT]
-   > En el **Asistente para exportar certificados**, asegúrese de seleccionar **Exportar la clave privada**
+   > En el **Asistente para exportar certificados**, asegúrese de seleccionar **Exportar la clave privada**  
    > 
-   > ![Exportar la clave privada][certwiz1]
+   > ![Exportar la clave privada][certwiz1]  
    > 
    > y seleccione también **Intercambio de información personal: PKCS #12**, **Si es posible, incluir todos los certificados en la ruta de acceso de certificación** y **Exportar todas las propiedades extendidas**.
    > 
@@ -153,7 +162,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_openssl"></a>
 
-### Obtención de un certificado con OpenSSL
+### <a name="get-a-certificate-using-openssl"></a>Obtención de un certificado con OpenSSL
 1. En un terminal de la línea de comandos, vaya con `CD` a un directorio de trabajo y genere una clave privada y un CSR mediante el comando siguiente:
    
         openssl req -sha256 -new -nodes -keyout myserver.key -out server.csr -newkey rsa:2048
@@ -171,7 +180,8 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
    
            A challenge password []:
    
-    Cuando haya terminado, debería tener dos archivos en el directorio de trabajo: **myserver.key** y **server.csr**. El archivo **server.csr** contiene el CSR, y necesitará **myserver.key** más adelante.
+    Cuando haya terminado, debería tener dos archivos en el directorio de trabajo: **myserver.key** y **server.csr**. 
+    El archivo **server.csr** contiene el CSR y necesitará **myserver.key** más adelante.
 3. Envíe el CSR a una entidad de certificación para obtener un certificado SSL. Para obtener una lista de las entidades de certificación de confianza de Microsoft, consulte el [programa de certificados raíz de confianza de Microsoft: participantes][cas].
 4. Una vez que la entidad de certificación le haya enviado el certificado solicitado, guárdelo en un archivo denominado **myserver.crt** en el directorio de trabajo. Si la CA lo proporciona en un formato de texto, simplemente copie el contenido en **myserver.crt** en un editor de texto y guárdelo. El archivo debería tener este aspecto:
    
@@ -201,9 +211,9 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
     Cuando se le solicite, escriba una contraseña para proteger el archivo .pfx.
    
    > [!NOTE]
-   > Si la entidad de certificación utiliza certificados intermedios, debe incluirlos con el parámetro `-certfile`. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión con la extensión `.pem`.
+   > Si la entidad de certificación utiliza certificados intermedios, debe incluirlos con el parámetro `-certfile`. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión con la extensión `.pem` .
    > 
-   > Su comando `openssl -export` debe ser similar al ejemplo siguiente, que crea un archivo .pfx que incluye los certificados intermedios del archivo **intermediate-cets.pem**:
+   > Su comando `openssl -export` debe ser similar al ejemplo siguiente, que crea un archivo .pfx que incluye los certificados intermedios del archivo **intermediate-cets.pem** :
    > 
    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
    > 
@@ -213,7 +223,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_subjectaltname"></a>
 
-### Obtención de un certificado SubjectAltName con OpenSSL
+### <a name="get-a-subjectaltname-certificate-using-openssl"></a>Obtención de un certificado SubjectAltName con OpenSSL
 1. Cree un archivo denominado **sancert.cnf**, copie el texto siguiente en él y guardarlo en un directorio de trabajo:
    
         # -------------- BEGIN custom sancert.cnf -----
@@ -242,7 +252,7 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
         subjectAltName=DNS:ftp.mydomain.com,DNS:blog.mydomain.com,DNS:*.mydomain.com
         # -------------- END custom sancert.cnf -----
    
-    En la línea que comienza con `subjectAltName`, reemplace el valor por todos los nombres de dominio que desea proteger (además de `commonName`). Por ejemplo:
+    En la línea que comienza con `subjectAltName`, reemplace el valor por todos los nombres de dominio que desea proteger (además de  `commonName`). Por ejemplo:
    
         subjectAltName=DNS:sales.contoso.com,DNS:support.contoso.com,DNS:fabrikam.com
    
@@ -258,7 +268,8 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
         Organizational Unit Name (eg, section) []: Azure
         Your common name (eg, domain name) []: www.microsoft.com
    
-    Cuando haya terminado, debería tener dos archivos en el directorio de trabajo: **myserver.key** y **server.csr**. El archivo **server.csr** contiene el CSR, y necesitará **myserver.key** más adelante.
+    Cuando haya terminado, debería tener dos archivos en el directorio de trabajo: **myserver.key** y **server.csr**. 
+    El archivo **server.csr** contiene el CSR y necesitará **myserver.key** más adelante.
 4. Envíe el CSR a una entidad de certificación para obtener un certificado SSL. Para obtener una lista de las entidades de certificación de confianza de Microsoft, consulte el [programa de certificados raíz de confianza de Microsoft: participantes][cas].
 5. Una vez que la entidad de certificación le envía el certificado solicitado, guárdelo en un archivo denominado **myserver.crt**. Si la CA lo proporciona en un formato de texto, simplemente copie el contenido en **myserver.crt** en un editor de texto y guárdelo. El archivo debería tener este aspecto:
    
@@ -288,9 +299,9 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
     Cuando se le solicite, escriba una contraseña para proteger el archivo .pfx.
    
    > [!NOTE]
-   > Si la entidad de certificación utiliza certificados intermedios, debe incluirlos con el parámetro `-certfile`. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión con la extensión `.pem`.
+   > Si la entidad de certificación utiliza certificados intermedios, debe incluirlos con el parámetro `-certfile`. Normalmente se proporciona como una descarga independiente de la CA y en varios formatos para los diferentes tipos de servidor web. Seleccione la versión con la extensión `.pem` .
    > 
-   > Su comando `openssl -export` debe ser similar al ejemplo siguiente, que crea un archivo .pfx que incluye los certificados intermedios del archivo **intermediate-cets.pem**:
+   > Su comando `openssl -export` debe ser similar al ejemplo siguiente, que crea un archivo .pfx que incluye los certificados intermedios del archivo **intermediate-cets.pem** :
    > 
    > `openssl pkcs12 -chain -export -out myserver.pfx -inkey myserver.key -in myserver.crt -certfile intermediate-cets.pem`
    > 
@@ -300,13 +311,14 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_sscertreq"></a>
 
-### Generación de un certificado autofirmado con Certreq.exe
+### <a name="generate-a-self-signed-certificate-using-certreqexe"></a>Generación de un certificado autofirmado con Certreq.exe
 > [!IMPORTANT]
-> Los certificados autofirmados son solo para prueba. La mayoría de los exploradores devuelven errores cuando se visita un sitio web que está protegido por un certificado autofirmado. Algunos exploradores pueden incluso denegarle el acceso al sitio.
+> Los certificados autofirmados son solo para prueba. La mayoría de los exploradores devuelven errores cuando se visita un sitio web que está protegido por un certificado autofirmado. Algunos exploradores pueden incluso denegarle el acceso al sitio. 
 > 
 > 
 
-1. Cree un archivo de texto (por ejemplo, **mycert.txt**), copie en él el texto siguiente y guárdelo en un directorio de trabajo. Reemplace el marcador de posición `<your-domain>` por el nombre de dominio personalizado de la aplicación.
+1. Cree un archivo de texto (por ejemplo, **mycert.txt**), copie en él el texto siguiente y guárdelo en un directorio de trabajo. 
+   Reemplace el marcador de posición `<your-domain>` por el nombre de dominio personalizado de la aplicación.
    
         [NewRequest]
         Subject = "CN=<your-domain>"  ; E.g. "CN=www.contoso.com", or "CN=*.contoso.com" for a wildcard certificate
@@ -325,22 +337,24 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1         ; Server Authentication
    
-    El parámetro importante es `RequestType = Cert`, que especifica un certificado autofirmado. Para más información sobre las opciones en el archivo CSR, así como otras opciones disponibles, consulte la [documentación de referencia de Certreq](https://technet.microsoft.com/library/dn296456.aspx).
+    El parámetro importante es `RequestType = Cert`, que especifica un certificado autofirmado. 
+    Para más información sobre las opciones en el archivo CSR, así como otras opciones disponibles, consulte la [documentación de referencia de Certreq](https://technet.microsoft.com/library/dn296456.aspx).
 2. En el símbolo del sistema, vaya con `CD` al directorio de trabajo y ejecute el siguiente comando:
    
         certreq -new mycert.txt mycert.crt
    
     Ahora el nuevo certificado autofirmado está instalado en el almacén de certificados.
-3. Para exportar el certificado desde el almacén de certificados, presione `Win`+`R` y ejecute **certmgr.msc** para iniciar el Administrador de certificados. Seleccione **Personal** > **Certificados**. En la columna **Emitido para**, verá una entrada con el nombre de su dominio personalizado y la entidad de certificación que usó para generar el certificado en la columna **Emitido por**.
+3. Para exportar el certificado desde el almacén de certificados, presione `Win`+`R` y ejecute **certmgr.msc** para iniciar el Administrador de certificados. 
+   Seleccione **Personal** > **Certificados**. En la columna **Emitido para**, verá una entrada con el nombre de su dominio personalizado y la entidad de certificación que usó para generar el certificado en la columna **Emitido por**.
    
     ![Insertar imagen del administrador de certificados aquí][certmgr]
-4. Haga clic con el botón derecho en el certificado, seleccione **Todas las tareas** > **Exportar**. En el **Asistente para exportar certificados**, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y vuelva a hacer clic en **Siguiente**.
+4. Haga clic con el botón derecho en el certificado y seleccione **Todas las tareas** > **Exportar**. En el **Asistente para exportar certificados**, haga clic en **Siguiente**, seleccione **Exportar la clave privada** y vuelva a hacer clic en **Siguiente**.
    
     ![Exportar la clave privada][certwiz1]
 5. Seleccione **Intercambio de información personal: PKCS #12**, **Si es posible, incluir todos los certificados en la ruta de acceso de certificación** y **Exportar todas las propiedades extendidas**. A continuación, haga clic en **Siguiente**.
    
    ![incluir todos los certificados y propiedades extendidas][certwiz2]
-6. Seleccione **Contraseña** y, a continuación, escriba y confirme la contraseña. Haga clic en **Siguiente**.
+6. Seleccione **Contraseña**y, a continuación, escriba y confirme la contraseña. Haga clic en **Siguiente**.
    
    ![especificar una contraseña][certwiz3]
 7. Proporcione una ruta y un nombre de archivo para el certificado exportado, con la extensión **.pfx**. Haga clic en **Siguiente** para finalizar.
@@ -351,9 +365,9 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_ssopenssl"></a>
 
-### Generación de un certificado autofirmado con OpenSSL
+### <a name="generate-a-self-signed-certificate-using-openssl"></a>Generación de un certificado autofirmado con OpenSSL
 > [!IMPORTANT]
-> Los certificados autofirmados son solo para prueba. La mayoría de los exploradores devuelven errores cuando se visita un sitio web que está protegido por un certificado autofirmado. Algunos exploradores pueden incluso denegarle el acceso al sitio.
+> Los certificados autofirmados son solo para prueba. La mayoría de los exploradores devuelven errores cuando se visita un sitio web que está protegido por un certificado autofirmado. Algunos exploradores pueden incluso denegarle el acceso al sitio. 
 > 
 > 
 
@@ -405,44 +419,48 @@ Ahora está listo para cargar el archivo PFX exportado en el Servicio de aplicac
 
 <a name="bkmk_configuressl"></a>
 
-## Paso 2: Cargar y enlazar el certificado SSL personalizado
+## <a name="step-2-upload-and-bind-the-custom-ssl-certificate"></a>Paso 2: Cargar y enlazar el certificado SSL personalizado
 Antes de continuar, revise la sección [Lo que necesita](#bkmk_domainname) y compruebe que:
 
 * Tiene un dominio personalizado que se asigna a la aplicación de Azure.
 * La aplicación se ejecuta en un nivel **Básico** o superior.
 * Tiene un certificado SSL para el dominio personalizado de una entidad de certificación.
 
-1. En el explorador, abra el **[Portal de Azure](https://portal.azure.com/)**.
+1. En el explorador, abra **[Azure Portal.](https://portal.azure.com/)**
 2. Haga clic en la opción **Servicio de aplicaciones** del lado izquierdo de la página.
-3. Haga clic en el nombre de la aplicación a la que desea asignar este certificado.
-4. En la hoja **Configuración**, haga clic en **Certificados y enlaces SSL**.
-5. Haga clic en **Cargar certificado**.
-6. Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. Después, haga clic en **Cargar** para cargar el certificado. Ahora debería ver los certificados que haya cargado en la hoja **Certificado SSL**.
-7. En la sección **Enlaces SSL**, haga clic en **Agregar enlace**.
-8. En la hoja **Agregar enlace SSL**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL, así como el certificado que pretende utilizar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servido (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
+3. Haga clic en el nombre de la aplicación a la que desea asignar este certificado. 
+4. En **Configuración**, haga clic en **Certificados SSL**
+5. Haga clic en **Cargar certificado**
+6. Seleccione el archivo .pfx que exportó en el [Paso 1](#bkmk_getcert) y especifique la contraseña que creó antes. 
+   Después, haga clic en **Cargar** para cargar el certificado. Ahora debería ver los certificados que haya cargado en la hoja **Certificado SSL** .
+7. En la sección **Enlaces SSL**, haga clic en **Agregar enlaces**
+8. En la hoja **Agregar enlace SSL** , use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL, así como el certificado que pretende utilizar. Es posible que también desee seleccionar el uso de **[Indicación de nombre de servidor (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** (SNI) o SSL basada en IP.
    
     ![insertar imagen de enlaces de SSL](./media/web-sites-configure-ssl-certificate/sslbindings.png)
    
-       • SSL basada en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web. • SSL basada en SNI es una extensión de SSL y **[Seguridad de la capa de transporte](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para más información sobre la extensión SNI, consulte el artículo **[Indicación de nombre de servidor](http://en.wikipedia.org/wiki/Server_Name_Indication)** en Wikipedia.
+       •    IP based SSL associates a certificate with a domain name by mapping the dedicated public IP address of the server to the domain name. This requires each domain name (contoso.com, fabricam.com, etc.) associated with your service to have a dedicated IP address. This is the traditional          method of associating SSL certificates with a web server.
+       •    SNI based SSL is an extension to SSL and **[Transport Layer Security](http://en.wikipedia.org/wiki/Transport_Layer_Security)** (TLS) that allows multiple domains to share the same IP address, with separate security certificates for each domain. Most modern browsers (including Internet Explorer, Chrome, Firefox and Opera) support SNI, however older browsers may not support SNI. For more information on SNI, see the **[Server Name Indication](http://en.wikipedia.org/wiki/Server_Name_Indication)** article on Wikipedia.
 9. Haga clic en **Agregar enlace** para guardar los cambios y habilitar SSL.
 
-## Paso 3: Cambiar la asignación de nombres de dominio (solo SSL basada en IP)
-Si solo utiliza enlaces **SSL SNI**, omita esta sección. Varios enlaces **SSL SNI** pueden trabajar juntos en la dirección IP compartida existente asignada a la aplicación. Sin embargo, si crea un enlace **SSL basada en IP**, el Servicio de aplicaciones crea una dirección IP dedicada para el enlace porque la **SSL basada en IP** requiere una. Solo se puede crear una dirección IP específica; por lo tanto, solo puede agregarse un enlace **SSL basada en IP**.
+## <a name="step-3-change-your-domain-name-mapping-ip-based-ssl-only"></a>Paso 3: Cambiar la asignación de nombres de dominio (solo SSL basada en IP)
+Si solo utiliza enlaces **SSL SNI** , omita esta sección. Varios enlaces **SSL SNI** pueden trabajar juntos en la dirección IP compartida existente asignada a la aplicación. Sin embargo, si crea un enlace **SSL basada en IP**, App Service crea una dirección IP dedicada para el enlace porque la **SSL basada en IP** requiere una. Solo se puede crear una dirección IP específica; por lo tanto, solo puede agregarse un enlace **SSL basada en IP** .
 
 Debido a esta dirección IP dedicada, debe configurar la aplicación más si:
 
-* Ha [usado un registro A para asignar su dominio personalizado](web-sites-custom-domain-name.md#a) a la aplicación de Azure y acaba de agregar un enlace **SSL basada en IP**. En este escenario, debe reasignar el registro A existente para que apunte a la dirección IP dedicada siguiendo estos pasos:
+* Ha [usado un registro A para asignar su dominio personalizado](web-sites-custom-domain-name.md#a) a la aplicación de Azure y acaba de agregar un enlace **SSL basada en IP** . En este escenario, debe reasignar el registro A existente para que apunte a la dirección IP dedicada siguiendo estos pasos:
   
-  1. Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a la aplicación. Podrá encontrar esta dirección IP en la página **Dominio personalizado** de la configuración de su aplicación, justo arriba de la sección **Nombre de host**. Figurará como **Dirección IP externa**:
+  1. Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a la aplicación. Podrá encontrar esta dirección IP en la página **Dominio personalizado** de la configuración de su aplicación, justo arriba de la sección **Nombre de host**. Figurará como **Dirección IP externa**
      
       ![Dirección IP virtual](./media/web-sites-configure-ssl-certificate/virtual-ip-address.png)
   2. [Reasigne el registro A de su nombre de dominio personalizado para esta nueva dirección IP](web-sites-custom-domain-name.md#a).
-* Ya tiene uno o más enlaces **SSL SNI** en la aplicación y acaba de agregar un enlace **SSL basada en IP**. Una vez completado el enlace, el nombre de dominio *&lt;nombreDeAplicación>*.azurewebsites.net apunta a la nueva dirección IP. Por lo tanto, cualquier [asignación de CNAME desde el dominio personalizado](web-sites-custom-domain-name.md#cname) existente a *& lt;nombreDeAplicación>*.azurewebsites.net, incluidos a los que protege la **SSL SNI**, también recibe el tráfico en la nueva dirección, que se crea solo para la **SSL basada en IP**. En este escenario, necesita enviar el tráfico de **SSL SNI** de nuevo a la dirección IP original compartida siguiendo estos pasos:
+* Ya tiene uno o más enlaces **SSL SNI** en la aplicación y acaba de agregar un enlace **SSL basada en IP**. 
+  Una vez completado el enlace, el nombre de dominio *&lt;nombreDeAplicación>*.azurewebsites.net apunta a la nueva dirección IP. 
+  Por lo tanto, cualquier [asignación de CNAME desde el dominio personalizado](web-sites-custom-domain-name.md#cname) existente a *&lt;nombreDeAplicación>*.azurewebsites.net, incluidos a los que protege la **SSL SNI**, también recibe el tráfico en la nueva dirección, que se crea solo para la **SSL basada en IP**. En este escenario, necesita enviar el tráfico de **SSL SNI** de nuevo a la dirección IP original compartida siguiendo estos pasos:
   
-  1. Identifique todas las [asignaciones de CNAME de dominios personalizados](web-sites-custom-domain-name.md#cname) a la aplicación que tiene un enlace **SSL SNI**.
+  1. Identifique todas las [asignaciones de CNAME de dominios personalizados](web-sites-custom-domain-name.md#cname) a la aplicación que tiene un enlace **SSL SNI** .
   2. Vuelva a asignar cada registro de CNAME a **sni.**&lt;nombreDeAplicación>.azurewebsites.net en lugar de &lt;nombreDeAplicación>.azurewebsites.net.
 
-## Paso 4 Probar HTTPS para el dominio personalizado
+## <a name="step-4-test-https-for-your-custom-domain"></a>Paso 4 Probar HTTPS para el dominio personalizado
 Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el dominio personalizado. En varios exploradores, vaya a `https://<your.custom.domain>` para ver que da servicio a la aplicación.
 
 * Si la aplicación genera errores de validación del certificado, probablemente esté utilizando un certificado autofirmado.
@@ -450,7 +468,7 @@ Ahora todo lo que queda por hacer es asegurarse de que HTTPS funciona para el do
 
 <a name="bkmk_enforce"></a>
 
-## Implementar HTTPS en la aplicación
+## <a name="enforce-https-on-your-app"></a>Implementar HTTPS en la aplicación
 Si desea permitir el acceso HTTP a la aplicación, omita este paso. El Servicio de aplicaciones *no* fuerza HTTPS, por lo que los visitantes aún pueden acceder a la aplicación mediante HTTP. Si desea forzar HTTPS para su aplicación, puede definir una regla de reescritura en el archivo `web.config` para la aplicación. Todas las aplicaciones del Servicio de aplicaciones tienen este archivo, independientemente de la plataforma del lenguaje de la aplicación.
 
 > [!NOTE]
@@ -466,7 +484,8 @@ Siga estos pasos:
    
     ![](./media/web-sites-configure-ssl-certificate/openwebconfig.png)
    
-    Si implementa la aplicación con Visual Studio o Git, el Servicio de aplicaciones genera automáticamente el elemento `web.config` adecuado para la aplicación. NET, PHP, Node.js o Python en la raíz de la aplicación. Si `web.config` no existe, ejecute `touch web.config` en el símbolo del sistema basado en web para crearlo. O bien, puede crearlo en su proyecto local y volver a implementar el código.
+    Si implementa la aplicación con Visual Studio o Git, el Servicio de aplicaciones genera automáticamente el elemento `web.config` adecuado para la aplicación. NET, PHP, Node.js o Python en la raíz de la aplicación. 
+    Si `web.config` no existe, ejecute `touch web.config` en el símbolo del sistema basado en web para crearlo. O bien, puede crearlo en su proyecto local y volver a implementar el código.
 4. Si tuviera que crear un elemento `web.config`, copie el código siguiente en él y guárdelo. Si ha abierto un elemento web.config existente, basta con copiar todo la etiqueta `<rule>` en el elemento `configuration/system.webServer/rewrite/rules` de su `web.config`.
    
         <?xml version="1.0" encoding="UTF-8"?>
@@ -496,11 +515,11 @@ Siga estos pasos:
    > 
 5. Guarde el archivo en la consola de depuración Kudu. Debe empezar a redirigir todas las solicitudes HTTPS inmediatamente.
 
-Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la documentación de [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite).
+Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la documentación de [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) .
 
-## Más recursos
+## <a name="more-resources"></a>Más recursos
 * [Centro de confianza de Microsoft Azure](/support/trust-center/security/)
-* [Opciones de configuración desbloqueadas en Sitios web Azure](/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
+* [Opciones de configuración desbloqueadas en Sitios web Azure](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Activación del registro de diagnósticos](web-sites-enable-diagnostic-log.md)
 * [Configuración de Aplicaciones web en Servicio de aplicaciones de Azure](web-sites-configure.md)
 * [Portal de administración de Azure](https://manage.windowsazure.com)
@@ -534,4 +553,10 @@ Para obtener más información sobre el módulo URL Rewrite de IIS, consulte la 
 [certwiz3]: ./media/web-sites-configure-ssl-certificate/waws-certwiz3.png
 [certwiz4]: ./media/web-sites-configure-ssl-certificate/waws-certwiz4.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

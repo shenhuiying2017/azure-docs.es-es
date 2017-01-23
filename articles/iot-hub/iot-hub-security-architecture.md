@@ -1,6 +1,6 @@
 ---
-title: Arquitectura de seguridad de IoT | Microsoft Docs
-description: Directrices y consideraciones sobre la arquitectura de seguridad de IoT
+title: Arquitectura de seguridad de IoT de Azure | Microsoft Docs
+description: Consideraciones e instrucciones de arquitectura de seguridad de IoT, incluido el modelado de amenazas.
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e0f47e9badfc2b8b95a44b8baf38a0ae6574e39c
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 9327750b35476fd2a6eca379061a06842daf8d47
 
 
 ---
 [!INCLUDE [iot-security-architecture](../../includes/iot-security-architecture.md)]
 
 ## <a name="see-also"></a>Otras referencias
-Para más información sobre cómo proteger la solución de IoT, consulte [Secure your IoT deployment (Protección de la implementación de IoT)][lnk-security-deployment]
+Para obtener más información sobre cómo proteger la solución de IoT, consulte [Proteger su implementación de IoT][lnk-security-deployment].
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Simulating a device with the IoT Gateway SDK (Simulación de un dispositivo con el SDK de puerta de enlace de IoT)][lnk-gateway]
+* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-security-deployment]: iot-hub-security-deployment.md
 
@@ -35,6 +35,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

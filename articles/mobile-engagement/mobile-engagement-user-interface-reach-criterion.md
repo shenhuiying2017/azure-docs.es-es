@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: b3d88826050bcdf272e732cb0b51ee2e2618e586
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: afa6625e4c3ebe2a408b4bd956c8d2eb9ac6a34b
 
 
 ---
@@ -25,16 +25,16 @@ Orientar su audiencia según criterios específicos mediante el botón "Nuevos c
 
 **Consulte también:**
 
-* [Documentación de la interfaz de usuario - Cobertura - Nueva campaña de inserción][Vínculo 27]
+* [Documentación de la interfaz de usuario - Alcance - Nueva campaña de inserción][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>Dentro de los criterios de audiencia se pueden incluir:
-* **Aspectos técnicos: ** puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también:** [ Documentación de la interfaz de usuario - Análisis][Vínculo 15], [Documentación de la interfaz de usuario - Supervisión][Vínculo 16]
-* **Ubicación:** las aplicaciones que usan "informes de ubicación en tiempo real" con el geovallado pueden usar la ubicación geográfica como criterio para dirigirse a una audiencia desde la ubicación de GPS. La llamada "Informes de ubicación de área diferida" también se puede usar para orientarse a una audiencia desde la ubicación del teléfono móvil ("Informes de ubicación en tiempo real" e " Informes de ubicación de área diferida" deben activarse desde el SDK) **Consulte también:** [Documentación del SDK - iOS -  Integración][Vínculo 5], [Documentación del SDK - Android -  Integración][Vínculo 5]
-* **Comentarios sobre la cobertura:** puede tener como destino su audiencia según sus comentarios de notificaciones de cobertura anteriores a través de comentarios sobre la cobertura de Anuncios, Sondeos e Inserciones de datos. Esto le permite orientarse mejor a la audiencia después de dos o tres campañas de cobertura que la primera vez. También puede usarse para filtrar los usuarios que ya han recibido una notificación con contenido similar, al establecer una campaña para NO enviarse a los usuarios que ya han recibido una determinada campaña anterior. Incluso puede excluir a los usuarios incluidos en una campaña específica que está todavía activa para recibir inserciones nuevas. **Consulte también:** [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Vínculo 29].
-* **Seguimiento de la instalación:** puede realizar un seguimiento de información basada en dónde instalaron los usuarios su aplicación. **Consulte también:** [Documentación de la interfaz de usuario - Configuración][Vínculo 20].
+* **Aspectos técnicos: ** puede orientar en función de la misma información técnica que puede ver en las secciones de análisis y supervisión. **Consulte también**: [Documentación de la interfaz de usuario - Análisis][Link 15], [Documentación de la interfaz de usuario - Supervisión][Link 16]
+* **Ubicación:** las aplicaciones que usan "informes de ubicación en tiempo real" con el geovallado pueden usar la ubicación geográfica como criterio para dirigirse a una audiencia desde la ubicación de GPS. La llamada "Informes de ubicación de área diferida" también se puede usar para orientarse a una audiencia desde la ubicación del teléfono móvil ("Informes de ubicación en tiempo real" e " Informes de ubicación de área diferida" deben activarse desde el SDK) **Consulte también:** [Documentación del SDK - iOS -][Link 5], [Documentación del SDK - Android - Integración][Link 5]
+* **Comentarios sobre la cobertura:** puede tener como destino su audiencia según sus comentarios de notificaciones de cobertura anteriores a través de comentarios sobre la cobertura de Anuncios, Sondeos e Inserciones de datos. Esto le permite orientarse mejor a la audiencia después de dos o tres campañas de cobertura que la primera vez. También puede usarse para filtrar los usuarios que ya han recibido una notificación con contenido similar, al establecer una campaña para NO enviarse a los usuarios que ya han recibido una determinada campaña anterior. Incluso puede excluir a los usuarios incluidos en una campaña específica que está todavía activa para recibir inserciones nuevas. **Vea también:** [Documentación de la interfaz de usuario - Cobertura - Insertar contenido][Link 29]
+* **Seguimiento de la instalación:** puede realizar un seguimiento de información basada en dónde instalaron los usuarios su aplicación. **Consulte también:** [Documentación de interfaz de usuario - Configuración][Link 20]
 * **Perfil de usuario:** puede orientarse según la información de usuario estándar y basándose en la información de la aplicación personalizada que ha creado. Aquí se incluye a los usuarios que han iniciado sesión y a los que han respondido preguntas específicas que les ha solicitado definir en la propia aplicación en lugar de tan solo cómo han respondido a campañas anteriores. Toda la información de la aplicación definida para la aplicación aparece en esta lista.
-* Segmentos: también puede orientarse en función de segmentos que ha creado según el comportamiento específico del usuario que contiene varios criterios. Todos los segmentos definidos para la aplicación aparecen en esta lista. **Consulte también:** [Documentación de la interfaz de usuario - Segmentos][Vínculo 18].
-* **Información de la aplicación:** es posible crear etiquetas de información de aplicación personalizadas desde "Configuración" para realizar un seguimiento del comportamiento de los usuarios. **Consulte también:** [Documentación de la interfaz de usuario - Configuración][Vínculo 20].
+* Segmentos: también puede orientarse en función de segmentos que ha creado según el comportamiento específico del usuario que contiene varios criterios. Todos los segmentos definidos para la aplicación aparecen en esta lista. **Consulte también:** [Documentación de interfaz de usuario - Segmentos][Link 18]
+* **Información de la aplicación:** es posible crear etiquetas de información de aplicación personalizadas desde "Configuración" para realizar un seguimiento del comportamiento de los usuarios. **Consulte también:** [Documentación de interfaz de usuario - Configuración][Link 20]
 
 ## <a name="example"></a>Ejemplo:
 Si desea insertar un anuncio solo en el subconjunto de los usuarios que han realizado una acción de compra en la aplicación.
@@ -146,39 +146,39 @@ Si desea insertar un anuncio solo en el subconjunto de los usuarios que han real
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: mobile-engagement-user-interface-reach-campaign.md
-[Vínculo 28]: mobile-engagement-user-interface-reach-criterion.md
-[Vínculo 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
