@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 51325cf5f473123c5efeb571f52e04b540b182ad
+ms.sourcegitcommit: ff7ab2560e544beb8110af9f78074aa184227885
+ms.openlocfilehash: cc74dd3400018a09433b83cd62b8d893fe118f04
 
 
 ---
@@ -26,7 +26,7 @@ En este artículo se describe cómo puede usar la actividad de copia en Data Fac
 Actualmente, Data Factory de Azure solo admite mover datos de Salesforce a [almacenes de datos receptores compatibles](data-factory-data-movement-activities.md#supported-data-stores-and-formats), pero no de otros almacenes de datos a Salesforce.
 
 ## <a name="supported-versions"></a>Versiones compatibles
-Este conector usa una de las siguientes ediciones de Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition.
+Este conector es compatible con las siguientes ediciones de Salesforce: Developer Edition, Professional Edition, Enterprise Edition o Unlimited Edition. Y admite la copia del dominio personalizado, producción y espacio aislado de Salesforce.
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Debe estar habilitado el permiso API. Consulte [How do I enable API access in Salesforce by permission set?](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
@@ -192,7 +192,6 @@ Consulte [Propiedades del tipo RelationalSource](#relationalsource-type-properti
 > [!IMPORTANT]
 > La parte "__c" del nombre de la API es necesaria para cualquier objeto personalizado.
 >
->
 
 ![Data Factory - Conexión a Salesforce - Nombre de la API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
@@ -202,6 +201,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
 | type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
+| environmentUrl | Especifique la URL de la instancia de Salesforce. <br><br> - La dirección predeterminada es "https://login.salesforce.com". <br> - Para copiar los datos desde el espacio aislado, especifique "https://test.salesforce.com". <br> - Para copiar los datos desde el dominio personalizado, especifique ""https://[dominio].my.salesforce.com". |No |
 | nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | contraseña |Especifique la contraseña para la cuenta de usuario. |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API). |Sí |
@@ -290,6 +290,6 @@ Consulte [Guía de optimización y rendimiento de la actividad de copia](data-fa
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

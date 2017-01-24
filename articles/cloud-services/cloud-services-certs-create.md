@@ -12,30 +12,33 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/20/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 63cf1a5476a205da2f804fb2f408f4d35860835f
-ms.openlocfilehash: 1624b53ee68c0c46512037af26d986cd8bc5423e
+ms.sourcegitcommit: c530f08842efde1ab87cfd111f1957ae685748f3
+ms.openlocfilehash: 77d3cb18c52a10236eb40e6ffde1ed9e2753af3f
 
 
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Introducción a los certificados para los servicios en la nube de Azure
-Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico, no ARM). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
+Los certificados se usan en Azure para los servicios en la nube ([certificados de servicio](#what-are-service-certificates)) y para realizar la autenticación con la API de administración ([certificados de administración](#what-are-management-certificates) cuando se usa el Portal de Azure clásico y la versión no clásica de Azure Portal). En este tema se proporciona información general de ambos tipos de certificado, cómo [crearlos](#create) y cómo [implementarlos](#deploy) en Azure.
 
-Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador y, por ello, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto esto. Solo usted debe usar los certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube. 
+Los certificados usados en Azure son certificados x.509 v3 y pueden estar firmados por otro certificado de confianza o estar autofirmados. Un certificado autofirmado está firmado por su propio creador; por lo tanto, no es de confianza de forma predeterminada. La mayoría de los exploradores pueden pasar por alto este problema. Solo debe usar certificados autofirmados cuando desarrolle y pruebe sus servicios en la nube. 
 
 Los certificados utilizados por Azure pueden contener una clave privada o pública. Los certificados tienen una huella digital que proporciona un medio para identificarlos de forma inequívoca. Esta huella digital se utiliza en el [archivo de configuración](cloud-services-configure-ssl-certificate.md) de Azure para identificar qué certificado debe usar un servicio en la nube. 
 
 ## <a name="what-are-service-certificates"></a>¿Qué son los certificados de servicio?
 Los certificados de servicio están vinculados a los servicios en la nube y posibilitan la comunicación segura hacia y desde el servicio. Por ejemplo, si implementó un rol web, desearía proporcionar un certificado que pueda autenticar un punto de conexión HTTPS expuesto. Los certificados de servicio, definidos en la definición de servicio, se implementan automáticamente en la máquina virtual que está ejecutando una instancia del rol. 
 
-Puede cargar certificados de servicio en el Portal de Azure clásico mediante el Portal de Azure clásico o mediante la API de administración de servicios. Los certificados de servicio se asocian a un servicio en la nube específico y se asignan a una implementación en el archivo de definición de servicio.
+Puede cargar certificados de servicio en el Portal de Azure clásico mediante el Portal de Azure clásico o mediante el modelo de implementación clásica. Los certificados de servicio están asociados a un servicio en la nube específico. Se asignan a una implementación en el archivo de definición de servicio.
 
-Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado cambiando la configuración del servicio sin necesidad de cargar un nuevo paquete de servicio. Esto es posible porque el nombre lógico del certificado y su nombre y ubicación del almacén se especifican en el archivo de definición de servicio, mientras que la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
+Los certificados de servicio se pueden administrar independientemente de los servicios y pueden ser administrados por distintas personas. Por ejemplo, un desarrollador puede cargar un paquete de servicio que hace referencia a un certificado que un administrador de TI ha cargado previamente en Azure. Un administrador de TI puede administrar y renovar el certificado (cambiando la configuración del servicio) sin necesidad de cargar un nuevo paquete de servicio. La actualización sin un nuevo paquete de servicio es posible porque el nombre lógico, el nombre y la ubicación del certificado se encuentran en el archivo de definición de servicio y la huella digital del certificado se especifica en el archivo de configuración de servicio. Para actualizar el certificado, solo es necesario cargar un nuevo certificado y cambiar el valor de huella digital en el archivo de configuración de servicio.
+
+>[!Note]
+>El artículo [P+F de Cloud Services](cloud-services-faq.md#certificates) dispone de información útil sobre los certificados.
 
 ## <a name="what-are-management-certificates"></a>¿Qué son los certificados de administración?
-Los certificados de administración permiten realizar autenticación con la API de administración de servicios proporcionada por Azure clásico. Muchos programas y herramientas (como Visual Studio o el SDK de Azure) utilizarán estos certificados para automatizar la configuración y la implementación de varios servicios de Azure. Estos no están relacionados realmente con servicios en la nube. 
+Los certificados de administración le permiten autenticar con el modelo de implementación clásica. Muchos programas y herramientas (como Visual Studio o Azure SDK) utilizan estos certificados para automatizar la configuración y la implementación de diferentes servicios de Azure. Estos no están relacionados realmente con servicios en la nube. 
 
 > [!WARNING]
 > Por lo tanto, tenga cuidado. Estos tipos de certificados permiten a quien se autentica con ellos administrar la suscripción a la que están asociados. 
@@ -48,7 +51,6 @@ Hay un límite de 100 certificados de administración por suscripción. También
 Antes de agregar más de 100 certificados, vea si puede reutilizar un certificado existente. El uso de coadministradores agrega complejidad potencialmente innecesaria al proceso de administración de certificados.
 
 <a name="create"></a>
-
 ## <a name="create-a-new-self-signed-certificate"></a>Creación de un nuevo certificado autofirmado
 Puede utilizar cualquier herramienta disponible para crear un certificado autofirmado, siempre que cumpla esta configuración:
 
@@ -56,14 +58,14 @@ Puede utilizar cualquier herramienta disponible para crear un certificado autofi
 * Contiene una clave privada.
 * Creado para intercambio de claves (archivo .pfx).
 * El nombre de sujeto debe coincidir con el dominio usado para tener acceso al servicio en la nube. 
-    > No se puede adquirir un certificado SSL para el dominio cloudapp.net (ni para ningún dominio relacionado con Azure); el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usa para obtener acceso a la aplicación. Por ejemplo, **contoso.net**, no **contoso.cloudapp.net**.
+    > No se puede adquirir un certificado SSL para el dominio cloudapp.net (ni para ningún dominio relacionado con Azure); el nombre del firmante del certificado debe coincidir con el nombre de dominio personalizado que se usa para obtener acceso a la aplicación. Por ejemplo, **contoso.net**, no **contoso.cloudapp.net**.
 * Mínimo de cifrado de 2.048 bits.
 * **Solo certificados de servicio**: el certificado de cliente debe encontrarse en el almacén de certificados *Personal* .
 
 Hay dos métodos sencillos para crear un certificado en Windows, con la utilidad `makecert.exe` o con IIS.
 
 ### <a name="makecertexe"></a>Makecert.exe
-Esta utilidad ha quedado en desuso y ya no se documenta aquí. Consulte [este artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968) para obtener más información.
+Esta utilidad ha quedado en desuso y ya no se documenta aquí. Para obtener más información, consulte [este artículo de MSDN](https://msdn.microsoft.com/library/windows/desktop/aa386968).
 
 ### <a name="powershell"></a>PowerShell
 ```powershell
@@ -105,6 +107,6 @@ Cargue un [certificado de API de administración](../azure-api-management-certs.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
