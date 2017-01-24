@@ -48,7 +48,7 @@ Siempre hay gran cantidad de [consideraciones de diseño](virtual-machines-windo
 ### <a name="naming"></a>Nomenclatura
 Una máquina virtual tiene un [nombre](virtual-machines-windows-infrastructure-naming-guidelines.md) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
 
-Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual son iguales. Si [carga y usa su propia imagen](virtual-machines-windows-upload-image.md) que contenga un sistema operativo ya configurado y la usa para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
+Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual serán iguales. Si [carga y usa su propia imagen](virtual-machines-windows-upload-image.md), con un sistema operativo ya configurado, para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
 
 ### <a name="locations"></a>Ubicaciones
 Todos los recursos creados en Azure se distribuyen entre diversas [regiones geográficas](https://azure.microsoft.com/regions/) de todo el mundo. Por lo general, se llama a la región **ubicación** cuando se crea una máquina virtual. Para una máquina virtual, la ubicación especifica dónde se almacenan los discos duros virtuales.
