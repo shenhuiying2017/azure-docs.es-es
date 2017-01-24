@@ -17,8 +17,8 @@ ms.workload: na
 ms.date: 11/02/2016
 ms.author: wesmc
 translationtype: Human Translation
-ms.sourcegitcommit: 96f253f14395ffaf647645176b81e7dfc4c08935
-ms.openlocfilehash: bfe0f796c8a15d655f1c5686a0e1e422fee6fbc1
+ms.sourcegitcommit: 593f97bf0fc855e2d122e093961013f923e2e053
+ms.openlocfilehash: b7b6dc01c996527c4ada974cc28b774b30e6b853
 
 
 ---
@@ -132,6 +132,15 @@ El enlace de salida usa el siguiente objeto JSON en la matriz `bindings` de func
 
 `connection` debe ser el nombre de una configuración de aplicación que contiene la cadena de conexión para el espacio de nombres del centro de eventos. Copie esta cadena de conexión haciendo clic en el botón **Información de conexión** del *espacio de nombres*, no del propio centro de eventos. Esta cadena de conexión debe tener permisos de envío para enviar el mensaje a la secuencia de eventos.
 
+## <a name="output-usage"></a>Uso de salidas
+En esta sección se muestra cómo utilizar el enlace de salida de Event Hub en el código de función.
+
+Puede generar mensajes para el centro de eventos configurado con los siguientes tipos de parámetro: 
+
+* `out string`
+* `ICollector<string>`( para generar varios mensajes)
+* `IAsyncCollector<string>` (versión asincrónica de `ICollector<T>`)
+
 <a name="outputsample"></a>
 
 ## <a name="output-sample"></a>Ejemplo de salida
@@ -168,6 +177,18 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
+O bien, cree varios mensajes:
+
+```cs
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+{
+    string message = $"Event Hub message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputEventHubMessage.Add("1 " + message);
+    outputEventHubMessage.Add("2 " + message);
+}
+```
+
 <a name="outfsharp"></a>
 
 ### <a name="output-sample-in-f"></a>Ejemplo de salida en F# #
@@ -186,8 +207,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    context.log('Event Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.done();
+};
+```
+
+O, para enviar varios mensajes,
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+    var message = 'Event Hub message created at: ' + timeStamp;
+
+    context.bindings.outputEventHubMessage = [];
+
+    context.bindings.outputEventHubMessage.push("1 " + message);
+    context.bindings.outputEventHubMessage.push("2 " + message);
     context.done();
 };
 ```
@@ -198,6 +234,6 @@ module.exports = function (context, myTimer) {
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

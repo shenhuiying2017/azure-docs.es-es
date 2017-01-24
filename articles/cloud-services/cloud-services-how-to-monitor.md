@@ -3,7 +3,7 @@ title: "Supervisión de un servicio en la nube | Microsoft Docs"
 description: "Vea cómo supervisar servicios en la nube usando el Portal de Azure clásico."
 services: cloud-services
 documentationcenter: 
-author: rboucher
+author: thraka
 manager: timlt
 editor: 
 ms.assetid: 5c48d2fb-b8ea-420f-80df-7aebe2b66b1b
@@ -12,12 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2015
-ms.author: robb
+ms.date: 12/07/2015
+ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a8d581d678d35045d7d27df55ee1e629f259f30c
-
+ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
+ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>Supervisión de servicios en la nube
@@ -34,14 +33,14 @@ De forma predeterminada, los datos del contador de rendimiento de las instancias
 
 Después de activar la supervisión detallada, los datos de supervisión agregados se almacenan en tablas en su cuenta de almacenamiento. Para activar la supervisión detallada de un rol, debe configurar una cadena de conexión de diagnósticos que lo vincule a la cuenta de almacenamiento. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes.
 
-Tenga en cuenta que la activación de la supervisión detallada aumentará los costes de almacenamiento relacionados con el almacenamiento de datos, la transferencia de datos y las transacciones de almacenamiento. La supervisión mínima no requiere una cuenta de almacenamiento. Los datos de las métricas que se exponen a un nivel mínimo de supervisión no se almacenan en su cuenta de almacenamiento, incluso si configura la supervisión en un nivel detallado.
+La habilitación de la supervisión detallada aumentará los costos de almacenamiento relacionados con el almacenamiento de datos, la transferencia de datos y las transacciones de almacenamiento. La supervisión mínima no requiere una cuenta de almacenamiento. Los datos de las métricas que se exponen a un nivel mínimo de supervisión no se almacenan en su cuenta de almacenamiento, incluso si configura la supervisión en un nivel detallado.
 
 ## <a name="how-to-configure-monitoring-for-cloud-services"></a>Configuración de la supervisión para los servicios en la nube
 Use los siguientes procedimientos para configurar la supervisión detallada o mínima en el Portal de Azure clásico. 
 
 ### <a name="before-you-begin"></a>Antes de empezar
-* Cree una cuenta de almacenamiento para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, consulte la ayuda de **Cuentas de almacenamiento**o consulte [Creación de una cuenta de almacenamiento](/manage/services/storage/how-to-create-a-storage-account/).
-* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para servicios en la nube](https://msdn.microsoft.com/library/azure/dn186185.aspx#BK_EnableBefore).
+* Cree una cuenta de almacenamiento *clásico* para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, vea [Cómo crear una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account).
+* Active Diagnósticos de Azure en sus roles de servicios en la nube. Consulte [Configuración de Diagnósticos para servicios en la nube](cloud-services-dotnet-diagnostics.md).
 
 Asegúrese de que la cadena de conexión de diagnóstico está presente en la configuración de roles. No puede activar la supervisión detallada hasta que habilite Diagnósticos de Azure e incluya una cadena de conexión de diagnóstico en la configuración de roles.   
 
@@ -53,7 +52,7 @@ Asegúrese de que la cadena de conexión de diagnóstico está presente en la co
 **Para agregar manualmente la cadena de conexión de diagnóstico a la configuración de roles**
 
 1. Abra el proyecto Servicio en la nube en Visual Studio.
-2. Haga doble clic en el **rol** para abrir el diseñador de roles y seleccione la pestaña **Configuración**
+2. Haga doble clic en el **rol** para abrir el diseñador de roles y seleccione la pestaña **Configuración**.
 3. Busque un ajuste llamado **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. 
 4. Si esta ajuste no está presente, haga clic en el botón **Agregar ajuste** para agregarlo a la configuración y cambie el tipo del ajuste nuevo a **ConnectionString**
 5. Establezca el valor de la cadena de conexión haciendo clic en el botón **...** . Se abrirá un cuadro de diálogo en el que podrá seleccionar una cuenta de almacenamiento.
@@ -149,6 +148,7 @@ Para mostrar los contadores de rendimiento personalizados en el portal, es preci
    
    * Para mostrar una nueva métrica, active la casilla de verificación de la métrica en los encabezados del gráfico. En un modo de visualización reducido, haga clic en la flecha abajo junto a ***n*métricas** para mostrar una métrica que el encabezado del gráfico no puede mostrar.
    * Para eliminar una métrica que se muestra en el gráfico, desmarque la casilla de verificación en su encabezado.
+   
 3. Alterne entre las pantallas **Relativo** y **Absoluto**.
 4. Elija 1 hora, 24 horas o 7 días para visualizar los datos correspondientes.
 
@@ -178,6 +178,6 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role ins
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

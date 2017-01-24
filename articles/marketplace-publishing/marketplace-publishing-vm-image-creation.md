@@ -15,13 +15,13 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: hascipio; v-divte
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 440ca979dd8ae99e004ab856dc49c5e363bb734b
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 6e3088d372b6036c37828549fda2c9c39092e478
 
 
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guía para la creación de una imagen de máquina virtual para Azure Marketplace
-En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con [Crear una cuenta de desarrollador de Microsoft][link-acct-creation].
+En este artículo, **paso 2**, se explica cómo puede preparar los discos duros virtuales (VHD) que va a implementar en Azure Marketplace. Los VHD constituyen el fundamento de la SKU. El proceso difiere en función de si la SKU que va a proporcionar está basada en Linux o en Windows. En este artículo se tratan ambos escenarios. Este proceso puede realizarse en paralelo con la [creación y registro de cuentas][link-acct-creation].
 
 ## <a name="1-define-offers-and-skus"></a>1. Definición de ofertas y SKU
 En esta sección aprenderá a definir las ofertas y sus SKU.
@@ -36,7 +36,7 @@ Una SKU es el nombre comercial de una imagen de máquina virtual. Una imagen de 
 Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la SKU. Los usuarios no pueden quitar discos que formen parte de una imagen durante la implementación pero siempre pueden agregar discos durante o después de la implementación si los necesitan.
 
 > [!IMPORTANT]
-> **No cambie el número de discos en una nueva versión de imagen.**  Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una nueva versión de la imagen con un número de discos distinto, las nuevas implementaciones que se realicen con arreglo a la nueva versión pueden registrar problemas con la autoescala, con la implementación automática de soluciones mediante plantillas de ARM y con otros escenarios.
+> **No cambie el número de discos en una nueva versión de imagen.** Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una nueva versión de la imagen con un número de discos distinto, las nuevas implementaciones que se realicen con arreglo a la nueva versión pueden registrar problemas con la autoescala, con la implementación automática de soluciones mediante plantillas de ARM y con otros escenarios.
 > 
 > 
 
@@ -48,13 +48,13 @@ Independientemente del sistema operativo que use, agregue solo el número mínim
 ### <a name="12-define-a-sku"></a>1.2 Definir una SKU
 Una vez agregada una oferta, tiene que definir e identificar sus SKU. Puede tener varias ofertas y cada oferta puede tener varias SKU. Cuando se inserta una oferta en un entorno de ensayo, se inserta con todas sus SKU.
 
-1. **Agregue una SKU.**  La SKU requiere un identificador que se usa en la dirección URL. El identificador tiene que ser único dentro de su perfil de publicación, pero no existe riesgo de colisión de identificadores con otros anunciantes.
+1. **Agregue una SKU.** La SKU requiere un identificador que se usa en la dirección URL. El identificador tiene que ser único dentro de su perfil de publicación, pero no existe riesgo de colisión de identificadores con otros anunciantes.
    
    > [!NOTE]
    > La oferta y los identificadores de SKU se muestran en la dirección URL de la oferta en Marketplace.
    > 
    > 
-2. **Agregue una descripción resumida de la SKU.**  Las descripciones resumidas serán visibles para los clientes, así que es recomendable que sean fáciles de leer. No es necesario que esta información esté bloqueada hasta que se inserte en la fase de entorno de ensayo. Hasta entonces, puede editarla como desee.
+2. **Agregue una descripción resumida de la SKU.** Las descripciones resumidas serán visibles para los clientes, así que es recomendable que sean fáciles de leer. No es necesario que esta información esté bloqueada hasta que se inserte en la fase de entorno de ensayo. Hasta entonces, puede editarla como desee.
 3. Si usa SKU basadas en Windows, siga los vínculos sugeridos para adquirir las versiones aprobadas de Windows Server.
 
 ## <a name="2-create-an-azure-compatible-vhd-linux-based"></a>2. Creación de un VHD compatible con Azure (basado en Linux)
@@ -66,7 +66,7 @@ En esta sección se indican los pasos necesarios para crear una SKU basada en Wi
 ### <a name="31-ensure-that-you-are-using-the-correct-base-vhds"></a>3.1 Asegurarse de que se usan los VHD base correctos
 Los VHD del sistema operativo para su imagen de máquina virtual deben basarse en una imagen aprobada para Azure que contenga Windows Server o SQL Server.
 
-Para empezar, cree una máquina virtual a partir de alguna de las siguientes imágenes, que encontrará en [Microsoft Azure Portal][link-azure-portal]:
+Para comenzar, cree una máquina virtual a partir de alguna de las siguientes imágenes, que encontrará en el [Portal de Microsoft Azure][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
 * SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
@@ -82,7 +82,7 @@ Estos vínculos se encuentran también en el portal de publicación, en la pági
 ### <a name="32-create-your-windows-based-vm"></a>3.2 Crear su propia máquina virtual basada en Windows
 Desde el Portal de Microsoft Azure, puede crear su máquina virtual basada en una imagen base aprobada con solo algunos pasos sencillos. A continuación se ofrece información general del proceso:
 
-1. En la página de la imagen base, seleccione **Crear máquina virtual** para ir al nuevo [Microsoft Azure Portal][link-azure-portal].
+1. En la página de la imagen base, seleccione **Crear máquina virtual** para ir al nuevo [Portal de Microsoft Azure][link-azure-portal].
    
     ![dibujo][img-acom-1]
 2. Inicie sesión en el portal con la cuenta Microsoft y la contraseña de la suscripción de Azure que desee usar.
@@ -122,7 +122,7 @@ Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocol
 > 
 > 
 
-**Conectarse mediante RDP con [Microsoft Azure Portal][link-azure-portal]**
+**Conectarse mediante RDP usando el [Portal de Microsoft Azure][link-azure-portal]**
 
 1. Seleccione **Examinar** > **Máquinas virtuales**.
 2. Se abre la hoja Máquinas virtuales. Compruebe que la máquina virtual con la que desea conectarse está ejecutándose y selecciónela en la lista de máquinas virtuales implementadas.
@@ -131,7 +131,7 @@ Se recomienda encarecidamente desarrollar el VHD en la nube mediante el Protocol
 
 **Conectarse mediante RDP con PowerShell**
 
-Para descargar un archivo de Escritorio remoto en una máquina local, use el [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para usar este cmdlet, tiene que conocer el nombre del servicio y el de la máquina virtual. Si ha creado la máquina virtual desde [Microsoft Azure Portal][link-azure-portal], puede ver esta información en las propiedades de la máquina virtual:
+Para descargar un archivo de escritorio remoto en una máquina local, use el [cmdlet Get-AzureRemoteDesktopFile][link-technet-2]. Para usar este cmdlet, tiene que conocer el nombre del servicio y el de la máquina virtual. Si creó la máquina virtual desde el [Portal de Microsoft Azure][link-azure-portal], puede ver esta información en las propiedades de la máquina virtual:
 
 1. En Microsoft Azure Portal, seleccione **Examinar** > **Máquinas virtuales**.
 2. Se abre la hoja Máquinas virtuales. Seleccione la máquina virtual que ha implementado.
@@ -142,7 +142,7 @@ Para descargar un archivo de Escritorio remoto en una máquina local, use el [cm
     ![dibujo][img-portal-vm-rdp]
 6. El cmdlet para descargar el archivo RDP de la máquina virtual creada en el escritorio local del administrador es el siguiente.
    
-        Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
+        Get-AzureRemoteDesktopFile -ServiceName “baseimagevm-6820cq00” -Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 Encontrará más información acerca de RDP en el artículo de MSDN [Conectarse a una máquina virtual de Azure con RDP o SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
@@ -186,7 +186,7 @@ Para obtener más información sobre las imágenes de máquina virtual consulte 
 * [Acerca de las imágenes de máquina virtual en Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurar las herramientas necesarias, PowerShell y la CLI de Azure
-* [Cómo configurar PowerShell](../powershell-install-configure.md)
+* [Cómo configurar PowerShell](/powershell/azureps-cmdlets-docs)
 * [Cómo configurar la CLI de Azure](../xplat-cli-install.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Crear una imagen de máquina virtual de usuario
@@ -224,11 +224,11 @@ Para implementar una máquina virtual a partir de una imagen de máquina virtual
 
 Para implementar una máquina virtual de gran tamaño, puede usar los siguientes cmdlets desde la imagen de máquina virtual generalizada que acaba de crear.
 
-    $img = Get‐AzureVMImage ‐ImageName "myVMImage"
+    $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
     $pass = "adminPassword123"
-    $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
-    New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
+    $myVM = New-AzureVMConfig -Name "VMImageVM" -InstanceSize "Large" -ImageName $img.ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
+    New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
 > Vea [Solución de problemas comunes que se encuentran durante la creación de VHD] para obtener más ayuda.
@@ -294,13 +294,13 @@ El URI de firma de acceso compartido creado debe cumplir los siguientes requisit
 * La duración del acceso debe ser un mínimo de siete días laborables a partir de la creación del URI de firma de acceso compartido.
 * Para evitar errores inmediatos debido al desfase temporal, especifique una hora que sea 15 minutos anterior a la hora actual.
 
-Para crear un URI de firma de acceso compartido, siga las instrucciones que se indican en [Shared access signatures, Part 1: Understanding the SAS model (Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido)][link-azure-1] y [Shared access signatures, Part 2: Create and use a SAS with the Azure Blob service (Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con Azure Blob service)][link-azure-2].
+Para crear un URI de firma de acceso compartido, siga las instrucciones que se proporcionan en [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido][link-azure-1] y [Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con Blob Service][link-azure-2].
 
-En lugar de generar una clave de acceso compartido mediante código, también puede usar herramientas de almacenamiento, como [Azure Storage Explorer][link-azure-codeplex].
+En lugar de generar una clave de acceso compartido mediante código, también puede usar herramientas de almacenamiento, como [Explorador de Azure Storage][link-azure-codeplex].
 
 **Usar Explorador de almacenamiento de Azure para generar una clave de acceso compartido**
 
-1. Descargue [Azure Storage Explorer][link-azure-codeplex] versión 6 o posterior desde CodePlex.
+1. Descargue [Explorador de Azure Storage][link-azure-codeplex] versión 6 o superior desde CodePlex.
 2. Una vez instalado, abra la aplicación.
 3. Haga clic en **Agregar cuenta**.
    
@@ -423,6 +423,6 @@ Cuando termine con los detalles de SKU, podrá continuar con la [guía de conten
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

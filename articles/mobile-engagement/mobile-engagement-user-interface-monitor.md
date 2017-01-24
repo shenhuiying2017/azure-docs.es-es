@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 838079ed1317aca19ee8e5c5721efb0d93dd97e6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a2971c3b66b31e2936ca7ebc95d103ff5daf5881
 
 
 ---
@@ -38,14 +38,14 @@ Puede ver cuántos usuarios están actualmente en sesión y en pantallas especí
 ## <a name="troubleshooting-with-monitor---events---details"></a>Solución de problemas con Supervisión - Eventos - Detalles
 Generar un evento en la aplicación desde el dispositivo de prueba y encontrarlo en Supervisión - Eventos - Detalles es una de las maneras más fáciles de encontrar el identificador del dispositivo para el dispositivo de prueba y confirmar que la integración de Azure Mobile Engagement de Análisis, Segmentos y Supervisión está ejecutándose desde su aplicación. Una vez que dispone del identificador de dispositivo del dispositivo de prueba, puede agregarlo a sus dispositivos de prueba en "Mi cuenta – Dispositivos". Si no se puede generar un evento, asegúrese de que Azure Mobile Engagement está integrado correctamente en la aplicación Android/iOS/Web/Windows/Windows Phone con el SDK.
 
-Para más información, consulte [Documentación de SDK][Vínculo 5].
+Para obtener más información, consulte [Documentación de SDK][Link 5].
 
 ![Monitor2][15]  
 
 ## <a name="troubleshooting-with-monitor---crashes---details"></a>Solución de problemas con Supervisión - Bloqueos - Detalles
 Puede revisar la información de bloqueos sobre la aplicación desde Supervisión - Bloqueos - Detalles para ayudar a determinar por qué se bloquea la aplicación. También debería buscar problemas conocidos relacionados con cada versión del SDK en las notas de la versión para cada versión del SDK de Android/iOS/Web/Windows/Windows Phone.
 
-Para más información, consulte [Documentación de SDK - Notas de la versión][Vínculo 5]
+Para obtener más información, consulte [Documentación de SDK - notas de la versión][Link 5]
 
 ![Monitor3][16]
 
@@ -56,9 +56,9 @@ También puede especificar una tasa de detección mínima, que es la cantidad m�
 
 ![Monitor4][17]
 
-## <a name="see-also"></a>Consulte también
-* [Conceptos][Vínculo 6]
-* [Guía de solución de problemas de servicio][Vínculo 24]
+## <a name="see-also"></a>Otras referencias
+* [Conceptos][Link 6]
+* [Guía de solución de problemas de servicios][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png
@@ -121,42 +121,42 @@ También puede especificar una tasa de detección mínima, que es la cantidad m�
 [58]: ./media/mobile-engagement-user-interface-settings/settings13.png
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: ../mobile-engagement-how-tos-first-push.md
-[Vínculo 28]: ../mobile-engagement-how-tos-test-campaign.md
-[Vínculo 29]: ../mobile-engagement-how-tos-personalize-push.md
-[Vínculo 30]: ../mobile-engagement-how-tos-differentiate-push.md
-[Vínculo 31]: ../mobile-engagement-how-tos-schedule-campaign.md
-[Vínculo 32]: ../mobile-engagement-how-tos-text-view.md
-[Vínculo 33]: ../mobile-engagement-how-tos-web-view.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: ../mobile-engagement-how-tos-first-push.md
+[Link 28]: ../mobile-engagement-how-tos-test-campaign.md
+[Link 29]: ../mobile-engagement-how-tos-personalize-push.md
+[Link 30]: ../mobile-engagement-how-tos-differentiate-push.md
+[Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
+[Link 32]: ../mobile-engagement-how-tos-text-view.md
+[Link 33]: ../mobile-engagement-how-tos-web-view.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

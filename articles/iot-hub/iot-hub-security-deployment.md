@@ -1,6 +1,6 @@
 ---
-title: "Protección de la implementación de IoT | Microsoft Docs"
-description: "En este artículo se detalla cómo proteger la implementación de IoT"
+title: "Protección de la implementación de IoT de Azure | Microsoft Docs"
+description: "Protección de su implementación de IoT Incluye instrucciones para proteger el aprovisionamiento, las conexiones y el acceso al servicio IoT Hub de los dispositivos."
 services: iot-hub
 documentationcenter: 
 author: YuriDio
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0fe48b3d8d9e2d8f167788cbbca7a9e564dfa51b
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 12bb5b1b5f5ec860de347c1ea806da29eda3f88f
 
 
 ---
@@ -25,12 +25,12 @@ ms.openlocfilehash: 0fe48b3d8d9e2d8f167788cbbca7a9e564dfa51b
 ## <a name="see-also"></a>Otras referencias
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Simulating a device with the IoT Gateway SDK (Simulación de un dispositivo con el SDK de puerta de enlace de IoT)][lnk-gateway]
+* [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

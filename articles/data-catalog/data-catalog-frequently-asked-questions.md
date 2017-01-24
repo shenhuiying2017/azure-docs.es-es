@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -77,15 +77,15 @@ Las propiedades específicas variarán en función del origen de datos, pero en 
 
 > [!IMPORTANT]
 > Al registrar recursos de datos en el Catálogo de datos de Azure, no se mueven los datos a la nube ni se copian en ella. Registrar recursos desde un origen de datos copiará los metadatos de los recursos en Azure, pero los datos permanecerán en la ubicación del origen de datos existente. La única excepción a esta regla es si un usuario elige cargar registros de vista previa o un perfil de datos al registrar los recursos. Cuando se incluya una vista previa, se copiarán hasta 20 registros de cada recurso y se almacenarán como instantánea en el Catálogo de datos de Azure. Cuando se incluye un perfil de datos, se calculará la información agregada (como el tamaño de las tablas, los valores null de porcentaje por columna y los valores mínimos, máximos y promedios para las columnas) y se incluirá en los metadatos almacenados en el catálogo.
-> 
-> 
+>
+>
 
 <br/>
 
 > [!NOTE]
 > Para los orígenes de datos como SQL Server Analysis Services que tienen una propiedad **Description** de primera clase, la aplicación de publicación del Catálogo de datos de Azure extraerá el valor de esa propiedad. En el caso de las bases de datos relacionales de SQL Server, que no disponen de una propiedad **Description** de primera clase, la aplicación de publicación de Azure Data Catalog extraerá el valor de la propiedad extendida ms_description para los objetos y las columnas. Para obtener más información, vea en TechNet [Usar propiedades extendidas en objetos de base de datos](https://technet.microsoft.com/library/ms190243%28v=sql.105%29.aspx).
-> 
-> 
+>
+>
 
 ## <a name="q-how-long-should-it-take-for-newly-registered-assets-to-appear-in-azure-data-catalog"></a>P: ¿Cuánto tiempo se debe esperar a que aparezcan los recursos recién registrados en el Catálogo de datos de Azure?
 Después de registrar recursos en el Catálogo de datos de Azure, es posible que transcurra un periodo de 5 a 10 segundos hasta que aparezcan en el portal del Catálogo de datos de Azure.
@@ -127,7 +127,6 @@ R: Para actualizar los metadatos de los recursos de datos que ya están registra
 
 ## <a name="q-my-question-isnt-answered-here--what-should-i-do"></a>P: Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 Diríjase al [Foro del Catálogo de datos de Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Las preguntas formuladas ahí tendrán respuesta aquí.
-
 
 
 

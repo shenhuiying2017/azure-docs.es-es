@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60d3225f276b54e08946744838a5028a02666149
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
 
 
 ---
@@ -81,7 +81,7 @@ Permitir definir funciones (SPROC) y entidades expuestas a través de una base d
 * Información general: [http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx][OverviewLink]
 
 [OverviewLink]:http://msdn.microsoft.com/library/vstudio/ee382825(v=vs.100).aspx
-* Vista previa: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
+* Presentación técnica: [http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx][PreviewLink]
 
 [PreviewLink]:http://msdn.microsoft.com/library/aa697428(v=vs.80).aspx
 * Tipos de datos: [http://msdn.microsoft.com/library/bb399548(v=VS.100).aspx][DataTypesLink]
@@ -93,7 +93,7 @@ El siguiente diagrama el flujo detallado de izquierda a derecha desde donde el c
   ![dibujo](media/marketplace-publishing-data-service-creation-odata-mapping/figure-3.png)
 
 ## <a name="csdl-basics"></a>Aspectos básicos de CSDL
-Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificación que define cómo describir el servicio web o el servicio de base de datos en un lenguaje XML común para Azure Marketplace. CSDL describe las partes fundamentales que **hacen posible el paso de los datos desde el origen de datos a Azure Marketplace.**  A continuación, se describen las partes fundamentales:
+Un CSDL (lenguaje de definición de esquemas conceptuales) es una especificación que define cómo describir el servicio web o el servicio de base de datos en un lenguaje XML común para Azure Marketplace. CSDL describe las partes fundamentales que **hacen posible el paso de los datos desde el origen de datos a Azure Marketplace.** A continuación, se describen las partes fundamentales:
 
 * Información de interfaz que describe todas las funciones disponibles al público (nodo FunctionImport).
 * Información de tipo de datos para todas las solicitudes de mensajes (entrada) y respuestas de mensajes (salidas) (nodos EntityContainer/EntitySet/EntityType).
@@ -321,6 +321,6 @@ Se conecta a un servicio que expone una vista o una tabla de base de datos como 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

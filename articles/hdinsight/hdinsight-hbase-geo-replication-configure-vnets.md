@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/28/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4c5b3b8d4e5e35aaef1a61530ee148db9e67e5a7
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: f9b2192dfb40e2dd3cd2afa308f1cf84491e0580
 
 
 ---
@@ -45,7 +45,7 @@ Para verla en vídeo:
 Este tutorial es una parte de la [serie][hdinsight-hbase-replication] sobre la creación de replicación geográfica de HBase. 
 
 * Configuración de la conectividad VPN entre dos redes virtuales (este tutorial)
-* [Configuración de DNS entre dos redes virtuales de Azure][hdinsight-hbase-geo-replication-dns]
+* [Configuración de DNS para las redes virtuales][hdinsight-hbase-geo-replication-dns]
 * [Configuración de la replicación geográfica de HBase][hdinsight-hbase-geo-replication]
 
 El diagrama siguiente muestra las dos redes virtuales que creará en este tutorial:
@@ -88,7 +88,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
    
    * **SERVIDOR DNS**: (déjelo en blanco) 
      
-     Necesitará su propio servidor DNS para la resolución de nombres dentro de las redes virtuales. Para obtener más información sobre cuándo usar la resolución de nombres proporcionada por Azure y cuándo usar su propio servidor DNS, vea [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Para obtener instrucciones para configurar la resolución de nombres entre redes virtuales, consulte [Configuración de DNS entre dos redes virtuales de Azure][hdinsight-hbase-dns].
+     Necesitará su propio servidor DNS para la resolución de nombres dentro de las redes virtuales. Para obtener más información sobre cuándo usar la resolución de nombres proporcionada por Azure y cuándo usar su propio servidor DNS, vea [Resolución de nombres (DNS)](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Para obtener instrucciones para configurar la resolución de nombres entre redes virtuales, vea [Configurar DNS entre dos redes virtuales de Azure][hdinsight-hbase-dns].
    * **Configurar una VPN de punto a sitio**: (déjelo desactivado)
      
      Punto a sitio no se aplica a este escenario.
@@ -239,6 +239,6 @@ En este tutorial ha aprendido cómo configurar una conexión VPN entre dos redes
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/04/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -52,8 +52,8 @@ Al visualizar los resultados de la búsqueda, se resaltarán las propiedades mos
 
 > [!NOTE]
 > Los usuarios pueden desactivar el resaltado de referencias si lo desean, mediante el conmutador "Resaltado" del portal del **Catálogo de datos de Azure** .
-> 
-> 
+>
+>
 
 Al visualizar los resultados de la búsqueda, puede que no siempre sea evidente por qué se incluye un recurso de datos, incluso con el resaltado habilitado. Dado que se busca en todas las propiedades de forma predeterminada, es posible que se devuelva un recurso de datos debido a una coincidencia en una propiedad de nivel de columna. Y puesto que distintos usuarios pueden anotar los recursos de datos registrados con sus propias descripciones y etiquetas, es posible que no se muestren todos los metadatos en la lista de resultados de la búsqueda.
 
@@ -66,7 +66,6 @@ Al registrar un origen de datos con el **Catálogo de datos de Azure** se facili
 
 ## <a name="see-also"></a>Consulte también
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) para obtener información paso a paso sobre cómo detectar orígenes de datos.
-
 
 
 

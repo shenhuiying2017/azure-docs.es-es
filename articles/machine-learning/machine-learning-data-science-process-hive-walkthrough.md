@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/09/2016
 ms.author: hangzh;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6eb9fd3750eaf03547f93462d97bc30d30a9a8bc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4b466878831b9a8d78c03738397f2119a6d5e13d
 
 
 ---
@@ -736,7 +736,7 @@ A continuación se indican algunos detalles del módulo [Importar datos][import-
 **Nombre de contenedor de Azure** : este es el nombre del contenedor predeterminado para el clúster y suele ser el mismo que el nombre del clúster. En un clúster denominado "abc123", es abc123.
 
 > [!IMPORTANT]
-> **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Azure Machine Learning debe ser una tabla interna.**  Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
+> **Cualquier tabla que desee consultar mediante el módulo [Importar datos][import-data] de Azure Machine Learning debe ser una tabla interna.** Una manera de determinar si una tabla T en una base de datos D.db es una tabla interna es la siguiente.
 > 
 > 
 
@@ -748,7 +748,7 @@ Si la tabla es una tabla interna y está rellena, su contenido se debe mostrar a
 
 A continuación, se muestra una instantánea de la consulta de Hive y el módulo [Importar datos][import-data]:
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
+![Consulta de Hive para el módulo de importación de datos](./media/machine-learning-data-science-process-hive-walkthrough/1eTYf52.png)
 
 Tenga en cuenta que, dado que los datos reducidos se encuentran en el contenedor predeterminado, la consulta de Hive resultante de Azure Machine Learning es muy sencilla, simplemente "SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data".
 
@@ -765,17 +765,17 @@ a. En este problema la etiqueta de destino (o clase) es "tipped". El conjunto de
 
 La siguiente instantánea muestra nuestro experimento para predecir si se pagó o no una propina por una carrera determinada.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
+![Instantánea del experimento](./media/machine-learning-data-science-process-hive-walkthrough/QGxRz5A.png)
 
 b. En este experimento las distribuciones de la etiqueta de destino eran aproximadamente 1:1.
 
 La siguiente instantánea muestra la distribución de las etiquetas de clase de propina para el problema de clasificación binaria.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
+![Distribución de las etiquetas de clase de sugerencia](./media/machine-learning-data-science-process-hive-walkthrough/9mM4jlD.png)
 
 Como resultado, obtenemos un área bajo la curva de 0,987 tal como se muestra en la figura siguiente.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
+![Valor de AUC](./media/machine-learning-data-science-process-hive-walkthrough/8JDT0F8.png)
 
 **2. Clasificación con múltiples clases**: permite predecir el intervalo de importes de propinas para la carrera mediante las clases definidas anteriormente.
 
@@ -785,15 +785,15 @@ a. En este problema, la etiqueta de destino (o clase) es "tip\_class", que puede
 
 La siguiente instantánea muestra nuestro experimento para predecir en qué ubicación es probable que se incluya una propina (clase 0: propina = 0 $, clase 1: propina > 0 $ y < = 5 $, clase 2: propina > 5 $ y < = 10 $, clase 3: propina > 10 $ y < = 20 $, clase 4: propina > 20 $)
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
+![Instantánea del experimento](./media/machine-learning-data-science-process-hive-walkthrough/5ztv0n0.png)
 
 Ahora vemos qué aspecto tiene nuestra distribución de clases de prueba real. Se puede ver que, mientras que las clase 0 y 1 son frecuentes, las demás no lo son.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
+![Distribución de la clase de prueba](./media/machine-learning-data-science-process-hive-walkthrough/Vy1FUKa.png)
 
 b. En este experimento utilizamos una matriz de confusión para analizar la precisión de las predicciones. Esto se muestra a continuación.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
+![Matriz de confusión](./media/machine-learning-data-science-process-hive-walkthrough/cxFmErM.png)
 
 Observe que, aunque la precisión para las clases frecuentes es bastante buena, el modelo no hace un buen trabajo de "aprendizaje" en las clases menos frecuentes.
 
@@ -805,11 +805,11 @@ a. En este problema la etiqueta de destino (o clase) es "tip\_amount". En este c
 
 La instantánea siguiente muestra nuestro experimento para predecir el importe de una propina determinada.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
+![Instantánea del experimento](./media/machine-learning-data-science-process-hive-walkthrough/11TZWgV.png)
 
 b. En los problemas de regresión se mide la precisión de nuestra predicción mediante la observación del error cuadrático en las predicciones, el coeficiente de determinación y similares. Lo mostramos a continuación.
 
-![](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
+![Estadísticas de predicción](./media/machine-learning-data-science-process-hive-walkthrough/Jat9mrz.png)
 
 Vemos que el coeficiente de determinación es 0,709, lo que implica que aproximadamente el 71% de la varianza se explica por nuestros coeficientes de modelo.
 
@@ -839,6 +839,6 @@ Microsoft comparte este tutorial de ejemplo y sus scripts adjuntos bajo la licen
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
