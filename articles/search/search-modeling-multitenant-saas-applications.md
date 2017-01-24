@@ -14,8 +14,8 @@ ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0063c689d4259d15c6aa2c8ca037a512644419fd
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
 
 
 ---
@@ -125,6 +125,11 @@ Para que un único índice se comporte de forma diferente para diferentes puntos
 
 Este método puede usarse para lograr la funcionalidad de cuentas de usuario independientes, niveles de permisos independientes e incluso aplicaciones completamente independientes.
 
+> [!NOTE]
+> El enfoque descrito anteriormente para configurar un solo índice único y dar servicio a varios inquilinos afecta a la relevancia de los resultados de la búsqueda. Las puntuaciones de importancia de la búsqueda se calculan en un ámbito de nivel del índice, no en el del inquilino, por lo que los datos de todos los inquilinos se incorporan en las estadísticas subyacentes de las puntuaciones de relevancia como frecuencia de término.
+> 
+> 
+
 ## <a name="next-steps"></a>Pasos siguientes
 Azure Search es una opción convincente para muchas aplicaciones, [le más sobre las sólidas funcionalidades del servicio](http://aka.ms/whatisazsearch). Al evaluar los diversos patrones de diseño para aplicaciones multiinquilino, tenga en cuenta los [distintos planes de tarifa](https://azure.microsoft.com/pricing/details/search/) y sus respectivos [límites de servicio](search-limits-quotas-capacity.md) para adaptar mejor Azure Search de forma que encaje en cargas de trabajo de aplicaciones y arquitecturas de todos los tamaños.
 
@@ -133,6 +138,6 @@ Las preguntas sobre Azure Search y los escenarios multiinquilino se pueden dirig
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

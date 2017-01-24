@@ -1,12 +1,12 @@
 ---
-title: Implementación y administración de Centros de notificaciones mediante PowerShell
-description: Creación y administración de Centros de notificaciones mediante PowerShell con vistas a la automatización
+title: "Implementación y administración de Centros de notificaciones mediante PowerShell"
+description: "Creación y administración de Centros de notificaciones mediante PowerShell con vistas a la automatización"
 services: notification-hubs
-documentationcenter: ''
+documentationcenter: 
 author: ysxu
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: powershell
@@ -14,6 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: 4db058e4bd91dc287b14e887abc6c378c65c4a2b
+
 
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Implementación y administración de Centros de notificaciones mediante PowerShell
@@ -23,7 +27,7 @@ Este artículo muestra cómo crear y administrar Centros de notificaciones de Az
 * Creación de un centro de notificaciones
 * Definición de credenciales
 
-Si también necesita crear un nuevo espacio de nombres de Service Bus para sus Notification Hubs, consulte [Administración de Service Bus con PowerShell](../service-bus/service-bus-powershell-how-to-provision.md).
+Si también necesita crear un nuevo espacio de nombres de Service Bus para sus Notification Hubs, consulte [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md).
 
 No se admite la administración de Centros de notificaciones directamente mediante los cmdlets incluidos con Azure PowerShell. El mejor enfoque en PowerShell es hacer referencia al ensamblado Microsoft.Azure.NotificationHubs.dll. El ensamblado se distribuye con el [paquete NuGet de los Centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
@@ -34,7 +38,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell].
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
-## <a name="including-a-reference-to-the-.net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
+## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
 La administración de los Centros de notificaciones de Azure no está incluida aún con los cmdlets de Azure PowerShell. Para aprovisionar los centros de notificaciones, puede usar el cliente de .NET ofrecido en el [paquete NuGet de los Centros de notificaciones de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 En primer lugar, asegúrese de que el script puede encontrar el ensamblado **Microsoft.Azure.NotificationHubs.dll** , que se instala como un paquete NuGet en un proyecto de Visual Studio. Para ser flexible, el script llevará a cabo estos pasos:
@@ -142,7 +146,7 @@ else
 
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Administración de Service Bus con PowerShell](../service-bus/service-bus-powershell-how-to-provision.md)
+* [Administración de Service Bus con PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
 * [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
 * [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
@@ -152,8 +156,8 @@ Además, puede descargar algunos scripts listos para usar:
 
 [Opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
 [Ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
-[prueba gratuita]: http://azure.microsoft.com/pricing/free-trial/
-[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
+[Evaluación gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[Instalación y configuración de Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API de .NET para Centros de notificaciones]: https://msdn.microsoft.com/library/azure/mt414893.aspx
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
@@ -162,6 +166,6 @@ Además, puede descargar algunos scripts listos para usar:
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Conceptos para desarrolladores del Catálogo de datos de Azure | Microsoft Docs
-description: Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo.
+title: Conceptos para desarrolladores de Data Catalog | Microsoft Docs
+description: "Introducción a los conceptos clave en el modelo conceptual del Catálogo de datos de Azure, como se expone mediante la API de REST del catálogo."
 services: data-catalog
-documentationcenter: ''
+documentationcenter: 
 author: spelluru
 manager: jhubbard
-editor: ''
-tags: ''
-
+editor: 
+tags: 
+ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/11/2016
+ms.date: 01/19/2017
 ms.author: spelluru
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9591d7e2dd743e44d228205163ad55cb47992283
+
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceptos para desarrolladores del Catálogo de datos de Azure
@@ -55,7 +59,7 @@ Las anotaciones son elementos que representan los metadatos acerca de los recurs
 
 Ejemplos de las anotaciones incluyen descripciones, etiquetas, esquemas, documentación, etc. Una lista completa de los tipos de recursos y de anotaciones se encuentra en la sección Modelo de objeto de recurso.
 
-## <a name="crowdsourcing-annotations-and-user-perspective-(multiplicity-of-opinion)"></a>Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
+## <a name="crowdsourcing-annotations-and-user-perspective-multiplicity-of-opinion"></a>Anotaciones de micromecenazgo y perspectiva del usuario (multiplicidad de opinión)
 Un aspecto clave del Catálogo de datos de Azure es cómo admite el micromecenazgo de los metadatos en el sistema. En contraposición con un enfoque de wiki (en el que solo hay una opinión y el último escritor es el que gana), el modelo del Catálogo de datos de Azure permite escribir varias opiniones en el sistema.
 
 Este enfoque refleja el mundo real de los datos empresariales, en el que distintos usuarios pueden tener distintas perspectivas en un recurso:
@@ -358,6 +362,6 @@ La entidad de seguridad especial &lt;Todos&gt; tiene el elemento objectId "00000
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

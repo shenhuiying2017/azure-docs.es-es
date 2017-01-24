@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2016
+ms.date: 11/16/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ab38d9fb438a5629e0a9c2388a2ce296ab7ba03
+ms.sourcegitcommit: aaef3322fc98b0874222e4a3728d54a38a34b602
+ms.openlocfilehash: 4dca50c6a0e6809876357edee8c6475796984c70
 
 
 ---
@@ -112,7 +112,7 @@ El dispositivo está diseñado para operar con dos PCM. Cada uno de los PCM tien
 
 Para reducir la probabilidad de lesiones, descargas eléctricas o muerte:
 
-* No quite las cubiertas del PCM. Existe peligro de descargas eléctricas en su interior. Para devolver el PCM y obtener un reemplazo, [póngase en contacto con el servicio de soporte técnico de Microsoft](https://msdn.microsoft.com/library/azure/dn757750.aspx).
+* No quite las cubiertas del PCM. Existe peligro de descargas eléctricas en su interior. Para devolver el PCM y obtener un reemplazo, [póngase en contacto con el servicio de soporte técnico de Microsoft](storsimple-contact-microsoft-support.md).
 
 ![Icono Aviso](./media/storsimple-safety/IC740881.png) **AVISO:**
 

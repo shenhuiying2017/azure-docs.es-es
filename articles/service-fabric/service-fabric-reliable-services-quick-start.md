@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/28/2016
 ms.author: vturecek
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
+ms.sourcegitcommit: 4b12d221b057161013aa3401e343ec41e4637f7c
+ms.openlocfilehash: ae77871a30e0768f6848056223cacf55b064bf1a
 
 
 ---
@@ -27,7 +27,9 @@ ms.openlocfilehash: 5c1faabdf07f7cc7692ef7600d1c21d6685f72ca
 > 
 > 
 
-Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).
+Una aplicación de Service Fabric de Azure contiene uno o varios servicios que ejecutan su código. En esta guía se muestra cómo crear aplicaciones de Service Fabric con estado y sin él mediante [Reliable Services](service-fabric-reliable-services-introduction.md).  Este vídeo de Microsoft Virtual Academy también muestra cómo crear un servicio confiable sin estado: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=s39AO76yC_7206218965">  
+<img src="./media/service-fabric-reliable-services-quick-start/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## <a name="basic-concepts"></a>Conceptos básicos
 Para empezar a trabajar con Reliable Services, solo es necesario comprender cuatro conceptos básicos:
@@ -229,6 +231,6 @@ Una vez que los servicios empiecen a ejecutarse, podrá ver los eventos del Segu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

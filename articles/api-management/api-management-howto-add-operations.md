@@ -12,11 +12,11 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/15/2016
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1bc391f5be5e41c6b6691950241ba5f3abdbf538
+ms.sourcegitcommit: d8b2f91a4d47513572fc5a56c60524d8338c8df4
+ms.openlocfilehash: 4527e27f760a7a0685f92a7108c4e8ff9759d33c
 
 
 ---
@@ -28,7 +28,7 @@ Las operaciones se agregan y se configuran para una API en el portal del publica
 
 ![Portal del publicador][api-management-management-console]
 
-> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Creación de una instancia del servicio API Management] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
+> Si aún no ha creado ninguna instancia del servicio de API Management, consulte [Creación de una instancia del servicio API Management][Create an API Management service instance] en el tutorial [Introducción a Azure API Management][Get started with Azure API Management].
 > 
 > 
 
@@ -47,6 +47,8 @@ Especifique el **Verbo HTTP** seleccionándolo en la lista desplegable.
 <a name="url-template"></a>
 
 Defina la plantilla de URL escribiendo un fragmento de la dirección URL que conste de uno o más segmentos de ruta de la URL y de cero o más parámetros de la cadena de consulta. La plantilla de URL, que se anexa a la dirección URL base de la API, identifica una sola operación HTTP. Puede contener uno o más elementos de variable con nombre que se identifican mediante llaves. Estos elementos de variable se denominan parámetros de plantilla y son valores asignados automáticamente que se extraen de la dirección URL de la solicitud al procesar la solicitud en la plataforma Administración de API.
+
+> La plantilla de URL puede incluir patrones de caracteres comodín. Por ejemplo, si se especifica `/*`, se remitirán las solicitudes para ese método HTTP al servicio final.
 
 ![URL template][api-management-url-template]
 
@@ -75,7 +77,7 @@ Para habilitar fácil y rápidamente el almacenamiento en caché de la operació
 
 Se usan claves de caché para diferenciar entre respuestas de forma que la respuesta correspondiente a cada clave de caché distinta obtenga su propio valor almacenado en caché por separado. Opcionalmente, escriba los parámetros específicos de la cadena de consulta o los encabezados HTTP que se usarán para calcular los valores de clave de caché en los cuadros de texto **Variar por parámetros de cadena de consulta** y **Variar por encabezados**, respectivamente. Cuando no se especifica ninguno, se usan la dirección URL de la solicitud completa y los siguientes valores de encabezado HTTP en la generación de claves de caché: **Accept** y **Accept-Charset**.
 
-> Para más información sobre el almacenamiento en caché y las directivas de almacenamiento en caché, vea [Almacenamiento en caché de resultados de operaciones en Administración de API de Azure][Almacenamiento en caché de resultados de operaciones en Administración de API de Azure].
+> Para obtener más información sobre el almacenamiento en caché y las directivas de almacenamiento en caché, consulte [Almacenamiento en caché de resultados de operaciones en API Management de Azure][How to cache operation results in Azure API Management].
 > 
 > 
 
@@ -129,7 +131,7 @@ Una vez configurada la operación, haga clic en **Guardar**.
 ## <a name="next-steps"> </a>Pasos siguientes
 Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API al producto y publicarlo para que los desarrolladores pueden llamar a las operaciones.
 
-* [Creación y publicación de un producto][Creación y publicación de un producto]
+* [Creación y publicación de un producto][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -154,22 +156,22 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
 [api-management-api-summary]: ./media/api-management-howto-add-operations/api-management-api-summary.png
 [api-management-echo-operations]: ./media/api-management-howto-add-operations/api-management-echo-operations.png
 
-[Agregar una operación]: #add-operation
-[Almacenamiento en caché de operaciones]: #operation-caching
-[Parámetros de solicitud]: #request-parameters
-[Cuerpo de la solicitud]: #request-body
-[Respuestas]: #responses
-[Pasos siguientes]: #next-steps
+[Add an operation]: #add-operation
+[Operation caching]: #operation-caching
+[Request parameters]: #request-parameters
+[Request body]: #request-body
+[Responses]: #responses
+[Next steps]: #next-steps
 
-[Introducción a la Administración de API de Azure]: api-management-get-started.md
-[Creación de una instancia del servicio API Management]: api-management-get-started.md#create-service-instance
+[Get started with Azure API Management]: api-management-get-started.md
+[Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[Incorporación de operaciones a una API]: api-management-howto-add-operations.md
-[Creación y publicación de un producto]: api-management-howto-add-products.md
-[Almacenamiento en caché de resultados de operaciones en Administración de API de Azure]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,20 +1,24 @@
 ---
-title: Escalado automático y conjuntos de escalas de máquinas virtuales | Microsoft Docs
-description: Obtenga información sobre el uso de los diagnósticos y los recursos de escalado automático para escalar automáticamente las máquinas virtuales de un conjunto de escalas.
+title: "Escalado automático y conjuntos de escalado de máquinas virtuales | Microsoft Docs"
+description: "Obtenga información sobre el uso de los diagnósticos y los recursos de escalado automático para escalar automáticamente las máquinas virtuales de un conjunto de escalas."
 services: virtual-machine-scale-sets
-documentationcenter: ''
-author: davidmu1
+documentationcenter: 
+author: Thraka
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
-ms.author: davidmu
+ms.date: 10/18/2016
+ms.author: adegeo
+translationtype: Human Translation
+ms.sourcegitcommit: 090374b057a62251e40ccc41f60f61e84e08a03f
+ms.openlocfilehash: ff137ead5e3490a129b36c959040d3571bff7669
+
 
 ---
 # <a name="automatic-scaling-and-virtual-machine-scale-sets"></a>Escalado automático y conjuntos de escalas de máquinas virtuales
@@ -22,10 +26,10 @@ El escalado automático de máquinas virtuales en un conjunto de escalado consis
 
 El escalado automático es un proceso automatizado que ayuda a reducir la sobrecarga de administración. Al reducir la sobrecarga, no es necesario supervisar el rendimiento del sistema continuamente o decidir cómo administrar los recursos. El escalado es un proceso flexible. A medida que aumenta la carga pueden agregarse más recursos, pero, al reducirse la demanda, se pueden quitar recursos para minimizar los costos y mantener los niveles de rendimiento.
 
-Configure el escalado automático en un conjunto de escalado mediante una plantilla de Azure Resource Manager, Azure PowerShell o la CLI de Azure.
+Configure el escalado automático en un conjunto de escalado mediante una plantilla de Azure Resource Manager, Azure PowerShell, la CLI de Azure o Azure Portal.
 
 ## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configuración del escalado mediante plantillas de Resource Manager
-En lugar de implementar y administrar cada recurso de la aplicación por separado, utilice una plantilla que implemente todos los recursos en una operación única y coordinada. En la plantilla, se definen los recursos de la aplicación y se especifican los parámetros de implementación para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para más información, eche un vistazo a [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+En lugar de implementar y administrar cada recurso de la aplicación por separado, utilice una plantilla que implemente todos los recursos en una operación única y coordinada. En la plantilla, se definen los recursos de la aplicación y se especifican los parámetros de implementación para diferentes entornos. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación. Para más información, eche un vistazo a [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 En la plantilla, especifique el elemento de la capacidad:
 
@@ -193,14 +197,17 @@ Y se agrega una máquina virtual al conjunto de escalado:
 Tras un período de recuperación de cinco minutos, si el número medio de subprocesos en las máquinas sigue siendo superior a 600, se agregará otra máquina al conjunto. Si el número medio de subprocesos permanece por debajo de 550, la capacidad del conjunto de escalado se reduce en uno y se quita una máquina del conjunto.
 
 ## <a name="set-up-scaling-using-azure-powershell"></a>Configuración del escalado con Azure PowerShell
-Para ver ejemplos del uso de PowerShell para configurar el escalado automático, consulte [Ejemplos de inicio rápido de Powershell de Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Para ver ejemplos del uso de PowerShell para configurar el escalado automático, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
 
 ## <a name="set-up-scaling-using-azure-cli"></a>Configuración del escalado con la CLI de Azure
-Para ver ejemplos del uso de la CLI de Azure para configurar el escalado automático, consulte [Ejemplos de inicio rápido de CLI multiplataforma de Azure Insights](../monitoring-and-diagnostics/insights-cli-samples.md).
+Para ver ejemplos del uso de la CLI de Azure para configurar el escalado automático, consulte [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md).
+
+## <a name="set-up-scaling-using-the-azure-portal"></a>Configuración del escalado mediante Azure Portal
+Para ver un ejemplo de uso de Azure Portal para configurar el escalado automático, examine [Creación de un conjunto de escalado con Azure Portal](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="investigate-scaling-actions"></a>Más información sobre las acciones de escalado
-* [Portal de Azure]() : en estos momentos, puede obtener una cantidad limitada de información mediante el Portal.
-* [Explorador de recursos de Azure]() : es la mejor herramienta para explorar el estado actual del conjunto de escalado. Si sigue esta ruta de acceso, debería ver la vista de instancia del conjunto de escalas que creó: suscripciones > {su suscripción} > resourceGroups > {su grupo de recursos} > proveedores > Microsoft.Compute > virtualMachineScaleSets > {su conjunto de escalas} > virtualMachines
+* Azure Portal: en estos momentos, puede obtener una cantidad limitada de información mediante el portal.
+* Azure Resource Explorer: es la mejor herramienta para explorar el estado actual del conjunto de escalado. Si sigue esta ruta de acceso, debería ver la vista de instancia del conjunto de escalas que creó: Suscripciones > {su suscripción} > resourceGroups > {su grupo de recursos} > proveedores > Microsoft.Compute > virtualMachineScaleSets > {su conjunto de escalado} > virtualMachines
 * Azure PowerShell: use este comando para más información:
   
         Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
@@ -209,11 +216,14 @@ Para ver ejemplos del uso de la CLI de Azure para configurar el escalado automá
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Consulte [Escalado automático de máquinas en un conjunto de escalado de máquinas virtuales](virtual-machine-scale-sets-windows-autoscale.md) para ver un ejemplo de cómo crear un conjunto de escalado con el escalado automático configurado.
-* Vea ejemplos de características de supervisión de Azure Insights en [Ejemplos de inicio rápido de Powershell de Azure Insights](../monitoring-and-diagnostics/insights-powershell-samples.md)
-* Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
-* Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Insights](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+* Encuentre ejemplos de características de supervisión de Azure Monitor en [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
+* Información acerca de las características de notificación en [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+* Información acerca del [Uso de registros de auditoría para enviar notificaciones de alerta por correo electrónico y webhook en Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
 * Más información sobre los [escenarios avanzados de escalado automático](virtual-machine-scale-sets-advanced-autoscale.md).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO2-->
 
 

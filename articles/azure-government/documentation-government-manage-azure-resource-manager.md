@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 10/10/2016
-ms.author: brendalee
+ms.author: brendal
 translationtype: Human Translation
-ms.sourcegitcommit: 4febeb038f1007e1e20981d120debe4db1d7731a
-ms.openlocfilehash: dd511273e8ce3b9dd98b3d26534a9ddb7aee8ebf
+ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
+ms.openlocfilehash: 89aa44df74effec7da2eb008faf8f01dda0d27ca
 
 
 ---
 # <a name="azure-resource-manager"></a>Administrador de recursos de Azure
-Para más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [aquí](../resource-manager-supported-services.md). En las tablas siguientes se enumeran los servicios que se admiten a través de Resource Manager en Azure Government.
+Para más información sobre los proveedores de Resource Manager, las versiones de API y los esquemas, consulte [aquí](../azure-resource-manager/resource-manager-supported-services.md). En las tablas siguientes se enumeran los servicios que se admiten a través de Resource Manager en Azure Government.
 
 ## <a name="compute"></a>Proceso
 | Servicio | Administrador de recursos habilitado |
@@ -45,7 +45,7 @@ Para más información sobre los proveedores de Resource Manager, las versiones 
 | Redes virtuales |yes |
 | VPN Gateway |Sí |
 
-## <a name="data-storage"></a>Datos y almacenamiento
+## <a name="data--storage"></a>Datos y almacenamiento
 | Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | DocumentDB |No |
@@ -56,7 +56,7 @@ Para más información sobre los proveedores de Resource Manager, las versiones 
 | SQL Data Warehouse |Sí |
 | StorSimple |No |
 
-## <a name="web-mobile"></a>Web y móvil
+## <a name="web--mobile"></a>Web y móvil
 | Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | API Apps |Sí |
@@ -89,7 +89,7 @@ Para más información sobre los proveedores de Resource Manager, las versiones 
 | IoTHubs |No |
 | Notification Hubs |No |
 
-## <a name="media-cdn"></a>Multimedia y CDN
+## <a name="media--cdn"></a>Multimedia y CDN
 | Servicio | Administrador de recursos habilitado |
 | --- | --- |
 | CDN |No |
@@ -131,6 +131,6 @@ Para información complementaria y actualizaciones suscríbase al <a href="https
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Nov16_HO4-->
 
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: a0374d6aeae42641e906a7f8e39bfc58eaacf096
-ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
+ms.sourcegitcommit: ca01baebd755e92aff1ef080af1fcd4606b9a2ec
+ms.openlocfilehash: 200caac4b480495b0bbb8f10cc89fdd73c42dbe2
 
 
 ---
@@ -26,16 +26,18 @@ ms.openlocfilehash: b351229c474e84a9e385d2ed81f2eb73267d9fd1
 Para más información sobre este servicio y cómo usarlo, consulte [Tamaños de las máquinas virtuales Linux en Azure](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="variations"></a>Variaciones
-Las siguientes SKU de máquina virtual están disponible con carácter general (GA) en Azure Government:
+Los productos (VM) están disponibles en Azure Government:
 
-| SKU de la máquina virtual | US Gov VA | US Gov IA | Notas |
-| --- | --- | --- | --- |
-| Encontrará |GA |GA |None |
-| Dv1 |GA |- |None |
-| DSv1 |GA |- |None |
-| Dv2 |GA |GA |15 próximamente |
-| F |GA |GA |None |
-| G |Planeado |- |None |
+| Productos (VM) | US Gov VA | US Gov IA |
+| --- | --- | --- |
+| A0-A7 |Y |Y |
+| Serie D |Y |N |
+| Serie Dv2 |Y |Y |
+| Serie DS |Y |N |
+| Serie F |Y |Y |
+| Serie Fs |N |N |
+| Serie G |Y |N |
+| Serie GS |Y |N |
 
 ### <a name="data-considerations"></a>Consideraciones de datos
 La siguiente información identifica el límite de Azure Government para Máquinas virtuales de Azure:
@@ -50,6 +52,6 @@ Para información complementaria y actualizaciones suscríbase al <a href="https
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

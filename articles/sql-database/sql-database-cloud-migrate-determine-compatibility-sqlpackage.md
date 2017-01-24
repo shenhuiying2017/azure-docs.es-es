@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: ebe2cf3e-9561-4ede-8fb9-f3e6ce3fb7a6
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -15,8 +16,8 @@ ms.workload: sqldb-migrate
 ms.date: 11/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e8bb9e5a02a7caf95dae0101c720abac1c2deff3
-ms.openlocfilehash: a3e43c6cb8e26daf7359f935816648bf498407ec
+ms.sourcegitcommit: 06563b181a8d4ff568eb7cce15189defab0225ca
+ms.openlocfilehash: 16cc9beb3c239e583f47f33fe2f8c7caf44e8eb6
 
 
 ---
@@ -32,11 +33,13 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 ## <a name="using-sqlpackageexe"></a>Uso de SqlPackage.exe
 1. Abra un símbolo del sistema y cambie a un directorio que contiene la versión más reciente de sqlpackage.exe. Esta utilidad se incluye con las versiones más recientes de [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) y [SQL Server Data Tools para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), o bien puede descargar la versión más reciente de [SqlPackage](https://www.microsoft.com/en-us/download/details.aspx?id=53876) directamente desde el Centro de descarga Microsoft.
+
 2. Ejecute el siguiente comando SqlPackage con los argumentos siguientes para su entorno:
 
-```   
+   ```   
     sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1
-```   
+   ```   
+
    | Argumento | Descripción |
    | --- | --- |
    | < nombre_servidor > |nombre de servidor de origen |
@@ -45,9 +48,10 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
    | <nombre_esquema.nombre_tabla > |tablas cuyos datos se envían al archivo de destino |
    | <archivo_salida > |nombre y ubicación del archivo de salida con los errores, si existen |
    
-    The reason for the /p:TableName argument is that we only want to test for database compatibility for export to Azure SQL DB V12 rather than export the data from all tables. Unfortunately, the export argument for sqlpackage.exe does not support extracting zero tables. You need to specify at least one table, such as a single small table. The < output_file > contains the report of any errors. The "> 2>&1" string pipes both the standard output and the standard error resulting from the command execution to specified output file.
+    El motivo del argumento /p:TableName es que solo deseamos comprobar la compatibilidad de la base de datos para la exportación a Base de datos SQL de Azure V12, en lugar de exportar los datos de todas las tablas. Lamentablemente, el argumento de exportación de sqlpackage.exe no permite extraer cero tablas. Debe especificar al menos una tabla, por ejemplo, una sola tabla pequeña. < archivo_salida > contendrá el informe de los errores. La cadena "> 2>&1" une la salida estándar y el error estándar resultado de la ejecución del comando en el archivo de salida especificado.
    
-    ![Export a data-tier application from the Tasks menu](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+    ![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage01.png)
+
 3. Abra el archivo de salida y revise los errores de compatibilidad, si los hay. 
    
     ![Exportar una aplicación de capa de datos desde el menú Tareas](./media/sql-database-cloud-migrate/TestForCompatibilityUsingSQLPackage02.png)
@@ -66,6 +70,6 @@ En este artículo aprenderá a determinar si una base de datos de SQL Server es 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

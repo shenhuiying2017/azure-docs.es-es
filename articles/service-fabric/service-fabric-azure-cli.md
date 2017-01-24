@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 09/24/2016
 ms.author: subramar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1a73f51b182cd9ce4634deeb33153345b935b13b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: caf6dd414bd8f8180c90835dd9744dcd98f7709c
 
 
 ---
@@ -81,7 +81,8 @@ Reemplace la etiqueta PublicIPorFQDN por la dirección IP o FQDN real según cor
 
 Puede usar PowerShell o CLI para interactuar con su clúster de Service Fabric para Linux creado mediante Azure Portal. 
 
-**Precaución:** estos clústeres no son seguros, por tanto, puede abrir el clúster one-box agregando la dirección IP pública en el manifiesto de clúster.
+> [!WARNING]
+> Estos clústeres no son seguros, por tanto, puede abrir el clúster one-box agregando la dirección IP pública en el manifiesto de clúster.
 
 ## <a name="using-the-azure-cli-to-connect-to-a-service-fabric-cluster"></a>Uso de la CLI de Azure para conectarse a un clúster de Service Fabric
 Los siguientes comandos de la CLI de Azure describen cómo conectarse a un clúster seguro. Los detalles del certificado deben corresponder a un certificado de los nodos del clúster.
@@ -149,6 +150,24 @@ Con esto, ya puede iniciar la actualización de la aplicación con el siguiente 
 
 Ya puede supervisar mediante SFX la actualización de la aplicación. En unos minutos se habrá actualizado la aplicación.  También puede probar una aplicación actualizada con un error y comprobar la funcionalidad de reversión automática en Service Fabric.
 
+## <a name="converting-from-pfx-to-pem-and-vice-versa"></a>Conversión de PFX a PEM y viceversa
+
+Podría necesitar instalar un certificado en el equipo local (con Windows o Linux) para tener acceso a los clústeres seguros que pueden estar en un entorno diferente. Por ejemplo, al acceder a un clúster de Linux seguro desde un equipo Windows y viceversa, debe convertir el certificado PFX a PEM y viceversa. 
+
+Para convertir un archivo PEM a uno PFX, utilice el siguiente comando:
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+Para convertir un archivo PFX en uno PEM, use el comando siguiente:
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+Consulte la [documentación de OpenSSL](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) para obtener más información.
+
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="copying-of-the-application-package-does-not-succeed"></a>La copia del paquete de aplicación no se realiza correctamente
 Compruebe si `openssh` está instalado. De forma predeterminada, el escritorio Ubuntu no lo tiene instalado. Instálelo con el comando siguiente:
@@ -176,12 +195,14 @@ Si aun así, el problema continúa, pruebe a aumentar el número de sesiones de 
 ```
 El uso de claves para la autenticación ssh (en lugar de contraseñas) no se admite todavía (ya que la plataforma usa ssh para copiar los paquetes), así que use la autenticación de contraseña en su lugar.
 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 Configurar el entorno de desarrollo e implementar una aplicación de Service Fabric en un clúster de Linux.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

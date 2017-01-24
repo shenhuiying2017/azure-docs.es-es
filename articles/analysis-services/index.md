@@ -1,14 +1,13 @@
 ---
 layout: LandingPage
-description: "Aprenda a configurar el modelado de datos con Analysis Services en la nube. La documentación muestra cómo crear una solución de BI empresarial con datos tabulares."
 translationtype: Human Translation
-ms.sourcegitcommit: fad85d382ef508b65b57559f7f52e079caae9363
-ms.openlocfilehash: 40c79ea2a68c69352d7f14bd138f8131b3b01da9
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: a10f328258bfe7d34d0807d4e15aa4a8ce5bbafb
 
 ---
 # <a name="analysis-services-documentation"></a>Documentación de Analysis Services
 
-Aprenda a configurar y administrar modelado de datos con Analysis Services. Los tutoriales y otra documentación muestran cómo crear una solución de BI empresarial que usa datos tabulares en la nube o locales.
+Azure Analysis Services, que se basa en el motor analítico de eficacia probada de Microsoft SQL Server Analysis Services, ofrece un modelado de datos de categoría empresarial en la nube.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -109,6 +108,6 @@ Descargar la documentación sobre Analysis Services </div>
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO2-->
 
 

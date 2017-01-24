@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 01/03/2017
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: aac0354a8fbfb73bab3e7b5da7d9aefa69c9eb16
-ms.openlocfilehash: 5251ab851dd2934050747cd3ad7b2c4f0b9e98bb
+ms.sourcegitcommit: 7f074883c2330c5814eef415f193e1775caec432
+ms.openlocfilehash: ddb38f99adef288958fd3828cb685912bf35f218
 
 
 ---
@@ -35,7 +35,7 @@ El icono **Estado de seguridad del recurso** permite supervisar el estado de seg
 
 ![Icono de estado de seguridad de los recursos](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-Si Security Center identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](../virtual-network/virtual-networks-nsg.md), se enumerará aquí.
+Si Security Center identifica una vulnerabilidad que se debe abordar, como una máquina virtual donde faltan actualizaciones de seguridad o una subred sin un [grupo de seguridad de red](/virtual-network/virtual-networks-nsg.md), se enumerará aquí.
 
 ### <a name="monitor-virtual-machines"></a>Supervisión de máquinas virtuales
 Al hacer clic en **Máquinas virtuales** en el icono **Estado de seguridad del recurso**, se abrirá la hoja **Máquinas virtuales**, donde encontrará más detalles sobre los pasos de incorporación y prevención, así como una lista de las máquinas virtuales que supervisa Security Center, tal como se muestra en la siguiente captura de pantalla.
@@ -162,22 +162,22 @@ Esta tabla está ordenada (máquinas virtuales y subredes) por gravedad:
 * Naranja: prioridad media; se debe solucionar lo antes posible.
 * Verde (al final): estado de mantenimiento.
 
-En esta vista de topología, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](../vpn-gateway/vpn-gateway-site-to-site-create.md) y [redes virtuales (clásicas)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red para esos recursos, tal como se muestra en el ejemplo siguiente:
+En esta vista de topología, el primer nivel tiene [redes virtuales](../virtual-network/virtual-networks-overview.md), [puertas de enlace de red virtual](/vpn-gateway/vpn-gateway-site-to-site-create.md) y [redes virtuales (clásicas)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). El segundo nivel tiene subredes y el tercero, las máquinas virtuales que pertenecen a esas subredes. La columna derecha contiene el estado actual del grupo de seguridad de red para esos recursos, tal como se muestra en el ejemplo siguiente:
 
 ![Estado del grupo de seguridad de red en la sección de topología de redes](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
 En la parte inferior de esta hoja, aparecerán las recomendaciones para esta máquina virtual, parecidas a las que se han descrito antes. Puede hacer clic en una recomendación para ver más información o aplicar la configuración o el control de seguridad necesario.
 
 ### <a name="monitor-data"></a>Supervisión de datos
-Al hacer clic en **Datos** en el icono **Resources security health** (Estado de seguridad de recursos), se abrirá la hoja **SQL**, que contiene recomendaciones para problemas como el hecho de que no estén habilitados la auditoría ni el cifrado de datos transparente. También tiene [recomendaciones](security-center-sql-service-recommendations.md) sobre el estado general de la base de datos.
+Al hacer clic en **Datos** en el icono de **estado de seguridad de los recursos**, se abrirá la hoja **Data Resources** (Recursos de datos) con las recomendaciones para SQL y Storage. También tiene [recomendaciones](security-center-sql-service-recommendations.md) sobre el estado general de la base de datos. Para más información acerca del cifrado de almacenamiento, consulte Enable encryption for Azure storage account (Habilitar cifrado para la cuenta de almacenamiento de Azure) en Azure Security Center.
 
-![Estado de los recursos SQL](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Recursos de datos](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-Puede hacer clic en cualquier recomendación y obtener más detalles acerca de cómo realizar más acciones para resolver un problema. El ejemplo siguiente muestra la expansión de la recomendación **Auditoría de la base de datos no habilitada**.
+En **SQL Recommendations** (Recomendaciones de SQL) puede hacer clic en cualquier recomendación y obtener más detalles acerca de cómo realizar más acciones para resolver un problema. El ejemplo siguiente muestra la expansión de la recomendación **Auditoría de la base de datos y detección de amenazas en bases de datos de SQL**.
 
-![Detalles acerca de una recomendación de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Detalles acerca de una recomendación de SQL](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-La hoja **Habilitar la auditoría en bases de datos SQL** contiene la siguiente información:
+La hoja **Habilitar la auditoría y la detección de amenazas en bases de datos SQL** contiene la siguiente información:
 
 * Una lista de bases de datos SQL.
 * El servidor en el que se encuentran.
@@ -185,13 +185,14 @@ La hoja **Habilitar la auditoría en bases de datos SQL** contiene la siguiente 
 * El estado actual.
 * La gravedad del problema.
 
-Al hacer clic en la base de datos para abordar esta recomendación, se abrirá la hoja **Auditoría y detección de amenazas**, como se muestra en la siguiente captura de pantalla.
+Al hacer clic en la base de datos para abordar esta recomendación, se abrirá la hoja **Auditoría y detección de amenazas**, como se muestra en la siguiente pantalla.
 
 ![Hoja de auditoría y detección de amenazas](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 Para habilitar la auditoría, seleccione **Activar** en la opción **Auditoría**.
 
 ### <a name="monitor-applications"></a>Supervisión de aplicaciones
+
 Si la carga de trabajo de Azure tiene aplicaciones en las [máquinas virtuales (creadas con Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) con puertos web expuestos (puertos TCP 80 y 443), Security Center puede supervisarlas para identificar posibles problemas de seguridad y recomendar pasos para su corrección. Al hacer clic en el icono **Aplicaciones**, se abrirá la hoja **Aplicaciones** con una serie de recomendaciones en la sección de **Recomendaciones sobre aplicaciones**. También mostrará el desglose de la aplicación por host o IP virtual, tal como aparece en la siguiente captura de pantalla.
 
 ![Estado de la seguridad de las aplicaciones](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
@@ -216,6 +217,6 @@ En este artículo, aprendió a usar las funcionalidades de supervisión en Azure
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

@@ -3,7 +3,7 @@ title: "Creación de una cuenta de Azure Batch | Microsoft Docs"
 description: Aprenda a crear una cuenta de Lote de Azure en el Portal de Azure para ejecutar cargas de trabajo paralelas a gran escala en la nube
 services: batch
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/21/2016
-ms.author: marsma
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1a4e242c2d179d9aaf869d6f95af96ff754adf93
+ms.sourcegitcommit: dfcf1e1d54a0c04cacffb50eca4afd39c6f6a1b1
+ms.openlocfilehash: 8875c5e91a2a1ae848ebf725ca00bd43ec667dce
 
 
 ---
@@ -67,7 +67,7 @@ Una vez creada la cuenta, puede abrir la **hoja de la cuenta de Lote** para acce
     ![Claves de la cuenta de Lote en el Portal de Azure][account_keys]
 
 ## <a name="pricing"></a>Precios
-Las cuentas de Lote solo se ofrecen en el "nivel Gratis", lo que significa que no se le va a cobrar por la propia cuenta de Lote. Solo se cobran los recursos de proceso de Azure subyacentes que consumen sus soluciones de Lote y los recursos que consumen otros servicios cuando se ejecutan sus cargas de trabajo. Por ejemplo, se le cobrará por los nodos de proceso de los grupos y por los datos que almacene en Almacenamiento de Azure como entrada o salida de sus tareas. De igual forma, si se usa la característica [paquetes de aplicación](batch-application-packages.md) , se cobran los recursos de Almacenamiento de Azure que se utilizan para almacenar los paquetes de aplicación. Consulte [Precios de Batch][batch_pricing] para más información.
+Las cuentas de Lote solo se ofrecen en el "nivel Gratis", lo que significa que no se le va a cobrar por la propia cuenta de Lote. Solo se cobran los recursos de proceso de Azure subyacentes que consumen sus soluciones de Lote y los recursos que consumen otros servicios cuando se ejecutan sus cargas de trabajo. Por ejemplo, se le cobrará por los nodos de proceso de los grupos y por los datos que almacene en Almacenamiento de Azure como entrada o salida de sus tareas. De igual forma, si se usa la característica [paquetes de aplicación](batch-application-packages.md) , se cobran los recursos de Almacenamiento de Azure que se utilizan para almacenar los paquetes de aplicación. Para más información, consulte [Precios de Batch][batch_pricing].
 
 ## <a name="linked-azure-storage-account"></a>Cuenta de Almacenamiento de Azure vinculada
 Como se ha mencionado antes, puede asociar (opcionalmente) una cuenta de almacenamiento **de uso general** a su nueva cuenta de Lote. La característica de [paquetes de aplicación](batch-application-packages.md) de Batch usa el almacenamiento de blobs en un cuenta de almacenamiento de uso general, al igual que la biblioteca [.NET de convenciones de archivo de Lote](batch-task-output.md). Estas características opcionales le ayudan a implementar las aplicaciones que ejecutan las tareas de Lote y a conservar los datos que generan.
@@ -124,6 +124,6 @@ Además de usar el Portal de Azure, también puede crear y administrar cuentas d
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

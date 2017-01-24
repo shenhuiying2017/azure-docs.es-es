@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/13/2016
 ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 22a44e1c47748a54950d9ad732a04c08bbcefd87
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c8d02cdd50c7f44991aeabee1999a81ec18bf59c
 
 
 ---
@@ -88,7 +88,7 @@ Hay varias maneras de consumir el servicio de forma automática ( [aquí](http:/
 > 
 > 
 
-Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo de [Ejecutar script R][execute-r-script] que genera el modelo de previsión ARIMA mediante las funciones "auto.arima" y "previsión" de R. 
+Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo de [Ejecutar scripts R][execute-r-script] que genera el modelo de previsión ARIMA mediante las funciones "auto.arima" y "previsión" de R. 
 
 ### <a name="experiment-flow"></a>Flujo de experimento:
 ![Creación del espacio de trabajo][2]
@@ -142,6 +142,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 11/16/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: eb8cf20a5dbe34fb823b4e05430dee544fc271d1
-ms.openlocfilehash: a16bdb85b7915dfe5bd6afda51b21a39cb041e9b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 65dea49959402b66ba7513051dfe16d91d68ef3b
 
 
 ---
@@ -36,7 +36,7 @@ Después de completar este tutorial, estará capacitado para lo siguiente:
 ## <a name="prerequisites"></a>Requisitos previos
 Para realizar este tutorial, deberá cumplir los siguientes requisitos previos:
 
-* La versión más reciente de [Azure PowerShell](../powershell-install-configure.md)
+* La versión más reciente de [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Visual Studio 2015 o la versión de [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs.aspx)
 *  [Una suscripción de Azure](https://azure.microsoft.com/pricing/free-trial/)
 * Privilegios administrativos en el equipo
@@ -137,7 +137,7 @@ Se puede usar el script Setup.ps1 de la carpeta TollApp en GitHub para crear tod
 
 Descargue y guarde el soporte los archivos y carpetas de [TollApp](http://download.microsoft.com/download/D/4/A/D4A3C379-65E8-494F-A8C5-79303FD43B0A/TollApp.zip) compatibles.
 
-Abra una ventana de **Microsoft Azure PowerShell***como administrador*. Si aún no tiene Azure PowerShell, siga estas instrucciones que se indican en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
+Abra una ventana de **Microsoft Azure PowerShell***como administrador*. Si aún no tiene Azure PowerShell, siga estas instrucciones que se indican en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 Puesto que Windows bloquea automáticamente archivos .ps1, .dll y .exe, debe establecer la directiva de ejecución antes de ejecutar el script. Asegúrese de ejecutar la ventana de Azure PowerShell *como administrador*. Ejecute **Set-ExecutionPolicy unrestricted**. Cuando se le solicite, escriba **Y**.
 
@@ -445,6 +445,6 @@ Para más información sobre Azure Stream Analytics, consulte la [documentación
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

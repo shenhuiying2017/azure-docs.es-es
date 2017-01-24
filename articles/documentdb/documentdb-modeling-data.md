@@ -3,7 +3,7 @@ title: Modelado de datos en Azure DocumentDB | Microsoft Docs
 description: "Más información sobre el modelado de datos para DocumentDB, una base de datos de documentos NoSQL."
 keywords: modelado de datos
 services: documentdb
-author: kiratp
+author: arramac
 manager: jhubbard
 editor: mimig1
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2016
-ms.author: kipandya
+ms.date: 01/03/2016
+ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ba0dbc287964aa700cbded834e4b5da09144efe8
+ms.sourcegitcommit: 09f42bae67f794f12c7c37cd25c25f4c991fe893
+ms.openlocfilehash: 93d0d7276e4ff426e87bdc3dadd736de8d6525fb
 
 
 ---
@@ -119,11 +119,6 @@ Seleccione este fragmento JSON.
     }
 
 Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto será un problema, ya que el tamaño del documento puede aumentar notablemente.
-
-> [!TIP]
-> Los documentos de DocumentDB tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de DocumentDB](documentdb-limits.md).
-> 
-> 
 
 Puesto que el tamaño del documento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del documento, a escala, se producirá un impacto en ellos.
 
@@ -409,6 +404,6 @@ Y por último, para obtener información sobre el particionamiento y el modelado
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

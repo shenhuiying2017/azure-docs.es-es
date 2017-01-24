@@ -1,19 +1,23 @@
 ---
-title: Introducción a los Centros de eventos en C# con Apache Storm | Microsoft Docs
-description: Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos en C# y a recibirlos en un clúster de Apache Storm
+title: "Introducción a Event Hubs en C# con Apache Storm | Microsoft Docs"
+description: "Siga este tutorial para empezar a usar Centros de eventos de Azure, a enviar eventos en C# y a recibirlos en un clúster de Apache Storm"
 services: event-hubs
-documentationcenter: ''
+documentationcenter: 
 author: jtaubensee
 manager: timlt
-editor: ''
-
+editor: 
+ms.assetid: f64cb2bd-2e38-4c78-8d0d-9af14c000d9f
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
+translationtype: Human Translation
+ms.sourcegitcommit: f603a3c3304af3e64ef40f2cdef3745e3b2085b3
+ms.openlocfilehash: 508b1390bee1e61514e6e7499071d0503a051c10
+
 
 ---
 # <a name="get-started-with-event-hubs"></a>Introducción a los Centros de eventos
@@ -49,20 +53,19 @@ Ahora está preparado para ejecutar las aplicaciones.
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha creado una aplicación de trabajo que crea un centro de eventos y envía y recibe datos, puede pasar a los siguientes escenarios:
 
-* Una [aplicación de ejemplo completa que usa Centros de eventos][aplicación de ejemplo completa que usa Centros de eventos].
-* El ejemplo [Escala horizontal del procesamiento de eventos con Centros de eventos][Escala horizontal del procesamiento de eventos con Centros de eventos] .
+* Una [aplicación de ejemplo completa que usa Event Hubs][sample application that uses Event Hubs].
+* El ejemplo [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] (Escalado horizontal del procesamiento de eventos con Event Hubs).
 
 <!-- Images. -->
 [22]: ./media/event-hubs-csharp-storm-getstarted/receive-storm1.png
 
 <!-- Links -->
-[Portal de Azure clásico]: https://manage.windowsazure.com/
-[Información general sobre Centros de eventos]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Escala horizontal del procesamiento de eventos con Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Información general de los Centros de eventos de Azure]: event-hubs-overview.md
+[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

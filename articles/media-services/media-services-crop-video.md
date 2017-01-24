@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: anilmur;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 770eaaba800ed9847a34d38813ebbda82014a697
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7b0d7469e9c3688092bf7f98962ede0e4d7ef951
 
 
 ---
@@ -29,7 +29,7 @@ Suponga que tiene como entrada un vídeo con una resolución de 1920 x 1080 píx
 
 Recortar en MES es una fase previa al procesamiento, por ello, los parámetros de recorte del valor predeterminado de codificación se aplican al vídeo de entrada original. La codificación es una fase posterior y los valores de anchura y altura se aplicarán al vídeo *previamente procesado* y no al vídeo original. Al diseñar el valor predeterminado debe hacer lo siguiente: (a) seleccione los parámetros de recorte basándose en el vídeo de entrada original y (b), seleccione la configuración de codificación basándose en el vídeo recortado. Si no coincide la configuración de la codificación con el vídeo recortado, el resultado no será el esperado.
 
-El [siguiente](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) tema muestra cómo crear un trabajo de codificación con el MES y cómo especificar un valor predeterminado personalizado para la tarea de codificación. 
+El [siguiente](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) tema muestra cómo crear un trabajo de codificación con el MES y cómo especificar un valor predeterminado personalizado para la tarea de codificación. 
 
 ## <a name="creating-a-custom-preset"></a>Creación de un valor predeterminado personalizado
 En el ejemplo que aparece en el diagrama:
@@ -145,7 +145,6 @@ Consulte las rutas de aprendizaje de los Servicios multimedia de Azure para cono
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

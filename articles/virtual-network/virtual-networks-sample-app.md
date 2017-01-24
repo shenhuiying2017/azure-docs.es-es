@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d3f5e759f46bd4c4998c5d4bf70d64190ad972e
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 416fb49a9ec2972c3a03fb883888fb9dc679d4d0
 
 
 ---
 # <a name="sample-application-for-use-with-security-boundary-environments"></a>Aplicación de ejemplo para su uso con entornos de límite de seguridad
-[Volver a la página de procedimientos de límites de seguridad recomendados][HOME]
+[Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
 Estos scripts de PowerShell se pueden ejecutar localmente en los servidores IIS01 y AppVM01 para instalar y configurar una aplicación web muy sencilla que muestra una página html del servidor front-end IIS01 con el contenido del servidor back-end AppVM01.
 
@@ -196,6 +196,6 @@ No hay ningún script incluido en esta aplicación de ejemplo para configurar el
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

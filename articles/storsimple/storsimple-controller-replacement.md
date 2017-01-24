@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2689c8db4beb07d42da836795f9d85b53ed8f076
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: dcf0ff5c4d6ebb7d0aea0b9518cbbe66c9f0a649
 
 
 ---
@@ -173,7 +173,7 @@ Utilice el siguiente procedimiento para quitar un módulo defectuoso del control
 1. Sujete el pestillo del módulo entre el pulgar y el índice.
 2. Apriete suavemente el pulgar y el índice juntos para liberar el pestillo del controlador.
    
-    ![ Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
+    ![Liberación del pestillo del controlador](./media/storsimple-controller-replacement/IC741047.png)
    
     **Figura 2** Liberación del pestillo del controlador
 3. Use el pestillo como asa para deslizar el controlador hacia afuera del chasis.
@@ -250,6 +250,6 @@ Obtenga más información sobre el [Reemplazo de los componentes de hardware de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

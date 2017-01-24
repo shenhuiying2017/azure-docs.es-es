@@ -1,19 +1,23 @@
 ---
-title: Conexión de Configuration Manager con Log Analytics | Microsoft Docs
-description: En este artículo se muestran los pasos para conectar Configuration Manager con Log Analytics y empezar a analizar datos.
+title: "Conexión de Configuration Manager con Log Analytics | Microsoft Docs"
+description: "En este artículo se muestran los pasos para conectar Configuration Manager con Log Analytics y empezar a analizar datos."
 services: log-analytics
-documentationcenter: ''
+documentationcenter: 
 author: bandersmsft
-manager: jwhit
-editor: ''
-
+manager: carmonm
+editor: 
+ms.assetid: f2298bd7-18d7-4371-b24a-7f9f15f06d66
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 01/02/2017
 ms.author: banders
+translationtype: Human Translation
+ms.sourcegitcommit: 820a9463c0e58054cf70324b680c5af8fdcacade
+ms.openlocfilehash: 18479c3680aa46113e59d25b6e034830f78a1859
+
 
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conexión de Configuration Manager con Log Analytics
@@ -21,7 +25,7 @@ Puede conectar System Center Configuration Manager a Log Analytics de OMS para s
 
 Hay una serie de pasos necesarios para conectar Configuration Manager con OMS, así que presentamos un resumen del proceso general:
 
-1. En el Portal de administración de Azure, registre Configuration Manager como una aplicación web o una aplicación de API web y asegúrese de que tiene el identificador de cliente y la clave secreta de cliente en el registro de Azure Active Directory. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../resource-group-create-service-principal-portal.md) para obtener información detallada sobre cómo realizar este paso.
+1. En el Portal de administración de Azure, registre Configuration Manager como una aplicación web o una aplicación de API web y asegúrese de que tiene el identificador de cliente y la clave secreta de cliente en el registro de Azure Active Directory. Consulte [Uso del portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md) para obtener información detallada sobre cómo realizar este paso.
 2. En el Portal de administración de Azure, [proporcione a Configuration Manager (la aplicación web registrada) permiso para acceder a OMS](#provide-configuration-manager-with-permissions-to-oms).
 3. En Configuration Manager, [agregue una conexión mediante el Asistente para agregar una conexión de OMS](#add-an-oms-connection-to-configuration-manager).
 4. En Configuration Manager, puede [actualizar las propiedades de conexión](#update-oms-connection-properties) si la clave secreta de cliente o la contraseña nunca expira o se pierde.
@@ -36,25 +40,25 @@ El procedimiento siguiente proporciona al Portal de administración de Azure per
 
 > [!NOTE]
 > Debe especificar permisos a OMS para Configuration Manager. De lo contrario, recibirá un mensaje de error cuando utilice el Asistente para configuración de Configuration Manager.
-> 
-> 
+>
+>
 
 1. Abra [Azure Portal](https://portal.azure.com/) y haga clic en **Examinar** > **Log Analytics (OMS)** para abrir la hoja Log Analytics (OMS).  
 2. En la hoja **Log Analytics (OMS)**, haga clic en **Agregar** para abrir la hoja **OMS Workspace** (Área de trabajo de OMS).  
    ![Hoja OMS](./media/log-analytics-sccm/sccm-azure01.png)
 3. En la hoja **OMS Workspace** (Área de trabajo de OMS), proporcione la información siguiente y, después, haga clic en **Aceptar**.
-   
+
    * **Área de trabajo de OMS**
    * **Suscripción**
    * **Grupos de recursos**
    * **Ubicación**
    * **Plan de tarifa**  
      ![Hoja OMS](./media/log-analytics-sccm/sccm-azure02.png)  
-     
+
      > [!NOTE]
      > En el ejemplo siguiente se crea un grupo de recursos nuevo. El grupo de recursos solo se utiliza para proporcionar a Configuration Manager permisos para el área de trabajo de OMS en este ejemplo.
-     > 
-     > 
+     >
+     >
 4. Haga clic en **Examinar** > **Grupos de recursos** para abrir la hoja **Grupos de recursos**.
 5. En la hoja **Grupos de recursos**, haga clic en el grupo de recursos que creó anteriormente para abrir la hoja de configuración &lt;Nombre del grupo de recursos&gt;.  
    ![Hoja de configuración del grupo de recursos](./media/log-analytics-sccm/sccm-azure03.png)
@@ -71,7 +75,7 @@ Para agregar una conexión de OMS, su entorno de Configuration Manager debe tene
 
 1. En el área de trabajo **Administración** de Configuration Manager, seleccione **OMS Connector** (Conector de OMS). Se abrirá el **Asistente para agregar conexiones de OMS**. Seleccione **Siguiente**.
 2. En la pantalla **General**, confirme que ha realizado las siguientes acciones y que tiene los detalles de cada elemento; después, seleccione **Siguiente**.
-   
+
    1. En el Portal de administración de Azure, ha registrado Configuration Manager como una aplicación web o una aplicación de API web y asegúrese de que tiene el [identificador de cliente en el registro](../active-directory/active-directory-integrating-applications.md).
    2. En el Portal de administración de Azure, ha creado una clave secreta de la aplicación para la aplicación registrada en Azure Active Directory.  
    3. En el Portal de administración de Azure, ha proporcionado a la aplicación web registrada permiso para acceder a OMS.  
@@ -86,8 +90,8 @@ Para agregar una conexión de OMS, su entorno de Configuration Manager debe tene
 
 > [!NOTE]
 > Debe conectar OMS al sitio de nivel superior de la jerarquía. Si conecta OMS a un sitio primario independiente y, después, agrega un sitio de administración central a su entorno, tendrá que eliminar y volver a crear la conexión de OMS dentro de la nueva jerarquía.
-> 
-> 
+>
+>
 
 Después de haber vinculado Configuration Manager a OMS, puede agregar o quitar recopilaciones y ver las propiedades de la conexión de OMS.
 
@@ -126,6 +130,8 @@ Al hacer clic en cualquiera de ellos, se abre Búsqueda, que muestra todos los g
 ## <a name="next-steps"></a>Pasos siguientes
 * Use [Búsqueda de registros](log-analytics-log-searches.md) para ver información detallada sobre los datos de Configuration Manager.
 
-<!--HONumber=Oct16_HO2-->
+
+
+<!--HONumber=Jan17_HO1-->
 
 

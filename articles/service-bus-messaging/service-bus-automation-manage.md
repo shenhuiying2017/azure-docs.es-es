@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2016
+ms.date: 01/10/2017
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1912275b05948525486e4e30e2065bd7f63630cb
+ms.sourcegitcommit: 994a379129bffd7457912bc349f240a970aed253
+ms.openlocfilehash: 4817cda757b9f85f6225237f79293860c990ca88
 
 
 ---
@@ -31,7 +31,7 @@ Automatización de Azure proporciona un motor de ejecución de flujo de trabajo 
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-service-bus"></a>¿Cómo puede ayudar Automatización de Azure a administrar Bus de servicio de Azure?
-Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://msdn.microsoft.com/library/azure/mt639375.aspx). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas del Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
+Puede administrar el Bus de servicio con la Automatización de Azure mediante el uso de la [API de REST de Bus de servicio](https://docs.microsoft.com/rest/api/servicebus/). En Automatización de Azure, puede ejecutar scripts de PowerShell para realizar muchas de las tareas del Bus de servicio con las API de REST. También puede emparejar estas llamadas de API de REST en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas en los servicios de Azure y en sistemas de terceros.
 
 Los siguientes son algunos ejemplos de cómo usar PowerShell para administrar Bus de servicio de Azure:
 
@@ -50,6 +50,6 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

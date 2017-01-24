@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 01/22/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 4f541e34e7c0696e4074613c4ab0734a096c6d12
-ms.openlocfilehash: ee70cb290f8da874ff378ded97430acd3a0fc1cd
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 01a554815a48cf1b81037eaa2f55bc4f07838721
 
 
 ---
@@ -167,7 +167,7 @@ Para crear el grupo de recursos del entorno de preproducción, escriba el comand
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### <a name="powershell"></a>PowerShell
-Asegúrese de que tiene Azure PowerShell 1.01 o posterior instalado en un equipo Windows y de que ha conectado su [cuenta de Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (también denominada profesional o educativa) a la suscripción como se detalla en el artículo [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo.
+Asegúrese de que tiene Azure PowerShell 1.01 o posterior instalado en un equipo Windows y de que ha conectado su [cuenta de Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md) (también denominada profesional o educativa) a la suscripción como se detalla en el artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). En el símbolo del sistema de PowerShell, escriba el comando siguiente para crear el grupo de recursos del entorno de desarrollo.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 
@@ -235,7 +235,7 @@ Después de ver durante unos minutos un mensaje en el que indica que es preciso 
     data:    requestedServiceObjectiveName  String        S0
     info:    group deployment create command OKx
 
-Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-troubleshoot-deployments-cli.md) .
+Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-common-deployment-errors.md) .
 
 En la línea de comandos CLI, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de pruebas, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
@@ -278,7 +278,7 @@ Después de ver durante unos minutos un cursor intermitente, el comando devolver
 
     Outputs           :
 
-  Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-troubleshoot-deployments-powershell.md) .
+  Si el comando no funciona, resuelva los posibles mensajes de error y vuelva a intentarlo.  Algunos de los problemas más comunes se deben al uso de valores de parámetros que no cumplen las restricciones de nomenclatura de los recursos de Azure. Se pueden encontrar otras sugerencias de solución de problemas en el artículo [Solución de problemas de implementaciones de grupos de recursos en Azure](resource-manager-common-deployment-errors.md) .
 
   En el símbolo del sistema de PowerShell, escriba el comando siguiente para implementar recursos en el grupo de recursos que creó para el entorno de pruebas, y sustituya [path] por la ruta de acceso a los archivos guardados en los pasos anteriores.
 
@@ -364,6 +364,6 @@ Ahora que ha experimentado lo fácil que es crear, mantener y eliminar entornos 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/25/2016
+ms.date: 01/03/2017
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 8131002ba48a85b5116f13aa72d713526b56ac0a
-ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
+ms.sourcegitcommit: ab9c4bc6e2e68a3522bbc3fe23ea33760f03b620
+ms.openlocfilehash: fe40bc372a63735b0130bcbb115c312fa2e45fa6
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 20ca7cad38537be3f7f8dce9f9ac24ce82f85e79
 
 Cuando crea un clúster Spark en HDInsight, aprovisiona recursos de proceso de Azure con Spark instalado y configurado. Solamente se tardan unos diez minutos en crear un clúster Spark en HDInsight. Los datos que se van a renovar se almacenan en el almacenamiento de blobs de Azure. Consulte [Uso de Azure Blob Storage con HDInsight][hdinsight-storage].
 
-![Apache Spark en HDInsight de Azure](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark on Azure HDInsight")
+![Apache Spark en Azure HDInsight](./media/hdinsight-apache-spark-overview/hdispark.architecture.png "Apache Spark en Azure HDInsight")
 
 **¿Desea empezar a trabajar con Apache Spark en HDInsight de Azure?** Vea [Inicio rápido: creación de un clúster Spark en HDInsight basado en Linux y ejecución de consultas interactivas mediante Jupyter](hdinsight-apache-spark-jupyter-spark-sql.md).
 
@@ -43,7 +43,7 @@ HDInsight de Azure ofrece un servicio Spark completamente administrado. Estas so
 | Facilidad de creación de clústeres |Puede crear un nuevo clúster Spark en HDInsight en cuestión de minutos mediante el Portal de administración de Azure, Azure PowerShell o el SDK de .NET de HDInsight. Consulte [Introducción al clúster de Spark en HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
 | Facilidad de uso |Spark en clústeres de HDInsight incluye cuadernos de Jupyter preconfigurados. Puede usarlos para el procesamiento y la visualización de datos interactivos. La dirección URL para Jupyter Notebook es https://CLUSTERNAME.azurehdinsight.net/jupyter. Reemplace **CLUSTERNAME** por el nombre del clúster de Spark en HDInsight. |
 | API de REST |Spark en HDInsight incluye [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), un servidor de trabajo Spark de API de REST, para enviar y supervisar trabajos en ejecución de forma remota. |
-| Compatibilidad con Almacén de Azure Data Lake |Se puede configurar Spark en HDInsight para que utilice el Almacén de Azure Data Lake como un almacenamiento adicional. Para más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
+| Compatibilidad con Almacén de Azure Data Lake |Se puede configurar Spark en HDInsight para que utilice Azure Data Lake Store como un almacenamiento adicional, así como almacenamiento principal (solo con clústeres de HDInsight 3.5). Para más información acerca del Almacén de Data Lake, consulte la página con [información general del Almacén de Azure Data Lake](../data-lake-store/data-lake-store-overview.md). |
 | Integración con servicios de Azure |Spark en HDInsight incluye un conector a los Centros de eventos de Azure. Los clientes pueden compilar aplicaciones de streaming con los Centros de eventos, además de con [Kafka](http://kafka.apache.org/), que ya está disponible como parte de Spark. |
 | Compatibilidad con R Server |Puede configurar R Server en el clúster Spark de HDInsight para ejecutar cálculos R distribuidos con las velocidades prometidas mediante un clúster Spark. Para más información, consulte [Introducción al uso de R Server en HDInsight (versión preliminar)](hdinsight-hadoop-r-server-get-started.md). |
 | Integración con IntelliJ IDEA |Puede usar el complemento de HDInsight para IntelliJ para crear y enviar aplicaciones a un clúster Spark de HDInsight. Para más información, consulte [Uso del complemento Herramientas de HDInsight para IntelliJ IDEA para crear aplicaciones Spark en Scala para clúster HDInsight Spark Linux (versión preliminar)](hdinsight-apache-spark-intellij-tool-plugin.md). |
@@ -115,6 +115,6 @@ Empiece por crear un clúster de Spark en HDInsight Linux. Vea [Inicio rápido: 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Jan17_HO1-->
 
 

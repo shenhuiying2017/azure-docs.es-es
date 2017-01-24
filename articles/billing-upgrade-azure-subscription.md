@@ -3,8 +3,8 @@ title: "Actualización de una suscripción gratuita de Azure a pago por uso | Mi
 description: "Describe el proceso y los requisitos necesarios para actualizar una suscripción gratuita a una suscripción de pago por uso"
 services: 
 documentationcenter: 
-author: jlian
-manager: mbaldwin
+author: adpick
+manager: adpick
 editor: 
 tags: billing
 ms.assetid: 0b4ac8f3-3df0-478a-8a07-b18b40f0cf5f

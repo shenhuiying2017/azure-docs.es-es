@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 6a652890260c21deb64826fb73920ba5d17f61da
+ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
+ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
 
 
 ---
@@ -34,11 +34,11 @@ En este tutorial se usa el Portal de Azure para crear una instancia de Almacenam
 ## <a name="prerequisites"></a>Requisitos previos
 Para empezar, necesitará lo siguiente:
 
-* **Cuenta de Azure**: visite las secciones sobre [evaluación gratuita de Azure][evaluación gratuita de Azure] o [Crédito mensual de MSDN Azure][Crédito mensual de MSDN Azure] para crear una cuenta.
-* **Azure SQL Server**: consulte [Creación de un servidor lógico de Azure SQL Database con Azure Portal][Creación de un servidor lógico de Azure SQL Database con Azure Portal] para más información.
+* **Cuenta de Azure**: visite las secciones sobre [evaluación gratuita de Azure][Azure Free Trial] o [Crédito mensual de MSDN de Azure][MSDN Azure Credits] para crear una cuenta.
+* **Azure SQL Server**: consulte [Creación de un servidor lógico de Azure SQL Database con Azure Portal][Create an Azure SQL Database logical server with the Azure portal] para más información.
 
 > [!NOTE]
-> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][Precios de SQL Data Warehouse] para más información.
+> La creación de una instancia de Almacenamiento de datos SQL puede dar lugar a un nuevo servicio facturable.  Consulte [Precios de SQL Data Warehouse][SQL Data Warehouse pricing] para más información.
 >
 >
 
@@ -53,15 +53,15 @@ Para empezar, necesitará lo siguiente:
 
    * **Servidor**: se recomienda que seleccione primero su servidor.  
    * **Nombre de la base de datos**: el nombre que se usa para hacer referencia a Almacenamiento de datos SQL.  Debe ser exclusivo en el servidor.
-   * **Rendimiento**: se recomienda empezar por 400 [DWU][DWU]. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el rendimiento de su almacén de datos, o bien para reducirlo o escalarlo verticalmente una vez creado.  Para aprender más sobre las DWU, consulte nuestra documentación sobre [escalado](sql-data-warehouse-manage-compute-overview.md) o nuestra [página de precios][Precios de SQL Data Warehouse].
+   * **Rendimiento**: se recomienda empezar con 400 [DWU][DWU]. Puede mover el control deslizante hacia la izquierda o la derecha para ajustar el rendimiento de su almacén de datos, o bien para reducirlo o escalarlo verticalmente una vez creado.  Para aprender más sobre las DWU, consulte la documentación sobre el [escalado](sql-data-warehouse-manage-compute-overview.md) o nuestra [página de precios][SQL Data Warehouse pricing].
    * **Suscripción**: seleccione la [suscripción] a la que se facturará esta instancia de Almacenamiento de datos SQL.
-   * **Grupo de recursos**: los [Grupo de recursoss][Grupo de recursos] son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Más información sobre los [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
+   * **Grupo de recursos**: los [grupos de recursos][Resource group] son contenedores diseñados para ayudarle a administrar una colección de recursos de Azure. Más información sobre los [grupos de recursos](../azure-resource-manager/resource-group-overview.md).
    * **Selección del origen**: haga clic en **Seleccionar origen** > **Ejemplo**. Azure rellena automáticamente la opción **Seleccionar muestra** con AdventureWorksDW.
 
-> [!NOTE]
-> La intercalación predeterminada para un Almacenamiento de datos SQL es SQL_Latin1_General_CP1_CI_AS. Si se necesita una intercalación distinta, puede utilizar [T-SQL][T-SQL] para crear la base de datos con otra intercalación.
->
->
+   > [!NOTE]
+   > La intercalación predeterminada para un Almacenamiento de datos SQL es SQL_Latin1_General_CP1_CI_AS. Si se necesita una intercalación distinta, puede utilizar [T-SQL][T-SQL] para crear la base de datos con otra intercalación.
+   >
+   >
 
 1. Haga clic en **Crear** para crear su instancia de Almacenamiento de datos SQL.
 2. Espere unos minutos. Cuando el almacén de datos está listo, debería volver al [Azure Portal](https://portal.azure.com). Encontrará Almacenamiento de datos SQL en el panel, entre las bases de datos SQL o en el grupo de recursos que usó para crearlo.
@@ -77,15 +77,15 @@ Para cargar datos en Almacenamiento de datos SQL, consulte la [información gene
 
 Si está intentando migrar una base de datos existente a SQL Data Warehouse, consulte [ Información general sobre migración](sql-data-warehouse-overview-migrate.md) o use la [utilidad de migración](sql-data-warehouse-migrate-migration-utility.md).
 
-Las reglas de firewall también se pueden configurar mediante Transact-SQL. Para más información, vea [sp_set_firewall_rule][sp_set_firewall_rule] y [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
+Las reglas de firewall también se pueden configurar mediante Transact-SQL. Para más información, consulte [sp_set_firewall_rule][sp_set_firewall_rule] y [sp_set_database_firewall_rule][sp_set_database_firewall_rule].
 
-También es una buena idea echar un vistazo a los [procedimientos recomendados][procedimientos recomendados].
+También es una buena idea echar un vistazo a los [procedimientos recomendados][Best practices].
 
 <!--Article references-->
-[Creación de un servidor lógico de Azure SQL Database con Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
-[Creación de un servidor lógico de Base de datos SQL de Azure con PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../resource-group-template-deploy-portal.md
-[procedimientos recomendados]: sql-data-warehouse-best-practices.md
+[Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
+[Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
+[Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [suscripción]: ../azure-glossary-cloud-terminology.md#subscription
 [resource group]: ../azure-glossary-cloud-terminology.md#resource-group
@@ -96,12 +96,12 @@ También es una buena idea echar un vistazo a los [procedimientos recomendados][
 [sp_set_database_firewall_rule]: https://msdn.microsoft.com/library/dn270010.aspx
 
 <!--Other Web references-->
-[Precios de SQL Data Warehouse]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
-[evaluación gratuita de Azure]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
-[Crédito mensual de MSDN Azure]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+[SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+[Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
+[MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

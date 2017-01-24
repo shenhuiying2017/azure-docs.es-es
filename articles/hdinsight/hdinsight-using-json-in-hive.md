@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 06/22/2015
 ms.author: rashimg
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0a79029fef54dc8beaaa9daea690a67ae1940c44
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 89618f7549d8589d5ac684772832748ab9765d1a
 
 
 ---
@@ -100,7 +100,7 @@ Hive proporciona tres mecanismos distintos para ejecutar consultas en documentos
 * usar la UDF (función definida por el usuario) GET\_JSON\_OBJECT
 * usar la UDF JSON_TUPLE
 * usar el SerDe personalizado
-* escribir la propia UDF con Python u otros lenguajes Consulte [este artículo][hdinsight-python] sobre la ejecución de su propio código Python con Hive.
+* escribir la propia UDF con Python u otros lenguajes Consulte [este artículo][hdinsight-python] para obtener información sobre cómo ejecutar su propio código de Python con Hive.
 
 ### <a name="use-the-getjsonobject-udf"></a>Uso de la UDF GET\_JSON_OBJECT
 Hive proporciona una UDF integrada llamada [get json object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object) que puede realizar consultas JSON en tiempo de ejecución. Este método toma dos argumentos: el nombre de la tabla y el nombre del método que tiene el documento JSON acoplado y el campo JSON que debe analizarse. Veamos un ejemplo para ver cómo funciona esta UDF.
@@ -158,7 +158,7 @@ SerDe es la mejor opción para analizar documentos JSON anidados ya que le permi
       ![Configuración de los valores correctos para JDK][image-hdi-hivejson-jdk]
 2. Instalación de [Maven 3.3.1](http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.3.1/binaries/apache-maven-3.3.1-bin.zip)
    
-    Para agregar la carpeta bin a la ruta de acceso, vaya a Panel de control-->Edit the System Variables (Editar las variables del sistema) para su cuenta Variables de entorno. La captura de pantalla siguiente muestra cómo hacerlo.
+    Para agregar la carpeta bin a la ruta de acceso, vaya a Panel de control-->Edit the System Variables (Editar las variables del sistema) para su cuenta Variables de entorno. La captura de pantalla siguiente muestra cómo hacerlo.
    
     ![Configuración de Maven][image-hdi-hivejson-maven]
 3. Clone el proyecto del sitio de github [Hive-JSON-SerDe](https://github.com/sheetaldolas/Hive-JSON-Serde/tree/master) . Para ello, haga clic en el botón "Download Zip" (Descargar archivo comprimido) como se muestra en la captura de pantalla siguiente.
@@ -260,6 +260,6 @@ Para ver otros artículos relacionados, consulte
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -4,7 +4,7 @@ description: "Obtenga información acerca de cómo resolver problemas cuando se 
 services: 
 documentationcenter: 
 author: JiangChen79
-manager: mbaldwin
+manager: adpick
 editor: 
 tags: billing,top-support-issue
 keywords: "tarjeta de crédito rechazada, tarjeta de débito rechazada, se rechazó su tarjeta de crédito, la tarjeta de crédito no se acepta"

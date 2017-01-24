@@ -1,13 +1,13 @@
 ---
-title: Cómo configurar las conexiones VPN S2S activa-activa con Azure VPN Gateway utilizando Azure Resource Manager y PowerShell | Microsoft Docs
-description: Este artículo le guiará a la hora de configurar conexiones activo-activo con Azure VPN Gateway usando Azure Resource Manager y PowerShell.
+title: "Cómo configurar las conexiones VPN S2S activa-activa con Azure VPN Gateway utilizando Azure Resource Manager y PowerShell | Microsoft Docs"
+description: "Este artículo le guiará a la hora de configurar conexiones activo-activo con Azure VPN Gateway usando Azure Resource Manager y PowerShell."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,6 +15,10 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2016
 ms.author: yushwang
+translationtype: Human Translation
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 397928e851524fb43d3ffa114b45024b0158a410
+
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways-using-azure-resource-manager-and-powershell"></a>Configuración de conexiones VPN S2S activo-activo con Azure VPN Gateway utilizando Azure Resource Manager y PowerShell
@@ -41,7 +45,7 @@ Puede combinar todos estos elementos para crear una red más compleja de alta di
 > 
 > 
 
-## <a name="<a-name-="aagateway"></a>part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Parte 1: Creación y configuración de puertas de enlace VPN activo-activo
+## <a name="a-name-aagatewayapart-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Parte 1: Creación y configuración de puertas de enlace VPN activo-activo
 Los pasos a continuación configurarán Azure VPN Gateway en modos activo-activo. Las diferencias clave entre las puertas de enlace activo-activo y activo-en espera:
 
 * Tiene que crear dos configuraciones de IP de puerta de enlace con dos direcciones IP públicas
@@ -52,10 +56,10 @@ Las demás propiedades son las mismas que las de las puertas de enlace que no so
 
 ### <a name="before-you-begin"></a>Antes de empezar
 * Compruebe que tiene una suscripción a Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+* Necesitará instalar los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar los cmdlets de PowerShell.
 
 ### <a name="step-1---create-and-configure-vnet1"></a>Paso 1: Creación y configuración de VNet1
-#### <a name="1.-declare-your-variables"></a>1. Declaración de las variables
+#### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 Para este ejercicio, comenzaremos declarando las variables. En el ejemplo siguiente, se declaran las variables con los valores para este ejercicio. Asegúrese de reemplazar los valores por los suyos propios cuando realice la configuración para el entorno de producción. Puede usar estas variables si está practicando los pasos para familiarizarse con este tipo de configuración. Modifique las variables y después copie y pegue todo en la consola de PowerShell.
 
     $Sub1          = "Ross"
@@ -81,7 +85,7 @@ Para este ejercicio, comenzaremos declarando las variables. En el ejemplo siguie
     $Connection151 = "VNet1toSite5_1"
     $Connection152 = "VNet1toSite5_2"
 
-#### <a name="2.-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conexión a su suscripción y creación de un nuevo grupo de recursos
+#### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2. Conexión a su suscripción y creación de un nuevo grupo de recursos
 Asegúrese de cambiar el modo de PowerShell para que use los cmdlets del Administrador de recursos. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](../powershell-azure-resource-manager.md).
 
 Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo para ayudarle a conectarse:
@@ -90,7 +94,7 @@ Abre la consola de PowerShell y conéctate a tu cuenta. Use el siguiente ejemplo
     Select-AzureRmSubscription -SubscriptionName $Sub1
     New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
-#### <a name="3.-create-testvnet1"></a>3. Creación de TestVNet1
+#### <a name="3-create-testvnet1"></a>3. Creación de TestVNet1
 En el ejemplo siguiente se crea una red virtual denominada TestVNet1 y tres subredes llamadas: GatewaySubnet, FrontEnd y Backend. Al reemplazar valores, es importante que siempre asigne el nombre GatewaySubnet a la subred de la puerta de enlace. Si usa otro, se producirá un error al crear la puerta de enlace. 
 
     $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -100,7 +104,7 @@ En el ejemplo siguiente se crea una red virtual denominada TestVNet1 y tres subr
     New-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
 
 ### <a name="step-2---create-the-vpn-gateway-for-testvnet1-with-active-active-mode"></a>Paso 2: Creación de la puerta de enlace de VPN para TestVNet1 con modo activo-activo
-#### <a name="1.-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Creación de las configuraciones de direcciones de IP públicas y la IP de puerta de enlace
+#### <a name="1-create-the-public-ip-addresses-and-gateway-ip-configurations"></a>1. Creación de las configuraciones de direcciones de IP públicas y la IP de puerta de enlace
 Solicite que se asignen dos direcciones IP públicas a la puerta de enlace que creará para la red virtual. También definirá las configuraciones de subred y de IP necesarias. 
 
     $gw1pip1    = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
@@ -111,12 +115,12 @@ Solicite que se asignen dos direcciones IP públicas a la puerta de enlace que c
     $gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
     $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet $subnet1 -PublicIpAddress $gw1pip2
 
-#### <a name="2.-create-the-vpn-gateway-with-active-active-configuration"></a>2. Creación de la puerta de enlace VPN con una configuración activo-activo
+#### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2. Creación de la puerta de enlace VPN con una configuración activo-activo
 Cree la puerta de enlace de red virtual para TestVNet1. Tenga en cuenta que hay dos entradas de GatewayIpConfig y la marca EnableActiveActiveFeature está establecida. El modo activo-activo requiere una puerta de enlace VPN basada en enrutamiento de SKU HighPerformance. Se tardan unos 30 minutos o algo más en crear una puerta de enlace.
 
     New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 
-#### <a name="3.-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Obtención de las direcciones IP públicas de puerta de enlace y la dirección IP del par BGP
+#### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3. Obtención de las direcciones IP públicas de puerta de enlace y la dirección IP del par BGP
 Una vez creada la puerta de enlace, debe obtener la dirección IP del par BGP en la puerta de enlace de VPN de Azure. Esta dirección es necesaria para configurar la puerta de enlace de VPN de Azure como par BGP para los dispositivos de VPN local.
 
     $gw1pip1 = Get-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1
@@ -144,13 +148,13 @@ El orden de las direcciones IP públicas para las instancias de puerta de enlace
 
 Una vez creada la puerta de enlace, puede usarla para establecer conexión activo-activo entre entornos locales o de red virtual a red virtual. Las siguientes secciones le guiarán por los pasos necesarios para completar el ejercicio.
 
-## <a name="<a-name-="aacrossprem"></a>part-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Parte 2: Establecimiento de una conexión activo-activo entre entornos locales
+## <a name="a-name-aacrosspremapart-2---establish-an-active-active-cross-premises-connection"></a><a name ="aacrossprem"></a>Parte 2: Establecimiento de una conexión activo-activo entre entornos locales
 Para establecer una conexión entre locales, debe crear una puerta de enlace de red local para representar el dispositivo VPN local y una conexión para conectarse a la puerta de enlace de VPN de Azure con la puerta de enlace de red local. En este ejemplo, la instancia de Azure VPN Gateway está en modo activo-activo. Como resultado, aunque hay solo un dispositivo VPN local (puerta de enlace de red local) y un recurso de conexión, ambas instancias de Azure VPN Gateway establecerán túneles VPN de S2S con el dispositivo local.
 
 Antes de continuar, asegúrese de que ha completado la [parte 1](#aagateway) de este ejercicio.
 
 ### <a name="step-1---create-and-configure-the-local-network-gateway"></a>Paso 1: Cree y configure la puerta de enlace de red local
-#### <a name="1.-declare-your-variables"></a>1. Declaración de las variables
+#### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 Este ejercicio continuará generando la configuración mostrada en el diagrama. Asegúrese de reemplazar los valores por los que desea usar para su configuración.
 
     $RG5           = "TestAARG5"
@@ -168,23 +172,23 @@ Un par de cosas a tener en cuenta con respecto a los parámetros de la puerta de
 * Si BGP está habilitado el prefijo que debe declarar para la puerta de enlace de red local es la dirección del host de la dirección IP del par BGP en el dispositivo VPN. En este caso, es un prefijo /32 de "10.52.255.253/32".
 * Como recordatorio, debe usar diferentes ASN de BGP entre las redes locales y la red virtual de Azure. Si son iguales, tiene que cambiar el ASN de la red virtual si el dispositivo VPN local ya utiliza el ASN para emparejarse con otros vecinos de BGP.
 
-#### <a name="2.-create-the-local-network-gateway-for-site5"></a>2. Cree las puertas de enlace de red local para Site5
+#### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Cree las puertas de enlace de red local para Site5
 Antes de continuar, asegúrese de que sigue conectado a la suscripción 1. Cree el grupo de recursos si aún no se ha creado.
 
     New-AzureRmResourceGroup       -Name $RG5 -Location $Location5
     New-AzureRmLocalNetworkGateway -Name $LNGName51 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP51 -AddressPrefix $LNGPrefix51 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP51
 
 ### <a name="step-2---connect-the-vnet-gateway-and-local-network-gateway"></a>Paso 2: Conecte la puerta de enlace de red virtual y la puerta de enlace de red local
-#### <a name="1.-get-the-two-gateways"></a>1. Obtenga las dos puertas de enlace
+#### <a name="1-get-the-two-gateways"></a>1. Obtenga las dos puertas de enlace
     $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
     $lng5gw1 = Get-AzureRmLocalNetworkGateway   -Name $LNGName51 -ResourceGroupName $RG5
 
-#### <a name="2.-create-the-testvnet1-to-site5-connection"></a>2. Cree la conexión de TestVNet1 a Site5
+#### <a name="2-create-the-testvnet1-to-site5-connection"></a>2. Cree la conexión de TestVNet1 a Site5
 En este paso, creará la conexión de TestVNet1 a Site5_1 con "EnableBGP" establecido como $True..
 
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection151 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw1 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 
-#### <a name="3.-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. Parámetros VPN y BGP para el dispositivo VPN local
+#### <a name="3-vpn-and-bgp-parameters-for-your-on-premises-vpn-device"></a>3. Parámetros VPN y BGP para el dispositivo VPN local
 En el ejemplo siguiente se enumeran los parámetros que deberá especificar en la sección de configuración de BGP en el dispositivo VPN local para este ejercicio:
 
     - ASN de Site5            : 65050
@@ -203,7 +207,7 @@ La conexión debe establecerse después de unos minutos y se iniciará la sesió
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Paso 3: Conexión de dos dispositivos VPN locales con la puerta de enlace VPN activo-activo
 Si tiene dos dispositivos VPN en la misma red local, puede lograr redundancia dual conectando Azure VPN Gateway al segundo dispositivo VPN.
 
-#### <a name="1.-create-the-second-local-network-gateway-for-site5"></a>1. Creación de la puertas de enlace de red local para Site5
+#### <a name="1-create-the-second-local-network-gateway-for-site5"></a>1. Creación de la puertas de enlace de red local para Site5
 Tenga en cuenta que la dirección IP de puerta de enlace, el prefijo de dirección y la dirección de emparejamiento de BGP para la segunda puerta de enlace de red local no pueden solaparse con la puerta de enlace de red local anterior en la misma red local. 
 
     $LNGName52     = "Site5_2"
@@ -213,14 +217,14 @@ Tenga en cuenta que la dirección IP de puerta de enlace, el prefijo de direcci�
 
     New-AzureRmLocalNetworkGateway -Name $LNGName52 -ResourceGroupName $RG5 -Location $Location5 -GatewayIpAddress $LNGIP52 -AddressPrefix $LNGPrefix52 -Asn $LNGASN5 -BgpPeeringAddress $BGPPeerIP52
 
-#### <a name="2.-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Paso 2: Conexión de la puerta de enlace de red virtual y la segunda puerta de enlace de red local
+#### <a name="2-connect-the-vnet-gateway-and-the-second-local-network-gateway"></a>2. Paso 2: Conexión de la puerta de enlace de red virtual y la segunda puerta de enlace de red local
 Cree la conexión de TestVNet1 a Site5_2 con "EnableBGP" establecido como $True
 
     $lng5gw2 = Get-AzureRmLocalNetworkGateway   -Name $LNGName52 -ResourceGroupName $RG5
 
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng5gw2 -Location $Location1 -ConnectionType IPsec -SharedKey 'AzureA1b2C3' -EnableBGP True
 
-#### <a name="3.-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Los parámetros VPN y BGP para el segundo dispositivo VPN local
+#### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3. Los parámetros VPN y BGP para el segundo dispositivo VPN local
 De forma similar, a continuación se indican los parámetros que tendrá que especificar en el segundo dispositivo VPN:
 
     - ASN de Site5            : 65050
@@ -236,7 +240,7 @@ Una vez que se establece la conexión (túneles), tendrá dos dispositivos VPN r
 
 ![redundancia-dual-entre entornos locales](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
-## <a name="<a-name-="aav2v"></a>part-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Parte 3: Establecimiento de una conexión activo-activo de red virtual a red virtual
+## <a name="a-name-aav2vapart-3---establish-an-active-active-vnet-to-vnet-connection"></a><a name ="aav2v"></a>Parte 3: Establecimiento de una conexión activo-activo de red virtual a red virtual
 En esta sección se crea una conexión de red virtual a red virtual activo-activo con BGP. 
 
 Las instrucciones que siguen son continuación de los pasos anteriores ya explicados. Tiene que completar la [Parte 1](#aagateway) para crear y configurar TestVNet1 y VPN Gateway con BGP. 
@@ -246,7 +250,7 @@ Es importante asegurarse de que el espacio de direcciones IP de la red virtual n
 
 En este ejemplo, las redes virtuales pertenecen a la misma suscripción. Puede configurar las conexiones de red virtual a red virtual entre distintas suscripciones, para ello consulte [Configuración de una conexión de red virtual a red virtual](vpn-gateway-vnet-vnet-rm-ps.md) para más información. Asegúrese de agregar "-EnableBgp True" al crear las conexiones para habilitar BGP.
 
-#### <a name="1.-declare-your-variables"></a>1. Declaración de las variables
+#### <a name="1-declare-your-variables"></a>1. Declaración de las variables
 Asegúrese de reemplazar los valores por los que desea usar para su configuración.
 
     $RG2           = "TestAARG2"
@@ -270,7 +274,7 @@ Asegúrese de reemplazar los valores por los que desea usar para su configuraci�
     $Connection21  = "VNet2toVNet1"
     $Connection12  = "VNet1toVNet2"
 
-#### <a name="2.-create-testvnet2-in-the-new-resource-group"></a>2. Cree TestVNet2 en el nuevo grupo de recursos
+#### <a name="2-create-testvnet2-in-the-new-resource-group"></a>2. Cree TestVNet2 en el nuevo grupo de recursos
     New-AzureRmResourceGroup -Name $RG2 -Location $Location2
 
     $fesub2 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName2 -AddressPrefix $FESubPrefix2
@@ -279,7 +283,7 @@ Asegúrese de reemplazar los valores por los que desea usar para su configuraci�
 
     New-AzureRmVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2 -Location $Location2 -AddressPrefix $VNetPrefix21,$VNetPrefix22 -Subnet $fesub2,$besub2,$gwsub2
 
-#### <a name="3.-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Creación de la puerta de enlace VPN activo-activo para TestVNet2
+#### <a name="3-create-the-active-active-vpn-gateway-for-testvnet2"></a>3. Creación de la puerta de enlace VPN activo-activo para TestVNet2
 Solicite que se asignen dos direcciones IP públicas a la puerta de enlace que creará para la red virtual. También definirá las configuraciones de subred y de IP necesarias. 
 
     $gw2pip1    = New-AzureRmPublicIpAddress -Name $GW2IPName1 -ResourceGroupName $RG2 -Location $Location2 -AllocationMethod Dynamic
@@ -297,13 +301,13 @@ Cree la puerta de enlace VPN con el número de AS y la marca "EnableActiveActive
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>Paso 2: Conecte las puertas de enlace de TestVNet1 y TestVNet2
 En este ejemplo, ambas puertas de enlace están en la misma suscripción. Puede completar este paso en la misma sesión de PowerShell.
 
-#### <a name="1.-get-both-gateways"></a>1. Obtenga ambas puertas de enlace
+#### <a name="1-get-both-gateways"></a>1. Obtenga ambas puertas de enlace
 Asegúrese de iniciar sesión y conectarse a la suscripción 1.
 
     $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
     $vnet2gw = Get-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2
 
-#### <a name="2.-create-both-connections"></a>2. Cree ambas conexiones
+#### <a name="2-create-both-connections"></a>2. Cree ambas conexiones
 En este paso, creará la conexión de TestVNet1 a TestVNet2 y viceversa.
 
     New-AzureRmVirtualNetworkGatewayConnection -Name $Connection12 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -VirtualNetworkGateway2 $vnet2gw -Location $Location1 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3' -EnableBgp $True
@@ -319,7 +323,7 @@ Después de completar estos pasos, la conexión se establecerá en unos minutos 
 
 ![activo-activo-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
-## <a name="<a-name-="aaupdate"></a>part-4---update-existing-gateway-between-active-active-and-active-standby"></a><a name ="aaupdate"></a>Parte 4: Actualización de una puerta de enlace existente entre activo-activo y activo-en espera
+## <a name="a-name-aaupdateapart-4---update-existing-gateway-between-active-active-and-active-standby"></a><a name ="aaupdate"></a>Parte 4: Actualización de una puerta de enlace existente entre activo-activo y activo-en espera
 La última sección describe cómo configurar una instancia de Azure VPN Gateway existente de activo-en espera a modo activo-activo o viceversa.
 
 > [!IMPORTANT]
@@ -328,7 +332,7 @@ La última sección describe cómo configurar una instancia de Azure VPN Gateway
 > 
 
 ### <a name="configure-an-active-standby-gateway-to-active-active-gateway"></a>Configuración de una puerta de enlace de activo-en espera a puerta de enlace activo-activo
-#### <a name="1.-gateway-parameters"></a>1. Parámetros de la puerta de enlace
+#### <a name="1-gateway-parameters"></a>1. Parámetros de la puerta de enlace
 En el ejemplo siguiente se convierte una puerta de enlace de activo-en espera en puerta de enlace activo-activo. Tiene que crear otra dirección IP pública, y agregar una segunda configuración IP de puerta de enlace. A continuación se muestran los parámetros que se utilizan:
 
     $GWName     = "TestVNetAA1GW"
@@ -342,19 +346,19 @@ En el ejemplo siguiente se convierte una puerta de enlace de activo-en espera en
     $gw         = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
     $location   = $gw.Location
 
-#### <a name="2.-create-the-public-ip-address,-then-add-the-second-gateway-ip-configuration"></a>2. Cree la dirección IP pública, y agregue una segunda configuración IP de puerta de enlace
+#### <a name="2-create-the-public-ip-address-then-add-the-second-gateway-ip-configuration"></a>2. Cree la dirección IP pública, y agregue una segunda configuración IP de puerta de enlace
     $gwpip2     = New-AzureRmPublicIpAddress -Name $GWIPName2 -ResourceGroupName $RG -Location $location -AllocationMethod Dynamic
     Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPconf2 -Subnet $subnet -PublicIpAddress $gwpip2 
 
-#### <a name="3.-enable-active-active-mode-and-update-the-gateway"></a>3. Habilite el modo activo-activo y actualice la puerta de enlace
-Tiene que establecer el objeto de puerta de enlace en PowerShell para desencadenar la actualización real.
+#### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3. Habilite el modo activo-activo y actualice la puerta de enlace
+Tiene que establecer el objeto de puerta de enlace en PowerShell para desencadenar la actualización real. La SKU del objeto de puerta de enlace debe cambiarse a HighPerformance puesto que se creó anteriormente como estándar.
 
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
 
 Esta actualización puede tardar de 30 a 45 minutos.
 
 ### <a name="configure-an-active-active-gateway-to-active-standby-gateway"></a>Configuración de una puerta de enlace de activo-activo a puerta de enlace activo-en espera
-#### <a name="1.-gateway-parameters"></a>1. Parámetros de la puerta de enlace
+#### <a name="1-gateway-parameters"></a>1. Parámetros de la puerta de enlace
 Utilice los mismos parámetros que en el caso anterior, obtenga el nombre de la configuración IP que desea quitar.
 
     $GWName     = "TestVNetAA1GW"
@@ -363,7 +367,7 @@ Utilice los mismos parámetros que en el caso anterior, obtenga el nombre de la 
     $gw         = Get-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG
     $ipconfname = $gw.IpConfigurations[1].Name
 
-#### <a name="2.-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Quite la configuración de IP de puerta de enlace y deshabilite el modo activo-activo
+#### <a name="2-remove-the-gateway-ip-configuration-and-disable-the-active-active-mode"></a>2. Quite la configuración de IP de puerta de enlace y deshabilite el modo activo-activo
 De forma similar, tiene que establecer el objeto de puerta de enlace en PowerShell para desencadenar la actualización real.
 
     Remove-AzureRmVirtualNetworkGatewayIpConfig -Name $ipconfname -VirtualNetworkGateway $gw
@@ -372,8 +376,11 @@ De forma similar, tiene que establecer el objeto de puerta de enlace en PowerShe
 Esta actualización puede tardar hasta 30 o 45 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md) para ver los pasos.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

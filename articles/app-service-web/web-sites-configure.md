@@ -1,19 +1,23 @@
 ---
-title: Configuración de aplicaciones web en el Servicio de aplicaciones de Azure
-description: Cómo configurar una aplicación web en servicios de aplicaciones de Azure
+title: "Configuración de aplicaciones web en el Servicio de aplicaciones de Azure"
+description: "Cómo configurar una aplicación web en servicios de aplicaciones de Azure"
 services: app-service\web
-documentationcenter: ''
+documentationcenter: 
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: bca182190933253d5b2741b2835983909fb24a1b
+
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configuración de aplicaciones web en el Servicio de aplicaciones de Azure
@@ -50,7 +54,7 @@ Por razones técnicas, si se habilita Java para la aplicación, se deshabilitan 
 
 **Versión de canalización administrada**. Configura el [modo de canalización]IIS. Deje este valor en Integrado (el valor predeterminado) a no ser que tenga una aplicación web heredada que requiera una versión anterior de IIS.
 
-**Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en Azure App Service](web-sites-staged-publishing.md).
+**Intercambio automático**. Si habilita el Intercambio automático de una ranura de implementación, el servicio de aplicación intercambiará automáticamente la aplicación web en producción cuando inserte una actualización para esa zona. Para obtener más información, consulte [Implementación en ranuras de ensayo para las aplicaciones web en el servicio de aplicaciones de Azure](web-sites-staged-publishing.md).
 
 ### <a name="debugging"></a>Depuración
 **Depuración remota**. Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su aplicación web de Azure. La depuración remota permanecerá habilitada durante 48 horas. 
@@ -176,6 +180,6 @@ Para obtener más información, consulte [Supervisión de estado de extremo web]
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

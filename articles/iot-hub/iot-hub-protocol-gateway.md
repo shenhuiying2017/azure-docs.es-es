@@ -1,6 +1,6 @@
 ---
 title: Puerta de enlace de protocolos de IoT de Azure | Microsoft Docs
-description: "Describe cómo usar la puerta de enlace de protocolos de IoT de Azure para ampliar las capacidades y la compatibilidad con el protocolo del Centro de IoT de Azure."
+description: "Describe cómo usar una puerta de enlace de protocolo de IoT de Azure para extender el protocolo y las funcionalidades de IoT Hub para permitir que los dispositivos se conecten al centro que usa los protocolos no compatibles con IoT de forma nativa."
 services: iot-hub
 documentationcenter: 
 author: kdotchkoff
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/23/2016
 ms.author: kdotchko
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cae05552afa665eb93a0fee5c49d8d8ec5a6a400
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 17250760526e72c05ee178e235a57082e2dfff94
 
 
 ---
-# <a name="supporting-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para Centro de IoT
+# <a name="support-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para centro de IoT Hub
 IoT Hub de Azure admite de forma nativa la comunicación a través de los protocolos MQTT, AMQP y HTTP. En algunos casos, puede que los dispositivos o las puertas de enlace de campo no puedan usar uno de estos protocolos estándar y requerirán la adaptación del mismo. En esos casos, puede usar una puerta de enlace personalizada. Una puerta de enlace personalizada puede habilitar la adaptación de protocolos para los extremos del Centro de IoT reduciendo el tráfico que se origina o finaliza en el Centro de IoT. Puede usar la [Puerta de enlace de protocolos de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) como puerta de enlace personalizada para permitir la adaptación de protocolos para el Centro de IoT.
 
 ## <a name="azure-iot-protocol-gateway"></a>Puerta de enlace de protocolos de IoT de Azure
@@ -47,7 +47,7 @@ Para más información acerca de planificación de la implementación del Centro
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía para desarrolladores de][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md
@@ -57,6 +57,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

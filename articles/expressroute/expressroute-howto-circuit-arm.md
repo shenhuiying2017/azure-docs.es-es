@@ -1,13 +1,13 @@
 ---
-title: Creación y modificación de un circuito ExpressRoute mediante Resource Manager y PowerShell | Microsoft Docs
-description: Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute.
+title: "Creación y modificación de un circuito ExpressRoute mediante Resource Manager y PowerShell | Microsoft Docs"
+description: "Este artículo describe cómo crear, aprovisionar, comprobar, actualizar, eliminar y desaprovisionar un circuito ExpressRoute."
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: f997182e-9b25-4a7a-b079-b004221dadcc
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,13 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: ganesr
+translationtype: Human Translation
+ms.sourcegitcommit: 4acb64838288d36f0dc1b1eb9736b00faef21a0c
+ms.openlocfilehash: 3e11bc1e196b263f758394d1abd4c21d9e12aeef
+
 
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Creación y modificación de un circuito ExpressRoute
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell - Clásico](expressroute-howto-circuit-classic.md)
+> * [Portal de Azure: Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell: administrador de recursos](expressroute-howto-circuit-arm.md)
+> * [PowerShell: clásico](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -32,11 +36,11 @@ En este artículo se describe cómo crear un circuito Azure ExpressRoute mediant
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
-* Obtenga la versión más reciente de los módulos de Azure PowerShell (como mínimo, la versión 1.0). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md).
+* Obtenga la versión más reciente de los módulos de Azure PowerShell (como mínimo, la versión 1.0). Para obtener instrucciones detalladas sobre cómo configurar el equipo para usar los módulos de Azure PowerShell, siga las instrucciones de la página [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Revise los [Requisitos previos y lista de comprobación de ExpressRoute](expressroute-prerequisites.md) y los [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md) antes de comenzar la configuración.
 
 ## <a name="create-and-provision-an-expressroute-circuit"></a>Creación y aprovisionamiento de un circuito ExpressRoute
-### <a name="1.-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Iniciar sesión en la cuenta de Azure y seleccione la suscripción
 Para empezar la configuración, inicie sesión en la cuenta de Azure. Para obtener más información sobre PowerShell, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md). Use los siguientes ejemplos para conectarse:
 
     Login-AzureRmAccount
@@ -49,7 +53,7 @@ Seleccione la suscripción para la que desea crear un circuito ExpressRoute:
 
     Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
-### <a name="2.-get-the-list-of-supported-providers,-locations,-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
 Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas.
 
 El cmdlet de PowerShell `Get-AzureRmExpressRouteServiceProvider` devuelve esta información, que se usará en pasos posteriores:
@@ -64,7 +68,7 @@ Compruebe si aparece su proveedor de conectividad. Tome nota de la siguiente inf
 
 Ahora está listo para crear un circuito ExpressRoute.   
 
-### <a name="3.-create-an-expressroute-circuit"></a>3. Creación de un circuito ExpressRoute
+### <a name="3-create-an-expressroute-circuit"></a>3. Creación de un circuito ExpressRoute
 Si todavía no tiene un grupo de recursos, debe crear uno antes de crear ExpressRoute. Para ello, ejecute el siguiente comando:
 
     New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
@@ -89,7 +93,7 @@ La respuesta contiene la clave del servicio. Puede obtener una descripción deta
     get-help New-AzureRmExpressRouteCircuit -detailed
 
 
-### <a name="4.-list-all-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
+### <a name="4-list-all-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
 Para obtener una lista de todos los circuitos ExpressRoute que haya creado, ejecute el comando `Get-AzureRmExpressRouteCircuit`:
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -106,7 +110,7 @@ La respuesta será similar al ejemplo siguiente:
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState          : Enabled
     ServiceProviderProvisioningState  : NotProvisioned
     ServiceProviderNotes              :
@@ -135,7 +139,7 @@ La respuesta será similar al ejemplo siguiente:
                                          "Name": "Standard_MeteredData",
                                          "Tier": "Standard",
                                          "Family": "MeteredData"
-                                       }
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : NotProvisioned
     ServiceProviderNotes             :
@@ -143,7 +147,7 @@ La respuesta será similar al ejemplo siguiente:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -152,7 +156,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando lo 
 
     get-help Get-AzureRmExpressRouteCircuit -detailed
 
-### <a name="5.-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Envío de la clave de servicio al proveedor de conectividad para el aprovisionamiento
 *ServiceProviderProvisioningState* da información sobre el estado actual del aprovisionamiento en el lado del proveedor de servicios. "Status" proporciona el estado relativo al lado de Microsoft. Para más información sobre los estados de aprovisionamiento del circuito, consulte el artículo [Flujos de trabajo de ExpressRoute para aprovisionamiento de circuitos y estados de circuitos de ExpressRoute](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
 
 Cuando se crea un nuevo circuito ExpressRoute, dicho circuito estará en el siguiente estado:
@@ -172,7 +176,7 @@ Para poder usar un circuito ExpressRoute, dicho circuito tiene que estar en el s
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6.-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Comprobación periódica del estado y la condición de la clave del circuito
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. Comprobación periódica del estado y la condición de la clave del circuito
 La comprobación del estado y la condición de la clave de circuito le informa cuando el proveedor ha habilitado el circuito. Después de configurar el circuito, *ServiceProviderProvisioningState* aparece como *Provisioned*, tal como se muestra en el ejemplo siguiente:
 
     Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -198,11 +202,11 @@ La respuesta será similar al ejemplo siguiente:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                    }
+                                       }
     ServiceKey                       : **************************************
     Peerings                         : []
 
-### <a name="7.-create-your-routing-configuration"></a>7. Creación de la configuración de enrutamiento
+### <a name="7-create-your-routing-configuration"></a>7. Creación de la configuración de enrutamiento
 Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute mediante PowerShell](expressroute-howto-routing-arm.md) para ver las instrucciones paso a paso.
 
 > [!IMPORTANT]
@@ -210,7 +214,7 @@ Consulte [Creación y modificación del enrutamiento de un circuito ExpressRoute
 > 
 > 
 
-### <a name="8.-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vinculación de una red virtual a un circuito ExpressRoute
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vinculación de una red virtual a un circuito ExpressRoute
 A continuación, vincule una red virtual a su circuito ExpressRoute. Consulte el artículo [Vinculación de redes virtuales a circuitos ExpressRoute](expressroute-howto-linkvnet-arm.md) al trabajar con el modelo de implementación de Resource Manager.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>Obtención del estado de un circuito ExpressRoute
@@ -236,10 +240,10 @@ La respuesta será similar al siguiente ejemplo:
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
     ServiceProviderProperties        : {
-                                         "ServiceProviderName": "Equinix",
-                                         "PeeringLocation": "Silicon Valley",
-                                         "BandwidthInMbps": 200
-                                       }
+                                            "ServiceProviderName": "Equinix",
+                                            "PeeringLocation": "Silicon Valley",
+                                            "BandwidthInMbps": 200
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -259,9 +263,9 @@ La respuesta será similar al ejemplo siguiente:
     ProvisioningState                : Succeeded
     Sku                              : {
                                          "Name": "Standard_MeteredData",
-                                         "Tier": "Standard",
-                                         "Family": "MeteredData"
-                                       }
+                                            "Tier": "Standard",
+                                            "Family": "MeteredData"
+                                          }
     CircuitProvisioningState         : Enabled
     ServiceProviderProvisioningState : Provisioned
     ServiceProviderNotes             :
@@ -269,7 +273,7 @@ La respuesta será similar al ejemplo siguiente:
                                          "ServiceProviderName": "Equinix",
                                          "PeeringLocation": "Silicon Valley",
                                          "BandwidthInMbps": 200
-                                       }
+                                          }
     ServiceKey                       : **************************************
     Peerings                         : []
 
@@ -279,7 +283,7 @@ Puede obtener una descripción detallada de todos los parámetros ejecutando lo 
     get-help get-azurededicatedcircuit -detailed
 
 
-## <a name="<a-name="modify"></a>modifying-an-expressroute-circuit"></a><a name="modify"></a>Modificación de un circuito ExpressRoute
+## <a name="a-namemodifyamodifying-an-expressroute-circuit"></a><a name="modify"></a>Modificación de un circuito ExpressRoute
 Puede modificar determinadas propiedades de un circuito ExpressRoute sin afectar a la conectividad.
 
 Puede hacer lo siguiente sin experimentar tiempo de inactividad:
@@ -377,6 +381,9 @@ Después de crear el circuito, asegúrese de hacer lo siguiente:
 * [Crear y modificar el enrutamiento para el circuito ExpressRoute](expressroute-howto-routing-arm.md)
 * [Vincular la red virtual a su circuito ExpressRoute](expressroute-howto-linkvnet-arm.md)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO1-->
 
 

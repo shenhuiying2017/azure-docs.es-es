@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 05/31/2016
 ms.author: jodehavi
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c748f4f65ec4a2ba32bca97648fb7ccdbb8d749
+ms.sourcegitcommit: 4fbfb24a2e9d55d718902d468bd25e12f64e7d24
+ms.openlocfilehash: f836bffd0610224b5cb69f4f6836dbc55e0721a3
 
 
 ---
 # <a name="deploy-a-web-app-with-msdeploy-custom-hostname-and-ssl-certificate"></a>Implementación de una aplicación web con MSDeploy, un nombre de host personalizado y un certificado SSL
 En esta guía, se recorre el proceso de crear una implementación integral para una aplicación web de Azure, sacar provecho de MSDeploy, así como agregar un nombre de host personalizado y un certificado SSL a la plantilla de ARM.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ### <a name="create-sample-application"></a>Creación de la aplicación de ejemplo
 Va a implementar una aplicación web ASP.NET. El primer paso consiste en crear una aplicación web sencilla (o puede elegir usar una existente, en cuyo caso puede omitir este paso).
@@ -200,6 +200,6 @@ En este momento, se debería haber implementado la aplicación y debería poder 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/14/2016
 ms.author: glenga
 translationtype: Human Translation
-ms.sourcegitcommit: 8d7823b6ecbc1a762839fc620f76d0bf4687d8fa
-ms.openlocfilehash: 5b33a36a3415efd2bc4673999806aa797f4a1c9f
+ms.sourcegitcommit: 91e19b321026840a062078d7af2a55967fb3904b
+ms.openlocfilehash: 417c545e34f1d652594c8527a3c8b0a845a4e8fa
 
 
 ---
@@ -30,7 +30,7 @@ En este tema se muestra cómo utilizar Azure Portal para crear una sencilla func
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 Una aplicación de función hospeda la ejecución de sus funciones en Azure. Siga estos pasos para crear una aplicación de función en Azure Portal.
 
-Para poder crear la primera función, es necesario tener una cuenta de Azure activa. Si aún no tiene ninguna cuenta de Azure, [tiene a su disposición cuentas gratuitas](https://azure.microsoft.com/free/).
+Una aplicación de función hospeda la ejecución de sus funciones en Azure. Si ya no tiene una cuenta de Azure, consulte la experiencia [Probar Functions](https://functions.azure.com/try) o [cree una cuenta gratis de Azure](https://azure.microsoft.com/free/). 
 
 1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 2. Haga clic en **+Nuevo**  >  **Compute** > **Function App**, seleccione su **Suscripción**, escriba un **Nombre de la aplicación** único, que identifica la aplicación de función, y especifique la siguiente configuración:
@@ -86,6 +86,6 @@ Este inicio rápido demuestra una ejecución sencilla de una función desencaden
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

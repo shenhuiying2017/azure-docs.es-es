@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 11/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: ee8cfffdbf054b4251ed269745f6b9ee5a5e6c64
-ms.openlocfilehash: 1641d4530df47c0bc0c57f78f8187c65bab8d0fd
+ms.sourcegitcommit: 9ad7bf23b10f16fb2d9e9bc946d8d4e840428558
+ms.openlocfilehash: 745dd9e8722348949e4e8872e89b471b1e72193d
 
 
 ---
@@ -126,7 +126,7 @@ $subnet = $vnet.subnets[0]
 
 Se asigna el objeto de subred a la variable $subnet para los siguientes pasos.
 
-## <a name="create-an-application-gateway-configuration-objec"></a>Creación de un objeto de configuración de la puerta de enlace de aplicaciones
+## <a name="create-an-application-gateway-configuration-object"></a>Creación de un objeto de configuración de la Puerta de enlace de aplicaciones
 
 ### <a name="step-1"></a>Paso 1
 
@@ -285,6 +285,6 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

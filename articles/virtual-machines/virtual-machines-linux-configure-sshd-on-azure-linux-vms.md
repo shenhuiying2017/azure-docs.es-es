@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/21/2016
 ms.author: v-livech
 translationtype: Human Translation
-ms.sourcegitcommit: fa6c9b6b60aef689568c58699eeb89d14b1ae2bf
-ms.openlocfilehash: 73c47bcfbe018947930bb23fbbcc201b91a49944
+ms.sourcegitcommit: 08499c4242fdc59ef932d6b8f2e8442e5cdc55b2
+ms.openlocfilehash: a606f06de55b1db4392d066a3e1d026eb3b54d74
 
 
 ---
@@ -77,7 +77,7 @@ ClientAliveCountMax 0
 
 SSHD es el servidor SSH que se ejecuta en la máquina virtual de Linux.  SSH es un cliente que se ejecuta desde un shell en la estación de trabajo MacBook o Linux o desde un Bash en Windows.  SSH es también el protocolo usado para proteger y cifrar la comunicación entre su estación de trabajo y la máquina virtual Linux haciendo que SSH sea también una VPN (Red privada virtual).
 
-Para este artículo es muy importante mantener abierto un inicio de sesión en la máquina virtual Linux para el tutorial completo.  Una vez establecida una conexión SSH, permanece como una sesión abierta siempre y cuando no se cierre la ventana.  Tener un terminal conectado permite realizar cambios en el servicio SSHD sin que se bloquee si se realiza un cambio importante.  Si la máquina virtual Linux se bloquea con una configuración SSHD dañada, Azure ofrece la posibilidad de restablecer una configuración SSHD dañada con la [extensión de acceso de la máquina virtual de Azure](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para este artículo es muy importante mantener abierto un inicio de sesión en la máquina virtual Linux para el tutorial completo.  Una vez establecida una conexión SSH, permanece como una sesión abierta siempre y cuando no se cierre la ventana.  Tener un terminal conectado permite realizar cambios en el servicio SSHD sin que se bloquee si se realiza un cambio importante.  Si la máquina virtual Linux se bloquea con una configuración SSHD dañada, Azure ofrece la posibilidad de restablecer una configuración SSHD dañada con la [extensión de acceso de la máquina virtual de Azure](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Por este motivo, abriremos dos terminales y SSH en la máquina virtual Linux de ambos.  Usaremos el primer terminal para realizar los cambios en el archivo de configuración de SSHD y reiniciar el servicio SSHD.  Usaremos el segundo terminal para probar los cambios una vez que se reinicia el servicio.  Puesto que estamos deshabilitando las contraseñas SSH y confiando estrictamente en las claves SSH, si las claves SSH no son correctas y cierra la conexión con la máquina virtual, la máquina virtual se bloqueará permanentemente y nadie podrá iniciar sesión en ella y solicitar que se elimine y vuelva a crear.
 
@@ -177,14 +177,14 @@ Se recomienda encarecidamente instalar y configurar la aplicación de código ab
 
 Ahora que ha configurado y bloqueado el servidor SSH en la máquina virtual Linux, hay procedimientos recomendados de seguridad adicionales que puede seguir.  
 
-* [Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Administración de usuarios, SSH y comprobar o reparar discos en máquinas virtuales de Linux de Azure con la extensión VMAccess](virtual-machines-linux-using-vmaccess-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Cifrado de discos en una máquina virtual Linux mediante la CLI de Azure](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-* [Acceso y seguridad en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Acceso y seguridad en plantillas de Azure Resource Manager](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO2-->
 
 

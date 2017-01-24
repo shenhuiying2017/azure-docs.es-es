@@ -10,14 +10,14 @@ tags: azure-resource-manager
 ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
-ms.author: narayanannamalai;annahar
+ms.author: narayan;annahar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 688fed72b32767f33010b9e8f17921b16320072d
+ms.sourcegitcommit: ed7c37ee5482b3ec91489b7aba9b5a9d5df5c97e
+ms.openlocfilehash: 06130f18bad86dbbe009548ac95ac0e6c4953db2
 
 
 ---
@@ -82,8 +82,7 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 4. En la hoja Agregar acceso, haga clic en Seleccionar rol y elija Colaborador de la red, haga clic en Agregar usuarios, escriba el nombre de inicio de sesión de UserB y haga clic en Aceptar.
    
     ![RBAC](./media/virtual-networks-create-vnetpeering-arm-portal/figure10.png)
-   
-    Esto no es un requisito; se puede establecer emparejamiento incluso si los usuarios presentan individualmente solicitudes de emparejamiento de sus redes virtuales, siempre y cuando las solicitudes coincidan. Agregar privilegios al usuario de la otra red virtual como los usuarios de la red virtual local facilita la instalación en el portal.
+
 5. A continuación, inicie sesión en el Portal de Azure con UserB, que es el usuario con privilegios para SuscriptionB. Siga los pasos anteriores para agregar UserA como Colaborador de la red.
    
     ![RBAC2](./media/virtual-networks-create-vnetpeering-arm-portal/figure11.png)
@@ -138,6 +137,6 @@ Cada vínculo de emparejamiento de VNET tiene varias de las propiedades anterior
 
 
 
-<!---HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO1-->
 
 

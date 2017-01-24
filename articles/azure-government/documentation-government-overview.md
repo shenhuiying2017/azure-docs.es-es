@@ -16,8 +16,8 @@ ms.workload: azure-government
 ms.date: 08/25/2016
 ms.author: ryansoc
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 628536e90ee682a1a1e64444f490fdaace6b125f
+ms.sourcegitcommit: 48f19f5085108b87d22951da049223ef9d4cd188
+ms.openlocfilehash: ea01213d375d93c47b9fa1e710f1e225adb85f92
 
 
 ---
@@ -69,7 +69,7 @@ El cifrado básico disponible para la conectividad con Azure Government es compa
 * Máquinas virtuales de IaaS: utilice Cifrado de discos de Azure. Active el cifrado del servicio de Almacenamiento para cifrar los archivos VHD que se usan para hacer una copia de seguridad de estos discos en el Almacenamiento de Azure, pero esto solo cifra datos recién escritos. Esto significa que si crea una máquina virtual y habilita el cifrado del servicio de Almacenamiento en la cuenta de almacenamiento que contiene el archivo VHD, se cifrarán solo los cambios, no el archivo VHD original.
 * Cifrado de cliente: es el método más seguro para cifrar los datos, porque estos se cifran antes del tránsito y en reposo. Sin embargo, requiere que agregue código a sus aplicaciones mediante el almacenamiento y quizá no desee hacerlo. En esos casos, puede utilizar HTTPS para los datos en tránsito y el Cifrado del servicio de almacenamiento para cifrar los datos en reposo. Cifrado de cliente supone también más carga en el cliente; así pues, debe tener en cuenta este factor en los planes de escalabilidad, especialmente si está cifrando y transfiriendo una gran cantidad de datos.
 
-Para más información acerca de las opciones de cifrado en Azure, consulte la [Guía de seguridad de almacenamiento](/storage-security-guide).
+Para más información acerca de las opciones de cifrado en Azure, consulte la [Guía de seguridad de almacenamiento](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide).
 
 ## <a name="protecting-customer-data-by-managing-secrets"></a>Protección de datos de cliente mediante la administración de secretos
 Una administración de claves segura es fundamental para proteger los datos en la nube. Los clientes deben esforzarse por simplificar la administración de claves y mantener el control de las claves usadas por los servicios y aplicaciones en la nube para cifrar los datos.
@@ -99,6 +99,6 @@ Para información complementaria y actualizaciones, suscríbase al <a href="http
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

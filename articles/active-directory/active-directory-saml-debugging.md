@@ -1,45 +1,12 @@
 ---
-title: "Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory | Microsoft Docs"
-description: "Obtenga información acerca de cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory  "
-services: active-directory
-author: asmalser-msft
-documentationcenter: na
-manager: femila
-ms.assetid: edbe492b-1050-4fca-a48a-d1fa97d47815
-ms.service: active-directory
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 02/09/2016
-ms.author: asmalser
+redirect_url: /azure/active-directory/develop/active-directory-saml-debugging
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e55582ccafabd5bb305b2bf0cef65ccdb5610be2
-
+ms.sourcegitcommit: 146d1377a017becdcdcd7fed7b97f07c2cb2bb39
+ms.openlocfilehash: ae63a19898360bf4f84d48ff4714c3638d0a3e51
 
 ---
-# <a name="how-to-debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
-Cuando se depura una integración de la aplicación basada en SAML, a menudo resulta útil usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) para ver la solicitud SAML, la respuesta de SAML y el token SAML real que se emite a la aplicación. Mediante el examen del token SAML, puede asegurarse de que todos los atributos necesarios, el nombre de usuario del SAML Subject y el URI del emisor se logren del modo esperado.
-
-![][1]
-
-Normalmente, la respuesta de Azure AD que contiene el token SAML es la que se produce después de un redireccionamiento HTTP 302 desde https://login.windows.net, y se envía a la **URL de respuesta** configurada de la aplicación. 
-
-Para ver el token SAML, seleccione esta línea y, luego, seleccione la pestaña **Inspectors > WebForms** (Inspectores > WebForms) en el panel derecho. Desde ahí, haga clic con el botón derecho en el valor **SAMLResponse** y seleccione **Send to TextWizard** (Enviar a TextWizard). Después, seleccione **From Base64** (De Base64) en el menú **Transform** (Transformar) para descodificar el token y ver su contenido.
-
-**Nota**: Para ver el contenido de esta solicitud HTTP, es posible que Fiddler le solicite configurar el cifrado del tráfico HTTPS, que tendrá que llevar a cabo.
-
-## <a name="related-articles"></a>Artículos relacionados
-* [Índice de artículos sobre la administración de aplicaciones en Azure Active Directory](active-directory-apps-index.md)
-* [Configuración del inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](active-directory-saas-custom-apps.md)
-* [Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](active-directory-saml-claims-customization.md)
-
-<!--Image references-->
-[1]: ./media/active-directory-saml-debugging/fiddler.png
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

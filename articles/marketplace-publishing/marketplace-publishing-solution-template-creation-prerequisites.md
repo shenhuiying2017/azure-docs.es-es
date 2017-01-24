@@ -1,12 +1,12 @@
 ---
-title: Technical prerequisites for creating a solution template for the Marketplace | Microsoft Docs
-description: Understand the requirements for creating a solution template to deploy and sell on the Azure Marketplace
+title: "Requisitos previos técnicos para la creación de una plantilla de soluciones para Marketplace | Microsoft Docs"
+description: "Información de los requisitos para crear una plantilla de solución para implementar y vender en Azure Marketplace"
 services: marketplace-publishing
-documentationcenter: ''
+documentationcenter: 
 author: HannibalSII
 manager: hascipio
-editor: ''
-
+editor: 
+ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
@@ -14,27 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
+translationtype: Human Translation
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
+
 
 ---
-# <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Technical prerequisites for creating a solution template for the Azure Marketplace
-Read the process thoroughly before beginning and understand where and why each step is performed. As much as possible, you should prepare your company information and other data, download necessary tools, and/or create technical components before beginning the offer creation process.  
+# <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>Requisitos previos técnicos para la creación de una plantilla de soluciones para Azure Marketplace
+Lea el proceso minuciosamente antes de empezar y comprenda dónde y por qué se realiza cada paso. Tanto como sea posible, debe preparar la información de su compañía y otros datos, descargar las herramientas necesarias o crear componentes técnicos antes de comenzar el proceso de creación de la oferta.  
 
-## <a name="developing-building-blocks"></a>Developing building blocks
-You must decide on the building blocks of your solution before you proceed with your solution template on the Publishing Portal. Below are some links to the documents that can help you in the process:
+## <a name="developing-building-blocks"></a>Desarrollo de los bloques de creación
+Debe decidir los bloques de creación de la solución antes de continuar con la plantilla de solución en el portal de publicación. A continuación se muestran algunos vínculos a los documentos que pueden ayudarle en el proceso:
 
-1. [Best practices for designing Azure Resource Manager templates](../best-practices-resource-manager-design-templates.md)
-2. [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md)
-3. Azure Quickstart templates:
+1. [Prácticas recomendadas para diseñar plantillas del Administrador de recursos de Azure](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
+2. [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+3. Plantillas de inicio rápido de Azure:
    * [https://azure.microsoft.com/en-us/documentation/templates/](https://azure.microsoft.com/documentation/templates/)
    * [https://github.com/azure/azure-quickstart-templates](https://github.com/azure/azure-quickstart-templates)
 
-## <a name="next-steps"></a>Next steps
-Now that you have reviewed the prerequisites and completed the necessary tasks, you can move forward with creating your solution template offer as detailed in the [Guide to creating a solution template](marketplace-publishing-solution-template-creation.md). To return to the main page of publisher tasks, see [Getting started: How to publish an offer to the Azure Marketplace](marketplace-publishing-getting-started.md).
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ha revisado los requisitos previos y completado las tareas necesarias, puede continuar con la creación de su oferta de plantilla de soluciones como se detalla en la [Guía para crear una plantilla de soluciones](marketplace-publishing-solution-template-creation.md). Para volver a la página principal de las tareas del publicador, consulte [Introducción: Publicación de una oferta en Azure Marketplace](marketplace-publishing-getting-started.md).
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 
