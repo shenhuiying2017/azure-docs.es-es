@@ -29,7 +29,7 @@ Una máquina virtual de Azure le ofrece la flexibilidad de la virtualización si
 Las máquinas virtuales de Azure se pueden usar de diversas maneras. A continuación, se indican algunos ejemplos:
 
 * **Desarrollo y pruebas**: las máquinas virtuales de Azure ofrecen una manera rápida y sencilla de crear un equipo con configuraciones específicas necesarias para codificar y probar una aplicación.
-* **Aplicaciones en la nube**: como la demanda de la aplicación puede fluctuar, tendría sentido desde el punto de vista económico ejecutarla en una máquina virtual en Azure. Para por las máquinas virtuales adicionales cuando las necesite y las desactiva cuando ya no sean necesarias.
+* **Aplicaciones en la nube**: como la demanda de la aplicación puede fluctuar, tendría sentido desde el punto de vista económico ejecutarla en una máquina virtual en Azure. Paga por las máquinas virtuales adicionales cuando las necesite y las desactiva cuando ya no sean necesarias.
 * **Centro de datos ampliado**: las máquinas virtuales de una red virtual de Azure se pueden conectar fácilmente a la red de su organización.
 
 El número de máquinas virtuales usadas por su aplicación se puede escalar vertical y horizontalmente a la cifra necesaria para satisfacer sus necesidades.
@@ -48,7 +48,7 @@ Siempre hay gran cantidad de [consideraciones de diseño](virtual-machines-windo
 ### <a name="naming"></a>Nomenclatura
 Una máquina virtual tiene un [nombre](virtual-machines-windows-infrastructure-naming-guidelines.md) asignado y un nombre de equipo configurado como parte del sistema operativo. El nombre de una máquina virtual puede tener hasta 15 caracteres.
 
-Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual son iguales. Si [carga y usa su propia imagen](virtual-machines-windows-upload-image.md) que contenga un sistema operativo ya configurado y la usa para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, que haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
+Si usa Azure para crear el disco de sistema operativo, el nombre del equipo y el nombre de la máquina virtual son iguales. Si [carga y usa su propia imagen](virtual-machines-windows-upload-image.md) que contenga un sistema operativo ya configurado y la usa para crear una máquina virtual, los nombres pueden ser diferentes. Se recomienda que, cuando cargue su propio archivo de imagen, haga que el nombre del equipo en el sistema operativo y el nombre de la máquina virtual sean iguales.
 
 ### <a name="locations"></a>Ubicaciones
 Todos los recursos creados en Azure se distribuyen entre diversas [regiones geográficas](https://azure.microsoft.com/regions/) de todo el mundo. Por lo general, se llama a la región **ubicación** cuando se crea una máquina virtual. Para una máquina virtual, la ubicación especifica dónde se almacenan los discos duros virtuales.
