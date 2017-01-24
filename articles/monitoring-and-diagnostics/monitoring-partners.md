@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8a971b0dc1f216deaa93045857d6220d0fcbf8c1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ebbd4166bc3f76c91823ee17b8b9c460feb9e194
 
 
 ---
@@ -67,7 +67,7 @@ La correlación basada en AI de problemas y el análisis integrado de las causas
 [Vaya a la documentación.][dynatrace-doc]
 
 ## <a name="newrelic"></a>NewRelic
-[Obtener más información.][newrelic-doc]
+[Obtenga más información.][newrelic-doc]
 
 ## <a name="opsgenie"></a>OpsGenie
 OpsGenie actúa como un distribuidor para las alertas generadas por Azure. OpsGenie determina las personas adecuadas a las que notificar conforme a escalados y programas de entrega, utilizando el correo electrónico, mensajes de texto (SMS), llamadas de teléfono y notificaciones push. Simplemente, Azure genera alertas para los problemas detectados, y OpsGenie garantiza que en ellos trabajan las personas adecuadas.
@@ -85,7 +85,9 @@ El complemento Splunk para Microsoft Cloud Services está [disponible aquí](htt
 [Vaya a la documentación.][splunk-doc]
 
 ## <a name="sumo-logic"></a>Sumo Logic
-[Obtener más información.][sumologic-doc]
+Sumo Logic es un servicio de análisis de datos de máquinas seguro y nativo en la nube, dado que ofrece inteligencia continua en tiempo real a partir de datos estructurados, semiestructurados y no estructurados desde la pila y el ciclo de vida de toda la aplicación. Más de 1000 clientes de todo el mundo confían en Sumo Logic para las tareas de análisis y recopilación de datos relevantes con el objetivo de generar, ejecutar y proteger sus aplicaciones modernas e infraestructuras en la nube. Con Sumo Logic, los clientes obtienen una ventaja basada en un modelo de servicio y varios inquilinos para acelerar su transición la innovación continua, aumentar la ventaja competitiva, el valor para el negocio y el crecimiento.
+
+[Obtenga más información.][sumologic-doc]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad (antes, Registros de auditoría)](../resource-group-audit.md)
@@ -103,7 +105,7 @@ El complemento Splunk para Microsoft Cloud Services está [disponible aquí](htt
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
-[sumologic-anchor]: #sumologic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
@@ -123,18 +125,18 @@ El complemento Splunk para Microsoft Cloud Services está [disponible aquí](htt
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentación de AlertLogic."
 [appdynamics-doc]: https://docs.appdynamics.com/display/PRO42/Register+for+AppDynamics+for+Windows+Azure "Documentación de AppDynamics."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introducción a CloudMonix."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introducción a Cloudyn."
+[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introducción de CloudMonix."
+[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introducción de Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentación de DataDog."
 [dynatrace-doc]: https://blog.ruxit.com/ruxit-monitoring-azure-web-apps/ "Documentación de Dynatrace."
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "Documentación de OpsGenie."
-[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty"
+[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "Documentación de PagerDuty."
 [splunk-doc]: http://docs.splunk.com/Documentation/AddOns/released/MSCloudServices/About "Documentación de Splunk."
-[sumologic-doc]: https://www.sumologic.com/azure "Documentación de SumoLogic"
+[sumologic-doc]: https://www.sumologic.com/azure "Documentación de SumoLogic."
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

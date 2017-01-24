@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 10/28/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: f82e8fcb6228df25c8e3181059fe06fea5fbce78
+ms.sourcegitcommit: 8a7ca492d846f274019eb228fc027defac0aa390
+ms.openlocfilehash: ae954da8c71e6fcc67941919851ea67b825c54d0
 
 
 ---
@@ -27,8 +27,6 @@ En este documento se ofrece información sobre las diferencias entre HDInsight e
 
 > [!NOTE]
 > Los clústeres de HDInsight usan Ubuntu Long Term Support (LTS) como el sistema operativo de los nodos del clúster. Para obtener información sobre la versión de Ubuntu disponible con HDInsight, junto con otra información de control de versiones del componente, consulte el artículo sobre [versiones de componentes de HDInsight](hdinsight-component-versioning.md).
->
->
 
 ## <a name="migration-tasks"></a>Tareas de migración
 El flujo de trabajo general de migración es el siguiente.
@@ -56,10 +54,13 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 
 1. Busque la información de contenedor predeterminado y de cuenta de almacenamiento del clúster existente. Puede hacerlo mediante el siguiente script de Azure PowerShell.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. Siga los pasos indicados en el documento Creación de clústeres basados en Linux en HDInsight para crear un nuevo entorno de prueba. Deténgase antes de crear el clúster y, en su lugar, seleccione **Configuración opcional**.
 3. En la hoja Configuración opcional, seleccione **Cuentas de almacenamiento vinculadas**.
 4. Seleccione **Agregar una clave de almacenamiento**y, cuando se le pida, la cuenta de almacenamiento que devolvió el script de PowerShell en el paso 1. Haga clic en la opción **Seleccionar** de cada hoja para cerrarlas. Por último, cree el clúster.
@@ -71,7 +72,8 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] Si la estructura de directorios que contiene los datos no existe en el entorno de prueba, puede crearla con el comando siguiente.
+    > [!NOTE]
+    > Si la estructura de directorios que contiene los datos no existe en el entorno de prueba, puede crearla con el comando siguiente.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -81,7 +83,7 @@ Puede utilizar el comando HDFS de Hadoop para copiar directamente datos desde el
 También puede utilizar el cmdlet de Azure PowerShell `Start-AzureStorageBlobCopy` para copiar blobs entre cuentas de almacenamiento fuera de HDInsight. Para más información, consulte la sección Administración de blobs de Azure de Uso de Azure PowerShell con Almacenamiento de Azure.
 
 ## <a name="client-side-technologies"></a>Tecnologías de cliente
-Por lo general, las tecnologías de cliente, como los [cmdlets de Azure PowerShell](../powershell-install-configure.md), [Azure CLI](../xplat-cli-install.md) o el [SDK de .NET para Hadoop,](https://hadoopsdk.codeplex.com/) seguirán funcionando igual con clústeres basados en Linux, ya que se basan en las API de REST que son iguales en ambos tipos del SO del clúster.
+Por lo general, las tecnologías de cliente, como los [cmdlets de Azure PowerShell](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) o el [SDK de .NET para Hadoop,](https://hadoopsdk.codeplex.com/) seguirán funcionando igual con clústeres basados en Linux, ya que se basan en las API de REST que son iguales en ambos tipos del SO del clúster.
 
 ## <a name="server-side-technologies"></a>Tecnologías de servidor
 En la tabla siguiente se ofrece orientación sobre cómo migrar componentes de servidor que son específicos de Windows.
@@ -90,7 +92,7 @@ En la tabla siguiente se ofrece orientación sobre cómo migrar componentes de s
 | --- | --- |
 | **PowerShell** (scripts de servidor, incluidas las acciones de script que se usan durante la creación del clúster) |Vuelva a escribirlos como scripts de Bash. Para acciones de script, consulte [Personalización de clústeres de HDInsight mediante la acción de scripts (Linux)](hdinsight-hadoop-customize-cluster-linux.md) y [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **CLI de Azure** (scripts de servidor) |Mientras que la CLI de Azure está disponible en Linux, no viene preinstalada en los nodos principales del clúster de HDInsight. Si la necesita para el scripting de servidor, consulte [Instalación de la CLI de Azure](../xplat-cli-install.md) para obtener información sobre su instalación en plataformas basadas en Linux. |
-| **Componentes de .NET** |.NET no se admite en los clústeres de HDInsight basado en Linux. Los clústeres de Storm basados en Linux de HDInsight creados después del 28/10/2017 admiten topologías de C# de Storm con el marco de trabajo SCP.NET. Se agregará compatibilidad con .NET en futuras actualizaciones. |
+| **Componentes de .NET** |.NET no se admite en los clústeres de HDInsight basado en Linux. Los clústeres Storm en HDInsight basados en Linux creados después del 28/10/2017 admiten topologías de C# de Storm con la plataforma SCP.NET. Se agregará compatibilidad con .NET en futuras actualizaciones. |
 | **Componentes de Win32 o de otras tecnologías de Windows** |La orientación depende del componente o la tecnología; es posible que encuentre una versión compatible con Linux o tal vez tenga que encontrar una solución alternativa o volver escribir este componente. |
 
 ## <a name="cluster-creation"></a>Creación de clústeres
@@ -135,8 +137,6 @@ Ambari tiene un sistema de alertas que puede indicarle posibles problemas con el
 > Las alertas de Ambari indican que *puede* que haya un problema, no que *exista* realmente. Por ejemplo, puede recibir una alerta que indica que no se puede tener acceso a HiveServer2, aunque pueda tener acceso a él normalmente.
 >
 > Las alertas se implementan como consultas basadas en intervalos en un servicio y esperan una respuesta en un plazo de tiempo específico. Por lo que la alerta no necesariamente significa que el servicio no funcione, sino que no devuelve resultados en el plazo previsto.
->
->
 
 Por lo general, se debe evaluar si una alerta se ha venido produciendo durante un período prolongado o refleja problemas de los usuarios que anteriormente se han registrado en el clúster antes de realizar la acción en él.
 
@@ -177,7 +177,7 @@ El gráfico siguiente ofrece orientación sobre cómo migrar las cargas de traba
 | --- | --- |
 | Panel de Storm |El panel de Storm no está disponible. Consulte [Implementación y administración de topologías de Storm en HDInsight basado en Linux](hdinsight-storm-deploy-monitor-topology-linux.md) para ver formas de enviar topologías. |
 | UI de Storm |La interfaz de usuario de Storm está disponible en https://NOMBREDELCLÚSTER.azurehdinsight.net/stormui |
-| Visual Studio para crear, implementar y administrar topologías de C# o híbridas |Visual Studio puede utilizarse para crear, implementar y administrar C# (SCP.NET), o topologías híbridas de clústeres de Storm basados en Linux de HDInsight creados después del 28/10/2017. |
+| Visual Studio para crear, implementar y administrar topologías de C# o híbridas |Visual Studio puede utilizarse para crear, implementar y administrar topologías de C# (SCP.NET) o topologías híbridas en clústeres Storm en HDInsight basados en Linux creados después del 28/10/2017. |
 
 ## <a name="hbase"></a>HBase
 En los clústeres basados en Linux, el elemento primario del ZNode para HBase es `/hbase-unsecure`. Debe establecerse en la configuración de las aplicaciones cliente de Java que usan la API nativa de Java de HBase.
@@ -222,6 +222,6 @@ Si sabe que los scripts no contienen cadenas de caracteres CR incrustados, puede
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

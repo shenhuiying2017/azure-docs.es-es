@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 10/04/2016
 ms.author: seanmck
 translationtype: Human Translation
-ms.sourcegitcommit: 4450ad62a9b05ac4c963ae3271590f9431b782ed
-ms.openlocfilehash: 87f5ac490f113a7c0144b20563a4f8f4bbcc6b21
+ms.sourcegitcommit: 2cf98a0ef478a058c03122d3e027ef37e2404a09
+ms.openlocfilehash: 8a7b100a531ea1dd5420451064fdfb1eb3f21782
 
 
 ---
@@ -33,13 +33,18 @@ Service Fabric ofrece SDK para compilar servicios en Linux tanto en .NET Core co
 <img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
+> [!NOTE]
+> Java como lenguaje de programación de primera clase integrado es compatible solo con la versión preliminar de Linux (la compatibilidad con Windows está prevista). Sin embargo, todas las aplicaciones, incluidas las aplicaciones de Java, se pueden ejecutar como ejecutables invitados o dentro de contenedores en Windows o Linux. Para más información, consulte [Implementación de un ejecutable invitado en Azure Service Fabric](service-fabric-deploy-existing-app.md) e [Deploy containers to Service Fabric](service-fabric-deploy-container.md) (Implementación de contenedores en Service Fabric).
+> 
+
+
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de empezar, asegúrese de [configurar el entorno de desarrollo Linux](service-fabric-get-started-linux.md). Si usa Mac OS X, puede [configurar un entorno one-box de Linux en una máquina virtual mediante Vagrant](service-fabric-get-started-mac.md).
 
 ## <a name="create-the-application"></a>Creación de la aplicación
 Una aplicación de Service Fabric puede contener uno o varios servicios, cada uno de ellos con un rol específico en la prestación de la funcionalidad de la aplicación. El SDK de Service Fabric para Linux incluye un generador [Yeoman](http://yeoman.io/) que permite crear fácilmente el primer servicio y agregar más posteriormente. Vamos a usar Yeoman para crear una aplicación con un único servicio.
 
-1. En un terminal, escriba **yo azuresfjava**.
+1. En un terminal, escriba ``yo azuresfjava``.
 2. Asigne un nombre a la aplicación.
 3. Elija el tipo del primer servicio y asígnele un nombre. En este tutorial, elegiremos un servicio de actor confiable.
    
@@ -47,7 +52,6 @@ Una aplicación de Service Fabric puede contener uno o varios servicios, cada un
 
 > [!NOTE]
 > Para más información acerca de las opciones, consulte [Información general del modelo de programación de Service Fabric](service-fabric-choose-framework.md).
-> 
 > 
 
 ## <a name="build-the-application"></a>Compilar la aplicación
@@ -66,12 +70,15 @@ Una vez compilada la aplicación, puede implementarla en el clúster local media
     ```bash
     azure servicefabric cluster connect
     ```
+
 2. Use el script de instalación proporcionado en la plantilla para copiar el paquete de aplicación en el almacén de imágenes del clúster, registrar el tipo de aplicación y crear una instancia de la aplicación.
    
     ```bash
     ./install.sh
     ```
+
 3. Abra un explorador y vaya a Service Fabric Explorer en http://localhost:19080/Explorer (reemplace localhost por la dirección IP privada de la VM si usa Vagrant en Mac OS X).
+
 4. Expanda el nodo Applications y observe que ahora hay una entrada para su tipo de aplicación y otra para la primera instancia de ese tipo.
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Inicio del cliente de prueba y ejecución de una conmutación por error
@@ -83,21 +90,27 @@ Los proyectos de actor no hacen nada por sí solos. Necesitan que otro servicio 
     cd myactorsvcTestClient
     watch -n 1 ./testclient.sh
     ```
+
 2. En Service Fabric Explorer, busque el nodo que hospeda la réplica principal del servicio de actor. En la captura de pantalla siguiente, es el nodo 3.
    
     ![Búsqueda de la réplica principal en Service Fabric Explorer][sfx-primary]
-3. Haga clic en el nodo que encontró en el paso anterior y seleccione **Desactivar (reiniciar)** en el menú Acciones. Esto reiniciará uno de los cinco nodos del clúster local y forzará una conmutación por error a una de las réplicas secundarias que se ejecutan en otro nodo. Al hacerlo, preste atención a la salida del cliente de prueba y tenga en cuenta que el contador sigue incrementándose a pesar de la conmutación por error.
+
+3. Haga clic en el nodo que encontró en el paso anterior y seleccione **Desactivar (reiniciar)** en el menú Acciones. Esta acción reiniciará uno de los cinco nodos del clúster local y forzará una conmutación por error a una de las réplicas secundarias que se ejecutan en otro nodo. Al realizar esta acción, preste atención a la salida del cliente de prueba y tenga en cuenta que el contador sigue incrementándose a pesar de la conmutación por error.
 
 ## <a name="build-and-deploy-an-application-with-the-eclipse-neon-plugin"></a>Compilación e implementación de una aplicación con el complemento para Eclipse Neon
+
 Si instaló el [complemento de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) para Eclipse Neon, puede usarlo para crear, compilar e implementar aplicaciones de Service Fabric compiladas con Java.  Al instalar Eclipse, elija el **IDE de Eclipse para desarrolladores de Java**.
 
 ### <a name="create-the-application"></a>Creación de la aplicación
+
 El complemento de Service Fabric está disponible mediante la extensibilidad de Eclipse.
 
 1. En Eclipse, elija **File > Other > Service Fabric** (Archivo > Otros > Service Fabric). Verá un conjunto de opciones, incluidos Actores y Contenedores.
    
     ![Plantillas de Service Fabric en Eclipse][sf-eclipse-templates]
+
 2. En este caso, elija Stateless Service (Servicio sin estado).
+
 3. Se le pedirá que confirme el uso de la perspectiva de Service Fabric, que optimiza Eclipse para usarlos con proyectos de Service Fabric. Elija “Yes” (Sí).
 
 ### <a name="deploy-the-application"></a>Implementación de la aplicación
@@ -110,7 +123,6 @@ Las plantillas de Service Fabric incluyen un conjunto de tareas de Gradle para c
 
 La aplicación se compila e implementa en un momento. Puede supervisar su estado en Service Fabric Explorer.
 
-
 ## <a name="adding-more-services-to-an-existing-application"></a>Incorporación de más servicios a una aplicación existente
 
 Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice los pasos siguientes: 
@@ -121,6 +133,8 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información acerca de Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interactuación con los clústeres de Service Fabric mediante la CLI de Azure](service-fabric-azure-cli.md)
+* [Solución de problemas: implementación](service-fabric-azure-cli.md#troubleshooting)
+* Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
@@ -129,6 +143,6 @@ Para agregar otro servicio a una aplicación ya creada mediante `yo`, realice lo
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

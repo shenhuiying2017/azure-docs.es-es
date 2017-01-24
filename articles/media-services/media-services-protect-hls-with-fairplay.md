@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 7ee42899d1f50d562a8e776c840f0cbde12b13fe
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b67594033bfa89fc6ff8d80dd064d766c4048a3b
 
 
 ---
@@ -45,7 +45,7 @@ Este tema muestra cómo usar Servicios multimedia de Azure para cifrar dinámica
 ## <a name="requirements-and-considerations"></a>Requisitos y consideraciones
 * Se necesita lo siguiente para usar AMS para proporcionar HLS cifrado con FairPlay y entregar licencias de FairPlay.
 
-  * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](/pricing/free-trial/?WT.mc_id=A261C142F).
+  * Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
   * Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte [Creación de cuenta](media-services-portal-create-account.md).
   * Suscríbase al [programa de desarrollo de Apple](https://developer.apple.com/).
   * En Apple es obligatorio que el propietario del contenido obtenga el [paquete de implementación](https://developer.apple.com/contact/fps/). Indique en la solicitud que ya ha implementado KSM (módulo principal de seguridad) con Servicios multimedia de Azure y que está solicitando el paquete FPS final. Se proporcionarán instrucciones en el paquete FPS final para generar certificados y obtener la ASK, que luego se utilizarán para configurar FairPlay.
@@ -566,6 +566,6 @@ El ejemplo siguiente muestra la funcionalidad que se introdujo en el SDK de Serv
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 09/07/2016
-ms.author: marsma
+ms.date: 01/05/2017
+ms.author: tamram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 3907de9630fec99b1d28c750bfbfdf6f646bf194
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 84e7e6ddf03172e646c55e7e3bf45a32feb15b06
 
 
 ---
@@ -59,7 +59,7 @@ Para utilizar las plantillas de Batch, necesita lo siguiente:
     
     * Administrador de trabajos de Azure Batch con separador de trabajos
     * Procesador de tareas de Azure Batch
-  * Descargue las plantillas de la galería en línea de Visual Studio: [plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates].
+  * Descargue las plantillas de la galería en línea para Visual Studio: [plantillas de proyecto de Microsoft Azure Batch][vs_gallery_templates]
 * Si piensa utilizar la característica [Paquetes de aplicación](batch-application-packages.md) para implementar el administrador de trabajos y el procesador de tareas en los nodos de proceso de Batch, debe vincular una cuenta de almacenamiento a la cuenta de Batch.
 
 ## <a name="preparation"></a>Preparación
@@ -434,10 +434,10 @@ parameters.json y, si lo encuentra, lo carga como el diccionario de parámetros.
 
 ## <a name="next-steps"></a>Pasos siguientes
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Guardar salidas de trabajos y tareas en Azure Storage
-Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos para Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
+Otra herramienta útil en el desarrollo de soluciones de Batch es [Azure Batch File Conventions][nuget_package] (Convenciones de archivos de Azure Batch). Utilice esta biblioteca de clases .NET (que actualmente se encuentra disponible en versión preliminar) para almacenar y recuperar fácilmente las salidas de las tareas en o desde Azure Storage. [Almacenamiento de la salida de trabajos y tareas de Azure Batch](batch-task-output.md) se incluye una descripción completa de la biblioteca y su uso.
 
 ### <a name="batch-forum"></a>Foro de Batch
-El [foro de Azure Batch][forum] de MSDN es un lugar excelente para analizar Batch y plantear preguntas sobre este servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
+El [foro de Azure Batch][forum] en MSDN es un lugar excelente para debatir y formular preguntas sobre el servicio. Lea los mensajes útiles publicados y envíe sus preguntas a medida que surjan mientras compila sus soluciones del servicio Lote.
 
 [forum]: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azurebatch
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx
@@ -454,6 +454,6 @@ El [foro de Azure Batch][forum] de MSDN es un lugar excelente para analizar Batc
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

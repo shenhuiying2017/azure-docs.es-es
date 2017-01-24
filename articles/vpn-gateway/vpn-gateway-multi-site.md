@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2016
 ms.author: yushwang
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c909622219128f87f05668eb9124542d2d59e1ea
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 3d6f2d2bc7bd55d7f7d609e66826e3a3722c8f32
 
 
 ---
@@ -57,7 +57,7 @@ Antes de comenzar la configuración, compruebe que dispone de lo siguiente:
 * Una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Hardware VPN compatible para cada ubicación local. Consulte [Acerca de los dispositivos VPN para conectividad de red virtual](vpn-gateway-about-vpn-devices.md) para comprobar si el dispositivo que quiere usar es un dispositivo que se sabe que es compatible.
 * Una dirección IP IPv4 pública orientada externamente para cada dispositivo VPN. La dirección IP no se puede ubicar detrás de un NAT. Esto es un requisito.
-* Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) para más información sobre cómo instalar los cmdlets de PowerShell.
+* Deberá instalar la versión más reciente de los cmdlets de Azure PowerShell. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) para más información sobre cómo instalar los cmdlets de PowerShell.
 * Alguna persona con experiencia en configuración de hardware de VPN No podrá usar scripts de VPN generados automáticamente desde el Portal de Azure clásico para configurar los dispositivos de VPN. Esto significa que tendrá un conocimiento amplio de cómo configurar el dispositivo VPN o trabajar con alguien que lo tenga.
 * Los intervalos de dirección IP que desea usar para la red virtual (si aún no ha creado uno). 
 * Los intervalos de direcciones IP para cada uno de los sitios de red locales a los que se va a conectar. Tendrá que asegurarse de que los intervalos de dirección IP para cada uno de los sitios de red locales a los que desea conectarse no se solapan. De lo contrario, el Portal de Azure clásico o la API de REST rechazarán la configuración que se carga. 
@@ -195,6 +195,6 @@ Para más información sobre las puertas de enlace de VPN, consulte [Acerca de l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Introducción al modelo de autenticación y seguridad de Event Hubs | Microsoft Docs"
+title: "Introducción al modelo de autenticación y seguridad de Event Hubs de Azure | Microsoft Docs"
 description: "Introducción al modelo de autenticación y seguridad de Centros de eventos"
 services: event-hubs
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm;clemensv
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9447b863b62fc71d2619591f78be0494711dc6a3
+ms.sourcegitcommit: 05ca343cfdfc602759eb3ea30a7186a0bb47bd74
+ms.openlocfilehash: 3f20a19c212c082aa766cc2bd67e938aaabf715e
 
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Introducción al modelo de autenticación y seguridad de los Centros de eventos
-El modelo de seguridad de los Centros de eventos cumple los siguientes requisitos:
+El modelo de seguridad de Azure Event Hubs cumple los siguientes requisitos:
 
 * Solo los dispositivos que tengan credenciales válidas pueden enviar datos a un Centro de eventos.
 * Un dispositivo no puede suplantar a otro dispositivo.
@@ -39,7 +39,7 @@ Aunque no se recomienda, es posible equipar los dispositivos con tokens que conc
 Todos los tokens se firman con una clave de SAS. Normalmente, todos los tokens se firman con la misma clave. Los dispositivos no conocen la clave; esto evita que los dispositivos produzcan tokens.
 
 ### <a name="create-the-sas-key"></a>Creación de la clave SAS
-Cuando se crea un espacio de nombres de Centros de eventos, Centros de eventos de Azure genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el Centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre `EventHubSendKey`.
+Cuando se crea un espacio de nombres de Event Hubs de Azure, el servicio genera una clave SAS de 256 bits llamada **RootManageSharedAccessKey**. Esta clave permite enviar, escuchar y administrar los derechos del espacio de nombres. Puede crear claves adicionales. Se recomienda que genere una clave que conceda permisos de envío para el Centro de eventos concreto. En el resto de este tema, se presupone que esta clave tiene el nombre **EventHubSendKey**.
 
 En el ejemplo siguiente se crea una clave solo de envío cuando se crea el Centro de eventos:
 
@@ -103,16 +103,16 @@ En ausencia de autenticación SAS para grupos de consumidores individuales, pued
 Para más información sobre Centros de eventos, visite los siguientes temas:
 
 * [Información general de los Centros de eventos]
-* Una [solución de mensajería en cola] mediante las colas de Bus de servicio.
-* Una [aplicación de ejemplo completa que usa Centros de eventos].
+* [Información general de SAS]
+* Una [aplicación de ejemplo completa que usa Event Hubs]
 
 [Información general de los Centros de eventos]: event-hubs-overview.md
-[aplicación de ejemplo completa que usa Centros de eventos]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[solución de mensajería en cola]: ../service-bus-messaging/service-bus-dotnet-multi-tier-app-using-service-bus-queues.md
+[aplicación de ejemplo completa que usa Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
+[Información general de SAS]: ../service-bus-messaging/service-bus-sas-overview.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

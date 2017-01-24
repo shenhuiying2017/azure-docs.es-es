@@ -1,13 +1,13 @@
 ---
-title: Puntuaciones de pruebas comparativas de proceso para VM Windows | Microsoft Docs
-description: Comparación de puntuaciones de pruebas comparativas de proceso de SPECint para máquinas virtuales de Azure con Windows Server
+title: "Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows | Microsoft Docs"
+description: "Comparación de puntuaciones de pruebas comparativas de proceso de SPECint para máquinas virtuales de Azure con Windows Server"
 services: virtual-machines-windows
-documentationcenter: ''
+documentationcenter: 
 author: cynthn
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager,azure-service-management
-
+ms.assetid: 69ae72ec-e8be-4e46-a8f0-e744aebb5cc2
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/22/2016
 ms.author: cynthn
+translationtype: Human Translation
+ms.sourcegitcommit: 37b20ab17cc2b241e0d8a7d73dcd4433317cc0d8
+ms.openlocfilehash: 835399cfa3d6b9ce8e45cec76e5e8dc17cb59855
+
 
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows
-Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimiento de proceso para la alineación de máquinas virtuales de alto rendimiento de Azure con Windows Server. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales Linux](virtual-machines-linux-compute-benchmark-scores.md).
+Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimiento de proceso para la alineación de máquinas virtuales de alto rendimiento de Azure con Windows Server. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales Linux](virtual-machines-linux-compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="a-series---compute-intensive"></a>Serie A: de proceso intensivo
 | Tamaño | vCPU | Nodos NUMA | CPU | Ejecuciones | Tasa base promedio | StdDev |
@@ -41,7 +45,7 @@ Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimie
 | Standard_D13_v2 |8 |1 |Intel Xeon E5-2673 v3 @ 2,4 GHz |17 |235.8 |3.8 |
 | Standard_D14_v2 |16 |2 |Intel Xeon E5-2673 v3 @ 2,4 GHz |15 |460.8 |6.5 |
 
-## <a name="g-series,-gs-series"></a>Serie G, serie GS
+## <a name="g-series-gs-series"></a>Serie G, serie GS
 | Tamaño | vCPU | Nodos NUMA | CPU | Ejecuciones | Tasa base promedio | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_G1, Standard_GS1 |2 |1 |Intel Xeon E5-2698B v3 @ 2 GHz |31 |71.8 |6.5 |
@@ -51,7 +55,7 @@ Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimie
 | Standard_G5, Standard_GS5 |32 |2 |Intel Xeon E5-2698B v3 @ 2 GHz |22 |762.8 |3.7 |
 
 ## <a name="h-series"></a>Serie H
-| Tamaño | vCPU | Nodos NUMA | CPU | Ejecuciones | Iteraciones/seg. | StdDev |
+| Tamaño | vCPU | Nodos NUMA | CPU | Ejecuciones | Tasa base promedio  | StdDev |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_H8 |8 |1 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |297,4 |0.9 |
 | Standard_H16 |16 |2 |Intel Xeon E5-2667 v3 @ 3,2 GHz |5 |575,8 |6,8 |
@@ -64,8 +68,11 @@ Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimie
 Las cifras de Windows se calcularon mediante la ejecución de [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) en Windows Server. SPECint se ejecutó con la opción de tasa base (SPECint_rate2006), con una copia por núcleo. SPECint consta de 12 pruebas independientes y cada una se ejecuta tres veces, tomando el valor medio de cada prueba y ponderándolo para formar una puntuación compuesta. Se muestran las pruebas que se ejecutaron en varias máquinas virtuales para proporcionar las puntuaciones promedio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las capacidades de almacenamiento, los detalles del disco y consideraciones adicionales para seleccionar tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md).
+* Para más información sobre las capacidades de almacenamiento, los detalles del disco y consideraciones adicionales para seleccionar tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Nov16_HO5-->
 
 

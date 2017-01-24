@@ -1,6 +1,6 @@
 ---
-title: "Cómo realizar una actualización de firmware | Microsoft Docs"
-description: "En este tutorial se muestra cómo realizar una actualización de firmware"
+title: "Actualización de firmware de dispositivos con IoT Hub de Azure (Node) | Microsoft Docs"
+description: "Describe cómo usar la administración de dispositivos en IoT Hub de Azure para iniciar una actualización de firmware del dispositivo. Usará el SDK de IoT de Azure para Node.js para implementar la aplicación de dispositivo simulado y una aplicación de servicio que desencadena la actualización del firmware."
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -15,23 +15,23 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: juanpere
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: 632b9b38808e033b1fee2676b353f2649c4a282c
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: fdc8dca46f5bd0feb8e6ce24af32327be4c8ebb6
 
 
 ---
-# <a name="tutorial-how-to-do-a-firmware-update"></a>Tutorial: Cómo realizar una actualización de firmware
+# <a name="use-device-management-to-initiate-a-device-firmware-update-node"></a>Use la administración de dispositivos para iniciar una actualización de firmware del dispositivo (Node)
 ## <a name="introduction"></a>Introducción
 En el tutorial de [Introducción a la administración de dispositivos][lnk-dm-getstarted], vimos cómo usar los primitivos de [dispositivo gemelo][lnk-devtwin] y [métodos directos][lnk-c2dmethod] para reiniciar de forma remota un dispositivo. Este tutorial utiliza a los mismos tipos primitivos de IoT Hub. Además, proporciona orientación y muestra cómo realizar una actualización de firmware simulada de extremo a extremo.  Este patrón se utiliza en la implementación de actualización de firmware para el ejemplo de dispositivo Intel Edison.
 
 En este tutorial se muestra cómo realizar las siguientes acciones:
 
-* Crear una aplicación de consola que llame a un método directo firmwareUpdate en la aplicación de dispositivo simulado a través de su centro de IoT.
+* Crear una aplicación de consola de Node.js que llame al método directo firmwareUpdate en la aplicación de dispositivo simulado a través de su IoT Hub.
 * Crear una aplicación de dispositivo simulado que implementa un método directo firmwareUpdate que pase por un proceso de varias fases que espera para descargar la imagen de firmware, la descarga y, por último, la aplica.  Durante toda la ejecución, en cada fase el dispositivo usa las propiedades notificadas para actualizar el progreso.
 
 Al final de este tutorial tendrá dos aplicaciones de consola de Node.js:
 
-**dmpatterns_fwupdate_service.js**, que llama a un método directo en la aplicación de dispositivo simulado, muestra la respuesta y muestra periódicamente (cada 500 ms) las propiedades notificadas actualizadas.
+**dmpatterns_fwupdate_service.js**, que llama a un método directo en la aplicación de dispositivo simulado, muestra la respuesta y muestra periódicamente (cada 500 ms) las propiedades notificadas actualizadas.
 
 **dmpatterns_fwupdate_device.js**, que se conecta a IoT Hub con la identidad del dispositivo creada anteriormente, recibe un método directo firmwareUpdate y se ejecuta mediante un proceso de varios estado para simular una actualización de firmware; entre ellas, la espera para la descarga de imágenes, la descarga de la nueva imagen y, finalmente, la aplicación de dicha imagen.
 
@@ -40,7 +40,7 @@ Para completar este tutorial, necesitará lo siguiente:
 * Node.js versión 0.12.x o posteriores. <br/>  En [Preparación del entorno de desarrollo][lnk-dev-setup] se describe cómo instalar Node.js para este tutorial en Windows o Linux.
 * Una cuenta de Azure activa. (En caso de no tenerla, puede crear una [cuenta gratuita][lnk-free-trial] en solo unos minutos).
 
-Siga los pasos del artículo de [introducción a la administración de dispositivos](iot-hub-node-node-device-management-get-started.md) para crear su instancia de IoT Hub y obtener la cadena de conexión.
+Siga los pasos del artículo de [introducción a la administración de dispositivos](iot-hub-node-node-device-management-get-started.md) para crear su instancia de IoT Hub y obtener la cadena de conexión de IoT Hub.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -51,7 +51,7 @@ En esta sección:
 
 * Creará una aplicación de consola de Node.js que responda a un método directo que se llama desde la nube.
 * Desencadenará una actualización de firmware simulada.
-* Utilizará las propiedades notificadas para habilitar consultas de dispositivos gemelos a fin de identificar los dispositivos y cuándo se actualizó su firmware por última vez.
+* Usará las propiedades notificadas para habilitar consultas de dispositivos gemelos a fin de identificar los dispositivos y cuándo se actualizó su firmware por última vez.
 
 1. Cree una nueva carpeta vacía denominada "**manageddevice**".  En la carpeta **manageddevice** , cree un archivo package.json con el siguiente comando en el símbolo del sistema.  Acepte todos los valores predeterminados:
    
@@ -72,13 +72,13 @@ En esta sección:
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Agregue una variable **connectionString** y utilícela para crear un cliente de dispositivo.  
+5. Agregue una variable **connectionString** y utilícela para crear una instancia de **cliente**.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Agregue la siguiente función que se utiliza para actualizar las propiedades notificadas actualizadas.
+6. Agregue la siguiente función que se usa para actualizar las propiedades notificadas.
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -116,7 +116,7 @@ En esta sección:
       callback(error);
     }
     ```
-8. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a esperando la descarga.  Normalmente, los dispositivos se notifican a partir de una actualización disponible y una directiva definida por un administrador provoca que el dispositivo empiece a descargar y aplicar la actualización.  Aquí es donde se ejecutaría la lógica para habilitar esa directiva.  Por motivos de simplicidad, estableceremos un retraso de 4 segundos y continuaremos con la descarga de la imagen de firmware. 
+8. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a Esperando descarga.  Normalmente, los dispositivos se notifican a partir de una actualización disponible y una directiva definida por un administrador provoca que el dispositivo empiece a descargar y aplicar la actualización.  Aquí es donde se ejecutaría la lógica para habilitar esa directiva.  Por motivos de simplicidad, estableceremos un retraso de 4 segundos y continuaremos con la descarga de la imagen de firmware. 
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -131,7 +131,7 @@ En esta sección:
       setTimeout(callback, 4000);
     };
     ```
-9. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a descargando la imagen de firmware.  A continuación, se simula una descarga de firmware y se actualiza el estado de actualización de firmware para notificar si la descarga se ha realizado correctamente o no.
+9. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a Descargando la imagen de firmware.  A continuación, se simula una descarga de firmware y se actualiza el estado de actualización de firmware para notificar si la descarga se ha realizado correctamente o no.
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -168,7 +168,7 @@ En esta sección:
       }, 4000);
     }
     ```
-10. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a aplicando la imagen de firmware.  A continuación, se simula una aplicación de la imagen de firmware y se actualiza el estado de actualización de firmware para notificar si la aplicación se ha realizado correctamente o no.
+10. Agregue la siguiente función que actualiza el estado de actualización de firmware a través de las propiedades notificadas a Aplicando la imagen de firmware.  A continuación, se simula una aplicación de la imagen de firmware y se actualiza el estado de actualización de firmware para notificar si la aplicación se ha realizado correctamente o no.
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -350,7 +350,7 @@ Ya está preparado para ejecutar las aplicaciones.
 3. Verá la respuesta del dispositivo al método directo en la consola.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha utilizado un método directo para desencadenar una actualización de firmware remota en un dispositivo y ha utilizado periódicamente las propiedades notificadas para entender el progreso del proceso de actualización del firmware.  
+En este tutorial, ha usado un método directo para desencadenar una actualización de firmware remota en un dispositivo y ha utilizado periódicamente las propiedades notificadas para entender el progreso del proceso de actualización del firmware.  
 
 Para información sobre cómo ampliar la solución de IoT y programar llamadas de método en varios dispositivos, consulte el tutorial [Programación de trabajos en varios dispositivos][lnk-tutorial-jobs].
 
@@ -359,12 +359,12 @@ Para información sobre cómo ampliar la solución de IoT y programar llamadas d
 [lnk-dm-getstarted]: iot-hub-node-node-device-management-get-started.md
 [lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

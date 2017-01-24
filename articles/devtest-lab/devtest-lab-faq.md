@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: tarcher
 translationtype: Human Translation
-ms.sourcegitcommit: f480b8155c7bee797f1fed0f80200eec500e95a2
-ms.openlocfilehash: a9aea26cd3288f15c402774f686c1225ee694c56
+ms.sourcegitcommit: 5d73d1203faf485d715354e68ce2ccde32562611
+ms.openlocfilehash: 2d1ff28d5c7d989d4c81758bd191e8d1e8100b2e
 
 
 ---
@@ -36,7 +36,7 @@ En este artículo se ofrecen respuestas a algunas de las preguntas más frecuent
 * [¿Cuáles son los diferentes niveles de seguridad en Azure DevTest Labs?](#what-are-the-different-security-levels-in-azure-devtest-labs) 
 * [¿Cómo se crea un rol para permitir que los usuarios realicen una tarea específica?](#how-do-i-create-a-role-to-allow-users-to-perform-a-specific-task) 
 
-## <a name="cicd-integration-automation"></a>Automatización e integración de CI/CD
+## <a name="cicd-integration--automation"></a>Automatización e integración de CI/CD
 * [¿Se integra Azure DevTest Labs con mi cadena de herramientas de CI/CD?](#does-azure-devtest-labs-integrate-with-my-cicd-toolchain) 
 
 ## <a name="virtual-machines"></a>Máquinas virtuales
@@ -132,7 +132,7 @@ Las siguientes entradas de blog proporcionan orientación e información sobre e
 * [Deploying a new VM in an existing AzureDevTestLab from VSTS (Implementación de una nueva máquina virtual en un laboratorio de AzureDevTestLab existente desde VSTS)](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) 
 * [Using VSTS Release Management for Continuous Deployments to AzureDevTestLabs (Uso de la administración de versiones de VSTS para implementaciones continuas en AzureDevTestLabs)](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) 
 
-Para otras cadenas de herramientas de CI/CD, todos los escenarios mencionados anteriormente que pueden obtenerse mediante la extensión de Tareas de VSTS se pueden conseguir igualmente mediante la implementación de [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) con [cmdlets de Azure PowerShell](../resource-group-template-deploy.md) y los [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](http://aka.ms/dtlrestapis) para integrarlas con su cadena de herramientas.  
+Para otras cadenas de herramientas de CI/CD, todos los escenarios mencionados anteriormente que pueden obtenerse mediante la extensión de Tareas de VSTS se pueden conseguir igualmente mediante la implementación de [plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) con [cmdlets de Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) y los [SDK de .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). También puede usar las [API de REST para DevTest Labs](http://aka.ms/dtlrestapis) para integrarlas con su cadena de herramientas.  
 
 ### <a name="why-cant-i-see-certain-vms-in-the-azure-virtual-machines-blade-that-i-see-within-azure-devtest-labs"></a>¿Por qué no puedo ver determinadas máquinas virtuales en la hoja Azure Virtual Machines que sí veo en Azure DevTest Labs?
 Cuando se crea una máquina virtual en Azure DevTest Labs, se concede permiso para acceder a esa máquina virtual. Puede verla tanto en la hoja de laboratorios con en la hoja **Máquinas virtuales** . Los usuarios del rol de DevTest Labs pueden ver todas las máquinas virtuales creadas en el laboratorio mediante la hoja **Todas las máquinas virtuales** del laboratorio. No obstante, a los usuarios del rol de DevTest Labs no se les concede automáticamente acceso de lectura a los recursos de máquina virtual creados por otros usuarios. Por lo tanto, esas máquinas virtuales no se muestran en la hoja **Máquinas virtuales** . 
@@ -141,7 +141,7 @@ Cuando se crea una máquina virtual en Azure DevTest Labs, se concede permiso pa
 Una imagen personalizada es un disco duro virtual (VHD), mientras que una fórmula es una imagen que se puede configurar con opciones adicionales que se pueden guardar y reproducir. Si lo que quiere es crear rápidamente varios entornos con la misma imagen básica inmutable, puede ser preferible una imagen personalizada. En cambio, si quiere reproducir la configuración de la máquina virtual con los últimos bits, una red o subred virtual o un tamaño específico, es mejor una fórmula. Para una explicación más detallada, consulte el artículo [Comparación de imágenes personalizadas y fórmulas en DevTest Labs](devtest-lab-comparing-vm-base-image-types.md). 
 
 ### <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>¿Cómo se crean varias máquinas virtuales desde la misma plantilla a la vez?
-Puede usar la [extensión de Tareas de VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) o [generar una plantilla de Azure Resource Manager](devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Azure Resource Manager desde Windows PowerShell](../resource-group-template-deploy.md). 
+Puede usar la [extensión de Tareas de VSTS](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) o [generar una plantilla de Azure Resource Manager](devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) mientras crea una máquina virtual e [implementar la plantilla de Azure Resource Manager desde Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md). 
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-azure-devtest-labs-lab"></a>¿Cómo se pueden mover las máquinas virtuales de Azure existentes a mi laboratorio de Azure DevTest Labs?
 Estamos diseñando una solución para mover directamente las máquinas virtuales a Azure DevTest Labs. Mientras tanto, puede copiar las máquinas virtuales existentes en Azure DevTest Labs de la manera siguiente: 
@@ -207,7 +207,7 @@ Además de eliminar las máquinas virtuales del laboratorio en Azure Portal, pue
 Los artefactos son elementos personalizables que se pueden usar para implementar los bits más recientes o las herramientas de desarrollo en una máquina virtual. Se asocian a la máquina virtual durante su creación con unos pocos clics y una vez que se ha aprovisionado la máquina virtual, los artefactos implementan y configurar la máquina virtual. Hay diversos artefactos ya existentes en el [repositorio público de Github](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) pero también puede [crear fácilmente sus propios artefactos](devtest-lab-artifact-author.md). 
 
 ### <a name="how-do-i-create-a-lab-from-an-azure-resource-manager-template"></a>¿Cómo se crea un laboratorio a partir de una plantilla de Azure Resource Manager?
-Hemos proporcionado una [repositorio de Github de plantillas de Azure Resource Manager de laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que se puede implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../resource-group-template-deploy.md).
+Hemos proporcionado una [repositorio de Github de plantillas de Azure Resource Manager de laboratorio](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) que se puede implementar tal cual o modificar para crear plantillas personalizadas para los laboratorios. Cada una de estas plantillas tiene un vínculo en el que puede hacer clic para implementar el laboratorio tal cual bajo su propia suscripción de Azure, o puede personalizar la plantilla e [implementar con PowerShell o la CLI de Azure](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="why-are-my-vms-created-in-different-resource-groups-with-arbitrary-names-can-i-rename-or-modify-these-resource-groups"></a>¿Por qué mis máquinas virtuales se crean en distintos grupos de recursos con nombres arbitrarios? ¿Se pueden modificar estos grupos de recursos o cambiar su nombre?
 Los grupos de recursos se crean de esta manera para que Azure DevTest Labs administre los permisos de usuario y el acceso a las máquinas virtuales. Aunque puede mover la máquina virtual a otro grupo de recursos con el nombre que desee, no se recomienda hacerlo. Estamos trabajando en mejorar esta experiencia para permitir más flexibilidad.   
@@ -246,6 +246,6 @@ Una posibilidad es que el nombre de la red virtual contenga puntos. Si es así, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

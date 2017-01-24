@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/04/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 95068f046c57bd65b5258771a272e70124f3dd12
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: 41bef0e62c86e5cc3c27d02702a1b330fc76c915
 
 
 ---
@@ -26,8 +26,8 @@ Microsoft Azure PowerShell es un entorno de scripting que puede usar para contro
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de comenzar, necesitará lo siguiente:
 
-* Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para más información sobre cómo obtener una suscripción, consulte [opciones de compra][opciones de compra], [ofertas para miembros][ofertas para miembros] o [cuenta gratuita][cuenta gratuita].
-* Un equipo con Azure PowerShell. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
+* Una suscripción de Azure. Azure es una plataforma basada en suscripción. Para obtener más información sobre cómo obtener una suscripción, consulte [Opciones de compra][purchase options], [ofertas para miembros][member offers] o [cuenta gratuita][free account].
+* Un equipo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Install and configure Azure PowerShell].
 * Conocimientos generales sobre los scripts de PowerShell, paquetes de NuGet y .NET Framework.
 
 ## <a name="include-a-reference-to-the-net-assembly-for-service-bus"></a>Incluir una referencia al ensamblado .NET para Service Bus
@@ -64,7 +64,7 @@ catch [System.Exception]
 ```
 
 ## <a name="provision-a-service-bus-namespace"></a>Aprovisionar un espacio de nombres de Service Bus
-Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK de .NET: [Get-AzureSBNamespace][Get-AzureSBNamespace] y [New-AzureSBNamespace][New-AzureSBNamespace].
+Al trabajar con espacios de nombres de Service Bus, hay dos cmdlets que puede usar en lugar del SDK. NET: [Get-AzureSBNamespace][Get-AzureSBNamespace] y [New-AzureSBNamespace][New-AzureSBNamespace].
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
@@ -113,7 +113,7 @@ Esta parte del script hace lo siguiente:
     ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamiento de otras entidades de Service Bus
-Para aprovisionar otras entidades, como colas, temas y centros de eventos, puede usar la [API .NET de Service Bus][API .NET de Service Bus]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
+Para aprovisionar otras entidades, como colas, temas y centros de eventos, puede utilizar la [API .NET para Service Bus][.NET API for Service Bus]. Al final de este artículo se hace referencia a ejemplos más detallados, incluidas otras entidades.
 
 ### <a name="create-an-event-hub"></a>Creación de un Centro de eventos
 En esta parte del script se crean cuatro variables locales adicionales. Estas variables se usan para crear una instancia de un objeto `EventHubDescription` . El script hace lo siguiente:
@@ -259,18 +259,18 @@ Además, puede descargar algunos scripts listos para usar:
 
 <!--Anchors-->
 
-[opciones de compra]: http://azure.microsoft.com/pricing/purchase-options/
-[ofertas para miembros]: http://azure.microsoft.com/pricing/member-offers/
-[cuenta gratuita]: http://azure.microsoft.com/pricing/free-trial/
+[purchase options]: http://azure.microsoft.com/pricing/purchase-options/
+[member offers]: http://azure.microsoft.com/pricing/member-offers/
+[free account]: http://azure.microsoft.com/pricing/free-trial/
 [paquete NuGet de Service Bus]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
-[API .NET de Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Instalación y configuración de Azure PowerShell]: ../powershell-install-configure.md
+[.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

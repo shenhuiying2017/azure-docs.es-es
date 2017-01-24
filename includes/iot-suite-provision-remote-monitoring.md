@@ -3,10 +3,10 @@
 2. Haga clic en **Seleccionar** en el icono **Supervisión remota**.
 3. Escriba un valor en **Nombre de la solución** para la solución preconfigurada de supervisión remota.
 4. Seleccione la **región** y la **suscripción** que desea usar para aprovisionar la solución.
-5. Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Normalmente tarda varios minutos en ejecutarse.
+5. Haga clic en **Crear solución** para comenzar el proceso de aprovisionamiento. Este proceso normalmente tarda varios minutos en ejecutarse.
 
 ### <a name="wait-for-the-provisioning-process-to-complete"></a>Espere a que se complete el proceso de aprovisionamiento
-1. Haga clic en el icono de la solución con el estado **Aprovisionando** .
+1. Haga clic en el icono de la solución con el estado **Aprovisionando**.
 2. Observe los **estados de aprovisionamiento** , ya que los servicios de Azure se implementan en su suscripción de Azure.
 3. Una vez que se complete el aprovisionamiento, el estado cambia a **Listo**.
 4. Haga clic en el icono y verá los detalles de la solución en el panel derecho.
@@ -23,6 +23,6 @@
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-faq.md
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,8 +12,6 @@ Tienes que crear un extremo de carga equilibrada para cada máquina virtual que 
    
     Una vez que el archivo de configuración de publicación se haya importado, puedes administrar tu suscripción a Azure en la sesión de PowerShell.
 
-
-
 <!--HONumber=Nov16_HO3-->
 
 

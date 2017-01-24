@@ -15,8 +15,8 @@ ms.workload: identity
 ms.date: 07/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 382d0cf15dafca51571346dab1e9d55eb2d09d67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 9129eda8e4b3c3865878b8ceafb95a155ba02885
 
 
 ---
@@ -32,7 +32,7 @@ Puede usar el control de acceso basado en rol (RBAC) del Portal de Azure y la AP
 
 Para poder usar Windows PowerShell con el fin de administrar RBAC, necesita lo siguiente:
 
-* La versión 0.8.8 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* La versión 0.8.8 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Cmdlets de Azure Resource Manager. Instale los [cmdlets de Azure Resource Manager](https://msdn.microsoft.com/library/mt125356.aspx) en PowerShell.
 
 ## <a name="list-roles"></a>Lista de roles
@@ -216,6 +216,6 @@ En el ejemplo siguiente, el rol personalizado *Operador de máquina virtual* no 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

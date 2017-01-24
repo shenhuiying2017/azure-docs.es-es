@@ -15,8 +15,8 @@ ms.workload: storage-backup-recovery
 ms.date: 11/23/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 8ff2423f5b546864757a75cd7af1e6c76f047b19
-ms.openlocfilehash: 221027027e57413b6244c97e3e5c57d6423d94ea
+ms.sourcegitcommit: ea89244efea6afa7d7b9d60f400117284fb5d1e1
+ms.openlocfilehash: 3c5e51c562d9251f2ad40eeb1939d1651c845391
 
 
 ---
@@ -168,13 +168,13 @@ Los parámetros son:
 * **/proxyAddress**; **/proxyport**; **/proxyUsername**; **/proxyPassword**: opcional. Especifique los parámetros de proxy si desea usar un proxy personalizado o el proxy existente requiere autenticación.
 
 ## <a name="step-4-create-an-azure-storage-account"></a>Paso 4: Creación de una cuenta de almacenamiento de Azure
-1. En **Preparar recursos**, seleccione **Crear cuenta de almacenamiento** para crear una cuenta de Azure Storage si no tiene una. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción.
+* En **Preparar recursos**, seleccione **Crear cuenta de almacenamiento** para crear una cuenta de Azure Storage si no tiene una. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el almacén de Azure Site Recovery y estar asociada a la misma suscripción.
 
     ![Crear cuenta de almacenamiento](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.                               2. No se admite la [migración de cuentas de almacenamiento](../resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones para cuentas de almacenamiento usadas para implementar Site Recovery.
->
+> 1. No se admite el traslado de cuentas de almacenamiento creadas con el [nuevo Portal de Azure](../storage/storage-create-storage-account.md) entre grupos de recursos.
+> 2. No se admite la [migración de cuentas de almacenamiento](../azure-resource-manager/resource-group-move-resources.md) entre grupos de recursos de la misma suscripción o entre suscripciones para cuentas de almacenamiento usadas para implementar Site Recovery.
 >
 
 ## <a name="step-5-create-and-configure-protection-groups"></a>Paso 5: Creación y configuración de grupos de protección
@@ -218,19 +218,21 @@ Agregue máquinas virtuales a grupos de protección para habilitar su protecció
 
      * **Adaptadores de red**: el número de adaptadores de red viene determinado por el tamaño que especifique para la máquina virtual de destino. Compruebe las [especificaciones de tamaño de la máquina virtual](../virtual-machines/virtual-machines-linux-sizes.md#size-tables) para conocer el número de NIC que se admiten.
 
-            When you modify the size for a virtual machine and save the settings, the number of network adapter will change when you open **Configure** page the next time. The number of network adapters of target virtual machines is minimum of the number of network adapters on source virtual machine and maximum number of network adapters supported by the size of the virtual machine chosen. It is explained below:
+       Al modificar el tamaño de una máquina virtual y guardar la configuración, el número del adaptador de red cambiará la próxima vez que abra la página **Configurar** . El número de adaptadores de red de máquinas virtuales de destino es el mínimo número de adaptadores de red en la máquina virtual de origen y el número máximo de adaptadores de red compatible con el tamaño de la máquina virtual elegida. Se explica a continuación:
 
+       * Si el número de adaptadores de red en el equipo de origen es menor o igual al número de adaptadores permitido para el tamaño de la máquina de destino, el destino tendrá el mismo número de adaptadores que el origen.
+       * Si el número de adaptadores para la máquina virtual de origen supera el número permitido para el tamaño de destino, entonces se utilizará el tamaño máximo de destino.
+       * Por ejemplo, si una máquina de origen tiene dos adaptadores de red y el tamaño de la máquina de destino es compatible con cuatro, el equipo de destino tendrá dos adaptadores. Si el equipo de origen tiene dos adaptadores pero el tamaño de destino compatible solo admite uno, el equipo de destino tendrá solo un adaptador.
+       
+     * **Red de Azure**: especifique la red a la que la máquina virtual debe conmutar por error. Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure.
+     * **Subred** : para cada adaptador de red de la máquina virtual, seleccione la subred en la red de Azure a la que debe conectarse el equipo después de una conmutación por error.
+     * **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error.  Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
 
-            - If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
-            - If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
-            - For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
-        - **Red de Azure**: especifique la red a la que la máquina virtual debe conmutar por error. Si la máquina virtual tiene varios adaptadores de red, todos ellos deben conectarse a la misma red de Azure.
-        - **Subred** : para cada adaptador de red de la máquina virtual, seleccione la subred en la red de Azure a la que debe conectarse el equipo después de una conmutación por error.
-        - **Dirección IP de destino**: si el adaptador de red de la máquina virtual de origen está configurado para usar una dirección IP estática, puede especificar la dirección IP de la máquina virtual de destino para asegurarse de que el equipo tiene la misma dirección IP después de la conmutación por error.  Si no especifica una dirección IP, se asignará cualquier dirección disponible en el momento de la conmutación por error. Si especifica una dirección que está en uso, se producirá un error en la conmutación por error.
+     > [!NOTE] 
+     > La [Migración de redes](../azure-resource-manager/resource-group-move-resources.md) entre grupos de recursos dentro de la misma suscripción o entre suscripciones no se admite en el caso de redes usadas para implementar Site Recovery.
+     >
 
-        > [AZURE.NOTE] La [Migración de redes](../resource-group-move-resources.md) entre grupos de recursos dentro de la misma suscripción o entre suscripciones no se admite en el caso de redes usadas para implementar Site Recovery.
-
-        ![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
+     ![Configuración de propiedades de la máquina virtual](./media/site-recovery-hyper-v-site-to-azure-classic/multiple-nic.png)
 
 
 
@@ -284,6 +286,6 @@ Después de que la implementación esté configurada y en ejecución, [obtenga m
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

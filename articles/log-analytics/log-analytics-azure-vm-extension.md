@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richrund
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 05e9e10d9a37f90b679175a3ed9d78ed05d9e447
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: cab40991e5b0628f422b9eb91130d8135c1434f1
 
 
 ---
@@ -121,7 +121,7 @@ Con Azure Resource Manager, puede crear una plantilla sencilla (en formato JSON)
 
 La inclusión del agente de Log Analytics como parte de la plantilla de Resource Manager le permite garantizar que todas las máquinas virtuales estén preconfiguradas para informar al área de trabajo de Log Analytics.
 
-Para más información sobre las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+Para más información sobre las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 A continuación se incluye un ejemplo de una plantilla de Resource Manager que se utiliza para la implementación de una máquina virtual que ejecuta Windows con la extensión Microsoft Monitoring Agent instalada. Se trata de una plantilla de máquina virtual típica, con las siguientes adiciones:
 
@@ -161,7 +161,7 @@ A continuación se incluye un ejemplo de una plantilla de Resource Manager que s
     "workspaceName": {
       "type": "string",
       "metadata": {
-         "description": "OMD workspace name"
+         "description": "OMS workspace name"
       }
     },
     "windowsOSVersion": {
@@ -404,6 +404,6 @@ Para equipos que no se ejecutan en Azure, puede instalar el agente de Log Analyt
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,24 +1,12 @@
 ---
-title: Equilibrio de carga para servicios de infraestructura | Microsoft Docs
-description: 'Describe los dos tipos diferentes de equilibrio de carga compatibles con Azure: el Equilibrador de carga para servicios en la nube y el Administrador de tráfico de Microsoft Azure para el tráfico del cliente.'
-services: load-balancer
-documentationcenter: ''
-author: sdwheeler
-manager: carmonm
-editor: ''
-
-ms.service: load-balancer
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.topic: article
-ms.date: 02/02/2016
-ms.author: sewhee
+redirect_url: /azure/load-balancer/load-balancer-overview
+translationtype: Human Translation
+ms.sourcegitcommit: 3ebdad9551641095451a8fea7ff4ae0ecbff7aa8
+ms.openlocfilehash: d5599b25bdedf6aae23f3dd2061c55986ab208d8
 
 ---
-# Equilibrio de carga para servicios de infraestructura de Azure
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
-[!INCLUDE [virtual-machines-common-load-balance](../../includes/virtual-machines-common-load-balance.md)]
 
-<!---HONumber=AcomDC_0907_2016-->
+<!--HONumber=Jan17_HO2-->
+
+

@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 09/20/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dcddd23ed51c9e115b5b961547652d57513b75aa
+ms.sourcegitcommit: 0587dfcd6079fc8df91bad5a5f902391d3657a6b
+ms.openlocfilehash: a6b5e865e9a57b1eaf8ad08aa70466f772bdb244
 
 
 ---
@@ -88,7 +88,7 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 Si usa Tez con Hive, consulte los siguientes documentos para la información de depuración:
 
 * [Use the Tez UI on Windows-based HDInsight](hdinsight-debug-tez-ui.md)
-* [Use the Ambari Tez view on Linux-based HDInsight (Uso de la vista Tez de Ambari en HDInsight basado en Linux)](hdinsight-debug-ambari-tez-view.md)
+* [Use the Ambari Tez view on Linux-based HDInsight](hdinsight-debug-ambari-tez-view.md)
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 
@@ -117,7 +117,7 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-hadoop-linux-tutorial-get-started.md
 
-[Powershell-install-configure]: powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 
@@ -125,6 +125,6 @@ Si usa Tez con Hive, consulte los siguientes documentos para la información de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

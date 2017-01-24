@@ -17,8 +17,8 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 0f49f7b9a1db2498d6a78031496a2d3c51888d8b
-ms.openlocfilehash: 926b0e9b75e84ecfef48d1c27524a8e33ef8c3fd
+ms.sourcegitcommit: 5ea043ce3bcd0f500fd765f13764ea3ee83e1ba9
+ms.openlocfilehash: 83c3592014c73c0cf36d371d2752bc76b7c8a4e8
 
 
 ---
@@ -79,7 +79,7 @@ El tiempo activo se supervisa a través de códigos de respuesta de HTTP y el ti
 
 Para configurarlo, consulte [Supervisión de Aplicaciones en Azure App Service](web-sites-monitor.md).
 
-Consulte también [Mantenimiento de Sitios web de Azure activos y supervisión de puntos de conexión: con Stefan Schackow](/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/) para ver un vídeo sobre la supervisión de los puntos de conexión.
+Consulte también [Mantenimiento de Sitios web de Azure activos y supervisión de puntos de conexión: con Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow) para ver un vídeo sobre la supervisión de los puntos de conexión.
 
 #### <a name="application-performance-monitoring-using-extensions"></a>Supervisión del rendimiento de la aplicación mediante el uso de extensiones
 También puede supervisar el rendimiento de la aplicación aprovechando las *extensiones de sitio*.
@@ -113,7 +113,7 @@ Para obtener instrucciones detalladas sobre cómo configurar su aplicación para
 #### <a name="use-remote-profiling"></a>Uso de la generación remota de perfiles
 En el Servicio de aplicaciones, Aplicaciones web, Aplicaciones de API y WebJobs de Azure se pueden generar perfiles de forma remota. Si el proceso se ejecuta más lento de lo esperado o la latencia de las solicitudes HTTP es superior a la normal y el uso de CPU del proceso es también elevado, puede generar un perfil para su proceso de forma remota y obtener las pilas de llamada de muestreo de CPU para analizar la actividad del proceso y las rutas de acceso activas del código.
 
-Para obtener más información, consulte [Compatibilidad con la generación remota de perfiles en el Servicio de aplicaciones de Azure](/blog/remote-profiling-support-in-azure-app-service).
+Para obtener más información, consulte [Compatibilidad con la generación remota de perfiles en el Servicio de aplicaciones de Azure](https://azure.microsoft.com/blog/remote-profiling-support-in-azure-app-service).
 
 #### <a name="use-the-azure-app-service-support-portal"></a>Uso del Portal de soporte técnico del Servicio de aplicaciones de Azure
 El servicio Aplicaciones web ofrece la posibilidad de solucionar los problemas relacionados con su aplicación web con solo examinar los registros HTTP, los registros de eventos, los volcados de proceso, etc. Puede tener acceso a toda esta información con nuestro Portal de soporte técnico en **http://&lt;Nombre de la aplicación>.scm.azurewebsites.net/Support**.
@@ -130,7 +130,7 @@ Después de la recopilación de los datos, también se ejecuta un análisis de e
 
 En caso de que quiera descargar los datos, de forma predeterminada se almacenarían en la carpeta D:\home\data\DaaS.
 
-Para obtener más información sobre el Portal de soporte técnico del Servicio de aplicaciones de Azure, consulte [Nuevas actualizaciones de la extensión de sitios de soporte técnico para Sitios web de Azure](/blog/new-updates-to-support-site-extension-for-azure-websites).
+Para obtener más información sobre el Portal de soporte técnico del Servicio de aplicaciones de Azure, consulte [Nuevas actualizaciones de la extensión de sitios de soporte técnico para Sitios web de Azure](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Uso de la consola de depuración Kudu
 El servicio Aplicaciones web incluye una consola de depuración que puede usar para depurar, explorar o cargar archivos, e incluye también puntos de conexión JSON para obtener información sobre su entorno. A esto se le denomina *Consola Kudu* o *Panel SCM* para la aplicación web.
@@ -146,7 +146,7 @@ Algunas de las cosas que proporciona Kudu son:
 
 Otra característica útil de Kudu es que, en caso de que la aplicación inicie excepciones de primera oportunidad, puede usar Kudu y la herramienta Procdump de SysInternals para crear volcados de memoria. Estos volcados de memoria son instantáneas del proceso y a menudo pueden ayudarle solucionar problemas más complicados de su aplicación web.
 
-Para obtener más información sobre las características disponibles en Kudu, consulte [Herramientas de Azure Websites Team Services que debe conocer](/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Para obtener más información sobre las características disponibles en Kudu, consulte [Herramientas de Azure Websites Team Services que debe conocer](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
@@ -163,7 +163,7 @@ Puede establecer el escalado en Manual o Automático.
 #### <a name="use-autoheal"></a>Uso de AutoHeal
 AutoHeal recicla el proceso de trabajo para su aplicación en función de la configuración que elija (como cambios de configuración, solicitudes, límites de memoria o el tiempo necesario para ejecutar una solicitud). Casi siempre, el proceso de reciclaje es la forma más rápida de recuperarse de un problema. Aunque siempre puede reiniciar la aplicación web directamente en el Portal de Azure, AutoHeal lo hará automáticamente por usted. Todo lo que debe hacer es agregar algunos desencadenadores en web.config raíz de la aplicación web. Tenga en cuenta que esta configuración funcionaría igual incluso si la aplicación no fuera .Net.
 
-Para obtener más información, consulte [Recuperación automática de Sitios web de Azure](/blog/auto-healing-windows-azure-web-sites/).
+Para obtener más información, consulte [Recuperación automática de Sitios web de Azure](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
 #### <a name="restart-the-web-app"></a>Reinicio de la aplicación web
 Suele ser la manera más sencilla de recuperarse de problemas que solo tienen lugar una vez. En el [Portal de Azure](https://portal.azure.com/), en la hoja de la aplicación web, tiene las opciones para detener o reiniciar la aplicación.
@@ -174,6 +174,6 @@ También puede administrar la aplicación web con Azure Powershell. Para obtener
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

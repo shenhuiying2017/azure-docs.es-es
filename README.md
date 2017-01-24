@@ -1,5 +1,5 @@
 # <a name="azure-technical-documentation-contributor-guide"></a>Guía del colaborador de documentación técnica de Azure
-Ha encontrado el repositorio de GitHub, que contiene los archivos de origen de la documentación técnica que se publica en [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure).
+Ha encontrado el repositorio de GitHub que contiene los archivos de origen de la documentación técnica que se publica en [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure).
 
 Este repositorio también incluye una guía para ayudarle a colaborar con nuestra documentación técnica. Si quiere ver la lista de artículos de la guía del colaborador, consulte [el índice](contributor-guide/contributor-guide-index.md).
 
@@ -17,9 +17,9 @@ Gracias por su interés en la documentación de Azure.
 * [Índice de todos los artículos de la guía del colaborador](contributor-guide/contributor-guide-index.md) (abre una nueva página)
 
 ## <a name="ways-to-contribute"></a>Formas de colaborar
-Puede enviar actualizaciones a la [documentación de Azure](http://docs.microsoft.com/azure) como se indica a continuación:
+Puede enviar actualizaciones a la [documentación de Azure](https://docs.microsoft.com/azure) como se indica a continuación:
 
-* Puede colaborar fácilmente en artículos técnicos en la interfaz de usuario de GitHub. Busque el artículo en este repositorio, o acceda al artículo en [http://docs.microsoft.com/azure](http://docs.microsoft.com/azure) y haga clic en el vínculo que abre el archivo de origen del artículo en GitHub.
+* Puede colaborar fácilmente en artículos técnicos en la interfaz de usuario de GitHub. Busque el artículo en este repositorio, o consulte al artículo en [https://docs.microsoft.com/azure](https://docs.microsoft.com/azure) y haga clic en el vínculo del artículo que abre el origen del artículo en GitHub.
 * Si realiza cambios sustanciales en un artículo existente, agrega o cambia imágenes, o colabora en un nuevo artículo, necesitará bifurcar este repositorio, instalar GIT Bash, MarkdownPad y obtener información acerca de algunos comandos de GIT.
 
 ## <a name="code-of-conduct"></a>Código de conducta
@@ -33,10 +33,10 @@ Las correcciones menores o aclaraciones que se envían para la documentación y 
 Si envía una solicitud de incorporación de cambios con cambios importantes o nuevos en la documentación y los ejemplos de código, pondremos un comentario en GitHub para solicitarle que acepte el contrato de licencia de colaboración (CLA, por sus siglas en inglés) si no es un empleado de Microsoft. Necesitamos que rellene el formulario en línea para aceptar su solicitud de incorporación de cambios.
 
 ## <a name="repository-organization"></a>Organización del repositorio
-El contenido del repositorio azure-docs está organizado como la documentación de http://docs.microsoft.com/azure. Este repositorio tiene dos carpetas raíz:
+El contenido del repositorio azure-docs está organizado como la documentación de https://docs.microsoft.com/azure. Este repositorio tiene dos carpetas raíz:
 
 ### <a name="articles"></a>\articles
-La carpeta *\articles* contiene los artículos de la documentación en formato de archivos de Markdown, con la extensión *.md*. Los artículos normalmente se agrupan por servicio de Azure. 
+La carpeta *\articles* contiene los artículos de la documentación en formato de archivos de Markdown, con la extensión *.md*. Los artículos normalmente se agrupan por servicio de Azure.
 
 Los artículos deben seguir directrices estrictas de nomenclatura de archivos. Para más información, consulte [nuestra guía de nombres de archivo](contributor-guide/file-names-and-locations.md).
 
@@ -49,7 +49,7 @@ Puede crear secciones de contenido reutilizable para incluirlo en uno o varios a
 Esta carpeta contiene la plantilla de Markdown estándar con el formato de Markdown básico que se necesita para un artículo.
 
 ### <a name="contributor-guide"></a>\contributor-guide
-Esta carpeta contiene artículos que forman parte de nuestra guía del colaborador.  
+Esta carpeta contiene artículos que forman parte de nuestra guía del colaborador.
 
 ## <a name="use-github-git-and-this-repository"></a>Uso de GitHub, GIT y este repositorio
 Para más información acerca de cómo colaborar, cómo usar la IU de GitHub para colaborar con pequeños cambios, y cómo bifurcar y clonar el repositorio para colaboraciones más importantes, consulte [Install and set up tools for authoring in GitHub](contributor-guide/tools-and-setup.md)(Instalación y configuración de herramientas para crear en GitHub).
@@ -87,6 +87,6 @@ Consulte en el [índice de la guía del colaborador](contributor-guide/contribut
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

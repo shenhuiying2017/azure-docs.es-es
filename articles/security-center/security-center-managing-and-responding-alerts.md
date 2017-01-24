@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/17/2016
 ms.author: yurid
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: c0a1cf550c46810624d9eee7722409ff19b75369
+ms.sourcegitcommit: ec32e3937d08d912c8f96987b0c5ebbf73060258
+ms.openlocfilehash: 7a4413c6d2ecf497e72e2909e627761f0a9ff23a
 
 
 ---
@@ -42,20 +42,19 @@ Puede revisar las alertas actuales en el icono **Alertas de seguridad** . Abra e
 1. En el panel Security Center, verá el icono **Alertas de seguridad** .
    
     ![Icono Alertas de seguridad en Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
+
 2. Haga clic en el icono para abrir la hoja **Alertas de seguridad** , que contiene más detalles acerca de las alertas, como se muestra a continuación.
    
    ![La hoja Alertas de seguridad en Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
 En la parte inferior de esta hoja aparecen los detalles de cada alerta. Para ordenar, haga clic en la columna que desea ordenar. A continuación se muestra la definición de cada columna:
 
-* **Alerta**: una breve explicación de la alerta.
+* **Descripción**: una breve explicación de la alerta.
 * **Recuento**: una lista de todas las alertas de este tipo específico que se han detectado en un día concreto.
 * **Detectado por**: el servicio responsable de desencadenar la alerta.
 * **Fecha**: la fecha en que se ha producido el evento.
 * **Estado**: el estado actual de esa alerta. Existen dos tipos de servicios:
-  
   * **Activa**: se ha detectado la alerta de seguridad.
-  * **Descartada**: el usuario ha descartado la alerta de seguridad. Este estado suele utilizarse para alertas que se han investigado pero que no se han mitigado, o se ha observado que no plantean un ataque real.
 * **Gravedad**: el nivel de gravedad, que puede ser alto, medio o bajo.
 
 ### <a name="filtering-alerts"></a>Filtrado de alertas
@@ -63,10 +62,7 @@ Puede filtrar alertas en función de la fecha, el estado y la gravedad. Puede re
 
 1. Haga clic en **Filtro** en la hoja **Alertas de seguridad**. Se abre la hoja **Filtro** , donde podrá seleccionar los valores de fecha, estado y gravedad que desee ver.
    
-    ![Filtrado de alertas en Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-ga.png)
-2. Después de investigar una alerta de seguridad, es posible que descubra que es un falso positivo para su entorno o que indica un comportamiento normal de un recurso determinado. En cualquier caso, si determina que una alerta de seguridad no es aplicable, puede descartarla y después filtrarla de la vista. Hay dos formas de descartar una alerta de seguridad. Haga clic con el botón derecho en una alerta y seleccione **Descartar**, o bien mantenga el puntero sobre un elemento, haga clic en los tres puntos que aparecen a la derecha y seleccione **Descartar**. Para ver las alertas de seguridad descartadas, haga clic en **Filtro** y seleccione **Descartada**.
-   
-   ![Descarte de alertas en Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig4-ga.png)
+    ![Filtrado de alertas en Security Center](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>Responder a alertas de seguridad
 Seleccione una alerta de seguridad para ver más información sobre el evento o los eventos que la desencadenaron y, si existen, los pasos que debe seguir para corregir un ataque. Las alertas de seguridad se agrupan según el tipo y la fecha. Haga clic en una alerta de seguridad y se abrirá una hoja que contiene una lista de las alertas agrupadas.
@@ -98,6 +94,6 @@ En este documento ha aprendido a configurar directivas de seguridad en el Centro
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

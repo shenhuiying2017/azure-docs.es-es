@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ea1ec9bddff60d91bdd47d7d9e5312563386ae4
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 6972550d74965fa6a7c69a5903b3287d5d219851
 
 
 ---
@@ -40,7 +40,7 @@ R: servicios multimedia admite la integración con CDN de Azure (para obtener m�
 
 P: ¿Los servicios multimedia de Azure admiten el almacenamiento de imágenes?
 
-R: si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Almacenamiento de blobs de Azure. No supone una ventaja si se colocan en la cuenta de Servicios multimedia a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si puede tener la necesidad de usar las imágenes como superposiciones en el codificador de vídeo, el Estándar de codificador multimedia admite la superposición de las imágenes encima de los vídeos, por eso muestra JPEG y PNG como formatos de entrada admitidos. Para obtener más información, consulte [Creación de superposiciones](media-services-custom-mes-presets-with-dotnet.md#overlay).
+R: si solo busca almacenar las imágenes JPEG o PNG, debe mantenerlas en Almacenamiento de blobs de Azure. No supone una ventaja si se colocan en la cuenta de Servicios multimedia a menos que desee mantenerlas asociadas a los recursos de vídeo o audio. O bien, si puede tener la necesidad de usar las imágenes como superposiciones en el codificador de vídeo, el Estándar de codificador multimedia admite la superposición de las imágenes encima de los vídeos, por eso muestra JPEG y PNG como formatos de entrada admitidos. Para obtener más información, consulte [Creación de superposiciones](media-services-advanced-encoding-with-mes.md#overlay).
 
 P: ¿Cómo puedo copiar recursos de una cuenta de Servicios multimedia a otra?
 
@@ -52,7 +52,7 @@ R: Media Services usa el valor de la propiedad IAssetFile.Name al generar direcc
 
 P: ¿Cómo se realiza la conexión con REST?
 
-R: Después de conectarse correctamente a https://media.windows.net, recibirá un redireccionamiento 301 que especifica otro URI de Media Services. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md). 
+R: Después de conectarse correctamente a https://media.windows.net, recibirá un redireccionamiento 301 que especifica otro URI de Media Services. Debe realizar las llamadas subsiguientes al nuevo URI como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect-programmatically.md).
 
 P: ¿Cómo puedo girar un vídeo durante el proceso de codificación?
 
@@ -82,7 +82,6 @@ R: [Media Encoder Estándar](media-services-dotnet-encode-with-media-encoder-sta
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

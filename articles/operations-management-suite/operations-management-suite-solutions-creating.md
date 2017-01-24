@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 830eb6627cae71f358b9790791b1d86f7c82c566
-ms.openlocfilehash: 90c83d286047bcfa7563d75e380559154ca36f5b
+ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
+ms.openlocfilehash: ab33a7610b8e7bbf64e9f1bfde3753f95956a82f
 
 
 ---
@@ -34,9 +34,9 @@ Las soluciones de administración de OMS incluyen varios recursos que admiten un
 Por ejemplo, una solución de administración podría incluir un [runbook de Azure Automation](../automation/automation-intro.md) que recopila los datos en el repositorio de Log Analytics mediante una [programación](../automation/automation-schedules.md) y una [vista](../log-analytics/log-analytics-view-designer.md) que proporciona distintas visualizaciones de los datos recopilados.  La misma programación podría utilizarse en otra solución.  Como autor de la solución de administración, podría definir los tres recursos, pero especificar que el runbook y la vista deben eliminarse automáticamente cuando se quita la solución.    También podría definir la programación, pero especifique qué debe permanecer en su lugar si la solución se ha quitado en caso de que aún la use otra solución.
 
 ## <a name="management-solution-files"></a>Archivos de las soluciones de administración
-Las soluciones de administración se implementan como [plantillas de administración de recursos](../resource-manager-template-walkthrough.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo definir recursos de solución típicos.
+Las soluciones de administración se implementan como [plantillas de administración de recursos](../azure-resource-manager/resource-manager-template-walkthrough.md).  La tarea principal para aprender a crear soluciones de administración es saber cómo [crear una plantilla](../azure-resource-manager/resource-group-authoring-templates.md).  En este artículo se proporcionan detalles únicos de plantillas que se usan para soluciones y sobre cómo definir recursos de solución típicos.
 
-La estructura básica de un archivo de una solución de administración, que se muestra a continuación, es la misma que la de una [plantilla de Resource Manager](../resource-group-authoring-templates.md#template-format).  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
+La estructura básica de un archivo de una solución de administración, que se muestra a continuación, es la misma que la de una [plantilla de Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md#template-format).  En cada una de las siguientes secciones se describen los elementos de nivel superior y su contenido en una solución.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -48,7 +48,7 @@ La estructura básica de un archivo de una solución de administración, que se 
     }
 
 ## <a name="parameters"></a>Parámetros
-Los [parámetros](../resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
+Los [parámetros](../azure-resource-manager/resource-group-authoring-templates.md#parameters) son valores que el usuario le debe proporcionar al instalar la solución de administración.  Hay parámetros estándar que tendrán todas las soluciones, y puede agregar parámetros adicionales según sea necesario para su solución particular.  La manera en que los usuarios proporcionarán valores de parámetros al instalar la solución dependerá del parámetro particular y de cómo se instala la solución.
 
 Cuando un usuario instala su solución de administración mediante plantillas de [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) o [de inicio rápido de Azure](operations-management-suite-solutions.md#finding-and-installing-management-solutions), se le pide que seleccione un [área de trabajo de OMS y una cuenta de Automation](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  Estos se usan para rellenar los valores de cada uno de los parámetros estándar.  Al usuario no se le pide que proporcione valores directamente para los parámetros estándar, pero se le pide que proporcione valores para cualquier parámetro adicional.
 
@@ -181,7 +181,7 @@ El elemento **resources** define los distintos recursos incluidos en la solució
     ]
 
 ### <a name="dependencies"></a>Dependencias
-El elemento **dependsOn** especifica una [dependencia](../resource-group-define-dependencies.md) en otro recurso.  Cuando se instala la solución, un recurso no se crea hasta que no se hayan creado todas sus dependencias.  Por ejemplo, puede que su solución [inicie un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) cuando se instala mediante un [recurso de trabajo](operations-management-suite-solutions-resources-automation.md#automation-jobs).  El recurso de trabajo será dependiente del recurso de runbook para asegurarse de que el runbook se crea antes de que se cree el trabajo.
+El elemento **dependsOn** especifica una [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en otro recurso.  Cuando se instala la solución, un recurso no se crea hasta que no se hayan creado todas sus dependencias.  Por ejemplo, puede que su solución [inicie un runbook](operations-management-suite-solutions-resources-automation.md#runbooks) cuando se instala mediante un [recurso de trabajo](operations-management-suite-solutions-resources-automation.md#automation-jobs).  El recurso de trabajo será dependiente del recurso de runbook para asegurarse de que el runbook se crea antes de que se cree el trabajo.
 
 ### <a name="oms-workspace-and-automation-account"></a>Área de trabajo de OMS y cuenta de Automation
 La mayoría de las soluciones requieren que un [área de trabajo de OMS](../log-analytics/log-analytics-manage-access.md) contenga vistas y que una [cuenta de Automation](../automation/automation-security-overview.md#automation-account-overview) contenga runbooks y recursos relacionados.  Estos deben estar disponibles antes de que se creen los recursos de la solución y no se deben definir en la propia solución.  El usuario [especificará un área de trabajo y una cuenta](operations-management-suite-solutions.md#oms-workspace-and-automation-account) al implementar la solución, pero usted, como autor, debe tener en cuenta los siguientes puntos.
@@ -228,7 +228,7 @@ Esto se resolvería en un nombre similar al siguiente.
 
 
 ### <a name="dependencies"></a>Dependencias
-El recurso de la solución debe tener un [dependencia](../resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
+El recurso de la solución debe tener un [dependencia](../azure-resource-manager/resource-group-define-dependencies.md) en todos los recursos de la solución, ya que estos deben existir antes de que se cree la solución.  Para ello, agregue una entrada para cada recurso en el elemento **dependsOn**.
 
 ### <a name="properties"></a>Propiedades
 Este recurso de la solución tiene las propiedades de la tabla siguiente.  Esto incluye los recursos a los que hace referencia la solución y contenidos en ella, que define cómo se administra el recurso después de instalar la solución.  Cada recurso de la solución debe aparecer en una de las propiedades **referencedResources** o **containedResources**.
@@ -258,16 +258,16 @@ Puede obtener los detalles y ejemplos de recursos que son comunes en las solucio
 * [Recursos de Automation](operations-management-suite-solutions-resources-automation.md)
 
 ## <a name="testing-a-management-solution"></a>Prueba de una solución de administración
-Antes de implementar su solución de administración, se recomienda que la pruebe mediante [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  Esto validará su archivo de solución y le ayudará a identificar los problemas antes de intentar implementarlo.
+Antes de implementar su solución de administración, se recomienda que la pruebe mediante [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  Esto validará su archivo de solución y le ayudará a identificar los problemas antes de intentar implementarlo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../resource-group-authoring-templates.md).
+* Obtenga más información en [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 * Búsqueda de [plantillas de inicio rápido de Azure](https://azure.microsoft.com/documentation/templates) para obtener ejemplos de diferentes plantillas de Resource Manager.
 * Vea los detalles para [agregar vistas a una solución de administración](operations-management-suite-solutions-resources-views.md).
 * Vea los detalles para [agregar recursos de Automation a una solución de administración](operations-management-suite-solutions-resources-automation.md).
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

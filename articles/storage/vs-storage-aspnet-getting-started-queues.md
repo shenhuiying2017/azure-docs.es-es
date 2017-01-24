@@ -1,146 +1,224 @@
 ---
-title: Introducción al almacenamiento de colas y los servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs
-description: Cómo empezar a usar el almacenamiento de colas de Azure en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante los servicios conectados de Visual Studio
+title: "Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET) | Microsoft Docs"
+description: "Cómo empezar a usar Azure Queue Storage en un proyecto ASP.NET en Visual Studio después de conectarse a una cuenta de almacenamiento mediante Servicios conectados de Visual Studio"
 services: storage
-documentationcenter: ''
+documentationcenter: 
 author: TomArcher
 manager: douge
-editor: ''
-
+editor: 
+ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 12/02/2016
 ms.author: tarcher
+translationtype: Human Translation
+ms.sourcegitcommit: f58c2b522f81dc2dc86f0d2c6bc4872504cf7377
+ms.openlocfilehash: 70875287e79aaf49e1b8802cf2953cd5381b97f4
+
 
 ---
-# Introducción al almacenamiento Cola de Azure y los servicios relacionados de Visual Studio
+# <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introducción a Azure Queue Storage y a Servicios conectados de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## Información general
-En este artículo se describe cómo empezar a usar el almacenamiento Cola de Azure en Visual Studio después de haber creado o hecho referencia a una cuenta de almacenamiento de Azure en un proyecto de ASP.NET con el cuadro de diálogo **Agregar servicios conectados** de Visual Studio.
+## <a name="overview"></a>Información general
 
-Le mostraremos cómo crear una cola de Azure en la cuenta de almacenamiento y cómo acceder a ella. También le mostraremos cómo realizar operaciones básicas de cola, como agregar, modificar, leer y quitar mensajes de cola. Los ejemplos están escritos en código C# y usan la [biblioteca del cliente de almacenamiento de Microsoft Azure para .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx). Para obtener más información acerca de ASP.NET, consulte [ASP.NET](http://www.asp.net).
+Azure Queue Storage es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede acceder a través de HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener un número ilimitado de mensajes, hasta el límite de la capacidad total de una cuenta de almacenamiento.
 
-El almacenamiento en cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento.
+En este artículo se describe cómo administrar entidades de Azure Queue Storage mediante programación, realizar tareas comunes como crear una cola de Azure, y agregar, modificar, leer y eliminar mensajes de la cola.
 
-## Acceso a colas en el código
-Para obtener acceso a las colas en los proyectos de ASP.NET, debe incluir los elementos siguientes en los archivos de origen C# que tengan acceso al almacenamiento de colas de Azure.
+> [!NOTE]
+> 
+> En las secciones de código de este artículo se supone que ya se ha conectado a una cuenta de almacenamiento de Azure mediante Servicios conectados. Para configurar Servicios conectados, abra el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto y, en el menú contextual, seleccione la opción **Agregar-> Servicio conectado**. Desde allí, siga las instrucciones del cuadro de diálogo para conectarse a la cuenta de almacenamiento de Azure que desee.      
 
-1. Asegúrese de que las declaraciones del espacio de nombres de la parte superior del archivo de C# incluyen estas instrucciones **using**.
+## <a name="create-a-queue"></a>Creación de una cola
+
+Los siguientes pasos muestran cómo crear una cola mediante programación. En una aplicación ASP.NET MVC, el código iría en un controlador.
+
+1. Agregue las siguientes directivas *using*:
    
-        using Microsoft.Framework.Configuration;
+        using Microsoft.Azure;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Queue;
-2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure.
-   
+
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
+
          CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
-3. Obtenga un objeto **CloudTableClient** para hacer referencia a los objetos de cola en la cuenta de almacenamiento.
-   
-        // Create the CloudQueueClient object for this storage account.
+
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
+
         CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-4. Obtenga un objeto **CloudQueue** para hacer referencia a una cola específica.
+
+4. Obtenga un objeto **CloudQueue** que representa una referencia al nombre de cola que desea. (Cambie * <queue-name> * por el nombre de la cola que desea crear).
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Llame a la **CloudQueue.CreateIfNotExists** método para crear la cola si aún no existe. 
+
+        queue.CreateIfNotExists();
+
+
+## <a name="add-a-message-to-a-queue"></a>un mensaje a una cola
+
+Los siguientes pasos muestran cómo agregar un mensaje a una cola mediante programación. En una aplicación ASP.NET MVC, el código iría en un controlador.
+
+1. Agregue las siguientes directivas *using*:
    
-        // Get a reference to a queue named "messageQueue"
-        CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-**NOTA:** use todo el código anterior delante del código que aparece en los ejemplos siguientes.
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
 
-## Creación de una cola en código
-Para crear una cola de Azure en el código, simplemente agregue una llamada a **CreateIfNotExists** en el código anterior.
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create the messageQueue if it does not exist
-    messageQueue.CreateIfNotExists();
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
 
-## un mensaje a una cola
-Para insertar un mensaje en una cola existente, cree un nuevo objeto **CloudQueueMessage** y luego llame al método **AddMessage**.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes.
+4. Obtenga un objeto **CloudQueue** que representa una referencia al nombre de cola que desea. (Cambie *<queue-name> * por el nombre de la cola a la que desea agregar el mensaje).
 
-Este es un ejemplo que inserta el mensaje "Hello, World".
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    // Create a message and add it to the queue.
-    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-    messageQueue.AddMessage(message);
+5. Cree el objeto **CloudQueueMessage** que representa el mensaje que desea agregar a la cola. Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. (Cambie * <queue-message> * por el mensaje que desea agregar.
 
-## Leer un mensaje de una cola
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método PeekMessage().
+        CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
 
-    // Peek at the next message
-    CloudQueueMessage peekedMessage = messageQueue.PeekMessage();
+6. Llame al método **CloudQueue.AddMessage** para agregar el mensaje a la cola.
 
-## Leer y eliminar un mensaje de una cola
-Su código puede quitar un mensaje de una cola en dos pasos.
+        queue.AddMessage(message);
 
-1. Llame a GetMessage() para obtener el siguiente mensaje en una cola. Un mensaje devuelto por GetMessage() se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos.
-2. Para terminar de quitar el mensaje de la cola, llame a **DeleteMessage**.
+## <a name="read-a-message-from-a-queue-without-removing-it"></a>Lectura de un mensaje de una cola sin eliminarlo
 
-Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a **DeleteMessage** justo después de haber procesado el mensaje.
+En los pasos siguientes se muestra cómo inspeccionar mediante programación un mensaje en cola (leer el primer mensaje sin eliminarlo). En una aplicación ASP.NET MVC, el código iría en un controlador. 
 
-    // Get the next message in the queue.
-    CloudQueueMessage retrievedMessage = messageQueue.GetMessage();
+1. Agregue las siguientes directivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Process the message in less than 30 seconds
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
 
-    // Then delete the message.
-    await messageQueue.DeleteMessage(retrievedMessage);
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
 
-## Usar opciones adicionales para quitar mensajes de la cola
-Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje. El siguiente ejemplo de código utiliza el método **GetMessages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **foreach**. También establece el tiempo de espera de la invisibilidad en cinco minutos para cada mensaje. Tenga en cuenta que los 5 minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los 5 minutos desde la llamada a **GetMessages**, todos los mensajes que no se han eliminado volverán a estar visibles.
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Create the queue client.
-    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+4. Obtenga un objeto **CloudQueue** que representa una referencia a la cola. (Cambie *<queue-name> * por el nombre de la cola de la que desea leer un mensaje).
 
-    // Retrieve a reference to a queue.
-    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-    foreach (CloudQueueMessage message in queue.GetMessages(20, TimeSpan.FromMinutes(5)))
-    {
-        // Process all messages in less than 5 minutes, deleting each message after processing.
+5. Llame al método **CloudQueue.PeekMessage** para leer el mensaje situado en la parte delantera de una cola sin quitarlo de ella.
+
+        CloudQueueMessage message = queue.PeekMessage();
+
+6. Acceda al valor del objeto **CloudQueueMessage** utilizando la propiedad **CloudQueueMessage.AsBytes** o **CloudQueueMessage.AsString**.
+
+        string messageAsString = message.AsString;
+        byte[] messageAsBytes = message.AsBytes;
+
+## <a name="read-and-remove-a-message-from-a-queue"></a>Lectura y eliminación de un mensaje de una cola
+
+Los siguientes pasos muestran cómo leer un mensaje en cola mediante programación y después eliminarlo. En una aplicación ASP.NET MVC, el código iría en un controlador. 
+
+1. Agregue las siguientes directivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Obtenga un objeto **CloudQueue** que representa una referencia a la cola. (Cambie *<queue-name> * por el nombre de la cola de la que desea leer un mensaje).
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Llame al método **CloudQueue.GetMessage** para leer el primer mensaje de la cola. El método **CloudQueue.GetMessage** hace que el mensaje sea invisible durante 30 segundos (de forma predeterminada) para cualquier otro código que lea mensajes de forma que ningún otro código pueda modificar o eliminar el mensaje mientras lo procesa. Para cambiar la cantidad de tiempo que el mensaje es invisible, modifique el parámetro **visibilityTimeout** que se pasa al método **CloudQueue.GetMessage**.
+
+        // This message will be invisible to other code for 30 seconds.
+        CloudQueueMessage message = queue.GetMessage();     
+
+6. Llame al método **CloudQueueMessage.Delete** para eliminar el mensaje de la cola.
+
         queue.DeleteMessage(message);
-    }
 
-## la longitud de la cola
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **FetchAttributes** solicita al servicio de cola que recupere los atributos de la cola, incluido el número de mensajes. La propiedad **ApproximateMethodCount** devuelve el último valor recuperado por el método **FetchAttributes**, sin llamar al servicio de cola.
+## <a name="get-the-queue-length"></a>la longitud de la cola
 
-    // Fetch the queue attributes.
-    messageQueue.FetchAttributes();
+En los siguientes pasos se muestra cómo obtener la longitud de la cola mediante programación (número de mensajes). En una aplicación ASP.NET MVC, el código iría en un controlador. 
 
-    // Retrieve the cached approximate message count.
-    int? cachedMessageCount = messageQueue.ApproximateMessageCount;
+1. Agregue las siguientes directivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
 
-    // Display number of messages.
-    Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
 
-## Uso del patrón Async-Await con API de cola comunes
-En este ejemplo se muestra cómo usar el patrón Async-Await con API de cola comunes. El ejemplo llama a la versión asincrónica de cada uno de los métodos determinados, esto se puede ver en la corrección de Async posterior de cada método. Cuando se utiliza un método asincrónico, el patrón Async-Await suspende la ejecución local hasta que se complete la llamada. Este comportamiento permite que el subproceso actual realice otro trabajo que ayuda a evitar cuellos de botella en el rendimiento y mejora la capacidad de respuesta general de la aplicación. Para obtener más información sobre el uso del patrón Async-Await en. NET, consulte [Async y Await (C# y Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
 
-    // Create a message to put in the queue
-    CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
 
-    // Async enqueue the message
-    await messageQueue.AddMessageAsync(cloudQueueMessage);
-    Console.WriteLine("Message added");
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-    // Async dequeue the message
-    CloudQueueMessage retrievedMessage = await messageQueue.GetMessageAsync();
-    Console.WriteLine("Retrieved message with content '{0}'", retrievedMessage.AsString);
+4. Obtenga un objeto **CloudQueue** que representa una referencia a la cola. (Cambie * <queue-name> * por el nombre de la cola cuya longitud está consultando).
 
-    // Async delete the message
-    await messageQueue.DeleteMessageAsync(retrievedMessage);
-    Console.WriteLine("Deleted message");
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
 
-## Eliminación de una cola
-Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **Delete** en el objeto de cola.
+5. Llame al método **CloudQueue.FetchAttributes** para recuperar los atributos de la cola (incluida su longitud). 
 
-    // Delete the queue.
-    messageQueue.Delete();
+        queue.FetchAttributes();
 
-## Pasos siguientes
+6. Acceda a la propiedad **CloudQueue.ApproximateMessageCount** para obtener la longitud de la cola.
+ 
+        int? nMessages = queue.ApproximateMessageCount;
+
+## <a name="delete-a-queue"></a>Eliminación de una cola
+En los siguientes pasos se muestra cómo eliminar una cola mediante programación. 
+
+1. Agregue las siguientes directivas *using*:
+   
+        using Microsoft.Azure;
+        using Microsoft.WindowsAzure.Storage;
+        using Microsoft.WindowsAzure.Storage.Queue;
+
+2. Obtenga un objeto **CloudStorageAccount** que represente la información de su cuenta de almacenamiento. Use el código siguiente para obtener la cadena de conexión de almacenamiento y la información de la cuenta de almacenamiento de la configuración del servicio de Azure. (Cambie *<storage-account-name>* por el nombre de la cuenta de almacenamiento de Azure a la que está accediendo).
+
+         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+
+3. Obtenga un objeto **CloudQueueClient** que representa un cliente de servicio de cola.
+
+        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+4. Obtenga un objeto **CloudQueue** que representa una referencia a la cola. (Cambie * <queue-name> * por el nombre de la cola cuya longitud está consultando).
+
+        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+
+5. Llame al método **CloudQueue.Delete** para eliminar la cola representada por el objeto **CloudQueue**.
+
+        messageQueue.Delete();
+
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

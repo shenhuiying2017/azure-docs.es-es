@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 7834aefeb9eb007ffa9daf708250c9f06ec05e67
-ms.openlocfilehash: 5aa628ce651c3d768f461f5bcea2c63d693f091e
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 42cc83b058f504ba5eb7a918fbcc775f14c632fd
 
 
 ---
@@ -49,7 +49,7 @@ Los siguientes pasos le guiarán a través de los valores necesarios para config
 ### <a name="prerequisites"></a>Requisitos previos
 * Se han creado ambas redes virtuales.
 * Los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
-* Tiene instalados los últimos cmdlets de PowerShell (versión 1.0.2 o posterior). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
+* Tiene instalados los últimos cmdlets de PowerShell (versión 1.0.2 o posterior). Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
 
 ### <a name="a-nameexamplerefaexample-settings"></a><a name="exampleref"></a>Configuración de ejemplo
 Puede usar la configuración de ejemplo como referencia.
@@ -256,6 +256,6 @@ Vea los detalles de preguntas más frecuentes para más información acerca de l
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

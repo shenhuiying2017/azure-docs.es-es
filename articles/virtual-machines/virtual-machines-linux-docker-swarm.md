@@ -1,13 +1,13 @@
 ---
-title: Introducción al uso de docker con enjambre en Azure
-description: Describe cómo crear un grupo de máquinas virtuales con la extensión de máquina virtual de Docker y usar enjambre para crear un clúster de Docker.
+title: "Introducción al uso de docker con enjambre en Azure"
+description: "Describe cómo crear un grupo de máquinas virtuales con la extensión de máquina virtual de Docker y usar enjambre para crear un clúster de Docker."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: squillace
 manager: timlt
 editor: tysonn
 tags: azure-service-management
-
+ms.assetid: d529b1f5-864e-4163-9b34-b52d48ceedb1
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,20 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/04/2016
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: f6537e4ebac76b9f3328223ee30647885ee15d3e
+ms.openlocfilehash: 834bb8a60c3dcb2d0b50809ffb0e4780579b2cda
+
 
 ---
-# Cómo usar docker con enjambre
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+# <a name="how-to-use-docker-with-swarm"></a>Cómo usar docker con enjambre
+> [!IMPORTANT] 
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se trata el modelo de implementación clásico. Microsoft recomienda que las implementaciones más recientes usen el modelo del Administrador de recursos. Para obtener una plantilla de Resource Manager para implementar Docker Swarm, consulte [aquí](https://azure.microsoft.com/documentation/templates/docker-swarm-cluster/).
 
-Este tema le mostrará una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm).
+Este tema muestra una manera muy sencilla de usar [docker](https://www.docker.com/) con [swarm](https://github.com/docker/swarm) para crear un clúster administrado por swarm en Azure. Éste crea cuatro máquinas virtuales en Azure: una que actúe como el administrador de enjambre y tres como parte del clúster de los hosts docker. Cuando termine, puede usar enjambre para ver el clúster y comenzar a usar docker en él. Además, las llamadas de CLI de Azure en este tema utilizan el modo de administración de servicio (asm). 
 
 > [!NOTE]
-> En este tema, usaremos docker con swarm y la CLI de Azure *sin* usar **docker-machine** para mostrar cómo funcionan en conjunto las distintas herramientas, aunque sigan siendo independientes. **docker-machine** tiene conmutadores **--swarm** que le permiten usar **docker-machine** para agregar nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine). Si no sabe cómo ejecutar **docker-machine** con las máquinas virtuales de Azure, consulte [Cómo usar una máquina docker con Azure](virtual-machines-linux-docker-machine.md).
+> En este tema, usaremos docker con swarm y la CLI de Azure *sin* usar **docker-machine** para mostrar cómo funcionan en conjunto las distintas herramientas, aunque sigan siendo independientes. **docker-machine** tiene modificadores **--swarm** que le permiten usar **docker-machine** para agregar nodos directamente a swarm. Para obtener un ejemplo, consulte la documentación de [docker-machine](https://github.com/docker/machine) . Si no sabe cómo ejecutar **docker-machine** en las máquinas virtuales de Azure, consulte [Uso de una máquina de Docker con Azure](virtual-machines-linux-docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
-## Crear hosts docker con máquinas virtuales de Azure
-En este tema creamos cuatro máquinas virtuales, pero puede usar tantas como quiera. Llame a las siguientes acciones con *&lt;password&gt;* reemplazada por la contraseña que haya elegido.
+## <a name="create-docker-hosts-with-azure-virtual-machines"></a>Crear hosts docker con máquinas virtuales de Azure
+En este tema creamos cuatro máquinas virtuales, pero puede usar tantas como quiera. Llame a las siguientes acciones con la *&lt;password&gt;* que haya sido reemplazada por aquella contraseña que haya elegido.
 
     azure vm docker create swarm-master -l "East US" -e 22 $imagename ops <password>
     azure vm docker create swarm-node-1 -l "East US" -e 22 $imagename ops <password>
@@ -43,8 +48,8 @@ Cuando haya terminado, debería poder usar **azure vm list** para ver sus máqui
     data:    swarm-node-2     ReadyRole           East US       swarm-node-2.cloudapp.net                               100.72.18.47  
     data:    swarm-node-3     ReadyRole           East US       swarm-node-3.cloudapp.net                               100.78.24.68  
 
-## Instalar enjambre en la máquina virtual principal de enjambre
-En este tema usamos el [modelo de instalación del contenedor de la documentación de docker swarm](https://github.com/docker/swarm#1---docker-image), pero también puede usar SSH en **swarm-master**. En este modelo, **swarm** se descarga como un contenedor de docker que ejecuta swarm. A continuación, llevamos a cabo este paso *de forma remota desde nuestro equipo portátil usando docker* para conectarnos a la máquina virtual de**swarm-master** e indicarle que use el comando de creación del identificador de clúster, **swarm create**. El identificador de clúster es la manera con la que **swarm** detecta a los miembros del grupo de swarm. (Además también puede clonar el repositorio y compilarlo usted mismo; gracias a ello tendrá el control total y podrá habilitar la depuración.)
+## <a name="installing-swarm-on-the-swarm-master-vm"></a>Instalar enjambre en la máquina virtual principal de enjambre
+En este tema usamos el [modelo de instalación del contenedor de la documentación de docker swarm](https://github.com/docker/swarm#1---docker-image) , pero también puede usar SSH en **swarm-master**. En este modelo, **swarm** se descarga como un contenedor de docker que ejecuta swarm. A continuación, llevamos a cabo este paso *de forma remota desde nuestro equipo portátil usando docker* para conectarnos a la máquina virtual de **swarm-master** e indicarle que use el comando de creación del identificador de clúster, **swarm create**. El identificador de clúster es la manera con la que **swarm** detecta a los miembros del grupo de swarm. (Además también puede clonar el repositorio y compilarlo usted mismo; gracias a ello tendrá el control total y podrá habilitar la depuración.)
 
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run --rm swarm create
     Unable to find image 'swarm:latest' locally
@@ -63,9 +68,9 @@ En este tema usamos el [modelo de instalación del contenedor de la documentaci�
 La última línea es el identificador de clúster, así que cópielo ya que tendrá que usarlo de nuevo cuando una el nodo de máquinas virtuales al maestro de enjambre para crear el "enjambre". En este ejemplo, el identificador de clúster es **36731c17189fd8f450c395db8437befd**.
 
 > [!NOTE]
-> Para que quede claro: usamos la instalación docker local para conectarnos a la máquina virtual de **swarm-master** en Azure e indicamos a**swarm-master** que descargue, instale y ejecute el comando **create**, el cual devolverá el identificador de clúster que usaremos más adelante para detectar otras cosas.
+> Para que quede claro: usamos la instalación local de docker para conectarnos a la máquina virtual de **swarm-master** en Azure y la instrucción **swarm-master** para descargar, instalar y ejecutar el comando **create**, que devuelve el identificador de clúster que usaremos más adelante para detectar otras cosas.
 > <!-- -->
-> Para confirmar esta acción, ejecute `docker -H tcp://`*&lt;hostname&gt;* ` images` para enumerar los procesos de contenedor en la máquina **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando de enjambre anterior con el conmutador **--rm**, el contenedor se quitó una vez terminada su tarea; si usa **docker ps -a**, este no devolverá nada).:
+> Para confirmar esta acción, ejecute `docker -H tcp://`*&lt;nombre de host&gt;* ` images` para enumerar los procesos de contenedor en la máquina **swarm-master** y en otro nodo para compararlos (como ejecutamos el comando swarm anterior con el modificador **--rm**, el contenedor se quitó una vez terminada su tarea, así que si usa **docker ps -a**, éste no devolverá nada).:
 > 
 > 
 
@@ -81,7 +86,7 @@ La última línea es el identificador de clúster, así que cópielo ya que tend
 > 
 > 
 
-## Unir las máquinas virtuales de nodo a nuestro clúster docker
+## <a name="join-the-node-vms-to-our-docker-cluster"></a>Unir las máquinas virtuales de nodo a nuestro clúster docker
 Para cada nodo, enumere la información de extremo usando la CLI de Azure. A continuación, hacemos esto para el host de docker **swarm-node-1** para así obtener el puerto del docker del nodo.
 
     $ azure vm endpoint list swarm-node-1
@@ -118,7 +123,7 @@ Tiene buen aspecto. Para confirmar que **swarm** se está ejecutando en **swarm-
 
 Repítalo para el resto de nodos del clúster. En nuestro caso, lo hacemos para **swarm-node-2** y **swarm-node-3**.
 
-## Empezar a administrar el clúster enjambre
+## <a name="begin-managing-the-swarm-cluster"></a>Empezar a administrar el clúster enjambre
     $ docker --tls -H tcp://swarm-master.cloudapp.net:2376 run -d -p 2375:2375 swarm manage token://36731c17189fd8f450c395db8437befd
     d7e87c2c147ade438cb4b663bda0ee20981d4818770958f5d317d6aebdcaedd5
 
@@ -130,7 +135,7 @@ y, a continuación, puede enumerar los nodos del clúster:
     92.222.76.190:2375
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [https://github.com/docker/swarm/](https://github.com/docker/swarm/), o quizá prefiera un [vídeo](https://www.youtube.com/watch?v=EC25ARhZ5bI).
 
 <!-- links -->
@@ -138,4 +143,8 @@ Empiece a ejecutar cosas en su enjambre. Si necesita inspiración, consulte [htt
 [docker-machine-azure]: virtual-machines-linux-docker-machine.md
 
 
-<!---HONumber=AcomDC_0629_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

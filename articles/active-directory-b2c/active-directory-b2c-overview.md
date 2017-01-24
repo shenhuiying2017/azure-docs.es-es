@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 217ffc63e07d66de522accc42c246125d01713c8
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 37c9d6808b3282d86583f6305672405775a7f306
 
 
 ---
@@ -40,7 +40,7 @@ Vuelva a esta sección a menudo para conocer los cambios futuros en Azure Active
 * [Limitaciones y restricciones actuales del servicio](active-directory-b2c-limitations.md).
 * Por último, un [código de ejemplo](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c) con Azure AD B2C y ASP.NET Core.
 
-## <a name="howto-articles"></a>Artículos de procedimientos
+## <a name="how-to-articles"></a>Artículos de procedimientos
 Aprenda a usar determinadas características de Azure Active Directory B2C:
 
 * Configure las cuentas de [Facebook](active-directory-b2c-setup-fb-app.md), [Google+](active-directory-b2c-setup-goog-app.md), [Cuenta Microsoft](active-directory-b2c-setup-msa-app.md), [Amazon](active-directory-b2c-setup-amzn-app.md) y [LinkedIn](active-directory-b2c-setup-li-app.md) para usarlas en las aplicaciones orientadas al consumidor.
@@ -67,6 +67,6 @@ Le animamos a que obtenga notificaciones de los incidentes de seguridad que se p
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

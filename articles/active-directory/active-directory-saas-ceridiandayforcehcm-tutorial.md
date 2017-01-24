@@ -12,11 +12,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6e0056af13bfa064d740205746a93afeef9b33ab
+ms.sourcegitcommit: 1a2ff324cfa65977685f6a0eee9cd398b0717519
+ms.openlocfilehash: dba809c8d7021357142ec2832b4660c6fb10ec96
 
 
 ---
@@ -135,7 +135,6 @@ La aplicación Ceridian Dayforce HCM espera las aserciones de SAML en un formato
     En entornos de producción, utilice: `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2`  
     Para entornos de prueba, use: `https://fs-test.dayforcehcm.com/sp/ACS.saml2`  
 
-
 1. En la página **Configurar inicio de sesión único en Ceridian Dayforce HCM** , realice los pasos siguientes:
    
     ![Configurar inicio de sesión único](./media/active-directory-saas-ceridiandayforcehcm-tutorial/tutorial_ceridiandayforcehcm_05.png) 
@@ -184,17 +183,18 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
     c. Haga clic en **Siguiente**.
 6. En la página de diálogo **Perfil de usuario** , realice los pasos siguientes:
    
-   ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
+    ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_06.png) 
    
-   a. En el cuadro de texto **Nombre**, escriba **Britta**.  
+    a. En el cuadro de texto **Nombre**, escriba **Britta**.  
    
-   b. En el cuadro de texto **Apellidos**, escriba **Simon**.
+    b. En el cuadro de texto **Apellidos**, escriba **Simon**.
    
-   c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
+    c. En el cuadro de texto **Nombre para mostrar**, escriba **Britta Simon**.
    
-   d. En la lista **Rol**, seleccione **Usuario**.
+    d. En la lista **Rol**, seleccione **Usuario**.
    
-   e. Haga clic en **Siguiente**.
+    e. Haga clic en **Siguiente**.
+
 7. En el cuadro de diálogo **Obtener contraseña temporal**, haga clic en **Crear**.
    
     ![Creación de un usuario de prueba de Azure AD](./media/active-directory-saas-ceridiandayforcehcm-tutorial/create_aaduser_07.png) 
@@ -260,6 +260,6 @@ Al hacer clic en el icono de Ceridian Dayforce HCM en el Panel de acceso, deber�
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

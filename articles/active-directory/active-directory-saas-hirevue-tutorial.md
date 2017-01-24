@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con HireVue | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HireVue.
+title: "Tutorial: Integración de Azure Active Directory con HireVue | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y HireVue."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0cb121d54310c518795269dee68f24ab21f7d31b
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integración de Azure Active Directory con HireVue
+# <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integración de Azure Active Directory con HireVue
 En este tutorial, obtendrá información sobre cómo integrar HireVue con Azure Active Directory (Azure AD).
 
 Integrar HireVue con Azure AD le proporciona las siguientes ventajas:
@@ -108,19 +112,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en el port
    
     a. En el cuadro de texto **URL de inicio de sesión** , escriba la dirección URL que usan los usuarios para iniciar sesión en su aplicación de HireVue con el siguiente patrón: 
 
-      | Environment | URL |
-      |---|---|
-      | Producción | `https://<company name>.hirevue.com` |
-      | Ensayo| `https://<company name>.stghv.com` |
+    | Environment | URL |
+    |---|---|
+    | Producción | `https://<company name>.hirevue.com` |
+    | Ensayo| `https://<company name>.stghv.com` |
 
 
     b. En el cuadro de texto **Identificador** , escriba la dirección URL con el siguiente patrón:
 
 
-      | Environment | URN |
-      |---|---|
-      |Producción | `urn:federation:hirevue.com:saml:sp:prod` |
-      |Ensayo | `urn:federation:hirevue.com:saml:sp:staging` |
+    | Environment | URN |
+    |---|---|
+    |Producción | `urn:federation:hirevue.com:saml:sp:prod` |
+    |Ensayo | `urn:federation:hirevue.com:saml:sp:staging` |
 
 
 
@@ -219,7 +223,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de HireVue en el panel de acceso, debería iniciar sesión automáticamente en su aplicación HireVue.
@@ -248,6 +252,6 @@ Al hacer clic en el icono de HireVue en el panel de acceso, debería iniciar ses
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

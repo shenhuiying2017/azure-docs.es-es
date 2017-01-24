@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.author: magoedte;csand
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d9b12c074417e51057dea68e8cff04df5081e111
+ms.sourcegitcommit: 4edd2696c9a5709ded6e2a3e352090775335f0d2
+ms.openlocfilehash: 4fcfa2e7ec2e8257407026ed4cca0e15fd0b5bb6
 
 
 ---
@@ -31,7 +31,7 @@ Automatización de Azure proporciona un motor de ejecución de flujo de trabajo 
 Reduzca la sobrecarga operativa y libere al personal de TI/DevOps para concentrarse en el trabajo que proporciona valor al negocio trasladando las tareas de administración en la nube para que se ejecuten automáticamente mediante Automatización de Azure.
 
 ## <a name="how-can-azure-automation-help-manage-azure-web-app"></a>¿Cómo puede ayudar Automatización de Azure a administrar Aplicaciones web de Azure?
-Las aplicaciones web se pueden administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en los [módulos de Azure PowerShell](../powershell-install-configure.md). Puede [instalar estos cmdlets de Aplicaciones web de PowerShell en Automatización de Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)para que pueda realizar todas las tareas de administración de Aplicaciones web dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
+Las aplicaciones web se pueden administrar en Automatización de Azure mediante los cmdlets de PowerShell que están disponibles en los [módulos de Azure PowerShell](/powershell/azureps-cmdlets-docs). Puede [instalar estos cmdlets de Aplicaciones web de PowerShell en Automatización de Azure](https://azure.microsoft.com/blog/announcing-azure-resource-manager-support-azure-automation-runbooks/)para que pueda realizar todas las tareas de administración de Aplicaciones web dentro del servicio. También puede emparejar estos cmdlets en Automatización de Azure con los cmdlets para otros servicios de Azure, para automatizar tareas complejas a través de los servicios de Azure y sistemas de terceros.
 
 Estos son algunos ejemplos de administración de Servicios de aplicaciones con Automatización:
 
@@ -45,6 +45,6 @@ Ahora que ha aprendido los aspectos básicos de Automatización de Azure y cómo
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

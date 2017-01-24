@@ -1,19 +1,23 @@
 ---
-title: Personalización de asignaciones de atributos | Microsoft Docs
-description: Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales.
+title: "Personalización de asignaciones de atributos | Microsoft Docs"
+description: "Conozca cuáles son las asignaciones de atributos para aplicaciones SaaS en Azure Active Directory y cómo puede modificarlas para satisfacer sus necesidades empresariales."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
-ms.author: markusvi
+ms.date: 01/10/2017
+ms.author: markvi
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: b73c9dc8edd341898ede06f67f383b86010e1e39
+
 
 ---
 # <a name="customizing-attribute-mappings"></a>Personalización de asignaciones de atributos
@@ -54,7 +58,8 @@ Con asignaciones de atributos, puede controlar cómo se rellenan los atributos e
 
 * **Directa** : el atributo de destino se rellena con el valor de un atributo del objeto vinculado en Azure AD.
 * **Constante** : el atributo de destino se rellena con una cadena específica que se ha especificado.
-* **Expresión** : el atributo de destino se rellena según el resultado de una expresión similar a un script. Para obtener más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Expresión** : el atributo de destino se rellena según el resultado de una expresión similar a un script. 
+  Para obtener más información, consulte [Escritura de expresiones para la asignación de atributos en Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
 * **Ninguno** : el atributo de destino se deja sin modificar. Sin embargo, si el atributo de destino está vacío, se rellenará con el valor predeterminado que especifique.
 
 Además de estos cuatro tipos básicos de asignaciones de atributos, las asignaciones de atributos personalizadas admiten el concepto de una asignación de valor **predeterminada** . La asignación de valor predeterminada garantiza que un atributo de destino se rellene con un valor si no hay ningún valor en Azure AD ni en el objeto de destino.
@@ -78,6 +83,6 @@ Microsoft Azure AD proporciona una implementación muy eficaz de un proceso de s
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

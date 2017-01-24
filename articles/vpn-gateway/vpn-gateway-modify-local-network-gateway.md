@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 08/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e88511058b1de79ca222d87ada6c9abdf4daf11c
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: 2459f106e90616b05062224be82a06ef20fbc7b4
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: e88511058b1de79ca222d87ada6c9abdf4daf11c
 A veces, cambia la configuración de la puerta de enlace de red local AddressPrefix o GatewayIPAddress. Las instrucciones siguientes lo ayudarán a modificar la configuración de la puerta de enlace de red local. También puede modificar estos valores en el Portal de Azure.
 
 ## <a name="before-you-begin"></a>Antes de empezar
-Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
+Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener más información sobre cómo instalar los cmdlets de PowerShell.
 
 ## <a name="to-modify-ip-address-prefixes"></a>Procedimiento para modificar los prefijos de direcciones IP
 [!INCLUDE [vpn-gateway-modify-ip-prefix-rm](../../includes/vpn-gateway-modify-ip-prefix-rm-include.md)]
@@ -39,6 +39,6 @@ Puede comprobar la conexión de la puerta de enlace. Consulte [Comprobación de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

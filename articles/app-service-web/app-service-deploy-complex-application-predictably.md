@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cb840bf9432fb03bb35db3fa082abde1f035d5eb
+ms.sourcegitcommit: 0782000e87bed0d881be5238c1b91f89a970682c
+ms.openlocfilehash: 37a10d284afa6b9ee2aa65e7ec015c3c364f551d
 
 
 ---
@@ -41,12 +41,12 @@ En este tutorial, utilizará las siguientes herramientas. Habida cuenta de que n
 ### <a name="azure-resource-manager-templates-json"></a>Plantillas del Administrador de recursos de Azure (JSON)
 Cada vez que crea una aplicación web en el Servicio de aplicaciones de Azure, por ejemplo, el Administrador de recursos de Azure utiliza una plantilla JSON para crear el grupo de recursos completo con los recursos del componente. Una plantilla compleja de [Azure Marketplace](/marketplace) como la aplicación [WordPress escalable](/marketplace/partners/wordpress/scalablewordpress/) puede incluir la base de datos MySQL, cuentas de almacenamiento, el plan de App Service, la propia aplicación web, las reglas de alerta, la configuración de la aplicación, valores de escalado automático, etc., y todas estas plantillas están disponibles a través de PowerShell. Para obtener información acerca de cómo descargar y usar estas plantillas, consulte [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md).
 
-Para obtener más información sobre las plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+Para obtener más información sobre las plantillas del Administrador de recursos de Azure, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>SDK de Azure 2.6 para Visual Studio
 El SDK más reciente contiene mejoras en la compatibilidad de la plantilla del Administrador de recursos en el editor de JSON. Puede utilizar esto para crear rápidamente una plantilla de grupo de recursos desde el principio o abrir una plantilla existente de JSON (por ejemplo, una plantilla descargada de la Galería) para modificarla, rellenar el archivo de parámetros e incluso implementar el grupo de recursos directamente desde una solución de grupo de recursos de Azure.
 
-Para obtener más información, consulte [SDK de Azure 2.6 para Visual Studio](/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
+Para obtener más información, consulte [SDK de Azure 2.6 para Visual Studio](https://azure.microsoft.com/blog/2015/04/29/announcing-the-azure-sdk-2-6-for-net/).
 
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 o posterior
 A partir de la versión 0.8.0, la instalación de Azure PowerShell incluye el módulo Administrador de recursos de Azure además del módulo de Azure. Este nuevo módulo permite crear un script de la implementación de grupos de recursos.
@@ -57,7 +57,7 @@ Para obtener más información, consulte [Uso de Azure PowerShell con el Adminis
 Esta [herramienta de vista previa](https://resources.azure.com) le permite explorar las definiciones de JSON de todos los grupos de recursos en su suscripción y los recursos individuales. En la herramienta, puede editar las definiciones de JSON de un recurso, eliminar una jerarquía completa de recursos y crear nuevos recursos.  La información disponible en esta herramienta es muy útil para la creación de plantillas, ya que muestra las propiedades que debe establecer para un tipo determinado de recursos, los valores correctos, etc. Incluso puede crear el grupo de recursos en [Azure Portal](https://portal.azure.com/); a continuación, examinar sus definiciones de JSON en la herramienta de explorador a fin de facilitarle el uso de plantillas para el grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botón Implementación en Azure
-Si utiliza GitHub para el control de código fuente, puede colocar un [botón de implementación en Azure](/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) en el archivo README.MD, que habilita una IU de implementación inmediata para Azure. Aunque puede hacerlo para cualquier aplicación web sencilla, se puede extender para habilitar la implementación de un grupo de recursos completo colocando un archivo azuredeploy.json en la raíz del repositorio. Este archivo JSON, que contiene la plantilla de grupo de recursos, lo utilizará el botón Implementación en Azure para crear el grupo de recursos. Para obtener un ejemplo, consulte el ejemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que se utilizará en este tutorial.
+Si utiliza GitHub para el control de código fuente, puede colocar un [botón de implementación en Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) en el archivo README.MD, que habilita una IU de implementación inmediata para Azure. Aunque puede hacerlo para cualquier aplicación web sencilla, se puede extender para habilitar la implementación de un grupo de recursos completo colocando un archivo azuredeploy.json en la raíz del repositorio. Este archivo JSON, que contiene la plantilla de grupo de recursos, lo utilizará el botón Implementación en Azure para crear el grupo de recursos. Para obtener un ejemplo, consulte el ejemplo [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que se utilizará en este tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obtención de la plantilla de grupo de recursos de ejemplo
 Ahora vamos a centrarnos en ello.
@@ -129,7 +129,7 @@ Tenga en cuenta lo siguiente sobre el código resaltado de JSON:
 * Los recursos anidados dentro de `“resources”: […]`, donde se definen las reglas de firewall y de la base de datos, tienen un elemento `dependsOn` que especifica el identificador de recurso del recurso SQLServer en el nivel de raíz. Esto indica al Administrador de recursos de Azure que antes de crear este recurso, el otro recurso ya debe existir; y si ese otro recurso está definido en la plantilla, cree ese primero.
   
   > [!NOTE]
-  > Para obtener información detallada sobre cómo utilizar la función `resourceId()`, consulte [Funciones de la plantilla de Azure Resource Manager](../resource-group-template-functions.md).
+  > Para obtener información detallada sobre cómo utilizar la función `resourceId()`, consulte [Funciones de la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md).
   > 
   > 
 * El efecto del elemento `dependsOn` es que el Administrador de recursos de Azure puede saber qué recursos se pueden crear en paralelo y qué recursos deben crearse de forma secuencial. 
@@ -265,16 +265,16 @@ Obtenga información sobre cómo [aplicar con facilidad metodologías ágiles y 
 <a name="resources"></a>
 
 ## <a name="more-resources"></a>Más recursos
-* [Idioma de la plantilla del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
-* [Creación de plantillas del Administrador de recursos de Azure](../resource-group-authoring-templates.md)
-* [Funciones de la plantilla del Administrador de recursos de Azure](../resource-group-template-functions.md)
-* [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../resource-group-template-deploy.md)
-* [Uso de Azure PowerShell con el Administrador de recursos de Azure](../powershell-azure-resource-manager.md)
-* [Solución de problemas de implementaciones de grupo de recursos en Azure](../resource-manager-troubleshoot-deployments-portal.md)
+* [Idioma de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creación de plantillas del Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Funciones de la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-functions.md)
+* [Implementación de una aplicación con la plantilla del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy.md)
+* [Uso de Azure PowerShell con el Administrador de recursos de Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Solución de problemas de implementaciones de grupo de recursos en Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

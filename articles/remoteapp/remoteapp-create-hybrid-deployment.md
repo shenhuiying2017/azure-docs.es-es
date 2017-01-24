@@ -3,7 +3,7 @@ title: "Creación de una colección híbrida de Azure RemoteApp | Microsoft Docs
 description: "Obtenga información acerca de cómo crear una implementación de RemoteApp que se conecte a su red interna."
 services: remoteapp
 documentationcenter: 
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: 
 ms.assetid: 08ea0ce3-3a2c-4ddf-9394-6d75c8030cb1
@@ -12,11 +12,11 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 79434166999d4f847f28cf6a05a21f1cd002d75f
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 15430904979108cbebe4a64a8ae07f2f01b82690
 
 
 ---
@@ -51,7 +51,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 * [Suscribirse](https://azure.microsoft.com/services/remoteapp/) a Azure RemoteApp.
 * Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio de Azure RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 * Recopile información sobre la red local: dirección IP de información y detalles de dispositivos VPN.
-* Instale el módulo de [Azure PowerShell](../powershell-install-configure.md) .
+* Instale el módulo de [Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 * Recopile información sobre los usuarios a los que quiera conceder acceso. Necesitará el nombre principal de usuario de Azure Active Directory (por ejemplo, name@contoso.com)) de cada usuario. Asegúrese de que el UPN de Azure AD y Active Directory coincidan.
 * Elija su imagen de plantilla. Una imagen de plantilla de Azure RemoteApp contiene las aplicaciones y los programas que desea publicar para los usuarios. Consulte [Opciones de imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información.
 * ¿Desea usar la imagen de Office 365 ProPlus? Consulte la información [aquí](remoteapp-officesubscription.md).
@@ -126,7 +126,7 @@ Ahora que creó la colección, necesita agregar a los usuarios que desea que pue
    
    **Notas:**
    
-   Para los usuarios, asegúrese de que utiliza el formato “user@domain.com”.
+   Para los usuarios, asegúrese de que utiliza el formato *user@domain.com*.
    
    Si usa Office 365 ProPlus en su colección, debe usar las identidades de Active Directory para los usuarios. Esto ayuda a validar las licencias.
 3. Cuando se validen los usuarios, haga clic en **Guardar**.
@@ -140,6 +140,6 @@ Eso es todo, creó e implementó correctamente su colección híbrida de Azure R
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

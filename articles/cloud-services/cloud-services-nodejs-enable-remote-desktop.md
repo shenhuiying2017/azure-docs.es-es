@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/22/2016
 ms.author: robmcm
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6dedf3a7a7b4092784291334b0586b8f37e86354
+ms.sourcegitcommit: c1551b250ace3aa6775932c441fcfe28431f8f57
+ms.openlocfilehash: 09878cccc847040c59cbf285f40ac6a1a310c993
 
 
 ---
@@ -29,7 +29,7 @@ Escritorio remoto le permite tener acceso al escritorio de una instancia de rol 
 > 
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Instale y configure [Azure PowerShell](../powershell-install-configure.md).
+* Instale y configure [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Implemente una aplicación Node.js en un servicio de nube de Azure Para más información, consulte [Compilación e implementación de una aplicación Node.js en un servicio en la nube de Azure](cloud-services-nodejs-develop-deploy-app.md).
 
 ## <a name="step-1-use-azure-powershell-to-configure-the-service-for-remote-desktop-access"></a>Paso 1: usar PowerShell de Azure para configurar el servicio para el acceso de Escritorio remoto
@@ -106,6 +106,6 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

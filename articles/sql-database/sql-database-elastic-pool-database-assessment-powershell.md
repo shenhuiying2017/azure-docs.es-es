@@ -8,6 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
+ms.custom: V11; elastic database pool
 ms.devlang: NA
 ms.date: 09/28/2016
 ms.author: sstein
@@ -15,8 +16,8 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 47b4890482752d8954a84c59b333b6607d997da3
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8a197799de3fcb898f6fa9a7c90b63b3311150ee
 
 
 ---
@@ -33,7 +34,7 @@ Este script es útil para evaluar las bases de datos en servidores v11 para la m
 ## <a name="prerequisites"></a>Requisitos previos
 Instale lo siguiente antes de ejecutar el script:
 
-* La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* La versión más reciente de Azure PowerShell. Para obtener información detallada, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * El [paquete de características de SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## <a name="script-details"></a>Detalles del script
@@ -276,6 +277,6 @@ $data | %{'{0}' -f $_[0]}
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,11 +1,11 @@
 ---
-title: Solución de problemas y preguntas sobre Application Insights
-description: ¿Hay algo que no entienda o que no funcione en Visual Studio Application Insights? Pruebe aquí.
+title: "Solución de problemas y preguntas sobre Azure Application Insights | Microsoft Docs"
+description: "¿Hay algo en Azure Application Insights que no esté claro o que no funcione? Pruebe aquí."
 services: application-insights
 documentationcenter: .net
 author: alancameronwills
 manager: douge
-
+ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
@@ -13,10 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: awills
+translationtype: Human Translation
+ms.sourcegitcommit: 75b651bd3e77ac19e22dcc3442870469fe2aaca1
+ms.openlocfilehash: 22d6222b8fd27eeeb562af1ba50164031c885f25
+
 
 ---
-# Preguntas: Application Insights para ASP.NET
-## Problemas de configuración
+# <a name="questions---application-insights-for-aspnet"></a>Preguntas: Application Insights para ASP.NET
+## <a name="configuration-problems"></a>Problemas de configuración
 *Tengo problemas con la configuración de:*
 
 * [Aplicación .NET](app-insights-asp-net-troubleshoot-no-data.md)
@@ -31,23 +35,19 @@ ms.author: awills
 * [Configurar un servidor ASP.NET](app-insights-monitor-performance-live-website-now.md)
 * [Configurar un servidor de Java](app-insights-java-agent.md)
 
-## ¿Se puede usar Application Insights con...?
+## <a name="can-i-use-application-insights-with-"></a>¿Se puede usar Application Insights con...?
 [Ver plataformas][platforms]
 
-## ¿Es gratis?
-* Sí, si elige el [nivel de precios](app-insights-pricing.md) gratuito. Podrá disfrutar de la mayoría de las características y de una amplia cuota de datos.
-* Debe proporcionar los datos de su tarjeta de crédito para registrarse con Microsoft Azure, pero no se realizará ningún cargo a menos que use otro servicio de Azure que sea de pago o que decida actualizar explícitamente a un nivel de pago.
-* Si su aplicación envía una cantidad de datos superior a la cuota mensual establecida para el nivel gratuito, la aplicación dejará de estar registrada. Si esto sucede, puede optar por comenzar a pagar o esperar hasta que la cuota se restablezca al final del mes.
-* Los datos básicos de uso y de sesión no están sujetos a ninguna cuota.
-* También hay una prueba gratuita de 30 días que le permitirá disfrutar de las características de pago sin tener que pagar.
-* Cada recurso de la aplicación tiene una cuota independiente. El nivel de precios se establece con independencia de cualquier otro recurso.
+## <a name="is-it-free"></a>¿Es gratis?
 
-#### ¿Qué obtengo si opto por la versión de pago?
-* Una mayor [cuota mensual de datos](https://azure.microsoft.com/pricing/details/application-insights/).
-* En caso de que se supere la cuota mensual, tendrá la opción de pagar para seguir recopilando datos. Si los datos superan la cuota, se le cobrará por Mb.
-* [Exportación continua](app-insights-export-telemetry.md)
+Sí, para su uso experimental. En el plan de precios predeterminado, la aplicación puede enviar una determinado asignación de datos cada mes de forma gratuita. La asignación disponible es lo suficientemente amplia como para abarcar el desarrollo y la publicación de una aplicación para un número reducido de usuarios. Puede establecer un límite para evitar que se procese más de una determinada cantidad de datos.
 
-## <a name="q14"></a>¿Qué modifica Application Insights en mi proyecto?
+Debe utilizar el plan Enterprise para obtener determinadas características, como Exportación continua. Se cobrará un importe diario.
+
+[Lea el plan de precios](https://azure.microsoft.com/pricing/details/application-insights/).
+
+
+## <a name="a-nameq14awhat-does-application-insights-modify-in-my-project"></a><a name="q14"></a>¿Qué modifica Application Insights en mi proyecto?
 Los detalles dependen del tipo de proyecto. Para una aplicación web:
 
 * Agregue estos archivos al proyecto:
@@ -56,9 +56,9 @@ Los detalles dependen del tipo de proyecto. Para una aplicación web:
   * ai.js
 * Instale estos paquetes de NuGet:
   
-  * *API de Application Insights*: la API central.
-  * *API de Application Insights para aplicaciones web*: se usa para enviar la telemetría del servidor.
-  * *API de Application Insights para aplicaciones JavaScript*: se usa para enviar la telemetría del cliente.
+  * *API de Application Insights* : la API central.
+  * *API de Application Insights para aplicaciones web* : se usa para enviar la telemetría del servidor.
+  * *API de Application Insights para aplicaciones JavaScript* : se usa para enviar la telemetría del cliente.
     
     El paquete incluye estos ensamblados:
   * Microsoft.ApplicationInsights
@@ -67,45 +67,42 @@ Los detalles dependen del tipo de proyecto. Para una aplicación web:
   
   * Web.config
   * packages.config
-* (Solo nuevos proyectos: si [agrega Application Insights a un proyecto existente][start], tiene que hacerlo manualmente). Inserte fragmentos de código en el código de cliente y servidor para inicializarlos con el identificador de recursos de Application Insights. Por ejemplo, en una aplicación MVC, el código se inserta en la página maestra Views/Shared/\_Layout.cshtml.
+* (Solo nuevos proyectos: si [agrega Application Insights a un proyecto existente][start], tiene que hacerlo manualmente). Inserte fragmentos de código en el código de cliente y servidor para inicializarlos con el identificador de recursos de Application Insights. Por ejemplo, en una aplicación MVC, el código se inserta en la página maestra Views/Shared/_Layout.cshtml.
 
-## ¿Cómo se puede actualizar desde versiones anteriores de SDK?
+## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>¿Cómo se puede actualizar desde versiones anteriores de SDK?
 Consulte las [notas de la versión](app-insights-release-notes.md) del SDK adecuado para el tipo de aplicación.
 
-## <a name="update"></a>¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?
+## <a name="a-nameupdateahow-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>¿Cómo puedo cambiar el recurso de Azure al que mi proyecto envía datos?
 En el Explorador de soluciones, haga clic con el botón derecho en `ApplicationInsights.config` y elija **Actualizar Application Insights**. Puede enviar los datos a un recurso nuevo o existente en Azure. El Asistente para actualización cambia la clave de instrumentación en ApplicationInsights.config, que determina dónde el SDK del servidor envía los datos. A menos que desactive la opción "Actualizar todo", también cambiará la clave donde aparece en las páginas web.
 
-#### <a name="data"></a>¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?
+#### <a name="a-namedataahow-long-is-data-retained-in-the-portal-is-it-secure"></a><a name="data"></a>¿Cuánto tiempo se retienen los datos en el portal? ¿Es seguro?
 Eche un vistazo a [Privacidad y retención de los datos][data].
 
-## Registro
-#### <a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?
+## <a name="logging"></a>Registro
+#### <a name="a-namepostahow-do-i-see-post-data-in-diagnostic-search"></a><a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?
 Los datos POST no se registran automáticamente, pero se puede usar una llamada TrackTrace: incluya los datos en el parámetro de mensaje. Este tiene un límite de tamaño superior al de las propiedades de cadena, aunque no se puede filtrar por él.
 
-## Seguridad
-#### ¿Están mis datos seguros en el portal? ¿Cuánto tiempo se conservan?
+## <a name="security"></a>Seguridad
+#### <a name="is-my-data-secure-in-the-portal-how-long-is-it-retained"></a>¿Están mis datos seguros en el portal? ¿Cuánto tiempo se conservan?
 Consulte [Privacidad y retención de los datos][data].
 
-## <a name="q17"></a> ¿He habilitado todo en Application Insights?
-<table border="1">
-<tr><th>Qué debería ver</th><th>Cómo conseguirlo</th><th>Razones para quererlo</th></tr>
-<tr><td>Gráficos de disponibilidad</td><td><a href="../app-insights-monitor-web-app-availability/">Pruebas web</a></td><td>Saber que la aplicación web funciona</td></tr>
-<tr><td>Rendimiento de la aplicación de servidor: tiempos de respuesta, etc.
-</td><td><a href="../app-insights-asp-net/">Agregar Application Insights a un proyecto</a><br/>o <br/><a href="../app-insights-monitor-performance-live-website-now/">Instalar el monitor de estado de Application Insights en el servidor</a> (o escribir su código propio para <a href="../app-insights-api-custom-events-metrics/#track-dependency">hacer un seguimiento de las dependencias</a>)</td><td>Detectar problemas de rendimiento</td></tr>
-<tr><td>Telemetría de dependencia</td><td><a href="../app-insights-monitor-performance-live-website-now/">Instalar el monitor de estado de Application Insights en el servidor</a></td><td>Diagnosticar problemas con las bases de datos u otros componentes externos</td></tr>
-<tr><td>Obtener seguimientos de pila de las excepciones</td><td><a href="../app-insights-search-diagnostic-logs/#exceptions">Insertar llamadas TrackException en el código</a> (aunque algunas se notifican automáticamente)</td><td>Detectar y diagnosticar excepciones</td></tr>
-<tr><td>Buscar seguimientos del registro</td><td><a href="../app-insights-search-diagnostic-logs/">Agregar un adaptador de registro</a></td><td>Diagnosticar excepciones, problemas de rendimiento</td></tr>
-<tr><td>Aspectos básicos del uso de cliente: vistas de página, sesiones,...</td><td><a href="../app-insights-javascript/">Inicializador de JavaScript en páginas web</a></td><td>Análisis de uso</td></tr>
-<tr><td>Métricas personalizadas de cliente</td><td><a href="../app-insights-api-custom-events-metrics/">Seguimiento de llamadas en páginas web</a></td><td>Mejorar la experiencia del usuario</td></tr>
-<tr><td>Métricas personalizadas de servidor</td><td><a href="../app-insights-api-custom-events-metrics/">Seguimiento de llamadas en el código de servidor</a></td><td>Business intelligence</td></tr>
-</table>
+## <a name="a-nameq17a-have-i-enabled-everything-in-application-insights"></a><a name="q17"></a> ¿He habilitado todo en Application Insights?
+| Qué debería ver | Cómo conseguirlo | Razones para quererlo |
+| --- | --- | --- |
+| Gráficos de disponibilidad |[Pruebas web](app-insights-monitor-web-app-availability.md) |Saber que la aplicación web funciona |
+| Rendimiento de la aplicación de servidor: tiempos de respuesta, etc. |[Agregue Application Insights a su proyecto](app-insights-asp-net.md) o [instale el Monitor de estado de Application Insights en un servidor](app-insights-monitor-performance-live-website-now.md) (o escriba su propio código para [realizar un seguimiento de las dependencias](app-insights-api-custom-events-metrics.md#track-dependency)). |Detectar problemas de rendimiento |
+| Telemetría de dependencia |[Instalar el Monitor de estado de Application Insights en el servidor](app-insights-monitor-performance-live-website-now.md) |Diagnosticar problemas con las bases de datos u otros componentes externos |
+| Obtener seguimientos de pila de las excepciones |[Insertar llamadas TrackException en el código](app-insights-search-diagnostic-logs.md#exceptions) (aunque algunas se notifican automáticamente) |Detectar y diagnosticar excepciones |
+| Buscar seguimientos del registro |[Agregar un adaptador de registro](app-insights-search-diagnostic-logs.md) |Diagnosticar excepciones, problemas de rendimiento |
+| Aspectos básicos del uso de cliente: vistas de página, sesiones,... |[Inicializador de JavaScript en páginas web](app-insights-javascript.md) |Análisis de uso |
+| Métricas personalizadas de cliente |[Seguimiento de llamadas en páginas web](app-insights-api-custom-events-metrics.md) |Mejorar la experiencia del usuario |
+| Métricas personalizadas de servidor |[Seguimiento de llamadas en el código de servidor](app-insights-api-custom-events-metrics.md) |Business intelligence |
 
-
-## Automatización
+## <a name="automation"></a>Automation
 Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y actualizar los recursos de Application Insights.
 
-## Más respuestas
-* [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/es-ES/home?forum=ApplicationInsights)
+## <a name="more-answers"></a>Más respuestas
+* [Foro de Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
 
 <!--Link references-->
 
@@ -116,4 +113,6 @@ Puede [escribir scripts de PowerShell](app-insights-powershell.md) para crear y 
 
 
 
-<!---HONumber=AcomDC_0824_2016-->
+<!--HONumber=Dec16_HO1-->
+
+

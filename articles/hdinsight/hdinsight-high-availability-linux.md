@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/13/2016
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 6709e134242f80bfaf74671b3d6d37b6a1eb0c6a
+ms.sourcegitcommit: f9b191a68fe19f30aa157fd01f33afb0a4f1e279
+ms.openlocfilehash: 461ff9ce5aac5b2bf87671c314b38a4b1adad233
 
 
 ---
@@ -216,16 +216,16 @@ En este documento ha aprendido cómo proporciona HDInsight de Azure alta disponi
 
 * [Referencia de REST de Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Instalación y configuración de la interfaz de la línea de comandos de Azure](../xplat-cli-install.md)
-* [Instale y configure Azure PowerShell.](../powershell-install-configure.md)
+* [Instale y configure Azure PowerShell.](/powershell/azureps-cmdlets-docs)
 * [Administración de HDInsight mediante Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Aprovisionamiento de clústeres de HDInsight basado en Linux](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

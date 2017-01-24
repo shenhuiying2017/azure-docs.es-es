@@ -1,6 +1,6 @@
 ---
-title: "Qué es un grupo de seguridad de red"
-description: "Conozca el firewall distribuido de Azure mediante grupos de seguridad de red (NSG) y cómo utilizarlos para aislar y controlar el flujo de tráfico dentro de las redes virtuales (VNet)."
+title: Grupos de seguridad de red | Microsoft Docs
+description: "Aprenda cómo aislar y controlar el flujo de tráfico dentro de las redes virtuales mediante el firewall distribuido de Azure y los grupos de seguridad de red."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,13 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 92ba745915c4b496ac6b0ff3b3e25f6611f5707c
+ms.sourcegitcommit: 1de0827c01c772a4298b7b568363e89f08910ff7
+ms.openlocfilehash: 46dce57f509872580c57bb1d8d93af51623211ac
 
 
 ---
-# <a name="what-is-a-network-security-group-nsg"></a>¿Qué es un grupo de seguridad de red?
-El grupo de seguridad de red (NSG) contiene una lista de reglas de la lista de control de acceso (ACL) que permiten o deniegan el tráfico de red a sus instancias de VM en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de ACL se aplican a todas las instancias de VM de esa subred. Además, se puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa máquina virtual.
+# <a name="network-security-groups"></a>Grupos de seguridad de red
+
+Un grupo de seguridad de red (NSG) contiene una enumeración de las reglas de la lista de control de acceso (ACL), que permiten o deniegan el tráfico de red a sus instancias de máquina virtual en una red virtual. Los NSG se pueden asociar con las subredes o las instancias individuales de máquina virtual dentro de esa subred. Cuando un NSG está asociado a una subred, las reglas de ACL se aplican a todas las instancias de VM de esa subred. Además, se puede restringir más el tráfico a una máquina virtual individual asociando un NSG directamente a esa máquina virtual.
+
+> [!NOTE]
+> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../resource-manager-deployment-model.md). En este artículo se trata el uso de ambos modelos, pero Microsoft recomienda que la mayoría de las nuevas implementaciones usen el modelo del Administrador de recursos.
 
 ## <a name="nsg-resource"></a>Recurso NSG
 Los grupos de seguridad de red contienen las siguientes propiedades:
@@ -35,7 +39,6 @@ Los grupos de seguridad de red contienen las siguientes propiedades:
 
 > [!NOTE]
 > No se admiten ACL basadas en el extremo y  grupos de seguridad de red en la misma instancia de máquina virtual. Si desea usar un grupo de seguridad de red y ya tiene un extremo del ACL, quite primero el extremo del ACL. Para obtener información acerca de cómo hacerlo, consulte [Administración de listas de control de acceso (ACL) para extremos mediante  PowerShell](virtual-networks-acl-powershell.md).
-> 
 > 
 
 ### <a name="nsg-rules"></a>Reglas de grupo de seguridad de red
@@ -90,55 +93,41 @@ Como se muestra en las siguientes reglas predeterminadas, el tráfico que se ori
 ## <a name="associating-nsgs"></a>Asociación de grupos de seguridad de red 
 Puede asociar un grupo de seguridad de red a máquinas virtuales, NIC y subredes, según el modelo de implementación que use.
 
-[!INCLUDE [learn-about-deployment-models-both-include.md](../../includes/learn-about-deployment-models-both-include.md)]
-
 * **Asociación de un grupo de seguridad de red a una máquina virtual (solo implementaciones clásicas).**  Al asociar un grupo de seguridad de red a una VM, las reglas de acceso de red del grupo de seguridad de red se aplican a todo el tráfico que entra en la VM y sale de esta. 
 * **Asociación de un grupo de seguridad de red a una NIC (solo implementaciones del Administrador de recursos).**  Al asociar un grupo de seguridad de red a una NIC, las reglas de acceso de red del grupo de seguridad de red se aplican solo a esa NIC. Esto significa que en una máquina virtual con varias NIC, el que un grupo de seguridad de red se aplique a una sola NIC no afecta al tráfico enlazado a otras NIC. 
 * **Asociación de un grupo de seguridad de red a una subred (todas las implementaciones).** Al asociar un grupo de seguridad de red a una subred, las reglas de acceso de red del grupo de seguridad de red se aplican a todos los recursos IaaS y PaaS de la subred. 
 
 Puede asociar grupos de seguridad de red diferentes a una máquina virtual (o NIC, según el modelo de implementación) y a la subred a la que está enlazada una NIC o máquina virtual. Cuando esto sucede, todas las reglas de acceso de red se aplican al tráfico, por prioridad en cada grupo de seguridad de red, en el orden siguiente:
 
-* **Tráfico de entrada**
-  
-  1. El grupo de seguridad de red se aplica a la subred. 
-     
-     Si el grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí.
-  2. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica). 
-     
-     Si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará en la máquina virtual o la NIC, aunque el grupo de seguridad de red de la subred tenga una regla de coincidencia para permitir el tráfico.
-* **Tráfico de salida**
-  
-  1. El grupo de seguridad de red se aplica a la NIC (Administrador de recursos) o a la máquina virtual (clásica). 
-     
-     Si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí.
-  2. El grupo de seguridad de red se aplica a la subred.
-     
-     Si el grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se quitará aquí, aunque el grupo de seguridad de red de la máquina virtual o la NIC tenga una regla de coincidencia para permitir el tráfico.
-     
-      ![ACL de grupos de seguridad de red](./media/virtual-network-nsg-overview/figure2.png)
+- **Tráfico de entrada**
+
+  1. **Grupo de seguridad de red aplicado a subred:** si un grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se descartará.
+
+  2. **Grupo de seguridad de red aplicado a NIC** (Resource Manager) o VM (clásica): si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se descartará en la máquina virtual o la NIC, aunque el grupo de seguridad de red de la subred tenga una regla de coincidencia para permitir el tráfico.
+
+- **Tráfico de salida**
+
+  1. **Grupo de seguridad de red aplicado a una NIC** (Resource Manager) o VM (clásica): si el grupo de seguridad de red de la máquina virtual o la NIC tiene una regla de coincidencia para denegar el tráfico, el paquete se descartará.
+
+  2. **Grupo de seguridad aplicado a la subred:** si el grupo de seguridad de red de la subred tiene una regla de coincidencia para denegar el tráfico, el paquete se descartará aquí, aunque el grupo de seguridad de red de la máquina virtual o la NIC tenga una regla de coincidencia para permitir el tráfico.
 
 > [!NOTE]
 > Aunque solamente se puede asociar un solo grupo de seguridad de red a una subred, VM o NIC, puede asociar el mismo grupo de seguridad de red a tantos recursos como desee.
-> 
-> 
+>
 
 ## <a name="implementation"></a>Implementación
 Puede implementar los NSG en el modelo clásico o en los modelos de implementación del Administrador de recursos mediante las distintas herramientas que se enumeran a continuación.
 
 | Herramienta de implementación | Clásico | Resource Manager |
 | --- | --- | --- |
-| Portal clásico |![No](./media/virtual-network-nsg-overview/red.png) |![No](./media/virtual-network-nsg-overview/red.png) |
-| Portal de Azure |![Sí](./media/virtual-network-nsg-overview/green.png) |[![Yes][green]](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell |[![Yes][green]](virtual-networks-create-nsg-classic-ps.md) |[![Yes][green]](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI |[![Yes][green]](virtual-networks-create-nsg-classic-cli.md) |[![Yes][green]](virtual-networks-create-nsg-arm-cli.md) |
-| Plantilla ARM |![No](./media/virtual-network-nsg-overview/red.png) |[![Yes][green]](virtual-networks-create-nsg-arm-template.md) |
-
-| **Clave** | ![Sí](./media/virtual-network-nsg-overview/green.png)  Se admite. | ![No](./media/virtual-network-nsg-overview/red.png)  No se admite. |
-| --- | --- | --- |
-|  | | |
+| Portal clásico | No  | No |
+| Portal de Azure   | Sí | [Sí](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Sí](virtual-networks-create-nsg-classic-ps.md) | [Sí](virtual-networks-create-nsg-arm-ps.md) |
+| Azure CLI      | [Sí](virtual-networks-create-nsg-classic-cli.md) | [Sí](virtual-networks-create-nsg-arm-cli.md) |
+| Plantilla ARM   | No  | [Sí](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planificación
-Antes de implementar los grupos de seguridad de red, deberá responder a las siguientes preguntas:    
+Antes de implementar los grupos de seguridad de red, deberá responder a las siguientes preguntas:
 
 1. ¿Por qué tipos de recursos desea filtrar el tráfico entrante y saliente: NIC en la misma máquina virtual, máquinas virtuales y otros recursos como servicios en la nube o entornos de servicio de aplicaciones conectados a la misma subred, o entre recursos conectados a distintas subredes?
 2. ¿Están los recursos por los que desea filtrar el tráfico entrante y saliente conectados a subredes de redes virtuales existentes o se van a conectar a nuevas redes virtuales o subredes?
@@ -270,12 +259,8 @@ Puesto que algunos de los grupos de seguridad de red mencionados anteriormente d
 * [Implemente grupos de seguridad de red en el Administrador de recursos](virtual-networks-create-nsg-arm-pportal.md).
 * [Administración de registros de grupo de seguridad de red](virtual-network-nsg-manage-log.md).
 
-[green]: ./media/virtual-network-nsg-overview/green.png
-[amarillo]: ./media/virtual-network-nsg-overview/yellow.png
-[rojo]: ./media/virtual-network-nsg-overview/red.png
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO1-->
 
 

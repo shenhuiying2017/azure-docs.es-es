@@ -14,20 +14,26 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 11/30/2016
 ms.author: chrande
 translationtype: Human Translation
-ms.sourcegitcommit: d809636cae48dd0ccca4c99370f41996430d89e4
-ms.openlocfilehash: b5d8d38f03514d89bf6c0b5e36adf0379f1bef1a
+ms.sourcegitcommit: ee24bcff625c5ea28dbf3cbc5332078721544ddc
+ms.openlocfilehash: ef6f3de0da6e051826bcb9bf4a6ebaa78fbaac7c
 
 
 ---
+
 # <a name="azure-functions-triggers-and-bindings-developer-reference"></a>Referencias para desarrolladores de desencadenadores y enlaces de Funciones de Azure
 En este tema se proporciona una referencia general para desencadenadores y enlaces. Además, incluye algunas de las características avanzadas de enlace y la sintaxis compatible con todos los tipos de enlace.  
 
-Si busca información detallada sobre cómo configurar y codificar un tipo específico de enlace o desencadenador concreto, recomendamos hacer clic en uno de los enlaces o desencadenadores que figuran abajo:
+Para obtener información detallada sobre cómo trabajar con un tipo concreto de enlace o desencadenador, consulte uno de los temas de referencia siguientes:
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Temporizador](functions-bindings-timer.md) | [Aplicaciones móviles](functions-bindings-mobile-apps.md) | [Bus de servicio](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
+| [Centros de eventos](functions-bindings-event-hubs.md) | [Centros de notificaciones](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
+| | | | |  
 
 En estos documentos se da por supuesto que ya ha leído [Referencia para desarrolladores de Azure Functions](functions-reference.md) y los artículos de referencia para desarrolladores de [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md) o [Node.js](functions-reference-node.md).
 
@@ -61,7 +67,7 @@ Un enlace de desencadenador de colas contiene esta información para una funció
 }
 ```
 
-El código puede enviar distintos tipos de salida en función de cómo se procese el nuevo elemento de la cola. Por ejemplo, podría escribir un nuevo registro en una tabla de Azure Storage.  Para realizarlo, puede configurar un enlace de salida a una tabla de Azure Storage. Abajo encontrará un archivo *function.json* de ejemplo que incluye un enlace de salida a una tabla de almacenamiento que podría usarse con un desencadenador de colas. 
+El código puede enviar distintos tipos de salida en función de cómo se procese el nuevo elemento de la cola. Por ejemplo, podría escribir un nuevo registro en una tabla de Azure Storage.  Para ello, cree un enlace de salida a una tabla de Azure Storage. Abajo encontrará un archivo *function.json* de ejemplo que incluye un enlace de salida a una tabla de almacenamiento que podría usarse con un desencadenador de colas. 
 
 ```json
 {
@@ -125,7 +131,7 @@ Para ver otros ejemplos de código e información más específica sobre los tip
 Para usar las características más avanzadas de enlace en Azure Portal, haga clic en la opción **Editor avanzado** de la pestaña **Integrar** de la función. El Editor avanzado permite editar el archivo *function.json* directamente en el portal.
 
 ## <a name="random-guids"></a>GUID aleatorios
-Azure Functions proporciona una sintaxis para generar los GUID aleatorios con los enlaces. La siguiente sintaxis de enlace escribirá la salida en un BLOB nuevo con un nombre único en un contenedor de Azure Storage: 
+Azure Functions proporciona una sintaxis para generar los GUID aleatorios con los enlaces. La siguiente sintaxis de enlace escribirá la salida en un BLOB nuevo con un nombre único en un contenedor de Storage: 
 
 ```json
 {
@@ -182,7 +188,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-Este mismo enfoque se demuestra abajo con Node.js.
+Este mismo enfoque se demuestra con Node.js a continuación:
 
 ```javascript
 module.exports = function (context, input) {
@@ -192,7 +198,7 @@ module.exports = function (context, input) {
 }
 ```
 
-Abajo, mostramos un ejemplo de F#.
+Abajo se muestra un ejemplo de F#:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -229,7 +235,7 @@ En lugar de usar una configuración estática en las propiedades de enlace de sa
 ```json
 {
   "name" : "Customer Name",
-  "address" : "Customer's Address".
+  "address" : "Customer's Address",
   "mobileNumber" : "Customer's mobile number in the format - +1XXXYYYZZZZ."
 }
 ```
@@ -305,53 +311,61 @@ module.exports = function (context, myNewOrderItem) {
 El patrón de enlace estándar de entrada y salida que usa *function.json* se llama enlace [*declarativo*](https://en.wikipedia.org/wiki/Declarative_programming), donde la declaración de JSON define el enlace. Sin embargo, se puede utilizar el enlace [imperativo](https://en.wikipedia.org/wiki/Imperative_programming). Con este patrón, se puede enlazar a cualquier número de enlaces compatibles de entrada y salida sobre la marcha en el código de función.
 Puede que se necesite un enlace imperativo en casos donde el cálculo de la ruta de acceso al enlace o de otras entradas debe ocurrir en el tiempo de ejecución de la función en lugar de en el tiempo de diseño. 
 
-Para realizar un enlace imperativo, haga lo siguiente:
+Defina un enlace imperativo como se indica a continuación:
 
 - **No** incluya una entrada en *function.json* para los enlaces imperativos deseados.
 - Pase un parámetro de entrada [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) o [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs). 
 - Utilice el siguiente patrón de C# para realizar el enlace de datos.
 
-        using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
-        {
-                ...
-        }
+```cs
+using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
+{
+    ...
+}
+```
 
 donde `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es el tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser también un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
     
 El ejemplo de código siguiente crea un [enlace de salida al blob de almacenamiento](functions-bindings-storage-blob.md#storage-blob-output-binding) con la ruta de acceso al blob definida en tiempo de ejecución y, a continuación, escribe una cadena en el blob.
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
-                {
-                        writer.Write("Hello World!!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    using (var writer = await binder.BindAsync<TextWriter>(new BlobAttribute("samples-output/path")))
+    {
+        writer.Write("Hello World!!");
+    }
+}
+```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) es un tipo de enlace de salida admitido.
 De esta forma, el código obtiene la configuración de la aplicación predeterminada para la cadena de conexión de la cuenta de almacenamiento (que es `AzureWebJobsStorage`). Se puede especificar una configuración personalizada de la aplicación para utilizarla agregando el atributo [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) y pasando la matriz de atributos a `BindAsync<T>()`. Por ejemplo,
 
-        using Microsoft.Azure.WebJobs;
-        using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
-        
-        public static async Task Run(string input, Binder binder)
-        {
-                var attributes = new Attribute[]
-                {
-                        new BlobAttribute("samples-output/path"),
-                        new StorageAccountAttribute("MyStorageAccount")
-                };
-                using (var writer = await binder.BindAsync<TextWriter>(attributes))
-                {
-                        writer.Write("Hello World!");
-                }
-        }
+```cs
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host.Bindings.Runtime;
+
+public static async Task Run(string input, Binder binder)
+{
+    var attributes = new Attribute[]
+    {    
+        new BlobAttribute("samples-output/path"),
+        new StorageAccountAttribute("MyStorageAccount")
+    };
+
+    using (var writer = await binder.BindAsync<TextWriter>(attributes))
+    {
+        writer.Write("Hello World!");
+    }
+}
+```
 
 En la tabla siguiente se muestra el atributo de .NET correspondiente que se debe utilizar para cada tipo de enlace y a qué paquete hacer referencia.
 
+> [!div class="mx-codeBreakAll"]
 | Enlace | Atributo | Agregar referencia |
 |------|------|------|
 | DocumentDB | [`Microsoft.Azure.WebJobs.DocumentDBAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.DocumentDB"` |
@@ -362,7 +376,7 @@ En la tabla siguiente se muestra el atributo de .NET correspondiente que se debe
 | Cola de almacenamiento | [`Microsoft.Azure.WebJobs.QueueAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Blob de almacenamiento | [`Microsoft.Azure.WebJobs.BlobAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
 | Tabla de almacenamiento | [`Microsoft.Azure.WebJobs.TableAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TableAttribute.cs), [`Microsoft.Azure.WebJobs.StorageAccountAttribute`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) | |
-| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions"` |
+| Twilio | [`Microsoft.Azure.WebJobs.TwilioSmsAttribute`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) | `#r "Microsoft.Azure.WebJobs.Extensions.Twilio"` |
 
 
 
@@ -375,6 +389,6 @@ Para obtener más información, consulte los siguientes recursos:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

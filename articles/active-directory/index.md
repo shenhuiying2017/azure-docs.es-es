@@ -1,14 +1,14 @@
 ---
 layout: LandingPage
 translationtype: Human Translation
-ms.sourcegitcommit: 8f90dd518c6147df884ca9fd61ff8ee3b47dd179
-ms.openlocfilehash: 0fa4f3f5d5f07dcd0ec7dfdea7a0bec67900288e
+ms.sourcegitcommit: 95b54199c307efea21666c774525a9a539472131
+ms.openlocfilehash: 72d219c4150ddbfd59231f9131bf3502897f0ab4
 
 ---
 
 # <a name="azure-active-directory-documentation"></a>Documentación de Azure Active Directory
 
-Azure Active Directory (Azure AD) es el directorio basado en la nube multiempresa y el servicio de administración de identidades de Microsoft.  Azure AD ofrece funcionalidades de identidad y acceso para aplicaciones que se ejecutan tanto en Azure como de forma local.  
+Azure Active Directory Premium es una solución en la nube de Administración de identidades y acceso que proporciona un inicio de sesión único para miles de aplicaciones en la nube (SaaS) y acceso a aplicaciones web que se ejecutan de forma local. Azure Active Directory permite la colaboración y la movilidad empresarial y ofrece una protección de identidades avanzada mediante Multi-Factor Authentication (MFA), informes de seguridad, auditorías, alertas y directivas de acceso condicional adaptables basadas en el estado del dispositivo, la ubicación de usuario y el nivel de riesgo.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) es el directorio basado en la nube multiempres
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=active-directory">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=active-directory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -87,68 +87,46 @@ Azure Active Directory (Azure AD) es el directorio basado en la nube multiempres
 
 ---
 
-## <a name="reference"></a>Referencia
-
+<h2>Referencia</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Referencia de Azure PowerShell</p>
+                        <h3>Línea de comandos</h3>
+                        <p><a href="/powershell/">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/cli/azure/ad">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>CLI de Azure</h3>
-                        <p>Azure Active Directory mediante la CLI de Azure</p>
-                    </div>
+                        <h3>Idiomas</h3>
+                        <p><a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
     <li>
-        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Referencia de .NET de Azure Active Directory</p>
+                        <h3>Otros</h3>
+                        <p><a href="/azure/active-directory/active-directory-service-limits-restrictions">Restricciones y límites del servicio</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-    <li>
-        <a href="/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Referencia de la API de Azure Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-   </ul>
-
----
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/active-directory.pdf">
@@ -160,6 +138,6 @@ Descarga de la documentación de Active Directory </div>
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure
-description: Aprenda a implementar una aplicación Node.js en las máquinas virtuales Linux en Azure.
-services: ''
+title: "Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure"
+description: "Aprenda a implementar una aplicación Node.js en las máquinas virtuales Linux en Azure."
+services: 
 documentationcenter: nodejs
 author: stepro
 manager: dmitryr
-editor: ''
-
+editor: 
+ms.assetid: 857a812d-c73e-4af7-a985-2d0baf8b6f71
 ms.service: multiple
 ms.devlang: nodejs
 ms.topic: article
@@ -14,9 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2016
 ms.author: stephpr
+translationtype: Human Translation
+ms.sourcegitcommit: 4fc33ba185122496661f7bc49d14f7522d6ee522
+ms.openlocfilehash: 0de0314902805a2bdb37ce3c6f79ec221f3aed31
+
 
 ---
-# Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure
+# <a name="deploy-a-nodejs-application-to-linux-virtual-machines-in-azure"></a>Implementación de una aplicación Node.js para máquinas virtuales de Linux en Azure
 Este tutorial muestra cómo implementar una aplicación Node.js en máquinas virtuales Linux que se ejecutan en Azure. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.js.
 
 Aprenderá a:
@@ -30,13 +34,13 @@ Aprenderá a:
 > 
 > Si no tiene cuenta de GitHub, puede suscribirse para obtener una gratis [aquí](https://github.com/join).
 > 
-> Si no tiene una cuenta de [Microsoft Azure](https://azure.microsoft.com/), puede registrarse para obtener una evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/). Esto le llevará también a través del proceso de inicio de sesión una [cuenta de Microsoft](http://account.microsoft.com), en caso de que no disponga de una. Como alternativa, si tiene una suscripción de Visual Studio, puede [activar los beneficios de MSDN](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> Si no tiene una cuenta de [Microsoft Azure](https://azure.microsoft.com/), puede registrarse para obtener una evaluación gratuita [aquí](https://azure.microsoft.com/pricing/free-trial/). Esto le llevará también a través del proceso de inicio de sesión una [cuenta de Microsoft](http://account.microsoft.com) , en caso de que no disponga de una. Como alternativa, si tiene una suscripción de Visual Studio, puede [activar los beneficios de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
 > Si no tiene Git en la máquina de desarrollo y está utilizando un equipo Macintosh o Windows, instale Git desde [aquí](http://www.git-scm.com). Si usa Linux, instale Git mediante el mecanismo más adecuado para usted, como `sudo apt-get install git`.
 > 
 > 
 
-## Bifurcación y clonación de la aplicación de tareas pendientes
+## <a name="forking-and-cloning-the-todo-application"></a>Bifurcación y clonación de la aplicación de tareas pendientes
 La aplicación de tareas pendientes que se usa en este tutorial permite implementar un front-end web sencillo en una instancia de MongoDB que realiza un seguimiento de una lista de tareas. Después de iniciar sesión en GitHub, vaya [aquí](https://github.com/stepro/node-todo) para buscar la aplicación y bifurcarla mediante el vínculo en la parte superior derecha. Esto debería crear un repositorio en la cuenta con el nombre *accountname*/node-todo.
 
 Ahora en la máquina de desarrollo, clone este repositorio:
@@ -45,10 +49,10 @@ Ahora en la máquina de desarrollo, clone este repositorio:
 
 Usaremos este clon local del repositorio un poco más adelante al realizar cambios en el código fuente.
 
-## Creación y configuración de las máquinas virtuales Linux
+## <a name="creating-and-configuring-the-linux-virtual-machines"></a>Creación y configuración de las máquinas virtuales Linux
 Azure ofrece un buen soporte para los procesos sin formato con las máquinas virtuales Linux. Esta parte del tutorial muestra la forma de establecer fácilmente dos máquinas virtuales de Linux e implementar la aplicación de tareas pendientes, ejecutando el front-end web en una de ellas y la instancia de MongoDB en la otra.
 
-### Creación de máquinas virtuales
+### <a name="creating-virtual-machines"></a>Creación de máquinas virtuales
 Para crear una nueva máquina virtual en Azure, lo más sencillo es usar el Portal de Azure. Haga clic en [aquí](https://portal.azure.com) para conectarse e iniciar el Portal de Azure en el explorador web. Cuando se haya cargado el Portal de Azure, realice los pasos siguientes:
 
 * Haga clic en el vínculo "+ Nuevo".
@@ -64,7 +68,7 @@ Para crear una nueva máquina virtual en Azure, lo más sencillo es usar el Port
 
 Realice el proceso anterior dos veces para crear dos máquinas virtuales Linux: una para el front-end web y otra para la instancia de MongoDB. La creación de las máquinas virtuales tardará entre 5 y 10 minutos.
 
-### Asignación de una entrada DNS para las máquinas virtuales
+### <a name="assigning-a-dns-entry-for-virtual-machines"></a>Asignación de una entrada DNS para las máquinas virtuales
 De manera predeterminada, a las máquinas virtuales creadas en Azure se puede acceder solo a través de una dirección IP pública, como 1.2.3.4. Vamos a hacer que las máquinas se puedan identificar más fácilmente mediante la asignación de entradas de DNS.
 
 Una vez que el portal indique que se han creado las máquinas virtuales, haga clic en el vínculo "Máquinas virtuales" en la barra de exploración izquierda y busque las máquinas. Para cada máquina:
@@ -74,10 +78,10 @@ Una vez que el portal indique que se han creado las máquinas virtuales, haga cl
 
 El portal comprobará que el nombre especificado esté disponible. Después de guardar la configuración, las máquinas virtuales tendrán nombres de host similares a `machinename.region.cloudapp.azure.com`.
 
-### Conexión a las máquinas virtuales
+### <a name="connecting-to-the-virtual-machines"></a>Conexión a las máquinas virtuales
 Al aprovisionar las máquinas virtuales, estas se configuraron para permitir las conexiones remotas a través de SSH. Este es el mecanismo que se utilizará para configurar las máquinas virtuales. Si está utilizando Windows para el desarrollo, debe obtener un cliente SSH en caso de que no disponga de uno. Una opción común es PuTTY, que puede descargar desde [aquí](http://www.chiark.greenend.org.uk/~sgtatham/putty/). Los sistemas operativos Macintosh y Linux vienen con una versión de SSH preinstalada.
 
-### Configuración de la máquina virtual front-end web
+### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuración de la máquina virtual front-end web
 Inicie sesión con SSH en la máquina front-end web que creó mediante PuTTY, la línea de comandos ssh u otra herramienta SSH que desee. Debería ver un mensaje de bienvenida seguido de un símbolo del sistema.
 
 En primer lugar, debe asegurarse de que Git y el nodo estén instalados:
@@ -126,7 +130,7 @@ Después de crear esta regla de seguridad, la aplicación de lista de tareas est
 
 Observará que, aunque todavía no hemos configurado la máquina virtual de MongoDB, la aplicación de tarea pendiente parece ser bastante funcional. Esto es porque el repositorio de origen está codificado para usar una instancia de MongoDB implementada previamente. Una vez que hemos configurado la máquina virtual de MongoDB, volvemos y cambiamos el código fuente para nuestra instancia de MongoDB privada en su lugar.
 
-### Configuración de la máquina virtual de MongoDB
+### <a name="configuring-the-mongodb-virtual-machine"></a>Configuración de la máquina virtual de MongoDB
 Inicie sesión con SSH en la segunda máquina que creó mediante PuTTY, la línea de comandos ssh u otra herramienta SSH que desee. Después de ver el mensaje de bienvenida y el símbolo del sistema, instale MongoDB (estas instrucciones proceden de [aquí](https://docs.mongodb.org/master/tutorial/install-mongodb-on-ubuntu/)):
 
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
@@ -134,7 +138,7 @@ Inicie sesión con SSH en la segunda máquina que creó mediante PuTTY, la líne
     sudo apt-get update
     sudo apt-get install -y mongodb-org
 
-De forma predeterminada, MongoDB está configurado para que solo se pueda acceder localmente. Para este tutorial, configuraremos MongoDB para que se pueda acceder desde la máquina virtual de la aplicación. En un contexto sudo, abra el archivo /etc/mongod.conf y busque la sección `# network interfaces`. Cambie el valor de la configuración `net.bindIp` por `0.0.0.0`.
+De forma predeterminada, MongoDB está configurado para que solo se pueda acceder localmente. Para este tutorial, configuraremos MongoDB para que se pueda acceder desde la máquina virtual de la aplicación. En un contexto sudo, abra el archivo /etc/mongod.conf y busque la sección `# network interfaces` . Cambie el valor de la configuración `net.bindIp` por `0.0.0.0`.
 
 > [!NOTE]
 > Esta configuración atiende solo a los fines de este tutorial. **NO** constituye una práctica de seguridad recomendada y no se debe usar en entornos de producción.
@@ -159,11 +163,11 @@ Vuelva al Portal de Azure y siga estos pasos:
 * Defina el intervalo de puertos de destino en "27017".
 * Haga clic en Aceptar y espere a que se cree la regla de seguridad.
 
-## Iteración en la aplicación de tareas pendientes
+## <a name="iterating-on-the-todo-application"></a>Iteración en la aplicación de tareas pendientes
 Hasta ahora, hemos aprovisionado dos máquinas virtuales Linux: una que ejecuta el front-end web de la aplicación y otra que ejecuta una instancia de MongoDB. Pero hay un problema: el front-end web no está utilizando realmente la instancia de MongoDB aprovisionada todavía. Para solucionar esto, vamos a actualizar el código de front-end web para utilizar una variable de entorno en lugar de una instancia codificada de forma rígida.
 
-### Cambio de la aplicación de tareas pendientes
-En la máquina de desarrollo donde clonó primero el repositorio node-todo, abra el archivo `node-todo/config/database.js` en el editor que desee y cambie el valor de la dirección URL del valor codificado de forma rígida como `mongodb://...` a `process.env.MONGODB`.
+### <a name="changing-the-todo-application"></a>Cambio de la aplicación de tareas pendientes
+En la máquina de desarrollo donde clonó primero el repositorio node-todo, abra el archivo `node-todo/config/database.js` en el editor que desee y cambie el valor de la dirección URL del valor codificado de forma rígida como `mongodb://...` por `process.env.MONGODB`.
 
 Confirme los cambios y distribúyalos al patrón de GitHub:
 
@@ -172,14 +176,14 @@ Confirme los cambios y distribúyalos al patrón de GitHub:
 
 Desafortunadamente, con esta acción no se publica el cambio en la máquina virtual front-end web. Vamos a hacer algunos cambios más en esa máquina virtual para habilitar un mecanismo sencillo pero eficaz con el que publicar las actualizaciones, de forma que pueda observar rápidamente el efecto de los cambios en el entorno de producción.
 
-### Configuración de la máquina virtual front-end web
+### <a name="configuring-the-web-frontend-virtual-machine"></a>Configuración de la máquina virtual front-end web
 Recuerde que hemos creado previamente un clon básico del repositorio node-todo en la máquina virtual front-end web. Resulta que esta acción crea un nuevo Git remoto en el que se pueden insertar los cambios. Sin embargo, el hecho de realizar inserciones en este elemento remoto no ofrece el modelo de iteración rápido que necesitan los desarrolladores al trabajar con el código.
 
 Lo que nos gustaría es que, al realizar una inserción en el repositorio remoto en la máquina virtual, la aplicación de tareas pendientes en ejecución se actualizara automáticamente. Por suerte, esto es fácil de conseguir con Git.
 
-Git ofrece una serie de enlaces que se ejecutan en momentos concretos para reaccionar ante las acciones realizadas en el repositorio. Estas acciones se ejecutan mediante scripts de shell en la carpeta `hooks` del repositorio. El enlace que es más aplicable para el escenario de actualización automática es el evento `post-update`.
+Git ofrece una serie de enlaces que se ejecutan en momentos concretos para reaccionar ante las acciones realizadas en el repositorio. Estas acciones se ejecutan mediante scripts de shell en la carpeta `hooks` del repositorio. El enlace que es más aplicable para el escenario de actualización automática es el evento `post-update` .
 
-En una sesión SSH para la máquina virtual front-end web, cambie al directorio `~/node-todo.git/hooks` y agregue el siguiente contenido a un archivo denominado `post-update` (sustituya `machinename` y `region` con la información de la máquina virtual de MongoDB):
+En una sesión SSH para la máquina virtual front-end web, cambie al directorio `~/node-todo.git/hooks` y agregue el siguiente contenido a un archivo denominado `post-update` (sustituya `machinename` y `region` por la información de la máquina virtual de MongoDB):
 
     #!/bin/bash
 
@@ -195,14 +199,14 @@ Asegúrese de que este archivo sea ejecutable mediante el comando siguiente:
 
 Este script garantiza que la aplicación de servidor actual se haya detenido, que el código del repositorio clonado se haya actualizado a la versión más reciente, que se cumplan las dependencias actualizadas y que se reinicie el servidor. También garantiza que se haya configurado el entorno para recibir nuestra primera actualización de la aplicación para obtener la instancia de MongoDB desde una variable de entorno.
 
-### Configuración de la máquina de desarrollo
-Ahora vamos a obtener el equipo de desarrollo con un enlace a la máquina virtual front-end web. Esto es tan sencillo como agregar el repositorio básico a la máquina virtual como un equipo remoto. Para ello, ejecute el siguiente comando (sustituya *user* con el nombre de inicio de sesión de la máquina virtual front-end web y especifique lo que proceda en *machinename* y *region*):
+### <a name="configuring-your-development-machine"></a>Configuración de la máquina de desarrollo
+Ahora vamos a obtener el equipo de desarrollo con un enlace a la máquina virtual front-end web. Esto es tan sencillo como agregar el repositorio básico a la máquina virtual como un equipo remoto. Para ello, ejecute el siguiente comando (sustituya *user* por el nombre de inicio de sesión de la máquina virtual front-end web y especifique lo que proceda en *machinename* y *region*):
 
     git remote add azure user@machinename.region.cloudapp.azure.com:node-todo.git
 
 Esto es todo lo que se necesita para habilitar la inserción (o, en realidad, la publicación) de cambios en la máquina virtual front-end web.
 
-### Publicación de actualizaciones
+### <a name="publishing-updates"></a>Publicación de actualizaciones
 Vamos a publicar el único cambio que se ha hecho hasta el momento, de forma que la aplicación usará nuestra instancia MongoDB:
 
     git push azure master
@@ -245,13 +249,18 @@ Esta vez, vamos a publicar el cambio en Azure antes de insertarlo en el reposito
 
     git push azure master
 
-Una vez finalizado este comando, actualice la página web y verá los cambios. Como el resultado es satisfactorio, inserte el cambio en el origen remoto:
+Una vez finalizado este comando, actualice la página web y verá los cambios. Como el resultado es satisfactorio, inserte el cambio en el origen remoto: 
 
     git push origin master
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este artículo, hemos explicado cómo implementar una aplicación Node.js en máquinas virtuales Linux que se ejecutan en Azure. Para obtener más información acerca de las máquinas virtuales de Linux en Azure, consulte [Introducción a Linux en Azure](/documentation/articles/virtual-machines-linux-introduction/).
 
 Para más información sobre cómo desarrollar aplicaciones de Node.js en Azure, consulte el [Centro para desarrolladores de Node.js](/develop/nodejs/).
 
-<!---HONumber=AcomDC_0211_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

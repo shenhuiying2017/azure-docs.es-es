@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/12/2017
 ms.author: raymondl;garye;v-donglo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 70004ff5c59427dfd5c58e5633cae95a08a18a3a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8544f04360c44d54b9c3e69448b6d5b29826f06c
 
 
 ---
@@ -57,7 +57,7 @@ A continuación creará un experimento predicativo.
 3. Cuando el experimento haya terminado de ejecutarse, haga clic en **Deploy Web Service [Classic]** (Implementar servicio web [clásico]) o en **Deploy Web Service [New]** (Implementar servicio web [nuevo]).
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Implementación del experimento de entrenamiento como un servicio web de entrenamiento
-Para reciclar el modelo entrenado, debe implementar el experimento de entrenamiento que creó como un servicio web de reciclaje. Este servicio web requiere un módulo de *salida de servicio web* conectado al módulo *[Entrenar modelo][train-model]* para poder generar nuevos modelos entrenados.
+Para reciclar el modelo entrenado, debe implementar el experimento de entrenamiento que creó como un servicio web de reciclaje. Este servicio necesita un módulo de *salida del servicio web* conectado al módulo *[Entrenar modelo][train-model]* para poder generar nuevos modelos entrenados.
 
 1. Para volver al experimento de entrenamiento, haga clic en el icono Experimentos en el panel izquierdo, y luego haga clic en el experimento denominado Census Model (Modelo de censo).  
 2. En el cuadro de búsqueda Search Experiment Items (Buscar elementos de experimentos), escriba servicio web. 
@@ -185,6 +185,6 @@ Si implementó el servicio web predictivo haciendo clic en **Deploy Web Service 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

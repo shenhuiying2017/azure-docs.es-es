@@ -15,8 +15,8 @@ ms.workload: NA
 ms.date: 08/19/2016
 ms.author: masnider
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 54cdfee64360543e0d1011f04c9b79400e912582
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 08b923525d8e1bf89a6b4d13e7723dea44734d41
 
 
 ---
@@ -52,10 +52,10 @@ MoveCost ayuda a encontrar las soluciones que provocan la menor interrupción po
 * Cluster Resource Manger de Service Fabric usa métricas para administrar el consumo y la capacidad en el clúster. Para más información sobre las métricas y cómo configurarlas, consulte [Administración de consumo y carga de recursos en Service Fabric con métricas](service-fabric-cluster-resource-manager-metrics.md).
 * Para más información sobre la forma en que Cluster Resource Manager administra y equilibra la carga en el clúster, consulte [Equilibrio del clúster de Service Fabric](service-fabric-cluster-resource-manager-balancing.md).
 
-[Imagen 1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
+[Image1]:./media/service-fabric-cluster-resource-manager-movement-cost/service-most-cost-example.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

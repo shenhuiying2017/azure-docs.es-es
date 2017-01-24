@@ -2,7 +2,7 @@
 title: "Escalado del número de instancias de forma manual o automática con Azure Portal | Microsoft Docs"
 description: Aprenda a escalar los servicios de Azure.
 author: rboucher
-manager: carolz
+manager: carmonm
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics

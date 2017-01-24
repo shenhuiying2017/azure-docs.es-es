@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/08/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: bd4d6f59ac4fbaa9bd0cb6a33a697cac0d13eb8c
-ms.openlocfilehash: 7a86469a9513869362eb37b21b155889dcee7942
+ms.sourcegitcommit: 8b82801a26c15248480a261945b37a0c38e3fa47
+ms.openlocfilehash: e32d21efd8d90bac223cbc0a213df65d19c40670
 
 
 ---
@@ -83,11 +83,11 @@ No se admite la conectividad entre las regiones geopolíticas en el SKU de Expre
 | **París** |Interxion, Equinix+ |
 | **São Paulo** |Equinix, Telefónica |
 | **Seattle** |Equinix, Level 3 Communications y Megaport |
-| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon y Zayo Group |
+| **Silicon Valley** |Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink+, Comcast, Console, Equinix, Level 3 Communications, Orange, Tata Communications, Verizon y Zayo Group |
 | **Singapur** |Aryaka Networks, AT&T NetBond, British Telecom, Equinix, InterCloud, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Verizon |
 | **Sidney** |AARNet, AT&T NetBond, British Telecom, Equinix, Megaport, NEXTDC, Orange, Telstra Corporation y Verizon |
 | **Tokio** |Aryaka Networks, British Telecom, Colt, Equinix, Internet iniciativa Japón Inc. - IIJ, NTT comunicaciones, Softbank y Verizon |
-| **Toronto** |Cologix, Equinix, Megaport y Zayo Group |
+| **Toronto** |Bell Canada, Cologix, Equinix, Megaport y Zayo Group |
 | **Washington DC** |Aryaka Networks, AT&T NetBond, British Telecom, Comcast, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Verizon, Zayo Group |
 
  **+** indica próximamente
@@ -134,11 +134,13 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
+| **Londres** | Equinix | Exponencial E |
 | **Nueva York** |Equinix |Lightower |
 | **Seattle** |Equinix |Alaska Communications |
 | **Silicon Valley** |Equinix |XO Communications |
 | **Singapur** |Equinix |1CLOUDSTAR |
-| **Washington DC** |Equinix |Lightower |
+| **Sidney** | Megaport | Macquarie |
+| **Washington DC** |Equinix | Lightower, Masergy |
 
 ## <a name="expressroute-system-integrators"></a>Integradores de sistemas de ExpressRoute
 Habilitar la conectividad privada para la adaptación a sus necesidades puede ser complicado según la escala de la red. Puede trabajar con cualquiera de los integradores de sistemas que aparecen en la tabla siguiente para ayudarle con la incorporación a ExpressRoute.
@@ -158,6 +160,6 @@ Habilitar la conectividad privada para la adaptación a sus necesidades puede se
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO1-->
 
 
