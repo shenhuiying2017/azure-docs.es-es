@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
 translationtype: Human Translation
-ms.sourcegitcommit: cbed591d15daf8060f13d0e9b009d65c85d256aa
-ms.openlocfilehash: ad8666b46a5b404ab1caf85c32549a1a01de3b73
+ms.sourcegitcommit: 6cc30ace0b57555ea2b5815906d3e6a4f79d8fce
+ms.openlocfilehash: 94bf7729ceb55eaed5efc0290c1a34227888211f
 
 
 ---
 # <a name="configuring-service-map-solution-in-operations-management-suite-oms"></a>Configuración de la solución Mapa de servicio de Operations Management Suite (OMS)
-![Icono Administración de alertas](media/oms-service-map/icon.png) Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos.  Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
+Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Permite ver los servidores a medida que piensa en ellos, como los sistemas interconectados que ofrecen servicios críticos.  Mapa de servicio muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
 
 En este artículo se describen los detalles sobre cómo configurar agentes de incorporación y de Mapa de servicio.  Para información sobre cómo utilizar Mapa de servicio, consulte [Uso de la solución Mapa de servicio de Operations Management Suite (OMS)](operations-management-suite-service-map.md)
 
@@ -93,27 +93,27 @@ Para descargar el agente de dependencia, haga clic en **Configurar solución** e
 #### <a name="microsoft-windows"></a>Microsoft Windows
 Se requieren privilegios de administrador para instalar o desinstalar al agente.
 
-El agente de dependencia se instala en equipos de Windows con Dependency-Agent-Windows.exe. Si ejecuta este ejecutable sin opciones, se iniciará a un asistente que puede seguir para realizar la instalación de forma interactiva.  
+El agente de dependencia se instala en equipos de Windows con InstallDependencyAgent-Windows.exe. Si ejecuta este ejecutable sin opciones, se iniciará a un asistente que puede seguir para realizar la instalación de forma interactiva.  
 
 Utilice los pasos siguientes para instalar el agente de dependencia en cada equipo de Windows:
 
 1.  Asegúrese de que está instalado el agente de OMS mediante las instrucciones en la conexión de equipos directamente a OMS.
-2.  Descargue al agente de Windows y ejecútelo con el siguiente comando: <br>*Dependency-Agent-Windows.exe*
+2.  Descargue al agente de Windows y ejecútelo con el siguiente comando: <br>*InstallDependencyAgent-Windows.exe*
 3.  Siga el asistente para instalar el agente.
 4.  Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es *C:\Program Files\Microsoft Dependency Agent\logs*. 
 
 Un agente de dependencia de Windows se puede desinstalar mediante un administrador a través del Panel de control.
 
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 Es necesario el acceso raíz para instalar o configurar el agente.
 
-El agente de dependencia se instala en equipos de Linux con Dependency-Agent-Linux64.bin, un script de shell con un archivo binario autoextraíble. Puede ejecutar el archivo con sh o agregar permisos de ejecución al propio archivo.
+El agente de dependencia se instala en equipos de Linux con InstallDependencyAgent-Linux64.bin, un script de shell con un archivo binario autoextraíble. Puede ejecutar el archivo con sh o agregar permisos de ejecución al propio archivo.
  
 Utilice los pasos siguientes para instalar el agente de dependencia en cada equipo de Linux:
 
 1.  Asegúrese de que está instalado el agente de OMS mediante las instrucciones en [Recopilación y administración de datos de equipos de Linux.  El agente de OMS debe instalarse antes que el agente de dependencia de Linux](https://technet.microsoft.com/library/mt622052.aspx).
-2.  Instale el agente de dependencia de Linux como raíz mediante el siguiente comando:<br>*sh Dependency-Agent-Linux64.bin*.
+2.  Instale el agente de dependencia de Linux como raíz mediante el siguiente comando:<br>*sh InstallDependencyAgent-Linux64.bin*.
 3.  Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es */var/opt/microsoft/dependency-agent/log*.
 
 ### <a name="uninstalling-the-dependency-agent-on-linux"></a>Desinstalación del agente de dependencia en Linux
@@ -128,7 +128,7 @@ La sección anterior proporciona orientación acerca de cómo instalar el agente
 #### <a name="windows"></a>Windows
 Use las opciones de la tabla siguiente para realizar la instalación desde una línea de comandos. Para ver una lista de marcas de instalación, ejecute el programa de instalación con la marca /? de la manera siguiente.
 
-    Dependency-Agent-Windows.exe /?
+    InstallDependencyAgent-Windows.exe /?
 
 | Marca | Descripción |
 |:--|:--|
@@ -137,10 +137,10 @@ Use las opciones de la tabla siguiente para realizar la instalación desde una l
 Los archivos para el agente de dependencia de Microsoft se colocan en *C:\Program Files\Microsoft Dependency Agent* de forma predeterminada.
 
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 Use las opciones de la tabla siguiente para realizar la instalación. Para ver una lista de marcas de instalación, ejecute el programa de instalación con la marca -help de la siguiente forma.
 
-    Dependency-Agent-Linux64.bin -help
+    InstallDependencyAgent-Linux64.bin -help
 
 | Descripción de la marca
 |:--|:--|
@@ -167,7 +167,7 @@ Si tiene problemas con Mapa de servicio, puede recopilar información de soluci�
 #### <a name="microsoft-dependency-agent"></a>Agente de dependencia de Microsoft
 Para generar datos de solución de problemas del agente de dependencia, abra un símbolo del sistema como administrador y ejecute el script CollectDependencyAgentData.vbs mediante el siguiente comando.  Puede agregar la marca --help para mostrar las opciones adicionales.
 
-    cd C:\Program Files\Bluestripe\Collector\scripts
+    cd C:\Program Files\Microsoft Dependency Agent\scripts
     cscript CollectDependencyData.vbs
 
 El paquete de compatibilidad de datos se guarda en el directorio % USERPROFILE % para el usuario actual.  Puede usar la opción --file <filename> para guardarlo en una ubicación diferente.
@@ -325,6 +325,6 @@ Para obtener más información sobre el uso y la recopilación de datos, consult
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 
