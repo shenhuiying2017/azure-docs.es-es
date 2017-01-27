@@ -1,5 +1,5 @@
 ---
-title: "Implementación de su primera aplicación web de Java en Azure en 5 minutos | Microsoft Docs"
+title: "Implementación de la primera aplicación web Java en Azure en 5 minutos (versión preliminar de CLI 2.0) | Microsoft Docs"
 description: "Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente."
 services: app-service\web
 documentationcenter: 
@@ -12,15 +12,26 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 10/13/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c59def4fd3fbc9d94d922bc2e7a7c077a465b21
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: af27369b0ae8de0ece6da38a78b434e595fbfc4e
 
 
 ---
-# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web de Java en Azure en 5 minutos
+# <a name="deploy-your-first-java-web-app-to-azure-in-five-minutes-cli-20-preview"></a>Implementación de la primera aplicación web Java en Azure en 5 minutos (versión preliminar de CLI 2.0)
+
+> [!div class="op_single_selector"]
+> * [Primer sitio HTML](app-service-web-get-started-html-cli-nodejs.md)
+> * [Primera aplicación .NET](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Primera aplicación PHP](app-service-web-get-started-php-cli-nodejs.md)
+> * [Primera aplicación Node.js](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Primera aplicación Python](app-service-web-get-started-python-cli-nodejs.md)
+> * [Primera aplicación Java](app-service-web-get-started-java.md)
+> 
+> 
+
 Este tutorial le ayudará a implementar su primera aplicación web de Java en [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -32,10 +43,10 @@ Podrá:
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Obtenga un cliente FTP o FTPS, como [FileZilla](https://filezilla-project.org/).
-* Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+* Obtenga una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+> También puede [probar App Service](https://azure.microsoft.com/try/app-service/) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 > 
 > 
 
@@ -73,7 +84,7 @@ Ahora, vamos a implementar una aplicación de Java en Azure mediante FTPS.
     ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
 2. En **Versión de Java**, seleccione **Java 8** y haga clic en **Guardar**.
    
-    ![](./media/app-service-web-get-started-languages/set-java-application-settings.png)
+    ![](./media/app-service-web-get-started-languages/set-java.png)
    
     Cuando reciba la notificación **La configuración de la aplicación web se actualizó correctamente**, vaya a http://*&lt;nombre_aplicación>*.azurewebsites.net para ver el servlet JSP predeterminado en acción.
 3. Una vez de vuelta en la hoja de la aplicación web, desplácese hacia abajo hasta la opción **Credenciales de implementación** o búsquela, y haga clic en ella.
@@ -120,6 +131,6 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

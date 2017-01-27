@@ -13,11 +13,11 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/20/2016
+ms.date: 01/19/2017
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 115668dae46557f6d6caefc9e7c1178768e7e775
+ms.sourcegitcommit: 2b128e2771ea89d1c0d6b8d52357d1bcc993115a
+ms.openlocfilehash: a9629d0a4bfc44f5d035a29f8e97d76922cc0060
 
 
 ---
@@ -117,7 +117,7 @@ Ya puede registrar recursos de datos de la base de datos de ejemplo Adventure Wo
 En este ejercicio se usa la herramienta de registro para registrar los recursos de datos de la base de datos Adventure Works en el catálogo. El registro es el proceso de extraer metadatos estructurales clave (como nombres, tipos y ubicaciones) del origen de datos y los recursos que contiene, y copiar dichos metadatos en el catálogo. El origen de datos y los recursos de datos permanecen donde están, pero el catálogo usa los metadatos para que se puedan detectar y comprender más fácilmente.
 
 ### <a name="register-a-data-source"></a>Registro de un origen de datos
-1. Vaya a la [página principal de Azure Data Catalog](https://azuredatacatalog.com) y haga clic en **Publicar datos**.
+1. Vaya a la [página principal de Azure Data Catalog](http://azuredatacatalog.com) y haga clic en **Publicar datos**.
    
    ![Catálogo de datos de Azure: botón Publicar datos](media/data-catalog-get-started/data-catalog-publish-data.png)
 2. Haga clic en **Iniciar aplicación** para descargar, instalar y ejecutar la herramienta de registro en el equipo.
@@ -366,6 +366,6 @@ En este tutorial ha explorado las funcionalidades esenciales del Catálogo de da
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -16,8 +16,8 @@ ms.topic: hero-article
 ms.date: 02/19/2016
 ms.author: huvalo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 7fbe958a20099f829f2c4c38344969372217e634
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c6679cf7a6b059ee7c28e1754c54afa6414d633a
 
 
 ---
@@ -29,7 +29,7 @@ Creará una aplicación con el marco web de Django (consulte las versiones alter
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -38,7 +38,7 @@ Creará una aplicación con el marco web de Django (consulte las versiones alter
 * Python 2.7 o 3.4
 * setuptools, pip, virtualenv (solo en Python 2.7)
 * Git
-* [Herramientas de Python para Visual Studio][Herramientas de Python para Visual Studio] (PTVS)- Nota: Esto es opcional
+* [Python Tools para Visual Studio][Python Tools para Visual Studio] (PTVS)- Nota: Esto es opcional
 
 **Nota:**la publicación TFS no se admite actualmente para los proyectos de Python.
 
@@ -112,10 +112,10 @@ Paquetes externos necesarios para esta aplicación. El script de implementación
 
 Archivos de configuración de IIS. El script de implementación utilizará el web.x.y.config adecuado y lo copiará como web.config.
 
-### <a name="optional-files-customizing-deployment"></a>Archivos opcionales - Implementación de personalización
+### <a name="optional-files---customizing-deployment"></a>Archivos opcionales - Implementación de personalización
 [!INCLUDE [web-sites-python-django-customizing-deployment](../../includes/web-sites-python-django-customizing-deployment.md)]
 
-### <a name="optional-files-python-runtime"></a>Archivos opcionales - Tiempo de ejecución de Python
+### <a name="optional-files---python-runtime"></a>Archivos opcionales - Tiempo de ejecución de Python
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 ### <a name="additional-files-on-server"></a>Archivos adicionales en el servidor
@@ -135,7 +135,7 @@ En las tres secciones siguientes se describe cómo continuar con el desarrollo d
 * Windows, con línea de comandos
 * Mac/Linux, con línea de comandos
 
-## <a name="web-app-development-windows-python-tools-for-visual-studio"></a>Desarrollo de aplicaciones web: Windows, Python Tools para Visual Studio
+## <a name="web-app-development---windows---python-tools-for-visual-studio"></a>Desarrollo de aplicaciones web: Windows, Python Tools para Visual Studio
 ### <a name="clone-the-repository"></a>Clonación del repositorio
 En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
@@ -201,7 +201,7 @@ Visual Studio no muestra el progreso de la implementación. Si desea revisar la 
 
 Vaya a la dirección URL de Azure para ver los cambios.
 
-## <a name="web-app-development-windows-command-line"></a>Desarrollo de aplicaciones web - Windows - Línea de comandos
+## <a name="web-app-development---windows---command-line"></a>Desarrollo de aplicaciones web - Windows - Línea de comandos
 ### <a name="clone-the-repository"></a>Clonación del repositorio
 En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
@@ -281,7 +281,7 @@ Verá la salida del script de implementación, incluida la creación del entorno
 
 Vaya a la dirección URL de Azure para ver los cambios.
 
-## <a name="web-app-development-maclinux-command-line"></a>Desarrollo de aplicaciones web: Mac/Linux - Línea de comandos
+## <a name="web-app-development---maclinux---command-line"></a>Desarrollo de aplicaciones web: Mac/Linux - Línea de comandos
 ### <a name="clone-the-repository"></a>Clonación del repositorio
 En primer lugar, clone el repositorio mediante la dirección URL proporcionada en el Portal de Azure y agregue el repositorio de Azure como remoto. Para más información, consulte [Implementación de Git local en el Servicio de aplicaciones de Azure](app-service-deploy-local-git.md).
 
@@ -365,13 +365,13 @@ Verá la salida del script de implementación, incluida la creación del entorno
 
 Vaya a la dirección URL de Azure para ver los cambios.
 
-## <a name="troubleshooting-package-installation"></a>Solución de problemas - Instalación de un paquete
+## <a name="troubleshooting---package-installation"></a>Solución de problemas - Instalación de un paquete
 [!INCLUDE [web-sites-python-troubleshooting-package-installation](../../includes/web-sites-python-troubleshooting-package-installation.md)]
 
-## <a name="troubleshooting-virtual-environment"></a>Solución de problemas - Entorno virtual
+## <a name="troubleshooting---virtual-environment"></a>Solución de problemas - Entorno virtual
 [!INCLUDE [web-sites-python-troubleshooting-virtual-environment](../../includes/web-sites-python-troubleshooting-virtual-environment.md)]
 
-## <a name="troubleshooting-static-files"></a>Solución de problemas - Archivos estáticos
+## <a name="troubleshooting---static-files"></a>Solución de problemas - Archivos estáticos
 Django refuerza el concepto de recopilación de archivos estáticos. Lo que significa que toma todos los archivos estáticos de su ubicación original y los copia en una única carpeta. Para esta aplicación, se copian en `/static`.
 
 Esto se realiza porque los archivos estáticos pueden proceder de otras aplicaciones Django diferentes. Por ejemplo, los archivos estáticos de las interfaces de administración de Django se encuentran en una subcarpeta de la biblioteca de Django en el entorno virtual. Los archivos estáticos definidos por esta aplicación se encuentran en `/app/static`. Cuantas más aplicaciones Django se utilicen, tendrá archivos estáticos ubicados en varios lugares.
@@ -392,7 +392,7 @@ Tendrá que hacer la recopilación de manera manual en el equipo local:
 
 Después, quite la carpeta `\static` de `.gitignore` y agréguela al repositorio de Git.
 
-## <a name="troubleshooting-settings"></a>Solución de problemas - Configuración
+## <a name="troubleshooting---settings"></a>Solución de problemas - Configuración
 Se pueden cambiar varias configuraciones para la aplicación en `DjangoWebProject/settings.py`.
 
 Para mayor comodidad del desarrollador, se habilita el modo de depuración. Un efecto colateral interesante que es que podrá ver imágenes y cualquier otro contenido estático cuando se ejecuta localmente, sin necesidad de recopilar archivos estáticos.
@@ -450,12 +450,12 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 <!--Link references-->
 [Django y MySQL en Azure con Python Tools para Visual Studio]: web-sites-python-ptvs-django-mysql.md
 [Django y Base de datos SQL en Azure con Python Tools para Visual Studio]: web-sites-python-ptvs-django-sql.md
-[Base de datos SQL]: web-sites-python-ptvs-django-sql.md
+[SQL Database]: web-sites-python-ptvs-django-sql.md
 [MySQL]: web-sites-python-ptvs-django-mysql.md
 
 <!--External Link references-->
-[SDK de Azure para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
-[SDK de Azure para Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
+[Azure SDK para Python 2.7]: http://go.microsoft.com/fwlink/?linkid=254281
+[Azure SDK para Python 3.4]: http://go.microsoft.com/fwlink/?linkid=516990
 [python.org]: http://www.python.org/
 [Git para Windows]: http://msysgit.github.io/
 [GitHub para Windows]: https://windows.github.com/
@@ -467,6 +467,6 @@ Para obtener más información, consulte el [Centro para desarrolladores de Pyth
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

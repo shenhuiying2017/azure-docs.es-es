@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 12/02/2016
 ms.author: byvinyal
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f361e9c815ae20874fc2e40e39d2c20a415d58f2
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 692a7e0e54dd8ba6b47f79228696b223123dfb9b
 
 
 ---
@@ -49,7 +49,7 @@ App Service ofrece varios *tipos de aplicación*, cada uno pensado para hospedar
 * [**Aplicaciones web**](../app-service-web/app-service-web-overview.md): para hospedar sitios y aplicaciones web.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md): para hospedar back-ends de aplicaciones móviles.
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md): para hospedar API de RESTful.
-* [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md): para automatizar procesos empresariales e integrar sistemas y datos a través de nubes sin escribir código.
+* [**Logic Apps**](../logic-apps/logic-apps-what-are-logic-apps.md): para automatizar procesos empresariales e integrar sistemas y datos a través de nubes sin escribir código.
 
 La palabra *aplicación* aquí hace referencia a los recursos de hospedaje dedicados a ejecutar una carga de trabajo. Si se toma "aplicación web" como ejemplo, probablemente piense en una aplicación web como aquellos recursos de proceso y código de aplicación que juntos ofrecen funcionalidad a un explorador. Pero en el Servicio de aplicaciones, una *aplicación web* son recursos de procesos que Azure proporciona para hospedar su código de aplicación. 
 
@@ -82,18 +82,18 @@ Si necesita mayor escalabilidad y aislamiento de red, puede ejecutar las aplicac
 Para más información sobre el costo de Servicio de aplicaciones, consulte [Precios de Servicio de aplicaciones](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="test-drive-app-service"></a>Prueba de App Service
-[Cree una aplicación web, móvil o lógica de prueba](http://go.microsoft.com/fwlink/?LinkId=523751) y utilícela durante una hora sin necesidad de proporcionar ninguna tarjeta de crédito, sin compromiso y sin complicaciones.
+[Cree una aplicación web, móvil o lógica de prueba](https://azure.microsoft.com/try/app-service/) y utilícela durante una hora sin necesidad de proporcionar ninguna tarjeta de crédito, sin compromiso y sin complicaciones.
 
 También puede abrir una [cuenta de Azure gratis](https://azure.microsoft.com/pricing/free-trial/)y seguir uno de nuestros tutoriales de introducción:
 
-* [Implementación de su primera aplicación web en Azure en 5 minutos](../app-service-web/app-service-web-get-started.md)
+* [Implementación de su primera aplicación web en Azure en&5; minutos](../app-service-web/app-service-web-get-started.md)
 * [Creación de una aplicación de Android](../app-service-mobile/app-service-mobile-android-get-started.md)
 * [Introducción a Aplicaciones de API, ASP.NET y Swagger en el Servicio de aplicaciones de Azure](../app-service-api/app-service-api-dotnet-get-started.md)
-* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../app-service-logic/app-service-logic-create-a-logic-app.md)
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

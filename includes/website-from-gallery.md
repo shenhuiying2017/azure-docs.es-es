@@ -1,4 +1,4 @@
-Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web creadas desde Azure Marketplace no requieren la instalación de ningún software que no sea el explorador utilizado para conectarse al [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
+Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web creadas desde Azure Marketplace no requieren la instalación de ningún software que no sea el explorador utilizado para conectarse al [Portal de vista previa de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 En este tutorial, aprenderá a:
 
@@ -10,11 +10,11 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
 ![Blog de WordPress][13]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de suscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-## Creación de una aplicación web en el portal
+## <a name="create-a-web-app-in-the-portal"></a>Creación de una aplicación web en el portal
 1. Inicie sesión en el Portal de vista previa de Azure.
 2. Haga clic en el icono **Marketplace** para abrir Azure Marketplace:
    
@@ -27,32 +27,32 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
    
     ![WordPress desde la lista][7]
 4. Después de leer la descripción de la aplicación de WordPress, seleccione **Crear**.
-5. Haga clic en **Aplicación web** y proporcione los valores necesarios para configurar la aplicación web.
+5. Haga clic en **Aplicación web**y proporcione los valores necesarios para configurar la aplicación web.
    
     ![configurar su aplicación][8]
-6. Haga clic en **Base de datos** y proporcione los valores necesarios para configurar la base de datos MySQL.
+6. Haga clic en **Base de datos**y proporcione los valores necesarios para configurar la base de datos MySQL. 
    
     ![configurar base de datos][database]
 7. Proporcione un nombre para un nuevo grupo de recursos.
    
     ![Definición de un grupo de recursos][groupname]
-8. Si es necesario, haga clic en **SUSCRIPCIÓN** y especifique la suscripción que se va a usar.
-9. Cuando haya terminado de definir la aplicación web, haga clic en **Crear** y espere mientras se crea la nueva aplicación web.
+8. Si es necesario, haga clic en **SUSCRIPCIÓN**y especifique la suscripción que se va a usar. 
+9. Cuando haya terminado de definir la aplicación web, haga clic en **Crear**y espere mientras se crea la nueva aplicación web.
    
    Una vez creada la aplicación, verá el grupo de recursos que contiene la aplicación web y la base de datos.
    
    ![mostrar el grupo][resourcegroup]
 
-## Inicio y administración de la aplicación web de WordPress
+## <a name="launch-and-manage-your-wordpress-web-app"></a>Inicio y administración de la aplicación web de WordPress
 1. Haga clic en la nueva aplicación para ver los detalles acerca de la aplicación.
    
     ![panel de inicio][10]
-2. En la página **Aspectos básicos**, haga clic en **Examinar** o en el vínculo situado en **Dirección URL** para abrir la página de bienvenida de la aplicación web.
+2. En la página **Información esencial**, haga clic en **Examinar** o en el vínculo que hay debajo de **Dirección URL** para abrir la página de bienvenida de la aplicación web.
    
     ![URL del sitio][browse]
 3. Si no ha instalado WordPress, escriba la información de configuración apropiada que solicite WordPress y haga clic en **Instalar WordPress** para finalizar la configuración y abrir la página de inicio de sesión de la aplicación web.
-4. Haga clic en **Inicio de sesión** y escriba sus credenciales.
-5. Tendrá una nueva aplicación web WordPress con un aspecto similar al de la aplicación web que se muestra a continuación.
+4. Haga clic en **Inicio de sesión** y escriba sus credenciales.  
+5. Tendrá una nueva aplicación web WordPress con un aspecto similar al de la aplicación web que se muestra a continuación.    
    
     ![su sitio de WordPress][13]
 
@@ -70,4 +70,7 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
 [marketplace]: ./media/website-from-gallery/marketplace-icon.png
 [groupname]: ./media/website-from-gallery/set-rg.png
 
-<!---HONumber=Oct15_HO3-->
+
+<!--HONumber=Jan17_HO3-->
+
+
