@@ -17,8 +17,8 @@ ms.workload: data-management
 ms.date: 12/20/2016
 ms.author: shkurhek;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 262583a2a11c41cf7acb55599041692137165e8f
+ms.sourcegitcommit: 187954f3ddafdbc17e341ce41f5b109cb95f8a24
+ms.openlocfilehash: 399fdbeee479f5598e6ed7f9bd6b6080ec919c98
 
 ---
 # <a name="what-is-sql-database-introduction-to-sql-database"></a>¿Qué es SQL Database? Introducción a SQL Database
@@ -26,7 +26,7 @@ SQL Database es un servicio de bases de datos relacionales de Microsoft Cloud qu
 
 Este artículo presenta los principales conceptos y características de Base de datos SQL relacionados con el rendimiento, escalabilidad y facilidad de uso, con vínculos para explorar los detalles. Si está listo para empezar con los tutoriales prácticos, diríjase a [Tutorial de SQL Database: creación de una base de datos SQL en cuestión de minutos con datos de ejemplo y Azure Portal](sql-database-get-started.md) o [Creación de un nuevo grupo de bases de datos elásticas con Azure Portal](sql-database-elastic-pool-create-portal.md). En este vídeo encontrará una breve demostración.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-create-DBs-in-seconds/player]
 > 
 > 
 
@@ -62,6 +62,6 @@ Ahora que leyó una introducción a la Base de datos SQL y contestó a la pregun
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

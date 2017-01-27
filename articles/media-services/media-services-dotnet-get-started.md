@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/26/2016
+ms.date: 01/10/2017
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: f01cd8d3a68776dd12d2930def1641411e6a4994
-ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 34b166d63e539883a110dc96f7333a2379bc4963
 
 
 ---
@@ -24,10 +24,26 @@ ms.openlocfilehash: a9f77a58cdb13c357b6c3734bd9e3efa4ff5087b
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introducción a la entrega de contenido a petición mediante .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-> [!NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
->
->
+Este tutorial le guiará por los pasos necesarios para implementar un servicio básico de entrega de contenido de vídeo bajo demanda (VoD) con la aplicación de Azure Media Services (AMS) mediante el SDK de .NET para Azure Media Services.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Estos son los requisitos previos para completar el tutorial.
+
+* Una cuenta de Azure. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Una cuenta de Servicios multimedia. Para crear una cuenta de Media Services, consulte el tema [Creación de una cuenta de Media Services](media-services-portal-create-account.md).
+* .NET Framework 4.0 o superior
+* Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
+
+Este tutorial incluye las siguientes tareas:
+
+1. Inicio de punto de conexión de streaming (mediante Azure Portal).
+2. Creación y configuración de un proyecto de Visual Studio.
+3. Conexión a la cuenta de Servicios multimedia
+2. Carga de un archivo de vídeo.
+3. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
+4. Publicación del recurso y obtención de direcciones URL de descarga progresiva y streaming.  
+5. Reproduzca el contenido.
 
 ## <a name="overview"></a>Información general
 Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con el SDK de Servicios multimedia (AMS) de Azure para .NET.
@@ -40,87 +56,27 @@ En la ilustración siguiente se muestran algunos de los objetos que se utilizan 
 
 Haga clic en la imagen para verla a tamaño completo.  
 
-<a href="https://docs.microsoft.com/en-us/azure/media-services/media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
+<a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Puede ver el modelo completo [aquí](https://media.windows.net/API/$metadata?api-version=2.14).  
+Puede ver el modelo completo [aquí](https://media.windows.net/API/$metadata?api-version=2.15).  
 
-## <a name="what-youll-learn"></a>Temas que se abordarán
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Inicio de los puntos de conexión de streaming con Azure Portal
 
-En el tutorial se muestra cómo realizar las siguientes tareas:
+Cuando se trabaja con Azure Media Services, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 con velocidad de bits adaptable en formatos de streaming admitidos por Media Services (MPEG DASH, HLS, Smooth Streaming) justo a tiempo, sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos.
 
-1. Creación de una cuenta de Servicios multimedia (con el Portal de Azure).
-2. Configuración de puntos de conexión de streaming con Azure Portal.
-3. Creación y configuración de un proyecto de Visual Studio.
-4. Conexión a la cuenta de Servicios multimedia
-5. Creación de un nuevo recurso y carga de un archivo de vídeo
-6. Codificación del archivo de origen en un conjunto de archivos MP4 de velocidad de bits adaptativa
-7. Publicación del recurso y obtención de direcciones URL para streaming y descarga progresiva.
-8. Prueba mediante la reproducción de contenido.
+>[!NOTE]
+>Cuando se crea la cuenta de AMS, se agrega un punto de conexión de streaming **predeterminado** a la cuenta en estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el empaquetado dinámico y el cifrado dinámico, el punto de conexión de streaming desde el que va a transmitir el contenido debe estar en estado **Running** (En ejecución).
 
-## <a name="prerequisites"></a>Requisitos previos
-Los siguientes requisitos son necesarios para completar el tutorial.
-
-* Para completar este tutorial, deberá tener una cuenta de Azure.
-
-    En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Obtenga créditos que puede usar para probar los servicios de Azure de pago. Incluso después de que se agoten los créditos, puede mantener la cuenta y usar los servicios y características gratuitos de Azure, como la característica de Aplicaciones web del Servicio de aplicaciones de Azure.
-* Sistemas operativos: Windows 8 o posterior, Windows 2008 R2, Windows 7.
-* .NET Framework 4.0 o superior
-* Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o versiones posteriores.
-
-## <a name="create-an-azure-media-services-account-using-the-azure-portal"></a>Creación de una cuenta de Azure Media Services mediante Azure Portal
-Los pasos de esta sección muestran cómo crear una cuenta de AMS.
+Para iniciar el punto de conexión de streaming, haga lo siguiente:
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/).
-2. Haga clic en **+Nuevo** > **Medios + CDN** > **Servicios multimedia**.
+2. En la ventana Settings (Configuración), haga clic en Streaming endpoints (Puntos de conexión de streaming).
+3. Haga clic en el punto de conexión de streaming predeterminado.
 
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new1.png)
-3. En **CREAR CUENTA DE SERVICIOS MULTIMEDIA** especifique los valores obligatorios.
+    Aparecerá la ventana de detalles del punto de conexión de streaming predeterminado.
 
-    ![Creación de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-new3.png)
-
-   1. En **Nombre de la cuenta**, especifique el nombre de la cuenta nueva de AMS. El nombre de la cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
-   2. En Suscripción, seleccione entre las diferentes suscripciones de Azure a las que tiene acceso.
-   3. En **Grupo de recursos**seleccione el recurso nuevo o uno ya existente.  Un grupo de recursos es una colección de recursos que comparten ciclos de vida, permisos y directivas. Obtenga más información [aquí](../azure-resource-manager/resource-group-overview.md#resource-groups).
-   4. En **Ubicación**, seleccione la región geográfica que se usará para almacenar los registros de medios y de metadatos para la cuenta de Media Services. Esta región se utiliza para procesar y transmitir contenido multimedia. Solo las regiones de Servicios multimedia disponibles aparecen en la lista desplegable.
-   5. En **Cuenta de almacenamiento**, seleccione una cuenta de almacenamiento para proporcionar almacenamiento de blobs del contenido multimedia desde la cuenta de Servicios multimedia. Puede seleccionar una cuenta de almacenamiento existente de la misma región geográfica que la cuenta de Servicios multimedia o crearla. Se crea una nueva cuenta de almacenamiento en la misma región. Las reglas para los nombres de cuenta de almacenamiento son las mismas que para las cuentas de Servicios multimedia.
-
-       Puede obtener más información acerca del almacenamiento [aquí](../storage/storage-introduction.md).
-   6. Seleccione **Anclar al panel** para ver el progreso de la implementación de la cuenta.
-4. Haga clic en **Crear** en la parte inferior del formulario.
-
-    Una vez que la cuenta se crea correctamente, el estado cambia a **En ejecución**.
-
-    ![Configuración de Servicios multimedia](./media/media-services-portal-vod-get-started/media-services-settings.png)
-
-    Para administrar la cuenta de AMS (por ejemplo, para cargar vídeos, codificar recursos, supervisar el progreso del trabajo) use la ventana **Configuración** .
-
-## <a name="configure-streaming-endpoints-using-the-azure-portal"></a>Configuración de puntos de conexión de streaming con Azure Portal
-Cuando se trabaja con los Servicios multimedia de Azure, uno de los escenarios más comunes es entregar contenido de vídeo a los clientes mediante streaming con velocidad de bits adaptable. Media Services admite las siguientes tecnologías de streaming con velocidad de bits adaptable: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH.
-
-Media Services proporciona empaquetado dinámico que permite entregar contenido codificado MP4 de velocidad de bits adaptable en formatos de streaming admitidos por Media Services (MPEG DASH, HLS, Smooth Streaming, HDS) justo a tiempo sin tener que almacenar versiones previamente empaquetadas de cada uno de estos formatos.
-
-Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
-
-* Codifique su archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable (los pasos de codificación se muestran más adelante en este tutorial).  
-* Cree al menos una unidad de streaming para el *punto de conexión de streaming* para el que planea entregar el contenido. Para cambiar el número de unidades de streaming, realice los siguientes pasos.
-
-Con el empaquetado dinámico, solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente.
-
-Para crear y cambiar el número de unidades reservadas de streaming, haga lo siguiente:
-
-1. En la ventana **Configuración**, haga clic en **Puntos de conexión de streaming**.
-2. Haga clic en el punto de conexión de streaming predeterminado.
-
-    Aparecerá la ventana de **DETALLES DEL PUNTO DE CONEXIÓN DE STREAMING PREDETERMINADO** .
-3. Para especificar el número de unidades de streaming, mueva el control deslizante **Unidades de streaming** .
-
-    ![Unidades de streaming](./media/media-services-portal-vod-get-started/media-services-streaming-units.png)
-4. Haga clic en el botón **Guardar** para guardar los cambios.
-
-   > [!NOTE]
-   > La asignación de cualquier nueva unidad puede tardar hasta 20 minutos en completarse.
-   >
-   >
+4. Haga clic en el icono de inicio.
+5. Haga clic en el botón Save (Guardar) para guardar los cambios.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Creación y configuración de un proyecto de Visual Studio
 
@@ -160,7 +116,7 @@ Para crear y cambiar el número de unidades reservadas de streaming, haga lo sig
 
 Cuando se usa Servicios multimedia con .NET, debe usar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, acceso y eliminación de los siguientes objetos: activos, archivos de activos, trabajos, directivas de acceso, localizadores, etc.
 
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
+Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto **CloudMediaContext** para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](media-services-dotnet-connect-programmatically.md).
 
 No olvide actualizar el nombre de archivo y la ruta de acceso con la ubicación del archivo multimedia.
 
@@ -258,14 +214,11 @@ Después de introducir los recursos en Servicios multimedia, los elementos multi
 
 Como se ha indicado antes, cuando se trabaja con Servicios multimedia de Azure, uno de los escenarios más comunes es ofrecer streaming con velocidad de bits adaptable a los clientes. Media Services puede empaquetar de manera dinámica un conjunto de archivos MP4 de velocidad de bits adaptable en uno de los siguientes formatos: HTTP Live Streaming (HLS), Smooth Streaming y MPEG DASH.
 
-Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
-
-* Codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.  
-* Obtener al menos una unidad de streaming para el extremo de streaming para el que planea entregar el contenido.
+Para aprovechar el empaquetado dinámico, tiene que modificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable.  
 
 El código siguiente muestra cómo enviar un trabajo de codificación. El trabajo contiene una tarea que especifica la transcodificación del archivo intermedio en un conjunto de MP4 de velocidades de bits adaptables con el **Estándar de Codificador multimedia**. El código envía el trabajo y espera hasta que se complete.
 
-Cuando termine el trabajo de codificación, podrá publicar los recursos y reproducir los archivos MP4 en streaming o descargarlos progresivamente.
+Una vez completado el trabajo, debería poder transmitir el recurso o descargar progresivamente archivos MP4 creados como resultado de la transcodificación.
 
 Agregue el método siguiente a la clase Program
 
@@ -436,7 +389,7 @@ Direcciones URL de descarga progresiva (audio y vídeo).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-Para reproducir el vídeo en streaming, copie la dirección URL en el cuadro de texto URL de [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Para transmitir el vídeo, copie la dirección URL en el cuadro de texto URL de [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 Para probar la descarga progresiva, pegue una dirección URL en un explorador (por ejemplo, Internet Explorer, Chrome o Safari).
 
@@ -449,7 +402,7 @@ Para obtener más información, consulte los temas siguientes:
 ## <a name="download-sample"></a>Descarga de un ejemplo
 El ejemplo siguiente contiene el código que creó en este tutorial: [ejemplo](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Pasos siguientes 
+## <a name="next-steps"></a>Pasos siguientes
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -467,6 +420,6 @@ El ejemplo siguiente contiene el código que creó en este tutorial: [ejemplo](h
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO2-->
 
 

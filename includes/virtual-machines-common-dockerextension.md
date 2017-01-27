@@ -1,6 +1,6 @@
 
 
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como una forma de aislar datos de aplicación y calcular recursos compartidos. Puede usar la [extensión de VM Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) del [agente Linux de Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) para crear una máquina virtual de Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
+[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como forma de aislar los datos de la aplicación y calcular los recursos compartidos. Puede usar la [extensión de VM de Azure Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md) del [Agente de Linux de Azure](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para crear una máquina virtual de Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
 
 En este tema se describe:
 
@@ -16,10 +16,10 @@ Para crear máquinas virtuales con funcionalidad Docker ahora, consulte:
 
 Para obtener más información acerca de la extensión y su funcionamiento, consulte la [Guía de usuario de la extensión de Docker](https://github.com/Azure/azure-docker-extension/blob/master/README.md).
 
-## Contenedores Docker y Linux
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usan [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos y proporciona otros servicios que le permiten generar o ensamblar aplicaciones rápidamente y distribuirlas entre otros contenedores Docker.
+## <a name="docker-and-linux-containers"></a>Contenedores Docker y Linux
+[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que usa [contenedores de Linux](http://en.wikipedia.org/wiki/LXC), en lugar de máquinas virtuales, como forma de aislar los datos de la aplicación y calcular los recursos compartidos, y proporciona otros servicios que permiten compilar o ensamblar aplicaciones rápidamente y distribuirlas entre otros contenedores Docker.
 
-Los contenedores Docker y Linux no son [hipervisores](http://en.wikipedia.org/wiki/Hypervisor) como Windows Hyper-V y [KVM](http://www.linux-kvm.org/page/Main_Page) en Linux (existen muchos otros ejemplos). Los hipervisores virtualizan el sistema operativo subyacente para permitir a los sistemas operativos completos (llamados *máquinas virtuales*) ejecutarse dentro del hipervisor como si fuesen una aplicación.
+Los contenedores de Docker y Linux no son [hipervisores](http://en.wikipedia.org/wiki/Hypervisor), como Windows Hyper-V y [KVM en Linux](http://www.linux-kvm.org/page/Main_Page) (existen muchos otros ejemplos). Los hipervisores virtualizan el sistema operativo subyacente para permitir a los sistemas operativos completos (llamados *máquinas virtuales*) ejecutarse dentro del hipervisor como si fuesen una aplicación.
 
 Los enfoques de Docker y otros *contenedores* han reducido radicalmente tanto el tiempo de inicio consumido como la sobrecarga del procesamiento y almacenamiento necesaria usando características de aislamiento de procesos y archivos del kernel de Linux para exponer únicamente características de kernel en un contenedor aislado de otro modo.
 
@@ -36,10 +36,10 @@ Para ver un análisis de alto nivel de los contenedores y sus ventajas, consulte
 
 Para obtener más información sobre qué es Docker y cómo funciona en realidad, consulte [¿Qué es Docker?](https://www.docker.com/whatisdocker/)
 
-#### Práctica recomendadas de seguridad para contenedores de Docker y Linux
-Debido a que los contenedores comparten acceso al kernel del equipo host, si hay código malintencionado capaz de obtener la raíz es posible que también pueda obtener acceso no solo al equipo host si no también a los otros contenedores. Para proteger su sistema de contenedores con más garantías de las que ofrece la configuración predeterminada, [Docker recomienda](https://docs.docker.com/articles/security/) el uso de directivas de grupo o de [seguridad basada en roles](http://en.wikipedia.org/wiki/Role-based_access_control) adicionales, como [SELinux](http://selinuxproject.org/page/Main_Page) o [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por ejemplo, además de reducir todo lo posible las capacidades de kernel que se otorgan al contenedor. Además, hay muchos otros documentos en Internet que describen enfoques de seguridad mediante el uso de contenedores como Docker.
+#### <a name="docker-and-linux-container-security-best-practices"></a>Práctica recomendadas de seguridad para contenedores de Docker y Linux
+Debido a que los contenedores comparten acceso al kernel del equipo host, si hay código malintencionado capaz de obtener la raíz es posible que también pueda obtener acceso no solo al equipo host si no también a los otros contenedores. Para proteger un sistema de contenedores con más garantías de las que ofrece la configuración predeterminada, [Docker recomienda](https://docs.docker.com/articles/security/) usar también la [seguridad basada en roles](http://en.wikipedia.org/wiki/Role-based_access_control) o de las directivas de grupo adicional, como [SELinux](http://selinuxproject.org/page/Main_Page) o [AppArmor](http://wiki.apparmor.net/index.php/Main_Page), por ejemplo, así como reducir todo lo posible las funcionalidades de kernel que se otorgan a los contenedores. Además, hay muchos otros documentos en Internet que describen enfoques de seguridad mediante el uso de contenedores como Docker.
 
-## Uso de la extensión de VM Docker con Azure
+## <a name="how-to-use-the-docker-vm-extension-with-azure"></a>Uso de la extensión de VM Docker con Azure
 La extensión de VM Docker es un componente que se instala en la instancia de máquina virtual creada y que instala automáticamente el motor de Docker y administra la comunicación remota con la máquina virtual. Hay dos formas de instalar la extensión de VM: puede crear su máquina virtual con el portal de administración o crearla desde la interfaz de línea de comandos de Azure (CLI de Azure).
 
 Puede usar el portal para agregar la extensión de VM Docker a cualquier máquina virtual de Linux compatible (actualmente, la única imagen que lo admite es la imagen de Ubuntu 14.04 LTS posterior a julio). No obstante, con la línea de comandos de la CLI de Azure puede instalar la extensión de VM Docker y crear y cargar los certificados de comunicación de Docker simultáneamente cuando cree la instancia de máquina virtual.
@@ -49,10 +49,10 @@ Para crear máquinas virtuales con funcionalidad Docker ahora, consulte:
 * [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]
 * [Uso de la extensión de máquina virtual de Docker con el Portal de Azure clásico]
 
-## Extensiones de máquina virtual para Linux y Windows
-La [extensión de máquina virtual Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) es solo una de las muchas extensiones de máquina virtual que ofrecen un comportamiento especial, y hay aún más en desarrollo. Por ejemplo, varias de las características de la [extensión del agente de máquina virtual de Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md) le permiten modificar y administrar la máquina virtual, incluidas las características de seguridad, las características de kernel y de red, etc. Por ejemplo la extensión VMAccess permite restablecer la contraseña del administrador o la clave SSH.
+## <a name="virtual-machine-extensions-for-linux-and-windows"></a>Extensiones de máquina virtual para Linux y Windows
+La [extensión de máquina virtual Docker para Azure](https://github.com/Azure/azure-docker-extension/blob/master/README.md) es solo una de las muchas extensiones de máquina virtual que ofrecen un comportamiento especial, y hay aún más en desarrollo. Por ejemplo, varias de las características de la [extensión del agente de máquina virtual de Linux](../articles/virtual-machines/virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) permiten modificar y administrar la máquina virtual, incluidas las características de seguridad, las de kernel y de red, etc. Por ejemplo la extensión VMAccess permite restablecer la contraseña del administrador o la clave SSH.
 
-Para obtener una lista completa, consulte [Extensiones de VM de Azure](../articles/virtual-machines/virtual-machines-windows-extensions-features.md).
+Para obtener una lista completa, consulte [Acerca de las características y extensiones de las máquinas virtuales](../articles/virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 <!--Anchors-->
 [Uso de la extensión de la máquina virtual de Docker desde la interfaz de la línea de comandos de Azure (CLI de Azure)]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
@@ -62,4 +62,7 @@ Para obtener una lista completa, consulte [Extensiones de VM de Azure](../articl
 [Uso de la extensión de VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
 [Extensiones de máquina virtual para Linux y Windows]: #Virtual-Machine-Extensions-For-Linux-and-Windows
 
-<!---HONumber=AcomDC_0413_2016-->
+
+<!--HONumber=Jan17_HO3-->
+
+

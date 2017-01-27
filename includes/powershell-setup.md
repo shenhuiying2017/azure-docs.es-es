@@ -1,24 +1,27 @@
 ---
 services: virtual-machines
-title: Setting up PowerShell
+title: "Configuración de PowerShell"
 author: JoeDavies-MSFT
-solutions: ''
+solutions: 
 manager: timlt
 editor: tysonn
-
 ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: ''
+ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
+translationtype: Human Translation
+ms.sourcegitcommit: b3fd172d8dc468780d483821d7067c053e39968e
+ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
+
 
 ---
-## Configuración de PowerShell
+## <a name="setting-up-powershell"></a>Configuración de PowerShell
 Siga estos pasos para poder usar Azure PowerShell.
 
-### Comprobar las versiones de PowerShell
+### <a name="verify-powershell-versions"></a>Comprobar las versiones de PowerShell
 Para poder usar Windows PowerShell, debe tener instalada la versión 3.0 o 4.0 de Windows PowerShell. Para buscar la versión de Windows PowerShell, escriba este comando en un símbolo del sistema de Windows PowerShell.
 
     $PSVersionTable
@@ -47,9 +50,9 @@ Puede ver algo parecido a lo siguiente:
     -------
     0.8.16.1
 
-Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](../articles/powershell-install-configure.md).
+Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-### Definición de su cuenta y suscripción de Azure
+### <a name="set-your-azure-account-and-subscription"></a>Definición de su cuenta y suscripción de Azure
 Si todavía no tiene una suscripción de Azure, puede activar sus [beneficios de suscripción a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o bien registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Abra un símbolo del sistema de Azure PowerShell e inicie sesión en Azure con este comando.
@@ -78,6 +81,11 @@ Puede establecer la suscripción actual de Azure ejecutando estos comandos en el
     $subscr="<SubscriptionName from the display of Get-AzureSubscription>"
     Select-AzureSubscription -SubscriptionName $subscr -Current    
 
-Para obtener más información acerca de las cuentas y suscripciones de Azure, vea [Conexión a su suscripción](../articles/powershell-install-configure.md#Connect).
+Para más información acerca de las cuentas y suscripciones de Azure, consulte [Conexión a su suscripción](/powershell/azureps-cmdlets-docs#Connect).
 
-<!---HONumber=AcomDC_0810_2016-->
+
+
+
+<!--HONumber=Jan17_HO3-->
+
+

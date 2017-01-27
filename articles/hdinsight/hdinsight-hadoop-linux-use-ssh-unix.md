@@ -1,6 +1,6 @@
 ---
-title: Uso de claves SSH con Hadoop basado en Linux desde Linux, Unix u OS X | Microsoft Docs
-description: " Puede acceder a HDInsight basado en Linux mediante Shell seguro (SSH). Este documento proporciona información sobre el uso de SSH con HDInsight desde clientes Linux, Unix u OS X."
+title: Uso SSH con HDInsight (Hadoop) desde Windows, Linux, Unix u OS X | Microsoft Docs
+description: " Puede acceder a HDInsight mediante Secure Shell (SSH). En este documento se proporciona información acerca del uso de SSH con HDInsight desde clientes Windows, Linux, Unix u OS X."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 72ca562c53f813599f19069cfac7ef3ac1957968
-ms.openlocfilehash: f64cca8823a74c1c0f52e5d9112836661dc51d8e
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 37409ad3f50cdd4a7a384c96a57a35ef8c83fb8f
 
 
 ---
-# <a name="use-ssh-with-linux-based-hadoop-on-hdinsight-from-linux-unix-or-os-x"></a>Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X
+# <a name="use-ssh-with-hdinsight-hadoop-from-windows-linux-unix-or-os-x"></a>Uso SSH con HDInsight (Hadoop) desde Windows, Linux, Unix u OS X
 
 > [!div class="op_single_selector"]
-> * [Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
-> * [Linux, Unix y OS X](hdinsight-hadoop-linux-use-ssh-unix.md)
->
->
+> * [PuTTY (Windows)](hdinsight-hadoop-linux-use-ssh-windows.md)
+> * [SSH (Windows, Linux, Unix, OS X)](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 [Shell seguro (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) permite registrarse en un clúster de HDInsight basado en Linux y ejecutar comandos con una interfaz de línea de comandos. Este documento proporciona información básica sobre SSH e información específica acerca del uso de SSH con HDInsight.
 
@@ -233,6 +231,6 @@ Ahora que sabe cómo realizar la autenticación con una clave SSH, aprenda a usa
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

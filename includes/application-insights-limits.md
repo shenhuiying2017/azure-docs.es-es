@@ -4,8 +4,9 @@ Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/
 
 | **Recurso** | **Límite predeterminado** | **Nota:**
 | --- | --- | --- |
-| Total de datos por día | 100 GB* | Se puede reducir si se establece un límite. Si necesita más información, envíe un correo electrónico a AIDataCap@microsoft.com. 
+| Total de datos por día | 500 GB | Se puede reducir si se establece un límite. Si necesita más información, envíe un correo electrónico a AIDataCap@microsoft.com. 
 | Datos gratis por mes<br/> (plan de precios Básico) | 1 GB | Datos adicionales cobrados por GB
+| Limitaciones | 16 000 eventos por segundo | Se mide por minuto. 
 | Retención de datos | 90 días | para [Search](../articles/application-insights/app-insights-diagnostic-search.md), [Analytics](../articles/application-insights/app-insights-analytics.md) y el [Explorador de métricas](../articles/application-insights/app-insights-metrics-explorer.md)
 | Retención de resultados detallados para la [prueba de disponibilidad de varios pasos](../articles/application-insights/app-insights-monitor-web-app-availability.md#multi-step-web-tests) | 90 días | Resultados detallados de cada paso
 | Número de nombres de [propiedades](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties) y [métricas](../articles/application-insights/app-insights-api-custom-events-metrics.md#properties)<sup>2</sup> | 200 | 
@@ -23,6 +24,6 @@ Los límites dependen del [plan de precios](https://azure.microsoft.com/pricing/
 
 [Información acerca de precios y cuotas para Application Insights](../articles/application-insights/app-insights-pricing.md)
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

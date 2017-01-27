@@ -15,8 +15,8 @@ ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: vakarand
 translationtype: Human Translation
-ms.sourcegitcommit: 28b5da6098316f8fbe84966e0dac88f5b7d2cb1d
-ms.openlocfilehash: fbb95696d8b9267d59d04769d3d7f48c29a8e4dd
+ms.sourcegitcommit: c9ebe21acbe06aa25bcadb3b500c34cf89154388
+ms.openlocfilehash: 9abdfa7349bee74b89a23663969904110c730395
 
 
 ---
@@ -63,7 +63,7 @@ El vídeo siguiente proporciona información general de Azure AD Connect Health 
 >
 
 ## <a name="azure-ad-connect-health-for-ad-ds-previewactive-directory-aadconnect-health-addsmd"></a>[Azure AD Connect Health para AD DS (versión preliminar)](active-directory-aadconnect-health-adds.md)
-Azure AD Connect Health para AD DS proporciona supervisión para los controladores de dominio instalados en Windows Server 2008 R2, Windows Server 2012 y Windows Server 2012 R2. La instalación de un agente de mantenimiento fácil y de bajo costo le permite supervisar el entorno de AD DS local directamente desde la nube. Azure AD Connect Health para AD DS proporciona el siguiente conjunto de funcionalidades clave:
+Azure AD Connect Health para AD DS proporciona supervisión para los controladores de dominio instalados en Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016. La instalación de un agente de mantenimiento fácil y de bajo costo le permite supervisar el entorno de AD DS local directamente desde la nube. Azure AD Connect Health para AD DS proporciona el siguiente conjunto de funcionalidades clave:
 
 * Alertas de supervisión para detectar cuándo el estado de los controladores de dominio es incorrecto y notificaciones de correo electrónico para alertas críticas.
 * Panel de controladores de dominio que proporciona una vista rápida del estado de mantenimiento y el estado operativo de los controladores de dominio.
@@ -121,6 +121,6 @@ El portal de Azure AD Connect Health permite ver alertas, información de superv
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 
