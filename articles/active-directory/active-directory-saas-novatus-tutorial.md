@@ -181,7 +181,7 @@ El objetivo de esta sección es crear un usuario de prueba en el Portal de Azure
 ### <a name="creating-a-novatus-test-user"></a>Creación de un usuario de prueba de Novatus
 El objetivo de esta sección es crear un usuario llamado Britta Simon en Novatus. Novatus admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada.
 
-No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Novatus se creará un nuevo usuario, en caso de que no exista.. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
+No hay ningún elemento de acción para usted en esta sección. Durante un intento de acceder a Novatus se creará un nuevo usuario, en caso de que no exista. [Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-single-sign-on).
 
 > [!NOTE]
 > Si necesita crear manualmente un usuario, es preciso que se ponga contacto con el equipo de soporte técnico de Novatus.
