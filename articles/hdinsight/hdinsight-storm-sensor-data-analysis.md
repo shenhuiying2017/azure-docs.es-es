@@ -12,11 +12,11 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/20/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 676f0aec3bdbeae7f5522847a9676fd832b271f6
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 0d2743f10d828aaf5ef401ac5378c94384e0a46b
 
 
 ---
@@ -27,8 +27,8 @@ La plantilla de Azure Resource Manager utilizada en este documento muestra cómo
 
 > [!NOTE]
 > La información de este documento, así como el ejemplo proporcionado, se han probado con las versiones 3.3 y 3.4 de clúster de HDInsight basado en Linux.
-> 
-> 
+>
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * Una suscripción de Azure. Consulte [How to get Azure Free trial for testing Hadoop in HDInsight (Obtención de una versión de prueba gratuita de Azure para probar Hadoop en HDInsight)](http://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -272,7 +272,7 @@ Antes de las pruebas, debe iniciar el panel para ver el resultado de la topolog�
 3. Después de comprobar que esto funciona, presione Ctrl +C para detener la topología. También puede presionar CTRL+C para detener el servidor web local.
 
 ## <a name="create-a-storm-and-hbase-cluster"></a>Creación de un clúster de Storm y HBase
-Para ejecutar la topología en HDInsight y para habilitar el bolt de HBase, debe crear un nuevo clúster de Storm y un clúster de HBase. En los pasos descritos en esta sección se usa una [plantilla de Azure Resource Manager](../resource-group-template-deploy.md) para crear una nueva Red virtual de Azure y un clúster de Storm y HBase en la red virtual. La plantilla también crea una aplicación web de Azure e implementa una copia del panel en ella.
+Para ejecutar la topología en HDInsight y para habilitar el bolt de HBase, debe crear un nuevo clúster de Storm y un clúster de HBase. En los pasos descritos en esta sección se usa una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) para crear una nueva Red virtual de Azure y un clúster de Storm y HBase en la red virtual. La plantilla también crea una aplicación web de Azure e implementa una copia del panel en ella.
 
 > [!NOTE]
 > Se utiliza una red virtual para que la topología que se ejecuta en el clúster de Storm pueda comunicarse directamente con el clúster de HBase usando la API Java de HBase.
@@ -283,7 +283,7 @@ La plantilla de Resource Manager usada en este documento está ubicada en un con
 
 1. Haga clic en el botón siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-storm-cluster-in-vnet.json" target="_blank"><img src="./media/hdinsight-storm-sensor-data-analysis/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. En la hoja **Parámetros** , escriba lo siguiente:
    
     ![Parámetros de HDInsight](./media/hdinsight-storm-sensor-data-analysis/parameters.png)
@@ -499,6 +499,6 @@ Ahora ha aprendido a usar Storm para leer los datos de Event Hubs, almacenarlos 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
