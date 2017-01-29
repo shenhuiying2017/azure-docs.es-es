@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/14/2016
 ms.author: adegeo
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: eb9c106a9d4cf30e0fabc79a09c3eae356ad01f0
+ms.sourcegitcommit: 2b020004762125aad201cf7eb454da5cf73288ae
+ms.openlocfilehash: 7d509e9606c0a2f599f511c011ab775b2ea6f7b0
 
 
 ---
@@ -76,7 +76,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
      
        **O bien**
-   * Instale y configure [Azure Powershell](../powershell-install-configure.md)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
      
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -111,7 +111,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
        ![sección de vista rápida que muestra la IP virtual][vip]
      
        **O bien**
-   * Instale y configure [Azure Powershell](../powershell-install-configure.md)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azureps-cmdlets-docs)y, luego, use el siguiente comando:
      
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip
@@ -145,17 +145,17 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).
 
-[Exposición de una aplicación en un dominio personalizado]: #access-app
+[Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname
-[Exposición de los datos en un dominio personalizado]: #access-data
-[Intercambios de IP virtuales]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
-[Creación de un registro CNAME que asocie el subdominio a la cuenta de almacenamiento]: #create-cname
+[Expose Your Data on a Custom Domain]: #access-data
+[VIP swaps]: cloud-services-how-to-manage-portal.md#how-to-swap-deployments-to-promote-a-staged-deployment-to-production
+[Create a CNAME record that associates the subdomain with the storage account]: #create-cname
 [Azure Portal]: https://portal.azure.com
 [vip]: ./media/cloud-services-custom-domain-name-portal/csvip.png
 [csurl]: ./media/cloud-services-custom-domain-name-portal/csurl.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

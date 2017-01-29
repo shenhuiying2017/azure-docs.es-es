@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9dea1f48904a0d505f95636f178b24f8a6e174a7
+ms.sourcegitcommit: 2e8cdbbd7f97c5095a151d0ef228cfdeb671345a
+ms.openlocfilehash: 1f5eb285e061b1e221e1d68f894bbd9dd0a50b32
 
 
 ---
@@ -663,7 +663,7 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
   
       + `IFileSyncHandler.ProcessFileSynchronizationAction` se invoca como parte del flujo de sincronización de archivos. Se proporcionan una referencia de archivo y un valor de enumeración FileSychronizationAction para que pueda decidir cómo debe controlar su aplicación ese evento (por ejemplo, descargar automáticamente un archivo cuando se cree o actualice, eliminar un archivo del dispositivo local cuando ese archivo se elimine del servidor, etc.).
 * `MobileServiceFile` se puede usar en modo en línea o sin conexión, para lo que deben utilizarse `IMobileServiceTable` o `IMobileServiceSyncTable`, respectivamente. En el escenario sin conexión, la carga se producirá cuando la aplicación llame a `PushFileChangesAsync`. Esto hace que se procese la cola de operaciones sin conexión; para cada operación de archivo, el SDK de cliente de Azure Mobile invocará el método `GetDataSource` en la instancia `IFileSyncHandler` para recuperar el contenido del archivo para la carga.
-* Para recuperar los archivos de un elemento, llame a la instancia ``GetFilesAsync` method on the  `IMobileServiceTable<T>` or IMobileServiceSyncTable<T>`. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y devolverá los archivos en función del estado que tenía el objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
+* Para recuperar los archivos de un elemento, llame al método `GetFilesAsync` de las instancias `IMobileServiceTable<T>` o `IMobileServiceSyncTable<T>`. Este método devuelve una lista de archivos asociados con el elemento de datos proporcionado. (Nota: Se trata de una operación *local* y devolverá los archivos en función del estado que tenía el objeto cuando se sincronizó por última vez. Para obtener una lista actualizada de archivos del servidor, debe iniciar primero una operación de sincronización).
   
         IEnumerable<MobileServiceFile> files = await myTable.GetFilesAsync(myItem);
 * La característica de sincronización de archivos usa notificaciones de cambio de registro en el almacén local para recuperar los registros que recibió el cliente como parte de una operación de inserción o de extracción. Esto se logra mediante la activación de notificaciones locales y del servidor en el contexto de sincronización mediante el parámetro `StoreTrackingOptions` . 
@@ -691,6 +691,6 @@ En este artículo se describe cómo utilizar la nueva compatibilidad de archivos
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

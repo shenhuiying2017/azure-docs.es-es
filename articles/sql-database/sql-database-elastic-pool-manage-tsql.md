@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,12 +16,12 @@ ms.workload: data-management
 ms.date: 05/27/2016
 ms.author: srinia
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17ec1ad8218824048179e32ae5059b6a6d77a367
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: 9688c3b402b7961675e06e804a68ff454126d5f3
 
 
 ---
-# <a name="monitor-and-manage-an-elastic-database-pool-with-transact-sql"></a>Supervisión y administración de un grupo de bases de datos elásticas con Transact-SQL
+# <a name="monitor-and-manage-an-elastic-pool-with-transact-sql"></a>Supervisión y administración de un grupo elástico con Transact-SQL
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -74,16 +74,16 @@ Utilice la vista [sys.elastic\_pool\_resource\_stats](https://msdn.microsoft.com
     ORDER BY end_time DESC;
 
 ## <a name="get-resource-usage-for-an-elastic-database"></a>Obtención de datos de uso de recursos para una base de datos elástica
-Utilice la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) o la vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) para examinar las estadísticas de uso de los recursos de una base de datos en un grupo elástico. Este proceso es similar a la consulta de uso de recursos para cualquier base de datos única.
+Utilice la vista [sys.dm\_db\_resource\_stats](https://msdn.microsoft.com/library/dn800981.aspx) o la vista [sys.resource\_stats](https://msdn.microsoft.com/library/dn269979.aspx) para examinar las estadísticas de uso de los recursos de una base de datos en un grupo elástico. Este proceso es similar a la consulta de uso de recursos para una base de datos única.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Tras la creación de un grupo de bases de datos elásticas, puede administrar las bases de datos elásticas del grupo mediante la creación de trabajos elásticos. Los trabajos elásticos facilitan la ejecución de secuencias de comandos de T-SQL con cualquier número de bases de datos en el grupo. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md). 
+Tras la creación de un grupo elástico, puede administrar las bases de datos elásticas del grupo mediante la creación de trabajos elásticos. Los trabajos elásticos facilitan la ejecución de secuencias de comandos de T-SQL con cualquier número de bases de datos en el grupo. Para obtener más información, vea [Información general sobre los trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md). 
 
 Consulte [Información general de las características de bases de datos elásticas](sql-database-elastic-scale-introduction.md): use herramientas de bases de datos elásticas para realizar un escalado horizontal, mover los datos, consultar o crear transacciones.
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

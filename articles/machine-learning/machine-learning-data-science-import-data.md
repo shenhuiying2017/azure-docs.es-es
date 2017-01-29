@@ -13,31 +13,32 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: garye;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3d9cceb28de1cfd43a2d2de79de3a59517908ec9
+ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
+ms.openlocfilehash: a35bc89044ebe8ea8e4a0e4a883c30fb8e8d879a
 
 
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>Importación de datos de entrenamiento en Estudio de aprendizaje automático de Azure desde varios orígenes de datos
 Para usar sus propios datos en Estudio de aprendizaje automático para desarrollar y entrenar una solución de análisis predictivo, puede: 
 
-* cargar datos de un **archivo local** con antelación desde el disco duro para crear un módulo de conjunto de datos en el área de trabajo.  
-* obtener acceso a los datos desde cualquiera de los **orígenes de datos en línea** mientras su experimento se ejecuta con el módulo [Importar datos][import-data]. 
-* usar datos de otro experimento de Aprendizaje automático de Azure guardado como un **conjunto de datos**. 
+* Cargar datos de un **archivo local** con antelación desde el disco duro para crear un módulo de conjunto de datos en el área de trabajo.
+* Acceder a los datos desde cualquiera de los **orígenes de datos** en línea mientras su experimento se ejecuta con el módulo [Importar datos][import-data]. 
+* Usar datos de otro **experimento** de Azure Machine Learning guardado como un conjunto de datos.
+* Usar los datos de instancia local de **SQL Server Database**.
+
+Cada una de estas opciones se describen en uno de los temas del menú inferior. En estos temas se muestra cómo importar datos desde estos diversos orígenes de datos para usarlos en Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Cada una de estas opciones se describen en uno de los temas del menú superior. Estos temas muestran cómo importar datos desde estos diversos orígenes de datos para usarlos en Estudio de aprendizaje automático. 
-
 > [!NOTE]
-> Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Estudio de aprendizaje automático que puede usar con este fin. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md).
+> Existe una gran variedad de conjuntos de datos de ejemplo disponibles en Machine Learning Studio que puede usar como datos de aprendizaje. Para obtener información al respecto, consulte [Uso de los conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure](machine-learning-use-sample-datasets.md).
 > 
 > 
 
-Este tema de introducción también muestra cómo obtener datos listos para su uso en Estudio de aprendizaje automático y describe qué tipos y formatos de datos son compatibles. 
+En este tema de introducción también se explica cómo obtener datos listos para su uso en Machine Learning Studio de aprendizaje automático y se describe qué tipos y formatos de datos son compatibles. 
 
 > [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 > 
@@ -50,7 +51,7 @@ Se recomienda que los datos estén relativamente limpios. Es decir, querrá ocup
 
 Sin embargo, hay módulos disponibles en Estudio de aprendizaje automáticos que le permitirán manipular levemente los datos en el experimento. Dependiendo de los algoritmos de aprendizaje automático que usará, es posible que deba decidir cómo controlar los problemas estructurales de los datos, como valores que faltan y datos esparcidos y existen módulos que pueden ayudar en esto. Observe la sección **Transformación de datos** de la paleta de módulos para los módulos que realizan estas funciones.
 
-En cualquier momento del experimento puede ver o descargar los datos que genera un módulo con un clic con el botón derecho en el puerto de salida. Dependiendo del módulo, es posible que haya distintas opciones de descarga disponibles, o bien que se puedan ver los datos dentro del explorador web en Estudio de aprendizaje automático.
+En cualquier momento del experimento puede ver o descargar los datos que genera un módulo con un clic en el puerto de salida. Dependiendo del módulo, es posible que haya distintas opciones de descarga disponibles, o bien que se puedan visualizar los datos dentro del explorador web en Machine Learning Studio.
 
 ## <a name="data-formats-and-data-types-supported"></a>Tipos y formatos de datos admitidos
 Puede importar diversos tipos de datos al experimento, dependiendo del mecanismo que usa para importar los datos y de dónde provienen estos:
@@ -83,7 +84,7 @@ Estudio de aprendizaje automático reconoce los siguientes **tipos de datos** :
 * DateTime
 * TimeSpan
 
-Machine Learning Studio usa un tipo de datos interno llamado ***Tabla de datos*** para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de Tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
+Machine Learning Studio usa un tipo de datos interno llamado ***Tabla de datos*** para pasar datos entre los módulos. Puede convertir explícitamente sus datos en formato de tabla de datos con el módulo [Convertir al conjunto de datos][convert-to-dataset].
 
 Todo módulo que acepta formatos distintos de Tabla de datos convertirá los datos a Tabla de datos de manera silenciosa antes de pasarlos al módulo siguiente.
 
@@ -97,6 +98,6 @@ Consulte la sección **Conversiones de formatos de datos** de la paleta de módu
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
