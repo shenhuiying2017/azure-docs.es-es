@@ -65,8 +65,8 @@ Para crear la máquina virtual local que contenga un clúster de Service Fabric 
   
    En este paso, se descarga la imagen de máquina virtual preconfigurada, se arranca localmente y, a continuación, se configura un clúster de Service Fabric local en ella. Tenga en cuenta que puede tardar unos minutos. Si la instalación se completa correctamente, verá un mensaje en la salida que indica que el clúster se está iniciando.
    
-
     ![El programa de instalación del clúster se inicia después de aprovisionar la máquina virtual][cluster-setup-script]
+    
 5. Para comprobar que el clúster se ha instalado correctamente, vaya a Service Fabric Explorer en http://192.168.50.50:19080/Explorer (suponiendo que mantenga la IP de la red privada predeterminada).
 
     ![Service Fabric Explorer visto desde el equipo Mac host][sfx-mac]
