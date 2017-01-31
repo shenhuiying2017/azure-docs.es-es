@@ -1,6 +1,6 @@
 ---
-title: Uso del Portal de Azure para crear alertas de los servicios de Azure | Microsoft Docs
-description: "Use el Portal de Azure para crear alertas de Azure, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones especificadas."
+title: Uso de Azure Portal para crear alertas de los servicios de Azure | Microsoft Docs
+description: "Use Azure Portal para crear alertas de Azure, que pueden desencadenar notificaciones o automatización cuando se cumplen las condiciones especificadas."
 author: rboucher
 manager: carolz
 editor: 
@@ -20,7 +20,7 @@ ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
 
 
 ---
-# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Uso del Portal de Azure para crear alertas de los servicios de Azure
+# <a name="use-azure-portal-to-create-alerts-for-azure-services"></a>Uso de Azure Portal para crear alertas de los servicios de Azure
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,7 +29,7 @@ ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
 > 
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure con el Portal de Azure.   
+En este artículo se muestra cómo configurar alertas de Azure con Azure Portal.
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
@@ -41,7 +41,7 @@ Puede configurar una alerta para hacer lo siguiente cuando se desencadena:
 * Enviar notificaciones de correo electrónico al administrador y los coadministradores del servicio.
 * Enviar un correo electrónico a direcciones de correo electrónico adicionales que especifique.
 * Llamar a un webhook.
-* Iniciar la ejecución de un runbook de Azure (solo desde el Portal de Azure).
+* Iniciar la ejecución de un runbook de Azure (solo desde Azure Portal).
 
 Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 
@@ -50,7 +50,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
 * [Interfaz de la línea de comandos (CLI)](insights-alerts-command-line-interface.md)
 * [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
-## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con el Portal de Azure
+## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Creación de una regla de alerta de una métrica con Azure Portal
 1. En el [portal](https://portal.azure.com/), busque el recurso que desea supervisar y selecciónelo.
 2. En la sección SUPERVISIÓN, seleccione **Alertas** o **Reglas de alerta**. El texto y el icono pueden variar ligeramente en los distintos recursos.  
    
