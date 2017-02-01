@@ -28,7 +28,7 @@ El conjunto de aplicaciones de IoT de Microsoft Azure aprovecha la seguridad y l
 
 Para comunicar mejor las características de privacidad y seguridad integradas en el conjunto de aplicaciones de IoT de Azure, hemos dividido el conjunto de aplicaciones en tres áreas de seguridad principales. 
 
-![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig2.png)
+![Azure IoT Suite](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 
 ### <a name="secure-device-provisioning-and-authentication"></a>Seguridad en el aprovisionamiento y la autenticación de dispositivos
 El conjunto de aplicaciones de IoT de Azure protege los dispositivos mientras se usan al proporcionar una clave de identidad única para cada uno, que se puede usar en la infraestructura de IoT para comunicarse con el dispositivo mientras está en funcionamiento. El proceso es rápido y fácil de configurar. La clave generada con un identificador de dispositivo seleccionado por el usuario constituye la base de un token que se utiliza en toda la comunicación entre el dispositivo y el Centro de IoT de Azure.
