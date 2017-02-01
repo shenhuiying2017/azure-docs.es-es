@@ -12,17 +12,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 12/09/2016
 ms.author: magoedte
 translationtype: Human Translation
-ms.sourcegitcommit: fadf6cddbcc0b5090e60084713141358aa4c511d
-ms.openlocfilehash: 5b01563ec92aa941d7c447eb05889ffdeb43c027
+ms.sourcegitcommit: adb787b4ff1b4164bcf7ac08e7b6a227acfce423
+ms.openlocfilehash: 1f29554cce2ba5fe7b02c546c705cce3d9e13019
 
 ---
 
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Inicio o detención de máquinas virtuales fuera de las horas de trabajo [versión preliminar] en Automation
 
-La solución de inicio y detención de máquinas virtuales fuera de las horas de trabajo (versión preliminar) inicia y detiene las máquinas virtuales de Azure Resource Manager y proporciona información detallada sobre el éxito de los trabajos de Automation que inician y detienen las máquinas virtuales con Log Analytics de OMS.  
+La solución de inicio y detención de máquinas virtuales fuera de las horas de trabajo (versión preliminar) inicia y detiene las máquinas virtuales de Azure Resource Manager y del modelo de implementación clásico, y proporciona información detallada sobre el éxito de los trabajos de Automation que inician y detienen las máquinas virtuales con Log Analytics de OMS.  
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -247,6 +247,6 @@ No se eliminarán la cuenta de Automation ni el área de trabajo de OMS como par
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

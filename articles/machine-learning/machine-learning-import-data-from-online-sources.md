@@ -16,22 +16,23 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: bradsev;garye
 translationtype: Human Translation
-ms.sourcegitcommit: bac1b01a40b3e7bed2edaf1f694daf0ab70de68c
-ms.openlocfilehash: 26353f84e22aec1964f520edc60d036c2ab57c28
+ms.sourcegitcommit: 701c54bac16cbf208fd655fd72f2d4acfc0ba891
+ms.openlocfilehash: 89856f6509d0d2e2e472a61db70b9b04dc1ac7b7
 
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Importación de datos al Estudio de aprendizaje automático de Azure desde varios orígenes de datos en línea con el módulo Importar datos
+
+[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
+
 En este artículo se describe la compatibilidad con la importación de datos en línea desde varios orígenes y la información necesaria para mover los datos desde estos orígenes a un experimento de Aprendizaje automático de Azure.
 
 > [!NOTE]
-> En este artículo se proporciona información general sobre el módulo [Importar datos][import-data]. Para más información sobre los tipos de datos a los que puede acceder, los formatos, los parámetros y las respuestas a las preguntas más comunes, consulte el tema de referencia del módulo [Importar datos][import-data].
+> En este artículo se proporciona información general sobre el módulo [Importar datos][import-data]. Para obtener más información sobre los tipos de datos a los que puede acceder, los formatos, los parámetros y las respuestas a las preguntas más comunes, consulte el tema de referencia del módulo [Importar datos][import-data].
 > 
 > 
 
 <!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## <a name="introduction"></a>Introducción
 Puede acceder a los datos de Azure Machine Learning Studio desde cualquiera de los orígenes de datos en línea mientras su experimento se ejecuta con el módulo [Importar datos][import-data]:
@@ -49,7 +50,7 @@ El flujo de trabajo para llevar a cabo experimentos en el Estudio de aprendizaje
 Tenga en cuenta que, como a estos datos de entrenamiento se tiene acceso mientras se está ejecutando el experimento, solo están disponibles en ese experimento. En comparación, los datos que estén almacenados en módulos de conjunto de datos se encontrarán disponibles para cualquier experimento que se realice en su área de trabajo.
 
 > [!IMPORTANT]
-> En estos momentos, los módulos [Importar datos][import-data] y [Exportar datos][export-data] solo pueden leer y escribir datos en almacenamientos de Azure creados con el modelo de implementación clásico. Es decir, todavía no se admite el nuevo tipo de cuenta de Almacenamiento de blobs de Azure que ofrece un nivel de acceso frecuente o esporádico al almacenamiento. 
+> En estos momentos, los módulos [Importar datos][import-data] y [Exportar datos][export-data] solo pueden leer y escribir datos de la instancia de Azure Storage que se creó utilizando el modelo de implementación clásica. Es decir, todavía no se admite el nuevo tipo de cuenta de Almacenamiento de blobs de Azure que ofrece un nivel de acceso frecuente o esporádico al almacenamiento. 
 > 
 > Por lo general, las cuentas de almacenamiento de Azure que podría haber creado antes de que esta opción de servicio estuviera disponible no deberían verse afectadas. 
 > Si tiene que crear una cuenta nueva, seleccione **Clásico** en Modelo de implementación, o bien utilice Azure Resource Manager. En **Tipo de cuenta**, seleccione **Uso general** en lugar de **Almacenamiento de blobs**. 
@@ -82,6 +83,6 @@ El módulo **Importar datos** de Aprendizaje automático Azure admite los siguie
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

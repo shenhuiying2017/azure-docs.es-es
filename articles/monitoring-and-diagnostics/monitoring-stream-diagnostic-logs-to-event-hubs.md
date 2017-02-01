@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4ff5fb57cba6dea1bee9d2e2d25f6fcf8354ce79
+ms.sourcegitcommit: c9063fcc59d83cb2a6a159cf3a69234417138a5c
+ms.openlocfilehash: 5cadc3ea77ba13d40876c7bc11d2aa1d6abe6b87
 
 
 ---
@@ -53,6 +53,8 @@ Puede habilitar el streaming de registros de diagnóstico mediante programación
 > La habilitación y streaming de registros de diagnóstico desde recursos de proceso (por ejemplo, máquinas virtuales o Service Fabric) [requiere ejecutar una serie de pasos distinta](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 > 
 > 
+
+El espacio de nombres del centro de eventos o el bus de servicio no tiene que estar en la misma suscripción que la que del recurso que emite los registros, siempre que el usuario que configura la configuración tenga acceso RBAC adecuado a ambas suscripciones.
 
 ### <a name="via-powershell-cmdlets"></a>Mediante cmdlets de PowerShell
 Para habilitar el streaming mediante [cmdlets de Azure PowerShell](insights-powershell-samples.md), puede utilizar el cmdlet `Set-AzureRmDiagnosticSetting` con estos parámetros:
@@ -155,6 +157,9 @@ Estos son datos de salida de ejemplo de los Centros de eventos:
 
 Puede ver una lista de todos los proveedores de recursos que admiten el streaming al Centro de eventos [aquí](monitoring-overview-of-diagnostic-logs.md).
 
+## <a name="stream-data-from-compute-resources"></a>Transmisión de datos de Recursos de proceso
+También puede transmitir los registros de diagnóstico de Recursos de proceso mediante el agente de Windows Azure Diagnositcs. [Consulte este artículo](../event-hubs/event-hubs-streaming-azure-diags-data.md) para ver cómo configurarlo.
+
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre los registros de Diagnósticos de Azure](monitoring-overview-of-diagnostic-logs.md)
 * [Introducción a los Centros de eventos](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
@@ -162,6 +167,6 @@ Puede ver una lista de todos los proveedores de recursos que admiten el streamin
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

@@ -1,31 +1,31 @@
 ---
-title: Control de errores de Azure Automation | Microsoft Docs
-description: "En este artículo se proporcionan los pasos básicos de control de errores para solucionar los errores comunes de Automatización de Azure."
+title: "Solución de problemas de Azure Automation | Microsoft Docs"
+description: "En este artículo se proporciona información para solucionar los errores comunes de Azure Automation."
 services: automation
 documentationcenter: 
 author: mgoedtel
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
-keywords: "error de automatización, control de errores"
+keywords: "error de automatización, solución de problemas, problema"
 ms.assetid: 5f3cfe61-70b0-4e9c-b892-d02daaeee07d
 ms.service: automation
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: sngun; v-reagie
 translationtype: Human Translation
-ms.sourcegitcommit: a9e855afcf9da703efd6653b19d9cc8e406f8bd3
-ms.openlocfilehash: 0c7e2373a4c3dc5fe878f0761586665bc4fc0a7a
+ms.sourcegitcommit: 15a8ff89ae7a7d335c9d8584aaef0b21f092566f
+ms.openlocfilehash: f86942e399385efbb8c9cb6f250a8668fe260602
 
 
 ---
-# <a name="error-handling-tips-for-common-azure-automation-errors"></a>Sugerencias para el control de errores comunes de Automatización de Azure
-En este artículo se explican algunos de los errores comunes que puede experimentar al trabajar con Automatización de Azure y sugiere los posibles pasos para corregirlos.
+# <a name="troubleshoot-azure-automation"></a>Solución de problemas de Azure Automation 
+Este artículo proporciona ayuda para solucionar los errores comunes que puede experimentar en Azure Automation y sugiere posibles soluciones para resolverlos.
 
-## <a name="troubleshoot-authentication-errors-when-working-with-azure-automation-runbooks"></a>Solución de problemas de errores de autenticación al trabajar con runbooks de Automatización de Azure
+## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Errores de autenticación al trabajar con runbooks de Azure Automation
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Escenario: Fallo del inicio de sesión en la cuenta de Azure
 **Error**: Recibe el error "Unknown_user_type: Tipo de usuario desconocido" mientras trabaja con los cmdlets Add-AzureAccount o Login-AzureRmAccount.
 
@@ -63,14 +63,14 @@ En este artículo se explican algunos de los errores comunes que puede experimen
 
 **Sugerencias para solucionar el problema**: para usar un certificado con los cmdlets de Azure Service Management, consulte el artículo sobre [cómo crear y agregar un certificado para administrar los servicios de Azure](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Para usar una entidad de servicio con los cmdlets de Azure Resource Manager, consulte [Creación de aplicación de Active Directory y entidad de servicio mediante el portal](../resource-group-create-service-principal-portal.md) y [Autenticación de una entidad de servicio con Azure Resource Manager](../resource-group-authenticate-service-principal.md).
 
-## <a name="troubleshoot-common-errors-when-working-with-runbooks"></a>Solucionar errores comunes al trabajar con runbooks
+## <a name="common-errors-when-working-with-runbooks"></a>Errores comunes al trabajar con runbooks
 ### <a name="scenario-runbook-fails-because-of-deserialized-object"></a>Escenario: error en runbook debido a un objeto deserializado
 **Error**: El runbook falla y recibe el error "No se puede enlazar el parámetro ``<ParameterName>``. No se puede convertir el valor ``<ParameterType>`` de tipo deserializado ``<ParameterType>`` a tipo ``<ParameterType>``".
 
 **Motivo del error:** Si su Runbook es un flujo de trabajo de PowerShell almacena objetos complejos en un formato deserializado, para conservar el estado del Runbook si se suspende el flujo de trabajo.  
 
 **Sugerencias de solución de problemas:**  
- Cualquiera de las siguientes tres alternativas solucionará este problema:
+Cualquiera de las siguientes tres alternativas solucionará este problema:
 
 1. Si canaliza objetos complejos de un cmdlet a otro, encapsule estos cmdlets en un InlineScript.  
 2. En lugar de pasar el objeto complejo entero, pase solamente el nombre o valor del mismo que necesite.  
@@ -105,7 +105,7 @@ En este artículo se explican algunos de los errores comunes que puede experimen
 
 **Sugerencias para solucionar el problema:** la solución documentada para evitar este problema consiste en usar puntos de control en un flujo de trabajo.  Para aprender más, consulte [Aprendizaje del flujo de trabajo de Windows PowerShell](automation-powershell-workflow.md#checkpoints).  Encontrará una explicación más completa del "reparto equitativo" y los puntos de control en este artículo de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)(Uso de puntos de control en los runbooks).
 
-## <a name="troubleshoot-common-errors-when-importing-modules"></a>Solución de problemas de errores comunes al importar módulos
+## <a name="common-errors-when-importing-modules"></a>Errores comunes al importar módulos
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>Escenario: No se puede importar el módulo o no se puede ejecutar cmdlets después de la importación
 **Error:** un módulo no se puede importar o se importa correctamente, pero no se extrae ningún cmdlet.
 
@@ -117,14 +117,14 @@ En este artículo se explican algunos de los errores comunes que puede experimen
 * El cmdlet **New-AzureRmAutomationModule** se está usando para cargar el módulo y no se ha proporcionado la ruta de acceso de almacenamiento completa o no se ha cargado el módulo usando una URL de acceso público.  
 
 **Sugerencias de solución de problemas:**  
- cualquiera de las siguientes alternativas solucionará este problema:  
+cualquiera de las siguientes alternativas solucionará este problema:  
 
 * Asegúrese de que el módulo sigue el formato siguiente:  
   nombreDeMódulo.Zip **->** nombreDeMódulo o un número de versión **->** (nombreDeMódulo.psm1, nombreDeMódulo.psd1)
 * Abra el archivo. psd1 y compruebe si el módulo tiene dependencias.  Si es así, cargue estos módulos en la cuenta de Automatización.  
 * Asegúrese de que todos los archivos .dll a los que se hace referencia están presentes en la carpeta del módulo.  
 
-## <a name="troubleshoot-common-errors-when-working-with-desired-state-configuration-dsc"></a>Solucionar errores comunes al trabajar con la Configuración de estado deseado (DSC)
+## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>Errores comunes al trabajar con la Configuración de estado deseado (DSC)
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Escenario: el nodo se encuentra en estado de error con el error "No encontrado"
 **Error**: El nodo tiene un informe de estado de **error** que contiene el mensaje "Error al intentar obtener la acción del servidor https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction porque no se encontró una configuración ``<guid>`` válida".
 
@@ -144,7 +144,7 @@ En este artículo se explican algunos de los errores comunes que puede experimen
 **Motivo del error**: cuando la expresión que aparece junto a la palabra clave **Node** en la configuración de DSC se evalúa como $null, no se produce ninguna configuración de nodo.    
 
 **Sugerencias de solución de problemas:**  
- cualquiera de las siguientes alternativas solucionará este problema:  
+cualquiera de las siguientes alternativas solucionará este problema:  
 
 * Asegúrese de que la expresión junto a la palabra clave **Node** en la definición de configuración no se está evaluando como $null.  
 * Si se pasan datos de configuración al compilar la configuración, asegúrese de que se pasan los valores esperados que la configuración necesita de [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -166,15 +166,15 @@ En este artículo se explican algunos de los errores comunes que puede experimen
 * Asegúrese de que pasa el valor adecuado de **ConfigurationData** para establecer **PSAllowPlainTextPassword** como true para cada configuración de nodo mencionada en la configuración. Para más información, vea los [recursos en DSC de Automatización de Azure](automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Si ha seguido los pasos de la solución de problemas anteriores y necesita ayuda adicional en cualquier punto de este artículo, puede:
+Si ha seguido los pasos de solución de problemas anteriores y no puede encontrar la respuesta, puede revisar las opciones de soporte técnico adicionales siguientes.
 
-* Obtener ayuda de expertos de Azure. Envíe su problema a los [foros de MSDN Azure o Stack Overflow](https://azure.microsoft.com/support/forums/)
+* Obtener ayuda de expertos de Azure. Envíe su problema a los [foros de MSDN de Azure o Stack Overflow](https://azure.microsoft.com/support/forums/).
 * Registrar un incidente de soporte técnico de Azure. Vaya al [Sitio del soporte técnico de Azure](https://azure.microsoft.com/support/options/) y haga clic en **Obtener soporte técnico** en **Soporte técnico y facturación**.
 * Si está buscando una solución de Runbook o un módulo de integración de Automatización de Azure, publique una solicitud de script en el [Centro de scripts](https://azure.microsoft.com/documentation/scripts/) .
 * Si tiene comentarios o solicitudes de características para Automatización de Azure, publíquelos en [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

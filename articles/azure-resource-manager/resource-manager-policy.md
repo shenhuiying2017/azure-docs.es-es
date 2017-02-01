@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2016
+ms.date: 12/07/2016
 ms.author: gauravbh;tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: e841c21a15c47108cbea356172bffe766003a145
-ms.openlocfilehash: bdc759341e1f9707ddf688512249c3297d85c29b
+ms.sourcegitcommit: 223a890fd18405b2d1331e526403da89354a68f2
+ms.openlocfilehash: 467e9f4f7372c619f41bb64445784485de18a863
 
 
 ---
 # <a name="use-policy-to-manage-resources-and-control-access"></a>Uso de directivas para administrar los recursos y controlar el acceso
-El Administrador de recursos de Azure permite controlar el acceso mediante directivas personalizadas. Con las directivas, puede impedir que los usuarios de su organización dividan las convenciones que se necesitan para administrar los recursos de esta. 
+Azure Resource Manager permite controlar el acceso mediante directivas personalizadas. Con las directivas, puede impedir que los usuarios de su organización dividan las convenciones que se necesitan para administrar los recursos de esta. 
 
 Se crean definiciones de directivas que describen las acciones o los recursos que se han denegado específicamente. Esas definiciones de directivas se asignan en el ámbito deseado, como la suscripción, el grupo de recursos o un recurso individual. Todos los recursos secundarios heredan las directivas. De este modo, si una directiva se aplica a un grupo de recursos, será aplicable a todos los recursos de dicho grupo de recursos.
 
@@ -46,7 +46,41 @@ Con las directivas, estos escenarios pueden conseguirse fácilmente.
 ## <a name="policy-definition-structure"></a>Estructura de definición de directiva
 La definición de la directiva se crea mediante JSON. Consta de uno o varios operadores lógicos o condicionales que definen las acciones, así como un efecto que indica lo que ocurre cuando se cumplen las condiciones. El esquema está publicado en [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
 
-Básicamente, una directiva contiene los siguientes elementos:
+En el ejemplo siguiente se muestra una directiva que se puede usar para limitar las ubicaciones donde se implementan los recursos:
+
+```json
+{
+  "properties": {
+    "parameters": {
+      "listOfAllowedLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "strongType": "location",
+          "displayName": "List of locations"
+        }
+      }
+    },
+    "displayName": "Geo-compliance policy template",
+    "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+    "policyRule": {
+      "if": {
+        "not": {
+          "field": "location",
+          "in": "[parameters('listOfAllowedLocations')]"
+        }
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}
+```
+
+Básicamente, una directiva contiene las siguientes secciones:
+
+**Parámetros**: valores que especifican cuando se asigna la directiva.
 
 **Operadores lógicos o condicionales**: un conjunto de condiciones que se pueden manipular mediante un conjunto de operadores lógicos.
 
@@ -68,6 +102,30 @@ Las directivas se evalúan cuando se crean recursos. Para la implementación de 
 > Actualmente, la directiva no evalúa los tipos de recursos que no se admiten etiquetas, variante y ubicación, como el tipo de recurso Microsoft.Resources/deployments. Esta compatibilidad se agregará en el futuro. Para evitar problemas de compatibilidad con versiones anteriores, debe especificar explícitamente el tipo al crear directivas. Por ejemplo, una directiva de etiqueta que no especifique tipos se aplicará a todos los tipos. En ese caso, una implementación de plantilla puede dar error si hay un recurso anidado que no admite etiquetas y el tipo de recurso de implementación se ha agregado a la evaluación de directivas. 
 > 
 > 
+
+## <a name="parameters"></a>parameters
+A partir de la versión 2016-12-01 de la API, puede usar parámetros en la definición de directiva. Al usar parámetros, podrá simplificar la administración de directivas reduciendo el número de definiciones de directiva. Proporcionará valores para los parámetros al asignar la directiva.
+
+Declarará parámetros al crear las definiciones de directiva.
+
+    "parameters": {
+      "listOfLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "displayName": "List Of Locations"
+        }
+      }
+    }
+
+El tipo de un parámetro puede ser cadena o matriz. La propiedad de metadatos se utiliza para herramientas como Azure Portal para mostrar información intuitiva. 
+
+En la regla de directiva, puede hacer referencia a los parámetros de forma similar a como lo hace en las plantillas. Por ejemplo: 
+        
+    { 
+        "field" : "location",
+        "in" : "[parameters(listOfLocations)]"
+    }
 
 ## <a name="logical-operators"></a>Operadores lógicos
 A continuación, se muestran los operadores lógicos admitidos junto con la sintaxis:
@@ -148,7 +206,6 @@ Actualmente, los alias admitidos son:
 | Microsoft.SQL/servers/elasticPools/dtu | |
 | Microsoft.SQL/servers/elasticPools/edition | |
 
-Actualmente, la directiva solo funciona en las solicitudes PUT. 
 
 ## <a name="effect"></a>Efecto
 La directiva admite tres tipos de efecto: **deny**, **audit** y **append**. 
@@ -159,7 +216,6 @@ La directiva admite tres tipos de efecto: **deny**, **audit** y **append**.
 
 En el caso de **append**, debe proporcionar los detalles tal y como se muestra a continuación:
 
-    ....
     "effect": "append",
     "details": [
       {
@@ -169,6 +225,7 @@ En el caso de **append**, debe proporcionar los detalles tal y como se muestra a
     ]
 
 El valor puede ser una cadena o un objeto con formato JSON. 
+
 
 ## <a name="policy-definition-examples"></a>Ejemplos de definición de directiva
 Ahora, analicemos cómo definir la directiva para lograr los escenarios anteriores.
@@ -356,25 +413,34 @@ Para crear una directiva, siga estos pasos:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-Como versión de la API, use *2016-04-01*. Incluya un cuerpo de solicitud similar al ejemplo siguiente:
+Como versión de la API, use *2016-04-01* o *2016-12-01*. Incluya un cuerpo de solicitud similar al ejemplo siguiente:
 
     {
-      "properties":{
-        "policyType":"Custom",
-        "description":"Test Policy",
-        "policyRule":{
-          "if" : {
-            "not" : {
-              "field" : "tags",
-              "containsKey" : "costCenter"
+      "properties": {
+        "parameters": {
+          "listOfAllowedLocations": {
+            "type": "array",
+            "metadata": {
+              "description": "An array of permitted locations for resources.",
+              "strongType": "location",
+              "displayName": "List Of Locations"
+            }
+          }
+        },
+        "displayName": "Geo-compliance policy template",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('listOfAllowedLocations')]"
             }
           },
-          "then" : {
-            "effect" : "deny"
+          "then": {
+            "effect": "deny"
           }
         }
-      },
-      "name":"testdefinition"
+      }
     }
 
 Puede aplicar la definición de la directiva en el ámbito deseado a través de la [API de REST para asignaciones de directivas](https://docs.microsoft.com/rest/api/resources/policyassignments). La API de REST permite crear y eliminar asignaciones de directiva, así como recuperar información sobre las asignaciones existentes.
@@ -383,17 +449,20 @@ Para crear una nueva asignación de directiva, ejecute lo siguiente:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-{policy-assignment} es el nombre de la asignación de directiva. Como versión de la API, use *2016-04-01*. 
+{policy-assignment} es el nombre de la asignación de directiva. Como versión de la API, use *2016-04-01* o *2016-12-01* (para los parámetros). 
 
 Con un cuerpo de solicitud similar al ejemplo siguiente:
 
     {
       "properties":{
-        "displayName":"VM_Policy_Assignment",
+        "displayName":"West US only policy assignment on the subscription ",
+        "description":"Resources can only be provisioned in West US regions",
+        "parameters": {
+             "listOfAllowedLocations": ["West US", "West US2"]
+         },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "name":"VMPolicyAssignment"
     }
 
 ### <a name="powershell"></a>PowerShell
@@ -510,6 +579,6 @@ Para obtener una directiva, use la operación [Obtener definición de directiva]
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
