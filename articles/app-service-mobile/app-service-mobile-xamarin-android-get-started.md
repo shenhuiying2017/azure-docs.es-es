@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e59a87ec6017061078d5cb5df93207c7f93ec00b
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 4d34bb29df95ae83952d8f421f3f2a9118ad5e1d
 
 
 ---
@@ -39,7 +39,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 * Visual Studio con Xamarin. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) para obtener instrucciones.
 
 > [!NOTE]
-> Si desea empezar a usar Azure App Service antes de suscribirse para obtener una cuenta de Azure, vaya a [Cree su aplicación de Azure App Service](https://tryappservice.azure.com/?appServiceName=mobile).  Podrá crear inmediatamente una Mobile App de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a usar Azure App Service antes de suscribirse para obtener una cuenta de Azure, vaya a [Cree su aplicación de Azure App Service](https://azure.microsoft.com/try/app-service/mobile/).  Podrá crear inmediatamente una Mobile App de inicio de corta duración en App Service. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -83,11 +83,11 @@ Ahora ha aprovisionado un back-end de aplicación móvil de Azure que puede usar
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
 
 <!-- URLs. -->
-[Portal de Azure]: https://azure.portal.com/
+[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

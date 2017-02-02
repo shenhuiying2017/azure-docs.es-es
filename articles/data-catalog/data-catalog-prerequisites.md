@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -37,8 +37,8 @@ Azure Active Directory (Azure AD) proporciona una manera fácil para la empresa 
 
 > [!NOTE]
 > [Azure Portal](http://portal.azure.com/) permite a los usuarios iniciar sesión con una cuenta personal de Microsoft o una cuenta profesional o educativa de Azure Active Directory. Para configurar Azure Data Catalog mediante Azure Portal o mediante el [portal de Data Catalog](http://www.azuredatacatalog.com) debe haber iniciado sesión con una cuenta de Azure Active Directory, no con una cuenta personal.
-> 
-> 
+>
+>
 
 ## <a name="active-directory-policy-configuration"></a>Configuración de directivas de Active Directory
 En ocasiones, es posible que los usuarios se encuentren en una situación en la que puedan iniciar sesión en el portal del Catálogo de datos de Azure, pero cuando intenten iniciar sesión en la herramienta de registro de orígenes de datos reciban un mensaje de error que les impida iniciar sesión. El problema de este comportamiento puede ocurrir solamente cuando el usuario esté en la red de la empresa, o bien solo cuando el usuario se conecte desde fuera de la red de empresa.
@@ -50,7 +50,6 @@ La directiva de autenticación global permite habilitar los métodos de autentic
  ![Directiva de autenticación global de Active Directory](./media/data-catalog-prerequisites/global-auth-policy.png)
 
 Para obtener más información, vea [Configuración de directivas de autenticación](https://technet.microsoft.com/library/dn486781.aspx).
-
 
 
 

@@ -1,13 +1,13 @@
-Si quiere un dominio, puede comprar dominios en el [Portal de administración de Azure](https://portal.azure.com) directamente. Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su aplicación web.
+Si desea un dominio, puede comprarlo directamente en el [Portal de administración de Azure](https://portal.azure.com). Siga los pasos siguientes para adquirir nombres de dominio y asignarlos a su aplicación web.
 
 1. En el explorador, abra el [Portal de administración de Azure](https://portal.azure.com).
-2. En la pestaña **Aplicaciones web**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y luego seleccione **Dominios personalizados y SSL**.
+2. En la pestaña **Web Apps**, haga clic en el nombre de la aplicación web, seleccione **Configuración** y, luego, seleccione **Dominios personalizados y SSL**
    
     ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 3. En la hoja **Dominios personalizados y SSL**, haga clic en **Comprar dominios**.
    
     ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-1.png)
-4. En la hoja **Comprar dominios**, use el cuadro de texto para escribir el nombre de dominio que quiere comprar. Los dominios disponibles sugeridos se mostrarán justo debajo del cuadro de texto. Seleccione el dominio que quiere comprar.
+4. En la hoja **Comprar dominios**, use el cuadro de texto para escribir el nombre de dominio que desea comprar. Los dominios disponibles sugeridos se mostrarán justo debajo del cuadro de texto. Seleccione el dominio que quiere comprar.
    
    ![](./media/custom-dns-web-site/dncmntask-cname-buydomains-2.png)
 5. Haga clic en **Información de contacto** y rellene el formulario de información de contacto del dominio.
@@ -26,4 +26,8 @@ Si quiere un dominio, puede comprar dominios en el [Portal de administración de
 
 En este punto, debería poder escribir el nombre de dominio personalizado en el explorador y ver que le lleva sin problemas a la aplicación web.
 
-<!---HONumber=Oct15_HO3-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

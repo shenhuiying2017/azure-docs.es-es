@@ -1,6 +1,6 @@
 ---
 title: 'Paso 6: Acceso al servicio web Machine Learning | Microsoft Docs'
-description: "Paso 6 del tutorial Desarrollo de una solución predictiva: acceso a un servicio web activo de Estudio de aprendizaje automático de Azure."
+description: "Paso 6 del tutorial Desarrollo de una solución predictiva: acceso a un servicio web activo de Azure Machine Learning."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2016
+ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 80f722c536c822189c1ab2a8160f560a78e7ca01
+ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
+ms.openlocfilehash: 4953b9cb4db2fe0f5bf75589145fde39a6f35a68
 
 
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Paso 6 del tutorial: Acceso al servicio web de Aprendizaje automático de Azure
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>Paso 6 del tutorial: Acceso al servicio web de Azure Machine Learning
 Este es el último paso del tutorial [Desarrollo de una solución de análisis predictiva para la evaluación del riesgo de crédito en Aprendizaje automático de Azure](machine-learning-walkthrough-develop-predictive-solution.md)
 
 1. [Creación de un área de trabajo de Aprendizaje automático](machine-learning-walkthrough-1-create-ml-workspace.md)
@@ -31,24 +31,24 @@ Este es el último paso del tutorial [Desarrollo de una solución de análisis p
 6. **Acceso al servicio web**
 
 - - -
-En el paso anterior de este tutorial hemos implementado un servicio web que usa nuestro modelo de predicción del riesgo de crédito. Ahora es necesario que los usuarios puedan enviar datos al servicio y recibir resultados. 
+En el paso anterior de este tutorial hemos implementado un servicio web que usa nuestro modelo de predicción del riesgo de crédito. Ahora los usuarios pueden enviar datos al servicio y recibir resultados. 
 
 El servicio web es un servicio web de Azure que puede recibir y devolver datos con las API de REST de una de estas dos maneras:  
 
 * **Solicitud/respuesta** : el usuario envía una o varias filas de datos de crédito al servicio mediante un protocolo HTTP, y el servicio responde con uno o más conjuntos de resultados.
 * **Ejecución de lotes** : el usuario almacena una o varias filas de datos de crédito en un blob de Azure y luego envía la ubicación del blob al servicio. El servicio puntúa todas las filas de datos en el blob de entrada, almacena los resultados en otro blog y devuelve la dirección URL del contenedor.  
 
-La manera más rápida y fácil de acceder al servicio web es a través de las plantillas de aplicación web disponibles en [Marketplace de aplicaciones web de Azure](https://azure.microsoft.com/marketplace/web-applications/all/).
+La forma más fácil y rápida de acceder al servicio web es a través de la [aplicación web del servicio de solicitud-respuesta de Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/) o la [plantilla de aplicación web del servicio de ejecución de lotes de Azure ML](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/).
 Estas plantillas de aplicación web pueden compilar una aplicación web personalizada que reconoce los datos de entrada del servicio web y lo que devolverá. Todo lo que necesita hacer es conceder acceso al servicio web y a los datos, y la plantilla se encarga del resto.
 
-Para obtener más información sobre el uso de plantillas de aplicación web, vea [Consumo de un servicio web de Aprendizaje automático de Azure con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
+Para obtener más información sobre el uso de plantillas de aplicación web, consulte [Consumo de un servicio web de Azure Machine Learning con una plantilla de aplicación web](machine-learning-consume-web-service-with-web-app-template.md).
 
 También puede desarrollar una aplicación personalizada para acceder al servicio web con código de inicio proporcionado en los lenguajes de programación R, C# y Python.
-Puede encontrar todos los detalles en [Cómo consumir un servicio web de Aprendizaje automático de Azure publicado en un experimento de Aprendizaje automático](machine-learning-consume-web-services.md).
+Puede encontrar todos los detalles en [Cómo consumir un servicio web de Azure Machine Learning publicado a partir de un experimento de Machine Learning](machine-learning-consume-web-services.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

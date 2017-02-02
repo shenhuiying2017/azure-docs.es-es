@@ -15,8 +15,8 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: e982d29f76d521720eea7cbb56c5084572f4a542
-ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
+ms.sourcegitcommit: 3c1fda0661d577e3042f1ad7103017eed74704ad
+ms.openlocfilehash: bb979cde449a7e6d8038f6ea392c3529ced29853
 
 
 ---
@@ -26,7 +26,7 @@ ms.openlocfilehash: 1982b7ec7b7322366382e250b7f27f3da6448aa0
 
 Microsoft Azure Application Gateway cuenta con un controlador de entrega de aplicaciones (ADC) que se ofrece como servicio y que proporciona numerosas funcionalidades de equilibrio de carga de nivel 7. Permite a los clientes optimizar la productividad de las granjas de servidores web traspasando la carga de la terminación SSL con mayor actividad de la CPU a Application Gateway. Además, dispone de otras funcionalidades de enrutamiento de nivel 7, como la distribución round robin del tráfico entrante, la afinidad de sesiones basada en cookies, el enrutamiento basado en rutas de acceso URL y la capacidad de hospedar varios sitios web detrás de una única puerta de enlace de aplicaciones. Application Gateway dispone también de un firewall de aplicaciones web (WAF) que protege la aplicación contra la mayoría de las vulnerabilidades web más comunes identificadas por OWASP. Application Gateway puede configurarse como una puerta de enlace orientada a Internet, una puerta de enlace solo para uso interno o una combinación de las dos. Application Gateway está completamente administrada por Azure, es escalable y tiene una elevada disponibilidad. Cuenta con un amplio conjunto de funcionalidades de diagnóstico y registro, lo que facilita su administración. Application Gateway puede usarse con máquinas virtuales, servicios en la nube y aplicaciones web de uso externo o interno.
 
-Application Gateway es un servicio virtual dedicado para su aplicación y dispone de numerosas instancias de trabajo para ofrecer una gran escalabilidad y disponibilidad. Cuando se crea una puerta de enlace de aplicaciones, se asocia un punto de conexión (una VIP pública o una IP de ILB interna) que se utiliza como dirección IP pública para el tráfico de red de entrada. Esta dirección IP de ILB o VIP la proporciona la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP) y hace que toda la carga del tráfico de red entrante se equilibre en las instancias de trabajo de Application Gateway. Application Gateway enruta el tráfico HTTP/HTTPS en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube o una dirección IP interna o externa. Para información sobre el contrato de nivel de servicio y los precios, consulte las páginas de [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) y [recios](https://azure.microsoft.com/pricing/details/application-gateway/).
+Application Gateway es una aplicación virtual dedicada para su aplicación que se compone de varias y dispone de numerosas instancias de trabajo, por lo que ofrece escalabilidad y una gran disponibilidad. Cuando se crea una puerta de enlace de aplicaciones, se asocia un punto de conexión (una VIP pública o una IP de ILB interna) que se utiliza como dirección IP pública para el tráfico de red de entrada. Esta dirección IP de ILB o VIP la proporciona la instancia de Azure Load Balancer operativa en el nivel de transporte (TCP/UDP) y hace que toda la carga del tráfico de red entrante se equilibre en las instancias de trabajo de Application Gateway. Application Gateway enruta el tráfico HTTP/HTTPS en función de su configuración, independientemente de que se trate de una máquina virtual, un servicio en la nube o una dirección IP interna o externa. Para información sobre el contrato de nivel de servicio y los precios, consulte las páginas de [Contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/) y [recios](https://azure.microsoft.com/pricing/details/application-gateway/).
 
 ## <a name="features"></a>Características
 
@@ -95,6 +95,6 @@ Para aprender a crear una puerta de enlace de aplicaciones mediante el enrutamie
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

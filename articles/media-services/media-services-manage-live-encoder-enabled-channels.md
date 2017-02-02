@@ -1,6 +1,6 @@
 ---
 title: "Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple | Microsoft Docs"
-description: "En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más extremos de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream, MPEG DASH o HDS."
+description: "En este tema se describe cómo configurar un canal que recibe una transmisión en vivo de una sola velocidad de bits desde un codificador local y, a continuación, realiza la codificación en directo a una transmisión de velocidad de bits adaptable con Media Services. Posteriormente, la secuencia se puede enviar a aplicaciones de reproducción cliente a través de uno o más puntos de conexión de streaming, mediante uno de los siguientes protocolos de streaming adaptable: HLS, Smooth Stream y MPEG DASH."
 services: media-services
 documentationcenter: 
 author: anilmur
@@ -12,14 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/11/2016
 ms.author: juliako;anilmur
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 42dc5d5019bfb6a4740b16c8db149718c0cf072a
+ms.sourcegitcommit: f6ce639dd0ee8386d3bd9ff48f5a05cb392d7979
+ms.openlocfilehash: 82662d0c52262ca2febc54e45a4fd497fe9cf264
 
 
 ---
+
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Servicios multimedia de Azure para crear transmisiones con velocidad de bits múltiple
 ## <a name="overview"></a>Información general
 En Servicios multimedia de Azure (AMS), un **canal** representa una canalización para procesar contenido de streaming en vivo. Los **canales** reciben el flujo de entrada en directo de dos maneras posibles:
@@ -125,7 +126,7 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 Si el **Tipo de codificador** está establecido en **Estándar**, las opciones válidas son:
 
 * **RTP** (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.  
-*  **RTMP**
+* **RTMP**
 * **MP4 fragmentado** de una sola velocidad de bits (Smooth Streaming)
 
 #### <a name="rtp-mpeg-ts---mpeg-2-transport-stream-over-rtp"></a>RTP (MPEG-TS): secuencia de transporte MPEG-2 a través de RTP.
@@ -316,7 +317,7 @@ Opcional. Indica al codificador en directo que cambie a la [careta predeterminad
 
 La imagen usada será la especificada mediante la propiedad Id del recurso de pizarra predeterminado en el momento de la creación del canal. La pizarra se estira para ajustarse al tamaño de la imagen en pantalla. 
 
-## <a name="insert-slate-images"></a>Insertar imágenes de pizarra
+## <a name="insert-slate--images"></a>Insertar imágenes de pizarra
 Puede señalarse al codificador en directo del canal que cambie a una imagen de pizarra. También puede se le puede indicar que finalice una pizarra en curso. 
 
 El codificador en directo puede configurarse para cambiar a una imagen de pizarra y ocultar la señal de vídeo entrante en determinadas situaciones, por ejemplo, durante una pausa de anuncio. Si no se ha configurado ninguna pizarra de este tipo, el vídeo de entrada no se enmascara durante esa pausa.
@@ -328,9 +329,12 @@ La duración de la pizarra en segundos. Para iniciar la pizarra, este debe ser u
 Cuando está establecido en true, este valor configura el codificador en directo para insertar una imagen de pizarra durante una pausa de anuncio. El valor predeterminado es true. 
 
 ### <a name="a-iddefaultslateadefault-slate-asset-id"></a><a id="default_slate"></a>Identificador de activo de activo de tableta táctil predeterminado
+
 Opcional. Especifica el identificador del recurso de Servicios multimedia que contiene la imagen de pizarra. El valor predeterminado es null. 
 
-**Nota**: antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo). 
+>
+>[!NOTE] 
+>Antes de crear el canal, la imagen de careta debe cargarse con las siguientes restricciones como activo dedicado (no debe haber ningún otro archivo en este activo). 
 
 * Máximo 1920x1080 de resolución.
 * Al menos 3 MB de tamaño.
@@ -434,6 +438,6 @@ Consulte las rutas de aprendizaje de Servicios multimedia.
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

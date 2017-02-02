@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cace61299c3d8f3706214306008c7020b9b3eb45
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: c73e24c13f69db893d63e9925116d860dccc1120
 
 
 ---
@@ -229,12 +229,12 @@ Es por esto que cada una de estas DMV tiene una columna específica denominada p
 * [VISTAS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para obtener más información de referencia, consulte [Información general de referencia de Almacenamiento de datos SQL][Información general de referencia de Almacenamiento de datos SQL].
+Para obtener más información de referencia, vea [Información general de referencia de Almacenamiento de datos SQL][SQL Data Warehouse reference overview].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general de referencia de Almacenamiento de datos SQL]: sql-data-warehouse-overview-reference.md
+[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
 
 <!--MSDN references-->
 
@@ -243,6 +243,6 @@ Para obtener más información de referencia, consulte [Información general de 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

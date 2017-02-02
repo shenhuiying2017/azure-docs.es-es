@@ -1,19 +1,23 @@
 ---
-title: Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure | Microsoft Docs
-description: Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Aplicaciones web en el Servicio de aplicaciones de Azure.
+title: "Configuración de PHP en Azure App Service Web Apps | Microsoft Docs"
+description: "Obtenga información acerca de cómo configurar la instalación de PHP predeterminada o agregar una instalación de PHP personalizada para Aplicaciones web en el Servicio de aplicaciones de Azure."
 services: app-service
 documentationcenter: php
 author: rmcmurray
 manager: erikre
-editor: ''
-
+editor: 
+ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
+translationtype: Human Translation
+ms.sourcegitcommit: 03b74607227aed68c6df01e80e4bb87e906ecf31
+ms.openlocfilehash: 402670a16b5dabc653c943737abdf2621db6a50b
+
 
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Configuración de PHP en Aplicaciones web del Servicio de aplicaciones de Azure
@@ -22,7 +26,7 @@ En esta guía se explica cómo configurar el tiempo de ejecución de PHP integra
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## <a name="how-to-change-the-builtin-php-version"></a>Cómo: Cambiar la versión de PHP integrada
+## <a name="how-to-change-the-built-in-php-version"></a>Cómo: Cambiar la versión de PHP integrada
 PHP 5.4 está instalado de forma predeterminada y está disponible para utilizarse inmediatamente después de crear una aplicación web de Azure. La mejor forma de ver la revisión publicada disponible, su configuración predeterminada y las extensiones habilitadas es implementando un script que llame a la función [phpinfo()] .
 
 Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están habilitadas de forma predeterminada. Para actualizar la versión de PHP, siga uno de estos métodos:
@@ -44,12 +48,12 @@ Las versiones de PHP 5.5 y PHP 5.6 también están disponibles, pero no están h
         PS C:\> Login-AzureRmAccount
 2. Establezca la versión PHP para la aplicación web.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
-### <a name="azure-commandline-interface-linux-mac-windows"></a>Interfaz de línea de comandos de Azure (Linux, Mac, Windows)
+### <a name="azure-command-line-interface-linux-mac-windows"></a>Interfaz de línea de comandos de Azure (Linux, Mac, Windows)
 Para usar la interfaz de línea de comandos de Azure, debe tener **Node.js** instalado en el equipo.
 
 1. Abra Terminal e inicie sesión en su cuenta.
@@ -57,12 +61,22 @@ Para usar la interfaz de línea de comandos de Azure, debe tener **Node.js** ins
         azure login
 2. Establezca la versión PHP para la aplicación web.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+
 3. La versión de PHP ya está configurada. Puede confirmar esta configuración:
    
-        azure site show {site-name}
+        azure site show {app-name}
 
-## <a name="how-to-change-the-builtin-php-configurations"></a>Cómo: Cambiar las configuraciones de PHP integradas
+> [!NOTE] 
+> Estos son los comandos de la [CLI de Azure 2.0 (versión preliminar)](https://github.com/Azure/azure-cli) equivalentes a lo anterior:
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
+
+## <a name="how-to-change-the-built-in-php-configurations"></a>Cómo: Cambiar las configuraciones de PHP integradas
 En todos los tiempos de ejecución de PHP integrados es posible cambiar las opciones de configuración siguiendo los pasos que se indican a continuación. (Para obtener información acerca de las directivas, consulte la [lista de directivas de php.ini]).
 
 ### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>Cambio de PHP\_INI\_USUARIO, PHP\_INI\_PERDIR, PHP\_INI\_todas LAS opciones de configuración
@@ -193,6 +207,6 @@ Para más información, vea el [Centro para desarrolladores de PHP](/develop/php
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO3-->
 
 

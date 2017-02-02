@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 09/20/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d72cf46c4a93d805ac9586696a6b41d81af733fd
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c7b4e39e01ae335c3e6a5cf9cb1efe8a64490e35
 
 
 ---
@@ -58,7 +58,7 @@ En el siguiente tutorial de la serie, se implementa el front-end de SPA en la nu
 * ASP.NET Web API: en las instrucciones del tutorial se da por sentado que tiene conocimientos básicos sobre cómo trabajar con ASP.NET [Web API 2](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) en Visual Studio.
 * Cuenta de Azure: puede [abrir una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) o [activar las ventajas de las que disfrutan los suscriptores de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
   
-    Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751). Ahí puede crear de forma inmediata una aplicación de inicio de corta duración en App Service ( **no se requiere tarjeta de crédito**ni se establece ningún compromiso).
+    Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/). Ahí puede crear de forma inmediata una aplicación de inicio de corta duración en App Service ( **no se requiere tarjeta de crédito**ni se establece ningún compromiso).
 * Visual Studio 2015 con [Azure SDK para .NET](https://azure.microsoft.com/downloads/archive-net-downloads/): el SDK instala automáticamente Visual Studio 2015 si aún no lo tiene.
   
   * En Visual Studio, haga clic en Ayuda -> Acerca de Microsoft Visual Studio y asegúrese de que tiene instalado "Azure App Service Tools v2.9.1", o una versión superior.
@@ -442,6 +442,6 @@ La elección de la plantilla de proyecto **Azure API App** equivale a elegir la 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

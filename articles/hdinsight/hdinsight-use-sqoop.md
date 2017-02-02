@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: a13152d5322b81f722f59a524f6c8ca495659b75
-ms.openlocfilehash: 1166f88cc10cd53dc53ee6830ef15b3efde6ad23
+ms.sourcegitcommit: 8056e7ece1942c9090a7c36447a96829febaf1a4
+ms.openlocfilehash: a45e069f18a07bca314210f074455fda68e552c4
 
 
 ---
@@ -28,7 +28,7 @@ Aprenda a utilizar Sqoop en HDInsight  para importar y exportar entre un clúste
 
 A pesar de que Hadoop es una opción natural para procesar datos no estructurados y datos semiestructurados, como registros y archivos, es posible que también sea necesario procesar datos estructurados almacenados en bases de datos relacionales.
 
-[Sqoop][sqoop-user-guide-1.4.4] es una herramienta diseñada para transferir datos entre clústeres de Hadoop y bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS. En este tutorial, usará una base de datos de SQL Server como base de datos relacional.
+[Sqoop][sqoop-user-guide-1.4.4] es una herramienta diseñada para transferir datos entre clústeres de Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL Server, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en un RDBMS. En este tutorial, usará una base de datos de SQL Server como base de datos relacional.
 
 Para ver las versiones de Sqoop compatibles con los clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][hdinsight-versions].
 
@@ -71,7 +71,7 @@ Si prefiere usar Azure PowerShell para crear el clúster y la base de datos SQL;
 
 1. Haga clic en la imagen siguiente para abrir una plantilla de Resource Manager en Azure Portal.         
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
 
 2. Especifique las siguientes propiedades:
@@ -106,10 +106,10 @@ Si prefiere usar Azure PowerShell para crear el clúster y la base de datos SQL;
 
 Si opta por usar la base de datos SQL de Azure existente o Microsoft SQL Server
 
-* **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos de Azure SQL y configurar el firewall, consulte la [introducción al uso de la base de datos de Azure SQL][sqldatabase-get-started]. 
+* **Base de datos SQL de Azure**: debe configurar una regla de firewall para que el servidor de base de datos SQL de Azure permita el acceso desde la estación de trabajo. Para obtener instrucciones sobre cómo crear una base de datos SQL de Azure y configurar el firewall, consulte [Introducción al uso de Azure SQL Database][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos de Azure SQL y la configuración de reglas de firewall, consulte [Creación y configuración de SQL Database][sqldatabase-create-configure].
+  > De forma predeterminada, una base de datos SQL de Azure permite realizar conexiones desde servicios de Azure, como HDInsight de Azure. Si la configuración del firewall está deshabilitada, debe habilitarla en el portal de Azure. Para obtener instrucciones sobre la creación de una base de datos de Azure SQL Database y la configuración de las reglas de firewall, consulte [Creación y configuración de SQL Database][sqldatabase-create-configue].
   > 
   > 
 * **SQL Server**: si el clúster de HDInsight se encuentra en la misma red virtual de Azure que un SQL Server, puede seguir los pasos indicados en este artículo para importar y exportar datos a una base de datos de SQL Server.
@@ -153,9 +153,9 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 
 * [Uso de Hive con HDInsight](hdinsight-use-hive.md)
 * [Uso de Pig con HDInsight](hdinsight-use-pig.md)
-* [Uso de Oozie con HDInsight][hdinsight-use-oozie]: use la acción Sqoop en un flujo de trabajo de Oozie.
-* [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]: use Hive para analizar la información de retraso de los vuelos y luego use Sqoop para exportar los datos a una base de datos de Azure SQL.
-* [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o Azure Blob Storage.
+* [Uso de Oozie con HDInsight][hdinsight-use-oozie]: use la acción de Sqoop en un flujo de trabajo de Oozie.
+* [Análisis de la información de retraso de vuelos con HDInsight][hdinsight-analyze-flight-data]: use Hive para analizar la información de retraso de los vuelos y, luego, use Sqoop para exportar los datos a una base de datos Azure SQL Database.
+* [Carga de datos en HDInsight][hdinsight-upload-data]: busque otros métodos para cargar datos en HDInsight o en Azure Blob Storage.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Apéndice A - un ejemplo de PowerShell
 El ejemplo de PowerShell lleva a cabo los siguientes pasos:
@@ -201,7 +201,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
    
     Esto es válido para otros ejemplos que usan estos datos, pero debemos quitar estas excepciones para poder importarlos a la base de datos SQL de Azure o a SQL Server. La exportación de Sqoop producirá un error si hay una cadena vacía o una línea con un número de elementos inferior al número de campos definido en la tabla de base de datos SQL de Azure. La tabla log4jlogs tiene 7 campos de tipo cadena.
    
-    Este procedimiento crea un archivo nuevo en el clúster: tutorials/usesqoop/data/sample.log. Para examinar el archivo de datos modificado, puede usar el portal de Azure, una herramienta del explorador de almacenamiento de Azure o Azure PowerShell. [Introducción a HDInsight][hdinsight-get-started] incluye código de ejemplo sobre cómo usar Azure PowerShell para descargar un archivo y mostrar su contenido.
+    Este procedimiento crea un archivo nuevo en el clúster: tutorials/usesqoop/data/sample.log. Para examinar el archivo de datos modificado, puede usar el portal de Azure, una herramienta del explorador de almacenamiento de Azure o Azure PowerShell. [Introducción a HDInsight][hdinsight-get-started] incluye código de ejemplo para usar Azure PowerShell para descargar un archivo y mostrar su contenido.
 6. Exportar un archivo de datos a la base de datos SQL de Azure.
    
     El archivo de origen es tutorials/usesqoop/data/sample.log. La tabla donde se exportan los datos se denomina log4jlogs.
@@ -217,7 +217,7 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 7. Exportar una tabla de Hive a la base de datos SQL de Azure.
 8. Importe la tabla mobiledata al clúster de HDInsight.
    
-    Para examinar el archivo de datos modificado, puede usar el portal de Azure, una herramienta del explorador de almacenamiento de Azure o Azure PowerShell.  [Introducción a HDInsight][hdinsight-get-started] incluye código de ejemplo sobre cómo usar Azure PowerShell para descargar un archivo y mostrar su contenido.
+    Para examinar el archivo de datos modificado, puede usar el portal de Azure, una herramienta del explorador de almacenamiento de Azure o Azure PowerShell.  [Introducción a HDInsight][hdinsight-get-started] incluye código de ejemplo para usar Azure PowerShell para descargar un archivo y mostrar su contenido.
 
 ### <a name="the-powershell-sample"></a>El ejemplo de PowerShell
     # Prepare an Azure SQL database to be used by the Sqoop tutorial
@@ -624,16 +624,16 @@ El ejemplo de PowerShell lleva a cabo los siguientes pasos:
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
-[sqldatabase-create-configure]: ../sql-database/sql-database-get-started.md
+[sqldatabase-create-configue]: ../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

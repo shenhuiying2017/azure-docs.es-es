@@ -12,70 +12,67 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: spelluru
 translationtype: Human Translation
-ms.sourcegitcommit: 1b2514e1e6f39bb3ce9d8a46f4af01835284cdcc
-ms.openlocfilehash: 3510b0446cf3c1a7ffb3ff02a4d84d24ead1cae7
+ms.sourcegitcommit: ec522d843b2827c12ff04afac15d89d525d88676
+ms.openlocfilehash: 90bd5b4b6fb58c044b5edaba2c5f3a4bf7346e7d
 
 
 ---
 # <a name="sql-server-stored-procedure-activity"></a>Actividad de procedimiento almacenado de SQL Server
+
 > [!div class="op_single_selector"]
-> [Hive](data-factory-hive-activity.md)  
-> [Pig](data-factory-pig-activity.md)  
-> [MapReduce](data-factory-map-reduce.md)  
-> [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
-> [Machine Learning](data-factory-azure-ml-batch-execution-activity.md)
-> [Procedimiento almacenado](data-factory-stored-proc-activity.md)
-> [Data Lake Analytics U-SQL](data-factory-usql-activity.md)
-> [.NET personalizado](data-factory-use-custom-activities.md)
+> * [Hive](data-factory-hive-activity.md) 
+> * [Pig](data-factory-pig-activity.md)
+> * [MapReduce](data-factory-map-reduce.md)
+> * [Hadoop Streaming](data-factory-hadoop-streaming-activity.md)
+> * [Aprendizaje automático](data-factory-azure-ml-batch-execution-activity.md)
+> * [Procedimiento almacenado](data-factory-stored-proc-activity.md)
+> * [U-SQL de análisis con Data Lake](data-factory-usql-activity.md)
+> * [.NET personalizado](data-factory-use-custom-activities.md)
 >
->
 
-Puede usar la actividad de procedimiento almacenado de SQL Server en una [canalización](data-factory-create-pipelines.md) de Data Factory para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos:
+Las actividades de transformación en una [canalización](data-factory-create-pipelines.md) de Data Factory transforman y procesan sus datos sin procesar para convertirlos en predicciones y perspectivas. La actividad de procedimiento almacenado es una de las actividades de transformación que admite Data Factory. Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
 
-* Base de datos SQL de Azure
-* Almacenamiento de datos SQL de Azure  
-* Base de datos de SQL Server en la empresa o en una máquina virtual de Azure. Data Management Gateway se debe instalar en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales u orígenes de datos hospedados en máquinas virtuales de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Mover datos entre orígenes locales y la nube](data-factory-move-data-between-onprem-and-cloud.md) para obtener más información acerca de Data Management Gateway.
+Puede usar la actividad de procedimiento almacenado para invocar un procedimiento almacenado en uno de los siguientes almacenes de datos: Azure SQL Database, Azure SQL Data Warehouse y Base de datos de SQL Server en su empresa o en una VM de Azure.  Si usa SQL Server, se debe instalar Data Management Gateway en la misma máquina que hospeda la base de datos o en una máquina independiente, con el fin de evitar la competencia por los recursos con la base de datos. Data Management Gateway es un software que conecta orígenes de datos locales o en la VM de Azure con servicios en la nube de forma segura y administrada. Consulte el artículo [Data Management Gateway](data-factory-data-management-gateway.md) para obtener detalles.
 
-Este artículo se basa en el artículo sobre [actividades de transformación de datos](data-factory-data-transformation-activities.md) , que presenta información general de la transformación de datos y las actividades de transformación admitidas.
+El siguiente tutorial proporciona instrucciones paso a paso para invocar un procedimiento almacenado en una base de datos de Azure SQL Database desde una canalización de Data Factory mediante el uso de la actividad de procedimiento almacenado. 
 
 ## <a name="walkthrough"></a>Tutorial
 ### <a name="sample-table-and-stored-procedure"></a>Procedimiento almacenado y tabla de ejemplo
 1. Cree la siguiente **tabla** en la Base de datos SQL de Azure con SQL Server Management Studio o cualquier otra herramienta que le resulte cómoda. La columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
 
-        CREATE TABLE dbo.sampletable
-        (
-            Id uniqueidentifier,
-            datetimestamp nvarchar(127)
-        )
-        GO
+    ```SQL
+    CREATE TABLE dbo.sampletable
+    (
+        Id uniqueidentifier,
+        datetimestamp nvarchar(127)
+    )
+    GO
 
-        CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
-        GO
-
+    CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+    GO
+    ```
     Id es el identificador único y la columna datetimestamp indica la fecha y la hora en que se generó el identificador correspondiente.
+    
     ![Datos de ejemplo](./media/data-factory-stored-proc-activity/sample-data.png)
 
-   > [!NOTE]
-   > En este ejemplo, se usa Base de datos SQL de Azure, pero funciona de la misma manera con Almacenamiento de datos SQL de Azure y Base de datos de SQL Server.
-   >
-   >
+    En este ejemplo, se usa Azure SQL Database, pero funciona de la misma manera con Azure SQL Data Warehouse y Base de datos de SQL Server. Para Base de datos de SQL Server, debe instalar una instancia de [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Cree el siguiente **procedimiento almacenado**, que inserta datos en **sampletable**.
 
-        CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
-        AS
+    ```SQL
+    CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
+    AS
 
-        BEGIN
-            INSERT INTO [sampletable]
-            VALUES (newid(), @DateTime)
-        END
+    BEGIN
+        INSERT INTO [sampletable]
+        VALUES (newid(), @DateTime)
+    END
+    ```
 
    > [!IMPORTANT]
    > El **nombre** y el **uso de mayúsculas y minúsculas** en el parámetro (DateTime en este ejemplo) tienen que coincidir con los del parámetro especificado en el código JSON de la canalización o actividad. En la definición del procedimiento almacenado, asegúrese de que se usa **@** como prefijo del parámetro.
-   >
-   >
 
 ### <a name="create-a-data-factory"></a>Crear una factoría de datos
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
@@ -93,6 +90,7 @@ Este artículo se basa en el artículo sobre [actividades de transformación de 
 7. Seleccione **Anclar al panel** de manera que pueda ver la factoría de datos en el panel la próxima vez que inicie sesión.
 8. Haga clic en **Crear** en la hoja **Nueva fábrica de datos**.
 9. Verá la factoría de datos que se crea en el **panel** de Azure Portal. Tras crear correctamente la factoría de datos, se ve la página de la factoría de datos, que muestra el contenido de la misma.
+
    ![Página principal de Data Factory](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### <a name="create-an-azure-sql-linked-service"></a>Crear un servicio vinculado SQL de Azure.
@@ -120,20 +118,22 @@ Después de crear la factoría de datos, cree un servicio vinculado SQL de Azure
     ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/new-dataset.png)
 2. Copie y pegue el siguiente script JSON en el editor de JSON.
 
-        {                
-            "name": "sprocsampleout",
-            "properties": {
-                "type": "AzureSqlTable",
-                "linkedServiceName": "AzureSqlLinkedService",
-                "typeProperties": {
-                    "tableName": "sampletable"
-                },
-                "availability": {
-                    "frequency": "Hour",
-                    "interval": 1
-                }
+    ```JSON
+    {                
+        "name": "sprocsampleout",
+        "properties": {
+            "type": "AzureSqlTable",
+            "linkedServiceName": "AzureSqlLinkedService",
+            "typeProperties": {
+                "tableName": "sampletable"
+            },
+            "availability": {
+                "frequency": "Hour",
+                "interval": 1
             }
         }
+    }
+    ```
 3. Haga clic en **Implementar** en la barra de comandos para implementar el conjunto de datos. Confirme que el conjunto de datos aparece en la vista de árbol.
 
     ![vista de árbol con servicios vinculados](media/data-factory-stored-proc-activity/tree-view-2.png)
@@ -144,35 +144,37 @@ Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedur
 1. Haga clic en **... Más** en la barra de comandos y en **Nueva canalización**.
 2. Copie y pegue el siguiente fragmento de código JSON. El valor de **storedProcedureName** se establece en **sp_sample**. El nombre y el uso de mayúsculas y minúsculas en el parámetro **DateTime** deben coincidir con los del parámetro de la definición del procedimiento almacenado.  
 
-        {
-            "name": "SprocActivitySamplePipeline",
-            "properties": {
-                "activities": [
-                    {
-                        "type": "SqlServerStoredProcedure",
-                        "typeProperties": {
-                            "storedProcedureName": "sp_sample",
-                            "storedProcedureParameters": {
-                                "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
-                            }
-                        },
-                        "outputs": [
-                            {
-                                "name": "sprocsampleout"
-                            }
-                        ],
-                        "scheduler": {
-                            "frequency": "Hour",
-                            "interval": 1
-                        },
-                        "name": "SprocActivitySample"
-                    }
-                ],
-                 "start": "2016-08-02T00:00:00Z",
-                 "end": "2016-08-02T05:00:00Z",
-                "isPaused": false
-            }
+    ```JSON
+    {
+        "name": "SprocActivitySamplePipeline",
+        "properties": {
+            "activities": [
+                {
+                    "type": "SqlServerStoredProcedure",
+                    "typeProperties": {
+                        "storedProcedureName": "sp_sample",
+                        "storedProcedureParameters": {
+                            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
+                        }
+                    },
+                    "outputs": [
+                        {
+                            "name": "sprocsampleout"
+                        }
+                    ],
+                    "scheduler": {
+                        "frequency": "Hour",
+                        "interval": 1
+                    },
+                    "name": "SprocActivitySample"
+                }
+            ],
+             "start": "2016-08-02T00:00:00Z",
+             "end": "2016-08-02T05:00:00Z",
+            "isPaused": false
         }
+    }
+    ```
 
     Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas).
 3. Haga clic en **Implementar** en la barra de herramientas para implementar la canalización.  
@@ -199,30 +201,34 @@ Ahora, vamos a crear una canalización con una actividad SqlServerStoredProcedur
 >
 
 ## <a name="json-format"></a>Formato JSON
+Este es el formato JSON para definir una actividad de procedimiento almacenado:
+
+```JSON
+{
+    "name": "SQLSPROCActivity",
+    "description": "description",
+    "type": "SqlServerStoredProcedure",
+    "inputs":  [ { "name": "inputtable"  } ],
+    "outputs":  [ { "name": "outputtable" } ],
+    "typeProperties":
     {
-        "name": "SQLSPROCActivity",
-        "description": "description",
-        "type": "SqlServerStoredProcedure",
-        "inputs":  [ { "name": "inputtable"  } ],
-        "outputs":  [ { "name": "outputtable" } ],
-        "typeProperties":
+        "storedProcedureName": "<name of the stored procedure>",
+        "storedProcedureParameters":  
         {
-            "storedProcedureName": "<name of the stored procedure>",
-            "storedProcedureParameters":  
-            {
-                "param1": "param1Value"
-                …
-            }
+            "param1": "param1Value"
+            …
         }
     }
+}
+```
 
 ## <a name="json-properties"></a>Propiedades JSON
 | Propiedad | Descripción | Obligatorio |
 | --- | --- | --- |
-| name |Nombre de la actividad |Sí |
+| name | Nombre de la actividad |Sí |
 | Descripción |Texto que describe para qué se usa la actividad. |No |
-| type |SqlServerStoredProcedure |Sí |
-| inputs |Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |No |
+| type | Se debe establecer en: **SqlServerStoredProcedure** | Sí |
+| inputs | Opcional. Si especifica un conjunto de datos de entrada, debe estar disponible (en estado "Listo") para que se ejecute la actividad de procedimiento almacenado. El conjunto de datos de entrada no se puede usar en el procedimiento almacenado como parámetro. Solo se utiliza para comprobar la dependencia antes de iniciar la actividad de procedimiento almacenado. |No |
 | outputs |Debe especificar un conjunto de datos para una actividad de procedimiento almacenado. El conjunto de datos de salida especifica la **programación** para la actividad de procedimiento almacenada (por hora, semanal, mensual, etc.). <br/><br/>El conjunto de datos de salida debe utilizar un **servicio vinculado** que haga referencia a una Base de datos SQL de Azure, un Almacenamiento de datos SQL o una base de datos de SQL Server donde desee que el procedimiento almacenado se ejecute. <br/><br/>El conjunto de datos de salida puede usarse como una forma de pasar el resultado del procedimiento almacenado para su posterior procesamiento por otra actividad ([encadenamiento de actividades](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) en la canalización. Sin embargo, Data Factory no escribe automáticamente la salida de un procedimiento almacenado en este conjunto de datos. Es el procedimiento almacenado el que escribe en una tabla SQL a la que apunta el conjunto de datos de salida. <br/><br/>En algunos casos, el conjunto de datos de salida puede ser un **conjunto de datos ficticio**, que solo se utilice para especificar la programación para ejecutar la actividad de procedimiento almacenado. |Sí |
 | storedProcedureName |Especifique el nombre del procedimiento almacenado en la Base de datos SQL de Azure o en el Almacenamiento de datos SQL de Azure que se representa mediante el servicio vinculado que usa la tabla de salida. |Sí |
 | storedProcedureParameters |Especifique valores para los parámetros del procedimiento almacenado. Si necesita pasar null para un parámetro, use la sintaxis: "param1": null (todo en minúsculas). Vea el ejemplo siguiente para aprender el uso de esta propiedad. |No |
@@ -232,29 +238,102 @@ Ahora, pensemos en agregar otra columna denominada 'Escenario' en la tabla que c
 
 ![Datos de ejemplo 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+**Tabla:**
 
-    AS
+```SQL
+CREATE TABLE dbo.sampletable2
+(
+    Id uniqueidentifier,
+    datetimestamp nvarchar(127),
+    scenario nvarchar(127)
+)
+GO
 
-    BEGIN
-        INSERT INTO [sampletable]
-        VALUES (newid(), @DateTime, @Scenario)
-    END
+CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
+```
 
-Ahora, pase el parámetro Escenario y el valor de la actividad de procedimiento almacenado. La sección typeProperties del ejemplo anterior es similar al siguiente fragmento de código:
+**Procedimiento almacenado:**
 
-    "typeProperties":
+```SQL
+CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
+
+AS
+
+BEGIN
+    INSERT INTO [sampletable2]
+    VALUES (newid(), @DateTime, @Scenario)
+END
+```
+
+Ahora, pase el parámetro **Escenario** y el valor desde la actividad de procedimiento almacenado. La sección **typeProperties** del ejemplo anterior es similar al siguiente fragmento de código:
+
+```JSON
+"typeProperties":
+{
+    "storedProcedureName": "sp_sample",
+    "storedProcedureParameters":
     {
-        "storedProcedureName": "sp_sample",
-        "storedProcedureParameters":
-        {
-            "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
-            "Scenario": "Document sample"
+        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+        "Scenario": "Document sample"
+    }
+}
+```
+
+**Conjuntos de datos de Data Factory:**
+
+```JSON
+{
+    "name": "sprocsampleout2",
+    "properties": {
+        "published": false,
+        "type": "AzureSqlTable",
+        "linkedServiceName": "AzureSqlLinkedService",
+        "typeProperties": {
+            "tableName": "sampletable2"
+        },
+        "availability": {
+            "frequency": "Hour",
+            "interval": 1
         }
     }
+}
+```
+
+**Canalización de Data Factory**
+
+```JSON
+{
+    "name": "SprocActivitySamplePipeline2",
+    "properties": {
+        "activities": [
+            {
+                "type": "SqlServerStoredProcedure",
+                "typeProperties": {
+                    "storedProcedureName": "sp_sample2",
+                    "storedProcedureParameters": {
+                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+                        "Scenario": "Document sample"
+                    }
+                },
+                "outputs": [
+                    {
+                        "name": "sprocsampleout2"
+                    }
+                ],
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
+                },
+                "name": "SprocActivitySample"
+            }
+        ],
+        "start": "2016-10-02T00:00:00Z",
+        "end": "2016-10-02T05:00:00Z"
+    }
+}
+```
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,5 +1,5 @@
 ---
-title: "Implementación de su primera aplicación web de PHP en Azure en 5 minutos | Microsoft Docs"
+title: "Implementación de su primera aplicación web de PHP en Azure en&5; minutos | Microsoft Docs"
 description: "Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación PHP de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: e04c5a2715800bb354faf6db8f2c486843bfcfa6
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 27b5ead5a60b05f84974391954f1f087da63c2e9
 
 
 ---
-# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web de PHP en Azure en 5 minutos
+# <a name="deploy-your-first-php-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web de PHP en Azure en&5; minutos
 
 > [!div class="op_single_selector"]
 > * [Primer sitio HTML](app-service-web-get-started-html-cli-nodejs.md)
@@ -57,7 +57,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+> También puede [probar App Service](https://azure.microsoft.com/try/app-service/) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 > 
 > 
 
@@ -132,6 +132,6 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

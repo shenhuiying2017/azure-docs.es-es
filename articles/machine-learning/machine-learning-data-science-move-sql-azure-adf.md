@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 61176151652f9c9d79ebe07d2a4aedf8702e2d16
-ms.openlocfilehash: a329d1ef98e2ab59df2f11b5095fe87a8cc9f94a
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: adbede3de17f055f5e39630658f526dd239d50da
 
 
 ---
@@ -56,7 +56,7 @@ En este tutorial se asume que dispone de:
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial se usa una cuenta de Azure Storage para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Acceso a una **base de datos SQL de Azure**. Si debe configurar una instancia de Azure SQL Database, [Getting Started with Microsoft Azure SQL Database ](../sql-database/sql-database-get-started.md) (Introducción a Microsoft Azure SQL Database) proporciona información sobre cómo aprovisionar una nueva instancia de Azure SQL Database.
-* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 > [!NOTE]
 > En este procedimiento se usa [Azure Portal](https://portal.azure.com/).
@@ -315,7 +315,7 @@ Copie esta definición de JSON de la canalización en un archivo denominado *pip
 
 Confirme que puede ver la canalización en ADF en Portal de Azure clásico de la siguiente manera (al hacer clic en el diagrama).
 
-![](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
+![Canalización de ADF](media/machine-learning-data-science-move-sql-azure-adf/DJP1kji.png)
 
 ## <a name="a-nameadf-pipeline-startastart-the-pipeline"></a><a name="adf-pipeline-start"></a>Inicio de la canalización
 La canalización ya se puede ejecutar mediante el comando siguiente:
@@ -330,6 +330,6 @@ Observe que no hemos aprovechado la funcionalidad que proporciona la ADF para ca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

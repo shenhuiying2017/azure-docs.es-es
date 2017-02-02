@@ -1,35 +1,38 @@
-
 ---
 title: Acceso a sus aplicaciones desde cualquier dispositivo | Microsoft Docs
-description: Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones.
+description: "Obtenga información sobre qué clientes son compatibles con Azure RemoteApp y cómo tener acceso a sus aplicaciones."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: fb7bd17d-7aa8-43fd-9278-f96e0e9308e4
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 7a34394ebc83e106bd2755ea2e3d966837c01be6
+
 
 ---
-# Acceso a las aplicaciones de Azure RemoteApp
+# <a name="accessing-your-apps-in-azure-remoteapp"></a>Acceso a las aplicaciones de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
-Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
+Una de las ventajas de Azure RemoteApp es que puede tener acceso a las aplicaciones desde cualquiera de los dispositivos. Aún mejor, puede comenzar a trabajar en un dispositivo y, a continuación, realizar una transición a un segundo dispositivo y continuar el trabajo desde donde lo dejó. Para empezar, deberá descargar el cliente apropiado para el dispositivo e iniciar sesión en el servicio.
 
 En este tema, revisaremos los clientes admitidos actualmente y cómo descargarlos antes de mostrar cómo iniciar sesión en RemoteApp desde cada uno de los clientes.
 
-## Clientes compatibles
+## <a name="supported-clients"></a>Clientes compatibles
 Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está ejecutando uno de estos sistemas operativos:
 
-* Windows 10
+* Windows 10 
 * Windows 8.1
 * Windows 8
 * Windows 7 Service Pack 1
@@ -45,17 +48,17 @@ Puede acceder a RemoteApp mediante los siguientes pasos si el dispositivo está 
 * Windows Embedded 8.1 Industry Pro
 * Windows 10 IoT Enterprise
 
-## Descarga del cliente
-Independientemente de la plataforma que esté utilizando, el cliente que necesita que acceda a RemoteApp puede encontrarse en la página [Descarga del cliente de Escritorio remoto](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx).
+## <a name="downloading-the-client"></a>Descarga del cliente
+Independientemente de la plataforma que esté utilizando, el cliente que necesita que acceda a RemoteApp puede encontrarse en la página [Descarga del cliente de Escritorio remoto](https://www.remoteapp.windowsazure.com/ClientDownload/AllClients.aspx) .
 
 Al hacer clic en los diferentes vínculos se comenzará a descargar el cliente directamente o será dirigido a la página de descarga del cliente descarga de la tienda de aplicaciones de esa plataforma. Siga las instrucciones en pantalla para instalar el cliente.
 
 Una vez haya instalado el cliente en el dispositivo y lo haya iniciado, salte a la sección correspondiente a continuación para obtener información sobre cómo iniciar sesión en RemoteApp desde ese cliente.
 
-## Android
+## <a name="android"></a>Android
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Google Play, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón Agregar **"" +""** y **Azure RemoteApp**.
+1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón Agregar **"" +""** y **Azure RemoteApp**.    
    
      ![Centro de conexiones vacío](./media/remoteapp-clients/Android1.png)
 2. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Pulse **Primeros pasos**.
@@ -64,7 +67,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
 3. En la siguiente página, escriba en su **dirección de correo electrónico** y toque **Continuar**. Esto comenzará el proceso de inicio de sesión mediante Azure Active Directory.
    
     ![Primera página de Azure Active Directory](./media/remoteapp-clients/Android3.png)
-4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (denominada anteriormente "LiveID") o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.
+4. Siga las instrucciones en pantalla para iniciar sesión con su cuenta de Microsoft (denominada anteriormente "LiveID") o su id. de organización. En cuanto haya iniciado sesión, es posible que se le presente una página con todas las invitaciones que ha recibido. Si es así, seleccione las invitaciones de confianza y toque en **Hecho**.    
    
     ![Página de invitaciones](./media/remoteapp-clients/Android4.png)
 5. Después de aceptar las invitaciones, se descargará en el dispositivo la lista de aplicaciones a las que tiene acceso y estarán disponibles en el Centro de la conexión. Toque una de las aplicaciones para empezar a usarla.
@@ -77,7 +80,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
    
     ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Android7.png)
 
-## iOS
+## <a name="ios"></a>iOS
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde App Store, podrá encontrarla en la lista de aplicaciones en **Cliente de RD**.
 
 1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón de agregar **""+""** y **Agregar Azure RemoteApp**.
@@ -99,10 +102,10 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde Ap
    
     ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/IOS6.png)
 
-## Mac OS X
+## <a name="mac-os-x"></a>Mac OS X
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la App Store, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto de Microsoft**.
 
-1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, haga clic en el botón **Azure RemoteApp**.
+1. Al iniciar la aplicación se accede a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, haga clic en el botón **Azure RemoteApp** .
    
     ![Centro de conexiones vacío](./media/remoteapp-clients/Mac1.png)
 2. Debe iniciar sesión con su dirección de correo electrónico para tener acceso al servicio. Para iniciar ese proceso, toque **Introducción**.
@@ -124,7 +127,7 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
    
     ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Mac7.png)
 
-## Windows (todas las versiones compatibles excepto Windows Phone)
+## <a name="windows-all-supported-versions-except-windows-phone"></a>Windows (todas las versiones compatibles excepto Windows Phone)
 El cliente se inicia automáticamente una vez finalizada la instalación, sin embargo, cuando necesite tener acceso a este más adelante, lo encontrará en la lista de aplicaciones con el nombre **Azure RemoteApp**.
 
 1. Después de iniciar el cliente, la primera página que verá le dará la bienvenida a Azure RemoteApp. Para continuar, haga clic en **Introducción**.
@@ -143,7 +146,7 @@ El cliente se inicia automáticamente una vez finalizada la instalación, sin em
    
     ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/Windows5.png)
 
-## Windows Phone 8,1
+## <a name="windows-phone-81"></a>Windows Phone 8,1
 Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la tienda Windows Phone 8.1, podrá encontrarla en la lista de aplicaciones en **Escritorio remoto**.
 
 1. Al iniciar la aplicación se accede directamente a un Centro de conexiones vacío, a menos que ya ha utilizado la aplicación. Para empezar a trabajar con Azure RemoteApp, toque el botón de agregar **""+""** en la parte inferior de la pantalla.
@@ -171,4 +174,9 @@ Una vez haya instalado la aplicación de Escritorio remoto de Microsoft desde la
    
     ![Fuente de demostración de RemoteApp de Azure](./media/remoteapp-clients/WinPhone8.png)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

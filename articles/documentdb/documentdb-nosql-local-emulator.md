@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 0d0264857f552b65f5934eea686329e8d36a1204
-ms.openlocfilehash: e86b1990ea38f9f8af4e5401fe37eec321075e64
+ms.sourcegitcommit: 6c5bf8907a5f69e45e7b62fb466bdc53460e9029
+ms.openlocfilehash: 86a5911e99e7631b09604afcb0f53ed2887b576b
 
 
 ---
@@ -122,9 +122,9 @@ Desde la ubicación de instalación, puede usar la línea de comandos para inici
 
 ### <a name="command-line-syntax"></a>Sintaxis de línea de comandos
 
-    DocumentDB.LocalEmulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
 
-Para ver la lista de opciones, escriba `DocumentDB.LocalEmulator.exe /?` en el símbolo del sistema.
+Para ver la lista de opciones, escriba `DocumentDB.Emulator.exe /?` en el símbolo del sistema.
 
 <table>
 <tr>
@@ -136,61 +136,61 @@ Para ver la lista de opciones, escriba `DocumentDB.LocalEmulator.exe /?` en el s
 <tr>
   <td>[Sin argumentos]</td>
   <td>Inicia el Emulador de DocumentDB con la configuración predeterminada</td>
-  <td>DocumentDB.LocalEmulator.exe</td>
+  <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>Shutdown</td>
   <td>Apaga el Emulador de DocumentDB</td>
-  <td>DocumentDB.LocalEmulator.exe /Shutdown</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>Ayuda</td>
   <td>Muestra la lista de argumentos de la línea de comandos</td>
-  <td>DocumentDB.LocalEmulator.exe /?</td>
+  <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>Datapath</td>
   <td>Especifica la ruta de acceso en la que se almacenarán los archivos de datos</td>
-  <td>DocumentDB.LocalEmulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: una ruta accesible</td>
 </tr>
 <tr>
   <td>Port</td>
   <td>Especifica el número de puerto que se utilizará para el emulador.  El valor predeterminado es 8081.</td>
-  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
+  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: número de puerto sencillo</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Especifica el número de puerto que se utilizará para la API de compatibilidad de MongoDB. El valor predeterminado es 10250.</td>
-  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: número de puerto sencillo</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
   <td>Especifica los puertos que se usarán para la conectividad directa. Los valores predeterminados son 10251,10252,10253,10254.</td>
-  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
+  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: una lista delimitada por comas de 4 puertos</td>
 </tr>
 <tr>
   <td>Clave</td>
   <td>Clave de autorización para el emulador. Las claves deben ser la codificación en base 64 de un vector de 64 bytes.</td>
-  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&gt;</td>
+  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
   <td>&lt;key&gt;: la clave debe ser la codificación en base 64 de un vector de 64 bytes</td>
 </tr>
 <tr>
   <td>EnableThrottling</td>
   <td>Especifica que el comportamiento de limitación de solicitudes está habilitado.</td>
-  <td>DocumentDB.LocalEmulator.exe /enablethrottling</td>
+  <td>DocumentDB.Emulator.exe /enablethrottling</td>
   <td></td>
 </tr>
 <tr>
   <td>DisableThrottling</td>
   <td>Especifica que el comportamiento de limitación de solicitudes está deshabilitado.</td>
-  <td>DocumentDB.LocalEmulator.exe /disablethrottling</td>
+  <td>DocumentDB.Emulator.exe /disablethrottling</td>
   <td></td>
 </tr>
 </table>
@@ -211,6 +211,6 @@ Dado que el Emulador de DocumentDB proporciona un entorno emulado que se ejecuta
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO3-->
 
 

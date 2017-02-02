@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.date: 08/23/2016
 ms.author: rachelap
 translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: b38f1876b3317a44268caf80a953dee638a342d1
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 62b1541414543fc947886374424dadee09759323
 
 
 ---
 # <a name="api-apps-overview"></a>Información general sobre Aplicaciones de API
-Las aplicaciones de API del Servicio de aplicaciones de Azure ofrecen características que facilitan el desarrollo, el hospedaje y el consumo de API en soluciones en la nube y locales. Gracias a las aplicaciones de API, disfrutará de seguridad de categoría empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../app-service-logic/app-service-logic-what-are-logic-apps.md).
+Las aplicaciones de API del Servicio de aplicaciones de Azure ofrecen características que facilitan el desarrollo, el hospedaje y el consumo de API en soluciones en la nube y locales. Gracias a las aplicaciones de API, disfrutará de seguridad de categoría empresarial, control de acceso sencillo, conectividad híbrida, generación automática de SDK e integración completa con [Aplicaciones lógicas](../logic-apps/logic-apps-what-are-logic-apps.md).
 
 [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md) es una plataforma totalmente administrada para escenarios web, móviles y de integración. Aplicaciones de API son uno de los cuatro tipos que ofrece el [Servicio de aplicaciones de Azure](../app-service/app-service-value-prop-what-is.md).
 
@@ -34,7 +34,7 @@ Estas son algunas características clave de las aplicaciones de API:
 * **Fácil consumo** : la compatibilidad integrada con [los metadatos de API de Swagger](http://swagger.io/) permite que una gran variedad de clientes pueda consumir las API de forma sencilla.  Generan automáticamente código de cliente para las API en diversos lenguajes, como C#, Java y Javascript. Configuran fácilmente [CORS](app-service-api-cors-consume-javascript.md) sin cambiar el código. Para más información, consulte [Metadatos de App Service API Apps para la detección de API y la generación de código](app-service-api-metadata.md) y [Consumo de una aplicación de API desde JavaScript con CORS](app-service-api-cors-consume-javascript.md). 
 * **Control de acceso sencillo** : proteja una aplicación de API frente al acceso no autenticado sin realizar ningún cambio en el código. Los servicios de autenticación integrados protegen las API frente al acceso de otros servicios o de clientes que representan a los usuarios. Los proveedores de identidad compatibles incluyen Azure Active Directory, Facebook, Twitter, Google y cuenta Microsoft. Los clientes pueden usar la biblioteca de autenticación de Active Directory (AAL) o el SDK de Aplicaciones móviles. Para más información, consulte [Autenticación y autorización para Aplicaciones de API en el Servicio de aplicaciones de Azure](app-service-api-authentication.md).
 * **Integración con visual Studio** : existen herramientas dedicadas en Visual Studio que permiten optimizar las tareas de creación, implementación, consumo, depuración y administración de las aplicaciones de API. Para más información, consulte [Anuncio de la versión 2.8.1 del SDK de Azure para .NET](https://azure.microsoft.com/blog/announcing-azure-sdk-2-8-1-for-net/).
-* **Integración con aplicaciones lógicas** : las [aplicaciones lógicas del Servicio de aplicaciones](../app-service-logic/app-service-logic-what-are-logic-apps.md)pueden consumir las aplicaciones de API que cree.  Para más información, consulte [Uso de la API personalizada hospedada en App Service con Logic apps](../app-service-logic/app-service-logic-custom-hosted-api.md) y [Nueva versión de esquema 2015-08-01: versión preliminar](../app-service-logic/app-service-logic-schema-2015-08-01.md).
+* **Integración con aplicaciones lógicas** : las [aplicaciones lógicas del Servicio de aplicaciones](../logic-apps/logic-apps-what-are-logic-apps.md)pueden consumir las aplicaciones de API que cree.  Para más información, consulte [Uso de la API personalizada hospedada en App Service con Logic apps](../logic-apps/logic-apps-custom-hosted-api.md) y [Nueva versión de esquema 2015-08-01: versión preliminar](../logic-apps/logic-apps-schema-2015-08-01.md).
 
 Además, una aplicación de API puede sacar partido de las características que ofrecen las [Web Apps](../app-service-web/app-service-web-overview.md) y [Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md). Lo mismo sucede al contrario: si utiliza una aplicación web o móvil para hospedar una API, podrá aprovechar las características de Aplicaciones de API, como metadatos de Swagger para la generación de código de cliente y CORS para el acceso entre dominios del explorador. La única diferencia entre los tres tipos de aplicaciones (API, web, móvil) radica en el nombre y el icono utilizados para ellas en el Portal de Azure.
 
@@ -62,6 +62,6 @@ Para plantear preguntas sobre Aplicaciones de API, cree una conversación en el 
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

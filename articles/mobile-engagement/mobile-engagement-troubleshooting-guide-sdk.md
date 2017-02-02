@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dd898a35c64e350fafbf20b4de42a23eecf3f29b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 46a86bf99c1afd09ae3921a205d27532246171c9
 
 
 ---
@@ -46,8 +46,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 **Consulte también:**
 
-* [Documentación del SDK: Guías de integración][Vínculo 5] 
-* [Guía de solución de problemas: Inserción][Vínculo 23]
+* [Documentación del SDK - Guías de integración][Link 5] 
+* [Guía de solución de problemas - Push][Link 23]
 
 #### <a name="sdk-upgrade"></a>Actualización del SDK
 * Debe actualizar el SDK para resolver problemas con versiones anteriores del SDK (a menudo relacionados con las versiones más recientes del sistema operativo del dispositivo).
@@ -64,7 +64,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 
 **Consulte también:**
 
-* [Conceptos: Glosario][Vínculo 6]
+* [Conceptos - Glosario][Link 6]
 
 ## <a name="advanced-coding-issues"></a>Problemas de codificación avanzados
 ### <a name="issue"></a>Problema
@@ -79,9 +79,9 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Azure Mobile Engagement publica una lista completa de los paquetes internos utilizados por Azure Mobile Engagement para iOS y Android a modo de referencia. Tenga en cuenta que algunas funciones de Azure Mobile Engagement son específicas de la plataforma (Android, iOS, Web, Windows y Windows Phone).
 
 ### <a name="see-also"></a>Consulte también
-* [Guía de solución de problemas: Inserción][Vínculo 23] 
-* [Documentación del SDK: Notas de la versión][Vínculo 5]
-* [Documentación del SDK: Guías de actualización][Vínculo 5]
+* [Guía de solución de problemas - Push][Link 23] 
+* [Documentación del SDK - Notas de la versión][Link 5]
+* [Documentación del SDK - Guía de actualización][Link 5]
 
 ## <a name="application-crashes"></a>Bloqueos de la aplicación
 ### <a name="issue"></a>Problema
@@ -93,8 +93,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Los problemas conocidos con el SDK de Azure Mobile Engagement que provocan que las aplicaciones se bloqueen a veces se resuelven con la actualización a la versión más reciente del SDK. Asegúrese de comprobar las notas de la versión de la plataforma cuando investigue los bloqueos.
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación del SDK: Notas de la versión][Vínculo 5]
-* [Documentación del SDK: Guías de actualización][Vínculo 5]
+* [Documentación del SDK - Notas de la versión][Link 5]
+* [Documentación del SDK - Guía de actualización][Link 5]
 
 ## <a name="app-store-upload-failures"></a>Fallos de carga de la tienda de aplicaciones
 ### <a name="issue"></a>Problema
@@ -105,39 +105,39 @@ Los siguientes son posibles problemas que pueden producirse con cómo Azure Mobi
 * Asegúrese de comprobar las notas de la versión acerca de la plataforma y la versión actual del SDK si tiene dificultades para cargar una aplicación en la tienda.
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: mobile-engagement-user-interface-reach-campaign.md
-[Vínculo 28]: mobile-engagement-user-interface-reach-criterion.md
-[Vínculo 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

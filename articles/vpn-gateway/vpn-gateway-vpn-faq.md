@@ -1,10 +1,10 @@
 ---
 title: Preguntas frecuentes sobre VPN Gateway de Virtual Network | Microsoft Docs
-description: "Preguntas más frecuentes sobre la puerta de enlace de VPN Preguntas más frecuentes sobre las conexiones entre locales de Virtual Network de Microsoft Azure, las conexiones híbridas de configuración y puertas de enlace VPN"
+description: "Preguntas más frecuentes sobre la puerta de enlace de VPN Preguntas más frecuentes sobre las conexiones entre locales, las conexiones de configuración híbrida y las puertas de enlace de VPN de Microsoft Azure Virtual Network."
 services: vpn-gateway
 documentationcenter: na
-author: yushwang
-manager: rossort
+author: cherylmc
+manager: timlt
 editor: 
 ms.assetid: 6ce36765-250e-444b-bfc7-5f9ec7ce0742
 ms.service: vpn-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2016
-ms.author: yushwang
+ms.date: 01/10/2017
+ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: e7d0fa43001268fc4747bbf40d3dc209aa037a67
+ms.sourcegitcommit: 2dda1cd384cf365504811a260872703f2c5c484e
+ms.openlocfilehash: ccb0dc6172b234412558b9175f3872d690d4ea3a
 
 
 ---
@@ -102,7 +102,7 @@ De forma predeterminada, el equipo cliente no volverá a establecer la conexión
 Las VPN de punto a sitio no admiten la reconexión automática y el DDNS.
 
 ### <a name="can-i-have-site-to-site-and-point-to-site-configurations-coexist-for-the-same-virtual-network"></a>¿Puedo tener configuraciones de sitio a sitio y de punto a sitio coexistiendo en la misma red virtual?
-Sí. Ambas soluciones funcionarán si tiene un tipo de VPN basada en enrutamiento para la puerta de enlace. Para el modelo de implementación clásica, necesita una puerta de enlace dinámica. No se admite la configuración de punto a sitio para puertas de enlace de VPN de enrutamiento estáticas o puertas de enlace que usan -VpnType PolicyBased.
+Sí. Ambas soluciones funcionarán si tiene un tipo de VPN basada en enrutamiento para la puerta de enlace. Para el modelo de implementación clásica, necesita una puerta de enlace dinámica. No se admite la configuración de punto a sitio para puertas de enlace de VPN de enrutamiento estáticas o puertas de enlace que usan el cmdlet `-VpnType PolicyBased`.
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>¿Puedo configurar un cliente de punto a sitio para conectarse a varias redes virtuales al mismo tiempo?
 Sí, es posible. Pero las redes virtuales no pueden tener prefijos IP superpuestos y los espacios de dirección de punto a sitio no pueden superponerse entre las redes virtuales.
@@ -129,7 +129,7 @@ Sí, el cmdlet de PowerShell y la API para establecer la clave precompartida se 
 ### <a name="can-i-use-other-authentication-options"></a>¿Puedo usar otras opciones de autenticación?
 Las opciones están limitadas al uso de claves precompartidas (PSK) para la autenticación.
 
-### <a name="what-is-the-gateway-subnet-and-why-is-it-needed"></a>¿Qué es la "subred de puerta de enlace" y por qué es necesaria?
+### <a name="what-is-the-gatewaysubnet-and-why-is-it-needed"></a>¿Qué es "GatewaySubnet " y por qué se necesita?
 Existe un servicio de puerta de enlace que se ejecuta para habilitar la conectividad entre locales.
 
 Deberá crear una subred de puerta de enlace para la red virtual para configurar una puerta de enlace de VPN. Para que funcionen correctamente, todas las subredes de puerta de enlace se deben llamar GatewaySubnet. No denomine de ninguna otra forma la subred de puerta de enlace. Y no implemente máquinas virtuales ni nada más en la subred de puerta de enlace.
@@ -140,7 +140,14 @@ El tamaño mínimo de la subred de puerta de enlace depende por completo de la c
 No.
 
 ### <a name="how-do-i-specify-which-traffic-goes-through-the-vpn-gateway"></a>¿Cómo especifico qué tráfico pasa a través de la puerta de enlace VPN?
-Si está usando el Portal de Azure clásico, agregue cada uno de los intervalos que quiera enviar a través de la puerta de enlace de la red virtual a la página Redes en Redes locales.
+
+####<a name="resource-manager-deployment-model"></a>Modelo de implementación del Administrador de recursos
+* PowerShell: use "AddressPrefix" para especificar el tráfico de la puerta de enlace de red local.
+* Azure Portal: navegue a la puerta de enlace de red local > Configuración > Espacio de direcciones.
+
+####<a name="classic-deployment-model"></a>Modelo de implementación clásica
+* Azure Portal: navegue a la red virtual clásica > Conexiones VPN > Conexiones VPN de sitio a sitio > Nombre del sitio local > Sitio local > Espacio de direcciones del cliente. 
+* Portal clásico: agregue todos los intervalos que desea que se envíen a través de la puerta de enlace para la red virtual en la página Redes de Redes locales. 
 
 ### <a name="can-i-configure-forced-tunneling"></a>¿Puedo configurar una tunelización forzada?
 Sí. Consulte [Configurar una tunelización forzada](vpn-gateway-about-forced-tunneling.md).
@@ -167,7 +174,7 @@ No, ambas redes virtuales TIENEN QUE usar VPN basadas en enrutamiento (enrutamie
 Sí, se protege mediante cifrado IPsec/IKE.
 
 ### <a name="does-vnet-to-vnet-traffic-travel-over-the-azure-backbone"></a>¿El tráfico de red virtual a red virtual viaja a través de la red troncal de Azure?
-Sí.
+Sí, este tráfico atraviesa la red troncal de Azure. No se pasa a través de Internet.
 
 ### <a name="how-many-on-premises-sites-and-virtual-networks-can-one-virtual-network-connect-to"></a>¿A cuántos sitios locales y redes virtuales se puede conectar una red virtual?
 Máx. 10 combinados para las puertas de enrutamiento dinámico de nivel Básico y Estándar y 30 para las puertas de enlace VPN de alto rendimiento.
@@ -176,7 +183,7 @@ Máx. 10 combinados para las puertas de enrutamiento dinámico de nivel Básico 
 Sí, las VPN de punto a sitio (P2S) se pueden usar con las puertas de enlace de VPN para conectarse a varios sitios locales y a otras redes virtuales.
 
 ### <a name="can-i-configure-multiple-tunnels-between-my-virtual-network-and-my-on-premises-site-using-multi-site-vpn"></a>¿Puedo configurar varios túneles entre mi red virtual y mi sitio local utilizando VPN multisitio?
-No, no se admiten túneles redundantes entre una red virtual de Azure y un sitio local.
+Sí, pero debe configurar BGP en ambos túneles de la misma ubicación.
 
 ### <a name="can-there-be-overlapping-address-spaces-among-the-connected-virtual-networks-and-on-premises-local-sites"></a>¿Puede haber espacios de direcciones superpuestos entre las redes virtuales conectadas y los sitios locales?
 No. Los espacios de direcciones superpuestos harían que fallara la carga del archivo de configuración de red o la creación de una red virtual.
@@ -185,10 +192,12 @@ No. Los espacios de direcciones superpuestos harían que fallara la carga del ar
 No, todos los túneles VPN, incluidas las VPN de punto a sitio, comparten la misma puerta de enlace de VPN de Azure y el ancho de banda disponible.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>¿Puedo usar la puerta de enlace de VPN de Azure para el tráfico en tránsito entre mis sitios locales o a otra red virtual?
-**Modelo de implementación clásica**<br>
- el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.<br>
-**Modelo de implementación de Resource Manager**<br>
-Si usa el modelo de implementación de Resource Manager, consulte la sección [BGP](#bgp) para más información.
+
+####<a name="resource-manager-deployment-model"></a>Modelo de implementación del Administrador de recursos
+Sí. Para más información, consulte la sección [BGP](#bgp).
+
+####<a name="classic-deployment-model"></a>Modelo de implementación clásica
+el tráfico en tránsito a través de Puerta de enlace de VPN de Azure es posible mediante el modelo de implementación clásica, pero se basa en espacios de direcciones definidos estáticamente en el archivo de configuración de red. BGP aún no se admite con instancias de Red virtual de Azure y Puerta de enlace de VPN mediante el modelo de implementación clásica. Sin BGP, definir manualmente los espacios de direcciones de tránsito es difícil de hacer sin errores y no se recomienda.<br>
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de la puerta de enlace VPN o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave TIENE QUE ser una cadena alfanumérica con una longitud de entre 1 y 128 caracteres.
@@ -216,6 +225,6 @@ Consulte información adicional de redes virtuales adicionales en las [Preguntas
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

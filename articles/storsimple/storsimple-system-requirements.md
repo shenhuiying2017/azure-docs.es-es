@@ -12,11 +12,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/31/2016
+ms.date: 12/13/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e5f0062d630a3b54b6c493f19877606e85f52eaa
+ms.sourcegitcommit: 52f2bf14c60dbb062a6f4aec26403c5064bba036
+ms.openlocfilehash: 3dc513e99ad3ac0f4f18f70666ee299a95ee9294
 
 
 ---
@@ -71,7 +71,7 @@ El dispositivo StorSimple es un dispositivo bloqueado. Sin embargo, los puertos 
 
 <sup>2</sup> Si varios puertos llevan una configuración de puerta de enlace, el orden del tráfico enrutado saliente se determinará según el orden de enrutamiento del puerto que se describe a continuación en [Métrica de enrutamiento](#routing-metric).
 
-<sup>3</sup> Las direcciones IP fijas del controlador del dispositivo StorSimple deben ser enrutables y capaces de conectarse a Internet. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
+<sup>3</sup> Las direcciones IP fijas del controlador del dispositivo de StorSimple deben ser enrutables y deben poder conectarse a Internet directamente o a través de un proxy web configurado. Las direcciones IP fijas se utilizan para el mantenimiento de las actualizaciones del dispositivo. Si los controladores del dispositivo no pueden conectarse a Internet a través de direcciones IP fijas, no podrá actualizar el dispositivo StorSimple.
 
 > [!IMPORTANT]
 > Asegúrese de que el firewall no modifica ni descifra ningún tráfico SSL entre el dispositivo de StorSimple y Azure.
@@ -253,6 +253,6 @@ Revise cuidadosamente estos procedimientos recomendados para garantizar la alta 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

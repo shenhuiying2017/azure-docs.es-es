@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -57,8 +57,8 @@ Un perfil de datos en el Catálogo de datos de Azure es una instantánea de meta
 
 > [!NOTE]
 > Extraer un perfil de datos puede ser una operación costosa en tablas y vistas grandes, y puede aumentar significativamente el tiempo necesario para registrar un origen de datos.
-> 
-> 
+>
+>
 
 ## <a name="user-perspective"></a>Perspectiva del usuario
 En el Catálogo de datos de Azure, cualquier usuario puede proporcionar metadatos descriptivos para un recurso de datos registrados. Cada usuario tiene una perspectiva distinta de los datos y su uso. Por ejemplo, el administrador de un servidor puede proporcionar los detalles de su contrato de nivel de servicio (SLA) o windows de respaldo; un administrador de datos puede proporcionar vínculos a la documentación para los procesos de negocio admitidos por los datos; un analista puede proporcionar una descripción en los términos que sean más relevantes para otros analistas y que pueden ser más valiosos para aquellos usuarios que necesitan descubrir y comprender los datos.
@@ -73,8 +73,8 @@ Un propietario es un usuario que tiene privilegios adicionales para administrar 
 
 > [!NOTE]
 > Propiedad y administración solo están disponibles en la Standard Edition del Catálogo de datos de Azure.
-> 
-> 
+>
+>
 
 ## <a name="registration"></a>Registro
 El registro es el acto de extraer metadatos de recursos de datos de un origen de datos y copiarla en el servicio del Catálogo de datos de Azure. Es posible anotar y descubrir los recursos de datos que se han registrado.
@@ -82,7 +82,6 @@ El registro es el acto de extraer metadatos de recursos de datos de un origen de
 ## <a name="see-also"></a>Otras referencias
 * [¿Qué es el Catálogo de datos de Azure?](data-catalog-what-is-data-catalog.md) : este artículo proporciona información general sobre el servicio del Catálogo de datos de Azure, el valor que proporciona y los escenarios que admite.
 * [Introducción al Catálogo de datos de Azure](data-catalog-get-started.md) : este artículo ofrece un tutorial integral que muestra cómo usar el Catálogo de datos de Azure para la detección del orígenes de datos.  
-
 
 
 

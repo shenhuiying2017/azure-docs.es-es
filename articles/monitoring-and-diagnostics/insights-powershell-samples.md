@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: fea73e15543b2d0284c94118e01415870b5396ff
+ms.sourcegitcommit: aba17fb9f7a07b4d67092875a119ab463da5d273
+ms.openlocfilehash: ffd85e1df173fdbc392339cd169281c1ae3fbb5d
 
 
 ---
@@ -29,7 +29,7 @@ En este artículo se muestran comandos de PowerShell de ejemplo para ayudarle a 
 > 
 
 ## <a name="set-up-powershell"></a>Configurar PowerShell
-Si no lo ha hecho ya, configure PowerShell para que se ejecute en el equipo. Para obtener más información, consulte [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md) .
+Si no lo ha hecho ya, configure PowerShell para que se ejecute en el equipo. Para obtener más información, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs) .
 
 ## <a name="examples-in-this-article"></a>Ejemplos de este artículo
 Los ejemplos de este artículo muestran cómo puede usar cmdlets de Azure Monitor. También puede consultar toda la lista de cmdlets de PowerShell de Azure Monitor en [Azure Monitor Cmdlets](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) (Cmdlets de Azure Monitor).
@@ -54,7 +54,7 @@ Set-AzureRmContext -SubscriptionId <subscriptionid>
 ```
 
 
-## <a name="retrieve-audit-logs-for-a-subscription"></a>Recuperación de registros de auditoría para una suscripción
+## <a name="retrieve-activity-log-for-a-subscription"></a>Recuperación del registro de actividades para una suscripción
 Utilice el cmdlet `Get-AzureRmLog` .  Abajo se muestran algunos ejemplos comunes.
 
 Obtención de entradas de registro desde esta fecha y hora hasta la actual:
@@ -190,7 +190,7 @@ El cmdlet Add alert también actualiza la regla si ya existe una para las propie
 
 ### <a name="alert-on-activity-log-event"></a>Alerta de evento del registro de actividades
 > [!NOTE]
-> Esta característica aún sigue en la fase de vista previa.
+> Esta característica está en versión preliminar y se quitará en algún momento en el futuro (está reemplazándose).
 > 
 > 
 
@@ -356,7 +356,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 ```
 
 ## <a name="configure-diagnostics-logs"></a>Configuración de registros de diagnóstico
-Muchos servicios de Azure proporcionan otros registros y datos de telemetría, incluidos grupos de seguridad de red de Azure, equilibradores de carga de software, almacenes de claves, servicios de búsqueda de Azure y aplicaciones lógicas. Asimismo, pueden configurarse para guardar los datos en  la cuenta de almacenamiento de Azure. Esta operación solo puede realizarse en un nivel de recursos y la cuenta de almacenamiento debe encontrarse en la misma región que el recurso de destino donde se ha ajustado la configuración de diagnóstico.
+Muchos servicios de Azure proporcionan otros registros y telemetría que pueden configurarse para guardar los datos en su cuenta de Azure Storage, enviarlos a Event Hubs o enviarlos a un área de trabajo de Log Analytics de OMS. Esta operación solo puede realizarse en un nivel de recursos y la cuenta de almacenamiento o el centro de eventos debe encontrarse en la misma región que el recurso de destino donde se ha ajustado la configuración de diagnóstico.
 
 ### <a name="get-diagnostic-setting"></a>Obtención de la configuración de diagnóstico
 ```PowerShell
@@ -387,8 +387,21 @@ Habilitación de la configuración de diagnóstico con retención para una categ
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/sakteststorage -Categories NetworkSecurityGroupEvent -Enable $true -RetentionEnabled $true -RetentionInDays 90
 ```
 
+Habilitación de la configuración de diagnóstico para Event Hubs
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
+```
+
+Habilitación de la configuración de diagnóstico para OMS
+
+```PowerShell
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+
+```
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Dec16_HO2-->
 
 

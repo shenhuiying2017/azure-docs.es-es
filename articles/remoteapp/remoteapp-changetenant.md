@@ -1,24 +1,27 @@
-
 ---
 title: Cambio del inquilino de Azure Active Directory en Azure RemoteApp | Microsoft Docs
-description: Obtenga información sobre cómo cambiar el inquilino de Azure Active Directory asociado con Azure RemoteApp
+description: "Obtenga información sobre cómo cambiar el inquilino de Azure Active Directory asociado con Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 20faf169-6e48-428a-8bdd-f231daff19fa
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 5326c779d766e075a54f5ec43f92b6c5c973be8b
+
 
 ---
-# Cambio del inquilino de Azure Active Directory en Azure RemoteApp
+# <a name="change-the-azure-active-directory-tenant-in-azure-remoteapp"></a>Cambio del inquilino de Azure Active Directory en Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -38,7 +41,7 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
    2. Haga clic en la suscripción. A continuación, en la nueva página, desplácese hacia abajo y haga clic en **Editar detalles de suscripción** a la derecha. (Hacia el medio de la parte inferior derecha, por si eso le ayuda a encontrarlo).
    3. Escriba la cuenta de Microsoft para el usuario que debe ser el Administrador de servicios.
 3. Ahora, cierre sesión en el portal y, a continuación, vuelva a iniciarla con la cuenta Microsoft que especificó en el paso anterior.
-4. Haga clic en **Nuevo -> Servicios de aplicaciones -> Active Directory -> Directorio -> Creación personalizada**.
+4. Haga clic en **Nuevo > Servicios de aplicaciones > Active Directory > Directorio > Creación personalizada**.
 5. En **Directorio**, elija **Usar directorio existente**. Vamos a tener que iniciar sesión en el portal ahora, así que elija **Estoy listo para cerrar la sesión ahora**.
 6. Inicie sesión de nuevo en el portal como administrador global del directorio que desea agregar. (Si no fuera todavía administrador global, lo será después de volver a iniciar sesión y luego cerrarla).
 7. Se le preguntará al iniciar sesión si desea usar al inquilino existente de AD con su suscripción. Haga clic en **Continuar**, y luego haga clic en **Cerrar sesión ahora**.
@@ -46,4 +49,9 @@ Si desea usar otro inquilino, use estos pasos para cambiar la asociación a su s
 
 Ahora puede usar el nuevo inquilino de Azure AD para controlar el acceso a la suscripción de Azure y para configurar el acceso de usuario en Azure RemoteApp.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

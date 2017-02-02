@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 10/02/2016
 ms.author: sethm
 translationtype: Human Translation
-ms.sourcegitcommit: 57aec98a681e1cb5d75f910427975c6c3a1728c3
-ms.openlocfilehash: 70a4c5ee79a5c74d63d461371f70b49a23d5cf25
+ms.sourcegitcommit: 1116ae1c699f59b7f75f25bed105a53b508801b2
+ms.openlocfilehash: f3fd30791d9110ec0a72e9ec9e51b5e762020fe7
 
 
 ---
@@ -91,7 +91,7 @@ Los siguientes escenarios incluyen la configuración de reglas de autorización,
 Para un ejemplo funcional completo de una aplicación del Bus de servicio que ilustra la configuración y usa la autorización SAS, consulte [Autenticación con firma de acceso compartido en Service Bus](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Hay un ejemplo relacionado que ilustra el uso de reglas de autorización SAS configuradas en espacios de nombres o temas para proteger las suscripciones del Bus de servicio disponible aquí: [Uso de la autenticación de firma de acceso compartido (SAS) con suscripciones del Bus de servicio](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-a-namespace"></a>Acceso a las reglas de autorización de acceso compartido en un espacio de nombres
-Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][Portal de Azure clásico]. Para obtener más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
+Las operaciones en la raíz del espacio de nombres del Bus de servicio requieren la autenticación con certificados. Debe cargar un certificado de administración para la suscripción de Azure. Para cargar un certificado de administración, haga clic en **Configuración** en el panel izquierdo del [Portal de Azure clásico][Azure classic portal]. Para obtener más información sobre los certificados de administración de Azure, consulte [Introducción a los certificados para los servicios en la nube de Azure](../cloud-services/cloud-services-certs-create.md#what-are-management-certificates).
 
 El extremo para acceder a las reglas de autorización de acceso compartido en un espacio de nombres del Bus de servicio es el siguiente:
 
@@ -208,7 +208,7 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | Creación de una cola |administración |Cualquier dirección de espacio de nombres |
 | Eliminación de una cola |administración |Cualquier dirección de cola válida |
 | Enumerar colas |administración |/$Resources/Queues |
-| Obtener la descripción de la cola |Administrar o enviar |Cualquier dirección de cola válida |
+| Obtener la descripción de la cola |Administrar |Cualquier dirección de cola válida |
 | Configurar la regla de autorización para una cola |administración |Cualquier dirección de cola válida |
 | Enviar a la cola |Los métodos Send |Cualquier dirección de cola válida |
 | mensajes de una cola |Escuchar |Cualquier dirección de cola válida |
@@ -221,38 +221,33 @@ La siguiente tabla muestra los derechos de acceso necesarios para realizar diver
 | de un tema |administración |Cualquier dirección de espacio de nombres |
 | Eliminación de un tema |administración |Cualquier dirección de tema válida |
 | Enumerar temas |administración |/$Resources/Topics |
-| Obtener la descripción del tema |Administrar o enviar |Cualquier dirección de tema válida |
+| Obtener la descripción del tema |Administrar |Cualquier dirección de tema válida |
 | Configurar la regla de autorización para un tema |administración |Cualquier dirección de tema válida |
 | Enviar al tema |Los métodos Send |Cualquier dirección de tema válida |
 | **Suscripción** | | |
 | una suscripción |administración |Cualquier dirección de espacio de nombres |
 | Eliminar suscripción |administración |../myTopic/Subscriptions/mySubscription |
 | Enumerar suscripciones |administración |../myTopic/Subscriptions |
-| Obtener la descripción de la suscripción |Administrar o escuchar |../myTopic/Subscriptions/mySubscription |
+| Obtener la descripción de la suscripción |Administrar |../myTopic/Subscriptions/mySubscription |
 | Abandone o complete los mensajes después de recibir el mensaje en el modo de bloqueo de información |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Aplazar un mensaje para su recuperación posterior |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Mensaje fallido |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Obtener el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
 | Establecer el estado asociado a una sesión de tema |Escuchar |../myTopic/Subscriptions/mySubscription |
-| **Regla** | | |
+| **Reglas** | | |
 | Crear una regla |administración |../myTopic/Subscriptions/mySubscription |
 | Eliminar una regla |administración |../myTopic/Subscriptions/mySubscription |
 | Enumerar reglas |Administrar o escuchar |../myTopic/Subscriptions/mySubscription/Rules |
-| **Centros de notificaciones** | | |
-| Creación de un centro de notificaciones |administración |Cualquier dirección de espacio de nombres |
-| Crear o actualizar el registro para un dispositivo activo |Escuchar o administrar |../notificationHub/tags/{tag}/registrations |
-| Actualizar la información de PNS |Escuchar o administrar |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| Envío de un centro de notificaciones |Los métodos Send |../notificationHub/messages |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener una descripción general de SAS en el Bus de servicio, consulte [Firmas de acceso compartido](service-bus-sas-overview.md).
 
 Para obtener más información sobre la autenticación del Bus de servicio, consulte [Autenticación y autorización del Bus de servicio](service-bus-authentication-and-authorization.md) .
 
-[Portal de Azure clásico]: http://manage.windowsazure.com
+[Azure classic portal]: http://manage.windowsazure.com
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

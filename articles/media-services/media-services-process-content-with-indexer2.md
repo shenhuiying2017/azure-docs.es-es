@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/07/2016
 ms.author: adsolank;juliako;
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 17571acfab870974186af9849d030e9702f3be76
+ms.sourcegitcommit: 7065d5e87dbf47153bc89b37b56af81927b8b92b
+ms.openlocfilehash: 902e872b224b267c989f741345efdd8ef3fa8ce3
 
 
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indización de archivos multimedia con Azure Media Indexer 2 Preview
 ## <a name="overview"></a>Información general
-El procesador de multimedia (MP) **Azure Media Indexer 2 Preview** permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas de subtítulos (CC). En comparación con la versión anterior de [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** realiza la indexación de forma más rápida y ofrece compatibilidad con más idiomas. Los idiomas compatibles son inglés, español, francés, alemán, italiano, chino, portugués y árabe.
+El procesador de multimedia (MP) **Azure Media Indexer 2 Preview** permite crear archivos multimedia y contenido que se puede buscar, así como generar pistas de subtítulos (CC). En comparación con la versión anterior de [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** realiza la indexación de forma más rápida y ofrece compatibilidad con más idiomas. Los idiomas admitidos son inglés, español, francés, alemán, italiano, chino (simplificado y mandarín), portugués, árabe y japonés.
 
 El MP **Azure Media Indexer 2 Preview** se encuentra actualmente en la fase de versión preliminar.
 
@@ -32,8 +32,6 @@ En este tema se muestra cómo crear trabajos de indexación con **Azure Media In
 > Se aplican las siguientes consideraciones:
 > 
 > Indexer 2 no es compatible con Azure China y Azure Government.
-> 
-> La versión preliminar tiene una limitación de unos 10 minutos de procesamiento, pero está disponible de forma gratuita para todos los clientes.
 > 
 > Al indizar contenido, asegúrese de usar archivos multimedia que tengan una voz muy clara (sin música de fondo, ruido, efectos ni silbido de micrófono). Algunos ejemplos de contenido adecuado son: reuniones, conferencias o presentaciones grabadas. Es posible que el siguiente contenido no sea adecuado para la indización: películas, programas de TV, cualquier elemento con audio y efectos de sonido mezclados o contenido mal gragado con ruido de fondo (silbido).
 > 
@@ -78,14 +76,16 @@ Azure Media Indexer 2 Preview admite características de texto a voz en los sigu
 
 * Inglés [EnUs]
 * Español [EsEs]
-* Chino [ZhCn]
+* Chino (mandarín, simplificado) [ZhCn]
 * Francés [FrFr]
 * Alemán [DeDe]
 * Italiano [ItIt]
 * Portugués [PtBr]
 * Árabe (egipcio) [ArEg]
+* Japonés [JaJp]
 
 ## <a name="sample-code"></a>Código de ejemplo
+
 El programa siguiente muestra cómo:
 
 1. Crear un recurso y cargar un archivo multimedia en dicho recurso.
@@ -282,6 +282,6 @@ El programa siguiente muestra cómo:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

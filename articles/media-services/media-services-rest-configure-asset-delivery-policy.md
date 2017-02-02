@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/19/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e5b098c7cd1de5b06809787ac61393e45d17eab
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: edb4ba7a855583cd00051cb4f4edae3a13cdd496
 
 
 ---
@@ -38,9 +38,9 @@ Puede aplicar diferentes directivas al mismo recurso. Por ejemplo, puede aplicar
 
 Si desea entregar un recurso de almacenamiento cifrado, debe configurar la directiva de entrega de recursos. Antes de poder transmitir el recurso, el servidor de streaming quita el cifrado de almacenamiento y transmite el contenido usando la directiva de entrega especificada. Por ejemplo, para entregar el recurso cifrado con la clave de cifrado de sobre de Estándar de cifrado avanzado (AES), establezca el tipo de directiva en **DynamicEnvelopeEncryption**. Para quitar el cifrado de almacenamiento y transmitir el recurso sin cifrar, establezca el tipo de directiva en **NoDynamicEncryption**. A continuación se muestran ejemplos de configuración de estos tipos de directiva.
 
-Según como configure la directiva de entrega de recursos podrá empaquetar de forma dinámica, cifrar de forma dinámica y transmitir los protocolos de streaming siguientes: secuencias Smooth Streaming, HLS, MPEG DASH y HDS.
+Según como configure la directiva de entrega de recursos podrá empaquetar de forma dinámica, cifrar de forma dinámica y transmitir los protocolos de streaming siguientes: secuencias Smooth Streaming, HLS y MPEG DASH.
 
-En la lista siguiente se muestran los formatos usados para transmitir Smooth Streaming, HLS, DASH y HDS.
+En la lista siguiente se muestran los formatos usados para transmitir Smooth Streaming, HLS y DASH.
 
 Smooth Streaming:
 
@@ -54,9 +54,6 @@ MPEG DASH
 
 {nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=mpd-time-csf)
 
-HDS
-
-{nombre de extremo de streaming-nombre de cuenta de servicios multimedia}.streaming.mediaservices.windows.net/{Id. de localizador}/{nombre de archivo}.ism/Manifest(formato=f4m-f4f)
 
 Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
@@ -306,11 +303,6 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
         HLS = 0x4,
 
         /// <summary>
-        /// Adobe HTTP Dynamic Streaming (HDS)
-        /// </summary>
-        Hds = 0x8,
-
-        /// <summary>
         /// Include all protocols.
         /// </summary>
         All = 0xFFFF
@@ -441,6 +433,6 @@ Consulte [Vinculación de un recurso con la directiva de entrega de recursos](#l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

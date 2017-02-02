@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/06/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 5566e80f7d105944be6e10915b3b6ee2852c05e2
+ms.sourcegitcommit: 060bcf7cfac365e93b988cda0f402df6ba605dfc
+ms.openlocfilehash: 4dcc519e74cf1a5fbc7be3ddbd506fcbc25ed882
 
 
 ---
@@ -57,13 +57,14 @@ Hay muchas ventajas en usar HDInsight con Data Factory:
 >
 >
 
-## <a name="prerequisites"></a>Requisitos previos:
+## <a name="prerequisites"></a>Requisitos previos
+
 Antes de empezar las instrucciones de este artículo, debe tener lo siguiente:
 
 * [Suscripción de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * CLI de Azure o Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## <a name="prepare-storage-account"></a>Preparación de la cuenta de almacenamiento
 Puede utilizar hasta tres cuentas de almacenamiento en este escenario:
@@ -197,7 +198,7 @@ Si necesita ayuda con este script de PowerShell, vea [Uso de Azure PowerShell co
 7. Abra la carpeta y compruebe los archivos en las carpetas.
 
 ## <a name="create-data-factory"></a>Creación de Data Factory
-Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL preparados, está listo para crear Data Factory. Existen varios métodos para crear Data Factory. Utilizará Azure Portal para llamar a una plantilla de Resource Manager personalizada en este tutorial. También puede llamar a la plantilla de Resource Manager desde la [CLI de Azure](../resource-group-template-deploy-cli.md) y [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). Para otros métodos de creación de Data Factory, vea [Tutorial: creación de la  primera Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
+Con la cuenta de almacenamiento, los datos de entrada y el script de HiveQL preparados, está listo para crear Data Factory. Existen varios métodos para crear Data Factory. Utilizará Azure Portal para llamar a una plantilla de Resource Manager personalizada en este tutorial. También puede llamar a la plantilla de Resource Manager desde la [CLI de Azure](../resource-group-template-deploy-cli.md) y [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). Para otros métodos de creación de Data Factory, vea [Tutorial: creación de la  primera Data Factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 La plantilla de Resource Manager de nivel superior contiene lo siguiente:
 
@@ -329,7 +330,7 @@ El recurso *hdinsight-hive-on-demand* contiene 4 recursos:
 
 1. Haga clic en la imagen siguiente para iniciar sesión en Azure y abrir la plantilla de Resource Manager en Azure Portal. La plantilla se encuentra en https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Escriba **DATAFACTORYNAME**, **STORAGEACCOUNTNAME** y **STORAGEACCOUNTKEY** para la cuenta que creó en la última sección y, después, haga clic en **Aceptar**. El nombre de Data Factory debe ser único globalmente.
 3. En **Grupo de recursos**, seleccione el mismo grupo de recursos que usó en la última sección.
 4. Haga clic en **Términos legales** y, luego, en **Crear**.
@@ -443,6 +444,6 @@ En este artículo, ha aprendido cómo utilizar la Data Factory de Azure para cre
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

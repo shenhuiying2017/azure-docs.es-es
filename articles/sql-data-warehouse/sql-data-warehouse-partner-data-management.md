@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2b29a041a005a6d6aa60c45dc39f151647e35646
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5e038b3675e0e196698419718433895f8d5ed45f
 
 
 ---
@@ -34,7 +34,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | ![SQL Sentry][5] |**SQL Sentry**<br>SQL Sentry Performance Advisor ofrece vistas históricas y en tiempo real de las métricas de rendimiento más relevantes de Almacenamiento de datos SQL de Azure, lo que permite que los clientes vean las tendencias de rendimiento y tengan un acceso fácil a información más detallada para un análisis y solución de problemas en profundidad. Performance Advisor permite la visualización de datos de rendimiento de cualquier punto en el tiempo o cualquier intervalo de fechas. |[Marketplace][sql_sentry_marketplace]<br>[Sitio web][sql_sentry_website]<br>[Comunicado de prensa][sql_sentry_press]<br>[Twitter][sql_sentry_twitter]<br>[YouTube][sql_sentry_youtube] | |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de algunos de nuestros otros asociados, consulte [Asociados de inteligencia empresarial][bi_partners] y [Asociados de integración de datos][di_partners].
+Para obtener más información sobre algunos de nuestros otros asociados, consulte [Asociados de inteligencia empresarial][bi_partners] y [Asociados de integración de datos][di_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-data-management/coffing_data_warehousing_logo.png
@@ -100,6 +100,6 @@ Para más información acerca de algunos de nuestros otros asociados, consulte [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

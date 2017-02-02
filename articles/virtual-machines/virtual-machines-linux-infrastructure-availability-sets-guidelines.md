@@ -1,28 +1,32 @@
 ---
-title: Directrices para conjuntos de disponibilidad | Microsoft Docs
-description: Obtenga información sobre las directrices clave de diseño e implementación para implementar conjuntos de disponibilidad en los servicios de infraestructura de Azure.
-documentationcenter: ''
+title: Directrices de conjuntos de disponibilidad de Azure | Microsoft Docs
+description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar conjuntos de disponibilidad en los servicios de infraestructura de Azure."
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 24f1d91c-8cc0-4251-bb67-ac4c4c37e8cd
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: a99ab839ec9ade0049e1cc59054e333048e0208c
+ms.openlocfilehash: 93d1421fb8afdc5e6e7d20de25774eb580a0e8da
+
 
 ---
-# Directrices para conjuntos de disponibilidad
+# <a name="azure-availability-sets-guidelines"></a>Directrices de conjuntos de disponibilidad de Azure
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Este artículo se centra en describir los pasos de planeamiento necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
+Este artículo se centra en describir los pasos de planeación necesarios para que los conjuntos de disponibilidad garanticen que sus aplicaciones permanezcan accesibles durante eventos planeados o no planeados.
 
-## Directrices de implementación para los conjuntos de disponibilidad
+## <a name="implementation-guidelines-for-availability-sets"></a>Directrices de implementación para los conjuntos de disponibilidad
 Decisiones:
 
 * ¿Cuántos conjuntos de disponibilidad necesita para los distintos roles y niveles de la infraestructura de la aplicación?
@@ -31,20 +35,27 @@ Tareas:
 
 * Defina el número de máquinas virtuales en cada nivel de aplicación que necesite.
 * Determine si necesita ajustar el número de dominios de error o actualización que se va a usar para la aplicación.
-* Defina los conjuntos de disponibilidad necesarios usando su convención de nomenclatura y las máquinas virtuales que residirán en ellos. Una máquina virtual solo puede residir en un conjunto de disponibilidad.
+* Defina los conjuntos de disponibilidad necesarios usando su convención de nomenclatura y las máquinas virtuales que residirán en ellos. Una máquina virtual solo puede residir en un conjunto de disponibilidad. 
 
-## Conjuntos de disponibilidad
+## <a name="availability-sets"></a>Conjuntos de disponibilidad
 En Azure, las máquinas virtuales (VM) se pueden colocar en una agrupación lógica llamada conjunto de disponibilidad. Al crear máquinas virtuales dentro de un conjunto de disponibilidad, la plataforma de Azure distribuirá la ubicación de esas máquinas virtuales a través de la infraestructura subyacente. Si hubiera un evento de mantenimiento planeado para la plataforma de Azure o un error de hardware o infraestructura subyacente, el uso de conjuntos de disponibilidad garantiza que al menos una máquina virtual siguiera ejecutándose.
 
 Como procedimiento recomendado, las aplicaciones no deben residir en una sola máquina virtual. Un conjunto de disponibilidad que contiene una sola máquina virtual no obtiene ninguna protección por parte de eventos planeados o no planeados dentro de la plataforma de Azure. El [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines) requiere dos o más máquinas virtuales dentro de un conjunto de disponibilidad para permitir la distribución de máquinas virtuales a través de la infraestructura subyacente.
 
-La infraestructura subyacente de Azure se divide en dominios de actualización y dominios de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y uso de los dominios de actualización y error](virtual-machines-linux-manage-availability.md).
+La infraestructura subyacente de Azure se divide en dominios de actualización y dominios de error. Estos dominios se definen teniendo en cuenta qué hosts compartirán un ciclo de actualización común o una infraestructura física similar como la energía y redes. Azure distribuirá automáticamente las máquinas virtuales dentro de un conjunto de disponibilidad en los dominios para mantener la disponibilidad y tolerancia a errores. Dependiendo del tamaño de la aplicación y el número de máquinas virtuales dentro de un conjunto de disponibilidad, puede ajustar el número de dominios que desea usar. Puede leer más sobre la [administración de la disponibilidad y el uso de los dominios de actualización y error](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Al diseñar la infraestructura de la aplicación, también debe planear los niveles de aplicación que usará. Agrupe las máquinas virtuales que prestan el mismo servicio a conjuntos de disponibilidad tales como un conjunto de disponibilidad para las máquinas virtuales de front-end que ejecutan nginx o Apache. Cree un conjunto de disponibilidad independiente para las máquinas virtuales de back-end que ejecutan MongoDB o MySQL. El objetivo es garantizar que un conjunto de disponibilidad proteja cada uno de los componentes de la aplicación y que la instancia siga ejecutándose al menos una vez.
 
 Los equilibradores de carga pueden usarse delante de cada nivel de aplicación junto con un conjunto de disponibilidad para garantizar que el tráfico pueda enrutarse siempre a una instancia en ejecución. Sin un equilibrador de carga, las máquinas virtuales pueden seguir ejecutándose durante los eventos de mantenimiento planeados y no planeados, pero es posible que los usuarios finales no puedan resolverlos si la máquina virtual principal no está disponible.
 
-## Pasos siguientes
+Diseñe su aplicación para lograr una alta disponibilidad en la capa de almacenamiento. El procedimiento recomendado consiste en utilizar una cuenta de almacenamiento independiente para cada máquina virtual de un conjunto de disponibilidad. Mantenga todos los discos (sistema operativo y datos) asociados a una máquina virtual en la misma cuenta de almacenamiento. Tenga en cuenta los [límites](../storage/storage-scalability-targets.md) de la cuenta de almacenamiento al agregar más discos duros virtuales a una cuenta de almacenamiento.
+
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

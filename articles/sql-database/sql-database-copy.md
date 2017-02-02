@@ -1,19 +1,24 @@
 ---
-title: Copia de una base de datos SQL de Azure| Microsoft Docs
-description: Creación de una copia de una base de datos SQL de Azure
+title: Copia de una base de datos SQL de Azure | Microsoft Docs
+description: "Creación de una copia de una base de datos SQL de Azure"
 services: sql-database
-documentationcenter: ''
-author: stevestein
+documentationcenter: 
+author: anosov1960
 manager: jhubbard
-editor: ''
-
+editor: 
+ms.assetid: 5aaf6bcd-3839-49b5-8c77-cbdf786e359b
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 06/16/2016
-ms.author: sstein
+ms.date: 10/24/2016
+ms.author: sstein; sashan
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+translationtype: Human Translation
+ms.sourcegitcommit: 867f06c1fae3715ab03ae4a3ff4ec381603e32f7
+ms.openlocfilehash: c4f0b7eab07aa6a23bbb5489130d5cb92e18e5e2
+
 
 ---
 # <a name="copy-an-azure-sql-database"></a>Copiar una base de datos SQL de Azure
@@ -25,13 +30,12 @@ ms.tgt_pltfrm: NA
 > 
 > 
 
-Puede usar las [copias de seguridad automatizadas de SQL Database](sql-database-automated-backups.md) para crear una copia de su base de datos SQL. La operación de copia consiste en copiar el final del registro de transacciones y usar luego las copias de seguridad completa, diferencial y del registro de transacciones que son parte de las copias de seguridad automatizadas para crear una copia que sea coherente desde el punto de vista transaccional con la base de datos de origen a partir de la hora de la copia de seguridad del registro de transacciones. 
+Puede usar la característica de [replicación geográfica activa](sql-database-geo-replication-overview.md)para crear una copia de la base de datos SQL. Pero, a diferencia de la replicación geográfica, finaliza el vínculo de replicación una vez completada la fase de propagación. Por lo tanto, la copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia.  
+Puede crear la copia de la base de datos en el mismo servidor o en otro distinto. El nivel de rendimiento y el nivel de servicio (plan de tarifa) de la copia de base de datos son los mismos que los de la base de datos de origen de forma predeterminada. Al usar la API, puede seleccionar un nivel de rendimiento diferente dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente.  
 
-Puede crear la copia de la base de datos en el mismo servidor o en otro distinto. El nivel de rendimiento y el nivel de servicio (nivel de precios) de la copia de base de datos son los mismos que la base de datos de origen. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente. 
+Al copiar una base de datos en el mismo servidor lógico, los mismos inicios de sesión se pueden usar en ambas bases de datos. La entidad de seguridad que usa para copiar la base de datos se convierte en el propietario de la base de datos (DBO) en la nueva base de datos. Todos los usuarios de base de datos, sus permisos y sus identificadores de seguridad (SID) se copian en la copia de la base de datos.  
 
-Al copiar una base de datos en el mismo servidor lógico, los mismos inicios de sesión se pueden usar en ambas bases de datos. La entidad de seguridad que usa para copiar la base de datos se convierte en el propietario de la base de datos (DBO) en la nueva base de datos. Todos los usuarios de base de datos, sus permisos y sus identificadores de seguridad (SID) se copian en la copia de la base de datos. 
-
-Al copiar una base de datos en un servidor lógico diferente, la entidad de seguridad del nuevo servidor se convierte en el propietario de la nueva base de datos. Los usuarios de la base de datos independientes pueden utilizarse en la base de datos copiada. Sin embargo, al copiar la base de datos a un nuevo servidor, normalmente, los usuarios basados en inicios de sesión no funcionarán debido a que en el nuevo servidor no están esos inicios de sesión y, en caso de que realicen esta operación para conectarse, es posible que no coincidan sus SID. Después de que la nueva base de datos esté en línea en el servidor de destino, use la instrucción [ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx) para volver a asignar los usuarios de la nueva base de datos a inicios de sesión en el servidor de destino. Para resolver los usuarios huérfanos, consulte [Solucionar problemas de usuarios huérfanos (SQL Server)](https://msdn.microsoft.com/library/ms175475.aspx). 
+Al copiar una base de datos en un servidor lógico diferente, la entidad de seguridad del nuevo servidor se convierte en el propietario de la nueva base de datos. Si usa [usuarios de base de datos contenidos](sql-database-manage-logins.md) para el acceso a datos, asegúrese de que tanto las bases de datos principales como las secundarias tengan siempre las mismas credenciales de usuario, de tal forma que, una vez completada la copia, pueda obtener acceso inmediato a ellas con las mismas credenciales. Si usa [Azure Active Directory](../active-directory/active-directory-whatis.md), puede eliminar completamente la necesidad de administrar las credenciales en la copia. Pero, al copiar la base de datos a un nuevo servidor, normalmente el acceso basado en inicios de sesión no funcionará debido a que esas cuentas de inicio de sesión no se encontrarán en el nuevo servidor. Consulte [Administración de la seguridad de Azure SQL Database después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar inicios de sesión al copiar una base de datos a un servidor lógico diferente. 
 
 Para copiar una base de datos SQL, necesita lo siguiente:
 
@@ -39,7 +43,7 @@ Para copiar una base de datos SQL, necesita lo siguiente:
 * Una base de datos SQL para copiar. Si no tiene una base de datos SQL, cree una siguiendo los pasos de este artículo: [Creación de la primera Base de datos SQL de Azure](sql-database-get-started.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte [Copy an Azure SQL database using the Azure Portal](sql-database-copy-portal.md) (Copia de una base de datos SQL de Azure mediante el Portal de Azure) para copiar una base de datos a través del Portal de Azure.
+* Consulte el artículo sobre cómo [copiar una base de datos SQL de Azure mediante Azure Portal](sql-database-copy-portal.md) para realizar una copia de una base de datos a través de Azure Portal.
 * Consulte [Copia de una Base de datos SQL de Azure con PowerShell](sql-database-copy-powershell.md) para copiar una base de datos mediante PowerShell.
 * Consulte [Copia de una Base de datos SQL de Azure con Transact-SQL](sql-database-copy-transact-sql.md) para copiar una base de datos mediante Transact-SQL.
 * Consulte [Administración de la seguridad de Base de datos SQL de Azure después de la recuperación ante desastres](sql-database-geo-replication-security-config.md) para obtener información sobre cómo administrar usuarios e inicios de sesión al copiar una base de datos a un servidor lógico diferente.
@@ -51,6 +55,9 @@ Para copiar una base de datos SQL, necesita lo siguiente:
 * [Información general acerca de la continuidad del negocio](sql-database-business-continuity.md)
 * [Documentación de la base de datos SQL](https://azure.microsoft.com/documentation/services/sql-database/)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Dec16_HO2-->
 
 

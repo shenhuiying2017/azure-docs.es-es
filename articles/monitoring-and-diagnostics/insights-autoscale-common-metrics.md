@@ -12,24 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 12/6/2016
 ms.author: ashwink
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 8d5f8dd454741f5946d6a2c265ce67808abdac9e
+ms.sourcegitcommit: 376e3ff9078cf0b53493dbfee9273c415da04e52
+ms.openlocfilehash: fa978644f2cd95b8eb21687e90d16d0df22b3d44
 
 
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comunes de escalado automático de Azure Monitor
-El escalado automático de Azure Monitor le permite escalar verticalmente y reducir horizontalmente el número de instancias en ejecución, basándose en los datos de telemetría (métricas). Este documento describe las métricas comunes que estaría interesado en usar. En el Portal de Azure para Servicios en la nube y granjas de servidores, puede elegir la métrica de recurso por la que se va a escalar. Sin embargo, también puede elegir cualquier métrica de un recurso diferente por la que escalar.
+El escalado automático de Azure Monitor le permite escalar verticalmente y reducir horizontalmente el número de instancias en ejecución, basándose en los datos de telemetría (métricas). Este documento describe las métricas comunes que estaría interesado en usar. En Azure Portal de Cloud Services y granjas de servidores, puede elegir la métrica de recurso por la que se va a escalar. Sin embargo, también puede elegir cualquier métrica de un recurso diferente por la que escalar.
 
-Estos son los detalles sobre cómo buscar y enumerar las métricas por las que desea escalar. Lo siguiente se aplica también para escalar conjuntos de escalado de máquina virtual.
+La siguiente información se aplica también al escalado de conjunto de escalado de máquinas virtuales.
 
-## <a name="compute-metrics"></a>Cálculo de métricas
-De forma predeterminada, VM v2 de Azure incluye una extensión Diagnostics configurada con las siguientes métricas activadas.
+> [!NOTE]
+> Esta información se aplica solamente a las máquinas virtuales basadas en Resource Manager y a los conjuntos de escalado de máquinas virtuales. 
+> 
 
-* [Métricas de invitado para VM v2 con Windows](#compute-metrics-for-windows-vm-v2-as-a-guest-os)
-* [Métricas de invitado para VM v2 con Linux](#compute-metrics-for-linux-vm-v2-as-a-guest-os)
+## <a name="compute-metrics-for-resource-manager-based-vms"></a>Cálculo de métricas de máquinas virtuales basadas en Resource Manager
+De forma predeterminada, las máquinas virtuales basadas en Resource Manager y los conjuntos de escalado de máquinas virtuales emiten métricas básicas (de nivel de host). Además, al configurar la recopilación de datos de diagnóstico para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure, la extensión de diagnóstico de Azure también emite contadores de rendimiento de SO invitado (lo que normalmente se conoce como "métricas de SO invitado").  Todas estas métricas se usan en reglas de escalado automático. 
 
 Puede usar la CLI, API o PoSH `Get MetricDefinitions` para ver las métricas disponibles para el recurso VMSS. 
 
@@ -37,10 +38,16 @@ Si está utilizando conjuntos de escalado de máquinas virtuales y no ve una mé
 
 Si una métrica concreta no se muestrea o se transfiere a la frecuencia que desea, puede actualizar la configuración de diagnóstico.
 
-Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sobre PowerShell para configurar y actualizar la extensión Diagnostics de VM de Azure para habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
+Si se cumple cualquiera de los casos anteriores, revise [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../virtual-machines/virtual-machines-windows-ps-extensions-diagnostics.md) sobre PowerShell para configurar y actualizar la extensión Diagnostics de máquina virtual de Azure a fin de habilitar la métrica. Ese artículo también incluye un archivo de configuración de diagnósticos de ejemplo.
 
-### <a name="compute-metrics-for-windows-vm-v2-as-a-guest-os"></a>Cálculo de métricas para VM v2 con Windows como un SO invitado
-Cuando crea una nueva VM (v2) en Azure, los diagnósticos se habilitan mediante la extensión Diagnostics.
+### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager
+Las siguientes métricas de nivel de host se emiten de forma predeterminada para máquinas virtuales y conjuntos de escalado de máquinas virtuales de Azure en instancias de Windows y Linux. Estas métricas describen la máquina virtual de Azure, pero se recopilan desde el host de dicha máquina en lugar de hacerlo a través de agente instalado en la máquina virtual invitada. Puede usar estas métricas en reglas de escalado automático. 
+
+- [Métricas de host para máquinas virtuales Windows y Linux basadas en Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)
+- [Métricas de host para conjuntos de escalado de máquinas virtuales Windows y Linux basadas en Resource Manager](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)
+
+### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager
+Cuando crea una nueva máquina virtual en Azure, los diagnósticos se habilitan mediante la extensión Diagnósticos. La extensión de diagnósticos emite un conjunto de métricas realizadas desde dentro de la máquina virtual. Esto significa que puede escalar automáticamente fuera de las métricas que no se emiten de forma predeterminada.
 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
 
@@ -48,7 +55,7 @@ Puede generar una lista de las métricas mediante el siguiente comando en PowerS
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
-Puede crear una alerta para las siguientes métricas.
+Puede crear una alerta para las siguientes métricas:
 
 | Nombre de métrica | Unidad |
 | --- | --- |
@@ -80,8 +87,8 @@ Puede crear una alerta para las siguientes métricas.
 | \Disco lógico(_Total)\% de espacio disponible |Percent |
 | \Disco lógico(_Total)\Megabytes disponibles |Recuento |
 
-### <a name="compute-metrics-for-linux-vm-v2-as-a-guest-os"></a>Cálculo de métricas para VM v2 con Linux como un SO invitado
-Cuando crea una nueva VM (v2) en Azure, los diagnósticos se habilitan de forma predeterminada mediante la extensión Diagnostics.
+### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO invitado para máquinas virtuales Linux
+Cuando crea una máquina virtual en Azure, los diagnósticos se habilitan de forma predeterminada mediante la extensión Diagnósticos.
 
 Puede generar una lista de las métricas mediante el siguiente comando en PowerShell.
 
@@ -89,7 +96,7 @@ Puede generar una lista de las métricas mediante el siguiente comando en PowerS
 Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,Unit
 ```
 
- Puede crear una alerta para las siguientes métricas.
+ Puede crear una alerta para las siguientes métricas:
 
 | Nombre de métrica | Unidad |
 | --- | --- |
@@ -154,9 +161,9 @@ Puede alertar sobre estas métricas o escalar por las mismas.
 | BytesSent |Bytes |
 
 ## <a name="commonly-used-storage-metrics"></a>Métricas de almacenamiento utilizadas comúnmente
-Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral aplicado será el número de mensajes por instancia. Esto significa que si hay dos instancias y si el umbral se establece en 100, se escalará cuando el número total de mensajes de la cola sea 200. Por ejemplo, 100 mensajes por instancia.
+Puede escalar por la longitud de la cola de almacenamiento, que es el número de mensajes de dicha cola. La longitud de cola de almacenamiento es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más. 
 
-Puede configurar esto en Azure Portal, en la hoja **Configuración**. Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
+Esta configuración la puede realizar en Azure Portal, en la hoja **Configuración**. Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
 Por ejemplo, con una cuenta de almacenamiento clásico el parámetro de escalado automático metricTrigger incluiría lo siguiente:
 
@@ -175,9 +182,9 @@ En el caso de una cuenta de almacenamiento (no clásica) el metricTrigger inclui
 ```
 
 ## <a name="commonly-used-service-bus-metrics"></a>Métricas más usadas de Bus de servicio
-Puede escalar por la longitud de la cola de Bus de servicio, que es el número de mensajes de dicha cola. La longitud de cola de Bus de servicio es una métrica especial y el umbral aplicado será el número de mensajes por instancia. Esto significa que si hay dos instancias y si el umbral se establece en 100, se escalará cuando el número total de mensajes de la cola sea 200. Por ejemplo, 100 mensajes por instancia.
+Puede escalar por la longitud de la cola de Bus de servicio, que es el número de mensajes de dicha cola. La longitud de cola de Service Bus es una métrica especial y el umbral es el número de mensajes por instancia. Por ejemplo, si hay dos instancias y el umbral está establecido en 100, el escalado se produce cuando el número total de mensajes de la cola es 200. Esto puede ser 100 mensajes por instancia, 120 y 80, o cualquier combinación que sume hasta 200 o más. 
 
-Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla ARM para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
+Para los conjuntos de escalado de máquinas virtuales, puede actualizar la configuración de escalado automático en la plantilla de Resource Manager para usar *metricName* como *ApproximateMessageCount* y pasar el identificador de la cola de almacenamiento como *metricResourceUri*.
 
 ```
 "metricName": "MessageCount",
@@ -193,6 +200,6 @@ Para los conjuntos de escalado de máquinas virtuales, puede actualizar la confi
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

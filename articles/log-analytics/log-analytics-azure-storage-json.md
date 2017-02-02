@@ -4,7 +4,7 @@ description: "Log Analytics lee los registros de servicios de Azure que escriben
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: adf2f366-ea98-4250-ae66-6d2cfce5b4f9
 ms.service: log-analytics
@@ -12,21 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 08274c03dd1ebb7533efde4c01744ed5293fb4dd
+ms.sourcegitcommit: d0b98fe9c3ec685e95b5a8cf96afe1fb72c659f2
+ms.openlocfilehash: 76dfc064d4c50f291e48ce35435229da1323a520
 
 
 ---
 # <a name="analyze-azure-diagnostic-logs-using-log-analytics"></a>Análisis de los registros de diagnóstico de Azure mediante Log Analytics
 Log Analytics recopila registros para los siguientes servicios de Azure, que escriben [registros de diagnóstico de Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) en formato JSON en Blob Storage:
 
-* Automatización (vista previa)
 * Almacén de claves (vista previa)
 * Puerta de enlace de aplicaciones (vista previa)
 * Grupo de seguridad de red (vista previa)
+
+> [!NOTE]
+> Este método de recopilación de registros está en desuso. Use los [Diagnósticos de Azure dirigidos a Log Analytics](log-analytics-azure-storage.md) para recopilar registros de los servicios mencionados anteriormente. Una vez que las soluciones de administración de Key Vault Analytics y Azure Network Analytics se actualicen para respaldar los registros recopilados directamente de los Diagnósticos de Azure, se eliminará esta documentación.
+>
+>
 
 Las siguientes secciones le guiarán en el uso de PowerShell para:
 
@@ -56,7 +60,7 @@ En el ejemplo siguiente se habilita el registro de todos los recursos admitidos
 # format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
 $storageAccountId = ""
 
-$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+$supportedResourceTypes = ("Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
 
 # update location to match your storage account location
 $resources = Get-AzureRmResource | where { $_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus" }
@@ -77,7 +81,7 @@ Hemos proporcionado un módulo de script de PowerShell que exporta dos cmdlets p
 
 ### <a name="pre-requisites"></a>Requisitos previos
 1. Azure PowerShell con la versión 1.0.8 o posterior de los cmdlets de Visión operativa.
-   * [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md)
+   * [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs)
    * Comprobar la versión de los cmdlets: `Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `
 2. El registro de diagnósticos está configurado para el recurso de Azure que desea supervisar. Use `Set-AzureRmDiagnosticSetting` o consulte el artículo sobre el [uso de Log Analytics para recopilar datos de las cuentas de Azure Storage](log-analytics-azure-storage.md) para más información sobre cómo se habilita el diagnóstico.
 3. Un área de trabajo de [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS)  
@@ -119,8 +123,8 @@ Para más información sobre OMS, consulte los [cmdlets de PowerShell para Log A
 
 > [!NOTE]
 > Si el área de trabajo y los recursos están en diferentes suscripciones de Azure, vaya de una a otra con `Select-AzureRmSubscription -SubscriptionId <Subscription the resource is in>`, según sea necesario
-> 
-> 
+>
+>
 
 ```
 # Connect to Azure
@@ -152,8 +156,8 @@ Tras ejecutar este script, deberá ver registros en Log Analytics unos 30 minuto
 
 > [!NOTE]
 > Esta configuración no se ve en Azure Portal. Puede comprobar la configuración mediante el cmdlet `Get-AzureRmOperationalInsightsStorageInsight` .  
-> 
-> 
+>
+>
 
 ## <a name="stopping-log-analytics-from-collecting-azure-diagnostic-logs"></a>Detención de la recopilación de registros de diagnóstico de Azure de Log Analytics
 Para eliminar la configuración de Log Analytics de un recurso, use el cmdlet `Remove-AzureRmOperationalInsightsStorageInsight`.
@@ -239,7 +243,6 @@ Para buscar el nombre de visión de almacenamiento, use el cmdlet `Get-AzureRmOp
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

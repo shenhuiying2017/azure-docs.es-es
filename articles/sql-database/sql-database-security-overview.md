@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 06/09/2016
 ms.author: thmullan;jackr
 translationtype: Human Translation
-ms.sourcegitcommit: f4712d70c0323e607ddcc021809f8097a621730d
-ms.openlocfilehash: 9ebf3cd290151449c05c89307500fa5679de3b09
+ms.sourcegitcommit: 69faa86ddbc43793146653fc8d8dc2bf35c40aa1
+ms.openlocfilehash: f3a7bcbc80580232f2704087eb529ee9ec8ead46
 
 
 ---
@@ -71,9 +71,14 @@ SQL Database protege los datos proporcionando funcionalidades de auditoría y de
 ### <a name="auditing"></a>Auditoría
 SQL Database Auditing realiza un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento normativo, para lo que graba eventos de base de datos en un registro de auditoría de su cuenta de Azure Storage. La auditoría permite conocer las actividades en curso de la base de datos, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte [Introducción a SQL Database Auditing](sql-database-auditing-get-started.md).  
 
-### <a name="threat-detection"></a>Detección de amenazas
+### <a name="auditing--threat-detection"></a>Auditoría y detección de amenazas 
+SQL Database Auditing realiza un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento normativo, para lo que graba eventos de base de datos en un registro de auditoría de su cuenta de Azure Storage. La auditoría permite conocer las actividades en curso de la base de datos, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte [Introducción a SQL Database Auditing](sql-database-auditing-get-started.md).  
+ 
 La detección de amenazas complementa la auditoría, ya que proporciona una capa adicional de inteligencia de seguridad integrada en el servicio Azure SQL Database. Funciona ininterrumpidamente para aprender, generar perfiles y detectar actividades anómalas de la base de datos. Recibirá alertas de actividades sospechosas, vulnerabilidades potenciales, ataques pon inyección de código SQL y patrones anómalos de acceso a bases de datos. Para responder a dichas alertas, siga las instrucciones con información y con acciones que se pueden realizar que se proporcionan. Para más información, consulte [Introducción a Detección de amenazas de Base de datos SQL](sql-database-threat-detection-get-started.md).  
-
+ 
+### <a name="data-masking"></a>Enmascaramiento de datos 
+El enmascaramiento datos dinámicos de Base de datos SQL limita la exposición de información confidencial mediante el enmascaramiento a los usuarios sin privilegios. Enmascaramiento de datos dinámicos detecta automáticamente datos potencialmente confidenciales en Azure SQL Database y proporciona acciones recomendables para enmascarar estos campos, con un impacto mínimo en la capa de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Introducción al enmascaramiento de datos dinámicos de SQL Database](sql-database-dynamic-data-masking-get-started.md)
+ 
 ## <a name="compliance"></a>Cumplimiento normativo
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
@@ -84,6 +89,7 @@ Además de las anteriores características y funcionalidades que pueden ayudar a
 - Para obtener información acerca de la supervisión proactiva, consulte [Introducción a SQL Database Auditing](sql-database-auditing-get-started.md) e [Introducción a la detección de amenazas de SQL Database](sql-database-threat-detection-get-started.md).
 
 
-<!--HONumber=Dec16_HO4-->
+
+<!--HONumber=Jan17_HO2-->
 
 

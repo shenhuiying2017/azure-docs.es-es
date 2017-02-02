@@ -3,7 +3,7 @@ title: "Previsión: suavizado exponencial | Microsoft Docs"
 description: "Servicio web: previsión-suavizado exponencial"
 services: machine-learning
 documentationcenter: 
-author: xueshanz
+author: yijichen
 manager: jhubbard
 editor: cgronlun
 ms.assetid: a4150681-6eac-4145-9eca-0cdf60781dde
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
-ms.author: xueshzha
+ms.date: 12/13/2016
+ms.author: yijichen
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 712bfc1ec3bf3dcc8ab3de9a3e610ae86b6f4410
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 47ef9bce59b62bbd5b2c630ee101a655814d96d2
 
 
 ---
@@ -90,7 +90,7 @@ Hay varias maneras de consumir el servicio de forma automática ( [aquí](http:/
 > 
 > 
 
-Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo [Ejecutar script R][execute-r-script] que genera el modelo de previsión ETS mediante las funciones "ets" y "previsión" de R. 
+Desde el Aprendizaje automático de Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo [Ejecutar scripts R][execute-r-script] que genera el modelo de previsión ETS mediante las funciones "ets" y "previsión" de R. 
 
 ![Flujo de experimento][2]
 
@@ -143,6 +143,6 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

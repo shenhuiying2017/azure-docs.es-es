@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 576d3a1c242c74715e7a6dc33ec0a4adebcc9959
+ms.sourcegitcommit: ff663f40507547ba561053b5c9a7a8ce93fbf213
+ms.openlocfilehash: 9d3718cf80e023f4c5b9c523375b77083a9d7be7
 
 
 ---
@@ -37,7 +37,7 @@ En este tema se explican los [conceptos y terminología](media-services-content-
 ## <a name="dynamic-encryption"></a>Cifrado dinámico
 Microsoft Azure Media Services permite proporcionar el contenido cifrado de forma dinámica con la clave sin cifrado AES o cifrado DRM: Microsoft PlayReady, Google Widevine y Apple FairPlay.
 
-Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No puede cifrar el formato de streaming HDS ni descargas progresivas.
+Actualmente puede cifrar los formatos de streaming siguientes: HLS, MPEG DASH y Smooth Streaming. No se pueden cifrar las descargas progresivas.
 
 Si desea que Servicios multimedia cifren un recurso, debe asociar una clave de cifrado (CommonEncryption o EnvelopeEncryption) con su recurso y, además, configurar directivas de autorización para la clave.
 
@@ -119,6 +119,6 @@ Los temas siguientes muestran cómo proteger el contenido en el almacenamiento, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

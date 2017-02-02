@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 766ef5da584341fba08607a9b04ac85be8333db6
 En este paso del proceso de publicación, deberá proporcionar determinados contenidos de marketing y los detalles acerca de la oferta o SKU en Azure Marketplace. Por ejemplo, proporcionará una descripción de su producto, logotipos de empresa, planes de precios, detalles de los planes y otra información necesaria para insertar su oferta o SKU en el entorno de ensayo. Esta información se usa como contenido de marketing en nuestro Portal de Azure. Comenzará este proceso en el [portal de publicación][link-pubportal].
 
 ## <a name="step-1-provide-marketplace-marketing-content"></a>Paso 1: Especificación de contenido de marketing de Marketplace
-**El inglés es el idioma establecido de manera predeterminada y el único que se admite.**  Asegúrese de que toda la información proporcionada en los campos esté en inglés. Toda la información se puede editar en cualquier momento hasta que pase a la etapa de ensayo.
+**El inglés es el idioma establecido de manera predeterminada y el único que se admite.** Asegúrese de que toda la información proporcionada en los campos esté en inglés. Toda la información se puede editar en cualquier momento hasta que pase a la etapa de ensayo.
 
 1. Vaya al portal de publicación, [https://publish.windowsazure.com](https://publish.windowsazure.com).
 2. En el menú de la izquierda, haga clic en la pestaña **Marketing** .
@@ -145,7 +145,7 @@ Para las ofertas de máquinas virtuales, cuando una oferta o SKU se muestre en A
 ### <a name="21-set-your-vm-prices"></a>2.1. Establecimiento de los precios de máquina virtual
 En estos momentos, existen los **3 tipos de modelos de facturación**
 
-* **Por hora** : A los clientes se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual. En el caso del modelo de **facturación horaria** de las SKU, el precio total será la suma de los costos de software que cobra el publicador y del costo de infraestructura que cobra Microsoft. Este costo total se mostrará al cliente como precio mensual y por hora cuando se estén planteando realizar la compra (consulte la siguiente captura de pantalla). **El publicador recibe el 80 % del costo de software que cobre.**  Por lo tanto, realice el cálculo en consecuencia antes de establecer los precios de sus SKU.
+* **Por hora** : A los clientes se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual. En el caso del modelo de **facturación horaria** de las SKU, el precio total será la suma de los costos de software que cobra el publicador y del costo de infraestructura que cobra Microsoft. Este costo total se mostrará al cliente como precio mensual y por hora cuando se estén planteando realizar la compra (consulte la siguiente captura de pantalla). **El publicador recibe el 80 % del costo de software que cobre.** Por lo tanto, realice el cálculo en consecuencia antes de establecer los precios de sus SKU.
   
     ![dibujo](media/marketplace-publishing-push-to-staging/img2.1-01.png)
 * **Prueba gratuita** : se trata de otro tipo de modelo por hora. Al cliente no se le cobra el costo de software durante los primeros 30 días (gratis) después de implementar la máquina virtual. Cuando transcurra este periodo, se les cobra por hora según las tarifas que hayan establecido los publicadores por los tamaños de máquina virtual.
@@ -194,7 +194,7 @@ Siga los pasos indicados a continuación para configurar el modelo de precios po
 10. Se abrirá el asistente de precios automáticos. La primera página muestra la selección para el mercado base. Elija una opción y pase a la página siguiente haciendo clic en el botón ->.
     
     ![dibujo](media/marketplace-publishing-push-to-staging/img2.1.1_10.png)
-11. La opción para seleccionar los planes y núcleos se mostrará en la página 2. Seleccione los planes que quiera y haga clic en el botón "->". Haga clic en el botón **Toggle All** (Alternar todo) para seleccionar todos los **planes de servicio** y **metros**; también puede activar manualmente las casillas. **Debe proporcionar el precio de todos los núcleos de una SKU, aunque no sea compatible con ella.**  Por lo tanto, asegúrese de que estén seleccionados todos los tamaños de núcleo.
+11. La opción para seleccionar los planes y núcleos se mostrará en la página 2. Seleccione los planes que quiera y haga clic en el botón "->". Haga clic en el botón **Toggle All** (Alternar todo) para seleccionar todos los **planes de servicio** y **metros**; también puede activar manualmente las casillas. **Debe proporcionar el precio de todos los núcleos de una SKU, aunque no sea compatible con ella.** Por lo tanto, asegúrese de que estén seleccionados todos los tamaños de núcleo.
     
     ![dibujo](media/marketplace-publishing-push-to-staging/img2.1.1_11.png)
 12. En la página 3 se muestran las regiones y los mercados. Haga clic en el botón **Toggle All** (Alternar todo) para seleccionar todas las regiones o active manualmente las casillas de la región que le corresponda. Haga clic en el botón "->" para ir a la página siguiente. **Nota** : Los países en los que Microsoft se encarga del pago de impuestos se indican con un icono similar a una casa. Para obtener más información, consulte la sección "Países a los que se vende la SKU" de esta página.
@@ -290,6 +290,6 @@ Ahora que el contenido de Marketplace está cargado, avanzamos a la prueba de la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

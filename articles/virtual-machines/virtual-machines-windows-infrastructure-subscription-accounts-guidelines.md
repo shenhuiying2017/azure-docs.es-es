@@ -1,28 +1,32 @@
 ---
-title: Instrucciones de suscripción y cuentas | Microsoft Docs
-description: Obtenga información sobre las instrucciones de implementación y diseño clave para las suscripciones y cuentas de Azure.
-documentationcenter: ''
+title: "Directrices de suscripción y cuentas de Azure | Microsoft Docs"
+description: "Obtenga información sobre las instrucciones de implementación y diseño clave para las suscripciones y cuentas de Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 761fa847-78b0-4078-a33a-d95d198d1029
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 310dc34634f7104ddfc7dfab13f09ab945b53cf4
+ms.openlocfilehash: bfa4f4938a52a7a1b9ebe5ee9efd37198468a0a6
+
 
 ---
-# Instrucciones de suscripción y cuentas
+# <a name="azure-subscription-and-accounts-guidelines"></a>Directrices de suscripción y cuentas de Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en conocer cómo enfocar la administración de cuentas y suscripciones a medida que crece su entorno y su base de usuarios.
 
-## Instrucciones de implementación de suscripciones y cuentas
+## <a name="implementation-guidelines-for-subscriptions-and-accounts"></a>Instrucciones de implementación de suscripciones y cuentas
 Decisiones:
 
 * ¿Qué conjunto de suscripciones y cuentas necesita para hospedar su infraestructura o carga de trabajo de TI?
@@ -34,7 +38,7 @@ Tareas:
 * Definir las cuentas y las suscripciones necesarias de cada cuenta para que se correspondan con esta jerarquía lógica.
 * Cree el conjunto de suscripciones y cuentas usando su convención de nomenclatura.
 
-## Suscripciones y cuentas
+## <a name="subscriptions-and-accounts"></a>Suscripciones y cuentas 
 Para trabajar con Azure, necesita una o más suscripciones a Azure. Existen recursos como redes o máquinas virtuales en esas suscripciones.
 
 * Los clientes empresariales suelen tener una inscripción Enterprise, que es el recurso de nivel superior en la jerarquía y está asociado a una o varias cuentas.
@@ -53,13 +57,18 @@ Si una región decide tener más de una suscripción asociada a un grupo determi
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-La organización podría tener este aspecto:
+La organización podría tener un aspecto similar al del siguiente ejemplo:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
 Microsoft proporciona una facturación detallada a través de un archivo descargable para una sola cuenta o para todas las cuentas de un contrato Enterprise.
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

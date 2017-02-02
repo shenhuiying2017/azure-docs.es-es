@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2016
+ms.date: 12/05/2016
 ms.author: shlo
 translationtype: Human Translation
-ms.sourcegitcommit: 6ec8ac288a4daf6fddd6d135655e62fad7ae17c2
-ms.openlocfilehash: 7ae3af29a21611a4c6e7c8630d8fcea4f2baaf0b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0dafae2cf2c3972fc09ffc67f76f6757bcc641fa
 
 
 ---
@@ -30,7 +30,7 @@ Data Factory le permite crear flujos de trabajo basados en datos para mover dato
 Consulte [ y conceptos clave](data-factory-introduction.md) para más información.
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>¿Dónde puedo encontrar detalles de precios de la factoría de datos de Azure?
-Consulte la [página de detalles de precios de Data Factory][adf-pricing-details] para conocer los precios de Azure Data Factory.  
+Vea la [página de detalles de precios de Data Factory][adf-pricing-details] para obtener información al respecto.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>¿Cómo puedo comenzar con la factoría de datos de Azure?
 * Para obtener información general sobre la factoría de datos de Azure, vea [Introducción a la Factoría de datos de Azure](data-factory-introduction.md).
@@ -51,11 +51,11 @@ Puede crear factorías de datos mediante uno de los sistemas siguientes:
 * **Visual Studio**
   : puede usar Visual Studio para crear una instancia de Azure Data Factory. Consulte [Compilación de la primera Data Factory de Azure mediante Microsoft Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) .
 * **Azure PowerShell**
-  : consulte el tutorial [Creación y supervisión de Azure Data Factory mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para crear una factoría de datos mediante PowerShell. Consulte el contenido de la [referencia de cmdlets de Data Factory][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Data Factory.
+  : consulte el tutorial [Creación y supervisión de Azure Data Factory mediante Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para crear una factoría de datos mediante PowerShell. Consulte el contenido de [Referencia de cmdlets de Data Factory][adf-powershell-reference] en MSDN Library para obtener documentación completa de los cmdlets de Factoría de datos.
 * **Biblioteca de clases .NET**
-   Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET](data-factory-create-data-factories-programmatically.md) para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [la referencia de la biblioteca de clases de Data Factory][msdn-class-library-reference] para obtener documentación completa del SDK .NET de Data Factory.
+   Se pueden crear factorías de datos mediante programación con el SDK de .NET de Data Factory. Consulte [Creación, supervisión y administración de las factorías de datos mediante el SDK de .NET](data-factory-create-data-factories-programmatically.md) para un ver tutorial sobre la creación de una factoría de datos con el SDK de .NET. Consulte [Referencia de biblioteca de clases de Data Factory][msdn-class-library-reference] para una amplia documentación sobre el SDK de .NET de Factoría de datos.
 * **API de REST**
-   También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte la [eferencia de la API de REST de Data Factory][msdn-rest-api-reference] para obtener documentación completa sobre la API de REST de Data Factory.
+   También puede usar la API de REST expuesta por el servicio Azure Data Factory para crear e implementar factorías de datos. Consulte [Referencia de la API de REST de Data Factory][msdn-rest-api-reference] para ver una amplia documentación sobre la API de REST de Data Factory.
 * **Plantilla de Azure Resource Manager**
    Consulte [Tutorial: Compilación de la primera factiría de datos de Azure con la plantilla de Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md) para más información.
 
@@ -101,7 +101,7 @@ Consulte la sección [Movimiento de datos disponible globalmente](data-factory-d
 
 ## <a name="hdinsight-activity---faq"></a>Actividad de HDInsight: preguntas más frecuentes
 ### <a name="what-regions-are-supported-by-hdinsight"></a>¿Qué regiones admiten HDInsight?
-Consulte la sección Disponibilidad geográfica en el siguiente artículo: o [Detalles de precios de HDInsight][hdinsight-supported-regions].
+Vea la sección Disponibilidad geográfica en el siguiente artículo: o [Detalles de precios de HDInsight][hdinsight-supported-regions].
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>¿Qué región se usa con un clúster de HDInsight a petición?
 El clúster de HDInsight a petición se crea en la misma región que existe para el almacenamiento que se va a usar con el clúster.    
@@ -109,25 +109,26 @@ El clúster de HDInsight a petición se crea en la misma región que existe para
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>¿Cómo se asocian cuentas de almacenamiento adicionales al clúster de HDInsight?
 Si está usando su propio clúster de HDInsight (BYOC, Bring Your Own Cluster, traiga su propio clúster), consulte los temas siguientes:
 
-* [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores] (Uso de un clúster de HDinsight con cuentas de almacenamiento alternativas y Metastore) [hdinsight-alternate-storage]
-* [Use Additional Storage Accounts with HDInsight Hive] (Uso de cuentas de almacenamiento adicionales con HDInsight Hive) [hdinsight-alternate-storage-2]
+* [Uso de un clúster de HDInsight con cuentas de almacenamiento y tiendas de metadatos alternativas][hdinsight-alternate-storage]
+* [Uso de cuentas de almacenamiento adicionales con HDInsight Hive][hdinsight-alternate-storage-2]
 
 Si usa un clúster a petición que se crea con el servicio Data Factory, especifique cuentas de almacenamiento adicionales para el servicio vinculado de HDInsight de manera que dicho servicio pueda registrarlas en su nombre. En la definición de JSON para el servicio vinculado a petición, use la propiedad **additionalLinkedServiceNames** para especificar las cuentas de almacenamiento alternativas como se muestra en el siguiente fragmento JSON:
 
+```JSON
+{
+    "name": "MyHDInsightOnDemandLinkedService",
+    "properties":
     {
-        "name": "MyHDInsightOnDemandLinkedService",
-        "properties":
-        {
-            "type": "HDInsightOnDemandLinkedService",
-            "typeProperties": {
-                "clusterSize": 1,
-                "timeToLive": "00:01:00",
-                "linkedServiceName": "LinkedService-SampleData",
-                "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
-            }
+        "type": "HDInsightOnDemandLinkedService",
+        "typeProperties": {
+            "clusterSize": 1,
+            "timeToLive": "00:01:00",
+            "linkedServiceName": "LinkedService-SampleData",
+            "additionalLinkedServiceNames": [ "otherLinkedServiceName1", "otherLinkedServiceName2" ]
         }
     }
-
+}
+```
 En el ejemplo anterior, otherLinkedServiceName1 y otherLinkedServiceName2 representan servicios vinculados cuyas definiciones contienen las credenciales que el clúster de HDInsight necesita para acceder a las cuentas de almacenamiento alternativas.
 
 ## <a name="slices---faq"></a>Segmentos: preguntas más frecuentes
@@ -148,13 +149,14 @@ Si la propiedad externa está configurada correctamente, compruebe si los datos 
 ### <a name="how-to-run-a-slice-at-another-time-than-midnight-when-the-slice-is-being-produced-daily"></a>¿Cómo se ejecuta un segmento en otro momento que no sea medianoche cuando este se produce diariamente?
 Use la propiedad **offset** para especificar la hora en la que desea que se produzca el segmento. Consulte la sección [Disponibilidad del conjunto de datos](data-factory-create-datasets.md#Availability) para obtener más información sobre esta propiedad. Este es un ejemplo rápido:
 
-    "availability":
-    {
-        "frequency": "Day",
-        "interval": 1,
-        "offset": "06:00:00"
-    }
-
+```json
+"availability":
+{
+    "frequency": "Day",
+    "interval": 1,
+    "offset": "06:00:00"
+}
+```
 Los segmentos diarios comienzan a las **6:00** en lugar de a medianoche, que es el valor predeterminado.     
 
 ### <a name="how-can-i-rerun-a-slice"></a>¿Cómo puedo volver a ejecutar un segmento?
@@ -164,9 +166,10 @@ Puede volver a ejecutar un segmento de una de las siguientes maneras:
 * Haga clic en **Ejecutar** en la barra de comandos de la hoja **SEGMENTO DE DATOS** para el segmento en Azure Portal.
 * Ejecute el cmdlet **Set-AzureRmDataFactorySliceStatus** con el estado **En espera** para el segmento.   
 
-        Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
-
-Consulte [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para más información sobre el cmdlet.
+    ```PowerShell
+    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    ```
+Consulte [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status] para obtener más información sobre el cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>¿Cuánto tiempo se tardó en procesar un segmento?
 Utilice el explorador de ventana de actividad de la aplicación de supervisión y administración para descubrir cuánto tiempo se tardó en procesar un segmento de datos. Consulte [Explorador de ventanas de actividad](data-factory-monitor-manage-app.md#activity-window-explorer) para obtener más información.
@@ -186,12 +189,12 @@ Si necesita detener la ejecución de la canalización, puede usar el cmdlet [Sus
 Si desea realmente detener todas las ejecuciones inmediatamente, la única manera sería eliminar la canalización y crearla de nuevo. Si decide eliminar la canalización, NO es necesario eliminar tablas y servicios vinculados usados por la canalización.
 
 [create-factory-using-dotnet-sdk]: data-factory-create-data-factories-programmatically.md
-[msdn-class-library-reference]: https://msdn.microsoft.com/library/dn883654.aspx
-[msdn-rest-api-reference]: https://msdn.microsoft.com/library/dn906738.aspx
+[msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
+[msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: https://msdn.microsoft.com/library/dn820234.aspx
+[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: https://msdn.microsoft.com/library/mt603522.aspx
+[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
@@ -200,6 +203,6 @@ Si desea realmente detener todas las ejecuciones inmediatamente, la única maner
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

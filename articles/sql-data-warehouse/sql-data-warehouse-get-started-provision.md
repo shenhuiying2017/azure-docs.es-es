@@ -16,8 +16,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
-ms.openlocfilehash: e8be3cd9aeb3ff39c808f5ee39bdf3091d45feec
+ms.sourcegitcommit: cea81f16ecc6203f487fdf15310638b123312dde
+ms.openlocfilehash: caee6a14bd988f2355c9683519b5f5480428a709
 
 
 ---
@@ -43,8 +43,8 @@ Para empezar, necesitará lo siguiente:
 >
 
 ## <a name="create-a-sql-data-warehouse"></a>Creación de Almacenamiento de datos SQL
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Haga clic en **+ Nuevo** > **Datos y almacenamiento** > **SQL Data Warehouse**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com).
+2. Haga clic en **+ Nuevo** > **Bases de datos** > **SQL Data Warehouse**.
 
     ![Crear](./media/sql-data-warehouse-get-started-provision/create-sample.gif)
 3. En la hoja **Almacenamiento de datos SQL** , rellene la información necesaria y presione 'Crear' para crearlo.
@@ -102,6 +102,6 @@ También es una buena idea echar un vistazo a los [procedimientos recomendados][
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO2-->
 
 

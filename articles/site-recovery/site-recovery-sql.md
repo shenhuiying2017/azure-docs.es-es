@@ -12,11 +12,11 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/19/2016
 ms.author: raynew
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: 04ebda0187791772814e40401643583036ca6afa
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 40c4f88bc91773158d416d5e89424b92cf15cf91
 
 
 ---
@@ -158,7 +158,7 @@ Puede personalizar aún más el plan de recuperación moviendo las máquinas vir
 
 ![Personalización de planes de recuperación](./media/site-recovery-sql/customize-rp.png)
 
-### <a name="step-4-fail-over"></a>Paso 4: Conmutación por error
+#### <a name="step-4--fail-over"></a>Paso 4: Conmutación por error
 Una vez que se agrega un grupo de disponibilidad a un plan de recuperación hay diferentes opciones de conmutación por error disponibles.
 
 | Conmutación por error | Detalles |
@@ -174,7 +174,7 @@ Considere las siguientes opciones de conmutación por error.
 | **Opción 1** |1. Realice una conmutación por error de prueba de la aplicación y las capas de front-end.<br/><br/>2. Actualice la capa de aplicación para obtener acceso a la copia de réplica en modo de solo lectura y realizar una prueba de solo lectura de la aplicación. |
 | **Opción 2** |1. Cree una copia de la instancia de máquina virtual de SQL Server de réplica (con clon de VMM para la copia de seguridad de Azure o de sitio a sitio) y muéstrela en una red de prueba<br/><br/> 2. Realice la conmutación por error de prueba con el plan de recuperación. |
 
-Paso 5: Conmutación por recuperación
+#### <a name="step-5-fail-back"></a>Paso 5: Conmutación por recuperación
 
 Si desea que el grupo de disponibilidad vuelva a ser principal en el servidor local de SQL Server, puede hacerlo desencadenando una conmutación por error planeada en el plan de recuperación y eligiendo la dirección de Microsoft Azure al servidor VMM local.
 
@@ -188,13 +188,36 @@ Para los entornos que no están administrados por un servidor VMM o un servidor 
 
 1. Cree un archivo local para que el script realice la conmutación por error de un grupo de disponibilidad. Este script de ejemplo especifica una ruta de acceso al grupo de disponibilidad en la réplica de Azure y realiza la conmutación por error a esa instancia de réplica. Este script se ejecutará en la máquina virtual de réplica de SQL Server y se pasará con la extensión de script personalizado.
 
-     Param(   [string]$SQLAvailabilityGroupPath   )   import-module sqlps   Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
-2. Cargue el script en un blob en una cuenta de Almacenamiento de Azure. Use este ejemplo:
+        Param(
+        [string]$SQLAvailabilityGroupPath
+        )
+        import-module sqlps
+        Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
 
-     $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"   Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-3. Cree un runbook de automatización de Azure para invocar los scripts en la máquina virtual de réplica de SQL Server en Azure. Utilice este script de ejemplo para ello. [Obtenga más información](site-recovery-runbook-automation.md) sobre el uso de runbooks de automatización en los planes de recuperación.
+1. Cargue el script en un blob en una cuenta de Almacenamiento de Azure. Use este ejemplo:
 
-     flujo de trabajo SQLAvailabilityGroupFailover   {
+        $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
+        Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+
+1. Cree un runbook de automatización de Azure para invocar los scripts en la máquina virtual de réplica de SQL Server en Azure. Utilice este script de ejemplo para ello. [Obtenga más información](site-recovery-runbook-automation.md) sobre el uso de runbooks de automatización en los planes de recuperación.
+
+1. Al crear un plan de recuperación para la aplicación, agregue un paso de script "pre-Group 1 boot" que invoca el runbook de automatización para realizar la conmutación por error de grupos de disponibilidad.
+
+
+1. **Probar conmutación por error**: SQL AlwaysOn no admite de forma nativa la función Probar conmutación por error. Por lo tanto, este es el modo recomendado de hacerlo:
+    1. Configure [Azure Backup](../backup/backup-azure-vms.md) en la máquina virtual que hospede la réplica del grupo de disponibilidad en Azure. 
+    1. Antes de activar la conmutación por error del plan de recuperación, recupere la máquina virtual a partir de la copia de seguridad realizada en el paso 1.
+    1. Pruebe la conmutación por error del plan de recuperación.
+
+
+> [!NOTE]
+> En el siguiente script se asume que el grupo de disponibilidad de SQL está hospedado en la máquina virtual clásica de Azure y que el nombre de la VM restaurada en el paso 2 es SQLAzureVM-Test. Modifique el script de acuerdo con el nombre que use para la máquina virtual recuperada.
+> 
+> 
+
+
+     workflow SQLAvailabilityGroupFailover
+     {
 
          param (
              [Object]$RecoveryPlanContext
@@ -217,9 +240,28 @@ Para los entornos que no están administrados por un servidor VMM o un servidor 
 
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
-                #Skipping TFO in this version.
-                #We will update the script in a follow-up post with TFO support
-                Write-output "tfo: Skipping SQL Failover";
+                    Write-output "tfo"
+                    
+                    Write-Output "Creating ILB"
+                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
+                    Write-Output "ILB Created"
+
+                    #Update the script with name of the virtual machine recovered using Azure Backup
+                    Write-Output "Adding SQL AG Endpoint"
+                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+
+                    Write-Output "Added Endpoint"
+        
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
+                       
+                    Write-Output "UnInstalling custom script extension"
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Write-Output "Installing custom script extension"
+                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
+                    
+                    Write-output "Starting AG Failover"
+                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
+                    Write-output "Completed AG Failover"
                 }
           else
                 {
@@ -230,7 +272,7 @@ Para los entornos que no están administrados por un servidor VMM o un servidor 
 
                 Write-Output "Installing custom script extension"
                 #Install the Custom Script Extension on teh SQL Replica VM
-                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM;
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
 
                 Write-output "Starting AG Failover";
                 #Execute the SQL Failover script
@@ -246,7 +288,6 @@ Para los entornos que no están administrados por un servidor VMM o un servidor 
 
          }
      }
-4. Al crear un plan de recuperación para la aplicación, agregue un paso de script "pre-Group 1 boot" que invoca el runbook de automatización para realizar la conmutación por error de grupos de disponibilidad.
 
 ## <a name="integrate-protection-with-sql-alwayson-on-premises-to-on-premises"></a>Integración de la protección con SQL AlwaysOn (de local a local)
 Si el servidor SQL Server utiliza grupos de disponibilidad para alta disponibilidad o una instancia de clúster de conmutación por error, se recomienda utilizar también grupos de disponibilidad en el sitio de recuperación. Tenga en cuenta de que esta guía es para aplicaciones que no utilizan transacciones distribuidas.
@@ -301,6 +342,6 @@ Para los clústeres SQL estándar, la conmutación por recuperación después de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

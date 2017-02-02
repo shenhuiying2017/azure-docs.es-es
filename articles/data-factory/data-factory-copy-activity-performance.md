@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 11/23/2016
 ms.author: jingwang
 translationtype: Human Translation
-ms.sourcegitcommit: 32b8f2ba9acd315a8ad05659b014ad41ed77a498
-ms.openlocfilehash: f3756f7a89ac6875b01b099e23021ed73227c4ea
+ms.sourcegitcommit: 4cc2906d19562fc420d92ea0f3097a972acc45b9
+ms.openlocfilehash: dfacb95f816c45413b292c93c13d0e37b7ce517e
 
 
 ---
@@ -44,12 +44,11 @@ En este artículo se describe:
 ![Matriz de rendimiento](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
 > [!NOTE]
-> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 8 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de 1 gigabyte por segundo. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
+> Para lograr un mayor rendimiento, use más unidades de movimiento de datos (DMU) que el número máximo de DMU predeterminado, que es 8 para una ejecución de actividad de copia de nube a nube. Por ejemplo, con 100 DMU, puede copiar datos de Azure Blob a Azure Data Lake Store a una velocidad de **1 GBps**. Consulte la sección [Unidades de movimiento de datos en la nube](#cloud-data-movement-units) para más detalles sobre esta característica y el escenario admitido. Póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/) para solicitar más DMU.
 >
 >
 
-Puntos a tener en cuenta:
-
+**Puntos a tener en cuenta:**
 * La capacidad de proceso se calcula con la siguiente fórmula: [tamaño de los datos leídos del origen]/[duración de la ejecución de Copiar actividad].
 * Los números de referencia de rendimiento de la tabla se midieron mediante el conjunto de datos [TPC-H](http://www.tpc.org/tpch/) en una ejecución de una única actividad de copia.
 * Para copiar entre almacenes de datos en la nube, establezca **cloudDataMovementUnits** en 1 y 4 (u 8) para compararlos. **parallelCopies** no se especifica. Consulte la sección [Copia en paralelo](#parallel-copy) para más información sobre estas características.
@@ -98,25 +97,26 @@ Para cada ejecución de actividad de copia, Data Factory determina el número de
 
 Normalmente, el comportamiento predeterminado debe proporcionar el mejor rendimiento. Sin embargo, para controlar la carga en las máquinas que hospedan los almacenes de datos, o para optimizar el rendimiento de la copia, puede optar por reemplazar el valor predeterminado y especificar un valor para la propiedad **parallelCopies** . El valor debe estar entre 1 y 32 (ambos inclusive). En tiempo de ejecución, y para obtener el mejor rendimiento, la actividad de copia usa un valor inferior o igual al valor que ha establecido.
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "parallelCopies": 8
-            }
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "parallelCopies": 8
         }
-    ]
-
+    }
+]
+```
 Puntos a tener en cuenta:
 
 * Cuando copie datos entre almacenes basados en archivos, **parallelCopies** determina el paralelismo en el nivel de archivo. La fragmentación dentro de un único archivo sucedería debajo de forma automática y transparente, y está diseñada para utilizar el tamaño de fragmento más adecuado para un tipo de almacén de datos de origen determinado para cargar datos en paralelo y ortogonales a parallelCopies. El número real de copias en paralelo que usa el servicio de movimiento de datos para la operación de copia en tiempo de ejecución no es superior al número de archivos que tenga. Si el comportamiento de copia es **mergeFile**, la actividad de copia no puede aprovechar las ventajas del paralelismo de nivel de archivo.
@@ -133,25 +133,26 @@ Una **unidad de movimiento de datos (DMU) de nube** es una medida que representa
 
 De forma predeterminada, Data Factory usa una única DMU para realizar una única ejecución de la actividad de copia. Para reemplazar esta configuración predeterminada, especifique un valor para la propiedad **cloudDataMovementUnits** de la manera siguiente. Para más información sobre el nivel de ganancia de rendimiento que puede obtener al configurar más unidades para un origen y un receptor de copia específicos, consulte la [referencia de rendimiento](#performance-reference).
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "cloudDataMovementUnits": 4
-            }
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 4
         }
-    ]
-
+    }
+]
+```
 Los **valores admitidos** para la propiedad **cloudDataMovementUnits** son 1 (predeterminado), 2, 4 y 8. El **número real de DMS de nube** que usa la operación de copia en tiempo de ejecución es igual o inferior al valor configurado, según el patrón de datos.
 
 > [!NOTE]
@@ -191,35 +192,36 @@ Configure la opción **enableStaging** de la actividad de copia para especificar
 | Propiedad | Description | Valor predeterminado | Obligatorio |
 | --- | --- | --- | --- |
 | **enableStaging** |Especifique si desea copiar los datos a través de un almacén provisional. |False |No |
-| **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que haga referencia a la instancia de Azure Storage que se usa como almacenamiento provisional. <br/><br/>  No puede usar Almacenamiento con una firma de acceso compartido para cargar datos en Almacenamiento de datos SQL mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
-| **path** |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/>  Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
+| **linkedServiceName** |Especifique el nombre de un servicio vinculado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service), que haga referencia a la instancia de Azure Storage que se usa como almacenamiento provisional. <br/><br/> No puede usar Almacenamiento con una firma de acceso compartido para cargar datos en Almacenamiento de datos SQL mediante PolyBase. Puede usarlo en todos los demás casos. |N/D |Sí, cuando el valor de **enableStaging** está establecido en True. |
+| **path** |Especifique la ruta de acceso de Almacenamiento de blobs que quiere que contenga los datos almacenados provisionalmente. Si no se proporciona una ruta de acceso, el servicio creará un contenedor para almacenar los datos temporales. <br/><br/> Especifique una ruta de acceso solo si usa Almacenamiento con una firma de acceso compartido o si necesita que los datos temporales estén en una ubicación específica. |N/D |No |
 | **enableCompression** |Especifica si se deben comprimir los datos antes de copiarlos en el destino. Esta configuración reduce el volumen de datos que se va a transferir. |False |No |
 
 Este es un ejemplo de definición de actividad de copia con las propiedades que se han descrito en la tabla anterior:
 
-    "activities":[  
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [{ "name": "OnpremisesSQLServerInput" }],
-        "outputs": [{ "name": "AzureSQLDBOutput" }],
-        "typeProperties": {
-            "source": {
-                "type": "SqlSource",
-            },
-            "sink": {
-                "type": "SqlSink"
-            },
-            "enableStaging": true,
-            "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob",
-                "path": "stagingcontainer/path",
-                "enableCompression": true
-            }
+```json
+"activities":[  
+{
+    "name": "Sample copy activity",
+    "type": "Copy",
+    "inputs": [{ "name": "OnpremisesSQLServerInput" }],
+    "outputs": [{ "name": "AzureSQLDBOutput" }],
+    "typeProperties": {
+        "source": {
+            "type": "SqlSource",
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyStagingBlob",
+            "path": "stagingcontainer/path",
+            "enableCompression": true
         }
     }
-    ]
-
+}
+]
+```
 
 ### <a name="billing-impact"></a>Impacto en la facturación
 Los cargos que se le realizan se basan en dos elementos: duración de la copia y tipo de copia.
@@ -408,6 +410,6 @@ Estas son algunas referencias para la supervisión y la optimización del rendim
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

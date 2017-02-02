@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ea811d7315298132a45a8d1873da8a2bf5600c1c
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 5989d31306aa896a404b29b2c71c9ddf7e23da01
 
 
 ---
@@ -66,7 +66,7 @@ En la lista siguiente se muestran ejemplos del tiempo medio hasta el primer byte
 Hay varios desafíos que se deben tener en cuenta a la hora de usar la red CDN:  
 
 * **Implementación**. Debe decidir el origen del que la red CDN obtendrá el contenido y si es preciso implementar el contenido en más de un sistema de almacenamiento (por ejemplo, en la red CDN y en una ubicación alternativa).
-  
+
   El mecanismo de implementación de la aplicación debe tener en cuenta este proceso para implementar el contenido estático y los recursos, así como para implementar los archivos de la aplicación, como las páginas ASPX. Por ejemplo, puede que necesite implementar un paso independiente para cargar el contenido en Almacenamiento de blobs de Azure.
 * **Control de versiones y control de caché**. Debe considerar cómo va a actualizar el contenido estático y a implementar las nuevas versiones. Es posible [purgar](cdn/cdn-purge-endpoint.md) el contenido de la red CDN en el Portal de Azure cuando haya disponibles nuevas versiones de sus activos. Este es un desafío similar a administrar el almacenamiento en caché del lado cliente, como lo que sucede en un explorador web.
 * **Prueba**. Puede resultar difícil realizar pruebas locales de la configuración de la red CDN al desarrollar y probar una aplicación localmente o en un entorno de ensayo.
@@ -74,7 +74,7 @@ Hay varios desafíos que se deben tener en cuenta a la hora de usar la red CDN:
 * **Seguridad de contenido**. Muchos servicios de la red CDN, como la red CDN de Azure, no ofrecen ningún tipo de control de acceso al contenido.
 * **Seguridad de los clientes**. Los clientes se pueden conectar desde un entorno que no permita el acceso a los recursos de la red CDN. Podría tratarse de un entorno con restricciones de seguridad que limita el acceso a un conjunto de orígenes conocidos o uno que impide la carga de recursos desde cualquier otra cosa que no sea el origen de la página. Para tratar estos casos se requiere una implementación de reserva.
 * **Resistencia**. La red CDN es un potencial punto único de error de una aplicación. Tiene un SLA de menor disponibilidad que el de almacenamiento de blobs (que se puede usar para entregar contenido directamente). Por tanto, es posible que tenga que considerar la implementación de un mecanismo de reserva para contenido crítico.
-  
+
   Puede supervisar la disponibilidad del contenido de la red CDN, su ancho de banda, los datos transferidos, los aciertos, la proporción de aciertos de caché y las métricas de caché desde el Azure Portal en [tiempo real](cdn/cdn-real-time-stats.md) y [agregar informes](cdn/cdn-analyze-usage-patterns.md).
 
 Escenarios donde puede resultar útil incluir la red CDN:  
@@ -247,7 +247,6 @@ Tenga en cuenta que el uso de la reescritura de URL requiere que se realicen var
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
