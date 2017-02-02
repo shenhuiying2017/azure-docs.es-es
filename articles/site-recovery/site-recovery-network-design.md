@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 5614c39d914d5ae6fde2de9c0d9941e7b93fc10f
-ms.openlocfilehash: a425de26cacc9525d0dc9a6842b5060f8c37a462
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 2c19472c93d097f29692af18063404f3bf28b6bd
 
 
 ---
-# <a name="designing-your-network-infrastructure-for-disaster-recovery"></a>Diseño de una infraestructura de red para la recuperación ante desastres
+# <a name="designing-your-network-for-disaster-recovery"></a>Diseñe su red para la recuperación ante desastres.
 Este artículo va dirigido a los profesionales de TI responsables de la elaboración, implementación y soporte técnico de la infraestructura de continuidad empresarial y recuperación ante desastres (BCDR), y que desean sacar provecho de Microsoft Azure Site Recovery (ASR) para dar soporte técnico a sus servicios de BCDR y mejorarlos. En este documento se describen consideraciones prácticas para la implementación de servidores en System Center Virtual Machine Manager, las ventajas y desventajas de las subredes ampliadas frente a la conmutación por error de subred y cómo estructurar la recuperación ante desastres en sitios virtuales de Microsoft Azure.
 
 ## <a name="overview"></a>Información general
@@ -83,9 +83,8 @@ Si el sitio secundario es local y está usando un servidor VMM para administrarl
 
 ![Conservar dirección IP](./media/site-recovery-network-design/network-design4.png)
 
-Ilustración 5.
 
-La Figura 5 muestra la configuración de TCP/IP de conmutación por erro de la máquina virtual de réplica (en la consola de Hyper-V). Esta configuración se rellenaría inmediatamente antes de que la máquina virtual se inicia tras una conmutación por error
+En la imagen anterior se muestra la configuración de TCP/IP para la máquina virtual de réplica de la conmutación por error (en la consola de Hyper-V). Esta configuración se rellenaría inmediatamente antes de que la máquina virtual se inicia tras una conmutación por error
 
 Si no está disponible la misma IP, ASR asignaría otra dirección IP disponible en el grupo de direcciones IP definido.
 
@@ -137,15 +136,13 @@ Examinemos el escenario donde planea usar varias IP en los sitios principal y de
 
 ![Otra dirección IP: antes de la conmutación por error](./media/site-recovery-network-design/network-design10.png)
 
-Figura 11
 
-En la Figura 11 hay algunas aplicaciones que se hospedan en la subred 192.168.1.0/24 del sitio principal que se han configurado para actuar en el sitio de recuperación en la subred 172.16.1.0/24 después de una conmutación por error. Las rutas de red/conexiones de VPN se han configurado correctamente de forma que los tres sitios son accesibles entre sí.
+En la imagen anterior hay algunas aplicaciones que se hospedan en la subred 192.168.1.0/24 del sitio principal que se han configurado para actuar en el sitio de recuperación en la subred 172.16.1.0/24 después de una conmutación por error. Las rutas de red/conexiones de VPN se han configurado correctamente de forma que los tres sitios son accesibles entre sí.
 
-Como muestra la Figura 12, después de la conmutación por error de una o varias aplicaciones, se restaurarán en la subred de recuperación. En este caso, no estamos limitados a conmutar por error toda la red al mismo tiempo. Se requieren cambios para volver a configurar la VPN o las rutas de red. Una conmutación por error y algunas actualizaciones de DNS garantizarán que las aplicaciones seguirán siendo accesibles. Si el DNS está configurado para permitir actualizaciones dinámicas, las máquinas virtuales se registrarán a sí mismas con la nueva IP una vez que se inician después de una conmutación por error.
+Como muestra la imagen anterior, después de la conmutación por error de una o varias aplicaciones, se restaurarán en la subred de recuperación. En este caso, no estamos limitados a conmutar por error toda la red al mismo tiempo. Se requieren cambios para volver a configurar la VPN o las rutas de red. Una conmutación por error y algunas actualizaciones de DNS garantizarán que las aplicaciones seguirán siendo accesibles. Si el DNS está configurado para permitir actualizaciones dinámicas, las máquinas virtuales se registrarán a sí mismas con la nueva IP una vez que se inician después de una conmutación por error.
 
 ![Otra dirección IP: después de la conmutación por error](./media/site-recovery-network-design/network-design11.png)
 
-Figura 12
 
 Después de la conmutación por error, es posible que la máquina virtual de réplica tenga una dirección IP que no sea la misma que la de la máquina virtual principal. Las máquinas virtuales actualizarán el servidor DNS que están utilizando después de iniciarse. Las entradas DNS normalmente tendrán que cambiarse o vaciarse en toda la red y las entradas en caché de las tablas de red tienen que actualizarse o vaciarse, por lo que no es raro tener que hacer frente al tiempo de inactividad mientras se producen estos cambios de estado. Este problema se puede mitigar con las acciones siguientes:
 
@@ -162,7 +159,7 @@ Después de la conmutación por error, es posible que la máquina virtual de ré
         $newrecord.RecordData[0].IPv4Address  =  $IP
         Set-DnsServerResourceRecord -zonename $zone -OldInputObject $record -NewInputObject $Newrecord
 
-### <a name="changing-the-ip-addresses-dr-to-azure"></a>Cambio de las direcciones IP: recuperación ante desastres en Azure
+### <a name="changing-the-ip-addresses--dr-to-azure"></a>Cambio de las direcciones IP: recuperación ante desastres en Azure
 La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Disaster Recovery Site](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) (Configuración de la infraestructura de redes de Microsoft Azure como sitio de recuperación ante desastres) explica que configurar la infraestructura de red de Azure requerida al conservar las direcciones IP no es un requisito. Dicha entrada comienza con la descripción de la aplicación y luego examina cómo configurar las redes locales y en Azure, y concluye con la forma de realizar una conmutación por error de prueba y una conmutación por error planeada.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -170,6 +167,6 @@ La entrada de blog [Networking Infrastructure Setup for Microsoft Azure as a Dis
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

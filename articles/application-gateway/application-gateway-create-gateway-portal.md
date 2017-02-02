@@ -4,7 +4,7 @@ description: Aprenda a crear una puerta de enlace de aplicaciones mediante el po
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: 
 tags: azure-resource-manager
 ms.assetid: 54dffe95-d802-4f86-9e2e-293f49bd1e06
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 919b0b945f463bdf840faa6b244e1ba0c12c7cc3
-ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
+ms.sourcegitcommit: e20f7349f30c309059c2867d7473fa6fdefa9b61
+ms.openlocfilehash: f7036e8e629e78c5346688556a5aa5794bde3955
 
 
 ---
@@ -29,8 +29,6 @@ ms.openlocfilehash: dedb4064f7c42f4e2f8d55c623168a7faf9a3d27
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Plantilla del Administrador de recursos de Azure](application-gateway-create-gateway-arm-template.md)
 > * [CLI de Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Puerta de enlace de aplicaciones de Azure es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application Gateway proporciona numerosas características del Controlador de entrega de aplicaciones (ADC), entre las que se incluyen el equilibrio de carga HTTP, la afinidad de sesiones basada en cookies, la descarga SSL (Capa de sockets seguros), los sondeos personalizados sobre el estado, la compatibilidad con multisitio, etc. Para obtener una lista completa de las características admitidas, visite [Introducción a Application Gateway](application-gateway-introduction.md)
 
@@ -71,7 +69,7 @@ A continuación, rellene la información básica de la puerta de enlace de aplic
 La información necesaria para la configuración básica es:
 
 * **Nombre** : nombre de la puerta de enlace de aplicaciones.
-* **Nivel**: es el nivel de la puerta de enlace de aplicaciones. Existen dos niveles **WAF** y **Estándar**. WAF habilita la característica de firewall de aplicaciones web.
+* **Nivel**: esta configuración es el nivel de la puerta de enlace de aplicaciones. Existen dos niveles **WAF** y **Estándar**. WAF habilita la característica de firewall de aplicaciones web.
 * **Tamaño de SKU**: es el tamaño de la puerta de enlace de aplicaciones, las opciones disponibles son (**Pequeño**, **Mediano** y **Grande**). En el nivel WAF, la opción Pequeño no está disponible.
 * **Número de instancias** : el número de instancias, este valor debe ser un número comprendido entre 2 y 10.
 * **Grupo de recursos** : el grupo de recursos que mantiene la puerta de enlace de aplicaciones, puede ser un grupo de recursos existente o uno nuevo.
@@ -126,7 +124,7 @@ A continuación, asigne un nombre descriptivo a la dirección IP pública y haga
 
 El último ajuste que se configura al crear una puerta de enlace de aplicaciones es la configuración del agente de escucha.  Si se usa **http**, no queda nada por configurar, así que se puede hacer clic en **Aceptar**. Para usar **https** , se requiere mayor configuración.
 
-Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria, por lo que es preciso proporcionar un .pfx exportado del certificado y la contraseña.
+Para usar **https**, se requiere un certificado. La clave privada del certificado es necesaria. Es preciso proporcionar un .pfx exportado del certificado y la contraseña.
 
 ### <a name="step-10"></a>Paso 10
 
@@ -151,7 +149,7 @@ Estos pasos permiten crear una puerta de enlace de aplicaciones básica con la c
 
 ## <a name="add-servers-to-backend-pools"></a>Adición de servidores a grupos de back-end
 
-Cuando se crea la puerta de enlace de aplicaciones, los sistemas que van a hospedar la aplicación para el equilibrio de carga todavía deben agregarse a la puerta de enlace de aplicaciones. Las direcciones IP o los valores de nombre completo de estos servidores se agregan a los grupos de direcciones de back-end.
+Cuando se crea la puerta de enlace de aplicaciones, los sistemas que hospeda la aplicación para el equilibrio de carga todavía deben agregarse a la puerta de enlace de aplicaciones. Las direcciones IP o los valores de nombre completo de estos servidores se agregan a los grupos de direcciones de back-end.
 
 ### <a name="step-1"></a>Paso 1
 
@@ -165,11 +163,11 @@ Agregue las direcciones IP o los valores del nombre completo de los cuadros de t
 
 ![adición de valores a los grupos de back-end de Application Gateway][12]
 
-Esto guarda los valores en el grupo back-end. Cuando se ha actualizado la puerta de enlace de aplicaciones, se enruta el tráfico que entra en la puerta de enlace de aplicaciones a las direcciones de back-end que se han agregado en este paso.
+Esto guarda los valores en el grupo de back-end. Cuando se ha actualizado la puerta de enlace de aplicaciones, se enruta el tráfico que entra en la puerta de enlace de aplicaciones a las direcciones de back-end que se han agregado en este paso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este escenario se crea una puerta de enlace de aplicaciones predeterminada. Los siguientes pasos se usan para configurar la puerta de enlace de aplicaciones mediante la modificación de la configuración y el ajuste de las reglas de la puerta de enlace. Estos pasos se pueden encontrar visitando los siguientes artículos.
+En este escenario se crea una puerta de enlace de aplicaciones predeterminada. Los siguientes pasos se usan para configurar la puerta de enlace de aplicaciones mediante la modificación de la configuración y el ajuste de las reglas de la puerta de enlace. Estos pasos se pueden encontrar si consulta los siguientes artículos:
 
 Para aprender a crear sondeos de estado personalizado, visite [Create a custom probe for Application Gateway by using the portal](application-gateway-create-probe-portal.md)
 
@@ -194,6 +192,6 @@ Aprenda a proteger aplicaciones con [Firewall de aplicaciones web de Application
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

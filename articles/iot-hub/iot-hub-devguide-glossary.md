@@ -1,6 +1,6 @@
 ---
-title: "Guía del desarrollador: Glosario | Microsoft Docs"
-description: "Un glosario de términos comunes relacionados con IoT Hub"
+title: Glosario de IoT Hub de Azure | Microsoft Docs
+description: "Guía del desarrollador: glosario de términos comunes relativos a IoT Hub de Azure."
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 09/30/2016
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: c18a1b16cb561edabd69f17ecebedf686732ac34
-ms.openlocfilehash: d4bf4e03321255385dbb15d7559ea94f191183b5
+ms.sourcegitcommit: 1f795dd5b3d99731b2e683085d889ed7943d6281
+ms.openlocfilehash: 3661ad7374fd91cf7bbc485b8ce0805b78518899
 
 
 ---
@@ -42,7 +42,7 @@ Hay _SDK de servicios_ disponibles para varios idiomas que permiten crear [aplic
 [Microsoft Azure Portal](https://portal.azure.com) es una ubicación central desde donde se pueden aprovisionar y administrar los recursos de Azure. Organiza su contenido mediante _hojas_. En algunos de los tutoriales de IoT Hub, se le puede pedir que utilice el [Portal de Azure clásico](https://manage.windowsazure.com).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) es un conjunto de cmdlets que puede usar para administrar Azure con Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) es un conjunto de cmdlets que puede usar para administrar Azure con Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure.
 
 ## <a name="azure-resource-manager"></a>Administrador de recursos de Azure
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) permite trabajar con los recursos de la solución como grupo. Los recursos de la solución se pueden implementar, actualizar o eliminar en una sola operación coordinada.
@@ -63,7 +63,9 @@ Una puerta de enlace en la nube habilita la conectividad para dispositivos que n
 Hace referencia a los mensajes enviados desde un centro de IoT a un dispositivo conectado. A menudo, estos mensajes son comandos que indican al dispositivo que realice una acción. Para más información, vea [Enviar y recibir mensajes con IoT Hub](iot-hub-devguide-messaging.md).
 
 ## <a name="connection-string"></a>Cadena de conexión
-Las cadenas de conexión se usan en el código de aplicación a fin de encapsular la información necesaria para conectarse a un punto de conexión. Normalmente, una cadena de conexión incluye la dirección de la información del punto de conexión y de seguridad pero el formato de la cadena de conexión varía en función de los servicios.
+Las cadenas de conexión se usan en el código de aplicación a fin de encapsular la información necesaria para conectarse a un punto de conexión. Normalmente, una cadena de conexión incluye la dirección de la información del punto de conexión y de seguridad, pero los formatos de la cadena de conexión varían en función de los servicios. Hay dos tipos de cadena de conexión asociadas con el servicio de IoT Hub:
+- Las *cadenas de conexión de dispositivo* permiten que los dispositivos se conecten a puntos de conexión orientados a dispositivos de un centro de IoT Hub.
+- Las *cadenas de conexión de dispositivo* permiten que las aplicaciones de back-end se conecten a puntos de conexión orientados a servicios de un centro de IoT Hub.
 
 ## <a name="custom-gateway"></a>Puerta de enlace personalizada
 Una puerta de enlace habilita la conectividad para dispositivos que no se pueden conectar directamente a [IoT Hub](#iot-hub). Puede usar el [SDK de puerta de enlace de IoT de Azure](#azure-iot-gateway-sdk) a fin de crear puertas de enlace personalizadas que implementan lógica personalizada para controlar mensajes y conversiones de protocolo personalizadas.
@@ -147,13 +149,13 @@ Una puerta de enlace habilita la conectividad para dispositivos que no se pueden
 El [registro de identidad](iot-hub-devguide-identity-registry.md) es el componente integrado de un centro de IoT que almacena información acerca de los dispositivos individuales permitidos para conectarse a un centro de IoT.
 
 ## <a name="interactive-message"></a>Mensaje interactivo
-Un mensaje interactivo es un mensaje [de la nube al dispositivo](#cloud-to-device) que desencadena una acción inmediata en el back-end de aplicación. Por ejemplo, un dispositivo puede enviar una alarma sobre un error que se debe registrar automáticamente en un sistema CRM.
+Un mensaje interactivo es un mensaje [de nube a dispositivo](#cloud-to-device) que desencadena una acción inmediata en el back-end de solución. Por ejemplo, un dispositivo puede enviar una alarma sobre un error que se debe registrar automáticamente en un sistema CRM.
 
 ## <a name="iot-hub"></a>IoT Hub
 IoT Hub es un servicio de Azure totalmente administrado que permite la comunicación bidireccional confiable y segura entre millones de dispositivos y un back-end de soluciones. Para más información, consulte [¿Qué es Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Con su [suscripción de Azure](#subscription), puede crear centros de IoT para controlar las cargas de trabajo de mensajería de IoT.
 
 ## <a name="iot-hub-metrics"></a>Métricas de IoT Hub
-Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de los centros de IoT en la [suscripción de Azure](#subscription). Las métricas permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las métricas pueden ayudar a ver lo que está ocurriendo con el centro de IoT y a investigar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
+Las [métricas de IoT Hub](iot-hub-metrics.md) ofrecen datos sobre el estado de los centros de IoT en la [suscripción de Azure](#subscription). Las métricas de IoT Hub permiten evaluar el estado general del servicio y de los dispositivos conectados a él. Las métricas de IoT Hub pueden ayudar a ver lo que está ocurriendo con el centro de IoT Hub y a investigar la causa raíz de los problemas sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
 ## <a name="iot-hub-query-language"></a>Lenguaje de consulta de IoT Hub
 El [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md) es un lenguaje de tipo SQL que permite consultar los [trabajos](#job) y dispositivos gemelos.
@@ -225,7 +227,7 @@ Una suscripción de Azure es donde se realiza la facturación. Cada recurso de A
 En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las propiedades del sistema son de solo lectura e incluyen información sobre el uso de dispositivos, como el último estado de conexión y tiempo de actividad.
 
 ## <a name="tags"></a>Etiquetas
-En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las etiquetas son metadatos de dispositivos almacenados y recuperados por el back-end de aplicación en forma de documento JSON. Las etiquetas no son visibles para las aplicaciones en un dispositivo.
+En el contexto de un [dispositivo gemelo](iot-hub-devguide-device-twins.md), las etiquetas son metadatos de dispositivos almacenados y recuperados por el back-end de solución en forma de documento JSON. Las etiquetas no son visibles para las aplicaciones en un dispositivo.
 
 ## <a name="telemetry"></a>Telemetría
 Los dispositivos recopilan datos de telemetría, como la velocidad del viento o la temperatura, y usan [mensajes de punto de datos](#data-point-messages) para enviar la telemetría a un centro de IoT.
@@ -237,6 +239,6 @@ Se puede utilizar un servicio de token a fin de implementar un mecanismo de aute
 Un dispositivo puede usar un certificado X.509 para autenticarse con [IoT Hub](#iot-hub). Un certificado X.509 es una alternativa al uso de un [token de SAS](#shared-access-signature).
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

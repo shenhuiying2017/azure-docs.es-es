@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -16,8 +16,8 @@ ms.workload: NA
 ms.date: 11/22/2016
 ms.author: sashan;carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: afcdae9ae0224e12ad874b389dad9882d9269fdf
-ms.openlocfilehash: e3d4b3f7a628a058e7b761788a3f63a57228f39c
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 9faff06ee1856ca6490add759acd3c5f36719853
 
 
 ---
@@ -51,7 +51,7 @@ Los pasos siguientes crean otra base de datos secundaria en una asociación de r
 
 Para agregar una base de datos secundaria, debe ser el propietario o copropietario de la suscripción.
 
-La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos única o una base de datos elástica. Para obtener más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md).
+La base de datos secundaria tiene el mismo nombre que la base de datos principal y, de forma predeterminada, presentan el mismo nivel de servicio. La base de datos secundaria puede ser una base de datos independiente o una de un grupo elástico. Para obtener más información, consulte el artículo sobre [niveles de servicio](sql-database-service-tiers.md).
 Después de crear e inicializar la base de datos secundaria, los datos comienzan a replicarse desde la base de datos principal a la nueva base de datos secundaria.
 
 > [!NOTE]
@@ -67,7 +67,7 @@ Después de crear e inicializar la base de datos secundaria, los datos comienzan
 3. Seleccione o configure el servidor y el plan de tarifa de la base de datos secundaria.
    
     ![Configuración de la secundaria](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. También puede agregar una base de datos secundaria a un grupo de bases de datos elásticas. Para crear una base de datos secundaria en un grupo, haga clic en **Grupo de bases de datos elásticas** y seleccione un grupo en el servidor de destino. Ya debe existir un grupo en el servidor de destino. Este flujo de trabajo no crea un grupo.
+4. También puede agregar una base de datos secundaria a un grupo elástico. Para crear una base de datos secundaria en un grupo, haga clic en **Grupo elástico** y seleccione un grupo del servidor de destino. Ya debe existir un grupo en el servidor de destino. Este flujo de trabajo no crea un grupo.
 5. Haga clic en **Crear** para agregar la base de datos secundaria.
 6. Se crea la base de datos secundaria y comienza el proceso de inicialización.
    
@@ -94,6 +94,6 @@ Esta operación termina de forma permanente la replicación en la base de datos 
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

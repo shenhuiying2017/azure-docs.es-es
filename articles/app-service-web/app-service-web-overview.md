@@ -12,11 +12,11 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/28/2016
+ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: ee8c76d383867ef4a545f690e75b8246a03d1cc4
-ms.openlocfilehash: e9e5408c60332e3def9c312ce06a9a27ecefefb2
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 18959934c53e2e1c719cc627ffa286acbdcaa967
 
 
 ---
@@ -46,7 +46,7 @@ Para obtener ejemplos de escenarios de aplicación típicos en los que puede usa
 Estas son algunas características clave del Servicio de aplicaciones que se aplican a Aplicaciones web:
 
 * **Varios lenguajes y plataformas** : Servicio de aplicaciones es compatible con ASP.NET, Node.js, Java, PHP y Python. También puede ejecutar [PowerShell y otros scripts o ejecutables](web-sites-create-web-jobs.md) en máquinas virtuales del Servicio de aplicaciones.
-* **Optimización de DevOps** : configure la [integración y la implementación continuas](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](web-sites-staged-publishing.md). Realice [las pruebas A/B](app-service-web-test-in-production-get-start.md). Administre las aplicaciones de App Service mediante [Azure PowerShell](../powershell-install-configure.md) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
+* **Optimización de DevOps** : configure la [integración y la implementación continuas](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub o BitBucket. Promueva actualizaciones a través de [entornos de ensayo y prueba](web-sites-staged-publishing.md). Realice [las pruebas A/B](app-service-web-test-in-production-get-start.md). Administre las aplicaciones de App Service mediante [Azure PowerShell](/powershell/azureps-cmdlets-docs) o la [interfaz de la línea de comandos (CLI) multiplataforma](../xplat-cli-install.md).
 * **Escala global con alta disponibilidad**: escale [verticalmente](web-sites-scale.md) u [horizontalmente](../monitoring-and-diagnostics/insights-how-to-scale.md) de forma manual o automática. Hospede las aplicaciones en cualquier parte de la infraestructura del centro de datos global de Microsoft y el [Acuerdo de Nivel de Servicio](https://azure.microsoft.com/support/legal/sla/app-service/) del Servicio de aplicaciones promete una alta disponibilidad.
 * **Conexiones a plataformas SaaS y a datos locales** : elija entre más de 50 [conectores](../connectors/apis-list.md) para sistemas empresariales (como SAP, Siebel y Oracle), servicios de SaaS conocidos (como Salesforce y Office 365) y servicios de Internet (como Facebook y Twitter). Acceda a los datos locales mediante [Conexiones híbridas](../biztalk-services/integration-hybrid-connection-overview.md) y [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Seguridad y cumplimiento** : Servicio de aplicaciones cumple con [ISO, SOC y PCI](https://www.microsoft.com/TrustCenter/).
@@ -58,13 +58,25 @@ Además, una aplicación web puede aprovechar las características ofrecidas por
 Además de Aplicaciones web en el Servicio de aplicaciones, Azure ofrece otros servicios que se pueden utilizar para hospedar aplicaciones web y sitios web. En la mayoría de los casos, Aplicaciones web es la mejor opción.  Para arquitectura de microservicios, puede usar [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) y, si necesita más control sobre las máquinas virtuales en las que se ejecuta el código, piense utilizar [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Para más información sobre qué servicio de Azure elegir, consulte [Comparación de Servicio de aplicaciones de Azure, Servicios en la nube de Azure, Máquinas virtuales de Azure y Azure Service Fabric](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Introducción
-Para comenzar mediante la implementación de código de ejemplo en una nueva aplicación web en el Servicio de aplicaciones, siga el tutorial [Implementación de su primera aplicación web en Azure en 5 minutos](app-service-web-get-started.md) . Necesitará una cuenta gratis de Azure.
+Para comenzar mediante la implementación de código de ejemplo en una nueva aplicación web en el App Service, siga uno de los tutoriales del siguiente cuadro desplegable. Necesitará una cuenta gratis de Azure.
 
-Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> [!div class="op_single_selector"]
+> * [Implementación del primer sitio HTML en Azure en 5 minutos](app-service-web-get-started-html-cli-nodejs.md)
+> * [Implementación de la primer aplicación web ASP.NET en 5 minutos](app-service-web-get-started-dotnet-cli-nodejs.md)
+> * [Implementación de la primer aplicación web PHP en Azure en 5 minutos](app-service-web-get-started-php-cli-nodejs.md)
+> * [Implementación de la primer aplicación web Node.js en Azure en 5 minutos](app-service-web-get-started-nodejs-cli-nodejs.md)
+> * [Implementación de la primer aplicación web Python en Azure en 5 minutos](app-service-web-get-started-python-cli-nodejs.md)
+> * [Implementación de la primer aplicación web Java en Azure en 5 minutos](app-service-web-get-started-java.md)
+> 
+> 
+
+> [!NOTE]
+> También puede [probar App Service](https://azure.microsoft.com/try/app-service/) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+> 
+> 
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

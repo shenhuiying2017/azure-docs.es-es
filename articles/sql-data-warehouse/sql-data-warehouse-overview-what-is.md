@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;mausher;kevin;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ff2d30fcf53028754fc5e1a4b6b52323855a48b4
+ms.sourcegitcommit: 6241eb0e7ea091dffcb0ae770f8d89f24a19eb67
+ms.openlocfilehash: ff2f688d42924edb1596cb2db474a58748f2b44c
 
 
 ---
@@ -25,7 +25,7 @@ Almacenamiento de datos SQL de Azure es una base de datos de escalado horizontal
 
 Almacenamiento de datos SQL
 
-* Combina la base de datos relacional de SQL Server con las funcionalidades de escalado horizontal en la nube de Azure. Puede aumentar, reducir, pausar o reanudar el proceso en segundos. Al escalar horizontalmente la CPU cuando lo necesita, ahorra costos y reduce el uso durante las horas de poca actividad.
+* Combina la base de datos relacional de SQL Server con las funcionalidades de escalado horizontal en la nube de Azure. Puede aumentar, reducir, pausar o reanudar el proceso en minutos o segundos. Al escalar horizontalmente la CPU cuando lo necesita, ahorra costos y reduce el uso durante las horas de poca actividad.
 * Aprovecha la plataforma Azure. Es fácil de implementar, su mantenimiento no genera problemas y es totalmente tolerante a errores, gracias a las copias de seguridad automáticas.
 * Es el complemento perfecto del ecosistema de SQL Server. Le permite desarrollar con el familiar lenguaje Transact-SQL de SQL Server (T-SQL) y herramientas conocidas.
 
@@ -96,21 +96,21 @@ Almacenamiento de datos SQL se basa en el motor de base de datos relacional de S
 
 * Almacenamiento de datos SQL emplea sintaxis de T-SQL para muchas operaciones. También admite un amplio conjunto de construcciones SQL tradicionales, como procedimientos almacenados, funciones definidas por el usuario, partición de tabla, índices e intercalaciones.
 * Almacenamiento de datos SQL también contiene varias características recientes de SQL Server, como los índices **columnstore** agrupados, la integración de PolyBase y la auditoría de datos (junto con la evaluación de amenazas).
-* Puede que determinados elementos del lenguaje T-SQL, que son menos comunes para las cargas de trabajo de almacenamiento de datos, o que son más recientes para SQL Server, no se encuentren actualmente disponibles. Para más información, consulte la [documentación de migración][documentación de migración].
+* Puede que determinados elementos del lenguaje T-SQL, que son menos comunes para las cargas de trabajo de almacenamiento de datos, o que son más recientes para SQL Server, no se encuentren actualmente disponibles. Para más información, consulte la [documentación de migración][Migration documentation].
 
 Con la uniformidad de Transact-SQL y las características comunes existentes entre SQL Server, Almacenamiento de datos SQL, Base de datos SQL y Sistema de plataforma de análisis, es posible desarrollar una solución que se ajuste a las necesidades de los datos. Puede decidir dónde guardar los datos, basándose en los requisitos de escala, seguridad y rendimiento y, a continuación, transferir los datos según sea necesario entre distintos sistemas.
 
 ## <a name="data-protection"></a>Protección de datos
-Almacenamiento de datos SQL almacena todos los datos en Azure Premium mediante el almacenamiento con redundancia local. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados. Además, Almacenamiento de datos SQL realiza automáticamente una copia de seguridad de las bases de datos activas (no en pausa) a intervalos periódicos mediante instantáneas de Almacenamiento de Azure. Para más información acerca de cómo usar las copias de seguridad y la restauración, consulte la [información general sobre la copia de seguridad y la restauración][información general sobre la copia de seguridad y la restauración].
+Almacenamiento de datos SQL almacena todos los datos en Azure Premium mediante el almacenamiento con redundancia local. Se mantienen varias copias sincrónicas de los datos en el centro de datos local para garantizar la protección transparente de los datos en caso de errores localizados. Además, Almacenamiento de datos SQL realiza automáticamente una copia de seguridad de las bases de datos activas (no en pausa) a intervalos periódicos mediante instantáneas de Almacenamiento de Azure. Para más información acerca de cómo usar las copias de seguridad y la restauración, consulte la [información general sobre la copia de seguridad y la restauración][Backup and restore overview].
 
 ## <a name="integrated-with-microsoft-tools"></a>Integrado con herramientas de Microsoft
 Almacenamiento de datos SQL también integra muchas de las herramientas con las que es posible que los usuarios de SQL Server ya estén familiarizados. Entre ellas se incluyen las siguientes:
 
 **Herramientas tradicionales de SQL Server:** Almacenamiento de datos SQL se integra totalmente con SQL Server Analysis Services, Integration Services y Reporting Services.
 
-**Herramientas basadas en la nube:** Almacenamiento de datos SQL se puede usar con varias herramientas nuevas en Azure, como Data Factory, Análisis de transmisiones, Aprendizaje automático y Power BI. Para ver una lista completa, consulte la [información general sobre las herramientas integradas][información general sobre las herramientas integradas].
+**Herramientas basadas en la nube:** Almacenamiento de datos SQL se puede usar con varias herramientas nuevas en Azure, como Data Factory, Análisis de transmisiones, Aprendizaje automático y Power BI. Para ver una lista completa, consulte la [información general sobre las herramientas integradas][Integrated tools overview].
 
-**Herramientas de terceros:** un gran número de proveedores de herramientas de terceros ha certificado la integración de sus herramientas con Almacenamiento de datos SQL. Para ver una lista completa, vea [Partners de la solución de SQL Data Warehouse][Partners de la solución de SQL Data Warehouse].
+**Herramientas de terceros:** un gran número de proveedores de herramientas de terceros ha certificado la integración de sus herramientas con Almacenamiento de datos SQL. Para ver una lista completa, consulte los [asociados de soluciones de SQL Data Warehouse][SQL Data Warehouse solution partners].
 
 ## <a name="hybrid-data-sources-scenarios"></a>Escenarios de orígenes de datos híbridos
 El uso de SQL Data Warehouse con PolyBase ofrece a los usuarios la posibilidad única de trasladar los datos en su ecosistema y, con ello, de configurar escenarios híbridos avanzados con orígenes de datos no relacionales y locales.
@@ -122,10 +122,10 @@ Polybase le permite aprovechar datos de orígenes diferentes con los mismos coma
 * PolyBase puede utilizarse para acceder al almacenamiento de blobs que también se emplea como almacenamiento para un clúster de HDInsight. Esto le otorga acceso a los mismos datos con herramientas relacionales y no relacionales.
 
 ## <a name="sla"></a>Contrato de nivel de servicio
-SQL Data Warehouse ofrece un acuerdo de nivel de servicio (SLA) de nivel de producto como parte del SLA de Microsoft Online Services. Para más información, visite [Acuerdo de Nivel de Servicio para SQL Data Warehouse][Acuerdo de Nivel de Servicio para SQL Data Warehouse]. Para más información sobre el Acuerdo de Nivel de Servicio de todos los demás productos, puede visitar la página de Azure [Acuerdos de nivel de servicio] o descargarlos en la página [Licencias por volumen][Licencias por volumen]. 
+SQL Data Warehouse ofrece un acuerdo de nivel de servicio (SLA) de nivel de producto como parte del SLA de Microsoft Online Services. Para más información, visite [SLA para SQL Data Warehouse][SLA for SQL Data Warehouse]. Para más información sobre el SLA de todos los demás productos, puede visitar la página de Azure [Acuerdos de nivel de servicio] o descargarlos en la página [Licencias por volumen][Volume Licensing]. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][crear una instancia de SQL Data Warehouse] y [cargar datos de ejemplo][ de manera rápida]. Si no está familiarizado con Azure, el [Glosario de Azure][Glosario de Azure] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.  
+Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia de SQL Data Warehouse][create a SQL Data Warehouse] y [cargar datos de ejemplo de manera rápida][load sample data]. Si no está familiarizado con Azure, el [Glosario de Azure][Azure glossary] le puede resultar útil para consultar la nueva terminología que se encuentre. O bien, examine algunos de estos otros recursos de Almacenamiento de datos de SQL.  
 
 * [Casos de éxito de clientes]
 * [Blogs]
@@ -142,13 +142,13 @@ Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia d
 
 <!--Article references-->
 [Creación de una incidencia de soporte técnico]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[cargar datos de ejemplo]: ./sql-data-warehouse-load-sample-databases.md
-[Creación de una instancia de SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
-[documentación de migración]: ./sql-data-warehouse-overview-migrate.md
-[asociados de soluciones de SQL Data Warehouse]: ./sql-data-warehouse-partner-business-intelligence.md
-[información general sobre las herramientas integradas]: ./sql-data-warehouse-overview-integrate.md
-[información general sobre la copia de seguridad y la restauración]: ./sql-data-warehouse-restore-database-overview.md
-[Glosario de Azure]: ../azure-glossary-cloud-terminology.md
+[load sample data]: ./sql-data-warehouse-load-sample-databases.md
+[create a SQL Data Warehouse]: ./sql-data-warehouse-get-started-provision.md
+[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
+[SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
+[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
+[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->
 
@@ -161,12 +161,12 @@ Ahora que ya conoce un poco SQL Data Warehouse, aprenda a [crear una instancia d
 [Foro Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA para SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
-[Licencias por volumen]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Acuerdos de Nivel de Servicio]: https://azure.microsoft.com/en-us/support/legal/sla/
+[SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
+[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Acuerdos de nivel de servicio]: https://azure.microsoft.com/en-us/support/legal/sla/
 
 
 
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

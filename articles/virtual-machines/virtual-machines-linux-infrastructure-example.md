@@ -1,28 +1,32 @@
 ---
-title: Tutorial de la infraestructura de ejemplo | Microsoft Docs
-description: Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure.
-documentationcenter: ''
+title: Tutorial de la infraestructura de Azure de ejemplo | Microsoft Docs
+description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar una infraestructura de ejemplo en Azure."
+documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 70e52cefccee4b963e512724b96525bcbacf330c
+ms.openlocfilehash: e8ef1e52dec358fae00096df26b16fb9e3f46c2b
+
 
 ---
-# Tutorial de la infraestructura de Azure de ejemplo
+# <a name="example-azure-infrastructure-walkthrough"></a>Tutorial de la infraestructura de Azure de ejemplo
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 Este artículo le guía a través de la creación de una infraestructura de aplicación de ejemplo. Detallaremos el diseño de una infraestructura para una tienda en línea sencilla que reúna todas las directrices y decisiones relacionadas con las convenciones de nomenclatura, los conjuntos de disponibilidad, las redes virtuales, los equilibradores de carga y, realmente, la implementación de sus máquinas virtuales (VM).
 
-## Carga de trabajo de ejemplo
+## <a name="example-workload"></a>Carga de trabajo de ejemplo
 Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azure que conste de:
 
 * Dos servidores nginx que ejecuten el cliente front-end en un nivel web
@@ -30,7 +34,7 @@ Adventure Works Cycles desea crear una aplicación de la tienda en línea en Azu
 * Dos servidores MongoDB parte de un clúster particionado para almacenar pedidos y datos de productos en un nivel de base de datos
 * Dos controladores de dominio de Active Directory para los proveedores y las cuentas de cliente en un nivel de autenticación
 * Todos los servidores se encuentran en dos subredes:
-  * Una subred front-end para los servidores web
+  * Una subred front-end para los servidores web 
   * Una subred back-end para los servidores de aplicaciones, el clúster de MongoDB y los controladores de dominio
 
 ![Diagrama de distintos niveles de infraestructura de aplicaciones](./media/virtual-machines-common-infrastructure-service-guidelines/example-tiers.png)
@@ -49,23 +53,23 @@ El diseño resultante incluirá:
 Todo lo anterior seguirá estas convenciones de nomenclatura:
 
 * Adventure Works Cycles usa **[carga de trabajo de TI]-[ubicación]-[recurso de Azure]** como prefijo
-  * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE.UU. 2") es la ubicación
+  * En este ejemplo, "**azos**" (siglas en inglés de "tienda en línea de Azure") es el nombre de la carga de trabajo de TI y "**use**" (siglas en inglés de "este de EE. UU. 2") es la ubicación.
 * Las cuentas de almacenamiento usan adventureazosusesa**[descripción]**
   * Se agregó adventure al prefijo para proporcionar exclusividad y que los nombres de cuentas de almacenamiento no admiten el uso de guiones.
 * Las redes virtuales usan AZOS-USE-VN**[número]**
 * Los conjuntos de disponibilidad usan azos-use-as-**[rol]**
 * Los nombres de máquinas virtuales usan azos-use-vm-**[vmname]**
 
-## Suscripciones y cuentas de Azure
+## <a name="azure-subscriptions-and-accounts"></a>Suscripciones y cuentas de Azure
 Adventure Works Cycles usa la suscripción Enterprise, denominada Adventure Works Enterprise Subscription, para proporcionar la facturación de esta carga de trabajo de TI.
 
-## Cuentas de almacenamiento
+## <a name="storage-accounts"></a>Cuentas de almacenamiento
 Adventure Works Cycles determinó que necesitaba dos cuentas de almacenamiento:
 
 * **adventureazosusesawebapp** para el almacenamiento estándar de los servidores web, los servidores de aplicaciones y los controladores de dominio y sus discos de datos.
 * **adventureazosusesadbclust** para el almacenamiento premium de los servidores de clústeres particionados MongoDB y sus discos de datos.
 
-## Red virtual y subredes
+## <a name="virtual-network-and-subnets"></a>Red virtual y subredes
 Dado que la red virtual no necesita una conectividad continua con la red local de Adventure Work Cycles, la empresa optó por una red virtual solo en la nube.
 
 Creó una red virtual solo en la nube con la siguiente configuración a través del Portal de Azure:
@@ -80,7 +84,7 @@ Creó una red virtual solo en la nube con la siguiente configuración a través 
   * Nombre: BackEnd
   * Espacio de direcciones: 10.0.2.0/24
 
-## Conjuntos de disponibilidad
+## <a name="availability-sets"></a>Conjuntos de disponibilidad
 Para mantener la alta disponibilidad de los cuatro niveles de su tienda en línea, Adventure Works Cycles optó por cuatro conjuntos de disponibilidad:
 
 * **azos-use-as-web** para los servidores web
@@ -88,7 +92,7 @@ Para mantener la alta disponibilidad de los cuatro niveles de su tienda en líne
 * **azos-use-as-db** para los servidores del clúster particionado de MongoDB
 * **azos-use-as-dc** para los controladores de dominio
 
-## Máquinas virtuales
+## <a name="virtual-machines"></a>Máquinas virtuales
 Adventure Works Cycles decidió los siguientes nombres para sus máquinas virtuales de Azure:
 
 * **azos-use-vm-web01** para el primer servidor web
@@ -114,7 +118,12 @@ Esta configuración incluye:
 * Un conjunto interno de carga equilibrada para el tráfico web sin cifrar de los servidores web a los servidores de aplicaciones
 * Un único grupo de recursos
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-next-steps](../../includes/virtual-machines-linux-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

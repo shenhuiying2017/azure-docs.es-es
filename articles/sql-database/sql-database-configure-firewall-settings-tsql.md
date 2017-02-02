@@ -1,6 +1,6 @@
 ---
-title: Reglas de firewall de nivel de servidor y base de datos en Azure SQL Database mediante T-SQL| Microsoft Docs
-description: Aprenda a configurar el firewall para direcciones IP que obtengan acceso a bases de datos SQL de Azure.
+title: "T-SQL: introducción a las reglas de firewall de Azure SQL Database | Microsoft Docs"
+description: Aprenda a configurar las reglas de firewall de nivel de servidor y de nivel de base de datos para direcciones IP que acceden a instancias de Azure SQL Database mediante Transact-SQL.
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,8 +16,8 @@ ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: a49bc9cd8fb50dcc753fbb04bf7f2d96cf79f3ab
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: ef51f63984d342422ee5f2a93acfee6357df57ca
 
 
 ---
@@ -76,6 +76,11 @@ Solo un usuario de base de datos con el permiso **CONTROL** en la base de datos 
 
 Para más información sobre estos procedimientos almacenados, consulte [sp_set_database_firewall_rule](https://msdn.microsoft.com/library/dn270010.aspx) y [sp_delete_database_firewall_rule](https://msdn.microsoft.com/library/dn270030.aspx).
 
+> [!NOTE]
+> Para obtener un tutorial que muestre el uso de firewalls en el nivel de base de datos, consulte [SQL Database tutorial: SQL Server authentication, logins and user accounts, database roles, permissions, server-level firewall rules, and database-level firewall rules](sql-database-control-access-sql-authentication-get-started.md) (Tutorial de SQL Database: Autenticación, inicios de sesión y cuentas de usuario de SQL Server, roles de base de datos, permisos, reglas de firewall de nivel de servidor y de nivel de base de datos).
+>
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 Si desea consultar artículos sobre cómo crear reglas de firewall de nivel de servidor con otros métodos, visite: 
 
@@ -94,6 +99,6 @@ Para saber cómo obtener acceso a las bases de datos, consulte [Manage database 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

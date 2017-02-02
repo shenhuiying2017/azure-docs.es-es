@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: cfowler
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: d8a177074d6b7671fe04081c5547665ec892f244
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: c478b8ba6817dd110bb7bfe3a33b728e5f85cc11
 
 
 ---
@@ -180,7 +180,7 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 ¡Enhorabuena! La aplicación de WordPress ahora tiene una caché en memoria centralizada para ayudar a aumentar el rendimiento. Recuerde, las Correcciones de compatibilidad (shim) de Memcache de Aplicaciones web se puede usar con cualquier cliente Memcache, independientemente del lenguaje de programación o del marco de aplicaciones. Si desea enviar comentarios o formular preguntas acerca de las correcciones de compatibilidad (shim) de Memcache de Web Apps, publique en los [Foros de MSDN][10] o en [Stackoverflow][11].
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
@@ -204,6 +204,6 @@ La llamada para enumerar las claves debe devolver un valor. Si no es así, inten
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

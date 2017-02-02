@@ -8,7 +8,7 @@ manager: jhubbard
 editor: 
 ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
@@ -16,13 +16,12 @@ ms.workload: data-management
 ms.date: 08/31/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4e1cf312cf8213cbeea84b4fb0ab605248800fcd
+ms.sourcegitcommit: 75bf523679c8d8ad6fbe4a8aa8a561d03008e59b
+ms.openlocfilehash: 211f416d05b0ca998cd71a78d091b8efa39f6a7b
 
 
 ---
 # <a name="import-a-bacpac-file-to-create-an-azure-sql-database-by-using-powershell"></a>Importación de un archivo BACPAC para crear una base de datos SQL de Azure mediante PowerShell
-**Base de datos única**
 
 > [!div class="op_single_selector"]
 > * [Portal de Azure](sql-database-import.md)
@@ -51,7 +50,7 @@ Para importar una base de datos SQL, necesita lo siguiente:
 ## <a name="set-up-the-variables-for-your-environment"></a>Configurar las variables para su entorno
 Hay algunas variables que necesita para reemplazar los valores de ejemplo con los valores específicos de la base de datos y la cuenta de almacenamiento.
 
-El nombre del servidor debe ser un servidor que exista actualmente en la suscripción que seleccionó en el paso anterior. Debe ser el servidor en el que desee que se cree la base de datos. No se admite la importación de una base de datos directamente a un grupo elástico. Sin embargo, puede importarla primero en una base de datos única y luego mover la base de datos a un grupo.
+El nombre del servidor debe ser un servidor que exista actualmente en la suscripción que seleccionó en el paso anterior. Debe ser el servidor en el que desee que se cree la base de datos. No se admite la importación de una base de datos directamente a un grupo elástico. Sin embargo, puede importarla primero como base de datos única y, después, mover la base de datos a un grupo.
 
 El nombre de la base de datos es el nombre que desea para la nueva base de datos.
 
@@ -78,7 +77,7 @@ Al ejecutar el cmdlet [Get-Credential](https://msdn.microsoft.com/library/azure/
 ## <a name="import-the-database"></a>Importar la base de datos
 Este comando envía una solicitud de importación de base de datos para el servicio. Según el tamaño de su base de datos, la operación de importación puede tardar algún tiempo en completarse.
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
 
 ## <a name="monitor-the-progress-of-the-operation"></a>Supervisar el progreso de la restauración
@@ -100,7 +99,7 @@ Después de ejecutar [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/l
 
     $credential = Get-Credential
 
-    $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $ResourceGroupName –ServerName $ServerName –DatabaseName $DatabaseName –StorageKeytype $StorageKeyType –StorageKey $StorageKey -StorageUri $StorageUri –AdministratorLogin $credential.UserName –AdministratorLoginPassword $credential.Password –Edition Standard –ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
+    $importRequest = New-AzureRmSqlDatabaseImport -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -StorageKeytype $StorageKeyType -StorageKey $StorageKey -StorageUri $StorageUri -AdministratorLogin $credential.UserName -AdministratorLoginPassword $credential.Password -Edition Standard -ServiceObjectiveName S0 -DatabaseMaxSizeBytes 50000
 
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
 
@@ -112,6 +111,6 @@ Después de ejecutar [New-AzureRmSqlDatabaseImport](https://msdn.microsoft.com/l
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

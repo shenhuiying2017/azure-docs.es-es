@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/16/2016
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4a2d71016eee5dfee1085be0380d79ba4a4f8d8f
+ms.sourcegitcommit: a9ebbbdc431a34553de04e920efbbc8c2496ce5f
+ms.openlocfilehash: 116dbf0ee30497d82c984b10e61ae02301e820a4
 
 
 ---
@@ -35,17 +35,25 @@ Este es el primer paso del tutorial [Desarrollo de una solución de análisis pr
 
 Para usar Estudio de aprendizaje automático, debe tener un área de trabajo de Aprendizaje automático de Microsoft Azure. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
 
-## <a name="to-create-a-workspace"></a>Para crear un área de trabajo
-1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com).
-2. En el panel de servicios de Azure, haga clic en **MACHINE LEARNING**.  
-   ![Creación del espacio de trabajo][1]
-3. Haga clic en **CREAR UN ÁREA DE TRABAJO DE ML**.
-4. En la página **CREACIÓN RÁPIDA**, escriba la información de su área de trabajo y, a continuación, haga clic en **CREAR UN ÁREA DE TRABAJO DE MACHINE LEARNING**.
+<!--
+## To create a workspace
+1. Sign in to the [Azure classic portal](https://manage.windowsazure.com).
+2. In the  Azure services panel, click **MACHINE LEARNING**.  
+   ![Create workspace][1]
+3. Click **CREATE AN ML WORKSPACE**.
+4. On the **QUICK CREATE** page, enter your workspace information and then click **CREATE AN ML WORKSPACE**.
+-->
 
-Después de crear el área de trabajo de Aprendizaje automático, verá que aparece en la página **Aprendizaje automático** en el Portal de Azure clásico. Para obtener más información sobre el área de trabajo, consulte [Creación de un área de trabajo de Aprendizaje automático de Azure](machine-learning-create-workspace.md).
+El administrador de su suscripción de Azure tendrá que crear el área de trabajo y, después, agregarle como un propietario o colaborador. Para obtener más información, consulte [Creación y uso compartido de un área de trabajo de Azure Machine Learning](machine-learning-create-workspace.md).
+
+Una vez haya creado el área de trabajo, abra Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). Si se trata de la única área de trabajo, Studio la abrirá automáticamente. En caso contrario, puede seleccionar el área de trabajo en la barra de herramientas de la esquina superior derecha de la ventana.
+
+![Selección del área de trabajo en Studio][2]
 
 > [!TIP]
-> Puede compartir los experimentos en los que está trabajando invitando a otros a su área de trabajo. Para ello, en Estudio de aprendizaje automático, vaya a la página **CONFIGURACIÓN** . Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
+> Si le han convertido en el propietario del área de trabajo, puede compartir los experimentos en los que esté trabajando invitando a otros al área. Para ello, en Estudio de aprendizaje automático, vaya a la página **CONFIGURACIÓN** . Solo necesita la cuenta Microsoft o la cuenta de organización de cada usuario.
+> 
+> En la página **CONFIGURACIÓN**, haga clic en **USUARIOS** y, después, haga clic en **INVITE MORE USERS** (INVITAR A MÁS USUARIOS) en la parte inferior de la ventana.
 > 
 > 
 
@@ -53,9 +61,10 @@ Después de crear el área de trabajo de Aprendizaje automático, verá que apar
 **A continuación: [Cargue los datos existentes](machine-learning-walkthrough-2-upload-data.md)**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+[2]: ./media/machine-learning-walkthrough-1-create-ml-workspace/open-workspace.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

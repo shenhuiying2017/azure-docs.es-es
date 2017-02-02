@@ -1,5 +1,5 @@
 ---
-title: "Implementación de su primera aplicación web en Azure en 5 minutos | Microsoft Docs"
+title: "Implementación de su primera aplicación web en Azure en&5; minutos | Microsoft Docs"
 description: "Aprenda lo fácil que es ejecutar aplicaciones web en App Service mediante la implementación de una aplicación de ejemplo. Para empezar, realice un desarrollo real rápidamente y vea los resultados inmediatamente."
 services: app-service\web
 documentationcenter: 
@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/04/2017
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: 05e61d2fc751c4239aef4b10ad897765c59fe928
-ms.openlocfilehash: c8f87489e4df8038694430d16fd21c8ac7a90b9d
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 2c750583212d7ed13e3bb5f4d0770d52aa9610b2
 
 
 ---
-# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web en Azure en 5 minutos
+# <a name="deploy-your-first-web-app-to-azure-in-five-minutes"></a>Implementación de su primera aplicación web en Azure en&5; minutos
 Este tutorial le ayudará a implementar su primera aplicación web en [Azure App Service](../app-service/app-service-value-prop-what-is.md).
 App Service se puede usar para crear aplicaciones web, [back-ends de aplicaciones móviles](/documentation/learning-paths/appservice-mobileapps/) y [aplicaciones de API](../app-service-api/app-service-api-apps-why-best-platform.md).
 
@@ -46,7 +46,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> También puede [probar App Service](http://go.microsoft.com/fwlink/?LinkId=523751) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
+> También puede [probar App Service](https://azure.microsoft.com/try/app-service/) sin una cuenta de Azure. Cree una aplicación de inicio y juegue con ella durante una hora como máximo; no se requiere ninguna tarjeta de crédito ni ningún compromiso.
 > 
 > 
 
@@ -140,6 +140,6 @@ También puede hacer más cosas con su primera aplicación web. Por ejemplo:
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -15,13 +15,13 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 178771fb235e8b2786e4b6d0ac117d5c90540c67
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 
 ---
-# <a name="example-2-build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
-[Volver a la página de procedimientos de límites de seguridad recomendados][HOME]
+# <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un Firewall y grupos de seguridad de red
+[Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
 En este ejemplo se creará una red perimetral con un firewall, cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios. 
 
@@ -79,9 +79,9 @@ De forma declarativa, se compilan las reglas siguientes para el tráfico entrant
 
 Con estas reglas enlazadas a cada subred, si una solicitud HTTP era entrante desde Internet al servidor web, se aplicarían ambas reglas, la 3 (permitir) y la 5 (denegar), pero como la regla 3 tiene mayor prioridad, solo se aplicaría esa y la regla 5 no entraría en juego. Por lo tanto, se permitiría la solicitud HTTP al firewall. Si ese mismo tráfico estaba intentando ponerse en contacto con el servidor DNS01, se aplicaría primero la regla 5 (denegar) y no se permitiría que el tráfico pase al servidor. La regla 6 (denegar) impide que la subred front-end se comunique con la subred back-end (excepto el tráfico permitido en las reglas 1 y 4) y esto protege la red back-end en el caso de que un atacante ponga en peligro la aplicación web en el front-end, y el atacante tendría acceso limitado a la red back-end "protegida" (solo a los recursos expuestos en el servidor AppVM01).
 
-Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario, que se examina en otro ejemplo que se puede encontrar en el [documento de límites de seguridad principales][HOME].
+Hay una regla de salida predeterminada que permite el tráfico saliente a Internet. En este ejemplo, permitimos el tráfico saliente y no modificamos las reglas de salida. Para bloquear el tráfico en ambas direcciones, es necesario el enrutamiento definido por el usuario, que se explora en otro ejemplo que se puede encontrar en el [documento de límites de seguridad principales][HOME].
 
-Las reglas del grupo de seguridad de red tratadas anteriormente son muy similares a las reglas de grupo de seguridad de red del [Ejemplo 1: Creación de una red perimetral simple con grupos de seguridad de red][Example1]. Revise la descripción del grupo de seguridad de red en ese documento para una visión detallada de cada regla del grupo de seguridad de red y sus atributos.
+Las reglas del grupo de seguridad de red tratadas anteriormente son muy similares a las reglas del grupo de seguridad de red del [Ejemplo 1: Creación de una red perimetral simple con grupos de seguridad de red][Example1]. Revise la descripción del grupo de seguridad de red en ese documento para una visión detallada de cada regla del grupo de seguridad de red y sus atributos.
 
 ## <a name="firewall-rules"></a>Reglas de firewall
 Deberá instalarse un cliente de administración en el equipo para administrar el firewall y crear las configuraciones necesarias. Consulte la documentación del proveedor de su firewall (o de otro dispositivo virtual de red) acerca de cómo administrar el dispositivo. El resto de esta sección describe la configuración del mismo firewall, a través del cliente de administración de proveedores (es decir, no el Portal de Azure o PowerShell).
@@ -218,7 +218,7 @@ Dado que el servidor web, IIS01 y el firewall se encuentran en el mismo servicio
 ## <a name="conclusion"></a>Conclusión
 Se trata de una manera relativamente sencilla de proteger la aplicación con un firewall y de aislar la subred back-end del tráfico entrante.
 
-Puede encontrar más ejemplos e información general sobre los límites de seguridad de red [aquí][HOME].
+Puede encontrar más ejemplos y una descripción general de los límites de seguridad de red [aquí][HOME].
 
 ## <a name="references"></a>Referencias
 ### <a name="main-script-and-network-config"></a>Script principal y configuración de red
@@ -567,7 +567,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
+Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp].
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-asm/example2design.png "Red perimetral de entrada con grupo de seguridad de red"
@@ -582,6 +582,6 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

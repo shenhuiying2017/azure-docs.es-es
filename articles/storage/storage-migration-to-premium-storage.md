@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/21/2016
 ms.author: yuemlu
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: ad39a17ae7aa6d7a1e2de0acee7259821e481728
+ms.sourcegitcommit: 7611f7940b076ba18b3966b0bc9a63fe53b55592
+ms.openlocfilehash: 0ebec265fe2ac2d53dbe3afcb660dddbe7b050ea
 
 
 ---
@@ -44,7 +44,7 @@ Esta sección le garantiza que está preparado para seguir los pasos de migraci�
 
 ### <a name="prerequisites"></a>Requisitos previos
 * Necesitará una suscripción de Azure. Si no tiene una, puede crear una suscripción de [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/) de un mes o visitar la página [Precios de Azure](https://azure.microsoft.com/pricing/) para conocer más opciones.
-* Para ejecutar los cmdlets de PowerShell, necesitará un módulo de Microsoft Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para obtener instrucciones sobre el punto de instalación y la instalación.
+* Para ejecutar los cmdlets de PowerShell, necesitará un módulo de Microsoft Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para obtener instrucciones sobre el punto de instalación y la instalación.
 * Si tiene previsto ejecutar máquinas virtuales de Azure en Premium Storage, deberá usar las máquinas virtuales de este tipo de almacenamiento. Puede usar discos de almacenamiento Estándar y Premium Storage con las máquinas virtuales compatibles con Premium Storage. Pronto habrá disponibles discos de Almacenamiento premium con más tipos de VM. Para obtener más información sobre todos los tamaños y tipos de disco de máquina virtual de Azure disponibles, consulte [Tamaños de máquinas virtuales](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) y [Tamaños de Cloud Services](../cloud-services/cloud-services-sizes-specs.md).
 
 ### <a name="considerations"></a>Consideraciones
@@ -62,7 +62,7 @@ Hay tres tipos de discos que se pueden usar con las máquinas virtuales, cada un
 | IOPS por disco |500 |2300 |5000 |
 | Rendimiento de disco |100 MB por segundo |150 MB por segundo |200 MB por segundo |
 
-Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](storage-premium-storage-performance.md#disk-striping)). Si secciona discos de datos Premium Storage usando [Espacios de almacenamiento][4], será necesario configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
+Dependiendo de la carga de trabajo, decida si son necesarios más discos de datos para la máquina virtual. Puede conectar varios discos de datos persistentes a la máquina virtual. Si es necesario, puede crear bandas en los discos para aumentar la capacidad y el rendimiento del volumen. (Consulte qué es el seccionamiento de discos [aquí](storage-premium-storage-performance.md#disk-striping)). Si secciona discos de datos de Premium Storage mediante [Espacios de almacenamiento][4], tendrá que configurarlos con una columna por cada disco que use. De lo contrario, el rendimiento general del volumen seccionado puede ser inferior al esperado debido a la distribución desigual de tráfico entre los discos. En las máquinas virtuales de Linux, esto se logra con la utilidad *mdadm* . Vea el artículo [Configuración del software RAID en Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para más información.
 
 #### <a name="storage-account-scalability-targets"></a>Objetivos de escalabilidad de la cuenta de almacenamiento
 Aparte de los [objetivos de escalabilidad y rendimiento de Azure Storage](storage-scalability-targets.md), las cuentas de Premium Storage tienen estos otros objetivos de escalabilidad. Si los requisitos de su aplicación superan los objetivos de escalabilidad de una sola cuenta de almacenamiento, compile la aplicación para que use varias cuentas de almacenamiento y divida los datos entre esas cuentas de almacenamiento.
@@ -313,7 +313,7 @@ Al final de esta sección encontrará un script de migración de ejemplo. Dicho 
 Prepare la aplicación para el tiempo de inactividad. Para realizar una migración limpia, tendrá que detener todo el procesamiento del sistema actual. Solo entonces se puede obtener un estado coherente que se puede migrar a la nueva plataforma. La duración del tiempo de inactividad dependerá de la cantidad de datos en los discos para migrar.
 
 > [!NOTE]
-> Si va a crear una máquina virtual de Azure Resource Manager desde un disco VHD especializado, consulte [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) para implementar la máquina virtual de Resource Manager mediante el disco existente.
+> Si va a crear una máquina virtual de Azure Resource Manager desde un disco VHD especializado, consulte [esta plantilla](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) para implementar la máquina virtual de Resource Manager mediante el disco existente.
 >
 >
 
@@ -773,6 +773,6 @@ Consulte también los siguientes recursos para más información sobre Azure Sto
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

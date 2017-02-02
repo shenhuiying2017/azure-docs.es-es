@@ -1,31 +1,34 @@
-
 ---
 title: Requisitos de imagen de Azure RemoteApp | Microsoft Docs
-description: Obtenga información sobre los requisitos para crear imágenes que se usarán con Azure RemoteApp
+description: "Obtenga información sobre los requisitos para crear imágenes que se usarán con Azure RemoteApp"
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 7cbb90f4-6dc9-462c-a429-088cdb57414e
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: a37804025cbd298ef2b98c84b5cc59c0cba07dd9
+
 
 ---
-# Requisitos para las imágenes Azure RemoteApp
+# <a name="requirements-for-azure-remoteapp-images"></a>Requisitos para las imágenes Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
 Azure RemoteApp usa una imagen de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con los usuarios. Para crear una imagen personalizada, puede comenzar con una imagen existente o [crear una nueva](remoteapp-create-custom-image.md).
 
 > [!TIP]
-> ¿Sabía que la suscripción de Azure RemoteApp le permite acceder a una imagen de Windows Server 2012 R2 en la galería de máquinas virtuales de Azure, y que puede usarla para crear su propia imagen de plantilla? [Compruébelo](remoteapp-image-on-azurevm.md).
+> ¿Sabía que la suscripción de Azure RemoteApp le permite acceder a una imagen de Windows Server 2012 R2 en la galería de máquinas virtuales de Azure, y que puede usarla para crear su propia imagen de plantilla? [Compruébelo](remoteapp-image-on-azurevm.md).  
 > 
 > 
 
@@ -48,4 +51,9 @@ Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de 
 
 Consulte [Creación de una imagen de Azure RemoteApp](remoteapp-imageoptions.md) para obtener más información sobre la creación de imágenes para Azure RemoteApp.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

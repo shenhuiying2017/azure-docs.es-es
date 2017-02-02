@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 61b3644214a7cb067dbb59e8fbd1464af78ae3e1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
 
 
 ---
 # <a name="get-started-with-the-file-connector-and-add-it-to-your-logic-app"></a>Introducción al conector de archivos y su incorporación a la aplicación lógica
 > [!NOTE]
 > Esta versión del artículo se aplica a la versión de esquema 2014-12-01-preview de aplicaciones lógicas.
-> 
-> 
+>
+>
 
-Conéctese a un sistema de archivos para cargar, descargar los archivos en un equipo host, etc. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos. Puede agregar el conector de archivos a sus datos del flujo de trabajo empresarial y de proceso como parte de este flujo de trabajo en una aplicación lógica. 
+Conéctese a un sistema de archivos para cargar, descargar los archivos en un equipo host, etc. Las aplicaciones lógicas se pueden desencadenar en función de una variedad de orígenes de datos y ofrecen conectores para obtener y procesar los datos. Puede agregar el conector de archivos a sus datos del flujo de trabajo empresarial y de proceso como parte de este flujo de trabajo en una aplicación lógica.
 
 El conector de archivos usa el Administrador de conexiones híbridas para la conectividad híbrida con el sistema de archivos host.
 
@@ -39,7 +39,7 @@ Para usar el conector de archivos, antes deberá crear una instancia de la aplic
 4. Seleccione el botón **Crear** .
 5. Configure el conector de archivos de la siguiente forma:   
    ![][1]
-   
+
    * **Nombre** : asigne un nombre al conector de archivos.
    * **Configuración del paquete**
      * **Carpeta raíz**: especifique la ruta de acceso de la carpeta raíz en el equipo host. P. ej. D:\FileConnectorTest
@@ -69,8 +69,8 @@ Una vez creada la aplicación de API, puede usar el conector de archivos como ac
 
 > [!NOTE]
 > El desencadenador de archivo eliminará el archivo después de leerlo correctamente desde la carpeta.
-> 
-> 
+>
+>
 
 ## <a name="file-connector-rest-apis"></a>API de REST del conector de archivos
 Para usar el conector fuera de una aplicación lógica, pueden aprovecharse las API de REST expuestas por el conector. Puede ver estas definiciones de API con Examinar -> Aplicación de API -> Conector de archivos. Ahora haga clic en el modo de definición de API en la sección de resumen para ver todas las API expuestas por este conector:   
@@ -83,12 +83,12 @@ Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio med
 
 > [!NOTE]
 > Si desea empezar a trabajar con Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Logic Apps](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-> 
-> 
+>
+>
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Administración y supervisión de las aplicaciones de API y los conectores integrados](app-service-logic-monitor-your-connectors.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Supervisar las aplicaciones lógicas](app-service-logic-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -99,10 +99,10 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 <!-- Links -->
 [crear una aplicación lógica]: app-service-logic-create-a-logic-app.md
 [File connector API definition]: https://msdn.microsoft.com/library/dn936296.aspx
-[Uso del Administrador de conexiones híbridas]: app-service-logic-hybrid-connection-manager.md
+[Uso del Administrador de conexiones híbridas]: ../app-service-web/web-sites-hybrid-connection-get-started.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

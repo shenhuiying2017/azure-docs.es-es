@@ -15,20 +15,20 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0aad3cb34a3a2656b2aabce9b88d2a0cd275a62b
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 0d2ff3ce90c355ba63f3fb66982baa621091ae6e
 
 
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Creación de particiones de tablas en Almacenamiento de datos SQL
 > [!div class="op_single_selector"]
-> * [Información general][Información general]
-> * [Tipos de datos][Tipo de datos]
-> * [Distribución][Distribución]
-> * [Índice][Índice]
+> * [Información general][Overview]
+> * [Tipos de datos][Data Types]
+> * [Distribución][Distribute]
+> * [Índice][Index]
 > * [Partición][Partition]
-> * [Estadísticas][Estadísticas]
-> * [Temporales][Temporal]
+> * [Estadísticas][Statistics]
+> * [Temporal][Temporary]
 > 
 > 
 
@@ -48,12 +48,12 @@ La creación de particiones también puede utilizarse para mejorar el rendimient
 ## <a name="partition-sizing-guidance"></a>Guía sobre el tamaño de las particiones
 Aunque la creación de particiones se puede usar para mejorar el rendimiento en algunos escenarios, la creación de una tabla con **demasiadas** particiones pueden afectar negativamente al rendimiento en algunas circunstancias.  Estas cuestiones se dan especialmente en las tablas de almacén de columnas en clúster.  Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear.  No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones en que se realiza la carga de manera simultánea.  No obstante, como regla general, se recomienda agregar entre decenas y centenares de particiones, no millares.
 
-Al crear particiones en tablas de **almacén de columnas en clúster** , es importante considerar el número de filas que se colocarán en cada partición.  Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución.  Antes de que se creen particiones, Almacenamiento de datos SQL ya divide cada tabla en 60 bases de datos distribuidas.  Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano.  Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que Almacenamiento de datos SQL tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses.  Si una tabla contiene muchas menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición.  Consulte también el artículo sobre [indexación][Índice] que incluye las consultas que se pueden ejecutar en Almacenamiento de datos SQL para evaluar la calidad de los índices de almacén de columnas en clúster.
+Al crear particiones en tablas de **almacén de columnas en clúster** , es importante considerar el número de filas que se colocarán en cada partición.  Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución.  Antes de que se creen particiones, Almacenamiento de datos SQL ya divide cada tabla en 60 bases de datos distribuidas.  Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano.  Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que Almacenamiento de datos SQL tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses.  Si una tabla contiene muchas menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición.  Consulte también el artículo sobre [indexación][Index] que incluye las consultas que se pueden ejecutar en SQL Data Warehouse para evaluar la calidad de los índices de almacén de columnas en clúster.
 
 ## <a name="syntax-difference-from-sql-server"></a>Diferencia con respecto a la sintaxis de SQL Server
-Almacenamiento de datos SQL introduce una definición simplificada de particiones que difiere ligeramente de la de SQL Server.  Las funciones y los esquemas de la creación de particiones no se usan en Almacenamiento de datos SQL como en SQL Server.  En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes.  Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos.  SQL Server y Almacenamiento de datos SQL admiten una columna de partición por tabla, que puede ser una partición con intervalos.  Para más información acerca de particiones, consulte [Tablas e índices con particiones][Tablas e índices con particiones].
+Almacenamiento de datos SQL introduce una definición simplificada de particiones que difiere ligeramente de la de SQL Server.  Las funciones y los esquemas de la creación de particiones no se usan en Almacenamiento de datos SQL como en SQL Server.  En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes.  Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos.  SQL Server y Almacenamiento de datos SQL admiten una columna de partición por tabla, que puede ser una partición con intervalos.  Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones][Partitioned Tables and Indexes].
 
-El siguiente ejemplo de una instrucción [CREATE TABLE][CREATE TABLE] con particiones de SQL Data Warehouse realiza una partición de la tabla FactInternetSales en la columna OrderDateKey:
+El siguiente ejemplo de una instrucción [CREATE TABLE][CREATE TABLE] con particiones de SQL Data Warehouse particiona la tabla FactInternetSales en la columna OrderDateKey:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -82,8 +82,8 @@ WITH
 ## <a name="migrating-partitioning-from-sql-server"></a>Migración de particiones de SQL Server
 Para migrar las definiciones de particiones de SQL Server a Almacenamiento de datos SQL:
 
-* Elimine el [esquema de particiones][esquema de particiones] de SQL Server.
-* Agregue la definición de [función de partición][función de partición] a CREATE TABLE.
+* Elimine el [esquema de particiones][partition scheme] de SQL Server.
+* Agregue la definición de [función de partición][partition function] a CREATE TABLE.
 
 Si va a migrar una tabla con particiones de una instancia de SQL Server, la instrucción SQL siguiente puede ayudarle a consultar el número de filas que se encuentran en cada partición.  Tenga en cuenta que si se utiliza la misma granularidad de particiones en Almacenamiento de datos SQL, el número de filas por partición se reducirá en un factor de 60.  
 
@@ -122,7 +122,7 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="workload-management"></a>Administración de cargas de trabajo
-Una última consideración que debe tenerse en cuenta a la hora de decidir el número de particiones de una tabla es la [workload management][workload management].  La administración de la carga de trabajo en Almacenamiento de datos SQL es principalmente la administración de memoria y de la concurrencia.  En Almacenamiento de datos SQL, las clases de recursos son las que rigen la cantidad máxima de memoria que se asigna a cada distribución durante la ejecución de la consulta.  Lo ideal es que los tamaños de las particiones dependan de otros factores, como las necesidades de creación de índices de almacén de columnas en clúster que tiene la memoria.  Los índices de almacén de columnas en clúster suponen una mayor ventaja cuando se les asigna más memoria.  Por lo tanto, deberá asegurarse de que ninguna recompilación del índice de particiones se queda sin memoria. Para aumentar la cantidad de memoria disponible para las consultas se puede conmutar del rol predeterminado, smallrc, a uno de los otros roles, como largerc.
+Una última consideración que debe tenerse a la hora de decidir el número de particiones de una tabla es la [administración de la carga de trabajo][workload management].  La administración de la carga de trabajo en Almacenamiento de datos SQL es principalmente la administración de memoria y de la concurrencia.  En Almacenamiento de datos SQL, las clases de recursos son las que rigen la cantidad máxima de memoria que se asigna a cada distribución durante la ejecución de la consulta.  Lo ideal es que los tamaños de las particiones dependan de otros factores, como las necesidades de creación de índices de almacén de columnas en clúster que tiene la memoria.  Los índices de almacén de columnas en clúster suponen una mayor ventaja cuando se les asigna más memoria.  Por lo tanto, deberá asegurarse de que ninguna recompilación del índice de particiones se queda sin memoria. Para aumentar la cantidad de memoria disponible para las consultas se puede conmutar del rol predeterminado, smallrc, a uno de los otros roles, como largerc.
 
 Para obtener información sobre la asignación de memoria por distribución, consulte las vistas de administración dinámica del regulador de recursos. En realidad, la concesión de memoria será inferior a la que se indica en las ilustraciones siguientes. Sin embargo, esto proporciona un nivel de instrucciones que puede utilizar al cambiar el tamaño de las particiones para las operaciones de administración de datos.  Intente evitar cambiar el tamaño de las particiones por encima de la concesión de memoria proporcionada por la clase de recurso extra grande. Si las particiones crecen más allá de lo que se muestra en esta ilustración, se corre el riesgo de presionar la memoria, lo que a su vez conlleva una compresión menos óptima.
 
@@ -184,7 +184,7 @@ CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSal
 ```
 
 > [!NOTE]
-> Al crear el objeto estadístico, nos aseguramos de que los metadatos de la tabla son más precisos. Si se omite la creación de estadísticas, Almacenamiento de datos SQL utilizará los valores predeterminados. Para obtener detalles sobre las estadísticas, consulte las [estadísticas][estadísticas].
+> Al crear el objeto estadístico, nos aseguramos de que los metadatos de la tabla son más precisos. Si se omite la creación de estadísticas, Almacenamiento de datos SQL utilizará los valores predeterminados. Para obtener detalles sobre las estadísticas, consulte las [estadísticas][statistics].
 > 
 > 
 
@@ -349,33 +349,33 @@ DROP TABLE #partitions;
 Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores de límite de partición sean dinámicos, de tal forma que evoluciona con el almacenamiento de datos con el tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte los artículos sobre [información general de tablas][Información general], [tipos de datos de tabla][Tipo de datos], [distribución de una tabla][Distribución], [indexación de una tabla][Índice], [mantenimiento de estadísticas de tablas][Estadísticas] y [tablas temporales][Temporal].  Para más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para Almacenamiento de datos SQL de Azure][Procedimientos recomendados para Almacenamiento de datos SQL de Azure].
+Para obtener más información, consulte los artículos sobre [información general de tablas][Overview], [tipos de datos de tabla][Data Types], [distribución de una tabla][Distribute], [indexación de una tabla][Index], [mantenimiento de estadísticas de tabla][Statistics] y [tablas temporales][Temporary].  Para obtener más información sobre los procedimientos recomendados, consulte [Procedimientos recomendados para SQL Data Warehouse de Azure][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 
 <!--Article references-->
-[Información general]: ./sql-data-warehouse-tables-overview.md
-[Tipo de datos]: ./sql-data-warehouse-tables-data-types.md
-[Distribución]: ./sql-data-warehouse-tables-distribute.md
-[Índice]: ./sql-data-warehouse-tables-index.md
+[Overview]: ./sql-data-warehouse-tables-overview.md
+[Data Types]: ./sql-data-warehouse-tables-data-types.md
+[Distribute]: ./sql-data-warehouse-tables-distribute.md
+[Index]: ./sql-data-warehouse-tables-index.md
 [Partition]: ./sql-data-warehouse-tables-partition.md
-[Estadísticas]: ./sql-data-warehouse-tables-statistics.md
-[Temporal]: ./sql-data-warehouse-tables-temporary.md
+[Statistics]: ./sql-data-warehouse-tables-statistics.md
+[Temporary]: ./sql-data-warehouse-tables-temporary.md
 [workload management]: ./sql-data-warehouse-develop-concurrency.md
-[Procedimientos recomendados para Almacenamiento de datos SQL de Azure]: ./sql-data-warehouse-best-practices.md
+[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
 
 <!-- MSDN Articles -->
-[Tablas e índices con particiones]: https://msdn.microsoft.com/library/ms190787.aspx
+[Partitioned Tables and Indexes]: https://msdn.microsoft.com/library/ms190787.aspx
 [ALTER TABLE]: https://msdn.microsoft.com/en-us/library/ms190273.aspx
 [CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[función de partición]: https://msdn.microsoft.com/library/ms187802.aspx
-[esquema de particiones]: https://msdn.microsoft.com/library/ms179854.aspx
+[partition function]: https://msdn.microsoft.com/library/ms187802.aspx
+[partition scheme]: https://msdn.microsoft.com/library/ms179854.aspx
 
 
 <!-- Other web references -->
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

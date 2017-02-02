@@ -1,42 +1,83 @@
 ---
 title: 'Azure AD Connect: historial de versiones | Microsoft Docs'
-description: En este tema se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD
+description: "En este tema se muestran todas las versiones de Azure AD Connect y Sincronización de Azure AD"
 services: active-directory
-documentationcenter: ''
-author: AndKjell
+documentationcenter: 
+author: billmath
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2016
-ms.author: andkjell
+ms.date: 12/07/2016
+ms.author: billmath
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: a34a4c38e3cb34984bc0e959cdd6f9ef3009464a
+
 
 ---
-# Azure AD Connect: historial de versiones
+# <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historial de versiones
 El equipo de Azure Active Directory actualiza periódicamente Azure AD Connect con nuevas características y funciones. No todas las adiciones son aplicables a todas las audiencias.
 
 Este artículo está diseñado para ayudarle a realizar un seguimiento de las versiones que se han publicado y comprender si necesita actualizar a la versión más reciente o no.
 
 Esta es la lista de temas relacionados:
 
-| Tema. |
-| --- | --- |
-| Pasos para actualizar desde Azure AD Connect |
-| Permisos necesarios |
-| Descargar |
 
-## 1\.1.281.0
+Tema. |  
+--------- | --------- |
+Pasos para actualizar desde Azure AD Connect | Diferentes métodos para [actualizar desde una versión anterior a la última](active-directory-aadconnect-upgrade-previous-version.md) versión de Azure AD Connect.
+Permisos necesarios | Para más información sobre los permisos necesarios para aplicar una actualización, consulte el tema de [cuentas y permisos](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
+Descargar| [Descarga de Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## <a name="113710"></a>1.1.371.0
+Fecha de publicación: diciembre de 2016
+
+**Problema corregido:**
+
+* La instalación o actualización de Azure AD Connect generará un error si el puerto 9090 no está abierto para las conexiones salientes.
+
+## <a name="113700"></a>1.1.370.0
+Fecha de publicación: diciembre de 2016
+
+**Nuevas características:**
+
+* Autenticación de paso a través (versión preliminar)
+
+
+**Problemas conocidos:**
+
+* El puerto 9090 debe estar abierto para las conexiones salientes a fin de completar la instalación.
+
+>[!NOTE]
+>Esta compilación no estará disponible para los clientes a través de la característica de actualización automática de Azure AD Connect.
+
+## <a name="113430"></a>1.1.343.0
+Publicado: noviembre de 2016
+
+**Problemas corregidos:**
+
+* A veces, Azure AD Connect no se puede instalar porque no puede crear una cuenta de servicio local cuya contraseña cumpla el nivel de complejidad especificado por la directiva de contraseñas de la organización.
+* Se corrigió un problema por el que las reglas de unión no se vuelven a evaluar si un objeto en el espacio del conector se convierte simultáneamente en un objeto fuera de ámbito para una regla de unión y dentro de ámbito para otra regla. Esto puede ocurrir si tiene dos o más reglas de unión cuyas condiciones de unión son mutuamente excluyentes.
+* Se ha corregido un problema por el que no se procesan las reglas de sincronización entrantes (desde Azure AD) que no contienen reglas de unión si tienen valores de prioridad inferiores que aquellas que sí que las contienen.
+
+**Mejoras:**
+
+* Se agregó compatibilidad para la instalación de Azure AD Connect en Windows Server 2016 estándar o superior.
+* Se agregó compatibilidad para utilizar SQL Server 2016 como la base de datos remota para Azure AD Connect.
+
+## <a name="112810"></a>1.1.281.0
 Fecha de publicación: agosto de 2016
 
 **Problemas corregidos:**
 
 * Los cambios en el intervalo de sincronización no se realizarán hasta que finalice el siguiente ciclo de sincronización.
 * El Asistente de Azure AD Connect no acepta cuentas de Azure AD cuyo nombre de usuario comience con un carácter de subrayado (\_).
-* Se producirá un error en el Asistente de Azure AD Connect al autenticar la cuenta de Azure AD proporcionada si la contraseña contiene demasiados caracteres especiales. Se mostrará el mensaje de error: No se pueden validar las credenciales. Se produjo un error inesperado.
+* Se producirá un error en el Asistente de Azure AD Connect al autenticar la cuenta de Azure AD proporcionada si la contraseña contiene demasiados caracteres especiales. Se mostrará el mensaje de error: No se pueden validar las credenciales. Se produjo un error inesperado" .
 * Al desinstalar el servidor de ensayo, se deshabilita la sincronización de contraseñas del inquilino de Azure AD y se produce un error de sincronización de contraseñas en el servidor activo.
 * Se produce un error de sincronización de contraseñas en casos raros cuando no hay ningún valor de hash de contraseña almacenado en el usuario.
 * Cuando se habilita el servidor de Azure AD Connect para el modo provisional, la escritura diferida de contraseñas se deshabilita temporalmente.
@@ -50,7 +91,7 @@ Fecha de publicación: agosto de 2016
 * Se ha actualizado el cmdlet Stop-ADSyncScheduler para finalizar el ciclo de sincronización y la operación que estén actualmente en curso.
 * Al configurar [extensiones de directorio](active-directory-aadconnectsync-feature-directory-extensions.md) en el Asistente de Azure AD Connect, ahora se podrá seleccionar el atributo de AD de tipo cadena Teletexto.
 
-## 1\.1.189.0
+## <a name="111890"></a>1.1.189.0
 Fecha de publicación: junio de 2016
 
 **Problemas corregidos y mejoras:**
@@ -59,7 +100,7 @@ Fecha de publicación: junio de 2016
   * Para la sincronización de contraseñas, consulte [Sincronización de contraseñas y FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips)
 * Se ha corregido un problema por el cual un nombre NetBIOS no se pudo resolver en el FQDN en el conector de Active Directory.
 
-## 1\.1.180.0
+## <a name="111800"></a>1.1.180.0
 Fecha de publicación: mayo de 2016
 
 **Nuevas características:**
@@ -75,7 +116,7 @@ Fecha de publicación: mayo de 2016
 * Se corrigió un problemas cuando el mismo objeto se eliminaba y se agregaba en la misma ejecución (llamado eliminar o agregar).
 * Una regla de sincronización deshabilitada dejará de volver a habilitar objetos y atributos incluidos durante la actualización o actualización del esquema de directorio.
 
-## 1\.1.130.0
+## <a name="111300"></a>1.1.130.0
 Fecha de publicación: abril de 2016
 
 **Nuevas características:**
@@ -84,7 +125,7 @@ Fecha de publicación: abril de 2016
 * Se ha agregado compatibilidad con más variaciones de configuración para que la [actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) se considere apta para la actualización.
 * Se han agregado algunos cmdlets para el [programador personalizado](active-directory-aadconnectsync-feature-scheduler.md#custom-scheduler).
 
-## 1\.1.119.0
+## <a name="111190"></a>1.1.119.0
 Publicación: marzo de 2016
 
 **Problemas corregidos:**
@@ -93,28 +134,28 @@ Publicación: marzo de 2016
 * La actualización desde DirSync con una configuración de filtro personalizada no funcionó como se esperaba.
 * Cuando se actualiza a una versión más reciente y no hay ningún cambio en la configuración, no se debe programar una importación o sincronización completa.
 
-## 1\.1.110.0
+## <a name="111100"></a>1.1.110.0
 Fecha de publicación: febrero de 2016
 
 **Problemas corregidos:**
 
-* La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\\Archivos de programa**.
+* La actualización desde versiones anteriores no funciona si la instalación no está en la carpeta predeterminada **C:\Archivos de programa**.
 * Si efectúa la instalación y anula la selección de **Inicie el proceso de sincronización...** al final del Asistente para instalación, el programador no se habilitará al volver a ejecutar dicho asistente.
 * El programador no funcionará según lo previsto en los servidores en los que el formato de fecha y hora no sea US-en. Además, impedirá que `Get-ADSyncScheduler` devuelva las horas correctas.
-* Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
+* Si ha instalado una versión anterior de Azure AD Connect con AD FS como opción de inicio de sesión y actualización, no puede volver a ejecutar el asistente para la instalación.
 
-## 1\.1.105.0
+## <a name="111050"></a>1.1.105.0
 Fecha de publicación: febrero de 2016
 
 **Nuevas características:**
 
-* Característica [Actualización automática](active-directory-aadconnect-feature-automatic-upgrade.md) para los clientes de configuración rápida.
+* [Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md) para los clientes de configuración rápida.
 * Soporte para el administrador global que utiliza MFA y PIM en el Asistente para instalación.
-  * Tiene que permitir que el proxy también permita el tráfico a https://secure.aadcdn.microsoftonline-p.com si usa MFA.
-  * Tiene que agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que MFA funcione correctamente.
+  * Debe permitir que el servidor proxy para permitir también el tráfico a https://secure.aadcdn.microsoftonline-p.com si utiliza MFA.
+  * Debe agregar https://secure.aadcdn.microsoftonline-p.com a la lista de sitios de confianza para que MFA funcione correctamente.
 * Permite cambiar el método de inicio de sesión del usuario después de la instalación inicial.
-* Permita el [filtrado de dominios y unidades organizativas](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el Asistente para instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
-* El [programador](active-directory-aadconnectsync-feature-scheduler.md) está integrado en el motor de sincronización.
+* Permita el [filtrado de dominios y unidades organizativas](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) en el Asistente para instalación. Esto también permite conectar con bosques donde no todos los dominios están disponibles.
+* [programador](active-directory-aadconnectsync-feature-scheduler.md) está integrado en el motor de sincronización.
 
 **Características promocionadas desde la vista previa a GA:**
 
@@ -123,7 +164,7 @@ Fecha de publicación: febrero de 2016
 
 **Nuevas características de la versión preliminar:**
 
-* El nuevo intervalo de ciclo de sincronización predeterminado es de 30 minutos. Solía ser 3 horas en todas las versiones anteriores. Agrega compatibilidad para cambiar el comportamiento del [programador](active-directory-aadconnectsync-feature-scheduler.md).
+* El nuevo intervalo de ciclo de sincronización predeterminado es de 30 minutos. Solía ser 3 horas en todas las versiones anteriores. Agrega compatibilidad para cambiar el comportamiento del [programador](active-directory-aadconnectsync-feature-scheduler.md) .
 
 **Problemas corregidos:**
 
@@ -131,7 +172,7 @@ Fecha de publicación: febrero de 2016
 * Solicita las credenciales de administrador de dominio al configurar ADFS.
 * El Asistente para instalación no reconoce las cuentas de AD locales si están ubicadas en un dominio con un árbol DNS diferente al dominio raíz.
 
-## 1\.0.9131.0
+## <a name="1091310"></a>1.0.9131.0
 Fecha de publicación: diciembre de 2015
 
 **Problemas corregidos:**
@@ -141,7 +182,7 @@ Fecha de publicación: diciembre de 2015
 * La actualización desde una versión anterior de Azure AD Connect con una instalación completa de SQL Server producirá un error si no es una asociación de seguridad en SQL.
 * La actualización desde una versión anterior de Azure AD Connect con una instalación remota de SQL Server mostrará el error "No se puede obtener acceso a la base de datos SQL de ADSync".
 
-## 1\.0.9125.0
+## <a name="1091250"></a>1.0.9125.0
 Publicado: noviembre de 2015
 
 **Nuevas características:**
@@ -154,7 +195,7 @@ Publicado: noviembre de 2015
 **Nuevas características de la versión preliminar:**
 
 * [Azure AD Connect Health para sincronización](active-directory-aadconnect-health-sync.md)
-* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords).
+* Compatibilidad para sincronización de contraseñas de [Servicios de dominio de Azure AD](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) .
 
 **Nuevo escenarios admitido:**
 
@@ -167,14 +208,14 @@ Publicado: noviembre de 2015
   * La selección de una nueva UO para incluir en sincronización no requiere una sincronización de contraseñas completa.
   * Cuando un usuario deshabilitado se habilita, la contraseña no se sincroniza.
   * La cola de reintentos de contraseña es infinita y el límite anterior de 5.000 objetos para retirar anterior se ha quitado.
-  * [Solución de problemas mejorada](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization).
+  * [Solución de problemas mejorada](active-directory-aadconnectsync-implement-password-synchronization.md#troubleshooting-password-synchronization).
 * No se puede conectar con Active Directory con el nivel funcional de bosque de Windows Server 2016.
 * No se puede cambiar el grupo usado para el filtrado de grupo tras la instalación inicial.
 * Ya no se creará un nuevo perfil de usuario en el servidor de Azure AD Connect para cada usuario haciendo un cambio de contraseña con la escritura diferida de contraseñas habilitada.
 * No se pueden usar valores enteros largos en ámbitos de reglas de sincronización.
 * La casilla de verificación "Reescritura de dispositivos" permanece deshabilitada si hay controladores de dominio inalcanzables.
 
-## 1\.0.8667.0
+## <a name="1086670"></a>1.0.8667.0
 Fecha de publicación: agosto de 2015
 
 **Nuevas características:**
@@ -199,7 +240,7 @@ Fecha de publicación: agosto de 2015
 
 * La característica en vista previa [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback) se ha eliminado temporalmente a raíz de los comentarios de nuestros clientes de vista previa. Se volverá a agregar más adelante después de examinar los comentarios proporcionados.
 
-## 1\.0.8641.0
+## <a name="1086410"></a>1.0.8641.0
 Fecha de publicación: junio de 2015
 
 **Versión inicial de Azure AD Connect.**
@@ -208,9 +249,9 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 
 **Nuevas características:**
 
-* Instalación de la [configuración rápida](active-directory-aadconnect-get-started-express.md)
-* Posibilidad de [configurar ADFS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
-* Posibilidad de [actualizar desde DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
+* Instalación de la [configuración rápida](connect/active-directory-aadconnect-get-started-express.md)
+* Posibilidad de [configurar ADFS](connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+* Posibilidad de [actualizar desde DirSync](connect/active-directory-aadconnect-dirsync-upgrade-get-started.md)
 * [Evitar eliminaciones accidentales](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
 * Se ha introducido el [modo de ensayo](active-directory-aadconnectsync-operations.md#staging-mode)
 
@@ -219,9 +260,9 @@ Ha cambiado el nombre de Azure AD Sync a Azure AD Connect.
 * [Reescritura de usuarios](active-directory-aadconnect-feature-preview.md#user-writeback)
 * [Escritura diferida de grupos](active-directory-aadconnect-feature-preview.md#group-writeback)
 * [Escritura diferida de dispositivos](active-directory-aadconnect-feature-device-writeback.md)
-* [Extensiones de directorio](active-directory-aadconnect-feature-preview.md#directory-extensions)
+* [Extensiones de directorio](active-directory-aadconnect-feature-preview.md)
 
-## 1\.0.494.0501
+## <a name="104940501"></a>1.0.494.0501
 Fecha de publicación: mayo de 2015
 
 **Nuevo requisito**
@@ -232,7 +273,7 @@ Fecha de publicación: mayo de 2015
 
 * La escritura diferida de contraseñas de Azure AD produce un error de conectividad de bus de servicio.
 
-## 1\.0.491.0413
+## <a name="104910413"></a>1.0.491.0413
 Fecha de publicación: abril de 2015
 
 **Problemas corregidos y mejoras:**
@@ -249,7 +290,7 @@ Fecha de publicación: abril de 2015
 
 * Una combinación puede conectarse ahora a "CUALQUIER" tipo de objeto en la MV.
 
-## 1\.0.485.0222
+## <a name="104850222"></a>1.0.485.0222
 Fecha de publicación: febrero de 2015
 
 **Mejoras:**
@@ -263,7 +304,7 @@ Fecha de publicación: febrero de 2015
 * Se ha habilitado en Azure AD/Intune "Servidor detenido" al importar desde el conector de Azure AD después de la administración de dispositivos.
 * La unión de entidades de seguridad externas (FSP) desde varios dominios del mismo bosque produce un error de unión ambigua.
 
-## 1\.0.475.1202
+## <a name="104751202"></a>1.0.475.1202
 Fecha de publicación: diciembre de 2014
 
 **Nuevas características:**
@@ -284,7 +325,7 @@ Fecha de publicación: diciembre de 2014
 * Se ha corregido la pérdida de la configuración de sourceAnchor cuando se ejecuta al asistente para la instalación por una segunda vez.
 * Se ha corregido el seguimiento ETW para la sincronización de contraseñas
 
-## 1\.0.470.1023
+## <a name="104701023"></a>1.0.470.1023
 Publicado: octubre de 2014
 
 **Nuevas características:**
@@ -304,12 +345,17 @@ Si ya tiene instalado Azure AD Sync, hay un paso adicional que debe seguir en ca
 
 Se deben conceder permisos adicionales a la cuenta de AD para poder leer los hash de contraseña de Active Directory. Los permisos que se deben conceder se denominan "Replicar cambios de directorio" y "Replicando todos los cambios de directorio". Ambos permisos son necesarios para poder leer los hash de contraseña.
 
-## 1\.0.419.0911
+## <a name="104190911"></a>1.0.419.0911
 Fecha de publicación: septiembre de 2014
 
 **Versión inicial de Azure AD Sync.**
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](active-directory-aadconnect.md).
 
-<!---HONumber=AcomDC_0907_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

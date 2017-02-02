@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: cc59d7785975e3f9acd574b516d20cd782c22dac
-ms.openlocfilehash: 427ddb00988b2ac6c2701c909d338942ae6a4352
+ms.sourcegitcommit: 58212ae80ef2b930661e739aeb4779c6f9bd1bec
+ms.openlocfilehash: c1faf24f1f11eba9bfa3042f5d1cd279363e4eca
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: 427ddb00988b2ac6c2701c909d338942ae6a4352
 Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y cómo instalar y configurar SQuirreL en su estación de trabajo para conectarse a un clúster de HBase en HDInsight. Para obtener más información acerca de Phoenix, consulte [Phoenix en 15 minutos o menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para la gramática de Phoenix, vea [Gramática de Phoenix](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Para más información sobre la versión de Phoenix en HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight][hdinsight-versions].
+> Para obtener información de la versión de Phoenix en HDInsight, consulte [Novedades en las versiones de clústeres de Hadoop proporcionadas por HDInsight](hdinsight-component-versioning.md).
 >
 > La información contenida en este documento es específica de los clústeres de HDInsight basados en Windows. Para más información sobre el uso de Phoenix en HDInsight basado en Linux, consulte [Use Apache Phoenix with Linux-based HBase clusters in HDinsight](hdinsight-hbase-phoenix-squirrel-linux.md)(Uso de Apache Phoenix con clústeres de HBase basados en Linux en HDinsight).
 >
@@ -36,8 +36,8 @@ Aprenda a usar [Apache Phoenix](http://phoenix.apache.org/) en HDInsight y cómo
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de usar SQLLine, debe tener lo siguiente:
 
-* **Un clúster de HBase en HDInsight**. Para más información sobre el aprovisionamiento del clúster de HBase, consulte [Introducción a Apache HBase en HDInsight][hdinsight-hbase-get-started].
-* **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para obtener instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico][hdinsight-manage-portal].
+* **Un clúster de HBase en HDInsight**. Para obtener información sobre el aprovisionamiento del clúster de HBase, consulte [Introducción a HBase Apache en HDInsight][hdinsight-hbase-get-started].
+* **Conexión al clúster de HBase a través del protocolo de escritorio remoto**. Para conocer las instrucciones, consulte [Administración de clústeres de Hadoop en HDInsight mediante el Portal de Azure clásico][hdinsight-manage-portal].
 
 **Para averiguar el nombre de host**
 
@@ -78,7 +78,7 @@ En esta sección se muestra cómo instalar y configurar SQuirreL en su estación
 ### <a name="prerequisites"></a>Requisitos previos
 Antes de seguir los procedimientos, debe disponer de lo siguiente:
 
-* Un clúster de HBase implementado en una red virtual de Azure con una máquina virtual DNS.  Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
+* Un clúster de HBase implementado en una red virtual de Azure con una máquina virtual DNS.  Para obtener instrucciones, consulte [Creación de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet].
 
   > [!IMPORTANT]
   > Debe instalar un servidor DNS en la red virtual. Para conocer las instrucciones, consulte [Configuración de DNS entre dos redes virtuales de Azure](hdinsight-hbase-geo-replication-configure-dns.md).
@@ -109,7 +109,7 @@ Asegúrese de que ha realizado el aprovisionamiento de un clúster de HBase en u
 3. Haga clic en la red virtual que ha creado (consulte [Aprovisionamiento de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet]).
 4. Haga clic en **CONFIGURAR** en la parte superior.
 5. En la sección **Conectividad punto a sitio**, seleccione **Configurar la conectividad punto a sitio**.
-6. Configure **DIRECCIÓN IP DE INICIO** y **CIDR** para especificar el intervalo de direcciones IP desde el que los clientes de VPN recibirán una dirección IP cuando se conecten. El intervalo no puede coincidir con cualquiera de los intervalos de la red local y la red virtual de Azure a la que se va a conectar. Por ejemplo. Si selecciona 10.0.0.0/20 para la red virtual, puede seleccionar 10.1.0.0/24 para el espacio de direcciones de cliente. Consulte la página [Conectividad punto a sitio][vnet-point-to-site-connectivity] para más información.
+6. Configure **DIRECCIÓN IP DE INICIO** y **CIDR** para especificar el intervalo de direcciones IP desde el que los clientes de VPN recibirán una dirección IP cuando se conecten. El intervalo no puede coincidir con cualquiera de los intervalos de la red local y la red virtual de Azure a la que se va a conectar. Por ejemplo. Si selecciona 10.0.0.0/20 para la red virtual, puede seleccionar 10.1.0.0/24 para el espacio de direcciones de cliente. Consulte la página [Conectividad punto a sitio][vnet-point-to-site-connectivity] para obtener más información.
 7. En la sección de espacios de direcciones de red virtual, haga clic en **Agregar subred de puerta de enlace**.
 8. Haga clic en **GUARDAR** en la parte inferior de la página.
 9. Haga clic en **SÍ** para continuar. Espere hasta que el sistema haya terminado de realizar el cambio antes de continuar con el siguiente procedimiento.
@@ -199,9 +199,11 @@ Una forma de crear un certificado X.509 es mediante la herramienta de creación 
 2. Abra/ejecute el archivo jar. Requiere [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Haga clic en **Siguiente** dos veces.
 4. Especifique una ruta de acceso donde tenga permiso de escritura y, a continuación, haga clic en **Siguiente**.
-    >[AZURE.NOTE] La carpeta de instalación predeterminada es C:\Archivos de programa\squirrel-sql-3.6.  Para poder escribir en esta ruta de acceso, el programa de instalación debe disponer de privilegios de administrador. Puede abrir un símbolo del sistema como administrador, ir a la carpeta bin de Java y, a continuación, ejecutar
-    >
-    >     java.exe -jar [the path of the SQuirreL jar file]
+
+  > [!NOTE]
+  > La carpeta de instalación predeterminada es C:\Archivos de programa\squirrel-sql-3.6.  Para poder escribir en esta ruta de acceso, el programa de instalación debe disponer de privilegios de administrador. Puede abrir un símbolo del sistema como administrador, ir a la carpeta bin de Java y, luego, ejecutar el siguiente comando:
+  >
+  >     java.exe -jar [the path of the SQuirreL jar file]
 5. Haga clic en **Aceptar** para confirmar la creación del directorio de destino.
 6. El valor predeterminado es instalar los paquetes Standard y Base.  Haga clic en **Siguiente**.
 7. Haga clic en **Siguiente** dos veces y, a continuación, en **Hecho**.
@@ -267,8 +269,8 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight.  Par
 
 * [Información general de HBase de HDInsight][hdinsight-hbase-overview]: HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que proporciona acceso aleatorio y una coherencia sólida para grandes cantidades de datos no estructurados y semiestructurados.
 * [Aprovisionamiento de clústeres de HBase en Azure Virtual Network][hdinsight-hbase-provision-vnet]: con la integración de redes virtuales, los clústeres de HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
-* [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-geo-replication.md): aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
-* [Análisis de sentimiento de Twitter con HBase en HDInsight][hbase-twitter-sentiment]: descubra cómo realizar[análisis de sentimiento](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de macrodatos con HBase en un clúster de Hadoop en HDInsight.
+* [Configuración de la replicación de HBase en HDInsight](hdinsight-hbase-replication.md): aprenda a configurar la replicación de HBase entre dos centros de datos de Azure.
+* [Análisis de sentimiento de Twitter con HBase en HDInsight][hbase-twitter-sentiment]: descubra cómo realizar [análisis de sentimiento](http://en.wikipedia.org/wiki/Sentiment_analysis) en tiempo real de macrodatos con HBase en un clúster de Hadoop en HDInsight.
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -290,6 +292,6 @@ En este artículo, ha aprendido cómo utilizar Phoenix Apache en HDInsight.  Par
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

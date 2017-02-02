@@ -1,28 +1,32 @@
 ---
-title: Directrices para grupos de recursos | Microsoft Docs
-description: Obtenga información sobre las directrices clave de diseño e implementación para implementar grupos de recursos en los servicios de infraestructura de Azure.
-documentationcenter: ''
+title: Directrices para grupos de recursos de Azure | Microsoft Docs
+description: "Obtenga información sobre las directrices clave de diseño e implementación para implementar grupos de recursos en los servicios de infraestructura de Azure."
+documentationcenter: 
 services: virtual-machines-windows
 author: iainfoulds
 manager: timlt
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 0fbcabcd-e96d-4d71-a526-431984887451
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
+translationtype: Human Translation
+ms.sourcegitcommit: 1e52ae69951b6b1feee6207033a85a583d13bcc2
+ms.openlocfilehash: 0d7c84d811b37a16e018f0915d3a0fde5183653f
+
 
 ---
-# Directrices para el grupo de recursos de Azure
+# <a name="azure-resource-group-guidelines"></a>Directrices para el grupo de recursos de Azure
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 Este artículo se centra en describir cómo crear su entorno de forma lógica y agrupar todos los componentes en grupos de recursos.
 
-## Directrices de implementación para los grupos de recursos
+## <a name="implementation-guidelines-for-resource-groups"></a>Directrices de implementación para los grupos de recursos
 Decisiones:
 
 * ¿Va a crear grupos de recursos mediante los componentes de la infraestructura central o la implementación de la aplicación completa?
@@ -35,19 +39,24 @@ Tareas:
 * Defina qué roles de acceso de usuario necesitará para controlar el acceso a grupos de recursos.
 * Cree el conjunto de grupos de recursos usando su convención de nomenclatura. Puede usar Azure PowerShell o el portal.
 
-## Grupos de recursos
-En Azure, puede agrupar de forma lógica recursos relacionados tales como cuentas de almacenamiento, redes virtuales y máquinas virtuales para implementarlos, administrarlos y mantenerlos como entidad única. Con este enfoque, resulta más fácil implementar aplicaciones al mismo tiempo que se mantienen juntos todos los recursos relacionados desde una perspectiva de administración, así como conceder acceso a otros usuarios a ese grupo de recursos. Para ver una descripción más completa de los grupos de recursos, puede leer [Información general de Azure Resource Manager](../resource-group-overview.md).
+## <a name="resource-groups"></a>Grupos de recursos
+En Azure, puede agrupar de forma lógica recursos relacionados tales como cuentas de almacenamiento, redes virtuales y máquinas virtuales para implementarlos, administrarlos y mantenerlos como entidad única. Con este enfoque, resulta más fácil implementar aplicaciones al mismo tiempo que se mantienen juntos todos los recursos relacionados desde una perspectiva de administración, así como conceder acceso a otros usuarios a ese grupo de recursos. Para una descripción más completa de los grupos de recursos, lea [Introducción a Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-Una característica clave para los grupos de recursos es la posibilidad de elaborar su entorno mediante plantillas. Una plantilla es simplemente un archivo JSON que declara el almacenamiento, las redes y los recursos de proceso. También puede definir todos los scripts personalizados relacionados o configuraciones que correspondan. Al usar estas plantillas, puede crear implementaciones coherentes y reproducibles para sus aplicaciones. Con este enfoque, resulta más sencillo crear un entorno en desarrollo y, luego, utilizar esa misma plantilla para crear una implementación de producción, o viceversa. Para comprender mejor el uso de plantillas, puede leer [el tutorial de plantillas](../resource-manager-template-walkthrough.md), que lo guiará en cada paso de la creación de una plantilla.
+Una característica clave para los grupos de recursos es la posibilidad de elaborar su entorno mediante plantillas. Una plantilla es simplemente un archivo JSON que declara el almacenamiento, las redes y los recursos de proceso. También puede definir todos los scripts personalizados relacionados o configuraciones que correspondan. Al usar estas plantillas, puede crear implementaciones coherentes y reproducibles para sus aplicaciones. Con este enfoque, resulta más sencillo crear un entorno en desarrollo y, luego, utilizar esa misma plantilla para crear una implementación de producción, o viceversa. Para comprender mejor el uso de plantillas, puede leer [el tutorial de plantillas](../resource-manager-template-walkthrough.md) , que lo guiará en cada paso de la creación de una plantilla.
 
 Existen dos enfoques diferentes que puede adoptar al diseñar su entorno con los grupos de recursos:
 
 * Grupos de recursos para cada implementación de aplicaciones que combina las cuentas de almacenamiento, las redes virtuales y subredes, las máquinas virtuales, los equilibradores de carga, etc.
 * Grupos de recursos centralizados que contienen las redes virtuales centrales y las subredes o cuentas de almacenamiento. Las aplicaciones, por tanto, se encontrarán en sus propios grupos de recursos, que solo contienen máquinas virtuales, equilibradores de carga, interfaces de red, etc.
 
-A medida que escale horizontalmente, la creación de grupos de recursos centralizados para sus redes virtuales y subredes facilitará la creación, a su vez, de conexiones de red entre locales con el fin de proporcionar opciones de conectividad híbrida. El enfoque alternativo consiste en que cada aplicación tenga su propia red virtual, que requiere realizar tareas de configuración y mantenimiento. Los [controles de acceso basado en rol](../active-directory/role-based-access-control-what-is.md) proporcionan una forma pormenorizada de controlar el acceso a grupos de recursos. En el caso de las aplicaciones de producción, puede controlar los usuarios que es posible que tengan acceso a esos recursos, o bien, en el caso de los recursos de la infraestructura central, puede limitar solo el número de ingenieros de infraestructura que deben trabajar con ellos. Los propietarios de su aplicación solo tendrán acceso a los componentes de esta en su grupo de recursos, y no a la infraestructura central de Azure de su entorno. A medida que plantee el entorno, tenga en cuenta qué usuarios requerirán acceso a los recursos y diseñe sus grupos de recursos según corresponda.
+A medida que escale horizontalmente, la creación de grupos de recursos centralizados para sus redes virtuales y subredes facilitará la creación, a su vez, de conexiones de red entre locales con el fin de proporcionar opciones de conectividad híbrida. El enfoque alternativo consiste en que cada aplicación tenga su propia red virtual, que requiere realizar tareas de configuración y mantenimiento.  [controles de acceso basado en rol](../active-directory/role-based-access-control-what-is.md) proporcionan una forma pormenorizada de controlar el acceso a grupos de recursos. En el caso de las aplicaciones de producción, puede controlar los usuarios que es posible que tengan acceso a esos recursos, o bien, en el caso de los recursos de la infraestructura central, puede limitar solo el número de ingenieros de infraestructura que deben trabajar con ellos. Los propietarios de su aplicación solo tendrán acceso a los componentes de esta en su grupo de recursos, y no a la infraestructura central de Azure de su entorno. A medida que plantee el entorno, tenga en cuenta qué usuarios requerirán acceso a los recursos y diseñe sus grupos de recursos según corresponda. 
 
-## Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+
+<!--HONumber=Dec16_HO3-->
+
+

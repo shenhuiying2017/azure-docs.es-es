@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/13/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 764270f66a512efe5341361925845f671ea2b815
+ms.sourcegitcommit: 1761ee404e355d41170a5684a1a0ca6d2629f1e3
+ms.openlocfilehash: 5b6819a583f5161854be0f71bbc5164afd57d6f9
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 764270f66a512efe5341361925845f671ea2b815
 Conozca los diferentes niveles de servicio que ofrece HDInsight, así como las versiones de los distintos componentes de Hadoop incluidos con HDInsight.
 
 ## <a name="hdinsight-standard-and-hdinsight-premium"></a>HDInsight Standard y HDInsight Premium
-HDInsight de Azure proporciona las ofertas en la nube de macrodatos en dos categorías: **Estándar** y **Premium**. La tabla que aparece debajo de la sección recoge las características que **solo están disponibles con el tipo Premium**. Las características que no aparecen expresamente en esta tabla están disponibles con el tipo Estándar.
+Azure HDInsight proporciona las ofertas de macrodatos en la nube en dos categorías: **Estándar** y **Premium**. La tabla que aparece debajo de la sección recoge las características que **solo están disponibles con el tipo Premium**. Las características que no aparecen expresamente en esta tabla están disponibles con el tipo Estándar.
 
 > [!NOTE]
 > Actualmente, la oferta HDInsight Premium se encuentra en versión preliminar y solo está disponible para los clústeres de Linux.
@@ -102,7 +102,8 @@ En la siguiente tabla se enumeran las versiones de HDInsight que está disponibl
 | HDI 2,1 |HDP 1,3 |Windows Server 2012R2 |Sí |28/10/2013 |No |12/05/2014 |31/05/2015 |
 | HDI 1.6 |HDP 1.1 | |No |28/10/2013 |No |26/04/2014 |31/05/2015 |
 
-**Implementación de clústeres no predeterminados**
+##<a name="hdi-version-32-and-33-nearing-deprecation-date"></a>HDI, versión 3.2 y 3.3 cerca de la fecha de desuso
+La compatibilidad con el clúster de HDI 3.2 expiró el 01/03/2016 y dejará de utilizarse en 04/01/2017. La compatibilidad con el clúster de HDI 3.3 expiró el 27/06/2016 y dejará de utilizarse en 31/07/2017. Si tiene un clúster de HDI 3.2 o HDI 3.3, actualice el clúster a HDI 3,5 (última versión) pronto. 
 
 ### <a name="the-service-level-agreement-for-hdinsight-cluster-versions"></a>El contrato de nivel de servicio para las versiones de clúster de HDInsight
 El SLA se define en términos de "plazo de soporte técnico". Un plazo de soporte técnico se refiere al período durante el cual la versión del clúster de HDInsight puede recibir soporte técnico por parte del Soporte técnico y el servicio al cliente de Microsoft. Un clúster de HDInsight está fuera del plazo de soporte técnico si su versión cuenta con una **fecha de expiración de soporte técnico** anterior a la fecha actual. En la tabla anterior se puede consultar una lista de las versiones de clúster de HDInsight con soporte técnico. La fecha de expiración de una versión determinada (X) de HDInsight (una vez que hay disponible una versión más reciente X+1) se calcula como la fecha más tardía de las dos siguientes:  
@@ -117,6 +118,17 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 > 
 > 
 
+##<a name="hdinsight-deprecation-on-windows"></a>Degradación de HDInsight en Windows
+A partir de HDI, versión 3.4, hemos publicado HDInsight solo en el sistema operativo Linux. Algunas de las ofertas de HDInsight están disponibles solo para Linux: Apache Ranger, aplicaciones de HDInsight, Azure Data Lake Store como FS principal, etc. Esto tiene varias ventajas para los clientes
+
+* Podemos incorporar la tecnología de macrodatos de código abierto al mercado a través del servicio HDInsight
+* Existe una gran comunidad y ecosistema de soporte técnico
+* Desarrollo activo mediante la comunidad de código abierto para Hadoop y tecnologías de macrodatos más recientes 
+* El servicio HDInsight puede centrarse más en la tecnología de código abierto de macrodatos 
+
+Para inversiones continuas en las tecnologías de macrodatos de código abierto, las versiones futuras de HDInsight estarán disponibles solo en el sistema operativo Linux. No habrá ninguna versión futura de HDInsight en el sistema operativo Windows. La última versión de HDInsight en Windows fue HDI 3.3. La compatibilidad con HDI 3.3 expiró el 27/06/2016 y dejará de utilizarse en 31/07/2017. Consulte [esto](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) para realizar la migración desde un clúster de HDInsight basado en Windows a un clúster basado en Linux.
+
+
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>Notas de la versión de HortonWorks asociadas con las versiones de HDInsight
 * La versión 3.4 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.4](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.4.0/bk_HDP_RelNotes/content/ch_relnotes_v240.html). Este es el clúster de Hadoop **predeterminado** que se crea al usar el portal.
 * La versión 3.3 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.3](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.3.0/bk_HDP_RelNotes/content/ch_relnotes_v230.html).
@@ -126,7 +138,7 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 * La versión 3.2 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.2][hdp-2-2].  
   
   * Notas de la versión de componentes específicos de Apache: [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) y [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* La versión 3.1 de HDInsight utiliza una distribución de Hadoop que se basa en [Hortonworks Data Platform 2.1.7][hdp-2-1-7] Los clústeres de HDInsight 3.1 creados antes del 11/7/2014 se basaban en [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* La versión 3.1 de HDInsight utiliza una distribución de Hadoop que se basa en [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. Los clústeres de HDInsight 3.1 creados antes del 7/11/2014 se basaban en [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
 * La versión 3.0 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 2.0][hdp-2-0-8].
 * La versión 2.1 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 1.3][hdp-1-3-0].
 * La versión 1.6 del clúster de HDInsight utiliza una distribución de Hadoop basada en [Hortonworks Data Platform 1.1][hdp-1-1-0].
@@ -155,6 +167,6 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

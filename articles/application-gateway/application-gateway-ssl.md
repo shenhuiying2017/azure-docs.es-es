@@ -4,7 +4,7 @@ description: "En este artículo se ofrecen instrucciones para crear una puerta d
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 translationtype: Human Translation
-ms.sourcegitcommit: 1cb291817462a2af59a17693a29b8667750c877f
-ms.openlocfilehash: b4fc6b09069022967b572327647dd5d848712932
+ms.sourcegitcommit: 1506729fb346a8a67930a5a2cd4c15f375c52e3f
+ms.openlocfilehash: 0f565431f03527c4fac463f93c5664504a90662f
 
 
 ---
@@ -26,8 +26,6 @@ ms.openlocfilehash: b4fc6b09069022967b572327647dd5d848712932
 > * [Portal de Azure](application-gateway-ssl-portal.md)
 > * [PowerShell del Administrador de recursos de Azure](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> 
-> 
 
 Puerta de enlace de aplicaciones de Azure puede configurarse para terminar la sesión Capa de sockets seguros (SSL) en la puerta de enlace para evitar las costosas tareas de descifrado SSL que tienen lugar en la granja de servidores web. La descarga SSL también simplifica la configuración del servidor front-end y la administración de la aplicación web.
 
@@ -92,8 +90,6 @@ State..........: Provisioned
 
 > [!NOTE]
 > La contraseña del certificado debe tener entre 4 y 12 caracteres, letras o números. No se aceptan caracteres especiales.
-> 
-> 
 
 ## <a name="configure-the-gateway"></a>Configuración de la puerta de enlace
 
@@ -218,6 +214,6 @@ Si desea obtener más información acerca de opciones de equilibrio de carga en 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

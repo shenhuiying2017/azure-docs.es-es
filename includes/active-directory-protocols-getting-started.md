@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
 translationtype: Human Translation
-ms.sourcegitcommit: 8db20ca36190197abcb73200eeed79e004435af9
-ms.openlocfilehash: d851dec517c162073ade6ffb4ebcf972c5054698
+ms.sourcegitcommit: f1e4b86a04a76513a2f0d9a9f89e49611c0447d5
+ms.openlocfilehash: b31fa50a62d5b26a7346f212076ec3a2b0386f5e
 
 
 ---
@@ -28,7 +28,7 @@ En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure 
 * Para elegir el inquilino de Azure AD, haga clic en su cuenta en la esquina superior derecha de la página.
 * En el panel de navegación izquierdo, haga clic en **Azure Active Directory**.
 * Haga clic en **Registros de aplicaciones** y en **Agregar**.
-* Siga las indicaciones y cree una nueva aplicación. Para este tutorial, no importa si se trata de una aplicación web o nativa, pero si desea ver ejemplos específicos de aplicaciones web o nativas, consulte nuestras [guías de inicio rápido](../articles/active-directory/active-directory-developers-guide.md).
+* Siga las indicaciones y cree una nueva aplicación. Para este tutorial, no importa si se trata de una aplicación web o nativa, pero si desea ver ejemplos específicos de aplicaciones web o nativas, consulte nuestras [guías de inicio rápido](../articles/active-directory/develop/active-directory-developers-guide.md).
   * Para aplicaciones web, proporcione la **dirección URL de inicio de sesión**, que es la URL base de la aplicación, donde los usuarios pueden iniciar sesión; por ejemplo, `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Para las aplicaciones nativas, proporcione un **URI de redirección**, que utilizará Azure AD para devolver las respuestas de token. Escriba un valor específico para la aplicación, por ejemplo, `http://MyFirstAADApp`
@@ -36,6 +36,6 @@ En primer lugar, tendrá que registrar la aplicación con el inquilino de Azure 
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

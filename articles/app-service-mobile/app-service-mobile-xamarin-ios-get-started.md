@@ -15,8 +15,8 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: adrianha
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 5dc9822072417b41856a7d4015c54b8573e56587
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: ed289d0755bbad08de01b0f311d14f5514ce0631
 
 
 ---
@@ -36,7 +36,7 @@ Para completar este tutorial, debe cumplir los siguientes requisitos previos:
 * Un equipo Mac con Xcode v7.0 o versiones posteriores y Xamarin Studio Community instalados. Consulte [Configuración e instalación](https://msdn.microsoft.com/library/mt613162.aspx) y [Configuración, instalación y comprobaciones para usuarios de Mac](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 > [!NOTE]
-> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](https://tryappservice.azure.com/?appServiceName=mobile). Puede crear de forma inmediata una aplicación de inicio de corta duración en App Service (no se requiere tarjeta de crédito ni se establece ningún compromiso).
+> Si desea empezar a usar el Servicio de aplicaciones de Azure antes de suscribirse para obtener una cuenta de Azure, vaya a la [prueba gratuita del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/mobile/). Puede crear de forma inmediata una aplicación de inicio de corta duración en App Service (no se requiere tarjeta de crédito ni se establece ningún compromiso).
 > 
 > 
 
@@ -96,6 +96,6 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

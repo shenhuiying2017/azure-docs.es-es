@@ -12,16 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/14/2016
+ms.date: 11/15/2016
 ms.author: ryanwi
 translationtype: Human Translation
-ms.sourcegitcommit: 9b2744f3f76a7253928a4248f6915eee0e7f8e9a
-ms.openlocfilehash: ba8d22f564a2736600054576a554cbc2037a1302
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 87a303fc04b2a528928eed5ce8f65a19700e0bc0
 
 
 ---
 # <a name="service-fabric-application-lifecycle"></a>Ciclo de vida de la aplicación de Service Fabric
 Al igual que sucede con otras plataformas, una aplicación en Azure Service Fabric normalmente pasa las siguientes fases: diseño, desarrollo, prueba, implementación, actualización, mantenimiento y eliminación. Service Fabric ofrece compatibilidad de primera clase para todo el ciclo de vida de aplicación de las aplicaciones de nube: desde el desarrollo hasta la implementación, la administración diaria, el mantenimiento y, finalmente, la retirada. El modelo de servicio habilita varios roles distintos para participar de manera independiente en el ciclo de vida de la aplicación. Este artículo proporciona información general de las API y cómo son usadas por los distintos roles durante todas las fases del ciclo de vida de aplicación de Service Fabric.
+
+En el siguiente vídeo de Microsoft Virtual Academy describe cómo administrar el ciclo de vida de la aplicación: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">
+<img src="./media/service-fabric-application-lifecycle/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ## <a name="service-model-roles"></a>Roles del modelo de servicio
 Los roles del modelo de servicio son:
@@ -98,6 +102,6 @@ Para obtener más información sobre cómo desarrollar, probar y administrar apl
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

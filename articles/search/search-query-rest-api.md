@@ -11,47 +11,48 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 01/12/2017
 ms.author: ashmaka
 translationtype: Human Translation
-ms.sourcegitcommit: 6ff31940f3a4e7557e0caf3d9d3740590be3bc04
-ms.openlocfilehash: ab769e5cd6abe27d6793d1aad816c4f4d10ff078
-
+ms.sourcegitcommit: 7d45759915f38ba4337b745eb2b28dcbc72dbbe0
+ms.openlocfilehash: 449110cfda1a08b73b5e21cbf495e59f32d80339
 
 ---
+
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>Realización de una consulta al índice de Búsqueda de Azure con la API de REST
 > [!div class="op_single_selector"]
+>
 > * [Información general](search-query-overview.md)
 > * [Portal](search-explorer.md)
 > * [.NET](search-query-dotnet.md)
 > * [REST](search-query-rest-api.md)
-> 
-> 
+>
+>
 
-En este artículo se muestra cómo realizar una consulta en un índice con la [API de REST de Búsqueda de Azure](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Este artículo muestra cómo realizar consultas en un índice con la [API de REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/).
 
 Antes de comenzar este tutorial, debe haber [creado ya un índice de Azure Search](search-what-is-an-index.md) y [haberlo rellenado con datos](search-what-is-data-import.md).
 
-## <a name="i-identify-your-azure-search-services-query-apikey"></a>I. Identificación de la clave de API de consulta del servicio de Búsqueda de Azure
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identificación de la clave de API de consulta del servicio de Búsqueda de Azure
 Un componente clave de cada operación de búsqueda en la API de REST de Búsqueda de Azure es la *clave de API* que se generó para el servicio que ha aprovisionado. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. Para buscar las claves de API del servicio debe iniciar sesión en el [Portal de Azure](https://portal.azure.com/)
-2. Vaya a la hoja de servicio de Búsqueda de Azure
+1. Para buscar las claves de API del servicio, puede iniciar sesión en [Azure Portal](https://portal.azure.com/)
+2. Vaya a la hoja de servicio de Azure Search
 3. Haga clic en el icono "Claves"
 
-El servicio tendrá *claves de administración* y *claves de consulta*.
+El servicio tiene *claves de administración* y *claves de consulta*.
 
 * Sus *claves de administración* principal y secundaria permiten conceder derechos completos para todas las operaciones, incluida la capacidad para administrar el servicio, crear y eliminar índices, indexadores y orígenes de datos. Existen dos claves, de forma que puede usar la clave secundaria si decide volver a generar la clave principal y viceversa.
 * Las *claves de consulta* conceden acceso de solo lectura a índices y documentos y normalmente se distribuyen entre las aplicaciones cliente que emiten solicitudes de búsqueda.
 
 Para consultar un índice, puede utilizar una de las claves de consulta. Las claves de administración también se pueden utilizar para las consultas, pero debe utilizar una clave de consulta en el código de aplicación ya que esto se adapta mejor al [principio de privilegios mínimos](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-## <a name="ii-formulate-your-query"></a>II. Formulación de la consulta
-Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](https://msdn.microsoft.com/library/azure/dn798927.aspx). Una manera es emitir una solicitud HTTP POST donde se definirán los parámetros de consulta en un objeto JSON en el cuerpo de solicitud. La otra manera es emitir una solicitud HTTP GET en la que se definirán los parámetros de consulta en la URL de la solicitud. Tenga en cuenta que la solicitud POST tiene unos [límites más flexibles](https://msdn.microsoft.com/library/azure/dn798927.aspx) en relación con el tamaño de los parámetros de consulta en comparación con los de la solicitud GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.
+## <a name="formulate-your-query"></a>Formulación de la consulta
+Hay dos maneras de [realizar búsquedas en el índice mediante la API de REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Una de ellas es emitir una solicitud HTTP POST en la que los parámetros de consulta se definen en un objeto JSON del cuerpo de la solicitud. La otra es emitir una solicitud HTTP GET en la que los parámetros de la consulta se definen en la dirección URL de la solicitud. POST tiene unos [límites más flexibles](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) en relación con el tamaño de los parámetros de la consulta que GET. Por este motivo, se recomienda usar la solicitud POST a menos que haya circunstancias especiales en las que utilizar la solicitud GET sea más adecuado.
 
-Tanto para la solicitud POST como para la GET, deberá proporcionar el *nombre del servicio*, el *nombre del índice*, así como la *versión adecuada de la API* (la versión actual de la API es `2015-02-28` en el momento de publicar este documento) en la URL de la solicitud. Para la solicitud GET, la *cadena de consulta* al final de la dirección URL debe proporcionar los parámetros de consulta. Consulte a continuación el formato de dirección URL:
+Tanto para la solicitud POST como para la GET, deberá proporcionar el *nombre del servicio*, el *nombre del índice*, así como la *versión adecuada de la API* (la versión actual de la API es `2016-09-01` en el momento de publicar este documento) en la URL de la solicitud. En el caso de GET, la *cadena de consulta* del final de la dirección URL es donde se proporcionar los parámetros de la consulta. Consulte a continuación el formato de dirección URL:
 
-    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2015-02-28
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
 El formato de la solicitud POST es el mismo, pero solo con la versión de API en los parámetros de la cadena de consulta.
 
@@ -61,9 +62,9 @@ Presentamos algunas consultas de ejemplo en un índice llamado "hoteles". Estas 
 Busque en todo el índice el término "presupuesto" y devuelva solo el campo `hotelName`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "budget",
     "select": "hotelName"
@@ -73,9 +74,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Aplique un filtro al índice para buscar hoteles con una tarifa inferior a 150 dólares por noche, y devolver `hotelId` y `description`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -86,9 +87,9 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 Busque en todo el índice, ordene por un campo específico (`lastRenovationDate`) en orden descendente, tome los dos primeros resultados y muestre solo `hotelName` y `lastRenovationDate`:
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
 
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 {
     "search": "*",
     "orderby": "lastRenovationDate desc",
@@ -97,20 +98,20 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-## <a name="iii-submit-your-http-request"></a>III. Envío de la solicitud HTTP
+## <a name="submit-your-http-request"></a>Envío de la solicitud HTTP
 Ahora que ha formulado la consulta como parte de la dirección URL de la solicitud HTTP (para GET) o del cuerpo de la solicitud (para POST), puede definir los encabezados de solicitud y enviar la consulta.
 
 #### <a name="request-and-request-headers"></a>Solicitudes y encabezados de solicitud
 Debe definir dos encabezados de solicitud para GET o tres para POST:
 
-1. El encabezado `api-key` se debe establecer en la clave de consulta que encontró anteriormente en el paso I. Tenga en cuenta que también puede usar una clave de administración como el encabezado `api-key` , pero se recomienda usar una clave de consulta, ya que esta concede exclusivamente acceso de solo lectura a los índices y documentos.
+1. El encabezado `api-key` se debe establecer en la clave de consulta que encontró anteriormente en el paso I. También puede usar una clave de administración como encabezado `api-key`, pero se recomienda usar una clave de consulta, ya que esta concede acceso de solo lectura a los índices y documentos de forma exclusiva.
 2. El encabezado `Accept` debe establecerse en `application/json`.
 3. Solo para POST, el encabezado `Content-Type` debe establecerse también en `application/json`.
 
-Consulte a continuación una solicitud HTTP GET creada para buscar en el índice "hoteles" mediante la API de REST de Búsqueda de Azure con una consulta sencilla que busque el término "motel":
+Consulte a continuación una solicitud HTTP GET creada para buscar en el índice "hotels" mediante la API de REST de Azure Search con una consulta sencilla que busca el término "motel":
 
 ```
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2015-02-28
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
 Accept: application/json
 api-key: [query key]
 ```
@@ -118,7 +119,7 @@ api-key: [query key]
 Aquí aparece la misma consulta de ejemplo, pero esta vez utilizando HTTP POST:
 
 ```
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2015-02-28
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
 Content-Type: application/json
 Accept: application/json
 api-key: [query key]
@@ -161,11 +162,10 @@ Una solicitud de consulta correcta dará como resultado un código de estado de 
 }
 ```
 
-Para más información, visite la sección "Respuesta" de [Buscar documentos](https://msdn.microsoft.com/library/azure/dn798927.aspx). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://msdn.microsoft.com/library/azure/dn798925.aspx).
+Para más información, visite la sección "Respuesta" de [Buscar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para más información sobre otros códigos de estado HTTP que se devuelven en caso de error, consulte [Códigos de estado HTTP (Búsqueda de Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 
 
-
-<!--HONumber=Nov16_HO2-->
+<!--HONumber=Jan17_HO2-->
 
 

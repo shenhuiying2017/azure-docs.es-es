@@ -4,7 +4,7 @@ description: "En este artículo, se explican los pasos necesarios para conectar 
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
-manager: jwhit
+manager: carmonm
 editor: 
 ms.assetid: 932f7b8c-485c-40c1-98e3-7d4c560876d2
 ms.service: log-analytics
@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2016
+ms.date: 01/02/2017
 ms.author: banders
 translationtype: Human Translation
-ms.sourcegitcommit: 6836cd4c1f9fe53691ae8330b25e497da4c2e0d5
-ms.openlocfilehash: 161bb18579db7a4615cbc62c539e8b6286a424ac
+ms.sourcegitcommit: ca573f743325b29d43c4b1a0c3bc7001a54fcfae
+ms.openlocfilehash: f7d740c164df5fe2341a3a0dc3ca0149aed68386
 
 
 ---
@@ -97,6 +97,12 @@ Si ha usado la línea de comandos o el script anteriormente para instalar o conf
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>Instalación del agente utilizando DSC en Automatización de Azure
 
+Puede usar el siguiente script de ejemplo para instalar el agente mediante DSC en Azure Automation. En el ejemplo se instala el agente de 64 bits, identificado por el valor `URI`. También puede utilizar la versión de 32 bits si se reemplaza el valor del identificador URI. Estos son los identificadores URI para ambas versiones:
+
+- Agente de Windows de 64 bits: https://go.microsoft.com/fwlink/?LinkId=828603
+- Agente de Windows de 32 bits: https://go.microsoft.com/fwlink/?LinkId=828604
+
+
 >[!NOTE]
 Este ejemplo de script y procedimiento no actualizará un agente existente.
 
@@ -125,7 +131,7 @@ Configuration MMAgent
         }
 
         xRemoteFile OIPackage {
-            Uri = "http://download.microsoft.com/download/0/C/0/0C072D6E-F418-4AD4-BCB2-A362624F400A/MMASetup-AMD64.exe"
+            Uri = "https://go.microsoft.com/fwlink/?LinkId=828603"
             DestinationPath = $OIPackageLocalPath
         }
 
@@ -138,11 +144,37 @@ Configuration MMAgent
             DependsOn = "[xRemoteFile]OIPackage"
         }
     }
-}  
+}
 
 
 ```
 
+### <a name="get-the-latest-productid-value"></a>Obtención del valor de ProductId más reciente
+
+El valor `ProductId value` del script MMAgent.ps1 es exclusivo de cada versión del agente. Cuando se publica una versión actualizada de cada agente, el valor de ProductId cambia. Por lo tanto, cuando ProductId cambie en el futuro, podrá encontrar la versión del agente mediante un sencillo script. Una vez que haya instalado la última versión del agente en un servidor de prueba, puede usar el siguiente script para obtener el valor de ProductId instalado. Con el último valor de ProductId, puede actualizar el del script MMAgent.ps1.
+
+```
+$InstalledApplications  = Get-ChildItem hklm:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall
+
+
+foreach ($Application in $InstalledApplications)
+
+{
+
+     $Key = Get-ItemProperty $Application.PSPath
+
+     if ($Key.DisplayName -eq "Microsoft Monitoring Agent")
+
+     {
+
+        $Key.DisplayName
+
+        Write-Output ("Product ID is: " + $Key.PSChildName.Substring(1,$Key.PSChildName.Length -2))
+
+     }
+
+}  
+```
 
 ## <a name="configure-an-agent-manually-or-add-additional-workspaces"></a>Configuración de un agente de forma manual o incorporación de áreas de trabajo adicionales
 Si tiene instalados los agentes pero aún no los ha configurado o si quiere que el agente informe a varias áreas de trabajo, puede usar la siguiente información para habilitarlos o volver a configurarlos. Una vez configurado el agente, se registrará con el servicio de agente y obtendrá la información de configuración necesaria y los paquetes de administración que contienen la información de la solución.
@@ -197,6 +229,6 @@ Si en su entorno hay servidores proxy o firewalls que restringen el acceso a Int
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/19/2016
 ms.author: xibingao;bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: a12d11ba5dfdb312fcfa57f665aa5fc0f471b3dd
+ms.sourcegitcommit: 22d7dc81cb2fc44ff4471951cbc482f60a97bb27
+ms.openlocfilehash: b266dc9ead635fb852d64efa82587299f692a153
 
 
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>Configuración de una máquina virtual de Azure como servidor del Bloc de notas de IPython para realizar análisis avanzados
-En este tema se muestra cómo aprovisionar y configurar una máquina virtual de Azure para análisis avanzado que se pueda usar como parte de un entorno de ciencia de datos. La máquina virtual de Windows se configura con herramientas de compatibilidad como Bloc de notas de IPython, Explorador de almacenamiento de Azure y AzCopy, así como otras utilidades que son útiles para los proyectos de análisis avanzado. El Explorador de almacenamiento de Azure y AzCopy, por ejemplo, permite cargar de manera cómoda datos en el almacenamiento de blobs de Azure desde la máquina local o descargarlos en el equipo local desde el almacenamiento de blobs.
+En este tema se muestra cómo aprovisionar y configurar una máquina virtual de Azure para análisis avanzado que se pueda usar como parte de un entorno de ciencia de datos. La máquina virtual Windows se configura con herramientas de compatibilidad como IPython Notebook, Explorador de Azure Storage y AzCopy, así como otras utilidades que son útiles para los proyectos de análisis avanzado. El Explorador de almacenamiento de Azure y AzCopy, por ejemplo, permite cargar de manera cómoda datos en el almacenamiento de blobs de Azure desde la máquina local o descargarlos en el equipo local desde el almacenamiento de blobs.
 
 ## <a name="a-namecreate-vmastep-1-create-a-general-purpose-azure-virtual-machine"></a><a name="create-vm"></a>Paso 1: Crear un máquina virtual de Azure de propósito general
 Si ya tiene una máquina virtual de Azure y solo quiere configurar un servidor de Bloc de notas de IPython en ella, puede omitir este paso y continuar con el [Paso 2: Agregar un extremo para Blocs de notas de IPython a una máquina virtual existente](#add-endpoint).
@@ -42,7 +42,7 @@ Antes de comenzar el proceso de creación de una máquina virtual en Azure, debe
 3. Escriba un nombre para la máquina virtual que quiere crear, seleccione el tamaño de la máquina (Predeterminado: A3) en función del tamaño de los datos que va a procesar y la potencia que desea que tenga el equipo (el tamaño de la memoria y el número de núcleos de procesamiento), escriba un nombre de usuario y una contraseña para la máquina. A continuación, haga clic en la flecha que apunta hacia la derecha para ir a la siguiente página de configuración.
    
     ![Creación del espacio de trabajo][26]
-4. Seleccione la **REGIÓN, GRUPO DE AFINIDAD o RED VIRTUAL** que contiene la **CUENTA DE ALMACENAMIENTO** que quiere usar para esta máquina virtual y, después, seleccione esa cuenta de almacenamiento. Agregue un punto de conexión en la parte inferior del campo **PUNTOS DE CONEXIÓN**; para hacerlo, escriba el nombre del punto de conexión (aquí, "IPython"). Puede elegir cualquier cadena como el **NOMBRE** del punto de conexión y cualquier entero entre 0 y 65536 que esté **disponible** como el **PUERTO PÚBLICO**. El **PUERTO PRIVADO** tiene que ser **9999**. Los usuarios deben **evitar** el uso de los puertos públicos que ya estén asignados a servicios de Internet. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Puertos para Servicios de Internet</a> ofrece una lista de puertos que se han asignado y deben evitarse.
+4. Seleccione la **REGIÓN, GRUPO DE AFINIDAD o RED VIRTUAL** que contiene la **CUENTA DE ALMACENAMIENTO** que quiere usar para esta máquina virtual y, después, seleccione esa cuenta de almacenamiento. Agregue un punto de conexión en la parte inferior del campo **PUNTOS DE CONEXIÓN**; para hacerlo, escriba el nombre del punto de conexión (aquí, "IPython"). Puede elegir cualquier cadena como el **NOMBRE** del punto de conexión y cualquier entero entre 0 y 65536 que esté **disponible** como el **PUERTO PÚBLICO**. El **PUERTO PRIVADO** tiene que ser **9999**. Debe **evitar** el uso de los puertos públicos que ya estén asignados a servicios de Internet. <a href="http://www.chebucto.ns.ca/~rakerman/port-table.html" target="_blank">Puertos para Servicios de Internet</a> ofrece una lista de puertos que se han asignado y deben evitarse.
    
     ![Creación del espacio de trabajo][27]
 5. Haga clic en la marca de verificación para iniciar la máquina virtual de proceso de aprovisionamiento.
@@ -56,7 +56,7 @@ El proceso de aprovisionamiento de la máquina virtual puede tardar de 15 a 25 m
 ## <a name="a-nameadd-endpointastep-2-add-an-endpoint-for-ipython-notebooks-to-an-existing-virtual-machine"></a><a name="add-endpoint"></a>Paso 2: Agregar un extremo para Blocs de notas de IPython a una máquina virtual existente
 Si ha creado la máquina virtual siguiendo las instrucciones del paso 1, ya se ha agregado el extremo para Bloc de notas de IPython y se puede omitir este paso.
 
-Si la máquina virtual ya existe y necesita agregar un punto de conexión para Bloc de notas de IPython que instalará en el paso 3 que se muestra más adelante, inicie sesión primero en el Portal de Azure clásico, seleccione la máquina virtual y agregue el punto de conexión del servidor de Bloc de notas de IPython. En la siguiente ilustración se muestra una captura de pantalla del portal después de que el extremo para Bloc de notas de IPython se haya agregado a una máquina virtual de Windows.
+Si la máquina virtual ya existe y necesita agregar un punto de conexión para IPython Notebook que instalará en el paso 3 que se muestra más adelante, inicie sesión primero en el Portal de Azure clásico, seleccione la máquina virtual y agregue el punto de conexión del servidor de Bloc de notas de IPython. En la siguiente ilustración se muestra una captura de pantalla del portal después de que el extremo para Bloc de notas de IPython se haya agregado a una máquina virtual de Windows.
 
 ![Creación del espacio de trabajo][17]
 
@@ -86,7 +86,7 @@ Verá una advertencia que indica que *Existe un problema con el certificado de s
 **Chrome:**
 ![Crear área de trabajo][21]
 
-Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos blocs de notas de IPython de ejemplo se extraen del [**repositorio de GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) en las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.
+Después de iniciar sesión en IPython Notebook, se mostrará en el explorador el directorio *DataScienceSamples*. Este directorio contiene Blocs de notas de IPython de ejemplo que Microsoft comparte para ayudar a los usuarios a realizar tareas de ciencia de datos. Estos IPython Notebook de ejemplo se extraen del [**repositorio de GitHub**](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) en las máquinas virtuales durante el proceso de configuración del servidor de IPython Notebook. Microsoft mantiene y actualiza con frecuencia este repositorio. Los usuarios pueden visitar el repositorio de Github para obtener los Blocs de notas de IPython de ejemplo más recientes.
 ![Creación del espacio de trabajo][18]
 
 ## <a name="a-nameuploadastep-5-upload-an-existing-ipython-notebook-from-a-local-machine-to-the-ipython-notebook-server"></a><a name="upload"></a>Paso 5: Carga de un cuaderno de IPython existente desde un equipo local en el servidor de IPython Notebook
@@ -96,7 +96,7 @@ Los Blocs de notas de IPython ofrecen una manera fácil para que los usuarios ca
 
 ![Creación del espacio de trabajo][23]
 
-## <a name="a-nameshutdownashutdown-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Apagado y desasignación de la máquina virtual cuando no esté en uso
+## <a name="a-nameshutdownashut-down-and-de-allocate-virtual-machine-when-not-in-use"></a><a name="shutdown"></a>Apagado y desasignación de la máquina virtual cuando no esté en uso
 Las máquinas virtuales de Azure tienen unas tarifas del tipo **pague solo por lo que use**. Para asegurarse de que no se le facture cuando no use la máquina virtual, debe estar en el estado **Detenida (desasignada)** .
 
 > [!NOTE]
@@ -137,6 +137,6 @@ Los pasos siguientes del proceso de ciencia de datos en equipos se asignan en la
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

@@ -1,23 +1,22 @@
 ---
 title: 'Tutorial de NoSQL: SDK de .NET Core para DocumentDB | Microsoft Docs'
 description: "Tutorial de NoSQL que crea una base de datos en línea y la aplicación de consola de C# mediante el SDK de .NET Core para DocumentDB. DocumentDB es una base de datos NoSQL para JSON."
-keywords: "tutorial de nosql, base de datos en línea, aplicación de consola de c#"
 services: documentdb
 documentationcenter: .net
 author: arramac
 manager: jhubbard
-editor: monicar
+editor: 
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 01/19/2017
 ms.author: arramac
 translationtype: Human Translation
-ms.sourcegitcommit: 16bff1b5708652a75ea603f596c864901b12a88d
-ms.openlocfilehash: 60d4fec828d620d067b7eb9d0e3cb7e57d1be506
+ms.sourcegitcommit: d98bf3a76459ed1e87f25a93a8246e2a2110a488
+ms.openlocfilehash: a41f45d277732d38b17db1fe9684cfde0027bd84
 
 
 ---
@@ -49,6 +48,9 @@ Describiremos:
 
 Después, utilice los botones de votación situados en la parte superior o inferior de esta página para proporcionarnos sus comentarios. Si quiere que nos pongamos en contacto directamente con usted, puede incluir su dirección de correo electrónico en los comentarios.
 
+> [!NOTE]
+> El SDK de .NET Core de DocumentDB que se usa en este tutorial aún no es compatible con aplicaciones de la Plataforma universal de Windows (UWP). Para obtener una versión preliminar del SDK de .NET Core que admita aplicaciones de UWP, envíe un correo electrónico a [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com).
+
 Comencemos.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -70,10 +72,10 @@ Creemos una cuenta de DocumentDB. Si ya tiene una cuenta que desea usar, puede i
 1. Abra **Visual Studio 2015** en el equipo.
 2. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.
 3. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Plantillas** / **Visual C#** / **.NET Core**/**Aplicación de consola (.NET Core)**, asigne un nombre a su proyecto y luego haga clic en **Aceptar**.
-   ![Captura de pantalla de la ventana Nuevo proyecto](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
+   ![Captura de pantalla de la ventana Nuevo proyecto](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. En el **Explorador de soluciones**, haga clic con el botón secundario en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio.
 5. Luego, sin salir del menú, haga clic en **Administrar paquetes de NuGet...**
-   ![Captura de pantalla del menú en el que se ha hecho clic con el botón derecho para el proyecto](./media/documentdb-get-started/nosql-tutorial-manage-nuget-pacakges.png)
+   ![Captura de pantalla del menú en el que se ha hecho clic con el botón derecho para el proyecto](./media/documentdb-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. En la pestaña **Nuget** haga clic en **Examinar** y escriba **azure documentdb** en el cuadro de búsqueda.
 7. En los resultados, busque **Microsoft.Azure.DocumentDB.Core** y haga clic en **Instalar**.
    El identificador del paquete de la biblioteca de cliente de DocumentDB es [Microsoft.Azure.DocumentDB:Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core)
@@ -367,7 +369,7 @@ Presione **F5** para ejecutar la aplicación.
 
 ¡Enhorabuena! Ha creado correctamente dos documentos de DocumentDB.  
 
-![Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos en línea, la colección y los documentos usados por el tutorial NoSQL para crear una aplicación de consola de C#.](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagrama que muestra la relación jerárquica entre la cuenta, la base de datos en línea, la colección y los documentos usados por el tutorial NoSQL para crear una aplicación de consola de C#.](./media/documentdb-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
 ## <a name="a-idqueryastep-7-query-documentdb-resources"></a><a id="Query"></a>Paso 7: Consulta de recursos de DocumentDB
 DocumentDB admite [consultas](documentdb-sql-query.md) enriquecidas contra los documentos JSON almacenados en cada colección.  En el siguiente ejemplo se muestran diversas consultas (usando tanto la sintaxis SQL de Base de datos de documentos como LINQ) que podemos ejecutar con los documentos que hemos insertado en el paso anterior.
@@ -421,7 +423,7 @@ Presione **F5** para ejecutar la aplicación.
 
 El siguiente diagrama muestra la denominación de la sintaxis de la consulta de SQL DocumentDB en la recopilación creada y se aplica la misma lógica también a la consulta LINQ.
 
-![Diagrama que ilustra el ámbito y el significado de la consulta usada por el tutorial de NoSQL para crear una aplicación de consola de C#.](./media/documentdb-get-started/nosql-tutorial-collection-documents.png)
+![Diagrama que ilustra el ámbito y el significado de la consulta usada por el tutorial de NoSQL para crear una aplicación de consola de C#.](./media/documentdb-dotnetcore-get-started/nosql-tutorial-collection-documents.png)
 
 La palabra clave [FROM](documentdb-sql-query.md#from-clause) es opcional en la consulta porque las consultas de DocumentDB ya tienen como ámbito una sola colección. Por lo tanto, «FROM Families f" se puede intercambiar por  "FROM root r", o cualquier otra variable de nombre que elija. DocumentDB deducirá la familia, la raíz o el nombre de variable elegido y hará referencia a la colección actual de forma predeterminada.
 
@@ -556,11 +558,10 @@ Para restaurar las referencias al SDK de .NET Core para DocumentDB en Visual Stu
 * Obtenga más información sobre el modelo de programación en la sección sobre desarrollo de la [página de documentación de DocumentDB](https://azure.microsoft.com/documentation/services/documentdb/).
 
 [documentdb-create-account]: documentdb-create-account.md
-[documentdb-manage]: documentdb-manage.md
-[keys]: media/documentdb-get-started/nosql-tutorial-keys.png
+[keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,24 +1,27 @@
-
 ---
 title: Calcular el uso del ancho de banda de red de Azure RemoteApp | Microsoft Docs
-description: Obtenga información acerca de los requisitos del ancho de banda de red para sus colecciones y aplicaciones de Azure RemoteApp.
+description: "Obtenga información acerca de los requisitos del ancho de banda de red para sus colecciones y aplicaciones de Azure RemoteApp."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: 3127f4c7-f532-46c3-ba9b-649f647abec1
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: e4d94d3f9736378d93e93be6645ed04ade763ca3
+ms.openlocfilehash: 045410664ec70c846abbf32a36dcc8f70ac471be
+
 
 ---
-# Calcular el uso del ancho de banda de red de Azure RemoteApp
+# <a name="estimate-azure-remoteapp-network-bandwidth-usage"></a>Calcular el uso del ancho de banda de red de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -34,11 +37,16 @@ Ahora consulte los artículos siguientes para obtener más información, incluid
 * [Probar su uso de ancho de banda de red con algunos escenarios comunes](remoteapp-bandwidthtests.md)
 * [Directrices rápidas si no tiene el tiempo ni la capacidad de realizar pruebas](remoteapp-bandwidthguidelines.md)
 
-## ¿Qué no incluimos?
+## <a name="what-are-we-not-including"></a>¿Qué no incluimos?
 Cuando revise las pruebas propuestas y nuestras recomendaciones generales (y hay que reconocer que genéricas), tenga en cuenta que hay varios factores que no tuvimos en cuenta. Por ejemplo, las dificultades de la experiencia de usuario proporcionadas por la naturaleza asimétrica de la carga frente a la descarga del ancho de banda. Además, la naturaleza asimétrica de la mayoría de las redes Wi-Fi afectará el rendimiento y la percepción de la experiencia de usuario. Para escenarios interactivos, puede darse menor prioridad al tráfico de bajada que al de subida, que puede aumentar el número de fotogramas de vídeo o audio perdidos y, por lo tanto, influir en la percepción del usuario de la experiencia de descarga. Puede ejecutar sus propios experimentos para ver qué es adecuado para su red y caso de uso específico.
 
 Aunque trataremos el redireccionamiento de dispositivos, no tendremos en cuenta el impacto del ancho de banda en el tráfico de red provocado por los dispositivos adjuntos, como los de almacenamiento, impresoras, escáneres, cámaras web y otros dispositivos USB. Normalmente, el efecto de dichos dispositivos aumenta las necesidades del ancho de banda de manera temporal, y desaparece cuando se completa la tarea. Pero si se realiza con frecuencia, la demanda de ancho de banda puede ser bastante notable.
 
 Tampoco analizamos cómo un usuario puede afectar a otros usuarios dentro de la misma red. Por ejemplo, un usuario que consume un vídeo de 4K en una red de 100 MB/s puede afectar significativamente a otros usuarios de esa misma red que intenten realizar la misma tarea. Lamentablemente, cada vez es más difícil determinar el impacto del uso simultáneo para proporcionar una recomendación común o integral acerca de cómo funciona el sistema a nivel global. Todo lo que podemos decir es que la tecnología de protocolo subyacente hará el mejor uso del ancho de banda de red disponible, pero tiene sus limitaciones.
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

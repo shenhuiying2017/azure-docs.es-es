@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/19/2016
 ms.author: pratshar
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e9b7dcc2c7011a616d96c8623335c913f647a9b
+ms.sourcegitcommit: c5e80c3cd3caac07e250d296c61fb3813e0000dd
+ms.openlocfilehash: 9f3d87fe08b13f08622b4bd169240a2ec0683b00
 
 
 ---
@@ -75,17 +75,21 @@ La conmutación por error de prueba se produce en una red que está aislada de l
 La mayoría de las aplicaciones también requieren la presencia de un controlador de dominio y un servidor DNS para funcionar, por ello, antes de conmutar por error la aplicación, se tiene que crear un controlador de dominio en la red aislada que se usará para la conmutación por error. La manera más fácil de hacerlo es habilitar primero la protección en el controlador de dominio o la máquina virtual DNS mediante Site Recovery, y ejecutar una conmutación por error de prueba de esa máquina virtual antes de ejecutar la conmutación por error de prueba de la aplicación. Así es cómo debe hacerlo:
 
 1. Habilite la protección de la máquina virtual de DNS y del controlador de dominio en Site Recovery.
-2. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
-3. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, proporcione la dirección IP para la máquina virtual que se usará en la conmutación por error en el valor de configuración **IP de destino** en las propiedades de la máquina virtual. Si realiza la replicación en otro sitio local y está usando DHCP, siga las instrucciones para [la configuración de DNS y DHCP para la conmutación por error en Site Recovery](site-recovery-failover.md#prepare-dhcp)
+1. Cree una red aislada. Cualquier red virtual que se cree en Azure de forma predeterminada está aislada de otras redes. Se recomienda que el intervalo de dirección IP para esta red sea el mismo que el de la red de producción. No habilite la conectividad de sitio a sitio en esta red.
+1. Proporcione una dirección IP de DNS en la red que se ha creado, como la dirección IP que se espera que la máquina virtual DNS obtenga. Si realiza la replicación en Azure, proporcione la dirección IP para la máquina virtual que se usará en la conmutación por error en el valor de configuración **IP de destino** en las propiedades de la máquina virtual. Si realiza la replicación en otro sitio local y está usando DHCP, siga las instrucciones para [la configuración de DNS y DHCP para la conmutación por error en Site Recovery](site-recovery-failover.md#prepare-dhcp)
 
-> [!NOTE]
-> La dirección IP que se asigna a una máquina virtual en una conmutación por error de prueba es el misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada, si la dirección IP está disponible en la red de conmutación por error de prueba. Si no lo está, la máquina virtual recibe una dirección IP diferente que está disponible en la red de conmutación por error de prueba.
-> 
-> 
+    > [!NOTE]
+    > La dirección IP que se asigna a una máquina virtual en una conmutación por error de prueba es el misma dirección IP que obtendría al realizar una conmutación por error planeada o no planeada, si la dirección IP está disponible en la red de conmutación por error de prueba. Si no lo está, la máquina virtual recibe una dirección IP diferente que está disponible en la red de conmutación por error de prueba.
+    > 
+    > 
 
-1. En la máquina virtual de controlador de dominio pruebe la conmutación por error del mismo en la red aislada. Use el último punto de recuperación coherente de aplicación disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba. 
-2. Ejecute una conmutación por error de prueba para un plan de recuperación de aplicación.
-3. Cuando finalice la prueba, marque el trabajo de conmutación por error de prueba de la máquina virtual del controlador de dominio y del plan de recuperación como "Completo" en la pestaña **Trabajos** del portal de Site Recovery.
+1. En la máquina virtual de controlador de dominio pruebe la conmutación por error del mismo en la red aislada. Use el último punto de recuperación **coherente de aplicación** disponible de la máquina virtual del controlador de dominio para realizar la conmutación por error de prueba. 
+1. Ejecute una conmutación por error de prueba para un plan de recuperación de aplicación.
+1. Cuando finalice la prueba, marque el trabajo de conmutación por error de prueba de la máquina virtual del controlador de dominio y del plan de recuperación como "Completo" en la pestaña **Trabajos** del portal de Site Recovery.
+
+### <a name="removing-reference-to-other-domain-controllers"></a>Eliminación de la referencia a otros controladores de dominio
+Cuando realice una prueba de conmutación por error, no podrá incluir todos los controladores de dominio en la red de prueba. Para quitar la referencia a los demás controladores de dominio que existan en su entorno de producción, tendrá que [ asumir los roles FSMO de Active Directory y realizar una limpieza de metadatos](http://aka.ms/ad_seize_fsmo) para los controladores de dominio que falten. 
+
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>DNS y controlador de dominio en equipos diferentes
 Si el DNS no está en la misma máquina virtual que el controlador de dominio, tendrá que crear una máquina virtual de DNS para probar la conmutación por error. Si están en la misma máquina virtual, puede omitir esta sección.
@@ -114,6 +118,6 @@ Consulte [qué cargas de trabajo puede proteger](site-recovery-workload.md) para
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

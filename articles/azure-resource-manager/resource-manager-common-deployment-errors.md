@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 translationtype: Human Translation
-ms.sourcegitcommit: 3098845eb6cf39eff7cb7b0c26c9e715c1688142
-ms.openlocfilehash: fa74439938fc97a06e8a8f767f5928721dd5affe
+ms.sourcegitcommit: e2e59da29897a40f0fe538d6fe8063ae5edbaccd
+ms.openlocfilehash: 4dd4e54f3e2514570ff5cbffcb926f274491cb65
 
 
 ---
@@ -47,18 +47,22 @@ Los errores de implementación devuelven el código **DeploymentFailed**. Sin em
 
 En este tema se describen los códigos de error siguientes:
 
-* [InvalidTemplate](#invalidtemplate)
-* [NotFound y ResourceNotFound](#notfound-and-resourcenotfound)
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists y StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [QuotaExceeded and OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
-* [InvalidContentLink](#invalidcontentlink)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Error de autorización](#authorization-failed)
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink)
+* [InvalidTemplate](#invalidtemplate)
+* [MissingSubscriptionRegistration](#noregisteredproviderfound)
+* [NotFound](#notfound)
+* [NoRegisteredProviderFound](#noregisteredproviderfound)
+* [OperationNotAllowed](#quotaexceeded)
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded)
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
+* [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
+* [StorageAccountAlreadyExists](#storagenamenotunique)
+* [StorageAccountAlreadyTaken](#storagenamenotunique)
 
 ### <a name="invalidtemplate"></a>InvalidTemplate
 Este error puede tener distintos orígenes.
@@ -142,6 +146,7 @@ Este error puede tener distintos orígenes.
 
    Compruebe los valores permitidos de la plantilla y proporcione uno durante la implementación.
 
+<a id="notfound" />
 ### <a name="notfound-and-resourcenotfound"></a>NotFound y ResourceNotFound
 Cuando la plantilla incluye el nombre de un recurso que no se puede resolver, recibirá un error similar al siguiente:
 
@@ -195,6 +200,7 @@ Sin embargo, si no especifica una dependencia del recurso primario, el secundari
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### <a name="storageaccountalreadyexists-and-storageaccountalreadytaken"></a>StorageAccountAlreadyExists y StorageAccountAlreadyTaken
 Para las cuentas de almacenamiento, debe proporcionar un nombre al recurso que sea único en Azure. Si no lo hace, recibirá un error como el siguiente:
 
@@ -215,20 +221,38 @@ Verá el error **AccountNameInvalid** al tratar de proporcionar a una cuenta de 
 
 Puede encontrar un estado BadRequest al proporcionar un valor no válido para una propiedad. Por ejemplo, si proporciona un valor incorrecto de SKU para una cuenta de almacenamiento, se produce un error en la implementación. 
 
-### <a name="noregisteredproviderfound"></a>NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### <a name="noregisteredproviderfound-and-missingsubscriptionregistration"></a>NoRegisteredProviderFound y MissingSubscriptionRegistration
 Al implementar recursos, puede recibir el siguiente código y mensaje de error:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-Recibirá este error por uno de estos tres motivos:
+O bien, puede recibir un mensaje similar que indica:
 
-1. No se permite esta ubicación para el tipo de recurso
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+Recibirá estos errores por uno de estos tres motivos:
+
+1. El proveedor de recursos no se ha registrado para la suscripción
 2. No se permite esta versión de API para el tipo de recurso
-3. El proveedor de recursos no se ha registrado para la suscripción
+3. No se permite esta ubicación para el tipo de recurso
 
 El mensaje de error debería proporcionarle sugerencias con respecto a las versiones de API y a las ubicaciones admitidas. Puede cambiar la plantilla a uno de los valores sugeridos. La mayoría de los proveedores se registran automáticamente mediante el Portal de Azure o la interfaz de línea de comandos que esté utilizando; pero no ocurre con todos. Si no ha utilizado un proveedor de recursos determinado antes, debe registrar dicho proveedor. Puede obtener más información sobre los proveedores de recursos a través de PowerShell o la CLI de Azure.
+
+**Portal**
+
+Puede ver el estado de registro y registrar un espacio de nombres de proveedor de recursos a través del portal.
+
+1. Para la suscripción, seleccione **Proveedores de recursos**.
+
+   ![seleccionar proveedores de recursos](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. Examine la lista de proveedores de recursos y, si es necesario, seleccione el vínculo **Registrar** para registrar el proveedor de recursos del tipo que está intentando implementar.
+
+   ![Enumeración de proveedores de recursos](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -262,6 +286,7 @@ Para ver las ubicaciones y las versiones de API admitidas por un proveedor de re
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### <a name="quotaexceeded-and-operationnotallowed"></a>QuotaExceeded y OperationNotAllowed
 Podría tener problemas cuando una implementación supera una cuota, lo que podría suceder por grupo de recursos, suscripciones, cuentas y otros ámbitos. Por ejemplo, la suscripción puede configurarse para limitar el número de núcleos para una región. Si trata de implementar una máquina virtual con más núcleos que los permitidos, recibirá un error que indica que se ha superado la cuota.
 Para obtener información completa de las cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
@@ -433,6 +458,28 @@ En algunos casos, la manera más fácil de solucionar problemas de plantillas es
 
 Supongamos que se están produciendo errores de implementación que cree que están relacionados con dependencias establecidas incorrectamente. Pruebe la plantilla dividiéndola en plantillas simplificadas. En primer lugar, cree una plantilla que implemente solo un único recurso (por ejemplo, un servidor SQL Server). Cuando esté seguro de que tiene dicho recurso definido correctamente, agregue un recurso que dependa de él (por ejemplo, una base de datos SQL). Cuando esos dos recursos se definan correctamente, agregue otros recursos dependientes (por ejemplo, las directivas de auditoría). Entre cada implementación de prueba, elimine el grupo de recursos para asegurarse de que se prueban adecuadamente las dependencias. 
 
+### <a name="check-deployment-sequence"></a>Comprobación de la secuencia de implementación
+
+Muchos errores de implementación se producen cuando los recursos se implementan en una secuencia inesperada. Estos errores se producen cuando las dependencias no se han establecido correctamente. Un recurso intenta usar un valor para otro recurso pero este último todavía no existe. Para ver el orden de las operaciones de implementación:
+
+1. Seleccione el historial de implementaciones para el grupo de recursos.
+
+   ![seleccionar el historial de implementaciones](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. Seleccione una implementación del historial y seleccione **Eventos**.
+
+   ![seleccionar eventos de implementación](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. Examine la secuencia de eventos para cada recurso. Preste atención para el estado de cada operación. Por ejemplo, la siguiente imagen muestra tres cuentas de almacenamiento que se implementan en paralelo. Tenga en cuenta que las tres cuentas de almacenamiento se inician al mismo tiempo.
+
+   ![implementación paralela](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   La siguiente imagen muestra tres cuentas de almacenamiento que no se implementan en paralelo. La segunda cuenta de almacenamiento se marca como dependiente de la primera cuenta de almacenamiento y la tercera cuenta de almacenamiento depende de la segunda cuenta de almacenamiento. Por lo tanto, la primera cuenta de almacenamiento se inicia, acepta y completa antes de que se inicie la siguiente.
+
+   ![implementación secuencial](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+Examine los eventos de implementación para ver si un recurso se ha iniciado antes de lo que cabría esperar. Si es así, compruebe las dependencias para este recurso.
+
 ## <a name="troubleshooting-other-services"></a>Solución de problemas con otros servicios
 Si los códigos de error de implementación anterior no le han ayudado solucionar el problema, puede buscar instrucciones más detalladas de solución de problemas del servicio de Azure que tiene el error.
 
@@ -455,8 +502,7 @@ En la tabla siguiente se enumeran los temas de solución de problemas para otros
 | --- | --- |
 | Automatización |[Sugerencias para la solución de problemas para errores comunes de Automatización de Azure](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Solución de problemas de Microsoft Azure Stack](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[Web Apps y Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
-| Factoría de datos |[Solución de problemas de la factoría de datos](../data-factory/data-factory-troubleshoot.md) |
+| Data Factory |[Solución de problemas de la factoría de datos](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Solución de problemas comunes al implementar servicios en Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Recuperación de sitios |[Protección de supervisión y solución de problemas para las máquinas virtuales y los servidores físicos](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
 | Almacenamiento |[Supervisión, diagnóstico y solución de problemas de Almacenamiento de Microsoft Azure](../storage/storage-monitoring-diagnosing-troubleshooting.md) |
@@ -470,6 +516,6 @@ En la tabla siguiente se enumeran los temas de solución de problemas para otros
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO3-->
 
 

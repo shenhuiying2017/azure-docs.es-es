@@ -1,6 +1,6 @@
 ---
-title: "Introducción a los dispositivos gemelos | Microsoft Docs"
-description: "En este tutorial se muestra cómo usar los dispositivos gemelos."
+title: "Introducción a los dispositivos gemelos de IoT Hub de Azure (.NET y Node) | Microsoft Docs"
+description: "Describe cómo usar dispositivos gemelos de IoT Hub de Azure para agregar etiquetas y, luego, usar una consulta de IoT Hub. Usará el SDK de dispositivo IoT de Azure para Node.js con el fin de implementar una aplicación de dispositivo simulado, además del SDK de servicio IoT de Azure para .NET con el objetivo de implementar una aplicación de servicio que agrega las etiquetas y ejecuta la consulta de IoT Hub."
 services: iot-hub
 documentationcenter: node
 author: fsautomata
@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: elioda
 translationtype: Human Translation
-ms.sourcegitcommit: 00746fa67292fa6858980e364c88921d60b29460
-ms.openlocfilehash: 4b90b2529fa6d763ed3ce9c3b4da07afeb860f0e
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: f233f75d464ec2796d02f6760ef07512abfe3b2a
 
 
 ---
-# <a name="tutorial-get-started-with-device-twins"></a>Tutorial: Introducción a los dispositivos gemelos
+# <a name="get-started-with-device-twins-netnode"></a>Introducción a los dispositivos gemelos (.NET y Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 Al final de este tutorial tendrá una aplicación de consola Node.js y .NET:
 
-* **AddTagsAndQuery.sln**, una aplicación .NET diseñada para ejecutarse desde el back-end, que agrega etiquetas y consulta dispositivos gemelos.
+* **AddTagsAndQuery.js**, una aplicación de .NET de back-end diseñada para ejecutarse desde el back-end, que agrega etiquetas y consulta dispositivos gemelos.
 * **TwinSimulatedDevice.js**, una aplicación de Node.js que simula un dispositivo que se conecta a su centro de IoT con la identidad del dispositivo creada anteriormente e informa de su estado de conectividad.
 
 > [!NOTE]
@@ -50,13 +50,13 @@ En esta sección, creará una aplicación de consola de Node.js que agrega metad
    
     ![Nuevo proyecto de escritorio clásico de Windows de Visual C#][img-createapp]
 2. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **AddTagsAndQuery** y luego seleccione **Administrar paquetes NuGet**.
-3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al paquete NuGet de [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] (SDK de Servicio IoT de Microsoft Azure) y a sus dependencias.
+3. En la ventana **Administrador de paquetes NuGet**, seleccione **Examinar**, busque **microsoft.azure.devices**, seleccione **Instalar** para instalar el paquete **Microsoft.Azure.Devices** y acepte los términos de uso. Este procedimiento permite descargar, instalar y agregar una referencia al [paquete NuGet del SDK de dispositivo de IoT de Azure][lnk-nuget-service-sdk] y sus dependencias.
    
     ![Ventana del Administrador de paquetes NuGet][img-servicenuget]
 4. Agregue las siguientes instrucciones `using` al principio del archivo **Program.cs** :
    
         using Microsoft.Azure.Devices;
-5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión del Centro de IoT que creó en la sección anterior.
+5. Agregue los campos siguientes a la clase **Program** . Sustituya el valor de marcador de posición por la cadena de conexión de IoT Hub para el centro que creó en la sección anterior.
    
         static RegistryManager registryManager;
         static string connectionString = "{iot hub connection string}";
@@ -194,11 +194,11 @@ Use los siguientes recursos para obtener información sobre cómo:
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-twin-how-to-configure]: iot-hub-csharp-node-twin-how-to-configure.md
 
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
+[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -1,24 +1,27 @@
-
 ---
-title: Información de tamaño para una red virtual de Azure RemoteApp | Microsoft Docs
-description: Obtenga información acerca de los requisitos de direcciones IP de Azure RemoteApp cuando se ejecuta con una red virtual.
+title: "Información de tamaño para una red virtual de Azure RemoteApp | Microsoft Docs"
+description: "Obtenga información acerca de los requisitos de direcciones IP de Azure RemoteApp cuando se ejecuta con una red virtual."
 services: remoteapp
-documentationcenter: ''
-author: lizap
+documentationcenter: 
+author: msmbaldwin
 manager: mbaldwin
-
+ms.assetid: b6e1c4ba-0236-42b2-bced-69353bf211be
 ms.service: remoteapp
 ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
+translationtype: Human Translation
+ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
+ms.openlocfilehash: 0639e19423adc842a708982997852fb8d10df779
+
 
 ---
-# Información de tamaño para una red virtual de Azure RemoteApp
+# <a name="sizing-information-for-a-vnet-in-azure-remoteapp"></a>Información de tamaño para una red virtual de Azure RemoteApp
 > [!IMPORTANT]
-> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148).
+> Azure RemoteApp va a dejar de estar disponible. Para obtener más información, lea el [anuncio](https://go.microsoft.com/fwlink/?linkid=821148) .
 > 
 > 
 
@@ -31,4 +34,9 @@ Consulte la siguiente información para asegurarse de que la red virtual está c
 * [Migración de una red virtual personal a una red virtual de Azure](remoteapp-migratevnet.md)
 * [Validación de la red virtual de Azure para su uso con Azure RemoteApp](remoteapp-vnet.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO2-->
+
+

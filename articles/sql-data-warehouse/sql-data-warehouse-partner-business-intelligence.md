@@ -15,8 +15,8 @@ ms.workload: data-services
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e2bdb05c9a99426c665c1564b916724d0c23eadc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 91b3f016497b268d9f7e9d305ec4f69f0a1cd856
 
 
 ---
@@ -27,7 +27,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 | Asociado | Description | Vínculos | Vídeos |
 | --- | --- | --- | --- |
 | ![Birst][1] |**Birst**<br>Birst es una empresa líder global en análisis e inteligencia empresarial de nube. Las empresas pueden crear un origen de datos de confianza dentro del contexto de cada usuario profesional clave. A continuación, los usuarios profesionales de toda la organización pueden informar y analizar la información con herramientas de inteligencia empresarial de clase mundial. |[Marketplace][birst_marketplace]<br>[Sitio web][birst_website]<br>[Twitter][birst_twitter]<br>[YouTube][birst_youtube] | |
-| ![ClearStory Data][2] |**ClearStory Data**<br>ClearStory Data habilita el análisis de ciclo rápido de distintos datos almacenados en Almacenamiento de datos SQL. La aplicación de análisis y plataforma basada en Spark integradas de ClearStory aceleran el acceso a los datos y la armonización de los distintos conjuntos de datos. Habilitan la exploración rápida y de colaboración que permite que los usuarios profesionales puedan obtener información de manera autónoma. |[Website][clearstory_website]<br>[Hoja de datos][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
+| ![ClearStory Data][2] |**ClearStory Data**<br>ClearStory Data habilita el análisis de ciclo rápido de distintos datos almacenados en Almacenamiento de datos SQL. La aplicación de análisis y plataforma basada en Spark integradas de ClearStory aceleran el acceso a los datos y la armonización de los distintos conjuntos de datos. Habilitan la exploración rápida y de colaboración que permite que los usuarios profesionales puedan obtener información de manera autónoma. |[Sitio web][clearstory_website]<br>[Hoja de datos][clearstory_datasheet]<br>[Twitter][clearstory_twitter]<br>[YouTube][clearstory_youtube] | |
 | ![Dell Statistica][3] |**Dell Statistica**<br>Dell Statistica es una plataforma de análisis avanzada que permite que las organizaciones hacer predicciones sobre el futuro, optimizar procesos, reducir costos y aumentar los ingresos.  Dell Statistica simplifica el análisis de Big Data, optimiza la implementación, extrae del texto información que permite realizar una acción y potencia su negocio. |[Marketplace][dell_statistica_marketplace]<br>[Sitio web][dell_statistica_website]<br>[Hoja de datos][dell_statistica_datasheet]<br>[Twitter][dell_statistica_twitter]<br>[YouTube][dell_statistica_youtube] |[![Vídeo de Statistica](./media/sql-data-warehouse-partner-business-intelligence/dell_statistica_video.jpg)](https://www.youtube.com/watch?v=0b8sPW2UHrU) |
 | ![Dundas][4] |**BI de Dundas**<br>Dundas Data Visualization es un proveedor global líder del software de inteligencia empresarial y visualización de datos.  Los paneles, los informes y el análisis de datos visuales de Dundas proporcionan una integración sin problemas con las aplicaciones empresariales, para permitir una mejor toma de decisiones e informaciones más rápidas. |[Marketplace][dundas_bi_marketplace]<br>[Sitio web][dundas_bi_website]<br>[Hoja de datos][dundas_bi_datasheet]<br>[Twitter][dundas_bi_twitter]<br>[YouTube][dundas_bi_youtube] |[![Vídeo de Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_bi_video.jpg)](https://www.youtube.com/watch?v=TEbc3_e7o60) |
 | ![Jinfonet][5] |**JReport**<br>JReport es una solución de BI integrable para la empresa. La solución permite que los usuarios creen informes, paneles y análisis de datos en la nube, Big Data y orígenes de datos transaccionales. A través de la visualización de datos, puede realizar sus propios informes y su detección de datos para un proceso de toma de decisiones ágil y sobre la marcha. |[Sitio web][jinfonet_website]<br>[Hoja de datos][jinfonet_datasheet]<br>[Twitter][jinfonet_twitter]<br>[YouTube][jinfonet_youtube] |[![Vídeo de JReport](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_video.jpg)](https://www.youtube.com/watch?v=KYqh8TuMpds) |
@@ -42,7 +42,7 @@ Para crear la solución de almacenamiento de datos de un extremo a otro, elija e
 <!--https://img.youtube.com/vi/0b8sPW2UHrU/0.jpg-->
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre algunos de nuestros otros asociados, consulte los [asociados de integración de datos][di_partners] y los [asociados de administración de datos][dm_partners].
+Para obtener más información sobre algunos de nuestros otros asociados, consulte [Asociados de integración de datos][di_partners] y [Asociados de administración de datos][dm_partners].
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png
@@ -153,6 +153,6 @@ Para más información sobre algunos de nuestros otros asociados, consulte los [
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

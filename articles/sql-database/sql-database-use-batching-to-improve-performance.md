@@ -16,8 +16,8 @@ ms.workload: data-management
 ms.date: 07/12/2016
 ms.author: sstein
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: a4310e365148e94a7d9b61df354e7328863f8662
+ms.sourcegitcommit: 3ba16154857f8e7b59a1013b736d6131a4161185
+ms.openlocfilehash: fa364ff88d449ec8efb318d26049c2e046ee42b8
 
 
 ---
@@ -622,11 +622,11 @@ En la lista siguiente, se proporciona un resumen de las recomendaciones de proce
 * Considere la posibilidad de almacenar en búfer por tamaño y hora como una manera de implementar el procesamiento por lotes para más escenarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Azure SQL Database para bases de datos únicas](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo de bases de datos elásticas](sql-database-elastic-pool-guidance.md).
+Este artículo se centra en cómo el diseño de base de datos y las técnicas de codificado relacionadas con el procesamiento por lotes pueden mejorar el rendimiento y la escalabilidad de las aplicaciones. Sin embargo, esto es solamente un factor en la estrategia global. Para conocer más formas de mejorar el rendimiento y la escalabilidad, consulte [Guía de rendimiento de Azure SQL Database para bases de datos únicas](sql-database-performance-guidance.md) y [Consideraciones de precio y rendimiento para un grupo elástico](sql-database-elastic-pool-guidance.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

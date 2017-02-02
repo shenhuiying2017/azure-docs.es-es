@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/04/2017
+ms.date: 01/11/2017
 ms.author: carlrab; janeng
 translationtype: Human Translation
-ms.sourcegitcommit: a40319d3e53c07a94bc34714ca7393c2747fb50c
-ms.openlocfilehash: 340656b896763914c2f6d37c72ce1d5323d1411e
+ms.sourcegitcommit: 0a00aff343bfd31c956f6cbc831e89cc1cc84b23
+ms.openlocfilehash: 95ae4bd67b7d08755035e7b5559ca9648d45bdaa
 
 
 ---
@@ -41,7 +41,7 @@ En la tabla siguiente se proporcionan ejemplos de los niveles más adecuados par
 En primer lugar, decida si desea ejecutar una base de datos única o agrupar las bases de datos que compartan recursos. Revise las [consideraciones de grupo elástico](sql-database-elastic-pool-guidance.md). Para decidir el nivel de servicio, determine las características mínimas de la base de datos que necesita:
 
 * Tamaño máximo de bases de datos individuales (2 GB como máximo para el nivel Básico, 250 GB como máximo para el nivel Estándar y de 500 GB a 1 TB como máximo para el Premium en los niveles de rendimiento altos)
-* Almacenamiento total máximo en el caso de un grupo elástico (117 GB para Básico, 1200 para Estándar y 750 para Premium)
+* Almacenamiento total máximo en el caso de un grupo elástico (117 GB para Básico, 1200 GB para Estándar y 750 GB para Premium)
 * Número máximo de bases de datos por grupo (400 para Básico, 400 para Estándar y 50 para Premium)
 * Período de retención de la copia de seguridad de la base de datos (7 días para Básico y 35 días para Estándar y Premium)
 
@@ -49,8 +49,7 @@ Cuando haya determinado el nivel de servicio mínimo, estará listo para determi
 
 Después de elegir inicialmente un nivel de rendimiento, puede escalar o reducir verticalmente la [base de datos individual](sql-database-scale-up.md) o su [grupo elástico](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) de forma dinámica, en función de la experiencia real. Para escenarios de migración, también puede utilizar la [calculadora de DTU](http://dtucalculator.azurewebsites.net/) para calcular el número aproximado de DTU necesarias. 
 
->
-> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
 
 ## <a name="single-database-service-tiers-and-performance-levels"></a>Niveles de servicio de la Base de datos única y niveles de rendimiento
@@ -84,6 +83,6 @@ Además, todas las bases de datos de un grupo se ajustan a las características 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

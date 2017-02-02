@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 09/21/2016
+ms.date: 01/23/2017
 ms.author: maroche
 translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
@@ -55,8 +55,8 @@ Cuando se seleccionan varios recursos de datos en el portal de Data Catalog, los
 
 > [!NOTE]
 > También se pueden proporcionar etiquetas y expertos al registrar recursos de datos mediante la herramienta de registro de orígenes de datos de Data Catalog.
-> 
-> 
+>
+>
 
 Cuando se seleccionan varias tablas y vistas, solo se mostrarán las columnas que tengan en común todos los recursos de datos seleccionados en el portal de Data Catalog. Esto permite que los usuarios proporcionen etiquetas y descripciones para todas las columnas con el mismo nombre de todos los recursos seleccionados.
 
@@ -68,7 +68,6 @@ Al registrar un origen de datos con Data Catalog, se consigue que esos datos sea
 
 ## <a name="see-also"></a>Otras referencias
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md) para obtener información paso a paso sobre cómo anotar orígenes de datos.
-
 
 
 

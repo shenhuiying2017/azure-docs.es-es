@@ -116,12 +116,12 @@ Detección de amenazas de Base de datos SQL proporciona un nivel adicional de se
 ## <a name="compliance"></a>Cumplimiento normativo
 Además de las anteriores características y funcionalidades que pueden ayudar a su aplicación a cumplir distintos requisitos de cumplimiento de normas de seguridad, la Base de datos SQL de Azure también participa en las auditorías regulares y ha sido certificada con una serie de estándares de cumplimiento normativo. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://azure.microsoft.com/support/trust-center/services/).
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener información general de todas los características de seguridad de SQL Database, consulte [SQL security overview](sql-database-security-overview.md) (Información general acerca de la seguridad de SQL).
 - Para obtener información acerca del uso de las características de control de acceso en SQL Database, consulte [Control de acceso](sql-database-control-access.md).
 - Para obtener información acerca de la supervisión proactiva, consulte [Introducción a SQL Database Auditing](sql-database-auditing-get-started.md) e [Introducción a la detección de amenazas de SQL Database](sql-database-threat-detection-get-started.md).
-
 
 
 

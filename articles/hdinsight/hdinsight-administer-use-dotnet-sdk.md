@@ -13,11 +13,11 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2016
+ms.date: 11/15/2016
 ms.author: jgao
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: aa0f2dd07ffa8437ff224c278135744202adcd73
+ms.sourcegitcommit: ec710057c2016175f65578a9d6884f7273b65169
+ms.openlocfilehash: f2a762ad64feeef91802429cdd959cec67b73473
 
 
 ---
@@ -33,7 +33,8 @@ Antes de empezar este artículo, debe tener lo siguiente:
 * **Una suscripción de Azure**. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="connect-to-azure-hdinsight"></a>Conexión a HDInsight de Azure
-Necesitará los siguientes paquetes de Nuget:
+
+Necesita los siguientes paquetes NuGet:
 
     Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
     Install-Package Microsoft.Azure.Management.ResourceManager -Pre
@@ -79,10 +80,6 @@ El ejemplo de código siguiente muestra cómo conectarse a Azure antes de poder 
             /// <summary>
             /// Authenticate to an Azure subscription and retrieve an authentication token
             /// </summary>
-            /// <param name="TenantId">The AAD tenant ID</param>
-            /// <param name="ClientId">The AAD client ID</param>
-            /// <param name="SubscriptionId">The Azure subscription ID</param>
-            /// <returns></returns>
             static TokenCloudCredentials Authenticate(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
@@ -167,14 +164,14 @@ A continuación se muestra el efecto que tiene cambiar la cantidad de nodos de d
     
     La interfaz de usuario web de Storm se encuentra disponible en el clúster de HDInsight:
     
-    ![reequilibrio de escalado de storm de hdinsight](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
+    ![Reequilibrio de escalado de HDInsight Storm](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.storm.rebalance.png)
     
     El siguiente es un ejemplo de cómo usar el comando CLI para volver a equilibrar la topología de Storm:
     
-    ## <a name="reconfigure-the-topology-mytopology-to-use-5-worker-processes"></a>Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## <a name="the-spout-blue-spout-to-use-3-executors-and"></a>the spout "blue-spout" to use 3 executors, and
-    ## <a name="the-bolt-yellow-bolt-to-use-10-executors"></a>the bolt "yellow-bolt" to use 10 executors
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 El fragmento de código siguiente muestra cómo cambiar el tamaño de un clúster de forma sincrónica o asincrónica:
 
@@ -259,10 +256,10 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 ## <a name="see-also"></a>Otras referencias
 * [Documentación de referencia del SDK de HDInsight](https://msdn.microsoft.com/library/mt271028.aspx)
 * [Administración de HDInsight mediante Azure Portal][hdinsight-admin-portal]
-* [Administración de HDInsight mediante una interfaz de línea de comandos][hdinsight-admin-cli]
+* [Administración de HDInsight con la interfaz de la línea de comandos][hdinsight-admin-cli]
 * [Creación de clústeres de HDInsight][hdinsight-provision]
 * [Carga de datos en HDInsight][hdinsight-upload-data]
-* [Introducción a HDInsight de Azure][hdinsight-get-started]
+* [Introducción a Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
@@ -285,6 +282,6 @@ Consulte [Carga de datos en HDInsight][hdinsight-upload-data].
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 

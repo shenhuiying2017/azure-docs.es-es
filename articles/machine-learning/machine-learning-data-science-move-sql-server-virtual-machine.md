@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 69dc7a150fa78d178b7b63b3b6f33558f5d5f1a9
+ms.sourcegitcommit: aa794e073bd6c4965a8f2918eab7a4669fc39171
+ms.openlocfilehash: 4b7246f4780b1485985e54b4eb2ae1f3d022a3f1
 
 
 ---
@@ -49,7 +49,7 @@ En este tutorial se asume que dispone de:
 * Una **suscripción de Azure**. Si no tiene una suscripción, puede registrarse para obtener una [evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Una **cuenta de almacenamiento de Azure**. En este tutorial, usará una cuenta de almacenamiento de Azure para almacenar los datos. Si no dispone de una cuenta de almacenamiento de Azure, vea el artículo [Creación de una cuenta de almacenamiento](../storage/storage-create-storage-account.md#create-a-storage-account) . Tras crear la cuenta de almacenamiento, tendrá que obtener la clave de cuenta que se usa para tener acceso al almacenamiento. Consulte [Administración de las claves de acceso de almacenamiento](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 * **Servidor SQL Server aprovisionado en una máquina virtual de Azure**. Para obtener instrucciones, vea [Configuración de una máquina virtual de Azure SQL Server como servidor del Notebook de IPython para realizar análisis avanzados](machine-learning-data-science-setup-sql-server-virtual-machine.md).
-* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+* **Azure PowerShell** instalado y configurado de forma local. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## <a name="a-namefilesourcetosqlonazurevma-moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Mover datos desde un origen de archivo plano a un servidor SQL Server en una máquina virtual de Azure
 Si los datos se encuentran en un archivo plano (organizado en un formato de fila y columna), se pueden mover a la VM de SQL Server en Azure mediante los métodos siguientes:
@@ -63,7 +63,7 @@ BCP es una utilidad de línea de comandos instalada con SQL Server y es una de l
 
 > [!NOTE]
 > **¿Dónde deberían estar mis datos para BCP?**  
->  Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../storage/storage-use-azcopy.md), el [Explorador de Azure Storage](http://storageexplorer.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
+> Aunque no es necesario, tener archivos que contienen datos de origen que se encuentran en la misma máquina que el SQL Server de destino permite transferencias más rápidas (velocidad de red frente a velocidad de E/S de disco local). Puede mover los archivos planos que contienen los datos en la máquina en la que está instalado SQL Server mediante las diversas herramientas de copia de archivos como [AZCopy](../storage/storage-use-azcopy.md), el [Explorador de Azure Storage](http://storageexplorer.com/) o copiar y pegar de Windows mediante el Protocolo de escritorio remoto (RDP).
 >
 >
 
@@ -216,6 +216,6 @@ A continuación se muestra una captura de pantalla de las opciones de copia de s
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO3-->
 
 
