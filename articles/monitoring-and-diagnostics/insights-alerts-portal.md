@@ -29,7 +29,7 @@ ms.openlocfilehash: e8c04dd76c01cc5eaa4cbbcd82a263090894aecf
 > 
 
 ## <a name="overview"></a>Información general
-En este artículo se muestra cómo configurar alertas de Azure con Azure Portal.   
+En este artículo se muestra cómo configurar alertas de Azure con Azure Portal.
 
 Puede recibir una alerta basada en las métricas de supervisión para los servicios de Azure o los eventos sobre ellos.
 
@@ -60,7 +60,7 @@ Puede obtener información sobre las reglas de alerta y configurarlas mediante:
     ![Agregar alerta](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 4. Asígnele un **nombre** a la regla de alerta y elija una **descripción**, que también se muestra los correos electrónicos de notificación.
 5. Seleccione la **métrica** que desea supervisar y elija un valor de **Condición** y **Umbral** para la métrica. También debe elegir el **período** de tiempo de la regla de métrica que se debe cumplir antes de que se desencadene la alerta. Por ejemplo, si usa el período "PT5M" y la alerta busca una CPU por encima del 80 %, la alerta se desencadena cuando la CPU ha estado por sobre el 80 % durante 5 minutos. Una vez que se desencadena por primera vez, se vuelve a desencadenar cuando la CPU se mantiene por debajo del 80% durante 5 minutos. La CPU se mide cada 1 minuto.   
-6. Desactive la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
+6. Marque la opción **Enviar correo electrónico a propietarios...** si desea que se envíe un correo electrónico a los administradores y coadministradores cuando se active la alerta.
 7. Si desea enviar una notificación a otras direcciones de correo electrónico cuando se active la alerta, agréguelas en el campo **Correos electrónicos de administradores adicionales** . Separe las direcciones de correo electrónico con punto y coma, de la siguiente manera: *email@contoso.com;email2@contoso.com*
 8. Escriba un identificador URI válido en el campo **Webhook** si desea llamarlo cuando se active la alerta.
 9. Si usa Azure Automation, puede seleccionar un runbook para que se ejecute cuando se active la alerta.
