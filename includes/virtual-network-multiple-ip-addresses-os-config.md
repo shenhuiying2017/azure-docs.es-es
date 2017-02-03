@@ -111,7 +111,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 6. Edite el archivo *ifcfg-eth0:0* con el comando siguiente:
 
     ```bash
-    vi ifcfg-eth1
+    vi ifcfg-eth0:0
     ```
 
 7. Cambie el dispositivo al nombre adecuado en el archivo, *eth0:0* en este caso, con el siguiente comando:
@@ -131,7 +131,7 @@ Conéctese e inicie sesión en una máquina virtual que creó con múltiples dir
 
     ```bash
     /etc/init.d/network restart
-    Ipconfig
+    ifconfig
     ```
 
     Debería ver la dirección IP que agregó, *eth0:0*, en la lista que se devuelve.

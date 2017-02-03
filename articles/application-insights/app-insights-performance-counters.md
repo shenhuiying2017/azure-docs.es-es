@@ -62,7 +62,7 @@ Si el contador de rendimiento que desea no aparece en la lista de métricas, eso
    * Si utiliza Monitor de estado para instrumentar una aplicación web en tiempo de ejecución, busque ApplicationInsights.config en el directorio raíz de la aplicación en IIS. Actualícelo allí en cada instancia del servidor.
 3. Edite la directiva del recopilador de rendimiento:
    
-   ```XML
+```XML
    
     <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
       <Counters>
@@ -84,17 +84,23 @@ Si especifica una instancia, se recopilará como una dimensión "CounterInstance
 ### <a name="collecting-performance-counters-in-code"></a>Recopilación de contadores de rendimiento en el código
 Para recopilar contadores de rendimiento del sistema y enviarlos a Application Insights, puede adaptar el siguiente fragmento:
 
+
+``` C#
+
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\.NET CLR Memory([replace-with-application-process-name])\# GC Handles", "GC Handles")));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 También puede hacer lo mismo con las métricas personalizadas que haya creado:
 
+``` C#
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
     perfCollectorModule.Initialize(TelemetryConfiguration.Active);
+```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de rendimiento en Analytics
 Puede buscar y mostrar informes de contador de rendimiento en [Analytics](app-insights-analytics.md).

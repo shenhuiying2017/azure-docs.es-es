@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 289f6e91458a1a4799941ccea46f7ee6d1a296c4
+ms.sourcegitcommit: 86711ba89442c3569b570bbf3ea2d1661a469011
+ms.openlocfilehash: 34be29749075b9953950ffd64d2526430307d33e
 
 
 ---
@@ -148,7 +148,9 @@ Para obtener información sobre la creación de grupos de seguridad y usuarios d
 3. En la hoja **Usuario**, haga clic en **Agregar**.
 4. Seleccione un rol, agregue un usuario y después haga clic en **Aceptar**.
 
-**Nota: Si este usuario o grupo de seguridad necesita enviar trabajos, se le deberá conceder también permiso para Data Lake Store. Para obtener más detalles, consulte [Protección de datos almacenados en Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
+>[!NOTE]
+>Si este usuario o grupo de seguridad necesita enviar trabajos, se le deberá conceder también permiso para Data Lake Store. Para obtener más detalles, consulte [Protección de datos almacenados en Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).
+>
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -248,6 +250,6 @@ Sin embargo, el grupo de Resource Manager se puede ubicar en un centro de datos 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

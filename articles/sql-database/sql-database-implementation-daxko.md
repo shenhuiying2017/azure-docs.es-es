@@ -8,16 +8,16 @@ manager: jhubbard
 editor: 
 ms.assetid: 00c8a713-f20c-4d6b-b8b7-0c1b9ba5f05b
 ms.service: sql-database
-ms.custom: app development case study; app development
+ms.custom: app development case study
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/08/2016
+ms.date: 01/10/2017
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 357b402955187a08a35faacdcb178af75698433d
+ms.sourcegitcommit: 145cdc5b686692b44d2c3593a128689a56812610
+ms.openlocfilehash: 98a83c735a79cdba080dd74af8e2677788c075e3
 
 
 ---
@@ -32,7 +32,7 @@ Desde que CSI Software realizó la migración a Azure, solo necesita un personal
 
 "Nuestros clientes percibieron el cambio inmediatamente. Antes de implantar los grupos elásticos, solían encontrarse con tiempos de espera y otros problemas durante los periodos de ráfaga. Con los grupos elásticos de Azure, pueden usar las ráfagas según necesiten y utilizar el software sin problemas", explica Molina.
 
-Además de mejorar el rendimiento para los clientes, los grupos de bases de datos elásticas de Azure liberaron recursos de CSI Software para centrarse en desarrollar nuevos servicios y características, en lugar de lidiar con las operaciones y las tareas de administración. Esos recursos de TI ayudaron a CSI Software a mejorar su oferta de software empresarial, SpectrumNG, para ayudar a interactuar con los miembros de los gimnasios, a mejorar la eficiencia del personal, y a conceder acceso desde dispositivos móviles al personal y a los miembros con el objetivo de realizar tareas interactivas y recibir notificaciones en tiempo real.
+Además de mejorar el rendimiento para los clientes, los grupos elásticos de Azure liberaron recursos de CSI Software para centrarse en desarrollar nuevos servicios y características, en lugar de lidiar con las operaciones y las tareas de administración. Esos recursos de TI ayudaron a CSI Software a mejorar su oferta de software empresarial, SpectrumNG, para ayudar a interactuar con los miembros de los gimnasios, a mejorar la eficiencia del personal, y a conceder acceso desde dispositivos móviles al personal y a los miembros con el objetivo de realizar tareas interactivas y recibir notificaciones en tiempo real.
 
 Azure también ha ayudado a CSI Software a acelerar y mejorar el ciclo de desarrollo y control de calidad (QA) habilitando opciones de automatización. Con la implementación de Azure en la empresa, los administradores de compilaciones pueden empaquetar componentes con tan solo hacer clic en un botón. Tal y como escribe Molina: "Como parte del ciclo de lanzamiento, la fase de QA ahora puede implementarse en un entorno de prueba de Azure, lo que refleja de forma más fiel nuestra pila de producción. Podemos implementar inmediatamente compilaciones en nuestro entorno de desarrollo para investigar los cambios, lo que supone una gran ventaja para nosotros, ya que, hasta ahora, no habíamos tenido paridad en las pruebas".
 
@@ -61,10 +61,10 @@ En lo que respecta a los nuevos clientes, el personal de TI de CSI Software empl
 
 En la actualidad, el 99 % de los clientes de CSI Software están hospedados en cuatro centros de datos regionales de Azure (centro-norte, centro-sur, este y oeste de EE. UU.). Al tener los centros de datos en la región geográfica de cada cliente, la latencia es mínima.
 
-## <a name="azure-elastic-database-pools-free-up-it-resources"></a>Los grupos de bases de datos elásticas de Azure liberan recursos de TI
-Varias características de Azure han ayudado a CSI Software a pasar de centrarse en la infraestructura y las operaciones a hacerlo en las características y las tareas de desarrollo. Probablemente, los grupos elásticos de bases de datos son la principal ventaja que han obtenido.
+## <a name="azure-elastic-pools-free-up-it-resources"></a>Los grupos elásticos de Azure liberan recursos de TI
+Varias características de Azure han ayudado a CSI Software a pasar de centrarse en la infraestructura y las operaciones a hacerlo en las características y las tareas de desarrollo. Probablemente, los grupos elásticos son la principal ventaja que han obtenido.
 
-En estos momentos, CSI Software proporciona unas 550 bases de datos a los clientes. Antes de los grupos elásticos, era difícil administrar ese número tan elevado de bases de datos dentro de una estructura de niveles. Los administradores de operaciones tenían que asignar niveles de rendimiento según las necesidades de ráfagas de los clientes, lo que exigía una importante sobrecarga de recursos de TI. Gracias a los grupos de bases de datos elásticas, los administradores pueden asignar inquilinos a un grupo estándar o Premium, según corresponda y, después, transferir los clientes en función del tamaño y las necesidades. Los clientes percibieron los efectos de los grupos de bases de datos elásticas casi de inmediato; antes de implantarlos, los clientes se encontraban con tiempos de espera y otros problemas durante los periodos de uso de ráfagas. Con los grupos de bases de datos elásticas, pueden utilizar ráfagas de actividad según necesiten; además, pueden usar SpectrumNG sin problemas.
+En estos momentos, CSI Software proporciona unas 550 bases de datos a los clientes. Antes de los grupos elásticos, era difícil administrar ese número tan elevado de bases de datos dentro de una estructura de niveles. Los administradores de operaciones tenían que asignar niveles de rendimiento según las necesidades de ráfagas de los clientes, lo que exigía una importante sobrecarga de recursos de TI. Gracias a los grupos elásticos, los administradores pueden asignar inquilinos a un grupo estándar o Premium, según corresponda y, después, transferir los clientes en función del tamaño y las necesidades. Los clientes percibieron los efectos de los grupos elásticos casi de inmediato; antes de implantarlos, los clientes se encontraban con tiempos de espera y otros problemas durante los periodos de uso de ráfagas. Con los grupos de bases de datos elásticas, pueden utilizar ráfagas de actividad según necesiten; además, pueden usar SpectrumNG sin problemas.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>La replicación geográfica activa de Azure acelera la generación de informes
 Varios clientes de CSI Software también están aprovechando las ventajas de la replicación geográfica activa de Azure. Esta característica permite configurar hasta cuatro bases de datos secundarias legibles en las mismas regiones de los centros de datos o en otras. CSI Software utiliza la replicación geográfica activa de dos maneras: en primer lugar, las bases de datos secundarias están disponibles en caso de que se produzca una interrupción en el centro de datos o no pueda conectarse con la base de datos principal; en segundo lugar, las bases de datos secundarias son legibles y pueden usarse para descargar cargas de trabajo de solo lectura, por ejemplo, tareas de generación de informes. Algunos clientes de CSI Software utilizan esta ventaja para acelerar los flujos de trabajo de generación de informes.
@@ -87,7 +87,7 @@ La plataforma utiliza una arquitectura orientada a servicios (SOA) para traslada
 Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, que disfrutan de un servicio rápido y confiable, sino que también lo es para los desarrolladores y el personal de TI de CSI Software. Al descargar las operaciones a la nube de Azure, CSI Software redujo la sobrecarga de recursos y la infraestructura, aceleró considerablemente sus ciclos de desarrollo, y no volvió a necesitar microadministrar las bases de datos con el fin de optimizar el rendimiento para sus inquilinos.
 
 ## <a name="more-information"></a>Más información
-* Si quiere obtener más información sobre los grupos de bases de datos elásticas de Azure, consulte [este artículo](sql-database-elastic-pool.md).
+* Para obtener más información sobre los grupos elásticos de Azure, consulte [este artículo](sql-database-elastic-pool.md).
 * Si necesita obtener más detalles sobre las herramientas para bases de datos y el escalado elástico, lea [este artículo](sql-database-elastic-scale-get-started.md).
 * Para obtener más información cómo migrar una base de datos de SQL Server, vea [Migrar la base de datos de SQL Server a Base de datos SQL con el Asistente para implementar base de datos en Base de datos de Microsoft Azure](sql-database-cloud-migrate-compatible-using-ssms-migration-wizard.md).
 * Si quiere conocer más detalles sobre la replicación geográfica activa, revise [este artículo](sql-database-geo-replication-overview.md).
@@ -98,6 +98,6 @@ Azure SQL Database no solamente es una ventaja para los clientes de SpectrumNG, 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
