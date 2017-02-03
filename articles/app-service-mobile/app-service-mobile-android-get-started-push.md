@@ -1,6 +1,6 @@
 ---
-title: "Incorporación de notificaciones push a la aplicación de Android con las Aplicaciones móviles de Azure"
-description: "Obtenga información acerca de cómo usar las Aplicaciones móviles de Azure para enviar notificaciones push a su aplicación de Android."
+title: "Adición de notificaciones de inserción a una aplicación Android con Mobile Apps | Microsoft Docs"
+description: "Obtenga información sobre cómo usar Azure Mobile Apps para enviar notificaciones push a su aplicación de Android."
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ac50b4986d6abd6f3a4af660560f4252b8c99fdb
+ms.sourcegitcommit: ef43d1df2a64d85f256b28cd7db5a4f4356a7ec0
+ms.openlocfilehash: 055f55966de1e5c1bb41a6e0bf1c0da1758a3ed0
 
 
 ---
@@ -32,7 +32,7 @@ Si no usa el proyecto de servidor de inicio rápido descargado, necesita el paqu
 Necesita lo siguiente:
 
 * Un IDE que depende del back-end del proyecto:
-  
+
   * [Android Studio](https://developer.android.com/sdk/index.html) si esta aplicación tiene un back-end de Node.js.
   * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) o posterior si esta aplicación tiene un back-end. NET.
 * Android 2.3 o posterior y revisión de Google Repository 27 o superior, Google Play Services 9.0.2 o superior para Firebase Cloud Messaging
@@ -41,7 +41,7 @@ Necesita lo siguiente:
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Creación de un proyecto que admita Firebase Cloud Messaging
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-## <a name="configure-a-notification-hub"></a>Configurar un centro de notificaciones
+## <a name="configure-a-notification-hub"></a>Configuración de un Centro de notificaciones
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="configure-azure-to-send-push-notifications"></a>Configuración de Azure para enviar notificaciones push
@@ -56,11 +56,11 @@ En esta sección, se actualiza la aplicación Android de cliente para controlar 
 ### <a name="verify-android-sdk-version"></a>Comprobación de la versión del SDK de Android
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-El siguiente paso es instalar los servicios de Google Play. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, que debe cumplir la propiedad **minSdkVersion** del manifiesto.
+El siguiente paso es instalar los servicios de Google Play. Google Cloud Messaging tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, que debe cumplir la propiedad **minSdkVersion** del manifiesto.
 
 Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración del SDK de Google Play Services] para determinar el valor mínimo que puede configurar, y cómo configurarlo de forma adecuada.
 
-### <a name="add-google-play-services-to-the-project"></a>Incorporación de Google Play Services al proyecto
+### <a name="add-google-play-services-to-the-project"></a>Incorporación de los servicios de Google Play al proyecto
 [!INCLUDE [Add Play Services](../../includes/app-service-mobile-add-google-play-services.md)]
 
 ### <a name="add-code"></a>Incorporación de código
@@ -69,7 +69,14 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración de
 ## <a name="test-the-app-against-the-published-mobile-service"></a>Prueba de la aplicación con el servicio móvil publicado
 Puede probar la aplicación conectando directamente un teléfono Android con un cable USB o utilizando un dispositivo virtual en el emulador.
 
-## <a name="more"></a>Más
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que ha completado este tutorial, considere la posibilidad de continuar con uno de los siguientes tutoriales:
+
+* [Adición de la autenticación a la aplicación de Android](app-service-mobile-android-get-started-users.md)
+  Aprenda a agregar la autenticación al proyecto de inicio rápido todolist en Android con un proveedor de identidades admitido.
+* [Habilitación de la sincronización sin conexión para la aplicación móvil de Android](app-service-mobile-android-get-started-offline-data.md)
+  Aprenda a agregar compatibilidad sin conexión a una aplicación con un back-end de Mobile Apps. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil&mdash;ver, agregar o modificar datos&mdash;aun cuando no haya conexión de red.
+
 <!-- URLs -->
 [inicio rápido de Android]: app-service-mobile-android-get-started.md
 
@@ -77,6 +84,6 @@ Puede probar la aplicación conectando directamente un teléfono Android con un 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 
