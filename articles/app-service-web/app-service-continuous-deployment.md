@@ -15,13 +15,15 @@ ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 59f2a4d48959cca07ea9e04865207f9100657f53
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: d0f7412571da30febff1ec8ffd92ea52b3c0a1e3
 
 
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementación continua en el Servicio de aplicaciones de Azure
 En este tutorial se muestra cómo configurar un flujo de trabajo de implementación continua para su aplicación del [Azure App Service] . La integración del Servicio de aplicaciones con BitBucket, GitHub y Visual Studio Team Services (VSTS) hace posible un flujo de trabajo de implementación continua en el que Azure extrae las actualizaciones más recientes de su proyecto publicado en uno de estos servicios. La implementación continua representa una buena opción para los proyectos donde se integran contribuciones diversas y frecuentes.
+
+Para más información sobre cómo configurar una implementación continua manualmente desde un repositorio en la nube que no aparece en Azure Portal (como [GitLab](https://gitlab.com/)), consulte [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Configuración de la implementación continua de forma manual).
 
 ## <a name="a-nameoverviewaenable-continuous-deployment"></a><a name="overview"></a>Habilitación de la implementación continua
 Para habilitar la implementación continua
@@ -78,25 +80,25 @@ Para deshabilitar la implementación continua
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [App Service](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [App Service](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
 [Azure App Service]: https://azure.microsoft.com/en-us/documentation/articles/app-service-changes-existing-services/
 [Azure Portal]: https://portal.azure.com
-[Portal de VSTS]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
+[VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx
 [Installing Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Uso de PowerShell para Azure]: ../powershell-install-configure.md
+[Uso de PowerShell para Azure]: /powershell/azureps-cmdlets-docs
 [Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../xplat-cli-install.md
 [Documentación de Git]: http://git-scm.com/documentation
 
 [Crear un repositorio (GitHub)]: https://help.github.com/articles/create-a-repo
 [Crear un repositorio (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [introducción a VSTS]: https://www.visualstudio.com/get-started/overview-of-get-started-tasks-vs
-[Entrega continua a Azure con Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
+[Continuous delivery to Azure using Visual Studio Team Services]: ../articles/cloud-services/cloud-services-continuous-delivery-use-vso.md
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

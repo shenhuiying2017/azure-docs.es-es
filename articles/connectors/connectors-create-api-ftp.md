@@ -16,15 +16,15 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: f08180c196a1f573529c9fed52c7ae5c3869da6d
+ms.sourcegitcommit: 66fc8f7e1da55dbe6bb1dd8b8d6a535c498c1cf7
+ms.openlocfilehash: 2634d0101c1cd4535922e8844f0beb6b523e2dea
 
 
 ---
 # <a name="get-started-with-the-ftp-connector"></a>Introducción al conector de FTP
 Use el conector de FTP para supervisar, administrar y crear archivos en un servidor FTP. 
 
-Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para poder usar [un conector](apis-list.md), primero debe crear una aplicación lógica. Por tanto, puede comenzar [creando una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connect-to-ftp"></a>Conexión a un FTP
 Para que la aplicación lógica pueda acceder a un servicio, primero debe crear una *conexión* con dicho servicio. Una [conexión](connectors-overview.md) proporciona conectividad entre una aplicación lógica y otro servicio.  
@@ -35,7 +35,7 @@ Para que la aplicación lógica pueda acceder a un servicio, primero debe crear 
 > 
 
 ## <a name="use-a-ftp-trigger"></a>Uso de un desencadenador de FTP
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
 > El conector de FTP necesita un servidor FTP que sea accesible desde Internet y que esté configurado para poder funcionar en modo PASIVO. Además, el conector de FTP **no es compatible con FTPS implícito (FTP por SSL)**. El conector de FTP solo admite FTPS explícito (FTP por SSL).  
@@ -61,7 +61,7 @@ En este punto, la aplicación lógica está configurada con un desencadenador qu
 > 
 
 ## <a name="use-a-ftp-action"></a>Uso de una acción de FTP
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../app-service-logic/app-service-logic-what-are-logic-apps.md#logic-app-concepts).  
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 Ahora que ha agregado un desencadenador, siga estos pasos para incorporar una acción que obtendrá el contenido del archivo nuevo o modificado detectado por el desencadenador.    
 
@@ -370,11 +370,11 @@ Las acciones y los desencadenadores anteriores pueden devolver uno o varios de l
 | default |Error en la operación. |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md)
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

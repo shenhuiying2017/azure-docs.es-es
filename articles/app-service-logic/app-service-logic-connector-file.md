@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/01/2016
 ms.author: rajram
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0fd71a72040ecf4e51fc118ce881b6c8ceb51b61
+ms.sourcegitcommit: 7ff7874538f23c8dd8c4aaa789018c77dfe2ab9a
+ms.openlocfilehash: 61410d8b3c4a2a800d8fc9804fc9e7c72bd8abe4
 
 
 ---
@@ -79,16 +79,16 @@ Para usar el conector fuera de una aplicación lógica, pueden aprovecharse las 
 Los detalles de las API se pueden encontrar en la [definición de la API del conector de archivos].
 
 ## <a name="do-more-with-your-connector"></a>Aplicaciones adicionales del conector
-Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué es Logic Apps?](app-service-logic-what-are-logic-apps.md)
+Una vez creado el conector, puede agregarlo a un flujo de trabajo de negocio mediante una aplicación lógica. Consulte [¿Qué es Logic Apps?](../logic-apps/logic-apps-what-are-logic-apps.md)
 
 > [!NOTE]
-> Si desea empezar a trabajar con Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Logic Apps](https://tryappservice.azure.com/?appservice=logic), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con Azure Logic Apps antes de registrarse para obtener una cuenta de Azure, vaya a [Probar Logic Apps](https://azure.microsoft.com/try/app-service/logic/), donde podrá crear inmediatamente una aplicación lógica de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >
 
 Consulte la referencia de API de REST de Swagger en [Referencia de conectores y aplicaciones de API](http://go.microsoft.com/fwlink/p/?LinkId=529766).
 
-También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Supervisar las aplicaciones lógicas](app-service-logic-monitor-your-logic-apps.md).
+También puede consultar las estadísticas de rendimiento y la seguridad de control para el conector. Consulte [Supervisar las aplicaciones lógicas](../logic-apps/logic-apps-monitor-your-logic-apps.md).
 
 <!-- Image reference -->
 [1]: ./media/app-service-logic-connector-file/img1.PNG
@@ -103,6 +103,6 @@ También puede consultar las estadísticas de rendimiento y la seguridad de cont
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

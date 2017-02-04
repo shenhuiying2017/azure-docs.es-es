@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 02/02/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 705d548661fd0a33a077aab563af415d959b6ebf
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: 84b5f28fcd0640fd85b5f8c9d655105790c70d62
 
 
 ---
@@ -56,7 +56,7 @@ En este tutorial, obtendrá información sobre cómo reunir los escenarios sigui
 > * Puede [abrir una cuenta de Azure de manera gratuita](https://azure.microsoft.com/pricing/free-trial/) : obtiene crédito que puede usar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y usar servicios gratuitos de Azure, tales como Aplicaciones web.
 > * Puede [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) : su suscripción a Visual Studio le proporciona crédito todos los meses que puede usar con servicios de Azure de pago.
 >
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 >
 >
 
@@ -310,7 +310,7 @@ En esta sección, enrutará el tráfico a la aplicación beta. Por motivos de cl
         Set-AzureWebsite $siteName -Slot Production -RoutingRules $rule
 
    La propiedad `ReroutePercentage=50` especifica que el 50 % del tráfico de producción se enrutará a la URL de la aplicación beta (especificada por la propiedad `ActionHostName`).
-2. Vaya ahora a http://ToDoApp*&lt;su_sufijo>*.azurewebsites.net. El 50 % del tráfico debería ahora redirigirse a la ranura de la versión beta.
+2. Vaya ahora a http://ToDoApp*&lt;su_sufijo>*.azurewebsites.net. El&50; % del tráfico debería ahora redirigirse a la ranura de la versión beta.
 3. En el recurso de Application Insights, filtre las métricas por entorno = "beta".
 
    > [!NOTE]
@@ -351,7 +351,7 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 * [Agile Software Development con el Servicio de aplicaciones de Azure](app-service-agile-software-development.md)
 * [Configuración de entornos de ensayo para aplicaciones web en el Servicio de aplicaciones de Azure](web-sites-staged-publishing.md)
 * [Implementación predecible de una aplicación compleja en Azure](app-service-deploy-complex-application-predictably.md)
-* [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md)
+* [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint: validador de JSON](http://jsonlint.com/)
 * [Creación de ramas de Git: combinación y creación de ramas básicas](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)
@@ -359,6 +359,6 @@ El Servicio de aplicaciones de Azure permite que las pequeñas y medianas empres
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Jan17_HO3-->
 
 

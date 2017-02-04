@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
 translationtype: Human Translation
-ms.sourcegitcommit: 4115a3638519896c3710ddc33dd0caa2e8d9d720
-ms.openlocfilehash: 05e33c56e6aa6bedfa2e6b8ff18fe182d87ed80e
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: cc872e8d9bc0662f46d5f394f9c98885e34fe67a
 
 
 ---
@@ -416,7 +416,7 @@ Llegados a este punto, la función ya está lista. No olvide volver a la pestañ
 ### <a name="azure-logic-app"></a>Aplicación lógica de Azure
 Ahora, debe crear una aplicación lógica de Azure que seleccione los eventos que la función inserta en la cola de Service Bus, analice el contenido y envíe un correo electrónico si se cumple una determinada condición.
 
-[Cree una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md) en **Nuevo -> Aplicación lógica**.
+[Cree una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md) en **Nuevo -> Aplicación lógica**.
 
 Una vez creada, acceda a ella y elija **editar**. En el editor de la aplicación lógica, elija la **cola de Service Bus** y especifique las credenciales de Service Bus para conectarla a la cola.
 
@@ -440,6 +440,6 @@ En este momento, tiene una canalización integral que, una vez por minuto, busca
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

@@ -1,12 +1,12 @@
 ---
-title: Supervisión de aplicaciones en el Servicio de aplicaciones de Azure
+title: "Supervisión de aplicaciones en Azure App Service | Microsoft Docs"
 description: Aprenda a supervisar aplicaciones en el Servicio de aplicaciones de Azure mediante el Portal de Azure.
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: btardif
 manager: wpickett
-editor: mollybos
-
+editor: 
+ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,40 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
+
 
 ---
-# Supervisión de Aplicaciones en Servicio de aplicaciones de Azure
-El [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en el [Portal de Azure](https://portal.azure.com). Esto incluye la capacidad de revisar **cuotas** y **métricas** de una aplicación, así como el plan del Servicio de aplicaciones, configurar **alertas** e incluso **escalar** automáticamente en función de estas métricas.
+# <a name="how-to-monitor-apps-in-azure-app-service"></a>Supervisión de Aplicaciones en Servicio de aplicaciones de Azure
+[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) proporciona una funcionalidad de supervisión integrada en [Azure Portal](https://portal.azure.com).
+Esto incluye la capacidad de revisar **cuotas** y **métricas** de una aplicación, así como el plan de App Service, configurar **alertas** e incluso **escalar** automáticamente en función de estas métricas.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
-## Descripción de cuotas y métricas
-### Cuotas
+## <a name="understanding-quotas-and-metrics"></a>Descripción de cuotas y métricas
+### <a name="quotas"></a>Cuotas
 Las aplicaciones hospedadas en el Servicio de aplicaciones están sujetas a ciertos *límites* en lo que respecta a los recursos que pueden utilizar. Los límites se definen mediante el **plan del Servicio de aplicaciones** asociado a la aplicación.
 
 Si la aplicación se hospeda en un plan **gratis** o **compartido**, los límites de los recursos que la aplicación puede usar vienen definidos por las **cuotas**.
 
-Si la aplicación está hospedada en un plan **básico**, **estándar** o **premium**, los límites de los recursos que se pueden utilizar vendrán definidos por el **tamaño** (pequeño, mediano o grande) y el **recuento de instancias** (1, 2, 3...) del **plan del Servicio de aplicaciones**.
+Si la aplicación está hospedada en un plan **básico**, **estándar** o **premium**, los límites de los recursos que se pueden utilizar vendrán definidos por el **tamaño** (pequeño, mediano o grande) y el **recuento de instancias** (1, 2, 3...) del **plan de App Service**.
 
 Las **cuotas** de las aplicaciones **gratis** o **compartidas** son:
 
-* **CPU (Short)** (CPU [corta])
+* **CPU (Short)**
   * Cantidad de CPU permitida para esta aplicación en un intervalo de 3 minutos. Esta cuota se vuelve a establecer cada 3 minutos.
-* **CPU (Day)** (CPU [diaria])
+* **CPU (Day)**
   * Cantidad total de CPU permitida para esta aplicación en un día. Esta cuota se vuelve a establecer cada 24 horas a medianoche (UTC).
 * **Memoria**
   * Cantidad total de memoria permitida para esta aplicación.
 * **Ancho de banda**
-  * Cantidad total de ancho de banda saliente permitido para esta aplicación en un día. Esta cuota se vuelve a establecer cada 24 horas a medianoche (UTC).
+  * Cantidad total de ancho de banda saliente permitido para esta aplicación en un día.
+    Esta cuota se vuelve a establecer cada 24 horas a medianoche (UTC).
 * **Sistema de archivos**
   * Cantidad total de almacenamiento permitido.
 
-La única cuota aplicable a las aplicaciones hospedadas en un plan **básico**, **estándar** o **premium** es la cuota de **sistema de archivos**.
+La única cuota aplicable a las aplicaciones hospedadas en un plan **básico**, **estándar** o **premium** es la del **sistema de archivos**.
 
-Para obtener más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#app-service-limits).
+Para obtener más información sobre cuotas específicas, límites y características disponibles para las distintas SKU de App Service, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md#app-service-limits)
 
-#### Aplicación de cuotas
-Si una aplicación al usarse supera las cuotas **CPU (Short)** (CPU [corta]), **CPU (Day)** (CPU [diaria]) o **Ancho de banda**, se detendrá hasta que vuelva a establecerse la cuota. Durante este tiempo, todas las solicitudes entrantes provocarán un error **HTTP 403**. ![][http403]
+#### <a name="quota-enforcement"></a>Aplicación de cuotas
+Si una aplicación al usarse supera las cuotas **CPU (Short)** (CPU [corta]), **CPU (Day)** (CPU [diaria]) o **Ancho de banda**, se detendrá hasta que vuelva a establecerse la cuota. Durante este tiempo, todas las solicitudes entrantes provocarán un error **HTTP 403**.
+![][http403]
 
 Si la cuota de **memoria** de la aplicación se supera, la aplicación se reiniciará.
 
@@ -55,8 +62,8 @@ Si la cuota de **sistema de archivos** se supera, se producirá un error en toda
 
 Las cuotas se pueden incrementar o quitar de la aplicación actualizando el plan del Servicio de aplicaciones.
 
-### Métricas
-Las **métricas** proporcionan información acerca de la aplicación o el comportamiento del plan del Servicio de aplicaciones.
+### <a name="metrics"></a>Métricas
+**Métricas** proporcionan información acerca de la aplicación o el comportamiento del plan del Servicio de aplicaciones.
 
 Para una **aplicación**, estas son las métricas disponibles:
 
@@ -65,7 +72,7 @@ Para una **aplicación**, estas son las métricas disponibles:
 * **Espacio de trabajo de memoria promedio**
   * Cantidad media de memoria en MiBs que utiliza la aplicación.
 * **Tiempo de CPU**
-  * Cantidad de CPU en segundos consumida por la aplicación. Para más información acerca de esta métrica, consulte: [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage)
+  * Cantidad de CPU en segundos consumida por la aplicación. Para más información acerca de esta métrica, consulte [Tiempo de CPU y porcentaje de CPU](#cpu-time-vs-cpu-percentage).
 * **Entrada de datos**
   * Cantidad de ancho de banda entrante consumido por la aplicación en MiBs.
 * **Salida de datos**
@@ -94,7 +101,7 @@ Para una **aplicación**, estas son las métricas disponibles:
 Para un **plan del Servicio de aplicaciones**, estas son las métricas disponibles:
 
 > [!NOTE]
-> Las métricas de plan del Servicio de aplicaciones solo están disponibles para planes de SKU **básica**, **estándar** y **premium**.
+> Las métricas de plan de App Service solo están disponibles para planes de SKU **básico**, **estándar** o **premium**.
 > 
 > 
 
@@ -111,7 +118,7 @@ Para un **plan del Servicio de aplicaciones**, estas son las métricas disponibl
 * **Longitud de la cola HTTP**
   * Promedio de solicitudes HTTP que estuvieron en cola antes de realizarse. Una longitud de la cola HTTP elevada o creciente indica que un plan está sobrecargado.
 
-### Tiempo de CPU y porcentaje de CPU
+### <a name="cpu-time-vs-cpu-percentage"></a>Tiempo de CPU y porcentaje de CPU
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
 Hay 2 métricas que reflejan el uso de CPU. **Tiempo de CPU** y **Porcentaje de CPU**
@@ -120,37 +127,40 @@ Hay 2 métricas que reflejan el uso de CPU. **Tiempo de CPU** y **Porcentaje de 
 
 Por su parte, **Porcentaje de CPU** es útil para las aplicaciones hospedadas en planes **básicos**, **estándar** y **premium**, ya que pueden escalarse horizontalmente y esta métrica es un buen indicio de uso general en todas las instancias.
 
-## Directiva de retención y granularidad de métricas
+## <a name="metrics-granularity-and-retention-policy"></a>Directiva de retención y granularidad de métricas
 El servicio registra y agrega las métricas para una aplicación y el plan del Servicio de aplicaciones con las siguientes directivas de retención y granularidades:
 
-* Las métricas de granularidad de **minuto** se conservan durante **48 horas**
-* Las métricas de granularidad de **hora** se conservan durante **30 días**
-* Las métricas de granularidad de **día** se conservan durante **90 días**
+* Las métricas de granularidad de **minuto** se conservan durante **48 horas**.
+* Las métricas de granularidad de **hora** se conservan durante **30 días**.
+* Las métricas de granularidad de **día** se conservan durante **90 días**.
 
-## Supervisión de cuotas y métricas en el Portal de Azure
-Puede revisar el estado de las distintas **cuotas** y **métricas** que afectan a una aplicación en el [Portal de Azure](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Supervisión de cuotas y métricas en el Portal de Azure
+Puede revisar el estado de las distintas **cuotas** y **métricas** que afectan a una aplicación en [Azure Portal](https://portal.azure.com).
 
-![][quotas] Las **cuotas** se encuentran en Configuración > **Cuotas**. La experiencia de usuario permite revisar: (1) el nombre de las cuotas, (2) su intervalo de restablecimiento, (3) su límite actual y (4) su valor actual.
+![][quotas]
+Las **cuotas** se encuentran en Configuración >**Cuotas**. La experiencia de usuario permite revisar: (1) el nombre de las cuotas, (2) su intervalo de restablecimiento, (3) su límite actual y (4) su valor actual.
 
-![][metrics] A las **métricas** se puede acceder directamente desde la hoja de recursos. También puede personalizar el gráfico si (1) **hace clic en él** y selecciona (2) **Editar gráfico**. Desde aquí puede cambiar (3) el **intervalo de tiempo**, (4) el **tipo de gráfico** y (5) las **métricas** que se muestran.
+![][metrics]
+Se puede acceder a las **métricas** directamente desde la hoja de recursos. También puede personalizar el gráfico si (1) **hace clic** en él y selecciona (2) **Editar gráfico**.
+Desde aquí puede cambiar (3) el **intervalo de tiempo**, (4) el **tipo de gráfico** y (5) las **métricas** que se muestran.  
 
-Para más información acerca de las métricas, consulte [Supervisión de las métricas del servicio](../azure-portal/insights-how-to-customize-monitoring.md).
+Para más información acerca de las métricas, consulte [Supervisión de las métricas del servicio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-## Alertas y autoescala
-Las métricas de una aplicación o un plan del Servicio de aplicaciones pueden vincularse a alertas. Para más información al respecto, consulte [Recibir notificaciones de alerta](../azure-portal/insights-receive-alert-notifications.md).
+## <a name="alerts-and-autoscale"></a>Alertas y autoescala
+Las métricas de una aplicación o un plan de App Service pueden vincularse a alertas. Para más información al respecto, consulte [Recibir notificaciones de alerta](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-Las aplicaciones del Servicio de aplicaciones hospedadas en planes del Servicio de aplicaciones básicos, estándar o premium admiten la **autoescala**. Esto permite configurar reglas que supervisan las métricas del plan del Servicio de aplicaciones y pueden aumentar o disminuir el número de instancias que proporcionan recursos adicionales según sea necesario, o ahorrar si se aprovisionan recursos en exceso para la aplicación. Para más información acerca de la autoescala, consulte [Escalado del número de instancias de forma manual o automática](../azure-portal/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Insights](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
+Las aplicaciones del Servicio de aplicaciones hospedadas en planes del Servicio de aplicaciones básicos, estándar o premium admiten la **autoescala**. Esto permite configurar reglas que supervisan las métricas del plan del Servicio de aplicaciones y pueden aumentar o disminuir el número de instancias que proporcionan recursos adicionales según sea necesario, o ahorrar si se aprovisionan recursos en exceso para la aplicación. Para más información acerca de la autoescala, consulte [Escalado](../monitoring-and-diagnostics/insights-how-to-scale.md) y [Procedimientos recomendados de escalado automático en Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-best-practices.md).
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-## Lo que ha cambiado
+## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-[fzilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]: http://go.microsoft.com/fwlink/?LinkID=309169
+[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169
 
 
 
@@ -159,4 +169,8 @@ Las aplicaciones del Servicio de aplicaciones hospedadas en planes del Servicio 
 [quotas]: ./media/web-sites-monitor/quotas.png
 [metrics]: ./media/web-sites-monitor/metrics.png
 
-<!---HONumber=AcomDC_0914_2016-->
+
+
+<!--HONumber=Jan17_HO3-->
+
+

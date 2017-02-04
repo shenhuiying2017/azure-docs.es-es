@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 translationtype: Human Translation
-ms.sourcegitcommit: f595be46983bf07783b529de885d889c18fdb61a
-ms.openlocfilehash: 6bbbf253b9735695e7ace0c27e4bc96df7a0c779
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: cddcfcc816a2af74fbdd68e4e1031051c42b45a7
 
 
 ---
@@ -53,7 +53,7 @@ Puede completar la tarea mediante una de las siguientes versiones de la CLI:
 * Una cuenta de Microsoft Azure. Si aún no tiene ninguna, puede [registrarse para una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Vea una aplicación web en acción. [Pruebe el Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
+> Vea una aplicación web en acción. [Pruebe el Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/) inmediatamente y cree una aplicación de inicio de corta duración; no se requiere tarjeta de crédito ni se establece ningún compromiso.
 > 
 > 
 
@@ -278,6 +278,6 @@ Obtenga información acerca de cómo agregar datos a la aplicación mediante la 
 
 
 
-<!--HONumber=Dec16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

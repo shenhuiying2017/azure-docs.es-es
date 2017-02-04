@@ -1,12 +1,12 @@
 ---
-title: Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (GoDaddy)
-description: Obtenga información acerca de cómo usar un nombre de dominio de GoDaddy con aplicaciones web de Azure
+title: "Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (GoDaddy)"
+description: "Obtenga información acerca de cómo usar un nombre de dominio de GoDaddy con aplicaciones web de Azure"
 services: app-service
-documentationcenter: ''
+documentationcenter: 
 author: erikre
 manager: wpickett
 editor: jimbe
-
+ms.assetid: 33233e30-5846-488f-83f3-b32e5c114564
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2016
 ms.author: cephalin
+translationtype: Human Translation
+ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
+ms.openlocfilehash: fe8b4b097f7ff157d624c09b8dbf26f94401395c
+
 
 ---
-# <a name="configure-a-custom-domain-name-in-azure-app-service-(purchased-directly-from-godaddy)"></a>Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (adquirido directamente de GoDaddy)
+# <a name="configure-a-custom-domain-name-in-azure-app-service-purchased-directly-from-godaddy"></a>Configuración de un nombre de dominio personalizado en el Servicio de aplicaciones de Azure (adquirido directamente de GoDaddy)
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro.md)]
@@ -77,13 +81,16 @@ Para asociar el dominio personalizado a una aplicación web del Servicio de apli
 [!INCLUDE [modes](../../includes/custom-dns-web-site-enable-on-web-site.md)]
 
 > [!NOTE]
-> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de inscribirse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](https://azure.microsoft.com/try/app-service/), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 > 
 > 
 
-## <a name="what's-changed"></a>Lo que ha cambiado
+## <a name="whats-changed"></a>Lo que ha cambiado
 * Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
 
-<!--HONumber=Oct16_HO2-->
+
+
+
+<!--HONumber=Jan17_HO3-->
 
 

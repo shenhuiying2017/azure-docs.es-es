@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: deonhe
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 959eaca7aafd8516cfc6f3b5dd2a44ce21ec4825
+ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
+ms.openlocfilehash: e6f569355dd73919824f22c88ce3eead10e5b853
 
 
 ---
-# <a name="get-started-with-the-office365-video-connector"></a>Introducción al conector de Office 365 Video
+# <a name="get-started-with-the-office365-video-connector"></a>Introducción al conector de Office&365; Video
 Conéctese a Office 365 Video para conseguir información acerca de un vídeo Office 365 específico, obtener una lista de vídeos y mucho más. El conector de Office 365 Video puede usarse desde:
 
 * Aplicaciones lógicas 
@@ -36,7 +36,7 @@ Con Office 365 Video puede:
 * Compilar el flujo de su negocio en función de los datos que obtiene de Office 365 Video. 
 * Usar acciones que comprueban el estado del portal de vídeo, obtener una lista de todos los vídeos en un canal y mucho más. Estas acciones obtienen una respuesta y luego dejan el resultado a disposición de otras acciones. Por ejemplo, puede utilizar el conector de Búsqueda de Bing para buscar vídeos de Office 365 y, después, usar el conector de Office 365 Video para conseguir información sobre ese vídeo. Si el vídeo cumple sus requisitos, puede publicarlo en Facebook. 
 
-Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+Para agregar una operación en aplicaciones lógicas, consulte [Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="triggers-and-actions"></a>Desencadenadores y acciones
 El conector de Office 365 Video tiene las siguientes acciones disponibles. No hay desencadenadores.
@@ -47,7 +47,7 @@ El conector de Office 365 Video tiene las siguientes acciones disponibles. No ha
 
 Todos los conectores admiten datos en formato JSON y XML. 
 
-## <a name="create-a-connection-to-office365-video-connector"></a>Creación de una conexión al conector de Office 365 Video
+## <a name="create-a-connection-to-office365-video-connector"></a>Creación de una conexión al conector de Office&365; Video
 Al agregar este conector a las aplicaciones lógicas, debe iniciar sesión en su cuenta de Office 365 Video y permitir que estas se conecten a su cuenta.
 
 > [!INCLUDE [Steps to create a connection to Office 365 Video](../../includes/connectors-create-api-office365video.md)]
@@ -203,11 +203,11 @@ Obtiene el token de portador para conseguir acceso con el fin de descifrar el v�
 | ViewCount |integer |no |
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Creación de una aplicación lógica](../app-service-logic/app-service-logic-create-a-logic-app.md).
+[Creación de una aplicación lógica](../logic-apps/logic-apps-create-a-logic-app.md).
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 
