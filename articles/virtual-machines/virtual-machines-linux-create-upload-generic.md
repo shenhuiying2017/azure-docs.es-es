@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 02/02/2017
 ms.author: szark
 translationtype: Human Translation
 ms.sourcegitcommit: 8ba7633f7d5c4bf9e7160b27f5d5552676653d55
@@ -143,6 +143,7 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2f
 * En algunos casos, el Agente de Linux de Azure puede no ser compatible con NetworkManager. Muchos de los paquetes RPM/Deb proporcionados por las distribuciones configuran NetworkManager como conflicto con el paquete waagent y, por lo tanto, desinstalarán NetworkManager al instalar el paquete del agente de Linux.
 
 ## <a name="general-linux-system-requirements"></a>Requisitos generales del sistema Linux
+
 * Modifique la línea de arranque del kernel en GRUB o GRUB2 para incluir los parámetros siguientes. Así también se asegurará de que todos los mensajes de la consola se envíen al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores:
   
         console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300
@@ -153,13 +154,14 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2f
   
         rhgb quiet crashkernel=auto
   
-    Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie.
-  
-    Es posible dejar la opción `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
+    Los arranques gráfico y silencioso no resultan útiles en un entorno de nube, donde queremos que todos los registros se envíen al puerto serie. Es posible dejar la opción `crashkernel` configurada si así se desea, pero tenga en cuenta que este parámetro reducirá la cantidad de memoria disponible en la máquina virtual en 128 MB o más, lo cual puede resultar problemático en tamaños de VM más reducidos.
+
 * Instalación del agente de Linux de Azure
   
     El agente de Linux de Azure se requiere para aprovisionar una imagen de Linux en Azure.  Muchas distribuciones proporcionan el agente como paquete RPM o Deb (el paquete suele llamarse "WALinuxAgent" o "walinuxagent").  El agente también se puede instalar manualmente siguiendo los pasos de la [Guía del agente de Linux](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 * Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
+
 * No cree un espacio de intercambio en el disco del sistema operativo.
   
     El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
@@ -169,6 +171,7 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2f
         ResourceDisk.MountPoint=/mnt/resource
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
+
 * Como paso final, ejecute los comandos siguientes para desaprovisionar la máquina virtual:
   
         # sudo waagent -force -deprovision
@@ -179,6 +182,7 @@ El [agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md?toc=%2f
   > Es posible que en VirtualBox aparezca el error siguiente después de ejecutar 'waagent-force - deprovision': `[Errno 5] Input/output error`. Este mensaje de error no es crítico, por lo que se puede omitir.
   > 
   > 
+
 * A continuación, tendrá que apagar la máquina virtual y cargar el VHD en Azure.
 
 
