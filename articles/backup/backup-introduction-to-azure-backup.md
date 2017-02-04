@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es la Copia de seguridad de Azure? | Microsoft Docs"
+title: "¿Qué es Azure Backup? | Microsoft Docs"
 description: "Con Azure Backup y Recovery Services, puede realizar una copia de seguridad y restaurar los datos y aplicaciones de servidores Windows, equipos cliente Windows, servidores de System Center DPM y máquinas virtuales de Azure."
 services: backup
 documentationcenter: 

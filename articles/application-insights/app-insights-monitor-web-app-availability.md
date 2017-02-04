@@ -100,7 +100,7 @@ Haga clic en el resultado para evaluarlo en el portal y ver el motivo del error.
 
 También puede descargar el archivo de resultados e inspeccionarlo en Visual Studio.
 
-*¿Parece que se ha completado correctamente pero se notifica como un error?*  Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
+*¿Parece que se ha completado correctamente pero se notifica como un error?* Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente.
 
 ### <a name="open-the-server-request-and-exceptions"></a>Abra la solicitud del servidor y las excepciones
 
@@ -178,7 +178,7 @@ Los complementos de prueba web proporcionan la manera de parametrizar los tiempo
 
     ![Elija Agregar complemento de prueba web y seleccione un tipo.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugins.png)
 
-    En este ejemplo, usamos dos instancias del complemento Date Time Plug-in. Una instancia es para "hace 15 minutos" y otra para "ahora".
+    En este ejemplo, usamos dos instancias del complemento Date Time Plug-in. Una instancia es para "hace&15; minutos" y otra para "ahora".
 2. Abra las propiedades de cada complemento. Asígnele un nombre y configúrelo para utilizar la hora actual. En cada uno de ellos, establezca Añadir minutos = -15.
 
     ![Establezca el nombre, Usar hora actual y Agregar minutos.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-parameters.png)

@@ -206,7 +206,7 @@ Vaya al repositorio de GitHub de plantillas de inicio rápido de Azure y selecci
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/052db5feeba11f85d57f170d8202123511f72044/splunk-on-ubuntu"> Splunk on Ubuntu </a> (Splunk en Ubuntu) |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v"> Cisco CSR1000v (2 NIC) </a> |
 | <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-4-nic"> Cisco CSR1000v (4 NIC) </a> |
-| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> CSR1000v de Cisco (red virtual existente 4 NIC) </a> |
+| <a href="https://github.com/Azure/azure-quickstart-templates/tree/058f18cbb43165b043e5bb56a82a406290c02dac/cisco-csr-1000v-existing-vnet-4-nic"> CSR1000v de Cisco (red virtual existente&4; NIC) </a> |
 
 ### <a name="step-2"></a>Paso 2
 En el archivo Léame, inicie la plantilla haciendo clic en el botón o vínculo "Deploy to Azure Government" (Implementar en Azure Government) situado en la parte superior de la página.
