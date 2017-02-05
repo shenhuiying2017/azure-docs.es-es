@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 683adb57d22934f3a4785ded24a0d956c4f1d0dc
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 8d100aca58285c435435f9eda26cc7b6e1381e7a
 
 
 ---
-# <a name="example-1-build-a-simple-dmz-with-nsgs"></a>Ejemplo 1: Creación de una red perimetral simple con grupos de seguridad de red
+# <a name="example-1--build-a-simple-dmz-with-nsgs"></a>Ejemplo 1: Creación de una red perimetral simple con grupos de seguridad de red
 [Volver a la página de procedimientos recomendados de límites de seguridad][HOME]
 
 En este ejemplo se creará una red perimetral simple con cuatro servidores Windows y grupos de seguridad de red. También le guiará por cada uno de los comandos pertinentes para que comprenda mejor cada paso. Hay también una sección llamada "Escenario de tráfico" para proporcionar información detallada paso a paso de cómo pasa el tráfico a través de los niveles de defensa de la red perimetral. Por último, en la sección de referencias está el código completo e instrucciones para crear este entorno para probar y experimentar con diferentes escenarios. 
@@ -233,7 +233,7 @@ Cada regla se describe con más detalle a continuación. (**Nota**: Cualquier el
 ## <a name="conclusion"></a>Conclusión
 Se trata de una manera relativamente sencilla y directa de aislar la subred back-end del tráfico entrante.
 
-Puede encontrar más ejemplos e información general sobre los límites de seguridad de red [aquí][HOME].
+Puede encontrar más ejemplos y una descripción general de los límites de seguridad de red [aquí][HOME].
 
 ## <a name="references"></a>Referencias
 ### <a name="main-script-and-network-config"></a>Script principal y configuración de red
@@ -549,7 +549,7 @@ Guarde este archivo xml con la ubicación actualizada y agregue el vínculo a es
     </NetworkConfiguration>
 
 #### <a name="sample-application-scripts"></a>Scripts de aplicación de ejemplo
-Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp]
+Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red perimetral, hay una en el siguiente vínculo: [Script de aplicación de ejemplo][SampleApp].
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-asm/example1design.png "Red perimetral de entrada con NSG"
@@ -561,6 +561,6 @@ Si desea instalar una aplicación de ejemplo para este y otros ejemplos de red p
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

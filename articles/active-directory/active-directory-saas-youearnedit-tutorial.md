@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con YouEarnedIt | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y YouEarnedIt.
+title: "Tutorial: Integración de Azure Active Directory con YouEarnedIt | Microsoft Docs"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y YouEarnedIt."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/07/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 370f81a618da4605581b70443fd0cf3641185ca0
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integración de Azure Active Directory con YouEarnedIt
+# <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integración de Azure Active Directory con YouEarnedIt
 En este tutorial, obtendrá información sobre cómo integrar YouEarnedIt con Azure Active Directory (Azure AD).
 
 La integración de YouEarnedIt con Azure AD proporciona las siguientes ventajas:
@@ -206,7 +210,7 @@ En esta sección, va a habilitar a Britta Simon para que use el inicio de sesió
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de YouEarnedIt en el panel de acceso, debería iniciar sesión automáticamente en su aplicación YouEarnedIt.
@@ -235,6 +239,6 @@ Al hacer clic en el icono de YouEarnedIt en el panel de acceso, debería iniciar
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 

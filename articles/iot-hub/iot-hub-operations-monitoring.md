@@ -1,6 +1,6 @@
 ---
-title: "IoT Hub operations monitoring (Supervisión de operaciones de Centro de IoT)"
-description: "Información general de la supervisión de operaciones de Azure IoT Hub, que permite supervisar el estado de las operaciones del centro de IoT en tiempo real."
+title: "Supervisión de operaciones de IoT Hub de Azure | Microsoft Docs"
+description: "Describe cómo usar la supervisión de operaciones de IoT Hub de Azure para supervisar el estado de las operaciones de su centro de IoT Hub en tiempo real."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,19 +15,19 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: nberdy
 translationtype: Human Translation
-ms.sourcegitcommit: ce514e19370d2b42fb16b4e96b66f212d5fa999c
-ms.openlocfilehash: 3c1ae13409c11ec49810209dd155e934b34c3a9b
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: f6f894157a31641b1d0294e84795563c727caaac
 
 
 ---
-# <a name="introduction-to-operations-monitoring"></a>Introducción a la supervisión de operaciones
+# <a name="operations-monitoring"></a>Supervisión de operaciones
 La supervisión de operaciones del Centro de IoT permite supervisar el estado de las operaciones de su Centro de IoT en tiempo real. IoT Hub realiza el seguimiento de eventos a través de varias categorías de operaciones. Se puede optar por que los eventos de una o varias categorías se envíen a un punto de conexión de su centro de IoT para su procesamiento. Los usuarios pueden supervisar los datos en busca de errores o configurar un procesamiento más complejo basado en patrones de datos.
 
 El Centro de IoT supervisa cinco categorías de eventos:
 
 * Operaciones de identidad de dispositivos
 * Telemetría de dispositivo
-* Comandos de nube a dispositivo
+* Mensajes de nube a dispositivo
 * Conexiones
 * Cargas de archivos
 
@@ -81,7 +81,7 @@ La categoría de telemetría del dispositivo realiza el seguimiento de los error
     }
 
 ### <a name="cloud-to-device-commands"></a>Comandos de nube a dispositivo
-La categoría de comandos de nube a dispositivo realiza el seguimiento de los errores que se producen en el Centro de IoT y se relacionan con la canalización del comando de dispositivo. Esta categoría incluye errores que se producen al enviar comandos (por ejemplo, un remitente no autorizado), recibir comandos (por ejemplo, el número de entregas superado) y recibir comentarios de comando (por ejemplo, comentarios caducados). Esta categoría no detecta errores de un dispositivo que trata incorrectamente un comando si el comando se ha entregado correctamente.
+La categoría de comandos de nube a dispositivo realiza el seguimiento de los errores que se producen en el centro de IoT Hub y se relacionan con la canalización de mensajes de nube a dispositivo. Esta categoría incluye errores que se producen al enviar mensajes de nube a dispositivo (por ejemplo, un remitente no autorizado), recibir mensajes de nube a dispositivo (por ejemplo, el número de entregas superado) y recibir mensajes de nube a dispositivo (por ejemplo, comentarios expirados). Esta categoría no detecta errores de un dispositivo que trata incorrectamente un mensaje de nube a dispositivo si este se ha entregado correctamente.
 
     {
          "messageSizeInBytes": 1234,
@@ -147,7 +147,7 @@ Tenga en cuenta que esta categoría no puede detectar los errores que se produce
 ## <a name="next-steps"></a>Pasos siguientes
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía del desarrollador][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
 
 <!-- Links and images -->
@@ -164,6 +164,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

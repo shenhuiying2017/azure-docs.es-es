@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f36eb1e2bfa07ddc4ea93128e30817d3d8c22810
+ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
+ms.openlocfilehash: db4d25e4236f568851b23976bd805ab7cc346ded
 
 
 ---
@@ -24,7 +24,7 @@ ms.openlocfilehash: f36eb1e2bfa07ddc4ea93128e30817d3d8c22810
 ## <a name="overview"></a>**Información general**
 Las plantillas de solución están diseñadas para acelerar el proceso de creación de una demostración E2E basada en Cortana Intelligence Suite. Una plantilla implementada aprovisionará la suscripción con los componentes necesarios de Cortana Intelligence y creará las relaciones entre ellos. También proporciona a la canalización de datos de ejemplo que se generan desde una aplicación de simulación de datos. Descargue el simulador de datos desde el vínculo que se proporciona e instálelo en su máquina local. Consulte el archivo léame.txt para obtener instrucciones sobre cómo utilizar el simulador. Los datos generados con el simulador hidratarán la canalización de datos y comenzarán a generar predicciones de aprendizaje automático que luego se pueden visualizar en el panel de Power BI.
 
-Puede encontrar la plantilla de solución [aquí](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1) 
+Puede encontrar la plantilla de solución [aquí](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
 
 El proceso de implementación le guiará a través de varios pasos para configurar las credenciales de la solución. Asegúrese de que registra estas credenciales: nombre de la solución, nombre de usuario y contraseña que proporcionó durante la implementación.
 
@@ -85,7 +85,7 @@ La consulta de [Análisis de transmisiones de Azure](https://azure.microsoft.com
 * Mediante el inicio de sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/)
 * Mediante la búsqueda de los trabajos de Análisis de transmisiones ![](media\\cortana-analytics-technical-guide-demand-forecast\\icon-stream-analytics.png) que se hayan generado al implementar la solución. En el primer caso se insertan datos en el almacenamiento de blobs (por ejemplo, mytest1streaming432822asablob) y en el segundo caso se insertan datos en Power BI (por ejemplo, mytest1streaming432822asapbi).
 * Seleccionar
-  
+
   * ***INPUTS*** para ver la entrada de consulta
   * ***QUERY*** para ver la consulta en sí
   * ***OUTPUTS*** para ver las diferentes salidas
@@ -146,15 +146,15 @@ El experimento de [Aprendizaje automático de Azure](https://azure.microsoft.com
 Una vez iniciado el Generador de datos, la canalización comienza a hidratarse y los distintos componentes de la solución empiezan a entrar en acción siguiendo los comandos emitidos por la Factoría de datos. Hay dos maneras de supervisar la canalización.
 
 1. Comprobar los datos del Almacenamiento de blobs de Azure.
-   
+
     Uno de los trabajos de Análisis de transmisiones escribe los datos entrantes sin procesar en Almacenamiento de blobs. Si hace clic en el componente **Azure Blob Storage** de su solución desde la pantalla donde implementó correctamente la solución, y después hace clic en **Abrir** en el panel derecho, irá al [Portal de administración de Azure](https://portal.azure.com). Una vez allí, haga clic en **Blobs**. En el siguiente panel, verá una lista de contenedores. Haga clic en **"energysadata"**. En el siguiente panel, verá la carpeta **"demandongoing"**. Dentro de la carpeta rawdata, verá carpetas con nombres como date=2016-01-28, etc. Si ve estas carpetas, significa que los datos sin procesar se están generando en el equipo y almacenando en Almacenamiento de blobs correctamente. Verá archivos que deben tener tamaños finitos en MB en esas carpetas.
 2. Comprobar los datos de Base de datos SQL de Azure.
-   
+
     El último paso de la canalización es escribir los datos (por ejemplo, predicciones del aprendizaje automático) en Base de datos SQL. Es posible que deba esperar hasta dos horas para que los datos aparezcan en Base de datos SQL. Una manera de supervisar la cantidad de datos disponibles en la base de datos SQL es mediante el [Portal de administración de Azure](https://manage.windowsazure.com/). En el panel izquierdo, busque y haga clic en BASES DE DATOS SQL![](media\\cortana-analytics-technical-guide-demand-forecast\\SQLicon2.png). A continuación, busque su base de datos (es decir, demo123456db) y haga clic en ella. En la siguiente página, en la sección **"Conectarse a la base de datos"**, haga clic en **"Ejecutar consultas Transact-SQL en la base de datos SQL"**.
-   
+
     Aquí, puede hacer clic en Nueva consulta y consultar el número de filas (por ejemplo, "select count(*) from DemandRealHourly). Conforme crece la base de datos, el número de filas de la tabla debería aumentar.
 3. Compruebe los datos desde el panel de Power BI.
-   
+
     Puede configurar el panel de análisis en caliente de Power BI para supervisar los datos de entrada sin formato. Siga las instrucciones de la sección "Panel de Power BI".
 
 ## <a name="power-bi-dashboard"></a>**Panel de Power BI**
@@ -165,16 +165,16 @@ En esta sección se describe cómo configurar el panel de Power BI para visualiz
 Los siguientes pasos le guiarán por los pasos para visualizar la salida de datos en tiempo real de los trabajos de Análisis de transmisiones que se generaron en el momento de la implementación de la solución. Se necesita una cuenta de [Power BI en línea](http://www.powerbi.com/) para realizar los pasos siguientes. Si no tiene una cuenta, puede [crear una](https://powerbi.microsoft.com/pricing).
 
 1. Agregue una salida de Power BI en el Análisis de transmisiones de Azure (ASA).
-   
+
    * Debe seguir las instrucciones descritas en [Azure Stream Analytics y Power BI: panel de análisis en tiempo real de flujo de datos](stream-analytics/stream-analytics-power-bi-dashboard.md) para configurar la salida del trabajo de Azure Stream Analytics como panel de Power BI.
    * Busque el trabajo de análisis de transmisiones en el [Portal de administración de Azure](https://manage.windowsazure.com). El nombre del trabajo debe ser: SuNombreDeSolución+"streamingjob"+número aleatorio+"asapbi" (es decir, demostreamingjob123456asapbi).
    * Agregue una salida de Power BI para el trabajo ASA. Establezca el **Alias de salida** como **'PBIoutput'**. Configure **Nombre de conjunto de datos** y **Nombre de tabla** como **"EnergyStreamData"**. Una vez agregada la salida, haga clic en **"Iniciar"** en la parte inferior de la página para iniciar el trabajo de Análisis de transmisiones. Recibirá un mensaje de confirmación (*por ejemplo*, "Se ha iniciado correctamente el trabajo de análisis de transmisiones myteststreamingjob12345asablob").
 2. Inicie sesión en [Power BI en línea](http://www.powerbi.com)
-   
+
    * En la sección Conjuntos de datos del panel izquierdo, en Mi área de trabajo, debería poder ver un nuevo conjunto de datos en el panel izquierdo de Power BI. Son los datos de transmisión que insertó desde Análisis de transmisiones de Azure en el paso anterior.
    * Asegúrese de que el panel ***Visualizaciones*** está abierto y se muestra en el lado derecho de la pantalla.
 3. Cree el icono "Demanda por marca de hora":
-   
+
    * Haga clic en el conjunto de datos **"EnergyStreamData"** en la sección Conjuntos de datos del panel izquierdo.
    * Haga clic en el icono **"Gráfico de líneas"** ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic8.png).
    * Haga clic en "EnergyStreamData" en el panel **Campos** .
@@ -190,40 +190,40 @@ En la canalización de datos de análisis en frío, el objetivo principal es obt
 
 > [!NOTE]
 > 1) Tarda unas horas en recopilar los resultados de previsión suficientes para el panel. Recomendamos iniciar este proceso entre dos y tres horas después de iniciar el generador de datos. 2) En este paso, el requisito previo es descargar e instalar gratuitamente el software [Power BI Desktop](https://powerbi.microsoft.com/desktop).
-> 
-> 
+>
+>
 
 1. Obtenga las credenciales de la base de datos.
-   
+
    Antes de continuar con los pasos siguientes, necesitará el **nombre del servidor de bases de datos, el nombre de la base de datos, el nombre de usuario y la contraseña** . Estos son los pasos que le ayudarán a encontrarlos.
-   
+
    * Una vez que **"Azure SQL Database"** se muestre en color verde en el diagrama de la plantilla de solución, haga clic en este icono y, después, haga clic en **"Abrir"**. Se le guiará al Portal de administración de Azure y se abrirá también la página de información de la base de datos.
    * En la página, puede encontrar una sección "Base de datos". En ella se muestra la base de datos que ha creado. El nombre de la base de datos debe ser **"Su nombre de solución + Número aleatorio + 'db'"** (por ejemplo, "mytest12345db").
    * Haga clic en la base de datos; en el nuevo panel emergente puede encontrar el nombre del servidor de base de datos en la parte superior. El nombre del servidor de base de datos debería ser **"Su nombre de solución + Número aleatorio + 'database.windows.net,1433'"** (por ejemplo, "mytest12345.database.windows.net,1433").
    * El **nombre de usuario** y la **contraseña** de la base de datos son los mismos que los registrados anteriormente durante la implementación de la solución.
 2. Actualización del origen de datos del archivo de Power BI de análisis en frío
-   
+
    * Asegúrese de que ha instalado la versión más reciente de [Power BI Desktop](https://powerbi.microsoft.com/desktop).
    * En la carpeta **"DemandForecastingDataGeneratorv1.0"** que ha descargado, haga doble clic en el archivo **‘Power BI Template\DemandForecastPowerBI.pbix’**. Las visualizaciones iniciales se basan en datos ficticios. **Nota:** Si ve un mensaje de error, asegúrese de que ha instalado la versión más reciente de Power BI Desktop.
-     
+
      Cuando abra el archivo, en la parte superior, haga clic en **"Editar consultas"**. En la ventana emergente, haga doble clic en **"Origen"** en el panel derecho.
      ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic1.png)
    * En la ventana emergente, reemplace **"Servidor"** y **"Base de datos"** por sus propios nombres de servidor y base de datos y, después, haga clic en **"Aceptar"**. Para el nombre del servidor, asegúrese de especificar el puerto 1433 (**SuNombreDeSolución.database.windows.net, 1433**). Ignore los mensajes de advertencia que aparezcan en la pantalla.
    * En la siguiente ventana emergente, verá dos opciones en el panel izquierdo (**Windows** y **Base de datos**). Haga clic en **"Base de datos"**, escriba su **"Nombre de usuario"** y **"Contraseña"** (que es el nombre de usuario y la contraseña que escribió la primera vez que implementó la solución y creó una instancia de Azure SQL Database). En ***Seleccionar en qué nivel hay que aplicar estos valores***, active la opción de nivel de base de datos. Después, haga clic en **"Conectar"**.
    * Una vez que se le dirija a la página anterior, cierre la ventana. Aparecerá un mensaje. Haga clic en **Aplicar**. Finalmente, haga clic en el botón **Guardar** para guardar los cambios. El archivo de Power BI ha establecido ya la conexión con el servidor. Si las visualizaciones están vacías, asegúrese de borrar todas las selecciones para poder visualizar todos los datos haciendo clic en el icono de borrador de la esquina superior derecha de las leyendas. Utilice el botón Actualizar para reflejar los nuevos datos en las visualizaciones. Inicialmente, solo verá los datos de inicialización en las visualizaciones ya que la Factoría de datos está programada para actualizarse cada 3 horas. Después de 3 horas, verá nuevas predicciones reflejadas en las visualizaciones al actualizar los datos.
 3. (Opcional) Publique el panel de la ruta de acceso en frío en [Power BI en línea](http://www.powerbi.com/). Tenga en cuenta que este paso necesita una cuenta de Power BI (o la cuenta de Office 365).
-   
+
    * Haga clic en **"Publicar"** y unos segundos más tarde aparecerá una ventana con un mensaje que indicará que la publicación en Power BI se ha realizado correctamente. con una marca de verificación verde. Haga clic en el vínculo "Abrir demoprediction.pbix en Power BI". Para obtener instrucciones detalladas, consulte [Publicar desde Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
    * Para crear un nuevo panel: haga clic en el signo **+** junto a la sección **Paneles** del panel izquierdo. Escriba el nombre "Demostración de previsión de demanda" para este nuevo panel.
    * Una vez abierto el informe, haga clic en ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic6.png) para anclar todas las visualizaciones al panel. Para obtener instrucciones detalladas, consulte [Anclaje de un icono a un panel de Power BI desde un informe](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Vaya a la página del panel y ajuste el tamaño y la ubicación de las visualizaciones y edite los títulos. Para obtener instrucciones detalladas sobre cómo editar los iconos, consulte [Edición de un icono: cambiar el tamaño, mover, cambiar el nombre, anclar, eliminar, agregar un hipervínculo](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Este es un panel de ejemplo con algunas visualizaciones de la ruta de acceso inactiva ancladas.
-     
+
      ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic7.png)
 4. (Opcional) Programe la actualización del origen de datos.
-   
+
    * Para programar la actualización de los datos, mantenga el mouse sobre el conjunto de datos **EnergyBPI-Final**, haga clic en ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic3.png) y después elija **Programar actualización**.
      **Nota:** Si ve un mensaje de advertencia, haga clic en **Editar credenciales** y asegúrese de que las credenciales de la base de datos son las mismas que las descritas en el paso 1.
-     
+
      ![](media\\cortana-analytics-technical-guide-demand-forecast\\PowerBIpic4.png)
    * Expanda la sección **Programar actualización** . Active "Mantener los datos actualizados".
    * Programe la actualización según sus necesidades. Para más información, consulte [Actualizar datos en Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
@@ -242,7 +242,6 @@ Este artículo fue creado por el científico de datos Yijing Chen y el ingeniero
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

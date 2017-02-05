@@ -1,6 +1,6 @@
 ---
 title: Uso de Azure Portal para configurar la carga de archivos | Microsoft Docs
-description: "Información general sobre cómo configurar la carga de archivos mediante Azure Portal"
+description: "Describe cómo usar Azure Portal para configurar el centro de IoT Hub con el fin de habilitar las cargas de archivo desde dispositivos conectados. Incluye información sobre cómo configurar la cuenta de Azure Storage."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 01/05/2017
 ms.author: dobett
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e3ac3e8cee2724b76f51423d1a6757382cca04f0
+ms.sourcegitcommit: a243e4f64b6cd0bf7b0776e938150a352d424ad1
+ms.openlocfilehash: aadbee1388e2c2aafaf0a5c50d2af195284d2bec
 
 
 ---
-# <a name="configure-file-uploads-using-the-azure-portal"></a>Configuración de cargas de archivos mediante Azure Portal
+# <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configuración de cargas de archivos de IoT Hub mediante Azure Portal
 ## <a name="file-upload"></a>Carga de archivos
-Para utilizar la [funcionalidad de carga de archivos en IoT Hub][lnk-upload], primero debe asociar una cuenta de Azure Storage con su centro. Seleccione la configuración de **carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
+Para utilizar la [funcionalidad de carga de archivos en el centro de IoT Hub][lnk-upload], primero debe asociar una cuenta de Azure Storage con su centro. Seleccione la configuración de **carga de archivos** para mostrar una lista de propiedades de carga de archivos para el Centro de IoT que se modifica.
 
 ![][13]
 
@@ -41,19 +41,19 @@ Para utilizar la [funcionalidad de carga de archivos en IoT Hub][lnk-upload], pr
 ![][15]
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información sobre las capacidades de carga archivos de IoT Hub, consulte [Upload files from a device][lnk-upload] (Carga de archivos desde un dispositivo) en la guía para desarrolladores.
+Para información sobre las funcionalidades de carga archivos de IoT Hub, consulte [Upload files from a device][lnk-upload] (Carga de archivos desde un dispositivo) en la guía para desarrolladores.
 
 Siga estos vínculos para más información sobre la administración del Centro de IoT de Azure:
 
-* [Administración de dispositivos IoT de forma masiva][lnk-bulk]
-* [Métricas de uso][lnk-metrics]
+* [Administración masiva de dispositivos de IoT][lnk-bulk]
+* [Métricas de IoT Hub][lnk-metrics]
 * [Supervisión de operaciones][lnk-monitor]
 
 Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
-* [Guía para desarrolladores de][lnk-devguide]
+* [Guía para desarrolladores de IoT Hub][lnk-devguide]
 * [Simulación de un dispositivo con el SDK de puerta de enlace de IoT][lnk-gateway]
-* [Seguridad de la solución de IoT desde el principio][lnk-securing]
+* [Protección total de la solución de IoT][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
 [14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
@@ -71,6 +71,6 @@ Para explorar aún más las funcionalidades de Centro de IoT, consulte:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: infrastructure-services
 ms.date: 10/14/2016
 ms.author: cherylmc
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: 420b193d558d00f574d24c87ab9db6e9e757a952
+ms.sourcegitcommit: 3fe204c09eebf7d254a1bf2bb130e2d3498b6b45
+ms.openlocfilehash: d1b6d12b1976b317e9ed496857439c86e99253f9
 
 
 ---
@@ -25,7 +25,7 @@ ms.openlocfilehash: 420b193d558d00f574d24c87ab9db6e9e757a952
 Puede comprobar la conexión de la puerta de enlace de varias maneras diferentes. En este artículo se explica cómo comprobar el estado de una conexión de puerta de enlace de Resource Manager mediante el Portal de Azure y PowerShell.
 
 ## <a name="verify-using-powershell"></a>Comprobar mediante PowerShell
-Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md). Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
+Necesitará instalar la versión más reciente de los cmdlets de PowerShell del Administrador de recursos de Azure. Para obtener información sobre la instalación de cmdlets de PowerShell, vea [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs). Para obtener más información sobre los cmdlets de Resource Manager, consulte [Uso de Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1-log-in-to-your-azure-account"></a>Paso 1: Inicie sesión en su cuenta de Azure
 1. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta.
@@ -50,6 +50,6 @@ Necesitará instalar la versión más reciente de los cmdlets de PowerShell del 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 11/28/2016
 ms.author: xshi
 translationtype: Human Translation
-ms.sourcegitcommit: ffcb9214b8fa645a8a2378c5e7054b9f984addbb
-ms.openlocfilehash: e94ed55941521cf7b8b2dac77cf54835ca8f2829
+ms.sourcegitcommit: c0ddd7e68accf28ee65ba70ea992acd413da6f5b
+ms.openlocfilehash: 6a617da5135a362a0d6a0670c55242d64b1bdd85
 
 
 ---
@@ -130,11 +130,11 @@ El [Explorador de dispositivos](https://github.com/Azure/azure-iot-sdks/blob/mas
 Configure la cadena de conexión de IoT Hub con esta herramienta para que pueda utilizar todas las funcionalidades.
 
 ### <a name="iothub-explorer"></a>iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) es una sencilla herramienta multiplataforma de CLI que se utiliza para administrar los clientes de los dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes del dispositivo a la nube y enviar comandos de la nube al dispositivo.
+[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) es una sencilla herramienta multiplataforma de CLI que se utiliza para administrar los dispositivos. Esta herramienta puede usarse para administrar los dispositivos en el registro de identidad, supervisar los mensajes de dispositivo a nube y enviar mensajes de nube a dispositivo.
 
 Para instalar la última versión (versión preliminar) de la herramienta iothub-explorer, ejecute el siguiente comando en el entorno de la línea de comandos:
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 
@@ -153,6 +153,6 @@ El [Explorador de Microsoft Azure Storage (versión preliminar)](http://storagee
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

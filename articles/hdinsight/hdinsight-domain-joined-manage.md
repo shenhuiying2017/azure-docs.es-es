@@ -16,8 +16,8 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f9ecc2f7a67a2cee6f02c0010a2b54404cbb6f82
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 78382cf83ed5e94507854d41293a95fd529964c1
 
 
 ---
@@ -34,14 +34,14 @@ Un clúster de HDInsight unido a dominio tiene tres nuevos usuarios además de a
 
 * **Administrador de Ranger**: esta cuenta es la cuenta de administrador local de Apache Ranger. No es un usuario de dominio de Active Directory. Esta cuenta se puede usar para configurar directivas y crear otros administradores de usuarios o administradores delegados (para que esos usuarios puedan administrar directivas). De forma predeterminada, el nombre de usuario es *admin* y la contraseña es la misma que la contraseña de administrador de Ambari. En la página de configuración de Ranger se puede actualizar la contraseña.
 * **Usuario de dominio administrador de clúster**: esta cuenta es un usuario de dominio de Active Directory designado como administrador de clúster de Hadoop, por ejemplo Ambari y Ranger. Se deben proporcionar las credenciales del usuario durante la creación del clúster. Este usuario tiene los privilegios siguientes:
-  
+
   * Unir máquinas al dominio y colocarlas en la unidad organizativa que especifique durante la creación del clúster.
-  * Crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster. 
+  * Crear entidades de servicio dentro de la unidad organizativa que especifique durante la creación del clúster.
   * Crear entradas de DNS inversas.
-    
-    Tenga en cuenta que los demás usuarios de AD también tienen estos privilegios. 
-    
-    Hay algunos puntos de conexión en el clúster (por ejemplo, Templeton) que no están administrados por Ranger, de ahí que no sean seguros. Estos puntos de conexión están bloqueados para todos los usuarios excepto para el usuario de dominio administrador del clúster. 
+
+    Tenga en cuenta que los demás usuarios de AD también tienen estos privilegios.
+
+    Hay algunos puntos de conexión en el clúster (por ejemplo, Templeton) que no están administrados por Ranger, de ahí que no sean seguros. Estos puntos de conexión están bloqueados para todos los usuarios excepto para el usuario de dominio administrador del clúster.
 * **Normal**: durante la creación del clúster, puede proporcionar varios grupos de Active Directory. Los usuarios de estos grupos se sincronizarán con Ranger y Ambari. Estos usuarios son usuarios de dominio y solo tendrán acceso a los puntos de conexión administrados por Ranger (por ejemplo, Hiveserver2). Todas las directivas y la auditoría de RBAC serán aplicable a estos usuarios.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Roles de clústeres de HDInsight unidos a dominio
@@ -58,7 +58,7 @@ Los clústeres de HDInsight unidos a un dominio tienen los siguientes roles:
 1. Abra la interfaz de usuario de administración de Ambari.  Consulte [Abrir la interfaz de usuario de administración de Ambari](#open-the-ambari-management-ui).
 2. En el menú de la izquierda, haga clic en **Roles**.
 3. Haga clic en el signo de interrogación azul para ver los permisos:
-   
+
     ![Permisos de roles de HDInsight unidos a dominio](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Abrir la interfaz de usuario de administración de Ambari
@@ -67,36 +67,36 @@ Los clústeres de HDInsight unidos a un dominio tienen los siguientes roles:
 3. Haga clic en **Panel** en el menú superior para abrir Ambari.
 4. Inicie sesión en Ambari con el nombre de usuario y la contraseña de dominio de administrador del clúster:
 5. Haga clic en el menú desplegable **Administrador** de la esquina superior derecha y luego haga clic en **Administrar Ambari**.
-   
+
     ![Administración de Ambari para HDInsight unido a un dominio](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
-   
+
     La interfaz de usuario tiene el siguiente aspecto:
-   
+
     ![IU de administración de Ambari para HDInsight unido a dominio](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## <a name="list-the-domain-users-synchronized-from-your-active-directory"></a>Enumeración de los usuarios de dominio sincronizados desde Active Directory
 1. Abra la interfaz de usuario de administración de Ambari.  Consulte [Abrir la interfaz de usuario de administración de Ambari](#open-the-ambari-management-ui).
 2. En el menú de la izquierda, haga clic en **Usuarios**. Verá todos los usuarios sincronizados desde Active Directory con el clúster de HDInsight.
-   
+
     ![IU de administración de Ambari para HDInsight unido a dominio: enumeración de usuarios](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png)
 
 ## <a name="list-the-domain-groups-synchronized-from-your-active-directory"></a>Enumeración de los grupos de dominios sincronizados desde Active Directory
 1. Abra la interfaz de usuario de administración de Ambari.  Consulte [Abrir la interfaz de usuario de administración de Ambari](#open-the-ambari-management-ui).
 2. En el menú de la izquierda, haga clic en **Grupos**. Verá todos los grupos sincronizados desde Active Directory con el clúster de HDInsight.
-   
+
     ![IU de administración de Ambari para HDInsight unido a dominio: enumeración de grupos](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png)
 
 ## <a name="configure-hive-views-permissions"></a>Configuración de permisos de vistas de Hive
 1. Abra la interfaz de usuario de administración de Ambari.  Consulte [Abrir la interfaz de usuario de administración de Ambari](#open-the-ambari-management-ui).
 2. En el menú de la izquierda, haga clic en **Vistas**.
 3. Haga clic en **HIVE** para mostrar los detalles.
-   
+
     ![IU de administración de Ambari para HDInsight unido a dominio: vistas de Hive](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png)
 4. Haga clic en el vínculo **Vista de Hive** para configurar vistas de Hive.
 5. Desplácese hacia abajo hasta la sección **Permisos**.
-   
+
     ![IU de administración de Ambari para HDInsight unido a dominio: vistas de Hive, configuración de permisos](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png)
-6. Haga clic en **Agregar usuario** o **Agregar grupo**, y especifique los usuarios o grupos que pueden usar vistas de Hive. 
+6. Haga clic en **Agregar usuario** o **Agregar grupo**, y especifique los usuarios o grupos que pueden usar vistas de Hive.
 
 ## <a name="configure-users-for-the-roles"></a>Configuración de usuarios para los roles
  Para ver una lista de roles y sus permisos, consulte [Roles de clústeres de HDInsight unidos a dominio](#roles-of-domain---joined-hdinsight-clusters).
@@ -108,11 +108,10 @@ Los clústeres de HDInsight unidos a un dominio tienen los siguientes roles:
 ## <a name="next-steps"></a>Pasos siguientes
 * Para configurar un clúster de HDInsight unido a dominio, consulte [Configure Domain-joined HDInsight clusters](hdinsight-domain-joined-configure.md) (Configuración de clústeres de HDInsight unidos a un dominio).
 * Para configurar directivas de Hive y ejecución de consultas de Hive, consulte [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md) (Configuración de directivas de los clústeres de HDInsight unidos a dominio).
-* Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-domain-joined-hdinsight-cluster).
+* Para ejecutar consultas de Hive mediante SSH en clústeres de HDInsight unidos a dominio, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
 
 
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

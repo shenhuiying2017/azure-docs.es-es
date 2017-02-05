@@ -15,8 +15,8 @@ ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e0bd65366ef1162a4b82c35a86fc42708226e6ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
 
 
 ---
@@ -34,8 +34,8 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
   * Otro problema común con la integración del SDK y el uso de la API es confundir la clave del SDK y la clave de la API.
   * Las secuencias de comandos que se conectan a las API necesitan enviar datos al menos cada 10 minutos o la conexión agotará el tiempo de espera (especialmente frecuente en secuencias de comandos de API de supervisión que escuchan datos). Para evitar los tiempos de espera, haga que la secuencia de comandos envíe un ping XMPP cada 10 minutos para mantener la sesión activa con el servidor.
 
-### <a name="see-also"></a>Consulte también
-* [Documentación de la API][Vínculo 4]
+### <a name="see-also"></a>Otras referencias
+* [Documentación de la API][Link 4]
 * [Información del protocolo XMPP](http://xmpp.org/extensions/xep-0199.html)
 
 ## <a name="unable-to-use-the-api-to-perform-the-same-action-available-in-the-azure-mobile-engagement-ui"></a>No se puede usar la API para realizar la misma acción disponible en la interfaz de usuario de Azure Mobile Engagement
@@ -46,7 +46,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 * Confirmar que puede realizar la misma acción desde la interfaz de usuario de Azure Mobile Engagement muestra que ha integrado correctamente esta función de Azure Mobile Engagement con el SDK.
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la interfaz de usuario][Vínculo 1]
+* [Documentación de la interfaz de usuario][Link 1]
 
 ## <a name="error-messages"></a>Mensajes de error
 ### <a name="issue"></a>Problema
@@ -76,7 +76,7 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
         504        The server was not able to handle your request in a reasonable time (if you make multiple calls to an API very quickly, try to make one call at a time and spread the calls out over time).
 
 ### <a name="see-also"></a>Consulte también
-* [Documentación de la API (para ver errores detallados específicos de cada API)][Vínculo 4]
+* [Documentación de API: para errores detallados en cada API específica][Link 4]
 
 ## <a name="silent-failures"></a>Errores silenciosos
 ### <a name="issue"></a>Problema
@@ -87,42 +87,42 @@ Los siguientes son posibles problemas que pueden producirse con cómo los admini
 * Azure Mobile Engagement y muchas funciones avanzadas de Azure Mobile Engagement que está intentando usar necesitan integrarse individualmente en su aplicación con el SDK en pasos distintos para poder utilizarlas.
 
 ### <a name="see-also"></a>Consulte también
-* [Guía de solución de problemas: SDK][Vínculo 25]
+* [Guía de solución de problemas: SDK][Link 25]
 
 <!--Link references-->
-[Vínculo 1]: mobile-engagement-user-interface-home.md
-[Vínculo 2]: mobile-engagement-troubleshooting-guide.md
-[Vínculo 3]: mobile-engagement-how-tos.md
-[Vínculo 4]: http://go.microsoft.com/fwlink/?LinkID=525553
-[Vínculo 5]: http://go.microsoft.com/fwlink/?LinkID=525554
-[Vínculo 6]: http://go.microsoft.com/fwlink/?LinkId=525555
-[Vínculo 7]: https://account.windowsazure.com/PreviewFeatures
-[Vínculo 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
-[Vínculo 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
-[Vínculo 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
-[Vínculo 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
-[Vínculo 12]: mobile-engagement-user-interface-navigation.md
-[Vínculo 13]: mobile-engagement-user-interface-home.md
-[Vínculo 14]: mobile-engagement-user-interface-my-account.md
-[Vínculo 15]: mobile-engagement-user-interface-analytics.md
-[Vínculo 16]: mobile-engagement-user-interface-monitor.md
-[Vínculo 17]: mobile-engagement-user-interface-reach.md
-[Vínculo 18]: mobile-engagement-user-interface-segments.md
-[Vínculo 19]: mobile-engagement-user-interface-dashboard.md
-[Vínculo 20]: mobile-engagement-user-interface-settings.md
-[Vínculo 21]: mobile-engagement-troubleshooting-guide-analytics.md
-[Vínculo 22]: mobile-engagement-troubleshooting-guide-apis.md
-[Vínculo 23]: mobile-engagement-troubleshooting-guide-push-reach.md
-[Vínculo 24]: mobile-engagement-troubleshooting-guide-service.md
-[Vínculo 25]: mobile-engagement-troubleshooting-guide-sdk.md
-[Vínculo 26]: mobile-engagement-troubleshooting-guide-sr-info.md
-[Vínculo 27]: mobile-engagement-user-interface-reach-campaign.md
-[Vínculo 28]: mobile-engagement-user-interface-reach-criterion.md
-[Vínculo 29]: mobile-engagement-user-interface-reach-content.md
+[Link 1]: mobile-engagement-user-interface-home.md
+[Link 2]: mobile-engagement-troubleshooting-guide.md
+[Link 3]: mobile-engagement-how-tos.md
+[Link 4]: http://go.microsoft.com/fwlink/?LinkID=525553
+[Link 5]: http://go.microsoft.com/fwlink/?LinkID=525554
+[Link 6]: http://go.microsoft.com/fwlink/?LinkId=525555
+[Link 7]: https://account.windowsazure.com/PreviewFeatures
+[Link 8]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azuremobileengagement
+[Link 9]: http://azure.microsoft.com/en-us/services/mobile-engagement/
+[Link 10]: http://azure.microsoft.com/en-us/documentation/services/mobile-engagement/
+[Link 11]: http://azure.microsoft.com/en-us/pricing/details/mobile-engagement/
+[Link 12]: mobile-engagement-user-interface-navigation.md
+[Link 13]: mobile-engagement-user-interface-home.md
+[Link 14]: mobile-engagement-user-interface-my-account.md
+[Link 15]: mobile-engagement-user-interface-analytics.md
+[Link 16]: mobile-engagement-user-interface-monitor.md
+[Link 17]: mobile-engagement-user-interface-reach.md
+[Link 18]: mobile-engagement-user-interface-segments.md
+[Link 19]: mobile-engagement-user-interface-dashboard.md
+[Link 20]: mobile-engagement-user-interface-settings.md
+[Link 21]: mobile-engagement-troubleshooting-guide-analytics.md
+[Link 22]: mobile-engagement-troubleshooting-guide-apis.md
+[Link 23]: mobile-engagement-troubleshooting-guide-push-reach.md
+[Link 24]: mobile-engagement-troubleshooting-guide-service.md
+[Link 25]: mobile-engagement-troubleshooting-guide-sdk.md
+[Link 26]: mobile-engagement-troubleshooting-guide-sr-info.md
+[Link 27]: mobile-engagement-user-interface-reach-campaign.md
+[Link 28]: mobile-engagement-user-interface-reach-criterion.md
+[Link 29]: mobile-engagement-user-interface-reach-content.md
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

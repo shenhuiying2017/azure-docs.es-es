@@ -16,8 +16,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: jimpark;trinadhk;pullabhk;markgal
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
+ms.sourcegitcommit: 482205d4b28099def12173bc253ce1c5d7725587
+ms.openlocfilehash: 6b454e42f60e779763d08d2d4bc8c9db5531e555
 
 
 ---
@@ -30,7 +30,14 @@ ms.openlocfilehash: 52b37f9fe5adcc69554520d90e2be84de26f5fad
 > 
 > 
 
-En este artículo se explica cómo preparar el entorno para la copia de seguridad de las cargas de trabajo mediante el servidor de Copia de seguridad de Azure. Con el servidor de Copia de seguridad de Azure, puede proteger cargas de trabajo de aplicaciones como máquinas virtuales de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange y clientes Windows desde una única consola: También puede proteger las cargas de trabajo de información como servicio (IaaS), como es el caso de las máquinas virtuales de Azure.
+En este artículo se explica cómo preparar el entorno para la copia de seguridad de las cargas de trabajo mediante el servidor de Copia de seguridad de Azure. Con el servidor de Copia de seguridad de Azure, puede proteger cargas de trabajo de aplicaciones como máquinas virtuales de Hyper-V, Microsoft SQL Server, SharePoint Server, Microsoft Exchange y clientes Windows desde una única consola: 
+
+> [!NOTE]
+> El servidor de copia de seguridad de Azure ahora puede proteger máquinas virtuales de VMware y proporciona mejores funcionalidades de seguridad. Debe instalar el producto tal y como se explica en las secciones de debajo y aplicar la actualización 1 y el agente de copia de seguridad de Azure más reciente. Para obtener más información sobre la copia de seguridad de VMware con el servidor de copia de seguridad de Azure Backup, visite el [blog de instrucciones](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/). Para obtener información sobre las funcionalidades de seguridad, consulte la [documentación de características de seguridad de copia de seguridad de Azure](backup-azure-security-feature.md).
+> 
+> 
+
+También puede proteger las cargas de trabajo de información como servicio (IaaS), como es el caso de las máquinas virtuales de Azure.
 
 > [!NOTE]
 > Azure cuenta con dos modelos de implementación para crear recursos y trabajar con ellos: [Resource Manager y el modelo clásico](../azure-resource-manager/resource-manager-deployment-model.md). En este artículo se proporcionan información y procedimientos para restaurar las máquinas virtuales implementadas mediante el modelo de Resource Manager.
@@ -266,6 +273,6 @@ Puede usar estos artículos para mejorar la comprensión sobre la protección de
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO1-->
 
 

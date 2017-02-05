@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: integración de Azure Active Directory con FreshGrade | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FreshGrade.
+title: "Tutorial: integración de Azure Active Directory con FreshGrade | Microsoft Azure"
+description: "Aprenda a configurar el inicio de sesión único entre Azure Active Directory y FreshGrade."
 services: active-directory
-documentationcenter: ''
+documentationcenter: 
 author: jeevansd
 manager: femila
-editor: ''
-
+editor: 
+ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,9 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2016
 ms.author: jeedes
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 07177be14dfdd4331bd23ac3eca4053782d77753
+
 
 ---
-# <a name="tutorial:-azure-active-directory-integration-with-freshgrade"></a>Tutorial: integración de Azure Active Directory con FreshGrade
+# <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>Tutorial: integración de Azure Active Directory con FreshGrade
 En este tutorial, aprenderá cómo integrar FreshGrade con Azure Active Directory (Azure AD).
 
 La integración de FreshGrade con Azure AD proporciona las siguientes ventajas:
@@ -195,7 +199,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
    
     ![Asignar usuario][205]
 
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único
+### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
 Al hacer clic en el icono de FreshGrade en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación FreshGrade.
@@ -224,6 +228,6 @@ Al hacer clic en el icono de FreshGrade en el Panel de acceso, debería iniciar 
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
