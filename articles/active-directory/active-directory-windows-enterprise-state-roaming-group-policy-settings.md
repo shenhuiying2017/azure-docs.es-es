@@ -1,3 +1,4 @@
+
 ---
 title: "Configuración de MDM y directivas de grupo | Microsoft Docs"
 description: "Proporciona información sobre la configuración de directiva de grupo y la administración de dispositivos móviles (MDM) que debe usarse en dispositivos de empresa. Estas directivas se aplican al dispositivo completo del usuario."
@@ -16,8 +17,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: femila
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1b9e0ab4be96bec6deeaf50ec411c37b9379598a
+ms.sourcegitcommit: 6bdec7bf35bb4a233200def36c0e697baaf15fec
+ms.openlocfilehash: 5ca48cf3cc4b2f4d86463e36c73de47e386cff25
 
 
 ---
@@ -57,10 +58,11 @@ La configuración de directiva de grupo se aplica a dispositivos de Windows 10 q
 * [Habilitación de Enterprise State Roaming en Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Preguntas más frecuentes sobre itinerancia de datos y configuración](active-directory-windows-enterprise-state-roaming-faqs.md)
 * [Referencia de la configuración de movilidad de Windows 10](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
+* [Solución de problemas](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 
