@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/16/2016
+ms.date: 01/10/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: ce9474f2926a856673efbab5103a308d31001343
@@ -125,7 +125,7 @@ Abajo se muestran algunos ejemplos para agregar, quitar o modificar una entidad 
 1. Inicie Windows PowerShell con privilegios de administrador. 
 2. Instale el módulo de Azure AD. Es preciso instalar la versión [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33), o una superior.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. Conéctelo al inquilino de destino: 
    
         Connect-AzureAD 
@@ -219,6 +219,6 @@ La fecha establecida debe ser futura. De lo contrario, no se establece la propie
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

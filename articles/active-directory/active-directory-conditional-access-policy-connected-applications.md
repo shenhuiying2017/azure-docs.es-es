@@ -147,6 +147,6 @@ En las aplicaciones de Office 365 Exchange Online, puede usar Exchange ActiveSyn
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

@@ -1,22 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: Autoservicio de restablecimiento de contraseña | Microsoft Docs'
-description: Tema en el que se demuestra cómo configurar el autoservicio de restablecimiento de contraseña para los consumidores en Azure Active Directory B2C
+title: "Azure Active Directory B2C: restablecimiento de contraseña de autoservicio | Microsoft Docs"
+description: "Tema en el que se demuestra cómo configurar el autoservicio de restablecimiento de contraseña para los consumidores en Azure Active Directory B2C"
 services: active-directory-b2c
-documentationcenter: ''
+documentationcenter: 
 author: swkrish
-manager: msmbaldwin
+manager: mbaldwin
 editor: curtand
-
+ms.assetid: c87ed86e-1520-42b1-8c31-46cd44ed5310
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2016
+ms.date: 12/06/2016
 ms.author: swkrish
+translationtype: Human Translation
+ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
+ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
+
 
 ---
-# Azure Active Directory B2C: configurar el autoservicio de restablecimiento de contraseña para los consumidores
+# <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: configurar el autoservicio de restablecimiento de contraseña para los consumidores
 Con la característica de autoservicio de restablecimiento de contraseña, los consumidores que se registraron para obtener cuentas locales pueden restablecer sus contraseñas ellos mismos. De esta manera se reduce significativamente la carga del personal de soporte técnico, especialmente si la aplicación tiene millones de consumidores que la usan de forma periódica. Actualmente, solo se admite como método de recuperación el uso de una dirección de correo electrónico comprobada. Agregaremos métodos de recuperación adicionales (número de teléfono comprobado, preguntas de seguridad, etc.) en el futuro.
 
 > [!NOTE]
@@ -29,8 +33,8 @@ De forma predeterminada, el directorio no tendrá activado el autoservicio de re
 1. Inicie sesión en el [Portal de Azure clásico](https://manage.windowsazure.com/) como administrador de la suscripción. Esta cuenta es la misma cuenta profesional o educativa o la misma cuenta Microsoft que usó para crear el directorio.
 2. Vaya a la extensión de Active Directory en la barra de navegación del lado izquierdo.
 3. Busque su directorio en la pestaña **Directorio** y haga clic en él.
-4. Haga clic en la pestaña **Configurar**.
-5. Desplácese hacia abajo hasta la sección **Políticas para restablecer la contraseña del usuario** y cambie el valor de la opción **Usuarios habilitados para restablecer la contraseña** a **SÍ**. Observe que la opción **Dirección de correo electrónico alternativa** está activada; déjela así.
+4. Haga clic en la pestaña **Configure** .
+5. Baje hasta la sección **Políticas para restablecer la contraseña del usuario** y cambie el valor de la opción **Usuarios habilitados para restablecer la contraseña** a **SÍ**. Observe que la opción **Dirección de correo electrónico alternativa** está activada; déjela así.
    
     ![Restablecimiento de la contraseña de autoservicio](./media/active-directory-b2c-reference-sspr/sspr.png)
 6. Haga clic en **Guardar** en la parte inferior de la página. ¡Y ya está!
@@ -42,4 +46,9 @@ Para probar, use la característica "Ejecutar ahora" en cualquier directiva de i
 > 
 > 
 
-<!---HONumber=AcomDC_0727_2016-->
+
+
+
+<!--HONumber=Dec16_HO4-->
+
+

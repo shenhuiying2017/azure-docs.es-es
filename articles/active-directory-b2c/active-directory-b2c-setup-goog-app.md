@@ -62,6 +62,6 @@ Para usar Google+ como proveedor de identidades en Azure Active Directory (Azure
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

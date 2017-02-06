@@ -6,14 +6,13 @@ keywords: "azure active directory identity protection, detección de aplicacione
 documentationcenter: 
 author: MarkusVi
 manager: femila
-editor: 
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 01/24/2017
 ms.author: markvi
 translationtype: Human Translation
 ms.sourcegitcommit: 2e229cab7b8a498d3015183d438e2bc2465822aa
@@ -64,6 +63,6 @@ Para obtener más detalles, consulte [Azure AD Privileged Identity Management](a
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

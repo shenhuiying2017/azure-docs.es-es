@@ -91,6 +91,6 @@ El script devuelve la salida del informe de inicio de sesión en formato JSON. T
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

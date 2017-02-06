@@ -232,6 +232,6 @@ Eso es todo: ya está listo para conectarse al dominio administrado mediante LDA
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

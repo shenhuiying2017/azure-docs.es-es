@@ -82,6 +82,6 @@ Aprenda cómo registrar una aplicación con Azure AD B2C y cómo crear una aplic
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

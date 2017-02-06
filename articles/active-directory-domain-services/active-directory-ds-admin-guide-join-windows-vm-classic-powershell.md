@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: maheshu
 translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 6f952fc8ae2ab065c3e1aa5f1a5622ee894d6fd1
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 4eb9a5c4087fc7e91d79a7789a261d590485555a
 
 
 ---
@@ -38,7 +38,7 @@ En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure Po
 
 En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si es la primera vez que se usa PowerShell o se desea saber qué valores se deben especificar para una configuración correcta. Los usuarios avanzados de PowerShell pueden tomar los comandos y sustituir sus propios valores de las variables (las líneas que comienzan con "$").
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md) para instalar Azure PowerShell en un equipo local. Después, abra el símbolo del sistema de Windows PowerShell.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs) para instalar Azure PowerShell en un equipo local. Después, abra el símbolo del sistema de Windows PowerShell.
 
 ## <a name="step-1-add-your-account"></a>Paso 1: agregar la cuenta
 1. En el símbolo del sistema de Powershell, escriba **Add-AzureAccount** y haga clic en **Entrar**.
@@ -160,6 +160,6 @@ Ese es el script de ejemplo completo para crear la máquina virtual de Windows y
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO4-->
 
 

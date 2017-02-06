@@ -124,6 +124,6 @@ Antes de pasar a disponibilidad general, PIM de Azure AD estaba en versión prel
 
 
 
-<!--HONumber=Jan17_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 
