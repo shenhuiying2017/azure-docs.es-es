@@ -1,22 +1,26 @@
 ---
-title: Mover datos hacia y desde el almacenamiento de blobs de Azure con Python | Microsoft Docs
+title: Mover datos hacia y desde Azure Blob Storage con Python | Microsoft Docs
 description: Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
 services: machine-learning,storage
-documentationcenter: ''
+documentationcenter: 
 author: bradsev
 manager: jhubbard
 editor: cgronlun
-
+ms.assetid: 24276252-b3dd-4edf-9e5d-f6803f8ccccc
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: bradsev
+translationtype: Human Translation
+ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
+ms.openlocfilehash: fb34986d947175ae4b4212e5bd0a1e90836ed170
+
 
 ---
-# Mover datos hacia y desde el almacenamiento de blobs de Azure con Python
+# <a name="move-data-to-and-from-azure-blob-storage-using-python"></a>Movimiento de datos hacia y desde Azure Blob Storage de Azure con Python
 En este tema se describe cómo enumerar, cargar y descargar blobs usando la API de Python. Con la API de Python proporcionada en el SDK de Azure, puede:
 
 * Crear un contenedor
@@ -26,8 +30,6 @@ En este tema se describe cómo enumerar, cargar y descargar blobs usando la API 
 * Eliminar un blob
 
 Para obtener más información sobre el uso de la API de Python, consulte [Uso del servicio de almacenamiento de blobs desde Python](../storage/storage-python-how-to-use-blob-storage.md).
-
-A continuación se ofrecen vínculos de orientación sobre las tecnologías que se usan para mover datos hacia o desde el almacenamiento de blobs de Azure:
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -39,13 +41,13 @@ A continuación se ofrecen vínculos de orientación sobre las tecnologías que 
 > 
 > 
 
-## Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 En este documento se supone que tiene una suscripción de Azure y una cuenta de almacenamiento y la clave de almacenamiento correspondiente para dicha cuenta. Antes de cargar o descargar datos, debe conocer su nombre de cuenta de almacenamiento de Azure y la clave de cuenta.
 
 * Para configurar una suscripción a Azure, consulte [Prueba gratuita de un mes](https://azure.microsoft.com/pricing/free-trial/).
 * Para obtener instrucciones sobre la creación de una cuenta de almacenamiento y para obtener información de cuentas y claves, vea [Acerca de las cuentas de almacenamiento de Azure](../storage/storage-create-storage-account.md).
 
-## Cargar datos en blob
+## <a name="upload-data-to-blob"></a>Cargar datos en blob
 Agregue el siguiente fragmento de código cerca de la parte superior de cualquier código de Python en el que desee obtener acceso mediante programación al almacenamiento de Azure:
 
     from azure.storage.blob import BlobService
@@ -57,7 +59,7 @@ El objeto **BlobService** permite trabajar con contenedores y blobs. El código 
 Use los siguientes métodos para cargar datos en un blob:
 
 1. put\_block\_blob\_from\_path (carga el contenido de un archivo desde la ruta especificada)
-2. put\_block\_blob\_from\_file (carga el contenido de una secuencia o archivo ya abierto)
+2. put\_block_blob\_from\_file (carga el contenido de una secuencia o archivo ya abierto)
 3. put\_block\_blob\_from\_bytes (carga una matriz de bytes)
 4. put\_block\_blob\_from\_text (carga el valor de texto especificado con la codificación especificada)
 
@@ -91,7 +93,7 @@ El siguiente código de ejemplo carga todos los archivos (excepto los directorio
             print "something wrong happened when uploading the data %s"%blob_name
 
 
-## Descargar datos del blob
+## <a name="download-data-from-blob"></a>Descargar datos del blob
 Utilice los siguientes métodos para descargar datos de un blob:
 
 1. get\_blob\_to\_path
@@ -99,7 +101,7 @@ Utilice los siguientes métodos para descargar datos de un blob:
 3. get\_blob\_to\_bytes
 4. get\_blob\_to\_text
 
-Estos métodos que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
+Estos métodos que realizan la fragmentación necesaria cuando el tamaño de los datos supera los 64 MB.
 
 El código de ejemplo siguiente descarga el contenido de un blob de un contenedor en un archivo local:
 
@@ -127,4 +129,8 @@ El siguiente código de ejemplo descarga todos los blobs de un contenedor. Usa l
         except:
             print "something wrong happened when downloading the data %s"%blob.name
 
-<!---HONumber=AcomDC_0921_2016-->
+
+
+<!--HONumber=Dec16_HO1-->
+
+

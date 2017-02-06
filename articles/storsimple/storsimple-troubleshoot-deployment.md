@@ -15,8 +15,8 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7df0243622af7166a57a6ec81ed356022246a3ed
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
 
 
 ---
@@ -528,7 +528,7 @@ El error puede deberse a alguna de las siguientes causas:
 2. Asegúrese de que los cables del dispositivo están conectados correctamente: compruebe el cableado de red en la parte posterior del dispositivo. Los cables son específicos del modelo de dispositivo. Para obtener más información, consulte [Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8100](storsimple-8100-hardware-installation.md) o [Desempaquetar, montar en bastidor y colocar los cables del dispositivo StorSimple 8600](storsimple-8600-hardware-installation.md).
    
    > [!NOTE]
-   > Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores recomendados por el proveedor OEM para puertos Mellanox](http://www.mellanox.com/page/cables?mtag=cable_overview).
+   > Si utiliza puertos de red de 10 GbE, deberá usar los adaptadores QSFP-SFP y los cables SFP suministrados. Para obtener más información, consulte la [lista de cables, conmutadores y transceptores que recomienda para los puertos de 10 GbE](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
    > 
    > 
 3. Compruebe el mantenimiento de la interfaz de red:
@@ -566,6 +566,6 @@ El error puede deberse a alguna de las siguientes causas:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

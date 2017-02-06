@@ -4,7 +4,7 @@ description: "Detalles de los distintos métodos de seguridad de Almacenamiento 
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
 ms.service: storage
@@ -12,11 +12,11 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8f674c34cfbfd5c107258d7acd33583947cd61d6
+ms.sourcegitcommit: 550db52c2b77ad651b4edad2922faf0f951df617
+ms.openlocfilehash: c5e6c3a63a7dbe0a598136a32990f65f7ee077d9
 
 
 ---
@@ -55,7 +55,7 @@ Cuando se crea una nueva cuenta de almacenamiento, se selecciona un modelo de im
 Esta guía se centra en el modelo de Resource Manager, que es el medio recomendado para crear cuentas de almacenamiento. Con las cuentas de almacenamiento de Resource Manager, en lugar de proporcionar acceso a toda la suscripción, puede controlar el acceso en un nivel más detallado en el plano de administración mediante el control de acceso basado en rol (RBAC).
 
 ### <a name="how-to-secure-your-storage-account-with-role-based-access-control-rbac"></a>Protección de su cuenta de almacenamiento con el control de acceso basado en rol (RBAC)
-Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md) o [las API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Vamos a ver qué es el control de acceso basado en rol y cómo puede utilizarlo. Cada una de las suscripciones de Azure está asociada a una instancia de Azure Active Directory. Es posible conceder acceso a los usuarios, los grupos y las aplicaciones desde ese directorio a la administración de recursos de la suscripción de Azure que usan el modelo de implementación de Resource Manager. Esto se conoce como control de acceso basado en rol (RBAC). Para administrar este acceso, puede utilizar [Azure Portal](https://portal.azure.com/), [las herramientas de la CLI de Azure](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs) o [las API de REST del proveedor de recursos de Azure Storage](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 Con el modelo de Resource Manager, se coloca la cuenta de almacenamiento en un grupo de recursos y se controla el acceso al plano de la administración de dicha cuenta de almacenamiento específica mediante Azure Active Directory. Por ejemplo, puede proporcionar a usuarios específicos la posibilidad de tener acceso a las claves de la cuenta de almacenamiento, mientras que otros usuarios pueden ver información sobre la cuenta de almacenamiento pero no pueden tener acceso a sus claves.
 
@@ -89,7 +89,7 @@ Estos son los puntos principales que necesita saber acerca del uso del control d
 * [RBAC: Roles integrados](../active-directory/role-based-access-built-in-roles.md)
   
   En este artículo se detalla todas las funciones integradas disponibles en el control de acceso basado en rol.
-* [Descripción de la implementación del Administrador de recursos y la implementación clásica](../resource-manager-deployment-model.md)
+* [Descripción de la implementación del Administrador de recursos y la implementación clásica](../azure-resource-manager/resource-manager-deployment-model.md)
   
   En este artículo se explican los modelos de implementación clásica y de Resource Manager, y se detallan las ventajas de utilizar Resource Manager y los grupos de recursos. Se explica cómo funcionan el proceso, la red y los proveedores de almacenamiento de Azure en el modelo de Resource Manager.
 * [Administración del control de acceso basado en rol con la API de REST](../active-directory/role-based-access-control-manage-access-rest.md)
@@ -259,7 +259,7 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
   * [Getting Started with Shared Access Signatures (SAS) (Introducción a las Firmas de acceso compartido)](https://github.com/Azure-Samples/storage-dotnet-sas-getting-started)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
-### <a name="transport-level-encryption-using-https"></a>Cifrado de nivel de transporte – Uso de HTTPS
+### <a name="transport-level-encryption--using-https"></a>Cifrado de nivel de transporte – Uso de HTTPS
 Otro paso que debe seguir para garantizar la seguridad de los datos de Almacenamiento de Azure es cifrar los datos entre el cliente y Almacenamiento de Azure. La primera recomendación es utilizar siempre el protocolo [HTTPS](https://en.wikipedia.org/wiki/HTTPS) , que garantiza una comunicación segura a través de la red pública de Internet.
 
 Siempre debe usar HTTPS al llamar a las API de REST u obtener acceso a objetos de almacenamiento. Además, las **Firmas de acceso compartido**, que pueden utilizarse para delegar el acceso a objetos de Almacenamiento de Azure, incluyen una opción para especificar que se utilice solo el protocolo HTTPS con las Firmas de acceso compartido, lo que garantiza que cualquiera que envíe vínculos con tokens de SAS utilice el protocolo adecuado.
@@ -527,6 +527,6 @@ Para más información acerca del uso compartido de recursos entre orígenes y c
   Este artículo aborda el uso del modo FIPS en equipos más antiguos de Windows.
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

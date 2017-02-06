@@ -15,8 +15,8 @@ ms.workload: big-data
 ms.date: 11/18/2016
 ms.author: nitinme
 translationtype: Human Translation
-ms.sourcegitcommit: 85752f9286fc7fe8d9cc3acf6be66cca623934f5
-ms.openlocfilehash: b65ad7ed4e975bafb9a578d89fa5eb32c3066ee8
+ms.sourcegitcommit: a5e2bc4e29ac91ec17a7778e33509ec54f167ca2
+ms.openlocfilehash: 3e8c6d358602b6061447feb216d1e0e07fd950ee
 
 
 ---
@@ -137,6 +137,7 @@ Si ha creado un clúster de HDInsight con Data Lake Store como almacenamiento ad
 * [Uso de las herramientas de HDInsight del kit de herramientas de Azure para Eclipse con el fin de crear aplicaciones Spark destinadas al clúster Spark en HDInsight (Linux)](hdinsight-apache-spark-eclipse-tool-plugin.md)
 
 
-<!--HONumber=Nov16_HO4-->
+
+<!--HONumber=Nov16_HO5-->
 
 
