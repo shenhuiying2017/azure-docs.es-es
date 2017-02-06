@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 721cd52b37826c1880a94d8f95a0c70302c8f0b5
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
 
 
 ---
@@ -174,7 +174,7 @@ Para agregar a un destinatario **CC** , use el siguiente código:
     InternetAddress("john@contoso.com"));
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>Uso de servicios adicionales de SendGrid
-SendGrid ofrece API basadas en web que puede utilizar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte la [Documentación sobre la API de SendGrid][Documentación sobre la API de SendGrid].
+SendGrid ofrece API basadas en web que puede utilizar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte la [Documentación sobre la API de SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, siga estos vínculos para obtener más información:
@@ -190,13 +190,13 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
 [http://sendgrid.com/features]: https://sendgrid.com/features
 [http://www.oracle.com/technetwork/java/javamail]: http://www.oracle.com/technetwork/java/javamail/index.html
 [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
-[Documentación sobre la API de SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
+[SendGrid API documentation]: https://sendgrid.com/docs/API_Reference/index.html
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
 [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

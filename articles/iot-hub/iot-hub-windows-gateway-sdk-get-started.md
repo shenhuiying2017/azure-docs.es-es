@@ -1,6 +1,6 @@
 ---
-title: "Introducción al SDK de puerta de enlace del IoT Hub | Microsoft Docs"
-description: Tutorial del SDK de puerta de enlace de IoT de Azure mediante Windows para ilustrar los conceptos clave que debe comprender cuando utilice este SDK.
+title: "Introducción al SDK de puerta de enlace de IoT de Azure (Windows) | Microsoft Docs"
+description: "Cómo crear una puerta de enlace en un equipo Windows y obtener información sobre los conceptos claves en el SDK de puerta de enlace de IoT de Azure como módulos y archivos de configuración de JSON."
 services: iot-hub
 documentationcenter: 
 author: chipalost
@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: andbuc
 translationtype: Human Translation
-ms.sourcegitcommit: 2d8b98fbd5345edd5dc6891df12f05eccd8e7ca8
-ms.openlocfilehash: 6f2fe4fd3442d97955519348416b35fe6f9075d1
+ms.sourcegitcommit: e223d0613cd48994315451da87e6b7066585bdb6
+ms.openlocfilehash: 3493afbebf2a75a190d344ac1e66b00b9ddfd582
 
 
 ---
-# <a name="azure-iot-gateway-sdk---get-started-using-windows"></a>SDK de puerta de enlace de IoT de Azure: uso con Windows
+# <a name="get-started-with-the-azure-iot-gateway-sdk-windows"></a>Introducción al SDK de puerta de enlace de IoT de Azure (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## <a name="how-to-build-the-sample"></a>Compilación del ejemplo
@@ -86,6 +86,6 @@ Antes de comenzar, debe [configurar el entorno de desarrollo][lnk-setupdevbox] p
 
 
 
-<!--HONumber=Nov16_HO5-->
+<!--HONumber=Dec16_HO1-->
 
 

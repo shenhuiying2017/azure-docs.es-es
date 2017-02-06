@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/26/2016
+ms.date: 12/05/2016
 ms.author: jeffstok
 translationtype: Human Translation
-ms.sourcegitcommit: dcbce2327bbd04847bc388e2e4d432ba8b190284
-ms.openlocfilehash: ecfe38081d0a64509c94dfba0f5a98c5f45025c9
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: ae368cd3b406bbf4fa4b7a48d1473b49d023f5f5
 
 
 ---
 # <a name="target-azure-documentdb-for-json-output-from-stream-analytics"></a>Tener como destino DocumentDB de Azure para la salida de JSON de Análisis de transmisiones
-El Análisis de transmisiones puede tener como destino [DocumentDB de Azure](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. Obtenga información sobre la mejor manera de implementar esta integración.
+El Análisis de transmisiones puede tener como destino [DocumentDB de Azure](https://azure.microsoft.com/services/documentdb/) para la salida de JSON, habilitando el archivado de datos y las consultas de latencia baja en datos de JSON no estructurados. En este documento tratan algunas prácticas recomendadas para implementar esta configuración.
 
 Aquellos que no estén familiarizados con DocumentDB pueden comenzar por la [ruta de aprendizaje de DocumentDB](https://azure.microsoft.com/documentation/learning-paths/documentdb/) .
 
@@ -38,32 +38,41 @@ Para satisfacer las necesidades de su aplicación, DocumentDB permite optimizar 
 Se pueden crear colecciones de DocumentDB a 3 niveles de rendimiento diferentes (S1, S2 o S3), que determinan el rendimiento disponible para las operaciones CRUD de esa colección. Además, el rendimiento se ve afectado por los niveles de indexación y coherencia de la colección. Consulte [este artículo](../documentdb/documentdb-performance-levels.md) para entender estos niveles de rendimiento en detalle.
 
 ## <a name="upserts-from-stream-analytics"></a>Upserts de Análisis de transmisiones
-La integración del Análisis de transmisiones con DocumentDB permite insertar o actualizar registros en su colección de DocumentDB en función de una columna de identificador de documento determinada. Esto se conoce también como *Upsert*.
+La integración de Stream Analytics con DocumentDB permite insertar o actualizar registros en su colección de DocumentDB en función de una columna de identificador de documento determinada. Esto se conoce también como *Upsert*.
 
 El Análisis de transmisiones utiliza un enfoque Upsert optimista, donde las actualizaciones solo se realizan cuando se produce un error en la inserción debido a un conflicto de identificador de documento. Esta actualización se realiza por el Análisis de transmisiones como una operación PATCH, por lo que permite actualizaciones parciales en el documento; es decir, la adición de nuevas propiedades o la sustitución de una propiedad existente se realiza de forma incremental. Tenga en cuenta que los cambios en los valores de las propiedades de la matriz en el resultado del documento JSON de toda la matriz se sobrescriben; es decir, la matriz no se combina.
 
 ## <a name="data-partitioning-in-documentdb"></a>Creación de partición de datos en DocumentDB
-Las colecciones de DocumentDB permiten particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Cada colección puede contener hasta 10 GB de datos (máximo) y actualmente no hay ninguna manera de escalar verticalmente (o desbordar) una colección. Para escalar horizontalmente, Análisis de transmisiones permite escribir a varias colecciones con un prefijo determinado (consulte los detalles de uso a continuación). Análisis de transmisiones utiliza la estrategia coherente de [resolución de la partición de hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basada en la columna PartitionKey ofrecida por el usuario para crear particiones en sus registros de salida. El número de colecciones con el prefijo especificado en el inicio del trabajo de streaming se utiliza como el recuento de las particiones de salida en las que el trabajo escribe en paralelo (colecciones de DocumentDB = particiones de salida). En el caso de una sola colección S3 con una indexación diferida que realiza solo operaciones de inserción, se puede esperar en torno a 0,4 MB/s de rendimiento de escritura. El uso de varias colecciones puede permitirle lograr mayor rendimiento y capacidad.
+Ahora se admiten las colecciones de documentos con particiones DocumentDB y es el enfoque recomendado para crear particiones de los datos. 
+
+Para las colecciones únicas de DocumentDB, Stream Analytics permite particionar los datos según los patrones de consulta y los requisitos de rendimiento de la aplicación. Cada colección puede contener hasta 10 GB de datos (máximo) y actualmente no hay ninguna manera de escalar verticalmente (o desbordar) una colección. Para escalar horizontalmente, Análisis de transmisiones permite escribir a varias colecciones con un prefijo determinado (consulte los detalles de uso a continuación). Análisis de transmisiones utiliza la estrategia coherente de [resolución de la partición de hash](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.partitioning.hashpartitionresolver.aspx) basada en la columna PartitionKey ofrecida por el usuario para crear particiones en sus registros de salida. El número de colecciones con el prefijo especificado en el inicio del trabajo de streaming se utiliza como el recuento de las particiones de salida en las que el trabajo escribe en paralelo (colecciones de DocumentDB = particiones de salida). En el caso de una sola colección S3 con una indexación diferida que realiza solo operaciones de inserción, se puede esperar en torno a 0,4 MB/s de rendimiento de escritura. El uso de varias colecciones puede permitirle lograr mayor rendimiento y capacidad.
 
 Si desea aumentar el número de particiones en el futuro, puede que necesite detener su trabajo, volver a crear particiones de los datos de las colecciones existentes para crear nuevas colecciones y, a continuación, reiniciar el trabajo de Análisis de transmisiones. Se incluirá más información sobre el uso de PartitionResolver y la nueva creación de particiones junto con código de ejemplo en una publicación posterior. En el artículo [Partición y escalado en DocumentDB](../documentdb/documentdb-partition-data.md), también se ofrecen detalles sobre esto.
 
 ## <a name="documentdb-settings-for-json-output"></a>Configuración de DocumentDB para salida de JSON
 La creación de DocumentDB como una salida en Análisis de transmisiones genera una solicitud de información, tal como se muestra a continuación. En esta sección se proporciona una explicación de la definición de propiedades.
 
-![pantalla de salida de análisis de transmisiones de documentdb](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output.png)  
+Colección particionada | Varias colecciones de partición única
+---|---
+![pantalla de salida de análisis de transmisiones de documentdb](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![pantalla de salida de análisis de transmisiones de documentdb](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
+
+
+  
+> [!NOTE]
+> El escenario **Varias colecciones de partición única** requiere una clave de partición y es una configuración compatible. 
 
 * **Alias de salida** : un alias para hacer referencia a esta salida en la consulta ASA.  
 * **Nombre de cuenta** : el nombre o el URI del punto de conexión de la cuenta de DocumentDB.  
 * **Clave de cuenta** : la clave de acceso compartido para la cuenta de DocumentDB.  
 * **Base de datos** : el nombre de la base de datos de DocumentDB.  
-* **Patrón de nombre de colección** : el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. Las siguientes entradas de ejemplo son válidas:  
+* **Patrón de nombre de colección**: el patrón de nombre de colección para las colecciones que se usarán. El formato de nombre de la colección se pueden construir con el token opcional {partition}, donde las particiones comienzan desde 0. Las siguientes entradas de ejemplo son válidas:  
   1\) MyCollection: debe existir una colección denominada "MyCollection".  
   2\) MyCollection{partición}: deben existir esas colecciones: "MyCollection0", "MyCollection1", "MyCollection2", etc.  
-* **Clave de partición** : el nombre del campo en los eventos de salida que se usa para especificar la clave de la salida de la creación de particiones entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
+* **Clave de partición**: solo es necesario si usa un símbolo (token) {partición} en el patrón de nombre de la colección. Nombre del campo en los eventos de salida que se utiliza para especificar la clave de partición de salida entre colecciones. Para una salida de colección sencilla, se puede utilizar cualquier columna de salida arbitraria (por ejemplo, PartitionId).  
 * **Identificador de documento** : opcional. Nombre del campo de los eventos de salida utilizado para especificar la clave principal en la que se basan las operaciones de inserción o actualización.  
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO2-->
 
 

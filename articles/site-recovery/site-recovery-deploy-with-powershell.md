@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: bsiva
 translationtype: Human Translation
-ms.sourcegitcommit: 7455d6f99ed8ceb401224f98105f7b651f55c724
-ms.openlocfilehash: 667f796ff6c411389847f5200ebdc28db1ee1973
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 7ccf60c1f83a50b948b9855f2fedefeb75a0393b
 
 
 ---
@@ -77,7 +77,7 @@ Si desea implementar la asignación de redes, necesitará lo siguiente:
 * [Obtenga más información](site-recovery-network-mapping.md) sobre la asignación de redes:
 
 ### <a name="powershell-prerequisites"></a>Requisitos previos de PowerShell
-Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para información sobre cómo configurar PowerShell, vea [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
+Asegúrese de que tiene Azure PowerShell listo para usar. Si ya usa PowerShell, necesitará actualizar a la versión 0.8.10 o posterior. Para información sobre cómo configurar PowerShell, vea [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs). Una vez que haya configurado PowerShell, puede ver todos los cmdlets disponibles para el servicio [aquí](https://msdn.microsoft.com/library/dn850420.aspx).
 
 Para sugerencias que puedan ayudarle a usar los cmdlets, por ejemplo, cómo se controlan normalmente los valores de parámetro, las entradas y salidas en Azure PowerShell, vea [Introducción de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx).
 
@@ -408,6 +408,6 @@ Utilice los comandos siguientes para supervisar la actividad. Tenga en cuenta qu
 
 
 
-<!--HONumber=Nov16_HO4-->
+<!--HONumber=Dec16_HO2-->
 
 

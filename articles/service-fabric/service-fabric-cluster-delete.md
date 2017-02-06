@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/09/2016
+ms.date: 12/09/2016
 ms.author: chackdan
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: badaba3fa8bfe458ff5efc6b618781e9fa2183d5
+ms.sourcegitcommit: a957a70be915459baa8c687c92e251c6011b6172
+ms.openlocfilehash: e73334373e9909069641cd4ad2c3280e51b5e2db
 
 
 ---
@@ -33,7 +33,7 @@ Tiene dos opciones: eliminar el grupo de recursos en el que se encuentra el clú
 Es la forma más sencilla de asegurarse de que elimina todos los recursos asociados al clúster, incluido el grupo de recursos. Puede eliminar el grupo de recursos con PowerShell o mediante el Portal de Azure. Si el grupo de recursos tiene recursos que no están relacionados con el clúster de Service fabric, puede eliminar recursos específicos.
 
 ### <a name="delete-the-resource-group-using-azure-powershell"></a>Eliminación del grupo de recursos mediante Azure PowerShell
-Otra forma de eliminar el grupo de recursos es ejecutar los siguientes cmdlets de Azure PowerShell. Asegúrese de que tiene instalado en su equipo Azure PowerShell 1.0 o una versión superior. Si no lo ha hecho antes, siga los pasos que se describen en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md)
+Otra forma de eliminar el grupo de recursos es ejecutar los siguientes cmdlets de Azure PowerShell. Asegúrese de que tiene instalado en su equipo Azure PowerShell 1.0 o una versión superior. Si no lo ha hecho antes, siga los pasos que se describen en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Abra una ventana de PowerShell y ejecute los siguientes cmdlets de PS:
 
@@ -77,7 +77,7 @@ Si ha implementado el clúster mediante el portal o por medio de una de las plan
     ![Recursos etiquetados][TaggedResources]
 
 ### <a name="delete-the-resources-using-azure-powershell"></a>Eliminación de los recursos con Azure PowerShell
-Puede eliminar los recursos uno a uno mediante la ejecución de los siguientes cmdlets de Azure PowerShell. Asegúrese de que tiene instalado en su equipo Azure PowerShell 1.0 o una versión superior. Si no lo ha hecho antes, siga los pasos que se describen en [Cómo instalar y configurar Azure PowerShell](../powershell-install-configure.md)
+Puede eliminar los recursos uno a uno mediante la ejecución de los siguientes cmdlets de Azure PowerShell. Asegúrese de que tiene instalado en su equipo Azure PowerShell 1.0 o una versión superior. Si no lo ha hecho antes, siga los pasos que se describen en [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 Abra una ventana de PowerShell y ejecute los siguientes cmdlets de PS:
 
@@ -111,6 +111,6 @@ Lea la siguiente información para saber también sobre la actualización de un 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO1-->
 
 

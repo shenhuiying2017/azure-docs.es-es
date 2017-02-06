@@ -1,13 +1,13 @@
 ---
-title: Administración de Búsqueda de Azure con scripts de PowerShell | Microsoft Docs
-description: Administre el servicio Búsqueda de Azure con scripts de PowerShell. Creación o actualización del servicio Búsqueda de Azure y administración de las claves de administración de Búsqueda de Azure
+title: "Administración de Azure Search con scripts de PowerShell | Microsoft Docs"
+description: "Administre el servicio Búsqueda de Azure con scripts de PowerShell. Creación o actualización del servicio Búsqueda de Azure y administración de las claves de administración de Búsqueda de Azure"
 services: search
-documentationcenter: ''
+documentationcenter: 
 author: seansaleh
 manager: mblythe
-editor: ''
+editor: 
 tags: azure-resource-manager
-
+ms.assetid: 9b3dc1f2-3619-4235-ba1f-d2d6f5c45dd5
 ms.service: search
 ms.devlang: na
 ms.workload: search
@@ -15,9 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
+translationtype: Human Translation
+ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
+ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+
 
 ---
-# Administración del servicio Búsqueda de Azure con PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Búsqueda de Azure con PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -25,10 +29,11 @@ ms.author: seasa
 > 
 > 
 
-En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Búsqueda de Azure. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API. Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx).
+En este tema se describen los comandos de PowerShell para realizar muchas de las tareas de administración del servicio Búsqueda de Azure. Se le guiará por la creación de un servicio de búsqueda, su escalado y la administración de sus claves de API.
+Estos comandos equivalen a las opciones de administración disponibles en la [API de REST de administración de Búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx).
 
-## Requisitos previos
-* Debe tener Azure PowerShell 1.0 o versiones posteriores. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](../powershell-install-configure.md).
+## <a name="prerequisites"></a>Requisitos previos
+* Debe tener Azure PowerShell 1.0 o versiones posteriores. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Debe iniciar sesión en su suscripción de Azure en PowerShell, tal y como se describe a continuación.
 
 En primer lugar, debe iniciar sesión en Azure con este comando.
@@ -47,7 +52,7 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
 
     Select-AzureRmSubscription -SubscriptionName ContosoSubscription
 
-## Comandos para ayudarle a empezar a trabajar
+## <a name="commands-to-help-you-get-started"></a>Comandos para ayudarle a empezar a trabajar
     $serviceName = "your-service-name-lowercase-with-dashes"
     $sku = "free" # or "basic" or "standard" for paid services
     $location = "West US"
@@ -125,8 +130,8 @@ Para especificar la suscripción, ejecute el siguiente comando. En el ejemplo si
     # Deleting your service will delete all indexes and data in the service
     $resource | Remove-AzureRmResource
 
-## Pasos siguientes
-Ahora que el servicio está creado, puede realizar los pasos siguientes: crear un [índice](search-what-is-an-index.md), [consultar un índice](search-query-overview.md) y, por último, crear y administrar su propia aplicación de búsqueda que usan Búsqueda de Azure.
+## <a name="next-steps"></a>Pasos siguientes
+Ahora que el servicio está creado, puede realizar los pasos siguientes: crear un [índice](search-what-is-an-index.md), [consultar un índice](search-query-overview.md) y, por último, crear y administrar su propia aplicación de búsqueda que usa Azure Search.
 
 * [Creación de un índice de Búsqueda de Azure en el Portal de Azure](search-create-index-portal.md)
 * [Consulta de un índice de Búsqueda de Azure mediante el Explorador de búsqueda en el Portal de Azure](search-explorer.md)
@@ -134,4 +139,9 @@ Ahora que el servicio está creado, puede realizar los pasos siguientes: crear u
 * [Cómo usar la Búsqueda de Azure en .NET](search-howto-dotnet-sdk.md)
 * [Analizar el tráfico de Búsqueda de Azure](search-traffic-analytics.md)
 
-<!---HONumber=AcomDC_0817_2016-->
+
+
+
+<!--HONumber=Dec16_HO1-->
+
+

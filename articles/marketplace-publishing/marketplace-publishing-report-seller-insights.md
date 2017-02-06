@@ -1,19 +1,23 @@
 ---
-title: Descripción de los informes basados en uso y los informes de perspectivas de vendedor de Azure Marketplace | Microsoft Docs
-description: Como vendedor en Azure Marketplace, conozca el informe basado en el uso, también conocido como informe de perspectivas de vendedor.
+title: "Información sobre los informes de vendedores y los informes basados en uso de Azure Marketplace | Microsoft Docs"
+description: "Como vendedor en Azure Marketplace, conozca el informe basado en el uso, también conocido como informe de perspectivas de vendedor."
 services: Azure Marketplace
 documentationcenter: na
 author: v-jeana
 manager: lakoch
-editor: ''
-
+editor: 
+ms.assetid: f1ffde66-98f0-4c3e-ad94-fee1f97cae03
 ms.service: marketplace
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2016
-ms.author: v-jeana; hascipio
+ms.date: 10/03/2016
+ms.author: v-jeana; hascipio; v-dabosl
+translationtype: Human Translation
+ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
+ms.openlocfilehash: 408394e529c262c0a47aae680c8f6ea1bc8eb7c6
+
 
 ---
 # <a name="understand-your-seller-insights-report"></a>Descripción del informe de perspectivas de vendedor
@@ -26,7 +30,7 @@ Todos los publicadores de servicios de desarrolladores con facturación basada e
 * **Correo electrónico de bienvenida:** como nuevo publicador, recibirá un correo electrónico de bienvenida para notificarle que empezará a recibir los informes mensuales de perspectivas de vendedor.
 * **Informes de ventas mensuales:** si ha habido consumo, recibirá un segundo correo electrónico con los informes e instrucciones sobre cómo acceder a la contraseña:
   
-  * Si tiene una VM o una SKU de servicios de desarrolladores con facturación basada en el uso que genera consumo, el informe mensual le mostrará detalles sobre los pedidos, el uso y los mercados, así como detalles del cliente para las ofertas que no sean BYOL (traiga su propia licencia).
+  * Si tiene una VM o una SKU de servicios de desarrolladores con facturación basados en uso y que generan consumo, en el informe mensual se mostrará información sobre los pedidos, el uso y los mercados, así como detalles del cliente para las ofertas.
   * Los informes se bloquean con una contraseña que solo usted y Microsoft conocen para proteger los datos de sus clientes.
   * Microsoft no enviará un informe si ninguna de sus ofertas ha generado uso durante el mes.
 
@@ -113,6 +117,6 @@ Si tiene alguna pregunta relacionada con los informes y perspectivas, póngase e
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Dec16_HO2-->
 
 
