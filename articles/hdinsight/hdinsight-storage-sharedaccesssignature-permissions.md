@@ -257,6 +257,6 @@ Ahora que ha aprendido a agregar almacenamiento de acceso limitado al clúster d
 
 
 
-<!--HONumber=Jan17_HO3-->
+<!--HONumber=Feb17_HO1-->
 
 

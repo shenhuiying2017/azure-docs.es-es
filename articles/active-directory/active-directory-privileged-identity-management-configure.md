@@ -3,7 +3,7 @@ title: Azure AD Privileged Identity Management | Microsoft Docs
 description: "Un tema que explica qué es Privileged Identity Management de Azure AD y cómo usar PIM para mejorar la seguridad de la nube."
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 editor: 
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
-ms.author: kgremban
+ms.date: 02/03/2017
+ms.author: billmath
 translationtype: Human Translation
 ms.sourcegitcommit: 71eb6a2fecbd76c9715b9a556a7ffd31b5b4950e
 ms.openlocfilehash: 6b788b3120565895e908bdfc4c9267e715bc5bec
@@ -25,8 +25,6 @@ Con Privileged Identity Management de Azure Active Directory (AD), puede adminis
 
 > [!NOTE]
 > Privileged Identity Management solo está disponible con la edición Premium P2 de Azure Active Directory. Para obtener más información, consulte [Ediciones de Azure Active Directory](active-directory-editions.md).
->
->
 
 Las organizaciones buscan reducir el número de personas que tienen acceso a información segura o a recursos, ya que de esta manera se reduce la posibilidad de que usuarios malintencionados obtengan acceso a ellos. Sin embargo, los usuarios siguen teniendo la necesidad de llevar a cabo operaciones con privilegios en Azure, Office 365 o SaaS. Las organizaciones proporcionan a los usuarios acceso con privilegios a Azure AD sin supervisar lo que hacen con ellos. Administración de identidades con privilegios de Azure AD le ayuda a resolver este riesgo.  
 
@@ -53,8 +51,6 @@ Para empezar a usar Privileged Identity Management de Azure AD, acceda al [Porta
 
 > [!NOTE]
 > Necesita ser un administrador global con una cuenta profesional (por ejemplo, @yourdomain.com),), no una cuenta Microsoft (por ejemplo, @outlook.com),), para habilitar Azure AD Privileged Identity Management en un directorio.
->
->
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com/) como administrador global de su directorio.
 2. Si su organización tiene más de un directorio, seleccione su nombre de usuario en la esquina superior derecha del Portal de Azure. Seleccione el directorio donde va a usar Privileged Identity Management de Azure AD.
