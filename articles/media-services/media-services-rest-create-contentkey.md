@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 8e4ca5083761f870d93447eb6561d9f0c088284e
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: ffe17f50db9afe7c562b0890e8ea24d517e31bf7
 
 
 ---
@@ -40,7 +40,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento). 
    
     Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
-2. Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
+2. Llame a los métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
 3. Cifre la clave de contenido con la clave pública del certificado X.509. 
    
    El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo en la [función EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
@@ -258,6 +258,6 @@ Respuesta:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

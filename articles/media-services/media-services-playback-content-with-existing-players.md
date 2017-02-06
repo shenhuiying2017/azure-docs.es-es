@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 1f7e9b0c1a3bfc53153900ed353ba8805fff075e
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 41049570b1858010c338c149c5d3545e58a197b2
 
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproducción de contenido con existentes
 Servicios multimedia de Azure admite muchos formatos de streaming populares como Smooth Streaming, HTTP Live Streaming y MPEG-Dash. Este tema remite a reproductores existentes que puede usar para probar sus transmisiones.
-
-> [!NOTE]
-> Para reproducir contenido empaquetado o cifrado dinámicamente, asegúrese de obtener al menos una unidad de streaming para el extremo de streaming desde el que planea entregar el contenido. Para obtener información sobre el escalado de unidades de streaming, consulte: [Cómo escalar unidades de streaming](media-services-portal-manage-streaming-endpoints.md).
-> 
-> 
 
 ### <a name="the-azure-portal-media-services-content-player"></a>Reproductor del contenido de Media Services de Azure Portal
 **Azure Portal** proporciona un reproductor de contenido que puede usar para probar el vídeo.
@@ -82,6 +77,6 @@ Para obtener información sobre cómo desarrollar sus propios reproductores, con
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

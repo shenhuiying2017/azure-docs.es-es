@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7ac66acf154cde7f5241666c4c5dab0c482a0ab1
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 8b924f29594a9f0c8c161661b216a12ff65b42a9
 
 
 ---
@@ -98,13 +98,16 @@ HDInsight puede ejecutar trabajos de Pig Latin mediante una variedad de métodos
 | [Windows PowerShell](hdinsight-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-pig-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="running-pig-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Ejecución de trabajos de Pig en Azure HDInsight mediante SQL Server Integration Services local
 También puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Pig. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Pig en HDInsight.
 
-* [Tarea de PIg de Azure HDInsight][pigtask]
+* [Tarea de Pig de Azure HDInsight][pigtask]
 * [Administrador de conexiones de suscripción de Azure][connectionmanager]
 
-Más información sobre el paquete Azure Feature Pack para SSIS [aquí][ssispack].
+Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
@@ -115,8 +118,6 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 * [Uso de Oozie con HDInsight](hdinsight-use-oozie.md)
 * [Uso de trabajos de MapReduce con HDInsight][hdinsight-use-mapreduce]
 
-[check]: ./media/hdinsight-use-pig/hdi.checkmark.png
-
 [apachepig-home]: http://pig.apache.org/
 [putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [curl]: http://curl.haxx.se/
@@ -124,9 +125,9 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
 [ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
-[hdinsight-storage]: hdinsight-use-blob-storage.md
+
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: ../hdinsight-get-started.md
+
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]: hdinsight-use-hive.md
@@ -135,17 +136,16 @@ Ahora que aprendió a usar Pig con HDInsight, use los siguientes vínculos para 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md#mapreduce-sdk
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 
-[image-hdi-log4j-sample]: ./media/hdinsight-use-pig/HDI.wholesamplefile.png
+
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif
-[image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
-[image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
 
 
-<!--HONumber=Nov16_HO3-->
+
+<!--HONumber=Jan17_HO3-->
 
 

@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 2/2/2017
 ms.author: johnkem
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4788235f470fafb043f72dfb44dbe96ebb595df9
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 4ea07a1cade7e3007b0f85214b4d41a61b527001
 
 
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica con una plantilla de Resource Manager
-En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
+En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para configurar alertas de métrica de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
 
 Los pasos básicos son los siguientes:
 
 1. Cree una plantilla como archivo JSON que describa cómo crear la alerta.
-2. [Implemente la plantilla mediante cualquier método de implementación](../resource-group-template-deploy.md).
+2. [Implemente la plantilla mediante cualquier método de implementación](../azure-resource-manager/resource-group-template-deploy.md).
 
 A continuación se describe cómo crear una plantilla de Resource Manager primero para una alerta solamente y, después, para una alerta durante la creación de otro recurso.
 
@@ -153,9 +153,9 @@ Para crear una alerta mediante una plantilla de Resource Manager, cree un recurs
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[parameters('resourceId')]",
-                        "metricName": "[parameters('metricName')]",
-                        "operator": "[parameters('operator')]"
+                        "metricName": "[parameters('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[parameters('threshold')]",
                     "windowSize": "[parameters('windowSize')]",
                     "timeAggregation": "[parameters('aggregation')]"
@@ -375,9 +375,9 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
                     "dataSource": {
                         "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
                         "resourceUri": "[variables('vmID')]",
-                        "metricName": "[variables('metricName')]",
-                        "operator": "[variables('operator')]"
+                        "metricName": "[variables('metricName')]"
                     },
+                    "operator": "[parameters('operator')]",
                     "threshold": "[variables('threshold')]",
                     "windowSize": "[variables('windowSize')]",
                     "timeAggregation": "[variables('aggregation')]"
@@ -407,6 +407,6 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Dec16_HO4-->
 
 

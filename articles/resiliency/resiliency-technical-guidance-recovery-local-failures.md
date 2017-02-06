@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: aglick
 translationtype: Human Translation
-ms.sourcegitcommit: 5919c477502767a32c535ace4ae4e9dffae4f44b
-ms.openlocfilehash: e3e07066d5fc8fd9ceb45cb4b397e7a1e2869c38
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 6df92e3c43a9e7ae2e13f21b05cbb94088c46516
 
 
 ---
@@ -128,13 +128,13 @@ En el caso de las máquinas virtuales en los servicios en la nube de Azure imple
 ### <a name="azure-only-high-availability-solutions"></a>Solo Azure: soluciones de alta disponibilidad
 Puede tener una solución de alta disponibilidad para sus bases de datos SQL Server en Azure mediante el uso de grupos de disponibilidad AlwaysOn o de creación de reflejo de la base de datos.
 
-El siguiente diagrama muestra la arquitectura de los grupos de disponibilidad AlwaysOn que se ejecutan en Máquinas virtuales de Azure. Este diagrama se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), en el que se analiza en profundidad este tema.
+El siguiente diagrama muestra la arquitectura de los grupos de disponibilidad AlwaysOn que se ejecutan en Máquinas virtuales de Azure. Este diagrama se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), en el que se analiza en profundidad este tema.
 
 ![Grupos de disponibilidad de AlwaysOn en Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-1.png)
 
 También puede aprovisionar automáticamente una implementación de grupos de disponibilidad AlwaysOn de un extremo a otro en máquinas virtuales de Azure mediante el uso de la plantilla de AlwaysOn en el Portal de Azure. Para obtener más información, consulte [Oferta de AlwaysOn de SQL Server en la Galería del Portal de Microsoft Azure](https://blogs.technet.microsoft.com/dataplatforminsider/2014/08/25/sql-server-alwayson-offering-in-microsoft-azure-portal-gallery/).
 
-El diagrama siguiente muestra el uso de creación de reflejo de la base de datos en Máquinas virtuales de Azure. También se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+El diagrama siguiente muestra el uso de creación de reflejo de la base de datos en Máquinas virtuales de Azure. También se ha tomado del artículo [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md).
 
 ![Creación de reflejo de la base de datos en Microsoft Azure](./media/resiliency-technical-guidance-recovery-local-failures/high_availability_solutions-2.png)
 
@@ -197,6 +197,6 @@ Este artículo forma parte de una serie que se centra en la [Guía técnica sobr
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

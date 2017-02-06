@@ -16,8 +16,8 @@ ms.workload: na
 ms.date: 07/13/2016
 ms.author: masashin
 translationtype: Human Translation
-ms.sourcegitcommit: ee34a7ebd48879448e126c1c9c46c751e477c406
-ms.openlocfilehash: 8d149069c95b5b68904ab6a5a47b1fa6215da23d
+ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
+ms.openlocfilehash: 0eb72af5c0f904655fc4a0d8fd44d6e481c73645
 
 
 ---
@@ -703,13 +703,13 @@ En muchos casos, los procesos por lotes pueden generar informes según una progr
 * [Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services/cloud-services-dotnet-diagnostics.md)
 * [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) y [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 * [Utilización de las colas del Bus de servicio](service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
-* [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines/virtual-machines-windows-classic-ps-sql-bi.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [Business Intelligence de SQL Server en Máquinas virtuales de Azure](virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md)
 * [Recibir notificaciones de alerta](monitoring-and-diagnostics/insights-receive-alert-notifications.md) y [Seguimiento del estado del servicio](monitoring-and-diagnostics/insights-service-health.md)
 * [Application Insights](application-insights/app-insights-overview.md)
 
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

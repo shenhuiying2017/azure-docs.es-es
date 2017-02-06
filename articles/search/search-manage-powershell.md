@@ -16,8 +16,8 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 translationtype: Human Translation
-ms.sourcegitcommit: c40545833da86426d3e71955b8eb8627db3c1e4b
-ms.openlocfilehash: f73bd0a6563f8411877b55182b01f2e3e42c883f
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 618d067bf3b4ab279c7d4fcc72454fe4e69d0364
 
 
 ---
@@ -42,7 +42,7 @@ En primer lugar, debe iniciar sesión en Azure con este comando.
 
 Especifique la dirección de correo electrónico de la cuenta de Azure y su contraseña en el cuadro de diálogo de inicio de sesión de Microsoft Azure.
 
-También puede [iniciar sesión de forma no interactiva con una entidad de servicio](../resource-group-authenticate-service-principal.md).
+También puede [iniciar sesión de forma no interactiva con una entidad de servicio](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
 Si tiene varias suscripciones de Azure, deberá establecer la suscripción de Azure. Para ver una lista de las suscripciones actuales, ejecute este comando.
 
@@ -142,6 +142,6 @@ Ahora que el servicio está creado, puede realizar los pasos siguientes: crear u
 
 
 
-<!--HONumber=Dec16_HO1-->
+<!--HONumber=Dec16_HO4-->
 
 

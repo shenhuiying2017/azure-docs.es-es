@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 06/22/2016
 ms.author: kgremban
 translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 8892d5c7bd45c1c1f4c8cad0f3baaafc7cc583be
+ms.sourcegitcommit: e65393c9582056f84530a32804e0d82fd451b688
+ms.openlocfilehash: 34cacff4e8b13fa9d91387ca8762439908ed01fd
 
 
 ---
@@ -25,7 +25,7 @@ El proxy de la aplicación de Azure Active Directory se usa por lo general para 
 
 ![Relación entre los usuarios finales, Azure Active Directory y las aplicaciones publicadas](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-El método recomendado para publicar estas aplicaciones es usar Azure AD Authentication Library, que se encarga de todos los problemas de autenticación y admite muchos entornos de cliente diferentes. El proxy de la aplicación se adapta a la [aplicación nativa para el escenario de Web API](active-directory-authentication-scenarios.md#native-application-to-web-api). El proceso para llevarlo a cabo es el siguiente:
+El método recomendado para publicar estas aplicaciones es usar Azure AD Authentication Library, que se encarga de todos los problemas de autenticación y admite muchos entornos de cliente diferentes. El proxy de la aplicación se adapta a la [aplicación nativa para el escenario de Web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api). El proceso para llevarlo a cabo es el siguiente:
 
 ## <a name="step-1-publish-your-application"></a>Paso 1: Publicación de la aplicación
 Publique su aplicación proxy, al igual que haría con cualquier otra aplicación, asigne los usuarios y concédales licencias básicas o premium. Para obtener más información, consulte [Publicación de aplicaciones con el proxy de la aplicación](active-directory-application-proxy-publish.md).
@@ -74,7 +74,7 @@ Las variables deben reemplazarse como sigue:
 
 ![Captura de pantalla de la página de configuración de la nueva aplicación nativa](./media/active-directory-application-proxy-native-client/new_native_app.png)
 
-Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](active-directory-authentication-scenarios.md#native-application-to-web-api).
+Para más información sobre el flujo de la aplicación nativa, consulte el escenario de [Aplicación nativa a API web](develop/active-directory-authentication-scenarios.md#native-application-to-web-api).
 
 ## <a name="see-also"></a>Consulte también
 * [Publicar aplicaciones mediante su propio nombre de dominio](active-directory-application-proxy-custom-domains.md)
@@ -87,6 +87,6 @@ Para ver las últimas noticias y actualizaciones, consulte el [Application Proxy
 
 
 
-<!--HONumber=Dec16_HO4-->
+<!--HONumber=Jan17_HO3-->
 
 

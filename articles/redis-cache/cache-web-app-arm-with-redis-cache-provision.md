@@ -12,18 +12,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 01/06/2017
 ms.author: sdanie
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 4c8982461142223f0b339fa542b0bfb6b4ce68a8
+ms.sourcegitcommit: 65385aa918222837468f88246d0527c22c677ba7
+ms.openlocfilehash: 20af9a9bfa1086d13a770e4cd7cd8c58a8060b0b
 
 
 ---
 # <a name="create-a-web-app-plus-redis-cache-using-a-template"></a>Creación de una aplicación web y Caché en Redis mediante una plantilla
 En este tema, aprenderá a crear una plantilla de Administrador de recursos de Azure que implementa una aplicación web de Azure con Caché en Redis. Aprenderá a definir los recursos que se implementan y los parámetros que se especifican cuando se ejecuta la implementación. Puede usar esta plantilla para sus propias implementaciones o personalizarla para satisfacer sus necesidades.
 
-Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../resource-group-authoring-templates.md).
+Para obtener más información sobre la creación de plantillas, consulte [Creación de plantillas de Administrador de recursos de Azure](../azure-resource-manager/resource-group-authoring-templates.md).
 
 Para ver la plantilla completa, consulte [Plantilla Aplicación web con Caché en Redis](https://github.com/Azure/azure-quickstart-templates/blob/master/201-web-app-with-redis-cache/azuredeploy.json).
 
@@ -43,7 +43,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
 ## <a name="variables-for-names"></a>Variables de nombres
-Esta plantilla usa variables para construir los nombres de los recursos. Usa la función [uniqueString](../resource-group-template-functions.md#uniquestring) para construir un valor basado en el identificador del grupo de recursos.
+Esta plantilla usa variables para construir los nombres de los recursos. Usa la función [uniqueString](../azure-resource-manager/resource-group-template-functions.md#uniquestring) para construir un valor basado en el identificador del grupo de recursos.
 
     "variables": {
       "hostingPlanName": "[concat('hostingplan', uniqueString(resourceGroup().id))]",
@@ -58,7 +58,7 @@ Esta plantilla usa variables para construir los nombres de los recursos. Usa la 
 ### <a name="redis-cache"></a>Caché en Redis
 Crea Caché en Redis de Azure que se usa con la aplicación web. El nombre de la memoria caché se especifica en la variable **cacheName** .
 
-La plantilla crea la memoria caché en la misma ubicación que el grupo de recursos. 
+La plantilla crea la memoria caché en la misma ubicación que el grupo de recursos.
 
     {
       "name": "[variables('cacheName')]",
@@ -128,8 +128,6 @@ Observe que la aplicación web está configurada con las propiedades de configur
 
 
 
-
-
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

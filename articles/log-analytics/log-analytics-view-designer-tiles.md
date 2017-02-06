@@ -12,11 +12,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 12/26/2016
 ms.author: bwren
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8629719d2a8532b7dc579bd2fc184ac8542035cf
+ms.sourcegitcommit: c00a472e2dda12874dd7bee4ccb6c4d53bf104a7
+ms.openlocfilehash: 1f4a42ea42000c3a8dd25baea610332ea6cd6a71
 
 
 ---
@@ -55,9 +55,7 @@ El icono **Número** muestra un solo número que muestra la cantidad de registro
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="two-numbers-tile"></a>Icono de Dos números
 El icono de **Dos números** muestra dos números que revelan la cantidad de registros de dos consultas de registro diferentes y una etiqueta en cada uno de ellos.
@@ -78,9 +76,7 @@ El icono de **Dos números** muestra dos números que revelan la cantidad de reg
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="donut-tile"></a>Icono Anillo
 El icono **Anillo** muestra un solo número resumido obtenido a partir de una columna de valor de una consulta de registros.  El anillo muestra gráficamente los resultados de los tres registros principales.
@@ -104,9 +100,7 @@ El icono **Anillo** muestra un solo número resumido obtenido a partir de una co
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="line-chart-tile"></a>Icono de Gráfico de líneas
 El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias series de una consulta de registro en un periodo.  
@@ -127,9 +121,7 @@ El icono de **Gráfico de línea**s muestra un gráfico de líneas con varias se
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="line-chart--callout-tile"></a>Icono de Llamada de gráfico de líneas
 El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas con varias series de una consulta de registro en un periodo y una llamada con un valor resumido.  
@@ -154,9 +146,7 @@ El icono de **Llamada de gráfico de líneas** muestra un gráfico de líneas co
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="two-timelines-tile"></a>Icono de Dos escalas de tiempo
 El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de registro en un periodo como gráficos de columnas.  Para cada serie, se muestra una llamada.  
@@ -181,9 +171,7 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 | Enabled |Seleccione si debe habilitarse la comprobación del flujo de datos en el icono.  Esta opción proporciona un mensaje alternativo si no hay datos disponibles para el icono.  Normalmente, se utiliza para ofrecer un mensaje durante el periodo temporal en el que se instala la vista y se reflejan los datos en ella. |
 | Consultar |Consulta que se ejecutará para comprobar si hay datos disponibles para la vista.  Si la consulta no devuelve resultados, se muestra un mensaje en lugar del valor de la consulta principal. |
 | Message |Mensaje que se muestra si la consulta de comprobación del flujo de datos no devuelve datos.  Si no proporciona ningún mensaje, se mostrará *Realizando evaluación*. |
-| **Intervalo de tiempo** | |
-| Duración |Duración desde la fecha actual que se utiliza para el intervalo de tiempo de la consulta.  Por ejemplo, si se especifica **7 días**, la consulta se reduce a los registros creados desde los últimos 7 días a la fecha actual. |
-| Desplazamiento de fecha de finalización |Desplazamiento opcional de los datos actuales que se utilizará para el intervalo de tiempo de la consulta principal.  Por ejemplo, si se usa **-1 día** en **Desplazamiento de fecha de finalización** y **7 días** en **Duración**, la consulta se reducirá a los registros creados desde los últimos 8 días hasta ayer. |
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre las [búsquedas de registros](log-analytics-log-searches.md) para poder realizar consultas en iconos.
@@ -192,6 +180,6 @@ El icono de **Dos escalas de tiempo** muestra los resultados de dos consultas de
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO1-->
 
 

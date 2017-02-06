@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: juliako
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c1e8a4befdf4d233bf00d1697ea3d9ff64cc6bbd
+ms.sourcegitcommit: 0c77ee0f612c1cbef551a129a22cf3f125e6f29d
+ms.openlocfilehash: 69fa0a7802ca39f86ada0af47b7a99e56436f973
 
 
 ---
@@ -60,12 +60,7 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
   
     rtp://test2-amstest009.rtp.channel.mediaservices.windows.net:2010/ 
   
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
-
-### <a name="problem-unable-to-playback-the-published-stream"></a>Problema: no se puede reproducir la secuencia publicada.
-* **Posible problema**: no hay ningún extremo de streaming en ejecución o no hay ninguna unidad de streaming (unidades de escala) asignada. 
-  
-    **Pasos para solucionar problemas**: vaya a la pestaña "Extremo de streaming" en la herramienta AMSE y compruebe que hay un extremo de streaming con una unidad de streaming. 
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle10.png)
 
 > [!NOTE]
 > Si después de seguir los pasos de solución de problemas, todavía no puede realizar correctamente la transmisión, envíe una incidencia de soporte técnico mediante Azure Portal.
@@ -81,6 +76,6 @@ Esta sección se ofrecen sugerencias sobre cómo solucionar problemas relacionad
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

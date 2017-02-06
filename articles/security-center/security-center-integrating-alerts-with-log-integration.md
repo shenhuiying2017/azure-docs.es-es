@@ -15,8 +15,8 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: terrylan
 translationtype: Human Translation
-ms.sourcegitcommit: f946ef41f0fc5ab39351d85c37ed24715b92b882
-ms.openlocfilehash: cd58f24c356e6d1ec0ebe77b1c336ee8370a4a9a
+ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
+ms.openlocfilehash: 32d26fa811f1b5b34981e40d20e6c941d5f08477
 
 
 ---
@@ -84,7 +84,7 @@ Si tiene dudas sobre la integración del registro de Azure, envíe un correo ele
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre los registros de auditoría de Azure y las definiciones de propiedad, consulte:
 
-* [Operaciones de auditoría con el Administrador de recursos](../resource-group-audit.md)
+* [Operaciones de auditoría con el Administrador de recursos](../azure-resource-manager/resource-group-audit.md)
 * [Lista de los eventos de administración de una suscripción](https://msdn.microsoft.com/library/azure/dn931934.aspx) , para recuperar los eventos de registro de auditoría.
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
@@ -95,6 +95,6 @@ Para más información sobre el Centro de seguridad, consulte los siguientes rec
 
 
 
-<!--HONumber=Dec16_HO2-->
+<!--HONumber=Dec16_HO4-->
 
 

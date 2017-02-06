@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/19/2016
+ms.date: 01/12/2017
 ms.author: larryfr
 translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c12201094bfdc648f1e5c32575d0d506cc92aedc
+ms.sourcegitcommit: 279990a67ae260b09d056fd84a12160150eb4539
+ms.openlocfilehash: 18131c083a0dc24eaa6f58445aa61d5872210417
 
 
 ---
@@ -52,7 +52,7 @@ Existen determinados aspectos que debe conocer en relación con la tabla interna
 * El comando **CREATE EXTERNAL TABLE** no mueve el archivo de datos.
 * El comando **CREATE EXTERNAL TABLE** no permite ninguna carpeta en LOCATION. Este es el motivo por el que el tutorial hace una copia del archivo sample.log.
 
-Para más información, consulte [HDInsight: introducción de tablas internas y externas de Hive][cindygross-hive-tables].
+Para obtener más información, consulte [HDInsight: introducción de tablas internas y externas de Hive][cindygross-hive-tables].
 
 ## <a name="a-iddataaabout-the-sample-data-an-apache-log4j-file"></a><a id="data"></a>Acerca de los datos de ejemplo, un archivo log4j de Apache
 Este ejemplo usa un archivo de ejemplo *log4j* , que se almacena en **/example/data/sample.log** en el contenedor de almacenamiento de blobs. Cada registro del archivo consta de una línea de campos que contiene un campo `[LOG LEVEL]` para mostrar el tipo y la gravedad, por ejemplo:
@@ -161,13 +161,16 @@ HDInsight puede ejecutar trabajos de HiveQL mediante una variedad de métodos. U
 | [Windows PowerShell](hdinsight-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux o Windows |Windows |
 | [Escritorio remoto](hdinsight-hadoop-use-hive-remote-desktop.md) |✔ |✔ |Windows |Windows |
 
+> [!IMPORTANT]
+> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Para más información, consulte [El contrato de nivel de servicio para las versiones de clúster de HDInsight](hdinsight-component-versioning.md#hdi-version-32-and-33-nearing-deprecation-date).
+
 ## <a name="running-hive-jobs-on-azure-hdinsight-using-on-premises-sql-server-integration-services"></a>Ejecución de trabajos de Hive en Azure HDInsight mediante SQL Server Integration Services local
 También puede usar SQL Server Integration Services (SSIS) para ejecutar un trabajo de Hive. El paquete de características de Azure para SSIS proporciona los siguientes componentes que funcionan con trabajos de Hive en HDInsight.
 
 * [Tarea de Hive de Azure HDInsight][hivetask]
 * [Administrador de conexiones de suscripción de Azure][connectionmanager]
 
-Más información sobre el paquete Azure Feature Pack para SSIS [aquí][ssispack].
+Obtenga más información sobre el paquete de características de Azure para SSIS [aquí][ssispack].
 
 ## <a name="a-idnextstepsanext-steps"></a><a id="nextsteps"></a>Pasos siguientes
 Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los siguientes vínculos para explorar otras formas de trabajar con HDInsight de Azure.
@@ -177,8 +180,6 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 * [Uso de Sqoop con HDInsight](hdinsight-use-sqoop.md)
 * [Uso de Oozie con HDInsight](hdinsight-use-oozie.md)
 * [Uso de trabajos de MapReduce con HDInsight][hdinsight-use-mapreduce]
-
-[check]: ./media/hdinsight-use-hive/hdi.checkmark.png
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
@@ -206,20 +207,15 @@ Ahora que aprendió qué es Hive y cómo usarlo con Hadoop en HDInsight, use los
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-submit-jobs]: hdinsight-submit-hadoop-jobs-programmatically.md
 [hdinsight-upload-data]: hdinsight-upload-data.md
-[hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
-[image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
-[img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
-[image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

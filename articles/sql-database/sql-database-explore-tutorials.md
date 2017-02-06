@@ -14,36 +14,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/24/2016
+ms.date: 12/08/2016
 ms.author: carlrab
 translationtype: Human Translation
-ms.sourcegitcommit: 5a101aa78dbac4f1a0edb7f414b44c14db392652
-ms.openlocfilehash: 5584c728100c2b7ccba7cf2ca79f888bdf08be64
+ms.sourcegitcommit: 2f24c1c43300a3c5035fbb4e90c3d13f73c1bc74
+ms.openlocfilehash: 9d9243d0385b24e8794dc2ac69978b41cdca8331
 
 
 ---
 # <a name="explore-azure-sql-database-tutorials"></a>Exploración de tutoriales de Base de datos SQL de Azure
 En los siguientes vínculos obtendrá información general de cada área de características enumerada y un tutorial de inicio rápido para cada área. Para ver tutoriales enfocados a soluciones que demuestran el uso de Base de datos SQL en una solución completa basada en escenarios del mundo real, consulte [Exploración de tutoriales de soluciones de Base de datos SQL de Azure](sql-database-solution-quick-starts.md).
 
-## <a name="using-sql-server-management-studio"></a>Uso de SQL Server Management Studio
-En los tutoriales siguientes, aprenderá a usar SQL Server Management Studio para administrar y consultar Base de datos SQL de Azure.
+## <a name="create-servers-databases-and-server-level-firewall-rules"></a>Creación de servidores, bases de datos y reglas de firewall de nivel de servidor
+En los siguientes tutoriales, creará servidores, bases de datos y reglas de firewall de nivel de servidor, y aprenderá a conectarse y consultar servidores y bases de datos.
 
-> [!IMPORTANT]
-> Le recomendamos usar siempre la versión más reciente de Management Studio para que pueda estar siempre al día de las actualizaciones de Microsoft Azure y Base de datos SQL. [Actualice SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
->
->
+| Tutorial | Descripción |
+| --- | --- | 
+| [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure Portal y SQL Server Management Studio](sql-database-get-started.md) | En este tutorial, usará Azure Portal y SQL Server Management Studio para crear un servidor lógico de Azure SQL Database, ver sus propiedades, crear un firewall de nivel de servidor, conectarse a la base de datos maestra, crear una base de datos de ejemplo, ver sus propiedades, conectarse a la base de datos de ejemplo y crear una base de datos en blanco. |
+| [Introducción a los servidores, las bases de datos y las reglas de firewall de Azure SQL Database mediante Azure PowerShell](sql-database-get-started-powershell.md) | En este tutorial, usará PowerShell para crear un servidor lógico de Azure SQL Database, ver sus propiedades, crear un firewall de nivel de servidor, conectarse a la base de datos maestra, crear una base de datos de ejemplo, ver sus propiedades, conectarse a la base de datos de ejemplo y crear una base de datos en blanco. |
+| [Uso de C# para crear una instancia de SQL Database con la biblioteca de SQL Database para .NET](sql-database-get-started-csharp.md)| En este tutorial, usará C# para crear un servidor de SQL Database, una regla de firewall y una base de datos SQL. También creará una aplicación de Active Directory (AD) y la entidad de servicio necesaria para autenticar la aplicación en C#. |
+|  | |
 
-| Tutorial | Description |
-| --- | --- | --- |
-| [Conexión a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor. |
-| [Conexión a Base de datos SQL de Azure como usuario](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante una cuenta de usuario de nivel de base de datos. |
+## <a name="backup-and-recovery"></a>Copia de seguridad y recuperación
+En el siguiente tutorial, restaurará una base de datos a un momento dado, configurará la retención de copias de seguridad a largo plazo y restaurará una base de datos de retención en el almacén de Azure Recovery Services. 
+
+| Tutorial | Descripción |
+| --- | --- | 
+| [Introducción a la copia de seguridad y la restauración para la protección de datos y la recuperación](sql-database-get-started-backup-recovery.md)| En este tutorial, usará Azure Portal para restaurar una base de datos a un momento dado, configurar la retención de copias de seguridad a largo plazo y restaurar una base de datos de retención en el almacén de Azure Recovery Services. |
 |  | |
 
 ## <a name="elastic-pools"></a>Grupos elásticos
 En los tutoriales siguientes, aprenderá sobre el uso de [grupos elásticos](sql-database-elastic-pool.md) para administrar los objetivos de rendimiento de varias bases de datos que tienen patrones de uso muy diferentes e imprevisibles.
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Creación de un grupo elástico](sql-database-elastic-pool-create-portal.md) |En este tutorial, aprenderá a crear un grupo escalable de bases de datos SQL de Azure. |
 | [Supervisión de una base de datos elástica](sql-database-elastic-pool-manage-portal.md#elastic-database-monitoring) |En este tutorial, aprenderá a supervisar una base de datos elástica individual en caso de un posible problema. |
 | [Adición de una alerta a un grupo de recursos](sql-database-elastic-pool-manage-portal.md#add-an-alert-to-a-pool-resource) |En este tutorial, aprenderá a agregar reglas a los recursos que envían correos electrónicos a personas o cadenas de alerta a puntos de conexión de URL cuando el recurso alcanza un umbral de uso que establezca. |
@@ -56,7 +60,7 @@ En los tutoriales siguientes, aprenderá sobre el uso de [grupos elásticos](sql
 En los tutoriales siguientes, aprenderá acerca del uso de [trabajos de bases de datos elásticas](sql-database-elastic-jobs-overview.md).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Introducción a las herramientas de base de datos elástica](sql-database-elastic-scale-get-started.md) |En este tutorial, aprenderá a utilizar las funcionalidades de las herramientas de bases de datos elásticas mediante una aplicación de partición sencilla. |
 | [Introducción a Trabajos de base de datos elástica](sql-database-elastic-jobs-getting-started.md) |En este tutorial aprenderá a crear y administrar trabajos que administran un grupo de bases de datos relacionadas. |
 |  | |
@@ -65,17 +69,17 @@ En los tutoriales siguientes, aprenderá acerca del uso de [trabajos de bases de
 En los tutoriales siguientes, aprenderá a ejecutar [consultas elásticas](sql-database-elastic-query-overview.md).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Introducción a consultas elásticas para particionamiento horizontal](sql-database-elastic-query-getting-started.md) |En este tutorial, aprenderá a crear informes a partir de todas las bases de datos en una base de datos con particionamiento horizontal mediante una [consulta elástica](sql-database-elastic-query-overview.md) |
 | [Introducción a las consultas entre bases de datos (particiones verticales) (versión preliminar)](sql-database-elastic-query-getting-started-vertical.md#create-database-objects) |En este tutorial, aprenderá a crear informes a partir de todas las bases de datos en bases de datos con particionamiento vertical mediante una [consulta elástica](sql-database-elastic-query-overview.md) |
 | [Convert existing databases to use elastic database tools (Conversión de bases de datos existentes para usar herramientas para bases de datos elásticas)](sql-database-elastic-convert-to-use-elastic-tools.md) |En este tutorial, aprenderá a escalar horizontalmente una Base de datos SQL de Azure. |
 |  | |
 
 ## <a name="performance-optimization"></a>Optimización del rendimiento
-En los tutoriales siguientes, aprenderá a optimizar el [rendimiento de bases de datos únicas](sql-database-performance-guidance.md). Para optimizar el rendimiento de varias bases de datos, consulte [Grupos elásticos](#elastic-pools).
+En los tutoriales siguientes, aprenderá a optimizar el [rendimiento de bases de datos independientes](sql-database-performance-guidance.md). Para optimizar el rendimiento de varias bases de datos, consulte [Grupos elásticos](#elastic-pools).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Cambio del nivel de servicio y del nivel de rendimiento de su base de datos](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) |En este tutorial, aprenderá a escalar verticalmente o a reducir verticalmente el rendimiento de una Base de datos SQL de Azure con niveles de servicio. |
 | [SQL Database Performance Insight (Información de rendimiento de Base de datos SQL)](sql-database-performance.md#performance-overview) |En este tutorial, aprenderá a abrir y usar la información de rendimiento de consultas del asesor de Base de datos SQL. |
 | [Asesor de Base de datos SQL](sql-database-advisor.md) |En este tutorial, aprenderá a ver y aplicar las recomendaciones de rendimiento del asesor de Base de datos SQL. |
@@ -83,11 +87,11 @@ En los tutoriales siguientes, aprenderá a optimizar el [rendimiento de bases de
 | [Visualización de los detalles de las consultas individuales](sql-database-query-performance.md#viewing-individual-query-details) |En este tutorial, aprenderá a usar la información de rendimiento de consultas del asesor de Base de datos SQL para ver los detalles de rendimiento de consultas individuales. |
 |  | |
 
-## <a name="sql-database-migration-and-archive"></a>Archivado y migración de Base de datos SQL
+## <a name="sql-database-migration-and-archive"></a>Archivado y migración de SQL Database
 En los tutoriales siguientes, aprenderá a [migrar una base de datos SQL Server existente a Base de datos SQL de Azure](sql-database-cloud-migrate.md).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Detección de problemas de compatibilidad con SQL Server Data Tools para Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#detecting-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |En este tutorial, aprenderá a usar SQL Server Data Tools para Visual Studio para determinar la compatibilidad con Base de datos SQL de Azure. |
 | [Solución de problemas de compatibilidad con SQL Server Data Tools para Visual Studio](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md#fixing-compatibility-issues-using-sql-server-data-tools-for-visual-studio) |En este tutorial, aprenderá a usar SQL Server Data Tools para Visual Studio para solucionar problemas de compatibilidad con Base de datos SQL de Azure. |
 | [Determinar la compatibilidad de la Base de datos SQL mediante SqlPackage.exe](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md#using-sqlpackageexe) |En este tutorial, aprenderá a usar la utilidad de línea de comandos SQLPackage.exe para determinar la compatibilidad con Base de datos SQL de Azure. |
@@ -110,7 +114,7 @@ En los tutoriales siguientes, aprenderá a [migrar una base de datos SQL Server 
 En los tutoriales siguientes, aprenderá sobre el [desarrollo de SQL Database](sql-database-develop-overview.md) y el uso de [bibliotecas de conectividad](sql-database-libraries.md).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Conexión a Base de datos SQL mediante .NET (C#)](sql-database-develop-dotnet-simple.md) |En este tutorial, aprenderá a conectar una Base de datos SQL de Azure mediante C#. |
 | [Conexión a la base de datos SQL mediante Java con JDBC en Windows](sql-database-develop-java-simple.md) |En este tutorial, aprenderá a conectar una Base de datos SQL de Azure mediante Java. |
 | [Conexión a Base de datos SQL mediante Node.js](sql-database-develop-nodejs-simple.md) |En este tutorial, aprenderá a conectar una Base de datos SQL de Azure mediante Node.js. |
@@ -119,28 +123,19 @@ En los tutoriales siguientes, aprenderá sobre el [desarrollo de SQL Database](s
 | [Conexión a Base de datos SQL mediante Ruby](sql-database-develop-ruby-simple.md) |En este tutorial, aprenderá a conectar una Base de datos SQL de Azure mediante Ruby. |
 |  | |
 
-## <a name="database-access"></a>Acceso a la base de datos
+## <a name="database-authentication-and-authorization"></a>Autenticación y autorización de base de datos
 En los tutoriales siguientes, aprenderá a [crear y administrar inicios de sesión y usuarios](sql-database-manage-logins.md).
 
-| Tutorial | Description |
-| --- | --- | --- |
-| [Configuración del firewall en la Base de datos SQL de Azure mediante el Portal de Azure](sql-database-configure-firewall-settings.md) |En este tutorial, aprenderá a configurar un firewall de nivel de servidor de Base de datos SQL mediante el Portal de Azure. |
-| [Configuración del firewall en la Base de datos SQL de Azure mediante TSQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules) |En este tutorial, aprenderá a crear una regla de firewall de nivel de base de datos mediante Transact-SQL. |
-| [Configuración del firewall en la Base de datos SQL de Azure mediante TSQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules) |En este tutorial, aprenderá a administrar un firewall de nivel de servidor de Base de datos SQL de Azure mediante Transact-SQL. |
-| [Configuración del firewall en la Base de datos SQL de Azure mediante PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-by-using-powershell) |En este tutorial, aprenderá a administrar un firewall de nivel de servidor de Base de datos SQL de Azure mediante PowerShell. |
-| [Configuración del firewall en la Base de datos SQL de Azure mediante la API de REST](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-rest-api) |En este tutorial, aprenderá a administrar un firewall de nivel de servidor de Base de datos SQL de Azure mediante la API de REST. |
-| [Conexión a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante un inicio de sesión de entidad de seguridad de nivel de servidor. |
-| [Conceder acceso de base de datos a un inicio de sesión] (sql-database-manage-logins.md#granting-database-access-to-a-login() |En este tutorial, aprenderá a conceder acceso de base de datos a un inicio de sesión de nivel de servidor. |
-| [Creación de un nuevo usuario de base de datos con SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) |En este tutorial, aprenderá a crear un nuevo usuario de base de datos en una base de datos existente con SSMS. |
-| [Concesión de permisos de db_owner de usuario de base de datos nueva](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) |En este tutorial, aprenderá a conceder a usuario de una base de datos existente permisos de db_owner. |
-| [Conexión a Base de datos SQL de Azure como usuario](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |En este tutorial, aprenderá a conectarse a Base de datos SQL de Azure mediante una cuenta de usuario de nivel de base de datos. |
+| Tutorial | Descripción |
+| --- | --- | 
+| [Uso de la autenticación de SQL Server] |En este tutorial, aprenderá a usar SQL Server Management Studio para trabajar con la autenticación, los inicios de sesión, los usuarios y roles de base de datos de SQL Server que conceden acceso y permisos a los servidores y bases de datos de Azure SQL Database. |
 |  | |
 
-## <a name="data-security"></a>Seguridad de los datos
-En los tutoriales siguientes, aprenderá a [proteger los datos de Base de datos SQL de Azure](sql-database-security.md).
+## <a name="secure-and-protect-data"></a>Protección de los datos
+En los tutoriales siguientes, aprenderá a [proteger los datos de Base de datos SQL de Azure](sql-database-security-overview.md).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Introducción a Detección de amenazas de Base de datos SQL](sql-database-threat-detection-get-started.md#set-up-threat-detection-for-your-database) |En este tutorial, aprenderá a configurar la detección de amenazas en el Portal de Azure para la base de datos. |
 | [Always Encrypted: protección de datos confidenciales en Base de datos SQL de Azure con cifrado de datos y almacenamiento de las claves de cifrado en el Almacén de claves de Azure ](sql-database-always-encrypted-azure-key-vault.md) |En este tutorial, utilizará el asistente de Always Encrypted para proteger datos confidenciales en una Base de datos SQL de Azure. |
 | [Cifrado de datos transparente con Base de datos SQL de Azure](https://msdn.microsoft.com/library/dn948096.aspx) |En este tutorial, aprenderá a usar el cifrado de datos transparente para proteger la información confidencial. |
@@ -148,13 +143,13 @@ En los tutoriales siguientes, aprenderá a [proteger los datos de Base de datos 
 | [Introducción al enmascaramiento de datos dinámicos de bases de datos SQL (Portal de Azure)](sql-database-dynamic-data-masking-get-started.md#set-up-dynamic-data-masking-for-your-database-using-the-azure-portal) |En este tutorial, aprenderá a configurar el enmascaramiento de datos dinámicos para la Base de datos SQL de Azure. |
 |  | |
 
-## <a name="business-continuity-and-query-scale-out"></a>Continuidad del negocio y escalado horizontal de consultas
+## <a name="business-continuity"></a>Continuidad del negocio
 En los tutoriales siguientes, aprenderá a usar [la restauración geográfica y la replicación geográfica activa](sql-database-business-continuity.md) para recuperarse de errores relativos a la continuidad del negocio y al escalado horizontal de las consultas.
 
 | Tutorial | Description |
-| --- | --- | --- |
-| [Restauración de una base de datos SQL de Azure a un momento dado anterior con el Portal de Azure](sql-database-point-in-time-restore-portal.md) |En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante el Portal de Azure. |
-| [Restauración de una Base de datos SQL de Azure a un momento dado anterior con PowerShell](sql-database-point-in-time-restore-powershell.md) |En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante PowerShell. |
+| --- | --- | 
+| [Restauración de una base de datos SQL de Azure a un momento dado anterior con el Portal de Azure](sql-database-point-in-time-restore.md) |En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante el Portal de Azure. |
+| [Restauración de una Base de datos SQL de Azure a un momento dado anterior con PowerShell](sql-database-point-in-time-restore.md) |En este tutorial, aprenderá a restaurar la base de datos a un momento anterior mediante PowerShell. |
 | [Restaurar una base de datos SQL de Azure eliminada con el Portal de Azure](sql-database-restore-deleted-database-portal.md) |En este tutorial, aprenderá a restaurar una base de datos eliminada mediante el Portal de Azure. |
 | [Restore a deleted Azure SQL Database using PowerShell (Restauración de una Base de datos SQL de Azure eliminada mediante PowerShell)](sql-database-restore-deleted-database-powershell.md) |En este tutorial, aprenderá a restaurar una base de datos eliminada mediante PowerShell. |
 | [Configuración de replicación geográfica para Base de datos SQL de Azure con el Portal de Azure](sql-database-geo-replication-portal.md) |En este tutorial, aprenderá a configurar la replicación geográfica activa mediante el Portal de Azure. |
@@ -169,7 +164,7 @@ En los tutoriales siguientes, aprenderá a usar [la restauración geográfica y 
 En este tutorial, aprenderá sobre la [sincronización de datos](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf).
 
 | Tutorial | Description |
-| --- | --- | --- |
+| --- | --- | 
 | [Introducción a SQL Data Sync de Azure (vista previa)](sql-database-get-started-sql-data-sync.md) |En este tutorial aprenderá los fundamentos del uso de SQL Data Sync de Azure mediante el Portal de Azure clásico. |
 |  | |
 
@@ -178,6 +173,6 @@ En este tutorial, aprenderá sobre la [sincronización de datos](http://download
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO3-->
 
 

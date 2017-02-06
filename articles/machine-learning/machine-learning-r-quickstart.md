@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 01/06/2017
 ms.author: garye
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 120e7819535dca314ae9bc8cc266ec8771516735
+ms.sourcegitcommit: 2d9feed054fb4641e660c685d396260246ed1d54
+ms.openlocfilehash: 6a02bb20ff2ed10ed528bfe2a3aae51ab20e4a60
 
 
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Tutorial rápido para el lenguaje de programación R para Aprendizaje automático de Azure
-Dr. Stephen F Elston.
+
+<!-- Stephen F Elston, Ph.D. -->
 
 ## <a name="introduction"></a>Introducción
 Este tutorial rápido le ayudará a comenzar a ampliar Aprendizaje automático de Azure mediante el uso del lenguaje de programación R. Siga este tutorial de programación R para crear, probar y ejecutar código de R en Aprendizaje automático de Azure. A medida que vaya avanzando en este tutorial, creará una solución completa de previsión completa mediante el lenguaje R en Aprendizaje automático de Azure.  
@@ -38,7 +39,7 @@ Los datos de series temporales son datos en los que los valores tienen un índic
 
 En esta guía de inicio rápido, trabajaremos con los productos lácteos de California y los datos de precios. Estos datos incluyen información mensual acerca de la producción de varios de los productos lácteos, así como sobre el precio de la grasa láctea, materia prima de referencia.
 
-Los datos utilizados en este artículo, junto con los scripts R, se pueden [descargar aquí][download]. Estos datos están tomados de la información disponible de la universidad de Wisconsin en http://future.aae.wisc.edu/tab/production.html.
+Los datos usados en este artículo, junto con scripts R, se pueden [descargar aquí][download]. Estos datos están tomados de la información disponible de la universidad de Wisconsin en http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Organización
 En esta sección abordaremos distintos pasos a medida que aprenda a crear, probar y ejecutar código R de análisis y manipulación de datos en entornos de Aprendizaje automático de Azure.  
@@ -52,27 +53,27 @@ En esta sección abordaremos distintos pasos a medida que aprenda a crear, proba
 ## <a name="a-idmlstudioainteract-with-r-language-in-machine-learning-studio"></a><a id="mlstudio"></a>Interactuación con el lenguaje R en Estudio de aprendizaje automático
 Esta sección le guiará por algunos aspectos básicos de la interacción con el lenguaje de programación R en el entorno de Estudio de aprendizaje automático. El lenguaje R proporciona una herramienta eficaz para crear módulos de manipulación de datos y de análisis personalizado en el entorno de Aprendizaje automático de Azure.
 
-Utilizaremos RStudio para desarrollar, probar y depurar el código R a escala reducida. A continuación, este código se cortará y pegará en un módulo [Execute R Script][execute-r-script] (Ejecutar script R) en Machine Learning Studio listo para ejecutarse.  
+Utilizaremos RStudio para desarrollar, probar y depurar el código R a escala reducida. A continuación, este código se cortará y pegará en un módulo [Ejecutar script R][execute-r-script] en Machine Learning Studio listo para ejecutarse.  
 
 ### <a name="the-execute-r-script-module"></a>Módulo Ejecutar script de R
-En Machine Learning Studio, los scripts R se ejecutan en el módulo [Execute R Script][execute-r-script] (Ejecutar script R). En la ilustración 1, se muestra un ejemplo del módulo [Execute R Script][execute-r-script] (Ejecutar script R) en Machine Learning Studio.
+En Machine Learning Studio, los scripts R se ejecuta dentro del módulo [Ejecutar script R][execute-r-script]. En la ilustración 1, se muestra un ejemplo del módulo [Ejecutar script R][execute-r-script] en Machine Learning Studio.
 
  ![Lenguaje de programación R: el módulo Ejecutar script de R seleccionado en Estudio de aprendizaje automático][1]
 
 *Ilustración 1. Entorno de Estudio de aprendizaje automático que muestra el módulo Ejecutar script de R seleccionado.*
 
-Tomando como referencia la ilustración 1, veamos algunas de las partes principales del entorno de Machine Learning Studio necesarias para trabajar con el módulo [Execute R Script][execute-r-script] (Ejecutar script R).
+Tomando como referencia la ilustración 1, veamos algunas de las partes principales del entorno de Machine Learning Studio necesarias para trabajar con el módulo [Ejecutar script R][execute-r-script].
 
 * Los módulos utilizados en el experimento se muestran en el panel central.
 * La parte superior del panel derecho contiene una ventana para ver y editar los scripts de código R.  
-* La parte inferior del panel derecho muestra algunas propiedades del módulo [Execute R Script][execute-r-script] (Ejecutar script R). Para ver los registros de error y de salida, haga clic en los puntos correspondientes de este panel.
+* La parte inferior del panel derecho muestra algunas propiedades del módulo [Ejecutar script R][execute-r-script]. Para ver los registros de error y de salida, haga clic en los puntos correspondientes de este panel.
 
-Por supuesto, analizaremos el módulo [Execute R Script][execute-r-script] (Ejecutar script R) con mayor detalle en el resto de este documento.
+Por supuesto, analizaremos el módulo [Ejecutar script R][execute-r-script] con mayor detalle en el resto de este documento.
 
-Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos. A continuación, corte y pegue las funciones en la ventana del script R del módulo [Execute R Script][execute-r-script] (Ejecutar script R). Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Aprendizaje automático de Azure.  
+Cuando se utilicen funciones complejas de R, es recomendable editar, probar y depurar el código en RStudio. Al igual que con cualquier desarrollo de software, amplíe el código de forma incremental y pruébelo en casos de prueba más sencillos. Luego, corte y pegue las funciones en la ventana del script R del módulo [Ejecutar script R][execute-r-script]. Este enfoque le permite aprovechar el entorno de desarrollo integrado (IDE) de RStudio y la eficacia de Aprendizaje automático de Azure.  
 
 #### <a name="execute-r-code"></a>Ejecución del código R
-Todos los códigos R del módulo [Execute R Script][execute-r-script] (Ejecutar script R) se ejecutarán si ejecuta el experimento haciendo clic en el botón **Ejecutar**. Cuando haya finalizado la ejecución, aparecerá una marca de verificación en el icono del módulo [Execute R Script][execute-r-script] (Ejecutar script R).
+Cualquier código R del módulo [Ejecutar script R][execute-r-script] se ejecutará cuando haga clic en el botón **Ejecutar** para ejecutar el experimento. Cuando haya finalizado la ejecución, aparecerá una marca de verificación en el icono [Ejecutar script R][execute-r-script].
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Codificación R defensiva para Aprendizaje automático de Azure
 Si está desarrollando código R para un servicio web utilizando Aprendizaje automático de Azure, deberá planear cómo tratará el código las entradas de datos inesperadas y las excepciones. Para mantener la claridad, he preferido no entrar en muchos detalles en cuanto al método de comprobación o control de excepciones en la mayoría de los ejemplos de código mostrados. Sin embargo, conforme avancemos compartiré varios ejemplos de funciones mediante la capacidad de control de excepciones de R.  
@@ -80,13 +81,13 @@ Si está desarrollando código R para un servicio web utilizando Aprendizaje aut
 Si necesita un tratamiento más completado del control de excepciones de R, le recomiendo que lea las secciones correspondientes del manual de Wickham que se detallan en el [Apéndice B: información adicional](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio"></a>Depuración y prueba de R en Estudio de aprendizaje automático
-Nuevamente, recomiendo probar y depurar el código de R a escala reducida en RStudio. Ahora bien, hay casos en los que tendrá que rastrear problemas de código R en el propio módulo [Execute R Script][execute-r-script] (Ejecutar script R). Además, se recomienda comprobar los resultados en Estudio de aprendizaje automático.
+Nuevamente, recomiendo probar y depurar el código de R a escala reducida en RStudio. Sin embargo, hay casos en los que necesitará rastrear problemas de código R en el propio módulo [Ejecutar script R][execute-r-script]. Además, se recomienda comprobar los resultados en Estudio de aprendizaje automático.
 
 Los resultados de la ejecución del código R y de la plataforma Aprendizaje automático de Azure pueden encontrarse en el archivo output.log. Se mostrará información adicional en el archivo error.log.  
 
-Si se produce un error en Estudio de aprendizaje automático durante la ejecución del código R, lo primero que debe hacer es consultar el archivo error.log. Este archivo puede contener mensajes de error útiles que le ayudarán a comprender y a corregir el error. Para ver el archivo error.log, haga clic en **Ver registro de errores** en el **panel de propiedades** del módulo [Execute R Script][execute-r-script] (Ejecutar script R) que contiene el error.
+Si se produce un error en Estudio de aprendizaje automático durante la ejecución del código R, lo primero que debe hacer es consultar el archivo error.log. Este archivo puede contener mensajes de error útiles que le ayudarán a comprender y a corregir el error. Para ver el archivo error.log, haga clic en **Ver registro de errores** en el **panel de propiedades** del módulo [Ejecutar script R][execute-r-script] que contiene el error.
 
-Por ejemplo, he ejecutado el siguiente código R con una variable y sin definir en un módulo [Execute R Script][execute-r-script] (Ejecutar script R):
+Por ejemplo, ejecuté el siguiente código R con una variable y sin definir en un módulo [Ejecutar script R][execute-r-script]:
 
     x <- 1.0
     z <- x + y
@@ -97,7 +98,7 @@ Este código no se puede ejecutar, lo que da lugar a un error. Al hacer clic en 
 
 *Ilustración 2. Mensaje de error emergente.*
 
-Parece que tenemos que consultar el archivo output.log para poder ver el mensaje de error R. Haga clic en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y luego en el elemento **View output.log** (Ver archivo output.log) del **panel de propiedades** situado a la derecha. Se abrirá una nueva ventana del explorador y podrá ver lo siguiente.
+Parece que tenemos que consultar el archivo output.log para poder ver el mensaje de error R. Haga clic en el módulo [Ejecutar script R][execute-r-script] y, luego, en el elemento **Ver archivo output.log** del **panel de propiedades** que se encuentra a la derecha. Se abrirá una nueva ventana del explorador y podrá ver lo siguiente.
 
     [Critical]     Error: Error 0063: The following error occurred during evaluation of R script:
     ---------- Start of error message from R ----------
@@ -112,7 +113,7 @@ Este mensaje de error no contiene sorpresas e identifica claramente el problema.
 Imprima estos valores en el archivo output.log para comprobar el valor de los objetos en R. Las reglas para examinar los valores de objeto son las mismas que las que se usan en sesiones interactivas de código R. Por ejemplo, si escribe un nombre de variable en una línea, el valor del objeto se imprimirá al archivo output.log.  
 
 #### <a name="packages-in-machine-learning-studio"></a>Paquetes de Estudio de aprendizaje automático
-Aprendizaje automático de Azure incluye más de 350 paquetes del lenguaje R preinstalados. Puede utilizar el código siguiente en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) para recuperar una lista de paquetes preinstalados.
+Aprendizaje automático de Azure incluye más de 350 paquetes del lenguaje R preinstalados. Puede usar el código siguiente en el módulo [Ejecutar script R][execute-r-script] para recuperar una lista de paquetes preinstalados.
 
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
@@ -120,7 +121,7 @@ Aprendizaje automático de Azure incluye más de 350 paquetes del lenguaje R pre
 Siga leyendo si no comprende la última línea de este código. En el resto del documento se describe con detalle el uso de R en el entorno Aprendizaje automático de Azure.
 
 ### <a name="introduction-to-rstudio"></a>Introducción a RStudio
-RStudio es un IDE ampliamente usado para R. Utilizaremos RStudio para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Cuando el código R se haya probado y esté listo, bastará con cortarlo y pegarlo desde el editor de RStudio en un módulo [Execute R Script][execute-r-script] (Ejecutar script R) de Machine Learning Studio.  
+RStudio es un IDE ampliamente usado para R. Utilizaremos RStudio para editar, probar y depurar el código R utilizado en esta guía de inicio rápido. Una vez que el código R se pruebe y esté listo, simplemente deberá cortar y pegar desde el editor de RStudio en un módulo [Ejecutar script R][execute-r-script] de Machine Learning Studio.  
 
 Si no tiene instalado el lenguaje de programación R en su equipo de sobremesa, es recomendable que lo instale ahora. Encontrará descargas gratuitas del lenguaje R abierto están disponibles en la red completa de archivos de R o CRAN en [http://www.r-project.org/](http://www.r-project.org/). Hay descargas disponibles para Windows, Mac OS y Linux/UNIX. Elija el espejo más cercano a su ubicación y siga las instrucciones de descarga. Además, CRAN contiene una gran cantidad de paquetes de manipulación de datos y análisis de utilidad.
 
@@ -131,7 +132,7 @@ Encontrará un tutorial de introducción a RStudio en https://support.rstudio.co
 En el [Apéndice A][appendixa], encontrará información adicional sobre el uso de RStudio.  
 
 ## <a name="a-idscriptmoduleaget-data-in-and-out-of-the-execute-r-script-module"></a><a id="scriptmodule"></a>Obtención de datos dentro y fuera del módulo Ejecutar script de R
-En esta sección, veremos cómo introducir datos en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y extraerlos de él. Revisaremos cómo controlar los distintos tipos de datos leídos dentro y fuera del módulo [Execute R Script][execute-r-script] (Ejecutar script R).
+En esta sección, veremos cómo introducir y extraer datos del módulo [Ejecutar script R][execute-r-script]. Revisaremos cómo controlar los distintos tipos de datos leídos dentro y fuera del módulo [Ejecutar script R][execute-r-script].
 
 Encontrará el código completo de esta sección en el archivo zip que descargó anteriormente.
 
@@ -153,9 +154,9 @@ Ahora que tenemos algunos datos en Estudio de aprendizaje automático, debemos c
 * Para asignar un nombre al experimento, seleccione y modifique el título **Experimento creado el...** en la parte superior de la página. Por ejemplo, cámbielo a **Análisis de productos lácteos de CA**.
 * A la izquierda de la página del experimento, expanda **Saved Datasets** (Conjuntos de datos guardados) y luego **My Datasets** (Mis conjuntos de datos). Debería ver **cadairydata.csv** que ha cargado anteriormente.
 * Arrastre y suelte el **conjunto de datos csdairydata.csv** en el experimento.
-* En el cuadro **Search experiment items** (Buscar elementos de experimentos) situado en la parte superior del panel izquierdo, escriba [Execute R Script][execute-r-script] (Ejecutar script R). El módulo aparecerá en la lista de búsqueda.
-* Arrastre y suelte el módulo [Execute R Script][execute-r-script] (Ejecutar script R) en el pallet.  
-* Conecte el resultado del conjunto de datos **csdairydata.csv** a la entrada situada más a la izquierda (**Dataset1**) del módulo [Execute R Script ][execute-r-script] (Ejecutar script R).
+* En el cuadro **Búsqueda de elementos de experimento** ubicado en la parte superior del panel izquierdo, escriba [Ejecutar script R][execute-r-script]. El módulo aparecerá en la lista de búsqueda.
+* Arrastre y suelte el módulo [Ejecutar script R][execute-r-script] en el pallet.  
+* Conecte la salida del **conjunto de datos csdairydata.csv** a la entrada ubicada más a la izquierda (**Dataset1**) del módulo [Ejecutar script R][execute-r-script].
 * **¡Recuerde hacer clic en 'Guardar'!.**  
 
 En este punto el experimento debería tener un aspecto similar al de la ilustración 3.
@@ -190,14 +191,14 @@ A continuación, vamos a crear nuestro primer script de código R para experimen
 Ahora necesito transferir este script a Estudio de aprendizaje automático de Azure. Basta con cortar y pegar. Sin embargo, en este caso, transferiré el script de código R mediante un archivo zip.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>Introducción de datos en el módulo de script de ejecución de código R
-Echemos un vistazo a las entradas del módulo [Execute R Script][execute-r-script] (Ejecutar script R). En este ejemplo, se leerán los datos de productos lácteos de California en el módulo [Execute R Script][execute-r-script] (Ejecutar script R).  
+Echemos un vistazo a las entradas del módulo [Ejecutar script R][execute-r-script]. En este ejemplo se leerán los datos de productos lácteos de California en el módulo [Ejecutar script de R][execute-r-script].  
 
-Existen tres entradas posibles para el módulo [Execute R Script][execute-r-script] (Ejecutar script R). Puede usar cualquiera de estas entradas o todas ellas, dependiendo de la aplicación. También se puede utilizar un script de código R que no tome ninguna entrada.  
+Existen tres entradas posibles para el módulo [Ejecutar script R][execute-r-script]. Puede usar cualquiera de estas entradas o todas ellas, dependiendo de la aplicación. También se puede utilizar un script de código R que no tome ninguna entrada.  
 
 Echemos un vistazo a cada una de estas entradas de izquierda a derecha. Para ver los nombres de cada una de las entradas, coloque el cursor sobre la entrada y lea la información sobre herramientas.  
 
 #### <a name="script-bundle"></a>Paquete de script
-La entrada Script Bundle (Paquete de scripts) permite pasar el contenido de un archivo ZIP al módulo [Execute R Script][execute-r-script] (Ejecutar script R). Puede utilizar uno de los siguientes comandos para leer el contenido del archivo zip en su código R.
+La entrada Paquete de script permite pasar el contenido de un archivo ZIP al módulo [Ejecutar script R][execute-r-script]. Puede utilizar uno de los siguientes comandos para leer el contenido del archivo zip en su código R.
 
     source("src/yourfile.R") # Reads a zipped R script
     load("src/yourData.rdata") # Reads a zipped R data file
@@ -224,11 +225,11 @@ Ya se ha explicado el proceso de carga de conjuntos de datos en [Carga del conju
 2. Cree un archivo zip y copie el script en el archivo zip. En Windows, puede hacer clic con el botón derecho en el archivo, seleccionar **Enviar a** y luego **Carpeta comprimida**. Esto creará un nuevo archivo zip que contiene el archivo "simpleplot.R".
 3. Agregue el archivo a los **conjuntos de datos** de Machine Learning Studio y especifique el tipo como **ZIP**. Ahora debería ver el archivo zip en los conjuntos de datos.
 4. Arrastre y suelte el archivo ZIP de los **conjuntos de datos** al **lienzo de ML Studio**.
-5. Conecte la salida del icono de **datos del ZIP** a la entrada **Script Bundle** (Paquete de scripts) del módulo [Execute R Script][execute-r-script] (Ejecutar script R).
-6. Escriba la función `source()` con el nombre del archivo ZIP en la ventana de código para el módulo [Execute R Script][execute-r-script] (Ejecutar script R). En mi caso escribí `source("src/simpleplot.R")`.  
+5. Conecte la salida del icono de **datos del zip** a la entrada **Paquete de script** del módulo [Ejecutar código de R][execute-r-script].
+6. Escriba la función `source()` con el nombre del archivo ZIP en la ventana de código del módulo [Ejecutar script R][execute-r-script]. En mi caso escribí `source("src/simpleplot.R")`.  
 7. Asegúrese de hacer clic en **Guardar**.
 
-Una vez completados estos pasos, el módulo [Execute R Script][execute-r-script] (Ejecutar script R) ejecutará el script R en el archivo ZIP cuando se ejecute el experimento. En este punto el experimento debería tener un aspecto similar al que se muestra en la ilustración 5.
+Una vez completados estos pasos, el módulo [Ejecutar script R][execute-r-script] ejecutará el script R en el archivo ZIP cuando se ejecute el experimento. En este punto el experimento debería tener un aspecto similar al que se muestra en la ilustración 5.
 
 ![Experimento con el script de código R comprimido en un archivo zip][6]
 
@@ -239,7 +240,7 @@ Puede pasar una tabla de datos rectangular al código R mediante la entrada Data
 
     cadairydata <- maml.mapInputPort(1)
 
-Ejecute el experimento haciendo clic en el botón **Ejecutar** . Cuando finalice la ejecución, haga clic en el módulo [Execute R Script][execute-r-script] (Ejecutar script R) y luego en **View output.log** (Ver archivo output.log) en el panel de propiedades. Debería aparecer una nueva página en el explorador que muestre el contenido del archivo output.log. Al desplazarse hacia abajo, debería ver algo similar a lo siguiente.
+Ejecute el experimento haciendo clic en el botón **Ejecutar** . Cuando finalice la ejecución, haga clic en el módulo [Ejecutar script R][execute-r-script] y, luego, haga clic en **Ver registro de salida** en la página de propiedades. Debería aparecer una nueva página en el explorador que muestre el contenido del archivo output.log. Al desplazarse hacia abajo, debería ver algo similar a lo siguiente.
 
     [ModuleOutput] InputDataStructure
     [ModuleOutput]
@@ -277,7 +278,7 @@ Más abajo en la página se especifica información más detallada sobre las col
 Estos resultados son los esperados e incluyen 228 observaciones y 9 columnas en el marco de datos. Pueden verse los nombres de columna, el tipo de datos de código R y un ejemplo de cada columna.
 
 > [!NOTE]
-> Este mismo resultado impreso está disponible en el resultado del dispositivo R del módulo [Execute R Script][execute-r-script] (Ejecutar script R). Abordaremos los resultados del módulo [Execute R Script][execute-r-script] (Ejecutar script R) en la sección siguiente.  
+> Esta misma salida impresa está disponible desde el resultado del dispositivo R del módulo [Ejecutar script R][execute-r-script]. Abordaremos las salidas del módulo [Ejecutar script R][execute-r-script] en la sección siguiente.  
 > 
 > 
 
@@ -299,7 +300,7 @@ Después de ejecutar el experimento, haga clic en el puerto de salida Dataset1 y
 Este resultado es idéntico a la entrada, justo como se esperaba.  
 
 ### <a name="r-device-output"></a>Resultados del dispositivo R
-Los resultados del dispositivo del módulo [Execute R Script][execute-r-script] (Ejecutar script R) contienen la salida de mensajes y gráficos. Los mensajes de error y de resultados estándar de R se envían al puerto de salida del dispositivo R.  
+La salida del dispositivo del módulo [Ejecutar script R][execute-r-script] contiene la salida de mensajes y gráficos. Los mensajes de error y de resultados estándar de R se envían al puerto de salida del dispositivo R.  
 
 Para ver la salida del dispositivo R, haga clic en el puerto y, a continuación, en **Visualizar**. En la ilustración 7 puede verse el resultado estándar y el error estándar del script de código R.
 
@@ -321,7 +322,7 @@ En esta sección se realizarán varias tareas de transformación y limpieza de d
 El código R completo de esta sección está disponible en el archivo zip descargado anteriormente.
 
 ### <a name="type-transformations"></a>Transformaciones de tipo
-Ahora que se pueden leer los datos de productos lácteos de California en código R en el módulo [Execute R Script][execute-r-script] (Ejecutar script R), hay que asegurarse de que los datos de las columnas tienen el tipo y el formato deseado.  
+Ahora que podemos leer los datos de productos lácteos de California en código R en el módulo [Ejecutar script R][execute-r-script], es necesario asegurarse de que los datos de las columnas tienen el tipo y el formato deseados.  
 
 R es un lenguaje con tipos dinámicos, lo que significa que los tipos de datos se convierten de un tipo a otro según sea necesario. Los tipos de datos atómicos en R incluyen caracteres, números y operaciones lógicas. El tipo de factor se utiliza para almacenar de manera compacta datos categóricos. Encontrará mucha más información sobre los tipos de datos en las referencias en el [Apéndice B: lectura adicional](#appendixb).
 
@@ -338,7 +339,7 @@ La sintaxis para cualquiera de estas conversiones es simple: `as.datatype()`. Es
 
 Viendo los tipos de datos de las columnas introducidas en la sección anterior: todas las columnas son de tipo numérico, excepto la columna con la etiqueta 'Month', que es de carácter de tipo. A continuación, vamos a convertirla en un factor y a probar los resultados.  
 
-He eliminado la línea que creaba la matriz de trazado de dispersión y he agregado una línea para convertir la columna 'Month' en un factor. En mi experimento solo cortaré y pegaré el código R en la ventana de código del módulo [Execute R Script][execute-r-script] (Ejecutar script R). También puede actualizar el archivo zip y cargarlo en Estudio de aprendizaje automático de Azure; aunque esto implica varios pasos.  
+He eliminado la línea que creaba la matriz de trazado de dispersión y he agregado una línea para convertir la columna 'Month' en un factor. En mi experimento solo cortaré y pegaré el código R en la ventana de código del módulo [Ejecutar script R][execute-r-script]. También puede actualizar el archivo zip y cargarlo en Estudio de aprendizaje automático de Azure; aunque esto implica varios pasos.  
 
     ## Only one of the following two lines should be used
     ## If running in Machine Learning Studio, use the first line with maml.mapInputPort()
@@ -427,11 +428,11 @@ Las tramas de datos R incluyen capacidades de filtrado eficaces. Es posible obte
 En nuestro conjunto de datos, es necesario crear un bit de filtrado. Si observamos las columnas de la trama de datos cadairydata, podemos ver que hay dos columnas innecesarias. La primera columna contiene solo un número de fila, que no es muy útil. La segunda columna, Year.Month, contiene información redundante. Estas dos columnas se pueden excluir fácilmente mediante el código R siguiente.
 
 > [!NOTE]
-> De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Execute R Script][execute-r-script] (Ejecutar script R). Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Estudio de aprendizaje automático de Azure.
+> De ahora en adelante en esta sección, solo mostraré el código adicional que voy a agregar en el módulo [Ejecutar script R][execute-r-script]. Voy a agregar cada nueva línea **antes** de la función `str()`. Esta función se utiliza para comprobar los resultados en Estudio de aprendizaje automático de Azure.
 > 
 > 
 
-Voy a agregar la siguiente línea a mi código R en el módulo [Execute R Script][execute-r-script] (Ejecutar script R).
+Voy a agregar la línea siguiente a mi código R en el módulo [Ejecutar script R][execute-r-script].
 
     # Remove two columns we do not need
     cadairydata <- cadairydata[, c(-1, -2)]
@@ -594,7 +595,7 @@ Ejecute este código R en el experimento y preste atención al resultado impreso
 
 Como puede, observar, los valores se han transformado. La producción de leche ahora supera con creces la producción de otros productos lácteos, recordando que ahora estamos examinando una escala logarítmica.
 
-En este momento nuestros datos se limpian y estamos preparados el modelado. Si examina el resumen de visualización de los resultados de Result Dataset (Conjunto de datos de resultados) del módulo [Execute R Script][execute-r-script] (Ejecutar script R), verá que la columna "Month" es, otra vez, "Categorical" con 12 valores únicos, tal como deseaba.
+En este momento nuestros datos se limpian y estamos preparados el modelado. Según el resumen de visualización de la salida Conjunto de datos de resultado del módulo [Ejecutar script R][execute-r-script], verá que la columna "Month" es "Categorical" con 12 valores únicos, nuevamente tal como deseaba.
 
 ## <a name="a-idtimeseriesatime-series-objects-and-correlation-analysis"></a><a id="timeseries"></a>Análisis de correlación y objetos de series temporales
 En esta sección se explorarán objetos básicos de series temporales R y se analizarán las correlaciones entre algunas de las variables. Nuestro objetivo es producir una trama de datos que contiene la información de correlación en pares en varios intervalos de salida.
@@ -608,7 +609,7 @@ La clase de serie temporal POSIXct es la que se utiliza con más frecuencia y es
 <!-- Additional information on R time series objects is provided in the references in Section 5.7. [commenting because this section doesn't exist, even in the original] -->
 
 ### <a name="time-series-object-example"></a>Ejemplo de objeto de serie temporal
-Comencemos con el ejemplo. Arrastre y suelte un **nuevo** módulo [Execute R Script][execute-r-script] (Ejecutar script R) en el experimento. Conecte el puerto de salida Dataset1 de resultados del módulo [Execute R Script][execute-r-script] (Ejecutar script R) existente al puerto de entrada Dataset1 del nuevo módulo [Execute R Script][execute-r-script].
+Comencemos con el ejemplo. Arrastre y suelte un **nuevo** módulo [Ejecutar script R][execute-r-script] en el experimento. Conecte el puerto de salida del conjunto de datos&1; de resultados del módulo [Ejecutar script R][execute-r-script] al puerto de entrada del conjunto de datos&1; del nuevo módulo [Ejecutar script R][execute-r-script].
 
 Como hicimos en los primeros ejemplos, a medida que progresamos en el ejemplo, solo mostraré en algunos puntos las líneas adicionales incrementales de código R en cada paso.  
 
@@ -869,7 +870,7 @@ La primera línea de código puede parecer compleja, por lo que es posible que n
 2. La función `do.call()` se aplica a la función `rbind()` sobre los elementos de las devoluciones de la lista mediante `lapply()`.
 3. La función `data.frame()` fuerza el resultado producido por `do.call()` en una trama de datos.
 
-Tenga en cuenta que los nombres de fila están en una columna de la trama de datos. Esto permite conservar los nombres de fila cuando son el resultado del módulo [Ejecutar script R][execute-r-script] (Ejecutar script R).
+Tenga en cuenta que los nombres de fila están en una columna de la trama de datos. Esto permite conservar los nombres de fila cuando son la salida del módulo [Ejecutar script R][execute-r-script].
 
 La ejecución del código genera la salida que se muestra en la ilustración 19 cuando se usa **Visualizar** para la salida en el puerto del conjunto de datos de resultados. Los nombres de fila están en la primera columna, según lo previsto.
 
@@ -885,7 +886,7 @@ Nuestro modelo de pronóstico tendrá dos componentes, un componente de tendenci
 El código R completo de esta sección está disponible en el archivo zip descargado anteriormente.
 
 ### <a name="creating-the-dataframe-for-analysis"></a>Creación de la trama de datos para el análisis
-Empiece agregando un **nuevo** módulo [Execute R Script][execute-r-script] (Ejecutar script R) al experimento. Conecte los resultados de **Result Dataset** (Conjunto de datos de resultados) del módulo [Execute R Script][execute-r-script] (Ejecutar script R) existente a la entrada **Dataset1** del módulo nuevo. El resultado debería ser similar al que se muestra en la ilustración 20.
+Para empezar, agregue un **nuevo** módulo [Ejecutar script R][execute-r-script] al experimento. Conecte la salida **Conjunto de datos de resultados** del módulo [Ejecutar script R][execute-r-script] existente a la entrada **Conjunto de datos&1;** del módulo nuevo. El resultado debería ser similar al que se muestra en la ilustración 20.
 
 ![Experimento con el nuevo módulo Ejecutar script de R agregado][21]
 
@@ -1017,7 +1018,7 @@ Esto genera lo siguiente.
 
 Mucho mejor ahora. Todos los términos son significativos. Sin embargo, el valor 2e-16 es un valor predeterminado y no debe tomarse muy en serio.  
 
-Como prueba de validez, vamos a crear un gráfico de serie temporal de los datos de producción de productos lácteos de California con la curva de tendencias. He agregado el código siguiente al modelo [Execute R Script][execute-r-script] (Ejecutar script R) de Azure Machine Learning (no RStudio) para crear el modelo y trazar un gráfico. El resultado aparece en la ilustración 23.
+Como prueba de validez, vamos a crear un gráfico de serie temporal de los datos de producción de productos lácteos de California con la curva de tendencias. Agregué el código siguiente en el modelo [Ejecutar script R][execute-r-script] (no RStudio) de Azure Machine Learning para crear el modelo y hacer un gráfico. El resultado aparece en la ilustración 23.
 
     milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
 
@@ -1074,7 +1075,7 @@ Esto genera lo siguiente.
 
 Vemos que el modelo ya no tiene ningún término de intercepción y que cuenta con 12 factores de mes. Esto es exactamente lo que queríamos ver.
 
-A continuación, crearemos otro gráfico de serie temporal con los datos de producción de productos lácteos de California para ver cómo funciona el modelo de temporada. He agregado el código siguiente en el modelo [Execute R Script][execute-r-script] (Ejecutar script R) de Azure Machine Learning para crear el modelo y hacer un trazado.
+A continuación, crearemos otro gráfico de serie temporal con los datos de producción de productos lácteos de California para ver cómo funciona el modelo de temporada. Agregué el código siguiente en el módulo [Ejecutar script R][execute-r-script] de Azure Machine Learning para crear el modelo y hacer un gráfico.
 
     milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
 
@@ -1246,7 +1247,7 @@ Algunos recursos excelentes en Internet:
 
 * DataCamp: DataCamp enseña R desde la comodidad del explorador con lecciones en vídeo y ejercicios de codificación. Existen tutoriales interactivos sobre los paquetes y las técnicas más recientes de R. Tutorial interactivo gratis de R en https://www.datacamp.com/courses/introduction-to-r  
 * Un tutorial rápido de R Kelly Black de la Universidad de Clarkson: http://www.cyclismo.org/tutorial/R/
-* Recopilación de más de 60 recursos de R en http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
+* Recopilación de más de&60; recursos de R en http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/machine-learning-r-quickstart/fig1.png
@@ -1284,6 +1285,6 @@ Algunos recursos excelentes en Internet:
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 

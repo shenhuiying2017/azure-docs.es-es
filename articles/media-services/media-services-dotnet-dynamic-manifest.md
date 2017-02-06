@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 07/18/2016
 ms.author: juliako;cenkdin
 translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 3fb58dc98d7e9b943116760a401a4118df3e7424
+ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
+ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
 
 
 ---
@@ -38,10 +38,10 @@ Tenga en cuenta que si actualiza un filtro, se pueden tardar hasta 2 minutos en 
 ## <a name="types-used-to-create-filters"></a>Tipos usados para crear filtros
 Al crear filtros, se usan los siguientes tipos: 
 
-* **IStreamingFilter**.  Este tipo está basado en la siguiente API de REST [Filter](http://msdn.microsoft.com/library/azure/mt149056.aspx)
-* **IStreamingAssetFilter**. Este tipo está basado en la siguiente API de REST [AssetFilter](http://msdn.microsoft.com/library/azure/mt149053.aspx)
-* **PresentationTimeRange**. Este tipo está basado en la siguiente API de REST [PresentationTimeRange](http://msdn.microsoft.com/library/azure/mt149052.aspx)
-* **FilterTrackSelectStatement** e **IFilterTrackPropertyCondition**. Estos tipos se basan en las siguientes API de REST [FilterTrackSelect y FilterTrackPropertyCondition](http://msdn.microsoft.com/library/azure/mt149055.aspx)
+* **IStreamingFilter**.  Este tipo está basado en la siguiente API de REST [Filter](https://docs.microsoft.com/rest/api/media/operations/filter)
+* **IStreamingAssetFilter**. Este tipo está basado en la siguiente API de REST [AssetFilter](https://docs.microsoft.com/rest/api/media/operations/assetfilter)
+* **PresentationTimeRange**. Este tipo está basado en la siguiente API de REST [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
+* **FilterTrackSelectStatement** e **IFilterTrackPropertyCondition**. Estos tipos se basan en las siguientes API de REST [FilterTrackSelect y FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
 ## <a name="createupdatereaddelete-global-filters"></a>Creación/actualización/lectura/eliminación de filtros globales
 El código siguiente muestra cómo usar .NET para crear, actualizar, leer y eliminar filtros de recursos.
@@ -125,11 +125,6 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)
 
 
-**HDS**
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f, filter=MyFilter)
-
-
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Servicios multimedia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
@@ -142,6 +137,6 @@ En los ejemplos siguientes se muestra cómo agregar filtros a sus URL de streami
 
 
 
-<!--HONumber=Nov16_HO3-->
+<!--HONumber=Jan17_HO2-->
 
 
