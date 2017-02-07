@@ -1,14 +1,13 @@
 ---
 title: "Galería de imágenes de Azure Government | Microsoft Docs"
 description: "En este artículo se proporciona información general de la Galería de imágenes de Azure Government y las imágenes incluidas"
-services: Azure-Government
+services: azure-government
 cloud: gov
 documentationcenter: 
 author: brendalee
 manager: zakramer
-editor: 
 ms.assetid: f6dd4386-7b79-448a-8ae3-409258cc257b
-ms.service: multiple
+ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
