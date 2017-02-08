@@ -32,7 +32,7 @@ Para trabajar con las plantillas JSON en VS Code, debe instalar una extensión. 
 2. Abrir Apertura rápida (Ctrl+P) 
 3. Ejecute el siguiente comando: 
    
-        ext install azurerm-vscode-tools
+        ext install msazurermtools.azurerm-vscode-tools
 4. Reinicie VS Code cuando se le solicite para habilitar la extensión. 
    
    ¡Terminado!
